@@ -105,7 +105,7 @@ package ControlledTankSystem
           origin={-40,70},
           extent={{-10,-10},{10,10}},
           rotation=0)));
-    inner Modelica.Fluid.System system
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                           annotation (Placement(transformation(extent={{-90,70},
               {-70,90}}, rotation=0)));
   equation
@@ -482,6 +482,8 @@ This example is based on
               rotation=0)));
     protected
       Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
+    initial equation
+      pre(reset) = fill(false, size(reset, 1));
     algorithm
       when pre(reset) then
          on := false;
