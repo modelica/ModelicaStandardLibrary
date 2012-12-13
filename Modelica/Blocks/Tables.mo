@@ -38,8 +38,7 @@ package Tables
       output Integer tableID;
     external "C" tableID = ModelicaTables_CombiTable1D_init(
                    tableName, fileName, table, size(table, 1), size(table, 2),
-                   smoothness);
-      annotation(Library="ModelicaExternalC");
+                   smoothness) annotation(Library="ModelicaExternalC");
     end tableInit;
 
     function tableIpo
@@ -49,8 +48,7 @@ package Tables
       input Real u;
       output Real value;
     external "C" value =
-                       ModelicaTables_CombiTable1D_interpolate(tableID, icol, u);
-      annotation(Library="ModelicaExternalC");
+                       ModelicaTables_CombiTable1D_interpolate(tableID, icol, u) annotation(Library="ModelicaExternalC");
     end tableIpo;
   equation
     if tableOnFile then
@@ -286,8 +284,7 @@ Several matrices may be defined one after another.
       output Integer tableID;
     external "C" tableID = ModelicaTables_CombiTable1D_init(
                    tableName, fileName, table, size(table, 1), size(table, 2),
-                   smoothness);
-      annotation(Library="ModelicaExternalC");
+                   smoothness) annotation(Library="ModelicaExternalC");
     end tableInit;
 
     function tableIpo
@@ -297,8 +294,7 @@ Several matrices may be defined one after another.
       input Real u;
       output Real value;
     external "C" value =
-                       ModelicaTables_CombiTable1D_interpolate(tableID, icol, u);
-      annotation(Library="ModelicaExternalC");
+                       ModelicaTables_CombiTable1D_interpolate(tableID, icol, u) annotation(Library="ModelicaExternalC");
     end tableIpo;
 
   equation
@@ -531,8 +527,7 @@ Several matrices may be defined one after another.
       output Integer tableID;
     external "C" tableID = ModelicaTables_CombiTable2D_init(
                    tableName, fileName, table, size(table, 1), size(table, 2),
-                   smoothness);
-      annotation(Library="ModelicaExternalC");
+                   smoothness) annotation(Library="ModelicaExternalC");
     end tableInit;
 
     function tableIpo
@@ -542,8 +537,7 @@ Several matrices may be defined one after another.
       input Real u2;
       output Real value;
     external "C" value =
-                       ModelicaTables_CombiTable2D_interpolate(tableID, u1, u2);
-      annotation(Library="ModelicaExternalC");
+                       ModelicaTables_CombiTable2D_interpolate(tableID, u1, u2) annotation(Library="ModelicaExternalC");
     end tableIpo;
 
   equation

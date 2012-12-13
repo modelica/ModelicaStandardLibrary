@@ -2276,8 +2276,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       output Integer tableID;
     external "C" tableID = ModelicaTables_CombiTimeTable_init(
                    tableName, fileName, table, size(table, 1), size(table, 2),
-                   startTime, smoothness, extrapolation);
-      annotation(Library="ModelicaExternalC");
+                   startTime, smoothness, extrapolation) annotation(Library="ModelicaExternalC");
     end tableTimeInit;
 
     function tableTimeIpo
@@ -2287,8 +2286,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Real timeIn;
       output Real value;
     external "C" value =
-                       ModelicaTables_CombiTimeTable_interpolate(tableID, icol, timeIn);
-      annotation(Library="ModelicaExternalC");
+                       ModelicaTables_CombiTimeTable_interpolate(tableID, icol, timeIn) annotation(Library="ModelicaExternalC");
     end tableTimeIpo;
 
     function tableTimeTmin
@@ -2296,8 +2294,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Integer tableID;
       output Real Tmin "minimum time value in table";
     external "C" Tmin =
-                      ModelicaTables_CombiTimeTable_minimumTime(tableID);
-      annotation(Library="ModelicaExternalC");
+                      ModelicaTables_CombiTimeTable_minimumTime(tableID) annotation(Library="ModelicaExternalC");
     end tableTimeTmin;
 
     function tableTimeTmax
@@ -2305,8 +2302,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Integer tableID;
       output Real Tmax "maximum time value in table";
     external "C" Tmax =
-                      ModelicaTables_CombiTimeTable_maximumTime(tableID);
-      annotation(Library="ModelicaExternalC");
+                      ModelicaTables_CombiTimeTable_maximumTime(tableID) annotation(Library="ModelicaExternalC");
     end tableTimeTmax;
 
   equation

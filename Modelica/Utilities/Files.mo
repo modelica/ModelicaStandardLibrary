@@ -569,9 +569,9 @@ function fullPathName "Get full path name of file or directory name"
   extends Modelica.Icons.Function;
   input String name "Absolute or relative file or directory name";
   output String fullName "Full path of 'name'";
-external "C" fullName = ModelicaInternal_fullPathName(name);
+external "C" fullName = ModelicaInternal_fullPathName(name) annotation(Library="ModelicaExternalC");
 
-  annotation (Library="ModelicaExternalC",Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 fullName = Files.<b>fullPathName</b>(name);
@@ -659,9 +659,9 @@ function temporaryFileName
     "Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)"
   extends Modelica.Icons.Function;
   output String fileName "Full path name of temporary file";
-  external "C" fileName=ModelicaInternal_temporaryFileName(0);
+  external "C" fileName=ModelicaInternal_temporaryFileName(0) annotation(Library="ModelicaExternalC");
 
-  annotation (Library="ModelicaExternalC",Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 fileName = Files.<b>temporaryFileName</b>();

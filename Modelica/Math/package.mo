@@ -11256,7 +11256,7 @@ function sin "Sine"
   input Modelica.SIunits.Angle u;
   output Real y;
 
-external"builtin" y = sin(u);
+external"builtin" y = sin(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11319,8 +11319,7 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/sin.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end sin;
 
 
@@ -11329,7 +11328,7 @@ function cos "Cosine"
   input SI.Angle u;
   output Real y;
 
-external"builtin" y = cos(u);
+external"builtin" y = cos(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11389,8 +11388,7 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/cos.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end cos;
 
 
@@ -11399,7 +11397,7 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   input SI.Angle u;
   output Real y;
 
-external"builtin" y = tan(u);
+external"builtin" y = tan(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11461,8 +11459,7 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/tan.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end tan;
 
 
@@ -11471,7 +11468,7 @@ function asin "Inverse sine (-1 <= u <= 1)"
   input Real u;
   output SI.Angle y;
 
-external"builtin" y = asin(u);
+external"builtin" y = asin(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11533,8 +11530,7 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/asin.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end asin;
 
 
@@ -11543,7 +11539,7 @@ function acos "Inverse cosine (-1 <= u <= 1)"
   input Real u;
   output SI.Angle y;
 
-external"builtin" y = acos(u);
+external"builtin" y = acos(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11602,8 +11598,7 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/acos.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end acos;
 
 
@@ -11612,7 +11607,7 @@ function atan "Inverse tangent"
   input Real u;
   output SI.Angle y;
 
-external"builtin" y = atan(u);
+external"builtin" y = atan(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11667,8 +11662,7 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/atan.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end atan;
 
 
@@ -11678,7 +11672,7 @@ function atan2 "Four quadrant inverse tangent"
   input Real u2;
   output SI.Angle y;
 
-external"builtin" y = atan2(u1, u2);
+external"builtin" y = atan2(u1, u2) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11757,8 +11751,7 @@ u1 = sin(y) and u2 = cos(y):
 <img src=\"modelica://Modelica/Resources/Images/Math/atan2.png\">
 </p>
 
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end atan2;
 
 
@@ -11861,7 +11854,7 @@ function sinh "Hyperbolic sine"
   input Real u;
   output Real y;
 
-external"builtin" y = sinh(u);
+external"builtin" y = sinh(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11925,8 +11918,7 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end sinh;
 
 
@@ -11935,7 +11927,7 @@ function cosh "Hyperbolic cosine"
   input Real u;
   output Real y;
 
-external"builtin" y = cosh(u);
+external"builtin" y = cosh(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11999,8 +11991,7 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end cosh;
 
 
@@ -12009,7 +12000,7 @@ function tanh "Hyperbolic tangent"
   input Real u;
   output Real y;
 
-external"builtin" y = tanh(u);
+external"builtin" y = tanh(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -12064,8 +12055,7 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end tanh;
 
 
@@ -12235,7 +12225,7 @@ function exp "Exponential, base e"
   input Real u;
   output Real y;
 
-external"builtin" y = exp(u);
+external"builtin" y = exp(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -12297,8 +12287,7 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/exp.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end exp;
 
 
@@ -12307,7 +12296,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
   input Real u;
   output Real y;
 
-external"builtin" y = log(u);
+external"builtin" y = log(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -12371,8 +12360,7 @@ with u &gt; 0:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/log.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end log;
 
 
@@ -12381,7 +12369,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
   input Real u;
   output Real y;
 
-external"builtin" y = log10(u);
+external"builtin" y = log10(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -12445,8 +12433,7 @@ with u &gt; 0:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/log10.png\">
 </p>
-</html>"),
-    Library="ModelicaExternalC");
+</html>"));
   end log10;
 
 

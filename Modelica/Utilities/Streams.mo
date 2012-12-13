@@ -9,9 +9,8 @@ package Streams "Read from files and write to files"
       "File where to print (empty string is the terminal)"
                  annotation(Dialog(saveSelector(filter="Text files (*.txt)",
                         caption="Text file to store the output of print(..)")));
-  external "C" ModelicaInternal_print(string, fileName);
-    annotation (Library="ModelicaExternalC",
-  Documentation(info="<HTML>
+  external "C" ModelicaInternal_print(string, fileName) annotation(Library="ModelicaExternalC");
+    annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>print</b>(string);
@@ -81,8 +80,8 @@ content, closes the file and returns the content as a vector of strings. Lines a
     output String string "Line of text";
     output Boolean endOfFile
       "If true, end-of-file was reached when trying to read line";
-   external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile);
-    annotation (Library="ModelicaExternalC",Documentation(info="<html>
+   external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile) annotation(Library="ModelicaExternalC");
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (string, endOfFile) = Streams.<b>readLine</b>(fileName, lineNumber)
@@ -109,8 +108,8 @@ and endOfFile=true. Otherwise endOfFile=false.
                         caption="Open text file for coutning lines")));
 
     output Integer numberOfLines "Number of lines in file";
-  external "C" numberOfLines=  ModelicaInternal_countLines(fileName);
-    annotation (Library="ModelicaExternalC",Documentation(info="<html>
+  external "C" numberOfLines=  ModelicaInternal_countLines(fileName) annotation(Library="ModelicaExternalC");
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 numberOfLines = Streams.<b>countLines</b>(fileName)
@@ -127,9 +126,8 @@ separated by LF or CR-LF.
   function error "Print error message and cancel all actions"
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
-    external "C" ModelicaError(string);
-    annotation (Library="ModelicaExternalC",
-  Documentation(info="<html>
+    external "C" ModelicaError(string) annotation(Library="ModelicaExternalC");
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>error</b>(string);
@@ -158,8 +156,8 @@ by \"\\n\" in the string.
     input String fileName "Name of the file that shall be closed"
                  annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Close text file")));
-    external "C" ModelicaStreams_closeFile(fileName);
-    annotation (Library="ModelicaExternalC",Documentation(info="<html>
+    external "C" ModelicaStreams_closeFile(fileName) annotation(Library="ModelicaExternalC");
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>close</b>(fileName)
