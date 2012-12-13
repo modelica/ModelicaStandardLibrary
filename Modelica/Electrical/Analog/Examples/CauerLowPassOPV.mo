@@ -24,13 +24,13 @@ model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
   Modelica.Electrical.Analog.Basic.Capacitor C5(C=c2)
     annotation (Placement(transformation(extent={{-30,-120},{-10,-100}},
           rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R1
+  Modelica.Electrical.Analog.Basic.Resistor R1(R=1)
     annotation (Placement(transformation(extent={{-240,-50},{-220,-30}},
           rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R2
+  Modelica.Electrical.Analog.Basic.Resistor R2(R=1)
     annotation (Placement(transformation(extent={{-240,-10},{-220,10}},
           rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R3
+  Modelica.Electrical.Analog.Basic.Resistor R3(R=1)
     annotation (Placement(transformation(extent={{-193,50},{-173,70}}, rotation=
            0)));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin Op1
@@ -53,10 +53,10 @@ model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
   Modelica.Electrical.Analog.Basic.Ground G1
     annotation (Placement(transformation(extent={{-87,-96},{-73,-80}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Basic.Resistor R6
+  Modelica.Electrical.Analog.Basic.Resistor R6(R=1)
     annotation (Placement(transformation(extent={{-31,-10},{-11,10}}, rotation=
             0)));
-  Modelica.Electrical.Analog.Basic.Resistor R7
+  Modelica.Electrical.Analog.Basic.Resistor R7(R=1)
     annotation (Placement(transformation(extent={{-31,-60},{-11,-40}}, rotation=
            0)));
   Modelica.Electrical.Analog.Basic.Capacitor C6(C=c2 + c3 + c4)
@@ -65,7 +65,7 @@ model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
     annotation (Placement(transformation(extent={{60,-10},{80,10}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor R9(R=-1)
     annotation (Placement(transformation(extent={{60,-60},{80,-40}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R10
+  Modelica.Electrical.Analog.Basic.Resistor R10(R=1)
     annotation (Placement(transformation(extent={{160,-60},{180,-40}}, rotation=
            0)));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin Op4
@@ -82,7 +82,7 @@ model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
   Modelica.Electrical.Analog.Basic.Capacitor C9(C=c4 + c5)
     annotation (Placement(transformation(extent={{208,-10},{228,10}}, rotation=
             0)));
-  Modelica.Electrical.Analog.Basic.Resistor R11
+  Modelica.Electrical.Analog.Basic.Resistor R11(R=1)
     annotation (Placement(transformation(extent={{209,30},{229,50}}, rotation=0)));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n1
@@ -161,7 +161,7 @@ public
   Modelica.Electrical.Analog.Basic.Ground G4
     annotation (Placement(transformation(extent={{213,-96},{227,-80}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Sources.StepVoltage V(startTime=1)
+  Modelica.Electrical.Analog.Sources.StepVoltage V(startTime=1, V=1)
     annotation (Placement(transformation(
         origin={-240,-170},
         extent={{-10,-10},{10,10}},

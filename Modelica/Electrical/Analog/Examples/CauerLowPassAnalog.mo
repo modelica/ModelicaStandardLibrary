@@ -38,15 +38,16 @@ Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2, UIC=false)
     annotation (Placement(transformation(extent={{-40,60},{-20,80}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Inductor L2(L=l2, UIC=true)
     annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R1
+  Modelica.Electrical.Analog.Basic.Resistor R1(R=1)
     annotation (Placement(transformation(extent={{-100,20},{-80,40}}, rotation=
             0)));
-  Modelica.Electrical.Analog.Basic.Resistor R2
+  Modelica.Electrical.Analog.Basic.Resistor R2(R=1)
     annotation (Placement(transformation(
         origin={100,-20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Sources.StepVoltage V(startTime=1, offset=0)
+  Modelica.Electrical.Analog.Sources.StepVoltage V(startTime=1, offset=0,
+    V=1)
     annotation (Placement(transformation(
         origin={-100,-10},
         extent={{-10,-10},{10,10}},
