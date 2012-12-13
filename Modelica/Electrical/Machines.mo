@@ -933,6 +933,11 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               origin={30,-30})));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{-20,-82},{0,-62}})));
+      initial equation
+        cStart.v=0;
+        cRun.v = 0;
+        aimc.is=zeros(3);
+        aimc.idq_rr=zeros(2);
       equation
         connect(ground.p, sineVoltage.n)
           annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
@@ -1070,7 +1075,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           TrRef=aimcData.TrRef,
           TsOperational=TempNominal,
           TrOperational=TempNominal,
-          wMechanical(fixed=true, start=wNominal),
+          wMechanical(fixed=true, start=2*pi*aimcData.fsNominal/aimcData.p),
           alpha20r=aimcData.alpha20r)
           annotation (Placement(transformation(extent={{-40,0},{-20,20}},
                 rotation=0)));
@@ -1145,7 +1150,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           Rr=0.42,
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium)
           annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-
+      initial equation
+        aimc.i_0_s=0;
+        der(aimc.idq_sr)=zeros(2);
+        der(aimc.idq_rr)=zeros(2);
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,20},{-70,10}}, color={0,0,255}));
@@ -1353,6 +1361,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
       initial equation
         aimc.wMechanical=wSync;
         der(aimc.wMechanical)=0;
+        aimc.i_0_s=0;
         der(aimc.idq_sr)=zeros(2);
         der(aimc.idq_rr)=zeros(2);
 
@@ -2161,13 +2170,13 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           Js=0.29,
           statorCoreParameters(VRef=100),
           strayLoadParameters(IRef=100),
+          brushParameters(ILinear=0.01),
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
           TrOperational=293.15,
           alpha20r=smeeData.alpha20r,
           alpha20e=smeeData.alpha20e,
-          TeOperational=293.15,
-          brushParameters(ILinear=0.01))
+          TeOperational=293.15)
           annotation (Placement(transformation(extent={{0,-40},{20,-20}},
                 rotation=0)));
         parameter Machines.Utilities.SynchronousMachineData smeeData(
@@ -2261,6 +2270,10 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-90,30})));
+      initial equation
+        smee.idq_sr=zeros(2);
+        smee.idq_dr=zeros(2);
+        smee.ie=0;
       equation
         connect(terminalBox.plug_sn, smee.plug_sn)   annotation (Line(
             points={{4,-20},{4,-20}},
