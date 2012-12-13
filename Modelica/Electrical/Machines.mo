@@ -1316,6 +1316,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           Lrsigma=aimcData.Lrsigma,
           Rr=aimcData.Rr,
           TrRef=aimcData.TrRef,
+          phiMechanical(fixed=true),
           TsOperational=293.15,
           alpha20r=aimcData.alpha20r,
           TrOperational=293.15)
@@ -1360,7 +1361,6 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         aimc.wMechanical=wSync;
-        der(aimc.wMechanical)=0;
         aimc.i_0_s=0;
         der(aimc.idq_sr)=zeros(2);
         der(aimc.idq_rr)=zeros(2);
