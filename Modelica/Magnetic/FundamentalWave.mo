@@ -1350,35 +1350,72 @@ and accelerate the inertias.</p>
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}},rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smeeM(
-          Rs=Rs,
-          Lssigma=Lssigma,
-          Lmd=Lmd,
-          Lmq=Lmq,
-          Lrsigmad=Lrsigmad,
-          Lrsigmaq=Lrsigmaq,
-          Rrd=Rrd,
-          Rrq=Rrq,
-          alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"),
-          alpha20e(displayUnit="1/K"),
-          phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true))
+          phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true),
+          Jr=0.29,
+          Js=0.29,
+          p=2,
+          fsNominal=smeeData.fsNominal,
+          Rs=smeeData.Rs,
+          TsRef=smeeData.TsRef,
+          alpha20s(displayUnit="1/K") = smeeData.alpha20s,
+          Lssigma=smeeData.Lssigma,
+          Lmd=smeeData.Lmd,
+          Lmq=smeeData.Lmq,
+          useDamperCage=true,
+          Lrsigmad=smeeData.Lrsigmad,
+          Lrsigmaq=smeeData.Lrsigmaq,
+          Rrd=smeeData.Rrd,
+          Rrq=smeeData.Rrq,
+          TrRef=smeeData.TrRef,
+          alpha20r(displayUnit="1/K") = smeeData.alpha20r,
+          VsNominal=smeeData.VsNominal,
+          IeOpenCircuit=smeeData.IeOpenCircuit,
+          Re=smeeData.Re,
+          TeRef=smeeData.TeRef,
+          alpha20e(displayUnit="1/K") = smeeData.alpha20e,
+          sigmae=smeeData.sigmae,
+          TsOperational=293.15,
+          frictionParameters(PRef=0),
+          statorCoreParameters(PRef=0, VRef=100),
+          strayLoadParameters(PRef=0, IRef=100),
+          TrOperational=293.15,
+          TeOperational=293.15,
+          brushParameters(V=0, ILinear=0.01))
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
             rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smeeE(
-          Rs=Rs,
-          Lssigma=Lssigma,
-          Lmd=Lmd,
-          Lmq=Lmq,
-          Lrsigmad=
-          Lrsigmad,
-          Lrsigmaq=Lrsigmaq,
-          Rrd=Rrd,
-          Rrq=Rrq,
-          alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"),
-          alpha20e(displayUnit="1/K"),
-          phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true))
+          phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true),
+          p=2,
+          fsNominal=smeeData.fsNominal,
+          Rs=smeeData.Rs,
+          TsRef=smeeData.TsRef,
+          alpha20s(displayUnit="1/K") = smeeData.alpha20s,
+          Lssigma=smeeData.Lssigma,
+          Jr=0.29,
+          Js=0.29,
+          frictionParameters(PRef=0),
+          statorCoreParameters(PRef=0, VRef=100),
+          strayLoadParameters(PRef=0, IRef=100),
+          Lmd=smeeData.Lmd,
+          Lmq=smeeData.Lmq,
+          useDamperCage=true,
+          Lrsigmad=smeeData.Lrsigmad,
+          Rrd=smeeData.Rrd,
+          Rrq=smeeData.Rrq,
+          alpha20r(displayUnit="1/K") = smeeData.alpha20r,
+          VsNominal=smeeData.VsNominal,
+          IeOpenCircuit=smeeData.IeOpenCircuit,
+          Re=smeeData.Re,
+          TeRef=smeeData.TeRef,
+          alpha20e(displayUnit="1/K") = smeeData.alpha20e,
+          sigmae=smeeData.sigmae,
+          brushParameters(V=0, ILinear=0.01),
+          Lrsigmaq=smeeData.Lrsigmaq,
+          TsOperational=293.15,
+          TrOperational=293.15,
+          TrRef=smeeData.TrRef,
+          TeOperational=293.15)
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}},rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground groundM
           annotation (Placement(transformation(
@@ -1431,6 +1468,36 @@ and accelerate the inertias.</p>
         Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeedE(
           final w_fixed=w, useSupport=false)
           annotation (Placement(transformation(extent={{100,-90},{80,-70}},rotation=0)));
+        parameter Electrical.Machines.Utilities.SynchronousMachineData
+                                                            smeeData(
+          SNominal=30e3,
+          VsNominal=100,
+          fsNominal=50,
+          IeOpenCircuit=10,
+          x0=0.1,
+          xd=1.6,
+          xq=1.6,
+          xdTransient=0.1375,
+          xdSubtransient=0.121428571,
+          xqSubtransient=0.148387097,
+          Ta=0.014171268,
+          Td0Transient=0.261177343,
+          Td0Subtransient=0.006963029,
+          Tq0Subtransient=0.123345081,
+          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          TsSpecification=293.15,
+          TsRef=293.15,
+          TrSpecification=293.15,
+          TrRef=293.15,
+          TeSpecification=293.15,
+          TeRef=293.15)
+          annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
+      initial equation
+        smeeE.idq_sr=zeros(2);
+        smeeE.idq_dr=zeros(2);
+        smeeM.airGap.Phi_sr=Complex(-0.45,0);
       equation
         connect(rotorAngleE.plug_n,smeeE. plug_sn)  annotation (Line(points={{36,-70},
                 {36,-60},{-6,-60},{-6,-70}},   color={0,0,255}));
@@ -3912,10 +3979,10 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
       equation
 
         connect(port_p, winding.port_p)                            annotation (Line(
-              points={{-100,0},{-10,0},{-10,0}},
+              points={{-100,0},{-10,0}},
                                color={255,128,0}));
         connect(winding.port_n, port_n)                            annotation (Line(
-              points={{10,0},{100,0},{100,0}},
+              points={{10,0},{100,0}},
                                color={255,128,0}));
         connect(ground.p,star. pin_n) annotation (Line(points={{60,-80},{50,-80}},
               color={0,0,255}));

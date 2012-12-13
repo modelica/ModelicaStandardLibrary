@@ -1971,9 +1971,11 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           p=2,
           Jr=0.29,
           Js=0.29,
-          statorCoreParameters(VRef=100),
-          strayLoadParameters(IRef=100),
-          brushParameters(ILinear=0.01),
+          frictionParameters(PRef=0),
+          statorCoreParameters(VRef=100, PRef=0),
+          strayLoadParameters(IRef=100, PRef=0),
+          brushParameters(ILinear=0.01, V=0),
+          useDamperCage=true,
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
           TrOperational=293.15,
@@ -2058,7 +2060,9 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           TeSpecification=293.15,
           TeRef=293.15)
           annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
-
+      initial equation
+        smee.idq_sr=zeros(2);
+        smee.idq_dr=zeros(2);
       equation
         connect(rotorDisplacementAngle.plug_n, smee.plug_sn)    annotation (Line(
               points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
