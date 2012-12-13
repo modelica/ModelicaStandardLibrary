@@ -4309,8 +4309,8 @@ This package contains test examples of electric machines.
             points={{-10,-40},{-10,-60},{0,-60},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(fixed.flange, airGapS.support) annotation (Line(
-            points={{50,-100},{60,-100},{60,-90},{-40,-90},{-40,0},{-10,0}},
+        connect(airGapS.support, internalSupport) annotation (Line(
+            points={{-10,0},{-40,0},{-40,-90},{60,-90},{60,-100}},
             color={0,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="aimc",
@@ -4948,7 +4948,7 @@ These models use package SpacePhasors.
             smooth=Smooth.None));
         connect(airGapR.support, permanentMagnetLosses.support) annotation (
             Line(
-            points={{-10,0},{-40,0},{-40,2},{-40,2},{-40,70}},
+            points={{-10,0},{-40,0},{-40,70}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
@@ -5319,12 +5319,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{10,-60},{10,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(fixed.flange, airGapR.support) annotation (Line(
-            points={{50,-100},{60,-100},{60,-90},{-40,-90},{-40,0},{-10,0}},
-            color={0,0,0},
-            smooth=Smooth.None));
         connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,0},{70,0}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(airGapR.support, internalSupport) annotation (Line(
+            points={{-10,1.77636e-015},{-42,1.77636e-015},{-42,-90},{60,-90},{
+                60,-100}},
             color={0,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smee",
@@ -14664,7 +14665,6 @@ The icons can be utilized by inheriting them in the desired class using \"extend
 
   package Utilities "Library with auxiliary models for testing"
     extends Modelica.Icons.Package;
-
 
     package ParameterRecords "Parameter records"
       extends Modelica.Icons.MaterialPropertiesPackage;
