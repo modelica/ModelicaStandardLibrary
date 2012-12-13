@@ -1,4 +1,4 @@
-﻿within Modelica.Mechanics;
+within Modelica.Mechanics;
 package Rotational
   "Library to model 1-dimensional, rotational mechanical systems"
   extends Modelica.Icons.Package;
