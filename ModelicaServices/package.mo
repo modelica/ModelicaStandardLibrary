@@ -705,6 +705,7 @@ end ExternalReferences;
 
 package Machine
   // Machine dependent constants
+  extends Modelica,Icon.Package;
   final constant Real eps=1.e-15 "Biggest number such that 1.0 + eps = 1.0";
   final constant Real small=1.e-60
     "Smallest number such that small and -small are representable on the machine";
