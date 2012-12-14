@@ -1190,10 +1190,10 @@ Default values for all parameters are given for joint 4.
         axisControlBus
         annotation (Placement(transformation(extent={{60,-120},{100,-80}},
               rotation=0)));
-      Blocks.Math.Gain convert1(k=1)
+      Blocks.Math.Gain convert1(k(unit="V/A")=1)
                                 annotation (Placement(transformation(extent={{-30,-56},
                 {-42,-44}},          rotation=0)));
-      Blocks.Math.Gain convert2(k=1)
+      Blocks.Math.Gain convert2(k(unit="V/A")=1)
                                 annotation (Placement(transformation(extent={{-30,
                 -101},{-42,-89}},     rotation=0)));
     initial equation
