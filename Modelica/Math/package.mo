@@ -11256,7 +11256,7 @@ function sin "Sine"
   input Modelica.SIunits.Angle u;
   output Real y;
 
-external"builtin" y = sin(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = sin(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11328,7 +11328,7 @@ function cos "Cosine"
   input SI.Angle u;
   output Real y;
 
-external"builtin" y = cos(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = cos(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11397,7 +11397,7 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   input SI.Angle u;
   output Real y;
 
-external"builtin" y = tan(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = tan(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11468,7 +11468,7 @@ function asin "Inverse sine (-1 <= u <= 1)"
   input Real u;
   output SI.Angle y;
 
-external"builtin" y = asin(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = asin(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11539,7 +11539,7 @@ function acos "Inverse cosine (-1 <= u <= 1)"
   input Real u;
   output SI.Angle y;
 
-external"builtin" y = acos(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = acos(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11607,7 +11607,7 @@ function atan "Inverse tangent"
   input Real u;
   output SI.Angle y;
 
-external"builtin" y = atan(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = atan(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11672,7 +11672,7 @@ function atan2 "Four quadrant inverse tangent"
   input Real u2;
   output SI.Angle y;
 
-external"builtin" y = atan2(u1, u2) annotation(Library="ModelicaExternalC");
+external "builtin" y = atan2(u1, u2) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11854,7 +11854,7 @@ function sinh "Hyperbolic sine"
   input Real u;
   output Real y;
 
-external"builtin" y = sinh(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = sinh(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11927,7 +11927,7 @@ function cosh "Hyperbolic cosine"
   input Real u;
   output Real y;
 
-external"builtin" y = cosh(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = cosh(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -12000,7 +12000,7 @@ function tanh "Hyperbolic tangent"
   input Real u;
   output Real y;
 
-external"builtin" y = tanh(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = tanh(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -12225,7 +12225,7 @@ function exp "Exponential, base e"
   input Real u;
   output Real y;
 
-external"builtin" y = exp(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = exp(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -12296,7 +12296,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
   input Real u;
   output Real y;
 
-external"builtin" y = log(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = log(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -12369,7 +12369,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
   input Real u;
   output Real y;
 
-external"builtin" y = log10(u) annotation(Library="ModelicaExternalC");
+external "builtin" y = log10(u) annotation(Library="ModelicaExternalC");
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
