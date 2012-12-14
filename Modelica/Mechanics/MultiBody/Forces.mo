@@ -2218,9 +2218,9 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       " Diameter of cylinder at frame_b side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color_a={100,100,100} " Color at frame_a"
-      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation, colorSelector));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color_b={155,155,155} " Color at frame_b"
-      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation, colorSelector));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));

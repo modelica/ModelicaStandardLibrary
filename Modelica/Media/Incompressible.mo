@@ -738,7 +738,7 @@ Modelica in file \"Modelica/package.mo\".
 </html>"));
     end Polynomials_Temp;
 
-  annotation(keepConstant = true, Documentation(info="<HTML>
+  annotation(Documentation(info="<HTML>
 <p>
 This is the base package for medium models of incompressible fluids based on
 tables. The minimal data to provide for a useful medium description is tables
