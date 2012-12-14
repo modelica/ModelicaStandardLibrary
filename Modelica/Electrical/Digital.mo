@@ -282,11 +282,27 @@ the library and has the following content:
         XOR(G2(                                                                                                    y(       start=L.'U', fixed=true))))
                                 annotation (Placement(transformation(extent={{-40,
                     -40},{40,40}}, rotation=0)));
-          Modelica.Electrical.Digital.Converters.LogicToReal s
-                                   annotation (Placement(transformation(extent={{60,
+          Modelica.Electrical.Digital.Converters.LogicToReal s(
+        value_U=0.5,
+        value_X=0.5,
+        value_0=0,
+        value_1=1,
+        value_Z=0.5,
+        value_W=0.5,
+        value_L=0,
+        value_H=1,
+        value_m=0.5)               annotation (Placement(transformation(extent={{60,
                     18},{80,38}}, rotation=0)));
-          Modelica.Electrical.Digital.Converters.LogicToReal c
-                                   annotation (Placement(transformation(extent={{60,
+          Modelica.Electrical.Digital.Converters.LogicToReal c(
+        value_U=0.5,
+        value_X=0.5,
+        value_0=0,
+        value_1=1,
+        value_Z=0.5,
+        value_W=0.5,
+        value_L=0,
+        value_H=1,
+        value_m=0.5)               annotation (Placement(transformation(extent={{60,
                     -38},{80,-18}}, rotation=0)));
         equation
           connect(b.y,Adder. b) annotation (Line(
