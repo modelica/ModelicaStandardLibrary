@@ -24,7 +24,7 @@ model ThyristorBehaviourTest "Thyristor demonstration example"
         rotation=180,
         origin={-8,70})));
   Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor_v4_1(vControl(
-        fixed=true))
+        fixed=true),vAK(start=0), vGK(start=0))
     annotation (Placement(transformation(extent={{-44,30},{-24,50}})));
   Modelica.Electrical.Analog.Basic.Inductor inductor(L=2e-6, UIC=true)
                                                              annotation (

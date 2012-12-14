@@ -10,23 +10,24 @@ model ShowVariableResistor "Simple demo of a VariableResistor model"
             0)));
   Modelica.Electrical.Analog.Basic.Ground Ground2
   annotation (Placement(transformation(extent={{60,-40},{80,-20}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R1
+  Modelica.Electrical.Analog.Basic.Resistor R1(R=1)
   annotation (Placement(transformation(extent={{-60,40},{-40,60}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R2
+  Modelica.Electrical.Analog.Basic.Resistor R2(R=1)
   annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R3
+  Modelica.Electrical.Analog.Basic.Resistor R3(R=1)
   annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R4
+  Modelica.Electrical.Analog.Basic.Resistor R4(R=1)
   annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor R5
+  Modelica.Electrical.Analog.Basic.Resistor R5(R=1)
   annotation (Placement(transformation(extent={{20,-20},{40,0}}, rotation=0)));
 
-  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1
+  Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=1, freqHz=1)
   annotation (Placement(transformation(
         origin={-90,-30},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Blocks.Sources.Ramp Ramp1(height=5, offset=2)
+  Modelica.Blocks.Sources.Ramp Ramp1(height=5, offset=2,
+    duration=2)
   annotation (Placement(transformation(
         origin={-10,20},
         extent={{-10,-10},{10,10}},
@@ -52,7 +53,7 @@ equation
   connect(SineVoltage1.n, R4.p)      annotation (Line(points={{-90,-20},{-90,
           -10},{-60,-10}}, color={0,0,255}));
   connect(Ramp1.y, VariableResistor.R)           annotation (Line(points={{-10,9},
-          {-10,4.5},{-10,1},{-10,1}},    color={0,0,255}));
+          {-10,4.5},{-10,1}},            color={0,0,255}));
 annotation (Documentation(info="<html>
 <p>It is a simple test circuit for the VariableResistor. The VariableResistor sould be compared with R2.</p>
 <p>Simulate until T=1 s.</p>

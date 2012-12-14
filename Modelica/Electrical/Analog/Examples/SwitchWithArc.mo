@@ -2,7 +2,7 @@ within Modelica.Electrical.Analog.Examples;
 model SwitchWithArc "Comparison of switch models both with and without arc"
 
   extends Modelica.Icons.Example;
-  Modelica.Blocks.Sources.BooleanPulse booleanPulse
+  Modelica.Blocks.Sources.BooleanPulse booleanPulse(period=1)
     annotation (Placement(transformation(extent={{-80,-30},{-60,-10}},
           rotation=0)));
   Modelica.Electrical.Analog.Basic.Ground ground1
@@ -14,7 +14,7 @@ model SwitchWithArc "Comparison of switch models both with and without arc"
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Inductor inductor1(L=0.1, UIC=true)
     annotation (Placement(transformation(extent={{40,30},{60,50}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor resistor1
+  Modelica.Electrical.Analog.Basic.Resistor resistor1(R=1)
     annotation (Placement(transformation(
         origin={80,20},
         extent={{-10,-10},{10,10}},
@@ -33,13 +33,15 @@ model SwitchWithArc "Comparison of switch models both with and without arc"
   Modelica.Electrical.Analog.Basic.Inductor inductor2(L=0.1, UIC=true)
     annotation (Placement(transformation(extent={{40,-50},{60,-30}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Basic.Resistor resistor2
+  Modelica.Electrical.Analog.Basic.Resistor resistor2(R=1)
     annotation (Placement(transformation(
         origin={80,-60},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Ideal.CloserWithArc switch2
-                   annotation (Placement(transformation(extent={{0,-50},{20,
+  Modelica.Electrical.Analog.Ideal.CloserWithArc switch2(
+    dVdt=10000,
+    V0=30,
+    Vmax=60)       annotation (Placement(transformation(extent={{0,-50},{20,
             -30}}, rotation=0)));
 
 equation

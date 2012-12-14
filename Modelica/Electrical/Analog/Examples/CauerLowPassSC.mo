@@ -289,7 +289,7 @@ public
   Modelica.Electrical.Analog.Basic.Ground G4
     annotation (Placement(transformation(extent={{212,-76},{226,-60}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Sources.StepVoltage V(startTime=1)
+  Modelica.Electrical.Analog.Sources.StepVoltage V(startTime=1, V=1)
     annotation (Placement(transformation(
         origin={-241,-150},
         extent={{-10,-10},{10,10}},

@@ -12,7 +12,7 @@ model ControlledSwitchWithArc
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Inductor inductor1(L=0.1)
     annotation (Placement(transformation(extent={{40,30},{60,50}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Resistor resistor1
+  Modelica.Electrical.Analog.Basic.Resistor resistor1(R=1)
     annotation (Placement(transformation(
         origin={80,20},
         extent={{-10,-10},{10,10}},
@@ -31,13 +31,15 @@ model ControlledSwitchWithArc
   Modelica.Electrical.Analog.Basic.Inductor inductor2(L=0.1)
     annotation (Placement(transformation(extent={{40,-50},{60,-30}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Basic.Resistor resistor2
+  Modelica.Electrical.Analog.Basic.Resistor resistor2(R=1)
     annotation (Placement(transformation(
         origin={80,-60},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc switch2
-                   annotation (Placement(transformation(extent={{0,-50},{20,
+  Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc switch2(
+    V0=30,
+    dVdt=10000,
+    Vmax=60)       annotation (Placement(transformation(extent={{0,-50},{20,
             -30}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=1, freqHz=1)
     annotation (Placement(transformation(

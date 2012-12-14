@@ -704,8 +704,7 @@ in the housing on one side via component Fixed.</p>
           start=0,
           fixed=true,
           displayUnit="deg"),
-        w(
-          start=100,
+        w(start=100,
           fixed=true,
           displayUnit="rad/s")) annotation (Placement(transformation(extent={{-60,
                 -10},{-40,10}}, rotation=0)));
@@ -1138,11 +1137,11 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-20,
                 40},{0,60}}, rotation=0)));
       Rotational.Components.Inertia load(J=50, w(fixed=true, start=0))
-        annotation (Placement(transformation(extent={{70,40},{90,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{70,40},{90,60}}, rotation=
+               0)));
       Rotational.Components.Spring spring(c=1e3, phi_rel(fixed=true))
-        annotation (Placement(transformation(extent={{40,40},{60,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{40,40},{60,60}}, rotation=
+               0)));
       Rotational.Components.Fixed fixed annotation (Placement(transformation(
               extent={{10,-70},{30,-50}}, rotation=0)));
       Rotational.Components.SpringDamper springDamper(
@@ -1158,8 +1157,8 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
       Modelica.Blocks.Sources.Ramp ramp(duration=5, height=100) annotation (
           Placement(transformation(extent={{-90,40},{-70,60}}, rotation=0)));
       Rotational.Components.IdealGear idealGear(ratio=3, useSupport=true)
-        annotation (Placement(transformation(extent={{10,40},{30,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{10,40},{30,60}}, rotation=
+               0)));
       Rotational.Components.Inertia housing(J=5) annotation (Placement(
             transformation(
             origin={20,22},
@@ -1477,7 +1476,6 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
           smooth=Smooth.None));
       connect(lossyGear.heatPort, convection.solid) annotation (Line(
           points={{-10,70},{-10,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
-
           color={191,0,0},
           smooth=Smooth.None));
 
@@ -1487,7 +1485,6 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
           smooth=Smooth.None));
       connect(clutch.heatPort, convection.solid) annotation (Line(
           points={{20,70},{20,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
-
           color={191,0,0},
           smooth=Smooth.None));
 
@@ -1521,7 +1518,6 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
           smooth=Smooth.None));
       connect(oneWayClutch.heatPort, convection.solid) annotation (Line(
           points={{80,70},{80,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
-
           color={191,0,0},
           smooth=Smooth.None));
 
@@ -1566,7 +1562,7 @@ is present in variable convection.fluid.
         w(fixed=true, start=0))
         annotation (Placement(transformation(extent={{30,-20},{50,0}})));
       Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
-        quadraticSpeedDependentTorque(w_nominal(displayUnit="rpm") =
+        quadraticSpeedDependentTorque(w_nominal(displayUnit="rpm")=
           10.471975511966, tau_nominal=-20)
         annotation (Placement(transformation(extent={{80,-20},{60,0}})));
       Modelica.Mechanics.Rotational.Components.Clutch clutch(
@@ -2768,7 +2764,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               fillPattern=FillPattern.Solid),
             Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}),
             Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}),
-
             Text(
               extent={{-150,-180},{150,-140}},
               textString="%name",
@@ -4262,8 +4257,8 @@ no rolling resistance. This component defines the kinematic constraint:
             transformation(extent={{-20,-10},{0,10}}, rotation=0)));
       Set_a_start set_a_start if use_a_start annotation (Placement(
             transformation(extent={{-20,-90},{0,-70}}, rotation=0)));
-      Set_flange_tau set_flange_tau annotation (Placement(transformation(extent
-              ={{96,-90},{76,-70}}, rotation=0)));
+      Set_flange_tau set_flange_tau annotation (Placement(transformation(extent=
+               {{96,-90},{76,-70}}, rotation=0)));
     equation
       connect(set_phi_start.phi_start, phi_start) annotation (Line(
           points={{-22,80},{-120,80}},
@@ -6776,7 +6771,6 @@ This is the icon of a gear from the rotational package.
               fillColor={192,192,192}),
             Polygon(
               points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
-
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -6795,6 +6789,7 @@ This is the icon of a gear from the rotational package.
 This is the icon of a gear box from the rotational package.
 </p>
 </html>"));
+
     end Gearbox;
 
     model Clutch "Icon of a clutch"
@@ -6893,8 +6888,8 @@ Copyright &copy; 1998-2010, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</html>", revisions=""), Icon(coordinateSystem(preserveAspectRatio=true, extent
-          ={{-100,-100},{100,100}}), graphics={
+</html>", revisions=""), Icon(coordinateSystem(preserveAspectRatio=true, extent=
+           {{-100,-100},{100,100}}), graphics={
         Line(points={{-83,-66},{-63,-66}}, color={0,0,0}),
         Line(points={{36,-68},{56,-68}}, color={0,0,0}),
         Line(points={{-73,-66},{-73,-91}}, color={0,0,0}),

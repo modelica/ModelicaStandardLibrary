@@ -1031,7 +1031,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
           Boolean off(start=true) "Switching state";
   protected
-          Real s(final unit="1")
+          Real s(start=0, final unit="1")
       "Auxiliary variable for actual position on the ideal diode characteristic";
           /* s = 0: knee point
      s < 0: below knee point, diode conducting

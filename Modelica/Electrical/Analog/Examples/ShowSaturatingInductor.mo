@@ -29,7 +29,7 @@ model ShowSaturatingInductor
     Lzer=Lzer,
     Lnom=Lnom,
     Inom=Inom,
-    Linf=Linf)
+    Linf=Linf,i(start=0))
     annotation (Placement(transformation(
         origin={-20,0},
         extent={{-10,-10},{10,10}},

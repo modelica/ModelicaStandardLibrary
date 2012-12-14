@@ -104,7 +104,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     Gbe=1.e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
-    useHeatPort=true)
+    useHeatPort=true, ibe(start=0), vbc(start=0))
            annotation (Placement(transformation(extent={{-20,48},{0,68}},
           rotation=0)));
   Semiconductors.HeatingNPN T2(
@@ -125,11 +125,12 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     Gbe=1.e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false),
-    useHeatPort=true)
+    useHeatPort=true, ibe(start=0), vbc(start=0))
            annotation (Placement(transformation(extent={{20,-22},{40,-2}},
           rotation=0)));
 initial equation
   HeatCapacitor1.T= 293.15;
+
 equation
   connect(Gnd1.p, V1.n)
                       annotation (Line(points={{-90,-2},{-90,8}}, color={0,0,255}));

@@ -12,7 +12,8 @@ encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
     rising=1e-9,
     width=19e-9,
     falling=1.e-9,
-    period=40e-9) annotation (Placement(transformation(
+    period=40e-9,
+    nperiod=-1)   annotation (Placement(transformation(
         origin={-70,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
@@ -22,7 +23,8 @@ encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
     rising=1e-9,
     width=19e-9,
     falling=1.e-9,
-    period=40e-9) annotation (Placement(transformation(
+    period=40e-9,
+    nperiod=-1)   annotation (Placement(transformation(
         origin={-70,-30},
         extent={{-10,-10},{10,10}},
         rotation=270)));

@@ -3,10 +3,12 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
   extends Modelica.Icons.Example;
 
   Modelica.Electrical.Analog.Ideal.IdealDiode Ideal(
-    Ron=0, Goff=0)
+    Ron=0, Goff=0,
+    Vknee=0)
     annotation (Placement(transformation(extent={{0,40},{20,60}}, rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealDiode With_Ron_Goff(
-    Ron=0.1, Goff=0.1)
+    Ron=0.1, Goff=0.1,
+    Vknee=0)
     annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealDiode With_Ron_Goff_Vknee(
     Ron=0.2,
@@ -15,7 +17,8 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
     annotation (Placement(transformation(extent={{0,-40},{20,-20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(
     V=10,
-    offset=-9)
+    offset=-9,
+    freqHz=1)
     annotation (Placement(transformation(
         origin={-40,0},
         extent={{-10,-10},{10,10}},
@@ -31,14 +34,16 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
     annotation (Placement(transformation(extent={{60,-40},{80,-20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage2(
     V=10,
-    offset=0)
+    offset=0,
+    freqHz=1)
     annotation (Placement(transformation(
         origin={-60,40},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage3(
     V=10,
-    offset=0)
+    offset=0,
+    freqHz=1)
     annotation (Placement(transformation(
         origin={-20,-40},
         extent={{-10,-10},{10,10}},

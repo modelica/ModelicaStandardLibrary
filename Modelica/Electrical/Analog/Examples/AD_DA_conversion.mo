@@ -2,7 +2,9 @@ within Modelica.Electrical.Analog.Examples;
 model AD_DA_conversion "Conversion circuit"
   extends Modelica.Icons.Example;
   parameter Integer N=7 "Digital signal width";
-  Modelica.Electrical.Analog.Ideal.AD_Converter aD_Converter(N=N)
+  Modelica.Electrical.Analog.Ideal.AD_Converter aD_Converter(N=N,
+    Rin=1000000,
+    VRefLow=0)
     annotation (Placement(transformation(extent={{-14,-10},{12,16}})));
   Modelica.Electrical.Digital.Sources.Pulse pulse(
     pulse=Modelica.Electrical.Digital.Interfaces.Logic.'1',
@@ -12,7 +14,7 @@ model AD_DA_conversion "Conversion circuit"
     period=0.001,
     startTime=0)
              annotation (Placement(transformation(extent={{-32,32},{-12,52}})));
-  Modelica.Electrical.Analog.Ideal.DA_Converter dA_Converter(N=N)
+  Modelica.Electrical.Analog.Ideal.DA_Converter dA_Converter(N=N, Vref=10)
     annotation (Placement(transformation(extent={{18,-10},{44,16}})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{44,-40},{64,-20}})));
@@ -51,7 +53,7 @@ equation
       color={127,0,127},
       smooth=Smooth.None));
   connect(aD_Converter.y, dA_Converter.x) annotation (Line(
-      points={{8.1,3},{11.55,3},{11.55,3},{15,3},{15,3},{21.9,3}},
+      points={{8.1,3},{21.9,3}},
       color={127,0,127},
       smooth=Smooth.None));
   connect(dA_Converter.p, resistor.n) annotation (Line(

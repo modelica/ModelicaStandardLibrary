@@ -28,7 +28,7 @@ model OvervoltageProtection "Example for Zener diodes"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,-20})));
-  Semiconductors.ZDiode zDiode1 annotation (Placement(transformation(
+  Semiconductors.ZDiode zDiode1(v(start=0)) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-20,22})));

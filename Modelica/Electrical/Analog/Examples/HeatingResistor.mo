@@ -4,7 +4,7 @@ model HeatingResistor "Heating resistor"
   Basic.HeatingResistor heatingResistor(
     R_ref=100,
     alpha=1e-3,
-    T_ref=293.15)
+    T_ref=293.15, i(start=0))
                 annotation (Placement(transformation(extent={{-10,10},{10,-10}},
           rotation=-90,
         origin={-32,34})));

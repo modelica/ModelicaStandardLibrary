@@ -932,7 +932,6 @@ handled properly.</p>
           Line(points={{-80,-70},{-60,-70},{-60,-26},{38,-26},{38,-70},{66,-70}},
               color={255,0,255}),
           Line(points={{-80,0},{-62,0},{40,90},{40,0},{68,0}}, color={0,0,255})}),
-
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-90,-70},{82,-70}}, color={0,
             0,0}),Line(points={{-80,68},{-80,-80}}, color={0,0,0}),Polygon(
@@ -972,8 +971,8 @@ input becomes false.
           transformation(extent={{100,50},{120,70}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanOutput QI annotation (Placement(
           transformation(extent={{100,-70},{120,-50}}, rotation=0)));
-    Modelica.Blocks.Logical.Nor nor annotation (Placement(transformation(extent
-            ={{-20,20},{0,40}}, rotation=0)));
+    Modelica.Blocks.Logical.Nor nor annotation (Placement(transformation(extent=
+             {{-20,20},{0,40}}, rotation=0)));
     Modelica.Blocks.Logical.Nor nor1 annotation (Placement(transformation(
             extent={{-20,-20},{0,0}}, rotation=0)));
     Modelica.Blocks.Logical.Pre pre(pre_u_start=not (Qini)) annotation (

@@ -8,8 +8,8 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
                            annotation (Placement(transformation(extent={{-20,0},
             {0,20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=10,
-      offset=0)
-              annotation (Placement(transformation(
+      offset=0,
+    freqHz=1) annotation (Placement(transformation(
         origin={-40,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
