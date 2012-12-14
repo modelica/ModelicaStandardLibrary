@@ -360,7 +360,7 @@ Zeunerstrasse 38<br />
           smooth=Smooth.None));
       annotation (        experiment(
           StopTime=1e-11,
-          Intervals=5e-15,
+          Interval=5e-15,
           Tolerance=1e-7),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round.</p>
