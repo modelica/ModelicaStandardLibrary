@@ -296,7 +296,7 @@ Zeunerstrasse 38<br />
           RD=0,
           RS=0,
           CBD=0,
-          CBS=0))
+          CBS=0), Sinternal(start=0))
         annotation (Placement(transformation(extent={{-14,8},{6,28}})));
       Semiconductors.M_NMOS mn(modelcard(
           RD=0,
@@ -810,12 +810,12 @@ Zeunerstrasse 38<br />
       Semiconductors.M_PMOS mp1(
         L=2e-5,
         W=1e-5,
-        modelcard(PHI=0.7))               annotation (Placement(transformation(
+        modelcard(PHI=0.7), Sinternal(start=0))               annotation (Placement(transformation(
               extent={{-22,24},{-2,44}},  rotation=0)));
       Semiconductors.M_PMOS mp2(modelcard(PHI=0.7))
                                            annotation (Placement(transformation(
               extent={{24,24},{44,44}},rotation=0)));
-      Semiconductors.M_NMOS mn2           annotation (Placement(transformation(
+      Semiconductors.M_NMOS mn2(Dinternal(start=0))           annotation (Placement(transformation(
               extent={{-24,-44},{-4,-24}},rotation=0)));
       Semiconductors.M_NMOS mn1            annotation (Placement(transformation(
               extent={{-24,-10},{-4,10}}, rotation=0)));
@@ -1461,12 +1461,13 @@ Zeunerstrasse 38<br />
     extends Modelica.Icons.Example;
 
       Modelica.Electrical.Spice3.Semiconductors.J_NJFJFET
-                                  J1
+                                  J1(S(
+                                     v(  start=0)))
         annotation (Placement(transformation(extent={{-54,38},{-34,58}})));
       Modelica.Electrical.Spice3.Semiconductors.J_NJFJFET
                                   J2
         annotation (Placement(transformation(extent={{-54,4},{-34,24}})));
-      Modelica.Electrical.Spice3.Basic.R_Resistor RC(R=200)
+      Modelica.Electrical.Spice3.Basic.R_Resistor RC(R=200, v(start=0))
         annotation (Placement(transformation(extent={{-44,60},{-24,80}})));
       Modelica.Electrical.Spice3.Basic.Ground ground
         annotation (Placement(transformation(extent={{-54,-26},{-34,-6}})));
@@ -1537,11 +1538,11 @@ Zeunerstrasse 38<br />
       Sources.V_pulse VCC( V1=0, V2=12, TD=0, TR=2e-009, TF=2e-009, PW=3);
       Sources.V_pulse VEE( V1=0, V2=-12, TD=0, TR=2e-009, TF=2e-009, PW=3);
       Sources.V_sin VIN( VO=0, VA=0.01, FREQ=5);
-      Basic.R_Resistor RS1(R=1000);
+      Basic.R_Resistor RS1(R=1000, v(start=0));
       Basic.R_Resistor RS2(R=1000);
-      Semiconductors.Q_NPNBJT Q1(modelcard=MOD1);
-      Semiconductors.Q_NPNBJT Q2(modelcard=MOD1);
-      Basic.R_Resistor RC1(R=10000);
+      Semiconductors.Q_NPNBJT Q1(modelcard=MOD1, Binternal(start=0));
+      Semiconductors.Q_NPNBJT Q2(modelcard=MOD1, icapbe(start=0), vbc(start=0));
+      Basic.R_Resistor RC1(R=10000, v(start=0));
       Basic.R_Resistor RC2(R=10000);
       Basic.R_Resistor RE(R=10000);
       Sources.V_constant VIE(V=0);
@@ -1561,7 +1562,9 @@ Zeunerstrasse 38<br />
       Modelica.Electrical.Analog.Interfaces.Pin n42;
       Modelica.Electrical.Analog.Interfaces.Pin n5;
       Modelica.Electrical.Analog.Interfaces.Pin n41;
-
+    initial equation
+      der(Q1.vbc)=0;
+      der(Q2.vbc)=0;
     equation
       OutputVoltage=Q2.C.v - Q1.C.v;
       connect(g.p,n0);
@@ -2062,7 +2065,117 @@ RC 3 4 1K<br/>
       Sources.V_pulse VIN3B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=3.2e-007, PER=1.6e-006);
       Sources.V_pulse VIN4A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=6.4e-007, PER=3.2e-006);
       Sources.V_pulse VIN4B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=1.28e-006, PER=6.4e-006);
-      FOURBIT X1;
+      FOURBIT X1(X1(X1(X1(Q3(
+                 Binternal(            start=0), icapbe(start=0)),Q4(Binternal(start=0), icapbc(start=0))),
+                 X2(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                 X3(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                 X4(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                 X5(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbc(      start=0))),
+                 X6(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                                                                                                    X7(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))), X8(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))), X9(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0)))),
+              X2(X1(Q3(
+                 Binternal(            start=0), icapbe(start=0)),Q4(Binternal(start=0), icapbc(start=0))),
+                 X2(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))),
+                 X3(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))),
+                 X4(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                 X5(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                 X6(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                                                                                                    X7(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))), X8(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))), X9(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))))),
+              X2(X1(X1(Q3(
+                 Binternal(            start=0), icapbe(start=0)),Q4(Binternal(start=0), icapbc(start=0))),
+                 X2(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))),
+                 X3(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))),
+                 X4(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                 X5(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                 X6(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                                                                                                    X7(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))), X8(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))), X9(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0)))),
+              X2(X1(Q3(
+                 Binternal(            start=0), icapbe(start=0)),Q4(icapbc(start=0)),
+              RC(                                                                      v(   start=0))),
+                 X2(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))),
+                 X3(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))),
+                 X4(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                 X5(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                 X6(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))),
+                                                                                                    X7(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    icapbe(      start=0)),
+              RC(                                                                                                    v(   start=0))), X8(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(
+                                                                                                    Binternal(      start=0), icapbe(      start=0))), X9(
+              Q3(                                                                                           Binternal(      start=0), icapbe(      start=0)), Q4(Binternal(start=0),
+                                                                                                    icapbe(      start=0))))));
+
       Basic.R_Resistor RBIT0(R=1000);
       Basic.R_Resistor RBIT1(R=1000);
       Basic.R_Resistor RBIT2(R=1000);
