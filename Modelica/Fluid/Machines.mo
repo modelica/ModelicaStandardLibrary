@@ -314,7 +314,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     parameter Medium.AbsolutePressure p_b_start=p_a_start
         "Guess value for outlet pressure"
       annotation(Dialog(tab="Initialization"));
-    parameter Medium.MassFlowRate m_flow_start(start = 1)
+    parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
         "Guess value of m_flow = port_a.m_flow"
       annotation(Dialog(tab = "Initialization"));
     final parameter SI.VolumeFlowRate V_flow_single_init = m_flow_start/rho_nominal/nParallel
