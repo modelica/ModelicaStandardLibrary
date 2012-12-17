@@ -3,7 +3,7 @@
 removePlots();
 createPlot(id = 3,
  position = {25, 9, 479, 460},
- y = {"traceSubstanceSource.C", "traceSubstanceVolume.C"},
+ y = {"traceSource.C", "traceVolume.C"},
  range = {0, 4000.0, 0.0018, 0.0004},
  autoscale = true,
  autoerase = true,
