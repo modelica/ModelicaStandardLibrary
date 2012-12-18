@@ -83,9 +83,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           origin={0,110},
           extent={{10,-10},{-10,10}},
           rotation=270)));
-    parameter Medium.MassFlowRate m_flow_small(min=0) = system.m_flow_small
-      "For bi-directional flow, density is regularized in the region |m_flow| < m_flow_small (m_flow_small > 0 required)"
-      annotation(Dialog(tab="Advanced"));
+
   protected
     Medium.Density rho_a_inflow "Density of inflowing fluid at port_a";
     Medium.Density rho_b_inflow
@@ -219,9 +217,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           origin={0,110},
           extent={{10,-10},{-10,10}},
           rotation=270)));
-    parameter Medium.MassFlowRate m_flow_small(min=0) = system.m_flow_small
-      "For bi-directional flow, temperature is regularized in the region |m_flow| < m_flow_small (m_flow_small > 0 required)"
-      annotation(Dialog(tab="Advanced"));
 
   protected
     Medium.Temperature T_a_inflow "Temperature of inflowing fluid at port_a";
@@ -326,10 +321,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           extent={{10,-10},{-10,10}},
           rotation=270)));
 
-    parameter Medium.MassFlowRate m_flow_small(min=0) = system.m_flow_small
-      "For bi-directional flow, specific enthalpy is regularized in the region |m_flow| < m_flow_small (m_flow_small > 0 required)"
-      annotation(Dialog(tab="Advanced"));
-
   equation
     if allowFlowReversal then
        h_out = Modelica.Fluid.Utilities.regStep(port_a.m_flow, port_b.h_outflow, port_a.h_outflow, m_flow_small);
@@ -396,9 +387,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           origin={0,110},
           extent={{10,-10},{-10,10}},
           rotation=270)));
-    parameter Medium.MassFlowRate m_flow_small(min=0) = system.m_flow_small
-      "For bi-directional flow, specific entropy is regularized in the region |m_flow| < m_flow_small (m_flow_small > 0 required)"
-      annotation(Dialog(tab="Advanced"));
 
   protected
     Medium.SpecificEntropy s_a_inflow
@@ -496,9 +484,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           rotation=90,
           origin={0,110})));
     parameter String substanceName = "water" "Name of mass fraction";
-    parameter Medium.MassFlowRate m_flow_small(min=0) = system.m_flow_small
-      "For bi-directional flow, the mass fraction is regularized in the region |m_flow| < m_flow_small (m_flow_small > 0 required)"
-      annotation(Dialog(tab="Advanced"));
 
   protected
     parameter Integer ind(fixed=false)
@@ -599,9 +584,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           extent={{10,-10},{-10,10}},
           rotation=270)));
     parameter String substanceName = "CO2" "Name of trace substance";
-    parameter Medium.MassFlowRate m_flow_small(min=0) = system.m_flow_small
-      "For bi-directional flow, trace substance is regularized in the region |m_flow| < m_flow_small (m_flow_small > 0 required)"
-      annotation(Dialog(tab="Advanced"));
 
   protected
     parameter Integer ind(fixed=false)
@@ -681,9 +663,6 @@ The sensor is ideal, i.e., it does not influence the fluid.
           origin={0,110},
           extent={{10,-10},{-10,10}},
           rotation=270)));
-    parameter Medium.MassFlowRate m_flow_small(min=0) = system.m_flow_small
-      "For bi-directional flow, density is regularized in the region |m_flow| < m_flow_small (m_flow_small > 0 required)"
-      annotation(Dialog(tab="Advanced"));
 
   protected
     Medium.Density rho_a_inflow "Density of inflowing fluid at port_a";
@@ -893,6 +872,10 @@ as signal.
     partial model PartialFlowSensor
       "Partial component to model sensors that measure flow properties"
       extends Modelica.Fluid.Interfaces.PartialTwoPort;
+
+      parameter Medium.MassFlowRate m_flow_small(min=0) = system.m_flow_small
+        "Regularization for bi-directional flow in the region |m_flow| < m_flow_small (m_flow_small > 0 required)"
+        annotation(Dialog(tab="Advanced"));
 
     equation
       // mass balance
