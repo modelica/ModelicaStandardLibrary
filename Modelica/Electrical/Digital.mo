@@ -1320,7 +1320,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end MUX2x1;
 
         model RAM
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Memories.DLATRAM
                          dLATRAM
             annotation (Placement(transformation(extent={{-11,-41},{103,73}})));
@@ -1354,6 +1354,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           Modelica.Electrical.Digital.Sources.Set
                       RE(x=Modelica.Electrical.Digital.Interfaces.Logic.'1')
             annotation (Placement(transformation(extent={{-78,-38},{-58,-18}})));
+
         equation
           connect(RE.y,dLATRAM. RE) annotation (Line(
               points={{-58,-28},{-28,-28},{-28,4.6},{-6.44,4.6}},
@@ -7615,10 +7616,10 @@ Wires n input signals in one output signal, without delay.
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       parameter Integer n_addr(min=1) = 2 "addr width";
       parameter Integer n_data(min=1) = 2 "data width";
-      parameter String fileName="modelica://Modelica/Resources/Data/Electrical/Digital/Digital_InputMatrixMemories.txt"
-        "File where matrix for memory is stored"
+      parameter String fileName = Modelica.Utilities.Files.loadResource(
+            "modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
         annotation(Dialog(group="table data definition", enable = tableOnFile,
-                             loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                             __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                              caption="Open file in which table is present")));
 
       D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
@@ -7873,10 +7874,11 @@ Firstly Write is carried out, then Read.</b></p>
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       parameter Integer n_addr(min=1) = 2 "addr width";
       parameter Integer n_data(min=1) = 2 "data width";
-      parameter String fileName="modelica://Modelica/Resources/Data/Electrical/Digital/Digital_InputMatrixMemories.txt"
+      parameter String fileName=Modelica.Utilities.Files.loadResource(
+            "modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
         "File where matrix for memory is stored"
         annotation(Dialog(group="table data definition", enable = tableOnFile,
-                             loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                             __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                              caption="Open file in which table is present")));
 
       D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
