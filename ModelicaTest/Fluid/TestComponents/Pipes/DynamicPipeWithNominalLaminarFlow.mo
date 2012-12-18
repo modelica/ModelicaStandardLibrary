@@ -15,7 +15,8 @@ model DynamicPipeWithNominalLaminarFlow
           dp_nominal=100000, m_flow_nominal=1),
     nNodes=10,
     p_a_start=200000,
-    p_b_start=100000)
+    p_b_start=100000,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.av_b)
     annotation (Placement(transformation(extent={{-10,30},{10,50}})));
   inner Modelica.Fluid.System system(
     energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
@@ -42,9 +43,10 @@ model DynamicPipeWithNominalLaminarFlow
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
           dp_nominal=100000, m_flow_nominal=1),
+    nNodes=20,
     p_a_start=200000,
     p_b_start=100000,
-    nNodes=20)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.av_b)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Modelica.Fluid.Sources.MassFlowSource_h boundary2(
     nPorts=1,
@@ -69,7 +71,8 @@ model DynamicPipeWithNominalLaminarFlow
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
           dp_nominal=100000, m_flow_nominal=10),
     p_a_start=200000,
-    p_b_start=100000)
+    p_b_start=100000,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.av_b)
     annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
   Modelica.Fluid.Sources.MassFlowSource_h boundary4(
     nPorts=1,
@@ -108,5 +111,8 @@ equation
       points={{10,-40},{50,-40}},
       color={0,127,255},
       smooth=Smooth.None));
-  annotation (      experiment(StopTime=1.01));
+  annotation (      experiment(StopTime=1.01),
+  Documentation(info="<html>
+Test of discretization and nParallel pipes. Cf. ticket #215.
+</html>"));
 end DynamicPipeWithNominalLaminarFlow;
