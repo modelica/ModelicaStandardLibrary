@@ -2138,7 +2138,7 @@ This also allows for taking into account friction losses with respect to the act
             end if;
 
             if use_Ib_flows then
-              Ib_flows = {rhos[i]*vs[i]*vs[i]*crossAreas[i] - rhos[i+1]*vs[i+1]*vs[i+1]*crossAreas[i+1] for i in 1:n-1};
+              Ib_flows = nParallel*{rhos[i]*vs[i]*vs[i]*crossAreas[i] - rhos[i+1]*vs[i+1]*vs[i+1]*crossAreas[i+1] for i in 1:n-1};
               // alternatively use densities rhos_act of actual streams, together with mass flow rates,
               // not conserving momentum if fluid density changes between flow segments:
               //Ib_flows = {((rhos[i]*vs[i])^2*crossAreas[i] - (rhos[i+1]*vs[i+1])^2*crossAreas[i+1])/rhos_act[i] for i in 1:n-1};
