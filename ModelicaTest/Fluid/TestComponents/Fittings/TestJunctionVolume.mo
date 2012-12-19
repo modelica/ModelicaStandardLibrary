@@ -7,21 +7,21 @@ model TestJunctionVolume
         Modelica.Media.Air.DryAirNasa, V=20e-6,
     energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
-    p_start=100000)                         annotation (Placement(
+    p_start=300000)                         annotation (Placement(
         transformation(extent={{20,-30},{40,-10}}, rotation=0)));
 
   Modelica.Fluid.Sources.Boundary_pT source2(nPorts=1,
-    T=278.15,
-    p=5e5,
-    redeclare package Medium = Modelica.Media.Air.DryAirNasa)
+    redeclare package Medium = Modelica.Media.Air.DryAirNasa,
+    p=500000,
+    T=278.15)
     annotation (Placement(transformation(
         origin={90,-20},
         extent={{-10,-10},{10,10}},
         rotation=180)));
   Modelica.Fluid.Sources.Boundary_pT source3(nPorts=1,
-    T=283.15,
-    p=2e5,
-    redeclare package Medium = Modelica.Media.Air.DryAirNasa)
+    redeclare package Medium = Modelica.Media.Air.DryAirNasa,
+    p=200000,
+    T=283.15)
     annotation (Placement(transformation(
         origin={30,70},
         extent={{-10,-10},{10,10}},
@@ -38,7 +38,7 @@ model TestJunctionVolume
   Modelica.Blocks.Sources.Ramp ramp(
     duration=1,
     height=-6.5e5,
-    offset=7e5) annotation (Placement(transformation(extent={{-90,-24},{-70,-4}},
+    offset=7e5) annotation (Placement(transformation(extent={{-90,-2},{-70,-22}},
           rotation=0)));
   Modelica.Fluid.Pipes.StaticPipe pipe(      redeclare package Medium =
         Modelica.Media.Air.DryAirNasa,
@@ -59,8 +59,8 @@ model TestJunctionVolume
         extent={{-10,-10},{10,10}},
         rotation=90)));
 equation
-  connect(ramp.y, source1.p_in) annotation (Line(points={{-69,-14},{-55.5,
-          -14},{-55.5,-12},{-42,-12}},
+  connect(ramp.y, source1.p_in) annotation (Line(points={{-69,-12},{-55.5,-12},
+          {-42,-12}},
         color={0,0,127}));
   connect(source1.ports[1], pipe.port_a)
                                      annotation (Line(points={{-20,-20},{-12,
@@ -74,7 +74,7 @@ equation
           -20}}, color={0,127,255}));
   connect(pipe2.port_b, source3.ports[1])
                                       annotation (Line(points={{30,34},{30,47},
-          {30,60},{30,60}}, color={0,127,255}));
+          {30,60}},         color={0,127,255}));
   connect(pipe2.port_a, junction.port_3)
     annotation (Line(points={{30,14},{30,-10}}, color={0,127,255}));
   annotation ( experiment(StopTime=1.01));

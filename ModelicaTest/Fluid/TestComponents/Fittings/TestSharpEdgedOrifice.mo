@@ -35,7 +35,9 @@ model TestSharpEdgedOrifice
     alpha=50,
     leastDiameter=0.02,
     length=0.005,
-    show_Re=true)
+    show_Re=true,
+    m_flow_nominal=1,
+    dp_nominal=100000)
              annotation (Placement(transformation(extent={{0,40},{20,60}},
           rotation=0)));
   Modelica.Fluid.Fittings.SharpEdgedOrifice orifice2(
@@ -44,7 +46,10 @@ model TestSharpEdgedOrifice
     alpha=50,
     from_dp=false,
     leastDiameter=0.02,
-    length=0.005) annotation (Placement(transformation(extent={{0,10},{20,30}},
+    length=0.005,
+    m_flow_nominal=1,
+    dp_nominal=100000)
+                  annotation (Placement(transformation(extent={{0,10},{20,30}},
           rotation=0)));
 
   inner Modelica.Fluid.System system

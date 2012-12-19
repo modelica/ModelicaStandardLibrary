@@ -14,7 +14,7 @@ model TestMultiPortTraceSubstances
         origin={90,-20},
         extent={{-10,-10},{10,10}},
         rotation=180)));
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
     annotation (Placement(transformation(extent={{-100,80},{-80,100}}, rotation=
            0)));
   Modelica.Fluid.Sources.Boundary_pT source1(

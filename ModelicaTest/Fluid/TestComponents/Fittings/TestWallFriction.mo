@@ -39,7 +39,6 @@ model TestWallFriction
     port_a(m_flow(start=-0.6)),
     redeclare package WallFriction =
         Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
-    dp_small=0.1,
     show_Re=true)     annotation (Placement(transformation(extent={{0,40},{20,
             60}}, rotation=0)));
   Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity
@@ -69,14 +68,18 @@ model TestWallFriction
     diameter=0.1,
     redeclare package Medium = Medium,
     roughness=roughness,
-    dp_small=0.1)        annotation (Placement(transformation(extent={{0,-20},{
+    dp_small=0.1,
+    m_flow_nominal=1,
+    dp_nominal=100000)   annotation (Placement(transformation(extent={{0,-20},{
             20,0}}, rotation=0)));
   Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction pipe4(
     length=1,
     diameter=0.1,
     from_dp=false,
     redeclare package Medium = Medium,
-    roughness=roughness) annotation (Placement(transformation(extent={{0,-50},{
+    roughness=roughness,
+    m_flow_nominal=1,
+    dp_nominal=100000)   annotation (Placement(transformation(extent={{0,-50},{
             20,-30}}, rotation=0)));
 
   inner Modelica.Fluid.System system
