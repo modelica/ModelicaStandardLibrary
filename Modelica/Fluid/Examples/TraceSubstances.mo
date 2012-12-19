@@ -12,7 +12,8 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
       annotation (Placement(transformation(extent={{80,-20},{60,0}})));
     Sensors.TraceSubstances traceVolume(redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{0,20},{20,40}})));
-    inner System system              annotation (Placement(transformation(extent={{52,36},
+    inner System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
+                                     annotation (Placement(transformation(extent={{52,36},
               {72,56}},          rotation=0)));
     Sources.MassFlowSource_T boundary1(
       use_C_in=true,
@@ -101,7 +102,8 @@ of magnitude.
       annotation (Placement(transformation(extent={{92,-40},{72,-20}})));
     Sensors.TraceSubstances traceVolume(redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{20,0},{40,20}})));
-    inner System system              annotation (Placement(transformation(extent={{70,70},
+    inner System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
+                                     annotation (Placement(transformation(extent={{70,70},
               {90,90}},          rotation=0)));
     Sources.MassFlowSource_T freshAir(
       use_C_in=true,
@@ -116,14 +118,14 @@ of magnitude.
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       use_portsData=false,
       nPorts=4) annotation (Placement(transformation(extent={{0,-20},{20,0}})));
-    Pipes.DynamicPipe
-                      ductOut(
+    Pipes.DynamicPipe ductOut(
       redeclare package Medium = Medium,
       length=1,
       diameter=0.15,
       redeclare model FlowModel =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (
-            show_Res=true)) "Outlet duct"
+            show_Res=true),
+      modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b) "Outlet duct"
       annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
     Sensors.TraceSubstances traceDuctIn(redeclare package Medium = Medium)
       "Trace substance at duct inlet"
@@ -159,14 +161,14 @@ of magnitude.
       Ti=10,
       k=10,
       Td=0)   annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-    Pipes.DynamicPipe
-                      ductIn(
+    Pipes.DynamicPipe ductIn(
       redeclare package Medium = Medium,
       length=1,
       diameter=0.15,
       redeclare model FlowModel =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (
-            show_Res=true)) "Inlet duct"
+            show_Res=true),
+      modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b) "Inlet duct"
       annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
     Sensors.TraceSubstances traceDuctOut(redeclare package Medium = Medium)
       "Trace substance at duct outlet"
