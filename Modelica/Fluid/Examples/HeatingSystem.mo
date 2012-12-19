@@ -68,12 +68,11 @@ public
     T_ref=343.15,
     alpha=-0.5)
     annotation (Placement(transformation(extent={{16,30},{36,50}}, rotation=0)));
-  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
-      m_flow_small=1e-4)
+  inner Modelica.Fluid.System system(
+      m_flow_small=1e-4, energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                         annotation (Placement(transformation(extent={{-90,70},{
             -70,90}},   rotation=0)));
-  Pipes.PipeOnePhaseHT
-                    heater(
+  Pipes.DynamicPipe heater(
     redeclare package Medium = Medium,
     use_T_start=true,
     T_start=Modelica.SIunits.Conversions.from_degC(80),
@@ -85,12 +84,11 @@ public
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
     use_HeatTransfer=true,
-    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.a_vb,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
     p_a_start=130000)
     annotation (Placement(transformation(extent={{30,10},{50,30}}, rotation=0)));
 
-  Pipes.PipeOnePhaseHT
-                    radiator(
+  Pipes.DynamicPipe radiator(
     use_T_start=true,
     redeclare package Medium = Medium,
     length=10,
@@ -102,7 +100,7 @@ public
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
     use_HeatTransfer=true,
-    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.av_b,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
     p_a_start=110000)
     annotation (Placement(transformation(extent={{20,-80},{0,-60}}, rotation=
             0)));
@@ -133,8 +131,7 @@ public
     height=0.9,
     offset=0.1)   annotation (Placement(transformation(extent={{26,-27},{40,-13}},
                   rotation=0)));
-  Pipes.PipeOnePhaseHT
-                    pipe(
+  Pipes.DynamicPipe pipe(
     redeclare package Medium = Medium,
     use_T_start=true,
     T_start=Modelica.SIunits.Conversions.from_degC(80),
@@ -158,8 +155,7 @@ tankLevel = tank.level;
           20},{30,20}},
                     color={0,127,255}));
   connect(T_ambient.port, wall.port_a)                       annotation (Line(
-        points={{0,-20},{10,-20},{10,-40}},
-                                            color={191,0,0}));
+        points={{0,-20},{10,-20},{10,-40}}, color={191,0,0}));
   connect(sensor_T_forward.T, T_forward)     annotation (Line(points={{67,40},{
           80,40}},                              color={0,0,127}));
   connect(radiator.port_a, valve.port_b) annotation (Line(points={{20,-70},{20,
@@ -212,7 +208,8 @@ tankLevel = tank.level;
       smooth=Smooth.None));
   annotation (                             Documentation(info="<html>
 <p>
-Simple heating system with a closed flow cycle. It is set up for steady-state initial values.
+Simple heating system with a closed flow cycle. It is set up with fixed initial values,
+ which means that the states need to find their actual values at the beginning of the simulation. 
 After 2000s of simulation time the valve fully opens. A simple idealized control is embedded
 into the respective components, so that the heating system can be regulated with the valve:
 the pump controls the pressure, the burner controls the temperature.
@@ -220,6 +217,7 @@ the pump controls the pressure, the burner controls the temperature.
 <p>
 One can investigate the temperatures and flows for different settings of <code>system.energyDynamics</code>
 (see Assumptions tab of the system object).
+With <code>system.energyDynamics==Types.Dynamics.SteadyStateInitial</code> the simulation starts in steady-state.
 With <code>system.energyDynamics==Types.Dynamics.SteadyState</code> all but one dynamic states are eliminated.
 The left state <code>tank.m</code> is to account for the closed flow cycle. It is constant as outflow and inflow are equal
 in a steady-state simulation.
