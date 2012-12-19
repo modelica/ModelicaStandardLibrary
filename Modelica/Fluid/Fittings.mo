@@ -1572,7 +1572,7 @@ The used sufficient criteria for monotonicity follows from:
         parameter LossFactorData data "Loss factor data";
         parameter Modelica.SIunits.MassFlowRate m_flow_nominal(start = 1)
           "Nominal mass flow rate for simplified initial model";
-        parameter Modelica.SIunits.MassFlowRate dp_nominal(start = 1000)
+        parameter Modelica.SIunits.Pressure dp_nominal(start = 1000)
           "Nominal pressure loss for simplified initial model";
 
         // Advanced
