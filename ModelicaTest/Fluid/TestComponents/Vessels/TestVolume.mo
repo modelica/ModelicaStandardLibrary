@@ -32,7 +32,7 @@ model TestVolume
     height=-0.5,
     offset=1) annotation (Placement(transformation(extent={{-40,48},{-20,68}},
           rotation=0)));
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}},
           rotation=0)));
 equation

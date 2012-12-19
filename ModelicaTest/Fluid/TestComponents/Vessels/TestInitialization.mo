@@ -33,7 +33,7 @@ model TestInitialization
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.25),
         Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.25)})
     annotation (Placement(transformation(extent={{-10,20},{10,40}},rotation=0)));
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 equation
   connect(sou1.ports[1], pipe1.port_a) annotation (Line(

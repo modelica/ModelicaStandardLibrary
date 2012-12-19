@@ -22,7 +22,8 @@ model TestTankWithTopPorts
   Modelica.Fluid.Sources.MassFlowSource_T massFlowRate[2](each nPorts=1,redeclare
       package Medium = Modelica.Media.Water.StandardWater, each m_flow=0.75)
     annotation (Placement(transformation(extent={{-82,70},{-62,90}}, rotation=0)));
-  inner Modelica.Fluid.System system  annotation (Placement(transformation(
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
+                                      annotation (Placement(transformation(
           extent={{-100,-100},{-80,-80}}, rotation=0)));
   Modelica.Fluid.Sources.FixedBoundary Boundary_fixed(
     redeclare package Medium = Modelica.Media.Water.StandardWater,

@@ -40,7 +40,7 @@ model TestMixingVolumes
     h=Medium.h_default,
     p=101325)
     annotation (Placement(transformation(extent={{100,30},{80,50}}, rotation=0)));
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}},
           rotation=0)));
 equation
