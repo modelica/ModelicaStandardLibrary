@@ -13,7 +13,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
     redeclare package Medium = Medium, p=150000)                    annotation (Placement(
         transformation(extent={{-10,-10},{10,10}},    rotation=90,
         origin={0,-80})));
-  Pipes.PipeTwoPhaseHT             pipe1(
+  Pipes.DynamicPipe             pipe1(
     redeclare package Medium=Medium,
     use_T_start=true,
     nNodes=5,
@@ -22,11 +22,12 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
     height_ab=50,
     length=50,
     p_a_start=150000,
-    p_b_start=130000)
+    p_b_start=130000,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={0,-50})));
- Pipes.PipeTwoPhaseHT             pipe2(
+ Pipes.DynamicPipe             pipe2(
     redeclare package Medium = Medium,
     use_T_start=true,
     nNodes=5,
@@ -39,26 +40,26 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
     height_ab=25,
     p_a_start=130000,
     p_b_start=120000,
-    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.a_v_b)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={-20,-10})));
 
-  Pipes.PipeTwoPhaseHT             pipe3(
+  Pipes.DynamicPipe             pipe3(
     redeclare package Medium=Medium,
     use_T_start=true,
     nNodes=5,
     diameter=2.54e-2,
     m_flow_start=0.01,
     length=25,
+    height_ab=25,
     p_a_start=130000,
     p_b_start=120000,
-    height_ab=25,
-    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.a_v_b)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={20,-10})));
-  Pipes.PipeTwoPhaseHT             pipe4(
+  Pipes.DynamicPipe             pipe4(
     redeclare package Medium=Medium,
     use_T_start=true,
     nNodes=5,
@@ -68,7 +69,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
     length=50,
     p_a_start=120000,
     p_b_start=100000,
-    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.av_b)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.av_b)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={0,30})));
