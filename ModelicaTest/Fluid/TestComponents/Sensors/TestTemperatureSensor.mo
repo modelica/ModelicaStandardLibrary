@@ -9,7 +9,8 @@ model TestTemperatureSensor "Test and compare case for the difference between us
   Modelica.Fluid.Sensors.TemperatureTwoPort temperatureTwoPort(redeclare
       package Medium = Modelica.Media.Water.StandardWater)
     annotation (Placement(transformation(extent={{-20,-20},{0,0}}, rotation=0)));
-  inner Modelica.Fluid.System system  annotation (Placement(transformation(
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
+                                      annotation (Placement(transformation(
           extent={{-100,-100},{-80,-80}}, rotation=0)));
   Modelica.Fluid.Vessels.OpenTank openTankCold2(nPorts=1,
     level_start=1,
@@ -51,7 +52,8 @@ model TestTemperatureSensor "Test and compare case for the difference between us
     use_m_flow_in=true,
     T=SI.Conversions.from_degC(50)) annotation (Placement(transformation(extent=
            {{-60,-20},{-40,0}}, rotation=0)));
-  Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(extent=
+  Modelica.Blocks.Sources.Sine sine(freqHz=1)
+                                    annotation (Placement(transformation(extent=
            {{-100,10},{-80,30}}, rotation=0)));
   Modelica.Fluid.Sensors.Temperature TemperatureJunction(
       redeclare package Medium = Modelica.Media.Water.StandardWater)
@@ -119,10 +121,9 @@ equation
   connect(temperatureTwoPort.port_b, openTankHot2.ports[1]) annotation (Line(
         points={{0,-10},{34,-10},{34,-20},{70,-20}},     color={0,127,255}));
   connect(junctionIdeal.port_3, openTankCold3.ports[1]) annotation (Line(points={{30,-70},
-          {30,-65},{30,-60},{30,-60}},
-                                color={0,127,255}));
+          {30,-65},{30,-60}},   color={0,127,255}));
   connect(junctionIdeal.port_2, openTankHot3.ports[1]) annotation (Line(points={{40,-80},
-          {55.5,-80},{55.5,-80},{70,-80}},               color={0,127,255}));
+          {55.5,-80},{70,-80}},                          color={0,127,255}));
   annotation (                       Documentation(info="<html>
 <p align = justify>In that test model the behaviour of one port temperature sensors with and without explicit junction models and two port temperature sensor are compared. Therefor each sensor is connected to two tanks with different temperatures and a flow source with changing flow direction.<p>
 <p align = justify>With Modelica.Fluid stream connectors, all three sensors show the same expected result.</p>

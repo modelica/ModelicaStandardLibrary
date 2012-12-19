@@ -12,7 +12,7 @@ model TestDensity
     zeta=2,
     diameter=0.1) annotation (Placement(transformation(extent={{20,-30},{40,-10}},
           rotation=0)));
-  Modelica.Blocks.Sources.Sine sine1
+  Modelica.Blocks.Sources.Sine sine1(freqHz=1)
                                     annotation (Placement(transformation(extent=
            {{-100,-20},{-80,0}}, rotation=0)));
   Modelica.Fluid.Sources.MassFlowSource_h massFlowRate2(nPorts=1,
@@ -36,7 +36,8 @@ model TestDensity
     zeta=2,
     diameter=0.1) annotation (Placement(transformation(extent={{20,40},{40,60}},
           rotation=0)));
-  Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(extent=
+  Modelica.Blocks.Sources.Sine sine(freqHz=1)
+                                    annotation (Placement(transformation(extent=
            {{-100,50},{-80,70}}, rotation=0)));
   Modelica.Fluid.Sources.MassFlowSource_h massFlowRate1(nPorts=1,
     use_m_flow_in=true,
