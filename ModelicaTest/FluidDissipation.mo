@@ -1371,7 +1371,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[1])
+            m_flow(start=0.88)=m_flow[1])
             annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con
@@ -1389,7 +1389,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[2])
+            m_flow(start=0.53)=m_flow[2])
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
           //output variables
@@ -1660,7 +1660,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[1])
+            m_flow(start=0.14)=m_flow[1])
             annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
@@ -1682,7 +1682,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[2])
+            m_flow(start=0.1)=m_flow[2])
             annotation (Placement(transformation(extent={{40,20},{60,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
@@ -1704,7 +1704,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[3])
+            m_flow(start=0.1)=m_flow[3])
             annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
@@ -1722,7 +1722,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[4])
+            m_flow(start=0.1)=m_flow[4])
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
           //output variables
@@ -3017,7 +3017,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            velocity=abs(velocity)) annotation (Placement(
+            velocity(start={0.0043, 6.2e-5, 0.00025})=abs(velocity)) annotation (Placement(
                 transformation(extent={{0,20},{20,40}})));
 
           Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
@@ -3186,7 +3186,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            velocity=abs(velocity)) annotation (Placement(
+            velocity(start={4.3e-5, 6.2e-7, 2.5e-6})=abs(velocity)) annotation (Placement(
                 transformation(extent={{0,20},{20,40}})));
 
           Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
@@ -3353,7 +3353,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            velocity=abs(velocity)) annotation (Placement(
+            velocity(start={4e2, 5.0, 69})=abs(velocity)) annotation (Placement(
                 transformation(extent={{0,20},{20,40}})));
 
           Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
@@ -4361,7 +4361,7 @@ extends Modelica.Icons.ExamplesPackage;
               1280.569453,1280.569453,1164,1164,1164};
           parameter Modelica.SIunits.Density rho_g_1[n]={16.89048514,
               16.89048514,16.89048514,32.9,32.9,32.9};
-          parameter Modelica.SIunits.MolarMass M_1[n]={102.032,102.032,102.032,
+          parameter Modelica.Fluid.Dissipation.Utilities.Types.MolarMass_gpmol M_1[n]={102.032,102.032,102.032,
               97.6,97.6,97.6};
           parameter Modelica.SIunits.SpecificEnthalpy dh_lg_1[n]={193865.4,
               193865.4,193865.4,166298.02,166298.02,166298.02};
@@ -4388,7 +4388,7 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Modelica.SIunits.DynamicViscosity eta_g_2=1.126785138e-5;
           parameter Modelica.SIunits.ThermalConductivity lambda_2=0.107525;
           parameter Modelica.SIunits.Density rho_l_2=1334.01138;
-          parameter Modelica.SIunits.MolarMass M_2=86.47;
+          parameter Modelica.Fluid.Dissipation.Utilities.Types.MolarMass_gpmol M_2=86.47;
           parameter Modelica.SIunits.Density rho_g_2=12.8808;
           parameter Modelica.SIunits.SpecificEnthalpy dh_lg_2=216811.5384;
           parameter Modelica.SIunits.HeatFlux qdot_A_2=10000;
@@ -5641,7 +5641,8 @@ extends Modelica.Icons.ExamplesPackage;
 
           parameter Real dpoo=1;
 
-          Real frac_A1toA2 "Ratio of small to large cross sectional area";
+          Real frac_A1toA2(fixed=true, start=0)
+            "Ratio of small to large cross sectional area";
 
           //orifice variables
           Modelica.SIunits.Area A_1=A_2*frac_A1toA2
@@ -5782,7 +5783,8 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Real A0_2_A1[6]={0.02,0.08,0.20,0.40,0.70,0.90}
             "Ratio of cross sectional areas";
 
-          Modelica.SIunits.Length L(start=0) "Length of thick edged orifice";
+          Modelica.SIunits.Length L(fixed = true, start=0)
+            "Length of thick edged orifice";
           Real l_bar=L/sqrt(4*A_0/Modelica.Constants.pi)
             "Relative length of orifice";
 
