@@ -230,11 +230,10 @@ package AST_BatchPlant
       use_N_in=true,
       show_NPSHa=true,
       V(displayUnit="ml") = 0.0001,
-      checkValve=true,
+      energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+      massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       p_a_start=100000,
-      p_b_start=100000,
-      energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial,
-      massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
+      p_b_start=100000)
       annotation (Placement(transformation(extent={{-140,-260},{-160,-240}},
             rotation=0)));
     Machines.PrescribedPump P2(
@@ -251,8 +250,8 @@ package AST_BatchPlant
       checkValve=true,
       p_a_start=100000,
       p_b_start=100000,
-      energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial,
-      massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
+      energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+      massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
       annotation (Placement(transformation(extent={{120,-260},{140,-240}},
             rotation=0)));
     Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts B1(
@@ -269,7 +268,7 @@ package AST_BatchPlant
       stiffCharacteristicForEmptyPort=false)
                          annotation (Placement(transformation(extent={{-110,180},
               {-70,220}}, rotation=0)));
-    inner Modelica.Fluid.System system
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                           annotation (Placement(transformation(extent={{180,250},
               {200,270}},       rotation=0)));
     Modelica.Blocks.Logical.TriggeredTrapezoid P1_on(amplitude=100, rising=0)
@@ -339,8 +338,7 @@ package AST_BatchPlant
           Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=
               4.9))      annotation (Placement(transformation(extent={{-110,
               -140},{-70,-100}}, rotation=0)));
-    Pipes.DynamicPipe
-                      pipeB1B2(
+    Pipes.DynamicPipe pipeB1B2(
       redeclare package Medium = BatchMedium,
       length=1,
       diameter=pipeDiameter,
@@ -391,8 +389,7 @@ package AST_BatchPlant
           origin={-90,-170},
           extent={{10,10},{-10,-10}},
           rotation=90)));
-    Pipes.DynamicPipe
-                      pipePump1B1(
+    Pipes.DynamicPipe pipePump1B1(
       redeclare package Medium = BatchMedium,
       diameter=pipeDiameter,
       height_ab=3,
@@ -400,8 +397,7 @@ package AST_BatchPlant
           origin={-180,10},
           extent={{-10,10},{10,-10}},
           rotation=90)));
-    Pipes.DynamicPipe
-                      pipePump2B2(
+    Pipes.DynamicPipe pipePump2B2(
       redeclare package Medium = BatchMedium,
       diameter=pipeDiameter,
       height_ab=3,
@@ -672,212 +668,6 @@ package AST_BatchPlant
 
   package BaseClasses
     extends Modelica.Icons.BasesPackage;
-    block TriggeredTrapezoid "Triggered trapezoid generator"
-      extends Modelica.Blocks.Icons.PartialBooleanBlock;
-      extends Modelica.Icons.ObsoleteModel;
-
-      parameter Real amplitude=1 "Amplitude of trapezoid";
-      parameter Modelica.SIunits.Time rising(final min=0)=0
-        "Rising duration of trapezoid";
-      parameter Modelica.SIunits.Time falling(final min=0)=rising
-        "Falling duration of trapezoid";
-      parameter Real offset=0 "Offset of output signal";
-
-      Modelica.Blocks.Interfaces.BooleanInput u
-        "Connector of Boolean input signal"
-                                       annotation (Placement(transformation(
-              extent={{-140,-20},{-100,20}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput y "Connector of Real output signal"
-        annotation (Placement(transformation(extent={{100,-10},{120,10}},
-              rotation=0)));
-
-    protected
-      discrete Real endValue "Value of y at time of recent edge";
-      discrete Real rate "Current rising/falling rate";
-      discrete Modelica.SIunits.Time T
-        "Predicted time of output reaching endValue";
-    public
-      Modelica.Blocks.Interfaces.BooleanOutput y_high
-        annotation (Placement(transformation(extent={{100,-90},{120,-70}},
-              rotation=0)));
-    initial equation
-      pre(y) = 0;
-    equation
-        y_high = time < T;
-        y = if y_high then endValue - (T - time)*rate else  endValue;
-
-        when {initial(),u,not u} then
-          endValue = if u then offset + amplitude else offset;
-          rate = if u and (rising > 0) then amplitude/rising else
-            if not u and (falling > 0) then -amplitude/falling else 0;
-          T = if u and not (rising > 0) or not u and not (falling
-             > 0) or not abs(amplitude) > 0 or initial() then time else time
-             + (endValue - pre(y))/rate;
-        end when;
-      annotation (
-        Icon(graphics={
-            Line(points={{-60,-70},{-60,-70},{-30,40},{8,40},{40,-70},{40,-70}}),
-            Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
-            Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
-            Polygon(
-              points={{90,-70},{68,-62},{68,-78},{90,-70}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-80,90},{-88,68},{-72,68},{-80,90}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-80,-70},{-60,-70},{-60,24},{8,24},{8,-70},{60,-70}},
-                color={255,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics={
-            Line(points={{-80,-20},{-60,-20},{-30,40},{8,40},{40,-20},{60,-20}}),
-            Line(points={{-90,-70},{82,-70}}, color={0,0,0}),
-            Line(points={{-80,68},{-80,-80}}, color={0,0,0}),
-            Polygon(
-              points={{90,-70},{68,-62},{68,-78},{90,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-80,90},{-88,68},{-72,68},{-80,90}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-80,-68},{-60,-68},{-60,-42},{8,-42},{8,-68},{60,-68}},
-                color={255,0,255}),
-            Line(
-              points={{-60,40},{-60,-42}},
-              color={0,0,0},
-              pattern=LinePattern.Dot),
-            Line(
-              points={{8,-42},{8,40}},
-              color={0,0,0},
-              pattern=LinePattern.Dot),
-            Line(points={{-58,40},{-28,40}}, color={0,0,0}),
-            Line(points={{8,-20},{40,-20}}, color={0,0,0}),
-            Line(points={{-20,40},{-20,-20}}, color={0,0,0}),
-            Line(points={{-20,-20},{-20,-70}}, color={0,0,0}),
-            Text(
-              extent={{-42,48},{-42,38}},
-              lineColor={0,0,0},
-              textString="rising"),
-            Text(
-              extent={{24,-10},{24,-20}},
-              lineColor={0,0,0},
-              textString="falling"),
-            Polygon(
-              points={{-58,40},{-54,42},{-54,38},{-58,40}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-30,40},{-34,42},{-34,38},{-30,40}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{8,-20},{12,-18},{12,-22},{8,-20}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{40,-20},{36,-18},{36,-22},{40,-20}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-22,-24},{-20,-20},{-18,-24},{-22,-24}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-18,-66},{-22,-66},{-20,-70},{-18,-66}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-22,36},{-20,40},{-18,36},{-22,36}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-18,-16},{-22,-16},{-20,-20},{-18,-16}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-40,6},{0,-4}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-20,6},{-20,-4}},
-              lineColor={0,0,0},
-              textString="amplitude"),
-            Rectangle(
-              extent={{-40,-48},{0,-58}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-20,-48},{-20,-58}},
-              lineColor={0,0,0},
-              textString="offset"),
-            Text(
-              extent={{60,-82},{94,-92}},
-              lineColor={0,0,0},
-              textString="time"),
-            Text(
-              extent={{-88,-4},{-54,-14}},
-              lineColor={0,0,0},
-              textString="y"),
-            Text(
-              extent={{-88,-46},{-54,-56}},
-              lineColor={0,0,0},
-              textString="u"),
-            Polygon(
-              points={{40,60},{36,62},{36,58},{40,60}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-56,60},{36,60}}, color={0,0,0}),
-            Polygon(
-              points={{-60,60},{-56,62},{-56,58},{-60,60}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-16,72},{-16,62}},
-              lineColor={0,0,0},
-              textString="y_high")}),
-        Documentation(info="<HTML>
-<p>
-<b>
-Obsolete model that is not used in package Modelica and
-will be removed in a future version of package Modelica.
-Use instead model Modelica.Blocks.Logical.TriggeredTrapezoid.</b>
-</p>
-
-<p>The block TriggeredTrapezoid has a boolean input and a real
-output signal and requires the parameters <i>amplitude</i>,
-<i>rising</i>, <i>falling</i> and <i>offset</i>. The
-output signal <b>y</b> represents a trapezoidal signal dependent on the
-input signal <b>u</b>.
-</p>
-<p>The behaviour is as follows: Assume the initial input to be false. In this
-case, the output will be <i>offset</i>. After a rising edge (i.e., the input
-changes from false to true), the output is rising during <i>rising</i> to the
-sum of <i>offset</i> and <i>amplitude</i>. In contrast, after a falling
-edge (i.e., the input changes from true to false), the output is falling
-during <i>falling</i> to a value of <i>offset</i>.
-</p>
-<p>Note, that the case of edges before expiration of rising or falling is
-handled properly.</p>
-</html>"));
-    end TriggeredTrapezoid;
 
     block setReal "Set output signal to a time varying Real expression"
 
@@ -1268,7 +1058,8 @@ Full steady state initialization is not supported, because the corresponding int
             origin={0,-110},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-        Boolean m_flow_negative( start = true) "true= massflow out of tank";
+        Boolean m_flow_negative( start = true, fixed = true)
+        "true= massflow out of tank";
         constant Modelica.SIunits.Acceleration g=Modelica.Constants.g_n;
         input Real aboveLevel;
         input Real d;
