@@ -1681,7 +1681,7 @@ pressure in order to get positive flow rates.
 </html>"));
   end SeriesPipes13;
 
-  model BranchingPipes131
+  model SeriesPipes2
     extends Modelica.Icons.Example;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
@@ -1760,8 +1760,8 @@ pressure in order to get positive flow rates.
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
-Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
+Simulation starts with valve 1 open. At t=1, valve 1 closes.
 </html>"));
-  end BranchingPipes131;
+  end SeriesPipes2;
 
 end TestPipesAndValves;
