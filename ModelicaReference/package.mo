@@ -6360,8 +6360,48 @@ and is formally defined as follows</P>
 </OL>
 
 </html>"));
-end 'while';
+  end 'while';
 
+
+class Contact "Contact"
+  extends ModelicaReference.Icons.Contact;
+
+  annotation (Documentation(info="<html>
+<dl>
+<dt><b>Library Officers:</b>
+<dd> <a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a><br>
+     Telemark University College<br>
+     PO box 203<br>
+     NO-3901 Porsgrunn<br>
+     Norway<br>
+     &nbsp;<br>
+     and<br>&nbsp;<br>
+    <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Institut f&uuml;r Robotik und Mechatronik<br>
+    Abteilung Systemdynamik und Regelungstechnik<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
+</dl>
+<p><b>Acknowledgements:</b></p>
+<ul>
+<li> The initial version of ModelicaReference is from Christian Schweiger (DLR) who
+     provided it up to Modelica version 2.2.</li>
+
+<li> Martin Otter (DLR) updated ModelicaReference for Modelica 3.0.</li>
+
+<li> Dietmar Winkler (Telemark University College) updated ModelicaReference for
+     Modelica 3.1 and 3.2</li>
+
+<li> Stefan Vorkoetter (Maplesoft) provided ModelicaReference.ModelicaGrammar
+     for Modelica 3.2.</li>
+</ul>
+
+</html>"));
+
+  end Contact;
 
 package Icons
   partial class Information "Icon for general information packages"
@@ -6428,49 +6468,9 @@ package Icons
                               Documentation(info="<html>
 <p>This icon shall be used for the contact information of the library developers.</p>
 </html>"));
-  end Contact;
-end Icons;
+    end Contact;
+  end Icons;
 
-
-class Contact "Contact"
-  extends ModelicaReference.Icons.Contact;
-
- annotation (Documentation(info="<html>
-<dl>
-<dt><b>Library Officers:</b>
-<dd> <a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a><br>
-     Telemark University College<br>
-     PO box 203<br>
-     NO-3901 Porsgrunn<br>
-     Norway<br>
-     &nbsp;<br>
-     and<br>&nbsp;<br>
-    <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Abteilung Systemdynamik und Regelungstechnik<br>
-    Postfach 1116<br>
-    D-82230 Wessling<br>
-    Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
-</dl>
-<p><b>Acknowledgements:</b></p>
-<ul>
-<li> The initial version of ModelicaReference is from Christian Schweiger (DLR) who
-     provided it up to Modelica version 2.2.</li>
-
-<li> Martin Otter (DLR) updated ModelicaReference for Modelica 3.0.</li>
-
-<li> Dietmar Winkler (Telemark University College) updated ModelicaReference for
-     Modelica 3.1 and 3.2</li>
-
-<li> Stefan Vorkoetter (Maplesoft) provided ModelicaReference.ModelicaGrammar
-     for Modelica 3.2.</li>
-</ul>
-
-</html>"));
-
-end Contact;
 
 
 annotation (__Dymola_DocumentationClass=true,
