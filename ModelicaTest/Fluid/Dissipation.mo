@@ -1,5 +1,5 @@
-within ModelicaTest;
-package FluidDissipation
+within ModelicaTest.Fluid;
+package Dissipation
   "Test cases for heat transfer and pressure loss correlations"
 extends Modelica.Icons.ExamplesPackage;
 
@@ -7231,4 +7231,4 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
 
     end PressureLoss;
   end TestCases;
-end FluidDissipation;
+end Dissipation;
