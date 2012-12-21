@@ -1,4 +1,4 @@
-within ModelicaTest.Fluid.TestComponents.Valves;
+within ModelicaTest.Fluid.TestCriticalCases;
 model TestValvesReverse "Test case for valves with reverse and zero flow"
   import Modelica.Fluid;
   extends Modelica.Icons.Example;
@@ -134,5 +134,8 @@ equation
     annotation (Line(points={{50,6},{62,6}}, color={0,127,255}));
 annotation (
   experiment(StopTime=4, Tolerance=1e-006),
-  Documentation(info=""));
+    Documentation(info="<html>
+Multiple valves are mutually connected in a purely algebraic model.
+<p/>
+</html>"));
 end TestValvesReverse;
