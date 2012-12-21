@@ -86,15 +86,7 @@ or other flow models without storage, are directly connected.
 
     // extending PartialTwoPortFlow
     extends BaseClasses.PartialTwoPortFlow(
-      final lengths=if n == 1 then
-                        {length} else
-                    if modelStructure == ModelStructure.av_vb then
-                        cat(1, {length/(n-1)/2}, fill(length/(n-1), n-2), {length/(n-1)/2}) else
-                    if modelStructure == ModelStructure.av_b then
-                        cat(1, {length/n/2}, fill(length*(1-1/n/2)/(n-1), n-1)) else
-                    if modelStructure == ModelStructure.a_vb then
-                        cat(1, fill(length*(1-1/n/2)/(n-1), n-1), {length/n/2}) else
-                        fill(length/n, n),
+      final lengths=fill(length/n, n),
       final crossAreas=fill(crossArea, n),
       final dimensions=fill(4*crossArea/perimeter, n),
       final roughnesses=fill(roughness, n),
