@@ -22,13 +22,14 @@ extends Modelica.Icons.ExamplesPackage;
       nNodes=5,
       p_a_start=10000000,
       p_b_start=9900000,
-      modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
+      modelStructure=Modelica.Fluid.Types.ModelStructure.av_b)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       Av=1e-3,
+      m_flow_nominal=10,
       dp_nominal=10000000,
-      m_flow_nominal=10)
+      p_nominal=10000000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
         = Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
@@ -108,15 +109,16 @@ The initial equations are consistent however and a tool shall reduce them approp
       length=200,
       use_T_start=false,
       nNodes=5,
-      modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb,
       p_a_start=10000000,
-      p_b_start=9900000)
+      p_b_start=9900000,
+      modelStructure=Modelica.Fluid.Types.ModelStructure.av_b)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       Av=1e-3,
+      m_flow_nominal=10,
       dp_nominal=10000000,
-      m_flow_nominal=10)
+      p_nominal=10000000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
         = Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
@@ -184,7 +186,7 @@ The initial equations are consistent however and a tool shall reduce them approp
             extent={{-100,-54},{42,-74}},
             lineColor={0,0,255},
             textString=
-                "Work-around 1: change pipe.modelStructure from av_vb to a_vb")}),
+                "Work-around 1: change pipe.modelStructure from av_b to a_v_b")}),
       experiment(StopTime=4));
   end DynamicPipeInitialValues;
 end TestOverdeterminedInitial;
