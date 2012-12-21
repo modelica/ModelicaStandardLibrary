@@ -260,10 +260,10 @@ make the simulation of your model faster.
 </html>"));
 
   type ModelStructure = enumeration(
-      av_vb "av_vb: port_a - volume - flow model - volume - port_b",
       a_v_b "a_v_b: port_a - flow model - volume - flow model - port_b",
       av_b "av_b: port_a - volume - flow model - port_b",
-      a_vb "a_vb: port_a - flow model - volume - port_b")
+      a_vb "a_vb: port_a - flow model - volume - port_b",
+      av_vb "av_vb: port_a - volume - flow model - volume - port_b")
     "Enumeration with choices for model structure in distributed pipe model"
     annotation (Documentation(info="<html>
 
