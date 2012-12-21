@@ -1,4 +1,4 @@
-within ModelicaTest.Fluid.TestComponents.Utilities;
+within ModelicaTest.Fluid.TestUtilities;
 model TestRegRoot2Derivatives "Test whether regRoot2 can be differentiated"
   extends Modelica.Icons.Example;
   parameter Real x_small = 0.01;

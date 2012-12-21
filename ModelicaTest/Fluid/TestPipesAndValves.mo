@@ -2,11 +2,9 @@ within ModelicaTest.Fluid;
 package TestPipesAndValves
   "Collection of test cases which might be critical for the solvers"
 extends Modelica.Icons.ExamplesPackage;
-
   model DynamicPipeClosingValve "This test demonstrates the importance of smooth regularization of fluid properties for reversing flow.
  A DynamicPipe model with switching port densities and viscosities would generate lots of events as the valve closes at time 2."
    extends Modelica.Icons.Example;
-
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,redeclare package
         Medium =
           Modelica.Media.Water.StandardWater, p=200000)
@@ -64,7 +62,6 @@ extends Modelica.Icons.ExamplesPackage;
   model DynamicPipeInitialization
     "Steady-state initialization of a dynamic pipe"
     extends Modelica.Icons.Example;
-
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_T=false,
@@ -130,7 +127,6 @@ extends Modelica.Icons.ExamplesPackage;
         points={{25,40},{10,40},{10,8}},
         color={0,0,127},
         smooth=Smooth.None));
-
     annotation (      experiment(StopTime=4),
       Documentation(info="<html>
 The simulation shall start in steady-state (see system.energyDynamics on the Assumptions tab).
@@ -169,7 +165,6 @@ The steady-state initial values are observed by an assertion.
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                      annotation (Placement(transformation(extent={{-72,-4},{
               -52,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -210,7 +205,6 @@ The steady-state initial values are observed by an assertion.
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                      annotation (Placement(transformation(extent={{-40,36},{-20,
               56}},     rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -225,7 +219,6 @@ The steady-state initial values are observed by an assertion.
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                      annotation (Placement(transformation(extent={{-40,-50},
               {-20,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
           1,0; 100,0]) annotation (Placement(transformation(extent={{-20,70},{0,
               90}}, rotation=0)));
@@ -269,7 +262,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   model BranchingPipes2
     extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -288,7 +280,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                         annotation (Placement(transformation(extent={{-72,-4},{
               -52,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -322,7 +313,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-40,36},{
               -20,56}}, rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -336,7 +326,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-40,-50},
               {-20,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,0; 1,0;
           1,1; 100,1]) annotation (Placement(transformation(extent={{-20,70},{0,
               90}}, rotation=0)));
@@ -377,7 +366,6 @@ Simulation starts with both valves closed. At t=1, valve 1 opens; at t=2 valve 2
   model BranchingPipes3
     extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -396,7 +384,6 @@ Simulation starts with both valves closed. At t=1, valve 1 opens; at t=2 valve 2
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                         annotation (Placement(transformation(extent={{-80,-4},{
               -60,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -430,7 +417,6 @@ Simulation starts with both valves closed. At t=1, valve 1 opens; at t=2 valve 2
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-40,36},{
               -20,56}}, rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -444,7 +430,6 @@ Simulation starts with both valves closed. At t=1, valve 1 opens; at t=2 valve 2
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-40,-50},
               {-20,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,0; 1,0;
           1,1; 100,1]) annotation (Placement(transformation(extent={{-20,70},{0,
               90}}, rotation=0)));
@@ -494,7 +479,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   model BranchingPipes4
     extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -513,7 +497,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                         annotation (Placement(transformation(extent={{-80,-4},{
               -60,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -546,7 +529,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       p_b_start=500000,
       nNodes=1)         annotation (Placement(transformation(extent={{-40,36},{
               -20,56}}, rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -559,7 +541,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       p_b_start=500000,
       nNodes=1)         annotation (Placement(transformation(extent={{-40,-50},
               {-20,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,0; 1,0;
           1,1; 100,1]) annotation (Placement(transformation(extent={{-20,70},{0,
               90}}, rotation=0)));
@@ -579,7 +560,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           origin={-43,6},
           extent={{-6,-7},{6,7}},
           rotation=90)));
-
   equation
     connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
             -84,6},{-80,6}},
@@ -615,7 +595,6 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
   model BranchingPipes12
     extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -634,7 +613,6 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                         annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -676,7 +654,6 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-40,36},{
               -20,56}}, rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -690,7 +667,6 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-40,-50},
               {-20,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
           1,0; 100,0]) annotation (Placement(transformation(extent={{-20,70},{0,
               90}}, rotation=0)));
@@ -732,7 +708,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     extends Modelica.Icons.Example;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -751,7 +726,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -787,7 +761,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-34,36},{
               -14,56}}, rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -801,7 +774,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-30,-50},
               {-10,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
           1,0; 100,0]) annotation (Placement(transformation(extent={{-20,70},{0,
               90}}, rotation=0)));
@@ -852,7 +824,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     extends Modelica.Icons.Example;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -871,7 +842,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                         annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -905,7 +875,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-34,36},{
               -14,56}}, rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -919,7 +888,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-30,-50},
               {-10,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
           2,1e-2; 100,1e-2])
                        annotation (Placement(transformation(extent={{-20,72},{0,
@@ -942,7 +910,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           origin={-38,6},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-
   equation
     connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-83,6},
             {-78,6}},
@@ -978,7 +945,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     replaceable package Medium = Modelica.Media.Air.DryAirNasa;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     // replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -997,7 +963,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                              annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -1031,7 +996,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                              annotation (Placement(transformation(extent={{-34,36},{
               -14,56}}, rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -1045,7 +1009,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                              annotation (Placement(transformation(extent={{-30,-50},
               {-10,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1; 2,
           1e-3; 100,1e-3])
                        annotation (Placement(transformation(extent={{-20,72},{0,
@@ -1068,7 +1031,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           origin={-38,6},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-
   equation
     connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-83,6},
             {-78,6}},
@@ -1104,7 +1066,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     replaceable package Medium = Modelica.Media.Air.DryAirNasa;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     // replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -1123,7 +1084,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                              annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -1157,7 +1117,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                              annotation (Placement(transformation(extent={{-34,36},{
               -14,56}}, rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -1171,7 +1130,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                              annotation (Placement(transformation(extent={{-30,-50},
               {-10,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
           2,0; 100,0]) annotation (Placement(transformation(extent={{-20,72},{0,
               92}}, rotation=0)));
@@ -1192,7 +1150,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           origin={-38,6},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-
   equation
     connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-83,6},
             {-78,6}},
@@ -1227,7 +1184,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     replaceable package Medium = Modelica.Media.Air.DryAirNasa;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     // replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -1246,7 +1202,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                              annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -1281,7 +1236,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                              annotation (Placement(transformation(extent={{-34,36},{
               -14,56}}, rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -1295,7 +1249,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                              annotation (Placement(transformation(extent={{-30,-50},
               {-10,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
           2,0; 100,0]) annotation (Placement(transformation(extent={{-20,72},{0,
               92}}, rotation=0)));
@@ -1316,7 +1269,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           origin={-40,6},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-
     Modelica.Fluid.Fittings.TeeJunctionVolume junctionVolume(
                                             redeclare package Medium = Medium,
         V=1e-3,
@@ -1361,7 +1313,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     // replaceable package Medium = Modelica.Media.Air.DryAirNasa;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -1380,7 +1331,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                              annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -1413,7 +1363,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                              annotation (Placement(transformation(extent={{-34,36},{
               -14,56}}, rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -1427,7 +1376,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                              annotation (Placement(transformation(extent={{-30,-50},
               {-10,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1; 2,
           0; 100,0])   annotation (Placement(transformation(extent={{-20,72},{0,
               92}}, rotation=0)));
@@ -1448,7 +1396,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           origin={-40,6},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-
     Modelica.Fluid.Fittings.TeeJunctionVolume junctionVolume(
                                             redeclare package Medium = Medium, V=
           1e-3,
@@ -1490,7 +1437,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
 
   model LumpedPipeInitialization "Steady-state initialization of a lumped pipe"
     extends Modelica.Icons.Example;
-
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_T=false,
@@ -1560,7 +1506,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   model SeriesPipes1
     extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=500000,
@@ -1577,7 +1522,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                                          annotation (Placement(transformation(
             extent={{-76,-10},{-56,10}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valve(
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       m_flow_nominal=1,
@@ -1600,7 +1544,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       p_a_start=500000,
       p_b_start=500000)                  annotation (Placement(transformation(
             extent={{-14,-10},{6,10}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
           1,0; 100,0]) annotation (Placement(transformation(extent={{-20,70},{0,
               90}}, rotation=0)));
@@ -1623,7 +1566,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                                          annotation (Placement(transformation(
             extent={{16,-10},{36,10}}, rotation=0)));
-
   equation
     connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,
             -4.44089e-16},{-85,-4.44089e-16},{-85,1.66534e-16},{-82,1.66534e-16},
@@ -1661,8 +1603,6 @@ Simulation starts with the valve open. At t=1, the valve is closed.
   model SeriesPipes12
     extends SeriesPipes1(
       system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial));
-  equation
-
     annotation (Documentation(info="<html>
 Same as SeriesPipes1, but with steady-state initial conditions. Equal start attributes
 for pressures.
@@ -1673,8 +1613,6 @@ for pressures.
     extends SeriesPipes1(
       pipe2(p_a_start=495000, p_b_start=495000),
       pipe3(p_a_start=490000, p_b_start=490000));
-  equation
-
     annotation (Documentation(info="<html>
 Same as SeriesPipes1, but with steady-state initial conditions. Start attributes for
 pressure in order to get positive flow rates.
@@ -1685,7 +1623,6 @@ pressure in order to get positive flow rates.
     extends Modelica.Icons.Example;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
-
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
       p=5.0e5,
@@ -1704,7 +1641,6 @@ pressure in order to get positive flow rates.
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -1721,7 +1657,6 @@ pressure in order to get positive flow rates.
       T=300,
       p=1.0e5) annotation (Placement(transformation(extent={{74,-20},{62,-8}},
             rotation=0)));
-
     Modelica.Fluid.Pipes.DynamicPipe pipe3(
       redeclare package Medium = Medium,
       use_T_start=true,
@@ -1735,7 +1670,6 @@ pressure in order to get positive flow rates.
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
                         annotation (Placement(transformation(extent={{-30,-50},
               {-10,-30}}, rotation=0)));
-
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
           1,0; 100,0]) annotation (Placement(transformation(extent={{-20,-10},{
               0,10}},
@@ -1763,5 +1697,4 @@ pressure in order to get positive flow rates.
 Simulation starts with valve 1 open. At t=1, valve 1 closes.
 </html>"));
   end SeriesPipes2;
-
 end TestPipesAndValves;

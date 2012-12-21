@@ -1,4 +1,4 @@
-within ModelicaTest.Fluid.TestComponents.Utilities;
+within ModelicaTest.Fluid.TestUtilities;
 model TestRegFunctions
   extends Modelica.Icons.Example;
   import Modelica.Fluid.Utilities.*;
