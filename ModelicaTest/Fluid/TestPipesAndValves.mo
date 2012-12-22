@@ -77,7 +77,7 @@ extends Modelica.Icons.ExamplesPackage;
       use_T_start=false,
       p_a_start=10000000,
       p_b_start=9900000,
-      modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
+      modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
