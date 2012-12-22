@@ -159,8 +159,7 @@ of magnitude.
       yMax=0,
       yMin=-1,
       Ti=10,
-      k=10,
-      Td=0)   annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+      k=10)   annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
     Pipes.DynamicPipe ductIn(
       redeclare package Medium = Medium,
       length=1,
