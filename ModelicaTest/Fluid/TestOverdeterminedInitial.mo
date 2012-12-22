@@ -10,25 +10,27 @@ extends Modelica.Icons.ExamplesPackage;
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_T=false,
       p=10000000,
-      h=2e6)
+      h=2.5e6)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
     Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
-      h_start=2e6,
       diameter=0.05,
       length=200,
       use_T_start=false,
       useLumpedPressure=true,
       nNodes=5,
+      modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb,
       p_a_start=10000000,
       p_b_start=9900000,
-      modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
+      h_start=2.5e6)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       Av=1e-3,
-      dp_nominal=10000000,
-      m_flow_nominal=10)
+      m_flow_nominal=10,
+      dp_nominal=100000,
+      rho_nominal=60,
+      p_nominal=10000000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
         = Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
@@ -98,25 +100,27 @@ The initial equations are consistent however and a tool shall reduce them approp
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_T=false,
-      h=2e6,
-      p=10000000)
+      p=10000000,
+      h=2.5e6)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
     Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
-      h_start=2e6,
       diameter=0.05,
       length=200,
       use_T_start=false,
       nNodes=5,
       modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb,
       p_a_start=10000000,
-      p_b_start=9900000)
+      p_b_start=9900000,
+      h_start=2.5e6)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       Av=1e-3,
-      dp_nominal=10000000,
-      m_flow_nominal=10)
+      m_flow_nominal=10,
+      dp_nominal=100000,
+      rho_nominal=60,
+      p_nominal=10000000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
         = Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
@@ -163,7 +167,7 @@ The initial equations are consistent however and a tool shall reduce them approp
 The initial values are overdetermined as the first pipe segment is directly connected to a source with fixed pressure.
 The initial equations are consistent however and a tool shall reduce them appropriately.
 </html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=true,
+    Diagram(coordinateSystem(preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-100,-20},{100,-40}},

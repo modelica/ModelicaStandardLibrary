@@ -201,10 +201,10 @@ explained in detail in the
     end if;
 
   equation
-    p = noEvent(if dp>=0 then port_a.p else port_b.p);
+    p = max(port_a.p, port_b.p);
     Fxt = Fxt_full*xtCharacteristic(opening_actual);
     x = dp/p;
-    xs = smooth(0, if x < -Fxt then -Fxt else if x > Fxt then Fxt else x);
+    xs = max(-Fxt, min(x, Fxt));
     Y = 1 - abs(xs)/(3*Fxt);
     // m_flow = valveCharacteristic(opening)*Av*Y*sqrt(d)*sqrt(p*xs);
     if checkValve then
@@ -212,17 +212,19 @@ explained in detail in the
                              (if xs>=0 then Utilities.regRoot(p*xs, dp_small) else 0),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
     elseif not allowFlowReversal then
-      m_flow = homotopy(valveCharacteristic(opening_actual)*Av*sqrt(Medium.density(state_a))*
+      m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*sqrt(Medium.density(state_a))*
                              Utilities.regRoot(p*xs, dp_small),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
     else
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*
-                          smooth(0, Utilities.regRoot(p*xs, dp_small)*
-                          (if xs>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b)))),
+                             Utilities.regRoot2(p*xs, dp_small, Medium.density(state_a), Medium.density(state_b)),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
-  /*
-    m_flow = valveCharacteristic(opening)*Av*Y*
-                  Modelica.Fluid.Utilities.regRoot2(p*xs, dp_small, Medium.density(state_a), Medium.density(state_b));
+  /* alternative formulation using smooth(0, ...) -- should not be used as regRoot2 has continuous derivatives
+   -- cf. ModelicaTest.Fluid.TestPipesAndValves.DynamicPipeInitialization --
+    m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*
+                        smooth(0, Utilities.regRoot(p*xs, dp_small)*
+                        (if xs>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b)))),
+                      valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
 */
     end if;
 

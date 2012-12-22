@@ -71,19 +71,20 @@ extends Modelica.Icons.ExamplesPackage;
     Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       nNodes=5,
-      h_start=2e6,
       diameter=0.05,
       length=200,
       use_T_start=false,
+      modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb,
       p_a_start=10000000,
       p_b_start=9900000,
-      modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
+      h_start=2e6)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       Av=1e-3,
       m_flow_nominal=10,
-      dp_nominal=10000000,
+      dp_nominal=100000,
+      rho_nominal=100,
       p_nominal=10000000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
@@ -92,8 +93,8 @@ extends Modelica.Icons.ExamplesPackage;
     Modelica.Blocks.Sources.Ramp ramp(
       offset=1,
       duration=0.1,
-      height=-0.5,
-      startTime=2)
+      startTime=2,
+      height=-0.5)
                 annotation (Placement(transformation(extent={{46,30},{26,50}})));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
@@ -131,10 +132,12 @@ extends Modelica.Icons.ExamplesPackage;
       Documentation(info="<html>
 The simulation shall start in steady-state (see system.energyDynamics on the Assumptions tab).
 This requires the solution of an equation system with complex non-linear expressions for the
-pipe wall friction and compressible valve characteristics. A ValveCompressible defined with Modelica.Fluid.Utilities.regRoot2 for the treatment of flow reversal
-(cf. Modelica.Fluid Stream beta3) leads to wrong initial values. It works with Modelica.Fluid.Utilities.regRoot and a smooth(0, ...) expression for flow reversal.
+pipe wall friction and compressible valve characteristics.
 <p>
-The steady-state initial values are observed by an assertion.
+The test is further complicated with an specific enthalpy of 2000 kJ/kg at 100 bar, which is in the two phase region.
+</p>
+<p>
+The steady-state initial values are checked with an assertion.
 </p>
 </html>"));
   end DynamicPipeInitialization;
@@ -170,9 +173,9 @@ The steady-state initial values are observed by an assertion.
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       m_flow_nominal=1,
       rho_nominal=1000,
-      dp_nominal=200000,
       filteredOpening=true,
-      leakageOpening=0.01)
+      leakageOpening=0.01,
+      dp_nominal=100000)
                   annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valve2(
@@ -180,9 +183,9 @@ The steady-state initial values are observed by an assertion.
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       m_flow_nominal=1,
       rho_nominal=1000,
-      dp_nominal=200000,
       filteredOpening=true,
-      leakageOpening=0.01)
+      leakageOpening=0.01,
+      dp_nominal=100000)
                   annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
@@ -283,16 +286,18 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=1000) annotation (Placement(transformation(extent={{10,36},{30,56}},
+      rho_nominal=1000,
+      dp_nominal=100000)
+                        annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=1000) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      rho_nominal=1000,
+      dp_nominal=100000)
+                        annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
       redeclare package Medium = Medium,
@@ -387,16 +392,18 @@ Simulation starts with both valves closed. At t=1, valve 1 opens; at t=2 valve 2
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=1000) annotation (Placement(transformation(extent={{10,36},{30,56}},
+      rho_nominal=1000,
+      dp_nominal=100000)
+                        annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=1000) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      rho_nominal=1000,
+      dp_nominal=100000)
+                        annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
       redeclare package Medium = Medium,
@@ -472,7 +479,7 @@ Simulation starts with both valves closed. At t=1, valve 1 opens; at t=2 valve 2
     annotation (
               experiment(StopTime=5),
       Documentation(info="<html>
-Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
+Simulation starts with both valves open. At t=1, valve 1 opens; at t=2 valve 2 opens.
 </html>"));
   end BranchingPipes3;
 
@@ -500,16 +507,18 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=1000) annotation (Placement(transformation(extent={{10,36},{30,56}},
+      rho_nominal=1000,
+      dp_nominal=100000)
+                        annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=1000) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      rho_nominal=1000,
+      dp_nominal=100000)
+                        annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
       redeclare package Medium = Medium,
@@ -588,7 +597,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     annotation (
               experiment(StopTime=5),
       Documentation(info="<html>
-Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes. The simulation fails at t=0 due to lack of initialization of the splitter state variables.
+Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 opens; at t=2 valve 2 opens. The simulation fails at t=0 due to lack of initialization of the splitter state variables.
 </html>"));
   end BranchingPipes4;
 
@@ -616,24 +625,22 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
       rho_nominal=1000,
       filteredOpening=true,
       riseTime=0.1,
-      leakageOpening=0.001)
-                        annotation (Placement(transformation(extent={{10,36},{30,56}},
+      dp_nominal=100000,
+      leakageOpening=0) annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
       rho_nominal=1000,
       filteredOpening=true,
       riseTime=0.1,
-      leakageOpening=0.001)
-                        annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      dp_nominal=100000,
+      leakageOpening=0) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
       redeclare package Medium = Medium,
@@ -668,8 +675,9 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
                         annotation (Placement(transformation(extent={{-40,-50},
               {-20,-30}}, rotation=0)));
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
-          1,0; 100,0]) annotation (Placement(transformation(extent={{-20,70},{0,
-              90}}, rotation=0)));
+          1,0; 100,0]) annotation (Placement(transformation(extent={{-22,70},{
+              -2,90}},
+                    rotation=0)));
     Modelica.Blocks.Sources.TimeTable valveOpening2(offset=0, table=[0,1; 2,1;
           2,0; 100,0]) annotation (Placement(transformation(extent={{-20,-10},{
               0,10}}, rotation=0)));
@@ -693,10 +701,9 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
     connect(pipe1.port_b, pipe3.port_a) annotation (Line(points={{-58,6},{-46,6},
             {-46,-40},{-40,-40}}, color={0,127,255}));
     connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
-          points={{1,80},{20,80},{20,54}}, color={0,0,127}));
+          points={{-1,80},{20,80},{20,54}},color={0,0,127}));
     connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,6.10623e-16},{18,6.10623e-16},{18,-32}},
-                                          color={0,0,127}));
+          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
@@ -706,7 +713,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
 
   model BranchingPipes13
     extends Modelica.Icons.Example;
-    // replaceable package Medium = Modelica.Media.Air.SimpleAir;
+    //replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
@@ -730,16 +737,16 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       m_flow_nominal=1,
-      rho_nominal=5,
-      dp_nominal=400000)
+      dp_nominal=100000,
+      rho_nominal=1000)
                   annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       m_flow_nominal=1,
-      rho_nominal=5,
-      dp_nominal=400000)
+      dp_nominal=100000,
+      rho_nominal=1000)
                   annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
@@ -817,12 +824,14 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
-</html>"));
+</html>"),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics));
   end BranchingPipes13;
 
   model BranchingPipes14
     extends Modelica.Icons.Example;
-    // replaceable package Medium = Modelica.Media.Air.SimpleAir;
+    //replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
@@ -845,16 +854,16 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     Modelica.Fluid.Valves.ValveIncompressible valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-       dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=5)    annotation (Placement(transformation(extent={{10,36},{30,56}},
+      dp_nominal=100000,
+      rho_nominal=1000) annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valve2(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=5)    annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      dp_nominal=100000,
+      rho_nominal=1000) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
       redeclare package Medium = Medium,
@@ -936,7 +945,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
-Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
+Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and t=4 valve 2 gradually closes until 1e-2.
 </html>"));
   end BranchingPipes14;
 
@@ -963,19 +972,21 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                              annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-    Modelica.Fluid.Valves.ValveIncompressible valve1(
+    Modelica.Fluid.Valves.ValveCompressible   valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=5)    annotation (Placement(transformation(extent={{10,36},{30,56}},
+      rho_nominal=5,
+      dp_nominal=100000,
+      p_nominal=400000) annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
-    Modelica.Fluid.Valves.ValveIncompressible valve2(
+    Modelica.Fluid.Valves.ValveCompressible   valve2(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=5)    annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      rho_nominal=5,
+      dp_nominal=100000,
+      p_nominal=400000) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
       redeclare package Medium = Medium,
@@ -1057,8 +1068,10 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
-Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
-</html>"));
+Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and t=4 valve 2 gradually closes until 1e-3.
+</html>"),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics));
   end BranchingPipes15;
 
   model BranchingPipes16
@@ -1084,19 +1097,21 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                              annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-    Modelica.Fluid.Valves.ValveIncompressible valve1(
+    Modelica.Fluid.Valves.ValveCompressible   valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=5)    annotation (Placement(transformation(extent={{10,36},{30,56}},
+      rho_nominal=5,
+      dp_nominal=100000,
+      p_nominal=400000) annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
-    Modelica.Fluid.Valves.ValveIncompressible valve2(
+    Modelica.Fluid.Valves.ValveCompressible   valve2(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=5)    annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      rho_nominal=5,
+      dp_nominal=100000,
+      p_nominal=400000) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
       redeclare package Medium = Medium,
@@ -1175,7 +1190,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
-Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
+Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and t=4 valve 2 gradually closes completely.
 </html>"));
   end BranchingPipes16;
 
@@ -1202,21 +1217,23 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                              annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-    Modelica.Fluid.Valves.ValveIncompressible valve1(
+    Modelica.Fluid.Valves.ValveCompressible   valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
       rho_nominal=5,
-      dp(start=10))
+      dp(start=10),
+      dp_nominal=100000,
+      p_nominal=400000)
                   annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
-    Modelica.Fluid.Valves.ValveIncompressible valve2(
+    Modelica.Fluid.Valves.ValveCompressible   valve2(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=5)    annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      rho_nominal=5,
+      dp_nominal=100000,
+      p_nominal=400000) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,
       redeclare package Medium = Medium,
@@ -1304,8 +1321,10 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     annotation (
       experiment(StopTime=5, Tolerance=1e-007),
       Documentation(info="<html>
-Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
-</html>"));
+Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and t=4 valve 2 gradually closes completely.
+</html>"),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics));
   end BranchingPipes17;
 
   model BranchingPipes18
@@ -1331,19 +1350,21 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
                              annotation (Placement(transformation(extent={{-78,-4},{
               -58,16}}, rotation=0)));
-    Modelica.Fluid.Valves.ValveIncompressible valve1(
+    Modelica.Fluid.Valves.ValveCompressible   valve1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=5)    annotation (Placement(transformation(extent={{10,36},{30,56}},
+      rho_nominal=5,
+      dp_nominal=100000,
+      p_nominal=400000) annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
-    Modelica.Fluid.Valves.ValveIncompressible valve2(
+    Modelica.Fluid.Valves.ValveCompressible   valve2(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-      dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=5)    annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      rho_nominal=5,
+      dp_nominal=100000,
+      p_nominal=400000) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,
       redeclare package Medium = Medium,
@@ -1431,7 +1452,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
-Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
+Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and t=4 valve 2 gradually closes completely.
 </html>"));
   end BranchingPipes18;
 
