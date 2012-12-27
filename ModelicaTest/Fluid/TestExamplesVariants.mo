@@ -19,4 +19,22 @@ package TestExamplesVariants
           "modelica://Modelica/Resources/Scripts/Dymola/Fluid/HeatingSystem/plotResults.mos"
         "plotResults"));
 
+  model BranchingDynamicPipes_MomentumSteadyState =
+    Modelica.Fluid.Examples.BranchingDynamicPipes (
+      system(momentumDynamics =  Modelica.Fluid.Types.Dynamics.SteadyState))
+    "Alternative case for BranchingDynamicPipes using steady-state momentum balance"
+  annotation(experiment(StopTime=10),
+    __Dymola_Commands(file(ensureSimulated=true)=
+        "modelica://Modelica/Resources/Scripts/Dymola/Fluid/BranchingDynamicPipes/plotResults.mos"
+        "plotResults"));
+
+  model BranchingDynamicPipes_StandardWater =
+    Modelica.Fluid.Examples.BranchingDynamicPipes (
+      redeclare package Medium = Modelica.Media.Water.StandardWater)
+    "Alternative case for BranchingDynamicPipes using StandardWater medium"
+  annotation(experiment(StopTime=10),
+    __Dymola_Commands(file(ensureSimulated=true)=
+        "modelica://Modelica/Resources/Scripts/Dymola/Fluid/BranchingDynamicPipes/plotResults.mos"
+        "plotResults"));
+
 end TestExamplesVariants;

@@ -38,10 +38,10 @@ extends Modelica.Icons.Example;
     diameter=0.01,
     nNodes=5,
     m_flow_start=0.1,
-    p_b_start=100000,
-    T_start=340,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
-    p_a_start=100000)
+    p_a_start=100000,
+    p_b_start=100000,
+    T_start=340)
             annotation (Placement(transformation(extent={{20,54},{40,74}},
           rotation=0)));
 
@@ -56,7 +56,7 @@ extends Modelica.Icons.Example;
     length=0.4,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
     p_a_start=100000)
-            annotation (Placement(transformation(extent={{-82,54},{-62,74}},
+            annotation (Placement(transformation(extent={{-80,54},{-60,74}},
           rotation=0)));
 
   Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
@@ -68,9 +68,8 @@ extends Modelica.Icons.Example;
   Modelica.Blocks.Sources.Ramp ramp(
     offset=1e5,
     startTime=5,
-    duration=0,
-    height=1.0e5)
-                annotation (Placement(transformation(extent={{90,64},{78,76}},
+    height=1.0e5,
+    duration=1) annotation (Placement(transformation(extent={{92,78},{80,66}},
           rotation=0)));
 
   Modelica.Fluid.Pipes.DynamicPipe pipe4(
@@ -87,7 +86,7 @@ extends Modelica.Icons.Example;
             annotation (Placement(transformation(extent={{-30,38},{-10,58}},
           rotation=0)));
 
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
     annotation (Placement(transformation(extent={{72,-94},{92,-74}}, rotation=0)));
   Modelica.Fluid.Fittings.TeeJunctionVolume junction1(
     redeclare package Medium = Medium,
@@ -118,12 +117,13 @@ extends Modelica.Icons.Example;
     m_flow_start=0.1,
     length=2,
     use_HeatTransfer=true,
-    p_a_start=100000,
     p_b_start=100000,
     T_start=280,
     redeclare model HeatTransfer =
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
-        (alpha0=500))
+        (alpha0=500),
+    p_a_start=100000,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
             annotation (Placement(transformation(extent={{-30,10},{-10,30}},
           rotation=0)));
 
@@ -134,7 +134,7 @@ extends Modelica.Icons.Example;
     p=100000,
     T=300,
     C={1.5E-3,0.05E-3})                                             annotation (Placement(
-        transformation(extent={{68,-2},{48,18}}, rotation=0)));
+        transformation(extent={{70,-2},{50,18}}, rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe6(
     redeclare package Medium=Medium,
     length=1,
@@ -142,23 +142,24 @@ extends Modelica.Icons.Example;
     diameter=0.01,
     nNodes=5,
     m_flow_start=0.1,
-    p_b_start=100000,
-    T_start=340,
     modelStructure=Modelica.Fluid.Types.ModelStructure.av_b,
-    p_a_start=100000)
-            annotation (Placement(transformation(extent={{14,-2},{34,18}},
+    p_a_start=100000,
+    p_b_start=100000,
+    T_start=340)
+            annotation (Placement(transformation(extent={{20,-2},{40,18}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe7(
     redeclare package Medium=Medium,
     use_T_start=true,
-    T_start=300,
     diameter=0.01,
     nNodes=5,
     m_flow_start=0.1,
-    p_b_start=1.0e5,
     length=0.4,
-    p_a_start=100000)
-            annotation (Placement(transformation(extent={{-74,-2},{-54,18}},
+    p_a_start=100000,
+    p_b_start=100000,
+    T_start=300,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
+            annotation (Placement(transformation(extent={{-80,-2},{-60,18}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT boundary3(nPorts=1,
     redeclare package Medium = Medium,
@@ -168,9 +169,8 @@ extends Modelica.Icons.Example;
   Modelica.Blocks.Sources.Ramp ramp1(
     offset=1e5,
     startTime=5,
-    duration=0,
-    height=1.0e5)
-                annotation (Placement(transformation(extent={{96,8},{84,20}},
+    height=1.0e5,
+    duration=1) annotation (Placement(transformation(extent={{92,22},{80,10}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe8(
     redeclare package Medium=Medium,
@@ -181,7 +181,8 @@ extends Modelica.Icons.Example;
     nNodes=5,
     m_flow_start=0.1,
     p_b_start=1.0e5,
-    p_a_start=100000)
+    p_a_start=100000,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
             annotation (Placement(transformation(extent={{-30,-12},{-10,8}},
           rotation=0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
@@ -207,7 +208,7 @@ extends Modelica.Icons.Example;
 equation
   connect(boundary1.ports[1], pipe1.port_a)
                                         annotation (Line(
-      points={{-88,64},{-82,64}},
+      points={{-88,64},{-80,64}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe3.port_b, boundary2.ports[1])
@@ -221,25 +222,25 @@ equation
       color={191,0,0},
       thickness=0.5));
   connect(ramp1.y, boundary4.p_in) annotation (Line(
-      points={{83.4,14},{76.7,14},{76.7,16},{70,16}},
+      points={{79.4,16},{72,16}},
       color={0,0,127},
       thickness=0.5));
   connect(boundary3.ports[1], pipe7.port_a)
                                         annotation (Line(
-      points={{-88,8},{-74,8}},
+      points={{-88,8},{-80,8}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe5.port_b, pipe6.port_a) annotation (Line(
-      points={{-10,20},{2,20},{2,8},{14,8}},
+      points={{-10,20},{2,20},{2,8},{20,8}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe8.port_b, pipe6.port_a) annotation (Line(
-      points={{-10,-2},{2,-2},{2,8},{14,8}},
+      points={{-10,-2},{2,-2},{2,8},{20,8}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe6.port_b, boundary4.ports[1])
                                         annotation (Line(
-      points={{34,8},{48,8}},
+      points={{40,8},{50,8}},
       color={0,127,255},
       thickness=0.5));
   connect(heat1.port, pipe5.heatPorts)
@@ -248,7 +249,7 @@ equation
       color={191,0,0},
       thickness=0.5));
   connect(boundary2.p_in, ramp.y) annotation (Line(
-      points={{72,72},{74.7,72},{74.7,70},{77.4,70}},
+      points={{72,72},{79.4,72}},
       color={0,0,127},
       thickness=0.5));
   connect(junction2.port_3, pipe3.port_a) annotation (Line(
@@ -267,7 +268,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(pipe1.port_b, junction1.port_3) annotation (Line(
-      points={{-62,64},{-52,64}},
+      points={{-60,64},{-52,64}},
       color={0,127,255},
       thickness=0.5,
       smooth=Smooth.None));
@@ -282,11 +283,11 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(traceSubstance1.port, pipe1.port_b) annotation (Line(
-      points={{-80,80},{-60,80},{-60,64},{-62,64}},
+      points={{-80,80},{-58,80},{-58,64},{-60,64},{-60,64}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(pipe7.port_a, traceSubstance3.port) annotation (Line(
-      points={{-74,8},{-80,8},{-80,22},{-88,22}},
+      points={{-80,8},{-80,8},{-82,8},{-82,22},{-88,22}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(pipe3.port_b, traceSubstance2.port) annotation (Line(
@@ -294,11 +295,11 @@ equation
       color={0,127,255},
       smooth=Smooth.None));
   connect(traceSubstance4.port, pipe6.port_a) annotation (Line(
-      points={{12,22},{12,8},{14,8}},
+      points={{12,22},{12,8},{20,8}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(pipe7.port_b, multiPort.port_a) annotation (Line(
-      points={{-54,8},{-46,8}},
+      points={{-60,8},{-46,8}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(multiPort.ports_b[1], pipe5.port_a) annotation (Line(

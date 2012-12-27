@@ -2,15 +2,17 @@ within Modelica.Fluid.Examples;
 model BranchingDynamicPipes
   "Multi-way connections of pipes with dynamic momentum balance, pressure wave and flow reversal"
 extends Modelica.Icons.Example;
-replaceable package Medium=Modelica.Media.Air.MoistAir;
-//replaceable package Medium=Modelica.Media.Water.StandardWater;
+replaceable package Medium=Modelica.Media.Air.MoistAir constrainedby
+    Modelica.Media.Interfaces.PartialMedium;
+//replaceable package Medium=Modelica.Media.Water.StandardWater constrainedby Modelica.Media.Interfaces.PartialMedium;
 
-  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-      momentumDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
+      momentumDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
     annotation (Placement(transformation(extent={{-90,70},{-70,90}},  rotation=
             0)));
   Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
-    redeclare package Medium = Medium, p=150000)                    annotation (Placement(
+    redeclare package Medium = Medium,
+    p=150000)                                                       annotation (Placement(
         transformation(extent={{-10,-10},{10,10}},    rotation=90,
         origin={0,-80})));
   Pipes.DynamicPipe             pipe1(
@@ -23,7 +25,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
     length=50,
     p_a_start=150000,
     p_b_start=130000,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={0,-50})));
@@ -40,7 +42,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
     height_ab=25,
     p_a_start=130000,
     p_b_start=120000,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={-20,-10})));
@@ -69,7 +71,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
     length=50,
     p_a_start=120000,
     p_b_start=100000,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.av_b)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={0,30})));
@@ -133,7 +135,7 @@ This model demonstrates the use of distributed pipe models with dynamic energy, 
 At time=2s the pressure of boundary4 jumps, which causes a pressure wave and flow reversal.
 </p>
 <p>
-Change system.momentumDynamics on the Assumptions tab of the system object from DynamicFreeInitial to SteadyState,
+Change system.momentumDynamics on the Assumptions tab of the system object from SteadyStateInitial to SteadyState,
 in order to assume a steady-state momentum balance. This is the default for all models of the library.
 </p>
 <p>
@@ -142,15 +144,18 @@ Note the static head caused by the elevation of the pipes.
 </p>
 
 <p>
-Note, pipe4.modelStructure = av_b, i.e., the pipe has no volume at port_b.
-It is not possible to have a volume at port_b, since otherwise the pressure of the volume is
-defined by the connected boundary source. This in turn means that the
-derivative of the pressure of the boundary source is needed, since the volume
-requires this derivative. It is, however, not possible to compute this
-derivative because the input pressure is changing disontinuously and its
-derivative would be a dirac impulse.
+Note the appropriate use of the modelStructure of the DynamicPipe models (Advanced tab). 
+The default modelStructure is av_vb, i.e. volumes with a pressure state are exposed at both ports.
+In many cases this gives good numerical performance, avoiding algebraic loops in connections, 
+e.g. if a pipe is connected to a valve or to a vessel with portsData configured.
+The price to pay is a high-indes DAE if two pipes are connected or if a pipe is connected to a boundary with prescribed pressure.
+In such cases one might consider changing the modelStructure.
 </p>
-
+<p>
+In the BranchingDynamicPipes example, {pipe1,pipe3,pipe4}.modelStructure are configured to a_v_b, while pipe2.modelStructure remains av_vb. 
+This avoids a high-index DAE and overdetermined initial conditions.
+</p>
+<p></p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\"
      alt=\"BranchingDynamicPipes.png\">
 </html>"), experiment(StopTime=10),

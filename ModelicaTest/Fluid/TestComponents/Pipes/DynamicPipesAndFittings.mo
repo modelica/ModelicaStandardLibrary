@@ -38,10 +38,10 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     diameter=0.01,
     nNodes=5,
     m_flow_start=0.1,
-    p_b_start=100000,
-    T_start=340,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
-    p_a_start=100000)
+    p_a_start=100000,
+    p_b_start=100000,
+    T_start=340)
             annotation (Placement(transformation(extent={{20,54},{40,74}},
           rotation=0)));
 
@@ -56,7 +56,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     p_a_start=100000,
     p_b_start=100000,
     T_start=300)
-            annotation (Placement(transformation(extent={{-82,54},{-62,74}},
+            annotation (Placement(transformation(extent={{-80,54},{-60,74}},
           rotation=0)));
 
   Modelica.Fluid.Sources.Boundary_pT           boundary1(nPorts=1,
@@ -69,7 +69,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     offset=1e5,
     startTime=5,
     height=1.0e5,
-    duration=1) annotation (Placement(transformation(extent={{90,66},{78,78}},
+    duration=1) annotation (Placement(transformation(extent={{92,78},{80,66}},
           rotation=0)));
 
   Modelica.Fluid.Pipes.DynamicPipe pipe4(
@@ -116,9 +116,10 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     nNodes=5,
     m_flow_start=0.1,
     length=2,
-    redeclare model HeatTransfer =
-        Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer,
     use_HeatTransfer=true,
+    redeclare model HeatTransfer =
+        Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
+        (alpha0=500),
     p_a_start=100000,
     p_b_start=100000,
     T_start=280,
@@ -132,7 +133,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     T=300,
     use_p_in=true,
     use_T_in=false)                                      annotation (Placement(
-        transformation(extent={{68,-2},{48,18}}, rotation=0)));
+        transformation(extent={{70,-2},{50,18}}, rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe6(
     redeclare package Medium=Medium,
     length=1,
@@ -140,11 +141,11 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     diameter=0.01,
     nNodes=5,
     m_flow_start=0.1,
-    p_b_start=100000,
     T_start=340,
     p_a_start=100000,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.av_b)
-            annotation (Placement(transformation(extent={{14,-2},{34,18}},
+    p_b_start=100000,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
+            annotation (Placement(transformation(extent={{20,-2},{40,18}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe7(
     redeclare package Medium=Medium,
@@ -153,10 +154,10 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     nNodes=5,
     m_flow_start=0.1,
     length=0.4,
+    T_start=300,
     p_a_start=100000,
     p_b_start=100000,
-    T_start=300,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
             annotation (Placement(transformation(extent={{-80,-2},{-60,18}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT           boundary3(nPorts=1,
@@ -168,7 +169,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     offset=1e5,
     startTime=5,
     height=1.0e5,
-    duration=1) annotation (Placement(transformation(extent={{96,10},{84,22}},
+    duration=1) annotation (Placement(transformation(extent={{92,22},{80,10}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe8(
     redeclare package Medium=Medium,
@@ -177,10 +178,10 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     diameter=0.01,
     nNodes=5,
     m_flow_start=0.1,
+    T_start=360,
     p_a_start=100000,
     p_b_start=100000,
-    T_start=360,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
             annotation (Placement(transformation(extent={{-30,-12},{-10,8}},
           rotation=0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
@@ -221,10 +222,10 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     nNodes=5,
     modelStructure=Modelica.Fluid.Types.ModelStructure.av_b,
     m_flow_start=0.1,
+    p_a_start=100000,
     p_b_start=100000,
-    T_start=340,
-    p_a_start=100000)
-            annotation (Placement(transformation(extent={{14,-62},{34,-42}},
+    T_start=340)
+            annotation (Placement(transformation(extent={{20,-62},{40,-42}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe11(
     redeclare package Medium=Medium,
@@ -237,7 +238,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     p_a_start=100000,
     p_b_start=100000,
     T_start=300)
-            annotation (Placement(transformation(extent={{-74,-62},{-54,-42}},
+            annotation (Placement(transformation(extent={{-80,-62},{-60,-42}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT           boundary6(nPorts=1,
     redeclare package Medium = Medium,
@@ -248,7 +249,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     offset=1e5,
     startTime=5,
     height=1.0e5,
-    duration=1) annotation (Placement(transformation(extent={{98,-50},{86,-38}},
+    duration=1) annotation (Placement(transformation(extent={{92,-38},{80,-50}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe12(
     redeclare package Medium=Medium,
@@ -278,7 +279,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
 equation
   connect(boundary1.ports[1], pipe1.port_a)
                                         annotation (Line(
-      points={{-88,64},{-82,64}},
+      points={{-88,64},{-80,64}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe3.port_b, boundary2.ports[1])
@@ -292,7 +293,7 @@ equation
       color={191,0,0},
       thickness=0.5));
   connect(ramp1.y, boundary4.p_in) annotation (Line(
-      points={{83.4,16},{76.7,16},{70,16}},
+      points={{79.4,16},{79.4,16},{72,16}},
       color={0,0,127},
       thickness=0.5));
   connect(boundary3.ports[1], pipe7.port_a)
@@ -309,16 +310,16 @@ equation
       color={0,127,255},
       thickness=0.5));
   connect(pipe5.port_b, pipe6.port_a) annotation (Line(
-      points={{-10,20},{2,20},{2,8},{14,8}},
+      points={{-10,20},{2,20},{2,8},{20,8}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe8.port_b, pipe6.port_a) annotation (Line(
-      points={{-10,-2},{2,-2},{2,8},{14,8}},
+      points={{-10,-2},{2,-2},{2,8},{20,8}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe6.port_b, boundary4.ports[1])
                                         annotation (Line(
-      points={{34,8},{48,8}},
+      points={{40,8},{40,8},{50,8}},
       color={0,127,255},
       thickness=0.5));
   connect(heat1.port, pipe5.heatPorts)
@@ -327,21 +328,21 @@ equation
       color={191,0,0},
       thickness=0.5));
   connect(boundary2.p_in, ramp.y) annotation (Line(
-      points={{72,72},{74.7,72},{77.4,72}},
+      points={{72,72},{79.4,72}},
       color={0,0,127},
       thickness=0.5));
   connect(ramp2.y, boundary5.p_in) annotation (Line(
-      points={{85.4,-44},{77.7,-44},{72,-44}},
+      points={{79.4,-44},{79.4,-44},{72,-44}},
       color={0,0,127},
       thickness=0.5));
   connect(boundary6.ports[1], pipe11.port_a)
                                          annotation (Line(
-      points={{-90,-52},{-74,-52}},
+      points={{-90,-52},{-80,-52}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe10.port_b, boundary5.ports[1])
                                          annotation (Line(
-      points={{34,-52},{50,-52}},
+      points={{40,-52},{50,-52}},
       color={0,127,255},
       thickness=0.5));
   connect(heat2.port, pipe9.heatPorts)
@@ -350,7 +351,7 @@ equation
       color={191,0,0},
       thickness=0.5));
   connect(pipe11.port_b, muliPort11.port_a) annotation (Line(
-      points={{-54,-52},{-50,-52}},
+      points={{-60,-52},{-50,-52}},
       color={0,127,255},
       thickness=0.5,
       smooth=Smooth.None));
@@ -365,7 +366,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(multiPort10.port_a, pipe10.port_a) annotation (Line(
-      points={{10,-52},{14,-52}},
+      points={{10,-52},{20,-52}},
       color={0,127,255},
       thickness=0.5,
       smooth=Smooth.None));
@@ -395,7 +396,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(pipe1.port_b, junction1.port_3) annotation (Line(
-      points={{-62,64},{-52,64}},
+      points={{-60,64},{-52,64}},
       color={0,127,255},
       thickness=0.5,
       smooth=Smooth.None));
@@ -412,5 +413,7 @@ equation
   annotation ( experiment(StopTime=20),
     Documentation(info="<html>
 Test of different dynamic pipe models. The first system uses explicit junctions, in the third system some of the pipe models are replaced by non-symmetric components.
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics));
 end DynamicPipesAndFittings;
