@@ -1,7 +1,10 @@
 BaseClasses
 Dissipation
 TestComponents
+TestExamplesVariants
 TestPipesAndValves
 TestCriticalCases
 TestOverdeterminedInitial
 TestUtilities
+Dissipation
+TestSystems

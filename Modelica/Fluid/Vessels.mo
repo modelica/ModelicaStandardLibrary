@@ -250,7 +250,7 @@ end OpenTank;
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
 
         // Conservation of kinetic energy
-        Medium.Density[nPorts] portDensities
+        Medium.Density[nPorts] portInDensities
         "densites of the fluid at the device boudary";
         SI.Velocity[nPorts] portVelocities
         "velocities of fluid flow at device boundary";
@@ -326,16 +326,15 @@ of the modeller. Increase nPorts to add an additional port.
 
         // actual definition of port variables
         for i in 1:nPorts loop
+          portInDensities[i] = Medium.density(Medium.setState_phX(vessel_ps_static[i], inStream(ports[i].h_outflow), inStream(ports[i].Xi_outflow)));
           if use_portsData then
             // dp = 0.5*zeta*d*v*|v|
-            // Note: assume vessel_ps_static for portDensities to avoid algebraic loops for ports.p
-            portDensities[i] = noEvent(Medium.density(Medium.setState_phX(vessel_ps_static[i], actualStream(ports[i].h_outflow), actualStream(ports[i].Xi_outflow))));
-            portVelocities[i] = smooth(0, ports[i].m_flow/portAreas[i]/portDensities[i]);
+            // Note: assume vessel_ps_static for portVelocities to avoid algebraic loops for ports.p
+            portVelocities[i] = smooth(0, ports[i].m_flow/portAreas[i]/Medium.density(Medium.setState_phX(vessel_ps_static[i], actualStream(ports[i].h_outflow), actualStream(ports[i].Xi_outflow))));
             // Note: the penetration should not go too close to zero as this would prevent a vessel from running empty
             ports_penetration[i] = Utilities.regStep(fluidLevel - portsData_height[i] - 0.1*portsData_diameter[i], 1, 1e-3, 0.1*portsData_diameter[i]);
           else
             // an infinite port diameter is assumed
-            portDensities[i] = medium.d;
             portVelocities[i] = 0;
             ports_penetration[i] = 1;
           end if;
@@ -346,18 +345,18 @@ of the modeller. Increase nPorts to add an additional port.
             if use_portsData then
               /* Without regularization
         ports[i].p = vessel_ps_static[i] + 0.5*ports[i].m_flow^2/portAreas[i]^2
-                      * noEvent(if ports[i].m_flow>0 then zeta_in[i]/portDensities[i] else -zeta_out[i]/medium.d);
+                      * noEvent(if ports[i].m_flow>0 then zeta_in[i]/portInDensities[i] else -zeta_out[i]/medium.d);
         */
 
               // the simplified model for initialization assumes a linear pressure loss
               ports[i].p = homotopy(vessel_ps_static[i] + (0.5/portAreas[i]^2*Utilities.regSquare2(ports[i].m_flow, m_flow_small,
-                                           (portsData_zeta_in[i] - 1 + portAreas[i]^2/vesselArea^2)/portDensities[i]*ports_penetration[i],
+                                           (portsData_zeta_in[i] - 1 + portAreas[i]^2/vesselArea^2)/portInDensities[i]*ports_penetration[i],
                                            (portsData_zeta_out[i] + 1 - portAreas[i]^2/vesselArea^2)/medium.d/ports_penetration[i])),
                                     -ports[i].m_flow*dp_nominal/m_flow_nominal);
               /*
         // alternative formulation m_flow=f(dp); not allowing the ideal portsData_zeta_in[i]=1 though
         ports[i].m_flow = smooth(2, portAreas[i]*Utilities.regRoot2(ports[i].p - vessel_ps_static[i], dp_small,
-                                     2*portDensities[i]/portsData_zeta_in[i],
+                                     2*portInDensities[i]/portsData_zeta_in[i],
                                      2*medium.d/portsData_zeta_out[i]));
         */
             else

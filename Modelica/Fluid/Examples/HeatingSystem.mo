@@ -69,7 +69,7 @@ public
     alpha=-0.5)
     annotation (Placement(transformation(extent={{16,30},{36,50}}, rotation=0)));
   inner Modelica.Fluid.System system(
-      m_flow_small=1e-4, energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
+      m_flow_small=1e-4, energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
                         annotation (Placement(transformation(extent={{-90,70},{
             -70,90}},   rotation=0)));
   Pipes.DynamicPipe heater(
@@ -208,8 +208,7 @@ tankLevel = tank.level;
       smooth=Smooth.None));
   annotation (                             Documentation(info="<html>
 <p>
-Simple heating system with a closed flow cycle. It is set up with fixed initial values,
- which means that the states need to find their actual values at the beginning of the simulation. 
+Simple heating system with a closed flow cycle. 
 After 2000s of simulation time the valve fully opens. A simple idealized control is embedded
 into the respective components, so that the heating system can be regulated with the valve:
 the pump controls the pressure, the burner controls the temperature.
@@ -217,10 +216,13 @@ the pump controls the pressure, the burner controls the temperature.
 <p>
 One can investigate the temperatures and flows for different settings of <code>system.energyDynamics</code>
 (see Assumptions tab of the system object).
-With <code>system.energyDynamics==Types.Dynamics.SteadyStateInitial</code> the simulation starts in steady-state.
-With <code>system.energyDynamics==Types.Dynamics.SteadyState</code> all but one dynamic states are eliminated.
-The left state <code>tank.m</code> is to account for the closed flow cycle. It is constant as outflow and inflow are equal
-in a steady-state simulation.
+<ul>
+<li>With <code>system.energyDynamics==Types.Dynamics.FixedInitial</code> the states need to find their steady values during the simulation.</li>
+<li>With <code>system.energyDynamics==Types.Dynamics.SteadyStateInitial</code> (default setting) the simulation starts in steady-state.</li>
+<li>With <code>system.energyDynamics==Types.Dynamics.SteadyState</code> all but one dynamic states are eliminated.
+    The left state <code>tank.m</code> is to account for the closed flow cycle. It is constant as outflow and inflow are equal
+    in a steady-state simulation.</li>
+</ul>
 </p>
 <p>
 Note that a closed flow cycle generally causes circular equalities for the mass flow rates and leaves the pressure undefined.
