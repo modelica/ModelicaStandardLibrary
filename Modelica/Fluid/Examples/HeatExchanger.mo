@@ -6,9 +6,8 @@ package HeatExchanger "Demo of a heat exchanger model"
 
   extends Modelica.Icons.Example;
 
-  replaceable package Medium =
-        Modelica.Media.Water.ConstantPropertyLiquidWater;
-  //replaceable package Medium = Modelica.Media.Water.StandardWater;
+  //replaceable package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater;
+  replaceable package Medium = Modelica.Media.Water.StandardWater;
   //package Medium = Modelica.Media.Incompressible.Examples.Essotherm650;
     Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX HEX(
       c_wall=500,
@@ -18,8 +17,6 @@ package HeatExchanger "Demo of a heat exchanger model"
       m_flow_start_1=0.2,
       m_flow_start_2=0.2,
       k_wall=100,
-      energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-      massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
       s_wall=0.005,
       crossArea_1=4.5e-4,
       crossArea_2=4.5e-4,
@@ -32,13 +29,14 @@ package HeatExchanger "Demo of a heat exchanger model"
           Medium,
       redeclare package Medium_2 =
           Medium,
-      redeclare model HeatTransfer_1 =
-          Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
-          (                                                                   alpha0=
-             1000),
+      modelStructure_1=Modelica.Fluid.Types.ModelStructure.av_b,
+      modelStructure_2=Modelica.Fluid.Types.ModelStructure.a_vb,
       redeclare model HeatTransfer_2 =
           Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
           (alpha0=200),
+      redeclare model HeatTransfer_1 =
+          Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer
+          (alpha0=1000),
       Twall_start=300,
       dT=10,
       T_start_1=304,
@@ -74,9 +72,9 @@ package HeatExchanger "Demo of a heat exchanger model"
       startTime=50,
       duration=5,
       height=-1,
-      offset=0.5)   annotation (Placement(transformation(extent={{-98,24},{-78,
-              44}}, rotation=0)));
-    inner Modelica.Fluid.System system
+      offset=0.5)   annotation (Placement(transformation(extent={{-98,44},{-78,24}},
+                    rotation=0)));
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
                                      annotation (Placement(transformation(extent=
               {{60,70},{80,90}}, rotation=0)));
   equation
@@ -109,7 +107,14 @@ package HeatExchanger "Demo of a heat exchanger model"
     model BasicHX "Simple heat exchanger model"
       outer Modelica.Fluid.System system "System properties";
       //General
+      parameter SI.Length length(min=0) "Length of flow path for both fluids";
       parameter Integer nNodes(min=1) = 2 "Spatial segmentation";
+      parameter Modelica.Fluid.Types.ModelStructure modelStructure_1=Types.ModelStructure.av_vb
+        "Determines whether flow or volume models are present at the ports"
+        annotation(Evaluate=true, Dialog(tab="General",group="Fluid 1"));
+      parameter Modelica.Fluid.Types.ModelStructure modelStructure_2=Types.ModelStructure.av_vb
+        "Determines whether flow or volume models are present at the ports"
+        annotation(Evaluate=true, Dialog(tab="General",group="Fluid 2"));
       replaceable package Medium_1 = Modelica.Media.Water.StandardWater constrainedby
         Modelica.Media.Interfaces.PartialMedium "Fluid 1"
                                                         annotation(choicesAllMatching, Dialog(tab="General",group="Fluid 1"));
@@ -120,9 +125,7 @@ package HeatExchanger "Demo of a heat exchanger model"
       parameter SI.Area crossArea_2 "Cross sectional area" annotation(Dialog(tab="General",group="Fluid 2"));
       parameter SI.Length perimeter_1 "Flow channel perimeter" annotation(Dialog(tab="General",group="Fluid 1"));
       parameter SI.Length perimeter_2 "Flow channel perimeter" annotation(Dialog(tab="General",group="Fluid 2"));
-      parameter SI.Length length(min=0) "Length of flow path for both fluids";
-      parameter SI.Length s_wall(min=0) "Wall thickness";
-      parameter Boolean use_HeatTransfer = false
+      final parameter Boolean use_HeatTransfer = true
         "= true to use the HeatTransfer_1/_2 model";
 
       // Heat transfer
@@ -141,27 +144,31 @@ package HeatExchanger "Demo of a heat exchanger model"
       parameter SI.Area area_h_1 "Heat transfer area" annotation(Dialog(tab="General",group="Fluid 1"));
       parameter SI.Area area_h_2 "Heat transfer area" annotation(Dialog(tab="General",group="Fluid 2"));
      //Wall
-      parameter SI.Density rho_wall "Density of wall material" annotation(Dialog(tab="General", group="Solid material properties"));
+      parameter SI.Length s_wall(min=0) "Wall thickness"
+        annotation (Dialog(group="Wall properties"));
+      parameter SI.ThermalConductivity k_wall
+        "Thermal conductivity of wall material"
+        annotation (Dialog(group="Wall properties"));
       parameter SI.SpecificHeatCapacity c_wall
-        "Specific heat capacity of wall material" annotation(Dialog(tab="General", group="Solid material properties"));
+        "Specific heat capacity of wall material"
+        annotation(Dialog(tab="General", group="Wall properties"));
+      parameter SI.Density rho_wall "Density of wall material"
+        annotation(Dialog(tab="General", group="Wall properties"));
       final parameter SI.Area area_h=(area_h_1 + area_h_2)/2
         "Heat transfer area";
       final parameter SI.Mass m_wall=rho_wall*area_h*s_wall "Wall mass";
-      parameter SI.ThermalConductivity k_wall
-        "Thermal conductivity of wall material"
-        annotation (Dialog(group="Solid material properties"));
 
       // Assumptions
       parameter Boolean allowFlowReversal = system.allowFlowReversal
         "allow flow reversal, false restricts to design direction (port_a -> port_b)"
         annotation(Dialog(tab="Assumptions"), Evaluate=true);
-      parameter Types.Dynamics energyDynamics=system.energyDynamics
+      parameter Modelica.Fluid.Types.Dynamics energyDynamics=system.energyDynamics
         "Formulation of energy balance"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
-      parameter Types.Dynamics massDynamics=system.massDynamics
+      parameter Modelica.Fluid.Types.Dynamics massDynamics=system.massDynamics
         "Formulation of mass balance"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
-      parameter Types.Dynamics momentumDynamics=system.momentumDynamics
+      parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
         "Formulation of momentum balance, if pressureLoss options available"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
 
@@ -188,7 +195,7 @@ package HeatExchanger "Demo of a heat exchanger model"
       parameter Medium_1.SpecificEnthalpy h_start_1=if use_T_start then Medium_1.specificEnthalpy_pTX(
             (p_a_start1 + p_b_start1)/2,
             T_start_1,
-            X_start_1[1:Medium_1.nXi]) else Medium_1.h_default
+            X_start_1) else Medium_1.h_default
         "Start value of specific enthalpy"
         annotation(Evaluate=true, Dialog(tab = "Initialization", group = "Fluid 1", enable = not use_T_start));
       parameter Medium_1.MassFraction X_start_1[Medium_1.nX]=Medium_1.X_default
@@ -213,7 +220,7 @@ package HeatExchanger "Demo of a heat exchanger model"
       parameter Medium_2.SpecificEnthalpy h_start_2=if use_T_start then Medium_2.specificEnthalpy_pTX(
             (p_a_start2 + p_b_start2)/2,
             T_start_2,
-            X_start_2[1:Medium_2.nXi]) else Medium_2.h_default
+            X_start_2) else Medium_2.h_default
         "Start value of specific enthalpy"
         annotation(Evaluate=true, Dialog(tab = "Initialization", group = "Fluid 2", enable = not use_T_start));
       parameter Medium_2.MassFraction X_start_2[Medium_2.nX]=Medium_2.X_default
@@ -255,7 +262,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         annotation (Placement(transformation(extent={{-29,-23},{9,35}},  rotation=
                0)));
 
-      Pipes.PipeTwoPhaseHT             pipe_1(
+      Pipes.DynamicPipe pipe_1(
         redeclare final package Medium = Medium_1,
         final isCircular=false,
         final diameter=0,
@@ -275,10 +282,11 @@ package HeatExchanger "Demo of a heat exchanger model"
         final perimeter=perimeter_1,
         final crossArea=crossArea_1,
         final roughness=roughness_1,
-        redeclare final model FlowModel = FlowModel_1)   annotation (Placement(transformation(extent={{-40,-80},
+        redeclare final model FlowModel = FlowModel_1,
+        final modelStructure=modelStructure_1)              annotation (Placement(transformation(extent={{-40,-80},
                 {20,-20}},        rotation=0)));
 
-      Pipes.PipeTwoPhaseHT             pipe_2(
+      Pipes.DynamicPipe pipe_2(
         redeclare final package Medium = Medium_2,
         final nNodes=nNodes,
         final allowFlowReversal=allowFlowReversal,
@@ -300,7 +308,8 @@ package HeatExchanger "Demo of a heat exchanger model"
         final p_a_start=p_a_start1,
         final p_b_start=p_b_start2,
         final roughness=roughness_2,
-        redeclare final model FlowModel = FlowModel_2)
+        redeclare final model FlowModel = FlowModel_2,
+        final modelStructure=modelStructure_2)
                   annotation (Placement(transformation(extent={{20,88},{-40,28}},
               rotation=0)));
 
@@ -426,7 +435,7 @@ The design flow direction with positive m_flow variables is counterflow.</p>
         "Distribution of wall mass";
     //Initialization
       outer Modelica.Fluid.System system;
-      parameter Types.Dynamics energyDynamics=system.energyDynamics
+      parameter Modelica.Fluid.Types.Dynamics energyDynamics=system.energyDynamics
         "Formulation of energy balance"
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
       parameter SI.Temperature T_start "Wall temperature start value";
@@ -445,15 +454,15 @@ The design flow direction with positive m_flow variables is counterflow.</p>
                   0)));
 
     initial equation
-      if energyDynamics == Types.Dynamics.SteadyState then
+      if energyDynamics == Modelica.Fluid.Types.Dynamics.SteadyStateInitial then
         der(T) = zeros(n);
-      elseif energyDynamics == Types.Dynamics.FixedInitial then
+      elseif energyDynamics == Modelica.Fluid.Types.Dynamics.FixedInitial then
         T = ones(n)*T_start;
       end if;
     equation
       for i in 1:n loop
        assert(m[i]>0, "Wall has negative dimensions");
-       if energyDynamics == Types.Dynamics.SteadyState then
+       if energyDynamics == Modelica.Fluid.Types.Dynamics.SteadyState then
          0 = heatPort_a[i].Q_flow + heatPort_b[i].Q_flow;
        else
          c_wall*m[i]*der(T[i]) = heatPort_a[i].Q_flow + heatPort_b[i].Q_flow;
