@@ -31,22 +31,18 @@ model PumpingSystem "Model of a pumping system for drinking water"
     redeclare function flowCharacteristic =
         Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow (
           V_flow_nominal={0,0.25,0.5}, head_nominal={100,60,0}),
-    V=50/1000,
-    T_start=Modelica.SIunits.Conversions.from_degC(20),
-    m_flow_start=0,
     use_N_in=true,
     nParallel=1,
     energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-    massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
+    V(displayUnit="l") = 0.05,
+    massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
     annotation (Placement(transformation(extent={{-68,-80},{-48,-60}}, rotation=
            0)));
 
   Modelica.Fluid.Vessels.OpenTank reservoir(
-    massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     T_start=Modelica.SIunits.Conversions.from_degC(20),
-    energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     use_portsData=true,
     crossArea=50,
     level_start=2.2,
@@ -97,7 +93,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
     y_start=0)
     annotation (Placement(transformation(extent={{40,60},{60,80}}, rotation=0)));
 
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                                    annotation (Placement(transformation(extent=
             {{60,-96},{80,-76}}, rotation=0)));
 equation
