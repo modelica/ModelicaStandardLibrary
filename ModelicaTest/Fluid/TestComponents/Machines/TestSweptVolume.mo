@@ -5,9 +5,11 @@ model TestSweptVolume
   Modelica.Fluid.Machines.SweptVolume sweptVolume(
     nPorts=1,
     redeclare package Medium = Modelica.Media.Air.DryAirNasa,
-    clearance(displayUnit="l") = 1e-005,
     use_portsData=false,
-    pistonCrossArea(displayUnit="cm2") = 0.001) annotation (Placement(
+    pistonCrossArea(displayUnit="cm2") = 0.001,
+    clearance(displayUnit="l") = 1e-05,
+    massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
+                                                annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -29,7 +31,7 @@ model TestSweptVolume
     period=2,
     startTime=1)
     annotation (Placement(transformation(extent={{40,40},{60,60}})));
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
     annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   Modelica.Mechanics.Translational.Components.Fixed fixed(s0=2)
                                                           annotation (Placement(
@@ -40,7 +42,8 @@ model TestSweptVolume
   Modelica.Mechanics.Translational.Components.SpringDamper springDamper(
     c=100,
     d=1,
-    s_rel0=1.5)
+    s_rel0=1.5,
+    v_rel(fixed=true))
     annotation (Placement(transformation(extent={{-40,0},{-60,20}})));
 equation
   connect(sweptVolume.ports[1], boundary.ports[1]) annotation (Line(

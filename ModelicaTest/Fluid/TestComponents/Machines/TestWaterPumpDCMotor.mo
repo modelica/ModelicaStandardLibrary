@@ -50,7 +50,15 @@ model TestWaterPumpDCMotor "Test pump with dc motor (startup transient)"
     VaNominal=400,
     wNominal(displayUnit="1/min") = 157.07963267949,
     IaNominal=10,
-    Ra=10) annotation (Placement(transformation(extent={{-54,28},{-30,52}})));
+    Ra=10,
+    phiMechanical(fixed=true),
+    ia(fixed=true),
+    alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+    TaOperational=system.T_ambient,
+    TaNominal=system.T_ambient,
+    TaRef=system.T_ambient)
+           annotation (Placement(transformation(extent={{-54,28},{-30,52}})));
+
   Modelica.Electrical.Analog.Sources.StepVoltage stepVoltage(
     startTime=1,
     offset=0.1,

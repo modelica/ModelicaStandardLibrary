@@ -37,8 +37,8 @@ model TestWaterPumpRecirculation
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     p_a_start=100000,
     p_b_start=700000,
-    energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial,
-    massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
+    energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+    massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                           annotation (Placement(transformation(extent={{-46,-40},
             {-14,-10}},rotation=0)));
 

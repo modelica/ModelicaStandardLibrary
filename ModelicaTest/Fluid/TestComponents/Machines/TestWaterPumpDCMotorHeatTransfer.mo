@@ -56,7 +56,13 @@ model TestWaterPumpDCMotorHeatTransfer
     VaNominal=400,
     wNominal(displayUnit="1/min") = 157.07963267949,
     Ra=10,
-    IaNominal=10)
+    IaNominal=10,
+    phiMechanical(fixed=true),
+    ia(fixed=true),
+    TaOperational=system.T_ambient,
+    TaNominal=system.T_ambient,
+    TaRef=system.T_ambient,
+    alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)
            annotation (Placement(transformation(extent={{-54,28},{-30,52}})));
   Modelica.Electrical.Analog.Sources.StepVoltage stepVoltage(
     startTime=1,
@@ -67,7 +73,8 @@ model TestWaterPumpDCMotorHeatTransfer
         origin={-80,40})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-90,2},{-70,24}})));
-  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor housing(C=460*1)
+  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor housing(C=460*1, T(fixed=
+          true, start=system.T_ambient))
     annotation (Placement(transformation(extent={{-1,-20},{19,-40}})));
 equation
   connect(Valve.port_b,Sink.ports[1])    annotation (Line(points={{49,10},{60,
