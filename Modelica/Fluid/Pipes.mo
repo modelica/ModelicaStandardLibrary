@@ -117,7 +117,7 @@ or other flow models without storage, are directly connected.
       final states=mediums.state,
       final vs = vs,
       final use_k = use_HeatTransfer) "Heat transfer model"
-        annotation (Placement(transformation(extent={{-36,19},{-14,41}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-45,20},{-23,42}}, rotation=0)));
     final parameter Real[n] dxs = lengths/sum(lengths);
   equation
     Qb_flows = heatTransfer.Q_flows;
@@ -149,14 +149,13 @@ or other flow models without storage, are directly connected.
     end if;
 
     connect(heatPorts, heatTransfer.heatPorts)
-      annotation (Line(points={{0,55},{0,54},{-24,54},{-24,37.7},{-25,37.7}},
+      annotation (Line(points={{0,55},{0,54},{-34,54},{-34,38.7}},
                                                color={191,0,0}));
     annotation (defaultComponentName="pipe",
   Documentation(info="<html>
 <p>Model of a straight pipe with distributed mass, energy and momentum balances. It provides the complete balance equations for one-dimensional fluid flow as formulated in <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>. </p>
-<p>This generic model offers a large number of combinations of possible parameter settings. In order to reduce model complexity, consider defining and/or using a tailored model for the application at hand, such as:</p>
-<p><a href=\"modelica://Modelica.Fluid.Pipes.PipeOnePhaseHT\">PipeOnePhaseHT</a> is intended for heat transfer applications without phase change. Either both dynamic or both static mass and energy balance equations  can be selected. A lumped, static momentum balance is always assumed.</p>
-<p><a href=\"modelica://Modelica.Fluid.Pipes.PipeTwoPhaseHT\">PipeTwoPhaseHT</a> is intended for heat transfer applications where phase change can occur. The model assumes a distributed momentum balance, mass and energy balances are always dynamic.  </p>
+<p>This generic model offers a large number of combinations of possible parameter settings. In order to reduce model complexity, consider defining and/or using a tailored model for the application at hand, such as
+<a href=\"modelica://Modelica.Fluid.Pipes.PipeOnePhaseHT\">PipeOnePhaseHT</a>.</p>
 <p>DynamicPipe treats the partial differential equations with the finite volume method and a staggered grid scheme for momentum balances. The pipe is split into nNodes equally spaced segments along the flow path. The default value is nNodes=2. This results in two lumped mass and energy balances and one lumped momentum balance across the dynamic pipe. </p>
 <p>Note that this generally leads to high-index DAEs for pressure states if dynamic pipes are directly connected to each other, or generally to models with storage exposing a thermodynamic state through the port. This may not be valid if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The <code><b>modelStructure</b></code> can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition. </p>
 <p>The default <code><b>modelStructure</b></code> is <code>av_vb</code> (see Advanced tab). The simplest possible alternative symetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. Depending on the configured model structure, the first and the last pipe segment, or the flow path length of the first and the last momentum balance, are of half size. See the documentation of the base class <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations. </p>
@@ -934,7 +933,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
               final roughnesses=roughnessesFM,
               final dheights=dheightsFM,
               final g=system.g) "Flow model"
-         annotation (Placement(transformation(extent={{-77,-38},{75,-20}},rotation=0)));
+         annotation (Placement(transformation(extent={{-77,-37},{75,-19}},rotation=0)));
 
       // Flow quantities
       Medium.MassFlowRate[n+1] m_flows(
@@ -994,7 +993,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
         end if;
       else
         if modelStructure == ModelStructure.av_vb then
-          //nFM = n-1;
+          //nFM = n-1
           if n == 2 then
             pathLengths[1] = lengths[1] + lengths[2];
             dheightsFM[1] = dheights[1] + dheights[2];
@@ -1090,32 +1089,33 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
           m_flows[iLumped] = flowModel.m_flows[1];
           statesFM[2] = mediums[n].state;
           port_b.p = mediums[n].p;
+          vsFM[1] = vs[1:iLumped-1]*lengths[1:iLumped-1]/sum(lengths[1:iLumped-1]);
+          vsFM[2] = vs[iLumped:n]*lengths[iLumped:n]/sum(lengths[iLumped:n]);
         elseif modelStructure == ModelStructure.av_b then
           port_a.p = mediums[1].p;
           statesFM[1] = mediums[iLumped].state;
           statesFM[2] = state_b;
           m_flows[n+1] = flowModel.m_flows[1];
+          vsFM[1] = vs*lengths/sum(lengths);
+          vsFM[2] = m_flows[n+1]/Medium.density(state_b)/crossAreas[n]/nParallel;
         elseif modelStructure == ModelStructure.a_vb then
           m_flows[1] = flowModel.m_flows[1];
           statesFM[1] = state_a;
           statesFM[2] = mediums[iLumped].state;
           port_b.p = mediums[n].p;
+          vsFM[1] = m_flows[1]/Medium.density(state_a)/crossAreas[1]/nParallel;
+          vsFM[2] = vs*lengths/sum(lengths);
         elseif modelStructure == ModelStructure.a_v_b then
           m_flows[1] = flowModel.m_flows[1];
           statesFM[1] = state_a;
           statesFM[2] = mediums[iLumped].state;
           statesFM[3] = state_b;
           m_flows[n+1] = flowModel.m_flows[2];
+          vsFM[1] = m_flows[1]/Medium.density(state_a)/crossAreas[1]/nParallel;
+          vsFM[2] = vs*lengths/sum(lengths);
+          vsFM[3] = m_flows[n+1]/Medium.density(state_b)/crossAreas[n]/nParallel;
         else
           assert(true, "Unknown model structure");
-        end if;
-        if modelStructure <> ModelStructure.a_v_b then
-          vsFM[1] = vs[1:iLumped-1]*lengths[1:iLumped-1]/sum(lengths[1:iLumped-1]);
-          vsFM[2] = vs[iLumped:n]*lengths[iLumped:n]/sum(lengths[iLumped:n]);
-        else
-          vsFM[1] = vs[1:iLumped-1]*lengths[1:iLumped-1]/sum(lengths[1:iLumped-1]);
-          vsFM[2] = vs[2:n-1]*lengths[2:n-1]/sum(lengths[2:n-1]);
-          vsFM[3] = vs[iLumped:n]*lengths[iLumped:n]/sum(lengths[iLumped:n]);
         end if;
       else
         if modelStructure == ModelStructure.av_vb then
@@ -1261,7 +1261,7 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.None,
               lineColor={0,0,0}),
             Polygon(
-              points={{-50,-52},{-50,52},{50,58},{50,-58},{-50,-52}},
+              points={{-34,-53},{-34,53},{34,57},{34,-57},{-34,-53}},
               smooth=Smooth.None,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
@@ -1278,7 +1278,7 @@ This also allows for taking into account friction losses with respect to the act
               textString="crossAreas[1]",
               pattern=LinePattern.None),
             Line(
-              points={{-100,70},{-50,70}},
+              points={{-100,70},{-34,70}},
               arrow={Arrow.Filled,Arrow.Filled},
               color={0,0,0},
               pattern=LinePattern.Dot),
@@ -1298,22 +1298,22 @@ This also allows for taking into account friction losses with respect to the act
               textString="crossAreas[n]",
               pattern=LinePattern.None),
             Line(
-              points={{-50,52},{-50,-53}},
+              points={{-34,52},{-34,-53}},
               smooth=Smooth.None,
               color={0,0,0},
               pattern=LinePattern.Dash),
             Line(
-              points={{50,57},{50,-58}},
+              points={{34,57},{34,-57}},
               smooth=Smooth.None,
               color={0,0,0},
               pattern=LinePattern.Dash),
             Line(
-              points={{50,70},{100,70}},
+              points={{34,70},{100,70}},
               arrow={Arrow.Filled,Arrow.Filled},
               color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
-              points={{-50,70},{50,70}},
+              points={{-34,70},{34,70}},
               arrow={Arrow.Filled,Arrow.Filled},
               color={0,0,0},
               pattern=LinePattern.Dot),
@@ -1345,7 +1345,7 @@ This also allows for taking into account friction losses with respect to the act
               arrow={Arrow.None,Arrow.Filled},
               color={0,0,0}),
             Text(
-              extent={{-49,7},{-19,1}},
+              extent={{-62,7},{-32,1}},
               lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="m_flows[2]"),
@@ -1354,7 +1354,7 @@ This also allows for taking into account friction losses with respect to the act
               arrow={Arrow.None,Arrow.Filled},
               color={0,0,0}),
             Text(
-              extent={{17,7},{47,1}},
+              extent={{34,7},{64,1}},
               lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="m_flows[3:n]"),
@@ -1445,12 +1445,12 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.None,
               textString="dimensions[n]"),
             Line(
-              points={{-50,73},{-50,52}},
+              points={{-34,73},{-34,52}},
               smooth=Smooth.None,
               color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
-              points={{50,73},{50,57}},
+              points={{34,73},{34,57}},
               smooth=Smooth.None,
               color={0,0,0},
               pattern=LinePattern.Dot),
@@ -1480,7 +1480,7 @@ This also allows for taking into account friction losses with respect to the act
               color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
-              points={{-50,11},{50,11}},
+              points={{-34,11},{34,11}},
               arrow={Arrow.None,Arrow.Filled},
               color={0,0,0}),
             Text(
@@ -1489,21 +1489,21 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.None,
               textString="vs[2:n-1]"),
             Text(
-              extent={{-80,18},{-70,12}},
+              extent={{-72,18},{-62,12}},
               lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="vs[1]"),
             Line(
-              points={{-100,11},{-50,11}},
+              points={{-100,11},{-34,11}},
               arrow={Arrow.None,Arrow.Filled},
               color={0,0,0}),
             Text(
-              extent={{70,18},{80,12}},
+              extent={{63,18},{73,12}},
               lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="vs[n]"),
             Line(
-              points={{50,11},{100,11}},
+              points={{34,11},{100,11}},
               arrow={Arrow.None,Arrow.Filled},
               color={0,0,0}),
             Text(
@@ -1525,12 +1525,12 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.None,
               textString="flowModel.pathLengths[2:n-1]"),
             Text(
-              extent={{-100,77},{-50,71}},
+              extent={{-100,77},{-37,71}},
               lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="lengths[1]"),
             Text(
-              extent={{50,77},{100,71}},
+              extent={{34,77},{100,71}},
               lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="lengths[n]")}));
