@@ -9,17 +9,26 @@ model IdealMixing1 "Test properties of ideal mixing"
   Modelica.Fluid.Pipes.StaticPipe pipeFriction1(
     length=1,
     diameter=0.2,
-    redeclare package Medium = Medium) annotation (Placement(transformation(
+    redeclare package Medium = Medium,
+    redeclare model FlowModel =
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (from_dp=
+            false))                    annotation (Placement(transformation(
           extent={{-32,-40},{-12,-20}}, rotation=0)));
   Modelica.Fluid.Pipes.StaticPipe pipeFriction2(
     length=1,
     diameter=0.2,
-    redeclare package Medium = Medium) annotation (Placement(transformation(
+    redeclare package Medium = Medium,
+    redeclare model FlowModel =
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (from_dp=
+            false))                    annotation (Placement(transformation(
           extent={{12,-40},{32,-20}}, rotation=0)));
   Modelica.Fluid.Pipes.StaticPipe pipeFriction3(
     length=1,
     diameter=0.2,
-    redeclare package Medium = Medium)
+    redeclare package Medium = Medium,
+    redeclare model FlowModel =
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (from_dp=
+            false))
     annotation (Placement(transformation(
         origin={0,0},
         extent={{-10,-10},{10,10}},

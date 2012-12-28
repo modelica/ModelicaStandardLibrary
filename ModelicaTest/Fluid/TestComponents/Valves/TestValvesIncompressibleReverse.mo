@@ -1,28 +1,28 @@
-within ModelicaTest.Fluid.TestCriticalCases;
-model TestValvesReverse "Test case for valves with reverse and zero flow"
+within ModelicaTest.Fluid.TestComponents.Valves;
+model TestValvesIncompressibleReverse
+  "Test case for valves with reverse and zero flow"
   import Modelica.Fluid;
   extends Modelica.Icons.Example;
-  package Medium = Modelica.Media.Water.StandardWater;
+  //package Medium = Modelica.Media.Water.StandardWater "compressible medium";
+  package Medium = Modelica.Media.Incompressible.Examples.Essotherm650
+    "incompressible medium";
   Modelica.Fluid.Sources.Boundary_pT SourceP1(
     T=system.T_ambient,
-    redeclare package Medium =
-        Modelica.Media.Water.StandardWaterOnePhase,
     nPorts=2,
-    p=1000000)
+    p=1000000,
+    redeclare package Medium = Medium)
   annotation (Placement(transformation(extent={{-100,26},{-80,46}}, rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT SourceP2(
     T=system.T_ambient,
-    redeclare package Medium =
-        Modelica.Media.Water.StandardWaterOnePhase,
     nPorts=2,
-    p=800000)
+    p=800000,
+    redeclare package Medium = Medium)
   annotation (Placement(transformation(extent={{-100,-50},{-80,-30}}, rotation=
             0)));
   Modelica.Fluid.Sources.Boundary_pT SinkP1(nPorts=1,
     T=system.T_ambient,
-    redeclare package Medium =
-        Modelica.Media.Water.StandardWaterOnePhase,
-    p=100000)
+    p=100000,
+    redeclare package Medium = Medium)
   annotation (Placement(transformation(extent={{82,-4},{62,16}}, rotation=0)));
   Modelica.Fluid.Valves.ValveIncompressible V1(
     dp_nominal=9e5,
@@ -62,15 +62,13 @@ model TestValvesReverse "Test case for valves with reverse and zero flow"
 
   Modelica.Fluid.Sources.Boundary_pT SinkP2(nPorts=1,
     T=system.T_ambient,
-    redeclare package Medium =
-        Modelica.Media.Water.StandardWaterOnePhase,
-    p=100000)
+    p=100000,
+    redeclare package Medium = Medium)
   annotation (Placement(transformation(extent={{4,58},{-16,78}}, rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT SinkP3(nPorts=1,
     T=system.T_ambient,
-    redeclare package Medium =
-        Modelica.Media.Water.StandardWaterOnePhase,
-    p=100000)
+    p=100000,
+    redeclare package Medium = Medium)
   annotation (Placement(transformation(extent={{26,-78},{6,-58}}, rotation=0)));
   Modelica.Blocks.Sources.Ramp CloseLoad(
     duration=1,
@@ -137,5 +135,7 @@ annotation (
     Documentation(info="<html>
 Multiple valves are mutually connected in a purely algebraic model.
 <p/>
-</html>"));
-end TestValvesReverse;
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics));
+end TestValvesIncompressibleReverse;

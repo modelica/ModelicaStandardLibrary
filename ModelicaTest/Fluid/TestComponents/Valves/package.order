@@ -7,3 +7,5 @@ TestValveVaporizing
 TestCheckValve
 TestDelayedValve
 TestValveCharacteristics
+TestValvesCompressibleReverse
+TestValvesIncompressibleReverse
