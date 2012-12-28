@@ -9,14 +9,17 @@ model IncompressibleFluidNetwork
   replaceable package Medium =
       Modelica.Media.Incompressible.Examples.Essotherm650
     constrainedby Modelica.Media.Interfaces.PartialMedium;
+  replaceable model FlowModel =
+      Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow;
+
   //replaceable package Medium =
   //    Modelica.Media.Water.WaterIF97OnePhase_ph
   //  constrainedby Modelica.Media.Interfaces.PartialMedium;
+  //replaceable model FlowModel =
+  //    Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow;
 
   import Modelica.Fluid.Types.Dynamics;
   parameter Dynamics systemMassDynamics = if Medium.singleState then Dynamics.SteadyState else Dynamics.SteadyStateInitial;
-  parameter Real valve1height = if Medium.singleState then -1 else -0.95
-    "keep slightly open with WaterIF97 for numeric reasons";
 
   Sources.Boundary_pT source(nPorts=1,
     redeclare package Medium = Medium,
@@ -29,9 +32,8 @@ model IncompressibleFluidNetwork
     length=10,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     modelStructure=pipeModelStructure,
+    redeclare model FlowModel = FlowModel,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{-80,-10},{-60,10}},
                                      rotation=0)));
@@ -41,9 +43,8 @@ model IncompressibleFluidNetwork
     diameter=2.5e-2,
     redeclare package Medium = Medium,
     length=0.5,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     modelStructure=pipeModelStructure,
+    redeclare model FlowModel = FlowModel,
     p_a_start=500000)                  annotation (Placement(transformation(
         origin={-50,20},
         extent={{-10,-10},{10,10}},
@@ -54,9 +55,8 @@ model IncompressibleFluidNetwork
     diameter=2.5e-2,
     redeclare package Medium = Medium,
     length=0.5,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     modelStructure=pipeModelStructure,
+    redeclare model FlowModel = FlowModel,
     p_a_start=500000)                  annotation (Placement(transformation(
         origin={-50,-20},
         extent={{-10,-10},{10,10}},
@@ -66,20 +66,18 @@ model IncompressibleFluidNetwork
     diameter=2.5e-2,
     redeclare package Medium = Medium,
     length=2,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     modelStructure=pipeModelStructure,
-    p_a_start=500000,
-    use_HeatTransfer=true)             annotation (Placement(transformation(
+    use_HeatTransfer=true,
+    redeclare model FlowModel = FlowModel,
+    p_a_start=500000)                  annotation (Placement(transformation(
           extent={{-20,-50},{0,-30}}, rotation=0)));
   Pipes.DynamicPipe pipe6(
     use_T_start=true,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
     length=20,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     modelStructure=pipeModelStructure,
+    redeclare model FlowModel = FlowModel,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,-50},{40,-30}}, rotation=0)));
   Modelica.Fluid.Valves.ValveIncompressible valve1(
@@ -103,11 +101,10 @@ model IncompressibleFluidNetwork
     length=10,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     modelStructure=pipeModelStructure,
-    p_a_start=500000,
-    use_HeatTransfer=true)             annotation (Placement(transformation(
+    use_HeatTransfer=true,
+    redeclare model FlowModel = FlowModel,
+    p_a_start=500000)                  annotation (Placement(transformation(
           extent={{-20,30},{0,50}}, rotation=0)));
   Modelica.Fluid.Valves.ValveIncompressible valve3(
     redeclare package Medium = Medium,
@@ -131,8 +128,7 @@ model IncompressibleFluidNetwork
   Modelica.Blocks.Sources.Step valveOpening1(
     offset=1,
     startTime=50,
-    height=valve1height)
-                 annotation (Placement(transformation(extent={{-80,80},{-60,60}},
+    height=-1)   annotation (Placement(transformation(extent={{-80,80},{-60,60}},
                    rotation=0)));
   Modelica.Blocks.Sources.Step valveOpening2(
     offset=1,
@@ -150,11 +146,10 @@ model IncompressibleFluidNetwork
     length=10,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     modelStructure=pipeModelStructure,
-    p_a_start=500000,
-    use_HeatTransfer=true)             annotation (Placement(transformation(
+    use_HeatTransfer=true,
+    redeclare model FlowModel = FlowModel,
+    p_a_start=500000)                  annotation (Placement(transformation(
         origin={10,10},
         extent={{-10,10},{10,-10}},
         rotation=270)));
@@ -163,22 +158,20 @@ model IncompressibleFluidNetwork
     length=10,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     modelStructure=pipeModelStructure,
-    p_a_start=500000,
-    use_HeatTransfer=true)             annotation (Placement(transformation(
+    use_HeatTransfer=true,
+    redeclare model FlowModel = FlowModel,
+    p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,30},{40,50}}, rotation=0)));
   Pipes.DynamicPipe pipe10(
     use_T_start=true,
     length=10,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     modelStructure=pipeModelStructure,
-    p_a_start=500000,
-    use_HeatTransfer=true)             annotation (Placement(transformation(
+    use_HeatTransfer=true,
+    redeclare model FlowModel = FlowModel,
+    p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,-30},{40,-10}},
                                     rotation=0)));
   Pipes.DynamicPipe pipe5(
@@ -186,9 +179,8 @@ model IncompressibleFluidNetwork
     diameter=2.5e-2,
     redeclare package Medium = Medium,
     length=20,
-    redeclare model FlowModel =
-        Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     modelStructure=pipeModelStructure,
+    redeclare model FlowModel = FlowModel,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,-70},{40,-50}}, rotation=0)));
   Thermal.HeatTransfer.Sources.FixedHeatFlow[ pipe8.nNodes] heat8(Q_flow=2e3*
@@ -262,8 +254,8 @@ equation
 This example demonstrates two aspects: the efficient treatment of multi-way connections
 and the usage of an incompressible medium model.
 </p><p>
-Ten pipe models with nNodes=2 each introduce 20 pressure states. 
-When configuring <b>pipeModelStructure=a_v_b</b>, the flow models at the pipe ports constitute algebraic loops in the multi-way connections. 
+Ten pipe models with nNodes=2 each introduce 20 energy balances and and 20 mass balances (pressure states). 
+When configuring <b>pipeModelStructure=a_v_b</b>, the flow models at the pipe ports constitute algebraic loops for the pressures. 
 A common work-around is to introduce \"mixing volumes\" in critical connections. 
 </p><p>
 Here the problem is treated alternatively with the default <b>pipeModelStructure=av_vb</b> of the
@@ -274,18 +266,23 @@ Overall this treatment as high-index DAE results in the reduction to 8 pressure 
 This can be studied with a rigorous medium model like <b>WaterIF97OnePhase_ph</b>.
 </p><p>
 The pressure dynamics completely disappears with an incompressible medium model, like the used <b>Essotherm650</b>.
-It appears reasonable to assume steady-state mass balances with in this case (see system.massDynamics, tab Assumptions).
+It appears reasonable to assume steady-state mass balances in this case (see system.massDynamics, tab Assumptions).
 </p><p>
 Note that with the stream concept in the fluid ports, the energy and substance balances of the connected pipe segments remain independent,
 despite of pressures being lumped together. The following simulation results can be observerd:
 <ol>
-<li>The simulation starts in steady-state (see system.energyDynamics, tab Assumptions). The temperatures downstream or bypassing pipe8 take the value of 26.85 degC from the source, including also pipe9.</li>
-<li>After 50s valve1 fully closes. This causes flow reversal in pipe8. Now heated fluid flows from pipe8 to pipe9. Note that the temperature of the connected pipe7 remains unchanged as there is no flow into pipe7. The temperatures of pipe10 cool down to the source temperature.</li>
+<li>The simulation starts in steady-state (see system.energyDynamics, tab Assumptions). 
+    The temperatures downstream or bypassing pipe8 take the value of 26.85 degC from the source, including also pipe9.</li>
+<li>After 50s valve1 fully closes. This causes flow reversal in pipe8. Now heated fluid flows from pipe8 to pipe9. 
+    Note that the temperature of the connected pipe7 remains unchanged as there is no flow into pipe7. 
+    The temperature of pipe10 cools down to the source temperature.</li>
 <li>After 100s valve2 closes half way, which affects mass flow rates and temperatures.</li>
 <li>After 150s valve5 closes half way, which affects mass flow rates and temperatures.</li>
 </ol>
+</p><p>
+Plot the temperatures in the heatPorts of the respective pipes.
+</p><p>
 </p>
-<p></p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/IncompressibleFluidNetwork.png\" border=\"1\"
      alt=\"IncompressibleFluidNetwork.png\">
 </html>"),

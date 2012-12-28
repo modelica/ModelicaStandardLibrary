@@ -16,6 +16,8 @@ package TestExamplesVariants
   model IncompressibleFluidNetwork_WaterIF97_av_vb =
       Modelica.Fluid.Examples.IncompressibleFluidNetwork (
     redeclare package Medium = Modelica.Media.Water.WaterIF97OnePhase_ph,
+    redeclare model FlowModel =
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
     pipeModelStructure = Modelica.Fluid.Types.ModelStructure.av_vb)
     "Alternative case for IncompressibleFluidNetwork using WaterIF97 medium"
     annotation(experiment(StopTime=200));
@@ -23,6 +25,8 @@ package TestExamplesVariants
   model IncompressibleFluidNetwork_WaterIF97_a_v_b =
       Modelica.Fluid.Examples.IncompressibleFluidNetwork (
     redeclare package Medium = Modelica.Media.Water.WaterIF97OnePhase_ph,
+    redeclare model FlowModel =
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
     pipeModelStructure = Modelica.Fluid.Types.ModelStructure.a_v_b)
     "Alternative case for IncompressibleFluidNetwork using WaterIF97 medium and pipeModelStructure=a_v_b"
     annotation(experiment(StopTime=200));
