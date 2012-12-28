@@ -2130,7 +2130,7 @@ Thermodynamic equations are defined in partial models (package Partials).
         "Specific heat capacity at constant pressure";
       parameter Modelica.SIunits.SpecificHeatCapacity cv = 1
         "Specific heat capacity at constant volume";
-      parameter Modelica.SIunits.ThermalConductivity lamda = 1
+      parameter Modelica.SIunits.ThermalConductivity lambda = 1
         "Thermal conductivity";
       parameter Modelica.SIunits.KinematicViscosity nue = 1
         "Kinematic viscosity";
@@ -2144,7 +2144,7 @@ Record containing (constant) medium properties.
       rho=1.149,
       cp=1007,
       cv= 720,
-      lamda=0.0264,
+      lambda=0.0264,
       nue=16.3E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
   Medium: properties of air at 30&deg;C and 1 bar
@@ -2156,7 +2156,7 @@ Record containing (constant) medium properties.
       rho=1.015,
       cp=1010,
       cv= 723,
-      lamda=0.0293,
+      lambda=0.0293,
       nue=20.3E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
   Medium: properties of air at 70&deg;C and 1 bar
@@ -2168,7 +2168,7 @@ Record containing (constant) medium properties.
       rho=999.7,
       cp=4192,
       cv=4192,
-      lamda=0.588,
+      lambda=0.588,
       nue=1.307E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
   Medium: properties of water at 10&deg;C and 1 bar
@@ -2180,7 +2180,7 @@ Record containing (constant) medium properties.
       rho=995.6,
       cp=4177,
       cv=4177,
-      lamda=0.615,
+      lambda=0.615,
       nue=0.8E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
   Medium: properties of water at 30&deg;C and 1 bar
@@ -2192,7 +2192,7 @@ Record containing (constant) medium properties.
       rho=965.3,
       cp=4205,
       cv=4205,
-      lamda=0.676,
+      lambda=0.676,
       nue=0.347E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
   Medium: properties of water at 90&deg;C and 1 bar
@@ -2204,7 +2204,7 @@ Record containing (constant) medium properties.
         rho=1028,
         cp=3910,
         cv=3910,
-        lamda=0.523,
+        lambda=0.523,
         nue=1.69E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
   Medium: properties of glycol:water 20:80 (anti-freeze -8&deg;C) at 20&deg; and 1 bar
@@ -2216,7 +2216,7 @@ Record containing (constant) medium properties.
         rho=1078,
         cp=3300,
         cv=3300,
-        lamda=0.405,
+        lambda=0.405,
         nue=3.98E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
   Medium: properties of glycol:water 50:50 (anti-freeze -40&deg;C) at 20&deg;C and 1 bar
@@ -2228,7 +2228,7 @@ Record containing (constant) medium properties.
         rho=868,
         cp=2010,
         cv=2010,
-        lamda=0.14,
+        lambda=0.14,
         nue=81.8E-6);
       annotation (defaultComponentPrefixes="parameter", Documentation(info="<html>
   Medium: properties of mineral oil at 60&deg;C and 1 bar
