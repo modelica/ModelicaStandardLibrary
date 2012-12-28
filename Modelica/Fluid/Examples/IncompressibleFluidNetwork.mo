@@ -13,13 +13,14 @@ model IncompressibleFluidNetwork
       Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow;
 
   //replaceable package Medium =
-  //    Modelica.Media.Water.WaterIF97OnePhase_ph
+  //    Modelica.Media.Water.StandardWaterOnePhase
   //  constrainedby Modelica.Media.Interfaces.PartialMedium;
   //replaceable model FlowModel =
   //    Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow;
 
   import Modelica.Fluid.Types.Dynamics;
   parameter Dynamics systemMassDynamics = if Medium.singleState then Dynamics.SteadyState else Dynamics.SteadyStateInitial;
+  parameter Boolean filteredValveOpening = not Medium.singleState;
 
   Sources.Boundary_pT source(nPorts=1,
     redeclare package Medium = Medium,
@@ -80,20 +81,24 @@ model IncompressibleFluidNetwork
     redeclare model FlowModel = FlowModel,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,-50},{40,-30}}, rotation=0)));
-  Modelica.Fluid.Valves.ValveIncompressible valve1(
+  Valves.ValveCompressible valve1(
     redeclare package Medium = Medium,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     m_flow_nominal=1,
     rho_nominal=1000,
-    dp_nominal=30000)
+    dp_nominal=30000,
+    filteredOpening=filteredValveOpening,
+    p_nominal=500000)
                 annotation (Placement(transformation(extent={{-46,30},{-26,50}},
           rotation=0)));
-  Modelica.Fluid.Valves.ValveIncompressible valve2(
+  Valves.ValveCompressible valve2(
     redeclare package Medium = Medium,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     m_flow_nominal=1,
     rho_nominal=1000,
-    dp_nominal=30000)
+    dp_nominal=30000,
+    filteredOpening=filteredValveOpening,
+    p_nominal=500000)
                 annotation (Placement(transformation(extent={{-46,-30},{-26,-50}},
                    rotation=0)));
   Pipes.DynamicPipe pipe7(
@@ -106,12 +111,14 @@ model IncompressibleFluidNetwork
     redeclare model FlowModel = FlowModel,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{-20,30},{0,50}}, rotation=0)));
-  Modelica.Fluid.Valves.ValveIncompressible valve3(
+  Valves.ValveCompressible valve3(
     redeclare package Medium = Medium,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     m_flow_nominal=1,
     rho_nominal=1000,
-    dp_nominal=30000)
+    dp_nominal=30000,
+    filteredOpening=filteredValveOpening,
+    p_nominal=500000)
                 annotation (Placement(transformation(extent={{60,-10},{80,10}},
           rotation=0)));
   Sources.Boundary_pT sink(nPorts=1,
@@ -121,8 +128,7 @@ model IncompressibleFluidNetwork
            annotation (Placement(transformation(extent={{98,-6},{86,6}},
           rotation=0)));
   inner Modelica.Fluid.System system(
-      energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
-      massDynamics=systemMassDynamics)
+      massDynamics=systemMassDynamics, energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                         annotation (Placement(transformation(extent={{70,-92},
             {90,-72}},  rotation=0)));
   Modelica.Blocks.Sources.Step valveOpening1(
@@ -183,7 +189,7 @@ model IncompressibleFluidNetwork
     redeclare model FlowModel = FlowModel,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,-70},{40,-50}}, rotation=0)));
-  Thermal.HeatTransfer.Sources.FixedHeatFlow[ pipe8.nNodes] heat8(Q_flow=2e3*
+  Thermal.HeatTransfer.Sources.FixedHeatFlow[ pipe8.nNodes] heat8(Q_flow=8e3*
         pipe8.dxs)
     annotation (Placement(transformation(extent={{-20,0},{0,20}},     rotation=
             0)));
@@ -254,7 +260,7 @@ equation
 This example demonstrates two aspects: the efficient treatment of multi-way connections
 and the usage of an incompressible medium model.
 </p><p>
-Ten pipe models with nNodes=2 each introduce 20 energy balances and and 20 mass balances (pressure states). 
+Ten pipe models with nNodes=2 each introduce 20 temperature states and and 20 pressure states. 
 When configuring <b>pipeModelStructure=a_v_b</b>, the flow models at the pipe ports constitute algebraic loops for the pressures. 
 A common work-around is to introduce \"mixing volumes\" in critical connections. 
 </p><p>
@@ -263,7 +269,7 @@ Here the problem is treated alternatively with the default <b>pipeModelStructure
 Each pipe exposes the states of the outer fluid segments to the respective fluid ports.
 Consequently the pressures of all connected pipe segments get lumped together into one mass balance spanning the whole connection set. 
 Overall this treatment as high-index DAE results in the reduction to 8 pressure states, preventing algebraic loops in connections. 
-This can be studied with a rigorous medium model like <b>WaterIF97OnePhase_ph</b>.
+This can be studied with a rigorous medium model like <b>StandardWaterOnePhase</b>.
 </p><p>
 The pressure dynamics completely disappears with an incompressible medium model, like the used <b>Essotherm650</b>.
 It appears reasonable to assume steady-state mass balances in this case (see system.massDynamics, tab Assumptions).
@@ -271,8 +277,9 @@ It appears reasonable to assume steady-state mass balances in this case (see sys
 Note that with the stream concept in the fluid ports, the energy and substance balances of the connected pipe segments remain independent,
 despite of pressures being lumped together. The following simulation results can be observerd:
 <ol>
-<li>The simulation starts in steady-state (see system.energyDynamics, tab Assumptions). 
-    The temperatures downstream or bypassing pipe8 take the value of 26.85 degC from the source, including also pipe9.</li>
+<li>The simulation starts with system.T_ambient as initial temperature in all pipes. 
+    The temperatures upstream or bypassing pipe8 are approaching the value of 26.85 degC from the source, including also pipe9.
+    The temperatures downstream of pipe8 take a higher value, depending on the mixing with heated fluid, see e.g. pipe10.</li>
 <li>After 50s valve1 fully closes. This causes flow reversal in pipe8. Now heated fluid flows from pipe8 to pipe9. 
     Note that the temperature of the connected pipe7 remains unchanged as there is no flow into pipe7. 
     The temperature of pipe10 cools down to the source temperature.</li>
@@ -280,7 +287,7 @@ despite of pressures being lumped together. The following simulation results can
 <li>After 150s valve5 closes half way, which affects mass flow rates and temperatures.</li>
 </ol>
 </p><p>
-Plot the temperatures in the heatPorts of the respective pipes.
+The fluid temperatures in the pipes of interest are exposed through heatPorts.
 </p><p>
 </p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/IncompressibleFluidNetwork.png\" border=\"1\"
