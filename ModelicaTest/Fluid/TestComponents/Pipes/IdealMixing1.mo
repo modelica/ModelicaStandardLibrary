@@ -1,4 +1,4 @@
-within ModelicaTest.Fluid.TestCriticalCases;
+within ModelicaTest.Fluid.TestComponents.Pipes;
 model IdealMixing1 "Test properties of ideal mixing"
   extends Modelica.Icons.Example;
   // package Medium =  Modelica.Fluid.Media.Water.ConstantPropertyLiquidWater;
