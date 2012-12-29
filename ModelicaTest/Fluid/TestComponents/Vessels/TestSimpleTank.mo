@@ -16,7 +16,7 @@ model TestSimpleTank
     level_start=0)
     annotation (Placement(transformation(extent={{0,0},{40,40}},   rotation=0)));
 
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                         annotation (Placement(transformation(extent={{70,70},
             {90,90}}, rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT ambient_fixed(

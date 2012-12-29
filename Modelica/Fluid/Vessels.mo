@@ -50,7 +50,7 @@ model OpenTank "Simple tank with inlet/outlet ports"
     import Modelica.Constants.pi;
 
   // Tank properties
-  SI.Height level(stateSelect=StateSelect.prefer, start=max(level_start, Modelica.Constants.eps))
+  SI.Height level(stateSelect=StateSelect.prefer, start=level_start_eps)
       "Level height of tank";
   SI.Volume V(stateSelect=StateSelect.never) "Actual tank volume";
 
@@ -81,6 +81,9 @@ model OpenTank "Simple tank with inlet/outlet ports"
     final initialize_p = false,
     final p_start = p_ambient);
 
+  protected
+  final parameter SI.Height level_start_eps = max(level_start, Modelica.Constants.eps);
+
 equation
   // Total quantities
   V = crossArea*level "Volume of fluid";
@@ -101,7 +104,7 @@ equation
 
 initial equation
   if massDynamics == Types.Dynamics.FixedInitial then
-    level = level_start;
+    level = level_start_eps;
   elseif massDynamics == Types.Dynamics.SteadyStateInitial then
     der(level) = 0;
   end if;
@@ -207,12 +210,6 @@ end OpenTank;
 
         parameter SI.MassFlowRate m_flow_small(min=0) = system.m_flow_small
         "Regularization range at zero mass flow rate"
-          annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
-        parameter SI.MassFlowRate m_flow_nominal(min=0) = 1
-        "Nominal flow rate at ports (used for homotopy-based initialization)"
-          annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
-        parameter SI.Pressure dp_nominal(min=0, displayUnit="Pa") = 1000
-        "Nominal pressure difference at ports (used for homotopy-based initialization)"
           annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
       /*
   parameter Medium.AbsolutePressure dp_small = system.dp_small
@@ -352,7 +349,7 @@ of the modeller. Increase nPorts to add an additional port.
               ports[i].p = homotopy(vessel_ps_static[i] + (0.5/portAreas[i]^2*Utilities.regSquare2(ports[i].m_flow, m_flow_small,
                                            (portsData_zeta_in[i] - 1 + portAreas[i]^2/vesselArea^2)/portInDensities[i]*ports_penetration[i],
                                            (portsData_zeta_out[i] + 1 - portAreas[i]^2/vesselArea^2)/medium.d/ports_penetration[i])),
-                                    -ports[i].m_flow*dp_nominal/m_flow_nominal);
+                                    vessel_ps_static[i]);
               /*
         // alternative formulation m_flow=f(dp); not allowing the ideal portsData_zeta_in[i]=1 though
         ports[i].m_flow = smooth(2, portAreas[i]*Utilities.regRoot2(ports[i].p - vessel_ps_static[i], dp_small,
