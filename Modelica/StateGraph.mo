@@ -2156,7 +2156,7 @@ package Interfaces "Connectors and partial models"
         "Time instant at which the transition would fire, if waitTime would be zero";
     Real t_dummy;
   initial equation
-
+    pre(t_start) = time;
     pre(enableFire) = false;
   equation
     assert(cardinality(inPort) == 1,
