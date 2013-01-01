@@ -827,60 +827,58 @@ to compute u by an algebraic equation.
 
   block LimPID
     "P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting"
-    import Modelica.Blocks.Types.InitPID;
-    import Modelica.Blocks.Types.Init;
-    import Modelica.Blocks.Types.SimpleController;
+    import .Modelica.Blocks.Types.InitPID;
+    import .Modelica.Blocks.Types.Init;
+    import .Modelica.Blocks.Types.SimpleController;
     extends Interfaces.SVcontrol;
     output Real controlError = u_s - u_m
       "Control error (set point - measurement)";
 
-    parameter Modelica.Blocks.Types.SimpleController controllerType=
-           Modelica.Blocks.Types.SimpleController.PID "Type of controller";
+    parameter .Modelica.Blocks.Types.SimpleController controllerType=
+           .Modelica.Blocks.Types.SimpleController.PID "Type of controller";
     parameter Real k(min=0, unit="1") = 1 "Gain of controller";
-    parameter SIunits.Time Ti(min=Modelica.Constants.small, start=0.5)
+    parameter SIunits.Time Ti(min=Modelica.Constants.small)=0.5
       "Time constant of Integrator block"
-       annotation(Dialog(enable=controllerType==SimpleController.PI or
-                                controllerType==SimpleController.PID));
-    parameter SIunits.Time Td(min=0, start= 0.1)
+       annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
+                                controllerType==.Modelica.Blocks.Types.SimpleController.PID));
+    parameter SIunits.Time Td(min=0)= 0.1
       "Time constant of Derivative block"
-         annotation(Dialog(enable=controllerType==SimpleController.PD or
-                                  controllerType==SimpleController.PID));
+         annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
+                                  controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real yMax(start=1) "Upper limit of output";
     parameter Real yMin=-yMax "Lower limit of output";
     parameter Real wp(min=0) = 1
       "Set-point weight for Proportional block (0..1)";
     parameter Real wd(min=0) = 0 "Set-point weight for Derivative block (0..1)"
-         annotation(Dialog(enable=controllerType==SimpleController.PD or
-                                  controllerType==SimpleController.PID));
+         annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
+                                  controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real Ni(min=100*Modelica.Constants.eps) = 0.9
       "Ni*Ti is time constant of anti-windup compensation"
-       annotation(Dialog(enable=controllerType==SimpleController.PI or
-                                controllerType==SimpleController.PID));
+       annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
+                                controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real Nd(min=100*Modelica.Constants.eps) = 10
       "The higher Nd, the more ideal the derivative block"
-         annotation(Dialog(enable=controllerType==SimpleController.PD or
-                                  controllerType==SimpleController.PID));
-    parameter Modelica.Blocks.Types.InitPID initType= Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
+         annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
+                                  controllerType==.Modelica.Blocks.Types.SimpleController.PID));
+    parameter .Modelica.Blocks.Types.InitPID initType= .Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Boolean limitsAtInit = true
       "= false, if limits are ignored during initialization"
-      annotation(Evaluate=true, Dialog(group="Initialization",
-                         enable=controllerType==SimpleController.PI or
-                                controllerType==SimpleController.PID));
+      annotation(Evaluate=true, Dialog(group="Initialization"));
     parameter Real xi_start=0
       "Initial or guess value value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization",
-                  enable=controllerType==SimpleController.PI or
-                         controllerType==SimpleController.PID));
+                  enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
+                         controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real xd_start=0
       "Initial or guess value for state of derivative block"
       annotation (Dialog(group="Initialization",
-                           enable=controllerType==SimpleController.PD or
-                                  controllerType==SimpleController.PID));
+                           enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
+                                  controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real y_start=0 "Initial value of output"
-      annotation(Dialog(enable=initType == InitPID.InitialOutput, group=
+      annotation(Dialog(enable=initType == .Modelica.Blocks.Types.InitPID.InitialOutput, group=
             "Initialization"));
 
     Blocks.Math.Add addP(k1=wp, k2=-1)
