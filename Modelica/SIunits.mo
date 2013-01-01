@@ -2,31 +2,6 @@ within Modelica;
 package SIunits
   "Library of type and unit definitions based on SI units according to ISO 31-1992"
   extends Modelica.Icons.Package;
-  package Icons "Icons for SIunits"
-    extends Modelica.Icons.Package;
-
-    partial function Conversion "Base icon for conversion functions"
-
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={191,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,0},{30,0}}, color={191,0,0}),
-            Polygon(
-              points={{90,0},{30,20},{30,-20},{90,0}},
-              lineColor={191,0,0},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-115,155},{115,105}},
-              textString="%name",
-              lineColor={0,0,255})}));
-    end Conversion;
-  end Icons;
-
 package UsersGuide "User's Guide of SIunits Library"
   extends Modelica.Icons.Information;
 
@@ -257,6 +232,32 @@ on units.</p>
 
 </HTML>"));
 end UsersGuide;
+
+  package Icons "Icons for SIunits"
+    extends Modelica.Icons.Package;
+
+    partial function Conversion "Base icon for conversion functions"
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={191,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{30,0}}, color={191,0,0}),
+            Polygon(
+              points={{90,0},{30,20},{30,-20},{90,0}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-115,155},{115,105}},
+              textString="%name",
+              lineColor={0,0,255})}));
+    end Conversion;
+  end Icons;
+
 
   package Conversions
     "Conversion functions to/from non SI units and type definitions of non SI units"
@@ -1008,17 +1009,15 @@ argument):</p>
       final quantity="Density",
       final unit="kg/m3",
       displayUnit="g/cm3",
-      min=1e-6,
-      max=30e3);
+      min=0.0);
   type RelativeDensity = Real (
       final quantity="RelativeDensity",
       final unit="1",
-      min=1e-6);
+      min=0.0);
   type SpecificVolume = Real (
       final quantity="SpecificVolume",
       final unit="m3/kg",
-      min=3e-5,
-      max=1e6);
+      min=0.0);
   type LinearDensity = Real (
       final quantity="LinearDensity",
       final unit="kg/m",
@@ -1050,13 +1049,10 @@ argument):</p>
   type Pressure = Real (
       final quantity="Pressure",
       final unit="Pa",
-      min = -10000e5,
-      max = 10000e5,
       nominal = 1e5,
-      start = 1e5,
       displayUnit="bar");
-  type AbsolutePressure = Pressure (min=2000, max = 10000e5);
-  type PressureDifference = Pressure (min = -10000e5, max = 10000e5);
+  type AbsolutePressure = Pressure (min=0.0);
+  type PressureDifference = Pressure;
   type BulkModulus = AbsolutePressure;
   type Stress = Real (final unit="Pa");
   type NormalStress = Stress;
@@ -1108,8 +1104,7 @@ argument):</p>
   type ThermodynamicTemperature = Real (
       final quantity="ThermodynamicTemperature",
       final unit="K",
-      min = 1,
-      max = 6000,
+      min = 0.0,
       start = 288.15,
       nominal = 300,
       displayUnit="degC")
@@ -1119,12 +1114,7 @@ argument):</p>
   type Temperature = ThermodynamicTemperature;
   type TemperatureDifference = Real (
       final quantity="ThermodynamicTemperature",
-      final unit="K",
-      min = -2000,
-      max = 2000,
-      nominal = 1,
-      start = 1,
-      displayUnit="K") annotation(absoluteValue=false);
+      final unit="K") annotation(absoluteValue=false);
   type Temp_C = SIunits.Conversions.NonSIunits.Temperature_degC;
   type TemperatureSlope = Real (final quantity="TemperatureSlope",
       final unit="K/s");
@@ -1173,15 +1163,13 @@ argument):</p>
   type Entropy = Real (final quantity="Entropy", final unit="J/K");
   type EntropyFlowRate = Real (final quantity="EntropyFlowRate", final unit="J/(K.s)");
   type SpecificEntropy = Real (final quantity="SpecificEntropy",
-                               final unit="J/(kg.K)",
-                               nominal = 1000);
+                               final unit="J/(kg.K)");
   type InternalEnergy = Heat;
   type Enthalpy = Heat;
   type HelmholtzFreeEnergy = Heat;
   type GibbsFreeEnergy = Heat;
   type SpecificEnergy = Real (final quantity="SpecificEnergy",
-                              final unit="J/kg",
-                              nominal = 1e6);
+                              final unit="J/kg");
   type SpecificInternalEnergy = SpecificEnergy;
   type SpecificEnthalpy = SpecificEnergy;
   type SpecificHelmholtzFreeEnergy = SpecificEnergy;
@@ -1387,7 +1375,7 @@ argument):</p>
   type RefractiveIndex = Real (final quantity="RefractiveIndex", final unit="1");
 
   // Acoustics (chapter 7 of ISO 31-1992)
-  type StaticPressure = Pressure;
+  type StaticPressure = AbsolutePressure;
   type SoundPressure = StaticPressure;
   type SoundParticleDisplacement = Real (final quantity="Length", final unit=
           "m");
@@ -1456,21 +1444,17 @@ argument):</p>
   type MassConcentration = Real (final quantity="MassConcentration", final unit=
          "kg/m3");
   type MassFraction = Real (final quantity="MassFraction", final unit="1",
-                            min=0, max=1,
-                            nominal = 0.01,
-                            start = 0.2);
+                            min=0, max=1);
   type Concentration = Real (final quantity="Concentration", final unit=
           "mol/m3");
   type VolumeFraction = Real (final quantity="VolumeFraction", final unit="1");
   type MoleFraction = Real (final quantity="MoleFraction", final unit="1",
-                            min = 0, max = 1,
-                            nominal = 0.01,
-                            start = 0.2);
+                            min = 0, max = 1);
   type ChemicalPotential = Real (final quantity="ChemicalPotential", final unit=
          "J/mol");
   type AbsoluteActivity = Real (final quantity="AbsoluteActivity", final unit=
           "1");
-  type PartialPressure = Pressure;
+  type PartialPressure = AbsolutePressure;
   type Fugacity = Real (final quantity="Fugacity", final unit="Pa");
   type StandardAbsoluteActivity = Real (final quantity=
           "StandardAbsoluteActivity", final unit="1");
