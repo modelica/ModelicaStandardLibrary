@@ -844,7 +844,7 @@ block MultiSwitch
     Modelica.Blocks.Interfaces.BooleanVectorInput u[nu]
       "Set y = expr[i], if u[i] = true"
     annotation (Placement(transformation(extent={{-110,30},{-90,-30}})));
-  Modelica.Blocks.Interfaces.RealOutput y(start=y_default,fixed=true)
+  Modelica.Blocks.Interfaces.RealOutput y
       "Output depending on expression"
     annotation (Placement(transformation(extent={{300,-10},{320,10}})));
 
