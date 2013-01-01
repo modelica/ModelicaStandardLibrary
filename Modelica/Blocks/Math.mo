@@ -3203,7 +3203,7 @@ Note: The output is updated after each period defined by 1/f.
 <p>
 If parameter <b>yGreaterOrEqualZero</b> in the Advanced tab is <b>true</b> (default = <b>false</b>),
 then the modeller provides the information that the mean of the input signal is guaranteed
-to be &ge; 0 for the exact solutihn. However, due to inaccuracies in the numerical integration scheme,
+to be &ge; 0 for the exact solution. However, due to inaccuracies in the numerical integration scheme,
 the output might be slightly negative. If this parameter is set to true, then the output is
 explicitly set to 0.0, if the mean value results in a negative value.
 </p>
