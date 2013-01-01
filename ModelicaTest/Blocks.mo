@@ -443,6 +443,31 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (experiment(StopTime=3));
   end IntegerTable;
 
+model RootMeanSquare
+  extends Modelica.Icons.Example;
+  Modelica.Blocks.Math.Mean mean1(f=expSine.freqHz)
+    annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+  Modelica.Blocks.Sources.ExpSine expSine(
+    freqHz=2,
+    damping=0.5,
+    offset=-0.5)
+    annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+  Modelica.Blocks.Math.RootMeanSquare rootMeanSquare(f=expSine.freqHz)
+    annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+equation
+  connect(expSine.y, mean1.u) annotation (Line(
+      points={{-59,50},{-42,50}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(expSine.y, rootMeanSquare.u) annotation (Line(
+      points={{-59,50},{-52,50},{-52,10},{-42,10}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  annotation (experiment(StopTime=2), Diagram(coordinateSystem(
+          preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
+end RootMeanSquare;
+
+
   package FilterTests "Test of Blocks.Continuous.Filter"
     extends Modelica.Icons.ExamplesPackage;
     model AllOptions

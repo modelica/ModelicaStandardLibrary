@@ -3173,6 +3173,9 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     parameter Real x0=0 "Start value of integrator state";
+    parameter Boolean yGreaterOrEqualZero=false
+        "=true, if output y is guaranteed to be >= 0 for the exact solution"
+        annotation (Evaluate=true, Dialog(tab="Advanced"));
   protected
     parameter Modelica.SIunits.Time t0(fixed=false) "Start time of simulation";
     Real x(start=x0, fixed=true) "Integrator state";
@@ -3181,7 +3184,7 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
   equation
     der(x) = u;
     when sample(t0+1/f, 1/f) then
-      y=f*x;
+      y = if not yGreaterOrEqualZero then f*x else max(0.0, f*x);
       reinit(x, 0);
     end when;
     annotation (Documentation(info="<html>
@@ -3195,6 +3198,14 @@ T 0
 </pre>
 <p>
 Note: The output is updated after each period defined by 1/f.
+</p>
+
+<p>
+If parameter <b>yGreaterOrEqualZero</b> in the Advanced tab is <b>true</b> (default = <b>false</b>),
+then the modeller provides the information that the mean of the input signal is guaranteed
+to be &ge; 0 for the exact solutihn. However, due to inaccuracies in the numerical integration scheme,
+the output might be slightly negative. If this parameter is set to true, then the output is
+explicitly set to 0.0, if the mean value results in a negative value.
 </p>
 </html>"),   Icon(graphics={Text(
             extent={{-80,60},{80,20}},
@@ -3249,7 +3260,7 @@ Note: The output is updated after each period defined by 1/f.
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     MultiProduct        product(nu=2)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-    Mean mean(final f=f)
+    Mean mean(final f=f, final yGreaterOrEqualZero=true)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Blocks.Math.Sqrt sqrt1
       annotation (Placement(transformation(extent={{40,-10},{60,10}})));
