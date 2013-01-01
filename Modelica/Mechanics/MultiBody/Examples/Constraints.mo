@@ -286,24 +286,10 @@ extends Modelica.Icons.ExamplesPackage;
   rotation=90,
           origin={-70,-50})));
     Joints.FreeMotionScalarInit freeMotionScalarInit(
-      use_r=true,
-      use_v=true,
-      v_rel_a_2(fixed=true, start=0),
-      v_rel_a_3(fixed=true, start=0),
-      v_rel_a_1(fixed=true, start=0),
       use_angle=true,
-      use_w=true,
-      w_rel_b_1(fixed=false),
-      w_rel_b_2(fixed=false),
-      w_rel_b_3(fixed=false),
-      angle_d_3(fixed=false),
       use_angle_d=true,
-      r_rel_a_1(start=0, fixed=true),
-      r_rel_a_2(fixed=true, start=0),
-      r_rel_a_3(fixed=true, start=0),
-      angle_1(fixed=false),
       angle_2(start=0, fixed=true),
-      angle_d_2(fixed=true, start=0))
+      angle_d_2(start=0, fixed=true))
       annotation (Placement(transformation(extent={{40,60},{20,80}})));
   equation
     connect(fixedTranslation.frame_a, world.frame_b)
@@ -483,20 +469,8 @@ extends Modelica.Icons.ExamplesPackage;
   rotation=90,
           origin={-70,-50})));
     Joints.FreeMotionScalarInit freeMotionScalarInit(
-      use_r=true,
-      use_v=true,
-      v_rel_a_2(fixed=true, start=0),
-      v_rel_a_3(fixed=true, start=0),
-      v_rel_a_1(fixed=true, start=0),
       use_angle=true,
-      use_w=true,
-      w_rel_b_1(fixed=false),
-      w_rel_b_2(fixed=false),
-      w_rel_b_3(fixed=false),
       use_angle_d=true,
-      r_rel_a_1(start=0, fixed=true),
-      r_rel_a_2(fixed=true, start=0),
-      r_rel_a_3(fixed=true, start=0),
       angle_1(fixed=true),
       angle_2(fixed=true),
       angle_3(fixed=true),
@@ -690,20 +664,8 @@ extends Modelica.Icons.ExamplesPackage;
     Parts.FixedTranslation fixedTranslationOfConstraint(r=fixedTranslationOfJoint.r)
       annotation (Placement(transformation(extent={{-10,10},{-30,30}})));
     Joints.FreeMotionScalarInit freeMotionScalarInit(
-      use_r=true,
-      use_v=true,
-      v_rel_a_2(fixed=true, start=0),
-      v_rel_a_3(fixed=true, start=0),
-      v_rel_a_1(fixed=true, start=0),
       use_angle=true,
-      use_w=true,
-      w_rel_b_1(fixed=false),
-      w_rel_b_2(fixed=false),
-      w_rel_b_3(fixed=false),
       use_angle_d=true,
-      r_rel_a_1(start=0, fixed=true),
-      r_rel_a_2(fixed=true, start=0),
-      r_rel_a_3(fixed=true, start=0),
       angle_1(fixed=true),
       angle_3(fixed=true),
       angle_d_1(fixed=true),
