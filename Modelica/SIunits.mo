@@ -1049,9 +1049,8 @@ argument):</p>
   type Pressure = Real (
       final quantity="Pressure",
       final unit="Pa",
-      nominal = 1e5,
       displayUnit="bar");
-  type AbsolutePressure = Pressure (min=0.0);
+  type AbsolutePressure = Pressure (min=0.0, nominal = 1e5);
   type PressureDifference = Pressure;
   type BulkModulus = AbsolutePressure;
   type Stress = Real (final unit="Pa");
