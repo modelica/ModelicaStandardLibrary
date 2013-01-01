@@ -429,8 +429,7 @@ The Real output y is a step signal:
 
       block Ramp "Generate ramp signal"
         parameter Real height=1 "Height of ramps";
-        parameter Modelica.SIunits.Time duration(min=Modelica.Constants.small, start = 2)
-      "Durations of ramp";
+        parameter Modelica.SIunits.Time duration(min=0.0, start = 2) "Duration of ramp (= 0.0 gives a Step)";
         parameter Real offset=0 "Offset of output signal";
         parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
@@ -564,6 +563,10 @@ The Real output y is a ramp signal:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png\"
      alt=\"Ramp.png\">
+</p>
+
+<p>
+If parameter duration is set to 0.0, the limiting case of a Step signal is achieved.
 </p>
 </html>"));
       end Ramp;
