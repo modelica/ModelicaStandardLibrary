@@ -7,7 +7,7 @@ package HeatExchanger "Demo of a heat exchanger model"
   extends Modelica.Icons.Example;
 
   //replaceable package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater;
-  replaceable package Medium = Modelica.Media.Water.StandardWater;
+  replaceable package Medium = Modelica.Media.Water.StandardWaterOnePhase;
   //package Medium = Modelica.Media.Incompressible.Examples.Essotherm650;
     Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX HEX(
       c_wall=500,
