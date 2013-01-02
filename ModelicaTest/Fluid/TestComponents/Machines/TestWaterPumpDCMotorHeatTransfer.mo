@@ -66,8 +66,9 @@ model TestWaterPumpDCMotorHeatTransfer
            annotation (Placement(transformation(extent={{-54,28},{-30,52}})));
   Modelica.Electrical.Analog.Sources.StepVoltage stepVoltage(
     startTime=1,
-    offset=0.1,
-    V=400) annotation (Placement(transformation(
+    V=400,
+    offset=0)
+           annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={-80,40})));

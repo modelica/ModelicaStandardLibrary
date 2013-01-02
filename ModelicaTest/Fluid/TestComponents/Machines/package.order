@@ -1,5 +1,6 @@
 TestControlledPump
 TestSweptVolume
+TestWaterPumpCharacteristics
 TestWaterPumpCheckValve
 TestWaterPumpDCMotor
 TestWaterPumpDCMotorHeatTransfer

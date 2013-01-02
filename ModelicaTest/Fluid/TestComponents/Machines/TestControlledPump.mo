@@ -83,9 +83,10 @@ model TestControlledPump "Test controlled pump"
           rotation=0)));
   Modelica.Blocks.Sources.Ramp sinkPressure(
     duration=1,
-    startTime=5,
     height=-7e5,
-    offset=8e5) annotation (Placement(transformation(extent={{90,60},{70,80}},
+    offset=8e5,
+    startTime=3)
+                annotation (Placement(transformation(extent={{90,60},{70,80}},
           rotation=0)));
 equation
   connect(pump.port_a,source.ports[1])

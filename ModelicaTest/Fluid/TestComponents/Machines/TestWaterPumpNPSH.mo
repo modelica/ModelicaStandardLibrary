@@ -1,5 +1,5 @@
 within ModelicaTest.Fluid.TestComponents.Machines;
-model TestWaterPumpNPSH "Test PumpNPSH"
+model TestWaterPumpNPSH "Test Pump with NPSH enabled"
   import Modelica.Fluid;
   extends Modelica.Icons.Example;
 
@@ -22,11 +22,7 @@ model TestWaterPumpNPSH "Test PumpNPSH"
     N_nominal=1500,
     show_NPSHa=true,
     p_a_start=100000,
-    p_b_start=700000,
-    V(displayUnit="l") = 0.001,
-    energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
-    massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-                          annotation (Placement(transformation(extent={{-66,20},
+    p_b_start=700000)  annotation (Placement(transformation(extent={{-66,20},
             {-34,50}}, rotation=0)));
   Modelica.Blocks.Sources.Constant valveOpening(k=1)
   annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation=0)));

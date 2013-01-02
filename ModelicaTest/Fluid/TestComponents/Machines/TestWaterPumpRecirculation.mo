@@ -15,7 +15,7 @@ model TestWaterPumpRecirculation
     p=100000,
     redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater)
-  annotation (Placement(transformation(extent={{-100,-38},{-80,-18}},
+  annotation (Placement(transformation(extent={{-100,-40},{-80,-20}},
                                                                     rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT Sink(nPorts=1,
     T=system.T_ambient,
@@ -39,8 +39,8 @@ model TestWaterPumpRecirculation
     p_b_start=700000,
     energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
-                          annotation (Placement(transformation(extent={{-46,-40},
-            {-14,-10}},rotation=0)));
+                          annotation (Placement(transformation(extent={{-54,-44},
+            {-26,-16}},rotation=0)));
 
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent={{80,60},
@@ -51,7 +51,7 @@ model TestWaterPumpRecirculation
     dp_nominal=800000,
     redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater)
-    annotation (Placement(transformation(extent={{-28,6},{-50,26}})));
+    annotation (Placement(transformation(extent={{-18,6},{-40,26}})));
   Modelica.Fluid.Valves.ValveIncompressible V2(
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     m_flow_nominal=1,
@@ -75,22 +75,22 @@ model TestWaterPumpRecirculation
           rotation=0)));
 equation
   connect(pump.port_a,Source.ports[1])
-                                     annotation (Line(points={{-46,-25},{-46,
-          -25},{-80,-28}},    color={0,127,255}));
+                                     annotation (Line(points={{-54,-30},{-54,
+          -30},{-80,-30}},    color={0,127,255}));
   connect(N_pump.y, pump.N_in) annotation (Line(
-      points={{-79,2},{-30,2},{-30,-10}},
+      points={{-79,2},{-40,2},{-40,-16}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(pump.port_b, V1.port_a) annotation (Line(
-      points={{-14,-25},{-20,14},{-20,16},{-28,16}},
+      points={{-26,-30},{-10,-30},{-10,16},{-18,16}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(V1.port_b, pump.port_a) annotation (Line(
-      points={{-50,16},{-60,16},{-60,-25},{-46,-25}},
+      points={{-40,16},{-60,16},{-60,-30},{-54,-30}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(pump.port_b, V2.port_a) annotation (Line(
-      points={{-14,-25},{-10.2,-25},{-10.2,-20},{0,-20}},
+      points={{-26,-30},{-10,-30},{-10,-20},{0,-20}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(V2.port_b, Sink.ports[1]) annotation (Line(
@@ -98,7 +98,7 @@ equation
       color={0,127,255},
       smooth=Smooth.None));
   connect(V1_Opening.y, V1.opening) annotation (Line(
-      points={{-79,50},{-39,50},{-39,24}},
+      points={{-79,50},{-29,50},{-29,24}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(V2_Opening.y, V2.opening) annotation (Line(

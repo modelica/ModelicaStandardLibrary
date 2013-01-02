@@ -8,7 +8,7 @@ model TestWaterPumpVariableSpeed
     startTime=1,
     duration=5,
     height=1500,
-    offset=0)   annotation (Placement(transformation(extent={{-100,62},{-80,82}},
+    offset=0)   annotation (Placement(transformation(extent={{-100,60},{-80,80}},
           rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT Source(nPorts=1, redeclare package Medium
       = Modelica.Media.Water.StandardWater,
@@ -30,14 +30,14 @@ model TestWaterPumpVariableSpeed
     N_nominal=1500,
     use_N_in=true,
     p_a_start=100000,
-    p_b_start=700000)      annotation (Placement(transformation(extent={{-66,20},
-            {-34,50}}, rotation=0)));
+    p_b_start=700000)      annotation (Placement(transformation(extent={{-64,16},
+            {-36,44}}, rotation=0)));
   Modelica.Blocks.Sources.Ramp valveOpening(
     height=-1,
     duration=1,
     offset=1,
     startTime=8)
-  annotation (Placement(transformation(extent={{-40,64},{-20,84}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-40,80},{-20,60}}, rotation=0)));
   Modelica.Fluid.Valves.ValveIncompressible Valve(
                                              redeclare package Medium =
         Modelica.Media.Water.StandardWater,
@@ -52,16 +52,16 @@ equation
   connect(Valve.port_b,Sink.ports[1])    annotation (Line(points={{2,36},{14,36}},
         color={0,127,255}));
   connect(Valve.port_a,pump.port_b)      annotation (Line(points={{-16,36},{-26,
-          36},{-26,35},{-34,35}},           color={0,127,255}));
+          36},{-26,30},{-36,30}},           color={0,127,255}));
   connect(pump.port_a,Source.ports[1])
-                                     annotation (Line(points={{-66,35},{-70,35},
-          {-70,30},{-80,30}}, color={0,127,255}));
+                                     annotation (Line(points={{-64,30},{-64,30},
+          {-80,30}},          color={0,127,255}));
   connect(N_pump.y, pump.N_in) annotation (Line(
-      points={{-79,72},{-50,72},{-50,50}},
+      points={{-79,70},{-50,70},{-50,44}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(valveOpening.y, Valve.opening) annotation (Line(
-      points={{-19,74},{-7,74},{-7,44}},
+      points={{-19,70},{-7,70},{-7,44}},
       color={0,0,127},
       smooth=Smooth.None));
 annotation (

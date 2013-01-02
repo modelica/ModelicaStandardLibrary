@@ -603,11 +603,14 @@ provided a two-phase medium model is used.
       Real c[2] = Modelica.Math.Matrices.solve([ones(2),V_flow_nominal],head_nominal)
           "Coefficients of linear head curve";
     algorithm
+      assert(c[2] <= -Modelica.Constants.small,
+             "Wrong pump curve -- head_nominal must be monotonically decreasing with increasing V_flow_nominal");
       // Flow equation: head = q*c[1] + c[2];
       head := c[1] + V_flow*c[2];
     end linearFlow;
 
-    function quadraticFlow "Quadratic flow characteristic"
+    function quadraticFlow
+        "Quadratic flow characteristic, including linear extrapolation"
       extends baseFlow;
       input SI.VolumeFlowRate V_flow_nominal[3]
           "Volume flow rate for three operating points (single pump)"
@@ -623,12 +626,31 @@ provided a two-phase medium model is used.
   */
       Real c[3] = Modelica.Math.Matrices.solve([ones(3), V_flow_nominal, V_flow_nominal2],head_nominal)
           "Coefficients of quadratic head curve";
+      SI.VolumeFlowRate V_flow_min = min(V_flow_nominal);
+      SI.VolumeFlowRate V_flow_max = max(V_flow_nominal);
     algorithm
-      // Flow equation: head  = c[1] + V_flow*c[2] + V_flow^2*c[3];
-      head := c[1] + V_flow*c[2] + V_flow^2*c[3];
+      assert(max(c[2].+2*c[3]*V_flow_nominal) <= -Modelica.Constants.small,
+             "Wrong pump curve -- head_nominal must be monotonically decreasing with increasing V_flow_nominal");
+      if V_flow < V_flow_min then
+        head := max(head_nominal) + (V_flow-V_flow_min)*(c[2]+2*c[3]*V_flow_min);
+      elseif V_flow > V_flow_max then
+        head := min(head_nominal) + (V_flow-V_flow_max)*(c[2]+2*c[3]*V_flow_max);
+      else
+        // Flow equation: head  = c[1] + V_flow*c[2] + V_flow^2*c[3];
+        head := c[1] + V_flow*(c[2] + V_flow*c[3]);
+      end if;
+
+      annotation(Documentation(revisions="<html>
+<ul>
+<li><i>Jan 2013</i>
+    by R&uuml;diger Franke:<br>
+    Extended with linear extrapolation outside specified points</li>
+</ul>
+</html>"));
     end quadraticFlow;
 
-    function polynomialFlow "Polynomial flow characteristic"
+    function polynomialFlow
+        "Polynomial flow characteristic, including linear extrapolation"
       extends baseFlow;
       input SI.VolumeFlowRate V_flow_nominal[:]
           "Volume flow rate for N operating points (single pump)"
@@ -636,7 +658,7 @@ provided a two-phase medium model is used.
       input SI.Height head_nominal[:] "Pump head for N operating points" annotation(Dialog);
       protected
       Integer N = size(V_flow_nominal,1) "Number of nominal operating points";
-      Real V_flow_nominal_pow[size(V_flow_nominal,1),size(V_flow_nominal,1)] = {{V_flow_nominal[i]^(j-1) for j in 1:N} for i in 1:N}
+      Real V_flow_nominal_pow[N,N] = {{if j > 1 then V_flow_nominal[i]^(j-1) else 1 for j in 1:N} for i in 1:N}
           "Rows: different operating points; columns: increasing powers";
       /* Linear system to determine the coefficients (example N=3):
   head_nominal[1] = c[1] + V_flow_nominal[1]*c[2] + V_flow_nominal[1]^2*c[3];
@@ -645,10 +667,45 @@ provided a two-phase medium model is used.
   */
       Real c[size(V_flow_nominal,1)] = Modelica.Math.Matrices.solve(V_flow_nominal_pow,head_nominal)
           "Coefficients of polynomial head curve";
+      SI.VolumeFlowRate V_flow_min = min(V_flow_nominal);
+      SI.VolumeFlowRate V_flow_max = max(V_flow_nominal);
+      Real max_dhdV = max({c[2] .+ sum((i-1)*V_flow_nominal.^(i-2)*c[i] for i in 3:N)});
+      Real poly;
     algorithm
-      // Flow equation (example N=3): head  = c[1] + V_flow*c[2] + V_flow^2*c[3];
-      // Note: the implementation is numerically efficient only for low values of Na
-      head := sum(V_flow^(i-1)*c[i] for i in 1:N);
+      assert(max_dhdV <= -Modelica.Constants.small,
+             "Wrong pump curve -- head_nominal must be monotonically decreasing with increasing V_flow_nominal");
+      if V_flow < V_flow_min then
+        //head := max(head_nominal) + (V_flow-V_flow_min)*(c[2]+sum((i-1)*V_flow_min^(i-2)*c[i] for i in 3:N));
+        poly := c[N]*(N-1);
+        for i in 1:N-2 loop
+          poly := V_flow_min*poly + c[N-i]*(N-i-1);
+        end for;
+        head := max(head_nominal) + (V_flow-V_flow_min)*poly;
+      elseif V_flow > V_flow_max then
+        //head := min(head_nominal) + (V_flow-V_flow_max)*(c[2]+sum((i-1)*V_flow_max^(i-2)*c[i] for i in 3:N));
+        poly := c[N]*(N-1);
+        for i in 1:N-2 loop
+          poly := V_flow_max*poly + c[N-i]*(N-i-1);
+        end for;
+        head := min(head_nominal) + (V_flow-V_flow_max)*poly;
+      else
+        // Flow equation (example N=3): head  = c[1] + V_flow*c[2] + V_flow^2*c[3];
+        // Note: the implementation is numerically efficient only for low values of Na
+        //head := sum(V_flow^(i-1)*c[i] for i in 1:N);
+        poly := c[N];
+        for i in 1:N-1 loop
+          poly := V_flow*poly + c[N-i];
+         end for;
+        head := poly;
+      end if;
+
+      annotation(Documentation(revisions="<html>
+<ul>
+<li><i>Jan 2013</i>
+    by R&uuml;diger Franke:<br>
+    Extended with linear extrapolation outside specified points and reformulated polynomial evaluation</li>
+</ul>
+</html>"));
     end polynomialFlow;
 
     function constantEfficiency "Constant efficiency characteristic"
