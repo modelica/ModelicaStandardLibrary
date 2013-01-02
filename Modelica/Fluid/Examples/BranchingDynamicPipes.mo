@@ -84,9 +84,9 @@ replaceable package Medium=Modelica.Media.Air.MoistAir constrainedby
         origin={0,60})));
   Modelica.Blocks.Sources.Ramp ramp1(
     offset=1e5,
-    duration=0.001,
     startTime=2,
-    height=1e5) annotation (Placement(transformation(extent={{-40,70},{-20,90}},
+    height=1e5,
+    duration=0) annotation (Placement(transformation(extent={{-40,70},{-20,90}},
           rotation=0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.nNodes] heat2(Q_flow=200*
