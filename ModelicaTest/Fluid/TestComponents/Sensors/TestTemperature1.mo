@@ -1,5 +1,5 @@
 within ModelicaTest.Fluid.TestComponents.Sensors;
-model TestOnePortSensors1
+model TestTemperature1
   import Modelica.Fluid;
   extends Modelica.Icons.Example;
   package Medium = Modelica.Media.Water.StandardWater;
@@ -9,7 +9,6 @@ model TestOnePortSensors1
   parameter Real zeta =  (1 - A_rel)^2;
 
   Modelica.Fluid.Vessels.ClosedVolume volume1(
-    V=1e-3,
     use_T_start=false,
     redeclare package Medium = Medium,
     h_start=1e5,
@@ -17,11 +16,12 @@ model TestOnePortSensors1
     energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     use_portsData=false,
-    p_start=101325)
-                 annotation (Placement(transformation(extent={{-30,30},{-10,50}},
+    p_start=101325,
+    V=1e-4)      annotation (Placement(transformation(extent={{-30,30},{-10,50}},
           rotation=0)));
 
-  Modelica.Fluid.Sources.MassFlowSource_h FlowSource2(nPorts=1,
+  Modelica.Fluid.Sources.MassFlowSource_h source1(
+    nPorts=1,
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium,
@@ -42,11 +42,12 @@ model TestOnePortSensors1
           rotation=0)));
   Modelica.Blocks.Sources.Ramp ramp(
     height=2,
-    duration=20,
-    offset=-1) annotation (Placement(transformation(extent={{-100,30},{-80,50}},
+    offset=-1,
+    startTime=2,
+    duration=10)
+               annotation (Placement(transformation(extent={{-100,30},{-80,50}},
           rotation=0)));
   Modelica.Fluid.Vessels.ClosedVolume volume2(
-    V=1e-3,
     use_T_start=false,
     redeclare package Medium = Medium,
     h_start=1e5,
@@ -54,11 +55,12 @@ model TestOnePortSensors1
     energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     use_portsData=false,
-    p_start=101325)
-                 annotation (Placement(transformation(extent={{-32,-30},{-12,
+    p_start=101325,
+    V=1e-4)      annotation (Placement(transformation(extent={{-32,-30},{-12,
             -10}}, rotation=0)));
 
-  Modelica.Fluid.Sources.MassFlowSource_h FlowSource1(nPorts=1,
+  Modelica.Fluid.Sources.MassFlowSource_h source2(
+    nPorts=1,
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium,
@@ -85,12 +87,14 @@ model TestOnePortSensors1
     zeta=zeta,
     diameter=diameter_a) annotation (Placement(transformation(extent={{40,-30},{60,-10}},
           rotation=0)));
+  Modelica.SIunits.TemperatureDifference Tdiff = Tmix2.T - Tmix1.T;
 equation
-  connect(ramp.y, FlowSource2.m_flow_in) annotation (Line(
+  assert(abs(Tdiff)/50 < 1e-3, "OnePortTemperature and TwoPortTemperature shall give the same result");
+  connect(ramp.y, source1.m_flow_in)     annotation (Line(
       points={{-79,40},{-74,40},{-74,48},{-68,48}},
       color={0,0,127},
       smooth=Smooth.None));
-  connect(ramp.y, FlowSource1.m_flow_in) annotation (Line(
+  connect(ramp.y, source2.m_flow_in)     annotation (Line(
       points={{-79,40},{-76,40},{-76,-12},{-68,-12}},
       color={0,0,127},
       smooth=Smooth.None));
@@ -112,7 +116,7 @@ equation
       points={{10,60},{10,40},{40,40}},
       color={0,127,255},
       smooth=Smooth.None));
-  connect(FlowSource2.ports[1], volume1.ports[1]) annotation (Line(
+  connect(source1.ports[1], volume1.ports[1])     annotation (Line(
       points={{-48,40},{-34,40},{-34,30},{-22,30}},
       color={0,127,255},
       smooth=Smooth.None));
@@ -120,7 +124,7 @@ equation
       points={{-18,30},{10,30},{10,40},{40,40}},
       color={0,127,255},
       smooth=Smooth.None));
-  connect(FlowSource1.ports[1], volume2.ports[1]) annotation (Line(
+  connect(source2.ports[1], volume2.ports[1])     annotation (Line(
       points={{-48,-20},{-35,-20},{-35,-30},{-24,-30}},
       color={0,127,255},
       smooth=Smooth.None));
@@ -128,5 +132,5 @@ equation
       points={{-20,-30},{-11,-30},{-11,-20},{-5.55112e-16,-20}},
       color={0,127,255},
       smooth=Smooth.None));
-  annotation (experiment(StopTime=25));
-end TestOnePortSensors1;
+  annotation (experiment(StopTime=15));
+end TestTemperature1;
