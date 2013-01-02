@@ -11761,15 +11761,26 @@ function atan3
   extends Modelica.Math.Icons.AxisCenter;
   input Real u1;
   input Real u2;
-  input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 < pi";
+  input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 <= pi";
   output Modelica.SIunits.Angle y;
 
 protected
-  Real pi=Modelica.Constants.pi;
+  constant Real pi=Modelica.Constants.pi;
+  constant Real pi2=2*pi;
   Real w;
-  algorithm
+algorithm
   w := Math.atan2(u1, u2);
-  y := w + 2*pi*div(abs(w - y0) + pi, 2*pi)*(if y0 > w then +1 else -1);
+  if y0 == 0 then
+    // For the default (y0 = 0), exactly the same result as with atan2(..) is returned
+    y = w;
+  else
+    /* -pi < y - y0 <= pi
+       -pi < w + 2*pi*N - y0 <= pi
+       (-pi+y0-w)/(2*pi) < N <= (pi+y0-w)/(2*pi)
+       -> N := integer( (pi+y0-w)/(2*pi) )
+    */
+    y = w + pi2*integer((pi+y0-w)/pi2);
+  end if;
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -11834,7 +11845,7 @@ protected
 <p>
 This function returns y = <b>atan3</b>(u1,u2,y0) such that
 <b>tan</b>(y) = u1/u2 and
-y is in the range: -pi &lt; y-y0 &lt; pi.<br>
+y is in the range: -pi &lt; y-y0 &le; pi.<br>
 u2 may be zero, provided u1 is not zero. The difference to
 Modelica.Math.atan2(..) is the optional third argument y0 that
 allows to specify which of the infinite many solutions
@@ -11845,6 +11856,10 @@ shall be returned:
 <img src=\"modelica://Modelica/Resources/Images/Math/atan3.png\">
 </p>
 
+<p>
+Note, for the default case (y0=0), exactly the same result as with atan2(..)
+is returned.
+</p>
 </html>"));
   end atan3;
 
