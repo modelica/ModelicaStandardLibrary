@@ -222,16 +222,15 @@ package AST_BatchPlant
     Machines.PrescribedPump P1(
       redeclare package Medium = BatchMedium,
       m_flow_start=0.1,
-      redeclare function flowCharacteristic =
-          Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
-          (                                                                   V_flow_nominal={0,
-              0.001,0.0015}, head_nominal={100,50,0}),
       N_nominal=200,
       use_N_in=true,
       show_NPSHa=true,
       V(displayUnit="ml") = 0.0001,
       energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+      redeclare function flowCharacteristic =
+          Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
+          (V_flow_nominal={0,0.1e-3,0.15e-3}, head_nominal={10,5,0}),
       p_a_start=100000,
       p_b_start=100000)
       annotation (Placement(transformation(extent={{-140,-260},{-160,-240}},
@@ -239,19 +238,17 @@ package AST_BatchPlant
     Machines.PrescribedPump P2(
       redeclare package Medium = BatchMedium,
       m_flow_start=0.1,
-      redeclare function flowCharacteristic =
-          Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
-          (                                                                  V_flow_nominal={0,
-              0.001,0.0015}, head_nominal={100,50,0}),
       N_nominal=200,
       use_N_in=true,
       show_NPSHa=true,
       V(displayUnit="ml") = 0.0001,
-      checkValve=true,
-      p_a_start=100000,
-      p_b_start=100000,
       energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-      massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
+      massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+      redeclare function flowCharacteristic =
+          Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
+          (V_flow_nominal={0,0.1e-3,0.15e-3}, head_nominal={10,5,0}),
+      p_a_start=100000,
+      p_b_start=100000)
       annotation (Placement(transformation(extent={{120,-260},{140,-240}},
             rotation=0)));
     Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts B1(
@@ -271,10 +268,12 @@ package AST_BatchPlant
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                           annotation (Placement(transformation(extent={{180,250},
               {200,270}},       rotation=0)));
-    Modelica.Blocks.Logical.TriggeredTrapezoid P1_on(amplitude=100, rising=0)
+    Modelica.Blocks.Logical.TriggeredTrapezoid P1_on(               rising=0,
+        amplitude=200)
       annotation (Placement(transformation(extent={{-122,-230},{-142,-210}},
             rotation=0)));
-    Modelica.Blocks.Logical.TriggeredTrapezoid P2_on(amplitude=50, rising=0)
+    Modelica.Blocks.Logical.TriggeredTrapezoid P2_on(              rising=0,
+        amplitude=200)
       annotation (Placement(transformation(extent={{100,-230},{120,-210}},
             rotation=0)));
     Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts B2(
@@ -660,8 +659,8 @@ package AST_BatchPlant
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\"
      alt=\"BatchPlant_StandardWater.png\">
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,-280},{
-              200,280}})),
+      Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-200,-280},{
+              200,280}}), graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-200,-280},{200,
               280}})));
   end BatchPlant_StandardWater;
