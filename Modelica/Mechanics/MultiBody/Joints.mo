@@ -2653,9 +2653,7 @@ that has this property.
       annotation (Dialog(tab="Advanced"));
     SI.Force f_rod
       "Constraint force in direction of the rod (positive, if rod is pressed)";
-    final parameter SI.Distance rodLength(fixed=not computeRodLength)=
-      Modelica.Math.Vectors.length(
-                    rRod_ia)
+    final parameter SI.Distance rodLength(fixed=false, start=Modelica.Math.Vectors.length(rRod_ia))
       "Length of rod (distance between origin of frame_a and origin of frame_b)";
     final parameter Real eRod_ia[3](each final unit="1")=Modelica.Math.Vectors.normalize(
                                                      rRod_ia,0.0)
@@ -2754,6 +2752,11 @@ that has this property.
       r_shape=-e2_ia*(cylinderLength/2),
       r=frame_ia.r_0,
       R=frame_ia.R) if world.enableAnimation and animation and showUniversalAxes;
+
+initial equation
+  if not computeRodLength then
+    rodLength = Modelica.Math.Vectors.length(rRod_ia);
+  end if;
 
   equation
     Connections.branch(frame_a.R, frame_ia.R);
