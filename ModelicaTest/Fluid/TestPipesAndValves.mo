@@ -629,8 +629,8 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
       rho_nominal=1000,
       filteredOpening=true,
       riseTime=0.1,
-      dp_nominal=100000,
-      leakageOpening=0) annotation (Placement(transformation(extent={{10,36},{30,56}},
+      dp_nominal=100000)
+                        annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible1(
       redeclare package Medium = Medium,
@@ -639,8 +639,8 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
       rho_nominal=1000,
       filteredOpening=true,
       riseTime=0.1,
-      dp_nominal=100000,
-      leakageOpening=0) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      dp_nominal=100000)
+                        annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
       redeclare package Medium = Medium,
@@ -708,7 +708,9 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
-</html>"));
+</html>"),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics));
   end BranchingPipes12;
 
   model BranchingPipes13
