@@ -265,7 +265,7 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
         */
           w1 :=sqrt_k1*sqrt(8.75/x1);
           w2 :=sqrt_k2*sqrt(8.75/abs(x2));
-          y0d :=min(y0d, 0.9*min(w1, w2));
+          y0d :=smooth(2, min(y0d, 0.9*min(w1, w2)));
 
           /* Perform interpolation in scaled polynomial:
            y_new = y/y1
