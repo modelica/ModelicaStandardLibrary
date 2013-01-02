@@ -80,23 +80,29 @@ sample instant during the sample points.
   end ZeroOrderHold;
 
   block FirstOrderHold "First order hold of a sampled-data system"
-    extends Interfaces.DiscreteSISO;
+    extends Modelica.Blocks.Interfaces.DiscreteSISO;
   protected
-    Real ySample;
     Modelica.SIunits.Time tSample;
+    Real uSample;
+    Real pre_uSample;
     Real c;
-
+  initial equation
+    pre(tSample) = time;
+    pre(uSample) = u;
+    pre(pre_uSample) = u;
+    pre(c) = 0.0;
   equation
     when sampleTrigger then
-      ySample = u;
       tSample = time;
-      c = if firstTrigger then 0 else (ySample - pre(ySample))/samplePeriod;
+      uSample = u;
+      pre_uSample = pre(uSample);
+      c = if firstTrigger then 0 else (uSample - pre_uSample)/samplePeriod;
     end when;
-    /* Use pre(ySample) and pre(c) to break potential algebraic loops by an
+    /* Use pre_uSample and pre(c) to break potential algebraic loops by an
        infinitesimal delay if both the continuous and the discrete part
        have direct feedthrough.
     */
-    y = pre(ySample) + pre(c)*(time - tSample);
+    y = pre_uSample + pre(c)*(time - tSample);
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,

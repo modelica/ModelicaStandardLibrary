@@ -467,6 +467,30 @@ equation
           preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
 end RootMeanSquare;
 
+model FirstOrderHold "Test first order hold of Discrete package"
+  extends Modelica.Icons.Example;
+  parameter Real period=0.05;
+  Modelica.Blocks.Sources.Sine sine(freqHz=1, offset=0.5)
+    annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+  Modelica.Blocks.Discrete.ZeroOrderHold zeroOrderHold(samplePeriod=period)
+    annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+  Modelica.Blocks.Discrete.FirstOrderHold firstOrderHold(samplePeriod=period)
+    annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+equation
+  connect(sine.y, zeroOrderHold.u) annotation (Line(
+      points={{-59,10},{-50,10},{-50,30},{-42,30}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(sine.y, firstOrderHold.u) annotation (Line(
+      points={{-59,10},{-50,10},{-50,-10},{-42,-10}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  annotation (
+    uses(Modelica(version="3.2.1")),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics),
+    experiment(StopTime=2));
+end FirstOrderHold;
 
   package FilterTests "Test of Blocks.Continuous.Filter"
     extends Modelica.Icons.ExamplesPackage;
