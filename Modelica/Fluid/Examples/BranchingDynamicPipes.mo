@@ -90,7 +90,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir constrainedby
           rotation=0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.nNodes] heat2(Q_flow=200*
-        pipe2.dxs)
+        pipe2.dxs, alpha=-1e-2*ones(pipe2.n))
     annotation (Placement(transformation(extent={{-60,-20},{-40,0}},  rotation=
             0)));
 equation
