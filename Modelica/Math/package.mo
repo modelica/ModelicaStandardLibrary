@@ -11772,14 +11772,14 @@ algorithm
   w := Math.atan2(u1, u2);
   if y0 == 0 then
     // For the default (y0 = 0), exactly the same result as with atan2(..) is returned
-    y = w;
+    y := w;
   else
     /* -pi < y - y0 <= pi
        -pi < w + 2*pi*N - y0 <= pi
        (-pi+y0-w)/(2*pi) < N <= (pi+y0-w)/(2*pi)
        -> N := integer( (pi+y0-w)/(2*pi) )
     */
-    y = w + pi2*integer((pi+y0-w)/pi2);
+    y := w + pi2*integer((pi+y0-w)/pi2);
   end if;
   annotation (
     Icon(coordinateSystem(
