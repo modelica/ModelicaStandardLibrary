@@ -117,11 +117,10 @@ This is discussed in the description of package
   equation
     if initial() and not limitsAtInit then
        der(y) = k*u;
-       assert(y >= outMin - 0.01*abs(outMin) and
-              y <= outMax + 0.01*abs(outMax),
-             "LimIntegrator: During initialization the limits have been ignored.\n"+
-             "However, the result is that the output y is not within the required limits:\n"+
-             "  y = " + String(y) + ", outMin = " + String(outMin) + ", outMax = " + String(outMax));
+       assert(y >= outMin - 0.001*abs(outMax-outMin) and y <= outMax + 0.001*abs(outMax-outMin),
+            "LimIntegrator: During initialization the limits have been ignored.\n"
+          + "However, the result is that the output y is not within the required limits:\n"
+          + "  y = " + String(y) + ", outMin = " + String(outMin) + ", outMax = " + String(outMax));
     else
        der(y) = if y < outMin and k*u < 0 or y > outMax and k*u > 0 then 0 else k*u;
     end if;
