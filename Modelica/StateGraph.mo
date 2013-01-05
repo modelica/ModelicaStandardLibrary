@@ -1519,7 +1519,7 @@ buttons:
                 {119,0}}, color={0,0,0}));
     end MakeProduct;
 
-    connector inflow1
+    connector Inflow1
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
         import Units = Modelica.SIunits;
@@ -1532,9 +1532,9 @@ buttons:
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
-    end inflow1;
+    end Inflow1;
 
-    connector inflow2
+    connector Inflow2
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
         import Units = Modelica.SIunits;
@@ -1547,9 +1547,9 @@ buttons:
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
-    end inflow2;
+    end Inflow2;
 
-    connector outflow1
+    connector Outflow1
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
         import Units = Modelica.SIunits;
@@ -1563,9 +1563,9 @@ buttons:
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
-    end outflow1;
+    end Outflow1;
 
-    connector outflow2
+    connector Outflow2
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
         import Units = Modelica.SIunits;
@@ -1579,7 +1579,7 @@ buttons:
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
-    end outflow2;
+    end Outflow2;
 
     model valve
         "Simple valve model (this is a copy from Isolde Dressler's master thesis project)"
@@ -1589,12 +1589,12 @@ buttons:
               origin={0,-80},
               extent={{-20,-20},{20,20}},
               rotation=90)));
-      Modelica.StateGraph.Examples.Utilities.inflow2 inflow1
+      Modelica.StateGraph.Examples.Utilities.Inflow2 inflow1
                      annotation (Placement(transformation(
               origin={50,0},
               extent={{-50,-50},{50,50}},
               rotation=90)));
-      Modelica.StateGraph.Examples.Utilities.outflow2 outflow1
+      Modelica.StateGraph.Examples.Utilities.Outflow2 outflow1
                        annotation (Placement(transformation(
               origin={-50,0},
               extent={{-50,-50},{50,50}},
@@ -1630,10 +1630,10 @@ buttons:
         annotation (Placement(transformation(extent={{-61,-30},{-81,-10}},
                 rotation=0)));
 
-      Modelica.StateGraph.Examples.Utilities.inflow1 inflow1
+      Modelica.StateGraph.Examples.Utilities.Inflow1 inflow1
                      annotation (Placement(transformation(extent={{-55,60},{-45,
                   70}}, rotation=0)));
-      Modelica.StateGraph.Examples.Utilities.outflow1 outflow1
+      Modelica.StateGraph.Examples.Utilities.Outflow1 outflow1
                        annotation (Placement(transformation(extent={{55,-50},{
                   65,-40}}, rotation=0)));
       Real level(start=0,fixed=true) "Tank level in % of max height";
@@ -1677,7 +1677,7 @@ buttons:
     model Source
         "Simple source model (this is a copy from Isolde Dressler's master thesis project)"
 
-      Modelica.StateGraph.Examples.Utilities.outflow1 outflow1
+      Modelica.StateGraph.Examples.Utilities.Outflow1 outflow1
                        annotation (Placement(transformation(extent={{-10,-60},{
                   10,-40}}, rotation=0)));
       parameter Real maxflow=1 "maximal flow out of source";
