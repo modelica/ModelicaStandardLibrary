@@ -42,7 +42,7 @@ This library has the following main features:
      therefore does not introduce an overhead for special cases.<br>&nbsp;</li>
 <li> All the components of the Modelica.Fluid library are designed
      that they can be utilized for all media models from
-     Modelica.Media if this is posssible. For example, all media can
+     Modelica.Media if this is possible. For example, all media can
      be utilized for the Modelica.Fluid.Sensors/Sources components.
      For some components only special media are possible, since additional
      functionality is required. For example,
@@ -165,7 +165,7 @@ nominal attributes. Furthermore, Medium.MassFlowRate is defined as:
       Modelica.SIunits.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
 </pre>
 <p>
-With the current library design, it is necessary to explictly select the medium
+With the current library design, it is necessary to explicitly select the medium
 model for each component in a circuit. This model is then propagated to the ports,
 and a Modelica translator will check that the quantity and unit attributes
 of connected interfaces are identical. Therefore, an error occurs,
@@ -339,7 +339,7 @@ It is <b>very important</b> to bear in mind that
 diameter are connected, because there is no friction and no change in fluid velocity. </li>
 </ul>
 <p>
-In all other cases, i.e., different port diameters and/or multple port connections:
+In all other cases, i.e., different port diameters and/or multiple port connections:
 </p>
 <ul>
 <li> The momentum balance does not consider friction effects and changes of pressure due to changes
@@ -401,7 +401,7 @@ equations hold
 </table>
 <p>
 An alternative energy balance can be derived by multiplying
-the momentum balance with \"v\" and substracting it
+the momentum balance with \"v\" and subtracting it
 from the energy balance 1 above. This results in
 the \"energy balance 2\":
 </p>
@@ -450,7 +450,7 @@ the intensive quantities of volume A have no influence
 on the fluid between the two volumes.
 </p>
 <p>
-In the Modelica.Fluid library, such a situation is handeled
+In the Modelica.Fluid library, such a situation is handled
 with the following code fragment
 (from Interfaces.PartialTwoPortTransport):
 </p>
@@ -624,7 +624,7 @@ and 0.0025% around x=1.
 One important special case for a pressure loss is the friction at the
 wall of a pipe under the assumption of quasi steady state flow (i.e., the
 mass flow rate varies only slowly). In this section it is explained how this case is
-handeled in the Modelica.Fluid library for pipes with
+handled in the Modelica.Fluid library for pipes with
 <b>nonuniform roughness</b>, including the smooth pipe
 as a special case (see
 <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.WallFriction\">Pipes.BaseClasses.WallFriction</a>).
@@ -708,7 +708,7 @@ The pressure loss characteristic is divided into three regions:
 <li> <b>Region 3</b>:
      For <b>Re &ge; 4000</b>, the flow is <b>turbulent</b>.
      Depending on the calculation direction (see \"inverse formulation\"
-     below) either of two explicite equations are used. If the pressure drop dp
+     below) either of two explicit equations are used. If the pressure drop dp
      is assumed to be known, &lambda;2 = |dp|/k2. The
      Colebrook-White equation
      <i>[Colebrook 1939; Idelchik 1994, p. 83, eq. (2-9)]</i>:
@@ -759,7 +759,7 @@ As a short summary:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><b>Smooth pipes</b></td>
-      <td>Drawn brass, coper, aluminium, glass, etc.</td>
+      <td>Drawn brass, copper, aluminum, glass, etc.</td>
       <td><font face=\"Symbol\">d</font> = 0.0025 mm</td>
   </tr>
   <tr><td rowspan=\"3\"><b>Steel pipes</b></td>
@@ -797,7 +797,7 @@ account by the following formula derived by Voronin
 <p>
 where &kappa; is the isentropic coefficient
 (for ideal gases, &kappa; is the ratio of specific heat capacities cp/cv).
-An appreciable decrease in the coefficent \"&lambda;_comp\" is observed
+An appreciable decrease in the coefficient \"&lambda;_comp\" is observed
 only in a narrow transonic region and also at supersonic flow velocities
 by about 15% <i>[Idelchick 1994, p. 97, sect. 2.1.81]</i>.
 This effect is not yet included in Modelica.Fluid.
@@ -917,12 +917,12 @@ Now, we've got two problems here. First, depending on the unit, we change the eq
 </p>
 
 <p>
-Second, the units of Kv and Cv are usually labelled \"m3/h\" and \"USG/min\", but as a matter of fact they are different, as can be seen from the equations above: they are actually
+Second, the units of Kv and Cv are usually labeled \"m3/h\" and \"USG/min\", but as a matter of fact they are different, as can be seen from the equations above: they are actually
 m3/(h*sqrt(bar)) and USG/(min*sqrt(psi)). If I have a valve with Kv = 10 m3/h, it means I get 10 m3/h \"for a pressure drop of 1 bar\". Unfortunately, this is not correct from the point of view of strict dimensional analysis, but nobody uses sqrt(Pa) or sqrt(bar).
 </p>
 
 <p>
-You might think this is crazy (it is, expecially when you try to explain it), but as a matter of fact the valve coefficient is <b>never</b> given in square meters in any catalog or datasheet; Cv is still the most used (even in Europe), followed by Kv. So, it will be very inconvenient for users to type in Av in square meters.
+You might think this is crazy (it is, especially when you try to explain it), but as a matter of fact the valve coefficient is <b>never</b> given in square meters in any catalog or datasheet; Cv is still the most used (even in Europe), followed by Kv. So, it will be very inconvenient for users to type in Av in square meters.
 </p>
 
 <p>
@@ -971,14 +971,14 @@ temperature, gravity acceleration), and also provides default settings
 for many parameters which are used consistently by the models in the library.
 These parameters are then propagated to the individual components
 using the inner/outer variable mechanism. In case the system model is structured
-hieararchically, it is possible to either put a single System
+hierarchically, it is possible to either put a single System
 component at the top level, or possibly to put many of them at different levels,
 which will only influence the system components from that level down.
 </p>
-<p>All the parameters defined in the System model are used as default values for the parameters of the individual components of the system model. Note that it is always possible to ovverride these defaults locally by changing the value of the parameters in the specific component instance.
+<p>All the parameters defined in the System model are used as default values for the parameters of the individual components of the system model. Note that it is always possible to override these defaults locally by changing the value of the parameters in the specific component instance.
 </p>
 <ul>
-<li> The <i>General</i> tab of the System model allows to set the default enviroment variables (pressure, temperature and gravity)
+<li> The <i>General</i> tab of the System model allows to set the default environment variables (pressure, temperature and gravity)
 used by all the components.
 </li>
 <li> The <i>Assumptions</i> tab allows to change the default modelling assumptions
@@ -990,7 +990,7 @@ the advanced settings of some components.</li>
 <p>
 Remember to <b>always add a System component</b> at the top level of
 your system model, otherwise you will get errors when compiling the model. The tool will automatically name it <code>system</code>, so that it
-is recognised by all other components.
+is recognized by all other components.
 </p>
 </html>"));
     end SystemComponent;
@@ -1092,7 +1092,7 @@ Modelica_Fluid was refactored and finalized for the release:
 <ul>
 <li> Refactoring of the code<br>
      This became necessary as the previous release Modelica.Fluid Streams Beta3
-     still reflected the long development history, while the basic concepts had been crystalized.
+     still reflected the long development history, while the basic concepts had been crystallized.
      Please consult the subversion control (SVN) logs for individual changes.</li>
 
 <li> Device oriented package names<br>
@@ -1100,7 +1100,7 @@ Modelica_Fluid was refactored and finalized for the release:
      The former Pumps and Volumes.SweptVolume have become the initial version of fluid Machines.
      The former Volumes package is now called Vessels.</li>
 
-<li> Complete implementation of one-dimenstional fluid flow<br>
+<li> Complete implementation of one-dimensional fluid flow<br>
      The balance equations as documented in
      <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>
      are now completely implemented. The implementations with generic boundary flow and source terms find in:
@@ -1146,7 +1146,7 @@ Modelica_Fluid was refactored and finalized for the release:
      <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.FluidConnectors\">UsersGuide.ComponentDefinition.FluidConnectors</a>
      now makes clear that the ports represent the thermodynamic enthalpy, as opposed to stagnation enthalpy,
      and thermodynamic or static pressure, as opposed to total pressure. An new package Explanatory has been added to the
-     examples to show the difference beteen static pressure and total pressure and possible implications. See
+     examples to show the difference between static pressure and total pressure and possible implications. See
      <a href=\"modelica://Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings\">Examples.Explanatory.MomentumBalanceFittings</a>.
 
 <li> System (former Ambient)<br>
@@ -1166,7 +1166,7 @@ Modelica_Fluid was refactored and finalized for the release:
 <li> Refinement of valves for flow reversal<br>
      All valves now use upstream discretization for reverting flow conditions.</li>
 
-<li> Finalization of trace substrances<br>
+<li> Finalization of trace substances<br>
      Modelica.Fluid now provides a sound implementation for trace substances,
      which can easily be added to existing Media models, in order to study their evolution in a fluid system.<br>
      See <a href=\"modelica://Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls\">Examples.TraceSubstances.RoomCO2WithControls</a></li>
@@ -1254,7 +1254,7 @@ Modelica.Fluid was further improved:
 <li> Bug in Modelica.Fluid.Test.TestComponents.Pumps.TestWaterPump2 corrected
      (complicated redeclaration issue).</li>
 
-<li> Adapted AST_BatchPlant so that \"Check\" is sucessful.
+<li> Adapted AST_BatchPlant so that \"Check\" is successful.
      Simulation fails after 600 s.</li>
 
 <li> Introduced
@@ -1293,7 +1293,7 @@ Modelica.Fluid was further improved:
      taking care off this).</li>
 
 <li> Sources<br>
-     Made icon elements unvisible, if corresponding input is disabled.</li>
+     Made icon elements invisible, if corresponding input is disabled.</li>
 
 <li> Valves, Pipes, PressureLosses, HeatExchangers, two port senors<br>
      Added an arrow in the icon for the \"design flow direction\" from
@@ -1397,7 +1397,7 @@ Changed connectors to stream connectors and adapted the following sublibraries:
 <li> Junctions </li>
 <li> Pipes </li>
 <li> Pumps </li>
-<li> Test and Exampleas (most of the examples and tests are simulating)</li>
+<li> Test and Examples (most of the examples and tests are simulating)</li>
 </ul>
 
 <p>
@@ -1415,7 +1415,7 @@ Other changes:
 <li> Deleted TestPortVolumes since PortVolumes can no longer be implemented with
      stream connectors</li>
 <li> Leakage flow introduced for valves</li>
-<li> Drumboiler Example corrected</li>
+<li> DrumBoiler Example corrected</li>
 <li> Regularization for sensors (T,h,...), in order that no discontinuity
      for bi-directional flow</li>
 <li> Density computation in static head corrected</li>
@@ -1431,7 +1431,7 @@ Other changes:
      </ul></li>
 <li> PartialPump: Removed p_nom, since no longer needed (only dp_nom)</li>
 <li> Made \"%name\" in the icons of all components unified (and better looking)</li>
-<li> Changed default value of leackage flow of valves to zero.</li>
+<li> Changed default value of leakage flow of valves to zero.</li>
 <li> Fixed Modelica.Fluid.Junctions.MassFlowRatio so that it compiles
      (inflow(..) currently only supported for scalars, not for vectors)</li>
 <li> Added script libraryinfo.mos, in order that Modelica.Fluid appears in the
@@ -1544,9 +1544,9 @@ standard library.
 <li><i>Sept., 2003</i><br>
        by Martin Otter: Changes according to the decisions of the
        Modelica design meeting in Dearborn, Sept. 2-4, 2003.
-       Fluid library splitt in to two packages: Modelica.Media
+       Fluid library split into two packages: Modelica.Media
        that contains the media models and Modelica.Fluid that
-       contains fluid flow components. Modelca.Media is
+       contains fluid flow components. Modelica.Media is
        independent of Modelica.Fluid and my be used also from
        other packages that may have a different design as
        Modelica.Fluid.</li>
@@ -1568,7 +1568,7 @@ standard library.
        over a very wide range.</li>
 <li><i>Feb., 2003</i><br>
        by Martin Otter: Included several elementary components and
-       a model for moisted air. Some elementary components, such as
+       a model for moist air. Some elementary components, such as
        FixedAmbient, are adapted versions from the SimpleFlow fluid library
        of Anton Haumer.</li>
 <li><i>Dec., 2002</i><br>

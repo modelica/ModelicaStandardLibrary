@@ -146,13 +146,13 @@ temperature dependent resistor of 10*(1+(T-20C)/(235+20C)) Ohms,
 whose losses v**2/r are dissipated via a
 thermal conductance of 0.1 W/K to ambient temperature 20 degree C.
 The resistor is assumed to have a thermal capacity of 1 J/K,
-having ambient temparature at the beginning of the experiment.
+having ambient temperature at the beginning of the experiment.
 The temperature of this heating resistor is held by an OnOff-controller
-at reference temperature within a given bandwith +/- 1 K
+at reference temperature within a given bandwidth +/- 1 K
 by switching on and off the voltage source.
 The reference temperature starts at 25 degree C
 and rises between t = 2 and 8 seconds linear to 50 degree C.
-An approppriate simulating time would be 10 seconds.
+An appropriate simulating time would be 10 seconds.
 </P>
 </html>"),        experiment(StopTime=10, Interval=0.001));
     end ControlledTemperature;
@@ -265,7 +265,7 @@ The power dissipation to the environment is approximated by heat flow through
 a thermal conductance between winding and core,
 partially storage of the heat in the winding's heat capacity
 as well as the core's heat capacity and finally by forced convection to the environment.<br>
-Since constant speed is assumed, the cinvective conductance keeps constant.<br>
+Since constant speed is assumed, the convective conductance keeps constant.<br>
 Using Modelica.Thermal.FluidHeatFlow it would be possible to model the coolant air flow, too
 (instead of simple dissipation to a constant ambient's temperature).
 </p>
@@ -369,7 +369,7 @@ This is a generic model for the heat capacity of a material.
 No specific geometry is assumed beyond a total volume with
 uniform temperature for the entire volume.
 Furthermore, it is assumed that the heat capacity
-is constant (indepedent of temperature).
+is constant (independent of temperature).
 </p>
 <p>
 The temperature T [Kelvin] of this component is a <b>state</b>.
@@ -388,7 +388,7 @@ at this point.
 </p>
 <p>
 Note, that parameter <b>steadyStateStart</b> is not available in
-the parameter menue of the simulation window, because its value
+the parameter menu of the simulation window, because its value
 is utilized during translation to generate quite different
 equations depending on its setting. Therefore, the value of this
 parameter can only be changed before translating the model.
@@ -404,7 +404,7 @@ compute C:
 <pre>
    C = cp*m.
    Typical values for cp at 20 degC in J/(kg.K):
-      aluminium   896
+      aluminum   896
       concrete    840
       copper      383
       iron        452
@@ -502,7 +502,7 @@ e.g., with one of the following equations:
 </ul>
 <pre>
     Typical values for k at 20 degC in W/(m.K):
-      aluminium   220
+      aluminum   220
       concrete      1
       copper      384
       iron         74
@@ -898,7 +898,7 @@ Epsilon=0, if the body reflects all radiation and does not absorb any.
 </p>
 <pre>
    Typical values for epsilon:
-   aluminium, polished    0.04
+   aluminum, polished    0.04
    copper, polished       0.04
    gold, polished         0.02
    paper                  0.09
@@ -1550,7 +1550,7 @@ component to which the component FixedHeatFlow is connected,
 if parameter Q_flow is positive.
 </p>
 <p>
-If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T_ref))
+If parameter alpha is > 0, the heat flow is multiplied by (1 + alpha*(port.T - T_ref))
 in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
 </p>
 </html>"));
@@ -1617,7 +1617,7 @@ component to which the component PrescribedHeatFlow is connected,
 if the input signal is positive.
 </p>
 <p>
-If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T_ref))
+If parameter alpha is > 0, the heat flow is multiplied by (1 + alpha*(port.T - T_ref))
 in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
 </p>
 </html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2995,7 +2995,7 @@ Note, this partial model is used in cases, where heatPort.T (that is the device 
     end PartialElementaryConditionalHeatPortWithoutT;
 
     partial model PartialConditionalHeatPort
-      "Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for bulding modelsby drag-and-drop"
+      "Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for building models by drag-and-drop"
       parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Modelica.SIunits.Temperature T=293.15
@@ -3186,7 +3186,7 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
        Introduced temperature dependent correction (1 + alpha*(T - T_ref)) in Fixed/PrescribedHeatFlow<br>
 </li>
   <li> v1.1.1 2007/11/13 Anton Haumer<br>
-       componentes moved to sub-packages</li>
+       components moved to sub-packages</li>
   <li> v1.2.0 2009/08/26 Anton Haumer<br>
        added component ThermalCollector</li>
 

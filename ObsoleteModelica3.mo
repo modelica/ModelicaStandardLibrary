@@ -255,7 +255,7 @@ The desired conversion can be selected in the parameter menu
               obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
               Documentation(info="<HTML>
 <p>
-This block is used to enable asignment of values to variables preliminary
+This block is used to enable assignment of values to variables preliminary
 defined as outputs (e.g., useful for inverse model generation).
 </p>
 
@@ -406,7 +406,7 @@ equation:</p>
 </pre>
 <p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which
 is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually
-defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage)
+defined as <b>X [ppm/K]</b> (parts per million, similarly to percentage)
 meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
 i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
 <p>When connector <b>heatPort</b> is <b>not</b> connected, the temperature
@@ -862,8 +862,8 @@ This leads to the following animation
             annotation (Dialog(group="if animation = true", enable=animation));
           SI.Position r_0[3]
             "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-          SI.Force f_b_0[3] "frame_b.f resoved in world frame";
-          SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
+          SI.Force f_b_0[3] "frame_b.f resolved in world frame";
+          SI.Torque t_b_0[3] "frame_b.t resolved in world frame";
 
         protected
           SI.Position f_in_m[3]=frame_b.f/N_to_m
@@ -1260,7 +1260,7 @@ with the blocks of package Modelica.Blocks.
        the angle of the revolute joint. Since T_rel = T_rel(angle) is a function
        of the unknown angle of the revolute joint, this is a non-linear
        equation in this angle.
-          T_rel = [e]*tranpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle)
+          T_rel = [e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle)
                   - skew(e)*sin(angle);
        with
           r_b*T_rel*r_a
@@ -2078,7 +2078,7 @@ in packed format in the order
 </p>
 <ol>
 <li> absolute position vector (= r_abs)</li>
-<li> absolute velocity vectory (= v_abs)</li>
+<li> absolute velocity vector (= v_abs)</li>
 <li> absolute acceleration vector (= a_abs)</li>
 <li> 3 angles to rotate the world frame into frame_a (= angles)</li>
 <li> absolute angular velocity vector (= w_abs)</li>
@@ -2461,7 +2461,7 @@ in packed format in the order
 </p>
 <ol>
 <li> relative position vector (= r_rel)</li>
-<li> relative velocity vectory (= v_rel)</li>
+<li> relative velocity vector (= v_rel)</li>
 <li> relative acceleration vector (= a_rel))</li>
 <li> 3 angles to rotate frame_a into frame_b (= angles)</li>
 <li> relative angular velocity vector (= w_rel)</li>
@@ -3296,7 +3296,7 @@ gear efficiency in a much more reliable way.
 </p>
 <p>
 This component consists of two rigidly connected flanges flange_a and flange_b without
-inertia where an <b>efficency</b> coefficient <b>eta</b> reduces the driven
+inertia where an <b>efficiency</b> coefficient <b>eta</b> reduces the driven
 torque as function of the driving torque depending on the direction
 of the energy flow, i.e., energy is always lost. This can be seen as a
 simple model of the Coulomb friction acting between the teeth of a
@@ -3327,7 +3327,7 @@ Gearbox manufacturers use the loss-formula
    (2)  loadTorque = eta*motorTorque
 </pre>
 <p>
-Comparing (1) and (2) gives a formulat for the efficiency eta:
+Comparing (1) and (2) gives a formula for the efficiency eta:
 </p>
 <pre>
    eta = (1 - sign(w)*bearingTorque/motorTorque)

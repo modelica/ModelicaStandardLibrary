@@ -365,7 +365,7 @@ Graetz rectifier</a>), plotting:
 <li>AC: DC rms           current = iDC2.y</li>
 </ul>
 <p>
-It can be ssen that at the DC side the current is represented by its averaged value, at the AC side by its rms value.
+It can be seen that at the DC side the current is represented by its averaged value, at the AC side by its rms value.
 </p>
 <h4>Note</h4>
 <p>

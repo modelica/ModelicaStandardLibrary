@@ -2208,7 +2208,7 @@ The development of this block was partially funded by BMBF within the
       end Bessel;
 
       function Butterworth
-          "Return base filter coefficients of Butterwort filter (= low pass filter with w_cut = 1 rad/s)"
+          "Return base filter coefficients of Butterworth filter (= low pass filter with w_cut = 1 rad/s)"
         extends Modelica.Icons.Function;
 
         input Integer order(min=1) "Order of filter";

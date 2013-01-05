@@ -3222,7 +3222,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
-        parameter SI.Length t=0.01 "Thickness of sperical shell"
+        parameter SI.Length t(start=0.01) "Thickness of sperical shell"
           annotation (Dialog(group="Parameters", groupImage=
                 "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterHollowSphere.png"));
 
@@ -3260,7 +3260,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
-        parameter SI.Length t=0.01 "Thickness of sperical shell"
+        parameter SI.Length t(start=0.01) "Thickness of sperical shell"
           annotation (Dialog(group="Parameters", groupImage=
                 "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/EighthOfHollowSphere.png"));
 

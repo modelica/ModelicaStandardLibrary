@@ -158,7 +158,7 @@ or other flow models without storage, are directly connected.
 <a href=\"modelica://Modelica.Fluid.Pipes.PipeOnePhaseHT\">PipeOnePhaseHT</a>.</p>
 <p>DynamicPipe treats the partial differential equations with the finite volume method and a staggered grid scheme for momentum balances. The pipe is split into nNodes equally spaced segments along the flow path. The default value is nNodes=2. This results in two lumped mass and energy balances and one lumped momentum balance across the dynamic pipe. </p>
 <p>Note that this generally leads to high-index DAEs for pressure states if dynamic pipes are directly connected to each other, or generally to models with storage exposing a thermodynamic state through the port. This may not be valid if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The <code><b>modelStructure</b></code> can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition. </p>
-<p>The default <code><b>modelStructure</b></code> is <code>av_vb</code> (see Advanced tab). The simplest possible alternative symetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. Depending on the configured model structure, the first and the last pipe segment, or the flow path length of the first and the last momentum balance, are of half size. See the documentation of the base class <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations. </p>
+<p>The default <code><b>modelStructure</b></code> is <code>av_vb</code> (see Advanced tab). The simplest possible alternative symmetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. Depending on the configured model structure, the first and the last pipe segment, or the flow path length of the first and the last momentum balance, are of half size. See the documentation of the base class <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations. </p>
 <p>The <code><b>HeatTransfer</b></code> component specifies the source term <code>Qb_flows</code> of the energy balance. The default component uses a constant coefficient for the heat transfer between the bulk flow and the segment boundaries exposed through the <code>heatPorts</code>. The <code>HeatTransfer</code> model is replaceable and can be exchanged with any model extended from <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>. </p>
 <p>The intended use is for complex networks of pipes and other flow devices, like valves. See, e.g., </p>
 <ul>
@@ -866,7 +866,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
 
       // Static head
       parameter SI.Length[n] dheights=zeros(n)
-        "Differences in heigths of flow segments"
+        "Differences in heights of flow segments"
           annotation(Dialog(group="Static head"), Evaluate=true);
 
       // Assumptions
@@ -1205,8 +1205,8 @@ The options include (default: av_vb):
     Half momentum balances are placed between <code>port_a</code> and the first flow segment as well as between the last flow segment and <code>port_b</code>.
     Connecting two or more flow devices therefore results in algebraic pressures at the ports.
     The specification of good start values for the port pressures is essential for the solution of large nonlinear equation systems.</li>
-<li><code>av_b</code>: Unsymmetric setting with nNodes momentum balances, one between nth volume and <code>port_b</code>, potential pressure state at <code>port_a</code></li>
-<li><code>a_vb</code>: Unsymmetric setting with nNodes momentum balance, one between first volume and <code>port_a</code>, potential pressure state at <code>port_b</code></li>
+<li><code>av_b</code>: Asymmetric setting with nNodes momentum balances, one between nth volume and <code>port_b</code>, potential pressure state at <code>port_a</code></li>
+<li><code>a_vb</code>: Asymmetric setting with nNodes momentum balance, one between first volume and <code>port_a</code>, potential pressure state at <code>port_b</code></li>
 </ul>
 <p>
 When connecting two components, e.g., two pipes, the momentum balance across the connection point reduces to
@@ -1574,7 +1574,7 @@ This also allows for taking into account friction losses with respect to the act
       parameter SI.Length height_ab=0 "Height(port_b) - Height(port_a)"
           annotation(Dialog(group="Static head"));
 
-    //Partial Distritubed Volume
+    //Partial Distributed Volume
      replaceable package Medium =
         Modelica.Media.Interfaces.PartialMedium "Medium in the component"
           annotation (choicesAllMatching = true);
@@ -1682,7 +1682,7 @@ This also allows for taking into account friction losses with respect to the act
 
       // Static head
       parameter SI.Length[n] dheights=height_ab*dxs
-        "Differences in heigths of flow segments"
+        "Differences in heights of flow segments"
           annotation(Dialog(group="Static head"), Evaluate=true);
 
       // Assumptions
@@ -1978,7 +1978,7 @@ This also allows for taking into account friction losses with respect to the act
 
             annotation (Documentation(info="<html>
 <p>
-This paratial model defines a common interface for <code>m=n-1</code> flow models between <code>n</code> device segments.
+This partial model defines a common interface for <code>m=n-1</code> flow models between <code>n</code> device segments.
 The flow models provide a steady-state or dynamic momentum balance using an upwind discretization scheme per default.
 Extending models must add pressure loss terms for friction and gravity.
 </p>
@@ -1989,7 +1989,7 @@ with the <code>crossAreas[n]</code> and the <code>roughnesses[n]</code> of the d
 Moreover the fluid flow is characterized for different types of devices by the characteristic <code>dimensions[n]</code>
 and the average velocities <code>vs[n]</code> of fluid flow in the device segments.
 See <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
-for examplary definitions.
+for example definitions.
 </p>
 <p>
 The parameter <code>Re_turbulent</code> can be specified for the least mass flow rate of the turbulent regime.
@@ -2042,7 +2042,7 @@ e.g., with numerical smoothing or by raising events as appropriate.
 
         annotation (Documentation(info="<html>
 <p>
-This model defines a simple lineaer pressure loss assuming laminar flow for
+This model defines a simple linear pressure loss assuming laminar flow for
 specified <code>dp_nominal</code> and <code>m_flow_nominal</code>.
 </p>
 <p>
@@ -2169,7 +2169,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
 This model describes pressure losses due to <b>wall friction</b> in a pipe
 and due to <b>gravity</b>.
 Correlations of different complexity and validity can be
-seleted via the replaceable package <b>WallFriction</b> (see parameter menu below).
+selected via the replaceable package <b>WallFriction</b> (see parameter menu below).
 The details of the pipe wall friction model are described in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 Basically, different variants of the equation
@@ -2262,7 +2262,7 @@ simulation and/or might give a more robust simulation.
 This model defines the pressure loss assuming turbulent flow for
 specified <code>dp_nominal</code> and <code>m_flow_nominal</code>.
 It takes into account the fluid density of each flow segment and
-obtaines appropriate <code>pathLengths_nominal</code> values
+obtains appropriate <code>pathLengths_nominal</code> values
 for an inverse parameterization of the
 <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow\">
           TurbulentPipeFlow</a>
@@ -2314,7 +2314,7 @@ This model defines only the quadratic turbulent regime of wall friction:
 dp = k*m_flow*|m_flow|, where \"k\" depends on density and the roughness
 of the pipe and is not a function of the Reynolds number.
 This relationship is only valid for large Reynolds numbers.
-The turbulent pressure loss correlation might be useful to optimize models that are only facing turbular flow.
+The turbulent pressure loss correlation might be useful to optimize models that are only facing turbulent flow.
 </p>
 
 </html>"));
@@ -2417,7 +2417,7 @@ and the lengths[n] along the flow path.
 Moreover the fluid flow is characterized for different types of devices by the characteristic <code>dimensions[n+1]</code>
 and the average velocities <code>vs[n+1]</code> of fluid flow.
 See <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
-for examplary definitions.
+for example definitions.
 </p>
 </html>"),Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
@@ -2974,7 +2974,7 @@ This component defines only the laminar region of wall friction:
 dp = k*m_flow, where \"k\" depends on density and dynamic viscosity.
 The roughness of the wall does not have an influence on the laminar
 flow and therefore argument roughness is ignored.
-Since this is a linear relationship, the occuring systems of equations
+Since this is a linear relationship, the occurring systems of equations
 are usually much simpler (e.g., either linear instead of non-linear).
 By using nominal values for density and dynamic viscosity, the
 systems of equations can still further be reduced.
@@ -4290,7 +4290,7 @@ b has the same sign of the change of density.</p>
         SI.Density rho_b = if use_nominal then rho_nominal else Medium.density(state_b);
 
         Real g_times_height_ab(final unit="m2/s2") = system.g*height_ab
-          "Gravitiy times height_ab = dp_grav/d";
+          "Gravity times height_ab = dp_grav/d";
 
         // Currently not in use (means to widen the regularization domain in case of large difference in static head)
         final parameter Boolean use_x_small_staticHead = false
@@ -4338,7 +4338,7 @@ This model describes pressure losses due to <b>wall friction</b> in a pipe
 and due to gravity.
 It is assumed that no mass or energy is stored in the pipe.
 Correlations of different complexity and validity can be
-seleted via the replaceable package <b>WallFriction</b> (see parameter menu below).
+selected via the replaceable package <b>WallFriction</b> (see parameter menu below).
 The details of the pipe wall friction model are described in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 Basically, different variants of the equation

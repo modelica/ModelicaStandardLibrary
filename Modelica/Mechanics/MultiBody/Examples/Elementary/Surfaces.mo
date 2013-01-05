@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model Surfaces
-  "Demonstrate the visualization of a sine surface, as well as a torus and a wheel constucted from a surface"
+  "Demonstrate the visualization of a sine surface, as well as a torus and a wheel constructed from a surface"
   extends Modelica.Icons.Example;
   parameter Real x_min=-1 "Minimum value of x";
   parameter Real x_max=+1 "Maximum value of x";

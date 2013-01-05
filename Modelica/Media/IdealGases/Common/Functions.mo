@@ -183,7 +183,7 @@ package Functions
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
-    input Real T_der "Temperature dervative";
+    input Real T_der "Temperature derivative";
     output SI.SpecificEntropy s "Specific entropy at temperature T";
   algorithm
     s := data.R*(data.blow[2] - 0.5*data.alow[
@@ -226,14 +226,14 @@ package Functions
                 Documentation(info="<html>
 <p>
 The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
-The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the follwong onversion constants were used to
+The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the following conversion constants were used to
 transform the formula to SI units:
 </p>
 
 <ul>
 <li> <b>Const1_SI:</b> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the
      factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
-      and the factor 1e-7 is due to conversionfrom microPoise->Pa.s.</li>
+      and the factor 1e-7 is due to conversion from microPoise->Pa.s.</li>
 <li>  <b>Const2_SI:</b> The factor 1/3.335641e-27 = 1e-3/3.335641e-30
       where the factor 3.335641e-30 comes from debye->C.m and
       1e-3 is due to conversion from cm^3/mol->m^3/mol</li>

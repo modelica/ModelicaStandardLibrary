@@ -535,11 +535,11 @@ which is only exactly true for a fluid with constant density d=d0.
       "Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased"
       extends Modelica.Icons.Package;
 
-      function evaluate "Evaluate polynomial at a given abszissa value"
+      function evaluate "Evaluate polynomial at a given abscissa value"
         extends Modelica.Icons.Function;
         input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
-        input Real u "Abszissa value";
+        input Real u "Abscissa value";
         output Real y "Value of polynomial at u";
       algorithm
         y := p[1];
@@ -563,11 +563,11 @@ which is only exactly true for a fluid with constant density d=d0.
       end derivative;
 
       function derivativeValue
-        "Value of derivative of polynomial at abszissa value u"
+        "Value of derivative of polynomial at abscissa value u"
         extends Modelica.Icons.Function;
         input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
-        input Real u "Abszissa value";
+        input Real u "Abscissa value";
         output Real y "Value of derivative of polynomial at u";
       protected
         Integer n=size(p, 1);
@@ -580,11 +580,11 @@ which is only exactly true for a fluid with constant density d=d0.
       end derivativeValue;
 
       function secondDerivativeValue
-        "Value of 2nd derivative of polynomial at abszissa value u"
+        "Value of 2nd derivative of polynomial at abscissa value u"
         extends Modelica.Icons.Function;
         input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
-        input Real u "Abszissa value";
+        input Real u "Abscissa value";
         output Real y "Value of 2nd derivative of polynomial at u";
       protected
         Integer n=size(p, 1);
@@ -661,12 +661,12 @@ returned as a vector p[n+1] that has the following definition:
 </HTML>"));
       end fitting;
 
-      function evaluate_der "Evaluate polynomial at a given abszissa value"
+      function evaluate_der "Evaluate polynomial at a given abscissa value"
         extends Modelica.Icons.Function;
         input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
-        input Real u "Abszissa value";
-        input Real du "Abszissa value";
+        input Real u "Abscissa value";
+        input Real du "Abscissa value";
         output Real dy "Value of polynomial at u";
       protected
         Integer n=size(p, 1);
@@ -697,8 +697,8 @@ returned as a vector p[n+1] that has the following definition:
         extends Modelica.Icons.Function;
         input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
-        input Real u "Abszissa value";
-        input Real du "delta of abszissa value";
+        input Real u "Abscissa value";
+        input Real du "delta of abscissa value";
         output Real dy
           "time-derivative of derivative of polynomial w.r.t. input variable at u";
       protected
@@ -727,7 +727,7 @@ Modelica in file \"Modelica/package.mo\".
 </html>",     revisions="<html>
 <ul>
 <li><i>Oct. 22, 2004</i> by Martin Otter (DLR):<br>
-       Renamed functions to not have abbrevations.<br>
+       Renamed functions to not have abbreviations.<br>
        Based fitting on LAPACK<br>
        New function to return the polynomial of an indefinite integral</li>
 <li><i>Sept. 3, 2004</i> by Jonas Eborn (Scynamics):<br>

@@ -498,7 +498,7 @@ coordinates shall be resolved:
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.ResolveInFrameB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve input forceand torque in world frame (= default)</td></tr>
+    <td valign=\"top\">Resolve input force and torque in world frame (= default)</td></tr>
 
 <tr><td valign=\"top\">frame_b</td>
     <td valign=\"top\">Resolve input force and torque in frame_b</td></tr>
@@ -2378,7 +2378,7 @@ where a mass is hanging on a damper.
     annotation (
       Documentation(info="<HTML>
 <p>
-<b>Linear spring</b> and <b>dinear damper</b>
+<b>Linear spring</b> and <b>linear damper</b>
 in parallel acting as line force between frame_a and frame_b.
 A <b>force f</b> is exerted on the origin of frame_b and with opposite sign
 on the origin of frame_a along the line from the origin of frame_a to the origin

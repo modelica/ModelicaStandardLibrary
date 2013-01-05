@@ -1448,7 +1448,7 @@ A user-defined table may be defined in the following way as an ExternalObject
   <b>end</b> constructor;
 
   <b>function</b> destructor \"Release storage of table\"
-    <b>inpu</b>t  MyTable table;
+    <b>input</b>  MyTable table;
     <b>external</b> \"C\" closeMyTable(table);
   <b>end</b> destructor;
 <b>end</b> MyTable;
@@ -1486,7 +1486,7 @@ The external C-functions may be defined in the following way:
 </p>
 
 <pre>
-<b>typedef struct</b> {  /* User-defined datastructure of the table */
+<b>typedef struct</b> {  /* User-defined data structure of the table */
   <b>double</b>* array;      /* nrow*ncolumn vector       */
   <b>int</b>     nrow;       /* number of rows            */
   <b>int</b>     ncol;       /* number of columns         */
@@ -1798,7 +1798,7 @@ a component, according to case (d) above:
   <b>input</b> Real x;
   <b>input</b> Real y1;
   <b>input</b> Real y2;
-  <b>inpu</b>t SurfaceIntegrand integrand;
+  <b>input</b> SurfaceIntegrand integrand;
   <b>output</b> Real z;
 <b>algorithm</b>
   // This is according to case (d) and needs to bind the 2nd argument
@@ -2549,7 +2549,7 @@ Real[2,6] r2 = cat(2, r1, 2*r1);
 The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</code> along dimension <code>k</code> according to the following rules:
 <ul>
 <li>Arrays <code>A, B, C, ...</code> must have the same number of dimensions, i.e., <code>ndims(A) = ndims(B) = ...</code></li>
-<li>Arrays <code>A, B, C, ...</code> must be type compatible expressions giving the type of the elements of theresult. The maximally expanded types should be equivalent. Real and Integer subtypes can be mixed resulting in a Real result array where the Integer numbers have been transformed to Real numbers.</li>
+<li>Arrays <code>A, B, C, ...</code> must be type compatible expressions giving the type of the elements of the result. The maximally expanded types should be equivalent. Real and Integer subtypes can be mixed resulting in a Real result array where the Integer numbers have been transformed to Real numbers.</li>
 <li><code>k</code> has to characterize an existing dimension, i.e., <code>1 &lt;= k &lt;= ndims(A) = ndims(B) = ndims(C)</code>; <code>k</code> shall be an integer number.</li>
 <li>Size matching: Arrays <code>A, B, C, ...</code> must have identical array sizes with the exception of the size of dimension <code>k</code>, i.e., <code>size(A,j) = size(B,j), for 1 &lt;= j &lt;= ndims(A) and j &lt;&gt; k</code>.</li>
 </ul>
@@ -3355,7 +3355,7 @@ The details are given in Section 15.2 of the
 <a href=\"http://www.modelica.org/documents/ModelicaSpec32Revision1.pdf\">Modelica Language Specification version 3.2 Revision 1</a>.
 The stream connection equations have singularities and/or multiple solutions if one or more
 of the flow variables become zero. When all the flows are zero, a singularity is always
-present, so it is necessary to approximate the solution in an open neighbourhood
+present, so it is necessary to approximate the solution in an open neighborhood
 of that point. [<i>For example assume that m<sub>j</sub>.c.m_flow = c<sub>k</sub>.m_flow = 0,
 then all equations above are identically fulfilled and inStream(..) can have any value</i>].
 It is required that the inStream() operator is appropriately approximated in that case
@@ -3439,7 +3439,7 @@ when the return value changes discontinuously.]</i></p>
   ...
 <b>end</b> f1;</pre></blockquote>
 <h4>Description</h4>
-<p>The meaning is that function &quot;<code>f2</code>&quot; is one inverse to function &quot;<code>f1</code>&quot; where the previous output &quot;<code>y</code>&quot; is now an input and the previous input &quot;<code>uk</code>&quot; is now an output. More than one inverse can be defined within the same inverse annotation. Several inverses are separated by commas. <em>(The inverse requires that for all valid values of the inputarguments of <code>f2(...,y, ...)</code> and <code>uk</code> being calculated as <code>uk := f2(..., y, ...)</code> implies the equality <code>y = f1(..., uk, ...,) </code>up to a certain precision.)</em></p>
+<p>The meaning is that function &quot;<code>f2</code>&quot; is one inverse to function &quot;<code>f1</code>&quot; where the previous output &quot;<code>y</code>&quot; is now an input and the previous input &quot;<code>uk</code>&quot; is now an output. More than one inverse can be defined within the same inverse annotation. Several inverses are separated by commas. <em>(The inverse requires that for all valid values of the input arguments of <code>f2(...,y, ...)</code> and <code>uk</code> being calculated as <code>uk := f2(..., y, ...)</code> implies the equality <code>y = f1(..., uk, ...,) </code>up to a certain precision.)</em></p>
 <p>Function &quot;<code>f1</code>&quot; can have any number and types of arguments with and without default value. The restriction is that the number of unknown variables in the output argument of both &quot;<code>f1</code>&quot; and &quot;<code>f2</code>&quot; must be the same and that &quot;<code>f2</code>&quot; must have exactly the same arguments as &quot;<code>f1</code>&quot; (with the same defaults, if an argument um has a default), but the order of the arguments may be permuted.</p>
 <h4><font style=\"color: #008000; \">Examples</font></h4>
 <pre><b>function</b> h_pTX
@@ -4049,7 +4049,7 @@ flow direction.]</i>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Signum function of a Real or Integer number
+Sign function of a Real or Integer number
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><b>sign</b>(v)</pre></blockquote>
@@ -4838,7 +4838,7 @@ connector FluidPort
   flow SI.EnthalpyFlowRate H_flow;
 
   SI.MassFraction       Xi     [Medium.nXi] \"Independent mixture mass fractions\";
-  flow SI.MassFlowRate mXi_flow[Medium.nXi] \"Independent subst. mass flow rates\";
+  flow SI.MassFlowRate mXi_flow[Medium.nXi] \"Independent substance mass flow rates\";
 end FluidPort;
 
 model DynamicVolume

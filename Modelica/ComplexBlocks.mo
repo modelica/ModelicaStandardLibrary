@@ -1852,7 +1852,7 @@ zero or negative.
 </html>"));
         end Log;
 
-    block RealToComplex "Converts cartesian representation to complex"
+    block RealToComplex "Converts Cartesian representation to complex"
       extends Modelica.ComplexBlocks.Interfaces.ComplexSO;
       Blocks.Interfaces.RealInput re  annotation (Placement(transformation(extent={{
                 -130,40},{-90,80}}), iconTransformation(extent={{-140,40},{-100,80}})));
@@ -1924,7 +1924,7 @@ zero or negative.
 </html>"));
     end PolarToComplex;
 
-    block ComplexToReal "Converts complex to cartesian representation"
+    block ComplexToReal "Converts complex to Cartesian representation"
       extends Modelica.Blocks.Icons.Block;
       Blocks.Interfaces.RealOutput re  annotation (Placement(transformation(extent={{100,40},
                 {140,80}}),          iconTransformation(extent={{100,40},{140,80}})));

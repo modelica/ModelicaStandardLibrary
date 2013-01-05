@@ -229,7 +229,7 @@ Note that a closed flow cycle generally causes circular equalities for the mass 
 This is why the tank.massDynamics, i.e., the tank level determining the port pressure, is modified locally to Types.Dynamics.FixedInitial.
 </p>
 <p>
-Also note that the tank is thermally isolated againts its ambient. This way the temperature of the tank is also
+Also note that the tank is thermally isolated against its ambient. This way the temperature of the tank is also
 well defined for zero flow rate in the heating system, e.g., for valveOpening.offset=0 at the beginning of a simulation.
 The pipe however is assumed to be perfectly isolated.
 If steady-state values shall be obtained with the valve fully closed, then a thermal

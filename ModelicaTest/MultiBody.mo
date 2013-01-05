@@ -7581,7 +7581,7 @@ often possible to use the FreeMotion joint such that the singularity
     end FlyingBodies;
 
     model FreeBodiesEnforceStatesFalse
-      "Test whether enforceStates=false give any undesidered output"
+      "Test whether enforceStates=false give any undesired output"
       extends Modelica.Icons.Example;
       parameter Boolean animation=true "= true, if animation shall be enabled";
       inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
@@ -7772,7 +7772,7 @@ often possible to use the FreeMotion joint such that the singularity
       annotation (
         experiment(StopTime=10),
         Documentation(info="<html>
-<p>This test case is made with the intent of verifying what choises are made by the compiler in terms of state selection when wrogn indications are given, here all the bodies have the flag enforceStates=false but the bodies positions and velocities are the only possible states.</p>
+<p>This test case is made with the intent of verifying what choices are made by the compiler in terms of state selection when wrong indications are given, here all the bodies have the flag enforceStates=false but the bodies positions and velocities are the only possible states.</p>
 <p><br/>Dymola ignores the flag and uses bodies variables as states.</p>
 </html>"),
         Diagram(graphics));

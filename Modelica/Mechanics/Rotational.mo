@@ -464,9 +464,9 @@ variable and only use an absolute tolerance for the step size control.
 
 <p>
 Currently, in Modelica there is no possibility to provide this information.
-In order to reduce this effect, it is adviceable to not use absolute angles, but
+In order to reduce this effect, it is advisable to not use absolute angles, but
 relative angles as states. A user can define relative variables as states
-explicitely with component
+explicitly with component
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.RelativeStates\">RelativeStates</a>.
 Furthermore, all compliant components, such as
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.SpringDamper\">SpringDamper</a> are
@@ -2663,7 +2663,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       SI.Angle phi
         "Angle between shaft flanges (flange_a, flange_b) and support";
-      SI.Torque tau "Brake friction torqu";
+      SI.Torque tau "Brake friction torque";
       SI.AngularVelocity w "Absolute angular velocity of flange_a and flange_b";
       SI.AngularAcceleration a
         "Absolute angular acceleration of flange_a and flange_b";
@@ -3705,7 +3705,7 @@ The inertias of the planet wheels are always neglected.
 The icon of the planetary gear signals that the sun and carrier
 flanges are on the left side and the ring flange is on the right side
 of the gear box. However, this component is generic and is valid
-independantly how the flanges are actually placed (e.g., sun wheel
+independently how the flanges are actually placed (e.g., sun wheel
 may be placed on the right side instead on the left side in reality).
 </p>
 <p>
@@ -5521,7 +5521,7 @@ the mechanical flange of a shaft. The following variables are defined in this co
 
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"> <b>phi</b></td>
-      <td valign=\"top\"> Absolute rotation angle of theshaft flange in [rad] </td>
+      <td valign=\"top\"> Absolute rotation angle of the shaft flange in [rad] </td>
   </tr>
   <tr><td valign=\"top\"> <b>tau</b></td>
       <td valign=\"top\"> Cut-torque in the shaft flange in [Nm] </td>

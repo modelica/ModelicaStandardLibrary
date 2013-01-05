@@ -752,10 +752,10 @@ Further source terms must be defined by an extending class for fluid flow across
           annotation(Dialog(tab="Initialization"));
 
         // Total quantities
-        SI.Momentum I "Momentums of flow segments";
+        SI.Momentum I "Momenta of flow segments";
 
         // Source terms and forces to be defined by an extending model (zero if not used)
-        SI.Force Ib_flow "Flow of momentum across boudaries";
+        SI.Force Ib_flow "Flow of momentum across boundaries";
         SI.Force F_p "Pressure force";
         SI.Force F_fg "Friction and gravity force";
 
@@ -1007,7 +1007,7 @@ initial equation
    annotation (      Documentation(info="<html>
 <p>
 Interface and base class for <code><b>n</b></code> ideally mixed fluid volumes with the ability to store mass and energy.
-It is inteded to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.
+It is intended to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.
 The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
 </p>
 <ul>
@@ -1065,10 +1065,10 @@ end PartialDistributedVolume;
           annotation(Dialog(tab="Initialization"));
 
         // Total quantities
-        SI.Momentum[m] Is "Momentums of flow segments";
+        SI.Momentum[m] Is "Momenta of flow segments";
 
         // Source terms and forces to be defined by an extending model (zero if not used)
-        SI.Force[m] Ib_flows "Flow of momentum across boudaries";
+        SI.Force[m] Ib_flows "Flow of momentum across boundaries";
         SI.Force[m] Fs_p "Pressure forces";
         SI.Force[m] Fs_fg "Friction and gravity forces";
 

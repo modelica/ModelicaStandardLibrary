@@ -1746,7 +1746,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
 <p>
 Every PointMass has potential states. If possible a tool will select
-the states of joints and not the states of PointMasss because this is
+the states of joints and not the states of PointMass because this is
 usually the most efficient choice. In this case the position and
 velocity of frame_a of the body will be computed
 by the component that is connected to frame_a. However, if a PointMass is moving

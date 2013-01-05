@@ -16,7 +16,7 @@ package IF97_Utilities
       constant Real DELS=1.0e-8
         "maximum iteration error in specific entropy, J/{kg.K}";
       constant Real DELH=1.0e-8
-        "maximum iteration error in specific entthalpy, J/kg";
+        "maximum iteration error in specific enthalpy, J/kg";
       constant Real DELD=1.0e-8 "maximum iteration error in density, kg/m^3";
     end IterationData;
 
@@ -137,7 +137,7 @@ package IF97_Utilities
         "the calculated specific entropy at the critical point";
       annotation (Documentation(info="<HTML>
  <h4>Record description</h4>
- <p>Critical point data for IF97 steam properties. SCRIT and HCRIT are calculated from helmholtz function for region 3</p>
+ <p>Critical point data for IF97 steam properties. SCRIT and HCRIT are calculated from Helmholtz function for region 3</p>
 <h4>Version Info and Revision history
 </h4>
 <ul>
@@ -783,7 +783,7 @@ package IF97_Utilities
       protected
         Real x "auxiliary variable";
       algorithm
-          // documentation of accuray in notebook ~hubertus/props/IAPWS/R3Approx.nb
+          // documentation of accuracy in notebook ~hubertus/props/IAPWS/R3Approx.nb
         // boundary between region IVa and III
         x := Modelica.Math.acos(p/data.PCRIT);
         h := (1 + x*(-0.4945586958175176 + x*(1.346800016564904 + x*(-3.889388153209752
@@ -834,7 +834,7 @@ package IF97_Utilities
         Real x "auxiliary variable";
       algorithm
 
-          // documentation of accuray in notebook ~hubertus/props/IAPWS/R3Approx.nb
+          // documentation of accuracy in notebook ~hubertus/props/IAPWS/R3Approx.nb
         // boundary between region IVa and III
         x := Modelica.Math.acos(p/data.PCRIT);
         s := (1 + x*(0.35682641826674344 + x*(0.1642457027815487 + x*(-4.425350377422446
@@ -887,9 +887,9 @@ package IF97_Utilities
         input SI.Pressure p "pressure";
         output Common.IF97PhaseBoundaryProperties bpro "property record";
       protected
-        Common.GibbsDerivs g "dimensionless Gibbs funcion and dervatives";
+        Common.GibbsDerivs g "dimensionless Gibbs function and derivatives";
         Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives";
+          "dimensionless Helmholtz function and derivatives";
         SI.Pressure plim=min(p, data.PCRIT-1e-7)
           "pressure limited to critical pressure - epsilon";
       algorithm
@@ -924,9 +924,9 @@ package IF97_Utilities
         input SI.Pressure p "pressure";
         output Common.IF97PhaseBoundaryProperties bpro "property record";
       protected
-        Common.GibbsDerivs g "dimensionless Gibbs funcion and dervatives";
+        Common.GibbsDerivs g "dimensionless Gibbs function and derivatives";
         Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives";
+          "dimensionless Helmholtz function and derivatives";
         SI.Pressure plim=min(p, data.PCRIT-1e-7)
           "pressure limited to critical pressure - epsilon";
       algorithm
@@ -1135,7 +1135,7 @@ package IF97_Utilities
         output Integer region "region (valid values: 1,2,3,4,5) in IF97";
         // If mode is different from 0, no checking for the region is done and
         // the mode is assumed to be the correct region. This can be used to
-        // implement e.g., water-only steamtables when mode == 1
+        // implement e.g., water-only steam tables when mode == 1
       protected
         Boolean hsubcrit;
         SI.Temperature Ttest;
@@ -1213,7 +1213,7 @@ package IF97_Utilities
                       region :=4;
                     end if;
                   end if;
-                  // enf of test for region 1, 3 or 4
+                  // end of test for region 1, 3 or 4
                 else
                   // region 2, 3 or 4
                   if (h > hlowerofp2(p)) then
@@ -1251,7 +1251,7 @@ package IF97_Utilities
         output Integer region "region (valid values: 1,2,3,4,5) in IF97";
         //  If mode is different from 0, no checking for the region is done and
         //    the mode is assumed to be the correct region. This can be used to
-        //    implement e.g., water-only steamtables when mode == 1
+        //    implement e.g., water-only steam tables when mode == 1
       protected
         Boolean ssubcrit;
         SI.Temperature Ttest;
@@ -1509,9 +1509,9 @@ package IF97_Utilities
         dd_dp := drhovl_dp(p, dewcurve_p(p));
       end drhov_dp;
       annotation (Documentation(info="<HTML><h4>Package description</h4>
- <p>Package <b>Regions</b> contains a large number of auxiliary functions which are neede to compute the current region
+ <p>Package <b>Regions</b> contains a large number of auxiliary functions which are needed to compute the current region
  of the IAPWS/IF97 for a given pair of input variables as quickly as possible. The focus of this implementation was on
- computational efficiency, not on compact code. Many of the function values calulated in these functions could be obtained
+ computational efficiency, not on compact code. Many of the function values calculated in these functions could be obtained
  using the fundamental functions of IAPWS/IF97, but with considerable overhead. If the region of IAPWS/IF97 is known in advance,
  the input variable mode can be set to the region, then the somewhat costly region checks are omitted.
  The checking for the phase has to be done outside the region functions because many properties are not
@@ -1522,7 +1522,7 @@ package IF97_Utilities
  <li>Function <b>region_ph</b> compute the region of IAPWS/IF97 for input pair pressure and specific enthalpy.</li>
  <li>Function <b>region_ps</b> compute the region of IAPWS/IF97 for input pair pressure and specific entropy</li>
  <li>Function <b>region_dT</b> compute the region of IAPWS/IF97 for input pair density and temperature.</li>
- <li>Function <b>region_pT</b> compute the region of IAPWS/IF97 for input pair pressure and temperature (only ine phase region).</li>
+ <li>Function <b>region_pT</b> compute the region of IAPWS/IF97 for input pair pressure and temperature (only in phase region).</li>
  </ul>
  <p>In addition, functions of the boiling and condensation curves compute the specific enthalpy, specific entropy, or density on these
  curves. The functions for the saturation pressure and temperature are included in the package <b>Basic</b> because they are part of
@@ -1537,7 +1537,7 @@ package IF97_Utilities
  <li>Function <b>sl_p</b> computes the liquid specific entropy as a function of pressure. For overcritical pressures,
  the critical  specific entropy is returned. An approximation is used for temperatures > 623.15 K.</li>
  <li>Function <b>sv_p</b> computes the vapour  specific entropy as a function of pressure. For overcritical pressures,
- the critical  specific entropyis returned. An approximation is used for temperatures > 623.15 K.</li>
+ the critical  specific entropy is returned. An approximation is used for temperatures > 623.15 K.</li>
  <li>Function <b>rhol_T</b> computes the liquid density as a function of temperature. For overcritical temperatures,
  the critical density is returned. An approximation is used for temperatures > 623.15 K.</li>
  <li>Function <b>rhol_T</b> computes the vapour density as a function of temperature. For overcritical temperatures,
@@ -1604,7 +1604,7 @@ package IF97_Utilities
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
         output Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       protected
         Real pi1 "dimensionless pressure";
         Real tau1 "dimensionless temperature";
@@ -1762,7 +1762,7 @@ package IF97_Utilities
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
         output Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       protected
         Real tau2 "dimensionless temperature";
         Real[55] o "vector of auxiliary variables";
@@ -1965,7 +1965,7 @@ package IF97_Utilities
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
         output Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       protected
         Real pi "dimensionless pressure";
         Real tau "dimensionless temperature";
@@ -2065,7 +2065,7 @@ package IF97_Utilities
         input SI.Density d "density";
         input SI.Temperature T "temperature (K)";
         output Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       protected
         Real[40] o "vector of auxiliary variables";
       algorithm
@@ -2202,7 +2202,7 @@ package IF97_Utilities
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
         output Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       protected
         Real[11] o "vector of auxiliary variables";
       algorithm
@@ -2261,10 +2261,10 @@ package IF97_Utilities
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
        input Integer region "IF97 region, 1, 2 or 5";
-        output Real g "dimensionless Gibbs funcion";
+        output Real g "dimensionless Gibbs function";
       protected
         Modelica.Media.Common.GibbsDerivs gibbs
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       algorithm
         assert(region == 1 or region == 2 or region == 5,
           "IF97 medium function gibbs called with wrong region (= " + String(region) + ").\n" +
@@ -2291,8 +2291,8 @@ package IF97_Utilities
         input SI.Temperature T "temperature (K)";
         output Real pi "dimensionless pressure";
         output Real tau "dimensionless temperature";
-        output Real gpi "dimensionless dervative of Gibbs function w.r.t. pi";
-        output Real gtau "dimensionless dervative of Gibbs function w.r.t. tau";
+        output Real gpi "dimensionless derivative of Gibbs function w.r.t. pi";
+        output Real gtau "dimensionless derivative of Gibbs function w.r.t. tau";
       protected
         Real pi1 "dimensionless pressure";
         Real tau1 "dimensionless temperature";
@@ -2374,8 +2374,8 @@ package IF97_Utilities
         input SI.Temperature T "temperature (K)";
         output Real pi "dimensionless pressure";
         output Real tau "dimensionless temperature";
-        output Real gpi "dimensionless dervative of Gibbs function w.r.t. pi";
-        output Real gtau "dimensionless dervative of Gibbs function w.r.t. tau";
+        output Real gpi "dimensionless derivative of Gibbs function w.r.t. pi";
+        output Real gtau "dimensionless derivative of Gibbs function w.r.t. tau";
       protected
         Real tau2 "dimensionless temperature";
         Real[22] o "vector of auxiliary variables";
@@ -2465,8 +2465,8 @@ package IF97_Utilities
         input SI.Temperature T "temperature (K)";
         output Real pi "dimensionless pressure";
         output Real tau "dimensionless temperature";
-        output Real gpi "dimensionless dervative of Gibbs function w.r.t. pi";
-        output Real gtau "dimensionless dervative of Gibbs function w.r.t. tau";
+        output Real gpi "dimensionless derivative of Gibbs function w.r.t. pi";
+        output Real gtau "dimensionless derivative of Gibbs function w.r.t. tau";
       protected
         Real[3] o "vector of auxiliary variables";
       algorithm
@@ -2498,9 +2498,9 @@ package IF97_Utilities
         output Real delta "dimensionless density";
         output Real tau "dimensionless temperature";
         output Real fdelta
-          "dimensionless dervative of Helmholtz function w.r.t. delta";
+          "dimensionless derivative of Helmholtz function w.r.t. delta";
         output Real ftau
-          "dimensionless dervative of Helmholtz function w.r.t. tau";
+          "dimensionless derivative of Helmholtz function w.r.t. tau";
       protected
         Real[13] o "vector of auxiliary variables";
       algorithm
@@ -2962,7 +2962,7 @@ package IF97_Utilities
       function tsat_der "derivative function for tsat"
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
-        input Real der_p(unit="Pa/s") "pressure derivatrive";
+        input Real der_p(unit="Pa/s") "pressure derivative";
         output Real der_tsat(unit="K/s") "temperature derivative";
       protected
         Real dtp;
@@ -2972,7 +2972,7 @@ package IF97_Utilities
       end tsat_der;
 
       function psat
-        "region 4 saturation pressure as a functionx of temperature"
+        "region 4 saturation pressure as a function of temperature"
 
         extends Modelica.Icons.Function;
         input SI.Temperature T "temperature (K)";
@@ -3007,7 +3007,7 @@ package IF97_Utilities
         output Real dpt(unit = "Pa/K") "temperature derivative of pressure";
       protected
         Real[31] o "vector of auxiliary variables";
-        Real Tlim "temeprature limited to TCRIT";
+        Real Tlim "temperature limited to TCRIT";
       algorithm
         Tlim := min(T, data.TCRIT);
         o[1] := -650.17534844798 + Tlim;
@@ -3060,7 +3060,7 @@ package IF97_Utilities
         der_psat := dpt*der_T;
       end psat_der;
 
-      // Inverses p_hs from the 2001 assition to IAPWS97
+      // Inverses p_hs from the 2001 addition to IAPWS97
       function p1_hs
         "pressure as a function of enthalpy and entropy in region 1"
         extends Modelica.Icons.Function;
@@ -3235,7 +3235,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end p2c_hs;
 
       // Inverses from the 2003 additions to IF97
-      function h3ab_p "ergion 3 a b boundary for pressure/enthalpy"
+      function h3ab_p "region 3 a b boundary for pressure/enthalpy"
           extends Modelica.Icons.Function;
           output SI.SpecificEnthalpy h "Enthalpy";
           input SI.Pressure p "Pressure";
@@ -3256,7 +3256,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       for the Properties of Water and Steam<br>
       &nbsp;Vejle, Denmark<br>
       &nbsp;August 2003<br>
-      &nbsp;Supplementary Release on Backward Equations for the Fucnctions
+      &nbsp;Supplementary Release on Backward Equations for the Functions
       T(p,h), v(p,h) and T(p,s), <br>
       &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
       the Thermodynamic Properties of<br>
@@ -3298,7 +3298,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Fucnctions
+ &nbsp;Supplementary Release on Backward Equations for the Functions
  T(p,h), v(p,h) and T(p,s), <br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
@@ -3340,7 +3340,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Fucnctions
+ &nbsp;Supplementary Release on Backward Equations for the Functions
  T(p,h), v(p,h) and T(p,s), <br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
@@ -3382,7 +3382,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Fucnctions
+ &nbsp;Supplementary Release on Backward Equations for the Functions
  T(p,h), v(p,h) and T(p,s), <br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
@@ -3424,7 +3424,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Fucnctions
+ &nbsp;Supplementary Release on Backward Equations for the Functions
  T(p,h), v(p,h) and T(p,s), <br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
@@ -3466,7 +3466,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Fucnctions
+ &nbsp;Supplementary Release on Backward Equations for the Functions
  T(p,h), v(p,h) and T(p,s), <br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
@@ -3506,7 +3506,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Fucnctions
+ &nbsp;Supplementary Release on Backward Equations for the Functions
  T(p,h), v(p,h) and T(p,s), <br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
@@ -3546,7 +3546,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Fucnctions
+ &nbsp;Supplementary Release on Backward Equations for the Functions
  T(p,h), v(p,h) and T(p,s), <br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
@@ -3588,7 +3588,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
- &nbsp;Supplementary Release on Backward Equations for the Fucnctions
+ &nbsp;Supplementary Release on Backward Equations for the Functions
  T(p,h), v(p,h) and T(p,s), <br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
@@ -3655,7 +3655,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
        for the Properties of Water and Steam<br>
        &nbsp;Vejle, Denmark<br>
        &nbsp;August 2003<br>
-       &nbsp;Supplementary Release on Backward Equations for the Fucnctions
+       &nbsp;Supplementary Release on Backward Equations for the Functions
        T(p,h), v(p,h) and T(p,s), <br>
        &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
        the Thermodynamic Properties of<br>
@@ -3898,9 +3898,9 @@ Ordinary Water Substance<br>
         Real ddelpi "auxiliary variable";
         Real d2 "auxiliary variable";
         Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Real Tc=T - 273.15 "Celsius temperature for region check";
         Real Chi "symmetrized compressibility";
         // slightly different variables for industrial use
@@ -4807,7 +4807,7 @@ Ordinary Water Substance<br>
         Real dp "pressure difference";
         SI.Density deld "density step";
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Modelica.Media.Common.NewtonDerivatives_pT nDerivs
           "derivatives needed in Newton iteration";
         Boolean found=false "flag for iteration success";
@@ -4871,7 +4871,7 @@ Ordinary Water Substance<br>
         assert(error <> 1, "error in inverse function dofpt3: iteration failed");
       end dofpt3;
 
-      // for all iteration functions: project to bounadries possible
+      // for all iteration functions: project to boundaries possible
       // if p is input. Step 1 get dofpt_efficient(p,T) at boundary
       // for T, use boundary itself if off limits, for d a bit inside
 
@@ -4894,7 +4894,7 @@ Ordinary Water Substance<br>
         Real deld "Newton-step in d-direction";
         Real delt "Newton-step in T-direction";
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Modelica.Media.Common.NewtonDerivatives_ph nDerivs
           "derivatives needed in Newton iteration";
         Boolean found = false "flag for iteration success";
@@ -4957,7 +4957,7 @@ Ordinary Water Substance<br>
         Real deld "Newton-step in d-direction";
         Real delt "Newton-step in T-direction";
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Modelica.Media.Common.NewtonDerivatives_ps nDerivs
           "derivatives needed in Newton iteration";
         Boolean found "flag for iteration success";
@@ -5021,7 +5021,7 @@ Ordinary Water Substance<br>
         Real deld "Newton-step in d-direction";
         Real delt "Newton-step in T-direction";
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Modelica.Media.Common.NewtonDerivatives_ps nDerivs
           "derivatives needed in Newton iteration";
         Boolean found "flag for iteration success";
@@ -5069,7 +5069,7 @@ Ordinary Water Substance<br>
       protected
         Integer i "counter for while-loop";
         Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Boolean found "flag if iteration has been successful";
         Real dd
           "difference between density for  guessed p and the current density";
@@ -5135,7 +5135,7 @@ Ordinary Water Substance<br>
 
       protected
         Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         SI.SpecificEnthalpy proh "h for current guess in T";
         constant SI.Temperature Tguess=1500 "initial temperature";
         Integer i "iteration counter";
@@ -5177,7 +5177,7 @@ Ordinary Water Substance<br>
 
       protected
         Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         SI.SpecificEntropy pros "s for current guess in T";
         parameter SI.Temperature Tguess=1500 "initial temperature";
         Integer i "iteration counter";
@@ -5220,7 +5220,7 @@ Ordinary Water Substance<br>
 
       protected
         Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         SI.SpecificEntropy pros "s for current guess in T";
         Integer i "iteration counter";
         Real relerr "relative error in s";
@@ -5300,7 +5300,7 @@ Ordinary Water Substance<br>
 
       protected
         Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       algorithm
         g := Basic.g1(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
@@ -5314,7 +5314,7 @@ Ordinary Water Substance<br>
           "thermodynamic property collection";
       protected
         Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       algorithm
         g := Basic.g2(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
@@ -5328,7 +5328,7 @@ Ordinary Water Substance<br>
           "thermodynamic property collection";
       protected
         Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       algorithm
         f := Basic.f3(d, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
@@ -5345,7 +5345,7 @@ Ordinary Water Substance<br>
           "thermodynamic property collection";
       protected
         Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       algorithm
         g := Basic.g5(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
@@ -5382,7 +5382,7 @@ Ordinary Water Substance<br>
     end ByRegion;
 
     package TwoPhase
-      "steam properties in the two-phase rgion and on the phase boundaries"
+      "steam properties in the two-phase region and on the phase boundaries"
 
       extends Modelica.Icons.Package;
 
@@ -5397,9 +5397,9 @@ Ordinary Water Substance<br>
         Real dpT "derivative of saturation pressure w.r.t. temperature";
         SI.Density dl "liquid density";
         Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       algorithm
         Tsat := Basic.tsat(p);
         dpT := Basic.dptofT(Tsat);
@@ -5424,9 +5424,9 @@ Ordinary Water Substance<br>
         Real dpT "derivative of saturation pressure w.r.t. temperature";
         SI.Density dv "vapour density";
         Modelica.Media.Common.GibbsDerivs g
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       algorithm
         Tsat := Basic.tsat(p);
         dpT := Basic.dptofT(Tsat);
@@ -5452,13 +5452,13 @@ Ordinary Water Substance<br>
         SI.Density dl "liquid density";
         SI.Density dv "vapour density";
         Modelica.Media.Common.GibbsDerivs gl
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Modelica.Media.Common.GibbsDerivs gv
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Modelica.Media.Common.HelmholtzDerivs fl
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Modelica.Media.Common.HelmholtzDerivs fv
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       algorithm
         pro.h := h;
         pro.p := p;
@@ -5505,13 +5505,13 @@ Ordinary Water Substance<br>
         Modelica.Media.Common.PhaseBoundaryProperties vap
           "phase boundary property record";
         Modelica.Media.Common.GibbsDerivs gl
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Modelica.Media.Common.GibbsDerivs gv
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Modelica.Media.Common.HelmholtzDerivs fl
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Modelica.Media.Common.HelmholtzDerivs fv
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Real x "dryness fraction";
         Real dpT "derivative of saturation curve";
       algorithm
@@ -5558,13 +5558,13 @@ Ordinary Water Substance<br>
         Modelica.Media.Common.PhaseBoundaryProperties vap
           "phase boundary property record";
         Modelica.Media.Common.GibbsDerivs gl
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Modelica.Media.Common.GibbsDerivs gv
-          "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Modelica.Media.Common.HelmholtzDerivs fl
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Modelica.Media.Common.HelmholtzDerivs fv
-          "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Real x "dryness fraction";
         Real dpT "derivative of saturation curve";
       algorithm
@@ -5642,9 +5642,9 @@ Ordinary Water Substance<br>
       Integer region "IF97 region";
       Integer error "error flag";
       Modelica.Media.Common.HelmholtzDerivs f
-        "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+        "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       Modelica.Media.Common.GibbsDerivs g
-        "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+        "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     algorithm
       assert(phase ==1,
         "extraDerivs_ph: properties are not implemented in 2 phase region");
@@ -5682,9 +5682,9 @@ Ordinary Water Substance<br>
       Integer region "IF97 region";
       Integer error "error flag";
       Modelica.Media.Common.HelmholtzDerivs f
-        "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+        "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       Modelica.Media.Common.GibbsDerivs g
-        "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+        "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     algorithm
       region := Regions.region_pT(p=p,T= T);
       if region == 1 then
@@ -5809,7 +5809,7 @@ basic equation. Thus, properties as functions of&nbsp; <I>p</I>,<I>h
 <I>p</I> for region 4 can be calculated without any iteration. As a
 result of this special concept for the development of the new
 industrial standard IAPWS-IF97, the most important properties can be
-calculated extremely quickly. All modelica functions are optimized
+calculated extremely quickly. All Modelica functions are optimized
 with regard to short computing times.
 </p>
 <p>
@@ -6094,9 +6094,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Common.IF97BaseTwoPhase aux "auxiliary record";
   protected
     Common.GibbsDerivs g
-      "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+      "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     Common.HelmholtzDerivs f
-      "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+      "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     Integer error "error flag for inverse iterations";
     SI.SpecificEnthalpy h_liq "liquid specific enthalpy";
     SI.Density d_liq "liquid density";
@@ -6105,13 +6105,13 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     Common.PhaseBoundaryProperties liq "phase boundary property record";
     Common.PhaseBoundaryProperties vap "phase boundary property record";
     Common.GibbsDerivs gl
-      "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+      "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     Common.GibbsDerivs gv
-      "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+      "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     Modelica.Media.Common.HelmholtzDerivs fl
-      "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+      "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     Modelica.Media.Common.HelmholtzDerivs fv
-      "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+      "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     SI.Temperature t1
       "temperature at phase boundary, using inverse from region 1";
     SI.Temperature t2
@@ -6215,9 +6215,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Common.IF97BaseTwoPhase aux "auxiliary record";
   protected
     Common.GibbsDerivs g
-      "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+      "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     Common.HelmholtzDerivs f
-      "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+      "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     Integer error "error flag for inverse iterations";
     SI.SpecificEntropy s_liq "liquid specific entropy";
     SI.Density d_liq "liquid density";
@@ -6226,13 +6226,13 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     Common.PhaseBoundaryProperties liq "phase boundary property record";
     Common.PhaseBoundaryProperties vap "phase boundary property record";
     Common.GibbsDerivs gl
-      "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+      "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     Common.GibbsDerivs gv
-      "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+      "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     Modelica.Media.Common.HelmholtzDerivs fl
-      "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+      "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     Modelica.Media.Common.HelmholtzDerivs fv
-      "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+      "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     SI.Temperature t1
       "temperature at phase boundary, using inverse from region 1";
     SI.Temperature t2
@@ -6807,7 +6807,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
   end ddhp;
 
   function waterBaseProp_pT
-    "intermediate property record for water (p and T prefered states)"
+    "intermediate property record for water (p and T preferred states)"
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
@@ -6816,9 +6816,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Common.IF97BaseTwoPhase aux "auxiliary record";
   protected
     Common.GibbsDerivs g
-      "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+      "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     Common.HelmholtzDerivs f
-      "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+      "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     Integer error "error flag for inverse iterations";
   algorithm
     aux.phase := 1;
@@ -7160,7 +7160,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
   end isentropicExponent_pT;
 
   function waterBaseProp_dT
-    "intermediate property record for water (d and T prefered states)"
+    "intermediate property record for water (d and T preferred states)"
     extends Modelica.Icons.Function;
     input SI.Density rho "density";
     input SI.Temperature T "temperature";
@@ -7175,21 +7175,21 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     SI.SpecificEnthalpy h_vap "vapour specific enthalpy";
     SI.Density d_vap "vapour density";
     Common.GibbsDerivs g
-      "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+      "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     Common.HelmholtzDerivs f
-      "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+      "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     Modelica.Media.Common.PhaseBoundaryProperties liq
       "phase boundary property record";
     Modelica.Media.Common.PhaseBoundaryProperties vap
       "phase boundary property record";
     Modelica.Media.Common.GibbsDerivs gl
-      "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+      "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     Modelica.Media.Common.GibbsDerivs gv
-      "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+      "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     Modelica.Media.Common.HelmholtzDerivs fl
-      "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+      "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     Modelica.Media.Common.HelmholtzDerivs fv
-      "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+      "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     Integer error "error flag for inverse iterations";
   algorithm
     aux.region := if region == 0 then
@@ -7582,9 +7582,9 @@ protected
         "property record for dynamic simulation";
     protected
       Modelica.Media.Common.GibbsDerivs g
-        "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+        "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       Modelica.Media.Common.HelmholtzDerivs f
-        "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+        "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       Integer region(min=1, max=5) "IF97 region";
       Integer error "error flag";
       SI.Temperature T "temperature";
@@ -7626,9 +7626,9 @@ protected
       SI.Pressure p "pressure";
       Integer region(min=1, max=5) "IF97 region";
       Modelica.Media.Common.GibbsDerivs g
-        "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+        "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       Modelica.Media.Common.HelmholtzDerivs f
-        "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+        "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       Integer error "error flag";
     algorithm
       region := BaseIF97.Regions.region_dT(d, T, phase);
@@ -7667,9 +7667,9 @@ protected
       SI.Density d "density";
       Integer region(min=1, max=5) "IF97 region";
       Modelica.Media.Common.GibbsDerivs g
-        "dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+        "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       Modelica.Media.Common.HelmholtzDerivs f
-        "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+        "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       Integer error "error flag";
     algorithm
       region := BaseIF97.Regions.region_pT(p, T);
@@ -7743,7 +7743,7 @@ public
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
     input Common.IF97BaseTwoPhase aux "auxiliary record";
-    output SI.SpecificEnthalpy h "isentropic enthalpay";
+    output SI.SpecificEnthalpy h "isentropic enthalpy";
   algorithm
     h := aux.h;
     annotation (derivative(noDerivative=aux) = isentropicEnthalpy_der,
@@ -7829,7 +7829,7 @@ public
       <li>Function <b>sl_p</b> computes the liquid specific entropy as a function of pressure. For overcritical pressures,
       the critical  specific entropy is returned</li>
       <li>Function <b>sv_p</b> computes the vapour  specific entropy as a function of pressure. For overcritical pressures,
-      the critical  specific entropyis returned</li>
+      the critical  specific entropy is returned</li>
       <li>Function <b>rhol_T</b> computes the liquid density as a function of temperature. For overcritical temperatures,
       the critical density is returned</li>
       <li>Function <b>rhol_T</b> computes the vapour density as a function of temperature. For overcritical temperatures,
@@ -7865,5 +7865,5 @@ public
       email: hubertus@modelon.se
       </address>
       </HTML>", revisions="<h4>Intermediate release notes during development</h4>
-<p>Currenly the Events/noEvents switch is only implmented for p-h states. Only after testing that implmentation, it will be extended to dT.</p>"));
+<p>Currently the Events/noEvents switch is only implemented for p-h states. Only after testing that implementation, it will be extended to dT.</p>"));
 end IF97_Utilities;

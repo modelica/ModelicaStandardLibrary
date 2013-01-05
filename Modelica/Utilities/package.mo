@@ -16,7 +16,7 @@ Below the major design decisions of this library are summarized.
 <ul>
 <li> <b>C-Function Interface</b><br>
      This library contains several interfaces to C-functions in order
-     to operate with the environment. As will become clear, it is usally
+     to operate with the environment. As will become clear, it is usually
      required that a Modelica tool vendor provides an implementation
      of these C-functions that are suited for his environment.
      In directory \"Modelica/Resources/C-Sources\" a reference implementation
@@ -51,7 +51,7 @@ Below the major design decisions of this library are summarized.
      some assumptions have been made, especially, that the access to
      a substring is efficient (O(1) access instead of O(n) as in standard C).
      This allows to hide string pointer arithmetic from the user.
-     In such a case, a similiar efficiency as in C can be expected for
+     In such a case, a similar efficiency as in C can be expected for
      most high level operations, such as find, sort, replace.
      The \"efficient character access\" can be reached if, e.g.,
      the number of characters

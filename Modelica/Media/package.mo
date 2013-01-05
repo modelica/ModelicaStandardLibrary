@@ -378,7 +378,7 @@ Modelica.Media.Examples.Tests.Components.ShortPipe</a>):
 
     SI.Pressure dp = port_a.p - port_b.p \"Pressure drop\";
     Medium.BaseProperties medium_a \"Medium properties in port_a\";
-    Medium.BasePropreties medium_b \"Medium properties in port_b\";
+    Medium.BaseProperties medium_b \"Medium properties in port_b\";
   <b>equation</b>
     // define media models of the ports
     medium_a.p   = port_a.p;
@@ -535,7 +535,7 @@ form:
 There are also some short forms provided for user convenience that allow the computation of certain
 thermodynamic state variables without using the ThermodynamicState record explicitly. Those short forms
 are for example useful to compute consistent start values in the initial equation section. Let's
-consider the function temperature_phX(p,h,X) as an exmaple. This function computes the temperature
+consider the function temperature_phX(p,h,X) as an example. This function computes the temperature
 from pressure, specific enthalpy, and composition X (or Xi) and is a short form for writing
 </p>
 <pre>
@@ -787,7 +787,7 @@ elements</p>
 
   <tr><td valign=\"top\">Boolean</td>
       <td valign=\"top\">hasVapourPressureCurve</td>
-      <td valign=\"top\">true if vapour pressure data, e.g., Antoine coefficents are known</td></tr>
+      <td valign=\"top\">true if vapour pressure data, e.g., Antoine coefficients are known</td></tr>
 
   <tr><td valign=\"top\">Boolean</td>
       <td valign=\"top\">hasAcentricFactor</td>
@@ -1036,7 +1036,7 @@ environment Dymola, the option
 </pre>
 <p>
 can be set before translation. Then, missing initial
-conditions are provided by automamtically setting appropriate
+conditions are provided by automatically setting appropriate
 state derivatives to zero.
 </p>
 
@@ -1077,7 +1077,7 @@ for the iteration variables of the non-linear system of equations
 have to be provided via the \"start\" attribute (and fixed=false).
 Unfortunately, it is usually not known in
 advance which variables are selected as iteration variables of
-a non-linear system of equations. One of the following possibilies
+a non-linear system of equations. One of the following possibilities
 exist:
 </p>
 <ul>
@@ -1391,7 +1391,7 @@ setting the following package constants:
 </p>
 <ul>
 <li>mediumName is a String containing the name of the medium.
-<li>substancesNames is a vector of strings containing the names of the substances
+<li>substanceNames is a vector of strings containing the names of the substances
     that make up the medium. In this case, it will contain only mediumName.</li>
 <li>singleState can be set to true if u and d in BaseProperties do not depend
     on pressure. In other words, density does not depend on pressure
@@ -1424,7 +1424,7 @@ of the ThermodynamicState record. Subsequently, equations must be added to
 BaseProperties in order that the instance of that record inside BaseProperties
 (named \"state\") is kept updated. For example, assume that all additional
 properties can be computed as a function of p and T. Then, ThermodynamicState
-should be redclared as follows:</p>
+should be redeclared as follows:</p>
 <pre>
   <b>redeclare replaceable record</b> ThermodynamicState
     AbsolutePressure p \"Absolute pressure of medium\";
@@ -1476,7 +1476,7 @@ it can be less prone to numerical and/or symbolic problems, which can be
 caused by that constraint.</li>
 <li> <i>Fixed-composition models</i>: fixedX = <b>true</b> and nXi = 0. In this case X = reference_X, i.e., all the elements of the composition vector are fixed.</li>
 </ul>
-<p> The medium implementor can declare the value reducedX as <b>final</b>. In
+<p> The medium implementer can declare the value reducedX as <b>final</b>. In
 this way only one implementation must be given. For instance,
 Modelica.Media.IdealGases models declare <b>final</b> reducedX = <b>false</b>, so that the
 implementation can always assume nXi = nX. The same is true for Air.MoistAir,
@@ -1691,7 +1691,7 @@ this non-linear system of equations by the equation:
 </pre>
 
 <p>
-because after alias substition there are two function calls
+because after alias substitution there are two function calls
 </p>
 
 <pre>
@@ -2003,8 +2003,8 @@ for the Modelica'2003 conference (for evaluation).
 
 <h4>Planned changes for version 3.1</h4>
 
-<p>Several changes are planned for version 3.1 of Modelica.Media. In order to have an easy transition, the current verison is moved
-  to the ObsoleteModelica-package and current users can continue to use ot for many years. The goal for the new version is to cover many more fluids, be easier to use for users and less for implementors that want to include their own models. A beta-version of the new media libray will be available in the first quarter of 2009.</p>
+<p>Several changes are planned for version 3.1 of Modelica.Media. In order to have an easy transition, the current version is moved
+  to the ObsoleteModelica-package and current users can continue to use it for many years. The goal for the new version is to cover many more fluids, be easier to use for users and less for implementers that want to include their own models. A beta-version of the new media library will be available in the first quarter of 2009.</p>
 
 <p>The main user-visible changes are:</p>
 <ul>
@@ -2095,9 +2095,9 @@ conductivity. Medium models are defined for <b>single</b> and
 A large part of the library provides specific medium models
 that can be directly utilized. This library can be used in
 all types of Modelica fluid libraries that may have different connectors
-and design philosophies. It is particularily utilized
+and design philosophies. It is particularly utilized
 in the Modelica_Fluid library (the Modelica_Fluid library is currently
-under development to provide 1D thermo-fluid flow components for
+under development to provide 1D therm-fluid flow components for
 single and multiple substance flow with one and multiple phases).
 The Modelica.Media library has the following
 main features:
@@ -2488,7 +2488,7 @@ end MoistAir;
     end TestTwoPhaseStates;
     annotation (Documentation(info="<html>
 <h4>Example: TwoPhaseWater</h4>
-The TwoPhaseWater package demonstrates how to extend the parsimonius
+The TwoPhaseWater package demonstrates how to extend the parsimonious
 BaseProperties with a minimal set of properties from the standard water
 package with most properties that are needed in two-phase situations.
 The model also demonstrates how to compute additional&nbsp; properties
@@ -2509,7 +2509,7 @@ guaranteed to contain what is needed.</li>
 <li><span style=\"color: rgb(255, 0, 0);\">Attention</span>: Many
 properties are not well defined in the two phase region and the
 functions might return undesired values if called there. It is the
-user's responsibility&nbsp; to take care of such ituations. The example
+user's responsibility&nbsp; to take care of such situations. The example
 uses one of several possible models to compute an averaged viscosity
 for two-phase flows. </li>
 </ol>
@@ -2520,7 +2520,7 @@ instance of SaturationProperties as input. By default they are in
 one-phase, but with the optional phase argument set to 2, the output is
 forced to be just inside the phase boundary. This is only needed when
 derivatives like cv are computed with are different on both sides of
-the boundaries. The ususal steps to compute properties on the phase
+the boundaries. The usual steps to compute properties on the phase
 boundary are: <br>
 <ol>
 <li>Declare an instance of ThermodynamicState, e.g., \"ThermodynamicState&nbsp; dew\".</li>
@@ -3672,7 +3672,7 @@ output window.
    end Inverse_sh_T;
 
    model InverseIncompressible_sh_T
-      "inverse computation for incmpressible media"
+      "inverse computation for incompressible media"
      extends Modelica.Icons.Example;
 
      replaceable package Medium =
@@ -3801,7 +3801,7 @@ models for advanced applications. The high level functions try to
 abstract as much as possible form the fact that different media are
 based on different variables, e.g., ideal gases need pressure and
 temperature, while many refrigerants are based on Helmholtz functions
-of density and temperature, and many water proeprties are based on
+of density and temperature, and many water properties are based on
 pressure and specific enthalpy. Medium properties are needed in control
 volumes in the dynamic state equations and in many thermodynamic state
 locations that are independent of the dynamic states of a control
@@ -3917,7 +3917,7 @@ package Interfaces "Interfaces for media models"
      variables "p, T, d, h" (e.g., medium.T)
   */
     redeclare replaceable record ThermodynamicState
-      "a selction of variables that uniquely defines the thermodynamic state"
+      "a selection of variables that uniquely defines the thermodynamic state"
       extends Modelica.Icons.Record;
       AbsolutePressure p "Absolute pressure of medium";
       Temperature T "Temperature of medium";
@@ -4411,7 +4411,7 @@ This function computes an isentropic state transformation:
 </p>
 <ol>
 <li> A medium is in a particular state, refState.</li>
-<li> The enhalpy at another state (h_is) shall be computed
+<li> The enthalpy at another state (h_is) shall be computed
      under the assumption that the state transformation from refState to h_is
      is performed with a change of specific entropy ds = 0 and the pressure of state h_is
      is p_downstream and the composition X upstream and downstream is assumed to be the same.</li>
@@ -4952,13 +4952,13 @@ one, which would require a numeric solution.
       end specificHeatCapacityCv;
 
       redeclare function extends isothermalCompressibility
-      "Return the iso-thermal compressibility kappa"
+      "Return the isothermal compressibility kappa"
       algorithm
         kappa := kappa_const;
       end isothermalCompressibility;
 
       redeclare function extends isobaricExpansionCoefficient
-      "Return the iso-baric expansion coefficient"
+      "Return the isobaric expansion coefficient"
       algorithm
         beta := beta_const;
       end isobaricExpansionCoefficient;
@@ -5038,7 +5038,7 @@ one, which would require a numeric solution.
 That means that the density is a linear function in temperature and in pressure.
 In order to define the complete model, a number of constant reference values are needed which
 are computed at the reference values of the states pressure p and temperature T. The model can
-be interprested as a linearization of a full non-linear fluid model (but it is not linear in all
+be interpreted as a linearization of a full non-linear fluid model (but it is not linear in all
 thermodynamic coordinates). Reference values are needed for
 </p>
 <ol>
@@ -5056,8 +5056,8 @@ using the standard functions defined in a fluid package (see example in liquids 
 In order to avoid numerical inversion of the temperature in the T_ph and T_ps functions, the density
 is always taken to be the reference density in the computation of h, s, u and cv. For liquids (and this
 model is intended only for liquids) the relative error of doing so is 1e-3 to 1e-4 at most. The model would
-be more \"correct\" based on the other assumptions, if occurences of reference_d in the computations of h,s,u
-and cv would be replaced by a call to density(state). That would require a numerical solution for T_ps, while T_ph can be solved symbolicallyfrom a quadratic function. Errors from this approximation are small because liquid density varies little.</p>
+be more \"correct\" based on the other assumptions, if occurrences of reference_d in the computations of h,s,u
+and cv would be replaced by a call to density(state). That would require a numerical solution for T_ps, while T_ph can be solved symbolically from a quadratic function. Errors from this approximation are small because liquid density varies little.</p>
 <h4>Efficiency considerations</h4>
 <p>One of the main reasons to use a simple, linear fluid model is to achieve high performance
 in simulations. There are a number of possible compromises and possibilities to improve performance.
@@ -5066,10 +5066,10 @@ Some of them can be influenced by a flag. The following rules where used in this
 <li>All forward evaluations (using the ThermodynamicState record as input) are exactly following
 the assumptions above.</li>
 <li>If the flag <b>constantJacobian</b> is set to true in the package, all functions that
-typically appear in thermodynamic jacobians (specificHeatCapacityCv, density_derp_h, density_derh_p,
+typically appear in thermodynamic Jacobians (specificHeatCapacityCv, density_derp_h, density_derh_p,
 density_derp_T, density_derT_p) are evaluated at reference conditions (that means using the reference
 density) instead of the density of the current pressure and temperature. This makes it possible to evaluate
-the thermodynamic jacobian at compile time.</li>
+the thermodynamic Jacobian at compile time.</li>
 <li>For inverse functions using other inputs than the states (e.g pressure p and specific enthalpy h),
 the inversion is using the reference state whenever that is necessary to achieve a symbolic inversion.</li>
 <li>If <b>constantJacobian</b> is set to false, the above list of functions is computed exactly according
@@ -5132,7 +5132,7 @@ partial package PartialMixtureMedium
       Boolean hasAccurateConductivityData=false
         "true if accurate data for thermal conductivity is available";
       Boolean hasVapourPressureCurve=false
-        "true if vapour pressure data, e.g., Antoine coefficents are known";
+        "true if vapour pressure data, e.g., Antoine coefficients are known";
       Boolean hasAcentricFactor=false
         "true if Pitzer accentric factor is known";
       SpecificEnthalpy HCRIT0=0.0
@@ -5264,7 +5264,7 @@ end PartialMixtureMedium;
       annotation(Documentation(
           info="<html>
           <p>The minimum pressure mostly applies to the liquid state only.
-          The minimum density is also arbitrary, but is reasonable for techical
+          The minimum density is also arbitrary, but is reasonable for technical
           applications to limit iterations in non-linear systems. The limits in
           enthalpy and entropy are used as safeguards in inverse iterations.</p>
           </html>"));
@@ -5296,7 +5296,7 @@ end PartialMixtureMedium;
       Boolean hasAccurateConductivityData=false
         "true if accurate data for thermal conductivity is available";
       Boolean hasVapourPressureCurve=false
-        "true if vapour pressure data, e.g., Antoine coefficents are known";
+        "true if vapour pressure data, e.g., Antoine coefficients are known";
       Boolean hasAcentricFactor=false
         "true if Pitzer accentric factor is known";
       SpecificEnthalpy HCRIT0=0.0
@@ -7104,7 +7104,7 @@ critical pressure.
 
     //   record HelmholtzDerivs
 
-      //     "derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressuredensity and temperature"
+      //     "derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressure, density and temperature"
     //     extends Modelica.Icons.Record;
     //     Real delta "dimensionless density";
     //     Real tau "dimensionless temperature";
@@ -7123,7 +7123,7 @@ critical pressure.
     end TransportProps;
 
     function gibbsToProps_ph
-      "calulate property record for pressure and specific enthalpy as states from dimensionless Gibbs function"
+      "calculate property record for pressure and specific enthalpy as states from dimensionless Gibbs function"
 
       extends Modelica.Icons.Function;
       input GibbsDerivs g "dimensionless derivatives of Gibbs function";
@@ -7155,7 +7155,7 @@ critical pressure.
     end gibbsToProps_ph;
 
     function gibbsToBoundaryProps
-      "calulate phase boundary property record from dimensionless Gibbs function"
+      "calculate phase boundary property record from dimensionless Gibbs function"
 
       extends Modelica.Icons.Function;
       input GibbsDerivs g "dimensionless derivatives of Gibbs function";
@@ -7181,7 +7181,7 @@ critical pressure.
     end gibbsToBoundaryProps;
 
     function gibbsToProps_dT
-      "calulate property record for density and temperature as states from dimensionless Gibbs function"
+      "calculate property record for density and temperature as states from dimensionless Gibbs function"
 
       extends Modelica.Icons.Function;
       input GibbsDerivs g "dimensionless derivatives of Gibbs function";
@@ -7214,7 +7214,7 @@ critical pressure.
     end gibbsToProps_dT;
 
     function gibbsToProps_pT
-      "calulate property record for pressure and temperature as states from dimensionless Gibbs function"
+      "calculate property record for pressure and temperature as states from dimensionless Gibbs function"
 
       extends Modelica.Icons.Function;
       input GibbsDerivs g "dimensionless derivatives of Gibbs function";
@@ -7246,7 +7246,7 @@ critical pressure.
     end gibbsToProps_pT;
 
     function helmholtzToProps_ph
-      "calulate property record for pressure and specific enthalpy as states from dimensionless Helmholtz function"
+      "calculate property record for pressure and specific enthalpy as states from dimensionless Helmholtz function"
 
       extends Modelica.Icons.Function;
       input HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
@@ -7285,7 +7285,7 @@ critical pressure.
     end helmholtzToProps_ph;
 
     function helmholtzToProps_pT
-      "calulate property record for pressure and temperature as states from dimensionless Helmholtz function"
+      "calculate property record for pressure and temperature as states from dimensionless Helmholtz function"
 
       extends Modelica.Icons.Function;
       input HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
@@ -7331,7 +7331,7 @@ critical pressure.
     end helmholtzToProps_pT;
 
     function helmholtzToProps_dT
-      "calulate property record for density and temperature as states from dimensionless Helmholtz function"
+      "calculate property record for density and temperature as states from dimensionless Helmholtz function"
 
       extends Modelica.Icons.Function;
       input HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
@@ -7509,7 +7509,7 @@ public
   end GibbsDerivs;
 
   record HelmholtzDerivs
-    "derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressuredensity and temperature"
+    "derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressure, density and temperature"
     extends Modelica.Icons.Record;
     SI.Density d "density";
     SI.Temperature T "temperature";
@@ -7696,19 +7696,19 @@ public
     annotation (Documentation(info="<HTML>
 <p>
 Important: the phase equilibrium conditions are not yet considered.
-this means that bridgemans tables do not yet work in the two phase region.
+this means that Bridgman's tables do not yet work in the two phase region.
 Some derivatives are 0 or infinity anyways.
 Idea: Do not use the values in Bridgmans table directly, all
 derivatives are calculated as the quotient of two entries in the
 table. The last letter indicates which variable is held constant in
 taking the derivative. The second letters are the two variables
-involved in the derivative and the first letter is alwys a d to remind
+involved in the derivative and the first letter is always a d to remind
 of differentiation.
 </p>
 
 <pre>
 Example 1: Get the derivative of specific entropy s w.r.t. Temperature at
-constant specific volume (btw identical to constant density)
+constant specific volume (between identical to constant density)
 constant volume  --> last letter v
 Temperature      --> second letter T
 Specific entropy --> second letter s
@@ -7720,7 +7720,7 @@ specific volume v
 specific inner energy u
 specific enthalpy h
 specific entropy s
-specific helmholtz energy f
+specific Helmholtz energy f
 specific gibbs enthalpy g
 Not included but useful:
 density d
@@ -7753,7 +7753,7 @@ end BridgmansTablesForWater;
   end BridgmansTables;
 
   function gibbsToBridgmansTables
-    "calculates base coefficients for bridgemans tables from gibbs enthalpy"
+    "calculates base coefficients for Bridgman's tables from gibbs enthalpy"
 
     extends Modelica.Icons.Function;
     input GibbsDerivs g "dimensionless derivatives of Gibbs function";
@@ -7782,7 +7782,7 @@ end BridgmansTablesForWater;
   end gibbsToBridgmansTables;
 
   function helmholtzToBridgmansTables
-    "calculates base coefficients for Bridgmans tables from helmholtz energy"
+    "calculates base coefficients for Bridgmans tables from Helmholtz energy"
     extends Modelica.Icons.Function;
     input HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
     output SI.SpecificVolume v=1/f.d "specific volume";
@@ -7812,7 +7812,7 @@ end BridgmansTablesForWater;
   end helmholtzToBridgmansTables;
 
   function gibbsToBoundaryProps
-    "calulate phase boundary property record from dimensionless Gibbs function"
+    "calculate phase boundary property record from dimensionless Gibbs function"
 
     extends Modelica.Icons.Function;
     input GibbsDerivs g "dimensionless derivatives of Gibbs function";
@@ -7836,7 +7836,7 @@ end BridgmansTablesForWater;
   end gibbsToBoundaryProps;
 
   function helmholtzToBoundaryProps
-    "calulate phase boundary property record from dimensionless Helmholtz function"
+    "calculate phase boundary property record from dimensionless Helmholtz function"
 
     extends Modelica.Icons.Function;
     input HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
@@ -7864,7 +7864,7 @@ end BridgmansTablesForWater;
     input PhaseBoundaryProperties vap "properties on the condensation curve";
     input SI.MassFraction x "vapour mass fraction";
     input SI.Temperature T "temperature";
-    input SI.Pressure p "preoperties";
+    input SI.Pressure p "properties";
     output SI.SpecificHeatCapacity cv "isochoric specific heat capacity";
   protected
     Real dpT "derivative of pressure w.r.t. temperature";
@@ -7894,7 +7894,7 @@ end BridgmansTablesForWater;
     input PhaseBoundaryProperties vap "properties on the condensation curve";
     input SI.MassFraction x "vapour mass fraction";
     input SI.Temperature T "temperature";
-    input SI.Pressure p "preoperties";
+    input SI.Pressure p "properties";
     output SI.SpecificHeatCapacity cv "isochoric specific heat capacity";
     output Real dpT "derivative of pressure w.r.t. temperature";
   protected
@@ -8024,7 +8024,7 @@ end BridgmansTablesForWater;
   function smoothStep
     "Approximation of a general step, such that the characteristic is continuous and differentiable"
     extends Modelica.Icons.Function;
-    input Real x "Abszissa value";
+    input Real x "Abscissa value";
     input Real y1 "Ordinate value for x > 0";
     input Real y2 "Ordinate value for x < 0";
     input Real x_small(min=0) = 1e-5
@@ -8120,9 +8120,9 @@ Summing all mass fractions together results in
       "Nonlinear algebraic equation in one unknown: y = f_nonlinear(x,p,X)"
       extends Modelica.Icons.Function;
       input Real x "Independent variable of function";
-      input Real p = 0.0 "disregaded variables (here always used for pressure)";
+      input Real p = 0.0 "disregarded variables (here always used for pressure)";
       input Real[:] X = fill(0,0)
-        "disregaded variables (her always used for composition)";
+        "disregarded variables (her always used for composition)";
       input f_nonlinear_Data f_nonlinear_data
         "Additional data for the function";
       output Real y "= f_nonlinear(x)";
@@ -8138,9 +8138,9 @@ Summing all mass fractions together results in
       input Real x_min "Minimum value of x";
       input Real x_max "Maximum value of x";
       input Real pressure = 0.0
-        "disregaded variables (here always used for pressure)";
+        "disregarded variables (here always used for pressure)";
       input Real[:] X = fill(0,0)
-        "disregaded variables (here always used for composition)";
+        "disregarded variables (here always used for composition)";
        input f_nonlinear_Data f_nonlinear_data
         "Additional data for function f_nonlinear";
        input Real x_tol =  100*Modelica.Constants.eps
@@ -8400,7 +8400,7 @@ Copyright &copy; 1998-2013, Modelica Association.
 </HTML>", revisions="<html>
 <ul>
 <li><i>May 25, 2011</i> by Francesco Casella:<br/>Added min/max attributes to Water, TableBased, MixtureGasNasa, SimpleAir and MoistAir local types.</li>
-<li><i>May 25, 2011</i> by Stefan Wischhusen:<br/>Added individual settings for polynominal fittings of properties.</li>
+<li><i>May 25, 2011</i> by Stefan Wischhusen:<br/>Added individual settings for polynomial fittings of properties.</li>
 </ul>
 </html>"));
 end Media;

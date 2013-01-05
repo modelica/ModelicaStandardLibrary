@@ -472,7 +472,7 @@ This example is based on
       "Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true"
 
       parameter Modelica.SIunits.Time buttonTimeTable[:]
-        "Time instants where button is pressend";
+        "Time instants where button is pressed";
       input Boolean reset[:]={false}
         "Reset button to false, if an element of reset becomes true"
         annotation (Dialog(group="Time varying expressions"));

@@ -79,13 +79,13 @@ package CompressibleLiquids "compressible liquid models"
 <li>Pressure and temperature are used as states</li>
 </ul>
 <p>
-This results in models that are only valid for small temperature ranges, but sufficient to model compressibility and e.g., the \"water hammer\" effect. ANother advantage id that only 3 values need to be measured to have an initial model. Hydraulic fluids can often be approximated by this type of model.
+This results in models that are only valid for small temperature ranges, but sufficient to model compressibility and e.g., the \"water hammer\" effect. Another advantage id that only 3 values need to be measured to have an initial model. Hydraulic fluids can often be approximated by this type of model.
 </p>
 <p>
 That means that the density is a linear function in temperature and in pressure.
 In order to define the complete model, a number of constant reference values are needed which
 are computed at the reference values of the states pressure p and temperature T. The model can
-be interprested as a linearization of a full non-linear fluid model (but it is not linear in all
+be interpreted as a linearization of a full non-linear fluid model (but it is not linear in all
 thermodynamic coordinates). Reference values are needed for
 </p>
 <ol>

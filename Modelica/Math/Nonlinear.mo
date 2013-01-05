@@ -636,8 +636,8 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
     input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction
                                                          f
       "Function y = f(u); u is computed so that y=0";
-    input Real u_min "Lower bound of search intervall";
-    input Real u_max "Upper bound of search intervall";
+    input Real u_min "Lower bound of search interval";
+    input Real u_max "Upper bound of search interval";
     input Real tolerance=100*Modelica.Constants.eps
       "Relative tolerance of solution u";
     output Real u "Value of independent variable u so that f(u) = 0";
@@ -807,7 +807,7 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
 This package contains functions to perform tasks such as numerically integrating
 a function, or solving a nonlinear algebraic equation system.
 The common feature of the functions in this package is
-that the nonlinear characteristics are passed as user defineable
+that the nonlinear characteristics are passed as user definable
 functions.
 </p>
 

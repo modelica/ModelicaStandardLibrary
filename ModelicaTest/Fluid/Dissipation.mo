@@ -113,13 +113,13 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{80,20},{100,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_4[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
         protected
@@ -493,13 +493,13 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{80,20},{100,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_4[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
           Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
@@ -864,7 +864,7 @@ extends Modelica.Icons.ExamplesPackage;
           //output variables
           Modelica.SIunits.ReynoldsNumber Re_2[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
         protected
@@ -1096,11 +1096,11 @@ extends Modelica.Icons.ExamplesPackage;
           //output variables
           Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
         public
           Modelica.Blocks.Sources.Ramp input_mflow_0(
@@ -2085,11 +2085,11 @@ extends Modelica.Icons.ExamplesPackage;
           //output variables
           Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
           Modelica.Blocks.Sources.Ramp input_mflow_0(duration=1, height=1e2)
@@ -2379,11 +2379,11 @@ extends Modelica.Icons.ExamplesPackage;
           //output variables
           Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
           Modelica.Blocks.Sources.Ramp input_mflow_0(
@@ -2673,11 +2673,11 @@ extends Modelica.Icons.ExamplesPackage;
           //output variables
           Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
           Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1)
@@ -2929,7 +2929,7 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number"
                                                  annotation (Dialog(group="Output"));
 
           Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
@@ -3097,7 +3097,7 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number"
                                                  annotation (Dialog(group="Output"));
 
           Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
@@ -3265,7 +3265,7 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number"
                                                  annotation (Dialog(group="Output"));
 
           Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
@@ -3494,13 +3494,13 @@ extends Modelica.Icons.ExamplesPackage;
           //output variables
           Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_4[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
         protected
@@ -3849,13 +3849,13 @@ extends Modelica.Icons.ExamplesPackage;
           //output variables
           Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_4[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
         protected
@@ -4168,9 +4168,9 @@ extends Modelica.Icons.ExamplesPackage;
           //output variables
           Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nusselt number"
                                                    annotation (Dialog(group="Output"));
 
         protected
@@ -6444,11 +6444,11 @@ extends Modelica.Icons.ExamplesPackage;
           //valve variables
           Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry geometry[5]=
               {1,2,3,4,5} "Choice of geometry for valve";
-          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diamter";
+          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
           Real Av=Modelica.Constants.pi
                     *d_hyd^2/4 "Av (metric) flow coefficient [Av]=m^2";
           Real opening=input_opening.y
-            "Opening of valve | 0==closed and 1== fully openend";
+            "Opening of valve | 0==closed and 1== fully opened";
 
           //fluid property variables
           Modelica.SIunits.DynamicViscosity eta=1e-3

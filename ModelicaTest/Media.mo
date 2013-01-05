@@ -61,7 +61,7 @@ extends Modelica.Icons.ExamplesPackage;
        medium.h=h;
        medium.Xi=Medium.reference_X[1:Medium.nXi];
 
-       // When iterating at the intial time the asserts below could be violated.
+       // When iterating at the initial time the asserts below could be violated.
        // To avoid an error, the check is only performed at the end of the simulation.
        when terminal() then
           assert(err_T <= eps, "Error: abs(medium.T - T) > eps\n" +
@@ -173,7 +173,7 @@ extends Modelica.Icons.ExamplesPackage;
        medium.h=h;
        medium.Xi=Medium.reference_X[1:Medium.nXi];
 
-       // When iterating at the intial time the asserts below could be violated.
+       // When iterating at the initial time the asserts below could be violated.
        // To avoid an error, the check is only performed at the end of the simulation.
        when terminal() then
           assert(err_T <= eps, "Error: abs(medium.T - T) > eps\n" +

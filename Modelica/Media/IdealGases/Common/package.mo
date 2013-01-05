@@ -35,7 +35,7 @@ The polynomials for h(T) and s0(T) are derived via integration from the one for 
 </p>
 <p>
 For most gases, the region of validity is from 200 K to 6000 K.
-The equations are splitted into two regions that are separated
+The equations are split into two regions that are separated
 by Tlimit (usually 1000 K). In both regions the gas is described
 by the data above. The two branches are continuous and in most
 gases also differentiable at Tlimit.
@@ -440,14 +440,14 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
                 Documentation(info="<html>
 <p>
 The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
-The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the follwong onversion constants were used to
+The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the following conversion constants were used to
 transform the formula to SI units:
 </p>
 
 <ul>
 <li> <b>Const1_SI:</b> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the
      factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
-      and the factor 1e-7 is due to conversionfrom microPoise->Pa.s.</li>
+      and the factor 1e-7 is due to conversion from microPoise->Pa.s.</li>
 <li>  <b>Const2_SI:</b> The factor 1/3.335641e-27 = 1e-3/3.335641e-30
       where the factor 3.335641e-30 comes from debye->C.m and
       1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
@@ -909,7 +909,7 @@ required from medium model \""   + mediumName + "\".");
 
   redeclare function extends isentropicEnthalpy "Return isentropic enthalpy"
     input Boolean exact = false
-      "flag wether exact or approximate version should be used";
+      "flag whether exact or approximate version should be used";
   algorithm
     h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refState.X) else
            isentropicEnthalpyApproximation(p_downstream,refState);
@@ -955,7 +955,7 @@ Bromley and Wilke, 1951; Cheung, 1958; Dahler, 1959; Gandhi and Saxena,
 1964; Ranz and Brodowsky, 1962; Saxena and Gambhir, 1963a; Strunk, et
 al., 1964; Vanderslice, et al. 1962; Wright and Gray, 1962). In most
 cases, only nonpolar mixtures were compared, and very good results
-obtained. For some systems containing hidrogen as one component, less
+obtained. For some systems containing hydrogen as one component, less
 satisfactory agreement was noted. Wilke's method predicted mixture
 viscosities that were larger than experimental for the H2-N2 system,
 but for H2-NH3, it underestimated the viscosities. <br>
@@ -1182,9 +1182,9 @@ Fundam., 23: 3 ()1984).<br>
   end mixtureViscosityChung;
 
 function lowPressureThermalConductivity
-    "Return thermal conductivites of low-pressure gas mixtures (Mason and Saxena Modification)"
+    "Return thermal conductivities of low-pressure gas mixtures (Mason and Saxena Modification)"
   extends Modelica.Icons.Function;
-  input MoleFraction[:] y "Mole fraction of the components in the gass mixture";
+  input MoleFraction[:] y "Mole fraction of the components in the gas mixture";
   input Temperature T "Temperature";
   input Temperature[:] Tc "Critical temperatures";
   input AbsolutePressure[:] Pc "Critical pressures";

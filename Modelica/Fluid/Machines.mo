@@ -3,10 +3,10 @@ package Machines
   "Devices for converting between energy held in a fluid and mechanical energy"
   extends Modelica.Icons.VariantsPackage;
   model SweptVolume
-    "varying cylindric volume depending on the postition of the piston"
+    "varying cylindric volume depending on the position of the piston"
     import Modelica.Constants.pi;
 
-    parameter SI.Area pistonCrossArea "cross sectional area of pistion";
+    parameter SI.Area pistonCrossArea "cross sectional area of piston";
     parameter SI.Volume clearance "remaining volume at zero piston stroke";
 
     SI.Volume V "fluid volume";
@@ -84,7 +84,7 @@ package Machines
 <ul>
   <li>cross sectional piston area</li>
   <li>piston stroke given by the flange position s</li>
-  <li>clearance (volume at flang position = 0)</li>
+  <li>clearance (volume at flange position = 0)</li>
 </ul>
 <p>Losses are neglected. The shaft power is completely converted into mechanical work on the fluid.</p>
 
@@ -541,7 +541,7 @@ Dynamic mass and energy balance can be used by setting the corresponding dynamic
 
 <p><b>Heat transfer</b></p>
 <p>
-The boolean paramter <code>use_HeatTransfer</code> can be set to true if heat exchanged with the environment
+The boolean parameter <code>use_HeatTransfer</code> can be set to true if heat exchanged with the environment
 should be taken into account or to model a housing. This might be desirable if a pump with realistic
 <code>powerCharacteristic</code> for zero flow operates while a valve prevents fluid flow.
 </p>

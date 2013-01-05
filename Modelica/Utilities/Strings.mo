@@ -55,7 +55,7 @@ if endIndex &gt; length(string), an assert is triggered.
 
   function repeat "Repeat a string n times"
     extends Modelica.Icons.Function;
-    input Integer n(min=0) = 1 "Number of occurences";
+    input Integer n(min=0) = 1 "Number of occurrences";
     input String string=" " "String that is repeated";
     output String repeatedString "String containing n concatenated strings";
   algorithm
@@ -210,7 +210,7 @@ index = Strings.<b>find</b>(string, searchString, startIndex=1,
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Finds first occurence of \"searchString\" within \"string\"
+Finds first occurrence of \"searchString\" within \"string\"
 and return the corresponding index.
 Start search at index \"startIndex\" (default = 1).
 If the optional argument \"caseSensitive\" is false, lower
@@ -256,7 +256,7 @@ index = Strings.<b>findLast</b>(string, searchString,
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Finds first occurence of \"searchString\" within \"string\"
+Finds first occurrence of \"searchString\" within \"string\"
 when searching from the last character of \"string\"
 backwards, and return the corresponding index.
 Start search at index \"startIndex\" (default = length(string)).

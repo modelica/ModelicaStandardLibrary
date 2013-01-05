@@ -4,7 +4,7 @@ package Explanatory
   extends Modelica.Icons.ExamplesPackage;
 
   model MeasuringTemperature "Differences between using one port with
-   and without explicit junction model and two port sensors for fluid temperature meassuring"
+   and without explicit junction model and two port sensors for fluid temperature measuring"
      extends Modelica.Icons.Example;
     Modelica.Fluid.Sensors.Temperature T_onePort(redeclare package Medium =
           Modelica.Media.Water.StandardWater)
@@ -170,7 +170,7 @@ how the temperature is measured:
 A pre-defined mass flow rate is present so that fluid flows from the reservoir to the
 tanks and after 0.5 s the mass flows from the tanks to the reservoir.
 The reservoir has a temperature of 50<sup>0</sup>C whereas the tanks have an
-initial temperatur of 20<sup>0</sup>C and of 80<sup>0</sup>C. The initial height of the
+initial temperature of 20<sup>0</sup>C and of 80<sup>0</sup>C. The initial height of the
 tanks is made in such a form that fluid always flows out of the cold tank.
 When the fluid flows from the reservoir to the tanks, then it mixes with the
 cold tank and enters the hot tank.

@@ -224,7 +224,7 @@ connect(p_out, n2);
 <li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Differential Pair added</li>
 <li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
 <li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
-<li><i>24th February 2012 by Kristin Majetta</i><br/>JFet model added</li>
+<li><i>24th February 2012 by Kristin Majetta</i><br/>JFET model added</li>
 <li><i>23rd February 2012 by Kristin Majetta</i><br/>Semiconductor Capacitor added</li>
 <li><i>21st February 2012</i> by Kristin Majetta<br/>CoupledInductors (K) added</li>
 <li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, User&apos;s Guide added</li>
@@ -482,7 +482,7 @@ Zeunerstrasse 38<br />
       annotation (        experiment(StopTime=5),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterApartModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
-<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
+<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.ND.v</p>
 <p>Output voltage of the second Inverter: mn2.ND.v</p>
@@ -610,7 +610,7 @@ Zeunerstrasse 38<br />
       annotation (        experiment(StopTime=5),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterExtendedModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
-<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
+<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the output voltage of the first inverter. Simulated until t=5s.</p>
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.ND.v</p>
 <p>Output voltage of the second Inverter: mn2.ND.v</p>
@@ -630,7 +630,7 @@ Zeunerstrasse 38<br />
                 {-54,-60}},        rotation=0)));
 
       parameter Semiconductors.ModelcardMOS modp "private PMOS modelcard";
-      parameter Semiconductors.ModelcardMOS modn "provate NMOS modelcard";
+      parameter Semiconductors.ModelcardMOS modn "private NMOS modelcard";
 
       Semiconductors.M_PMOS mp1(modelcard=modp)
                 annotation (Placement(transformation(extent={{-74,20},{-54,40}},
@@ -795,8 +795,8 @@ Zeunerstrasse 38<br />
           smooth=Smooth.None));
       annotation (        experiment(StopTime=5),
         Documentation(info="<html>
-<p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the inputvoltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
-<p>Simulate until t=5s. The outputvalues should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v</p>
+<p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the input voltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
+<p>Simulate until t=5s. The output values should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v</p>
 </html>", revisions="<html>
 <ul>
 <li><i>April 2009 </i>by Kristin Majetta initially implemented</li>
@@ -1040,7 +1040,7 @@ Zeunerstrasse 38<br />
           color={0,0,0},
           smooth=Smooth.None));
       annotation (        Documentation(info="<html>
-<p>In nearly every electronic the basic circuit &quot;nor&quot; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two inputvoltages have low potential, the outputvoltage has high potential, otherwise the outputvoltage has low potential.</p>
+<p>In nearly every electronic the basic circuit &quot;nor&quot; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have low potential, the output voltage has high potential, otherwise the output voltage has low potential.</p>
 <p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
 <td><p>input voltage vin1</p></td>
@@ -1152,7 +1152,7 @@ Zeunerstrasse 38<br />
         experiment(StopTime=0.025),
         Documentation(info="<html>
 <p>The Graetz rectifier circuit is to show the behaviour of diodes.</p>
-<p>Simulator until 0.025 s. Then display the input voltge vsin.p.v. The rout.p.v voltage is the rectified voltage result, which is pulsing mostly in the positive range.</p>
+<p>Simulator until 0.025 s. Then display the input voltage vsin.p.v. The rout.p.v voltage is the rectified voltage result, which is pulsing mostly in the positive range.</p>
 </html>", revisions="<html>
 <ul>
 <li><i>Jan. 2010 </i>by Kristin Majetta initially implemented</li>
@@ -1660,7 +1660,7 @@ RE 4 8 10K<br/>
       annotation ( experiment(StopTime=1e-007, Interval=1e-009),
         Documentation(info="<html>
 <p>This Mosfet Characterization model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
-<p>This circuit is a very simple one than consists of an nmos transistor level 1 that is connected to voltage sources at gate and drain node whereas the drain voltage source supplies the
+<p>This circuit is a very simple one than consists of an NMOS transistor level 1 that is connected to voltage sources at gate and drain node whereas the drain voltage source supplies the
 operating voltage. The user is recommended to simulate from t=0 to t=1e-7s and observe the gate node voltage (\"VGS.p.v\") and the transistor current (\"M1.D.i\").
 It can be seen that the current is increasing with increasing gate voltage which means the conductivity of the transistor is increasing. The opposite case occurs for decreasing gate voltage. </p>
 <p>Original SPICE3 netlist of the MOSFET characterization circuit:</p>
@@ -1715,7 +1715,7 @@ M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br/>
           Tolerance=1e-008),
         Documentation(info="<html>
 <p>This RTL Inverter model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
-<p>This simple RTL inverter (resistor transistor logic) circuits inverts the inputvoltage which means the output voltage has high potential if the input voltage
+<p>This simple RTL inverter (resistor transistor logic) circuits inverts the input voltage which means the output voltage has high potential if the input voltage
 has low potential and the other way round. To comprehend this behaviour the user is recommended to simulate from t=0 to t=1e-7s and observe the input voltage (VIN.p.v)
 and the output voltage (Q1.C.v)</p>
 <p>Original SPICE3 netlist of the RTL inverter:</p>
@@ -2341,7 +2341,7 @@ first number and so on. The Four Bit Binary Adder has four outputs where the fir
 
 
 <p>The Four Bit Binary Adder is built out of two two bit adders which respectively are built out of two one bit adders. One one bit adder is build out of nine NAND circuits. </p>
-<p>Please note, that the simulation time of the Four Bit Binary Adder can take several hours due to its imense size (e.g. 11387 equations).</p>
+<p>Please note, that the simulation time of the Four Bit Binary Adder can take several hours due to its immense size (e.g. 11387 equations).</p>
 <p>The user is recommended to simulate from t=0 to t=1e-6s and observe the eight inputs (X1.p1.v, ..., X1.p8.v) and the four outputs (X1.p9.v, ..., X1.p12.v) and the carryout output (X1.p14.v).</p>
 <p>Original SPICE3 netlist of the Four Bit Binary Adder:</p>
 <pre>
@@ -2439,7 +2439,7 @@ print v(11) v(12) v(13)
 </html>"));
   end Examples;
 
-  package Basic "Basic electronical components"
+  package Basic "Basic electrical components"
 
     extends Modelica.Icons.Package;
 
@@ -2910,7 +2910,7 @@ The corresponding SPICE description
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>The model M_PMOS is a P channel MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
 <p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
-<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
@@ -2930,7 +2930,7 @@ The corresponding SPICE description
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>The model M_NMOS is a N channel MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
 <p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
-<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
@@ -2959,7 +2959,7 @@ The corresponding SPICE description
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>The model M_NMOS is a N channel MOSFET transistor with fixed level 2: </p>
 <p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
-<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
@@ -2979,7 +2979,7 @@ The corresponding SPICE description
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>The model M_PMOS is a P channel MOSFET transistor with fixed level 2:</p>
 <p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
-<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
@@ -3010,7 +3010,7 @@ The corresponding SPICE description
         Documentation(info="<html>
 <p>The model Q_NPNBJT is a NPN bipolar junction transistor model: Modified Gummel-Poon.</p>
 <p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
-<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
@@ -3033,7 +3033,7 @@ The corresponding SPICE description
         Documentation(info="<html>
 <p>The model Q_PNPBJT is a PNP bipolar junction transistor model: Modified Gummel-Poon.</p>
 <p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
-<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
@@ -3114,7 +3114,7 @@ The corresponding SPICE description
         Documentation(info="<html>
 <p>The model D_DIODE is a Junction diode model</p>
 <p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
-<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
@@ -3138,7 +3138,7 @@ The corresponding SPICE description
                     annotation (Documentation(info="<html>
 <p>The model R_Resistor is a Semiconductor resistor model.</p>
 <p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
-<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>records and data are stored and modeled that are needed for the semiconductor models.</p>
 <p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
@@ -4516,7 +4516,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       "Partial model to include a conditional substrate node"
 
       parameter Boolean useSubstrateNode = false
-        "=true, if SubtrateNodet is enabled"
+        "=true, if SubstrateNodet is enabled"
       annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Modelica.Electrical.Analog.Interfaces.PositivePin S(v = substrateVoltage, i = -substrateCurrent) if useSubstrateNode annotation (Placement(
             transformation(extent={{90,0},{110,20}}),    iconTransformation(extent={{90,-10},
@@ -4740,7 +4740,7 @@ on the model behaviour.
        parameter SI.Transconductance KP=-1e40
         "Transconductance parameter, default 2e-5";
        parameter Real GAMMA=-1e40 "Bulk threshold parameter, default 0";
-       parameter SI.Voltage PHI=-1e40 "Surface potential, default 0.6";  //Substrat Sperrschicht Potential
+       parameter SI.Voltage PHI=-1e40 "Surface potential, default 0.6";  //Substrate Sperrschicht Potential
        parameter SI.InversePotential LAMBDA=0
         "Channel-length modulation, default 0";
        parameter SI.Resistance RD=-1e40 "Drain ohmic resistance, default 0";
@@ -5941,11 +5941,11 @@ on the model behaviour.
 
     record MaterialParameters
     extends Modelica.Icons.Record;
-      // energy gap for silicium
+      // energy gap for silicon
       constant SI.GapEnergy EnergyGapSi = 1.16;
-      // first band correction factor of silicium
+      // first band correction factor of silicon
       constant Types.GapEnergyPerTemperature FirstBandCorrFactorSi = 7.02e-4;
-      // second band correction factor of silicium
+      // second band correction factor of silicon
       constant SI.Temperature SecondBandCorrFactorSi = 1108;
       // band correction factor for T = 300K
       constant SI.GapEnergy BandCorrFactorT300 = 1.1150877;
@@ -6703,7 +6703,7 @@ on the model behaviour.
         Real[36] m_pCapJacobi(      start = zeros(36));
 
         annotation (Documentation(info="<html>
-<p>This data are to collect intermediate results to be inserted into SPICE-like matrices for linear ssystems of equations.</p>
+<p>This data are to collect intermediate results to be inserted into SPICE-like matrices for linear systems of equations.</p>
 </html>"));
       end SpiceRoot;
 
@@ -6715,7 +6715,7 @@ on the model behaviour.
         ret := false;
 
         annotation (Documentation(info="<html>
-<p>This function useInitialConditions appoints wether the initial conditions that are given in the description are used or not.</p>
+<p>This function useInitialConditions appoints whether the initial conditions that are given in the description are used or not.</p>
 </html>"));
       end useInitialConditions;
 
@@ -6799,7 +6799,7 @@ on the model behaviour.
 </html>"));
     end Model;
 
-    package Mosfet "Functions and records for Mosfets"
+    package Mosfet "Functions and records for MOSFETs"
       extends Modelica.Icons.Package;
 
       record Mosfet "Record for Mosfet parameters"
@@ -6834,7 +6834,7 @@ on the model behaviour.
           "Device initially off, non-zero to indicate device is off for dc analysis";
 
       //----------------------obsolete-----------------------------------
-        Integer m_bPMOS(        start = 0) "P type MOSfet model";
+        Integer m_bPMOS(        start = 0) "P type MOSFET model";
         Integer m_nLevel(       start = 1) "MOS model level";
         Modelica.SIunits.Length m_drainPerimiter(  start = 0.0)
           "PD, Drain perimeter";
@@ -6882,7 +6882,7 @@ on the model behaviour.
         Real m_pbIsGiven "PB, IsGivenValue";
 
         annotation (Documentation(info="<html>
-<p>This record MosfetModelLineParams contains the model line parameters that are used for all kinds of mosfet transistors in SPICE3.</p>
+<p>This record MosfetModelLineParams contains the model line parameters that are used for all kinds of Mosfet transistors in SPICE3.</p>
 </html>"));
       end MosfetModelLineParams;
 
@@ -6891,7 +6891,7 @@ on the model behaviour.
         Integer m_type(   start = 1) "device type : 1 = n,  -1 = p";
 
         annotation (Documentation(info="<html>
-<p>This record contains only one variable and it provides the information on the transistor type (pmos or nmos).</p>
+<p>This record contains only one variable and it provides the information on the transistor type (PMOS or nmos).</p>
 </html>"));
       end MosfetModelLine;
 
@@ -6931,7 +6931,7 @@ on the model behaviour.
         Modelica.SIunits.Resistance m_drainResistance "Rd";
 
         annotation (Documentation(info="<html>
-<p>This record MosfetCalc contains variables that are neede for calculation within modeling the semiconductor models.</p>
+<p>This record MosfetCalc contains variables that are needed for calculation within modeling the semiconductor models.</p>
 </html>"));
       end MosfetCalc;
 
@@ -7048,7 +7048,7 @@ on the model behaviour.
 </html>"));
     end Mosfet;
 
-    package Mos "Records and functions for Mosfets level 1,2,3,6"
+    package Mos "Records and functions for MOSFETs level 1,2,3,6"
       extends Modelica.Icons.Package;
 
       record MosModelLineParams
@@ -7071,7 +7071,7 @@ on the model behaviour.
          Modelica.SIunits.Permittivity m_sideWallCapFactor(   start = 0.0)
           "CJSW, Side grading coefficient";
          Real m_fwdCapDepCoeff(      start = 0.5)
-          "FC, Forward bias jct. fit parm.";
+          "FC, Forward bias junction fit parameter";
          Modelica.SIunits.Voltage m_phi(                 start = 0.6)
           "PHI, Surface potential";
          Real m_phiIsGiven "Phi IsGivenValue";
@@ -7107,7 +7107,7 @@ on the model behaviour.
           "TNOM, Parameter measurement temperature";
 
         annotation (Documentation(info="<html>
-<p>This record MosModelLineParams contains the model line parameters that are used for the mosfet transistors level 1, 2, 3 and 6 in SPICE3.</p>
+<p>This record MosModelLineParams contains the model line parameters that are used for the MOSFET transistors level 1, 2, 3 and 6 in SPICE3.</p>
 </html>"));
       end MosModelLineParams;
 
@@ -7121,11 +7121,11 @@ on the model behaviour.
         Modelica.SIunits.Transconductance m_transconductance;
 
         annotation (Documentation(info="<html>
-<p>This record MosModelLineVariables contains the model line variables that are used for the mosfet transistors level 1 SPICE3.</p>
+<p>This record MosModelLineVariables contains the model line variables that are used for the MOSFET transistors level 1 SPICE3.</p>
 </html>"));
       end MosModelLineVariables;
 
-      record MosCalc "Further mosfet variables (for level 1, 2, 3 and 6)"
+      record MosCalc "Further MOSFET variables (for level 1, 2, 3 and 6)"
         extends Spice3.Internal.Mosfet.MosfetCalc;
 
         SI.Transconductance m_tTransconductance(start=0.);
@@ -7162,7 +7162,7 @@ on the model behaviour.
         SI.Charge m_qgb(start=0.);
 
         annotation (Documentation(info="<html>
-<pre>This record MosCalc contains further mosfet variables (for level 1, 2, 3 and 6).</pre>
+<pre>This record MosCalc contains further MOSFET variables (for level 1, 2, 3 and 6).</pre>
 </html>"));
       end MosCalc;
 
@@ -7179,7 +7179,7 @@ on the model behaviour.
         Modelica.SIunits.Voltage qm_vgd(  start = 0);
 
         annotation (Documentation(info="<html>
-<p>This record DEVqmeyer contains values that are needed for the calculation of the meyer capacities and charge.</p>
+<p>This record DEVqmeyer contains values that are needed for the calculation of the Meyer capacities and charge.</p>
 </html>"));
       end DEVqmeyer;
 
@@ -7196,7 +7196,7 @@ on the model behaviour.
         Modelica.SIunits.Capacitance m_capgd;
 
         annotation (Documentation(info="<html>
-<p>This record CurrentsCapacities contains values for the currents and the capacities inside the mosfet models level 1, 2, 3 and 6.</p>
+<p>This record CurrentsCapacities contains values for the currents and the capacities inside the MOSFET models level 1, 2, 3 and 6.</p>
 </html>"));
       end CurrrentsCapacitances;
 
@@ -7208,7 +7208,7 @@ on the model behaviour.
           "Input record SPICE constants";
         input MosModelLineVariables in_vp "Input record model line variables";
         input Spice3.Internal.Mosfet.Mosfet in_m
-          "Input record mosfet parameters";
+          "Input record MOSFET parameters";
 
         output Spice3.Internal.Mos1.Mos1Calc out_c
           "Output record Mos1 calculated values";
@@ -7235,7 +7235,7 @@ on the model behaviour.
         out_c.m_capOx    := in_vp.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
 
         annotation (Documentation(info="<html>
-<p>This function mosCalcInitEquations does the initial precalculation of the mosfet parameters (level 1).</p>
+<p>This function mosCalcInitEquations does the initial precalculation of the MOSFET parameters (level 1).</p>
 </html>"));
       end mosCalcInitEquations;
 
@@ -7248,7 +7248,7 @@ on the model behaviour.
           "Input record SPICE constants";
         input MosModelLineVariables in_vp "Input record model line variables";
         input Spice3.Internal.Mosfet.Mosfet in_m
-          "Input record mosfet parameters";
+          "Input record MOSFET parameters";
         input Spice3.Internal.Mos1.Mos1Calc in_c "Input record Mos1Calc";
         input Integer in_m_type "Type of MOS transistor";
 
@@ -7387,7 +7387,7 @@ on the model behaviour.
         "Calculation of currents and capacities (level 1)"
       extends Modelica.Icons.Function;
         input Spice3.Internal.Mosfet.Mosfet in_m
-          "Input record mosfet parameters";
+          "Input record MOSFET parameters";
         input Integer in_m_type "Type of MOS transistor";
         input Spice3.Internal.Mos1.Mos1Calc in_c "Input record Mos1Calc";
         input Spice3.Internal.Mos1.Mos1ModelLineParams in_p
@@ -7576,7 +7576,7 @@ on the model behaviour.
 </html>"));
       end mosCalcNoBypassCode;
 
-      function mosCalcDEVqmeyer "Calculation of meyer capacities"
+      function mosCalcDEVqmeyer "Calculation of Meyer capacities"
       extends Modelica.Icons.Function;
         input SI.Voltage vgs;
         input SI.Voltage vgd;
@@ -7623,7 +7623,7 @@ on the model behaviour.
         end if;
 
         annotation (Documentation(info="<html>
-<p>This function mosCalcDEVqmeyer calculates the meyer capacities and charge for the meyer model.</p>
+<p>This function mosCalcDEVqmeyer calculates the Meyer capacities and charge for the Meyer model.</p>
 </html>"));
       end mosCalcDEVqmeyer;
 
@@ -7633,7 +7633,7 @@ on the model behaviour.
         input Spice3.Internal.Mos2.Mos2ModelLineParams in_p
           "Input record Mos2 values";
         input Spice3.Internal.Mosfet.Mosfet in_m
-          "Input record mosfet parameters";
+          "Input record MOSFET parameters";
 
         output Spice3.Internal.Mos2.Mos2Calc out_c
           "Output record Mos2 calculated values";
@@ -7659,7 +7659,7 @@ on the model behaviour.
         out_c.m_capOx    := in_p.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
 
         annotation (Documentation(info="<html>
-<p>This function mosCalcInitEquations does the initial precalculation of the mosfet parameters (level 2).</p>
+<p>This function mosCalcInitEquations does the initial precalculation of the MOSFET parameters (level 2).</p>
 </html>"));
       end mos2CalcInitEquationsRevised;
 
@@ -7673,7 +7673,7 @@ on the model behaviour.
         input Spice3.Internal.SpiceConstants in_C "Spice constants";
         input MosModelLineVariables in_vp "Input record model line variables";
         input Spice3.Internal.Mosfet.Mosfet in_m
-          "Input record mosfet parameters";
+          "Input record MOSFET parameters";
 
         output Spice3.Internal.Mos2.Mos2Calc
                              out_c "Output record Mos2 calculated values";
@@ -7699,7 +7699,7 @@ on the model behaviour.
         out_c.m_capOx    := in_vp.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
 
         annotation (Documentation(info="<html>
-<p>This function mosCalcInitEquations does the initial precalculation of the mosfet parameters (level 2).</p>
+<p>This function mosCalcInitEquations does the initial precalculation of the MOSFET parameters (level 2).</p>
 </html>"));
       end mos2CalcInitEquations;
 
@@ -7709,7 +7709,7 @@ on the model behaviour.
         input Spice3.Internal.Mos2.Mos2ModelLineParams in_p
           "Output record Mos1 calculated values";
         input Spice3.Internal.Mosfet.Mosfet in_m
-          "Input record mosfet parameters";
+          "Input record MOSFET parameters";
         input Spice3.Internal.Mos2.Mos2Calc in_c "Input record Mos2Calc";
         input Integer in_m_type "Type of MOS transistor";
 
@@ -7845,7 +7845,7 @@ on the model behaviour.
         input Spice3.Internal.SpiceConstants in_C "Spice constants";
         input MosModelLineVariables in_vp "Input record model line variables";
         input Spice3.Internal.Mosfet.Mosfet in_m
-          "Input record mosfet parameters";
+          "Input record MOSFET parameters";
         input Spice3.Internal.Mos2.Mos2Calc
                             in_c "Input record Mos2Calc";
         input Integer in_m_type "Type of MOS transistor";
@@ -7984,7 +7984,7 @@ on the model behaviour.
         "Calculation of currents and capacities (level 2)"
       extends Modelica.Icons.Function;
         input Spice3.Internal.Mosfet.Mosfet in_m
-          "Input record mosfet parameters";
+          "Input record MOSFET parameters";
         input Integer in_m_type "Type of MOS transistor";
         input Spice3.Internal.Mos2.Mos2Calc in_c "Input record Mos2Calc";
         input Spice3.Internal.Mos2.Mos2ModelLineParams in_p
@@ -7997,7 +7997,7 @@ on the model behaviour.
 
       protected
         SI.Voltage vbd "Voltage";
-        SI.Voltage vgd "Volatge";
+        SI.Voltage vgd "Voltage";
         SI.Voltage vgb "Voltage";
         Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer qm
           "Qmeyer capacitances";
@@ -8175,7 +8175,7 @@ on the model behaviour.
          extends Modelica.Icons.ObsoleteModel;
 
         input Spice3.Internal.Mosfet.Mosfet in_m
-          "Input record mosfet parameters";
+          "Input record MOSFET parameters";
         input Integer in_m_type "Type of MOS transistor";
         input Spice3.Internal.Mos2.Mos2Calc
                             in_c "Input record Mos2Calc";
@@ -8196,7 +8196,7 @@ on the model behaviour.
 
       protected
         Modelica.SIunits.Voltage vbd "Voltage";
-        Modelica.SIunits.Voltage vgd "Volatge";
+        Modelica.SIunits.Voltage vgd "Voltage";
         Modelica.SIunits.Voltage vgb "Voltage";
         Modelica.SIunits.Current cur "Voltage";
         Integer n;
@@ -8397,11 +8397,11 @@ on the model behaviour.
       end mos2CalcNoBypassCode;
 
       annotation (Documentation(info="<html>
-<p>This package Mos contains functions and records with data of the mosfet models level 1, 2, 3 and 6.</p>
+<p>This package Mos contains functions and records with data of the MOSFET models level 1, 2, 3 and 6.</p>
 </html>"));
     end Mos;
 
-    package Mos1 "Records and functions for Mosfets level 1"
+    package Mos1 "Records and functions for MOSFETs level 1"
       extends Modelica.Icons.Package;
 
       record Mos1ModelLineParams
@@ -8411,15 +8411,15 @@ on the model behaviour.
          m_transconductance( start = 2.0e-5));
 
         annotation (Documentation(info="<html>
-<p>This record Mos1ModelLineParams contains the model line parameters that are used for the mosfet transistors level 1 in SPICE3.</p>
+<p>This record Mos1ModelLineParams contains the model line parameters that are used for the MOSFET transistors level 1 in SPICE3.</p>
 </html>"));
       end Mos1ModelLineParams;
 
-      record Mos1Calc "Further mosfet variables (for level 1)"
+      record Mos1Calc "Further MOSFET variables (for level 1)"
         extends Mos.MosCalc;
 
         annotation (Documentation(info="<html>
-<p>This record Mos1Calc contains further mosfet variables (for level 1) that are needed for the calculations.</p>
+<p>This record Mos1Calc contains further MOSFET variables (for level 1) that are needed for the calculations.</p>
 </html>"));
       end Mos1Calc;
 
@@ -8492,7 +8492,7 @@ on the model behaviour.
         end if;
 
         annotation (Documentation(info="<html>
-<p>This function mos1ModelLineParamsInitEquation does the initial precalculation of the mosfet model line parameters for level 1.</p>
+<p>This function mos1ModelLineParamsInitEquation does the initial precalculation of the MOSFET model line parameters for level 1.</p>
 </html>"));
       end mos1ModelLineParamsInitEquations;
 
@@ -8612,7 +8612,7 @@ on the model behaviour.
           "In (cm*cm)/(Vs) surface mobility (default 600)";
           intern.m_latDiff := ex.LD "In m lateral diffusion (default 0)";
           intern.m_jctSatCur := ex.IS
-          "A bulk junction saturation current (defaul 1e-14)";
+          "A bulk junction saturation current (default 1e-14)";
 
           intern.m_drainResistanceIsGiven := if
                                                (ex.RD > -1e40) then 1 else 0;
@@ -8706,7 +8706,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
           "Initial condition of VBS";
 
         dev.m_off := OFF "Non-zero to indicate device is off for dc analysis";
-        dev.m_bPMOS := mtype "P type MOSfet model";
+        dev.m_bPMOS := mtype "P type MOSFET model";
         dev.m_nLevel := ex.LEVEL "Level";
         assert(ex.LEVEL== 1, "only MOS Level1 implemented");
         dev.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK "Device temperature";
@@ -8716,11 +8716,11 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 </html>"));
       end mos1RenameParametersDev;
       annotation (Documentation(info="<html>
-<p>This package Mos1 contains functions and record with data of the mosfet model level 1.</p>
+<p>This package Mos1 contains functions and record with data of the MOSFET model level 1.</p>
 </html>"));
     end Mos1;
 
-    package Mos2 "Records and functions for Mosfets level 2"
+    package Mos2 "Records and functions for MOSFETs level 2"
       extends Modelica.Icons.Package;
 
       record Mos2ModelLineParams
@@ -8744,7 +8744,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
           "NFS, Fast surface state density";
         Real m_xd; // unit m/V(-0.5) -> m/Wurzel V
         annotation (Documentation(info="<html>
-<p>This record Mos1ModelLineParams contains the model line parameters that are used for the mosfet transistors level 2 in SPICE3.</p>
+<p>This record Mos1ModelLineParams contains the model line parameters that are used for the MOSFET transistors level 2 in SPICE3.</p>
 </html>"));
       end Mos2ModelLineParams;
 
@@ -8757,15 +8757,15 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Real m_xd;
 
         annotation (Documentation(info="<html>
-<p>This record MosModelLineVariables contains the model line variables that are used for the mosfet transistors level 2 SPICE3.</p>
+<p>This record MosModelLineVariables contains the model line variables that are used for the MOSFET transistors level 2 SPICE3.</p>
 </html>"));
       end Mos2ModelLineVariables;
 
-      record Mos2Calc "Further mosfet variables (for level 2)"
+      record Mos2Calc "Further MOSFET variables (for level 2)"
         extends Spice3.Internal.Mos.MosCalc;
 
         annotation (Documentation(info="<html>
-<p>This record Mos1Calc contains further mosfet variables (for level 2) that are needed for the calculations.</p>
+<p>This record Mos1Calc contains further MOSFET variables (for level 2) that are needed for the calculations.</p>
 </html>"));
       end Mos2Calc;
 
@@ -8843,7 +8843,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         end if;
 
         annotation (Documentation(info="<html>
-<p>This function mos1ModelLineParamsInitEquation does the initial precalculation of the mosfet model line parameters for level 2.</p>
+<p>This function mos1ModelLineParamsInitEquation does the initial precalculation of the MOSFET model line parameters for level 2.</p>
 </html>"));
       end mos2ModelLineParamsInitEquations;
 
@@ -8917,7 +8917,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         end if;
 
         annotation (Documentation(info="<html>
-<p>This function mos1ModelLineParamsInitEquation does the initial precalculation of the mosfet model line parameters for level 2.</p>
+<p>This function mos1ModelLineParamsInitEquation does the initial precalculation of the MOSFET model line parameters for level 2.</p>
 </html>"));
       end mos2ModelLineParamsInitEquationsRevised;
 
@@ -8927,7 +8927,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
          input SI.Voltage vgs;
          input SI.Voltage vds;
 
-         input Spice3.Internal.Mosfet.Mosfet in_m "Record mosfet";
+         input Spice3.Internal.Mosfet.Mosfet in_m "Record MOSFET";
          input Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc in_c
           "Input record Mos2Calc";
          input Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams in_p
@@ -9200,7 +9200,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         end if;
 
         // evaluate saturation voltage and its derivatives according to
-        // grove-frohman equation
+        // Grove-Frohman equation
         vgsx   := vgs;
         gammad := gamasd / eta;
         dgdvbs := dgddvb;
@@ -9231,7 +9231,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
         if (in_p.m_maxDriftVel > 0) then
           // evaluate saturation voltage and its derivatives
-          // according to baum's theory of scattering velocity saturation
+          // according to Baum's theory of scattering velocity saturation
           v1 := (vgsx - vbin) / eta + phiMinVbs;
           v2 := phiMinVbs;
           xv := in_p.m_maxDriftVel * out_c.m_lEff / ueff;
@@ -9477,7 +9477,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
          input Modelica.SIunits.Voltage vgs;
          input Modelica.SIunits.Voltage vds;
 
-         input Spice3.Internal.Mosfet.Mosfet in_m "Record mosfet";
+         input Spice3.Internal.Mosfet.Mosfet in_m "Record MOSFET";
          input Mos2Calc in_c "Input record Mos2Calc";
          input Mos2ModelLineParams in_p
           "Input record model line parameters for MOS2";
@@ -9748,7 +9748,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         end if;
 
         // evaluate saturation voltage and its derivatives according to
-        // grove-frohman equation
+        // Grove-Frohman equation
         vgsx   := vgs;
         gammad := gamasd / eta;
         dgdvbs := dgddvb;
@@ -9779,7 +9779,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
         if (in_p.m_maxDriftVel > 0) then
           // evaluate saturation voltage and its derivatives
-          // according to baum's theory of scattering velocity saturation
+          // according to Baum's theory of scattering velocity saturation
           v1 := (vgsx - vbin) / eta + phiMinVbs;
           v2 := phiMinVbs;
           xv := in_p.m_maxDriftVel * out_c.m_lEff / ueff;
@@ -10020,7 +10020,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         "Parameter renaming to internal names"
       extends Modelica.Icons.Function;
         input Spice3.Internal.ModelcardMOS2 ex
-          "Modelcard with technologie parameters";
+          "Modelcard with technology parameters";
 
         output Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams intern
           "Output record model line parameters";
@@ -10056,7 +10056,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         intern.m_surfaceStateDensity := ex.NSS;    // 1/(cm*cm) surface state density (default 0)
         intern.m_surfaceMobility := ex.UO;         // (cm*cm)/(Vs) surface mobility (default 600)
         intern.m_latDiff := ex.LD;                 // m lateral diffusion (default 0)
-        intern.m_jctSatCur := ex.IS;               // A bulk junction saturation current (defaul 1e-14)
+        intern.m_jctSatCur := ex.IS;               // A bulk junction saturation current (default 1e-14)
         intern.m_drainResistanceIsGiven := if (ex.RD > -1e40) then 1 else 0;
         intern.m_drainResistance := if (ex.RD > -1e40) then ex.RD else 0;
         intern.m_sourceResistanceIsGiven := if (ex.RS > -1e40) then 1 else 0;
@@ -10090,7 +10090,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
          extends Modelica.Icons.ObsoleteModel;
 
         input Spice3.Internal.ModelcardMOS2
-                            ex "Modelcard with technologie parameters";
+                            ex "Modelcard with technology parameters";
         input Spice3.Internal.SpiceConstants con "Spice constants";
 
         output Mos2ModelLineParams intern "Output record model line parameters";
@@ -10134,7 +10134,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
           intern.m_surfaceStateDensity := ex.NSS;    // 1/(cm*cm) surface state density (default 0)
           intern.m_surfaceMobility := ex.UO;         // (cm*cm)/(Vs) surface mobility (default 600)
           intern.m_latDiff := ex.LD;                 // m lateral diffusion (default 0)
-          intern.m_jctSatCur := ex.IS;               // A bulk junction saturation current (defaul 1e-14)
+          intern.m_jctSatCur := ex.IS;               // A bulk junction saturation current (default 1e-14)
 
           intern.m_drainResistanceIsGiven := if
                                                (ex.RD > -1e40) then 1 else 0;
@@ -10218,7 +10218,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
           dev.m_dICVBS := if         (IC > -1e40) then IC else 0;
 
         dev.m_off := OFF;             // non-zero to indicate device is off for dc analysis
-        dev.m_bPMOS := mtype;         // P type MOSfet model
+        dev.m_bPMOS := mtype;         // P type MOSFET model
         dev.m_nLevel := ex.LEVEL;
         assert(ex.LEVEL== 1, "only MOS Level1 implemented");
         dev.m_dTemp := TEMP + Spice3.Internal.SpiceConstants.CONSTCtoK;
@@ -10228,7 +10228,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end mos2RenameParametersDev;
 
       annotation (Documentation(info="<html>
-<p>This package Mos2 contains functions and records with data of the mosfet model level 2.</p>
+<p>This package Mos2 contains functions and records with data of the MOSFET model level 2.</p>
 </html>"));
     end Mos2;
 
@@ -10529,7 +10529,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       function diodeRenameParameters "Technology parameter renaming"
       extends Modelica.Icons.Function;
-        input ModelcardDIODE ex "Modelcard with technologie parameters";
+        input ModelcardDIODE ex "Modelcard with technology parameters";
         input SpiceConstants con "Spice constants";
 
         output DiodeModelLineParams intern
@@ -10663,7 +10663,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       function resistorRenameParameters "Technology parameter renaming"
       extends Modelica.Icons.Function;
-      input ModelcardR ex "Modelcard with technologie parameters";
+      input ModelcardR ex "Modelcard with technology parameters";
       input SpiceConstants con "Spice constants";
 
       output ResistorModelLineParams intern
@@ -11407,7 +11407,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         input Modelica.Electrical.Spice3.Internal.ModelcardBJT2
                                            ex
-          "Modelcard with technologie parameters";
+          "Modelcard with technology parameters";
         input Real TBJT;
 
         output BjtModelLineParams intern
@@ -12326,7 +12326,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           extends Modelica.Icons.Function;
         extends Modelica.Icons.ObsoleteModel;
         input Modelica.Electrical.Spice3.Internal.ModelcardBJT ex
-          "Modelcard with technologie parameters";
+          "Modelcard with technology parameters";
         input Spice3.Internal.SpiceConstants con "Spice constants";
         input Real TBJT "Type";
 
@@ -12450,7 +12450,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
         extends Modelica.Icons.Function;
         extends Modelica.Icons.ObsoleteModel;
        input Real TBJT "Type";
-       output BjtModelLineParams dev_type "Outputrecord Bjt3";
+       output BjtModelLineParams dev_type "Output record Bjt3";
       algorithm
         dev_type.m_type := TBJT;
 
@@ -12616,7 +12616,7 @@ Fet_Model_Line::Fet_Model_Line(
         input Boolean UIC "Use initial conditions, UIC";
         input SI.Temp_C TEMP "Temperature";
 
-        output Fet dev "Output record Mesfet";
+        output Fet dev "Output record MESFET";
 
       algorithm
         dev.m_bICVDSIsGiven := if ( IC_VDS > -1e40) then 1 else 0;
@@ -13034,7 +13034,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       function capacitorRenameParameters
       extends Modelica.Icons.Function;
         input Modelica.Electrical.Spice3.Internal.ModelcardC ex
-          "Modelcard with technologie parameters";
+          "Modelcard with technology parameters";
 
         output CapacitorModelLineParams intern
           "Output record with capacitor model line parameters";
@@ -13101,7 +13101,7 @@ annotation(preferredView="info",
 </li>
 <li>unit check (at the moment many parameters of type Real) </li>
 <li>tests</li>
-<li>not supported analyse types (AC, DCTransfer, ...)</li>
+<li>not supported analysis types (AC, DCTransfer, ...)</li>
 </ul>
 <dl>
 <dt>
@@ -13130,7 +13130,7 @@ Sandra  Boehme
 <li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Differential Pair added</li>
 <li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
 <li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
-<li><i>24th February 2012 by Kristin Majetta</i><br/>JFet model added</li>
+<li><i>24th February 2012 by Kristin Majetta</i><br/>JFET model added</li>
 <li><i>23rd February 2012 by Kristin Majetta</i><br/>Semiconductor Capacitor added</li>
 <li><i>21st February 2012</i> by Kristin Majetta<br/>CoupledInductors (K) added</li>
 <li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, User&apos;s Guide added</li>

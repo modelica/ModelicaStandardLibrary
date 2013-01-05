@@ -3,10 +3,10 @@ package Utilities
   "Utility models and functions used by MultiBody.Examples.Elementary"
   extends Modelica.Icons.Package;
   function theoreticalNormalGravityWGS84
-    "WGS84 normal gravity over earth ellipsoid in negativ y-direction"
+    "WGS84 normal gravity over earth ellipsoid in negative y-direction"
      extends Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration;
     input Modelica.SIunits.Conversions.NonSIunits.Angle_deg phi
-      "Geodetic latitute" annotation(Dialog);
+      "Geodetic latitude" annotation(Dialog);
   protected
     constant Modelica.SIunits.Position a = 6378137.0
       "Semi-major axis of the earth ellipsoid";

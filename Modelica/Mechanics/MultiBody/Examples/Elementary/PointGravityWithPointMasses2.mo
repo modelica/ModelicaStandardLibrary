@@ -53,7 +53,7 @@ model PointGravityWithPointMasses2
 model SystemWithStandardBodies
     "For comparison purposes, an equivalent model with Bodies instead of PointMasses"
   model PointMass = Modelica.Mechanics.MultiBody.Parts.Body(m=1,I_11=0,I_22=0,I_33=0)
-      "Body used all places of the comparision model with zero inertia tensor";
+      "Body used all places of the comparison model with zero inertia tensor";
 
   PointMass pointMass1(
       r_0(start={3,0,0}, each fixed=true),
@@ -160,7 +160,7 @@ equation
   annotation (                       Documentation(info="<html>
 <p>
 In order to compare the results of the \"PointMass\" example where
-6 point masses are rigidly connected together, in this comparision model,
+6 point masses are rigidly connected together, in this comparison model,
 an equivalent system is setup, with the only difference that the
 point masses are replaced by Bodies with zero inertia.
 </p>
@@ -256,7 +256,7 @@ velocity as potential states.
 
 <p>
 The two systems should move exactly in the same way. The system with the PointMasses
-object visulizes the point masses in \"red\", whereas the \"referenceSystem\" shows
+object visualizes the point masses in \"red\", whereas the \"referenceSystem\" shows
 its bodies in \"blue\".
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png\">

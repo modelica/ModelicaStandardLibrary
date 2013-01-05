@@ -102,11 +102,11 @@ package Semiconductors
     LossPower = v*i;
           annotation (
             Documentation(info="<html>
-<p>The simple zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:
+<p>The simple Zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:
 <pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
   i  =  Ids ( e      - 1) - Ibv ( e                  ).</pre>
 <p>If the exponent in one of the two branches reaches the limit <i>Maxexp</i>, the diode characteristic is linearly continued to avoid overflow.</p>
-<p><br>The zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.</p>
+<p><br>The Zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known Zener knee voltage) is exceeded.</p>
 <p>The thermal power is calculated by <i>i*v</i>.</p><p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
 </html>",  revisions="<html>
 <ul>
@@ -346,7 +346,7 @@ equation
   annotation (
     Documentation(info="<html>
 <P>
-The NMos model is a simple model of a n-channel metal-oxide semiconductor
+The NMOS model is a simple model of a n-channel metal-oxide semiconductor
 FET. It differs slightly from the device used in the SPICE simulator.
 For more details please care for H. Spiro.
 </P>
@@ -534,7 +534,7 @@ equation
   annotation (
     Documentation(info="<html>
 <P>
-This model is a simple model of a bipolar npn junction transistor according
+This model is a simple model of a bipolar NPN junction transistor according
 to Ebers-Moll.
 <br> <br>
 <b>Please note:</b>
@@ -690,7 +690,7 @@ equation
                                                                     annotation (
     Documentation(info="<html>
 <P>
-This model is a simple model of a bipolar pnp junction transistor according
+This model is a simple model of a bipolar PNP junction transistor according
 to Ebers-Moll.
 <br> <br>
 <b>Please note:</b>
@@ -935,7 +935,7 @@ end HeatingDiode;
           LossPower = D.i*(D.v - S.v);
           annotation (
             Documentation(info="<html>
-<p>The NMos model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
+<p>The NMOS model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
 <br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
 </p>
@@ -1280,7 +1280,7 @@ end HeatingDiode;
           LossPower = (vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
           annotation (
             Documentation(info="<html>
-<p>This model is a simple model of a bipolar npn junction transistor according to Ebers-Moll.
+<p>This model is a simple model of a bipolar NPN junction transistor according to Ebers-Moll.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>A typical parameter set is (the parameter Vt is no longer used):</p>
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
@@ -1456,7 +1456,7 @@ end HeatingDiode;
           LossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v));
           annotation (
             Documentation(info="<html>
-<p>This model is a simple model of a bipolar pnp junction transistor according to Ebers-Moll.
+<p>This model is a simple model of a bipolar PNP junction transistor according to Ebers-Moll.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>A typical parameter set is (the parameter Vt is no longer used):</p>
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe

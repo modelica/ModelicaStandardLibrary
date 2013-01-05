@@ -681,7 +681,7 @@ independent variables of the model:
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
 <li>Pressure <b>p</b> and temperature <b>T</b> are the most natural choice for applications where water is always in the same phase, both for liquid water and steam.</li>
-<li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critial states.</li>
+<li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critical states.</li>
 </ol>
 <p>
 The following quantities are always computed:
@@ -1282,7 +1282,7 @@ independent variables of the model:
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
 <li>Pressure <b>p</b> and temperature <b>T</b> are the most natural choice for applications where water is always in the same phase, both for liquid water and steam.</li>
-<li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critial states.</li>
+<li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critical states.</li>
 </ol>
 <p>
 The following quantities are always computed:
@@ -1467,10 +1467,10 @@ from different functions if one of the functions is called often but can be opti
 <li>Density <b>d</b> and temperature <b>T</b> are explicit
     variables of the Helmholtz function in the near-critical
     region and can be the best choice for applications with
-    super-critical or near-critial states.</li>
+    super-critical or near-critical states.</li>
 </ol>
 <p>
-The following quantities are always computed in Medium.Baseproperties:
+The following quantities are always computed in Medium.BaseProperties:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>Variable</b></td>

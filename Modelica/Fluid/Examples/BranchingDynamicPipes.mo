@@ -148,7 +148,7 @@ Note the appropriate use of the modelStructure of the DynamicPipe models (Advanc
 The default modelStructure is av_vb, i.e. volumes with a pressure state are exposed at both ports.
 In many cases this gives good numerical performance, avoiding algebraic loops in connections, 
 e.g. if a pipe is connected to a valve or to a vessel with portsData configured.
-The price to pay is a high-indes DAE if two pipes are connected or if a pipe is connected to a boundary with prescribed pressure.
+The price to pay is a high-index DAE if two pipes are connected or if a pipe is connected to a boundary with prescribed pressure.
 In such cases one might consider changing the modelStructure.
 </p>
 <p>

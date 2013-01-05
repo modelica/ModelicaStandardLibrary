@@ -739,7 +739,7 @@ package AST_BatchPlant
       parameter Medium.Temperature T_ambient=293.15 "Tank surface Temperature";
       parameter Integer n_TopPorts=1 "number of Top connectors";
       parameter Integer n_SidePorts=1 "number of side connectors";
-      parameter Integer n_BottomPorts=1 "number of bootom connectors";
+      parameter Integer n_BottomPorts=1 "number of bottom connectors";
       Medium.BaseProperties medium(
         preferredMediumStates=true,
         p(start=p_ambient),
@@ -935,7 +935,7 @@ package AST_BatchPlant
         end if;
         Condensed.h_outflow = h;
         Condensed.m_flow = -heatTransfer.Q_flows[1]/(h_v - h_l);
-        rho = rho_l;//Density = liquid Densety
+        rho = rho_l;//Density = liquid Density
         h = h_l;    //Enthalpy = liquid Enthalpy
         if noEvent(heatPort.Q_flow > 0.0) then
           assert(noEvent(abs(m_flow_pos) <= 0.01), "Attempt to fill tank while evaporating.");
@@ -1029,11 +1029,11 @@ package AST_BatchPlant
               lineColor={0,0,0},
               textString=DynamicSelect("%level_start", String(
                       level,
-                      minimumLenght=1,
+                      minimumLength=1,
                       significantDigits=2)))}),
         Documentation(info="<HTML>
 <p>This tank has the same geometric variables as TankWith3InletOutletArrays plus the feature of a HeatPort and the possibility of evaporation.
-(Assumption: The gas is condensed emidiatly afterwards so that a liquid boiling fluid is created.)</p>
+(Assumption: The gas is condensed immediately afterwards so that a liquid boiling fluid is created.)</p>
 <p>The tank can be initialized with the following options:</p>
 <ul>
 <li>GuessValues: no explicit initial conditions
@@ -1041,7 +1041,7 @@ package AST_BatchPlant
 <li>SteadyStateHydraulic: initial values of temperature (or specific enthalpy) and composition are specified; the initial level is determined so that levels and pressure are at steady state.
 </ul>
 <p>
-Full steady state initialization is not supported, because the corresponding intial equations for temperature/enthalpy are undetermined (the flow rate through the port at steady state is zero).
+Full steady state initialization is not supported, because the corresponding initial equations for temperature/enthalpy are undetermined (the flow rate through the port at steady state is zero).
 </p>
 </HTML>"));
     end TankWith3InletOutletArraysWithEvaporatorCondensor;
@@ -1850,7 +1850,7 @@ ports (and never back in to the connector).
 
 <p>
 The vector of connectors <b>ports</b> are fluid ports at the bottom
-and side of the tank at a defineable height. Fluid can flow either out
+and side of the tank at a definable height. Fluid can flow either out
 of or in to this port. The fluid level of the tank may be below
 one of these ports. This case is approximated by introducing a
 large pressure flow coefficient so that the mass flow rate
@@ -2396,7 +2396,7 @@ Pure water from tank B1 and concentrated sodium chloride
 solution from tank B2 are mixed in a mixing tank B3.
 After buffering in tank B4 the mixture flows to the
 evaporator B5. Here the water sodium chloride mixture
-is evaporated until the desired con-centration is reached.
+is evaporated until the desired concentration is reached.
 The steam is condensed in the condenser K1 and cooled
 afterwards in the cooling tank B6. The concentrated
  solution is also led to a cooling tank B7. The cooled

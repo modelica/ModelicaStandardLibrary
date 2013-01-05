@@ -799,7 +799,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
-An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
+An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the asynchronous induction machine with squirrel cage to start,
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
@@ -1262,7 +1262,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 <tr><td>Main  field    reactance at 50 Hz </td><td> 66.40     </td><td>&Omega;</td></tr>
 <tr><td>Rotor  leakage reactance at 50 Hz </td><td>  2.31     </td><td>&Omega;</td></tr>
 <tr><td>Rotor  resistance per phase       </td><td>  0.42     </td><td>&Omega;</td></tr>
-<tr><td>Temperature coefficient           </td><td> aluminium </td><td>       </td></tr>
+<tr><td>Temperature coefficient           </td><td> aluminum </td><td>       </td></tr>
 <tr><td>Reference temperature             </td><td> 20        </td><td>&deg;C </td></tr>
 <tr><td>Operation temperature             </td><td> 90        </td><td>&deg;C </td></tr>
 </table>
@@ -1560,7 +1560,7 @@ This package contains test examples of asynchronous induction machines.
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Synchronous induction machine with reluctance rotor fed by an ideal inverter</b><br>
-An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
+An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the reluctance machine to start,
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
@@ -1718,7 +1718,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet synchronous induction machine fed by an ideal inverter</b><br>
-An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
+An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the permanent magnet synchronous induction machine to start,
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
 Simulate for 1.5 seconds and plot (versus time):
@@ -1929,7 +1929,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet synchronous induction machine fed by a current source</b><br>
 A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
-The rms values of d- and q-current in rotor fixed coordinate system are converted to threephase currents,
+The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
 and fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.<br>
 Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
@@ -2116,7 +2116,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 <b>Test example: Electrical excited synchronous induction machine as generator</b><br>
 An electrically excited synchronous generator is connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
-rotor angle is very slowly increased. This allows to see several charactersistics dependent on rotor angle.
+rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.
 Simulate for 30 seconds and plot (versus rotorDisplacementAngle.rotorDisplacementAngle):
 <ul>
 <li>smee.tauElectrical</li>
@@ -2856,7 +2856,7 @@ Due to the additional inductive voltage drops, output of the motor is lower, com
     parameter Modelica.SIunits.AngularVelocity w0=Modelica.SIunits.Conversions.from_rpm(1500)
       "No-load speed";
     parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-    parameter Modelica.SIunits.Time tStart=0.5 "Start ofload torque ramp ramp";
+    parameter Modelica.SIunits.Time tStart=0.5 "Start of load torque ramp ramp";
     parameter Modelica.SIunits.Time tRamp=2.0 "Load torque ramp";
     parameter Modelica.SIunits.Inertia JLoad=0.15 "Load's moment of inertia";
 
@@ -4333,7 +4333,7 @@ This package contains test examples of electric machines.
         annotation (defaultComponentName="aimc",
           Documentation(info="<HTML>
 <p><b>Model of a three phase asynchronous induction machine with squirrel cage.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a stator-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Both together connected via a stator-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -4807,7 +4807,7 @@ These models use package SpacePhasors.
        removed mechanical flange support<br>
        to ease the implementation of a 3D-frame in a future release</li>
   <li> v1.6.3 2005/11/25 Anton Haumer<br>
-       easier parametrisation of SlipRing model</li>
+       easier parameterization of SlipRing model</li>
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
@@ -4988,7 +4988,7 @@ These models use package SpacePhasors.
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<HTML>
 <p><b>Model of a three phase permanent magnet synchronous induction machine.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding the d-axis. The machine models take the following loss effects into account:
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding the d-axis. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -5361,7 +5361,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                     0,255})}),
           Documentation(info="<HTML>
 <p><b>Model of a three phase electrical excited synchronous induction machine with damper cage.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. The machine models take the following loss effects into account:
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -5666,7 +5666,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<HTML>
 <p><b>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a rotor-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Both together connected via a rotor-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -6679,7 +6679,7 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
 </dl>
   <ul>
   <li> v2.3.0 2010/02/16 Anton Haumer<br>
-       first impementation</li>
+       first implementation</li>
   </ul>
 </HTML>"));
     end QuasiStationaryDCMachines;
@@ -6996,7 +6996,7 @@ Transformer Yy10
 </html>"));
         end Yy10;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary Y connected / secondary y connected in all possbile vector groups.
+This package contains transformers primary Y connected / secondary y connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -7280,7 +7280,7 @@ Transformer Yd11
 </html>"));
         end Yd11;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary Y connected / secondary d connected in all possbile vector groups.
+This package contains transformers primary Y connected / secondary d connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -7670,7 +7670,7 @@ Transformer Yz11
 </html>"));
         end Yz11;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary Y connected / secondary zig-zag connected in all possbile vector groups.
+This package contains transformers primary Y connected / secondary zig-zag connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -7972,7 +7972,7 @@ Transformer Dy11
 </html>"));
         end Dy11;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary D connected / secondary y connected in all possbile vector groups.
+This package contains transformers primary D connected / secondary y connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -8228,7 +8228,7 @@ Transformer Dd10
 </html>"));
         end Dd10;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary D connected / secondary d connected in all possbile vector groups.
+This package contains transformers primary D connected / secondary d connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -8251,7 +8251,7 @@ This package contains transformers primary D connected / secondary d connected i
 </HTML>"));
       end Dd;
 
-      package Dz "Transformers: primary D / secondary ziag-zag"
+      package Dz "Transformers: primary D / secondary zig-zag"
         extends Modelica.Icons.VariantsPackage;
 
         model Dz00 "Transformer Dz0"
@@ -8588,7 +8588,7 @@ Transformer Dz10
 </html>"));
         end Dz10;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary D connected / secondary d connected in all possbile vector groups.
+This package contains transformers primary D connected / secondary d connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -8613,7 +8613,7 @@ This package contains transformers primary D connected / secondary d connected i
 
       annotation (
        Documentation(info="<HTML>
-This package contains components to model technical threephase transformers:
+This package contains components to model technical three-phase transformers:
 <ul>
 <li>Transformer: transformer model to choose connection / vector group</li>
 <li>Yy: Transformers with primary primary Y / secondary y</li>
@@ -8629,7 +8629,7 @@ All transformers extend from the base model <i>PartialTransformer</i>, adding th
 <b>VectorGroup</b> defines the phase shift between primary and secondary voltages, expressed by a number phase shift/30 degree
 (i.e., the hour on a clock face). Therefore each transformer is identified by two characters and a two-digit number,
 e.g., Yd11 ... primary connection Y (star), secondary connection d (delta), vector group 11 (phase shift 330 degree)<br>
-With the \"supermodel\" <i>Tranformer</i>&nbsp; the user may choose primary and secondary connection as well as the vector group.<br>
+With the \"supermodel\" <i>Transformer</i>&nbsp; the user may choose primary and secondary connection as well as the vector group.<br>
 It calculates winding ratio as well as primary and secondary winding resistances and stray inductances,
 distributing them equally to primary and secondary winding, from the following parameters:
 </p>
@@ -8800,9 +8800,9 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
 protected
   Modelica.SIunits.MagneticFlux psi_msAbs "Length of main flux phasor";
   Modelica.SIunits.Angle psi_msArg
-    "(Wrapped) angle of main flux phasor with respect to the stator fixe frame";
+    "(Wrapped) angle of main flux phasor with respect to the stator fixed frame";
   Modelica.SIunits.Angle psi_mrArg
-    "(Wrapped) angle of main flux phasor with respect to the rotor fixe frame";
+    "(Wrapped) angle of main flux phasor with respect to the rotor fixed frame";
 initial equation
   i_sm = Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator(i_ss, psi_msArg);
   i_rm = Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator(i_rr, psi_mrArg);
@@ -9091,7 +9091,7 @@ Material properties alpha of both axis are the same.
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<HTML>
 <p>
-Model of an usymmetrical damper cage in two axis.
+Model of an asymmetrical damper cage in two axis.
 </p>
 <p>
 The damper cage has an optional (conditional) HeatPort,
@@ -9263,7 +9263,7 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
           annotation(Evaluate=true);
         parameter Real turnsRatio
           "Ratio of armature turns over number of turns of the excitation winding";
-        output Modelica.SIunits.AngularVelocity w "Angluar velocity";
+        output Modelica.SIunits.AngularVelocity w "Angular velocity";
         Modelica.SIunits.Voltage vei
           "Voltage drop across field excitation inductance";
         Modelica.SIunits.Current ie "Excitation current";
@@ -9504,7 +9504,7 @@ the connection to airgap has to be grounded at one point.
               Line(points={{32,-40},{90,-40}}, color={0,0,255}),
               Line(points={{34,-90},{92,-90}}, color={0,0,255})}),
           Documentation(info="<html>
-Partial model of transformer core with 3 windings; saturation function flux versus magentizing current has to be defined.
+Partial model of transformer core with 3 windings; saturation function flux versus magnetizing current has to be defined.
 </html>"));
       end PartialCore;
 
@@ -9520,18 +9520,18 @@ Ideal transformer with 3 windings: no magnetizing current.
 </html>"));
       end IdealCore;
 
-      partial model BasicTransformer "Partial model of threephase transformer"
+      partial model BasicTransformer "Partial model of three-phase transformer"
         extends Machines.Interfaces.PartialBasicTransformer;
       //dummy will be removed when conversion script is applicable
         annotation (Documentation(info="<html>
-Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
+Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
 Circuit layout (vector group) of primary and secondary windings have to be defined.<br>
 Exactly the same as Interfaces.PartialBasicTransformer, included for compatibility reasons.
 </html>"));
       end BasicTransformer;
 
       annotation (Documentation(info="<HTML>
-This package contains components for modeling electrical machines, specially threephase induction machines, based on space phasor theory.
+This package contains components for modeling electrical machines, specially three-phase induction machines, based on space phasor theory.
 These models use package SpacePhasors.
 </HTML>", revisions="<HTML>
 <dl>
@@ -9560,19 +9560,19 @@ These models use package SpacePhasors.
   <li> v1.53 Beta 2005/10/14 Anton Haumer<br>
        introduced unsymmetrical DamperCage for Synchronous Machines</li>
   <li> v2.1.3 2010/02/10 Anton Haumer<br>
-       prepared conditionalHeatPort of SquirrelCage and DamperCage</li>
+       prepared ConditionalHeatPort of SquirrelCage and DamperCage</li>
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"));
     end Components;
     annotation (Documentation(info="<HTML>
-This package contains components for modeling electrical machines, specially threephase induction machines, based on space phasor theory:
+This package contains components for modeling electrical machines, specially three-phase induction machines, based on space phasor theory:
 <ul>
 <li>package AsynchronousInductionMachines: models of three phase asynchronous induction machines</li>
 <li>package SynchronousInductionMachines: models of three phase synchronous induction machines</li>
 <li>package DCMachines: models of DC machines with different excitation</li>
-<li>package Transformers: Threephase transformers (see detailled documentation in subpackage)</li>
+<li>package Transformers: Threephase transformers (see detailed documentation in subpackage)</li>
 <li>package Components: components for modeling machines and transformers</li>
 </ul>
 The induction machine models use package SpacePhasors.
@@ -9616,7 +9616,7 @@ The induction machine models use package SpacePhasors.
   <li> v1.6.2 2005/10/23 Anton Haumer<br>
        selectable DamperCage for Synchronous Machines</li>
   <li> v1.6.3 2005/11/25 Anton Haumer<br>
-       easier parametrisation of AsynchronousInductionMachines.AIM_SlipRing model</li>
+       easier parametrization of AsynchronousInductionMachines.AIM_SlipRing model</li>
   <li> v1.7.1 2006/02/06 Anton Haumer<br>
        changed some naming of synchronous machines, not affecting existing models</li>
   <li> v2.1.3 2010/02/10 Anton Haumer<br>
@@ -10176,18 +10176,18 @@ Calculates (mechanical) power from torque times angular speed.
               color={0,0,0},
               smooth=Smooth.None)}),
         Documentation(info="<HTML>
-Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the correspondig space phasor in stator-fixed coordinate system, <br>
+Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system, <br>
 rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.
 <p>
-The sensor's housing can be implicitely fixed (useSupport=false).<br>
-If the machine's stator also implicitely fixed (useSupport=false), the angle at the flange
+The sensor's housing can be implicitly fixed (useSupport=false).<br>
+If the machine's stator also implicitly fixed (useSupport=false), the angle at the flange
 is equal to the angle of the machine's rotor against the stator.<br>
 Otherwise, the sensor's support has to be connected to the machine's support.
 </p>
 </HTML>"));
     end RotorDisplacementAngle;
     annotation (Documentation(info="<HTML>
-This package contains sensors that are usefull when modelling machines.
+This package contains sensors that are useful when modelling machines.
 </HTML>", revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -10294,7 +10294,7 @@ and vice versa:<br>
 X0 = sum(x[k])/m<br>
 X[Re,Im] = sum(2/m*{cos((k - 1)/m*2*pi),sin((k - 1)/m*2*pi)}*x[k])<br>
 were x designates three phase values, X[Re,Im] designates the space phasor and X0 designates the zero sequence system.<br>
-<i>Physcial transformation</i> means that both voltages and currents are transformed in both directions.<br>
+<i>Physical transformation</i> means that both voltages and currents are transformed in both directions.<br>
 Zero-sequence voltage and current are present at pin zero. An additional zero-sequence impedance could be connected between pin zero and pin ground.
 </HTML>"));
       end SpacePhasor;
@@ -10428,7 +10428,7 @@ a ground has to be used where necessary for currents flowing back.
                 lineColor={0,0,0},
                 textString="zero")}),
           Documentation(info="<HTML>
-Transformation of threephase values (voltages or currents) to space phasor and zero sequence value.
+Transformation of three-phase values (voltages or currents) to space phasor and zero sequence value.
 </HTML>"));
       end ToSpacePhasor;
 
@@ -10470,7 +10470,7 @@ Transformation of threephase values (voltages or currents) to space phasor and z
                 lineColor={0,0,0},
                 textString="zero")}),
           Documentation(info="<HTML>
-Transformation of space phasor and zero sequence value to threephase values (voltages or currents).
+Transformation of space phasor and zero sequence value to three-phase values (voltages or currents).
 </HTML>"));
       end FromSpacePhasor;
 
@@ -10593,8 +10593,8 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
       annotation (Documentation(info="<HTML>
 This package contains space phasor transformation blocks for use in controllers:
 <ul>
-<li>ToSpacePhasor: transforms a set of threephase values to space phasor and zero sequence system</li>
-<li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of threephase values</li>
+<li>ToSpacePhasor: transforms a set of three-phase values to space phasor and zero sequence system</li>
+<li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of three-phase values</li>
 <li>Rotator: rotates a space phasor (from one coordinate system into another)</li>
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
@@ -10775,8 +10775,8 @@ Transformation of three phase voltages and currents to space phasors and calcula
       annotation (Documentation(info="<HTML>
 This package contains space phasor transformation functions for use in calculations:
 <ul>
-<li>ToSpacePhasor: transforms a set of threephase values to space phasor and zero sequence system</li>
-<li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of threephase values</li>
+<li>ToSpacePhasor: transforms a set of three-phase values to space phasor and zero sequence system</li>
+<li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of three-phase values</li>
 <li>Rotator: rotates a space phasor (from one coordinate system into another)</li>
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
@@ -10888,7 +10888,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.Fr
     annotation (defaultComponentPrefixes="parameter ",
     Documentation(info="<html>
 <p>
-Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.Brush\">threephase Brush</a> and
+Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.Brush\">three-phase Brush</a> and
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">DC Brush</a> losses.
 </p>
 </html>"));
@@ -10909,7 +10909,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
     annotation (defaultComponentPrefixes="parameter ",
     Documentation(info="<html>
 <p>
-Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad\">threephase</a> and
+Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad\">three-phase</a> and
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.StrayLoad\">DC</a> stray load losses.
 </p>
 </html>"));
@@ -11050,7 +11050,7 @@ with
   tauRef * wRef = PRef
 </pre>
 <p>
-being the friction torque at the referenc angular velocity
+being the friction torque at the reference angular velocity
 <code>wRef</code>. The exponent <code>power_w</code> is
 approximately 1.5 for axial ventilation and approximately 2.0 for radial ventilation.
 </p>
@@ -11129,7 +11129,7 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
               Line(points={{40,0},{90,0}}, color={0,0,255})}),
                                   Documentation(info="<html>
 <p>
-Model of voltage drop and losses of carbon brushes. This threephase model uses three
+Model of voltage drop and losses of carbon brushes. This three-phase model uses three
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">DC Brush</a> loss models.
 </p>
 </html>"));
@@ -11338,7 +11338,7 @@ The term <code>ratioHysteresis</code> is the ratio of the hysteresis losses with
 </p>
 
 <p>
-In the current implemenation hysteresis losses are <b>not considered</b> since complex numbers are not provided in Modelica.
+In the current implementation hysteresis losses are <b>not considered</b> since complex numbers are not provided in Modelica.
 Therefore, implicitly <code>ratioHysteresis = 0</code> is set. For the voltage and frequency range with respect to Fig.&nbsp;1,
 the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.
 The current implementation has thus the drawback over a model that considers <code>ratioHysteresis &gt; 0</code>:
@@ -11672,7 +11672,7 @@ This package contains loss models and their parameter records used for machine m
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero
           "Not temperature dependent",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium
-          "Aluminium",
+          "Aluminum",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Brass "Brass",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Bronze "Bronze",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper "Copper"));
@@ -11681,8 +11681,8 @@ This package contains loss models and their parameter records used for machine m
 
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Zero=0
         "Not temperature dependent";
-      constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Aluminium=4.000e-3
-        "Aluminium";
+      constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Aluminum=4.000e-3
+        "Aluminum";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Brass =    1.100e-3 "Brass";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Bronze =  0.800e-3 "Bronze";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Copper =  3.920e-3 "Copper";
@@ -12560,14 +12560,14 @@ Additionally, all losses = heat flows are recorded.
 <h4>Thermal concept</h4>
 <p>
 Each machine model is equipped with a machine-specific conditional <code>thermalPort</code>.
-If <code>useThermalPort == false</code>, a machine-specific thermal ambient precribing constant temperatures is used inside the machine.
+If <code>useThermalPort == false</code>, a machine-specific thermal ambient prescribing constant temperatures is used inside the machine.
 If <code>useThermalPort == true</code>, a thermal model or machine-specific thermal ambient prescribing the temperatures has to be connected from outside.
 On the other hand, all losses are dissipated to this internal or external thermal ambient.
 </p>
 <p>
 The machine specific thermal connector contains <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heatPort</a>s
 for all relevant loss sources of the machine type, although some of the loss sources are not yet implemented;
-these heatPorts are left unconnceted inside the machine, i.e., the HeatFlowRate is zero,
+these heatPorts are left unconnected inside the machine, i.e., the HeatFlowRate is zero,
 but they have to be connected to a constant temperature source in the internal or external thermal ambient.
 Simple machine-specific thermal ambients for constant temperatures (<code>useTemperatureInputs == false</code>)
 or temperatures prescribed via signal inputs (<code>useTemperatureInputs == true</code>) are provided in this package.
@@ -12575,7 +12575,7 @@ or temperatures prescribed via signal inputs (<code>useTemperatureInputs == true
 <h4>Loss sources</h4>
 <p>
 Up to now, only Ohmic losses in stator and rotor windings are implemented.
-They are modeled as <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">linearly temperature dependent rsistors</a>:
+They are modeled as <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">linearly temperature dependent resistors</a>:
 </p>
 <pre>
    ROperational = RRef * (1 + alphaRef * (TOperational - TRef))
@@ -12602,11 +12602,11 @@ The linear temperature coefficient <code>alpha20</code> at 20&deg;C = 293.15 K h
 For this reason, the function <a href=\"modelica://Modelica.Electrical.Machines.Thermal.convertAlpha\">convertAlpha</a> is provided.
 In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constants\">Constants</a> linear temperature coefficients at 20&deg;C for commonly used materials are defined.
 </p>
-<h4>Backwards compatibilty</h4>
+<h4>Backwards compatibility</h4>
 <ul>
 <li>The default / start values of all resistances are left unchanged.</li>
 <li>The default / start values of all reference temperatures are set to 20&deg;C.</li>
-<li>The default / start values of all linear temperature coefficents are set to 0.</li>
+<li>The default / start values of all linear temperature coefficients are set to 0.</li>
 <li>The default / start values of all operational temperatures are set to 20&deg;C.</li>
 <li>The default / start values of all nominal temperatures are set to 20&deg;C.</li>
 </ul>
@@ -12634,7 +12634,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <ul>
 <li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the m=3 stator phases</li>
 <li><code>heatPortRotorWinding</code>: conditional (<code>useDamperCage=true/false</code>) heatPort for the damper cage</li>
-<li><code>heatPortPermanentMagnet</code>: permanet magnet losses (not yet connected/implemented)</li>
+<li><code>heatPortPermanentMagnet</code>: permanent magnet losses (not yet connected/implemented)</li>
 <li><code>heatPortStatorCore</code>: stator core losses (not yet fully implemented)</li>
 <li><code>heatPortRotorCore</code>: rotor core losses (not yet connected/implemented)</li>
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
@@ -12663,7 +12663,7 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <h5><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet\">DC machine with permanent magnets</a></h5>
 <ul>
 <li><code>heatPortArmature</code>: armature losses</li>
-<li><code>heatPortPermanentMagnet</code>: permanet magnet losses (not yet connected/implemented)</li>
+<li><code>heatPortPermanentMagnet</code>: permanent magnet losses (not yet connected/implemented)</li>
 <li><code>heatPortBrush</code>: brush losses</li>
 <li><code>heatPortCore</code>: armature core losses</li>
 <li><code>heatPortStrayLoad</code>: stray load losses</li>
@@ -13456,7 +13456,7 @@ Partial power balance of induction machines.
           "Heat port of rotor (squirrel cage)"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
         annotation (Documentation(info="<HTML>
-Thermal port for asnychronous induction machine with squirrel cage
+Thermal port for asynchronous induction machine with squirrel cage
 </HTML>"));
       end ThermalPortAIMC;
 
@@ -13485,7 +13485,7 @@ Power balance of asynchronous induction machines with squirrel cage.
           "Heat port of (optional) brush losses"
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
         annotation (Documentation(info="<HTML>
-Thermal port for asnychronous induction machine with slipring rotor
+Thermal port for asynchronous induction machine with slipring rotor
 </HTML>"));
       end ThermalPortAIMS;
 
@@ -13519,7 +13519,7 @@ Power balance of asynchronous induction machines with slipring.
           "Heat port of permanent magnets"
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
         annotation (Documentation(info="<HTML>
-Thermal port for snychronous induction machine with permanent magnets
+Thermal port for synchronous induction machine with permanent magnets
 </HTML>"));
       end ThermalPortSMPM;
 
@@ -13556,7 +13556,7 @@ Power balance of synchronous induction machines with permanent magnet.
           "Heat port of (optional) brush losses"
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
         annotation (Documentation(info="<HTML>
-Thermal port for snychronous induction machine with electrical excitation
+Thermal port for synchronous induction machine with electrical excitation
 </HTML>"));
       end ThermalPortSMEE;
 
@@ -13588,7 +13588,7 @@ Power balance of synchronous induction machines with electrical excitation.
           "Heat port of damper cage (optional)"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
         annotation (Documentation(info="<HTML>
-Thermal port for snychronous induction machine with reluctance rotor
+Thermal port for synchronous induction machine with reluctance rotor
 </HTML>"));
       end ThermalPortSMR;
 
@@ -13601,7 +13601,7 @@ Thermal port for snychronous induction machine with reluctance rotor
         Modelica.SIunits.Power lossPowerRotorWinding "Rotor copper losses";
         annotation (defaultComponentPrefixes="output",
           Documentation(info="<HTML>
-Power balance of synchronous induction machines with reluctnace rotor.
+Power balance of synchronous induction machines with reluctance rotor.
  </HTML>"));
       end PowerBalanceSMR;
 
@@ -14086,7 +14086,7 @@ Thermal ports for DC machines
     end DCMachines;
 
     partial model PartialBasicTransformer
-      "Partial model of threephase transformer"
+      "Partial model of three-phase transformer"
       extends Machines.Icons.TransientTransformer;
       final parameter Integer m(min=1) = 3 "Number of phases";
       constant String VectorGroup="Yy00";
@@ -14224,7 +14224,7 @@ Thermal ports for DC machines
               lineColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
-Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
+Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
 Circuit layout (vector group) of primary and secondary windings have to be defined.
 <br><b>Default values for transformer's parameters (a realistic example) are:</b><br>
 <table>
@@ -14525,7 +14525,7 @@ This icon is designed for a <b>quasistationary machine</b> model.
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
-This icon is designed for a <b>fundamentalwave machine</b> model.
+This icon is designed for a <b>FundamentalWave machine</b> model.
 </p>
 </html>"));
     end FundamentalWaveMachine;
@@ -15169,7 +15169,7 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
         Documentation(info="<HTML>
 Simple Current-Controller.<br>
 The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
-Using the given rotor position (input \"phi\"), the correct threephase currents (output \"i[3]\")are calculated.
+Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"i[3]\") are calculated.
 They can be used to feed a current source which in turn feeds an induction machine.
 </HTML>"));
     end CurrentController;
@@ -15787,7 +15787,7 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
   <li> v1.6.2 2005/10/23 Anton Haumer<br>
        selectable DamperCage for Synchronous Machines</li>
   <li> v1.6.3 2005/11/25 Anton Haumer<br>
-       easier parametrisation of AsynchronousInductionMachines.AIM_SlipRing model</li>
+       easier parameterization of AsynchronousInductionMachines.AIM_SlipRing model</li>
   <li> v1.7.0 2005/12/15 Anton Haumer<br>
        back-changed the naming to ensure backward compatibility</li>
   <li> v1.7.1 2006/02/06 Anton Haumer<br>

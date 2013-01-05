@@ -87,7 +87,7 @@ equation
     Documentation(info="<html>
 <p>
 This is a model of the mechanical part of one cylinder of an engine.
-It is similiar to
+It is similar to
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a#diagram\">Loops.Engine1a</a>.
 The difference is that a simple
 model for the gas force in the cylinder is added and that the

@@ -429,7 +429,7 @@ The Input signal is delayed by a given time instant, or more precisely:
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Time delayTime(start=1)
       "Delay time of output with respect to input signal";
-    parameter Integer n(min=1) = 1 "Order of pade approximation";
+    parameter Integer n(min=1) = 1 "Order of Pade approximation";
     parameter Integer m(
       min=1,
       max=n) = n "Order of numerator";

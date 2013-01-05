@@ -55,7 +55,7 @@ This model assumes that the fluid has a low compressibility, which is always the
 It can also be used with gases, provided that the pressure drop is lower than 0.2 times the absolute pressure at the inlet, so that the fluid density does not change much inside the valve.</p>
 
 <p>
-If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteric curve. Otherwise, reverse flow is stopped (check valve behaviour).
+If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).
 </p>
 
 <p>
@@ -142,7 +142,7 @@ The parameters of this model are explained in detail in
 <p>The model operating range includes choked flow operation, which takes place for low outlet pressures due to flashing in the vena contracta; otherwise, non-choking conditions are assumed.
 <p>This model requires a two-phase medium model, to describe the liquid and (possible) two-phase conditions.
 <p>The default liquid pressure recovery coefficient <code>Fl</code> is constant and given by the parameter <code>Fl_nominal</code>. The relative change (per unit) of the recovery coefficient can be specified as a given function of the valve opening by replacing the <code>FlCharacteristic</code> function.
-<p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteric curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
+<p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
 
 <p>
 The treatment of parameters <b>Kv</b> and <b>Cv</b> is
@@ -241,7 +241,7 @@ The parameters of this model are explained in detail in
 <p>This model can be used with gases and vapours, with arbitrary pressure ratio between inlet and outlet.</p>
 
 <p>The product Fk*xt is given by the parameter <code>Fxt_full</code>, and is assumed constant by default. The relative change (per unit) of the xt coefficient with the valve opening can be specified by replacing the <code>xtCharacteristic</code> function.
-<p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteric curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
+<p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
 
 <p>
 The treatment of parameters <b>Kv</b> and <b>Cv</b> is
@@ -624,7 +624,7 @@ from inlet to outlet are neglected in the energy balance.</p>
 <li><code>CvData = Modelica.Fluid.Types.CvTypes.OpPoint</code>: the flow is computed from the nominal operating point specified by <code>p_nominal</code>, <code>dp_nominal</code>, <code>m_flow_nominal</code>, <code>rho_nominal</code>, <code>opening_nominal</code>.
 </ul>
 <p>The nominal pressure drop <code>dp_nominal</code> must always be specified; to avoid numerical singularities, the flow characteristic is modified for pressure drops less than <code>b*dp_nominal</code> (the default value is 1% of the nominal pressure drop). Increase this parameter if numerical problems occur in valves with very low pressure drops.
-<p>If <code>checkValve</code> is true, then the flow is stopped when the outlet pressure is higher than the inlet pressure; otherwise, reverse flow takes place. Use this option only when neede, as it increases the numerical complexity of the problem.
+<p>If <code>checkValve</code> is true, then the flow is stopped when the outlet pressure is higher than the inlet pressure; otherwise, reverse flow takes place. Use this option only when needed, as it increases the numerical complexity of the problem.
 <p>The valve opening characteristic <code>valveCharacteristic</code>, linear by default, can be replaced by any user-defined function. Quadratic and equal percentage with customizable rangeability are already provided by the library. The characteristics for constant port_a.p and port_b.p pressures with continuously changing opening are shown in the next two figures:
 </p>
 
@@ -660,7 +660,7 @@ a step input of opening. The icon of a valve changes in the following way
 
 <p>
 If \"filteredOpening = <b>true</b>\", the input signal \"opening\" is limited
-by parameter <b>leackageOpening</b>, i.e., if \"opening\" becomes smaller as
+by parameter <b>leakageOpening</b>, i.e., if \"opening\" becomes smaller as
 \"leakageOpening\", then \"leakageOpening\" is used instead of \"opening\" as input
 for the filter. The reason is that \"opening=0\" might structurally change the equations of the
 fluid network leading to a singularity. If a small leakage flow is introduced
@@ -669,7 +669,7 @@ fluid network leading to a singularity. If a small leakage flow is introduced
 
 <p>
 In the next figure, \"opening\" and \"filtered_opening\" are shown in the case that
-filteredOpening = <b>true</b>, riseTime = 1 s, and leackageOpening = 0.02.
+filteredOpening = <b>true</b>, riseTime = 1 s, and leakageOpening = 0.02.
 </p>
 
 <blockquote>

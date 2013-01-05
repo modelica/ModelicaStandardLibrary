@@ -238,15 +238,15 @@ extends Modelica.Icons.ExamplesPackage;
     Real Xn[0,0];
 
   algorithm
-  //  ##########   continuous Laypunov   ##########
+  //  ##########   continuous Lyapunov   ##########
     X1 := Matrices.continuousLyapunov(A1,C1);// benchmark example from SLICOT
     r := Matrices.norm(X1*A1+transpose(A1)*X1-C1);
-    Modelica.Utilities.Streams.print("continuous Laypunov: r = "+String(r));
+    Modelica.Utilities.Streams.print("continuous Lyapunov: r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.continuousLyapunov\" failed");
 
     X1 := Matrices.continuousLyapunov(A1s,C1, true);// benchmark example from SLICOT
     r := Matrices.norm(X1*A1s+transpose(A1s)*X1-C1);
-    Modelica.Utilities.Streams.print("continuous Laypunov: r = "+String(r));
+    Modelica.Utilities.Streams.print("continuous Lyapunov: r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.continuousLyapunov\" A' is Schur failed");
 
     Xn := Matrices.continuousLyapunov(N,N);
@@ -277,25 +277,25 @@ extends Modelica.Icons.ExamplesPackage;
 
     Xn := Matrices.continuousRiccati(N,N,N,N);
 
-  //  ##########   discrete Laypunov   ##########
+  //  ##########   discrete Lyapunov   ##########
     X3 := Matrices.discreteLyapunov(A3,C3, false, 1);// benchmark example from SLICOT
     r := Matrices.norm(transpose(A3)*X3*A3 + X3 - C3);
-    Modelica.Utilities.Streams.print("discrete Laypunov r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Lyapunov r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteLyapunov\" with sgn=1 failed");
 
     X3 := Matrices.discreteLyapunov(A3s,C3, true, 1);// benchmark example from SLICOT
     r := Matrices.norm(transpose(A3s)*X3*A3s + X3 - C3);
-    Modelica.Utilities.Streams.print("discrete Laypunov r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Lyapunov r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteLyapunov\" with A' is Schur and sgn=1 failed");
 
     X3 := Matrices.discreteLyapunov(A3,C3, false, -1);
     r := Matrices.norm(transpose(A3)*X3*A3 - X3 - C3);
-    Modelica.Utilities.Streams.print("discrete Laypunov r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Lyapunov r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteLyapunov\" with sgn=-1 failed");
 
     X3 := Matrices.discreteLyapunov(A3s,C3, false, -1);
     r := Matrices.norm(transpose(A3s)*X3*A3s - X3 - C3);
-    Modelica.Utilities.Streams.print("discrete Laypunov r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Lyapunov r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteLyapunov\" with A' is Schur and sgn=-1 failed");
 
     Xn := Matrices.discreteLyapunov(N,N);

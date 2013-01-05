@@ -19,6 +19,6 @@ Reference angle, used in the AC connectors.
 </html>"));
   end Reference;
 annotation (Documentation(info="<html>
-Type definitions needed for quasistaionary AC models.
+Type definitions needed for quasistationary AC models.
 </html>"));
 end Types;

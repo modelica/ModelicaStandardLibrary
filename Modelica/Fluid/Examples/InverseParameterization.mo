@@ -134,7 +134,7 @@ Note that the large value for pipe2.flowModel.pathLengths_nominal[1] is only mea
 </p>
 <p>
 Once the geometries have been designed, the NominalTurbulentPipeFlow correlations can easily be replaced with
-TurbulentPipeFlow or DetailedPipeFlow correlations. Similarily the ControlledPump can be replaced with a PrescribedPump
+TurbulentPipeFlow or DetailedPipeFlow correlations. Similarly the ControlledPump can be replaced with a PrescribedPump
 to investigate a real controller or with a Pump with rotational shaft to investigate inertia effects.
 </p>
 

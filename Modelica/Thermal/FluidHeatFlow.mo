@@ -131,7 +131,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 </HTML>"),        experiment(StopTime=1.0, Interval=0.001));
     end SimpleCooling;
 
-    model ParallelCooling "Example: coolig circuit with parallel branches"
+    model ParallelCooling "Example: cooling circuit with parallel branches"
       extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
@@ -298,7 +298,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 <p>
 2nd test example: ParallelCooling
 </p>
-Two prescribed heat sources dissipate their heat through thermal conductors to coolant flows. The coolant flow is taken from an ambient and driven by a pump with prescribed mass flow, then splitted into two coolant flows connected to the two heat sources, and afterwards merged. Splitting of coolant flows is determined by pressure drop characteristic of the two pipes.<br>
+Two prescribed heat sources dissipate their heat through thermal conductors to coolant flows. The coolant flow is taken from an ambient and driven by a pump with prescribed mass flow, then split into two coolant flows connected to the two heat sources, and afterwards merged. Splitting of coolant flows is determined by pressure drop characteristic of the two pipes.<br>
 <b>Results</b>:<br>
 <table>
 <tr>
@@ -987,7 +987,7 @@ then started again (using a ramp of 0.2 s).
 </HTML>"),        experiment(StopTime=2.0, Interval=0.001));
     end ParallelPumpDropOut;
 
-    model OneMass "Example: ccoling of one hot mass"
+    model OneMass "Example: cooling of one hot mass"
       extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
@@ -1319,7 +1319,7 @@ This package contains test examples:
 <ul>
 <li>1.SimpleCooling: heat is dissipated through a media flow</li>
 <li>2.ParallelCooling: two heat sources dissipate through merged media flows</li>
-<li>3.IndirectCooling: heat is disspated through two cooling cycles</li>
+<li>3.IndirectCooling: heat is dissipated through two cooling cycles</li>
 <li>4.PumpAndValve: demonstrates usage of an IdealPump and a Valve</li>
 <li>5.PumpDropOut: demonstrates shutdown and restart of a pump</li>
 <li>6.ParallelPumpDropOut: demonstrates shutdown and restart of a pump in a parallel circuit</li>
@@ -1375,7 +1375,7 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Inst
       extends Interfaces.Partials.TwoPort(final tapT=1);
       extends Interfaces.Partials.SimpleFriction;
       parameter Modelica.SIunits.Length h_g(start=0)
-        "Geodetic height (heigth difference from flowPort_a to flowPort_b)";
+        "Geodetic height (height difference from flowPort_a to flowPort_b)";
     equation
       // coupling with FrictionModel
       volumeFlow = V_flow;
@@ -1768,10 +1768,10 @@ Thermodynamic equations are defined by Partials.FlowSensor.
               textString="V")}));
     end VolumeFlowSensor;
 
-    model EnthalpyFlowSensor "Enthapy flow sensor"
+    model EnthalpyFlowSensor "Enthalpy flow sensor"
 
       extends Interfaces.Partials.FlowSensor(y(final quantity="EnthalpyFlowRate", final unit="W")
-          "Enthapy flow as output signal");
+          "Enthalpy flow as output signal");
     equation
       y = flowPort_a.H_flow;
     annotation (Documentation(info="<HTML>
@@ -2671,7 +2671,7 @@ EnthalpyFlowRate means the Enthalpy = cp<sub>constant</sub> * m * T that is carr
 <li>No mixtures of media is taken into consideration.</li>
 <li>The medium may not change its phase.</li>
 <li>Medium properties are kept constant.</li>
-<li>Pressure changes are only due to pressure drop and geodetic height differnence rho*g*h (if h > 0).</li>
+<li>Pressure changes are only due to pressure drop and geodetic height difference rho*g*h (if h > 0).</li>
 <li>A user-defined part (0..1) of the friction losses (V_flow*dp) are fed to the medium.</li>
 <li><b>Note:</b> Connected flowPorts have the same temperature (mixing temperature)!<br>
 Since mixing may occur, the outlet temperature may be different from the connector's temperature.<br>

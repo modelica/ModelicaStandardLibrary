@@ -1648,7 +1648,7 @@ This package contains transformers primary D connected / secondary d connected i
 </HTML>"));
       end Dd;
 
-      package Dz "Transformers: primary D / secondary ziag-zag"
+      package Dz "Transformers: primary D / secondary zig-zag"
         extends Modelica.Icons.VariantsPackage;
 
         model Dz00 "Transformer Dz0"
@@ -1968,7 +1968,7 @@ This package contains transformers primary D connected / secondary d connected i
 
       annotation (
        Documentation(info="<HTML>
-This package contains components to model technical threephase transformers:
+This package contains components to model technical three-phase transformers:
 <ul>
 <li>Transformer: transformer model to choose connection / vector group</li>
 <li>Yy: Transformers with primary primary Y / secondary y</li>
@@ -2215,7 +2215,7 @@ Ideal transformer with 3 windings: no magnetizing current.
       end IdealCore;
       annotation (Documentation(info="<html>
 <p>
-This package contains components for modeling electrical machines, specially threephase induction machines, based on space phasor theory.
+This package contains components for modeling electrical machines, specially three-phase induction machines, based on space phasor theory.
 </p>
 </html>"));
     end Components;
@@ -2250,7 +2250,7 @@ This package contains components for modeling quasi stationary electrical induct
 <ul>
 <li>package AsynchronousInductionMachines: quasi stationary models of three phase asynchronous induction machines</li>
 <li>package SynchronousInductionMachines: quasi stationary models of three phase synchronous induction machines</li>
-<li>package Transformers: quasi stationary threephase transformers (see detailed documentation in subpackage)</li>
+<li>package Transformers: quasi stationary three-phase transformers (see detailed documentation in subpackage)</li>
 <li>package Components: components for quasi stationary modeling machines and transformers</li>
 </ul>
 </html>"));
@@ -2260,7 +2260,7 @@ This package contains components for modeling quasi stationary electrical induct
     extends Modelica.Icons.InterfacesPackage;
 
     partial model PartialBasicTransformer
-      "Partial model of threephase transformer"
+      "Partial model of three-phase transformer"
       extends Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer;
       constant Integer m(min=1) = 3 "Number of phases";
       constant String VectorGroup="Yy00";
@@ -2412,7 +2412,7 @@ This package contains components for modeling quasi stationary electrical induct
               lineColor={0,0,255},
               textString="%name")}),
         Documentation(info="<html>
-Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
+Partial model of a three-phase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
 Circuit layout (vector group) of primary and secondary windings have to be defined.
 <br><b>Default values for transformer's parameters (a realistic example) are:</b><br>
 <table>

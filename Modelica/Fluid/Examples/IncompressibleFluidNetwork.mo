@@ -275,7 +275,7 @@ The pressure dynamics completely disappears with an incompressible medium model,
 It appears reasonable to assume steady-state mass balances in this case (see system.massDynamics, tab Assumptions).
 </p><p>
 Note that with the stream concept in the fluid ports, the energy and substance balances of the connected pipe segments remain independent,
-despite of pressures being lumped together. The following simulation results can be observerd:
+despite of pressures being lumped together. The following simulation results can be observed:
 <ol>
 <li>The simulation starts with system.T_ambient as initial temperature in all pipes. 
     The temperatures upstream or bypassing pipe8 are approaching the value of 26.85 degC from the source, including also pipe9.

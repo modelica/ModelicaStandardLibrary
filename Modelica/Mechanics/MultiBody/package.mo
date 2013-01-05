@@ -1507,7 +1507,7 @@ ground. This model serves several purposes:
 <li> It is used to define a <b>visual representation</b> of the
      world model (= 3 coordinate axes with labels) and of the defined
      gravity field.<br>
-    <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/world.png\" ALT=\"MultiBodys.World\">
+    <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/world.png\" ALT=\"MultiBody.World\">
 </li>
 </ul>
 <p>

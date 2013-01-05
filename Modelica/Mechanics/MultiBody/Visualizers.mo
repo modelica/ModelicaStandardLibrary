@@ -83,7 +83,7 @@ Additionally, external shapes are specified with an URI name:
      &lt;Modelica-name&gt; library path with the given relative file name.
      Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
 <li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
-     charaterices an absolute file name in the file system. Example:<br>
+     characterizes an absolute file name in the file system. Example:<br>
      shapeType=\"file://C:/users/myname/shapes/piston.dxf\"</li>
 </ul>
 
@@ -320,7 +320,7 @@ Additionally, external shapes are specified with an URI name:
      &lt;Modelica-name&gt; library path with the given relative file name.
      Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
 <li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
-     charaterices an absolute file name in the file system. Example:<br>
+     characterizes an absolute file name in the file system. Example:<br>
      shapeType=\"file://C:/users/myname/shapes/piston.dxf\"</li>
 </ul>
 
@@ -1101,7 +1101,7 @@ and can be selected via parameter \"colorMap\".
 A color map with the corresponding scalar field values can be exported
 as vector-graphics in svg-format with function
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
-Connecter frame_a of this component is located in the center of the
+Connector frame_a of this component is located in the center of the
 circle at the left side of the pipe and the pipe axis is oriented
 along the x-axis of frame_a, see figure below in which frame_a is visualized
 with a coordinate system:
@@ -1574,10 +1574,10 @@ A \"svg\" file can be displayed by a web browser, such as
 <a href=\"http://www.mozilla.org/firefox\">Firefox</a> by dragging the
 file in the browser window.
 Alternatively, a svg-file can be loaded in a graphics program,
-such as the free <a href=\"http://inkscape.org\">Incscape</a>,
+such as the free <a href=\"http://inkscape.org\">Inkscape</a>,
 can be manipulated and can be exported in other graphic formats.
 The following image was generated with a call to \"colorMapToSvg\", the
-generated file was loaded in Incscape and exported in \"png\" format:
+generated file was loaded in Inkscape and exported in \"png\" format:
 </p>
 
 <blockquote>
@@ -1585,7 +1585,7 @@ generated file was loaded in Incscape and exported in \"png\" format:
 </blockquote>
 
 <p>
-The \"format\" argument defines the string formating according to
+The \"format\" argument defines the string formatting according to
 ANSI-C without \"%\" and \"*\" character<br>
 (e.g., \".6g\", \"14.5e\", \"+6f\"). In particular:
 </p>
@@ -1971,7 +1971,7 @@ shown at the location of its reference coordinate system, called
 as size and color can vary dynamically (with the only exception
 of parameter shapeType). The default equations in the
 declarations should be modified by providing appropriate modifier
-quations. Model <b>Shape</b> is usually used as a basic building block to
+equations. Model <b>Shape</b> is usually used as a basic building block to
 implement simpler to use graphical components.
 </p>
 <p>
@@ -2000,7 +2000,7 @@ Additionally, external shapes are specified with an URI name:
      &lt;Modelica-name&gt; library path with the given relative file name.
      Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
 <li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
-     charaterices an absolute file name in the file system. Example:<br>
+     characterizes an absolute file name in the file system. Example:<br>
      shapeType=\"file://C:/users/myname/shapes/piston.dxf\"</li>
 </ul>
 

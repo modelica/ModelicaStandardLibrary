@@ -5,7 +5,7 @@ package Types "Type definitions used in package Modelica.Utilities"
       Less "String 1 is lexicographically less than string 2",
       Equal "String 1 is identical to string 2",
       Greater "String 1 is lexicographically greater than string 2")
-    "Enumeration defining comparision of two strings";
+    "Enumeration defining comparison of two strings";
 
   type FileType = enumeration(
       NoFile "No file exists",

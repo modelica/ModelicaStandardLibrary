@@ -27,7 +27,7 @@ package Air "Medium models for air"
 
     annotation (Documentation(info="<html>
                               <h4>Simple Ideal gas air model for low temperatures</h4>
-                              <p>This model demonstrats how to use the PartialSimpleIdealGas base class to build a
+                              <p>This model demonstrates how to use the PartialSimpleIdealGas base class to build a
                               simple ideal gas model with a limited temperature validity range.</p>
                               </html>"));
   end SimpleAir;
@@ -149,7 +149,7 @@ required from medium model \""       + mediumName + "\".");
       u = h - R*T;
       d = p/(R*T);
       /* Note, u and d are computed under the assumption that the volume of the liquid
-         water is neglible with respect to the volume of air and of steam
+         water is negligible with respect to the volume of air and of steam
       */
       state.p = p;
       state.T = T;
@@ -221,7 +221,7 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
   end setSmoothState;
 
     function Xsaturation
-      "Return absolute humitity per unit mass of moist air at saturation as a function of the thermodynamic state record"
+      "Return absolute humidity per unit mass of moist air at saturation as a function of the thermodynamic state record"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction X_sat "Steam mass fraction of sat. boundary";
@@ -234,7 +234,7 @@ Absolute humidity per unit mass of moist air at saturation is computed from pres
     end Xsaturation;
 
     function xsaturation
-      "Return absolute humitity per unit mass of dry air at saturation as a function of the thermodynamic state record"
+      "Return absolute humidity per unit mass of dry air at saturation as a function of the thermodynamic state record"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction x_sat "Absolute humidity per unit mass of dry air";
@@ -247,7 +247,7 @@ Absolute humidity per unit mass of dry air at saturation is computed from pressu
     end xsaturation;
 
     function xsaturation_pT
-      "Return absolute humitity per unit mass of dry air at saturation as a function of pressure p and temperature T"
+      "Return absolute humidity per unit mass of dry air at saturation as a function of pressure p and temperature T"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SI.Temperature T "Temperature";
@@ -725,13 +725,13 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
     SI.MassFraction X_air "Mass fraction of air";
     SI.MassFraction x_sat
         "Absolute humidity per unit mass of dry air at saturation";
-    Real dX_steam(unit="1/s") "Time deriveative of steam mass fraction";
+    Real dX_steam(unit="1/s") "Time derivative of steam mass fraction";
     Real dX_air(unit="1/s") "Time derivative of dry air mass fraction";
     Real dX_liq(unit="1/s")
         "Time derivative of liquid/solid water mass fraction";
     Real dps(unit="Pa/s") "Time derivative of saturation pressure";
     Real dx_sat(unit="1/s")
-        "Time derivative of abolute humidity per unit mass of dry air";
+        "Time derivative of absolute humidity per unit mass of dry air";
   algorithm
     p_steam_sat :=saturationPressure(T);
     x_sat:=p_steam_sat*k_mair/max(100*Modelica.Constants.eps, p - p_steam_sat);
@@ -849,13 +849,13 @@ Specific internal energy is determined from pressure p, temperature T and compos
 
     SI.MassFraction x_sat
         "Absolute humidity per unit mass of dry air at saturation";
-    Real dX_steam(unit="1/s") "Time deriveative of steam mass fraction";
+    Real dX_steam(unit="1/s") "Time derivative of steam mass fraction";
     Real dX_air(unit="1/s") "Time derivative of dry air mass fraction";
     Real dX_liq(unit="1/s")
         "Time derivative of liquid/solid water mass fraction";
     Real dps(unit="Pa/s") "Time derivative of saturation pressure";
     Real dx_sat(unit="1/s")
-        "Time derivative of abolute humidity per unit mass of dry air";
+        "Time derivative of absolute humidity per unit mass of dry air";
     Real dR_gas(unit="J/(kg.K.s)") "Time derivative of ideal gas constant";
   algorithm
     p_steam_sat :=saturationPressure(T);
@@ -1164,8 +1164,8 @@ Thermal conductivity is computed from temperature using a simple polynomial for 
       end for;
 
       annotation (Documentation(info="<html>
-<p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psycrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
-It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0 &deg;C. For better reading and in oder to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g., heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0 &deg;C and zero humidity.</p>
+<p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psychrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
+It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0 &deg;C. For better reading and in order to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g., heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0 &deg;C and zero humidity.</p>
 
 <img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\">
 
@@ -1414,7 +1414,7 @@ The governing assumptions in this model are:</p>
 <ul>
 <li>the perfect gas law applies</li>
 <li>water volume other than that of steam is neglected</li></ul>
-<p>All extensive properties are expressed in terms of the total mass in order to comply with other media in this libary. However, for moist air it is rather common to express the absolute humidity in terms of mass of dry air only, which has advantages when working with charts. In addition, care must be taken, when working with mass fractions with respect to total mass, that all properties refer to the same water content when being used in mathematical operations (which is always the case if based on dry air only). Therefore two absolute humidities are computed in the <b>BaseProperties</b> model: <b>X</b> denotes the absolute humidity in terms of the total mass while <b>x</b> denotes the absolute humitity per unit mass of dry air. In addition, the relative humidity <b>phi</b> is also computed.</p>
+<p>All extensive properties are expressed in terms of the total mass in order to comply with other media in this library. However, for moist air it is rather common to express the absolute humidity in terms of mass of dry air only, which has advantages when working with charts. In addition, care must be taken, when working with mass fractions with respect to total mass, that all properties refer to the same water content when being used in mathematical operations (which is always the case if based on dry air only). Therefore two absolute humidities are computed in the <b>BaseProperties</b> model: <b>X</b> denotes the absolute humidity in terms of the total mass while <b>x</b> denotes the absolute humidity per unit mass of dry air. In addition, the relative humidity <b>phi</b> is also computed.</p>
 <p>At the triple point temperature of water of 0.01 &deg;C or 273.16 K and a relative humidity greater than 1 fog may be present as liquid and as ice resulting in a specific enthalpy somewhere between those of the two isotherms for solid and liquid fog, respectively. For numerical reasons a coexisting mixture of 50% solid and 50% liquid fog is assumed in the fog region at the triple point in this model.</p>
 
 <h4>Range of validity</h4>

@@ -646,7 +646,7 @@ of the modeller. Increase nPorts_b to add an additional port.
 <p>
 This model is useful if multiple connections shall be made to a port of a volume model exposing a state,
 like a pipe with ModelStructure av_vb.
-The mixing is shifted into the volume connected to port_a and the result is propageted back to each ports_b.
+The mixing is shifted into the volume connected to port_a and the result is propagated back to each ports_b.
 </p>
 <p>
 If multiple connections were directly made to the volume,
@@ -671,10 +671,10 @@ then ideal mixing would take place in the connection set, outside the volume. Th
     annotation(Documentation(info="<html>
   This model is the simplest implementation for a splitting/joining component for
   three flows. Its use is not required. It just formulates the balance
-  equations in the same way that the connect symmantics would formulate them anyways.
+  equations in the same way that the connect semantics would formulate them anyways.
   The main advantage of using this component is, that the user does not get
   confused when looking at the specific enthalpy at each port which might be confusing
-  when not using a splitting/joining component. The reason for the confusion is that one exmanins the mixing
+  when not using a splitting/joining component. The reason for the confusion is that one examines the mixing
   enthalpy of the infinitesimal control volume introduced with the connect statement when
   looking at the specific enthalpy in the connector which
   might not be equal to the specific enthalpy at the port in the \"real world\".</html>"));
@@ -919,7 +919,7 @@ As a short summary:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><b>Smooth pipes</b></td>
-      <td>Drawn brass, coper, aluminium, glass, etc.</td>
+      <td>Drawn brass, copper, aluminum, glass, etc.</td>
       <td><font face=\"Symbol\">d</font> = 0.0025 mm</td>
   </tr>
   <tr><td rowspan=\"3\"><b>Steel pipes</b></td>
@@ -1218,7 +1218,7 @@ where
      flow is laminar for small flow velocities. For higher
      velocities there is a transition region from
      laminar to turbulent flow. The loss factor for
-     laminar flow at small velocities is defined by the often occuring
+     laminar flow at small velocities is defined by the often occurring
      approximation c0/Re. If c0 is different for the two
      flow directions, the mean value has to be used
      (c0 = (c0_ab + c0_ba)/2).</li>
@@ -1246,7 +1246,7 @@ where
 The laminar and the transition region is usually of
 not much technical interest because the operating point is
 mostly in the turbulent regime. For simplification and for
-numercial reasons, this whole region is described by two
+numerical reasons, this whole region is described by two
 polynomials of third order, one polynomial for m_flow &ge; 0
 and one for m_flow &lt; 0. The polynomials start at
 Re = |m_flow|*4/(&pi;*D_Re*&mu;), where D_Re is the
@@ -1680,7 +1680,7 @@ where
      flow is laminar for small flow velocities. For higher
      velocities there is a transition region from
      laminar to turbulent flow. The loss factor for
-     laminar flow at small velocities is defined by the often occuring
+     laminar flow at small velocities is defined by the often occurring
      approximation c0/Re. If c0 is different for the two
      flow directions, the mean value has to be used
      (c0 = (c0_ab + c0_ba)/2).</li>
@@ -1708,7 +1708,7 @@ where
 The laminar and the transition region is usually of
 not much technical interest because the operating point is
 mostly in the turbulent regime. For simplification and for
-numercial reasons, this whole region is described by two
+numerical reasons, this whole region is described by two
 polynomials of third order, one polynomial for m_flow &ge; 0
 and one for m_flow &lt; 0. The polynomials start at
 Re = |m_flow|*4/(&pi;*D_Re*&mu;), where D_Re is the
@@ -1871,7 +1871,7 @@ The used sufficient criteria for monotonicity follows from:
         port_b.h_outflow = inStream(port_a.h_outflow);
 
         // medium states for downstream properties, may want to change this neglecting the only difference from state_a, state_b, which is in pressure
-        // This will remove the extra interation variables
+        // This will remove the extra interaction variables
         state_b_des = Medium.setState_phX(port_b.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow));
         state_a_nondes = Medium.setState_phX(port_a.p, inStream(port_b.h_outflow), inStream(port_b.Xi_outflow));
 
@@ -1923,7 +1923,7 @@ where
      flow is laminar for small flow velocities. For higher
      velocities there is a transition region from
      laminar to turbulent flow. The loss factor for
-     laminar flow at small velocities is defined by the often occuring
+     laminar flow at small velocities is defined by the often occurring
      approximation c0/Re. If c0 is different for the two
      flow directions, the mean value has to be used
      (c0 = (c0_ab + c0_ba)/2).</li>
@@ -1952,7 +1952,7 @@ where
 The laminar and the transition region is usually of
 not much technical interest because the operating point is
 mostly in the turbulent regime. For simplification and for
-numercial reasons, this whole region is described by two
+numerical reasons, this whole region is described by two
 polynomials of third order, one polynomial for m_flow &ge; 0
 and one for m_flow &lt; 0. The polynomials start at
 Re = |m_flow|*4/(&pi;*D_Re*&mu;), where D_Re is the
@@ -2764,7 +2764,7 @@ none of the models have a state.
 
 <p>
 All functions are continuous and have a finite, non-zero, smooth, first derivative.
-The functions are all guaranteed to be strict monontonically increasing.
+The functions are all guaranteed to be strict monotonically increasing.
 The mentioned properties guarantee that a unique inverse of every
 function exists. Note, the usual quadratic pressure loss correlation
 </p>

@@ -105,7 +105,7 @@ and endOfFile=true. Otherwise endOfFile=false.
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read"
                        annotation(Dialog(loadSelector(filter="Text files (*.txt)",
-                        caption="Open text file for coutning lines")));
+                        caption="Open text file for counting lines")));
 
     output Integer numberOfLines "Number of lines in file";
   external "C" numberOfLines=  ModelicaInternal_countLines(fileName) annotation(Library="ModelicaExternalC");

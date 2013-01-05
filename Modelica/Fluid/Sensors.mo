@@ -432,7 +432,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   protected
     parameter Integer ind(fixed=false)
-      "Index of species in vector of idependent mass fractions";
+      "Index of species in vector of independent mass fractions";
     Medium.MassFraction XiVec[Medium.nXi]
       "Mass fraction vector, needed because indexed argument for the operator inStream is not supported";
   initial algorithm
@@ -487,7 +487,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 
   protected
     parameter Integer ind(fixed=false)
-      "Index of species in vector of idependent mass fractions";
+      "Index of species in vector of independent mass fractions";
   initial algorithm
     ind:= -1;
     for i in 1:Medium.nC loop
@@ -895,7 +895,7 @@ processing (e.g., by attaching block Modelica.Blocks.FirstOrder to
 model the time constant of the sensor).
 </p>
 
-<p align = justify>For the thermodynamic state variables temperature, specific entalpy, specific entropy and density
+<p align = justify>For the thermodynamic state variables temperature, specific enthalpy, specific entropy and density
 the fluid library provides two different types of sensors: <b>regular one port</b> and <b>two port</b> sensors.</p>
 
 <ul>

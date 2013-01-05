@@ -306,7 +306,7 @@ end UsersGuide;
       type Pressure_bar = Real (final quantity="Pressure", final unit="bar")
         "Absolute pressure in bar";
       type MassFlowRate_gps = Real (final quantity="MassFlowRate", final unit=
-              "g/s") "Mass flow rate in gramm per second";
+              "g/s") "Mass flow rate in gram per second";
 
       type FirstOrderTemperaturCoefficient =
                               Real (final quantity="FirstOrderTemperatureCoefficient",

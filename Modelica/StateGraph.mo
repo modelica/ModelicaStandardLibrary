@@ -18,9 +18,9 @@ of this library is given.
 <h4>Steps and Transitions</h4>
 <p>
 A <b>StateGraph</b> is an enhanced finite state machine.
-It is based on the JGraphChart method and
+It is based on the JGrafchart method and
 takes advantage of Modelica features for
-the \"action\" language. JGraphChart is a further development of
+the \"action\" language. JGrafchart is a further development of
 Grafcet to include elements of StateCharts that are not present
 in Grafcet/Sequential Function Charts. Therefore, the StateGraph
 library has a similar modeling power as StateCharts but avoids
@@ -160,7 +160,7 @@ distinguished as <b>entry</b>, <b>normal</b>, <b>exit</b> and
 an entry action of a step and might be closed by an exit
 action of the same step. In StateGraphs, this is (fortunately)
 <b>not possible</b>
-due to Modelicas \"single assignment rule\" that requires that every
+due to Modelica's \"single assignment rule\" that requires that every
 variable is defined by exactly one equation. Instead, the
 approach explained above is used. For example, via the
 \"SetBoolean\" component, the valve variable is set to true
@@ -324,7 +324,7 @@ steps within the CompositeStep. The CompositeStep might be entered via
 its <b>resume</b> port. In this case the internal state from the
 suspend transition is reconstructed and the CompositeStep continues
 the execution that it had before the suspend transition fired
-(this corresponds to the history ports of StateCharts or JGrafCharts).
+(this corresponds to the history ports of StateCharts or JGrafcharts).
 </p>
 <p>
 A CompositeStep may contain other CompositeSteps. At every level,
@@ -641,7 +641,7 @@ based on the following references:
 <h4>Version 0.85, 2004-06-17</h4>
 <ul>
 <li> Renamed \"MacroStep\" to \"CompositeStep\" and the ports of the MacroStep
-     from \"abort\" to \"suspend\" and \"histoy\" to \"resume\".</li>
+     from \"abort\" to \"suspend\" and \"history\" to \"resume\".</li>
 <li> Nested \"CompositeStep\" components are supported, based on the
      experimental feature of nested inner/outer components
      introduced by Dymola. This means that CompositeSteps can
@@ -723,9 +723,9 @@ The StateGraph library is based on the following references:
      master thesis of Isolde Dressler
      (<a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">see literature</a>),
      in which
-     a compiler from JGrafChart to Modelica was designed and
+     a compiler from JGrafchart to Modelica was designed and
      implemented. This project was supervised by Karl-Erik Arzen
-     from Departement of Automatic Control, Lund Institut of
+     from Department of Automatic Control, Lund Institut of
      Technology, Lund, Sweden.</li>
 <li> This library profits also from the experience gained
      in the focused research program (Schwerpunktprogramm)
@@ -1998,7 +1998,7 @@ package Interfaces "Connectors and partial models"
 
     output Boolean available "true, if step is active" annotation (HideResult=true);
 
-    input Boolean reset "true, if transition fires and step is deactived"
+    input Boolean reset "true, if transition fires and step is deactivated"
       annotation (HideResult=true);
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -3165,9 +3165,9 @@ of Modelica.StateGraph.
 Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
 components to model <b>discrete event</b> and <b>reactive</b>
 systems in a convenient
-way. It is based on the JGraphChart method and
+way. It is based on the JGrafchart method and
 takes advantage of Modelica features for
-the \"action\" language. JGraphChart is a further development of
+the \"action\" language. JGrafchart is a further development of
 Grafcet to include elements of StateCharts that are not present
 in Grafcet/Sequential Function Charts. Therefore, the StateGraph
 library has a similar modeling power as StateCharts but avoids
@@ -3194,7 +3194,7 @@ top-level part of the tank controller as a StateGraph is shown:
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks2_small.png\">
 
 <p>
-The unique feature of the StateGraph library with respect to JGraphCharts,
+The unique feature of the StateGraph library with respect to JGrafcharts,
 Grafcet, Sequential Function Charts, and StateCharts, is Modelica's
 \"single assignment rule\" that requires that every variable is defined
 by exactly one equation. This leads to a different \"action\" definition
@@ -3203,7 +3203,7 @@ determine a useful evaluation sequence by equation sorting or
 reports an error if this is not possible, e.g., because a model
 would lead to a non-determinism or to a dead-lock. As a side effect,
 this leads also to simpler and more easier to understand models and
-global variables are no longer needed (whereas in JGraphCharts,
+global variables are no longer needed (whereas in JGrafcharts,
 Grafcet, Sequential Function Charts and StateCharts global variables
 are nearly always needed).
 </p>

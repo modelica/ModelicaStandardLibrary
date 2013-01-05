@@ -3,7 +3,7 @@ package Constraints "Examples with constraint joints"
 extends Modelica.Icons.ExamplesPackage;
 
   model ConstrainPrismaticJoint
-    "Body attached by one spring and two prismatic joints or coinstraint to environment"
+    "Body attached by one spring and two prismatic joints or constrained to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "True, if animation shall be enabled";
 
@@ -202,7 +202,7 @@ extends Modelica.Icons.ExamplesPackage;
   end ConstrainPrismaticJoint;
 
   model ConstrainRevoluteJoint
-    "Body attached by one spring and revolute joint or coinstraint to environment"
+    "Body attached by one spring and revolute joint or constrained to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     Modelica.Mechanics.MultiBody.Joints.Revolute joint(stateSelect=
@@ -385,7 +385,7 @@ extends Modelica.Icons.ExamplesPackage;
   end ConstrainRevoluteJoint;
 
   model ConstrainSphericalJoint
-    "Body attached by one spring and spherical joint or coinstraint to environment"
+    "Body attached by one spring and spherical joint or constrained to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     Joints.Spherical joint(
@@ -572,7 +572,7 @@ extends Modelica.Icons.ExamplesPackage;
   end ConstrainSphericalJoint;
 
   model ConstrainUniversalJoint
-    "Body attached by one spring and universal joint or coinstraint to environment"
+    "Body attached by one spring and universal joint or constrained to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     Joints.Universal joint(

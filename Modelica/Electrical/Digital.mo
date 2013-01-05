@@ -401,7 +401,7 @@ The simulation stop time should be 5 seconds.
 <br>
 <b>a</b>.y, <b>b</b>.y and <b>c</b>.y are the inputs of the FullAdder.
 <br>
-<b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the Fulladder.
+<b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the FullAdder.
 <br>
 <br>
 <b>t</b> is the pick-up instant of the next bit(s) in the simulation.</p>
@@ -534,7 +534,7 @@ The simulation stop time should be 10 seconds.
           annotation (
             Documentation(info="<HTML>
 <p>
-Four Fulladders are combined to built a four bit adder unit.
+Four FullAdders are combined to built a four bit adder unit.
 </p>
 <br>
 <br>
@@ -560,7 +560,7 @@ To show the influence of delay a large delay time of 0.1s is chosen.
 Furthermore, all signals are initialized with U, the uninitialized value.
 Please remember, that the nine logic values are coded by the numbers 1,...,9.
 The summands a and b can be found at the output signals of the taba and tabb sources.
-The result can be seen in the output signals of the Fulladders according to:</p>
+The result can be seen in the output signals of the FullAdders according to:</p>
 <pre>
       a                       <b>a4</b>.y      <b>a3</b>.y      <b>a2</b>.y      <b>a1</b>.y
       b                       <b>b4</b>.y      <b>b3</b>.y      <b>b2</b>.y      <b>b1</b>.y
@@ -3303,7 +3303,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>"));
         end InertialDelaySensitiveVector;
         annotation (                                Documentation(info="<html>
-<p>The Delay package collects the delay blocks which are used in many components. Both transport and inertial delay are offered for scalar connectors. The most advanced component is the sensitive interial delay the delay time of which is chosen in dependency of the signal values. This component is also available for vector valued input.</p>
+<p>The Delay package collects the delay blocks which are used in many components. Both transport and inertial delay are offered for scalar connectors. The most advanced component is the sensitive inertial delay the delay time of which is chosen in dependency of the signal values. This component is also available for vector valued input.</p>
 </html>"));
       end Delay;
 
@@ -3607,7 +3607,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         extends Modelica.Icons.Package;
 
         model InvGate
-      "InvGate with 1 input value, composed by Not and sensitive intertial delay"
+      "InvGate with 1 input value, composed by Not and sensitive inertial delay"
       import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.SISO;
@@ -3625,7 +3625,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{-20,0},{28,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The InvGate model has a single valued input, and a single valued output. It is composed by a Basic Not and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
+<p>The InvGate model has a single valued input, and a single valued output. It is composed by a Basic Not and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <dl>
@@ -3683,7 +3683,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The AndGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic And and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
+<p>The AndGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic And and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3774,7 +3774,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        initially modelled.</li>
 </ul>
 </HTML>",     info="<html>
-<p>The NandGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nand and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
+<p>The NandGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nand and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>"));
         end NandGate;
 
@@ -3798,7 +3798,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The OrGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Or and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
+<p>The OrGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Or and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3853,7 +3853,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The NorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
+<p>The NorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3914,7 +3914,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The XorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
+<p>The XorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3969,7 +3969,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The XnorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xnor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
+<p>The XnorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xnor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -4005,7 +4005,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end XnorGate;
 
         model BufGate
-      "BufGate with 1 input value, composed by Not and sensitive intertial delay"
+      "BufGate with 1 input value, composed by Not and sensitive inertial delay"
       import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.SISO;
@@ -4019,7 +4019,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
                   127}));
           annotation (
             Documentation(info="<html>
-<p>The BufGate model has a single valued input, and a single valued output. It consists of an InertialDelaySensitive only. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
+<p>The BufGate model has a single valued input, and a single valued output. It consists of an InertialDelaySensitive only. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <dl>
@@ -7634,9 +7634,9 @@ Wires n input signals in one output signal, without delay.
                                              annotation (Placement(transformation(
               extent={{-100,50},{-80,70}}), iconTransformation(extent={{-100,50},
                 {-80,70}})));
-      D.Interfaces.DigitalInput dataIn[n_data] "datat input"
+      D.Interfaces.DigitalInput dataIn[n_data] "data input"
         annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
-      D.Interfaces.DigitalOutput dataOut[n_data] "datat output"
+      D.Interfaces.DigitalOutput dataOut[n_data] "data output"
                                           annotation (Placement(
             transformation(extent={{80,10},{100,30}}), iconTransformation(
               extent={{80,10},{100,30}})));

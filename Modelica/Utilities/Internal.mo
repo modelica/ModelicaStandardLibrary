@@ -200,7 +200,7 @@ in packages Files and Systems.
 <p>
 Note, the functions in this package are direct interfaces to
 functions of POSIX and of the standard C library. Errors
-occuring in these functions are treated by triggering
+occurring in these functions are treated by triggering
 a Modelica assert. Therefore, the functions in this package
 return only for a successful operation. Furthermore, the
 representation of a string is hidden by this interface,

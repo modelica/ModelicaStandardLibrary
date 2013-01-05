@@ -319,7 +319,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -479,7 +479,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -642,7 +642,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -811,7 +811,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -870,7 +870,7 @@ Approximate calculation of the mean convective heat transfer coefficient <b> kc 
 </p>
 
 <p>
-A detailled documentation for this convective heat transfer calculation can be found in its underlying function
+A detailed documentation for this convective heat transfer calculation can be found in its underlying function
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\">kc_approxForcedConvection_KC</a> .
 Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information</a> .
 </p>
@@ -996,7 +996,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -1204,7 +1204,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -1493,7 +1493,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -1640,7 +1640,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -1782,7 +1782,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -1941,7 +1941,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -2069,7 +2069,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -2193,7 +2193,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -2336,7 +2336,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -2491,7 +2491,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -2652,7 +2652,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.NusseltNumber Nu "Nusselt number"
           annotation (Dialog(group="Output"));
         output Real failureStatus
-          "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
+          "0== boundary conditions fulfilled | 1== failure >> check if still meaningful results"
           annotation (Dialog(group="Output"));
 
       protected
@@ -2893,7 +2893,7 @@ This record is used as <b>input record</b> for the heat transfer function <a hre
         SI.Length L=IN_con.delta*IN_con.R_0 "Length of flow path";
 
         //SOURCE_1: p.336, sec.15: definition of flow regime boundaries
-        SI.ReynoldsNumber Re_min=1 "Minium Reynolds number";
+        SI.ReynoldsNumber Re_min=1 "Minimum Reynolds number";
         SI.ReynoldsNumber Re_lam_max=6.5e3
           "Maximum Reynolds number for laminar regime (6.5e3)";
         SI.ReynoldsNumber Re_turb_min=4e4
@@ -3032,7 +3032,7 @@ This record is used as <b>input record</b> for the heat transfer function <a hre
         SI.Length L=IN_con.delta*IN_con.R_0 "Length of flow path";
 
         //SOURCE_1: p.336, sec.15: definition of flow regime boundaries
-        SI.ReynoldsNumber Re_min=1 "Minium Reynolds number";
+        SI.ReynoldsNumber Re_min=1 "Minimum Reynolds number";
         SI.ReynoldsNumber Re_lam_max=6.5e3
           "Maximum Reynolds number for laminar regime (6.5e3)";
         SI.ReynoldsNumber Re_turb_min=4e4
@@ -3230,7 +3230,7 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
         //definition of flow regime boundaries
         //SOURCE_2: p.207, sec. 9.2.4
         //SOURCE_3: p.Lac 6, fig. 16
-        SI.ReynoldsNumber Re_min=1 "Minium Reynolds number";
+        SI.ReynoldsNumber Re_min=1 "Minimum Reynolds number";
         SI.ReynoldsNumber Re_lam_min=1e3
           "Minimum Reynolds number for laminar regime (1e2)";
         SI.ReynoldsNumber Re_lam_max=4e4
@@ -3361,7 +3361,7 @@ Generally this function is numerically best used for the <b>incompressible case<
         //definition of flow regime boundaries
         //SOURCE_2: p.207, sec. 9.2.4
         //SOURCE_3: p.Lac 6, fig. 16
-        SI.ReynoldsNumber Re_min=1 "Minium Reynolds number";
+        SI.ReynoldsNumber Re_min=1 "Minimum Reynolds number";
         SI.ReynoldsNumber Re_lam_min=1e3
           "Minimum Reynolds number for laminar regime (1e2)";
         SI.ReynoldsNumber Re_lam_max=4e4
@@ -3711,7 +3711,7 @@ Generally this function is numerically best used for the <b> incompressible case
             Modelica.Math.exp(if k <= 0.007 then 0.0065/0.007 else 0.0065/k)))
           "Start of transition regime for increasing Reynolds number (leaving laminar regime)";
 
-        //determining darcy friction factor out of pressure loss calulation for straight pipe:
+        //determining Darcy friction factor out of pressure loss calculation for straight pipe:
         //dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2
         TYP.DarcyFrictionFactor lambda_FRI_calc=2*abs(dp)*d_hyd^3*IN_var.rho/(IN_con.L
             *IN_var.eta^2) "Adapted Darcy friction factor";
@@ -4791,7 +4791,7 @@ This record is used as <b> input record </b> for the pressure loss functions
         Real MIN=Modelica.Constants.eps;
 
         TYP.DarcyFrictionFactor lambda_FRI=0.02
-          "Assumption for darcy friction factor in vena contraction according to SOURCE_1";
+          "Assumption for Darcy friction factor in vena contraction according to SOURCE_1";
         SI.ReynoldsNumber Re_min=1;
         SI.ReynoldsNumber Re_lim=1e3
           "Limitation for laminar regime if dp is target";
@@ -4871,7 +4871,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
       protected
         Real MIN=Modelica.Constants.eps;
         TYP.DarcyFrictionFactor lambda_FRI=0.02
-          "Assumption for darcy friction factor in vena contraction according to SOURCE_1";
+          "Assumption for Darcy friction factor in vena contraction according to SOURCE_1";
         SI.ReynoldsNumber Re_lim=1e3
           "Limitation for laminar regime if dp is target";
 
@@ -5210,7 +5210,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
             Modelica.Math.exp(if k <= 0.007 then 0.0065/0.007 else 0.0065/k)))
           "Start of transition regime for increasing Reynolds number (leaving laminar regime)";
 
-        //determining darcy friction factor out of pressure loss calulation for straight pipe:
+        //determining Darcy friction factor out of pressure loss calculation for straight pipe:
         //dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2
         TYP.DarcyFrictionFactor lambda_FRI_calc=2*abs(dp)*d_hyd^3*IN_var.rho/(IN_con.L
             *IN_var.eta^2) "Adapted Darcy friction factor";
@@ -5349,7 +5349,7 @@ This record is used as <b> input record </b> for the pressure loss function
         SI.Velocity velocity=m_flow/(IN_var.rho*A_cross) "Mean velocity";
         SI.ReynoldsNumber Re=max(Re_min, IN_var.rho*abs(velocity)*d_hyd/IN_var.eta);
 
-        //SOURCE_2: p.191, eq. 8.4: determining darcy friction factor
+        //SOURCE_2: p.191, eq. 8.4: determining Darcy friction factor
         //assuming lambda_FRI == lambda_FRI_calc/Re^2
         TYP.DarcyFrictionFactor lambda_FRI_smooth=0.3164*Re^(1.75)
           "Darcy friction factor neglecting surface roughness (Blasius)";
@@ -5439,7 +5439,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
             Modelica.Math.exp(if k <= 0.007 then 0.0065/0.007 else 0.0065/k)))
           "Start of transition regime for increasing Reynolds number (leaving laminar regime)";
 
-        //determining darcy friction factor out of pressure loss calulation for straight pipe:
+        //determining Darcy friction factor out of pressure loss calculation for straight pipe:
         //dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2
         TYP.DarcyFrictionFactor lambda_FRI_calc=2*abs(dp)*d_hyd^3*IN_var.rho/(IN_con.L
             *IN_var.eta^2) "Adapted Darcy friction factor";
@@ -5587,7 +5587,7 @@ This record is used as <b> input record </b> for the pressure loss function
             m_flow) else 0 "Frictional pressure loss";
 
         //SOURCE_3: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow
-        //Evaporation >> positive momentum pressure loss (assumed vice versa at condenstation)
+        //Evaporation >> positive momentum pressure loss (assumed vice versa at condensation)
         SI.Pressure DP_mom=if IN_con.momentumPressureLoss then
             Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseMomentum_DP(
             IN_con.voidFractionApproach,
@@ -5989,7 +5989,7 @@ This record is used as <b> input record </b> for the pressure loss function
         extends Modelica.Icons.Record;
 
         //valve variables
-        Real opening=1 "Opening of valve | 0==closed and 1== fully openend"
+        Real opening=1 "Opening of valve | 0==closed and 1== fully opened"
           annotation (Dialog(group="Valve"));
 
         //fluid property variables
@@ -6275,7 +6275,7 @@ You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where
 <h4>Restriction</h4>
 
 <ul>
-<li> identical and constant wall tempertures</li>
+<li> identical and constant wall temperatures</li>
 <li> hydraulic diameter per gap lenght (d_hyd / L) &le; 1</li>
 <li> 0.5 &le; Prandtl number Pr &le; 100) </li>
 <li> turbulent regime (3e4 &le; Reynolds number &le; 1e6)</li>
@@ -6481,7 +6481,7 @@ Note that all fluid properties shall be calculated with the mean temperature of 
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
 </p>
-<h4>Fuctions <b>kc_flatTube</b> and <b>kc_flatTube_KC</b></h4>
+<h4>Functions <b>kc_flatTube</b> and <b>kc_flatTube_KC</b></h4>
 <p>
 There are basically three differences:
 </p>
@@ -6559,7 +6559,7 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
     <dd><b>A generalized heat transfer correlation for louver fin geometry</b>.
     In International Journal of Heat and Mass Transfer, volume 40, No. 3,  pages 533-544, 1997.</dd>
  <dt>Y.-J. CHANG and C.-C. WANG:</dt>
-    <dd><b>Air Side Performance of Brazed Aluminium Heat Exchangers</b>.
+    <dd><b>Air Side Performance of Brazed Aluminum Heat Exchangers</b>.
     In Journal of Enhanced Heat Transfer, volume 3, No. 1,  pages 15-28, 1996.</dd>
  <dt>R.-M. Manglik, A.-E. Bergles:</dt>
     <dd><b>Heat Transfer and Pressure Drop Correlations for the Rectangular Offset Strip Fin Compact Heat Exchanger</b>.
@@ -6575,7 +6575,7 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.
 </p>
-<h4>Fuctions <b>kc_roundTube</b> and <b>kc_roundTube_KC</b></h4>
+<h4>Functions <b>kc_roundTube</b> and <b>kc_roundTube_KC</b></h4>
 <p>
 There are basically three differences:
 </p>
@@ -7711,9 +7711,9 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 </table>
 <p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
 <pre>    zeta_TOT = CF*zeta_LOC </pre>
-<p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
+<p>where the correction factor <b>CF </b>is determined from the Darcy friction factor of a straight pipe having the bend flow path length </p>
 <pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
-<p>and the darcy friction factors <b>lambda_FRI_rough </b>is calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i> </p>
+<p>and the Darcy friction factors <b>lambda_FRI_rough </b>is calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i> </p>
 <pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
 <p>with </p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
@@ -7725,12 +7725,12 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <td><p>as hydraulic diameter [m],</p></td>
 </tr>
 <tr>
-<td><p><b>K </b></p></td>
+<td><p><b>K</b> </p></td>
 <td><p>as absolute roughness (average height of surface asperities) [m],</p></td>
 </tr>
 <tr>
 <td><p><b>lambda_FRI_rough </b></p></td>
-<td><p>as darcy friction factor[-],</p></td>
+<td><p>as Darcy friction factor[-],</p></td>
 </tr>
 <tr>
 <td><p><b>Re </b></p></td>
@@ -7764,7 +7764,7 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOW\"/>
 
-<p>There are deviations of the pressure loss coefficient <b>zeta_TOT </b>comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via variing the average height of surface asperities <b>K </b>for calibration. </p>
+<p>There are deviations of the pressure loss coefficient <b>zeta_TOT</b> comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via varying the average height of surface asperities <b>K</b> for calibration. </p>
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\" alt=\"fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD\"/>
@@ -7820,7 +7820,7 @@ This function shall be used inside of the restricted limits according to the ref
 
 
 <h4>Calculation</h4>
-<p>The pressure loss <b> dp </b> for edged bends is determined by:
+<p>The pressure loss <b>dp</b> for edged bends is determined by:
 </p>
 
 <pre>
@@ -7865,7 +7865,7 @@ The correction factor <b> CF_Fri </b> regarding the influence of surface roughne
 </pre>
 
 <p>
-and the Darcy friction factors <b> lambda_FRI </b> are calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i>
+and the Darcy friction factors <b>lambda_FRI</b> are calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i>
 </p>
 <pre>
     lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
@@ -8030,7 +8030,7 @@ This function shall be used inside of the restricted limits according to the ref
 
 <h4>Calculation</h4>
 <p>
-The pressure loss <b> dp </b> for channels is determined by:
+The pressure loss <b>dp</b> for channels is determined by:
 </p>
 
 <pre>
@@ -8136,7 +8136,7 @@ The geometry parameters of energy devices necessary for the pressure loss calcul
 Therefore the modelling of the detailed pressure loss calculation has to be simplified.
 </p>
 <p>
-The pressure loss <b> dp </b> for the compressible case [Mass flow rate = f(dp)] is determined by (Eq.1):
+The pressure loss <b>dp</b> for the compressible case [Mass flow rate = f(dp)] is determined by (Eq.1):
 </p>
 
 <pre>
@@ -8185,7 +8185,7 @@ with
 </table>
 
 <p>
-Furthermore the coefficient <b> Km </b> can be defined more detailled w.r.t. the definition of pressure loss if <b> Km </b> is not given as (e.g., measured) value. Generally pressure loss can be calculated due to local losses <b> Km,LOC </b> or frictional losses <b> Km,FRI </b>.
+Furthermore the coefficient <b> Km </b> can be defined more detailed w.r.t. the definition of pressure loss if <b> Km </b> is not given as (e.g., measured) value. Generally pressure loss can be calculated due to local losses <b> Km,LOC </b> or frictional losses <b> Km,FRI </b>.
 </p>
 <p>
 Pressure loss due to local losses gives the following definition of <b> Km </b>:
@@ -8213,7 +8213,7 @@ with
 <tr><td><b> dp                    </b></td><td> as pressure loss [Pa],</td></tr>
 <tr><td><b> d_hyd                 </b></td><td> as hydraulic diameter of pipe [m],</td></tr>
 <tr><td><b> Km,i                  </b></td><td> as coefficients w.r.t. mass flow rate! [Km] = [Pa^2/{(kg/s)^exp*K}],</td></tr>
-<tr><td><b> lambda_FRI            </b></td><td> as darcy friction factor [-],</td></tr>
+<tr><td><b> lambda_FRI            </b></td><td> as Darcy friction factor [-],</td></tr>
 <tr><td><b> L                     </b></td><td> as length of pipe [m],</td></tr>
 <tr><td><b> rho_m = p_m/(R_s*T_m) </b></td><td> as mean density of ideal gas [kg/m3],</td></tr>
 <tr><td><b> velocity              </b></td><td> as mean velocity [m/s],</td></tr>
@@ -8228,7 +8228,7 @@ Note that the variables of this function are delivered in SI units so that the c
 <b> Compressible case </b> [Mass flow rate = f(dp)]:
 </p>
 <p>
-The mass flow rate <b> m_flow </b> for different coefficients <b> Km </b> as parameter is shown in dependence of its pressure loss <b> dp </b> in the figure below.
+The mass flow rate <b>m_flow</b> for different coefficients <b> Km </b> as parameter is shown in dependence of its pressure loss <b>dp</b> in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_idealGas_MFLOWvsDP.png\" alt=\"fig_general_dp_idealGas_MFLOWvsDP\"/>
@@ -8260,7 +8260,7 @@ Therefore the modelling of the detailed pressure loss calculation has to be simp
 This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
 </p>
 <p>
-The generic pressure loss <b> dp </b> is determined for:
+The generic pressure loss <b>dp</b> is determined for:
 </p>
 <ul>
  <li>
@@ -8311,7 +8311,7 @@ To avoid numerical difficulties this pressure loss function is linear smoothed f
  </li>
 </ul>
 <p>
-Note that the density (rho) and dynamic viscosity (eta) of the fluid are defined through the defintion of the kinematic viscosity (nue).
+Note that the density (rho) and dynamic viscosity (eta) of the fluid are defined through the definition of the kinematic viscosity (nue).
 </p>
 
 <pre>
@@ -8326,7 +8326,7 @@ Therefore if you set both the exponent of dynamic viscosity (exp_eta == 1) and a
 <b> Incompressible case </b> [Pressure loss = f(m_flow)]:
 </p>
 <p>
-The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b> with different fluid densities and dynamic viscosity dependence as parameters is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b>m_flow</b> with different fluid densities and dynamic viscosity dependence as parameters is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_DPvsMFLOW.png\" alt=\"fig_general_dp_nominalDensityViscosity_DPvsMFLOW\"/>
@@ -8335,7 +8335,7 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
 <b> Compressible case </b> [Mass flow rate = f(dp)]:
 </p>
 <p>
-The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> at different fluid densities and dynamic viscosity as parameters is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b>dp</b> at different fluid densities and dynamic viscosity as parameters is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_MFLOWvsDP.png\" alt=\"fig_general_dp_nominalDensityViscosity_MFLOWvsDP\"/>
@@ -8368,7 +8368,7 @@ Therefore the modelling of the detailed pressure loss calculation have to be sim
 This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
 </p>
 <p>
-In the following the pressure loss <b> dp </b> is generally determined from a known operation point via a law of similarity:
+In the following the pressure loss <b>dp</b> is generally determined from a known operation point via a law of similarity:
 </p>
 
 <pre>
@@ -8471,7 +8471,7 @@ Note that the pressure loss coefficients (zeta_TOT,zeta_TOT_nom) refer to its me
 <b> Compressible case </b> [Mass flow rate = f(dp)]:
 </p>
 <p>
-The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b>dp</b> is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP.png\" alt=\"fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP\"/>
@@ -8502,7 +8502,7 @@ Calculation of a generic pressure loss in dependence of a pressure loss coeffici
 </p>
 <h4>Calculation</h4>
 <p>
-The mass flow rate <b> m_flow </b> is determined by:
+The mass flow rate <b>m_flow</b> is determined by:
 </p>
 
 <pre>
@@ -8526,7 +8526,7 @@ with
 <b> Compressible case </b> [Mass flow rate = f(dp)]:
 </p>
 <p>
-The mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> for a constant pressure loss coefficient <b> zeta_TOT </b> is shown in the figure below.
+The mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b>dp</b> for a constant pressure loss coefficient <b> zeta_TOT </b> is shown in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_pressureLossCoefficient_MFLOWvsDP.png\" alt=\"fig_general_dp_pressureLossCoefficient_MFLOWvsDP\"/>
@@ -8561,7 +8561,7 @@ Therefore the modelling of the detailed pressure loss calculation has to be simp
 quadratic dependence of the pressure loss on the volume flow rate.
 </p>
 <p>
-The mass flow rate <b> m_flow </b> for the compressible case [Mass flow rate = f(dp)] is determined to <i> [see Wischhusen] </i>:
+The mass flow rate <b>m_flow</b> for the compressible case [Mass flow rate = f(dp)] is determined to <i> [see Wischhusen] </i>:
 </p>
 <pre>
  m_flow = rho*[-b/(2a) + {[b/(2a)]^2 + dp/a}^0.5]
@@ -8584,7 +8584,7 @@ Note that the coefficients <b> a,b </b> have to be positive values so that there
 <h4>Verification</h4>
 <p><b> Compressible case </b> [Mass flow rate = f(dp)]:</p>
 <p>
-The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
+The generic pressure loss <b>dp</b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\" alt=\"fig_general_dp_volumeFlowRate_MFLOWvsDP\"/>
@@ -8636,7 +8636,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Calculation</h4>
 <p>
-The local pressure loss <b> dp </b> is generally determinated by:
+The local pressure loss <b>dp</b> is generally determined by:
 </p>
 
 <pre>
@@ -8726,7 +8726,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Calculation</h4>
 <p>
-The pressure loss <b> dp </b> for a thick edged orifice is determined by:
+The pressure loss <b>dp</b> for a thick edged orifice is determined by:
 </p>
 
 <pre>
@@ -8785,7 +8785,7 @@ The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in depe
 <b> Incompressible case </b> [Pressure loss = f(m_flow)]:
 </p>
 <p>
-The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
+The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b>m_flow</b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\" alt=\"fig_orifice_thickEdgedOverall_DPvsMFLOW\"/>
@@ -8836,7 +8836,7 @@ This function shall be used inside of the restricted limits according to the ref
 
 <h4>Calculation</h4>
 <p>
-The pressure loss <b> dp </b> for straight pipes is determined by:
+The pressure loss <b>dp</b> for straight pipes is determined by:
 </p>
 
 <pre>
@@ -8856,7 +8856,7 @@ with
 </table>
 
 <p>
-The darcy friction factor <b> lambda_FRI </b> of straight pipes for the laminar flow regime is calculated by <b> Hagen-Poiseuilles </b> law according to <i>[Idelchik 2006, p. 77, eq. 2-3]</i> as follows:
+The Darcy friction factor <b>lambda_FRI</b> of straight pipes for the laminar flow regime is calculated by <b>Hagen-Poiseuilles</b> law according to <i>[Idelchik 2006, p. 77, eq. 2-3]</i> as follows:
 </p>
 <ul>
  <li><b> Laminar flow regime </b> is restricted to a Reynolds number <b> Re </b> &le; 2000</li>
@@ -8868,27 +8868,27 @@ The darcy friction factor <b> lambda_FRI </b> of straight pipes for the laminar 
      with
      </p>
      <table>
-     <tr><td><b> lambda_FRI     </b></td><td> as darcy friction factor [-],</td></tr>
+     <tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-],</td></tr>
      <tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
      </table>
       </li>
 </ul>
 
 <p>
-The darcy friction factor <b> lambda_FRI </b> in the laminar regime is independent
-of the surface roughness <b> K </b> as long as the relative roughness <b> k = surface rouhgness/hydraulic diameter </b> is smaller than 0.007.
+The Darcy friction factor <b>lambda_FRI</b> in the laminar regime is independent
+of the surface roughness <b> K </b> as long as the relative roughness <b>k = surface roughness/hydraulic diameter</b> is smaller than 0.007.
 A higher relative roughness <b> k </b> than 0.007 leads to an earlier leaving of the laminar regime to the transition regime at some value of Reynolds number <b> Re_lam_leave </b>. This earlier leaving is not modelled here because only laminar fluid flow is considered.
 </p>
 
 <h4>Verification</h4>
 <p>
-The darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number is shown in the figure below.
+The Darcy friction factor <b>lambda_FRI</b> in dependence of Reynolds number is shown in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_laminar_lambdavsRe_ver.png\" alt=\"fig_straightPipe_laminar_lambdavsRe_ver\"/>
 
 <p>
-The pressure loss <b> dp </b> for the laminar regime in dependence of the mass flow rate of water is shown in the figure below.
+The pressure loss <b>dp</b> for the laminar regime in dependence of the mass flow rate of water is shown in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_laminar_DPvsMFLOW.png\" alt=\"fig_straightPipe_dp_laminar_DPvsMFLOW\"/>
@@ -8937,7 +8937,7 @@ This function shall be used within the restricted limits according to the refere
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
 
 <h4>Calculation</h4>
-The pressure loss <b> dp </b> for straight pipes is determined by:
+The pressure loss <b>dp</b> for straight pipes is determined by:
 
 <pre>
     dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
@@ -8956,7 +8956,7 @@ with
 </table>
 
 <p>
-The darcy friction factor <b> lambda_FRI </b> for straight pipes is calculated depending on the fluid flow regime (with corresponding Reynolds number <b>Re</b>) and the absolute surface roughness <b> K </b>.
+The Darcy friction factor <b>lambda_FRI</b> for straight pipes is calculated depending on the fluid flow regime (with corresponding Reynolds number <b>Re</b>) and the absolute surface roughness <b> K </b>.
 </p>
 <p>
 
@@ -8968,7 +8968,7 @@ The darcy friction factor <b> lambda_FRI </b> for straight pipes is calculated d
 </pre>
 
 <p>
-The darcy friction factor <b> lambda_FRI </b> in the laminar regime is independent of the surface roughness <b> k </b> as long as the relative roughness <b> k </b> is smaller than 0.007. A greater relative roughness <b> k </b> than 0.007 is leading to an earlier leaving of the Hagen-Poiseuille law at some value of Reynolds number <b> Re_lam_leave </b>. The leaving of the laminar regime in dependence of the relative roughness <b> k </b> is calculated according to <i>[Samoilenko in Idelchik 2006, p. 81, sect. 2-1-21]</i> as:
+The Darcy friction factor <b>lambda_FRI</b> in the laminar regime is independent of the surface roughness <b> k </b> as long as the relative roughness <b> k </b> is smaller than 0.007. A greater relative roughness <b> k </b> than 0.007 is leading to an earlier leaving of the Hagen-Poiseuille law at some value of Reynolds number <b> Re_lam_leave </b>. The leaving of the laminar regime in dependence of the relative roughness <b> k </b> is calculated according to <i>[Samoilenko in Idelchik 2006, p. 81, sect. 2-1-21]</i> as:
 </p>
 <pre>
     Re_lam_leave = 754*exp(if k &le; 0.007 then 0.93 else 0.0065/k)
@@ -8976,7 +8976,7 @@ The darcy friction factor <b> lambda_FRI </b> in the laminar regime is independe
 
 <p>
 <b>The Transition regime</b> is calculated for 2000 &lt; <b>Re</b> &le; 4000  by a cubic interpolation between the equations of the laminar and turbulent flow regime. Different cubic
-interpolation equations for the calculation of either pressure loss <b> dp </b> or mass flow rate <b> m_flow </b> results in a deviation of the darcy friction factor <b> lambda_FRI </b> through the
+interpolation equations for the calculation of either pressure loss <b>dp</b> or mass flow rate <b>m_flow</b> results in a deviation of the Darcy friction factor <b>lambda_FRI</b> through the
 transition regime. This deviation can be neglected due to the uncertainty in determination of the fluid flow in the transition regime.
 </p>
 
@@ -9001,7 +9001,7 @@ with
 </table>
 
 <p>
-Note that the Darcy friction factor <b> lambda_FRI </b> for smooth straight pipes in the turbulent regime is independent
+Note that the Darcy friction factor <b>lambda_FRI</b> for smooth straight pipes in the turbulent regime is independent
 of the surface roughness <b> K </b> .
 </p>
 
@@ -9026,19 +9026,19 @@ with
 
 <h4>Verification</h4>
 <p>
-The Darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
+The Darcy friction factor <b>lambda_FRI</b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_lambdavsRe_ver.png\" alt=\"fig_straightPipe_dp_overall_lambdavsRe_ver\"/>
 
 <p>
-The pressure loss <b> dp </b> for the turbulent regime in dependence of the mass flow rate of water is shown in the figure below.
+The pressure loss <b>dp</b> for the turbulent regime in dependence of the mass flow rate of water is shown in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_DPvsMFLOW.png\" alt=\"fig_straightPipe_dp_overall_DPvsMFLOW\"/>
 
 <p>
-And the mass flow rate <b> m_flow </b> for the turbulent regime in dependence of the pressure loss of water is shown in the figure below.
+And the mass flow rate <b>m_flow</b> for the turbulent regime in dependence of the pressure loss of water is shown in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_MFLOWvsDP.png\" alt=\"fig_straightPipe_dp_overall_MFLOWvsDP\"/>
@@ -9087,7 +9087,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Calculation</h4>
 <p>
-The pressure loss <b> dp </b> for straight pipes is determined by:
+The pressure loss <b>dp</b> for straight pipes is determined by:
 </p>
 
 <pre>
@@ -9107,7 +9107,7 @@ with
 </table>
 
 <p>
-The Darcy friction factor <b> lambda_FRI </b> for a straight pipe in the turbulent regime can be calculated for a smooth surface (Blasius law) <b> or </b> a rough surface (Colebrook-White law).
+The Darcy friction factor <b>lambda_FRI</b> for a straight pipe in the turbulent regime can be calculated for a smooth surface (Blasius law) <b> or </b> a rough surface (Colebrook-White law).
 </p>
 <p>
 <b> Smooth surface (roughness =1) </b> w.r.t. <b> Blasius </b> law in the turbulent regime according to <i>[Idelchik 2006, p. 77, sec. 15]</i>:
@@ -9127,7 +9127,7 @@ with
 </table>
 
 <p>
-Note that the Darcy friction factor <b> lambda_FRI </b> for smooth straight pipes in the turbulent regime is independent
+Note that the Darcy friction factor <b>lambda_FRI</b> for smooth straight pipes in the turbulent regime is independent
 of the surface roughness <b> K </b> .
 </p>
 
@@ -9153,7 +9153,7 @@ with
 
 <h4>Verification</h4>
 <p>
-The Darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
+The Darcy friction factor <b>lambda_FRI</b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_turbulent.png\" alt=\"fig_straightPipe_turbulent\"/>
@@ -9194,7 +9194,7 @@ This function shall be used within the restricted limits according to the refere
  <li> <b> horizontal flow or vertical upflow </b> </li>
  <li> <b> usage of mass flow rate quality (see Calculation) </b> </li>
  <li> <b> two phase pressure loss for mean constant mass flow rate quality (x_flow) over (increment) length </b></li>
- <li> <b> usage of two phase pressure loss function for discretisation at boiling or condensation considering variable mass flow rate quality</b> </li>
+ <li> <b> usage of two phase pressure loss function for discretization at boiling or condensation considering variable mass flow rate quality</b> </li>
 </ul>
 
 <h4>Geometry </h4>
@@ -9338,7 +9338,7 @@ Note that a momentum pressure loss is only considered for a variable mass flow r
 <b>Void fraction approach</b>:
 </p>
 <p>
-The void fraction is one of the most important parameter used to characterise two phase flow. There are several analytical and empirical approaches according to <i>[Thome, J.R]</i> :
+The void fraction is one of the most important parameter used to characterize two phase flow. There are several analytical and empirical approaches according to <i>[Thome, J.R]</i> :
 </p>
 
 <ul>
@@ -9469,7 +9469,7 @@ Wide variations in valve geometry are possible and a manufacturer will not neces
 
 <h4>Calculation</h4>
 <p>
-The mass flow rate <b> m_flow </b> for valves out of pressure loss is determined by:
+The mass flow rate <b>m_flow</b> for valves out of pressure loss is determined by:
 </p>
 
 <pre>
@@ -9504,7 +9504,7 @@ The pressure loss coefficient (<b>zeta_TOT</b>) of a valve with different geomet
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\" alt=\"fig_valve_dp_severalGeometryOverall_zetaVsOpening\">
 
 <p>
-Note that the pressure loss coefficients (<b>zeta_TOT</b>) are numerically optimised for very small openings (opening &le; 5%). At openings smaller than 5% the pressure loss coefficient is smoothly set
+Note that the pressure loss coefficients (<b>zeta_TOT</b>) are numerically optimized for very small openings (opening &le; 5%). At openings smaller than 5% the pressure loss coefficient is smoothly set
 to a maximum value (<b>zeta_TOT_max</b>) to be adjusted as parameter. Therefore a very small leakage mass flow rate can be adjusted for a given pressure difference at almost closed valves. A very small
 leakage mass flow rate can often be neglected in system simulation with valves, whereas the numerical behaviour of the simulation is improved.
 </p>
@@ -9851,7 +9851,7 @@ documentation available in this package.
             //SOURCE_1: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow
             //Momentum pressure loss occurs for a changing mass flow rate quality due to condensation or evaporation
             //At evaporation the liquid phase with a slow velocity has to be accelerated to the higher velocity of the gas
-            //The difference in static pressure at the outlet and the inlet causes a positiv momentum pressure loss at evaporation (assumed vice versa for condensation)
+            //The difference in static pressure at the outlet and the inlet causes a positive momentum pressure loss at evaporation (assumed vice versa for condensation)
             DP_mom := if massFlowRateCorrection then dp_mom_cor else mdot_A^2*SMOOTH(
               delta_xflow,
               0.05,
@@ -9893,7 +9893,7 @@ documentation available in this package.
               "Hydraulic diameter";
 
             //SOURCE_2: p.Lba 4, sec. 3.3: Correlation based on constant mass flow rate quality (x_flow) for increment (dx)
-            //Pressure loss for total length (e.g., L=n*dx) can be achieved by discretisation
+            //Pressure loss for total length (e.g., L=n*dx) can be achieved by discretization
             Real mdot_A=abs(m_flow)/A_cross "Mass flux";
             Real x_flow=max(0, min(1, abs(IN_var.x_flow)))
               "Mass flow rate quality";
@@ -10402,7 +10402,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
             //SOURCE_1: p.675, eq. 9.105: Considering of convection enhancement factor w.r.t. equation of Gungor-Winterton
             Real E_fc=1 + 24000*Bo^1.16 + 1.37*(1/max(MIN, X_tt))^0.86
-              "Enhancement factor for forced convetion";
+              "Enhancement factor for forced convection";
             //SOURCE_1: p.675, eq. 9.105: Considering of boiling suppression factor w.r.t. equation of Gungor-Winterton
             Real S_nb=1/max(MIN, 1 + 1.15e-6*E_fc^2*Re_l^1.17)
               "Suppression factor for nucleate boiling";
@@ -10524,7 +10524,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
         end CubicInterpolation_MFLOW;
 
         function LambertW
-          "Closed approximation of lambert's w function for solving f(x) = x exp(x) for x"
+          "Closed approximation of Lambert's w function for solving f(x) = x exp(x) for x"
           extends Modelica.Icons.Function;
           input Real y "f(x)";
           output Real x "W(y)";
@@ -10555,7 +10555,7 @@ This function calculates an approximation of the <b> inverse </b> for
 </pre>
 
 <p>
-within &infin; > y > -1/e.  The relative deviation of this approximation for lambert's w function <b>x = W(y)</b> is diplayed in the following graph.
+within &infin; > y > -1/e.  The relative deviation of this approximation for Lambert's w function <b>x = W(y)</b> is displayed in the following graph.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/LambertW_deviation.png\" alt=\"LambertW_deviation\"/>
@@ -10568,7 +10568,7 @@ For y > 10 and higher values the relative deviation is smaller 2%.
         end LambertW;
 
         function LambertWIter
-          "Iterative form of lambert's w function for solving f(x) = x exp(x) for x"
+          "Iterative form of Lambert's w function for solving f(x) = x exp(x) for x"
           extends Modelica.Icons.Function;
           input Real y "f(x)";
           output Real x "W(y)";
@@ -10831,7 +10831,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
     package Icons "Icons for Fluid.Dissipation and Fluid.Fittings libraries"
     extends Modelica.Icons.Package;
 
-      package HeatTransfer "Icons for heat tranfer calculation"
+      package HeatTransfer "Icons for heat transfer calculation"
       extends Modelica.Icons.Package;
 
         partial model Gap1_d "Geometry figure for gap"
@@ -12585,7 +12585,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           SI.Area A_cross=PI*0.1^2/4 "Cross sectional area"
             annotation (Dialog(group="Geometry"));
-          SI.Length perimeter=PI*0.1 "Wettet perimeter"
+          SI.Length perimeter=PI*0.1 "Wetted perimeter"
             annotation (Dialog(group="Geometry"));
           SI.Length length=1 "Length in fluid flow direction"
             annotation (Dialog(group="Geometry"));
@@ -12771,7 +12771,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           SI.Area A_cross=Modelica.Constants.pi*0.1^2/4 "Cross sectional area"
             annotation (Dialog(group="Geometry"));
-          SI.Length perimeter=Modelica.Constants.pi*0.1 "Wettet perimeter"
+          SI.Length perimeter=Modelica.Constants.pi*0.1 "Wetted perimeter"
             annotation (Dialog(group="Geometry"));
 
           Modelica.Fluid.Dissipation.Utilities.Types.MolarMass_gpmol  MM=18.02
@@ -12889,7 +12889,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 group="Rectangular cross sectional area", enable=geometry ==
                   Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Rectangular));
           SI.Length h_tri=0.5*a_tri
-            "Heigth to top angle perpendicular to base line"
+            "Height to top angle perpendicular to base line"
             annotation (Dialog(group="Triangle cross sectional area", enable=geometry
                    == Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Isosceles));
           SI.Angle beta=90*PI/180 "Top angle" annotation (Dialog(group=

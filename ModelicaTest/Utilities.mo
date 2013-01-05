@@ -307,7 +307,7 @@ extends Modelica.Icons.Package;
    result := ModelicaTest.Utilities.Streams(logFile);
    result := ModelicaTest.Utilities.Files(logFile);   // only rudimentary tests
 
-   // Next call failes currently in Dymola, must be fixed:
+   // Next call fails currently in Dymola, must be fixed:
    // result := ModelicaTest.Utilities.Internal(logFile);
 
    ok := true;

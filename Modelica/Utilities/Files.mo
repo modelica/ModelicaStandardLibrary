@@ -142,7 +142,7 @@ function copy "Generate a copy of a file or of a directory"
      input String oldName
         "Old directory name without trailing '/'; existance is guaranteed";
      input String newName
-        "New diretory name without trailing '/'; directory was already created";
+        "New directory name without trailing '/'; directory was already created";
      input Boolean replace "= true, if an existing newName may be replaced";
   algorithm
      copyDirectoryContents(Modelica.Utilities.Internal.FileSystem.readDirectory(
@@ -493,7 +493,7 @@ Files.<b>createDirectory</b>(directoryName);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Creates directory \"directorName\". If this directory already exists,
+Creates directory \"directoryName\". If this directory already exists,
 the function call is ignored. If several directories in \"directoryName\"
 do not exist, all of them are created. For example, assume
 that directory \"E:/test1\" exists and that directory

@@ -198,7 +198,7 @@ In the first system the position of the mass m3 was defined
 by using the modifier s(start=4.5), the position of m4 by s(start=12.5).
 These positions were chosen such that the system is a rest. To calculate
 these values start at the left (Fixed1) with a value of 1 m. The spring
-has an unstreched length of 2 m and m3 an length of 3 m, which leads to
+has an unstretched length of 2 m and m3 an length of 3 m, which leads to
 </p>
 
 <pre>
@@ -622,7 +622,7 @@ These sensors measure
 </pre>
 
 <p>
-Dhe measured velocity and acceleration is independent on
+The measured velocity and acceleration is independent on
 the flange the sensor is connected to. The position
 depends on the flange (flange_a or flange_b) and the
 length L of the component.
@@ -1269,7 +1269,7 @@ is present in variable convection.fluid.
     package Utilities "Utility classes used by the Example models"
       extends Modelica.Icons.Package;
       function GenerateStribeckFrictionTable
-        "Generate stribeck friction table for example Friction for the SupportFriction"
+        "Generate Stribeck friction table for example Friction for the SupportFriction"
          extends Modelica.Icons.Function;
          input Real F_prop(final unit="N.s/m", final min=0)
           "Velocity dependent friction coefficient";
@@ -1290,7 +1290,7 @@ is present in variable convection.fluid.
 <p>
 Returns a table with the friction characteristic table[nTable,2] = [0, f1; ....; v_max, fn], where the first
 column is the velocity v in the range 0..v_max and the second column is the friction force
-according to the stribeck curve:
+according to the Stribeck curve:
 </p>
 <pre>
   F_Coulomb + F_prop*v + F_Stribeck*exp(-fexp*v);
@@ -2826,7 +2826,7 @@ The dissipated energy is transported in form of heat to the optional heatPort co
 that can be enabled via parameter \"useHeatPort\". Independently whether the heatPort is
 or is not enabled, the dissipated power is defined with variable \"lossPower\".
 If contact occurs at the hard stops, the lossPower is not correctly modelled
-at this time instant, because the hard stop would introduce a dirac impulse
+at this time instant, because the hard stop would introduce a Dirac impulse
 in the lossPower due to the discontinuously changing kinetic energy of the mass
 (lossPower is the derivative of the kinetic energy at the time instant of the impact).
 </p>
@@ -4545,7 +4545,7 @@ is used to built up force elements such as springs, dampers, friction.
 </p>
 
 <p>
-The difference to base classe \"PartialCompliant\" is that the relative
+The difference to base class \"PartialCompliant\" is that the relative
 distance and the relative velocity are defined as preferred states.
 The reason is that for a large class of drive trains,
 the absolute position is quickly increasing during operation.

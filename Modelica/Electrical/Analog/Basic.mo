@@ -197,7 +197,7 @@ end Resistor;
       Documentation(info="<html>
 <p>This is a model for an electrical resistor where the generated heat is dissipated to the environment via connector <b>heatPort</b> and where the resistance R is temperature dependent according to the following equation:</p>
 <pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))</pre>
-<p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage) meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K, i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
+<p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually defined as <b>X [ppm/K]</b> (parts per million, similarly to percentage) meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K, i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
 <p>Via parameter <b>useHeatPort</b> the heatPort connector can be enabled and disabled (default = enabled). If it is disabled, the generated heat is transported implicitly to an internal temperature source with a fixed temperature of T_ref.</p><p>If the heatPort connector is enabled, it must be connected.</p>
 </html>",
      revisions="<html>
@@ -703,7 +703,7 @@ equation
             textString="%name",
             lineColor={0,0,255})}),
             Documentation(info="<html>
-<p>The model <i>M_Transformer</i> is a model of a transformer with the posibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
+<p>The model <i>M_Transformer</i> is a model of a transformer with the possibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
 <p>An example shows that approach:<br>
 The user chooses a model with <b>three</b> inductors, that means the parameter <i><b>N</b></i> has to be <b>3</b>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have to be specified in the parameter vector <i>L</i>. The length <i>dimL</i> of the parameter vector is calculated as follows: <i><b>dimL=(N*(N+1))/2</b></i></p>
@@ -1431,7 +1431,7 @@ end M_Transformer;
        < 0) then -f*vin else f*vin)));
     annotation (
       Documentation(info="<html>
-<p>The OpAmp is a simle nonideal model with a smooth out.v = f(vin) characteristic, where &quot;vin = in_p.v - in_n.v&quot;. The characteristic is limited by VMax.v and VMin.v. Its slope at vin=0 is the parameter Slope, which must be positive. (Therefore, the absolute value of Slope is taken into calculation.)</p>
+<p>The OpAmp is a simple nonideal model with a smooth out.v = f(vin) characteristic, where &quot;vin = in_p.v - in_n.v&quot;. The characteristic is limited by VMax.v and VMin.v. Its slope at vin=0 is the parameter Slope, which must be positive. (Therefore, the absolute value of Slope is taken into calculation.)</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1535,7 +1535,7 @@ end M_Transformer;
       "Maximal output current (source current)";
     parameter SI.Current Imaxsi=25.0e-3 "Maximal output current (sink current)";
 
-  // number of intervalls: 2500, stop time: 0.003
+  // number of intervals: 2500, stop time: 0.003
     parameter SI.Time Ts=0.0000012 "sampling time";
 
   // constant expressions
@@ -1734,13 +1734,13 @@ end M_Transformer;
     annotation (
       Documentation(info="<html>
 <p>The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages <b>input</b>, <b>frequency response</b>, <b>gain</b>, <b>slew rate</b> and an <b>output</b> stage. Each stage contains data sheet parameters to be modeled. This partitioning and the modelling of the separate submodels are based on the description in <b>[CP92]</b>.</p>
-<p>Using <b>[CP92]</b> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transfered 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
+<p>Using <b>[CP92]</b> Joachim Haase (Fraunhofer Institute for Integrated Circuits, Design Automation Division) transferred 2001 operational amplifier models into VHDL-AMS. Now one of these models, the model &quot;amp(macro)&quot; was transferred into Modelica.</p>
 <dl><dt><b>Reference:</b> </dt>
 <dd><b>[CP92]</b> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992 </dd>
 </dl></html>",
    revisions="<html>
 <dl>
-<dt><i>Juni 17, 2009</i></dt>
+<dt><i>June 17, 2009</i></dt>
 <dd>by Susann Wolf initially implemented</dd>
 </dl>
 </html>"),
@@ -2048,7 +2048,7 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
 It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system, L = Lmin, if 0 &le; L &lt; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
 <p>Besides the Lmin parameter the inductor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the current that flows through the inductor.</p>
 <p><br/>Hence the inductor has an initial current at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
-<p><br/>the IC value at the initial calculation by adding the equation i= IC. If UIC is false, the IC value can be used (butit does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
+<p><br/>the IC value at the initial calculation by adding the equation i= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
 </html>",  revisions=
              "<html>
 <ul>

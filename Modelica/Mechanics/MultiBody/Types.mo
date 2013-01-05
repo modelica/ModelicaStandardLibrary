@@ -155,7 +155,7 @@ Additionally, external shapes are specified with an URI name:
      &lt;Modelica-name&gt; library path with the given relative file name.
      Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
 <li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
-     charaterices an absolute file name in the file system. Example:<br>
+     characterizes an absolute file name in the file system. Example:<br>
      shapeType=\"file://C:/users/myname/shapes/piston.dxf\"</li>
 </ul>
 

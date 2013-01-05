@@ -582,7 +582,7 @@ for a smooth transition from y1 to y2.
     Real xstar "Inflection point of cubic polynomial S0";
     Real mu "Distance of inflection point and left limit x0";
     Real eta "Distance of right limit x1 and inflection point";
-    Real omega "Slope of subic polynomial S0 at inflection point";
+    Real omega "Slope of cubic polynomial S0 at inflection point";
     Real rho "Weighting factor of eta and eta_tilde, mu and mu_tilde";
     Real theta0 "Slope metric";
     Real mu_tilde "Distance of start of linear section and left limit x0";
@@ -600,14 +600,14 @@ for a smooth transition from y1 to y2.
   algorithm
     assert(x0 < x1, "regFun3(): Data points not sorted appropriately (x0 = " +
       String(x0) + " > x1 = " + String(x1) + "). Please flip arguments.");
-    assert(y0d*y1d >= 0, "regFun3(): Deriavtives at data points do not allow co-monotone interpolation, as both are non-zero and of opposite sign (y0d = " +
+    assert(y0d*y1d >= 0, "regFun3(): Derivatives at data points do not allow co-monotone interpolation, as both are non-zero and of opposite sign (y0d = " +
       String(y0d) + ", y1d = " + String(y1d) + "). Please correct arguments.");
 
     h0 := x1 - x0;
     Delta0 := (y1 - y0)/h0;
 
     if abs(Delta0) <= 0 then
-      // Points (x0,y0) and (x1,y1) on horizonzal line
+      // Points (x0,y0) and (x1,y1) on horizontal line
       // Degenerate case as we cannot fulfill the C1 goal an comonotone behaviour at the same time
       y := y0;     // == y1
     elseif abs(y1d + y0d - 2*Delta0) < 100*Modelica.Constants.eps then
@@ -618,7 +618,7 @@ for a smooth transition from y1 to y2.
       c := 3*(y0d + y1d - 2*Delta0)*(aux01 - x0)^2/h0^2 + 2*(-2*y0d - y1d + 3*Delta0)*(aux01 - x0)/h0
          + y0d;
     else
-      // Points (x0,y0) and (x1,y1) not on horizonzal line and inflection point of S0 not at +/- infinity
+      // Points (x0,y0) and (x1,y1) not on horizontal line and inflection point of S0 not at +/- infinity
       // Do actual interpolation
       xstar := 1/3*(-3*x0*y0d - 3*x0*y1d + 6*x0*Delta0 - 2*h0*y0d - h0*y1d + 3*h0*
         Delta0)/(-y0d - y1d + 2*Delta0);
@@ -712,7 +712,7 @@ for a smooth transition from y1 to y2.
     annotation (smoothOrder=1, Documentation(revisions="<html>
 <ul>
 <li><i>May 2008</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>Designed and implemented.</li>
-<li><i>February 2011</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the inflection point of the cubic S0 was at +/- infinity, the test critetia of <i>[Gasparo and Morandi, 1991]</i> result in division by zero. This case is handled properly now.</li>
+<li><i>February 2011</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the inflection point of the cubic S0 was at +/- infinity, the test criteria of <i>[Gasparo and Morandi, 1991]</i> result in division by zero. This case is handled properly now.</li>
 </ul>
 </html>",   info="<html>
 <p>
@@ -750,7 +750,7 @@ are shown below. The first one illustrates five different settings of <code>xi</
       alt=\"regFun3_a.png\">
 </p>
 <p>
-The second graph shows the continous derivative of this regularization function:
+The second graph shows the continuous derivative of this regularization function:
 </p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/regFun3_b.png\"

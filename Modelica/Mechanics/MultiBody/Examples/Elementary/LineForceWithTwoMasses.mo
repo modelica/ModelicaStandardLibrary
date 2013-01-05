@@ -188,7 +188,7 @@ line force between the two attachment points. Simulate
 this system and plot the differences of the cut forces at both sides
 of the line force component (\"rod_f_diff\" and \"body_f_diff\").
 Both vectors should be zero
-(depending on the choosen relative tolerance of the integration,
+(depending on the chosen relative tolerance of the integration,
 the difference is in the order of 1.e-10 ... 1.e-15).
 </p>
 <p>

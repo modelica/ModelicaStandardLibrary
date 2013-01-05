@@ -163,7 +163,7 @@ the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.Base
 With the setting <code>use_portsData=false</code>, the port pressure represents the static head
 at the height of the respective port.
 The relationship between pressure drop and mass flow rate at the port must then be provided by connected components;
-Heights of ports as well as kinetic and potential energy of fluid enering or leaving are not taken into account anymore.
+Heights of ports as well as kinetic and potential energy of fluid entering or leaving are not taken into account anymore.
 </p>
 </HTML>", revisions="<html>
 <ul>
@@ -248,7 +248,7 @@ end OpenTank;
 
         // Conservation of kinetic energy
         Medium.Density[nPorts] portInDensities
-        "densites of the fluid at the device boudary";
+        "densities of the fluid at the device boundary";
         SI.Velocity[nPorts] portVelocities
         "velocities of fluid flow at device boundary";
         SI.EnergyFlowRate[nPorts] ports_E_flow
@@ -274,7 +274,7 @@ end OpenTank;
 
         // Treatment of use_portsData=false to neglect portsData and to not require its specification either in this case.
         // Remove portsData conditionally if use_portsData=false. Simplify their use in model equations by always
-        // providing portsData_diameter and portsData_height, independend of the use_portsData setting.
+        // providing portsData_diameter and portsData_height, independent of the use_portsData setting.
         // Note: this moreover serves as work-around if a tool does not support a zero sized portsData record.
         Modelica.Blocks.Interfaces.RealInput[nPorts]
         portsData_diameter_internal =                                              portsData.diameter if use_portsData and nPorts > 0;
@@ -404,7 +404,7 @@ This base class extends PartialLumpedVolume with a vector of fluid ports and a r
 <p>
 The following modeling assumption are made:
 <ul>
-<li>homogenous medium, i.e., phase seperation is not taken into account,</li>
+<li>homogeneous medium, i.e., phase separation is not taken into account,</li>
 <li>no kinetic energy in the fluid, i.e., kinetic energy dissipates into the internal energy,</li>
 <li>pressure loss definitions at vessel ports assume incompressible fluid,</li>
 <li>outflow of ambient media is prevented at each port assuming check valve behavior.

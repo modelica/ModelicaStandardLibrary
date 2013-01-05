@@ -55,7 +55,7 @@ equation
   connect(Ramp1.y, VariableResistor.R)           annotation (Line(points={{-10,9},
           {-10,4.5},{-10,1}},            color={0,0,255}));
 annotation (Documentation(info="<html>
-<p>It is a simple test circuit for the VariableResistor. The VariableResistor sould be compared with R2.</p>
+<p>It is a simple test circuit for the VariableResistor. The VariableResistor should be compared with R2.</p>
 <p>Simulate until T=1 s.</p>
 </html>",
    revisions="<html>

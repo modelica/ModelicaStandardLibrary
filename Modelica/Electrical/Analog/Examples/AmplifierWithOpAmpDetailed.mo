@@ -89,7 +89,7 @@ equation
       Tolerance=2e-007),
     Documentation(revisions="<html>
 <dl>
-<dt>Juni 17, 2009</dt>
+<dt>June 17, 2009</dt>
 <dd>by Susann Wolf realized</dd>
 </dl>
 </html>", info="<html>

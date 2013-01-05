@@ -82,7 +82,7 @@ The machine models of the FundamentalWave library are currently based on the fol
 <li>The number of stator phases is limited to three
     [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Eckhardt82</a>]
     </li>
-<li>The phase windings are assumed to be symmetrical; an extension to this approach can be considererd</li>
+<li>The phase windings are assumed to be symmetrical; an extension to this approach can be considered</li>
 <li>Only fundamental wave effects are taken into account</li>
 <li>The magnetic potential difference refers to an equivalent two pole machine</li>
 <li>There are no restrictions on the waveforms of voltages and currents</li>
@@ -177,7 +177,7 @@ Translational.Interfaces</a></li>
   <li>Added rotor core loss parameters in asynchronous induction machine with slip rings</li>
   <li>Renamed heat ports of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase winding</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a>
      </li>
-  <li>Relocated core losses between zero inductor and stray reluctance model in the magntic domain</li>
+  <li>Relocated core losses between zero inductor and stray reluctance model in the magnetic domain</li>
   <li>Renamed instances of stator and rotor (winding) models in each machines</li>
   <li>Added magnetic potential sensor</li>
   <li>Removed state selections</li>
@@ -220,7 +220,7 @@ model, adapted equations accordingly and updated code documentation.</li>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a>
 model from R to G</li>
 <li>Fixed wrong sign of internal quantity <code>tauElectrical</code>, model behavior does not change</li>
-<li>Rewrote equations of electro magnetic coupling to look more elegant</li>
+<li>Rewrote equations of electromagnetic coupling to look more elegant</li>
 </ul>
 
 <h5>Version 1.4.0, 2010-04-22</h5>
@@ -258,7 +258,7 @@ model from R to G</li>
 <h5>Version 1.0.0, 2010-02-04</h5>
 
 <ul>
-<li>Integrated the libray into the MSL</li>
+<li>Integrated the library into the MSL</li>
 </ul>
 
 <h5>Version 0.4.0, 2009-10-29</h5>
@@ -360,7 +360,7 @@ For more details see the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.
 
 <p>
 All the machine models provided in this library are equivalent two pole machines.
-The magnetic potential difference of the connecter therefore also refers to an equivalent two pole machine
+The magnetic potential difference of the connector therefore also refers to an equivalent two pole machine
 </p>
 
 </html>"));
@@ -370,7 +370,7 @@ The magnetic potential difference of the connecter therefore also refers to an e
     "Examples of electric machines based on the FundamentalWave concept"
     extends Modelica.Icons.ExamplesPackage;
 
-    package Components "Examples of components of the FundamentWave library"
+    package Components "Examples of components of the FundamentalWave library"
       extends Modelica.Icons.ExamplesPackage;
       model EddyCurrentLosses
         "Comparison of equivalent circuits of eddy current loss models"
@@ -585,7 +585,7 @@ In this example the eddy current losses are implemented in two different ways. C
       end EddyCurrentLosses;
     end Components;
 
-    package BasicMachines "Examples of machines of the FundamentWave library"
+    package BasicMachines "Examples of machines of the FundamentalWave library"
       extends Modelica.Icons.ExamplesPackage;
       model AIMC_DOL
         "Direct on line start of asynchronous induction machine with squirrel cage"
@@ -1266,7 +1266,7 @@ Simulate for 1.5 seconds and plot (versus time):
 
 An ideal frequency inverter is modeled by using a
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
-and a threephase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
+and a three-phase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">permanent magnet synchronous induction machine</a> to start,
 and accelerate the inertias.</p>
@@ -1588,7 +1588,7 @@ and accelerate the inertias.</p>
 An
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">electrically excited synchronous generator</a> is connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
-rotor angle is very slowly increased. This allows to see several charactersistics dependent on rotor angle.
+rotor angle is very slowly increased. This allows to see several characteristics dependent on rotor angle.
 </p>
 
 <p>
@@ -1614,7 +1614,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           "Knee frequency of V/f curve";
         parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
         parameter Modelica.SIunits.Torque T_Load=46 "Nominal load torque";
-        parameter Modelica.SIunits.Time tStep=1.2 "Nime of load torque step";
+        parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(
@@ -1810,7 +1810,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
 <p>
 An ideal frequency inverter is modeled by using a
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.VfController\">VfController</a>
-and a threephase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
+and a three-phase <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources.SignalVoltage\">SignalVoltage</a>.
 Frequency is raised by a ramp, causing the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">reluctance machine</a> to start,
 and accelerating inertias. At time <code>tStep</code> a load step is applied.
@@ -1931,7 +1931,7 @@ The salient reluctance models the relationship between the complex magnetic pote
       extends
         Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
       parameter Modelica.SIunits.Conductance G(min=0)
-        "Eqivalent symmetric loss conductance";
+        "Equivalent symmetric loss conductance";
       extends
         Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
          final T = 273.15);
@@ -1977,7 +1977,7 @@ The eddy current loss model with respect to fundamental wave effects is designed
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/eddycurrent_electric.png\"
-           alt=\"eddycurrent_elctric.png\">
+           alt=\"eddycurrent_electric.png\">
     </td>
   </tr>
 </table>
@@ -2148,13 +2148,13 @@ In this equation the magneto motive force is aligned with the orientation of the
 </p>
 
 <p>
-The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v.png\"> induced in the winding depends on the cosine between the orientation of the winding and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are propotional to the respective number of turns. This relationship can be modeled by means of</p>
+The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v.png\"> induced in the winding depends on the cosine between the orientation of the winding and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are proportional to the respective number of turns. This relationship can be modeled by means of</p>
 
 <p>
 &nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/singlephaseconverter_phi.png\">
 </p>
 
-<p>The single phase electro magnetic converter is a special case of the
+<p>The single phase electromagnetic converter is a special case of the
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a>
 </p>
 
@@ -2261,7 +2261,7 @@ Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalW
 </p>
 
 <p>
-The total complex magnetic potential difference of the mutli phase winding is determined by:
+The total complex magnetic potential difference of the multi phase winding is determined by:
 </p>
 
 <p>
@@ -2273,7 +2273,7 @@ In this equation each contribution of a winding magneto motive force on the tota
 </p>
 
 <p>
-The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v_k.png\"> induced in each winding depend on the cosinus between the orientation of the winding and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are propotional to the respective number of turns. This relationship can be modeled by means of</p>
+The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v_k.png\"> induced in each winding depend on the cosines between the orientation of the winding and the angle of the complex magnetic flux. Additionally, the magnitudes of the induced voltages are proportional to the respective number of turns. This relationship can be modeled by means of</p>
 
 <p>
 &nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/multiphaseconverter_phi.png\">
@@ -2379,7 +2379,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
     "Machine components and modelsElectric machine models based on FundamentalWave package"
     extends Modelica.Icons.Package;
 
-    package AsynchronousInductionMachines "Asynchronous inductioin machines"
+    package AsynchronousInductionMachines "Asynchronous induction machines"
       extends Modelica.Icons.VariantsPackage;
 
       model AIM_SquirrelCage
@@ -2913,7 +2913,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           "Operational excitation temperature"
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
 
-        // Excitaiton parameters
+        // Excitation parameters
         parameter Modelica.SIunits.Voltage VsNominal(start=100)
           "Nominal stator voltage"
            annotation(Dialog(tab="Excitation"));
@@ -3347,7 +3347,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 The single phase winding consists of a
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>, a symmetrical
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Inductor\">stray inductor</a> and a
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single phase electro magnetic coupling</a>.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single phase electromagnetic coupling</a>.
 </p>
 
 <h4>See also</h4>
@@ -3530,7 +3530,7 @@ The symmetrical multi phase winding consists of a symmetrical winding
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Resistor\">resistor</a>, a
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">zero</a> and
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Inductor\">stray inductor</a> as well as a symmetrical
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase electro magnetic coupling</a> and a
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase electromagnetic coupling</a> and a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">core loss</a> model including
 heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">port</a>.
 </p>
@@ -3657,7 +3657,7 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
         // V_msr.re = + V_mss.re * cos(gamma) + V_mss.im * sin(gamma);
         // V_msr.im = - V_mss.re * sin(gamma) + V_mss.im * cos(gamma);
 
-        // Local balance of maganeto motive force
+        // Local balance of magneto motive force
         (pi/2.0) * (V_mrr.re + V_msr.re) = Phi_rr.re*R_m.d;
         (pi/2.0) * (V_mrr.im + V_msr.im) = Phi_rr.im*R_m.q;
 
@@ -4056,7 +4056,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
           Documentation(info="<html>
 
 <p>
-The salient cage model is a two axis model with two phases. The electro magnetic coupling therefore is also two phase coupling model. The angles of the two orientations are 0 and <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_2.png\">. This way an asymmetrical rotor cage with different resistances and stray inductances in d- and q-axis can be modeled.
+The salient cage model is a two axis model with two phases. The electromagnetic coupling therefore is also two phase coupling model. The angles of the two orientations are 0 and <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_2.png\">. This way an asymmetrical rotor cage with different resistances and stray inductances in d- and q-axis can be modeled.
 </p>
 
 <h4>See also</h4>
@@ -4078,7 +4078,7 @@ This package contains components for
 </html>"));
     end Components;
 
-    package Functions "Axiliary functions for electric machines"
+    package Functions "Auxiliary functions for electric machines"
       extends Modelica.Icons.Package;
 
       function symmetricOrientation
@@ -4459,7 +4459,7 @@ Source of magnetic flux with complex signal input.
 </p></html>"));
     end MagneticPotentialDifferenceSensor;
 
-    model MagneticPotentialSensor "Sensor to measure magnetic potentiale"
+    model MagneticPotentialSensor "Sensor to measure magnetic potential"
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.ComplexBlocks.Interfaces.ComplexOutput V_m
@@ -5481,7 +5481,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.2</td><td>4621</td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in prametrization of symmetrical multi phase winding model<br>Necessary adaptions due to conditional heatPorts of loss models (backwards compatibility)</td></tr>
+<tr><td>1.7.2</td><td>4621</td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in parameterization of symmetrical multi phase winding model<br>Necessary adaptions due to conditional heatPorts of loss models (backwards compatibility)</td></tr>
 <tr><td>1.7.1</td><td>4170</td>  <td>2010-09-13</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
 <tr><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
@@ -5490,7 +5490,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
 <tr><td>1.2.0</td><td>3468</td>   <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
 <tr><td>1.1.0</td><td>3424</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
-<tr><td>1.0.0</td><td>3426</td>  <td>2010-02-04</td>  <td>C. Kral</td>  <td>Integrated the libray into the MSL</td></tr>
+<tr><td>1.0.0</td><td>3426</td>  <td>2010-02-04</td>  <td>C. Kral</td>  <td>Integrated the library into the MSL</td></tr>
 <tr><td>0.4.0</td> <td></td>  <td>2009-10-29</td>  <td>C. Kral<br>A.&nbsp;Haumer</td>  <td>Corrected bug in magnetic potential calculation</td></tr>
 <tr><td>0.3.0</td> <td></td>  <td>2009-10-28</td>  <td>C. Kral</td>  <td>Renamed number of turns and winding angles</td></tr>
 <tr><td>0.2.0</td> <td></td>  <td>2009-10-20</td>  <td>C. Kral</td>  <td>Added idle model</td></tr>

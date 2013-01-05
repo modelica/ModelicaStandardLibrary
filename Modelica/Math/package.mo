@@ -511,7 +511,7 @@ Vectors.<b>find</b>(e, v, eps=0);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.find(e, v)</code>\" returns the index of the first occurence of input e in vector <b>v</b>.
+The function call \"<code>Vectors.find(e, v)</code>\" returns the index of the first occurrence of input e in vector <b>v</b>.
 The test of equality is performed by \"abs(e-v[i]) &le; eps\", where \"eps\"
 can be provided as third argument of the function. Default is \"eps = 0\".
 </p>
@@ -536,9 +536,9 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   function interpolate "Interpolate in a vector"
     extends Modelica.Icons.Function;
     input Real x[:]
-      "Abszissa table vector (strict monotonically increasing values required)";
+      "Abscissa table vector (strict monotonically increasing values required)";
     input Real y[size(x, 1)] "Ordinate table vector";
-    input Real xi "Desired abszissa value";
+    input Real xi "Desired abscissa value";
     input Integer iLast=1 "Index used in last search";
     output Real yi "Ordinate value corresponding to xi";
     output Integer iNew=1 "xi is in the interval x[iNew] <= xi < x[iNew+1]";
@@ -575,7 +575,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       y1 := y[i];
       y2 := y[i + 1];
 
-      assert(x2 > x1, "Abszissa table vector values must be increasing");
+      assert(x2 > x1, "Abscissa table vector values must be increasing");
       // Interpolate
       yi := y1 + (y2 - y1)*(xi - x1)/(x2 - x1);
       iNew := i;
@@ -593,7 +593,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <p>
 The function call \"<code>Vectors.interpolate(x,y,xi)</code>\" interpolates in vectors
 (x,y) and returns the value yi that corresponds to xi. Vector x[:] must consist
-of strictly monotonocially increasing values. If xi &lt; x[1] or &gt; x[end], then
+of strictly monotonically increasing values. If xi &lt; x[1] or &gt; x[end], then
 extrapolation takes places through the first or last two x[:] values, respectively.
 The search for the interval x[iNew] &le; xi &lt; x[iNew+1] starts at the optional
 input argument \"iLast\". The index \"iNew\" is returned as output argument.
@@ -679,7 +679,7 @@ at the left and at the right side of the pipe), see next figure:
 
       input Real a[:] "Real vector to be reflected";
       input Real b[size(a, 1)] "Real vector b vector a is mapped onto";
-      output Real u[size(a, 1)] "Housholder vector to map a onto b";
+      output Real u[size(a, 1)] "Householder vector to map a onto b";
     protected
       Real norm_a=norm(a, 2);
       Real norm_b=norm(b, 2);
@@ -687,9 +687,9 @@ at the left and at the right side of the pipe), see next figure:
 
       algorithm
       assert(norm_b > 0,
-        "Vector b in function housholderVector is zero vector, but at least one element should be different from zero");
+        "Vector b in function householderVector is zero vector, but at least one element should be different from zero");
       assert(norm_a > 0,
-        "Vector a in function housholderVector is zero vector, but at least one element should be different from zero");
+        "Vector a in function householderVector is zero vector, but at least one element should be different from zero");
       alpha := if norm(a + norm_a/norm_b*b, 2) > norm(a - norm_a/norm_b*b, 2)
          then norm_a/norm_b else -norm_a/norm_b;
       u := (a + alpha*b)/length(a + alpha*b);
@@ -774,7 +774,7 @@ Vectors.Utilities.<b>householderReflection</b>(a,u);
 <h4>Description</h4>
 <p>
 Function \"<code>householderReflection(a, u)</code>\" performs the reflection of vector
-<b>a</b> about a plane orthogonal to vector <b>u</b> (Housholder vector).
+<b>a</b> about a plane orthogonal to vector <b>u</b> (Householder vector).
 Algebraically the operation is defined by
 </p>
 <blockquote>
@@ -924,7 +924,7 @@ This library provides functions operating on vectors:
      - sorts the elements of vector v in ascending or descending order.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.find\">find</a>(e, v)
-     - returns the index of the first occurence of scalar e in vector v.</li>
+     - returns the index of the first occurrence of scalar e in vector v.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.interpolate\">interpolate</a>(x, y, xi)
      - returns the interpolated value in (x,y) that corresponds to xi.</li>
@@ -1141,7 +1141,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
     end isEqual;
 
   function solve
-    "Solve real system of linear equations A*x=b with a b vector (Gaussian elemination with partial pivoting)"
+    "Solve real system of linear equations A*x=b with a b vector (Gaussian elimination with partial pivoting)"
 
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)] "Matrix A of A*x = b";
@@ -1180,7 +1180,7 @@ and inquire the singularity of the solution with the return argument rank
 
 <p>
 Note, the solution is computed with the LAPACK function \"dgesv\",
-i.e., by Gaussian elemination with partial pivoting.
+i.e., by Gaussian elimination with partial pivoting.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -1200,7 +1200,7 @@ i.e., by Gaussian elemination with partial pivoting.
     end solve;
 
   function solve2
-    "Solve real system of linear equations A*X=B with a B matrix (Gaussian elemination with partial pivoting)"
+    "Solve real system of linear equations A*X=B with a B matrix (Gaussian elimination with partial pivoting)"
 
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)] "Matrix A of A*X = B";
@@ -1239,7 +1239,7 @@ and inquire the singularity of the solution with the return argument rank
 </p>
 <p>
 Note, the solution is computed with the LAPACK function \"dgesv\",
-i.e., by Gaussian elemination with partial pivoting.
+i.e., by Gaussian elimination with partial pivoting.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -1668,7 +1668,7 @@ LU decomposition of a \"Real[m,n]\" matrix A, i.e.,
 </p>
 </blockquote>
 <p>
-where <b>P</b> is a permutation matrix (implicitely
+where <b>P</b> is a permutation matrix (implicitly
 defined by vector <code>pivots</code>),
 <b>L</b> is a lower triangular matrix with unit
 diagonal elements (lower trapezoidal if m &gt; n), and
@@ -1699,7 +1699,7 @@ The optional third (Integer) output argument has the following meaning:</p>
 <p>
 The LU factorization is computed
 with the LAPACK function \"dgetrf\",
-i.e., by Gaussian elemination using partial pivoting
+i.e., by Gaussian elimination using partial pivoting
 with row interchanges. Vector \"pivots\" are the
 pivot indices, i.e., for 1 &le; i &le; min(m,n), row i of
 matrix A was interchanged with row pivots[i].
@@ -1764,7 +1764,7 @@ solution <b>x</b> of the linear systems of equations
 </p>
 </blockquote>
 <p>
-where <b>P</b> is a permutation matrix (implicitely
+where <b>P</b> is a permutation matrix (implicitly
 defined by vector <code>pivots</code>),
 <b>L</b> is a lower triangular matrix with unit
 diagonal elements (lower trapezoidal if m &gt; n), and
@@ -1787,7 +1787,7 @@ LU decomposition is singular), an exception is raised.
 <p>
 The LU factorization is computed
 with the LAPACK function \"dgetrf\",
-i.e., by Gaussian elemination using partial pivoting
+i.e., by Gaussian elimination using partial pivoting
 with row interchanges. Vector \"pivots\" are the
 pivot indices, i.e., for 1 &le; i &le; min(m,n), row i of
 matrix A was interchanged with row pivots[i].
@@ -1851,7 +1851,7 @@ solution <b>X</b> of the linear systems of equations
 </p>
 </blockquote>
 <p>
-where <b>P</b> is a permutation matrix (implicitely
+where <b>P</b> is a permutation matrix (implicitly
 defined by vector <code>pivots</code>),
 <b>L</b> is a lower triangular matrix with unit
 diagonal elements (lower trapezoidal if m &gt; n), and
@@ -1874,7 +1874,7 @@ LU decomposition is singular), an exception is raised.
 <p>
 The LU factorization is computed
 with the LAPACK function \"dgetrf\",
-i.e., by Gaussian elemination using partial pivoting
+i.e., by Gaussian elimination using partial pivoting
 with row interchanges. Vector \"pivots\" are the
 pivot indices, i.e., for 1 &le; i &le; min(m,n), row i of
 matrix A was interchanged with row pivots[i].
@@ -2201,7 +2201,7 @@ where <b>R</b><sub>1</sub> is a regular, upper triangular matrix.
 </p>
 <p>
 Note, the solution is computed with the LAPACK functions \"dgeqpf\"
-and \"dorgqr\", i.e., by Housholder transformations with
+and \"dorgqr\", i.e., by Householder transformations with
 column pivoting. If <b>Q</b> is not needed, the function may be
 called as: <code>(,R,p) = QR(A)</code>.
 </p>
@@ -2456,7 +2456,7 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
 <h4>Description</h4>
 <p>
 Function <b>cholesky</b> computes the Cholesky factorization of a real symmetric positive definite matrix A.
-The optional Boolean input \"upper\" specifies wether the upper or the lower triangular matrix is returned, i.e.
+The optional Boolean input \"upper\" specifies whether the upper or the lower triangular matrix is returned, i.e.
 </p>
 
 <blockquote><pre>
@@ -2604,7 +2604,7 @@ The Algorithm is taken from
     DLR - Control Systems Group 1991
 </dl>
 <p>
-which based on the <code>balanc</code> function from EISPACK.
+which based on the <code>balance</code> function from EISPACK.
 </p>
 
 </html>", revisions="<html>
@@ -2691,7 +2691,7 @@ as by computing the determinant. Examples:
      to compute whether det(A) = 0 (i.e., Matrices.rank(A) &lt; size(A,1)).</li>
 
 <li> Use <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
-     to solve the linear equation A*x = b, instead of using determinantes to
+     to solve the linear equation A*x = b, instead of using determinants to
      compute the solution.</li>
 </ul>
 
@@ -3087,7 +3087,7 @@ This function calculates an orthonormal basis <b>Z</b>=[<b>z</b>_1, <b>z</b>_2, 
 </p>
 
 <p>
-The nullspace is obtained by svd method. That is, matrix <b>A</b> is decomposed into the matrices <b>S</b>, <b>U</b>, <b>V</b>:
+The nullspace is obtained by SVD method. That is, matrix <b>A</b> is decomposed into the matrices <b>S</b>, <b>U</b>, <b>V</b>:
 </p>
 
 <blockquote><pre>
@@ -3418,7 +3418,7 @@ transformation matrix <i>D</i>. This reduce the effort of following calculations
 Afterwards the result have to be re-balanced by transformation D*A<small>transf</small>
 *inv(D).<br>
 Scaling halfen T&nbsp; k-times, until the norm of A*T is less than 0.5. This
-garantees minumum rounding errors in the following series
+guarantees minimum rounding errors in the following series
 expansion. The re-scaling based on the equation&nbsp; exp(A*2T) = exp(AT)^2.
 The needed re-scaling formula for psi thus becomes:
 </p>
@@ -3441,7 +3441,7 @@ zero-order-hold equivalent:
 The zero-order-hold sampling, also known as step-invariant method, gives
 exact values of the state variables, under the assumption that the control
 signal u is constant between the sampling instants. Zero-order-hold sampling
-is discribed in
+is described in
 </p>
 <dl>
 <dt>K. J. Astroem, B. Wittenmark:
@@ -3718,7 +3718,7 @@ In a nutshell, the problem is reduced to the corresponding problem
 
 <p>
 with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
-are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequently for the 1x1 or 2x2 Schur blocks by exploiting the block triangular form of <b>R</b>.
+are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially for the 1x1 or 2x2 Schur blocks by exploiting the block triangular form of <b>R</b>.
 Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
 The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
 </p>
@@ -3811,7 +3811,7 @@ The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
             S,
             T,
             Chat);
-      assert(info == 0, "Solving of Sylvester equation with Matrices.continuousSylvester was not sucessfull.\n
+      assert(info == 0, "Solving of Sylvester equation with Matrices.continuousSylvester was not successful.\n
                     The value of info is " + String(info) + ", but should be zero. A value unequal to zero means:\n
             < 0: if INFO = -i, the i-th argument had an illegal value\n
             = 1: A and B have common or very close eigenvalues; perturbed
@@ -3855,7 +3855,7 @@ In a nutshell, the problem is reduced to the corresponding problem
 <p>
 with <b>S</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the real Schur of <b>A</b>,  <b>T</b>=<b>V</b>'*<b>T</b>*<b>V</b> is the real Schur form of <b>B</b> and
 <b>D</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
-are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequently by exploiting the block triangular form of <b>S</b> and <b>T</b>.
+are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the block triangular form of <b>S</b> and <b>T</b>.
 Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
 The boolean inputs \"AisSchur\" and \"BisSchur\" indicate to omit one or both of the transformation to Schur in the case that <b>A</b> and/or <b>B</b> have already Schur form.
 </p>
@@ -4052,7 +4052,7 @@ If <b>U</b> is partitioned to
 </pre></blockquote>
 
 <p>
-with dimenstions according to <b>S</b>, the solution <b>X</b> is calculated by
+with dimensions according to <b>S</b>, the solution <b>X</b> is calculated by
 </p>
 
 <blockquote><pre>
@@ -4242,7 +4242,7 @@ In a nutshell, the problem is reduced to the corresponding problem
 
 <p>
 with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
-are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequently by exploiting the block triangular form of <b>R</b>.
+are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the block triangular form of <b>R</b>.
 Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
 The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
 </p>
@@ -4447,9 +4447,9 @@ In a nutshell, the problem is reduced to the corresponding problem
 <p>
 with <b>H</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the Hessenberg form of <b>A</b> and <b>S</b>=<b>V</b>'*<b>B</b>'*<b>V</b> is the real Schur form of <b>B</b>',
 <b>F</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
-are appropriate transformations of <b>C</b> and <b>X</b>. This problem is solved sequently by exploiting the specific forms of <b>S</b> and <b>H</b>.
+are appropriate transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the specific forms of <b>S</b> and <b>H</b>.
 Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
-The boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of the transformation to Hessenberg form or Schur form repectively in the case that <b>A</b> and/or <b>B</b> have already Hessenberg form or Schur respectively.
+The boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of the transformation to Hessenberg form or Schur form respectively in the case that <b>A</b> and/or <b>B</b> have already Hessenberg form or Schur respectively.
 </p>
 
 <h4>References</h4>
@@ -4965,7 +4965,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
     extends Modelica.Icons.Package;
 
     function dgeev
-      "Compute eigenvalues and (right) eigenvectors for real nonsymmetrix matrix A"
+      "Compute eigenvalues and (right) eigenvectors for real nonsymmetric matrix A"
 
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
@@ -5078,7 +5078,7 @@ Lapack documentation
       end dgeev;
 
     function dgeev_eigenValues
-      "Compute eigenvalues for real nonsymmetrix matrix A"
+      "Compute eigenvalues for real nonsymmetric matrix A"
 
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
@@ -7153,7 +7153,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
 
    T must be in Schur canonical form (as returned by DHSEQR), that is,
    block upper triangular with 1-by-1 and 2-by-2 diagonal blocks; each
-   2-by-2 diagonal block has its diagonal elemnts equal and its
+   2-by-2 diagonal block has its diagonal elements equal and its
    off-diagonal elements of opposite sign.
 
    Arguments
@@ -7630,7 +7630,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
       input Real A[:, :] "Upper quais-triangular matrix";
       input Real B[:, :] "Upper quais-triangular matrix";
       input Real C[if tranA then size(A, 1) else size(A, 2), if tranB then size(
-        B, 1) else size(B, 2)] "Right side of the sylvester equation";
+        B, 1) else size(B, 2)] "Right side of the Sylvester equation";
 
       input Boolean tranA=false "True if op(A)=A'";
       input Boolean tranB=false "True if op(B)=B'";
@@ -7839,7 +7839,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
       Integer ihi=n;
       Integer ldh=max(n, 1);
       Integer lwork=3*max(1, size(H, 1))
-        "Dimension of the dwork array usd in dhseqr";
+        "Dimension of the dwork array used in dhseqr";
 
     external"Fortran 77" dhseqr(
               job,
@@ -8056,7 +8056,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       "Estimates the reciprocal of the condition number of a general real matrix A"
       extends Modelica.Icons.Function;
 
-      input Real LU_of_A[:, :] "LU factroization of a real matrix A";
+      input Real LU_of_A[:, :] "LU factorization of a real matrix A";
       input Boolean inf=false
         "Is true if infinity norm is used and false for 1-norm";
       input Real anorm "norm of A";
@@ -9290,7 +9290,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
    JOB.)
 
    If JOB='S', then the pair (A,B) is simultaneously reduced to Schur
-   form by applying one orthogonal tranformation (usually called Q) on
+   form by applying one orthogonal transformation (usually called Q) on
    the left and another (usually called Z) on the right.  The 2-by-2
    upper-triangular diagonal blocks of B corresponding to 2-by-2 blocks
    of A will be reduced to positive diagonal matrices.  (I.e.,
@@ -9324,7 +9324,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
    COMPQ   (input) CHARACTER*1
            = 'N': do not modify Q.
            = 'V': multiply the array Q on the right by the transpose of
-                  the orthogonal tranformation that is applied to the
+                  the orthogonal transformation that is applied to the
                   left side of A and B to reduce them to Schur form.
            = 'I': like COMPQ='V', except that Q will be initialized to
                   the identity first.
@@ -9332,7 +9332,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
    COMPZ   (input) CHARACTER*1
            = 'N': do not modify Z.
            = 'V': multiply the array Z on the right by the orthogonal
-                  tranformation that is applied to the right side of
+                  transformation that is applied to the right side of
                   A and B to reduce them to Schur form.
            = 'I': like COMPZ='V', except that Z will be initialized to
                   the identity first.
@@ -9466,7 +9466,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       end dhgeqz;
 
     function dormhr
-      "overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix as returne by dgehrd"
+      "overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix as returned by dgehrd"
       extends Modelica.Icons.Function;
 
       input Real C[:, :];
@@ -9725,7 +9725,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       "Compute the right and/or left eigenvectors of a real upper quasi-triangular matrix T"
       extends Modelica.Icons.Function;
 
-      input Real T[:, size(T, 1)] "Upper quasie triangular matrix";
+      input Real T[:, size(T, 1)] "Upper quasi triangular matrix";
       input String side="R" "Specify which eigenvectors";
       input String howmny="B" "Specify how many eigenvectors";
       input Real Q[size(T, 1), size(T, 1)]
@@ -10582,7 +10582,7 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
   u=Utilities.householderVector(A[:,1],{1,0,0});
   // u= {0.763, 0.646, 0}
 
-  Ar=householderReflexion(A,u);
+  Ar=householderReflection(A,u);
  // Ar = [-6.0828,   -5.2608,   -4.4388;
  //        0.0,      -1.1508,   -2.3016;
  //        0.0,       2.0,       0.0]
@@ -10640,7 +10640,7 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-This function computes the Housholder similarity transformation
+This function computes the Householder similarity transformation
 </p>
 <blockquote>
  <b>As</b> = <b>S</b>*<b>A</b>*<b>S</b>
@@ -10868,7 +10868,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.Lapack.
         "True if the according system is continuous. False for discrete systems";
 
       output Real To[size(T, 1), size(T, 2)] "Reordered Schur form";
-      output Real Qo[size(T, 1), size(T, 2)] "Reordered Schur vector matirx";
+      output Real Qo[size(T, 1), size(T, 2)] "Reordered Schur vector matrix";
       output Real wr[size(T, 2)] "Reordered eigenvalues, real part";
       output Real wi[size(T, 2)] "Reordered eigenvalues, imaginary part";
 
@@ -10916,7 +10916,7 @@ This function is used for example to solve algebraic Riccati equations
 as well as the corresponding eigenvalues and the transformation matrix <b>Q</b> are known, why the eigenvalues and the transformation matrix are inputs to <b>reorderRSF()</b>.<br>
 
 The Schur vector matrix <b>Qo</b> is also reordered according to <b>To</b>. The vectors <b>wr</b> and <b>wi</b> contains the real and imaginary parts of the
-rordered eigenvalues respectively.
+reordered eigenvalues respectively.
 </p>
 
 <h4>Example</h4>
@@ -11174,17 +11174,17 @@ Note: A' is a short hand notation of transpose(A):
      - returns solution X of the continuous-time Sylvester equation A*X + X*B = C</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">continuousRiccati</a>(A,B,R,Q)
-     - returns solution X of the continuous-time algebraic Riccat equation
+     - returns solution X of the continuous-time algebraic Riccati equation
        A'*X + X*A - X*B*inv(R)*B'*X + Q = 0</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.discreteLyapunov\">discreteLyapunov</a>(A,C)
-     - returns solution X of the discretes-time Lyapunov equation A'*X*A + sgn*X = C</li>
+     - returns solution X of the discrete-time Lyapunov equation A'*X*A + sgn*X = C</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.discreteSylvester\">discreteSylvester</a>(A,B,C)
      - returns solution X of the discrete-time Sylvester equation A*X*B + sgn*X = C</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">discreteRiccati</a>(A,B,R,Q)
-     - returns solution X of the discrete-time algebraic Riccat equation
+     - returns solution X of the discrete-time algebraic Riccati equation
        A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0</li>
 </ul>
 

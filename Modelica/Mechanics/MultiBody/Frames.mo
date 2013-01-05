@@ -259,7 +259,7 @@ with
             v1*v2 = (e*v1)*(e*v2) + (v1*v1 - (e*v1)*(e*v1))*cos(angle)
        and therefore:
         (2) cos(angle) = ( v1*v2 - (e*v1)*(e*v2)) / (v1*v1 - (e*v1)*(e*v1))
-       Similiarly, equation (1) is multiplied with cross(e,v1), i.e., a
+       Similarly, equation (1) is multiplied with cross(e,v1), i.e., a
        a vector that is orthogonal to e and to v1:
               cross(e,v1)*v2 = - cross(e,v1)*cross(e,v1)*sin(angle)
        and therefore:
@@ -1514,7 +1514,7 @@ Rotation can be defined by adapting this package correspondingly.
             v1*v2 = (e*v1)*(e*v2) + (v1*v1 - (e*v1)*(e*v1))*cos(angle)
        and therefore:
         (2) cos(angle) = ( v1*v2 - (e*v1)*(e*v2)) / (v1*v1 - (e*v1)*(e*v1))
-       Similiarly, equation (1) is multiplied with cross(e,v1), i.e., a
+       Similarly, equation (1) is multiplied with cross(e,v1), i.e., a
        a vector that is orthogonal to e and to v1:
               cross(e,v1)*v2 = - cross(e,v1)*cross(e,v1)*sin(angle)
        and therefore:
@@ -2148,7 +2148,7 @@ the first and second derivatives with additional functions.
 Note, from a strict mathematical point of view the derivatives
 will be wrong, since a Dirac impulses would occur in the
 derivatives. For the special cases as used in the MultiBody
-library, this is irrelavant and therefore the usage of the function is correct.
+library, this is irrelevant and therefore the usage of the function is correct.
 </p>
 </html>"));
     end maxWithoutEvent;
