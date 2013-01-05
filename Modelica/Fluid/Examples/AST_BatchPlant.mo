@@ -1207,6 +1207,8 @@ Full steady state initialization is not supported, because the corresponding ini
             2500)
         annotation (Placement(transformation(extent={{-104,-148},{-18,-116}},
               rotation=0)));
+      inner Modelica.StateGraph.StateGraphRoot stateGraphRoot
+        annotation (Placement(transformation(extent={{-180,140},{-160,160}})));
     equation
       LIS_301 = sensors.LIS_301;
       LIS_501 = sensors.LIS_501;
@@ -1342,7 +1344,9 @@ Full steady state initialization is not supported, because the corresponding ini
               points={{-24,10},{0,0},{-24,-10},{-24,10}},
               lineColor={0,0,0},
               fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid)}),
+            Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-200,-160},{200,160}})));
     end Controller;
 
     package ControllerUtilities
@@ -2381,15 +2385,19 @@ control system. A picture of the batch plant is shown in the figure
 below.
 </p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant1.jpg\" border=\"1\"
      alt=\"AST_BatchPlant1.jpg\">
+</p>
 
 <p>
 The flow sheet diagram is shown in the next figure.
 </p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant2.png\" border=\"1\"
      alt=\"AST_BatchPlant2.png\">
+</p>
 
 <p>
 Pure water from tank B1 and concentrated sodium chloride

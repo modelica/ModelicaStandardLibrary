@@ -314,6 +314,8 @@ This example is based on
             active or emptyTanks.active and level2 > minLevel)
         annotation (Placement(transformation(extent={{-40,-103},{80,-83}},
               rotation=0)));
+      inner Modelica.StateGraph.StateGraphRoot stateGraphRoot
+        annotation (Placement(transformation(extent={{-94,74},{-74,94}})));
     equation
 
       connect(s1.outPort[1], T1.inPort)
