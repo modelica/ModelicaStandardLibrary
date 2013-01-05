@@ -6252,7 +6252,7 @@ component).
       parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1}
         "Axes of revolute joints resolved in frame_a (all axes are parallel to each other)"
         annotation (Evaluate=true);
-      final parameter Real n_b[3](each final unit="1",each fixed=false) = {0,0,1}
+      final parameter Real n_b[3](each final unit="1",each fixed=false, start = {0,0,1})
         "Axis of revolute joint fixed and resolved in frame_b"
         annotation (Evaluate=true);
       parameter SI.Position rRod1_ia[3]={1,0,0}
