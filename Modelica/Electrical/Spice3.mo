@@ -13120,7 +13120,7 @@ Sandra  Boehme
     Germany</dd>
 </dl>
 <p><b>Copyright:</b></p>
-<p>Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.</p>
+<p>Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.</p>
 <p><i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified under the terms of the <b>Modelica license</b>, see the license conditions and the accompanying <b>disclaimer</b> in the documentation of package Modelica in file &quot;Modelica/package.mo&quot;.</i></p>
 </html>",
    revisions="<html>

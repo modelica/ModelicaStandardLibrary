@@ -334,7 +334,7 @@ This package contains test examples of analog electrical multiphase circuits.
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1277,7 +1277,7 @@ This package contains basic analog electrical multiphase components.
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -2023,7 +2023,7 @@ like thyristor, diode, switch, transformer.
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -2308,7 +2308,7 @@ This package contains multiphase potential, voltage, and current sensors.
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -2669,7 +2669,7 @@ This package contains time-dependent and controlled multiphase voltage and curre
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -2886,7 +2886,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -2937,7 +2937,7 @@ Further development:
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package

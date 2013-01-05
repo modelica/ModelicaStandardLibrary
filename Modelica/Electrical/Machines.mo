@@ -4217,7 +4217,7 @@ This package contains test examples of electric machines.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -4786,7 +4786,7 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -5838,7 +5838,7 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -6583,7 +6583,7 @@ This package contains models of DC machines:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -6671,7 +6671,7 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -7007,7 +7007,7 @@ This package contains transformers primary Y connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -7291,7 +7291,7 @@ This package contains transformers primary Y connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -7681,7 +7681,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -7983,7 +7983,7 @@ This package contains transformers primary D connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -8239,7 +8239,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -8599,7 +8599,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -8673,7 +8673,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
 </p>
 
 <p>
@@ -9543,7 +9543,7 @@ These models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -9586,7 +9586,7 @@ The induction machine models use package SpacePhasors.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -10198,7 +10198,7 @@ This package contains sensors that are usefull when modelling machines.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -10370,7 +10370,7 @@ a ground has to be used where necessary for currents flowing back.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -10613,7 +10613,7 @@ the first element representing the real part and the second element representing
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -10805,7 +10805,7 @@ the first element representing the real part and the second element representing
   </dd>
 
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -10834,7 +10834,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -11387,7 +11387,7 @@ This package contains loss models used for induction machine models.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -11624,7 +11624,7 @@ This package contains loss models used for DC machine models.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -11649,7 +11649,7 @@ This package contains loss models and their parameter records used for machine m
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -14397,7 +14397,7 @@ This package contains the space phasor connector and partial models for machine 
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -15674,7 +15674,7 @@ This package contains utility components for testing examples.
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -15737,7 +15737,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

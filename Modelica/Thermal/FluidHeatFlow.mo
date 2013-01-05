@@ -1301,7 +1301,7 @@ This package contains utility components used for the test examples.<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 
 <p>
@@ -1344,7 +1344,7 @@ This package contains test examples:
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 
 <p>
@@ -1546,7 +1546,7 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -1650,7 +1650,7 @@ This package contains definitions of medium properties.<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -1816,7 +1816,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2105,7 +2105,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2565,7 +2565,7 @@ This package contains partial models, defining in a very compact way the basic t
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2619,7 +2619,7 @@ This package contains connectors and partial models:
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2699,7 +2699,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

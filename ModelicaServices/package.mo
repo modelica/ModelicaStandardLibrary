@@ -39,7 +39,7 @@ email: Board@Modelica.org<br>
 web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
-Copyright &copy; 1998-2010, DLR, Dassault Syst&egrave;mes AB.
+Copyright &copy; 1998-2013, DLR, Dassault Syst&egrave;mes AB.
 </p>
 
 <p>
@@ -775,7 +775,7 @@ This ModelicaServices package provides only \"dummy\" models that do nothing.
 
 <p>
 <b>Licensed by DLR and Dassault Syst&egrave;mes AB under the Modelica License 2</b><br>
-Copyright &copy; 2009-2010, DLR and Dassault Syst&egrave;mes AB.
+Copyright &copy; 2009-2013, DLR and Dassault Syst&egrave;mes AB.
 </p>
 
 <p>

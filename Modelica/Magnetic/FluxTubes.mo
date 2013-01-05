@@ -4425,7 +4425,7 @@ This library contains components for modelling of electromagnetic devices with l
 </p>
 
 <p>
-Copyright &copy; 2005-2010, Modelica Association and Thomas B&ouml;drich.
+Copyright &copy; 2005-2013, Modelica Association and Thomas B&ouml;drich.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
