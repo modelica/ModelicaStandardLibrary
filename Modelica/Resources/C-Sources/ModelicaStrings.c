@@ -2,6 +2,9 @@
    Modelica.Functions.Strings.
 
    Release Notes:
+      Jan.  5, 2013: by Martin Otter, DLR.
+                     Removed "static" declarations from the Modelica interface functions.
+
       Sep. 24, 2004: by Martin Otter.
                      Final cleaning up of the code
 
@@ -31,7 +34,7 @@
 #include "ModelicaUtilities.h"
 
 
-static const char* ModelicaStrings_substring(const char* string, int startIndex, int endIndex) {
+const char* ModelicaStrings_substring(const char* string, int startIndex, int endIndex) {
 
   /* Return string1(startIndex:endIndex) if endIndex >= startIndex,
      or return string1(startIndex:startIndex), if endIndex = 0.
@@ -68,14 +71,14 @@ static const char* ModelicaStrings_substring(const char* string, int startIndex,
 };
 
 
-static int ModelicaStrings_length(const char* string)
+int ModelicaStrings_length(const char* string)
 /* Returns the number of characters "string" */
 {
      return strlen(string);
 }
 
 
-static int ModelicaStrings_compare(const char* string1, const char* string2, int caseSensitive)
+int ModelicaStrings_compare(const char* string1, const char* string2, int caseSensitive)
 /* compares two strings, optionally ignoring case */
 {
     int result;
@@ -104,7 +107,7 @@ static int ModelicaStrings_compare(const char* string1, const char* string2, int
 
 #define MAX_TOKEN_SIZE 100
 
-static int ModelicaStrings_skipWhiteSpace(const char* string, int i)
+int ModelicaStrings_skipWhiteSpace(const char* string, int i)
 /* Return index in string after skipping ws, or position of terminating nul. */
 {
     while (string[i-1] != '\0' && isspace(string[i-1]))
@@ -175,7 +178,7 @@ static int MatchUnsignedInteger(const char* string, int start)
 /* --------------- end of utility functions used in scanXXX functions ----------- */
 
 
-static void ModelicaStrings_scanIdentifier(const char* string, int startIndex, int* nextIndex, const char** identifier)
+void ModelicaStrings_scanIdentifier(const char* string, int startIndex, int* nextIndex, const char** identifier)
 {
     int token_length=0;
 
@@ -209,8 +212,8 @@ static void ModelicaStrings_scanIdentifier(const char* string, int startIndex, i
     return;
 }
 
-static void ModelicaStrings_scanInteger(const char* string, int startIndex, int unsignedNumber,
-                                        int* nextIndex, int* integerNumber)
+void ModelicaStrings_scanInteger(const char* string, int startIndex, int unsignedNumber,
+                                 int* nextIndex, int* integerNumber)
 {
     int number_length=0;
     int sign = 0;
@@ -258,8 +261,8 @@ static void ModelicaStrings_scanInteger(const char* string, int startIndex, int 
      return;
 }
 
-static void ModelicaStrings_scanReal(const char* string, int startIndex, int unsignedNumber,
-                                     int* nextIndex, double* number)
+void ModelicaStrings_scanReal(const char* string, int startIndex, int unsignedNumber,
+                              int* nextIndex, double* number)
 {
     /*
     Grammar of real number:
@@ -343,8 +346,8 @@ error:
 }
 
 
-static void ModelicaStrings_scanString(const char* string, int startIndex,
-                                       int* nextIndex, const char** result)
+void ModelicaStrings_scanString(const char* string, int startIndex,
+                                int* nextIndex, const char** result)
 {
     int i, token_start, past_token, token_length;
 
