@@ -827,9 +827,9 @@ to compute u by an algebraic equation.
 
   block LimPID
     "P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting"
-    import .Modelica.Blocks.Types.InitPID;
-    import .Modelica.Blocks.Types.Init;
-    import .Modelica.Blocks.Types.SimpleController;
+    import Modelica.Blocks.Types.InitPID;
+    import Modelica.Blocks.Types.Init;
+    import Modelica.Blocks.Types.SimpleController;
     extends Interfaces.SVcontrol;
     output Real controlError = u_s - u_m
       "Control error (set point - measurement)";
