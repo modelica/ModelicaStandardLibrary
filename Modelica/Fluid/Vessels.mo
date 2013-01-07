@@ -208,7 +208,10 @@ end OpenTank;
         portsData if   use_portsData "Data of inlet/outlet ports"
           annotation(Dialog(tab="General",group="Ports",enable= use_portsData));
 
-        parameter SI.MassFlowRate m_flow_small(min=0) = system.m_flow_small
+        parameter Medium.MassFlowRate m_flow_nominal = system.m_flow_nominal
+        "Nominal value for mass flow rates in ports"
+          annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
+        parameter SI.MassFlowRate m_flow_small(min=0) = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal
         "Regularization range at zero mass flow rate"
           annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
       /*

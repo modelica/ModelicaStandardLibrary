@@ -312,16 +312,29 @@ partial model PartialTwoPortTransport
     final port_a_exposesState=false,
     final port_b_exposesState=false);
 
+  // Nominal
+  parameter SI.Pressure dp_nominal
+      "Nominal pressure drop dp = port_b.p - port_a.p"
+    annotation(Dialog(group="Nominal operating point"));
+  parameter Medium.MassFlowRate m_flow_nominal
+      "Nominal value of m_flow = port_a.m_flow"
+    annotation(Dialog(group = "Nominal operating point"));
   // Advanced
-  parameter Medium.AbsolutePressure dp_start = 0.01*system.p_start
+  parameter Boolean from_dp = true
+      "= true, use m_flow = f(dp) else dp = f(m_flow)"
+    annotation (Evaluate=true, Dialog(tab="Advanced"));
+  parameter Medium.AbsolutePressure dp_start = dp_nominal
       "Guess value of dp = port_a.p - port_b.p"
-    annotation(Dialog(tab = "Advanced"));
+    annotation(Dialog(tab = "Advanced", enable=from_dp));
+  parameter Medium.AbsolutePressure dp_small = if system.use_small then system.dp_small else system.eps_dp*dp_nominal
+      "Small pressure loss for regularization of zero flow"
+    annotation(Dialog(tab="Advanced", enable=from_dp));
   parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
       "Guess value of m_flow = port_a.m_flow"
-    annotation(Dialog(tab = "Advanced"));
-  parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
+    annotation(Dialog(tab = "Advanced", enable=not from_dp));
+  parameter Medium.MassFlowRate m_flow_small = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal
       "Small mass flow rate for regularization of zero flow"
-    annotation(Dialog(tab = "Advanced"));
+    annotation(Dialog(tab = "Advanced", enable=not from_dp));
 
   // Diagnostics
   parameter Boolean show_T = true

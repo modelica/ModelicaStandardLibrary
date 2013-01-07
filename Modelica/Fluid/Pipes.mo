@@ -2076,10 +2076,10 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
             parameter Boolean from_dp = momentumDynamics >= Types.Dynamics.SteadyStateInitial
           " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
               annotation (Evaluate=true);
-            parameter SI.AbsolutePressure dp_small = system.dp_small
+            parameter SI.AbsolutePressure dp_small = if system.use_small then system.dp_small else system.eps_dp*dp_nominal
           "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
               annotation(Dialog(enable=from_dp and WallFriction.use_dp_small));
-            parameter SI.MassFlowRate m_flow_small = system.m_flow_small
+            parameter SI.MassFlowRate m_flow_small = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal
           "Within regularization if |m_flows| < m_flow_small (may be wider for large discontinuities in static head)"
               annotation(Dialog(enable=not from_dp and WallFriction.use_m_flow_small));
 
@@ -2305,8 +2305,8 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
               Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent,
           use_mu_nominal=not show_Res,
           pathLengths_internal=pathLengths,
-          dp_nominal=1e3*dp_small,
-          m_flow_nominal=1e2*m_flow_small);
+          dp_nominal=system.dp_nominal,
+          m_flow_nominal=system.m_flow_nominal);
 
             annotation (Documentation(info="<html>
 <p>
@@ -2327,8 +2327,8 @@ The turbulent pressure loss correlation might be useful to optimize models that 
           redeclare package WallFriction =
               Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
           pathLengths_internal=pathLengths,
-          dp_nominal=1e3*dp_small,
-          m_flow_nominal=1e2*m_flow_small);
+          dp_nominal=system.dp_nominal,
+          m_flow_nominal=system.m_flow_nominal);
 
               annotation (Documentation(info="<html>
 <p>
@@ -4240,7 +4240,7 @@ b has the same sign of the change of density.</p>
 
       model TestWallFrictionAndGravity
         "Pressure loss in pipe due to wall friction and gravity (only for test purposes; if needed use Pipes.StaticPipe instead)"
-        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(dp_nominal=system.dp_nominal, m_flow_nominal=system.m_flow_nominal);
 
         replaceable package WallFriction =
           Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent
@@ -4271,12 +4271,12 @@ b has the same sign of the change of density.</p>
         parameter Boolean show_Re = false
           "= true, if Reynolds number is included for plotting"
            annotation (Evaluate=true, Dialog(tab="Advanced"));
-        parameter Boolean from_dp=true
-          " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
-          annotation (Evaluate=true, Dialog(tab="Advanced"));
-        parameter SI.AbsolutePressure dp_small = system.dp_small
-          "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
-          annotation(Dialog(tab="Advanced", enable=from_dp and WallFriction.use_dp_small));
+        //parameter Boolean from_dp=true
+        //  " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
+        //  annotation (Evaluate=true, Dialog(tab="Advanced"));
+        //parameter SI.AbsolutePressure dp_small = system.dp_small
+        //  "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
+        //  annotation(Dialog(tab="Advanced", enable=from_dp and WallFriction.use_dp_small));
         SI.ReynoldsNumber Re = Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
                                                                m_flow, noEvent(if m_flow>0 then mu_a else mu_b), diameter) if
              show_Re "Reynolds number of pipe flow";

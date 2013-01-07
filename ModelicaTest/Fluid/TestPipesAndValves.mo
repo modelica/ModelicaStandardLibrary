@@ -1552,7 +1552,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
       redeclare package Medium = Medium,
       dp_nominal=400000,
       filteredOpening=true,
-      leakageOpening=0.001)           annotation (Placement(transformation(
+      riseTime=0.1)                   annotation (Placement(transformation(
             extent={{52,-10},{72,10}}, rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,
       redeclare package Medium = Medium,
@@ -1626,7 +1626,7 @@ Simulation starts with the valve open. At t=1, the valve is closed.
   model SeriesPipes12
     extends SeriesPipes1(
       system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial));
-    annotation (Documentation(info="<html>
+    annotation (experiment(StopTime=5), Documentation(info="<html>
 Same as SeriesPipes1, but with steady-state initial conditions. Equal start attributes
 for pressures.
 </html>"));
@@ -1635,8 +1635,9 @@ for pressures.
   model SeriesPipes13
     extends SeriesPipes1(
       pipe2(p_a_start=495000, p_b_start=495000),
-      pipe3(p_a_start=490000, p_b_start=490000));
-    annotation (Documentation(info="<html>
+      pipe3(p_a_start=490000, p_b_start=490000),
+      system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial));
+    annotation (experiment(StopTime=5), Documentation(info="<html>
 Same as SeriesPipes1, but with steady-state initial conditions. Start attributes for
 pressure in order to get positive flow rates.
 </html>"));

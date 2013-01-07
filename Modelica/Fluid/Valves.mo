@@ -261,10 +261,10 @@ explained in detail in the
 
   model ValveLinear "Valve for water/steam flows with linear pressure drop"
     extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
-    parameter SI.AbsolutePressure dp_nominal
-      "Nominal pressure drop at full opening";
-    parameter Medium.MassFlowRate m_flow_nominal
-      "Nominal mass flowrate at full opening";
+    //parameter SI.AbsolutePressure dp_nominal
+    //  "Nominal pressure drop at full opening";
+    //parameter Medium.MassFlowRate m_flow_nominal
+    //  "Nominal mass flowrate at full opening";
     final parameter Types.HydraulicConductance k = m_flow_nominal/dp_nominal
       "Hydraulic conductance at full opening";
     Modelica.Blocks.Interfaces.RealInput opening(min=0,max=1)
@@ -325,9 +325,9 @@ a simple model of a variable pressure loss is needed.</p>
 
   model ValveDiscrete "Valve for water/steam flows with linear pressure drop"
     extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
-    parameter SI.Pressure dp_nominal "Nominal pressure drop at full opening=1";
-    parameter Medium.MassFlowRate m_flow_nominal
-      "Nominal mass flowrate at full opening=1";
+    //parameter SI.Pressure dp_nominal "Nominal pressure drop at full opening=1"
+    //parameter Medium.MassFlowRate m_flow_nominal
+    //  "Nominal mass flowrate at full opening=1";
     final parameter Types.HydraulicConductance k = m_flow_nominal/dp_nominal
       "Hydraulic conductance at full opening=1";
     Modelica.Blocks.Interfaces.BooleanInput open
@@ -387,9 +387,10 @@ it is open.
 
       import Modelica.Fluid.Types.CvTypes;
       extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
+        final from_dp = true,
+        final m_flow_small = system.eps_m_flow*m_flow_nominal,
         dp_start = dp_nominal,
-        m_flow_start = m_flow_nominal,
-        m_flow_small = system.m_flow_small);
+        final m_flow_start = m_flow_nominal);
 
       parameter Modelica.Fluid.Types.CvTypes CvData=Modelica.Fluid.Types.CvTypes.OpPoint
         "Selection of flow coefficient"
@@ -406,10 +407,10 @@ it is open.
       parameter Real Cv = 0 "Cv (US) flow coefficient [USG/min]"
       annotation(Dialog(group = "Flow Coefficient",
                         enable = (CvData==Modelica.Fluid.Types.CvTypes.Cv)));
-      parameter SI.Pressure dp_nominal "Nominal pressure drop"
-      annotation(Dialog(group="Nominal operating point"));
-      parameter Medium.MassFlowRate m_flow_nominal "Nominal mass flowrate"
-      annotation(Dialog(group="Nominal operating point"));
+      //parameter SI.Pressure dp_nominal "Nominal pressure drop"
+      //annotation(Dialog(group="Nominal operating point"));
+      //parameter Medium.MassFlowRate m_flow_nominal "Nominal mass flowrate"
+      //annotation(Dialog(group="Nominal operating point"));
       parameter Medium.Density rho_nominal=Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
         "Nominal inlet density"
       annotation(Dialog(group="Nominal operating point",
@@ -437,8 +438,8 @@ it is open.
         "Inherent flow characteristic"
         annotation(choicesAllMatching=true);
 
-      parameter SI.Pressure dp_small=system.dp_small
-        "Regularisation of zero flow"                 annotation(Dialog(tab="Advanced"));
+      //parameter SI.Pressure dp_small=system.dp_small "Regularisation of zero flow"
+      //                                                annotation(Dialog(tab="Advanced"));
 
       constant SI.Area Kv2Av = 27.7e-6 "Conversion factor";
       constant SI.Area Cv2Av = 24.0e-6 "Conversion factor";

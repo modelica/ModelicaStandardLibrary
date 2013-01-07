@@ -5,14 +5,18 @@ package Fittings
     extends Modelica.Icons.VariantsPackage;
     model CurvedBend "Curved bend flow model"
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
-      extends Modelica.Fluid.Interfaces.PartialPressureLoss;
+      extends Modelica.Fluid.Interfaces.PartialPressureLoss(
+        final dp_nominal=system.dp_nominal,
+        final m_flow_nominal=system.m_flow_nominal,
+        final from_dp=true,
+        final dp_small=dp_small_calculated);
 
       parameter Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.Geometry geometry
         "Geometry of curved bend"
           annotation (Placement(transformation(extent={{-20,0},{0,20}})));
 
     protected
-      parameter Medium.AbsolutePressure dp_small=
+      parameter Medium.AbsolutePressure dp_small_calculated=
                  Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP(
                     geometry,
                     Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var(
@@ -48,14 +52,18 @@ The details of the model are described in the
 
     model EdgedBend "Edged bend flow model"
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
-      extends Modelica.Fluid.Interfaces.PartialPressureLoss;
+      extends Modelica.Fluid.Interfaces.PartialPressureLoss(
+        final dp_nominal=system.dp_nominal,
+        final m_flow_nominal=system.m_flow_nominal,
+        final from_dp=true,
+        final dp_small=dp_small_calculated);
 
       parameter Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry geometry
         "Geometry of curved bend"
           annotation (Placement(transformation(extent={{-20,0},{0,20}})));
 
     protected
-      parameter Medium.AbsolutePressure dp_small=
+      parameter Medium.AbsolutePressure dp_small_calculated=
                  Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP(
                    Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_con(
                        d_hyd=geometry.d_hyd,
@@ -102,7 +110,11 @@ The details of the model are described in the
 
     model ThickEdgedOrifice "Thicked edged orifice flow model"
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Orifice_i;
-      extends Modelica.Fluid.Interfaces.PartialPressureLoss;
+      extends Modelica.Fluid.Interfaces.PartialPressureLoss(
+        final dp_nominal=system.dp_nominal,
+        final m_flow_nominal=system.m_flow_nominal,
+        final from_dp=true,
+        final dp_small=dp_small_calculated);
 
       parameter
         Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry
@@ -115,7 +127,7 @@ The details of the model are described in the
           choice=Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Choices.general()));
 
     protected
-      parameter Medium.AbsolutePressure dp_small=
+      parameter Medium.AbsolutePressure dp_small_calculated=
                  Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP(
                  Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con(
                        A_0=geometry.venaCrossArea,
@@ -170,7 +182,11 @@ The details of the model are described in the
       "Flow model for generic resistance parameterized with the volume flow rate"
 
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.General_i;
-      extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+      extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
+        final dp_nominal=system.dp_nominal,
+        final m_flow_nominal=system.m_flow_nominal,
+        final from_dp=true,
+        final dp_small=dp_small_calculated);
 
       parameter Real a(unit="(Pa.s2)/m6") "Coefficient for quadratic term"
         annotation(Dialog(group="dp = a*V_flow^2 + b*V_flow"));
@@ -183,7 +199,7 @@ The details of the model are described in the
                            Medium.reference_T,
                            Medium.reference_X)
         "Medium state to compute dp_small"                                        annotation(HideResult=true);
-      parameter Medium.AbsolutePressure dp_small=
+      parameter Medium.AbsolutePressure dp_small_calculated=
                  Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                    Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con(
                        a=a,
@@ -278,6 +294,7 @@ model SimpleGenericOrifice
     "Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)"
 
   extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
+    dp_nominal = system.dp_nominal, m_flow_nominal = system.m_flow_nominal,
      m_flow(stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default
                           else StateSelect.prefer));
 
@@ -292,15 +309,15 @@ model SimpleGenericOrifice
       "= false to obtain zeta from dp_nominal and m_flow_nominal";
 
   // Operational conditions
-  parameter SI.Pressure dp_nominal = 1e3 "Nominal pressure drop";
-  parameter SI.MassFlowRate m_flow_nominal = 1 "Mass flow rate for dp_nominal";
+  //parameter SI.Pressure dp_nominal(start = 1e3) "Nominal pressure drop";
+  //parameter SI.MassFlowRate m_flow_nominal = 1 "Mass flow rate for dp_nominal";
 
-  parameter Boolean from_dp = true
-      "= true, use m_flow = f(dp) else dp = f(m_flow)"
-    annotation (Evaluate=true, Dialog(tab="Advanced"));
-  parameter Medium.AbsolutePressure dp_small = system.dp_small
-      "Turbulent flow if |dp| >= dp_small"
-    annotation(Dialog(tab="Advanced", enable=from_dp));
+  //parameter Boolean from_dp = true
+  //  "= true, use m_flow = f(dp) else dp = f(m_flow)"
+  //  annotation (Evaluate=true, Dialog(tab="Advanced"));
+  //parameter Medium.AbsolutePressure dp_small = if system.use_small then system.dp_small else dp_nominal*system.eps_dp
+  //  "Turbulent flow if |dp| >= dp_small"
+  //  annotation(Dialog(tab="Advanced", enable=from_dp));
 
   // Variables
   Real zeta_nominal(start = zeta);
@@ -1563,6 +1580,7 @@ The used sufficient criteria for monotonicity follows from:
         "Generic pressure drop component with constant turbulent loss factor data and without an icon"
 
         extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
+          dp_nominal = system.dp_nominal, m_flow_nominal = system.m_flow_nominal,
           m_flow(stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default
                                else StateSelect.prefer));
         extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
@@ -1570,24 +1588,24 @@ The used sufficient criteria for monotonicity follows from:
           final momentumDynamics = Types.Dynamics.SteadyState);
 
         parameter LossFactorData data "Loss factor data";
-        parameter Modelica.SIunits.MassFlowRate m_flow_nominal(start = 1)
-          "Nominal mass flow rate for simplified initial model";
-        parameter Modelica.SIunits.Pressure dp_nominal(start = 1000)
-          "Nominal pressure loss for simplified initial model";
+        //parameter Modelica.SIunits.MassFlowRate m_flow_nominal(start = 1)
+        //  "Nominal mass flow rate for simplified initial model";
+        //parameter Modelica.SIunits.Pressure dp_nominal(start = 1000)
+        //  "Nominal pressure loss for simplified initial model";
 
         // Advanced
-        parameter Boolean from_dp = true
-          "= true, use m_flow = f(dp) else dp = f(m_flow)"
-          annotation (Evaluate=true, Dialog(tab="Advanced"));
+        //parameter Boolean from_dp = true
+        //  "= true, use m_flow = f(dp) else dp = f(m_flow)"
+        //  annotation (Evaluate=true, Dialog(tab="Advanced"));
         parameter Boolean use_Re = false
           "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
           annotation(Evaluate=true, Dialog(tab="Advanced"));
-        parameter Medium.AbsolutePressure dp_small = system.dp_small
-          "Turbulent flow if |dp| >= dp_small"
-          annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
-        parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
-          "Turbulent flow if |m_flow| >= m_flow_small"
-          annotation(Dialog(tab = "Advanced", enable=not from_dp));
+        //parameter Medium.AbsolutePressure dp_small = system.dp_small
+        //  "Turbulent flow if |dp| >= dp_small"
+        //  annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
+        //parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
+        //  "Turbulent flow if |m_flow| >= m_flow_small"
+        //  annotation(Dialog(tab = "Advanced", enable=not from_dp));
 
         // Diagnostics
         parameter Boolean show_Re = false
@@ -1781,6 +1799,11 @@ The used sufficient criteria for monotonicity follows from:
         "Generic pressure drop component with constant turbulent loss factor data and without an icon, for non-constant cross section area"
 
         extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
+          dp_nominal = system.dp_nominal,
+          m_flow_nominal = system.m_flow_nominal,
+          final from_dp = false,
+          final dp_start = dp_nominal,
+          final dp_small = if system.use_small then system.dp_small else system.eps_dp*dp_nominal,
           m_flow(stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default
                                else StateSelect.prefer));
         extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
@@ -1788,22 +1811,24 @@ The used sufficient criteria for monotonicity follows from:
           final momentumDynamics = Types.Dynamics.SteadyState);
 
         parameter LossFactorData data "Loss factor data";
+        //parameter Modelica.SIunits.Pressure dp_nominal(start = 1000)
+        //  "Nominal pressure loss for simplified initial model";
 
         // Advanced
         /// Other settings than the final values are not yet implemented ///
-        final parameter Boolean from_dp = false
-          "= true, use m_flow = f(dp) else dp = f(m_flow)"
-          annotation (Evaluate=true, Dialog(tab="Advanced"));
+        //final parameter Boolean from_dp = false
+        //  "= true, use m_flow = f(dp) else dp = f(m_flow)"
+        //  annotation (Evaluate=true, Dialog(tab="Advanced"));
         final parameter Boolean use_Re = false
           "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
           annotation(Evaluate=true, Dialog(tab="Advanced"));
         // End not yet implemented /////////////////////////////////////////
-        parameter Medium.AbsolutePressure dp_small = system.dp_small
-          "Turbulent flow if |dp| >= dp_small"
-          annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
-        parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
-          "Turbulent flow if |m_flow| >= m_flow_small"
-          annotation(Dialog(tab = "Advanced", enable=not from_dp));
+        //parameter Medium.AbsolutePressure dp_small = system.dp_small
+        //  "Turbulent flow if |dp| >= dp_small"
+        //  annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
+        //parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
+        //  "Turbulent flow if |m_flow| >= m_flow_small"
+        //  annotation(Dialog(tab = "Advanced", enable=not from_dp));
 
         // Diagnostics
         parameter Boolean show_Re = false
