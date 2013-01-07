@@ -4440,7 +4440,7 @@ Copyright &copy; 2005-2013, Modelica Association and Thomas B&ouml;drich.
 <tbody>
 <tr><td>1.5</td>  <td>2013-01-04</td>
     <td>Martin&nbsp;Otter<br>Thomas&nbsp;B&ouml;drich<br>Johannes&nbsp;Ziske</td> <td>Added missing initial conditions<br>
-	Fixed initial parameter values</td> </tr>
+        Fixed initial parameter values</td> </tr>
 <tr><td>1.4</td>  <td>2011-08-01</td>
     <td>Thomas&nbsp;B&ouml;drich</td> <td>MagneticPort declared with MagneticPotential instead of MagneticPotentialDifference</td> </tr>
 <tr><td>1.3</td>  <td>2010-04-22</td>
