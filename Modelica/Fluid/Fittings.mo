@@ -919,7 +919,7 @@ As a short summary:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td><b>Smooth pipes</b></td>
-      <td>Drawn brass, copper, aluminum, glass, etc.</td>
+      <td>Drawn brass, copper, aluminium, glass, etc.</td>
       <td><font face=\"Symbol\">d</font> = 0.0025 mm</td>
   </tr>
   <tr><td rowspan=\"3\"><b>Steel pipes</b></td>

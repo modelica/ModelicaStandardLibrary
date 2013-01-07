@@ -404,7 +404,7 @@ compute C:
 <pre>
    C = cp*m.
    Typical values for cp at 20 degC in J/(kg.K):
-      aluminum   896
+      aluminium   896
       concrete    840
       copper      383
       iron        452
@@ -502,7 +502,7 @@ e.g., with one of the following equations:
 </ul>
 <pre>
     Typical values for k at 20 degC in W/(m.K):
-      aluminum   220
+      aluminium   220
       concrete      1
       copper      384
       iron         74
@@ -898,7 +898,7 @@ Epsilon=0, if the body reflects all radiation and does not absorb any.
 </p>
 <pre>
    Typical values for epsilon:
-   aluminum, polished    0.04
+   aluminium, polished    0.04
    copper, polished       0.04
    gold, polished         0.02
    paper                  0.09

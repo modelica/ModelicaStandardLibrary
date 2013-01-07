@@ -26,7 +26,7 @@ As a short summary:
       <td align=\"center\">Roughness</td></tr>
 
   <tr><td><b>Smooth pipes</b></td>
-      <td>Drawn brass, copper, aluminum, glass, etc.</td>
+      <td>Drawn brass, copper, aluminium, glass, etc.</td>
       <td> 0.0025 mm</td>
   </tr>
   <tr><td rowspan=\"3\"><b>Steel pipes</b></td>

@@ -1262,7 +1262,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 <tr><td>Main  field    reactance at 50 Hz </td><td> 66.40     </td><td>&Omega;</td></tr>
 <tr><td>Rotor  leakage reactance at 50 Hz </td><td>  2.31     </td><td>&Omega;</td></tr>
 <tr><td>Rotor  resistance per phase       </td><td>  0.42     </td><td>&Omega;</td></tr>
-<tr><td>Temperature coefficient           </td><td> aluminum </td><td>       </td></tr>
+<tr><td>Temperature coefficient           </td><td> aluminium </td><td>       </td></tr>
 <tr><td>Reference temperature             </td><td> 20        </td><td>&deg;C </td></tr>
 <tr><td>Operation temperature             </td><td> 90        </td><td>&deg;C </td></tr>
 </table>
@@ -11672,7 +11672,7 @@ This package contains loss models and their parameter records used for machine m
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero
           "Not temperature dependent",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium
-          "Aluminum",
+          "Aluminium",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Brass "Brass",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Bronze "Bronze",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper "Copper"));
@@ -11681,8 +11681,8 @@ This package contains loss models and their parameter records used for machine m
 
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Zero=0
         "Not temperature dependent";
-      constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Aluminum=4.000e-3
-        "Aluminum";
+      constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Aluminium=4.000e-3
+        "Aluminium";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Brass =    1.100e-3 "Brass";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Bronze =  0.800e-3 "Bronze";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Copper =  3.920e-3 "Copper";

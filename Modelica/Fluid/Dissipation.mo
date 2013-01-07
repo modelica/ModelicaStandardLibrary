@@ -6559,7 +6559,7 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
     <dd><b>A generalized heat transfer correlation for louver fin geometry</b>.
     In International Journal of Heat and Mass Transfer, volume 40, No. 3,  pages 533-544, 1997.</dd>
  <dt>Y.-J. CHANG and C.-C. WANG:</dt>
-    <dd><b>Air Side Performance of Brazed Aluminum Heat Exchangers</b>.
+    <dd><b>Air Side Performance of Brazed Aluminium Heat Exchangers</b>.
     In Journal of Enhanced Heat Transfer, volume 3, No. 1,  pages 15-28, 1996.</dd>
  <dt>R.-M. Manglik, A.-E. Bergles:</dt>
     <dd><b>Heat Transfer and Pressure Drop Correlations for the Rectangular Offset Strip Fin Compact Heat Exchanger</b>.
