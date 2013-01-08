@@ -313,10 +313,11 @@ partial model PartialTwoPortTransport
     final port_b_exposesState=false);
 
   // Nominal
-  parameter SI.Pressure dp_nominal
+  // Provide start values so that old models still run -- shall be removed in a later release
+  parameter SI.Pressure dp_nominal(start = system.dp_nominal)
       "Nominal pressure drop dp = port_b.p - port_a.p"
     annotation(Dialog(group="Nominal operating point"));
-  parameter Medium.MassFlowRate m_flow_nominal
+  parameter Medium.MassFlowRate m_flow_nominal(start = system.m_flow_nominal)
       "Nominal value of m_flow = port_a.m_flow"
     annotation(Dialog(group = "Nominal operating point"));
   // Advanced

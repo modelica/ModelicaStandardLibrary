@@ -618,7 +618,8 @@ provided a two-phase medium model is used.
           "Coefficients of linear head curve";
     algorithm
       assert(c[2] <= -Modelica.Constants.small,
-             "Wrong pump curve -- head_nominal must be monotonically decreasing with increasing V_flow_nominal");
+             "Wrong pump curve -- head_nominal must be monotonically decreasing with increasing V_flow_nominal",
+             level=AssertionLevel.warning);
       // Flow equation: head = q*c[1] + c[2];
       head := c[1] + V_flow*c[2];
     end linearFlow;
@@ -644,7 +645,8 @@ provided a two-phase medium model is used.
       SI.VolumeFlowRate V_flow_max = max(V_flow_nominal);
     algorithm
       assert(max(c[2].+2*c[3]*V_flow_nominal) <= -Modelica.Constants.small,
-             "Wrong pump curve -- head_nominal must be monotonically decreasing with increasing V_flow_nominal");
+             "Wrong pump curve -- head_nominal must be monotonically decreasing with increasing V_flow_nominal",
+             level=AssertionLevel.warning);
       if V_flow < V_flow_min then
         head := max(head_nominal) + (V_flow-V_flow_min)*(c[2]+2*c[3]*V_flow_min);
       elseif V_flow > V_flow_max then
@@ -687,7 +689,8 @@ provided a two-phase medium model is used.
       Real poly;
     algorithm
       assert(max_dhdV <= -Modelica.Constants.small,
-             "Wrong pump curve -- head_nominal must be monotonically decreasing with increasing V_flow_nominal");
+             "Wrong pump curve -- head_nominal must be monotonically decreasing with increasing V_flow_nominal",
+             level=AssertionLevel.warning);
       if V_flow < V_flow_min then
         //head := max(head_nominal) + (V_flow-V_flow_min)*(c[2]+sum((i-1)*V_flow_min^(i-2)*c[i] for i in 3:N));
         poly := c[N]*(N-1);
@@ -767,7 +770,6 @@ provided a two-phase medium model is used.
     end quadraticPower;
 
   end PumpCharacteristics;
-
 
     package PumpMonitoring "Monitoring of pump operation"
       extends Modelica.Icons.Package;

@@ -388,9 +388,9 @@ it is open.
       import Modelica.Fluid.Types.CvTypes;
       extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
         final from_dp = true,
-        final m_flow_small = system.eps_m_flow*m_flow_nominal,
         dp_start = dp_nominal,
-        final m_flow_start = m_flow_nominal);
+        m_flow_small = system.eps_m_flow*m_flow_nominal,
+        m_flow_start = m_flow_nominal);
 
       parameter Modelica.Fluid.Types.CvTypes CvData=Modelica.Fluid.Types.CvTypes.OpPoint
         "Selection of flow coefficient"
