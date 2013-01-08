@@ -852,7 +852,10 @@ through the sensor is allowed.
       "Partial component to model sensors that measure flow properties"
       extends Modelica.Fluid.Interfaces.PartialTwoPort;
 
-      parameter Medium.MassFlowRate m_flow_small(min=0) = system.m_flow_small
+      parameter Medium.MassFlowRate m_flow_nominal = system.m_flow_nominal
+        "Nominal value of m_flow = port_a.m_flow"
+        annotation(Dialog(tab = "Advanced"));
+      parameter Medium.MassFlowRate m_flow_small(min=0) = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal
         "Regularization for bi-directional flow in the region |m_flow| < m_flow_small (m_flow_small > 0 required)"
         annotation(Dialog(tab="Advanced"));
 
