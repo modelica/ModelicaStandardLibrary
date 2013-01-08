@@ -224,7 +224,8 @@ package AST_BatchPlant
       m_flow_start=0.1,
       N_nominal=200,
       use_N_in=true,
-      show_NPSHa=true,
+      redeclare model Monitoring =
+          Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringNPSH,
       V(displayUnit="ml") = 0.0001,
       energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
@@ -240,7 +241,8 @@ package AST_BatchPlant
       m_flow_start=0.1,
       N_nominal=200,
       use_N_in=true,
-      show_NPSHa=true,
+      redeclare model Monitoring =
+          Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringNPSH,
       V(displayUnit="ml") = 0.0001,
       energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
@@ -659,8 +661,8 @@ package AST_BatchPlant
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\"
      alt=\"BatchPlant_StandardWater.png\">
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-200,-280},{
-              200,280}}), graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-200,-280},{200,
+              280}}),     graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-200,-280},{200,
               280}})));
   end BatchPlant_StandardWater;

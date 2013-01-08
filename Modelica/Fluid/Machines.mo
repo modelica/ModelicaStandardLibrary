@@ -407,22 +407,35 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
         "Curvilinear abscissa for the flow curve in parametric form (either mass flow rate or head)";
 
     // Diagnostics
-    parameter Boolean show_NPSHa = false
-        "= true to compute Net Positive Suction Head available"
-      annotation(Dialog(tab="Advanced", group="Diagnostics"));
-    Medium.ThermodynamicState state_a=
-      Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)) if
-         show_NPSHa "state for medium inflowing through port_a";
-    Medium.Density rho_in = Medium.density(state_a) if show_NPSHa
-        "Liquid density at the inlet port_a";
-    SI.Length NPSHa=NPSPa/(rho_in*system.g) if show_NPSHa
-        "Net Positive Suction Head available";
-    SI.Pressure NPSPa=assertPositiveDifference(port_a.p, Medium.saturationPressure(Medium.temperature(state_a)),
-                                               "Cavitation occurs at the pump inlet") if show_NPSHa
-        "Net Positive Suction Pressure available";
-    SI.Pressure NPDPa=assertPositiveDifference(port_b.p, Medium.saturationPressure(medium.T),
-                                               "Cavitation occurs in the pump") if show_NPSHa
-        "Net Positive Discharge Pressure available";
+    replaceable model Monitoring =
+      Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase
+      constrainedby
+        Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase
+        "Optional pump monitoring"
+        annotation(Dialog(tab="Advanced", group="Diagnostics"), choicesAllMatching=true);
+    Monitoring monitoring(
+            redeclare final package Medium = Medium,
+            final state_in = Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)),
+            final state = medium.state) "Monitoring model"
+       annotation (Placement(transformation(extent={{-64,-42},{-20,0}}, rotation=0)));
+    /*  
+  parameter Boolean show_NPSHa = false 
+    "= true to compute Net Positive Suction Head available"
+    annotation(Dialog(tab="Advanced", group="Diagnostics"));
+  Medium.ThermodynamicState state_a=
+    Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)) if 
+       show_NPSHa "state for medium inflowing through port_a";
+  Medium.Density rho_in = Medium.density(state_a) if show_NPSHa 
+    "Liquid density at the inlet port_a";
+  SI.Length NPSHa=NPSPa/(rho_in*system.g) if show_NPSHa 
+    "Net Positive Suction Head available";
+  SI.Pressure NPSPa=assertPositiveDifference(port_a.p, Medium.saturationPressure(Medium.temperature(state_a)),
+                                             "Cavitation occurs at the pump inlet") if show_NPSHa 
+    "Net Positive Suction Pressure available";
+  SI.Pressure NPDPa=assertPositiveDifference(port_b.p, Medium.saturationPressure(medium.T),
+                                             "Cavitation occurs in the pump") if show_NPSHa 
+    "Net Positive Discharge Pressure available";
+  */
     protected
     constant SI.Height unitHead = 1;
     constant SI.MassFlowRate unitMassFlowRate = 1;
@@ -568,7 +581,8 @@ provided a two-phase medium model is used.
   end PartialPump;
 
   package PumpCharacteristics "Functions for pump characteristics"
-      import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+    extends Modelica.Icons.Package;
+    import NonSI = Modelica.SIunits.Conversions.NonSIunits;
 
     partial function baseFlow "Base class for pump flow characteristics"
       extends Modelica.Icons.Function;
@@ -754,17 +768,53 @@ provided a two-phase medium model is used.
 
   end PumpCharacteristics;
 
-    function assertPositiveDifference
-      extends Modelica.Icons.Function;
-      input SI.Pressure p;
-      input SI.Pressure p_sat;
-      input String message;
-      output SI.Pressure dp;
-    algorithm
-      dp := p - p_sat;
-      assert(p >= p_sat, message);
-    end assertPositiveDifference;
 
+    package PumpMonitoring "Monitoring of pump operation"
+      extends Modelica.Icons.Package;
+      model PumpMonitoringBase "Interface for pump monitoring"
+        outer Modelica.Fluid.System system "System wide properties";
+        //
+        // Internal interface
+        // (not exposed to GUI; needs to be hard coded when using this model
+        //
+        replaceable package Medium =
+          Modelica.Media.Interfaces.PartialMedium "Medium in the component"
+            annotation(Dialog(tab="Internal Interface",enable=false));
+
+        // Inputs
+        input Medium.ThermodynamicState state_in
+          "Thermodynamic state of inflow";
+        input Medium.ThermodynamicState state "Thermodynamic state in the pump";
+
+      end PumpMonitoringBase;
+
+      model PumpMonitoringNPSH "Monitor Net Positive Suction Head (NPSH)"
+        extends PumpMonitoringBase(redeclare replaceable package Medium =
+          Modelica.Media.Interfaces.PartialTwoPhaseMedium constrainedby
+            Modelica.Media.Interfaces.PartialTwoPhaseMedium);
+        Medium.Density rho_in = Medium.density(state_in)
+          "Liquid density at the inlet port_a";
+        SI.Length NPSHa=NPSPa/(rho_in*system.g)
+          "Net Positive Suction Head available";
+        SI.Pressure NPSPa=assertPositiveDifference(Medium.pressure(state_in), Medium.saturationPressure(Medium.temperature(state_in)),
+                                                   "Cavitation occurs at the pump inlet")
+          "Net Positive Suction Pressure available";
+        SI.Pressure NPDPa=assertPositiveDifference(Medium.pressure(state), Medium.saturationPressure(Medium.temperature(state)),
+                                                   "Cavitation occurs in the pump")
+          "Net Positive Discharge Pressure available";
+      end PumpMonitoringNPSH;
+
+      function assertPositiveDifference
+        extends Modelica.Icons.Function;
+        input SI.Pressure p;
+        input SI.Pressure p_sat;
+        input String message;
+        output SI.Pressure dp;
+      algorithm
+        dp := p - p_sat;
+        assert(p >= p_sat, message);
+      end assertPositiveDifference;
+    end PumpMonitoring;
   end BaseClasses;
   annotation (Documentation(info="<html>
 
