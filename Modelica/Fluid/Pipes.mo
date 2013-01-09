@@ -2076,7 +2076,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
             parameter Boolean from_dp = momentumDynamics >= Types.Dynamics.SteadyStateInitial
           " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
               annotation (Evaluate=true);
-            parameter SI.AbsolutePressure dp_small = if system.use_small then system.dp_small else system.eps_dp*dp_nominal
+            parameter SI.AbsolutePressure dp_small = if system.use_small then system.dp_small else dp_nominal/m_flow_nominal*m_flow_small
           "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
               annotation(Dialog(enable=from_dp and WallFriction.use_dp_small));
             parameter SI.MassFlowRate m_flow_small = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal

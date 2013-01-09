@@ -50,23 +50,20 @@ model System
   // Advanced
   parameter Modelica.SIunits.Pressure dp_nominal = 1000
     "Default nominal pressure loss"
-    annotation(Dialog(tab="Advanced", enable = not use_small));
+    annotation(Dialog(group="Nominal operating point"));
   parameter Modelica.SIunits.MassFlowRate m_flow_nominal = 1
     "Default nominal mass flow rate"
-    annotation(Dialog(tab="Advanced", enable = not use_small));
-  parameter Real eps_dp(min=0) = 1e-3
-    "Fraction of dp_nominal giving small pressure drop for regularization of zero flow"
-    annotation(Dialog(tab="Advanced", enable = not use_small));
-  parameter Real eps_m_flow(min=0) = 1e-2
+    annotation(Dialog(group="Nominal operating point"));
+  parameter Real eps_m_flow(min=0) = 1e-3
     "Fraction of m_flow_nominal giving small mass flow rate for regularization of zero flow"
     annotation(Dialog(tab = "Advanced", enable = not use_small));
   parameter Boolean use_small = false
     "= false to use new eps_m_flow and eps_dp"
     annotation(Dialog(tab = "Advanced", group="Obsolete"));
-  parameter Modelica.SIunits.AbsolutePressure dp_small(min=0) = eps_dp*dp_nominal
+  parameter Modelica.SIunits.AbsolutePressure dp_small(min=0) = 1
     "Default small pressure drop for regularization of zero flow"
     annotation(Dialog(tab="Advanced", group="Obsolete", enable = use_small));
-  parameter Modelica.SIunits.MassFlowRate m_flow_small(min=0) = eps_m_flow*m_flow_nominal
+  parameter Modelica.SIunits.MassFlowRate m_flow_small(min=0) = 1e-2
     "Default small mass flow rate for regularization of zero flow"
     annotation(Dialog(tab = "Advanced", group="Obsolete", enable = use_small));
 equation

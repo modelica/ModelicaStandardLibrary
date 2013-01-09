@@ -1597,7 +1597,7 @@ The used sufficient criteria for monotonicity follows from:
         //parameter Boolean from_dp = true
         //  "= true, use m_flow = f(dp) else dp = f(m_flow)"
         //  annotation (Evaluate=true, Dialog(tab="Advanced"));
-        parameter Boolean use_Re = false
+        parameter Boolean use_Re = not system.use_small
           "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
           annotation(Evaluate=true, Dialog(tab="Advanced"));
         //parameter Medium.AbsolutePressure dp_small = system.dp_small
@@ -1803,7 +1803,7 @@ The used sufficient criteria for monotonicity follows from:
           m_flow_nominal = system.m_flow_nominal,
           final from_dp = false,
           final dp_start = dp_nominal,
-          final dp_small = if system.use_small then system.dp_small else system.eps_dp*dp_nominal,
+          final dp_small = if system.use_small then system.dp_small else dp_nominal/m_flow_nominal*m_flow_small,
           m_flow(stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default
                                else StateSelect.prefer));
         extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
@@ -1819,7 +1819,7 @@ The used sufficient criteria for monotonicity follows from:
         //final parameter Boolean from_dp = false
         //  "= true, use m_flow = f(dp) else dp = f(m_flow)"
         //  annotation (Evaluate=true, Dialog(tab="Advanced"));
-        final parameter Boolean use_Re = false
+        final parameter Boolean use_Re = not system.use_small
           "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
           annotation(Evaluate=true, Dialog(tab="Advanced"));
         // End not yet implemented /////////////////////////////////////////

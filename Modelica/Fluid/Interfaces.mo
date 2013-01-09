@@ -327,7 +327,7 @@ partial model PartialTwoPortTransport
   parameter Medium.AbsolutePressure dp_start = dp_nominal
       "Guess value of dp = port_a.p - port_b.p"
     annotation(Dialog(tab = "Advanced", enable=from_dp));
-  parameter Medium.AbsolutePressure dp_small = if system.use_small then system.dp_small else system.eps_dp*dp_nominal
+  parameter Medium.AbsolutePressure dp_small = if system.use_small then system.dp_small else dp_nominal/m_flow_nominal*m_flow_small
       "Small pressure loss for regularization of zero flow"
     annotation(Dialog(tab="Advanced", enable=from_dp));
   parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
