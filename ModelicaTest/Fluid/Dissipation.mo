@@ -50,10 +50,11 @@ extends Modelica.Icons.ExamplesPackage;
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
             m_flow_IN_con_1[n](
-            each final target=1,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne)
+                      annotation (Placement(transformation(
                   extent={{-100,20},{-80,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_var
             m_flow_IN_var_1[n](
@@ -66,10 +67,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
             m_flow_IN_con_2[n](
-            each final target=2,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)
+                      annotation (Placement(transformation(
                   extent={{-50,20},{-30,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_var
             m_flow_IN_var_2[n](
@@ -82,10 +84,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
             m_flow_IN_con_3[n](
-            each final target=3,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
+                      annotation (Placement(transformation(
                   extent={{10,20},{30,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_var
             m_flow_IN_var_3[n](
@@ -98,10 +101,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
             m_flow_IN_con_4[n](
-            each final target=4,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
+                      annotation (Placement(transformation(
                   extent={{60,20},{80,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_var
             m_flow_IN_var_4[n](
@@ -242,10 +246,11 @@ extends Modelica.Icons.ExamplesPackage;
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
             m_flow_IN_con_1[n](
-            each final target=1,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne)
+                      annotation (Placement(transformation(
                   extent={{-100,20},{-80,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_var
@@ -259,10 +264,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
             m_flow_IN_con_2[n](
-            each final target=2,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)
+                      annotation (Placement(transformation(
                   extent={{-50,20},{-30,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_var
@@ -276,10 +282,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
             m_flow_IN_con_3[n](
-            each final target=3,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
+                      annotation (Placement(transformation(
                   extent={{10,20},{30,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_var
             m_flow_IN_var_3[n](
@@ -292,10 +299,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
             m_flow_IN_con_4[n](
-            each final target=4,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
+                      annotation (Placement(transformation(
                   extent={{60,20},{80,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_var
@@ -427,10 +435,11 @@ extends Modelica.Icons.ExamplesPackage;
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con
             m_flow_IN_con_1[n](
-            each final target=1,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne)
+                      annotation (Placement(transformation(
                   extent={{-100,20},{-80,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var
@@ -444,10 +453,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con
             m_flow_IN_con_2[n](
-            each final target=2,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)
+                      annotation (Placement(transformation(
                   extent={{-50,20},{-30,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var
@@ -461,10 +471,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con
             m_flow_IN_con_3[n](
-            each final target=3,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
+                      annotation (Placement(transformation(
                   extent={{10,20},{30,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var
             m_flow_IN_var_3[n](
@@ -477,10 +488,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con
             m_flow_IN_con_4[n](
-            each final target=4,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
+                      annotation (Placement(transformation(
                   extent={{60,20},{80,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var
@@ -645,10 +657,11 @@ extends Modelica.Icons.ExamplesPackage;
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con
             m_flow_IN_con_1[n](
-            each final target=1,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne)
+                      annotation (Placement(transformation(
                   extent={{-100,20},{-80,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var
@@ -662,10 +675,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con
             m_flow_IN_con_2[n](
-            each final target=2,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)
+                      annotation (Placement(transformation(
                   extent={{-50,20},{-30,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var
@@ -679,10 +693,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con
             m_flow_IN_con_3[n](
-            each final target=3,
             each h=h,
             each s=s,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
+                      annotation (Placement(transformation(
                   extent={{10,20},{30,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var
@@ -696,10 +711,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con
             m_flow_IN_con_4[n](
-            each final target=4,
             each h=0.6,
             each s=0.5,
-            each L=L) annotation (Placement(transformation(
+            each L=L,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
+                      annotation (Placement(transformation(
                   extent={{60,20},{80,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var
@@ -897,14 +913,6 @@ extends Modelica.Icons.ExamplesPackage;
                 "Verification of kc_evenGapTurbulent"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
-                  extent={{-102,11},{98,6}},
-                  lineColor={0,0,255},
-                  textString="Target == 2"),Text(
-                  extent={{-100,-90},{100,20}},
-                  lineColor={0,0,255},
-                  textString=
-                    "Target == 2 >> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
-                  Text(
                   extent={{-100,50},{100,75}},
                   lineColor={0,0,255},
                   textString="Heat transfer of EVEN GAP for TURBULENT flow regime")}),
@@ -994,23 +1002,10 @@ extends Modelica.Icons.ExamplesPackage;
                 "Verification of kc_evenGapTurbulent_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
-                  extent={{-102,11},{98,6}},
-                  lineColor={0,0,255},
-                  textString="Target == 2"),Text(
-                  extent={{-100,-90},{100,20}},
-                  lineColor={0,0,255},
-                  textString=
-                    "Target == 2 >> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
-                  Text(
                   extent={{-100,50},{100,75}},
                   lineColor={0,0,255},
                   textString=
-                    "Heat transfer of EVEN GAP for TURBULENT flow regime (inlining)"),
-                  Text(
-                  extent={{-98,-30},{102,-5}},
-                  lineColor={0,0,255},
-                  textString=
-                    "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
+                    "Heat transfer of EVEN GAP for TURBULENT flow regime (inlining)")}),
             experiment(StopTime=1.01));
         end kc_evenGapTurbulent_KC;
       end Channel;
@@ -1044,9 +1039,10 @@ extends Modelica.Icons.ExamplesPackage;
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con
             m_flow_IN_con_1[n](
-            each final target=1,
             each A_cross=A_cross,
-            each perimeter=perimeter) annotation (Placement(
+            each perimeter=perimeter,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Rough)
+                                      annotation (Placement(
                 transformation(extent={{-80,20},{-60,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var
@@ -1061,9 +1057,10 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con
             m_flow_IN_con_2[n](
-            each final target=2,
             each A_cross=A_cross,
-            each perimeter=perimeter) annotation (Placement(
+            each perimeter=perimeter,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Middle)
+                                      annotation (Placement(
                 transformation(extent={{-20,20},{0,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var
@@ -1078,9 +1075,10 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con
             m_flow_IN_con_3[n](
-            each final target=3,
             each A_cross=A_cross,
-            each perimeter=perimeter) annotation (Placement(
+            each perimeter=perimeter,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Finest)
+                                      annotation (Placement(
                 transformation(extent={{40,20},{60,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var
@@ -1200,9 +1198,10 @@ extends Modelica.Icons.ExamplesPackage;
            //input record
            Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con
             m_flow_IN_con_1[ n](
-             each final target=1,
              each A_cross=A_cross,
-             each perimeter=perimeter) annotation (Placement(
+             each perimeter=perimeter,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Rough)
+                                       annotation (Placement(
                  transformation(extent={{-80,20},{-60,40}})));
 
            Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var
@@ -1218,9 +1217,10 @@ extends Modelica.Icons.ExamplesPackage;
 
            Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con
             m_flow_IN_con_2[ n](
-             each final target=2,
              each A_cross=A_cross,
-             each perimeter=perimeter) annotation (Placement(
+             each perimeter=perimeter,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Middle)
+                                       annotation (Placement(
                  transformation(extent={{-20,20},{0,40}})));
 
            Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var
@@ -1235,9 +1235,10 @@ extends Modelica.Icons.ExamplesPackage;
 
            Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con
             m_flow_IN_con_3[ n](
-             each final target=3,
              each A_cross=A_cross,
-             each perimeter=perimeter) annotation (Placement(
+             each perimeter=perimeter,
+            each final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Finest)
+                                       annotation (Placement(
                  transformation(extent={{40,20},{60,40}})));
 
            Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var
@@ -1353,7 +1354,6 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con
             m_flow_IN_con_1(
-            geometry=1,
             A_fr=A_fr,
             D_m=D_m_1,
             F_l=F_l_1,
@@ -1363,7 +1363,8 @@ extends Modelica.Icons.ExamplesPackage;
             T_d=T_d_1,
             T_p=T_p_1,
             delta_f=delta_f_1,
-            Phi=Phi_1)
+            Phi=Phi_1,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes.LouverFin)
             annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var
             m_flow_IN_var_1(
@@ -1376,13 +1377,14 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con
             m_flow_IN_con_2(
-            geometry=2,
             A_fr=A_fr,
             D_h=D_h_2,
             alpha=alpha_2,
             gamma=gamma_2,
             delta=delta_2,
-            D_m=D_m_2) annotation (Placement(transformation(extent={{20,-20},{40,0}})));
+            D_m=D_m_2,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes.RectangularFin)
+                       annotation (Placement(transformation(extent={{20,-20},{40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var
             m_flow_IN_var_2(
             cp=cp,
@@ -1495,7 +1497,6 @@ extends Modelica.Icons.ExamplesPackage;
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con
             m_flow_IN_con_1(
-            geometry=1,
             A_fr=A_fr,
             D_m=D_m_1,
             F_l=F_l_1,
@@ -1505,7 +1506,8 @@ extends Modelica.Icons.ExamplesPackage;
             T_d=T_d_1,
             T_p=T_p_1,
             delta_f=delta_f_1,
-            Phi=Phi_1)
+            Phi=Phi_1,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes.LouverFin)
             annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var
             m_flow_IN_var_1(
@@ -1517,13 +1519,14 @@ extends Modelica.Icons.ExamplesPackage;
             annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con
             m_flow_IN_con_2(
-            geometry=2,
             A_fr=A_fr,
             D_h=D_h_2,
             alpha=alpha_2,
             gamma=gamma_2,
             delta=delta_2,
-            D_m=D_m_2) annotation (Placement(transformation(extent={{20,-20},{40,0}})));
+            D_m=D_m_2,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes.RectangularFin)
+                       annotation (Placement(transformation(extent={{20,-20},{40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var
             m_flow_IN_var_2(
             cp=cp,
@@ -1645,14 +1648,14 @@ extends Modelica.Icons.ExamplesPackage;
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
             m_flow_IN_con_1(
-            geometry=1,
             A_fr=A_fr,
             D_c=D_c_1,
             F_p=F_p_1,
             P_t=P_t_1,
             P_l=P_l_1,
             N=N_1,
-            delta_f=delta_f)
+            delta_f=delta_f,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes.PlainFin)
             annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_1(
@@ -1665,7 +1668,6 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
             m_flow_IN_con_2(
-            geometry=2,
             A_fr=A_fr,
             D_c=D_c_2,
             F_p=F_p_2,
@@ -1675,7 +1677,9 @@ extends Modelica.Icons.ExamplesPackage;
             P_l=P_l_2,
             N=N_2,
             delta_f=delta_f,
-            L=L_2) annotation (Placement(transformation(extent={{20,20},{40,40}})));
+            L=L_2,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes.LouverFin)
+                   annotation (Placement(transformation(extent={{20,20},{40,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_2(
             cp=cp,
@@ -1687,7 +1691,6 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
             m_flow_IN_con_3(
-            geometry=3,
             A_fr=A_fr,
             D_c=D_c_3,
             F_p=F_p_3,
@@ -1696,7 +1699,8 @@ extends Modelica.Icons.ExamplesPackage;
             N=N_3,
             S_h=S_h_3,
             S_p=S_p_3,
-            delta_f=delta_f_3)
+            delta_f=delta_f_3,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes.SlitFin)
             annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_3(
@@ -1709,12 +1713,12 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
             m_flow_IN_con_4(
-            geometry=4,
             A_fr=A_fr,
             D_c=D_c_4,
             F_p=F_p_4,
             P_t=P_t_4,
-            delta_f=delta_f)
+            delta_f=delta_f,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes.WavyFin)
             annotation (Placement(transformation(extent={{20,-20},{40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_4(
@@ -1863,14 +1867,14 @@ extends Modelica.Icons.ExamplesPackage;
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
             m_flow_IN_con_1(
-            geometry=1,
             A_fr=A_fr,
             D_c=D_c_1,
             F_p=F_p_1,
             P_t=P_t_1,
             P_l=P_l_1,
             N=N_1,
-            delta_f=delta_f)
+            delta_f=delta_f,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes.PlainFin)
             annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_1(
@@ -1883,7 +1887,6 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
             m_flow_IN_con_2(
-            geometry=2,
             A_fr=A_fr,
             D_c=D_c_2,
             F_p=F_p_2,
@@ -1892,7 +1895,8 @@ extends Modelica.Icons.ExamplesPackage;
             P_t=P_t_2,
             P_l=P_l_2,
             N=N_2,
-            delta_f=delta_f)
+            delta_f=delta_f,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes.LouverFin)
             annotation (Placement(transformation(extent={{20,20},{40,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_2(
@@ -1905,7 +1909,6 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
             m_flow_IN_con_3(
-            geometry=3,
             A_fr=A_fr,
             D_c=D_c_3,
             F_p=F_p_3,
@@ -1914,7 +1917,8 @@ extends Modelica.Icons.ExamplesPackage;
             N=N_3,
             S_h=S_h_3,
             S_p=S_p_3,
-            delta_f=delta_f_3)
+            delta_f=delta_f_3,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes.SlitFin)
             annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_3(
@@ -1927,12 +1931,12 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
             m_flow_IN_con_4(
-            geometry=4,
             A_fr=A_fr,
             D_c=D_c_4,
             F_p=F_p_4,
             P_t=P_t_4,
-            delta_f=delta_f)
+            delta_f=delta_f,
+            geometry=Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes.WavyFin)
             annotation (Placement(transformation(extent={{20,-20},{40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_4(
@@ -3778,8 +3782,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_1[n](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF)
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF,
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)
             annotation (Placement(transformation(extent={{-100,
                     20},{-80,40}})));
 
@@ -3796,8 +3800,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_2[n](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF)
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF,
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)
             annotation (Placement(transformation(extent={{-50,
                     20},{-30,40}})));
 
@@ -3814,8 +3818,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_3[n](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF)
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF,
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)
             annotation (Placement(transformation(extent={{10,
                     20},{30,40}})));
 
@@ -3832,8 +3836,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_4[n](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF)
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF,
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)
             annotation (Placement(transformation(extent={{60,
                     20},{80,40}})));
 
@@ -3977,8 +3981,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_1[3](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF)
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF,
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)
             annotation (Placement(transformation(extent={{-100,
                     20},{-80,40}})));
 
@@ -3995,8 +3999,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_2[3](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF)
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF,
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)
             annotation (Placement(transformation(extent={{-50,
                     20},{-30,40}})));
 
@@ -4013,8 +4017,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_3[3](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF)
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF,
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)
             annotation (Placement(transformation(extent={{10,
                     20},{30,40}})));
 
@@ -4031,8 +4035,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_4[3](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF)
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF,
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)
             annotation (Placement(transformation(extent={{60,
                     20},{80,40}})));
 
@@ -4137,7 +4141,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_1[n](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=1) annotation (Placement(
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Neglected)
+                              annotation (Placement(
                 transformation(extent={{-60,20},{-40,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_var
@@ -4153,7 +4158,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_2[n](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=2) annotation (Placement(
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)
+                              annotation (Placement(
                 transformation(extent={{20,20},{40,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_var
@@ -4260,7 +4266,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_1[n](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=1) annotation (Placement(
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Neglected)
+                              annotation (Placement(
                 transformation(extent={{-60,20},{-40,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_var
@@ -4276,7 +4283,8 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_2[n](
             each d_hyd=d_hyd,
             each L=L,
-            each roughness=2) annotation (Placement(
+            each roughness=Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)
+                              annotation (Placement(
                 transformation(extent={{20,20},{40,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_var
@@ -5355,7 +5363,9 @@ extends Modelica.Icons.ExamplesPackage;
             each dp_nom=dp_nom,
             each V_flow_nom=V_flow_nom,
             each zeta_TOT_nom=zeta_TOT_nom,
-            each rho_nom=rho_nom) annotation (Placement(
+            each rho_nom=rho_nom,
+            target=Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate)
+                                  annotation (Placement(
                 transformation(extent={{-70,20},{-50,42}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_IN_var
@@ -5371,7 +5381,9 @@ extends Modelica.Icons.ExamplesPackage;
             each A_cross_nom=A_cross_nom,
             each dp_nom=dp_nom,
             each V_flow_nom=V_flow_nom,
-            each zeta_TOT_nom=zeta_TOT_nom) annotation (
+            each zeta_TOT_nom=zeta_TOT_nom,
+            target=Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate)
+                                            annotation (
               Placement(transformation(extent={{30,20},{50,42}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_IN_var
@@ -7148,11 +7160,11 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
             color={0,0,127},
             smooth=Smooth.None));
         connect(IN_p2.ports[1], from_dp2.port_a) annotation (Line(
-            points={{60,8},{68,8},{68,8},{76,8}},
+            points={{60,8},{76,8}},
             color={0,127,255},
             smooth=Smooth.None));
         connect(from_dp2.port_b, OUT_dp2.ports[1]) annotation (Line(
-            points={{124,8},{138,8},{138,8},{152,8},{152,8},{180,8}},
+            points={{124,8},{180,8}},
             color={0,127,255},
             smooth=Smooth.None));
         connect(from_mflow2.port_b, OUT_mflow2.ports[1]) annotation (Line(
