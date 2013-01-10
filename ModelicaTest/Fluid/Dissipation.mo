@@ -4879,6 +4879,9 @@ extends Modelica.Icons.ExamplesPackage;
           "Verification of function dp_internalFlowOverall_DP AND dp_internalFlowOverall_MFLOW"
           extends Modelica.Icons.Example;
 
+          type TYP =
+              Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow;
+
           parameter Integer n=size(geometry, 1)
             "Number of different geometries";
 
@@ -4890,12 +4893,11 @@ extends Modelica.Icons.ExamplesPackage;
             "Roughness (average height of surface asperities)";
           Modelica.SIunits.Length L=1 "Length";
           Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow
-            geometry[5]={Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Annular,
-            Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Circular,
-            Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Elliptical,
-            Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Rectangular,
-            Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Isosceles}
-            "Choice of geometry for internal flow";
+            geometry[5]={TYP.Annular,
+            TYP.Circular,
+            TYP.Elliptical,
+            TYP.Rectangular,
+            TYP.Isosceles} "Choice of geometry for internal flow";
           Modelica.SIunits.Diameter d_ann=d_hyd "Small diameter";
           Modelica.SIunits.Diameter D_ann=2*d_ann "Large diameter";
           Modelica.SIunits.Diameter d_cir=d_hyd "Internal diameter";
@@ -4977,18 +4979,18 @@ extends Modelica.Icons.ExamplesPackage;
         protected
           Real MIN=Modelica.Constants.eps;
 
-          Modelica.SIunits.Area A_crossT[n]={max(MIN, if geometry[i] == 1 then
+          Modelica.SIunits.Area A_crossT[n]={max(MIN, if geometry[i] == TYP.Annular then
               (Modelica.Constants.pi/4)*((D_ann)^2 - (d_ann)^2) else if
-              geometry[i] == 2 then Modelica.Constants.pi/4*(d_cir)^2 else if
-              geometry[i] == 3 then Modelica.Constants.pi*a_ell*b_ell else if
-              geometry[i] == 4 then a_rec*b_rec else if geometry[i] == 5 then
+              geometry[i] == TYP.Circular then Modelica.Constants.pi/4*(d_cir)^2 else if
+              geometry[i] == TYP.Elliptical then Modelica.Constants.pi*a_ell*b_ell else if
+              geometry[i] == TYP.Rectangular then a_rec*b_rec else if geometry[i] == TYP.Isosceles then
               0.5*(a_tri*h_tri) else 0) for i in 1:n} "Cross sectional area";
-          Modelica.SIunits.Length perimeterT[n]={max(MIN, if geometry[i] == 1 then
+          Modelica.SIunits.Length perimeterT[n]={max(MIN, if geometry[i] == TYP.Annular then
                     Modelica.Constants.pi*(D_ann + d_ann) else if geometry[i]
-               == 2 then Modelica.Constants.pi*d_cir else if geometry[i] == 3 then
+               == TYP.Circular then Modelica.Constants.pi*d_cir else if geometry[i] == TYP.Elliptical then
                     Modelica.Constants.pi*(2*((a_ell)^2) + (b_ell)^2)^0.5 else
-              if geometry[i] == 4 then 2*(a_rec + b_rec) else if geometry[i]
-               == 5 then a_tri + 2*((h_tri)^2 + (a_tri/2)^2)^0.5 else 0) for i in
+              if geometry[i] == TYP.Rectangular then 2*(a_rec + b_rec) else if geometry[i]
+               == TYP.Isosceles then a_tri + 2*((h_tri)^2 + (a_tri/2)^2)^0.5 else 0) for i in
                   1:n} "Perimeter";
           Modelica.SIunits.Diameter d_hydT[n]={4*A_crossT[i]/perimeterT[i] for
               i in 1:n} "Hydraulic diameter";
