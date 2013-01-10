@@ -747,7 +747,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a d
 
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con(
-            final target=2);
+            final target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth);
 
         annotation (Documentation(info="<html>
 <p>
