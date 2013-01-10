@@ -168,35 +168,34 @@ extends Modelica.Icons.ExamplesPackage;
                   textString="Heat transfer of EVEN GAP for LAMINAR flow regime"),Text(
                   extent={{-160,11},{40,6}},
                   lineColor={0,0,255},
-                  textString="Target == 1 "),Text(
+                  textString="Target == DevOne "),Text(
                   extent={{-120,11},{80,6}},
                   lineColor={0,0,255},
-                  textString="Target == 2"),Text(
+                  textString="Target == DevBoth"),Text(
                   extent={{-82,11},{118,6}},
                   lineColor={0,0,255},
-                  textString="Target == 3"),Text(
+                  textString="Target == UndevOne"),Text(
                   extent={{-40,11},{160,6}},
                   lineColor={0,0,255},
-                  textString="Target == 4"),Text(
+                  textString="Target == UndevBoth"),Text(
                   extent={{-100,-100},{100,40}},
                   lineColor={0,0,255},
                   textString=
-                    "Target == 1 >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
+                    "Target == DevOne >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
                   extent={{-100,-100},{100,30}},
                   lineColor={0,0,255},
                   textString=
-                    "Target == 2 >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
+                    "Target == DevBoth >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
                   Text(
                   extent={{-100,-100},{100,20}},
                   lineColor={0,0,255},
                   textString=
-                    "Target == 3 >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
+                    "Target == UndevOne >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
                   extent={{-100,-100},{100,10}},
                   lineColor={0,0,255},
-                  textString=
-                    "Target == 4 >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides")}),
+                  textString="Target == UndevBoth >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides")}),
             experiment(StopTime=1.01));
         end kc_evenGapLaminar;
 
@@ -360,42 +359,41 @@ extends Modelica.Icons.ExamplesPackage;
                   textString=
                     "Heat transfer of EVEN GAP for LAMINAR flow regime (inlining)"),
                   Text(
-                  extent={{-160,11},{40,6}},
-                  lineColor={0,0,255},
-                  textString="Target == 1 "),Text(
-                  extent={{-120,11},{80,6}},
-                  lineColor={0,0,255},
-                  textString="Target == 2"),Text(
-                  extent={{-82,11},{118,6}},
-                  lineColor={0,0,255},
-                  textString="Target == 3"),Text(
-                  extent={{-40,11},{160,6}},
-                  lineColor={0,0,255},
-                  textString="Target == 4"),Text(
-                  extent={{-100,-100},{100,40}},
-                  lineColor={0,0,255},
-                  textString=
-                    "Target == 1 >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
-                  Text(
-                  extent={{-100,-100},{100,30}},
-                  lineColor={0,0,255},
-                  textString=
-                    "Target == 2 >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
-                  Text(
-                  extent={{-100,-100},{100,20}},
-                  lineColor={0,0,255},
-                  textString=
-                    "Target == 3 >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
-                  Text(
-                  extent={{-100,-100},{100,10}},
-                  lineColor={0,0,255},
-                  textString=
-                    "Target == 4 >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides"),
-                  Text(
                   extent={{-98,-26},{102,-1}},
                   lineColor={0,0,255},
                   textString=
-                    "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
+                    "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
+                                                                                  Text(
+                  extent={{-158,9},{42,4}},
+                  lineColor={0,0,255},
+                  textString="Target == DevOne "),Text(
+                  extent={{-118,9},{82,4}},
+                  lineColor={0,0,255},
+                  textString="Target == DevBoth"),Text(
+                  extent={{-80,9},{120,4}},
+                  lineColor={0,0,255},
+                  textString="Target == UndevOne"),Text(
+                  extent={{-38,9},{162,4}},
+                  lineColor={0,0,255},
+                  textString="Target == UndevBoth"),Text(
+                  extent={{-98,-102},{102,38}},
+                  lineColor={0,0,255},
+                  textString=
+                    "Target == DevOne >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
+                  Text(
+                  extent={{-98,-102},{102,28}},
+                  lineColor={0,0,255},
+                  textString=
+                    "Target == DevBoth >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
+                  Text(
+                  extent={{-98,-102},{102,18}},
+                  lineColor={0,0,255},
+                  textString=
+                    "Target == UndevOne >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
+                  Text(
+                  extent={{-98,-102},{102,8}},
+                  lineColor={0,0,255},
+                  textString="Target == UndevBoth >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides")}),
             experiment(StopTime=1.01));
         end kc_evenGapLaminar_KC;
 
@@ -570,37 +568,36 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{-100,50},{100,75}},
                   lineColor={0,0,255},
                   textString="Heat transfer of EVEN GAP for OVERALL flow regime"),Text(
-                  extent={{-160,11},{40,6}},
+                  extent={{-160,9},{40,4}},
                   lineColor={0,0,255},
-                  textString="Target == 1 "),Text(
-                  extent={{-120,11},{80,6}},
+                  textString="Target == DevOne "),Text(
+                  extent={{-120,9},{80,4}},
                   lineColor={0,0,255},
-                  textString="Target == 2"),Text(
-                  extent={{-82,11},{118,6}},
+                  textString="Target == DevBoth"),Text(
+                  extent={{-82,9},{118,4}},
                   lineColor={0,0,255},
-                  textString="Target == 3"),Text(
-                  extent={{-40,11},{160,6}},
+                  textString="Target == UndevOne"),Text(
+                  extent={{-40,9},{160,4}},
                   lineColor={0,0,255},
-                  textString="Target == 4"),Text(
-                  extent={{-100,-100},{100,40}},
+                  textString="Target == UndevBoth"),Text(
+                  extent={{-100,-102},{100,38}},
                   lineColor={0,0,255},
                   textString=
-                    "Target == 1 >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
+                    "Target == DevOne >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
-                  extent={{-100,-100},{100,30}},
+                  extent={{-100,-102},{100,28}},
                   lineColor={0,0,255},
                   textString=
-                    "Target == 2 >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
+                    "Target == DevBoth >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
                   Text(
-                  extent={{-100,-100},{100,20}},
+                  extent={{-100,-102},{100,18}},
                   lineColor={0,0,255},
                   textString=
-                    "Target == 3 >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
+                    "Target == UndevOne >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
                   Text(
-                  extent={{-100,-100},{100,10}},
+                  extent={{-100,-102},{100,8}},
                   lineColor={0,0,255},
-                  textString=
-                    "Target == 4 >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides")}),
+                  textString="Target == UndevBoth >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides")}),
             experiment(StopTime=1.01));
         end kc_evenGapOverall;
 
@@ -785,42 +782,41 @@ extends Modelica.Icons.ExamplesPackage;
                   textString=
                     "Heat transfer of EVEN GAP for OVERALL flow regime (inlining)"),
                   Text(
-                  extent={{-160,11},{40,6}},
-                  lineColor={0,0,255},
-                  textString="Target == 1 "),Text(
-                  extent={{-120,11},{80,6}},
-                  lineColor={0,0,255},
-                  textString="Target == 2"),Text(
-                  extent={{-82,11},{118,6}},
-                  lineColor={0,0,255},
-                  textString="Target == 3"),Text(
-                  extent={{-40,11},{160,6}},
-                  lineColor={0,0,255},
-                  textString="Target == 4"),Text(
-                  extent={{-100,-100},{100,40}},
-                  lineColor={0,0,255},
-                  textString=
-                    "Target == 1 >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
-                  Text(
-                  extent={{-102,-100},{98,30}},
-                  lineColor={0,0,255},
-                  textString=
-                    "Target == 2 >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
-                  Text(
-                  extent={{-100,-100},{100,20}},
-                  lineColor={0,0,255},
-                  textString=
-                    "Target == 3 >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
-                  Text(
-                  extent={{-100,-100},{100,10}},
-                  lineColor={0,0,255},
-                  textString=
-                    "Target == 4 >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides"),
-                  Text(
                   extent={{-98,-30},{102,-5}},
                   lineColor={0,0,255},
                   textString=
-                    "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
+                    "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)"),
+                                                                                  Text(
+                  extent={{-160,7},{40,2}},
+                  lineColor={0,0,255},
+                  textString="Target == DevOne "),Text(
+                  extent={{-120,7},{80,2}},
+                  lineColor={0,0,255},
+                  textString="Target == DevBoth"),Text(
+                  extent={{-82,7},{118,2}},
+                  lineColor={0,0,255},
+                  textString="Target == UndevOne"),Text(
+                  extent={{-40,7},{160,2}},
+                  lineColor={0,0,255},
+                  textString="Target == UndevBoth"),Text(
+                  extent={{-100,-104},{100,36}},
+                  lineColor={0,0,255},
+                  textString=
+                    "Target == DevOne >>>>>> DEVELOPED fluid flow AND heat transfer at ONE side"),
+                  Text(
+                  extent={{-100,-104},{100,26}},
+                  lineColor={0,0,255},
+                  textString=
+                    "Target == DevBoth >>>> DEVELOPED fluid flow AND heat transfer at BOTH sides"),
+                  Text(
+                  extent={{-100,-104},{100,16}},
+                  lineColor={0,0,255},
+                  textString=
+                    "Target == UndevOne >>>> UNDEVELOPED fluid flow AND heat transfer at ONE side"),
+                  Text(
+                  extent={{-100,-104},{100,6}},
+                  lineColor={0,0,255},
+                  textString="Target == UndevBoth >> UNDEVELOPED fluid flow AND heat transfer at BOTH sides")}),
             experiment(StopTime=1.01));
         end kc_evenGapOverall_KC;
 
@@ -1144,13 +1140,16 @@ extends Modelica.Icons.ExamplesPackage;
                   Text(
                   extent={{-92,12},{-32,6}},
                   lineColor={0,0,255},
-                  textString="Target == 1 "),Text(
+                  textString="Target == Rough "),
+                                             Text(
                   extent={{-34,12},{28,6}},
                   lineColor={0,0,255},
-                  textString="Target == 2"),Text(
+                  textString="Target == Middle"),
+                                            Text(
                   extent={{34,12},{80,6}},
                   lineColor={0,0,255},
-                  textString="Target == 3"),Text(
+                  textString="Target == Finest"),
+                                            Text(
                   extent={{-102,50},{98,75}},
                   lineColor={0,0,255},
                   textString=
@@ -1285,13 +1284,16 @@ extends Modelica.Icons.ExamplesPackage;
                  graphics={Text(
                    extent={{-92,12},{-32,6}},
                    lineColor={0,0,255},
-                   textString="Target == 1 "),Text(
+                  textString="Target == Rough "),
+                                              Text(
                    extent={{-34,12},{28,6}},
                    lineColor={0,0,255},
-                   textString="Target == 2"),Text(
+                  textString="Target == Middle"),
+                                             Text(
                    extent={{34,12},{80,6}},
                    lineColor={0,0,255},
-                   textString="Target == 3"),Text(
+                  textString="Target == Finest"),
+                                             Text(
                    extent={{-102,50},{98,75}},
                    lineColor={0,0,255},
                    textString=
@@ -4888,7 +4890,12 @@ extends Modelica.Icons.ExamplesPackage;
             "Roughness (average height of surface asperities)";
           Modelica.SIunits.Length L=1 "Length";
           Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow
-            geometry[5]={1,2,3,4,5} "Choice of geometry for internal flow";
+            geometry[5]={Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Annular,
+            Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Circular,
+            Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Elliptical,
+            Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Rectangular,
+            Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Isosceles}
+            "Choice of geometry for internal flow";
           Modelica.SIunits.Diameter d_ann=d_hyd "Small diameter";
           Modelica.SIunits.Diameter D_ann=2*d_ann "Large diameter";
           Modelica.SIunits.Diameter d_cir=d_hyd "Internal diameter";
@@ -5364,7 +5371,7 @@ extends Modelica.Icons.ExamplesPackage;
             each V_flow_nom=V_flow_nom,
             each zeta_TOT_nom=zeta_TOT_nom,
             each rho_nom=rho_nom,
-            target=Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate)
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate)
                                   annotation (Placement(
                 transformation(extent={{-70,20},{-50,42}})));
 
@@ -5382,7 +5389,7 @@ extends Modelica.Icons.ExamplesPackage;
             each dp_nom=dp_nom,
             each V_flow_nom=V_flow_nom,
             each zeta_TOT_nom=zeta_TOT_nom,
-            target=Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate)
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate)
                                             annotation (
               Placement(transformation(extent={{30,20},{50,42}})));
 
@@ -6455,7 +6462,12 @@ extends Modelica.Icons.ExamplesPackage;
 
           //valve variables
           Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry geometry[5]=
-              {1,2,3,4,5} "Choice of geometry for valve";
+              {Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry.Ball,
+              Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry.Diaphragm,
+              Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry.Butterfly,
+              Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry.Gate,
+              Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry.Sluice}
+            "Choice of geometry for valve";
           Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
           Real Av=Modelica.Constants.pi
                     *d_hyd^2/4 "Av (metric) flow coefficient [Av]=m^2";
