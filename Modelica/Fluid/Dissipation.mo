@@ -12525,7 +12525,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           //NominalMassFlowRate
           Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate
             target =                                                             Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate
-            "1 == use nominal mass flow rate | 2 == use nominal volume flow rate"
+            "MassFlowRate == use nominal mass flow rate | VolumeFlowRate == use nominal volume flow rate"
             annotation (Dialog(group="Generic variables"));
 
           SI.Area A_cross=A_cross_nom "Cross sectional area"
@@ -12642,7 +12642,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           //NominalMassFlowRate
           Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate
             target =                                                             Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate
-            "1 == use nominal mass flow rate | 2 == use nominal volume flow rate"
+            "MassFlowRate == use nominal mass flow rate | VolumeFlowRate == use nominal volume flow rate"
             annotation (Dialog(group="Generic variables"));
 
           parameter SI.Area A_cross=A_cross_nom "Cross sectional area"
