@@ -1059,7 +1059,8 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
 
     model TemperatureSensor "Absolute temperature sensor in Kelvin"
 
-      Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature", final unit="K") "Absolute temperature as output signal" annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature", final unit="K")
+        "Absolute temperature as output signal"                                                                                                  annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}}, rotation=0)));
@@ -1159,7 +1160,8 @@ sensor model.
                 -110,-10},{-90,10}}, rotation=0)));
       Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput T_rel(final quantity="ThermodynamicTemperature", final unit="K", displayUnit="K") "Relative temperature as output signal"
+      Modelica.Blocks.Interfaces.RealOutput T_rel(final quantity="ThermodynamicTemperature", final unit="K", displayUnit="K")
+        "Relative temperature as output signal"
                             annotation (Placement(transformation(
             origin={0,-90},
             extent={{10,-10},{-10,10}},
@@ -1550,8 +1552,8 @@ component to which the component FixedHeatFlow is connected,
 if parameter Q_flow is positive.
 </p>
 <p>
-If parameter alpha is > 0, the heat flow is multiplied by (1 + alpha*(port.T - T_ref))
-in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
+If parameter alpha is &lt;&gt; 0, the heat flow is multiplied by (1 + alpha*(port.T - T_ref))
+in order to simulate temperature dependent losses (which are given with respect to reference temperature T_ref).
 </p>
 </html>"));
     end FixedHeatFlow;
@@ -1617,8 +1619,8 @@ component to which the component PrescribedHeatFlow is connected,
 if the input signal is positive.
 </p>
 <p>
-If parameter alpha is > 0, the heat flow is multiplied by (1 + alpha*(port.T - T_ref))
-in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
+If parameter alpha is &lt;&gt; 0, the heat flow is multiplied by (1 + alpha*(port.T - T_ref))
+in order to simulate temperature dependent losses (which are given with respect to reference temperature T_ref).
 </p>
 </html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -1918,7 +1920,8 @@ as required to keep the temperature at the specified value.
 
     model TemperatureSensor "Absolute temperature sensor in degCelsius"
 
-      Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature", final unit="degC") "Absolute temperature in degree Celsius as output signal" annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature", final unit="degC")
+        "Absolute temperature in degree Celsius as output signal"                                                                                                     annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}}, rotation=0)));

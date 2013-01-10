@@ -258,7 +258,6 @@ end UsersGuide;
     end Conversion;
   end Icons;
 
-
   package Conversions
     "Conversion functions to/from non SI units and type definitions of non SI units"
 
@@ -1845,7 +1844,21 @@ argument):</p>
     "Complex magnetic flux";
   record ComplexReluctance =
     Complex(redeclare Modelica.SIunits.Reluctance re,
-             redeclare Modelica.SIunits.Reluctance im) "Complex reluctance";
+             redeclare Modelica.SIunits.Reluctance im) "Complex reluctance"
+    annotation (Icon(graphics={            Rectangle(
+            extent={{-102,102},{102,-102}},
+            lineColor={255,0,0},
+            pattern=LinePattern.Dash,
+            lineThickness=0.5)}), Documentation(info="<html>
+<p>
+Since magnetic material properties like reluctance and permeance often are anistropic resp. salient, 
+a special operator instead of multiplication (compare: tensor vs. vector) is required. 
+Modelica.Magentic.FundamentalWave uses a special record Salient which is only valid in the rotor-fixed coordinate system.
+</p>
+<p>
+<b>Note:</b> To avoid confusion, no magnetic material properties should be defined as Complex units. 
+</p>
+</html>"));
   record ComplexImpedance =
     Complex(redeclare Resistance re,
              redeclare Reactance im) "Complex electrical impedance";
