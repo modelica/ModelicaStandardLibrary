@@ -6054,16 +6054,16 @@ You can perform an inverse calculation from <b>kc_evenGapLaminar_KC</b>, where a
 <li> laminar regime (Reynolds number &le; 2200)</li>
 <li> developed fluid flow
    <ul>
-   <li> heat transfer from one side of the gap (target=1)</li>
-   <li> heat transfer from both sides of the gap (target=2)</li>
+   <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne)</li>
+   <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
    </ul></li>
 <li> undeveloped fluid flow
    <ul>
-   <li> heat transfer from one side of the gap (target=3)
+   <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
        <ul>
        <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
        </ul></li>
-   <li> heat transfer from both sides of the gap (target=4)
+   <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
        <ul>
        <li> Prandtl number 0.1 &le; Pr &le; 1000</li>
        </ul></li>
@@ -6195,21 +6195,21 @@ You can perform an inverse calculation from <b>kc_evenGapOverall_KC</b>, where a
 <ul>
 <li> developed fluid flow
    <ul>
-   <li> heat transfer from one side of the gap (target=1) </li>
-   <li> heat transfer from both sides of the gap (target=2) </li>
+   <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne) </li>
+   <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth) </li>
    </ul></li>
 <li> undeveloped fluid flow
    <ul>
-   <li> heat transfer from one side of the gap (target=3)
+   <li> heat transfer from one side of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
        <ul>
        <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
        </ul></li>
-   <li> heat transfer from both sides of the gap (target=4)
+   <li> heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
    <ul>
        <li> Prandtl number 0.1 &le; Pr &le; 1000 </li>
        </ul></li>
    </ul></li>
-<li> turbulent regime always calculated for developed fluid flow and heat transfer from both sides of the gap (target=2)</li>
+<li> turbulent regime always calculated for developed fluid flow and heat transfer from both sides of the gap (target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
 </ul>
 
 <h4>Geometry and Calculation </h4>
@@ -6280,7 +6280,7 @@ You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where
 <li> 0.5 &le; Prandtl number Pr &le; 100) </li>
 <li> turbulent regime (3e4 &le; Reynolds number &le; 1e6)</li>
 <li> developed fluid flow</li>
-<li> heat transfer from both sides of the gap (Target = 2)</li>
+<li> heat transfer from both sides of the gap (target = Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
 </ul>
 
 <h4>Geometry</h4>
@@ -6440,19 +6440,19 @@ with
 <h4>Verification</h4>
 <p>
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below. </p>
-<p><b>Dittus/Boelter</b> (Target = 1)
+<p><b>Dittus/Boelter</b> (target = Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Rough)
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T1.png\" alt=\"fig_kc_approxForcedConvection_T1\"/>
 
 <p>
-<b>Sieder/Tate</b> (Target = 2)
+<b>Sieder/Tate</b> (Target = Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Middle)
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T2.png\" alt=\"fig_kc_approxForcedConvection_T2\"/>
 
 <p>
-<b>Gnielinski</b> (Target = 3)
+<b>Gnielinski</b> (Target = Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Finest)
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T3.png\" alt=\"fig_kc_approxForcedConvection_T3\"/>
@@ -7224,7 +7224,7 @@ You can perform an inverse calculation from <b>kc_laminar_KC</b>, where an unkno
 The mean convective heat transfer coefficient <b> kc </b> of a straight pipe in the laminar regime can be calculated for the following four heat transfer boundary conditions through its corresponding Nusselt number <b> Nu </b>:
 </p>
 <p>
-<b> Uniform wall temperature in developed fluid flow (heatTransferBoundary = 1)</b> according to <i>[VDI 2002, p. Ga 2, eq. 6]</i> :
+<b> Uniform wall temperature in developed fluid flow (heatTransferBoundary == Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF)</b> according to <i>[VDI 2002, p. Ga 2, eq. 6]</i> :
 </p>
 
 <pre>
@@ -7232,21 +7232,21 @@ The mean convective heat transfer coefficient <b> kc </b> of a straight pipe in 
 </pre>
 
 <p>
-<b> Uniform heat flux in developed fluid flow (heatTransferBoundary == 2)</b> according to <i>[VDI 2002, p. Ga 4, eq. 19]</i> :
+<b> Uniform heat flux in developed fluid flow (heatTransferBoundary == Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF)</b> according to <i>[VDI 2002, p. Ga 4, eq. 19]</i> :
 </p>
 <pre>
     Nu_qD = [4.364^3 + 0.6^3 + {1.953*(Re*Pr*d_hyd/L)^1/3 - 0.6}^3]^1/3
 </pre>
 
 <p>
-<b> Uniform wall temperature in undeveloped fluid flow (heatTransferBoundary = 3)</b> according to <i>[VDI 2002, p. Ga 2, eq. 12]</i> :
+<b> Uniform wall temperature in undeveloped fluid flow (heatTransferBoundary == Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF)</b> according to <i>[VDI 2002, p. Ga 2, eq. 12]</i> :
 </p>
 <pre>
     Nu_TU = [3.66^3 + 0.7^3 + {1.615*(Re*Pr*d_hyd/L)^1/3 - 0.7}^3 + {(2/[1+22*Pr])^1/6*(Re*Pr*d_hyd/L)^0.5}^3]^1/3
 </pre>
 
 <p>
-<b> Uniform heat flux in developed fluid flow (heatTransferBoundary == 4)</b> according to <i>[VDI 2002, p. Ga 5, eq. 25]</i> :
+<b> Uniform heat flux in developed fluid flow (heatTransferBoundary == Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF)</b> according to <i>[VDI 2002, p. Ga 5, eq. 25]</i> :
 </p>
 
 <pre>
@@ -7499,7 +7499,7 @@ Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>fo
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
 
 <h4>Calculation</h4>
-<p><b>Boiling in a horizontal pipe (target = 1):</b></p>
+<p><b>Boiling in a horizontal pipe (target = Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor):</b></p>
 <p>
 The local two phase heat transfer coefficient <b> kc_2ph </b> during boiling in a <b>horizontal</b> straight pipe for an overall regime is calculated according to <i>[Gungor/Winterton 1986, p.354, eq. 2]</i> :
 </p>
@@ -7530,7 +7530,7 @@ with
 <tr><td><b> X_tt</b> = f(x_flow)          </td><td> as Martinelli parameter [-].</td></tr>
 </table>
 
-<p><b>Boiling in a vertical pipe (target = 2):</b></p>
+<p><b>Boiling in a vertical pipe (target = Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer):</b></p>
 <p>
 The local two phase heat transfer coefficient <b> kc_2ph </b> during boiling in a <b>vertical</b> straight pipe for an overall regime is calculated out of the correlations for boiling in a horizontal straight pipe, where the horizontal correction factors <b> E_fc_hor,S_nb_hor</b> are unity.
 </p>
@@ -7538,7 +7538,7 @@ The local two phase heat transfer coefficient <b> kc_2ph </b> during boiling in 
 Please note that the correlations named above are not valid for subcooled boiling due to a different driving temperature for nucleate boiling and forced convection. At subcooled boiling there is no enhancement factor (no vapour generation) but the suppression factor remains effective.
 </p>
 
-<p><b>Condensation in a horizontal pipe (target = 3):</b></p>
+<p><b>Condensation in a horizontal pipe (target = Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor):</b></p>
 <p>
 The local two phase heat transfer coefficient <b> kc_2ph </b> during condensation in a <b>horizontal</b> straight pipe for an overall regime is calculated according to <i>[Shah 1979, p.548, eq. 8]</i> :
 </p>
@@ -7575,7 +7575,7 @@ with
 <h4>Verification</h4>
 <p>The local two phase heat transfer coefficient <b>kc_2ph </b> during for horizontal and vertical boiling as well as for horizontal condensation is shown for a straight pipe in the figures below.</p>
 
-<p><b>Boiling in a horizontal pipe (target = 1):</b></p>
+<p><b>Boiling in a horizontal pipe (target = Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer):</b></p>
 <p>
 Here the validation of the two phase heat transfer coefficient is shown for boiling in a horizontal straight pipe.
 </p>
@@ -7586,7 +7586,7 @@ Here the validation of the two phase heat transfer coefficient is shown for boil
 The two phase heat transfer coefficient increases with increasing mass flow rate quality up to a maximum value. After that there is a rapid decrease of (<b>kc_2ph </b>) with increasing (<b>x_flow </b>). This can be explained with a partial dryout of the pipe wall for a high mass flow rate quality.
 </p>
 
-<p><b>Condensation in a horizontal pipe (target = 3):</b></p>
+<p><b>Condensation in a horizontal pipe (target = Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor):</b></p>
 <p>
 Here the validation of the two phase heat transfer coefficient is shown for condensation in a horizontal straight pipe.
 </p>
@@ -8437,7 +8437,7 @@ where the exponent for the fraction of densities is determined w.r.t. the chosen
 </p>
 
 <pre>
-  exp_density = if NominalMassFlowRate == 1 then 1-exp else 1
+  exp_density = if NominalMassFlowRate == Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then 1-exp else 1
 </pre>
 
 <p>
@@ -8459,7 +8459,7 @@ To avoid numerical difficulties this pressure loss function is linear smoothed f
 </pre>
 
 <p>
-Note that the input and output arguments for functions throughout this library always use mass flow rates. Here you can choose <b> NominalMassFlowRate == 1 </b> for using a nominal mass flow rate or <b> NominalMassFlowRate == 2 </b> for using a nominal volume flow rate. The output argument will always be a mass flow rate for further use as flow model in a thermo-hydraulic framework.
+Note that the input and output arguments for functions throughout this library always use mass flow rates. Here you can choose <b> NominalMassFlowRate == Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate </b> for using a nominal mass flow rate or <b> NominalMassFlowRate == Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.VolumeFlowRate </b> for using a nominal volume flow rate. The output argument will always be a mass flow rate for further use as flow model in a thermo-hydraulic framework.
 </p>
 
 <p>
@@ -8985,7 +8985,7 @@ transition regime. This deviation can be neglected due to the uncertainty in det
 </p>
 
 <p>
-<b> Smooth surface (roughness =1) </b> w.r.t. <b> Blasius </b> law in the turbulent regime according to <i>[Idelchik 2006, p. 77, sec. 15]</i>:
+<b> Smooth surface (roughness = Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Neglected) </b> w.r.t. <b> Blasius </b> law in the turbulent regime according to <i>[Idelchik 2006, p. 77, sec. 15]</i>:
 </p>
 <pre>
     lambda_FRI = 0.3164*Re^(-0.25)
@@ -9006,7 +9006,7 @@ of the surface roughness <b> K </b> .
 </p>
 
 <p>
-<b> Rough surface (roughness =2) </b> w.r.t. <b> Colebrook-White </b> law in the turbulent regime according to <i>[Miller 1984, p. 191, eq. 8.4]</i>:
+<b> Rough surface (roughness = Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered) </b> w.r.t. <b> Colebrook-White </b> law in the turbulent regime according to <i>[Miller 1984, p. 191, eq. 8.4]</i>:
 </p>
 <pre>
     lambda_FRI = 0.25/{lg[k/(3.7*d_hyd) + 5.74/(Re)^0.9]}^2
@@ -9110,7 +9110,7 @@ with
 The Darcy friction factor <b>lambda_FRI</b> for a straight pipe in the turbulent regime can be calculated for a smooth surface (Blasius law) <b> or </b> a rough surface (Colebrook-White law).
 </p>
 <p>
-<b> Smooth surface (roughness =1) </b> w.r.t. <b> Blasius </b> law in the turbulent regime according to <i>[Idelchik 2006, p. 77, sec. 15]</i>:
+<b> Smooth surface (roughness = Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Neglected) </b> w.r.t. <b> Blasius </b> law in the turbulent regime according to <i>[Idelchik 2006, p. 77, sec. 15]</i>:
 </p>
 
 <pre>
@@ -9132,7 +9132,7 @@ of the surface roughness <b> K </b> .
 </p>
 
 <p>
-<b> Rough surface (roughness =2) </b> w.r.t. <b> Colebrook-White </b> law in the turbulent regime according to <i>[Miller 1984, p. 191, eq. 8.4]</i>:
+<b> Rough surface (roughness = Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered) </b> w.r.t. <b> Colebrook-White </b> law in the turbulent regime according to <i>[Miller 1984, p. 191, eq. 8.4]</i>:
 </p>
 
 <pre>
