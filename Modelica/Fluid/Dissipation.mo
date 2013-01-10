@@ -914,7 +914,7 @@ Note that additionally a failure status is observed in this function to check if
       algorithm
         kc := IN_var.lambda/d_hyd*(if IN_con.target == TYP.Rough then 0.023*Re^(4/5)*
           Pr^IN_con.exp_Pr else if IN_con.target == TYP.Middle then 0.023*Re^(4/5)*Pr
-          ^(1/3)*(IN_var.eta/IN_var.eta_wall)^0.14 else if IN_con.target == 3 and Pr
+          ^(1/3)*(IN_var.eta/IN_var.eta_wall)^0.14 else if IN_con.target == TYP.Finest and Pr
            <= 1.5 then 0.0214*max(1, abs(Re^0.8 - 100))*Pr^0.4 else if IN_con.target
            == TYP.Finest then 0.012*max(1, abs(Re^0.87 - 280))*Pr^0.4 else 0);
 
