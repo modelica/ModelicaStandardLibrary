@@ -2902,8 +2902,8 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.Body body(
         m=5,
         r_CM={0,0,0},
-        r_0(fixed=true, start={0.5,0.1,0}),
-        v_0(fixed=true, start={-0.1,0.1,0}))
+        r_0(each fixed=true, start={0.5,0.1,0}),
+        v_0(each fixed=true, start={-0.1,0.1,0}))
         annotation (Placement(transformation(extent={{66,-118},{86,-98}})));
       Modelica.Blocks.Sources.Sine sine(freqHz=2, amplitude=50)
         annotation (Placement(transformation(extent={{152,-60},{132,-40}})));
@@ -3138,8 +3138,8 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.Body body(
         m=1,
         r_CM={0,0,0},
-        v_0(fixed=true),
-        r_0(fixed=true, start={1,-1,-0.4}),
+        v_0(each fixed=true),
+        r_0(each fixed=true, start={1,-1,-0.4}),
         angles_fixed=true,
         w_0_fixed=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -3148,8 +3148,8 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.Body body1(
         m=1,
         r_CM={0,0,0},
-        v_0(fixed=true, start={1,0.4,0.5}),
-        r_0(fixed=true, start={-0.1,-0.2,-0.15}),
+        v_0(each fixed=true, start={1,0.4,0.5}),
+        r_0(each fixed=true, start={-0.1,-0.2,-0.15}),
         I_11=1,
         I_22=0.3,
         I_33=0.5,
@@ -3168,8 +3168,8 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.Body body2(
         m=1,
         r_CM={0,0,0},
-        v_0(fixed=true, start={1,0.4,0.5}),
-        r_0(fixed=true, start={2.1,-0.2,-0.15}),
+        v_0(each fixed=true, start={1,0.4,0.5}),
+        r_0(each fixed=true, start={2.1,-0.2,-0.15}),
         angles_fixed=true,
         w_0_fixed=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -5416,10 +5416,10 @@ a linear damper is connected here.
                 0},{-80,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion(
         z_rel_a_fixed=false,
-        a_rel_a(fixed=false),
+        a_rel_a(each fixed=false),
         angles_fixed=false,
         w_rel_a_fixed=false,
-        r_rel_a(fixed=false),
+        r_rel_a(each fixed=false),
         enforceStates=false) annotation (Placement(transformation(extent={{60,0},
                 {40,20}}, rotation=0)));
 
@@ -5591,7 +5591,7 @@ a linear damper is connected here.
         v_0(start={0,0,0}),
         angles_fixed=true,
         w_0_fixed=true,
-        r_0(start={1,0,0}, fixed=true),
+        r_0(start={1,0,0}, each fixed=true),
         w_0_start={1,0,0})
         annotation (Placement(transformation(extent={{38,-48},{58,-28}})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs2(
@@ -5778,7 +5778,7 @@ a linear damper is connected here.
         v_0(start={0,0,0}),
         angles_fixed=true,
         w_0_fixed=true,
-        r_0(start={1,0,0}, fixed=true),
+        r_0(start={1,0,0}, each fixed=true),
         w_0_start={0,0,0})
         annotation (Placement(transformation(extent={{38,-48},{58,-28}})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs2(
@@ -7149,12 +7149,12 @@ often possible to use the FreeMotion joint such that the singularity
         I_22=0.1,
         I_33=0.1,
         enforceStates=true,
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
         m=1,
         r_CM={0,-0.3,0},
         angles_fixed=true,
         w_0_fixed=true,
-        v_0(fixed=true, start={-0.1,-0.1,-0.1}),
+        v_0(each fixed=true, start={-0.1,-0.1,-0.1}),
         w_0_start={-0.1,-0.1,-0.1}) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
@@ -7175,8 +7175,8 @@ often possible to use the FreeMotion joint such that the singularity
         angles_fixed=true,
         w_0_fixed=true,
         w_0_start={-0.1,-0.1,-0.1},
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true)) annotation (Placement(transformation(
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
             origin={-36,-30})));
@@ -7205,8 +7205,8 @@ often possible to use the FreeMotion joint such that the singularity
         angles_fixed=true,
         w_0_fixed=true,
         w_0_start={-0.1,-0.1,-0.1},
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true)) annotation (Placement(transformation(
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
             origin={-6,-30})));
@@ -7214,8 +7214,8 @@ often possible to use the FreeMotion joint such that the singularity
         m=1,
         sphereDiameter=0.1,
         stateSelect=StateSelect.always,
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true)) annotation (Placement(transformation(
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
             origin={16,-36})));
@@ -7505,16 +7505,16 @@ often possible to use the FreeMotion joint such that the singularity
         r_CM={0.3,0,0},
         r={0.6,0,0},
         width=0.05,
-        v_0(fixed=true),
+        v_0(each fixed=true),
         angles_fixed=true,
         w_0_fixed=true,
         w_0_start={1,0.3,0.2},
-        r_0(fixed=true, start={1,1,1})) annotation (Placement(transformation(
+        r_0(each fixed=true, start={1,1,1})) annotation (Placement(transformation(
               extent={{-20,46},{0,66}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox BodyBox1(
         r={1,0,0},
-        r_0(fixed=true, start={-0.1,-0.3,-0.2}),
-        v_0(fixed=true),
+        r_0(each fixed=true, start={-0.1,-0.3,-0.2}),
+        v_0(each fixed=true),
         angles_fixed=true,
         w_0_fixed=true,
         w_0_start={1,0.3,0.2}) annotation (Placement(transformation(extent={{-20,
@@ -7522,8 +7522,8 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(
         r={1,0,0},
         innerDiameter=bodyCylinder.diameter/2,
-        r_0(fixed=true),
-        v_0(fixed=true),
+        r_0(each fixed=true),
+        v_0(each fixed=true),
         angles_fixed=true,
         w_0_fixed=true,
         w_0_start={5,-0.4,0.5}) annotation (Placement(transformation(extent={{-20,
@@ -7534,8 +7534,8 @@ often possible to use the FreeMotion joint such that the singularity
         I_22=1,
         I_33=1,
         r_CM={0.3,0,0},
-        r_0(start={0.8,0.2,0}, fixed=true),
-        v_0(fixed=true, start={0,0,0}),
+        r_0(start={0.8,0.2,0}, each fixed=true),
+        v_0(each fixed=true, start={0,0,0}),
         angles_fixed=true,
         angles_start={0,0,0},
         w_0_fixed=true,
@@ -7626,12 +7626,12 @@ often possible to use the FreeMotion joint such that the singularity
         I_11=0.1,
         I_22=0.1,
         I_33=0.1,
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
         m=1,
         r_CM={0,-0.3,0},
         angles_fixed=true,
         w_0_fixed=true,
-        v_0(fixed=true, start={-0.1,-0.1,-0.1}),
+        v_0(each fixed=true, start={-0.1,-0.1,-0.1}),
         w_0_start={-0.1,-0.1,-0.1},
         enforceStates=false) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -7652,8 +7652,8 @@ often possible to use the FreeMotion joint such that the singularity
         angles_fixed=true,
         w_0_fixed=true,
         w_0_start={-0.1,-0.1,-0.1},
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true),
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
         enforceStates=false) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
@@ -7682,8 +7682,8 @@ often possible to use the FreeMotion joint such that the singularity
         angles_fixed=true,
         w_0_fixed=true,
         w_0_start={-0.1,-0.1,-0.1},
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true),
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
         enforceStates=false) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
@@ -7691,8 +7691,8 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(
         m=1,
         sphereDiameter=0.1,
-        r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true),
+        r_0(start={0.2,-0.5,0.1}, each fixed=true),
+        v_0(each fixed=true),
         stateSelect=StateSelect.never) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
