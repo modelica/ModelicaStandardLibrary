@@ -162,8 +162,8 @@ extends Modelica.Icons.ExamplesPackage;
       firstOrder(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
       secondOrder(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
       pI(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
-      pID(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
-      limPID(initType=Modelica.Blocks.Types.Init.InitialOutput,
+      pID(initType=Modelica.Blocks.Types.InitPID.InitialOutput, y_start=2),
+      limPID(initType=Modelica.Blocks.Types.InitPID.InitialOutput,
         yMax=3,
         y_start=2),
       transferFunction(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=
