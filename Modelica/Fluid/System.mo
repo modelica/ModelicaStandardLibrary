@@ -48,14 +48,14 @@ model System
     "Default start value for temperatures"
     annotation(Dialog(tab = "Initialization"));
   // Advanced
-  parameter Modelica.SIunits.Pressure dp_nominal = 1000
+  parameter Modelica.SIunits.Pressure dp_nominal = 10000
     "Default nominal pressure loss"
     annotation(Dialog(group="Nominal operating point"));
   parameter Modelica.SIunits.MassFlowRate m_flow_nominal = 1
     "Default nominal mass flow rate"
     annotation(Dialog(group="Nominal operating point"));
-  parameter Real eps_m_flow(min=0) = 1e-3
-    "Fraction of m_flow_nominal giving small mass flow rate for regularization of zero flow"
+  parameter Real eps_m_flow(min=0) = 1e-4
+    "Regularization of zero flow for |m_flow| < eps_m_flow*m_flow_nominal"
     annotation(Dialog(tab = "Advanced", enable = not use_small));
   parameter Boolean use_small = false
     "= false to use new eps_m_flow and eps_dp"

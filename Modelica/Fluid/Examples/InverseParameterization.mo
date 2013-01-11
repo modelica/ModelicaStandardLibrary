@@ -2,8 +2,14 @@ within Modelica.Fluid.Examples;
 model InverseParameterization
   "Demonstrates the parameterization of a pump and a pipe for given nominal values"
   extends Modelica.Icons.Example;
+
   replaceable package Medium = Modelica.Media.Water.StandardWater;
-      //Modelica.Media.Water.ConstantPropertyLiquidWater;
+  //replaceable package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater;
+
+  //parameter Real eps_m_flow_turbulent = 0.0 "Turbulent flow |m_flow| >= eps_m_flow_nominal*m_flow_nominal";
+  parameter Real eps_m_flow_turbulent = 0.1
+    "Turbulent flow |m_flow| >= eps_m_flow_nominal*m_flow_nominal";
+  //parameter Real eps_m_flow_turbulent = 1 "Turbulent flow |m_flow| >= eps_m_flow_nominal*m_flow_nominal";
 
   Modelica.Fluid.Sources.Boundary_pT source(
     redeclare package Medium = Medium,
@@ -22,11 +28,10 @@ model InverseParameterization
   Modelica.Fluid.Fittings.SimpleGenericOrifice orifice(
     redeclare package Medium = Medium,
     diameter=2.54e-2,
-    m_flow_nominal=1,
     use_zeta=false,
     zeta=0,
-    dp_nominal=100000)
-                      annotation (Placement(transformation(extent={{20,10},{40,
+    dp_nominal=100000,
+    m_flow_nominal=1) annotation (Placement(transformation(extent={{20,10},{40,
             30}}, rotation=0)));
 
   Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,redeclare package Medium = Medium, p=
@@ -43,8 +48,9 @@ model InverseParameterization
     length=0,
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalTurbulentPipeFlow (
-        m_flow_nominal=1,
         show_Res=true,
+        m_flow_nominal=1,
+        m_flow_turbulent=eps_m_flow_turbulent*1,
         dp_nominal=100000))
                       annotation (Placement(transformation(extent={{20,-30},{40,
             -10}},rotation=0)));
@@ -137,7 +143,12 @@ Once the geometries have been designed, the NominalTurbulentPipeFlow correlation
 TurbulentPipeFlow or DetailedPipeFlow correlations. Similarly the ControlledPump can be replaced with a PrescribedPump
 to investigate a real controller or with a Pump with rotational shaft to investigate inertia effects.
 </p>
-
+<p>
+The model has the parameter <b>eps_m_flow_turbulent</b> that 
+can be used to change the flow through pipe1 from fully turbulent (eps_m_flow_turbulent=0) to fully laminar (eps_m_flow_turbulent>actual flow).
+Invoke plotResults and see pipe1.port_a.m_flow. Relating the actual flow to pipe1.flowModel.m_flows_turbulent[1], 
+it can be seen that eps_m_flow_turbulent=0.1 is an appropriate choise for the given pipe diameter. 
+</p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/InverseParametrization.png\" border=\"1\"
      alt=\"InverseParametrization.png\">
 </html>"));

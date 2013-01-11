@@ -155,7 +155,7 @@ or other flow models without storage, are directly connected.
   Documentation(info="<html>
 <p>Model of a straight pipe with distributed mass, energy and momentum balances. It provides the complete balance equations for one-dimensional fluid flow as formulated in <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>. </p>
 <p>This generic model offers a large number of combinations of possible parameter settings. In order to reduce model complexity, consider defining and/or using a tailored model for the application at hand, such as
-<a href=\"modelica://Modelica.Fluid.Pipes.PipeOnePhaseHT\">PipeOnePhaseHT</a>.</p>
+<a href=\"modelica://Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation\">HeatExchanger</a>.</p>
 <p>DynamicPipe treats the partial differential equations with the finite volume method and a staggered grid scheme for momentum balances. The pipe is split into nNodes equally spaced segments along the flow path. The default value is nNodes=2. This results in two lumped mass and energy balances and one lumped momentum balance across the dynamic pipe. </p>
 <p>Note that this generally leads to high-index DAEs for pressure states if dynamic pipes are directly connected to each other, or generally to models with storage exposing a thermodynamic state through the port. This may not be valid if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The <code><b>modelStructure</b></code> can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition. </p>
 <p>The default <code><b>modelStructure</b></code> is <code>av_vb</code> (see Advanced tab). The simplest possible alternative symmetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. Depending on the configured model structure, the first and the last pipe segment, or the flow path length of the first and the last momentum balance, are of half size. See the documentation of the base class <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations. </p>
@@ -2067,6 +2067,8 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
 
             input SI.Length[n-1] pathLengths_internal
           "pathLengths used internally; to be defined by extending class";
+            input SI.ReynoldsNumber[n-1] Res_turbulent_internal = Re_turbulent*ones(n-1)
+          "Re_turbulent used internally; to be defined by extending class";
 
             // Parameters
             parameter SI.AbsolutePressure dp_nominal
@@ -2115,7 +2117,8 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              pathLengths_internal,
                              diameters,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
-                             dp_small)*nParallel,
+                             dp_small/n,
+                             Res_turbulent_internal)*nParallel,
                   simplified=  m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal));
               else
                 dps_fg = homotopy(
@@ -2128,7 +2131,8 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              pathLengths_internal,
                              diameters,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
-                             m_flow_small/nParallel) + {g*dheights[i]*rhos_act[i] for i in 1:n-1},
+                             m_flow_small/nParallel,
+                             Res_turbulent_internal) + {g*dheights[i]*rhos_act[i] for i in 1:n-1},
                   simplified=  dp_nominal/m_flow_nominal*m_flows + g*dheights*rho_nominal);
               end if;
             else
@@ -2145,7 +2149,8 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              diameters,
                              g*dheights,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
-                             dp_small/n)*nParallel,
+                             dp_small/n,
+                             Res_turbulent_internal)*nParallel,
                   simplified=  m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal));
               else
                 dps_fg = homotopy(
@@ -2159,7 +2164,8 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              diameters,
                              g*dheights,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
-                             m_flow_small/nParallel),
+                             m_flow_small/nParallel,
+                             Res_turbulent_internal),
                   simplified=  dp_nominal/m_flow_nominal*m_flows + g*dheights*rho_nominal);
               end if;
             end if;
@@ -2225,16 +2231,23 @@ simulation and/or might give a more robust simulation.
             extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction =
-              Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent,
+              Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent,
           use_mu_nominal=not show_Res,
           pathLengths_internal=pathLengths_nominal,
-          useUpstreamScheme=false);
+          useUpstreamScheme=false,
+          Res_turbulent_internal=Res_turbulent_nominal);
 
-        import Modelica.Constants.pi;
+            import Modelica.Constants.pi;
+
+            parameter SI.MassFlowRate m_flow_turbulent(min=0) = if system.use_small then system.m_flow_small else 0.1*m_flow_nominal
+          "Turbulent flow starting from |m_flows| > m_flow_turbulent (may be wider for large discontinuities in static head)"
+              annotation(Dialog(enable=not from_dp and WallFriction.use_m_flow_small));
 
             // variables for nominal pressure loss
             SI.Length[n-1] pathLengths_nominal
           "pathLengths resulting from nominal pressure loss and geometry";
+            SI.ReynoldsNumber[n-1] Res_turbulent_nominal
+          "Re_turbulent resulting from nominal turbulent flow and geometry";
             Real[n-1] ks_inv "coefficient for quadratic flow";
             Real[n-1] zetas "coefficient for quadratic flow";
 
@@ -2250,11 +2263,13 @@ simulation and/or might give a more robust simulation.
             //   zeta = (length_nominal/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
             //   k_inv = (pi*diameter*diameter)^2/(8*zeta);
             //   k = rho*k_inv "Factor in m_flow = sqrt(k*dp)";
+            //   m_flow_turbulent = pi/4*diameter*mu*Re_turbulent;
             for i in 1:n-1 loop
               ks_inv[i] = (m_flow_nominal/nParallel)^2/((dp_nominal/(n-1)-g*dheights[i]*rhos_act[i]))/rhos_act[i];
               zetas[i] = (pi*diameters[i]*diameters[i])^2/(8*ks_inv[i]);
               pathLengths_nominal[i] =
                 zetas[i]*diameters[i]*(2*Modelica.Math.log10(3.7 /((roughnesses[i]+roughnesses[i+1])/2/diameters[i])))^2;
+              Res_turbulent_nominal[i] = m_flow_turbulent / (pi/4*diameters[i]*mus_act[i]);
             end for;
 
             annotation (Documentation(info="<html>
@@ -2302,11 +2317,16 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
            extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction =
-              Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent,
+              Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent,
           use_mu_nominal=not show_Res,
           pathLengths_internal=pathLengths,
           dp_nominal=system.dp_nominal,
-          m_flow_nominal=system.m_flow_nominal);
+          m_flow_nominal=system.m_flow_nominal,
+          Res_turbulent_internal = if use_Re then Re_turbulent*ones(n-1) else zeros(n-1));
+
+            parameter Boolean use_Re = not system.use_small
+          "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
+              annotation(Evaluate=true);
 
             annotation (Documentation(info="<html>
 <p>
@@ -2328,7 +2348,8 @@ The turbulent pressure loss correlation might be useful to optimize models that 
               Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
           pathLengths_internal=pathLengths,
           dp_nominal=system.dp_nominal,
-          m_flow_nominal=system.m_flow_nominal);
+          m_flow_nominal=system.m_flow_nominal,
+          Res_turbulent_internal = Re_turbulent*ones(n-1));
 
               annotation (Documentation(info="<html>
 <p>
@@ -2628,6 +2649,8 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
           "= true, if m_flow_small is used in function, otherwise value is not used";
         constant Boolean dp_is_zero = false
           "= true, if no wall friction is present, i.e., dp = 0 (function massFlowRate_dp() cannot be used)";
+        constant Boolean use_Re_turbulent = true
+          "= true, if Re_turbulent input is used in function, otherwise value is not used";
 
       // pressure loss characteristic functions
         replaceable partial function massFlowRate_dp
@@ -2646,7 +2669,9 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
           input SI.Length roughness(min=0) = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.AbsolutePressure dp_small = 1
-            "Turbulent flow if |dp| >= dp_small (dummy if use_dp_small = false)";
+            "Regularization of zero flow if |dp| < dp_small (dummy if use_dp_small = false)";
+          input SI.ReynoldsNumber Re_turbulent = 4000
+            "Turbulent flow if Re >= Re_turbulent (dummy if use_Re_turbulent = false)";
 
           output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
         annotation (Documentation(info="<html>
@@ -2672,7 +2697,9 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
           input SI.Length roughness(min=0) = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.AbsolutePressure dp_small=1
-            "Turbulent flow if |dp| >= dp_small (dummy if use_dp_small = false)";
+            "Regularization of zero flow if |dp| < dp_small (dummy if use_dp_small = false)";
+          input SI.ReynoldsNumber Re_turbulent = 4000
+            "Turbulent flow if Re >= Re_turbulent (dummy if use_Re_turbulent = false)";
 
           output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
           annotation (Documentation(info="<html>
@@ -2696,7 +2723,10 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
           input SI.Length roughness(min=0) = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.MassFlowRate m_flow_small = 0.01
-            "Turbulent flow if |m_flow| >= m_flow_small (dummy if use_m_flow_small = false)";
+            "Regularization of zero flow if |m_flow| < m_flow_small (dummy if use_m_flow_small = false)";
+          input SI.ReynoldsNumber Re_turbulent = 4000
+            "Turbulent flow if Re >= Re_turbulent (dummy if use_Re_turbulent = false)";
+
           output SI.Pressure dp "Pressure loss (dp = port_a.p - port_b.p)";
 
         annotation (Documentation(info="<html>
@@ -2722,7 +2752,10 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
           input SI.Length roughness(min=0) = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.MassFlowRate m_flow_small = 0.01
-            "Turbulent flow if |m_flow| >= m_flow_small (dummy if use_m_flow_small = false)";
+            "Regularization of zero flow if |m_flow| < m_flow_small (dummy if use_m_flow_small = false)";
+          input SI.ReynoldsNumber Re_turbulent = 4000
+            "Turbulent flow if Re >= Re_turbulent (dummy if use_Re_turbulent = false)";
+
           output SI.Pressure dp "Pressure loss (dp = port_a.p - port_b.p)";
 
         annotation (Documentation(info="<html>
@@ -2742,7 +2775,8 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
                   final use_roughness = false,
                   final use_dp_small = false,
                   final use_m_flow_small = false,
-                  final dp_is_zero = true);
+                  final dp_is_zero = true,
+                  final use_Re_turbulent = false);
 
         redeclare function extends massFlowRate_dp
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction"
@@ -2812,7 +2846,8 @@ to zero, i.e., it allows to switch off pipe wall friction.
                   final use_mu = true,
                   final use_roughness = false,
                   final use_dp_small = false,
-                  final use_m_flow_small = false);
+                  final use_m_flow_small = false,
+                  final use_Re_turbulent = false);
 
         redeclare function extends massFlowRate_dp
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction"
@@ -2996,7 +3031,8 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
                   final use_mu = false,
                   final use_roughness = true,
                   final use_dp_small = true,
-                  final use_m_flow_small = true);
+                  final use_m_flow_small = true,
+                  final use_Re_turbulent = false);
 
         redeclare function extends massFlowRate_dp
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction"
@@ -3015,7 +3051,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
       = 0.5*zeta/(pi*(D/2)^2)^2
       = 8*zeta/(pi*D^2)^2
   */
-          assert(roughness > 1.e-10,
+          assert(roughness > 1e-10,
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
           zeta  := (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
           k_inv := (pi*diameter*diameter)^2/(8*zeta);
@@ -3043,7 +3079,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
       = 0.5*zeta/(pi*(D/2)^2)^2
       = 8*zeta/(pi*D^2)^2
   */
-          assert(roughness > 1.e-10,
+          assert(roughness > 1e-10,
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
           zeta := (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
           k    := 8*zeta/(pi*diameter*diameter)^2;
@@ -3098,7 +3134,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
       = 0.5*zeta/(pi*(D/2)^2)^2
       = 8*zeta/(pi*D^2)^2
   */
-          assert(roughness > 1.e-10,
+          assert(roughness > 1e-10,
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
 
           if dp>=dp_a then
@@ -3175,7 +3211,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
       = 0.5*zeta/(pi*(D/2)^2)^2
       = 8*zeta/(pi*D^2)^2
   */
-          assert(roughness > 1.e-10,
+          assert(roughness > 1e-10,
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
 
           if m_flow>=m_flow_a then
@@ -3231,7 +3267,8 @@ Reynolds numbers, i.e., the values at the right ordinate where
                   final use_mu = true,
                   final use_roughness = true,
                   final use_dp_small = true,
-                  final use_m_flow_small = true);
+                  final use_m_flow_small = true,
+                  final use_Re_turbulent = true);
 
         import ln = Modelica.Math.log "Logarithm, base e";
         import Modelica.Math.log10 "Logarithm, base 10";
@@ -3243,7 +3280,6 @@ Reynolds numbers, i.e., the values at the right ordinate where
           import Modelica.Math;
         protected
           constant Real pi=Modelica.Constants.pi;
-          constant Real Re_turbulent = 4000 "Start of turbulent regime";
           Real zeta;
           Real k0;
           Real k_inv;
@@ -3283,13 +3319,13 @@ Laminar region:
    (because dummy values) and therefore the division is only performed
    if zetaLaminarKnown = true.
 */
-          assert(roughness > 1.e-10,
+          assert(roughness > 1e-10,
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
           zeta   := (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
           k0     := 128*length/(pi*diameter^4);
           k_inv  := (pi*diameter*diameter)^2/(8*zeta);
           yd0    := (rho_a + rho_b)/(k0*(mu_a + mu_b));
-          dp_turbulent := ((mu_a + mu_b)*diameter*pi/8)^2*Re_turbulent^2/(k_inv*(rho_a+rho_b)/2);
+          dp_turbulent := max(((mu_a + mu_b)*diameter*pi/8)^2*Re_turbulent^2/(k_inv*(rho_a+rho_b)/2), dp_small);
           m_flow := Modelica.Fluid.Utilities.regRoot2(dp, dp_turbulent, rho_a*k_inv, rho_b*k_inv,
                                                       use_yd0=true, yd0=yd0);
           annotation (smoothOrder=1, Documentation(info="<html>
@@ -3303,7 +3339,6 @@ Laminar region:
 
         protected
           constant Real pi=Modelica.Constants.pi;
-          constant Real Re_turbulent = 4000 "Start of turbulent regime";
           Real zeta;
           Real k0;
           Real k;
@@ -3342,13 +3377,13 @@ Laminar region:
    at m_flow=0, the mean values of mu and d are used in the
    laminar region: mu/rho = (mu_a + mu_b)/(rho_a + rho_b)
 */
-          assert(roughness > 1.e-10,
+          assert(roughness > 1e-10,
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
           zeta := (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
           k0   := 128*length/(pi*diameter^4);
           k    := 8*zeta/(pi*diameter*diameter)^2;
           yd0  := k0*(mu_a + mu_b)/(rho_a + rho_b);
-          m_flow_turbulent :=(pi/8)*diameter*(mu_a + mu_b)*Re_turbulent;
+          m_flow_turbulent := max((pi/8)*diameter*(mu_a + mu_b)*Re_turbulent, m_flow_small);
           dp :=Modelica.Fluid.Utilities.regSquare2(m_flow, m_flow_turbulent, k/rho_a, k/rho_b,
                                                    use_yd0=true, yd0=yd0);
           annotation (smoothOrder=1, Documentation(info="<html>
@@ -3362,9 +3397,9 @@ Laminar region:
 
         protected
           Real Delta = roughness/diameter "Relative roughness";
-          SI.ReynoldsNumber Re1 = 745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta)
+          SI.ReynoldsNumber Re1 = min(745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Boundary between laminar regime and transition";
-          constant SI.ReynoldsNumber Re2 = 4000
+          constant SI.ReynoldsNumber Re2 = Re_turbulent
             "Boundary between transition and turbulent regime";
 
           SI.Pressure dp_a
@@ -3392,7 +3427,7 @@ Laminar region:
           SI.Pressure dp_zero = (dp_grav_a + dp_grav_b)/2;
           Real dm_flow_ddp_fric_zero;
         algorithm
-          assert(roughness > 1.e-10,
+          assert(roughness > 1e-10,
             "roughness > 0 required for quadratic turbulent wall friction characteristic");
 
           dp_a := max(dp_grav_a, dp_grav_b)+dp_small;
@@ -3429,9 +3464,9 @@ Laminar region:
 
         protected
           Real Delta = roughness/diameter "Relative roughness";
-          SI.ReynoldsNumber Re1 = 745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta)
+          SI.ReynoldsNumber Re1 = min(745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Boundary between laminar regime and transition";
-          constant SI.ReynoldsNumber Re2 = 4000
+          constant SI.ReynoldsNumber Re2 = Re_turbulent
             "Boundary between transition and turbulent regime";
 
           SI.MassFlowRate m_flow_a
@@ -3458,7 +3493,7 @@ Laminar region:
           Real ddp_dm_flow_zero;
 
         algorithm
-          assert(roughness > 1.e-10,
+          assert(roughness > 1e-10,
             "roughness > 0 required for quadratic turbulent wall friction characteristic");
 
           m_flow_a := if dp_grav_a<dp_grav_b then
@@ -3699,7 +3734,8 @@ identical to laminar wall friction.
                   final use_mu = true,
                   final use_roughness = true,
                   final use_dp_small = true,
-                  final use_m_flow_small = true);
+                  final use_m_flow_small = true,
+                  final use_Re_turbulent = true);
 
         import ln = Modelica.Math.log "Logarithm, base e";
         import Modelica.Math.log10 "Logarithm, base 10";
@@ -3712,9 +3748,9 @@ identical to laminar wall friction.
         protected
           constant Real pi = Modelica.Constants.pi;
           Real Delta = roughness/diameter "Relative roughness";
-          SI.ReynoldsNumber Re1 = (745*Math.exp(if Delta <= 0.0065 then 1 else 0.0065/Delta))^0.97
+          SI.ReynoldsNumber Re1 = min((745*Math.exp(if Delta <= 0.0065 then 1 else 0.0065/Delta))^0.97, Re_turbulent)
             "Re leaving laminar curve";
-          SI.ReynoldsNumber Re2 = 4000 "Re entering turbulent curve";
+          SI.ReynoldsNumber Re2 = Re_turbulent "Re entering turbulent curve";
           SI.DynamicViscosity mu "Upstream viscosity";
           SI.Density rho "Upstream density";
           SI.ReynoldsNumber Re "Reynolds number";
@@ -3787,9 +3823,9 @@ identical to laminar wall friction.
         protected
           constant Real pi = Modelica.Constants.pi;
           Real Delta = roughness/diameter "Relative roughness";
-          SI.ReynoldsNumber Re1 = 745*Math.exp(if Delta <= 0.0065 then 1 else 0.0065/Delta)
+          SI.ReynoldsNumber Re1 = min(745*Math.exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Re leaving laminar curve";
-          SI.ReynoldsNumber Re2 = 4000 "Re entering turbulent curve";
+          SI.ReynoldsNumber Re2 = Re_turbulent "Re entering turbulent curve";
           SI.DynamicViscosity mu "Upstream viscosity";
           SI.Density rho "Upstream density";
           SI.ReynoldsNumber Re "Reynolds number";
@@ -3852,9 +3888,9 @@ identical to laminar wall friction.
         protected
           Real Delta = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re "Reynolds number";
-          SI.ReynoldsNumber Re1 = (745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta))^0.97
+          SI.ReynoldsNumber Re1 = min((745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta))^0.97, Re_turbulent)
             "Boundary between laminar regime and transition";
-          constant SI.ReynoldsNumber Re2 = 4000
+          constant SI.ReynoldsNumber Re2 = Re_turbulent
             "Boundary between transition and turbulent regime";
           SI.Pressure dp_a
             "Upper end of regularization domain of the m_flow(dp) relation";
@@ -3912,9 +3948,9 @@ identical to laminar wall friction.
 
         protected
           Real Delta = roughness/diameter "Relative roughness";
-          SI.ReynoldsNumber Re1 = 745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta)
+          SI.ReynoldsNumber Re1 = min(745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Boundary between laminar regime and transition";
-          constant SI.ReynoldsNumber Re2 = 4000
+          constant SI.ReynoldsNumber Re2 = Re_turbulent
             "Boundary between transition and turbulent regime";
 
           SI.MassFlowRate m_flow_a

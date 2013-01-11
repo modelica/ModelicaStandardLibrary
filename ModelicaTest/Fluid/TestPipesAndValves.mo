@@ -1550,9 +1550,9 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
       m_flow_nominal=1,
       rho_nominal=1000,
       redeclare package Medium = Medium,
-      dp_nominal=400000,
       filteredOpening=true,
-      riseTime=0.1)                   annotation (Placement(transformation(
+      riseTime=0.1,
+      dp_nominal=100000)              annotation (Placement(transformation(
             extent={{52,-10},{72,10}}, rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,
       redeclare package Medium = Medium,
@@ -1620,7 +1620,9 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with the valve open. At t=1, the valve is closed.
-</html>"));
+</html>"),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics));
   end SeriesPipes1;
 
   model SeriesPipes12
@@ -1670,10 +1672,10 @@ pressure in order to get positive flow rates.
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       m_flow_nominal=1,
       rho_nominal=5,
-      dp(start=400000),
-      dp_nominal=400000,
       filteredOpening=true,
-      riseTime=0.1)
+      riseTime=0.1,
+      dp_nominal=100000,
+      dp(start=400000))
                   annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,

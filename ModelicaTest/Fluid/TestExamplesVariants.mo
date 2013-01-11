@@ -13,23 +13,13 @@ package TestExamplesVariants
     "Alternative case for HeatingSystem as steady state model"
     annotation(experiment(StopTime=6000));
 
-  model IncompressibleFluidNetwork_StandardWaterOnePhase_av_vb =
+  model IncompressibleFluidNetwork_StandardWaterOnePhase =
       Modelica.Fluid.Examples.IncompressibleFluidNetwork (
     redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
-    redeclare model FlowModel =
-          Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
-    pipeModelStructure = Modelica.Fluid.Types.ModelStructure.av_vb)
+    pipeDiameter = 2.54e-2)
     "Alternative case for IncompressibleFluidNetwork using WaterIF97 medium"
     annotation(experiment(StopTime=200));
 
-  model IncompressibleFluidNetwork_StandardWaterOnePhase_a_v_b =
-      Modelica.Fluid.Examples.IncompressibleFluidNetwork (
-    redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
-    redeclare model FlowModel =
-          Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
-    pipeModelStructure = Modelica.Fluid.Types.ModelStructure.a_v_b)
-    "Alternative case for IncompressibleFluidNetwork using WaterIF97 medium and pipeModelStructure=a_v_b"
-    annotation(experiment(StopTime=200));
 
   model BranchingDynamicPipes_MomentumSteadyState =
     Modelica.Fluid.Examples.BranchingDynamicPipes (
