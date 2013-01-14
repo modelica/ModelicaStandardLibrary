@@ -312,30 +312,18 @@ partial model PartialTwoPortTransport
     final port_a_exposesState=false,
     final port_b_exposesState=false);
 
-  // Nominal
-  // Provide start values so that old models still run -- shall be removed in a later release
-  parameter SI.Pressure dp_nominal(start = system.dp_nominal)
-      "Nominal pressure drop dp = port_b.p - port_a.p"
-    annotation(Dialog(group="Nominal operating point"));
-  parameter Medium.MassFlowRate m_flow_nominal(start = system.m_flow_nominal)
-      "Nominal value of m_flow = port_a.m_flow"
-    annotation(Dialog(group = "Nominal operating point"));
   // Advanced
-  parameter Boolean from_dp = true
-      "= true, use m_flow = f(dp) else dp = f(m_flow)"
-    annotation (Evaluate=true, Dialog(tab="Advanced"));
-  parameter Medium.AbsolutePressure dp_start = dp_nominal
+  // Note: value of dp_start shall be refined by derived model, basing on local dp_nominal
+  parameter Medium.AbsolutePressure dp_start(start = 0.01*system.p_start)
       "Guess value of dp = port_a.p - port_b.p"
     annotation(Dialog(tab = "Advanced", enable=from_dp));
-  parameter Medium.AbsolutePressure dp_small = if system.use_small then system.dp_small else dp_nominal/m_flow_nominal*m_flow_small
-      "Small pressure loss for regularization of zero flow"
-    annotation(Dialog(tab="Advanced", enable=from_dp));
   parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
       "Guess value of m_flow = port_a.m_flow"
     annotation(Dialog(tab = "Advanced", enable=not from_dp));
-  parameter Medium.MassFlowRate m_flow_small = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal
+  // Note: value of m_flow_small shall be refined by derived model, basing on local m_flow_nominal
+  parameter Medium.MassFlowRate m_flow_small(start = if system.use_small then system.m_flow_small else system.eps_m_flow*system.m_flow_nominal)
       "Small mass flow rate for regularization of zero flow"
-    annotation(Dialog(tab = "Advanced", enable=not from_dp));
+    annotation(Dialog(tab = "Advanced"));
 
   // Diagnostics
   parameter Boolean show_T = true
@@ -409,6 +397,13 @@ Three equations need to be added by an extending class using this component:
 <li>the momentum balance specifying the relationship between the pressure drop <code>dp</code> and the mass flow rate <code>m_flow</code>,</li>
 <li><code>port_b.h_outflow</code> for flow in design direction, and</li>
 <li><code>port_a.h_outflow</code> for flow in reverse direction.</li>
+</ul>
+<p>
+Moreover appropriate values shall be assigned to the following parameters:
+</p>
+<ul>
+<li><code>dp_start</code> for a guess of the pressure drop</li>
+<li><code>m_flow_small</code> for regularization of zero flow.</li>
 </ul>
 </html>"));
 end PartialTwoPortTransport;

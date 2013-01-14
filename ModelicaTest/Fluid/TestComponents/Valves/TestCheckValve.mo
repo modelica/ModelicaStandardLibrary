@@ -11,8 +11,7 @@ model TestCheckValve "Test case for check valve"
   redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow_nominal=2,
     checkValve=true,
-    dp_nominal=100000,
-    dp_small=10000)
+    dp_nominal=100000)
             annotation (Placement(transformation(extent={{-26,-22},{-6,
             -2}},
           rotation=0)));
@@ -23,7 +22,7 @@ model TestCheckValve "Test case for check valve"
     T=293.15)
   annotation (Placement(transformation(extent={{46,-22},{26,-2}},
                                                                 rotation=0)));
-  inner Modelica.Fluid.System system
+  inner Modelica.Fluid.System system(use_small=false)
                                    annotation (Placement(transformation(extent={{64,60},
             {84,80}},          rotation=0)));
   Modelica.Blocks.Sources.Ramp downstreamPressure(

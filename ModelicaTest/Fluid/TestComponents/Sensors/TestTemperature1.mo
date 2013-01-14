@@ -17,7 +17,7 @@ model TestTemperature1
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     use_portsData=false,
     p_start=101325,
-    V=1e-4)      annotation (Placement(transformation(extent={{-30,30},{-10,50}},
+    V=1e-3)      annotation (Placement(transformation(extent={{-30,30},{-10,50}},
           rotation=0)));
 
   Modelica.Fluid.Sources.MassFlowSource_h source1(
@@ -56,7 +56,7 @@ model TestTemperature1
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     use_portsData=false,
     p_start=101325,
-    V=1e-4)      annotation (Placement(transformation(extent={{-32,-30},{-12,
+    V=1e-3)      annotation (Placement(transformation(extent={{-32,-30},{-12,
             -10}}, rotation=0)));
 
   Modelica.Fluid.Sources.MassFlowSource_h source2(

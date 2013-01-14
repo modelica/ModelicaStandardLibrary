@@ -15,11 +15,9 @@ package TestExamplesVariants
 
   model IncompressibleFluidNetwork_StandardWaterOnePhase =
       Modelica.Fluid.Examples.IncompressibleFluidNetwork (
-    redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
-    pipeDiameter = 2.54e-2)
+    redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase)
     "Alternative case for IncompressibleFluidNetwork using WaterIF97 medium"
     annotation(experiment(StopTime=200));
-
 
   model BranchingDynamicPipes_MomentumSteadyState =
     Modelica.Fluid.Examples.BranchingDynamicPipes (
@@ -32,5 +30,17 @@ package TestExamplesVariants
       redeclare package Medium = Modelica.Media.Water.StandardWater)
     "Alternative case for BranchingDynamicPipes using StandardWater medium"
   annotation(experiment(StopTime=10));
+
+  model InverseParameterization_turbulent =
+    Modelica.Fluid.Examples.InverseParameterization (
+      eps_m_flow_turbulent=0)
+    "Alternative case for InverseParameterization using eps_m_flow_turbulent=0"
+  annotation(experiment(StopTime=10, Interval=0.001));
+
+  model InverseParameterization_laminar =
+    Modelica.Fluid.Examples.InverseParameterization (
+      eps_m_flow_turbulent=1)
+    "Alternative case for InverseParameterization using eps_m_flow_turbulent=1"
+  annotation(experiment(StopTime=10, Interval=0.001));
 
 end TestExamplesVariants;

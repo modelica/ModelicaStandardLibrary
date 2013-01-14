@@ -2054,6 +2054,11 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
 
           partial model PartialGenericPipeFlow
         "GenericPipeFlow: Pipe flow pressure loss and gravity with replaceable WallFriction package"
+
+            parameter Boolean from_dp = momentumDynamics >= Types.Dynamics.SteadyStateInitial
+          " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
+              annotation (Dialog(group="Advanced"), Evaluate=true);
+
             extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel(
            final Re_turbulent=4000);
@@ -2072,19 +2077,16 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
 
             // Parameters
             parameter SI.AbsolutePressure dp_nominal
-          "Nominal pressure loss (for nominal models)";
-            parameter SI.MassFlowRate m_flow_nominal
-          "Mass flow rate for dp_nominal (for nominal models)";
-            parameter Boolean from_dp = momentumDynamics >= Types.Dynamics.SteadyStateInitial
-          " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
-              annotation (Evaluate=true);
-            parameter SI.AbsolutePressure dp_small = if system.use_small then system.dp_small else dp_nominal/m_flow_nominal*m_flow_small
-          "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
-              annotation(Dialog(enable=from_dp and WallFriction.use_dp_small));
+          "Nominal pressure loss (only for nominal models)";
+            parameter SI.MassFlowRate m_flow_nominal "Nominal mass flow rate";
             parameter SI.MassFlowRate m_flow_small = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal
           "Within regularization if |m_flows| < m_flow_small (may be wider for large discontinuities in static head)"
               annotation(Dialog(enable=not from_dp and WallFriction.use_m_flow_small));
 
+      protected
+            parameter SI.AbsolutePressure dp_small(start = if system.use_small then system.dp_small else 1, fixed = system.use_small)
+          "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
+              annotation(Dialog(enable=from_dp and WallFriction.use_dp_small));
             final parameter Boolean constantPressureLossCoefficient=
                use_rho_nominal and (use_mu_nominal or not WallFriction.use_mu)
           "= true if the pressure loss does not depend on fluid states"
@@ -2098,6 +2100,25 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
 
             SI.Length[n-1] diameters = 0.5*(dimensions[1:n-1] + dimensions[2:n])
           "mean diameters between segments";
+            SI.AbsolutePressure dp_fric_nominal=
+              sum(WallFriction.pressureLoss_m_flow(
+                             m_flow_nominal/nParallel,
+                             rho_nominal,
+                             rho_nominal,
+                             mu_nominal,
+                             mu_nominal,
+                             pathLengths_internal,
+                             diameters,
+                             (roughnesses[1:n-1]+roughnesses[2:n])/2,
+                             m_flow_small/nParallel,
+                             Res_turbulent_internal))
+          "pressure loss for nominal conditions";
+
+          initial equation
+            // initialize dp_small from flow model
+            if not system.use_small then
+              dp_small = dp_fric_nominal/m_flow_nominal*m_flow_small;
+            end if;
 
           equation
             for i in 1:n-1 loop
@@ -2117,7 +2138,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              pathLengths_internal,
                              diameters,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
-                             dp_small/n,
+                             dp_small/(n-1),
                              Res_turbulent_internal)*nParallel,
                   simplified=  m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal));
               else
@@ -2149,7 +2170,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              diameters,
                              g*dheights,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
-                             dp_small/n,
+                             dp_small/(n-1),
                              Res_turbulent_internal)*nParallel,
                   simplified=  m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal));
               else
@@ -2269,7 +2290,7 @@ simulation and/or might give a more robust simulation.
               zetas[i] = (pi*diameters[i]*diameters[i])^2/(8*ks_inv[i]);
               pathLengths_nominal[i] =
                 zetas[i]*diameters[i]*(2*Modelica.Math.log10(3.7 /((roughnesses[i]+roughnesses[i+1])/2/diameters[i])))^2;
-              Res_turbulent_nominal[i] = m_flow_turbulent / (pi/4*diameters[i]*mus_act[i]);
+              Res_turbulent_nominal[i] = m_flow_turbulent/nParallel / (pi/4*diameters[i]*mus_act[i]);
             end for;
 
             annotation (Documentation(info="<html>
@@ -2313,20 +2334,27 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
           end NominalTurbulentPipeFlow;
 
           model TurbulentPipeFlow
-        "TurbulentPipeFlow: Pipe wall friction in the quadratic turbulent regime (simple characteristic, mu not used)"
-           extends
+        "TurbulentPipeFlow: Pipe wall friction in the quadratic turbulent regime (using mu to regularize laminar region)"
+
+            parameter Boolean use_Re = not system.use_small
+          "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
+              annotation(Dialog(group="Advanced"), Evaluate=true);
+
+            extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction =
               Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent,
           use_mu_nominal=not show_Res,
           pathLengths_internal=pathLengths,
-          dp_nominal=system.dp_nominal,
-          m_flow_nominal=system.m_flow_nominal,
+          dp_nominal(start=if system.use_small then 1e3*dp_small else 1, fixed=system.use_small),
+          m_flow_nominal=if system.use_small then 1e2*m_flow_small else system.m_flow_nominal,
           Res_turbulent_internal = if use_Re then Re_turbulent*ones(n-1) else zeros(n-1));
 
-            parameter Boolean use_Re = not system.use_small
-          "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
-              annotation(Evaluate=true);
+          initial equation
+            // initialize dp_nominal from flow model
+            if not system.use_small then
+              dp_nominal = dp_fric_nominal + g*sum(dheights)*rho_nominal;
+            end if;
 
             annotation (Documentation(info="<html>
 <p>
@@ -2342,14 +2370,20 @@ The turbulent pressure loss correlation might be useful to optimize models that 
 
           model DetailedPipeFlow
         "DetailedPipeFlow: Pipe wall friction in the laminar and turbulent regime (detailed characteristic)"
-           extends
+            extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction =
               Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
           pathLengths_internal=pathLengths,
-          dp_nominal=system.dp_nominal,
-          m_flow_nominal=system.m_flow_nominal,
+          dp_nominal(start=if system.use_small then 1e3*dp_small else 1, fixed=system.use_small),
+          m_flow_nominal=if system.use_small then 1e2*m_flow_small else system.m_flow_nominal,
           Res_turbulent_internal = Re_turbulent*ones(n-1));
+
+          initial equation
+            // initialize dp_nominal from flow model
+            if not system.use_small then
+              dp_nominal = dp_fric_nominal + g*sum(dheights)*rho_nominal;
+            end if;
 
               annotation (Documentation(info="<html>
 <p>
@@ -4276,7 +4310,9 @@ b has the same sign of the change of density.</p>
 
       model TestWallFrictionAndGravity
         "Pressure loss in pipe due to wall friction and gravity (only for test purposes; if needed use Pipes.StaticPipe instead)"
-        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(dp_nominal=system.dp_nominal, m_flow_nominal=system.m_flow_nominal);
+        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
+          dp_start = dp_fric_nominal + system.g*height_ab*rho_nominal,
+          m_flow_small = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal);
 
         replaceable package WallFriction =
           Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent
@@ -4291,6 +4327,10 @@ b has the same sign of the change of density.</p>
         parameter SI.Length roughness(min=0) = 2.5e-5
           "Absolute roughness of pipe (default = smooth steel pipe)"
             annotation(Dialog(enable=WallFriction.use_roughness));
+
+        parameter Modelica.SIunits.MassFlowRate m_flow_nominal=if system.use_small then 1e2*system.m_flow_small else system.m_flow_nominal
+          "Nominal mass flow rate"
+          annotation(Dialog(group="Nominal operating point"));
 
         parameter Boolean use_nominal = false
           "= true, if mu_nominal and rho_nominal are used, otherwise computed from medium"
@@ -4307,12 +4347,27 @@ b has the same sign of the change of density.</p>
         parameter Boolean show_Re = false
           "= true, if Reynolds number is included for plotting"
            annotation (Evaluate=true, Dialog(tab="Advanced"));
-        //parameter Boolean from_dp=true
-        //  " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
-        //  annotation (Evaluate=true, Dialog(tab="Advanced"));
-        //parameter SI.AbsolutePressure dp_small = system.dp_small
-        //  "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
-        //  annotation(Dialog(tab="Advanced", enable=from_dp and WallFriction.use_dp_small));
+        parameter Boolean from_dp=true
+          " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
+          annotation (Evaluate=true, Dialog(tab="Advanced"));
+      protected
+        parameter Medium.AbsolutePressure dp_fric_nominal=
+          WallFriction.pressureLoss_m_flow(
+                         m_flow_nominal,
+                         rho_nominal,
+                         rho_nominal,
+                         mu_nominal,
+                         mu_nominal,
+                         length,
+                         diameter,
+                         roughness,
+                         m_flow_small)
+          "Nominal pressure loss (excluding static head)";
+        parameter Medium.AbsolutePressure dp_small = if system.use_small then system.dp_small else dp_fric_nominal/m_flow_nominal*m_flow_small
+          "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
+          annotation(Dialog(tab="Advanced", enable=from_dp and WallFriction.use_dp_small));
+
+      public
         SI.ReynoldsNumber Re = Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
                                                                m_flow, noEvent(if m_flow>0 then mu_a else mu_b), diameter) if
              show_Re "Reynolds number of pipe flow";

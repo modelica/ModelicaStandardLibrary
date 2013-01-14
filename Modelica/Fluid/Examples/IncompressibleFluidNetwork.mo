@@ -124,8 +124,8 @@ model IncompressibleFluidNetwork
            annotation (Placement(transformation(extent={{98,-6},{86,6}},
           rotation=0)));
   inner Modelica.Fluid.System system(
-      massDynamics=systemMassDynamics, energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
-                        annotation (Placement(transformation(extent={{70,-92},
+      massDynamics=systemMassDynamics, energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+    use_small=false)    annotation (Placement(transformation(extent={{70,-92},
             {90,-72}},  rotation=0)));
   Modelica.Blocks.Sources.Step valveOpening1(
     offset=1,
