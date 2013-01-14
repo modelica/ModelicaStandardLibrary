@@ -323,7 +323,7 @@ void ModelicaStrings_scanReal(const char* string, int startIndex, int unsignedNu
 
     if (string[token_start + total_length-1] == 'e' || string[token_start + total_length-1] == 'E') {
         /* total_length += 1; */
-    	exp_len = 1;
+        exp_len = 1;
 
         if (string[token_start + total_length] == '+' || string[token_start + total_length] == '-') {
             exp_len += 1;
