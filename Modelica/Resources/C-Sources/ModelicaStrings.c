@@ -2,6 +2,9 @@
    Modelica.Functions.Strings.
 
    Release Notes:
+      Jan. 11, 2013: by Jesper Mattsson, Modelon AB.
+                     Made code C89 compatible.
+
       Jan.  5, 2013: by Martin Otter, DLR.
                      Removed "static" declarations from the Modelica interface functions.
 
@@ -68,7 +71,7 @@ const char* ModelicaStrings_substring(const char* string, int startIndex, int en
      strncpy(substring, &string[startIndex-1], len2);
      substring[len2] = '\0';
      return substring;
-};
+}
 
 
 int ModelicaStrings_length(const char* string)
@@ -225,7 +228,7 @@ void ModelicaStrings_scanInteger(const char* string, int startIndex, int unsigne
     if (string[token_start-1] == '+' || string[token_start-1] == '-')
         sign = 1;
 
-    if (unsignedNumber==0 || unsignedNumber==1 && sign==0) {
+    if (unsignedNumber==0 || (unsignedNumber==1 && sign==0)) {
         number_length = MatchUnsignedInteger(string, token_start + sign);
         /* Number of characters in unsigned number. */
 
@@ -284,6 +287,16 @@ void ModelicaStrings_scanReal(const char* string, int startIndex, int unsignedNu
     int token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
     /* Index of first char of token, after ws. */
 
+    int exp_len = 0;
+    /* Total number of characters recognized as part of the non-numeric parts
+     * of exponent (the 'e' and the sign). */
+
+    char buf[MAX_TOKEN_SIZE+1];
+    /* Buffer for copying the part recognized as the number for passing to sscanf(). */
+
+    double x;
+    /* For receiving the result. */
+
     /* Scan sign of decimal number */
 
     if (string[token_start-1] == '+' || string[token_start-1] == '-') {
@@ -309,8 +322,8 @@ void ModelicaStrings_scanReal(const char* string, int startIndex, int unsignedNu
     /* Scan exponent part of mantissa. */
 
     if (string[token_start + total_length-1] == 'e' || string[token_start + total_length-1] == 'E') {
-        // total_length += 1;
-        int exp_len = 1;
+        /* total_length += 1; */
+    	exp_len = 1;
 
         if (string[token_start + total_length] == '+' || string[token_start + total_length] == '-') {
             exp_len += 1;
@@ -323,9 +336,6 @@ void ModelicaStrings_scanReal(const char* string, int startIndex, int unsignedNu
     /* Convert accumulated characters into a number. */
 
     if (total_length > 0 && total_length < MAX_TOKEN_SIZE) {
-        char buf[MAX_TOKEN_SIZE+1];
-        double x;
-
         strncpy(buf, string+token_start-1, total_length);
         buf[total_length] = '\0';
 #if !defined(NO_FILE_SYSTEM)
