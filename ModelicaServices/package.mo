@@ -1,15 +1,15 @@
 within ;
 package ModelicaServices "(version = 3.2.1, Default implementation) Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
-  extends Modelica.Icons.Package;
-  constant String target="Default"
+extends Modelica.Icons.Package;
+constant String target="Default"
   "Target of this ModelicaServices implementation";
 
 
 package UsersGuide "User's Guide"
-extends Modelica.Icons.Information;
-class ModelicaLicense2 "Modelica License 2"
   extends Modelica.Icons.Information;
-  annotation (Documentation(info="<html>
+  class ModelicaLicense2 "Modelica License 2"
+    extends Modelica.Icons.Information;
+    annotation (Documentation(info="<html>
 <head>
   <title>The Modelica License 2</title>
 <style type=\"text/css\">
@@ -557,12 +557,12 @@ if you are not the copyright-holder, since article 2c) does not allow
 a selling fee for a (in this case physical) copy. However, mere
 printing and shipping costs may be recovered.</p>
 </html>"));
-end ModelicaLicense2;
+    end ModelicaLicense2;
 
-class ReleaseNotes "Release notes"
-  extends Modelica.Icons.ReleaseNotes;
-  annotation (Documentation(info="<html>
-<h4>Version 3.2.1, 2012-10-04</h4>
+  class ReleaseNotes "Release notes"
+    extends Modelica.Icons.ReleaseNotes;
+    annotation (Documentation(info="<html>
+<h4>Version 3.2.1, 2012-12-05</h4>
 
 <ul>
 <li> Version numbering adapted to the corresponding version number of
@@ -575,6 +575,11 @@ class ReleaseNotes "Release notes"
      <a href=\"modelica://ModelicaServices.Types.SolverMethod\">SolverMethod</a>
      to define the integration method to solve differential equations in a
      clocked discretized continuous-time partition.
+     </li>
+<li> New package 
+     <a href=\"modelica://ModelicaServices.Machine\">Machine</a>
+     to define the processor dependent constants as used in
+     <a href=\"modelica://Modelica.Constants\">Modelica.Constants</a>.
      </li>
 </ul>
 
@@ -607,13 +612,12 @@ class ReleaseNotes "Release notes"
 <p>
 First version of the ModelicaServices library.
 </p>
-
 </html>"));
-end ReleaseNotes;
+    end ReleaseNotes;
 
-class Contact "Contact"
-  extends Modelica.Icons.Contact;
-  annotation (Documentation(info="<html>
+  class Contact "Contact"
+    extends Modelica.Icons.Contact;
+    annotation (Documentation(info="<html>
 <h5>Main Author:</h5>
 
 <table border=0 cellspacing=0 cellpadding=2>
@@ -621,8 +625,8 @@ class Contact "Contact"
 <td>
 <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Abteilung f&uuml;r Systemdynamik und Regelungstechnik<br>
+    Robotik und Mechatronik Zentrum (RMC)<br>
+    Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
@@ -635,30 +639,27 @@ class Contact "Contact"
 <p>
 The design of the Animation.Shape component is from Hilding Elmqvist, Dassault Syst&egrave;mes AB.
 </p>
-
 </html>"));
 
-end Contact;
-  annotation(__Dymola_DocumentationClass=true);
-end UsersGuide;
+    end Contact;
+  annotation (__Dymola_DocumentationClass=true);
+  end UsersGuide;
 
 
 package Animation "Models and functions for 3-dim. animation"
   extends Modelica.Icons.Package;
-model Shape
+  model Shape
     "Different visual shapes with variable size; all data have to be set as modifiers (see info layer)"
-  extends
+    extends
       Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape;
 
-  annotation (
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Text(
+    annotation (Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}), graphics={Text(
             extent={{-150,-110},{150,-140}},
             lineColor={0,0,0},
-            textString="default")}),
-    Documentation(info="<html>
+            textString="default")}), Documentation(info="<html>
 <p>
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
@@ -666,13 +667,12 @@ The interface of this model is documented at
 
 </html>"));
 
-end Shape;
+    end Shape;
 
   model Surface
     "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
 
-    annotation (
-      Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>.<br>
@@ -681,8 +681,8 @@ The interface of this model is defined at
 </p>
 
 </html>"));
-  end Surface;
-end Animation;
+    end Surface;
+  end Animation;
 
 
 package ExternalReferences "Library of functions to access external resources"
@@ -691,8 +691,8 @@ package ExternalReferences "Library of functions to access external resources"
     "Return the absolute path name of a URI or local file name (in this default implementation URIs are not supported, but only local file names)"
     extends
       Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource;
-  algorithm
-      fileReference:=Modelica.Utilities.Files.fullPathName(uri);
+    algorithm
+    fileReference := Modelica.Utilities.Files.fullPathName(uri);
 
     annotation (Documentation(info="<html>
 <p>
@@ -700,8 +700,9 @@ The interface of this model is documented at
 <a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>.
 </p>
 </html>"));
-  end loadResource;
-end ExternalReferences;
+    end loadResource;
+  end ExternalReferences;
+
 
 package Machine
   // Machine dependent constants
@@ -713,20 +714,29 @@ package Machine
     "Biggest Real number such that inf and -inf are representable on the machine";
   final constant Integer Integer_inf=2147483647
     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
-end Machine;
+  annotation (Documentation(info="<html>
+<p>
+Package in which processor specific constants are defined that are needed
+by numerical algorithms. Typically these constants are not directly used, 
+but indirectly via the alias definition in
+<a href=\"modelica://Modelica.Constants\">Modelica.Constants</a>.
+</p>
+</html>"));
+  end Machine;
+
 
 package Types "Library of types with vendor specific choices"
   extends Modelica.Icons.Package;
   type SolverMethod = String
     "String defining the integration method to solve differential equations in a clocked discretized continuous-time partition"
-  annotation(choices(
+    annotation (choices(
       choice="External" "Solver specified externally",
       choice="ExplicitEuler" "Explicit Euler method (order 1)",
       choice="ExplicitMidPoint2" "Explicit mid point rule (order 2)",
       choice="ExplicitRungeKutta4" "Explicit Runge-Kutta method (order 4)",
       choice="ImplicitEuler" "Implicit Euler method (order 1)",
-     choice="ImplicitTrapezoid" "Implicit trapezoid rule (order 2)"),
-  Documentation(info="<html>
+      choice="ImplicitTrapezoid" "Implicit trapezoid rule (order 2)"),
+      Documentation(info="<html>
 <p>
 Type <b>SolverMethod</b> is a String type with menu choices to select the
 integration method to solve differential equations in a clocked discretized
@@ -735,19 +745,22 @@ For details, see chapter 16.8.2 \"Solver Method\" in the Modelica Language
 Specification (version &ge; 3.3).
 </p>
 </html>"));
-end Types;
+  end Types;
 
-annotation (Protection(access=Access.hide),
-preferredView="info",
-version="3.2.1",
-versionDate="2012-12-04",
-versionBuild=0,
-revisionId="$Id::                                       $",
-uses(Modelica(version="3.2.1")),
-conversion(noneFromVersion="1.0",
-           noneFromVersion="1.1",
-           noneFromVersion="1.2"),
-Documentation(info="<html>
+
+annotation (
+  Protection(access=Access.hide),
+  preferredView="info",
+  version="3.2.1",
+  versionDate="2012-12-05",
+  versionBuild=0,
+  revisionId="$Id::                                       $",
+  uses(Modelica(version="3.2.1")),
+  conversion(
+    noneFromVersion="1.0",
+    noneFromVersion="1.1",
+    noneFromVersion="1.2"),
+  Documentation(info="<html>
 <p>
 This package contains a set of functions and models to be used in the
 Modelica Standard Library that requires a tool specific implementation.
@@ -755,17 +768,32 @@ These are:
 </p>
 
 <ul>
-<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">ModelicaServices.Animation.Shape</a>
+<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">Shape</a>
      provides a 3-dim. visualization of elementary
      mechanical objects. It is used in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
      via inheritance.</li>
 
-<li> <a href=\"modelica://ModelicaServices.Animation.Surface\">ModelicaServices.Animation.Surface</a>
+<li> <a href=\"modelica://ModelicaServices.Animation.Surface\">Surface</a>
      provides a 3-dim. visualization of
      moveable parameterized surface. It is used in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
      via inheritance.</li>
+
+<li> <a href=\"modelica://ModelicaServices.ExternalReferences.loadResource\">loadResource</a>
+     provides a function to return the absolute path name of an URI or a local file name. It is used in
+<a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>
+     via inheritance.</li>
+
+<li> <a href=\"modelica://ModelicaServices.Machine\">ModelicaServices.Machine</a>
+     provides a package of machine constants. It is used in
+<a href=\"modelica://Modelica.Constants\">Modelica.Constants</a>.</li>
+
+<li> <a href=\"modelica://ModelicaServices.Types.SolverMethod\">Types.SolverMethod</a>
+     provides a string defining the integration method to solve differential equations in
+     a clocked discretized continuous-time partition (see Modelica 3.3 language specification).
+     It is not yet used in the Modelica Standard Library, but in the Modelica_Synchronous library
+     that provides convenience blocks for the clock operators of Modelica version &ge; 3.3.</li>
 </ul>
 
 <p>
