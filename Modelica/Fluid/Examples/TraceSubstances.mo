@@ -82,9 +82,10 @@ The nominal value for the trace substance is set to <code>C_nominal={1.519E-3}</
 This scales the residual equations that are used by the solver to the right order
 of magnitude.
 </p>
-
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/RoomCO2.png\" border=\"1\"
      alt=\"RoomCO2.png\">
+</p>
 </html>"),
       __Dymola_Commands(file(ensureSimulated=true)=
           "modelica://Modelica/Resources/Scripts/Dymola/Fluid/RoomCO2/plotConcentrations.mos"
@@ -279,9 +280,10 @@ The nominal value for the trace substance is set to <code>C_nominal={1.519E-3}</
 This scales the residual equations that are used by the solver to the right order
 of magnitude.
 </p>
-
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\"
      alt=\"RoomCO2WithControls.png\">
+</p>
 </html>"));
   end RoomCO2WithControls;
 end TraceSubstances;
