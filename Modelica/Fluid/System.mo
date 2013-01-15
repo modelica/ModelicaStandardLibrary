@@ -48,31 +48,32 @@ model System
     "Default start value for temperatures"
     annotation(Dialog(tab = "Initialization"));
   // Advanced
-  parameter Modelica.SIunits.MassFlowRate m_flow_nominal = if use_small then 1e2*m_flow_small else 1
+  parameter Boolean use_eps_Re = false
+    "= true to determine turbulent region automatically using Reynolds number"
+    annotation(Evaluate=true, Dialog(tab = "Advanced"));
+  parameter Modelica.SIunits.MassFlowRate m_flow_nominal = if use_eps_Re then 1 else 1e2*m_flow_small
     "Default nominal mass flow rate"
-    annotation(Dialog(tab="Advanced", enable = not use_small));
+    annotation(Dialog(tab="Advanced", enable = use_eps_Re));
   parameter Real eps_m_flow(min=0) = 1e-4
     "Regularization of zero flow for |m_flow| < eps_m_flow*m_flow_nominal"
-    annotation(Dialog(tab = "Advanced", enable = not use_small));
-  parameter Boolean use_small = true "= false to use new eps_m_flow"
-    annotation(Dialog(tab = "Advanced", group="Obsolete"));
+    annotation(Dialog(tab = "Advanced", enable = use_eps_Re));
   parameter Modelica.SIunits.AbsolutePressure dp_small(min=0) = 1
     "Default small pressure drop for regularization of laminar and zero flow"
-    annotation(Dialog(tab="Advanced", group="Obsolete", enable = use_small));
+    annotation(Dialog(tab="Advanced", group="Obsolete", enable = not use_eps_Re));
   parameter Modelica.SIunits.MassFlowRate m_flow_small(min=0) = 1e-2
     "Default small mass flow rate for regularization of laminar and zero flow"
-    annotation(Dialog(tab = "Advanced", group="Obsolete", enable = use_small));
+    annotation(Dialog(tab = "Advanced", group="Obsolete", enable = not use_eps_Re));
 initial equation
-  //assert(use_small == false, "Using obsolete system.m_flow_small and system.dp_small."
-  //       + " Please update the model to new system.use_small = false",
+  //assert(use_eps_Re, "Using obsolete system.m_flow_small and system.dp_small."
+  //       + " Please update the model to new system.use_eps_Re = true",
   //       level=AssertionLevel.warning);
-  if use_small == true then
+  if not use_eps_Re then
     Modelica.Utilities.Streams.print("***");
     Modelica.Utilities.Streams.print("Using obsolete global system.m_flow_small and system.dp_small.");
     Modelica.Utilities.Streams.print("They do not distinguish between laminar flow and regularization of zero flow.");
     Modelica.Utilities.Streams.print("Absolute small values are error prone for models with local nominal values.");
     Modelica.Utilities.Streams.print("Moreover dp_small can generally be obtained automatically.");
-    Modelica.Utilities.Streams.print("Please update to the new system.use_small = false (see system, Advanced tab).");
+    Modelica.Utilities.Streams.print("Please update to the new system.use_eps_Re = true (see system, Advanced tab).");
     Modelica.Utilities.Streams.print("***");
   end if;
 

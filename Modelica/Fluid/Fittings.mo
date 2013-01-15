@@ -279,7 +279,7 @@ model SimpleGenericOrifice
 
   extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
     dp_start = dp_nominal,
-    m_flow_small = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal,
+    m_flow_small = if system.use_eps_Re then system.eps_m_flow*m_flow_nominal else system.m_flow_small,
     m_flow(stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default
                          else StateSelect.prefer));
 
@@ -294,19 +294,24 @@ model SimpleGenericOrifice
       "= false to obtain zeta from dp_nominal and m_flow_nominal";
 
   // Operational conditions
-  parameter SI.MassFlowRate m_flow_nominal = if system.use_small then 1e2*system.m_flow_small else system.m_flow_nominal
+  parameter SI.MassFlowRate m_flow_nominal = if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
       "Mass flow rate for dp_nominal"
     annotation(Dialog(group="Nominal operating point"));
-  parameter SI.Pressure dp_nominal = if system.use_small then 1e3 else
+  parameter SI.Pressure dp_nominal = if not system.use_eps_Re then 1e3 else
    BaseClasses.lossConstant_D_zeta(diameter, zeta)/Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)*m_flow_nominal^2
       "Nominal pressure drop"
     annotation(Dialog(group="Nominal operating point"));
 
+  parameter Boolean use_Re = system.use_eps_Re
+      "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
+    annotation(Dialog(tab="Advanced"), Evaluate=true);
+
   parameter Boolean from_dp = true
       "= true, use m_flow = f(dp) else dp = f(m_flow)"
     annotation (Evaluate=true, Dialog(tab="Advanced"));
+
   protected
-  parameter Medium.AbsolutePressure dp_small = if system.use_small then system.dp_small else dp_nominal/m_flow_nominal*m_flow_small
+  parameter Medium.AbsolutePressure dp_small = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
       "Regularization of zero flow if |dp| < dp_small"
     annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
 
@@ -319,6 +324,12 @@ model SimpleGenericOrifice
   Modelica.SIunits.Area A_mean = Modelica.Constants.pi/4*diameter^2
       "mean cross flow area";
 
+  constant SI.ReynoldsNumber Re_turbulent = 10000 "cf. sharpEdgedOrifice";
+  SI.MassFlowRate m_flow_turbulent=if not use_Re then m_flow_small else
+    max(m_flow_small,
+        (Modelica.Constants.pi/8)*diameter*(Medium.dynamicViscosity(state_a) + Medium.dynamicViscosity(state_b))*Re_turbulent);
+  SI.AbsolutePressure dp_turbulent=if not use_Re then dp_small else
+    max(dp_small, BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/d*m_flow_turbulent^2);
 equation
   if use_zeta then
     zeta_nominal = zeta;
@@ -342,14 +353,14 @@ equation
   if from_dp then
     m_flow = homotopy(Utilities.regRoot2(
                          dp_fg,
-                         dp_small,
+                         dp_turbulent,
                          Medium.density(state_a)/BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal),
                          Medium.density(state_b)/BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)),
                        m_flow_nominal*dp_fg/dp_nominal);
   else
     dp_fg = homotopy(Utilities.regSquare2(
                          m_flow,
-                         m_flow_small,
+                         m_flow_turbulent,
                          BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/Medium.density(state_a),
                          BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/Medium.density(state_b)),
                      m_flow_nominal*dp_fg/dp_nominal);
@@ -1573,7 +1584,7 @@ The used sufficient criteria for monotonicity follows from:
 
         extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
           dp_start = dp_nominal,
-          m_flow_small = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal,
+          m_flow_small = if system.use_eps_Re then system.eps_m_flow*m_flow_nominal else system.m_flow_small,
           m_flow(stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default
                                else StateSelect.prefer));
         extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
@@ -1581,17 +1592,17 @@ The used sufficient criteria for monotonicity follows from:
           final momentumDynamics = Types.Dynamics.SteadyState);
 
         parameter LossFactorData data "Loss factor data";
-        parameter Modelica.SIunits.MassFlowRate m_flow_nominal=if system.use_small then 1e2*system.m_flow_small else system.m_flow_nominal
+        parameter Modelica.SIunits.MassFlowRate m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
           "Nominal mass flow rate"
           annotation(Dialog(group="Nominal operating point"));
 
         // Advanced
+        parameter Boolean use_Re = system.use_eps_Re
+          "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
+          annotation(Evaluate=true, Dialog(tab="Advanced"));
         parameter Boolean from_dp = true
           "= true, use m_flow = f(dp) else dp = f(m_flow)"
           annotation (Evaluate=true, Dialog(tab="Advanced"));
-        parameter Boolean use_Re = not system.use_small
-          "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
-          annotation(Evaluate=true, Dialog(tab="Advanced"));
       protected
         parameter Medium.ThermodynamicState state_nominal=Medium.setState_pTX(
                              Medium.reference_p,
@@ -1601,7 +1612,7 @@ The used sufficient criteria for monotonicity follows from:
         parameter Modelica.SIunits.Pressure dp_nominal=
           pressureLoss_m_flow(m_flow_nominal, Medium.density(state_nominal), Medium.density(state_nominal), data, m_flow_small)
           "Nominal pressure loss";
-        parameter Medium.AbsolutePressure dp_small = if system.use_small then system.dp_small else dp_nominal/m_flow_nominal*m_flow_small
+        parameter Medium.AbsolutePressure dp_small = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
           "Regularization of zero flow if |dp| < dp_small"
           annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
         //parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
@@ -1802,7 +1813,7 @@ The used sufficient criteria for monotonicity follows from:
 
         extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
           final dp_start = dp_nominal,
-          m_flow_small = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal,
+          m_flow_small = if system.use_eps_Re then system.eps_m_flow*m_flow_nominal else system.m_flow_small,
           m_flow(stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default
                                else StateSelect.prefer));
         extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
@@ -1810,18 +1821,18 @@ The used sufficient criteria for monotonicity follows from:
           final momentumDynamics = Types.Dynamics.SteadyState);
 
         parameter LossFactorData data "Loss factor data";
-        parameter Modelica.SIunits.MassFlowRate m_flow_nominal=if system.use_small then 1e2*system.m_flow_small else system.m_flow_nominal
+        parameter Modelica.SIunits.MassFlowRate m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
           "Nominal mass flow rate"
           annotation(Dialog(group="Nominal operating point"));
 
         // Advanced
         /// Other settings than the final values are not yet implemented ///
+        final parameter Boolean use_Re = false
+          "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
+          annotation(Evaluate=true, Dialog(tab="Advanced"));
         final parameter Boolean from_dp = false
           "= true, use m_flow = f(dp) else dp = f(m_flow)"
           annotation (Evaluate=true, Dialog(tab="Advanced"));
-        final parameter Boolean use_Re = not system.use_small
-          "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
-          annotation(Evaluate=true, Dialog(tab="Advanced"));
         // End not yet implemented /////////////////////////////////////////
       protected
         parameter Medium.ThermodynamicState state_nominal=Medium.setState_pTX(
@@ -1832,7 +1843,7 @@ The used sufficient criteria for monotonicity follows from:
         parameter Modelica.SIunits.Pressure dp_nominal=
           pressureLoss_m_flow(m_flow_nominal, Medium.density(state_nominal), Medium.density(state_nominal), data, m_flow_small)
           "Nominal pressure loss";
-        parameter Medium.AbsolutePressure dp_small = if system.use_small then system.dp_small else dp_nominal/m_flow_nominal*m_flow_small
+        parameter Medium.AbsolutePressure dp_small = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
           "Regularization of zero flow if |dp| < dp_small"
           annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
         //parameter Medium.MassFlowRate m_flow_small = system.m_flow_small

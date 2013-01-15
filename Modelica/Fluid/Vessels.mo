@@ -208,12 +208,15 @@ end OpenTank;
         portsData if   use_portsData "Data of inlet/outlet ports"
           annotation(Dialog(tab="General",group="Ports",enable= use_portsData));
 
-        parameter Medium.MassFlowRate m_flow_nominal = system.m_flow_nominal
+        parameter Medium.MassFlowRate m_flow_nominal = if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
         "Nominal value for mass flow rates in ports"
           annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
-        parameter SI.MassFlowRate m_flow_small(min=0) = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal
+        parameter SI.MassFlowRate m_flow_small(min=0) = if system.use_eps_Re then system.eps_m_flow*m_flow_nominal else system.m_flow_small
         "Regularization range at zero mass flow rate"
           annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
+        parameter Boolean use_Re = system.use_eps_Re
+        "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
+          annotation(Dialog(tab="Advanced", group="Port properties"), Evaluate=true);
       /*
   parameter Medium.AbsolutePressure dp_small = system.dp_small
     "Turbulent flow if |dp| >= dp_small (regularization of zero flow)"
@@ -267,6 +270,11 @@ end OpenTank;
         SI.Area[nPorts] portAreas = {Modelica.Constants.pi/4*portsData_diameter[i]^2 for i in 1:nPorts};
         Medium.AbsolutePressure[nPorts] vessel_ps_static
         "static pressures inside the vessel at the height of the corresponding ports, zero flow velocity";
+
+        // determination of turbulent region
+        constant SI.ReynoldsNumber Re_turbulent = 100 "cf. suddenExpansion";
+        SI.MassFlowRate[nPorts] m_flow_turbulent;
+
     protected
         input SI.Height fluidLevel = 0
         "level of fluid in the vessel for treating heights of ports";
@@ -333,10 +341,15 @@ of the modeller. Increase nPorts to add an additional port.
             portVelocities[i] = smooth(0, ports[i].m_flow/portAreas[i]/Medium.density(Medium.setState_phX(vessel_ps_static[i], actualStream(ports[i].h_outflow), actualStream(ports[i].Xi_outflow))));
             // Note: the penetration should not go too close to zero as this would prevent a vessel from running empty
             ports_penetration[i] = Utilities.regStep(fluidLevel - portsData_height[i] - 0.1*portsData_diameter[i], 1, 1e-3, 0.1*portsData_diameter[i]);
+            m_flow_turbulent[i]=if not use_Re then m_flow_small else
+              max(m_flow_small, (Modelica.Constants.pi/8)*portsData_diameter[i]
+                                 *(Medium.dynamicViscosity(Medium.setState_phX(vessel_ps_static[i], inStream(ports[i].h_outflow), inStream(ports[i].Xi_outflow)))
+                                   + Medium.dynamicViscosity(medium.state))*Re_turbulent);
           else
             // an infinite port diameter is assumed
             portVelocities[i] = 0;
             ports_penetration[i] = 1;
+            m_flow_turbulent[i] = Modelica.Constants.inf;
           end if;
           // fluid flow through ports
           if fluidLevel >= portsData_height[i] then
@@ -348,8 +361,7 @@ of the modeller. Increase nPorts to add an additional port.
                       * noEvent(if ports[i].m_flow>0 then zeta_in[i]/portInDensities[i] else -zeta_out[i]/medium.d);
         */
 
-              // the simplified model for initialization assumes a linear pressure loss
-              ports[i].p = homotopy(vessel_ps_static[i] + (0.5/portAreas[i]^2*Utilities.regSquare2(ports[i].m_flow, m_flow_small,
+              ports[i].p = homotopy(vessel_ps_static[i] + (0.5/portAreas[i]^2*Utilities.regSquare2(ports[i].m_flow, m_flow_turbulent[i],
                                            (portsData_zeta_in[i] - 1 + portAreas[i]^2/vesselArea^2)/portInDensities[i]*ports_penetration[i],
                                            (portsData_zeta_out[i] + 1 - portAreas[i]^2/vesselArea^2)/medium.d/ports_penetration[i])),
                                     vessel_ps_static[i]);

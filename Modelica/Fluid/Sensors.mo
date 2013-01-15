@@ -855,7 +855,7 @@ through the sensor is allowed.
       parameter Medium.MassFlowRate m_flow_nominal = system.m_flow_nominal
         "Nominal value of m_flow = port_a.m_flow"
         annotation(Dialog(tab = "Advanced"));
-      parameter Medium.MassFlowRate m_flow_small(min=0) = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal
+      parameter Medium.MassFlowRate m_flow_small(min=0) = if system.use_eps_Re then system.eps_m_flow*m_flow_nominal else system.m_flow_small
         "Regularization for bi-directional flow in the region |m_flow| < m_flow_small (m_flow_small > 0 required)"
         annotation(Dialog(tab="Advanced"));
 

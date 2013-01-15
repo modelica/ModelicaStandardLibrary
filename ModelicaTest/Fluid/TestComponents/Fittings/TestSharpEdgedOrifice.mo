@@ -50,7 +50,7 @@ model TestSharpEdgedOrifice
                   annotation (Placement(transformation(extent={{0,10},{20,30}},
           rotation=0)));
 
-  inner Modelica.Fluid.System system(use_small=false)
+  inner Modelica.Fluid.System system(use_eps_Re=true)
     annotation (Placement(transformation(extent={{60,-68},{80,-48}}, rotation=0)));
 equation
   connect(p_table.y, ambient_p.p_in)

@@ -22,7 +22,7 @@ model TestCheckValve "Test case for check valve"
     T=293.15)
   annotation (Placement(transformation(extent={{46,-22},{26,-2}},
                                                                 rotation=0)));
-  inner Modelica.Fluid.System system(use_small=false)
+  inner Modelica.Fluid.System system(use_eps_Re=true)
                                    annotation (Placement(transformation(extent={{64,60},
             {84,80}},          rotation=0)));
   Modelica.Blocks.Sources.Ramp downstreamPressure(

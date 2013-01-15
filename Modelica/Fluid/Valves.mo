@@ -391,7 +391,7 @@ it is open.
       import Modelica.Fluid.Types.CvTypes;
       extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
         dp_start = dp_nominal,
-        m_flow_small = if system.use_small then system.m_flow_small else system.eps_m_flow*m_flow_nominal,
+        m_flow_small = if system.use_eps_Re then system.eps_m_flow*m_flow_nominal else system.m_flow_small,
         m_flow_start = m_flow_nominal);
 
       parameter Modelica.Fluid.Types.CvTypes CvData=Modelica.Fluid.Types.CvTypes.OpPoint
@@ -440,7 +440,7 @@ it is open.
         "Inherent flow characteristic"
         annotation(choicesAllMatching=true);
     protected
-      parameter SI.Pressure dp_small=if system.use_small then system.dp_small else dp_nominal/m_flow_nominal*m_flow_small
+      parameter SI.Pressure dp_small=if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
         "Regularisation of zero flow"
        annotation(Dialog(tab="Advanced"));
 

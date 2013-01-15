@@ -75,7 +75,7 @@ package HeatExchanger "Demo of a heat exchanger model"
       offset=0.5)   annotation (Placement(transformation(extent={{-98,44},{-78,24}},
                     rotation=0)));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
-        use_small=false)             annotation (Placement(transformation(extent=
+        use_eps_Re=true)             annotation (Placement(transformation(extent=
               {{60,70},{80,90}}, rotation=0)));
   equation
     connect(massFlowRate1.ports[1], HEX.port_a1)        annotation (Line(points={

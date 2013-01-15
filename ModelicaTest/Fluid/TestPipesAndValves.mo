@@ -34,7 +34,7 @@ extends Modelica.Icons.ExamplesPackage;
       duration=1,
       startTime=1)
                 annotation (Placement(transformation(extent={{46,30},{26,50}})));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial, use_eps_Re=true)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
     connect(source.ports[1], pipe.port_a)         annotation (Line(
@@ -96,7 +96,7 @@ extends Modelica.Icons.ExamplesPackage;
       startTime=2,
       height=-0.5)
                 annotation (Placement(transformation(extent={{46,30},{26,50}})));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial, use_eps_Re=true)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     discrete Modelica.SIunits.MassFlowRate m_flow_initial;
   equation
@@ -228,7 +228,7 @@ The steady-state initial values are checked with an assertion.
     Modelica.Blocks.Sources.TimeTable valveOpening2(offset=0, table=[0,1; 2,1;
           2,0; 100,0]) annotation (Placement(transformation(extent={{-20,-10},{
               0,10}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                                                                            annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
   equation
@@ -337,8 +337,8 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     Modelica.Blocks.Sources.TimeTable valveOpening2(offset=0, table=[0,0; 2,0;
           2,1; 100,1]) annotation (Placement(transformation(extent={{-20,-10},{
               0,10}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
-                          annotation (Placement(transformation(extent={{-100,60},
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
+      annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
   equation
     connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-80,6},
@@ -443,7 +443,7 @@ Simulation starts with both valves closed. At t=1, valve 1 opens; at t=2 valve 2
     Modelica.Blocks.Sources.TimeTable valveOpening2(offset=0, table=[0,0; 2,0;
           2,1; 100,1]) annotation (Placement(transformation(extent={{-20,-10},{
               0,10}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
     Modelica.Fluid.Fittings.TeeJunctionIdeal splitter(
@@ -556,7 +556,7 @@ Simulation starts with both valves closed. At t=1, valve 1 opens; at t=2 valve 2
     Modelica.Blocks.Sources.TimeTable valveOpening2(offset=0, table=[0,0; 2,0;
           2,1; 100,1]) annotation (Placement(transformation(extent={{-20,-10},{
               0,10}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
     Modelica.Fluid.Fittings.TeeJunctionVolume splitter(
@@ -681,7 +681,7 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
     Modelica.Blocks.Sources.TimeTable valveOpening2(offset=0, table=[0,1; 2,1;
           2,0; 100,0]) annotation (Placement(transformation(extent={{-20,-10},{
               0,10}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
   equation
@@ -790,7 +790,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           2,0.001; 100,0])
                        annotation (Placement(transformation(extent={{-20,-10},{
               0,10}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
     Modelica.Fluid.Fittings.TeeJunctionIdeal junctionIdeal(
@@ -907,7 +907,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           4,1e-2; 100,1e-2])
                        annotation (Placement(transformation(extent={{-20,-10},{
               0,10}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
     Modelica.Fluid.Fittings.TeeJunctionVolume junctionIdeal(
@@ -1030,7 +1030,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
           1e-3; 100,1e-3])
                        annotation (Placement(transformation(extent={{-20,-10},{
               0,10}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
     Modelica.Fluid.Fittings.TeeJunctionVolume junctionIdeal(
@@ -1153,7 +1153,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
     Modelica.Blocks.Sources.TimeTable valveOpening2(offset=0, table=[0,1; 3,1;
           4,0; 100,0]) annotation (Placement(transformation(extent={{-20,-12},{
               0,8}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
     Modelica.Fluid.Fittings.TeeJunctionVolume junctionIdeal(
@@ -1274,7 +1274,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
     Modelica.Blocks.Sources.TimeTable valveOpening2(offset=0, table=[0,1; 3,1;
           4,0; 100,0]) annotation (Placement(transformation(extent={{-18,-12},{
               2,8}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
     Modelica.Fluid.Fittings.TeeJunctionVolume junctionIdeal(
@@ -1405,7 +1405,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
     Modelica.Blocks.Sources.TimeTable valveOpening2(offset=0, table=[0,1; 3,1; 4,
           0; 100,0])   annotation (Placement(transformation(extent={{-18,-12},{
               2,8}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
     Modelica.Fluid.Fittings.TeeJunctionVolume junctionIdeal(
@@ -1491,7 +1491,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
       height=-0.5,
       startTime=2)
                 annotation (Placement(transformation(extent={{46,30},{26,50}})));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial, use_eps_Re=true)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     discrete Modelica.SIunits.MassFlowRate m_flow_initial;
   equation
@@ -1570,7 +1570,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
           1,0; 100,0]) annotation (Placement(transformation(extent={{-20,70},{0,
               90}}, rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-90,70},{
               -70,90}},  rotation=0)));
     Modelica.Fluid.Fittings.SimpleGenericOrifice simpleGenericOrifice(
@@ -1700,7 +1700,7 @@ pressure in order to get positive flow rates.
           1,0; 100,0]) annotation (Placement(transformation(extent={{-20,-10},{
               0,10}},
                     rotation=0)));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_small=false)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial, use_eps_Re=true)
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
   equation

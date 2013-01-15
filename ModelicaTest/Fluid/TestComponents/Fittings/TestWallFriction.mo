@@ -79,7 +79,7 @@ model TestWallFriction
     use_Re=true)         annotation (Placement(transformation(extent={{0,-50},{
             20,-30}}, rotation=0)));
 
-  inner Modelica.Fluid.System system(use_small=false)
+  inner Modelica.Fluid.System system(use_eps_Re=true)
     annotation (Placement(transformation(extent={{68,74},{88,94}}, rotation=0)));
   Fluid.Pipes.StaticPipe pressureLossPipe(
     redeclare package Medium = Medium,
