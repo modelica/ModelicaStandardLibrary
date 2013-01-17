@@ -387,7 +387,7 @@ one continuous Real output signal.
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={255,137,0},
-            fillColor={170,213,255},
+            fillColor={255,255,255},
             borderPattern=BorderPattern.Raised,
             fillPattern=FillPattern.Solid)}));
   end PartialRealMISO;
