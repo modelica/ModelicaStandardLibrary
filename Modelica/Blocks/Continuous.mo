@@ -1020,7 +1020,7 @@ to compute u by an algebraic equation.
           Text(
             extent={{-20,-20},{80,-60}},
             lineColor={192,192,192},
-            textString="PID")}),
+            textString="%controllerType")}),
       Documentation(info="<HTML>
 <p>
 Via parameter <b>controllerType</b> either <b>P</b>, <b>PI</b>, <b>PD</b>,
