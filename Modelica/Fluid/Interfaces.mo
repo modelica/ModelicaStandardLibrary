@@ -314,14 +314,14 @@ partial model PartialTwoPortTransport
 
   // Advanced
   // Note: value of dp_start shall be refined by derived model, basing on local dp_nominal
-  parameter Medium.AbsolutePressure dp_start(start = 0.01*system.p_start)
+  parameter Medium.AbsolutePressure dp_start = 0.01*system.p_start
       "Guess value of dp = port_a.p - port_b.p"
     annotation(Dialog(tab = "Advanced", enable=from_dp));
   parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
       "Guess value of m_flow = port_a.m_flow"
     annotation(Dialog(tab = "Advanced", enable=not from_dp));
   // Note: value of m_flow_small shall be refined by derived model, basing on local m_flow_nominal
-  parameter Medium.MassFlowRate m_flow_small(start = if system.use_eps_Re then system.eps_m_flow*system.m_flow_nominal else system.m_flow_small)
+  parameter Medium.MassFlowRate m_flow_small = if system.use_eps_Re then system.eps_m_flow*system.m_flow_nominal else system.m_flow_small
       "Small mass flow rate for regularization of zero flow"
     annotation(Dialog(tab = "Advanced"));
 
