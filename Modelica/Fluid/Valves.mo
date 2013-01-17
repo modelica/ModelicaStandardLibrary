@@ -4,7 +4,24 @@ package Valves "Components for the regulation and control of fluid flow"
 
     model ValveIncompressible "Valve for (almost) incompressible fluids"
       extends BaseClasses.PartialValve;
-    import Modelica.Fluid.Types.CvTypes;
+      import Modelica.Fluid.Types.CvTypes;
+      import Modelica.Constants.pi;
+
+      constant SI.ReynoldsNumber Re_turbulent = 4000
+      "cf. straight pipe for fully open valve -- dp_turbulent increases for closing valve";
+      parameter Boolean use_Re = system.use_eps_Re
+      "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
+        annotation(Dialog(tab="Advanced"), Evaluate=true);
+      //SI.MassFlowRate m_flow_turbulent=if not use_Re then m_flow_small else
+      //  max(m_flow_small,
+      //      (Modelica.Constants.pi/8)*sqrt(max(relativeFlowCoefficient,0.001)*Av*4/pi)*(Medium.dynamicViscosity(state_a) + Medium.dynamicViscosity(state_b))*Re_turbulent);
+      //SI.AbsolutePressure dp_turbulent_=if not use_Re then dp_small else
+      //  max(dp_small, m_flow_turbulent^2/(max(relativeFlowCoefficient,0.001)^2*Av^2*(Medium.density(state_a) + Medium.density(state_b))/2));
+      // substitute m_flow_turbulent into dp_turbulent
+      SI.AbsolutePressure dp_turbulent = if not use_Re then dp_small else
+        max(dp_small, (Medium.dynamicViscosity(state_a) + Medium.dynamicViscosity(state_b))^2*pi/8*Re_turbulent^2
+                      /(max(relativeFlowCoefficient,0.001)*Av*(Medium.density(state_a) + Medium.density(state_b))));
+
   protected
       Real relativeFlowCoefficient;
     initial equation
@@ -19,22 +36,22 @@ package Valves "Components for the regulation and control of fluid flow"
       relativeFlowCoefficient = valveCharacteristic(opening_actual);
       if checkValve then
         m_flow = homotopy(relativeFlowCoefficient*Av*sqrt(Medium.density(state_a))*
-                               Utilities.regRoot2(dp,dp_small,1.0,0.0,use_yd0=true,yd0=0.0),
+                               Utilities.regRoot2(dp,dp_turbulent,1.0,0.0,use_yd0=true,yd0=0.0),
                           relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal);
         /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
     m_flow = valveCharacteristic(opening)*Av*sqrt(Medium.density(state_a))*
-                  (if dp>=0 then Utilities.regRoot(dp, dp_small) else 0);
+                  (if dp>=0 then Utilities.regRoot(dp, dp_turbulent) else 0);
     */
       elseif not allowFlowReversal then
         m_flow = homotopy(relativeFlowCoefficient*Av*sqrt(Medium.density(state_a))*
-                               Utilities.regRoot(dp, dp_small),
+                               Utilities.regRoot(dp, dp_turbulent),
                           relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal);
       else
         m_flow = homotopy(relativeFlowCoefficient*Av*
-                               Utilities.regRoot2(dp,dp_small,Medium.density(state_a),Medium.density(state_b)),
+                               Utilities.regRoot2(dp,dp_turbulent,Medium.density(state_a),Medium.density(state_b)),
                           relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal);
         /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
-    m_flow = smooth(0, Utilities.regRoot(dp, dp_small)*(if dp>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
+    m_flow = smooth(0, Utilities.regRoot(dp, dp_turbulent)*(if dp>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
     */
       end if;
 
@@ -77,6 +94,7 @@ explained in detail in the
   model ValveVaporizing
     "Valve for possibly vaporizing (almost) incompressible fluids, accounts for choked flow conditions"
     import Modelica.Fluid.Types.CvTypes;
+    import Modelica.Constants.pi;
     extends BaseClasses.PartialValve(
       redeclare replaceable package Medium =
           Modelica.Media.Water.WaterIF97_ph                                    constrainedby
@@ -94,6 +112,16 @@ explained in detail in the
     Medium.AbsolutePressure p_sat "Saturation pressure";
     Medium.AbsolutePressure p_in "Inlet pressure";
     Medium.AbsolutePressure p_out "Outlet pressure";
+
+    constant SI.ReynoldsNumber Re_turbulent = 4000
+      "cf. straight pipe for fully open valve -- dp_turbulent increases for closing valve";
+    parameter Boolean use_Re = system.use_eps_Re
+      "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
+      annotation(Dialog(tab="Advanced"), Evaluate=true);
+    //SI.Diameter diameter = Utilities.regRoot(4/pi*valveCharacteristic(opening_actual)*Av, 0.04/pi*valveCharacteristic(opening_nominal)*Av);
+    SI.AbsolutePressure dp_turbulent = if not use_Re then dp_small else
+      max(dp_small, (Medium.dynamicViscosity(state_a) + Medium.dynamicViscosity(state_b))^2*pi/8*Re_turbulent^2
+                    /(valveCharacteristic(opening_actual)*Av*(Medium.density(state_a) + Medium.density(state_b))));
   initial equation
     assert(not CvData == CvTypes.OpPoint, "OpPoint option not supported for vaporizing valve");
   equation
@@ -109,23 +137,23 @@ explained in detail in the
     // m_flow = valveCharacteristic(opening)*Av*sqrt(d)*sqrt(dpEff);
     if checkValve then
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*sqrt(Medium.density(state_a))*
-                             Utilities.regRoot2(dpEff,dp_small,1.0,0.0,use_yd0=true,yd0=0.0),
+                             Utilities.regRoot2(dpEff,dp_turbulent,1.0,0.0,use_yd0=true,yd0=0.0),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
      /* In Modelica 3.1 (Disadvantage: Unnecessary event at dpEff=0, and smooth=0, instead of smooth=2)
     m_flow = valveCharacteristic(opening)*Av*sqrt(Medium.density(state_a))*
-                  (if dpEff>=0 then Utilities.regRoot(dpEff, dp_small) else 0);
+                  (if dpEff>=0 then Utilities.regRoot(dpEff, dp_turbulent) else 0);
    */
     elseif not allowFlowReversal then
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*sqrt(Medium.density(state_a))*
-                             Utilities.regRoot(dpEff, dp_small),
+                             Utilities.regRoot(dpEff, dp_turbulent),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
     else
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*
-                             Utilities.regRoot2(dpEff,dp_small,Medium.density(state_a),Medium.density(state_b)),
+                             Utilities.regRoot2(dpEff,dp_turbulent,Medium.density(state_a),Medium.density(state_b)),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
       /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
      m_flow = valveCharacteristic(opening)*Av*
-      smooth(0, Utilities.regRoot(dpEff, dp_small)*(if dpEff>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
+      smooth(0, Utilities.regRoot(dpEff, dp_turbulent)*(if dpEff>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
    */
     end if;
 
@@ -164,6 +192,7 @@ explained in detail in the
     "Valve for compressible fluids, accounts for choked flow conditions"
     extends BaseClasses.PartialValve;
     import Modelica.Fluid.Types.CvTypes;
+    import Modelica.Constants.pi;
     parameter Medium.AbsolutePressure p_nominal "Nominal inlet pressure"
     annotation(Dialog(group="Nominal operating point"));
     parameter Real Fxt_full=0.5 "Fk*xt critical ratio at full opening";
@@ -177,6 +206,15 @@ explained in detail in the
     Real xs "Saturated pressure drop ratio";
     Real Y "Compressibility factor";
     Medium.AbsolutePressure p "Inlet pressure";
+
+    constant SI.ReynoldsNumber Re_turbulent = 4000
+      "cf. straight pipe for fully open valve -- dp_turbulent increases for closing valve";
+    parameter Boolean use_Re = system.use_eps_Re
+      "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
+      annotation(Dialog(tab="Advanced"), Evaluate=true);
+    SI.AbsolutePressure dp_turbulent = if not use_Re then dp_small else
+      max(dp_small, (Medium.dynamicViscosity(state_a) + Medium.dynamicViscosity(state_b))^2*pi/8*Re_turbulent^2
+                    /(max(valveCharacteristic(opening_actual),0.001)*Av*Y*(Medium.density(state_a) + Medium.density(state_b))));
   protected
     parameter Real Fxt_nominal(fixed=false) "Nominal Fxt";
     parameter Real x_nominal(fixed=false) "Nominal pressure drop ratio";
@@ -209,20 +247,20 @@ explained in detail in the
     // m_flow = valveCharacteristic(opening)*Av*Y*sqrt(d)*sqrt(p*xs);
     if checkValve then
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*sqrt(Medium.density(state_a))*
-                             (if xs>=0 then Utilities.regRoot(p*xs, dp_small) else 0),
+                             (if xs>=0 then Utilities.regRoot(p*xs, dp_turbulent) else 0),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
     elseif not allowFlowReversal then
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*sqrt(Medium.density(state_a))*
-                             Utilities.regRoot(p*xs, dp_small),
+                             Utilities.regRoot(p*xs, dp_turbulent),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
     else
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*
-                             Utilities.regRoot2(p*xs, dp_small, Medium.density(state_a), Medium.density(state_b)),
+                             Utilities.regRoot2(p*xs, dp_turbulent, Medium.density(state_a), Medium.density(state_b)),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
   /* alternative formulation using smooth(0, ...) -- should not be used as regRoot2 has continuous derivatives
    -- cf. ModelicaTest.Fluid.TestPipesAndValves.DynamicPipeInitialization --
     m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*
-                        smooth(0, Utilities.regRoot(p*xs, dp_small)*
+                        smooth(0, Utilities.regRoot(p*xs, dp_turbulent)*
                         (if xs>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b)))),
                       valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
 */
