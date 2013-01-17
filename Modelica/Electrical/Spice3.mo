@@ -1359,7 +1359,7 @@ Zeunerstrasse 38<br />
                                   annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
-            origin={14,10})));
+            origin={6,10})));
     equation
       connect(sineVoltage.n, ground.p) annotation (Line(
           points={{-90,10},{-90,-80}},
@@ -1425,12 +1425,8 @@ Zeunerstrasse 38<br />
           points={{80,-60},{90,-60},{90,-80},{-90,-80}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(k1.inductiveCouplePin1, L1.ICP) annotation (Line(
-          points={{-20,60},{-31.6,60},{-31.6,40}},
-          color={170,85,255},
-          smooth=Smooth.None));
       connect(L1.ICP, k2.inductiveCouplePin1) annotation (Line(
-          points={{-31.6,40},{-32,40},{-32,-40},{-20,-40}},
+          points={{-31.6,40},{-28,40},{-28,-40},{-20,-40}},
           color={170,85,255},
           smooth=Smooth.None));
       connect(k2.inductiveCouplePin2, L3.ICP) annotation (Line(
@@ -1438,15 +1434,19 @@ Zeunerstrasse 38<br />
           color={170,85,255},
           smooth=Smooth.None));
       connect(L3.ICP, k3.inductiveCouplePin1) annotation (Line(
-          points={{11.6,-40},{14,-40},{14,0}},
+          points={{11.6,-40},{6,-40},{6,0}},
           color={170,85,255},
           smooth=Smooth.None));
       connect(k3.inductiveCouplePin2, L2.ICP) annotation (Line(
-          points={{14,20},{14,40},{14,60},{11.6,60}},
+          points={{6,20},{6,60},{11.6,60}},
           color={170,85,255},
           smooth=Smooth.None));
       connect(L2.ICP, k1.inductiveCouplePin2) annotation (Line(
           points={{11.6,60},{0,60}},
+          color={170,85,255},
+          smooth=Smooth.None));
+      connect(L1.ICP, k1.inductiveCouplePin1) annotation (Line(
+          points={{-31.6,40},{-28,40},{-28,60},{-20,60}},
           color={170,85,255},
           smooth=Smooth.None));
       annotation (
@@ -1454,7 +1454,9 @@ Zeunerstrasse 38<br />
         Documentation(info="<html>
 <p>The coupled inductor circuit demonstrates how different inductors can be coupled using the Component K_CoupledInductors from package Basic</p>
 <p>Simulate until 0.2s, and display the behaviour of the parts that are coupled via <code>K</code>, such as <code>C1.p.v</code>, and <code>C2.p.v</code>.</p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end CoupledInductors;
 
     model CascodeCircuit
@@ -2570,10 +2572,15 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
       parameter Boolean UIC=false "Use initial conditions";
       SI.Current iinternal;
 
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePin ICP
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinOut
+                                                               ICP
         "Pin to couple inductances via K"
-        annotation (Placement(transformation(extent={{-24,60},{16,100}}),
-            iconTransformation(extent={{-16,68},{16,100}})));
+        annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+            rotation=-90,
+            origin={0,80}),
+            iconTransformation(extent={{-16,-16},{16,16}},
+            rotation=270,
+            origin={0,84})));
 
     initial equation
       if UIC then
@@ -2592,7 +2599,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 <p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The inductance <i>L</i> is allowed to be positive, zero, or negative.</p>
 </html>"),
         Icon(coordinateSystem(
-            preserveAspectRatio=true,
+            preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Ellipse(extent={{-60,-15},{-30,15}}),
@@ -2610,17 +2617,26 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
               extent={{-142,-40},{142,-60}},
               lineColor={0,0,0},
               textString="L=%L"),
-            Text(extent={{-136,36},{138,56}},  textString="%name")}));
+            Text(extent={{-136,36},{138,56}},  textString="%name")}),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end L_Inductor;
 
     model K_CoupledInductors "Inductive coupling via coupling factor K"
       parameter Real k( start=0) "Coupling Factor";
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePin inductiveCouplePin1
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn
+                                                               inductiveCouplePin1
         "Couple pin for inductances"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePin inductiveCouplePin2
+      Modelica.Electrical.Spice3.Interfaces.InductiveCouplePinIn
+                                                               inductiveCouplePin2
         "Couple pin for inductances"
-          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={100,0}), iconTransformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={100,0})));
     Modelica.SIunits.Inductance M "mutual inductance";
     equation
       assert(k>=0,"Coupling factor must be not negative");
@@ -2628,7 +2644,9 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
       M = k*sqrt(inductiveCouplePin1.L*inductiveCouplePin2.L);
       inductiveCouplePin1.v = - M*inductiveCouplePin2.di;
       inductiveCouplePin2.v = - M*inductiveCouplePin1.di;
-      annotation (Icon(graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}),
+                       graphics={
             Polygon(
               points={{-60,0},{0,20},{60,0},{0,-20},{-60,0}},
               lineColor={170,85,255},
@@ -2659,7 +2677,9 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 <p>
 The usage is demonstrated in the example <a href=\"modelica://Modelica.Electrical.Spice3.Examples.CoupledInductors\">CoupledInductors</a>.
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end K_CoupledInductors;
 
     model E_VCV "Linear voltage-controlled voltage source"
@@ -4500,17 +4520,31 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </html>"));
     end TwoPortControlledSources;
 
-    connector InductiveCouplePin "Pin to couple inductances via K"
-      Modelica.SIunits.Inductance L;
+    connector InductiveCouplePinIn
+      "Pin to couple inductances via K, which gets the value of inductance"
+      input Modelica.SIunits.Inductance L;
       SI.CurrentSlope di "di/dt";
       flow SI.Voltage v;
       annotation (Icon(graphics={Polygon(
-              points={{-100,0},{0,100},{100,0},{0,-100},{-2,-98},{-100,0}},
+              points={{0,0},{0,100},{100,0},{0,-100},{0,-100},{0,0}},
               lineColor={170,85,255},
               smooth=Smooth.None,
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid)}));
-    end InductiveCouplePin;
+    end InductiveCouplePinIn;
+
+    connector InductiveCouplePinOut
+      "Pin to couple inductances via K, which sets the value of inductance"
+      output Modelica.SIunits.Inductance L;
+      SI.CurrentSlope di "di/dt";
+      flow SI.Voltage v;
+      annotation (Icon(graphics={Polygon(
+              points={{-100,0},{0,100},{0,0},{0,-100},{-2,-98},{-100,0}},
+              lineColor={170,85,255},
+              smooth=Smooth.None,
+              fillColor={170,85,255},
+              fillPattern=FillPattern.Solid)}));
+    end InductiveCouplePinOut;
 
     partial model ConditionalSubstrate
       "Partial model to include a conditional substrate node"
