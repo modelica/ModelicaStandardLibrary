@@ -3178,13 +3178,15 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
         annotation (Evaluate=true, Dialog(tab="Advanced"));
   protected
     parameter Modelica.SIunits.Time t0(fixed=false) "Start time of simulation";
-    Real x(start=x0, fixed=true) "Integrator state";
+    Real x "Integrator state";
   initial equation
     t0 = time;
+    x = x0;
+    pre(x) = x0;
   equation
     der(x) = u;
     when sample(t0+1/f, 1/f) then
-      y = if not yGreaterOrEqualZero then f*x else max(0.0, f*x);
+      y = if not yGreaterOrEqualZero then f*pre(x) else max(0.0, f*pre(x));
       reinit(x, 0);
     end when;
     annotation (Documentation(info="<html>
