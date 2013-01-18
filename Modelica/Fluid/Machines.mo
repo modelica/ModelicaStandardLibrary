@@ -418,24 +418,6 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             final state_in = Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)),
             final state = medium.state) "Monitoring model"
        annotation (Placement(transformation(extent={{-64,-42},{-20,0}}, rotation=0)));
-    /*  
-  parameter Boolean show_NPSHa = false 
-    "= true to compute Net Positive Suction Head available"
-    annotation(Dialog(tab="Advanced", group="Diagnostics"));
-  Medium.ThermodynamicState state_a=
-    Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)) if 
-       show_NPSHa "state for medium inflowing through port_a";
-  Medium.Density rho_in = Medium.density(state_a) if show_NPSHa 
-    "Liquid density at the inlet port_a";
-  SI.Length NPSHa=NPSPa/(rho_in*system.g) if show_NPSHa 
-    "Net Positive Suction Head available";
-  SI.Pressure NPSPa=assertPositiveDifference(port_a.p, Medium.saturationPressure(Medium.temperature(state_a)),
-                                             "Cavitation occurs at the pump inlet") if show_NPSHa 
-    "Net Positive Suction Pressure available";
-  SI.Pressure NPDPa=assertPositiveDifference(port_b.p, Medium.saturationPressure(medium.T),
-                                             "Cavitation occurs in the pump") if show_NPSHa 
-    "Net Positive Discharge Pressure available";
-  */
     protected
     constant SI.Height unitHead = 1;
     constant SI.MassFlowRate unitMassFlowRate = 1;
@@ -560,8 +542,9 @@ should be taken into account or to model a housing. This might be desirable if a
 </p>
 
 <p><b>Diagnostics of Cavitation</b></p>
-<p>The boolean parameter show_NPSHa can set true to compute the Net Positive Suction Head available and check for cavitation,
-provided a two-phase medium model is used.
+<p>The replaceable Monitoring submodel can be configured to PumpMonitoringNPSH, 
+in order to compute the Net Positive Suction Head available and check for cavitation,
+provided a two-phase medium model is used (see Advanced tab).
 </p>
 </HTML>",
         revisions="<html>

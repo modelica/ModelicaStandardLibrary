@@ -59,21 +59,21 @@ model System
     annotation(Dialog(tab = "Advanced", enable = use_eps_Re));
   parameter Modelica.SIunits.AbsolutePressure dp_small(min=0) = 1
     "Default small pressure drop for regularization of laminar and zero flow"
-    annotation(Dialog(tab="Advanced", group="Obsolete", enable = not use_eps_Re));
+    annotation(Dialog(tab="Advanced", group="Classic", enable = not use_eps_Re));
   parameter Modelica.SIunits.MassFlowRate m_flow_small(min=0) = 1e-2
     "Default small mass flow rate for regularization of laminar and zero flow"
-    annotation(Dialog(tab = "Advanced", group="Obsolete", enable = not use_eps_Re));
+    annotation(Dialog(tab = "Advanced", group="Classic", enable = not use_eps_Re));
 initial equation
-  //assert(use_eps_Re, "Using obsolete system.m_flow_small and system.dp_small."
+  //assert(use_eps_Re, "Using classic system.m_flow_small and system.dp_small."
   //       + " Please update the model to new system.use_eps_Re = true",
   //       level=AssertionLevel.warning);
   if not use_eps_Re then
     Modelica.Utilities.Streams.print("***");
-    Modelica.Utilities.Streams.print("Using obsolete global system.m_flow_small and system.dp_small.");
+    Modelica.Utilities.Streams.print("Using global system.m_flow_small and system.dp_small, which are classic.");
     Modelica.Utilities.Streams.print("They do not distinguish between laminar flow and regularization of zero flow.");
     Modelica.Utilities.Streams.print("Absolute small values are error prone for models with local nominal values.");
     Modelica.Utilities.Streams.print("Moreover dp_small can generally be obtained automatically.");
-    Modelica.Utilities.Streams.print("Please update to the new system.use_eps_Re = true (see system, Advanced tab).");
+    Modelica.Utilities.Streams.print("Consider updating to the new system.use_eps_Re = true (see system, Advanced tab).");
     Modelica.Utilities.Streams.print("***");
   end if;
 
@@ -133,7 +133,20 @@ to specify system properties.
 <p>
  A model should never directly use system parameters.
  Instead a local parameter should be declared, which uses the global setting as default.
- The only exception currently made is the gravity system.g.
+ The only exceptions are:
+ <ul>
+  <li>the gravity system.g,</li>
+  <li>the global system.eps_m_flow, which is used to define a local m_flow_small for the local m_flow_nominal: 
+      <pre>m_flow_small = system.eps_m_flow*m_flow_nominal</pre>
+  </li>
+ </ul>
+</p>
+<p>
+ The global system.m_flow_small and system.dp_small are classic parameters. 
+ They do not distinguish between laminar flow and regularization of zero flow. 
+ Absolute small values are error prone for models with local nominal values.
+ Moreover dp_small can generally be obtained automatically.
+ Consider using the new system.use_eps_Re = true (see Advanced tab).
 </p>
 </html>"));
 end System;
