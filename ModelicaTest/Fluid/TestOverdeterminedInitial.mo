@@ -9,8 +9,8 @@ extends Modelica.Icons.ExamplesPackage;
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_T=false,
-      p=10000000,
-      h=2.5e6)
+      h=2.5e6,
+      p=system.p_start)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
     Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -20,16 +20,15 @@ extends Modelica.Icons.ExamplesPackage;
       useLumpedPressure=true,
       nNodes=5,
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb,
-      p_a_start=10000000,
-      p_b_start=9900000,
       h_start=2.5e6)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
-      Av=1e-3,
       m_flow_nominal=10,
-      dp_nominal=100000,
       rho_nominal=60,
+      CvData=Modelica.Fluid.Types.CvTypes.Av,
+      Av=0.05^2/4*Modelica.Constants.pi,
+      dp_nominal=100000,
       p_nominal=10000000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
@@ -37,11 +36,13 @@ extends Modelica.Icons.ExamplesPackage;
                 annotation (Placement(transformation(extent={{60,-10},{40,10}})));
     Modelica.Blocks.Sources.Ramp ramp(
       offset=1,
-      duration=0.1,
-      height=-0.5,
-      startTime=2)
+      startTime=2,
+      duration=0,
+      height=-0.8)
                 annotation (Placement(transformation(extent={{46,30},{26,50}})));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
+      use_eps_Re=true,
+      p_start=10000000)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     discrete Modelica.SIunits.MassFlowRate m_flow_initial;
   equation
@@ -100,8 +101,8 @@ The initial equations are consistent however and a tool shall reduce them approp
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       use_T=false,
-      p=10000000,
-      h=2.5e6)
+      h=2.5e6,
+      p=system.p_start)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
     Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -110,16 +111,15 @@ The initial equations are consistent however and a tool shall reduce them approp
       use_T_start=false,
       nNodes=5,
       modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb,
-      p_a_start=10000000,
-      p_b_start=9900000,
       h_start=2.5e6)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
-      Av=1e-3,
       m_flow_nominal=10,
-      dp_nominal=100000,
       rho_nominal=60,
+      CvData=Modelica.Fluid.Types.CvTypes.Av,
+      Av=0.05^2/4*Modelica.Constants.pi,
+      dp_nominal=100000,
       p_nominal=10000000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
@@ -127,11 +127,13 @@ The initial equations are consistent however and a tool shall reduce them approp
                 annotation (Placement(transformation(extent={{60,-10},{40,10}})));
     Modelica.Blocks.Sources.Ramp ramp(
       offset=1,
-      duration=0.1,
-      height=-0.5,
-      startTime=2)
+      startTime=2,
+      duration=0,
+      height=-0.8)
                 annotation (Placement(transformation(extent={{46,30},{26,50}})));
-    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+      p_start=10000000,
+      use_eps_Re=true)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     discrete Modelica.SIunits.MassFlowRate m_flow_initial;
   equation
@@ -173,7 +175,7 @@ The initial equations are consistent however and a tool shall reduce them approp
             extent={{-100,-20},{100,-40}},
             lineColor={0,0,255},
             textString=
-                "Problem: pipe.medium[1].p is equal to source.p and  has a consistent initial value  of 100 bar;"),
+                "Problem: pipe.medium[1].p is equal to source.p and  has a consistent initial value  of system.p_start = 100 bar;"),
           Text(
             extent={{-76,-36},{76,-54}},
             lineColor={0,0,255},
