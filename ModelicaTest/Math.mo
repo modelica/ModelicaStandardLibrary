@@ -438,6 +438,8 @@ extends Modelica.Icons.ExamplesPackage;
 
     Real N[:,:]= fill(0,0,0);
     Real Xn[0,0];
+    Real r;
+    Integer n;
 
   algorithm
   //  ##########   nullspace   ##########

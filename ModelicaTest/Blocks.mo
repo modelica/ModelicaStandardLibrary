@@ -486,7 +486,6 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   annotation (
-    uses(Modelica(version="3.2.1")),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics),
     experiment(StopTime=2));
