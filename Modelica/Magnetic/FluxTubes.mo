@@ -3943,7 +3943,7 @@ connector port_n.
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
       SI.MagneticPotentialDifference V_m
         "Magnetic potential difference between both ports";
-      SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
+      SI.MagneticFlux Phi(start=0) "Magnetic flux from port_p to port_n";
 
     equation
       V_m = port_p.V_m - port_n.V_m;
