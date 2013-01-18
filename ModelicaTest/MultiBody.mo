@@ -137,8 +137,7 @@ object to <b>false</b> to switch off animation of all components.
 <IMG src=\"modelica://ModelicaTest/Images/Examples/Elementary/DoublePendulum.png\"
 ALT=\"model Examples.Elementary.DoublePendulum\">
 
-</HTML>"),
-      uses);
+</HTML>"));
   end SphericalDoublePendulum;
 
   package FourbarVariants "Test joints and assembly joints with four bar loop"
@@ -2797,7 +2796,7 @@ a linear damper is connected here.
             rotation=270,
             origin={-48,16})));
       Modelica.Mechanics.MultiBody.Forces.Spring spring1(s_unstretched=0.1, c(
-            fixed=false) = 1) annotation (Placement(transformation(
+            fixed=false, start= 1)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={12,16})));
@@ -2934,7 +2933,7 @@ a linear damper is connected here.
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=
             100, T(fixed=true))
         annotation (Placement(transformation(extent={{-60,162},{-40,182}})));
-      Modelica.Mechanics.MultiBody.Forces.Damper damper2(d(fixed=false) = 3)
+      Modelica.Mechanics.MultiBody.Forces.Damper damper2(d(fixed=false, start= 3))
         annotation (Placement(transformation(
             extent={{-12,-12},{12,12}},
             rotation=0,
@@ -3229,6 +3228,7 @@ a linear damper is connected here.
 
     model SpringDamperParallel
       parameter Real tol=1e-4;
+      final parameter Real d(fixed=false, start=2);
 
       inner Modelica.Mechanics.MultiBody.World world
         annotation (Placement(transformation(extent={{-100,60},{-80,80}})));
@@ -3265,7 +3265,7 @@ a linear damper is connected here.
         springDamperParallel1(
         s_unstretched=0.2,
         d=10,
-        c(fixed=false) = 3) annotation (Placement(transformation(
+        c(fixed=false, start = 3)) annotation (Placement(transformation(
             extent={{-18,-18},{18,18}},
             rotation=0,
             origin={22,-24})));
@@ -3289,7 +3289,7 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel
         springDamperParallel2(
         s_unstretched=0.2,
-        d(fixed=false) = 2,
+        d=d,
         c=100) annotation (Placement(transformation(
             extent={{-18,-18},{18,18}},
             rotation=0,
@@ -3454,7 +3454,7 @@ a linear damper is connected here.
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=
             100, T(fixed=true))
         annotation (Placement(transformation(extent={{-60,162},{-40,182}})));
-      Modelica.Mechanics.MultiBody.Forces.Damper damper2(d(fixed=false) = 3)
+      Modelica.Mechanics.MultiBody.Forces.Damper damper2(d(fixed=false,start = 3))
         annotation (Placement(transformation(
             extent={{-12,-12},{12,12}},
             rotation=0,
@@ -4066,7 +4066,7 @@ a linear damper is connected here.
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Forces.Spring spring(s_unstretched=0.1, c(
-            fixed=false) = 100) annotation (Placement(transformation(
+            fixed=false, start = 100)) annotation (Placement(transformation(
             origin={50,30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -5946,7 +5946,7 @@ a linear damper is connected here.
         r_CM={0,0,0},
         m=1) annotation (Placement(transformation(extent={{50,0},{70,20}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring(c(fixed=false) = 20,
+      Modelica.Mechanics.MultiBody.Forces.Spring spring(c(fixed=false, start = 20),
           s_unstretched=0.1)
         annotation (Placement(transformation(extent={{24,36},{44,56}})));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={
@@ -8031,7 +8031,6 @@ often possible to use the FreeMotion joint such that the singularity
           smooth=Smooth.None));
       annotation (
         experiment(StopTime=1.1),
-        experiment(StopTime=1.1),
         Diagram(graphics));
     end AbsoluteSensor2;
 
@@ -9317,7 +9316,6 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       annotation (
-        experiment(StopTime=1.1),
         experiment(StopTime=1.1),
         Diagram(graphics));
     end CutForceAndTorque3;
