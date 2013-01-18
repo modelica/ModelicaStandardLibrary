@@ -28,15 +28,13 @@ model TestValvesIncompressibleReverse
     dp_nominal=9e5,
     m_flow_nominal=1.5,
   redeclare package Medium = Medium,
-    CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-    Av=0.1) annotation (Placement(transformation(extent={{-50,58},{-30,78}},
+    CvData=Modelica.Fluid.Types.CvTypes.OpPoint) annotation (Placement(transformation(extent={{-50,58},{-30,78}},
           rotation=0)));
   Modelica.Fluid.Valves.ValveIncompressible V2(
     dp_nominal=5e5,
     m_flow_nominal=1.2,
   redeclare package Medium = Medium,
-    CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-    Av=0.1) annotation (Placement(transformation(extent={{-38,26},{-18,46}},
+    CvData=Modelica.Fluid.Types.CvTypes.OpPoint) annotation (Placement(transformation(extent={{-38,26},{-18,46}},
           rotation=0)));
   Modelica.Fluid.Valves.ValveIncompressible V3(
     dp_nominal=3e5,

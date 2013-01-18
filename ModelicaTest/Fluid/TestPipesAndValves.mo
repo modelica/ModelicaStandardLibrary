@@ -22,7 +22,6 @@ extends Modelica.Icons.ExamplesPackage;
     Modelica.Fluid.Valves.ValveIncompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       m_flow_nominal=10,
-      Av=1e-3,
       dp_nominal=100000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
@@ -81,7 +80,6 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
-      Av=1e-3,
       m_flow_nominal=10,
       dp_nominal=100000,
       rho_nominal=100,
@@ -1477,7 +1475,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
-      Av=1e-3,
       m_flow_nominal=10,
       dp_nominal=10000000,
       p_nominal=10000000)

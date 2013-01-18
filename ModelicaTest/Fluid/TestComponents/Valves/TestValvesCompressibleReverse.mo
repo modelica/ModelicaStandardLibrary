@@ -28,7 +28,6 @@ model TestValvesCompressibleReverse
     m_flow_nominal=1.5,
   redeclare package Medium = Medium,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-    Av=0.1,
     p_nominal=1000000)
             annotation (Placement(transformation(extent={{-50,58},{-30,78}},
           rotation=0)));
@@ -37,7 +36,6 @@ model TestValvesCompressibleReverse
     m_flow_nominal=1.2,
   redeclare package Medium = Medium,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
-    Av=0.1,
     p_nominal=1000000)
             annotation (Placement(transformation(extent={{-38,26},{-18,46}},
           rotation=0)));
