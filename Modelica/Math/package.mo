@@ -1251,10 +1251,9 @@ i.e., by Gaussian elimination with partial pivoting.
                  12, 24];
   Real X[3,2];
 <b>algorithm</b>
-  (LU, pivots) := Matrices.LU(A);
-  X := Matrices.solve2(A, B1);  /* X = [3, 6;
-                                        2, 4;
-                                        1, 2] */
+  X := Matrices.solve2(A, B);  /* X = [3, 6;
+                                       2, 4;
+                                       1, 2] */
 </pre></blockquote>
 
 <h4>See also</h4>
