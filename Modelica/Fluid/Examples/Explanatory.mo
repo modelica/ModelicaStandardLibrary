@@ -12,7 +12,7 @@ package Explanatory
     Modelica.Fluid.Sensors.TemperatureTwoPort T_twoPort(redeclare package
         Medium =
           Modelica.Media.Water.StandardWater)
-      annotation (Placement(transformation(extent={{-20,0},{0,-20}}, rotation=0)));
+      annotation (Placement(transformation(extent={{-20,-20},{0,0}}, rotation=0)));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                                         annotation (Placement(transformation(
             extent={{-100,56},{-80,76}},    rotation=0)));

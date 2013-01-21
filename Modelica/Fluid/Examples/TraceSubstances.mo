@@ -51,19 +51,19 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
         color={0,127,255},
         smooth=Smooth.None));
     connect(volume.ports[2], pipe.port_a)         annotation (Line(
-        points={{-8,0},{-6,0},{-6,-10},{20,-10}},
+        points={{-8,0},{-8,-10},{20,-10}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(traceVolume.port, pipe.port_a)                  annotation (Line(
         points={{10,20},{10,-10},{20,-10}},
         color={0,127,255},
         smooth=Smooth.None));
-    connect(boundary1.ports[1], volume.ports[1]) annotation (Line(
-        points={{-40,-8},{-12,-8},{-12,0}},
+    connect(boundary1.ports[2], volume.ports[1]) annotation (Line(
+        points={{-40,-10.5},{-12,-10.5},{-12,0}},
         color={0,127,255},
         smooth=Smooth.None));
-    connect(boundary1.ports[2], traceSource.port)          annotation (Line(
-        points={{-40,-12},{-30,-12},{-30,20}},
+    connect(boundary1.ports[1], traceSource.port)          annotation (Line(
+        points={{-40,-9.5},{-30,-9.5},{-30,20}},
         color={0,127,255},
         smooth=Smooth.None));
     annotation (
@@ -98,7 +98,7 @@ of magnitude.
                                                C_nominal={1.519E-3});
     Modelica.Blocks.Sources.Constant CAtm(k=0.3*1.519E-3)
       "Atmospheric trace substance concentration, corresponding to 300 PPM CO2"
-      annotation (Placement(transformation(extent={{-100,-46},{-80,-26}})));
+      annotation (Placement(transformation(extent={{-100,-48},{-80,-28}})));
     Sources.FixedBoundary boundary4(nPorts=1,redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{92,-40},{72,-20}})));
     Sensors.TraceSubstances traceVolume(redeclare package Medium = Medium)
@@ -113,7 +113,7 @@ of magnitude.
       redeclare package Medium = Medium,
       use_m_flow_in=true,
       nPorts=2)
-      annotation (Placement(transformation(extent={{-70,-38},{-50,-18}})));
+      annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
     Modelica.Fluid.Vessels.ClosedVolume volume(
       C_start={1.519E-3},
       V=100,
@@ -171,14 +171,14 @@ of magnitude.
             show_Res=true),
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
       length=5) "Inlet duct"
-      annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
+      annotation (Placement(transformation(extent={{-38,-40},{-18,-20}})));
     Sensors.TraceSubstances traceDuctOut(redeclare package Medium = Medium)
       "Trace substance at duct outlet"
-      annotation (Placement(transformation(extent={{-14,0},{6,20}})));
+      annotation (Placement(transformation(extent={{-20,0},{0,20}})));
   equation
     connect(CAtm.y, freshAir.C_in[1])
                                     annotation (Line(
-        points={{-79,-36},{-70,-36}},
+        points={{-79,-38},{-70,-38}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(ductOut.port_b, boundary4.ports[1])      annotation (Line(
@@ -211,11 +211,11 @@ of magnitude.
         color={0,0,127},
         smooth=Smooth.None));
     connect(gain1.y, freshAir.m_flow_in)  annotation (Line(
-        points={{21,50},{30,50},{30,70},{-88,70},{-88,-20},{-70,-20}},
+        points={{21,50},{30,50},{30,70},{-88,70},{-88,-22},{-70,-22}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(ductIn.port_b, volume.ports[1]) annotation (Line(
-        points={{-10,-30},{7,-30},{7,-20}},
+        points={{-18,-30},{7,-30},{7,-20}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(peopleSource.ports[1], volume.ports[2]) annotation (Line(
@@ -223,23 +223,23 @@ of magnitude.
         color={0,127,255},
         smooth=Smooth.None));
     connect(volume.ports[3], ductOut.port_a) annotation (Line(
-        points={{11,-20},{12,-20},{12,-30},{40,-30}},
+        points={{11,-20},{11,-30},{40,-30}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(volume.ports[4], traceVolume.port) annotation (Line(
-        points={{13,-20},{12,-20},{12,-26},{30,-26},{30,0}},
+        points={{13,-20},{13,-26},{30,-26},{30,0}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(freshAir.ports[1], traceDuctIn.port) annotation (Line(
-        points={{-50,-26},{-44,-26},{-44,0}},
+        points={{-50,-29.5},{-44,-29.5},{-44,0}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(ductIn.port_a, freshAir.ports[2]) annotation (Line(
-        points={{-30,-30},{-50,-30}},
+        points={{-38,-30},{-38,-30.5},{-50,-30.5}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(traceDuctOut.port, ductIn.port_b) annotation (Line(
-        points={{-4,0},{-4,-30},{-10,-30}},
+        points={{-10,0},{-10,-30},{-18,-30}},
         color={0,127,255},
         smooth=Smooth.None));
     annotation (
