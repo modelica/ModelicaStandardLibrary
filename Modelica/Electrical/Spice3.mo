@@ -2438,8 +2438,7 @@ print v(11) v(12) v(13)
 .END
 </pre>
 <p>The model is built out of several subcircuits which were described only ones and used several times. </p>
-</html>"),
-        __Dymola_experimentSetupOutput);
+</html>"));
     end Spice3BenchmarkFourBitBinaryAdder;
     annotation (Documentation(info="<html>
 <p>This package Example circuits contains some useful examples to demonstrate how the library is working and how the models can be used.</p>
@@ -10528,6 +10527,8 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
                   in_p.m_emissionCoeff,
                   in_c.m_tSatCur);
         end if;
+
+         m_dCurrent := out_cc.m_dCurrent;
 
         (m_dCap,m_dCharge) :=
           Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime(
