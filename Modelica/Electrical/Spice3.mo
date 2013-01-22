@@ -381,9 +381,9 @@ Zeunerstrasse 38<br />
     //--------------------------------------------------------------------------------------------------------------
     /*apart record: For each transistor in the circuit a record with the technologieparameters is made available
   as an instance of the record modelcardMOS */
-      parameter Semiconductors.ModelcardMOS MPmos(GAMMA=0.37)
+      parameter Semiconductors.ModelcardMOS MPmos(GAMMA=0.37, CBD=0, CBS=0)
         "Specified modelcardMOS for MPmos"; //instance of record modelcardMOS
-      parameter Semiconductors.ModelcardMOS MNmos(GAMMA=0.37, LAMBDA=0.02)
+      parameter Semiconductors.ModelcardMOS MNmos(GAMMA=0.37, LAMBDA=0.02, CBD=0, CBS=0)
         "Specified modelcardMOS for MNmos";
                                              //instance of record modelcardMOS
       Semiconductors.M_PMOS mp1(modelcard=MPmos)
@@ -505,7 +505,7 @@ Zeunerstrasse 38<br />
   this model. In this process the required technology parameters are specified. */
 
       model MPmos "PMOS transistor with specified modelcard"
-        parameter Semiconductors.ModelcardMOS M(GAMMA=0.37);
+        parameter Semiconductors.ModelcardMOS M(GAMMA=0.37, CBD=0, CBS=0);
         extends Semiconductors.M_PMOS(modelcard=M);
         annotation (Documentation(info="<html>
 <p>This model MPmos is inherited by the model <i>InverterExtendedModel</i> to build an inverter circuit. For detailed information</p><p>please see <i>InverterExtendedModel</i>.</p>
@@ -513,7 +513,7 @@ Zeunerstrasse 38<br />
       end MPmos;
 
       model MNmos "NMOS transistor with specified modelcard"
-        parameter Semiconductors.ModelcardMOS M(GAMMA=0.37, LAMBDA=0.02);
+        parameter Semiconductors.ModelcardMOS M(GAMMA=0.37, LAMBDA=0.02, CBD=0, CBS=0);
         extends Semiconductors.M_NMOS(modelcard=M);
         annotation (Documentation(info="<html>
 <p>This model MNmos is inherited by the model <i>InverterExtendedModel</i> to build an inverter circuit. For detailed information</p><p>please see <i>InverterExtendedModel</i>.</p>
@@ -629,8 +629,10 @@ Zeunerstrasse 38<br />
       Basic.Ground ground        annotation (Placement(transformation(extent={{-74,-80},
                 {-54,-60}},        rotation=0)));
 
-      parameter Semiconductors.ModelcardMOS modp "private PMOS modelcard";
-      parameter Semiconductors.ModelcardMOS modn "private NMOS modelcard";
+      parameter Semiconductors.ModelcardMOS modp(CBD=0, CBS=0)
+        "private PMOS modelcard";
+      parameter Semiconductors.ModelcardMOS modn(CBD=0, CBS=0)
+        "private NMOS modelcard";
 
       Semiconductors.M_PMOS mp1(modelcard=modp)
                 annotation (Placement(transformation(extent={{-74,20},{-54,40}},
@@ -810,14 +812,14 @@ Zeunerstrasse 38<br />
       Semiconductors.M_PMOS mp1(
         L=2e-5,
         W=1e-5,
-        modelcard(PHI=0.7), Sinternal(start=0))               annotation (Placement(transformation(
+        modelcard(PHI=0.7, CBD=0, CBS=0), Sinternal(start=0))               annotation (Placement(transformation(
               extent={{-22,24},{-2,44}},  rotation=0)));
-      Semiconductors.M_PMOS mp2(modelcard(PHI=0.7))
+      Semiconductors.M_PMOS mp2(modelcard(PHI=0.7,CBD=0, CBS=0))
                                            annotation (Placement(transformation(
               extent={{24,24},{44,44}},rotation=0)));
-      Semiconductors.M_NMOS mn2(Dinternal(start=0))           annotation (Placement(transformation(
+      Semiconductors.M_NMOS mn2(Dinternal(start=0), modelcard(CBD=0, CBS=0))           annotation (Placement(transformation(
               extent={{-24,-44},{-4,-24}},rotation=0)));
-      Semiconductors.M_NMOS mn1            annotation (Placement(transformation(
+      Semiconductors.M_NMOS mn1(modelcard(CBD=0, CBS=0))            annotation (Placement(transformation(
               extent={{-24,-10},{-4,10}}, rotation=0)));
       Sources.V_constant vconstant(V=5)         annotation (Placement(
             transformation(extent={{-10,-10},{10,10}},
@@ -1464,10 +1466,10 @@ Zeunerstrasse 38<br />
 
       Modelica.Electrical.Spice3.Semiconductors.J_NJFJFET
                                   J1(S(
-                                     v(  start=0)))
+                                     v(  start=0)), modelcard(CGS=0, CGD=0))
         annotation (Placement(transformation(extent={{-54,38},{-34,58}})));
       Modelica.Electrical.Spice3.Semiconductors.J_NJFJFET
-                                  J2
+                                  J2(modelcard(CGS=0, CGD=0))
         annotation (Placement(transformation(extent={{-54,4},{-34,24}})));
       Modelica.Electrical.Spice3.Basic.R_Resistor RC(R=200, v(start=0))
         annotation (Placement(transformation(extent={{-44,60},{-24,80}})));
@@ -1631,7 +1633,7 @@ RE 4 8 10K<br/>
       Semiconductors.M_NMOS M1(modelcard=MOD1, L=4e-006, W=6e-006, AD=1e-011, AS=1e-011);
       // * VIDS MEASURES ID, WE COULD HAVE USED VDS, BUT ID WOULD BE NEGATIVE
       Sources.V_constant VIDS(V=0);
-      parameter Semiconductors.ModelcardMOS MOD1(VTO=-2, NSUB=1e+015, UO=550);
+      parameter Semiconductors.ModelcardMOS MOD1(VTO=-2, NSUB=1e+015, UO=550, CBD=0, CBS=0);
 
     record SpiceConstants
       // NODE
@@ -2096,7 +2098,7 @@ RC 3 4 1K<br/>
                                 Q2(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q3(Binternal(start=0), icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q4(Binternal(start=0), icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
-                                Q5(vbc(start=0), vbe(start=0))),
+                                Q5(vbc(start=0, fixed=true), vbe(start=0))),
                             X7( Q1(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q2(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q3(Binternal(start=0), icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
@@ -2123,7 +2125,7 @@ RC 3 4 1K<br/>
                                 Q2(vbe(start=0, fixed=true)),
                                 Q3(Binternal(start=0), icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q4(icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
-                                Q5(vbc(start=0, fixed=true)),
+                                Q5(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 RC(v(start=0))),
                             X3( Q1(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q2(vbe(start=0, fixed=true)),
@@ -2159,7 +2161,7 @@ RC 3 4 1K<br/>
                                 Q5(vbc(start=0, fixed=true), vbe(start=0, fixed=true))),
                             X9( Q1(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q2(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
-                                Q3(Binternal(start=0), icapbe(start=0), vbc(start=0), vbe(start=0)),
+                                Q3(Binternal(start=0), icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q4(icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q5(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 RC(v(start=0))))),
@@ -2222,6 +2224,7 @@ RC 3 4 1K<br/>
                                 Q2(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q3(Binternal(start=0), icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q4(icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
+                                Q5(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 RC(v(start=0))),
                             X3( Q1(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q2(vbe(start=0, fixed=true)),
@@ -2248,6 +2251,7 @@ RC 3 4 1K<br/>
                                 Q2(vbc(start=0, fixed=true)),
                                 Q3(Binternal(start=0), icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q4(icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
+                                Q5(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 RC(v(start=0))),
                             X8( Q1(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q2(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
@@ -2331,7 +2335,7 @@ RC 3 4 1K<br/>
       connect(RCOUT.p, n13);
       connect(RCOUT.n, n0);
 
-      annotation (experiment(StopTime=1e-006,Interval=1e-009),
+      annotation (experiment(StopTime=1e-006, Interval=1e-009),
         Documentation(info="<html>
 <p>This Four Bit Binary Adder model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
 <p>The model adds two 4-bit numbers. It has eight inputs where the first one is the lowest-order bit of the first number, the second is the lowest-order bit of the second number, the third one is the second-order bit of
@@ -2434,7 +2438,8 @@ print v(11) v(12) v(13)
 .END
 </pre>
 <p>The model is built out of several subcircuits which were described only ones and used several times. </p>
-</html>"));
+</html>"),
+        __Dymola_experimentSetupOutput);
     end Spice3BenchmarkFourBitBinaryAdder;
     annotation (Documentation(info="<html>
 <p>This package Example circuits contains some useful examples to demonstrate how the library is working and how the models can be used.</p>
