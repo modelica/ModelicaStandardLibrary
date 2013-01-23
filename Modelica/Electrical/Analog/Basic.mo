@@ -285,15 +285,15 @@ equation
 end Conductor;
 
   model Capacitor "Ideal linear electrical capacitor"
-    extends Interfaces.OnePort;
+    extends Interfaces.OnePort(v(start=0));
     parameter SI.Capacitance C(start=1) "Capacitance";
-    parameter Modelica.SIunits.Voltage IC=0 "Initial Value";
-    parameter Boolean UIC = false;
+   // parameter Modelica.SIunits.Voltage IC=0 "Initial Value";
+  //  parameter Boolean UIC = false;
 
-  initial equation
-    if UIC then
-      v = IC;
-    end if;
+  // initial equation
+  //   if UIC then
+  //     v = IC;
+  //   end if;
 
   equation
     i = C*der(v);
@@ -350,15 +350,15 @@ end Conductor;
   end Capacitor;
 
   model Inductor "Ideal linear electrical inductor"
-    extends Interfaces.OnePort;
+    extends Interfaces.OnePort(i(start=0));
     parameter SI.Inductance L(start=1) "Inductance";
-    parameter Modelica.SIunits.Current IC=0 "Initial Value";
-    parameter Boolean UIC=false;
-
-  initial equation
-    if UIC then
-      i = IC;
-    end if;
+  //   parameter Modelica.SIunits.Current IC=0 "Initial Value";
+  //   parameter Boolean UIC=false;
+  //
+  // initial equation
+  //   if UIC then
+  //     i = IC;
+  //   end if;
 
   equation
     L*der(i) = v;
