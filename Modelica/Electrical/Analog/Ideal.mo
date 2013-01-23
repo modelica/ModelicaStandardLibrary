@@ -33,8 +33,8 @@ package Ideal
             annotation (
               Documentation(info="<html>
 <p>This is an ideal thyristor model which is<br><br>
-<b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
-<b>closed</b> (on), if the voltage drop is greater or equal 0  and fire is true.
+<b>open </b>(off), if the voltage drop is less than 0 or both the thyristor already open (off = true) and fire is false<br>
+<b>closed</b> (not off), if both the voltage drop is greater or equal 0 and either the thyristor was already closed (off=false) or fire is true.
 </P>
 <p>
 This is the behaviour if all parameters are exactly zero.<br><br>
@@ -176,7 +176,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
               Documentation(info="<html>
 <p>This is an ideal GTO thyristor model which is<br><br>
 <b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
-<b>closed</b> (on), if the voltage drop is greater or equal 0  and fire is true.
+<b>closed</b> (not off), if the voltage drop is greater or equal 0  and fire is true.
 </P>
 <p>
 This is the behaviour if all parameters are exactly zero.<br><br>
@@ -208,7 +208,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
        </li>
 </ul>
 </html>"),    Icon(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
@@ -219,8 +219,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
-          Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
-          Line(points={{40,50},{60,30}}, color={0,0,255}),
+          Line(points={{30,10},{70,50},{70,90}}, color={0,0,255}),
+          Line(points={{50,50},{70,30}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
@@ -230,7 +230,29 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
           Text(
             extent={{-149,-43},{151,-83}},
             textString="%name",
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Line(
+            points={{30,22},{70,62}},
+            color={0,0,255},
+            smooth=Smooth.None),
+          Polygon(
+            points={{44,43},{44,36},{51,36},{44,43}},
+            lineColor={0,0,255},
+            smooth=Smooth.None,
+            fillPattern=FillPattern.Solid,
+            fillColor={0,0,255}),
+          Polygon(
+            points={{46,33},{53,33},{53,26},{46,33}},
+            lineColor={0,0,255},
+            smooth=Smooth.None,
+            fillPattern=FillPattern.Solid,
+            fillColor={0,0,255}),
+          Text(
+            extent={{0,62},{0,34}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            textString="GTO")}),
               Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
