@@ -2179,9 +2179,8 @@ The table interpolation has the following properties:
     <strong><code>table=[1,1;2,2]</code></strong> is <strong>illegal</strong>. If you want to
     shift the time table in time use the  <strong><code>startTime</code></strong> parameter instead.</li>
 <li>The table is implemented in a numerically sound way by
-    generating <b>time events</b> at interval boundaries,
-    in order to not integrate over a discontinuous or not differentiable
-    points.</li>
+    generating <b>time events</b> at interval boundaries.
+    This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>
 Example:
@@ -2378,9 +2377,8 @@ The table interpolation has the following properties:
     If time &lt; startTime, no interpolation is performed and the offset
     is used as ordinate value for all outputs.</li>
 <li>The table is implemented in a numerically sound way by
-    generating <b>time events</b> at interval boundaries,
-    in order to not integrate over a discontinuous or not differentiable
-    points.</li>
+    generating <b>time events</b> at interval boundaries.
+    This generates continuously differentiable values for the integrator.</li>
 <li>For special applications it is sometimes needed to know the minimum
     and maximum time instant defined in the table as a parameter. For this
     reason parameters <b>t_min</b> and <b>t_max</b> are provided and can be
@@ -3446,4 +3444,3 @@ usually requires a trimming calculation.
 </ul>
 </html>"));
 end Sources;
-

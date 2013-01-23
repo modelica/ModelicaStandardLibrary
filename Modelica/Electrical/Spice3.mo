@@ -3526,7 +3526,8 @@ The corresponding SPICE description
 <li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
 <li>If the table has only <b>one row</b>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
 <li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the voltage. </li>
-<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries, in order to not integrate over a discontinuous or not differentiable points. </li>
+<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries.
+    This generates continuously differentiable values for the integrator.</li>
 </ul>
 <p>Example:</p>
 <pre>   table = [0  0
@@ -3901,7 +3902,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
 <li>If the table has only <b>one row</b>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
 <li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the current. </li>
-<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries, in order to not integrate over a discontinuous or not differentiable points. </li>
+<li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries.
+    This generates continuously differentiable values for the integrator.</li>
 </ul>
 
 <p>Example:</p>
