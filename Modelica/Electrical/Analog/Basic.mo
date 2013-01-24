@@ -287,22 +287,13 @@ end Conductor;
   model Capacitor "Ideal linear electrical capacitor"
     extends Interfaces.OnePort(v(start=0));
     parameter SI.Capacitance C(start=1) "Capacitance";
-   // parameter Modelica.SIunits.Voltage IC=0 "Initial Value";
-  //  parameter Boolean UIC = false;
-
-  // initial equation
-  //   if UIC then
-  //     v = IC;
-  //   end if;
 
   equation
     i = C*der(v);
     annotation (
       Documentation(info="<html>
-<p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = C * dv/dt</i>. The Capacitance <i>C</i> is allowed to be positive, zero, or negative.</p>
-<p><br/>Besides the capacitance C parameter the capacitor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the voltage over the capacitor, which is defined from positive pin p to negative pin n (v=p.v - n.v).</p>
-<p><br/>Hence the capacitor is charged at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
-<p><br/>the IC value at the initial calculation by adding the equation v= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
+<p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = C * dv/dt</i>. The Capacitance <i>C</i> is allowed to be positive or zero.</p>
+
 </html>",
    revisions="<html>
 <ul>
@@ -352,22 +343,13 @@ end Conductor;
   model Inductor "Ideal linear electrical inductor"
     extends Interfaces.OnePort(i(start=0));
     parameter SI.Inductance L(start=1) "Inductance";
-  //   parameter Modelica.SIunits.Current IC=0 "Initial Value";
-  //   parameter Boolean UIC=false;
-  //
-  // initial equation
-  //   if UIC then
-  //     i = IC;
-  //   end if;
 
   equation
     L*der(i) = v;
     annotation (
       Documentation(info="<html>
-<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The Inductance <i>L</i> is allowed to be positive, zero, or negative.</p>
-<p><br/>Besides the inductance L parameter the inductor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the current that flows through the inductor.</p>
-<p><br/>Hence the inductor has an initial current at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
-<p><br/>the IC value at the initial calculation by adding the equation i= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
+<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The Inductance <i>L</i> is allowed to be positive, or zero.</p>
+
 </html>",
    revisions="<html>
 <ul>
