@@ -36,24 +36,19 @@ encapsulated model DifferenceAmplifier
         origin={40,30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Capacitor C1(C=1e-10, UIC=true)
-                              annotation (Placement(transformation(
+  Basic.Capacitor C1(C=1e-10, v(start=0, fixed=true)) annotation (Placement(transformation(
         origin={-60,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Capacitor C4(C=1e-10, UIC=true)
-                              annotation (Placement(transformation(extent={{10,
+  Basic.Capacitor C4(C=1e-10, v(start=0, fixed=true)) annotation (Placement(transformation(extent={{10,
             -14},{30,6}}, rotation=0)));
-  Basic.Capacitor C5(C=1e-10, UIC=true)
-                              annotation (Placement(transformation(
+  Basic.Capacitor C5(C=1e-10, v(start=0, fixed=true)) annotation (Placement(transformation(
         origin={10,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Capacitor C2(C=1e-10, UIC=true)
-                              annotation (Placement(transformation(extent={{-30,
+  Basic.Capacitor C2(C=1e-10, v(start=0, fixed=true)) annotation (Placement(transformation(extent={{-30,
             -14},{-10,6}}, rotation=0)));
-  Basic.Capacitor C3(C=1e-10, UIC=true)
-                              annotation (Placement(transformation(
+  Basic.Capacitor C3(C=1e-10, v(start=0, fixed=true)) annotation (Placement(transformation(
         origin={60,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
@@ -75,9 +70,9 @@ encapsulated model DifferenceAmplifier
             -70}}, rotation=0)));
   Basic.Ground Gnd4 annotation (Placement(transformation(extent={{85,-50},{95,
             -40}}, rotation=0)));
-  Utilities.Transistor Transistor1 annotation (Placement(transformation(extent=
+  Utilities.Transistor Transistor1(ct(v(start=0, fixed=true))) annotation (Placement(transformation(extent=
             {{-60,-20},{-40,0}}, rotation=0)));
-  Utilities.Transistor Transistor2 annotation (Placement(transformation(extent=
+  Utilities.Transistor Transistor2(ct(v(start=0, fixed=true))) annotation (Placement(transformation(extent=
             {{60,-20},{40,0}}, rotation=0)));
 equation
   connect(V1.n, Gnd1.p) annotation (Line(points={{-90,-60},{-90,-70}}, color={0,

@@ -83,7 +83,7 @@ model CompareTransformers
   Modelica.Electrical.Analog.Basic.Inductor inductor21(L=L1sigma)
     annotation (Placement(transformation(extent={{-50,-40},{-30,-20}},
           rotation=0)));
-  Modelica.Electrical.Analog.Basic.Inductor inductor22(L=L2sigma, UIC=true)
+  Modelica.Electrical.Analog.Basic.Inductor inductor22(L=L2sigma, i(start=0, fixed=true))
     annotation (Placement(transformation(extent={{30,-40},{50,-20}}, rotation=
            0)));
   Modelica.Electrical.Analog.Basic.Resistor resistor22(R=R2)

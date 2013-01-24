@@ -18,7 +18,7 @@ model IdealTriacCircuit "Ideal triac test circuit"
     period=0.25,
     startTime=0.1)
     annotation (Placement(transformation(extent={{-22,0},{-6,16}})));
- Modelica.Electrical.Analog.Ideal.IdealTriac idealTriac(idealThyristor(
+ Modelica.Electrical.Analog.Ideal.IdealTriac idealTriac(capacitor(v(start=0, fixed=true)),idealThyristor(
                                                         off(               start=true, fixed=true)), idealThyristor1(off(start=true, fixed=true)))
     annotation (Placement(transformation(extent={{6,20},{32,46}})));
 

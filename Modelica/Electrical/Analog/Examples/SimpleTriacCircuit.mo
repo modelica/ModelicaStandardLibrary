@@ -4,7 +4,7 @@ model SimpleTriacCircuit "Simple triac test circuit"
 
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
-  Modelica.Electrical.Analog.Basic.Inductor L(L=2e-6, UIC=true,
+  Modelica.Electrical.Analog.Basic.Inductor L(L=2e-6, i(start=0, fixed=true),
     p(                                                          v(  start=0)))
     annotation (Placement(transformation(extent={{20,50},{40,70}})));
   Modelica.Electrical.Analog.Basic.Resistor R(R=10)         annotation (

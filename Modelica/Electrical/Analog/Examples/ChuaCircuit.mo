@@ -5,8 +5,7 @@ encapsulated model ChuaCircuit "Chua's circuit, ns, V, A"
   import Modelica.Icons;
   extends Icons.Example;
 
-  Basic.Inductor L(L=18, UIC=true)
-                         annotation (Placement(transformation(
+  Basic.Inductor L(L=18, i(start=0, fixed=true)) annotation (Placement(transformation(
         origin={-75,38},
         extent={{-25,-25},{25,25}},
         rotation=270)));
@@ -16,13 +15,11 @@ encapsulated model ChuaCircuit "Chua's circuit, ns, V, A"
         rotation=270)));
   Basic.Conductor G(G=0.565) annotation (Placement(transformation(extent={{-25,38},
             {25,88}},      rotation=0)));
-  Basic.Capacitor C1(C=10, v(start=4),
-    UIC=true)                          annotation (Placement(transformation(
+  Basic.Capacitor C1(C=10, v(start=4, fixed=true))                          annotation (Placement(transformation(
         origin={25,3},
         extent={{-25,-25},{25,25}},
         rotation=270)));
-  Basic.Capacitor C2(C=100, UIC=true)
-                            annotation (Placement(transformation(
+  Basic.Capacitor C2(C=100, v(start=0, fixed=true)) annotation (Placement(transformation(
         origin={-25,3},
         extent={{-25,-25},{25,25}},
         rotation=270)));

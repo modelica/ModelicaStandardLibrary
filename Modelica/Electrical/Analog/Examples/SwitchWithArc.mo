@@ -12,7 +12,7 @@ model SwitchWithArc "Comparison of switch models both with and without arc"
         origin={-20,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Inductor inductor1(L=0.1, UIC=true)
+  Modelica.Electrical.Analog.Basic.Inductor inductor1(L=0.1, i(start=0, fixed=true))
     annotation (Placement(transformation(extent={{40,30},{60,50}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor resistor1(R=1)
     annotation (Placement(transformation(
@@ -30,7 +30,7 @@ model SwitchWithArc "Comparison of switch models both with and without arc"
         origin={-20,-60},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Inductor inductor2(L=0.1, UIC=true)
+  Modelica.Electrical.Analog.Basic.Inductor inductor2(L=0.1, i(start=0, fixed=true))
     annotation (Placement(transformation(extent={{40,-50},{60,-30}}, rotation=
            0)));
   Modelica.Electrical.Analog.Basic.Resistor resistor2(R=1)

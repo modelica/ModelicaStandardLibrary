@@ -11,15 +11,15 @@ model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
   parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2)
     "filter coefficient c4";
   parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
-  Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2, UIC=true)
+  Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2, v(start=0, fixed=true))
     annotation (Placement(transformation(extent={{-192,10},{-172,30}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2, UIC=true)
+  Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2, v(start=0, fixed=true))
     annotation (Placement(transformation(extent={{-240,-90},{-220,-70}},
           rotation=0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C3(C=l1, UIC=true)
+  Modelica.Electrical.Analog.Basic.Capacitor C3(C=l1, v(start=0, fixed=true))
     annotation (Placement(transformation(extent={{-90,10},{-70,30}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C4(C=c4, UIC=true)
+  Modelica.Electrical.Analog.Basic.Capacitor C4(C=c4, v(start=0, fixed=true))
     annotation (Placement(transformation(extent={{-30,30},{-10,50}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Capacitor C5(C=c2)
     annotation (Placement(transformation(extent={{-30,-120},{-10,-100}},
@@ -74,7 +74,7 @@ model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin Op5
     annotation (Placement(transformation(extent={{200,-70},{240,-30}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C7(C=l2, UIC=true)
+  Modelica.Electrical.Analog.Basic.Capacitor C7(C=l2, v(start=0, fixed=true))
     annotation (Placement(transformation(extent={{110,10},{130,30}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Capacitor C8(C=c4)
     annotation (Placement(transformation(extent={{160,-150},{180,-130}},
