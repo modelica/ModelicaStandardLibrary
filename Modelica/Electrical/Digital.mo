@@ -159,11 +159,11 @@ the library and has the following content:
         extends Modelica.Icons.ExamplesPackage;
 
         model Multiplexer "4 to 1 Bit Multiplexer Example"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          D.Sources.Clock CLK(period=20)  annotation (Placement(transformation(
+          D.Sources.Clock CLK(period=20, startTime=0, width=50)  annotation (Placement(transformation(
                   extent={{-80,-56},{-60,-36}}, rotation=0)));
           D.Sources.Table D0(
             y0=L.'0',
@@ -189,7 +189,7 @@ the library and has the following content:
                 {-60,0}},          rotation=0)));
           D.Examples.Utilities.JKFF FF annotation (Placement(transformation(extent={{-20,-62},
                 {0,-42}},                rotation=0)));
-          D.Sources.Set Enable annotation (Placement(transformation(extent={{-80,-82},
+          D.Sources.Set Enable(x=Modelica.Electrical.Digital.Interfaces.Logic.'1') annotation (Placement(transformation(extent={{-80,-82},
                 {-60,-62}},          rotation=0)));
         equation
           connect(CLK.y, FF.clk) annotation (Line(
@@ -226,14 +226,14 @@ the library and has the following content:
         end Multiplexer;
 
         model FlipFlop "Pulse Triggered Master Slave Flip-Flop"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           D.Examples.Utilities.JKFF FF
                          annotation (Placement(transformation(extent={{-10,-40},{70,
                     40}}, rotation=0)));
-          D.Sources.Clock CLK(period=10)  annotation (Placement(transformation(
+          D.Sources.Clock CLK(period=10, startTime=0, width=50)  annotation (Placement(transformation(
                   extent={{-80,-10},{-60,10}}, rotation=0)));
           D.Sources.Table J(
             y0=L.'0',
@@ -357,16 +357,16 @@ The simulation stop time should be 5 seconds.
         end HalfAdder;
 
         model FullAdder "Full 1 Bit Adder Example"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           D.Examples.Utilities.FullAdder Adder1                  annotation (Placement(
                 transformation(extent={{0,-30},{60,30}}, rotation=0)));
-          D.Converters.LogicToReal s
+          D.Converters.LogicToReal s(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5)
                                    annotation (Placement(transformation(extent={{70,
                     12},{90,32}}, rotation=0)));
-          D.Converters.LogicToReal c_out
+          D.Converters.LogicToReal c_out(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5)
                                        annotation (Placement(transformation(extent=
                     {{70,-32},{90,-12}}, rotation=0)));
           D.Examples.Utilities.Counter3 Counter
@@ -374,7 +374,7 @@ The simulation stop time should be 5 seconds.
                   rotation=0)));
           D.Sources.Set Enable(x=L.'1')       annotation (Placement(transformation(
                   extent={{-90,6},{-70,26}}, rotation=0)));
-          D.Sources.Clock CLK       annotation (Placement(transformation(extent={{
+          D.Sources.Clock CLK(period=1, startTime=0, width=50)       annotation (Placement(transformation(extent={{
                     -90,-22},{-70,-2}}, rotation=0)));
         equation
           connect(Adder1.s, s.x[1])
@@ -571,12 +571,12 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         end Adder4;
 
         model Counter3 "3 Bit Counter Example"
-      import D = Modelica.Electrical.Digital;
+          import D = Modelica.Electrical.Digital;
           extends Modelica.Icons.Example;
 
-          D.Sources.Step Enable       annotation (Placement(transformation(extent={
+          D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1)       annotation (Placement(transformation(extent={
                     {-90,8},{-50,48}}, rotation=0)));
-          D.Sources.Clock Clock       annotation (Placement(transformation(extent={
+          D.Sources.Clock Clock(period=1, startTime=0, width=50)       annotation (Placement(transformation(extent={
                     {-90,-48},{-50,-8}}, rotation=0)));
           D.Examples.Utilities.Counter3 Counter
             annotation (Placement(transformation(extent={{-30,-40},{50,40}},
@@ -597,23 +597,23 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         end Counter3;
 
         model Counter "Generic N Bit Counter Example"
-      import D = Modelica.Electrical.Digital;
+          import D = Modelica.Electrical.Digital;
           extends Modelica.Icons.Example;
 
-          D.Sources.Step Enable       annotation (Placement(transformation(extent={
+          D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1)       annotation (Placement(transformation(extent={
                     {-90,8},{-50,48}}, rotation=0)));
-          D.Sources.Clock Clock       annotation (Placement(transformation(extent={
+          D.Sources.Clock Clock(period=1, startTime=0, width=50)       annotation (Placement(transformation(extent={
                     {-90,-48},{-50,-8}}, rotation=0)));
           D.Examples.Utilities.Counter Counter(n=4)
             annotation (Placement(transformation(extent={{-30,-40},{50,40}},
                   rotation=0)));
-          D.Converters.LogicToReal Q0 annotation (Placement(transformation(extent={
+          D.Converters.LogicToReal Q0(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5) annotation (Placement(transformation(extent={
                     {66,-40},{86,-20}}, rotation=0)));
-          D.Converters.LogicToReal Q1 annotation (Placement(transformation(extent={
+          D.Converters.LogicToReal Q1(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5) annotation (Placement(transformation(extent={
                     {66,-20},{86,0}}, rotation=0)));
-          D.Converters.LogicToReal Q2 annotation (Placement(transformation(extent={
+          D.Converters.LogicToReal Q2(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5) annotation (Placement(transformation(extent={
                     {66,0},{86,20}}, rotation=0)));
-          D.Converters.LogicToReal Q3 annotation (Placement(transformation(extent={
+          D.Converters.LogicToReal Q3(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5) annotation (Placement(transformation(extent={
                     {66,20},{86,40}}, rotation=0)));
         equation
           connect(Enable.y, Counter.enable) annotation (Line(
@@ -3032,8 +3032,8 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         end DelayParams;
 
         model TransportDelay "Transport delay with initial parameter"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
           parameter Modelica.SIunits.Time delayTime(start=0) "delay time";
           parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
@@ -3041,7 +3041,8 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           D.Interfaces.Logic x_delayed;
 
         equation
-          Integer(x_delayed) = integer(delay(Integer(x), delayTime));
+         Integer(x_delayed) = integer(delay(Integer(x), delayTime));
+         //x_delayed = integer(delay(x, delayTime));
           y = if delayTime > 0 then
                   (if time >= delayTime then x_delayed else y0) else
                     pre(x);
@@ -3148,9 +3149,9 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
         model InertialDelaySensitive
       "Provide the input as output if it holds its value for a specific amount of time"
 
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          extends D.Interfaces.SISO(x(start=L.'U',fixed=true),y(start=y0, fixed=true));
           parameter Modelica.SIunits.Time tLH(start=0) "rise inertial delay";
           parameter Modelica.SIunits.Time tHL(start=0) "fall inertial delay";
           parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
@@ -3187,6 +3188,9 @@ is used, if it is zero, the input is not delayed.
 </P>
 </html>",         revisions="<HTML>
 <ul>
+<li><i>January 24, 2013  </i> Initial value for y set to y0
+       by Kristin Majetta and Christoph Clauss<br>
+       </li>
 <li><i>September 8, 2009  </i> pre(y) and x are used to select <i>tHL</i> or <i>tLH</i>
        by Ulrich Donath<br>
        </li>
