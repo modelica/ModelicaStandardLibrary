@@ -3037,15 +3037,21 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
           parameter Modelica.SIunits.Time delayTime(start=0) "delay time";
           parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
+          constant D.Interfaces.Logic LogicValues[:]=L.'U':L.'-';
     protected
           D.Interfaces.Logic x_delayed;
 
         equation
-         Integer(x_delayed) = integer(delay(Integer(x), delayTime));
-         //x_delayed = integer(delay(x, delayTime));
+          x_delayed = LogicValues[integer(delay(Integer(pre(x)), delayTime))];
           y = if delayTime > 0 then
-                  (if time >= delayTime then x_delayed else y0) else
-                    pre(x);
+                   (if time >= delayTime then x_delayed else y0) else
+                     pre(x);
+
+        //  Integer(x_delayed) = integer(delay(Integer(x), delayTime));
+        //  //x_delayed = integer(delay(x, delayTime));
+        //   y = if delayTime > 0 then
+        //           (if time >= delayTime then x_delayed else y0) else
+        //             pre(x);
           annotation (Documentation(info="<HTML>
 <P>
 Provide the input as output exactly delayed by <i>Tdel</i>.
