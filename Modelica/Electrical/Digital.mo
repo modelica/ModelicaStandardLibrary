@@ -3046,12 +3046,6 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           y = if delayTime > 0 then
                    (if time >= delayTime then x_delayed else y0) else
                      pre(x);
-
-        //  Integer(x_delayed) = integer(delay(Integer(x), delayTime));
-        //  //x_delayed = integer(delay(x, delayTime));
-        //   y = if delayTime > 0 then
-        //           (if time >= delayTime then x_delayed else y0) else
-        //             pre(x);
           annotation (Documentation(info="<HTML>
 <P>
 Provide the input as output exactly delayed by <i>Tdel</i>.
