@@ -440,15 +440,15 @@ or other flow models without storage, are directly connected.
 <p>Note that this generally leads to high-index DAEs for pressure states if dynamic pipes are directly connected to each other, or generally to models with storage exposing a thermodynamic state through the port. This may not be valid if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The <code><b>modelStructure</b></code> can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition. </p>
 <p>The simplest possible symmetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. See the documentation of the base class <a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations. </p>
 <p>The <code><b>HeatTransfer</b></code> component specifies the source term <code>Qb_flows</code> of the energy balance. The default component uses a constant coefficient for the heat transfer between the bulk flow and the segment boundaries exposed through the <code>heatPorts</code>. The <code>HeatTransfer</code> model is replaceable and can be exchanged with any model extended from <a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>. </p>
-<p><h4>Differences to the general DynamicPipe model</h4></p>
+<h4>Differences to the general DynamicPipe model</h4>
 <p>The <code>PipeOnePhaseHT</code> is a simplified and more specialized version of the general <code>DynamicPipe</code> model. The simplifications include a flattened component structure of only two inheritance levels and without multiple inheritance. This makes it significantly easier for the user to locate relevant elements of the code and reduces the risk of unexpected behaviour through erroneously set and undetected parameter combinations. The available flow and heat transfer models are the same as in <code>DynamicPipe</code>. Further simplifications are the reduction of modelling options. The following options are preset in <code>PipeOnePhaseHT</code>: </p>
-<p><ul>
+<ul>
 <li>The momentum balance is always static</li>
 <li>Mass and energy balance setting is coupled and either both dynamic or both static</li>
 <li>Lumped pressure is assumed (corresponds to <code>useLumpedPressure=true</code> in <code>DynamicPipe</code>), only one pressure state regardless of <code>nNodes</code>)</li>
 <li>The choice of model structure has been limited to <code>a_v_b</code>, <code>av_b</code>, <code>a_vb</code>, so that only volume elements of equal size occur</li>
-</ul></p>
-<p><h4>Intended Application</h4></p>
+</ul>
+<h4>Intended Application</h4>
 <p>Intended use is for heat exchanger applications, where no phase change of either fluid takes place but thermal effects are in the focus of interest. In this case, usually no dynamic momentum balance is required and it is sufficient to assume the lumped pressure state. </p>
 </html>"),
   Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
@@ -707,17 +707,17 @@ or other flow models without storage, are directly connected.
 <p>Model of a straight pipe with distributed mass, energy and momentum balances. It provides the complete balance equations for one-dimensional fluid flow as formulated in <a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>. See below for remarks regarding balance equation settings in this model.</p>
 <p>The partial differential equations are treated with the finite volume method and a staggered grid scheme for momentum balances. The pipe is split into nNodes equally spaced segments along the flow path. The default value is nNodes=2. This results in two lumped mass and energy balances and one lumped momentum balance across the dynamic pipe. </p>
 <p>Note that this generally leads to high-index DAEs for pressure states if dynamic pipes are directly connected to each other, or generally to models with storage exposing a thermodynamic state through the port. This may not be valid if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The <code><b>modelStructure</b></code> can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition. </p>
-<p>The simplest possible symmetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. Depending on the configured model structure, the first and the last pipe segment, or the flow path length of the first and the last momentum balance, are of half size. See the documentation of the base class <a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations. </p>
+<p>The simplest possible symmetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. See the documentation of the base class <a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations. </p>
 <p>The <code><b>HeatTransfer</b></code> component specifies the source term <code>Qb_flows</code> of the energy balance. The default component uses a constant coefficient for the heat transfer between the bulk flow and the segment boundaries exposed through the <code>heatPorts</code>. The <code>HeatTransfer</code> model is replaceable and can be exchanged with any model extended from <a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>. </p>
-<p><h4>Differences to the general DynamicPipe model</h4></p>
+<h4>Differences to the general DynamicPipe model</h4>
 <p>The <code>PipeTwoPhaseHT</code> is a simplified and more specialized version of the general <code>DynamicPipe</code> model. The simplifications include a flattened component structure of only two inheritance levels and without multiple inheritance. This makes it significantly easier for the user to locate relevant elements of the code and reduces the risk of unexpected behaviour through erroneously set and undetected parameter combinations. The available flow and heat transfer models are the same as in <code>DynamicPipe</code>. Further simplifications are the reduction of modelling options. The following options are preset in <code>PipeTwoPhaseHT</code>: </p>
-<p><ul>
+<ul>
 <li>The mass and energy balance equations are always dynamic</li>
 <li>The momentum balance can be selected either as static or as dynamic</li>
 <li>Distributed pressure is assumed (corresponds to <code>useLumpedPressure=false</code> in <code>DynamicPipe</code>), unless boundary conditions or medium model prevent it, pressure is a state in each discrete volume element)</li>
 <li>The choice of model structure has been limited to <code>a_v_b</code>, <code>av_b</code>, <code>a_vb</code>, so that only volume elements of equal size occur</li>
-</ul></p>
-<p><h4>Intended Application</h4></p>
+</ul>
+<h4>Intended Application</h4>
 <p>Intended use is for heat exchanger applications, where phase change takes place or is possible and related effects such as pressure oscillations are of interest.</p>
 </html>"),
   Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
