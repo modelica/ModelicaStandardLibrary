@@ -486,7 +486,7 @@ to the original vector are given, such that sorted_v = v[indices].
     input Real e "Search for e";
     input Real v[:] "Integer vector";
     input Real eps(min=0) = 0
-      "Element e is equal to a element v[i] of vectorv if abs(e-v[i]) <= eps";
+      "Element e is equal to a element v[i] of vector v if abs(e-v[i]) <= eps";
     output Integer result
       "v[result] = e (first occurrence of e); result=0, if not found";
   protected
