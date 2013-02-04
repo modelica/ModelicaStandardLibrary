@@ -461,7 +461,7 @@ end Connectors;
           extends Modelica.Icons.Information;
           annotation (Documentation(info="<html>
 
-<p>In the Modelica documentation sometimes different cases have to be distinguished. If the case distinction refers to Modelica parameters or variables (boolean expressions) the comparisons should be written in the style of Modelica code within <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
+<p>In the Modelica documentation sometimes different cases have to be distinguished. If the case distinction refers to Modelica parameters or variables (Boolean expressions) the comparisons should be written in the style of Modelica code within <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
 </p>
 
 <h5>Example 1</h5>
@@ -473,7 +473,7 @@ end Connectors;
 <p>If <code>useCage == true</code>, a damper cage is considered in the model...</p>
 
 <p>
-For more complex case scenarios a unordered list should be used. In this case only Modelica specific code segments and boolean expressions.
+For more complex case scenarios a unordered list should be used. In this case only Modelica specific code segments and Boolean expressions.
 </p>
 
 <h5>Example 2</h5>
@@ -621,7 +621,7 @@ In an <code>alt</code> tag the original equation should be stored, e.g.,</p>
 <p>
 If one wants to refer to particular variables and parameters in the documentation text, either a
 graphical representation (PNG file) or italic fonts for regular physical symbols and lower case
-<a href=\"http://www.w3.org/TR/html4/sgml/entities.html\">greek letters</a>
+<a href=\"http://www.w3.org/TR/html4/sgml/entities.html\">Greek letters</a>
 should be used. Full word variables and full word indices should be spelled within &lt;code&gt; and &lt;/code&gt;.
 Vector and array indices should be typeset as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags.
 </p>
@@ -6752,15 +6752,15 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 <tr><td valign=\"top\">IntegerMO</td><td valign=\"top\">Multiple Integer Output continuous control block</td></tr>
 <tr><td valign=\"top\">IntegerSignalSource</td><td valign=\"top\">Base class for continuous Integer signal source</td></tr>
 <tr><td valign=\"top\">IntegerMIBooleanMOs</td><td valign=\"top\">Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs</td></tr>
-<tr><td valign=\"top\">BooleanMIMOs</td><td valign=\"top\">Multiple Input Multiple Output continuous control block with same number of inputs and outputs of boolean type</td></tr>
+<tr><td valign=\"top\">BooleanMIMOs</td><td valign=\"top\">Multiple Input Multiple Output continuous control block with same number of inputs and outputs of Boolean type</td></tr>
 <tr><td valign=\"top\"><b><i>BusAdaptors</i></b></td><td valign=\"top\">Components to send signals to the bus or receive signals from the bus</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
 <tr><td valign=\"top\">RealToInteger</td><td valign=\"top\">Convert real to integer signals</td></tr>
 <tr><td valign=\"top\">IntegerToReal</td><td valign=\"top\">Convert integer to real signals</td></tr>
 <tr><td valign=\"top\">Max</td><td valign=\"top\">Pass through the largest signal</td></tr>
 <tr><td valign=\"top\">Min</td><td valign=\"top\">Pass through the smallest signal</td></tr>
-<tr><td valign=\"top\">Edge</td><td valign=\"top\">Indicates rising edge of boolean signal</td></tr>
-<tr><td valign=\"top\">BooleanChange</td><td valign=\"top\">Indicates boolean signal changing</td></tr>
+<tr><td valign=\"top\">Edge</td><td valign=\"top\">Indicates rising edge of Boolean signal</td></tr>
+<tr><td valign=\"top\">BooleanChange</td><td valign=\"top\">Indicates Boolean signal changing</td></tr>
 <tr><td valign=\"top\">IntegerChange</td><td valign=\"top\">Indicates integer signal changing</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
 <tr><td valign=\"top\">IntegerConstant</td><td valign=\"top\">Generate constant signals of type Integer</td></tr>

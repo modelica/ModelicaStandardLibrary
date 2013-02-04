@@ -3719,7 +3719,7 @@ In a nutshell, the problem is reduced to the corresponding problem
 with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
 are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially for the 1x1 or 2x2 Schur blocks by exploiting the block triangular form of <b>R</b>.
 Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
-The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
+The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
 </p>
 
 <h4>References</h4>
@@ -3856,7 +3856,7 @@ with <b>S</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the real Schur of <b>A</b>,  <b>T</
 <b>D</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
 are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the block triangular form of <b>S</b> and <b>T</b>.
 Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
-The boolean inputs \"AisSchur\" and \"BisSchur\" indicate to omit one or both of the transformation to Schur in the case that <b>A</b> and/or <b>B</b> have already Schur form.
+The Boolean inputs \"AisSchur\" and \"BisSchur\" indicate to omit one or both of the transformation to Schur in the case that <b>A</b> and/or <b>B</b> have already Schur form.
 </p>
 
 <p>
@@ -4243,7 +4243,7 @@ In a nutshell, the problem is reduced to the corresponding problem
 with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
 are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the block triangular form of <b>R</b>.
 Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
-The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
+The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
 </p>
 
 <h4>References</h4>
@@ -4448,7 +4448,7 @@ with <b>H</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the Hessenberg form of <b>A</b> and
 <b>F</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
 are appropriate transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the specific forms of <b>S</b> and <b>H</b>.
 Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
-The boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of the transformation to Hessenberg form or Schur form respectively in the case that <b>A</b> and/or <b>B</b> have already Hessenberg form or Schur respectively.
+The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of the transformation to Hessenberg form or Schur form respectively in the case that <b>A</b> and/or <b>B</b> have already Hessenberg form or Schur respectively.
 </p>
 
 <h4>References</h4>
@@ -7344,7 +7344,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
       end dtrsen;
 
     function dgesvx
-      "Solve real system of linear equations op(A)*X=B, op(A) is A or A' according to the boolean input transposed"
+      "Solve real system of linear equations op(A)*X=B, op(A) is A or A' according to the Boolean input transposed"
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)] "Real square matrix A";
       input Real B[size(A, 1), :] "Real matrix B";

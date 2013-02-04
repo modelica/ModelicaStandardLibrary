@@ -15821,7 +15821,7 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
        changed some names to be more concise (see conversion script)</li>
   <li> v2.0.0 2007/11/13 Anton Haumer<br>
        removed replaceable from airgaps<br>
-       removed cardinality from support, using a boolean parameter<br>
+       removed cardinality from support, using a Boolean parameter<br>
        removed all nonSIunits</li>
   <li> v2.1.0 2009/08/26 Anton Haumer<br>
        set all useHeatPort=false</li>

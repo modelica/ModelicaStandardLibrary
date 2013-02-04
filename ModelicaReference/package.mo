@@ -2380,7 +2380,7 @@ Trigger error and print error message if assertion condition is not fulfilled
 <h4>Syntax</h4>
 <blockquote><code><b>assert</b>(condition, message, level = AssertionLevel.error)</code></blockquote>
 <h4>Description</h4>
-<p>The boolean expression <i>condition</i> shall be true for successful model evaluations.
+<p>The Boolean expression <i>condition</i> shall be true for successful model evaluations.
 Otherwise, an error occurs using the string expression <i>message</i>
 as error message.</p>
 <P>If the condition of an assert statement is true, message is not
@@ -5420,7 +5420,7 @@ In algorithm sections:
 <h4>Description</h4>
 <h4>If clause</h4>
 <P>
-The expression of an <B>if</B> and <B>elseif</B>-clause must be scalar boolean expression.
+The expression of an <B>if</B> and <B>elseif</B>-clause must be scalar Boolean expression.
 One <B>if</B>-clause, and zero or more <B>elseif</B>-clauses, and an optional <B>else</B>-clause
 together form a list of branches. One or zero of the bodies of these <B>if</B>-, <B>elseif</B>-
 and <B>else</B>-clauses is selected, by evaluating the conditions of the <B>if</B>- and
@@ -5442,7 +5442,7 @@ of unknowns remains the same].</I>
 
 <P>An expression</P>
 <pre>   <B>if</B> expression1 <B>then</B> expression2 <B>else</B> expression3</pre>
-<P>is one example of if-expression. First expression1, which must be boolean expression,
+<P>is one example of if-expression. First expression1, which must be Boolean expression,
 is evaluated. If expression1 is true expression2 is evaluated and is the value of the
 if-expression, else expression3 is evaluated and is the value of the if-expression.
 The two expressions, expression2 and expression3, must be type compatible and give the
@@ -6301,7 +6301,7 @@ at event instants.</P>
    v1 = <B>if edge</B>(b) <B>then</B> expr1 <B>else pre</B>(v1);
    v2 = <B>if edge</B>(b) <B>then</B> expr2 <B>else pre</B>(v2);</PRE>
 
-<P>The start-values of the introduced boolean variables are defined by
+<P>The start-values of the introduced Boolean variables are defined by
 the taking the start-value of the when-condition, as above where p is a
 parameter variable. The start-values of the special functions
 <B>initial</B>, <B>terminal</B>, and <B>sample</B> is false.</P>
@@ -6346,7 +6346,7 @@ Repeat statements as long as a condition is fulfilled
 
 <h4>Description</h4>
 
-<P>The expression of a while clause shall be a scalar boolean expression.
+<P>The expression of a while clause shall be a scalar Boolean expression.
 The while-clause corresponds to while-statements in programming languages,
 and is formally defined as follows</P>
 

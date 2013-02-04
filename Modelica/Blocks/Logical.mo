@@ -876,7 +876,7 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
               lineColor={0,0,0},
               textString="u")}),
       Documentation(info="<HTML>
-<p>The block TriggeredTrapezoid has a boolean input and a real
+<p>The block TriggeredTrapezoid has a Boolean input and a real
 output signal and requires the parameters <i>amplitude</i>,
 <i>rising</i>, <i>falling</i> and <i>offset</i>. The
 output signal <b>y</b> represents a trapezoidal signal dependent on the

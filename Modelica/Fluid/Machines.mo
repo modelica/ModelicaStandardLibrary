@@ -536,7 +536,7 @@ Dynamic mass and energy balance can be used by setting the corresponding dynamic
 
 <p><b>Heat transfer</b></p>
 <p>
-The boolean parameter <code>use_HeatTransfer</code> can be set to true if heat exchanged with the environment
+The Boolean parameter <code>use_HeatTransfer</code> can be set to true if heat exchanged with the environment
 should be taken into account or to model a housing. This might be desirable if a pump with realistic
 <code>powerCharacteristic</code> for zero flow operates while a valve prevents fluid flow.
 </p>

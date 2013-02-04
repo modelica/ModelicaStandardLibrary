@@ -736,7 +736,7 @@ Block has one continuous Boolean input and one continuous Boolean output signal.
   end BooleanSISO;
 
   partial block BooleanMIMOs
-    "Multiple Input Multiple Output continuous control block with same number of inputs and outputs of boolean type"
+    "Multiple Input Multiple Output continuous control block with same number of inputs and outputs of Boolean type"
 
     extends Modelica.Blocks.Icons.BooleanBlock;
     parameter Integer n=1 "Number of inputs (= number of outputs)";

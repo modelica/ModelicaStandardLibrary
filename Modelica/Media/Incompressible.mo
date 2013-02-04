@@ -799,7 +799,7 @@ water, the equivalent change of temperature to increasing pressure 1 bar is
 0.025 Kelvin.
 </p>
 <p>
-Two boolean flags are used to choose how enthalpy and inner energy is calculated:
+Two Boolean flags are used to choose how enthalpy and inner energy is calculated:
 </p>
 <ul>
 <li><b>enthalpyOfT</b>=true, means assuming that enthalpy is only a function

@@ -3514,7 +3514,7 @@ The output is linear dependent on the inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</
 </html>"));
   end LinearDependency;
 
-  block Edge "Indicates rising edge of boolean signal"
+  block Edge "Indicates rising edge of Boolean signal"
     extends Interfaces.BooleanSISO;
   equation
     y = edge(u);
@@ -3533,7 +3533,7 @@ when the Boolean input <b>u</b> shows a <i>rising edge</i>:
 </html>"));
   end Edge;
 
-  block BooleanChange "Indicates boolean signal changing"
+  block BooleanChange "Indicates Boolean signal changing"
     extends Interfaces.BooleanSISO;
   equation
     y = change(u);
