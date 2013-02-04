@@ -43,7 +43,7 @@ For a prismatic or cylindrical volume of length <i>l</i> and cross sectional are
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctance_prismatic.png\" ALT=\"Magnetic reluctance of a prismatic or cylindrical volume\">
 
 <p>
-Similar equations can be derived for other geometries. In cases where a direct integration is not possible, the reluctance can be calclulated on base of average length, average cross sectional area and volume <i>V</i> respectively:
+Similar equations can be derived for other geometries. In cases where a direct integration is not possible, the reluctance can be calculated on base of average length, average cross sectional area and volume <i>V</i> respectively:
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctanceFromAverageGeometry.png\" ALT=\"Reluctance calculation from average geometric quantities\">
@@ -169,7 +169,7 @@ Magna Physics Publishing and Oxford University Press 1994
 
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>
-This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <i>translatory</i> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modellling of <i>rotational</i> electrical machines.
+This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <i>translatory</i> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modelling of <i>rotational</i> electrical machines.
 </p>
 <p>
 This user's guide gives a short introduction to the underlying concept of <b>magnetic flux tubes</b>, summarizes the calculation of magnetic <b>reluctance forces</b> from lumped magnetic network models and lists <b>reference literature</b>.
@@ -446,7 +446,7 @@ Have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingC
 <p>
 Simulation of the force-stroke characteristic of the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> with a constant current I=3A and a forced armature movement (similar to measurements in reality) shows the dependency of both force-generating permeances G_ma and G_mb as well as inductance L on armature position x. <b>Simulate for 8 s</b> and <b>plot vs.</b> armature position <b>feedX.flange_b.s</b> (same physical quantities together in a common diagram for comparison):</p>
 <pre>
-    feedX.flange_b.f            // force of permeance model (permeance of stator iron neglegted in this model)
+    feedX.flange_b.f            // force of permeance model (permeance of stator iron neglected in this model)
     comparisonWithFEA.y[1]      // force of FEA model with non-linear stator iron 1.0718
     comparisonWithFEA.y[2]      // force of FEA model with mu_rFe=const.=1000
     actuator.g_ma.G_m           // permeance G_ma
@@ -667,14 +667,14 @@ Whereas the steady state current is the same in both models, the steady state ac
             final r_1=r_core + l_air + l_PM,
             final r_2=r_core + l_air + l_PM + l_FeOut,
             final r_0=r_core)
-            "Leakgage between coaxial end planes of ferromagnetic stator core and outer back iron"
+            "Leakage between coaxial end planes of ferromagnetic stator core and outer back iron"
             annotation (Placement(transformation(
                 origin={-60,10},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Magnetic.FluxTubes.Shapes.Leakage.HalfCylinder g_mLeak2(
               final l=2*pi*(r_core + (l_air + l_PM)/2))
-            "Leakgage between edges of ferromagnetic stator core and outer back iron"
+            "Leakage between edges of ferromagnetic stator core and outer back iron"
             annotation (Placement(transformation(
                 origin={-40,10},
                 extent={{-10,-10},{10,10}},
@@ -742,7 +742,7 @@ In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActua
 </pre>
 
 <p>
-Both force components are properly considered with a simple permeance model as shown in the figures below. Figure (a) illustrates the dimensions of the axisymmetric moving coil actuator that are needed in the permeance model. Figure (b) shows partitioning into flux tubes and the permanent magnetic field without current. G_ma and G_mb both are the permeances resulting from a series connection of the permaent magnet and air gap sections. The field plot of the coil-imposed mmf is shown in figure (c) without the permanent magnetic mmf (H_cB=0). The placement of the magnetic network components in figure (d) retains the geometric structure of the actuator. In figure (e), the permeance model is restructured and thus simplified.
+Both force components are properly considered with a simple permeance model as shown in the figures below. Figure (a) illustrates the dimensions of the axisymmetric moving coil actuator that are needed in the permeance model. Figure (b) shows partitioning into flux tubes and the permanent magnetic field without current. G_ma and G_mb both are the permeances resulting from a series connection of the permanent magnet and air gap sections. The field plot of the coil-imposed mmf is shown in figure (c) without the permanent magnetic mmf (H_cB=0). The placement of the magnetic network components in figure (d) retains the geometric structure of the actuator. In figure (e), the permeance model is restructured and thus simplified.
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_PermeanceModel.png\" ALT=\"Structure, assigned flux tubes and field plots of the moving coil actuator\">
@@ -1004,7 +1004,7 @@ Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 10 s</b>. Plot in on
 
 <pre>
     simpleSolenoid.armature.flange_a.f     // electromagnetic force of simple magnetic network model
-    advancedSolenoid.armature.flange_a.f   // electromagnetic force of advaned magnetic network model
+    advancedSolenoid.armature.flange_a.f   // electromagnetic force of advanced magnetic network model
     comparisonWithFEA.y[1]                 // electromagnetic force obtained with FEA as reference
 </pre>
 
@@ -1564,7 +1564,7 @@ The characteristic current drop during pull-in is due to both armature motion an
             final l=l_yoke - (t_yokeBot + t_poleBot)/2 - l_pole - (x_max +
                 x_min)/2,
             final r_i=0,
-            final r_o=r_arm) "Permeance of ferfomagnetic armature" annotation (
+            final r_o=r_arm) "Permeance of ferromagnetic armature" annotation (
               Placement(transformation(
                 origin={16,40},
                 extent={{-10,-10},{10,10}},
@@ -1647,7 +1647,7 @@ The characteristic current drop during pull-in is due to both armature motion an
                   rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak1(l=
                2*pi*(r_arm + t_airPar/2))
-            "Leakage pereance between inner edge of yoke bore and armature side face"
+            "Leakage permeance between inner edge of yoke bore and armature side face"
             annotation (Placement(transformation(
                 origin={60,50},
                 extent={{-10,-10},{10,10}},
@@ -1895,7 +1895,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 x_min)/2,
             final r_o=r_arm,
             final nonLinearPermeability=true,
-            final material=material) "Permeance of ferfomagnetic armature"
+            final material=material) "Permeance of ferromagnetic armature"
             annotation (Placement(transformation(
                 origin={10,30},
                 extent={{-10,10},{10,-10}},
@@ -1978,7 +1978,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                   rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak1(
               final l=2*pi*(r_arm + t_airPar/2))
-            "Leakage pereance between inner edge of yoke bore and armature side face"
+            "Leakage permeance between inner edge of yoke bore and armature side face"
             annotation (Placement(transformation(
                 origin={60,40},
                 extent={{-10,-10},{10,10}},
@@ -2039,7 +2039,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 transformation(extent={{-8,-30},{12,-10}}, rotation=0)));
           Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak3(
               final l=2*pi*(r_arm + t_airPar/2))
-            "Leakage pereance between outer edge of yoke bore and armature side face"
+            "Leakage permeance between outer edge of yoke bore and armature side face"
             annotation (Placement(transformation(
                 origin={88,40},
                 extent={{-10,-10},{10,10}},
@@ -2215,7 +2215,7 @@ Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/AdvancedSolenoidModel_fluxTubePartitioning.png\" ALT=\"Assigned flux tubes and field plot of the solenoid actuator\">
 
 <p>
-The parasitic capacitances c_par1 and c_par2 accross both partial coils assure that the voltages across these coils are well-defined during simulation.
+The parasitic capacitances c_par1 and c_par2 across both partial coils assure that the voltages across these coils are well-defined during simulation.
 </p>
 </html>"));
         end AdvancedSolenoid;
@@ -2460,7 +2460,7 @@ In translatory actuators with limited stroke, the armature with its inertia can 
 
         annotation (Documentation(info="<html>
 <p>
-This model exemplarily shows dimensioning of a winding (wire diameter, number of turns) based on desired operating conditions (voltage, temperature, current density, conductor filling factor) for a given cross-section area of the winding. It can be modified according to the parameters given and sought after for a particular design project.
+This model example shows dimensioning of a winding (wire diameter, number of turns) based on desired operating conditions (voltage, temperature, current density, conductor filling factor) for a given cross-section area of the winding. It can be modified according to the parameters given and sought after for a particular design project.
 </p>
 
 <p>
@@ -2803,7 +2803,7 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
                   textString="%name",
                   lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-Eddy currents are induced in a conductive magnetic flux tube when the flux changes with time. This causes a magnetic voltage drop in addition to the voltage drop that is due to the reluctance of this flux tube. The eddy current component can be thought of as a short-circuited secundary winding of a transformer with only one turn. Its resistance is calculated from the geometry and resistivity of the eddy current path.
+Eddy currents are induced in a conductive magnetic flux tube when the flux changes with time. This causes a magnetic voltage drop in addition to the voltage drop that is due to the reluctance of this flux tube. The eddy current component can be thought of as a short-circuited secondary winding of a transformer with only one turn. Its resistance is calculated from the geometry and resistivity of the eddy current path.
 </p>
 
 <p>
@@ -3109,7 +3109,7 @@ The derivative of each element's permeance with respect to armature position <co
 The parameter <code>dlBydx</code> must be set in each flux tube element to +1 or -1 according to the definition of the armature co-ordinate and the position of the element in a device's magnetic circuit. Proper match between armature motion and resulting variation of the flux tube length assures that the element's reluctance force acts in the right direction.
 </p>
 <p>
-The shapes of the flux tubes defined in this package are rather simple. Only one dimenion varies with armature motion. Flux tubes with more complex variations of dimensions with armature motion can be defined by extending the base class <a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.PartialForce\">Interfaces.PartialForce</a>, if needed. Determination of the analytic derivative dGmBydl could become more complex for those flux tubes.
+The shapes of the flux tubes defined in this package are rather simple. Only one dimension varies with armature motion. Flux tubes with more complex variations of dimensions with armature motion can be defined by extending the base class <a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.PartialForce\">Interfaces.PartialForce</a>, if needed. Determination of the analytic derivative dGmBydl could become more complex for those flux tubes.
 </p>
 </html>"));
     end Force;
@@ -3218,11 +3218,11 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       end QuarterSphere;
 
       model QuarterHollowSphere
-        "Leakage flux through the edges of a qarter hollow sphere"
+        "Leakage flux through the edges of a quarter hollow sphere"
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
-        parameter SI.Length t(start=0.01) "Thickness of sperical shell"
+        parameter SI.Length t(start=0.01) "Thickness of spherical shell"
           annotation (Dialog(group="Parameters", groupImage=
                 "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterHollowSphere.png"));
 
@@ -3260,7 +3260,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
-        parameter SI.Length t(start=0.01) "Thickness of sperical shell"
+        parameter SI.Length t(start=0.01) "Thickness of spherical shell"
           annotation (Dialog(group="Parameters", groupImage=
                 "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/EighthOfHollowSphere.png"));
 
@@ -3851,7 +3851,7 @@ Typical values for remanence, coercivity and the temperature coefficient of rema
 </dd>
 </dl>
 <p>
-Linear demagnetization curves are modelled. The characteristic, temperature-dependent \"knee\" of many permanent magnetic materials is not considered, since proper design of permanent magnetic circuits should avoid operation of permanent magnets \"below\" that point due to partial demagnetization. As a result, the temperature coefficient of coercivity is not considered. Only the temperature coefficient of remanence alpha_Br is accounted for, since it describes the dependende of the demagnetization curve on the temperature sufficiently for the region \"above the knee-point\".
+Linear demagnetization curves are modelled. The characteristic, temperature-dependent \"knee\" of many permanent magnetic materials is not considered, since proper design of permanent magnetic circuits should avoid operation of permanent magnets \"below\" that point due to partial demagnetization. As a result, the temperature coefficient of coercivity is not considered. Only the temperature coefficient of remanence alpha_Br is accounted for, since it describes the dependence of the demagnetization curve on the temperature sufficiently for the region \"above the knee-point\".
 </p>
 <p>
 Additional user-specific materials can be defined as needed.
@@ -4146,7 +4146,7 @@ This package contains connectors for the magnetic domain and partial models for 
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
       parameter SI.MagneticPotentialDifference V_m
-        "Magnetic potential differnce";
+        "Magnetic potential difference";
       SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
 
     equation
@@ -4236,7 +4236,7 @@ In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; rea
 </pre>
 <p>This reaction can possibly be neglected for</p>
 <ul>
-<li>modelling ofelectromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),
+<li>modelling of electromagnetic actuators under quasi-stationary conditions (slow current change, slow armature motion),
 <li>modelling of current-controlled electromagnetic actuators (ideal current source) and</li>
 <li>for system simulation where the system dynamics is not governed by an electromagnetic actuator, but by the surrounding subsystems.</li>
 </ul>

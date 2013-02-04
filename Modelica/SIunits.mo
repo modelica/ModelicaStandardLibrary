@@ -1851,7 +1851,7 @@ argument):</p>
             pattern=LinePattern.Dash,
             lineThickness=0.5)}), Documentation(info="<html>
 <p>
-Since magnetic material properties like reluctance and permeance often are anistropic resp. salient, 
+Since magnetic material properties like reluctance and permeance often are anisotropic resp. salient, 
 a special operator instead of multiplication (compare: tensor vs. vector) is required. 
 Modelica.Magentic.FundamentalWave uses a special record Salient which is only valid in the rotor-fixed coordinate system.
 </p>

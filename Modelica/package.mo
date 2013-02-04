@@ -733,7 +733,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <ol>
 <li> Hyperlinks should always be made when referring to a component or package.</li>
 <li> The hyperlink text in between <code>&lt;a href=&quot;...&quot;&gt;</code> and <code>&lt;/a&gt;</code> should include the full main package name.</li>
-<li> A link to an external component should include the full name of the package that it is refered to.</li>
+<li> A link to an external component should include the full name of the package that it is referred to.</li>
 <li> Modelica hyperlinks have to use the scheme <code>&quot;modelica://...&quot;</code></li>
 <li> For hyperlinks referring to a Modelica component, see Example 1 and 2.</li>
 <li> No links to commercial web sites are allowed.</li>
@@ -748,13 +748,13 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <h5>Example 2</h5>
 <pre>
 &lt;p&gt;
-  The feeder calbles are connected to an
+  The feeder cables are connected to an
   &lt;a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\"&gt;
   induction machine&lt;/a&gt;.
 &lt;/p&gt;</pre>
 <p>appears as</p>
 <p>
-  The feeder calbles are connected to an
+  The feeder cables are connected to an
   <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">
   induction machine</a>.
 </p>
@@ -944,7 +944,7 @@ The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Structure
      and terminate with <code>&lt;/p&gt;</code>.</li>
 <li> Do not write plain text without putting it in a paragraph.</li>
 <li> No artificial line breaks <code>&lt;br&gt;</code> should be added within text paragraphs if possible.
-     Use seperate paragraphs instead.</li>
+     Use separate paragraphs instead.</li>
 <li> After a colon (:) continue with capital letter if new sentence starts;
      for text fragments continue with lower case letter</li>
 </ol>
@@ -1004,7 +1004,7 @@ The following parts should be added to the documentation of each component:
 </ol>
 
 <p>
-These sections should appear in the listed order. The only exceptions are hierachically structured notes and examples as explained in the following.
+These sections should appear in the listed order. The only exceptions are hierarchically structured notes and examples as explained in the following.
 </p>
 
 <h4>Additional notes and examples</h4>
@@ -1297,7 +1297,7 @@ This class summarizes general information about the implementation which is not 
 
 <ol>
 <li> Citation formats should be unified according to IEEE Transactions style.</li>
-<li> Reference should be formated as tables with two columns.</li>
+<li> Reference should be formatted as tables with two columns.</li>
 </ol>
 
 <p>In the following the reference formats will be explained based on five examples:</p>
@@ -1615,7 +1615,7 @@ This class summarizes contact information of the contributing persons.
 <ul>
      <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
      <li> <b>Examples</b> containing models demonstrating the usage of the library.</li>
-     <li> <b>Components</b> -- in case of a complex library a more detailed strcture can be established.</li>
+     <li> <b>Components</b> -- in case of a complex library a more detailed structure can be established.</li>
      <li> <b>Sensors</b></li>
      <li> <b>Sources</b></li>
      <li> <b>Interfaces</b> containing connectors and partial models.</li>
@@ -1758,7 +1758,7 @@ web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
 Copyright &copy; 1998-2013,
-ABB, Austrian Institue of Technology, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, Modelon,
+ABB, Austrian Institute of Technology, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 </p>
 
@@ -2586,7 +2586,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a></td>
     <td valign=\"top\">
      Library for magnetic fundamental wave effects in electric machines for the
-     application in three pase electric machines.
+     application in three phase electric machines.
      The library is an alternative approach to the Modelica.Electrical.Machines library.
      A great advantage of this library is the strict object orientation of the
      electrical and magnetic components that the electric machines models are composed of.
@@ -2828,7 +2828,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> DCSE_SinglePhase </td>
     <td valign=\"top\"> Series excited DC machine, fed by sinusoidal voltage </td> </tr>
 <tr><td valign=\"top\"> DCPM_Temperature </td>
-    <td valign=\"top\"> Permanent magnet DC machine, demonstration of varying tempoerature </td> </tr>
+    <td valign=\"top\"> Permanent magnet DC machine, demonstration of varying temperature </td> </tr>
 <tr><td valign=\"top\"> DCPM_Cooling </td>
     <td valign=\"top\"> Permanent magnet DC machine, coupled with a simple thermal model </td> </tr>
 <tr><td valign=\"top\"> DCPM_QuasiStationary </td>
@@ -2868,7 +2868,7 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Demonstrate the modeling of a user-defined gravity field. </td> </tr>
 <tr><td valign=\"top\"> Surfaces </td>
     <td valign=\"top\"> Demonstrate the visualization of a sine surface,<br>
-                      as well as a torus and a wheel constucted from a surface. </td> </tr>
+                      as well as a torus and a wheel constructed from a surface. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Joints.</b></td></tr>
 <tr><td valign=\"top\"> FreeMotionScalarInit </td>
@@ -2972,7 +2972,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> continuousLyapunov<br>
                       discreteLyapunov </td>
     <td valign=\"top\"> Return solution of continuous-time and discrete-time
-                      Lyapunonv equation respectively. </td> </tr>
+                      Lyapunov equation respectively. </td> </tr>
 <tr><td valign=\"top\"> trace </td>
     <td valign=\"top\"> Return the trace of a matrix. </td> </tr>
 <tr><td valign=\"top\"> conditionNumber </td>
@@ -3129,7 +3129,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       Brush losses <br>
                       Stray Load losses <br>
                       Core losses (only eddy current losses but no hysteresis losses; not for transformers) <br>
-                      As default, temperature dependcy and losses are set to zero. <br><br>
+                      As default, temperature dependency and losses are set to zero. <br><br>
                       To all electric machines (asynchronous and synchronous induction machines, DC machines)
                       and transformers conditional thermal ports have been added,
                       to which the dissipated losses are flowing, if activated.
@@ -3162,7 +3162,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       ValveCompressible</td>
     <td valign=\"top\"> (a) Optional filtering of opening signal introduced to model
                       the delay time of the opening/closing drive. In this case, an optional
-                      leackageOpening can be defined to model leakage flow and/or to
+                      leakageOpening can be defined to model leakage flow and/or to
                       improve the numerics in certain situations.
                       (b) Improved regularization of the valve characteristics in some cases
                       so that it is twice differentiable (smooth=2),
@@ -3185,7 +3185,7 @@ have been <b style=\"color:blue\">improved</b> in a
 
 <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.</b></td></tr>
 <tr><td valign=\"top\"> PartialMedium </td>
-    <td valign=\"top\"> The min/max values of types SpecificEnthaly, SpecificEntropy,
+    <td valign=\"top\"> The min/max values of types SpecificEnthalpy, SpecificEntropy,
                       SpecificHeatCapacity increased, due to reported user problems.<br>
                       New constant C_nominal introduced to provide nominal values for
                       trace substances (utilized in Modelica.Fluid to avoid numerical problems;
@@ -3234,7 +3234,7 @@ that can lead to wrong simulation results):
                       BodyCylinder </td>
     <td valign=\"top\"> Fixes ticket
                       <a href=\"http://trac.modelica.org/Modelica/ticket/300\">#300</a>:
-                      If parameter enforceStates=true, an error occured.
+                      If parameter enforceStates=true, an error occurred.
                       This has been fixed.</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Components.</b></td></tr>
 <tr><td valign=\"top\"> LossyGear</td>
@@ -3665,7 +3665,7 @@ have been fixed:
 
 <tr><td valign=\"top\">
     <a href=\"http://trac.modelica.org/Modelica/ticket/299\">#299</a></td>
-    <td valign=\"top\">SVN keyword expansion messed up the User's guide section on version manangement</td>
+    <td valign=\"top\">SVN keyword expansion messed up the User's guide section on version management</td>
 </tr>
 
 <tr><td colspan=\"2\"><br><b>Modelica.Utilities</b></td></tr>
@@ -3809,7 +3809,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       TranslationalEMF<br>
                       M_Transformer</td>
     <td valign=\"top\"> New detailed model of an operational amplifier. <br>
-                      New electromotoric force from electrical energy into mechanical translattional energy.<br>
+                      New electromotoric force from electrical energy into mechanical translational energy.<br>
                       Generic transformer with choosable number of inductors</td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal.</b></td></tr>
@@ -3826,7 +3826,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Lines.</b></td></tr>
 <tr><td valign=\"top\"> M_Oline</td>
-    <td valign=\"top\"> New multiple line model, both the number of lines and the number of segmants choosable. </td> </tr>
+    <td valign=\"top\"> New multiple line model, both the number of lines and the number of segments choosable. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors.</b></td></tr>
 <tr><td valign=\"top\"> ZDiode<br>Thyristor</td>
@@ -3955,7 +3955,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       by \"Real dummy; flow Real xxx;\".
                       As a side effect, several \"blocks\" had to be changed to \"models\". </td> </tr>
 <tr><td valign=\"top\"> PartialStep </td>
-    <td valign=\"top\"> Changed model by packing the protected outer connecter in to a model.
+    <td valign=\"top\"> Changed model by packing the protected outer connector in to a model.
                       Otherwise, there might be differences in the sign of the flow variable
                       in Modelica 3.0 and 3.1. </td> </tr>
 
@@ -4171,7 +4171,7 @@ that can lead to wrong simulation results):
           <td valign=\"top\"> Velocity, acceleration and angular acceleration were computed
                                                   by differentiating in the resolveInFrame frame. This has been corrected, by
                                                   first transforming the vectors in to the world frame, differentiating here
-                                                  and then transforming into resolveInFrame. The parameter in the Advanced menue
+                                                  and then transforming into resolveInFrame. The parameter in the Advanced menu
                                                   resolveInFrameAfterDifferentiation is then superfluous and was removed . </td>
 </tr>
 <tr><td valign=\"top\"> AbsoluteVelocity </td>
@@ -4183,7 +4183,7 @@ that can lead to wrong simulation results):
 <tr><td valign=\"top\"> RelativeSensor </td>
           <td valign=\"top\"> If resolveInFrame &lt;&gt; frame_resolve and
                                                    resolveInFrameAfterDifferentiation = frame_resolve, a translation
-                                                error occured, since frame_resolve was not enabled in this situation.
+                                                error occurred, since frame_resolve was not enabled in this situation.
                                                 This has been corrected.</td>
 </tr>
 <tr><td valign=\"top\"> RelativeVelocity </td>
@@ -4288,7 +4288,7 @@ The following changes are present for the whole library:
 </p>
 
 <ul>
-<li> In the Modelican language version 3.0, several restrictions have been
+<li> In the Modelica language version 3.0, several restrictions have been
          introduced to allow better checking, e.g., models on all levels must be balanced
          (number of equations = number of unknown variables - unknown variables that have
          to be defined when using the component). A few models of the Modelica
@@ -4334,7 +4334,7 @@ The following changes are present for the whole library:
          the operator is removed. If this is not possible, it is only used in asserts to
          check that, e.g., a connector is connected at least once or is connected exactly
          once. In the next Modelica language version new language elements will be introduced
-         to specifiy such a property check without the cardinality operator. Once these
+         to specify such a property check without the cardinality operator. Once these
          language elements are available, the cardinality operator will be removed completely
          from the Modelica Standard Library.<br>
          The changes with respect to the cardinality(..) operator are usually not backward
@@ -4372,7 +4372,7 @@ The following changes are present for the whole library:
          </ul></li>
 
 <li> The initialization of the MultiBody, Rotational and Translational libraries have
-         been signficantly simplified by removing the \"initType\" parameters and only
+         been significantly simplified by removing the \"initType\" parameters and only
          using start/fixed values. This design assumes that a tool has special support
          for start/fixed values in the parameter menu.<br>&nbsp;</li>
 
@@ -4400,7 +4400,7 @@ The following changes are present for the whole library:
 
 <p><br>
 The following <b style=\"color:blue\">new components</b> have been added
-to <b style=\"color:blue\">existing</b> libraries (note, the names in paranthesis
+to <b style=\"color:blue\">existing</b> libraries (note, the names in parentheses
 are the new sublibrary names that are introduced in version 3.0):
 </p>
 
@@ -4460,7 +4460,7 @@ are the new sublibrary names that are introduced in version 3.0):
 <tr><td valign=\"top\">SupportFriction<br>Brake<br>InitializeFlange</td>
           <td valign=\"top\"> Model of friction due to support<br>
                                                 Model of a brake, base on Coulomb friction<br>
-                                                Initializes a flange with pre-defined postion, speed and acceleration .</td> </tr>
+                                                Initializes a flange with pre-defined position, speed and acceleration .</td> </tr>
 <tr><td colspan=\"2\"><b>Mechanics.Translational(.Sources)</b></td></tr>
 <tr><td valign=\"top\">Force2<br>LinearSpeedDependentForce<br>QuadraticSpeedDependentForce<br>
                                            ConstantForce<br>ConstantSpeed<br>ForceStep</td>
@@ -4574,7 +4574,7 @@ should be automatic):
 
 <tr><td colspan=\"2\"><b>Electrical.Machines.Examples.</b></td></tr>
 <tr><td valign=\"top\"> </td>
-          <td valign=\"top\"> Changed the names of the examples to more meaninglful names.<br>
+          <td valign=\"top\"> Changed the names of the examples to more meaningful names.<br>
                                                 Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
 <tr><td valign=\"top\">SMEE_Generator</td>
           <td valign=\"top\"> Initialization of <code>smee.phiMechanical</code> with <code>fixed=true</code></td> </tr>
@@ -4783,7 +4783,7 @@ should be automatic):
 <tr><td valign=\"top\"> Utilities </td>
           <td valign=\"top\"> Replacing inflow, outflow by connectors inflow1, inflow2,
                                                 outflow1, outflow2 with appropriate input/output prefixes in
-                                                order to fufill the restrictions of Modelica 3 to arrive
+                                                order to fulfill the restrictions of Modelica 3 to arrive
                                                 at balanced models. No conversion is provided, since
                                                 too difficult and since the non-backward compatible change is in
                                                 an example. </td> </tr>
@@ -4951,7 +4951,7 @@ that can lead to wrong simulation results):
 </tr>
 <tr><td colspan=\"2\"><b>Media.Interfaces.</b></td></tr>
 <tr><td valign=\"top\"> PartialSimpleIdealGasMedium </td>
-          <td valign=\"top\"> Inconsisteny in reference temperature corrected. This may give
+          <td valign=\"top\"> Inconsistency in reference temperature corrected. This may give
                                                 different results for functions:<br>
                                                 specificEnthalpy, specificInternalEnergy, specificGibbsEnergy,
                                                 specificHelmholtzEnergy. </td>
@@ -5050,7 +5050,7 @@ An overview of the differences between version 2.2.2 and the previous
 version 2.2.1 is given below. The exact differences (but without
 differences in the documentation) are available in
 <a href=\"modelica://Modelica/Resources/Documentation/Differences-Modelica-221-222.html\">Differences-Modelica-221-222.html</a>.
-This comparison file was generated automatically with Dymolas
+This comparison file was generated automatically with Dymola's
 ModelManagement.compare function.
 </p>
 
@@ -5147,7 +5147,7 @@ to <b style=\"color:blue\">existing</b> libraries:
           </td>
 </tr>
 <tr><td valign=\"top\"> atan3 </td>
-          <td valign=\"top\"> Four quadrant inverse tangens (select solution that is closest to given angle y0)
+          <td valign=\"top\"> Four quadrant inverse tangent (select solution that is closest to given angle y0)
           </td>
 </tr>
 <tr><td valign=\"top\"> asinh </td>
@@ -5183,7 +5183,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td colspan=\"2\"><b>Math.Matrices</b></td></tr>
 <tr><td valign=\"top\"> solve2 </td>
           <td valign=\"top\"> Solve real system of linear equations A*X=B with a B matrix
-                   (Gaussian elemination with partial pivoting)
+                   (Gaussian elimination with partial pivoting)
           </td>
 </tr>
 <tr><td valign=\"top\"> LU_solve2 </td>
@@ -5271,7 +5271,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> LinearColdWater </td>
           <td valign=\"top\"> Cold water model with linear compressibility
           </td>
-<tr><td valign=\"top\"> LinerWater_pT_Ambient </td>
+<tr><td valign=\"top\"> LinearWater_pT_Ambient </td>
           <td valign=\"top\"> Liquid, linear compressibility water model at 1.01325 bar
                    and 25 degree Celsius
           </td>
@@ -5490,7 +5490,7 @@ have been <b style=\"color:blue\">improved</b>:
                    temperature_psX<br>
                    density_psX<br>
                    specificEnthalpy_psX</td>
-          <td valign=\"top\"> Introduced defaut value \"reference_X\" for input argument \"X\".
+          <td valign=\"top\"> Introduced default value \"reference_X\" for input argument \"X\".
           </td>
 </tr>
 
@@ -5499,7 +5499,7 @@ have been <b style=\"color:blue\">improved</b>:
                    setState_phX<br>
                    setState_psX<br>
                    setState_dTX</td>
-          <td valign=\"top\"> Introduced defaut value \"reference_X\" for input argument \"X\".
+          <td valign=\"top\"> Introduced default value \"reference_X\" for input argument \"X\".
           </td>
 </tr>
 
@@ -5508,7 +5508,7 @@ have been <b style=\"color:blue\">improved</b>:
                    setState_phX<br>
                    setState_psX<br>
                    setState_dTX</td>
-          <td valign=\"top\"> Introduced defaut value \"reference_X\" for input argument \"X\".
+          <td valign=\"top\"> Introduced default value \"reference_X\" for input argument \"X\".
           </td>
 </tr>
 
@@ -5516,7 +5516,7 @@ have been <b style=\"color:blue\">improved</b>:
 <tr><td valign=\"top\"> setState_pTX<br>
                    setState_phX<br>
                    setState_dTX</td>
-          <td valign=\"top\"> Introduced defaut value \"reference_X\" for input argument \"X\".
+          <td valign=\"top\"> Introduced default value \"reference_X\" for input argument \"X\".
           </td>
 </tr>
 
@@ -5525,7 +5525,7 @@ have been <b style=\"color:blue\">improved</b>:
                    setState_phX<br>
                    setState_psX<br>
                    setState_dTX</td>
-          <td valign=\"top\"> Introduced defaut value \"reference_X\" for input argument \"X\".
+          <td valign=\"top\"> Introduced default value \"reference_X\" for input argument \"X\".
           </td>
 </tr>
 
@@ -5535,7 +5535,7 @@ have been <b style=\"color:blue\">improved</b>:
                    setState_psX<br>
                    setState_dTX<br>
                    h_TX</td>
-          <td valign=\"top\"> Introduced defaut value \"reference_X\" for input argument \"X\".
+          <td valign=\"top\"> Introduced default value \"reference_X\" for input argument \"X\".
           </td>
 </tr>
 
@@ -5613,7 +5613,7 @@ that can lead to wrong simulation results):
 <tr><td valign=\"top\"> FixedRotation</td>
           <td valign=\"top\"> Bug corrected that the torque balance was wrong in the
                    following cases (since vector r was not transformed
-                   from frame_a to frame_b; note this special case occurs very seldomly in practice):
+                   from frame_a to frame_b; note this special case occurs very seldom in practice):
                    <ul><li> frame_b is in the spanning tree closer to the root
                                         (usually this is frame_a).</li>
                            <li> vector r from frame_a to frame_b is not zero.</li>
@@ -6154,7 +6154,7 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
 <tr><td valign=\"top\"> Sources. IdealPump </td>
           <td valign=\"top\"> Simple ideal pump (resp. fan)  dependent on the shaft?s speed;
                    pressure increase versus volume flow is defined as a linear
-                   function. Torque * Speed = Pressure invrease * Volume flow
+                   function. Torque * Speed = Pressure increase * Volume flow
                    (without losses).</td> </tr>
 <tr><td valign=\"top\"> Examples.PumpAndValve </td>
           <td valign=\"top\"> Test example for valves.</td> </tr>
@@ -6217,7 +6217,7 @@ The following <b>components</b> have been improved:
                    to remove all equations for the damper cage from the model.</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines. </b></td></tr>
 <tr><td valign=\"top\"> AIM_SlipRing</td>
-          <td valign=\"top\"> Easier parameterization: if the user selects \"useTrunsRatio = false\"
+          <td valign=\"top\"> Easier parameterization: if the user selects \"useTurnsRatio = false\"
                    (default: true, this is the same behavior as before),
                         parameter TurnsRatio is calculated internally from
                         Nominal stator voltage and Locked-rotor voltage.</td> </tr>
@@ -6315,9 +6315,9 @@ The following <b>components</b> have been improved:
                    feeds friction losses as calculated by simple friction to
                    the energy balance of the medium.</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialMedium.FluidConstants.</b></td></tr>
-<tr><td valign=\"top\">HCRIT0</td><td valign=\"top\">Critical specifc enthalpy of the fundamental
+<tr><td valign=\"top\">HCRIT0</td><td valign=\"top\">Critical specific enthalpy of the fundamental
                   equation (base formulation of the fluid medium model). </td></tr>
-<tr><td valign=\"top\">SCRIT0</td><td valign=\"top\">Critical specifc entropy of the fundamental
+<tr><td valign=\"top\">SCRIT0</td><td valign=\"top\">Critical specific entropy of the fundamental
                   equation (base formulation of the fluid medium model). </td></tr>
 <tr><td valign=\"top\">deltah</td><td valign=\"top\">Enthalpy offset (default: 0) between the
                   specific enthalpy of the fluid model and the user-visible
@@ -6362,7 +6362,7 @@ The following <b>errors</b> have been fixed:
                    HeatingNMOS</td>
           <td valign=\"top\"> The Drain-Source-Resistance RDS had actually a resistance of
                    RDS/v, with v=Beta*(W+dW)/(L+dL). The correct formula is without
-                   the divison by \"v\". This has now been corrected.<br>
+                   the division by \"v\". This has now been corrected.<br>
                    This bug fix should not have an essential effect in most applications.
                    In the default case (Beta=1e-5), the Drain-Source-Resistance was
                    a factor of 1e5 too large and had in the default case the
@@ -6500,13 +6500,13 @@ The following <b>new libraries</b> have been added:
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a></td>
           <td valign=\"top\">Asynchronous, synchronous and DC motor and generator models</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Math.Matrices\">Modelica.Math.Matrices</a></td>
-          <td valign=\"top\">Functions operatinng on matrices such as solve() (A*x=b), leastSquares(),<br>
+          <td valign=\"top\">Functions operating on matrices such as solve() (A*x=b), leastSquares(),<br>
                   norm(), LU(), QR(),  eigenValues(), singularValues(), exp(), ...</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.StateGraph\">Modelica.StateGraph</a></td>
           <td valign=\"top\"> Modeling of <b>discrete event</b> and <b>reactive</b> systems in a convenient way using<br>
                    <b>hierarchical state machines</b> and <b>Modelica</b> as <b>action language</b>. <br>
-                   It is based on JGraphChart and Grafcet and  has a similar modeling power as <br>
-                   StateCharts. It avoids deficiences of usually used action languages. <br>
+                   It is based on JGrafchart and Grafcet and  has a similar modeling power as <br>
+                   StateCharts. It avoids deficiencies of usually used action languages. <br>
                    This library makes the ModelicaAdditions.PetriNets library obsolet.</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Files\">Modelica.Utilities.Files</a></td>
           <td valign=\"top\">Functions to operate on files and directories (copy, move, remove files etc.)</td></tr>
@@ -6544,10 +6544,10 @@ to the new sublibraries inside package Modelica):
                    body, joint, force and sensor components, analytic handling of kinematic loops,<br>
                    force elements with mass, series/parallel connection of 3D force elements etc.<br>
                    (from MultiBody 1.0 where the new signal connectors are used;<br>
-                   makes the ModelicaAdditions.MultiBody library obsolet)</td></tr>
+                   makes the ModelicaAdditions.MultiBody library obsolete)</td></tr>
 </table>
 <p>
-As a result, the ModelicaAdditions library is obsolet, because all components
+As a result, the ModelicaAdditions library is obsolete, because all components
 are either included in the Modelica library or are replaced by much more
 powerful libraries (MultiBody, StateGraph).
 </p>
@@ -6672,15 +6672,15 @@ class Version_1_6 "Version 1.6 (June 21, 2004)"
 <tr><td valign=\"top\">VariableInductor</td>
           <td valign=\"top\">Ideal linear electrical inductor with variable inductance</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors.</b></td></tr>
-<tr><td valign=\"top\">HeadingDiode</td>
+<tr><td valign=\"top\">HeatingDiode</td>
           <td valign=\"top\">Simple diode with heating port</td></tr>
-<tr><td valign=\"top\">HeadingNMOS</td>
+<tr><td valign=\"top\">HeatingNMOS</td>
           <td valign=\"top\">Simple MOS Transistor with heating port</td></tr>
-<tr><td valign=\"top\">HeadingPMOS</td>
+<tr><td valign=\"top\">HeatingPMOS</td>
           <td valign=\"top\">Simple PMOS Transistor with heating port</td></tr>
-<tr><td valign=\"top\">HeadingNPN</td>
+<tr><td valign=\"top\">HeatingNPN</td>
           <td valign=\"top\">Simple NPN BJT according to Ebers-Moll with heating port</td></tr>
-<tr><td valign=\"top\">HeadingPNP</td>
+<tr><td valign=\"top\">HeatingPNP</td>
           <td valign=\"top\">Simple PNP BJT according to Ebers-Moll with heating port</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase</b><br>
           A new library for multi-phase electrical circuits</td></tr>
@@ -6740,7 +6740,7 @@ class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2>
 <tr><td colspan=\"2\"><b>Modelica.Blocks.</b></td></tr>
-<tr><td valign=\"top\">Continuous.Der</td><td valign=\"top\">Derivative of input (= analytic differentations)</td></tr>
+<tr><td valign=\"top\">Continuous.Der</td><td valign=\"top\">Derivative of input (= analytic differentiations)</td></tr>
 <tr><td valign=\"top\"><b><i>Examples</i></b></td><td valign=\"top\">Demonstration examples of the components of this package</td></tr>
 <tr><td valign=\"top\">Nonlinear.VariableLimiter</td><td valign=\"top\">Limit the range of a signal with variable limits</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces.</b></td></tr>

@@ -147,7 +147,7 @@ to investigate a real controller or with a Pump with rotational shaft to investi
 The model has the parameter <b>eps_m_flow_turbulent</b> that 
 can be used to change the flow through pipe1 from fully turbulent (eps_m_flow_turbulent=0) to fully laminar (eps_m_flow_turbulent>actual flow).
 Invoke plotResults and see pipe1.port_a.m_flow. Relating the actual flow to pipe1.flowModel.m_flows_turbulent[1], 
-it can be seen that eps_m_flow_turbulent=0.1 is an appropriate choise for the given pipe diameter. 
+it can be seen that eps_m_flow_turbulent=0.1 is an appropriate choice for the given pipe diameter. 
 </p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/InverseParametrization.png\" border=\"1\"
      alt=\"InverseParametrization.png\">
