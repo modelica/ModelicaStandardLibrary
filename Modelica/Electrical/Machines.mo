@@ -1936,6 +1936,241 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 </HTML>"));
       end SMPM_CurrentSource;
 
+      model SMPM_VoltageSource
+        "Test example: PermanentMagnetSynchronousInductionMachine fed by FOC"
+        extends Modelica.Icons.Example;
+        constant Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.Voltage VNominal=100
+          "Nominal RMS voltage per phase";
+        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
+        parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
+        parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
+        parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
+        parameter Modelica.SIunits.Inertia JLoad=0.29
+          "Load's moment of inertia";
+
+        Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+          smpm(
+          phiMechanical(start=0, fixed=true),
+          wMechanical(start=0, fixed=true),
+          useSupport=false,
+          useThermalPort=false,
+          p=smpmData.p,
+          fsNominal=smpmData.fsNominal,
+          Rs=smpmData.Rs,
+          TsRef=smpmData.TsRef,
+          Lszero=smpmData.Lszero,
+          Lssigma=smpmData.Lssigma,
+          Jr=smpmData.Jr,
+          Js=smpmData.Js,
+          frictionParameters=smpmData.frictionParameters,
+          statorCoreParameters=smpmData.statorCoreParameters,
+          strayLoadParameters=smpmData.strayLoadParameters,
+          VsOpenCircuit=smpmData.VsOpenCircuit,
+          Lmd=smpmData.Lmd,
+          Lmq=smpmData.Lmq,
+          useDamperCage=smpmData.useDamperCage,
+          Lrsigmad=smpmData.Lrsigmad,
+          Lrsigmaq=smpmData.Lrsigmaq,
+          Rrd=smpmData.Rrd,
+          Rrq=smpmData.Rrq,
+          TrRef=smpmData.TrRef,
+          permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+          TsOperational=293.15,
+          alpha20s=smpmData.alpha20s,
+          TrOperational=293.15,
+          alpha20r=smpmData.alpha20r)
+          annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, rotation=0)));
+        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(final m=m)
+          annotation (Placement(transformation(
+              origin={-10,40},
+              extent={{10,10},{-10,-10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+          annotation (Placement(transformation(extent={{-50,80},{-70,100}},
+                rotation=0)));
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation (Placement(transformation(
+              origin={-90,90},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Modelica.Blocks.Sources.Constant iq(k=84.6)
+          annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
+        Modelica.Blocks.Sources.Constant id(k=-53.5)
+          annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
+            terminalConnection="Y")
+          annotation (Placement(transformation(
+                extent={{-20,-30},{0,-10}}, rotation=0)));
+        Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
+          annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={10,0})));
+        Modelica.Mechanics.Rotational.Components.Inertia inertiaLoad(J=0.29)
+          annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
+        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque quadraticSpeedDependentTorque(
+            tau_nominal=-181.4, w_nominal(displayUnit="rpm") = 157.07963267949)
+          annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
+        Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-10,0})));
+        Modelica.Electrical.Machines.Utilities.DqController dqController(
+          p=smpm.p,
+          Ld=smpm.Lssigma + smpm.Lmd,
+          Lq=smpm.Lssigma + smpm.Lmq,
+          Rs=Modelica.Electrical.Machines.Thermal.convertResistance(
+              smpm.Rs,
+              smpm.TsRef,
+              smpm.alpha20s,
+              smpm.TsOperational))
+          annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
+        Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
+          annotation (Placement(transformation(extent={{10,10},{-10,-10}},
+              rotation=180,
+              origin={40,-60})));
+        Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
+          annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={30,0})));
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
+          rotorDisplacementAngle(p=smpm.p)
+          annotation (Placement(transformation(
+              origin={20,-40},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.Analog.Basic.Ground groundM
+          annotation (Placement(transformation(
+              origin={-80,-30},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=180,
+              origin={-60,-10})));
+        Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor
+          voltageQuasiRMSSensor annotation (Placement(
+              transformation(
+              extent={{-10,10},{10,-10}},
+              rotation=180,
+              origin={-30,-10})));
+        parameter
+          Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
+          smpmData(useDamperCage=false)
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+      initial equation
+        smpm.idq_sr=zeros(2);
+
+      equation
+        connect(star.pin_n, ground.p)
+          annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
+        connect(terminalBox.plug_sn, smpm.plug_sn)   annotation (Line(
+            points={{-16,-30},{-16,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(terminalBox.plug_sp, smpm.plug_sp)   annotation (Line(
+            points={{-4,-30},{-4,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
+          annotation (Line(
+            points={{80,-40},{70,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(smpm.flange, angleSensor.flange) annotation (Line(
+            points={{0,-40},{10,-40},{10,-10}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(star.plug_p, signalVoltage.plug_n) annotation (Line(
+            points={{-50,90},{-10,90},{-10,50}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(currentSensor.plug_n, terminalBox.plugSupply) annotation (Line(
+            points={{-10,-10},{-10,-28}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(currentSensor.plug_p, signalVoltage.plug_p) annotation (Line(
+            points={{-10,10},{-10,30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(id.y, dqController.id_rms)      annotation (Line(
+            points={{-69,60},{-60,60},{-60,46},{-50,46}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(iq.y, dqController.iq_rms)      annotation (Line(
+            points={{-69,20},{-60,20},{-60,34},{-50,34}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleSensor.phi, dqController.phi)      annotation (Line(
+            points={{10,11},{10,20},{-34,20},{-34,30}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(dqController.y, signalVoltage.v)      annotation (Line(
+            points={{-29,40},{-17,40}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(currentSensor.i, dqController.iActual)      annotation (Line(
+            points={{-21,2.22045e-015},{-46,2.22045e-015},{-46,30}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(inertiaLoad.flange_a, torqueSensor.flange_b) annotation (Line(
+            points={{50,-40},{50,-60}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(torqueSensor.flange_a, smpm.flange) annotation (Line(
+            points={{30,-60},{30,-40},{0,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(speedSensor.flange, smpm.flange) annotation (Line(
+            points={{30,-10},{30,-40},{0,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(rotorDisplacementAngle.flange, smpm.flange) annotation (Line(
+            points={{10,-40},{0,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(rotorDisplacementAngle.plug_p, smpm.plug_sp) annotation (Line(
+            points={{14,-30},{-4,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(rotorDisplacementAngle.plug_n, smpm.plug_sn) annotation (Line(
+            points={{26,-30},{26,-20},{-16,-20},{-16,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(voltageQuasiRMSSensor.plug_p, currentSensor.plug_n) annotation (Line(
+            points={{-20,-10},{-10,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
+            points={{-50,-10},{-40,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(groundM.p, starM.pin_n) annotation (Line(
+            points={{-70,-30},{-70,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        annotation (
+          Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-100,-100},{100,
+                  100}}),
+                  graphics),
+          experiment(StopTime=2.0, Interval=0.001),
+          Documentation(info="<HTML>
+<b>Test example: Permanent magnet synchronous induction machine fed by a controlled voltage source</b><br>
+A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill. 
+The rms values of d- and q-current in rotor fixed coordinate system are controlled by the dqController,
+and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current, 
+whereas the stator voltage is influenced by the d-current.<br>
+Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
+</HTML>"));
+      end SMPM_VoltageSource;
+
       model SMEE_Generator
         "Test example: ElectricalExcitedSynchronousInductionMachine as Generator"
         extends Modelica.Icons.Example;
@@ -15173,6 +15408,251 @@ Using the given rotor position (input \"phi\"), the correct three-phase currents
 They can be used to feed a current source which in turn feeds an induction machine.
 </HTML>"));
     end CurrentController;
+
+    model DqController "Current controller"
+      constant Integer m=3 "Number of phases";
+      parameter Integer p "Number of poles pairs";
+      parameter Modelica.SIunits.Resistance Rs
+        "Stator resistance per phase at TOperational";
+      parameter Modelica.SIunits.Inductance Ld "Inductance in d-axis";
+      parameter Modelica.SIunits.Inductance Lq "Inductance in q-axis";
+      extends Modelica.Blocks.Interfaces.MO(final nout=m);
+      Modelica.Blocks.Interfaces.RealInput id_rms
+        annotation (Placement(transformation(extent={{-120,40},{-80,80}}, rotation=0)));
+      Modelica.Blocks.Interfaces.RealInput iq_rms
+        annotation (Placement(transformation(extent={{-120,-80},{-80,-40}},
+              rotation=0)));
+      Modelica.Blocks.Interfaces.RealInput phi
+        annotation (Placement(transformation(
+            origin={60,-100},
+            extent={{20,-20},{-20,20}},
+            rotation=270)));
+      Modelica.Blocks.Interfaces.RealInput iActual[3]
+        annotation (Placement(transformation(
+            origin={-60,-100},
+            extent={{20,-20},{-20,20}},
+            rotation=270)));
+      Modelica.Electrical.Machines.Utilities.FromDQ fromDQ(final p=p)
+        annotation (Placement(transformation(extent={{70,-10},{90,10}})));
+      Modelica.Electrical.Machines.Utilities.ToDQ toDQ(final p=p)
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-30,-40})));
+      Modelica.Blocks.Math.Gain toPeak_d(final k=sqrt(2))
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0,
+            origin={-50,60})));
+      Modelica.Blocks.Math.Gain toPeak_q(final k=sqrt(2))
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},   rotation=0,
+            origin={-50,0})));
+      Modelica.Blocks.Math.Feedback feedback_d
+        annotation (Placement(transformation(extent={{-20,50},{0,70}})));
+      Modelica.Blocks.Math.Feedback feedback_q
+        annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+      Modelica.Blocks.Continuous.PI PI_d(
+        final k=1/Rs,
+        final T=Ld/Rs,
+        initType=Modelica.Blocks.Types.Init.InitialOutput)
+        annotation (Placement(transformation(extent={{20,50},{40,70}})));
+      Modelica.Blocks.Continuous.PI PI_q(
+        final k=1/Rs,
+        final T=Lq/Rs,
+        initType=Modelica.Blocks.Types.Init.InitialOutput)
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+    equation
+      connect(fromDQ.y, y)          annotation (Line(
+          points={{91,0},{110,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(phi, fromDQ.phi)          annotation (Line(
+          points={{60,-100},{60,-60},{80,-60},{80,-10}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(iActual, toDQ.u)    annotation (Line(
+          points={{-60,-100},{-60,-40},{-40,-40}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(phi, toDQ.phi)          annotation (Line(
+          points={{60,-100},{60,-60},{-30,-60},{-30,-50}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(toPeak_d.u, id_rms) annotation (Line(
+          points={{-62,60},{-100,60}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(toPeak_q.u, iq_rms) annotation (Line(
+          points={{-62,0},{-70,0},{-70,-60},{-100,-60}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(toPeak_q.y, feedback_q.u1) annotation (Line(
+          points={{-39,0},{-18,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(toPeak_d.y, feedback_d.u1) annotation (Line(
+          points={{-39,60},{-18,60}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(toDQ.y[2], feedback_q.u2)          annotation (Line(
+          points={{-19,-39.5},{-10,-39.5},{-10,-8}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(toDQ.y[1], feedback_d.u2)          annotation (Line(
+          points={{-19,-40.5},{-10,-40.5},{-10,-20},{-30,-20},{-30,40},{-10,40},{
+              -10,52}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(feedback_d.y, PI_d.u) annotation (Line(
+          points={{-1,60},{18,60}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(feedback_q.y, PI_q.u) annotation (Line(
+          points={{-1,0},{18,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(PI_d.y, fromDQ.u[1])          annotation (Line(
+          points={{41,60},{60,60},{60,-1},{70,-1}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(PI_q.y, fromDQ.u[2])          annotation (Line(
+          points={{41,0},{55.5,0},{55.5,1},{70,1}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                          graphics),
+                           Icon(graphics={
+            Text(
+              extent={{-90,60},{30,40}},
+              lineColor={0,0,255},
+              textString=
+                   "id_rms"),
+            Text(
+              extent={{-90,-40},{30,-60}},
+              lineColor={0,0,255},
+              textString=
+                   "iq_rms")}),
+        Documentation(info="<HTML>
+<p>
+Simple Current-Controller
+</p>
+<p>
+The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\". 
+Using the given rotor position (input \"phi\"), the actual threephase currents are measured and transformed to the d-q coordinate system. 
+Two PI-controller determine the necessary d- and q- voltages, which are transformed back to threephase (output \"y[3]\"). 
+They can be used to feed a volatge source which in turn feeds a permanent magnet synchronous machine.
+</p>
+<p>
+Note: No care is taken for current or voltage limiting, as well as for field weakening. 
+</p>
+</HTML>"));
+    end DqController;
+
+    block ToDQ
+      extends Modelica.Blocks.Icons.Block;
+      parameter Integer p "Number of poles pairs";
+      Modelica.Blocks.Math.Gain toGamma(final k=p)
+        annotation (Placement(transformation(
+            origin={0,-50},
+            extent={{10,-10},{-10,10}},
+            rotation=270)));
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator2
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+      Modelica.Blocks.Interfaces.RealOutput
+                 y[2] "Connector of Real output signals"
+        annotation (Placement(transformation(extent={{100,-10},{120,10}},
+            rotation=0)));
+      Modelica.Blocks.Interfaces.RealInput phi
+        annotation (Placement(transformation(
+            origin={0,-100},
+            extent={{20,-20},{-20,20}},
+            rotation=270)));
+      Modelica.Blocks.Interfaces.RealInput u[3]
+        "Connector of Real input signals"
+        annotation (Placement(transformation(extent={{-120,-20},{-80,20}})));
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
+                                                                       rotation=0)));
+    equation
+      connect(phi,toGamma. u) annotation (Line(points={{0,-100},{-2.22045e-015,-100},
+              {-2.22045e-015,-62}},
+                    color={0,0,127}));
+      connect(rotator2.angle, toGamma.y)
+                                        annotation (Line(points={{0,-12},{0,-39},{2.22045e-015,
+              -39}},color={0,0,127}));
+      connect(rotator2.y, y) annotation (Line(
+          points={{11,0},{110,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(u, toSpacePhasor.u) annotation (Line(
+          points={{-100,0},{-62,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(toSpacePhasor.y, rotator2.u) annotation (Line(
+          points={{-39,0},{-12,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics), Documentation(info="<html>
+Threepase values u[3] are transformed to the corresponding spacePhasor which is rotated to the rotor-fixed coordinate system, 
+using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q- components y[2].
+</html>"));
+    end ToDQ;
+
+    block FromDQ
+      extends Modelica.Blocks.Icons.Block;
+      parameter Integer p "Number of poles pairs";
+      Modelica.Blocks.Math.Gain toGamma(final k=-p)
+        annotation (Placement(transformation(
+            origin={0,-50},
+            extent={{10,-10},{-10,10}},
+            rotation=270)));
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator2
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+      Modelica.Blocks.Sources.Constant i0(final k=0)
+        annotation (Placement(transformation(extent={{20,-20},{40,-40}},  rotation=0)));
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor fromSpacePhasor
+        annotation (Placement(transformation(extent={{60,-10},{80,10}},rotation=0)));
+      Modelica.Blocks.Interfaces.RealOutput
+                 y[3] "Connector of Real output signals"
+        annotation (Placement(transformation(extent={{100,-10},{120,10}},
+            rotation=0)));
+      Modelica.Blocks.Interfaces.RealInput phi
+        annotation (Placement(transformation(
+            origin={0,-100},
+            extent={{20,-20},{-20,20}},
+            rotation=270)));
+      Modelica.Blocks.Interfaces.RealInput u[2]
+        "Connector of Real input signals"
+        annotation (Placement(transformation(extent={{-120,-20},{-80,20}})));
+    equation
+      connect(phi,toGamma. u) annotation (Line(points={{0,-100},{-2.22045e-015,-100},
+              {-2.22045e-015,-62}},
+                    color={0,0,127}));
+      connect(rotator2.angle, toGamma.y)
+                                        annotation (Line(points={{0,-12},{0,-39},{2.22045e-015,
+              -39}},color={0,0,127}));
+      connect(rotator2.y, fromSpacePhasor.u)
+                                            annotation (Line(points={{11,0},{34,0},
+              {58,0}},
+            color={0,0,127}));
+      connect(i0.y,fromSpacePhasor. zero) annotation (Line(
+          points={{41,-30},{50,-30},{50,-8},{58,-8}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(fromSpacePhasor.y,y)  annotation (Line(
+          points={{81,0},{110,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(rotator2.u, u) annotation (Line(
+          points={{-12,0},{-100,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics), Documentation(info="<html>
+The d- / q- components u[2] are rotated back to the stator-fixed coordinate system, 
+using the provided mechanical rotor angle phi. The output is the result of the back-transformation to threephase values y[3].
+</html>"));
+    end FromDQ;
 
     model SwitchYD "Y-D-switch"
       parameter Integer m=3 "Number of phases";
