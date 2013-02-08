@@ -2163,9 +2163,9 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet synchronous induction machine fed by a controlled voltage source</b><br>
-A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill. 
+A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
 The rms values of d- and q-current in rotor fixed coordinate system are controlled by the dqController,
-and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current, 
+and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.<br>
 Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 </HTML>"));
@@ -15275,7 +15275,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
            annotation(Dialog(tab="Nominal resistances and inductances"));
         annotation(defaultComponentName="transformerData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
 <p>Basic parameters of transformers are predefined with default values.</p>
-<p>Note: ratio n is defined between primary / secondary line-to-line voltage; 
+<p>Note: ratio n is defined between primary / secondary line-to-line voltage;
    therefore the user has to take into account primary and secondary connection!</p>
 </HTML>"));
       end TransformerData;
@@ -15329,7 +15329,7 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
 
     model CurrentController "Current controller"
       constant Integer m=3 "Number of phases";
-      parameter Integer p "Number of poles pairs";
+      parameter Integer p "Number of pole pairs";
       extends Modelica.Blocks.Interfaces.MO(final nout=m);
       Modelica.Blocks.Interfaces.RealInput id_rms
         annotation (Placement(transformation(extent={{-120,40},{-80,80}}, rotation=0)));
@@ -15411,7 +15411,7 @@ They can be used to feed a current source which in turn feeds an induction machi
 
     model DqController "Current controller"
       constant Integer m=3 "Number of phases";
-      parameter Integer p "Number of poles pairs";
+      parameter Integer p "Number of pole pairs";
       parameter Modelica.SIunits.Resistance Rs
         "Stator resistance per phase at TOperational";
       parameter Modelica.SIunits.Inductance Ld "Inductance in d-axis";
@@ -15536,20 +15536,20 @@ They can be used to feed a current source which in turn feeds an induction machi
 Simple Current-Controller
 </p>
 <p>
-The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\". 
-Using the given rotor position (input \"phi\"), the actual threephase currents are measured and transformed to the d-q coordinate system. 
-Two PI-controller determine the necessary d- and q- voltages, which are transformed back to threephase (output \"y[3]\"). 
+The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
+Using the given rotor position (input \"phi\"), the actual threephase currents are measured and transformed to the d-q coordinate system.
+Two PI-controller determine the necessary d- and q- voltages, which are transformed back to threephase (output \"y[3]\").
 They can be used to feed a volatge source which in turn feeds a permanent magnet synchronous machine.
 </p>
 <p>
-Note: No care is taken for current or voltage limiting, as well as for field weakening. 
+Note: No care is taken for current or voltage limiting, as well as for field weakening.
 </p>
 </HTML>"));
     end DqController;
 
     block ToDQ
       extends Modelica.Blocks.Icons.Block;
-      parameter Integer p "Number of poles pairs";
+      parameter Integer p "Number of pole pairs";
       Modelica.Blocks.Math.Gain toGamma(final k=p)
         annotation (Placement(transformation(
             origin={0,-50},
@@ -15593,14 +15593,14 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics), Documentation(info="<html>
-Threepase values u[3] are transformed to the corresponding spacePhasor which is rotated to the rotor-fixed coordinate system, 
+Threepase values u[3] are transformed to the corresponding spacePhasor which is rotated to the rotor-fixed coordinate system,
 using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q- components y[2].
 </html>"));
     end ToDQ;
 
     block FromDQ
       extends Modelica.Blocks.Icons.Block;
-      parameter Integer p "Number of poles pairs";
+      parameter Integer p "Number of pole pairs";
       Modelica.Blocks.Math.Gain toGamma(final k=-p)
         annotation (Placement(transformation(
             origin={0,-50},
@@ -15649,7 +15649,7 @@ using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q-
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics), Documentation(info="<html>
-The d- / q- components u[2] are rotated back to the stator-fixed coordinate system, 
+The d- / q- components u[2] are rotated back to the stator-fixed coordinate system,
 using the provided mechanical rotor angle phi. The output is the result of the back-transformation to threephase values y[3].
 </html>"));
     end FromDQ;
