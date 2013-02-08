@@ -1926,14 +1926,15 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             smooth=Smooth.None));
         annotation (
           experiment(StopTime=2.0, Interval=0.001),
-          Documentation(info="<HTML>
-<b>Test example: Permanent magnet synchronous induction machine fed by a current source</b><br>
-A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
+          Documentation(info="<html>
+<p>A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
 The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
 and fed to the machine. The result shows that the torque is influenced by the q-current,
-whereas the stator voltage is influenced by the d-current.<br>
-Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
-</HTML>"));
+whereas the stator voltage is influenced by the d-current.</p>
+<p>
+Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
+</p>
+</h>"));
       end SMPM_CurrentSource;
 
       model SMPM_VoltageSource
@@ -2157,18 +2158,17 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-100,-100},{100,
-                  100}}),
-                  graphics),
           experiment(StopTime=2.0, Interval=0.001),
-          Documentation(info="<HTML>
-<b>Test example: Permanent magnet synchronous induction machine fed by a controlled voltage source</b><br>
+          Documentation(info="<html>
+<p>
 A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
 The rms values of d- and q-current in rotor fixed coordinate system are controlled by the dqController,
 and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
-whereas the stator voltage is influenced by the d-current.<br>
-Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
-</HTML>"));
+whereas the stator voltage is influenced by the d-current.</p>
+<p>
+Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
+</p>
+</html>"));
       end SMPM_VoltageSource;
 
       model SMEE_Generator
@@ -15401,7 +15401,7 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
               lineColor={0,0,255},
               textString=
                    "iq_rms")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 Simple Current-Controller.<br>
 The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
 Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"i[3]\") are calculated.
@@ -15517,10 +15517,7 @@ They can be used to feed a current source which in turn feeds an induction machi
           points={{41,0},{55.5,0},{55.5,1},{70,1}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-                          graphics),
-                           Icon(graphics={
+      annotation (Icon(graphics={
             Text(
               extent={{-90,60},{30,40}},
               lineColor={0,0,255},
@@ -15531,20 +15528,20 @@ They can be used to feed a current source which in turn feeds an induction machi
               lineColor={0,0,255},
               textString=
                    "iq_rms")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 Simple Current-Controller
 </p>
 <p>
-The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
-Using the given rotor position (input \"phi\"), the actual threephase currents are measured and transformed to the d-q coordinate system.
-Two PI-controller determine the necessary d- and q- voltages, which are transformed back to threephase (output \"y[3]\").
+The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"<code>id_rms</code>\" and \"<code>iq_rms</code>\".
+Using the given rotor position (input \"<code>phi</code>\"), the actual threephase currents are measured and transformed to the d-q coordinate system.
+Two PI-controller determine the necessary d- and q- voltages, which are transformed back to threephase (output \"<code>y[3]</code>\").
 They can be used to feed a volatge source which in turn feeds a permanent magnet synchronous machine.
 </p>
 <p>
 Note: No care is taken for current or voltage limiting, as well as for field weakening.
 </p>
-</HTML>"));
+</html>"));
     end DqController;
 
     block ToDQ
@@ -15593,8 +15590,10 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics), Documentation(info="<html>
-Threepase values u[3] are transformed to the corresponding spacePhasor which is rotated to the rotor-fixed coordinate system,
-using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q- components y[2].
+<p>
+Threepase values <code>u[3]</code> are transformed to the corresponding spacePhasor which is rotated to the rotor-fixed coordinate system,
+using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q- components <code>y[2]</code>.
+</p>
 </html>"));
     end ToDQ;
 
@@ -15649,8 +15648,10 @@ using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q-
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics), Documentation(info="<html>
-The d- / q- components u[2] are rotated back to the stator-fixed coordinate system,
-using the provided mechanical rotor angle phi. The output is the result of the back-transformation to threephase values y[3].
+<p>
+The d- / q- components <code>u[2]</code> are rotated back to the stator-fixed coordinate system,
+using the provided mechanical rotor angle phi. The output is the result of the back-transformation to threephase values <code>y[3]</code>.
+</p>
 </html>"));
     end FromDQ;
 
