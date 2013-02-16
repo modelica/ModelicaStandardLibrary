@@ -1317,7 +1317,7 @@ class_specifier :
 <h4>Description</h4>
 <p>The keyword connector is used to define connectors, which are used
 in
-<a href=\"modelica://ModelicaReference.'connect()'\">connect()</a>
+<a href=\"modelica://ModelicaReference.Operators.'connect()'\">connect()</a>
 statements. In connectors, no equations are allowed in the
 definition or in any of its components.
 With respect to \"class\", it is enhanced to allow connect(..) to components
@@ -1332,7 +1332,7 @@ the prefixes
 <a href=\"modelica://ModelicaReference.'input'\">input</a> and
 <a href=\"modelica://ModelicaReference.'output'\">output</a>, that are
 also allowed outside of a connector. Based on the prefix, a
-<a href=\"modelica://ModelicaReference.'connect()'\">connect()</a>
+<a href=\"modelica://ModelicaReference.Operators.'connect()'\">connect()</a>
 statement leads to specific connection equations, that describe the
 balance equations in the infinitesimal connection points.
 </p>

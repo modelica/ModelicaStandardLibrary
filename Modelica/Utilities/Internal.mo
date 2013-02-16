@@ -103,7 +103,7 @@ This model is documented at
 <p>
 This partial function defines the function interface of a tool-specific implementation
 in package ModelicaServices. The interface is documented at
-<a href=\"modelica://Modelica.Utilities.Internal.FileSystem.loadResource\">Modelica.Utilities.Internal.FileSystem.loadResource</a>.
+<a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Internal.FileSystem.loadResource</a>.
 </p>
 
 </html>"));

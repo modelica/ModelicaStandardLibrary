@@ -133,17 +133,16 @@ to specify system properties.
 <p>
  A model should never directly use system parameters.
  Instead a local parameter should be declared, which uses the global setting as default.
- The only exceptions are:
+ The only exceptions are:</p>
  <ul>
   <li>the gravity system.g,</li>
-  <li>the global system.eps_m_flow, which is used to define a local m_flow_small for the local m_flow_nominal: 
+  <li>the global system.eps_m_flow, which is used to define a local m_flow_small for the local m_flow_nominal:
       <pre>m_flow_small = system.eps_m_flow*m_flow_nominal</pre>
   </li>
  </ul>
-</p>
 <p>
- The global system.m_flow_small and system.dp_small are classic parameters. 
- They do not distinguish between laminar flow and regularization of zero flow. 
+ The global system.m_flow_small and system.dp_small are classic parameters.
+ They do not distinguish between laminar flow and regularization of zero flow.
  Absolute small values are error prone for models with local nominal values.
  Moreover dp_small can generally be obtained automatically.
  Consider using the new system.use_eps_Re = true (see Advanced tab).

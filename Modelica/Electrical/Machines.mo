@@ -1934,7 +1934,7 @@ whereas the stator voltage is influenced by the d-current.</p>
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</h>"));
+</html>"));
       end SMPM_CurrentSource;
 
       model SMPM_VoltageSource

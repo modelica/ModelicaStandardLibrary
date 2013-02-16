@@ -208,14 +208,14 @@ tankLevel = tank.level;
       smooth=Smooth.None));
   annotation (                             Documentation(info="<html>
 <p>
-Simple heating system with a closed flow cycle. 
+Simple heating system with a closed flow cycle.
 After 2000s of simulation time the valve fully opens. A simple idealized control is embedded
 into the respective components, so that the heating system can be regulated with the valve:
 the pump controls the pressure, the burner controls the temperature.
 </p>
 <p>
 One can investigate the temperatures and flows for different settings of <code>system.energyDynamics</code>
-(see Assumptions tab of the system object).
+(see Assumptions tab of the system object).</p>
 <ul>
 <li>With <code>system.energyDynamics==Types.Dynamics.FixedInitial</code> the states need to find their steady values during the simulation.</li>
 <li>With <code>system.energyDynamics==Types.Dynamics.SteadyStateInitial</code> (default setting) the simulation starts in steady-state.</li>
@@ -223,7 +223,6 @@ One can investigate the temperatures and flows for different settings of <code>s
     The left state <code>tank.m</code> is to account for the closed flow cycle. It is constant as outflow and inflow are equal
     in a steady-state simulation.</li>
 </ul>
-</p>
 <p>
 Note that a closed flow cycle generally causes circular equalities for the mass flow rates and leaves the pressure undefined.
 This is why the tank.massDynamics, i.e., the tank level determining the port pressure, is modified locally to Types.Dynamics.FixedInitial.

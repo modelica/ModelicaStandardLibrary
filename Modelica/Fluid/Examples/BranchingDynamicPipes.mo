@@ -142,20 +142,18 @@ in order to assume a steady-state momentum balance. This is the default for all 
 Change the Medium from MoistAir to StandardWater, in order to investigate a medium with significantly different density.
 Note the static head caused by the elevation of the pipes.
 </p>
-
 <p>
-Note the appropriate use of the modelStructure of the DynamicPipe models (Advanced tab). 
+Note the appropriate use of the modelStructure of the DynamicPipe models (Advanced tab).
 The default modelStructure is av_vb, i.e. volumes with a pressure state are exposed at both ports.
-In many cases this gives good numerical performance, avoiding algebraic loops in connections, 
+In many cases this gives good numerical performance, avoiding algebraic loops in connections,
 e.g. if a pipe is connected to a valve or to a vessel with portsData configured.
 The price to pay is a high-index DAE if two pipes are connected or if a pipe is connected to a boundary with prescribed pressure.
 In such cases one might consider changing the modelStructure.
 </p>
 <p>
-In the BranchingDynamicPipes example, {pipe1,pipe3,pipe4}.modelStructure are configured to a_v_b, while pipe2.modelStructure remains av_vb. 
+In the BranchingDynamicPipes example, {pipe1,pipe3,pipe4}.modelStructure are configured to a_v_b, while pipe2.modelStructure remains av_vb.
 This avoids a high-index DAE and overdetermined initial conditions.
 </p>
-<p></p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\"
      alt=\"BranchingDynamicPipes.png\">
 </html>"), experiment(StopTime=10),
