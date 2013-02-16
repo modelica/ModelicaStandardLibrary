@@ -2292,7 +2292,8 @@ package IF97_Utilities
         output Real pi "dimensionless pressure";
         output Real tau "dimensionless temperature";
         output Real gpi "dimensionless derivative of Gibbs function w.r.t. pi";
-        output Real gtau "dimensionless derivative of Gibbs function w.r.t. tau";
+        output Real gtau
+          "dimensionless derivative of Gibbs function w.r.t. tau";
       protected
         Real pi1 "dimensionless pressure";
         Real tau1 "dimensionless temperature";
@@ -2375,7 +2376,8 @@ package IF97_Utilities
         output Real pi "dimensionless pressure";
         output Real tau "dimensionless temperature";
         output Real gpi "dimensionless derivative of Gibbs function w.r.t. pi";
-        output Real gtau "dimensionless derivative of Gibbs function w.r.t. tau";
+        output Real gtau
+          "dimensionless derivative of Gibbs function w.r.t. tau";
       protected
         Real tau2 "dimensionless temperature";
         Real[22] o "vector of auxiliary variables";
@@ -2466,7 +2468,8 @@ package IF97_Utilities
         output Real pi "dimensionless pressure";
         output Real tau "dimensionless temperature";
         output Real gpi "dimensionless derivative of Gibbs function w.r.t. pi";
-        output Real gtau "dimensionless derivative of Gibbs function w.r.t. tau";
+        output Real gtau
+          "dimensionless derivative of Gibbs function w.r.t. tau";
       protected
         Real[3] o "vector of auxiliary variables";
       algorithm
@@ -2971,8 +2974,7 @@ package IF97_Utilities
         der_tsat := dtp*der_p;
       end tsat_der;
 
-      function psat
-        "region 4 saturation pressure as a function of temperature"
+      function psat "region 4 saturation pressure as a function of temperature"
 
         extends Modelica.Icons.Function;
         input SI.Temperature T "temperature (K)";
@@ -5705,6 +5707,12 @@ Ordinary Water Substance<br>
     end extraDerivs_pT;
 
     annotation (Documentation(info="<HTML>
+<style type=\"text/css\">
+.nobr
+{
+white-space:nowrap;
+}
+</style>
     <h4>Version Info and Revision history</h4>
         <ul>
         <li>First implemented: <i>July, 2000</i>
@@ -5763,30 +5771,28 @@ a set of equations for different regions which cover the following range
 of validity:</p>
 <table border=0 cellpadding=4>
 <tr>
-<td valign=\"top\">273,15 K &lt; <I>T</I> &lt; 1073,15 K</td>
-<td valign=\"top\"><I>p</I> &lt; 100 MPa</td>
+<td valign=\"top\">273,15 K &lt; <em>T</em> &lt; 1073,15 K</td>
+<td valign=\"top\"><em>p</em> &lt; 100 MPa</td>
 </tr>
 <tr>
-<td valign=\"top\">1073,15 K &lt; <I>T</I> &lt; 2273,15 K</td>
-<td valign=\"top\"><I>p</I> &lt; 10 MPa</td>
+<td valign=\"top\">1073,15 K &lt; <em>T</em> &lt; 2273,15 K</td>
+<td valign=\"top\"><em>p</em> &lt; 10 MPa</td>
 </tr>
 </table>
 <p>
 Figure 1 shows the 5 regions into which the entire range of validity of
 IAPWS-IF97 is divided. The boundaries of the regions can be directly taken
 from Fig. 1 except for the boundary between regions 2 and 3; this boundary,
-which corresponds approximately to the isentropic line <nobr><I>s</I> = 5.047 kJ kg
-<FONT SIZE=-1><sup>-1</sup></FONT>
-K<FONT SIZE=-1><sup>-1</sup></FONT>,</nobr> is defined
+which corresponds approximately to the isentropic line <span class=\"nobr\"><em>s</em> = 5.047 kJ kg
+<sup>-1</sup>K<sup>-1</sup></span>, is defined
 by a corresponding auxiliary equation. Both regions 1 and 2 are individually
-covered by a fundamental equation for the specific Gibbs free energy <nobr><I>g</I>(<I>
-p</I>,<I>T </I>)</nobr>, region 3 by a fundamental equation for the specific Helmholtz
-free energy <nobr><I>f </I>(<I> <FONT FACE=\"Symbol\">r</FONT></I>,<I>T
-</I>)</nobr>, and the saturation curve, corresponding to region 4, by a saturation-pressure
-equation <nobr><I>p</I><FONT SIZE=-1><sub>s</sub></FONT>(<I>T</I>)</nobr>. The high-temperature
-region 5 is also covered by a <nobr><I>g</I>(<I> p</I>,<I>T </I>)</nobr> equation. These
-5 equations, shown in rectangular boxes in Fig. 1, form the so-called <I>basic
-equations</I>.
+covered by a fundamental equation for the specific Gibbs free energy <span class=\"nobr\"><em>g</em>( <em>p</em>,<em>T</em> )</span>, region 3 by a fundamental equation for the specific Helmholtz
+free energy <span class=\"nobr\"><em>f </em>(<em> <font face=\"symbol\">r</font></em>,<em>T
+</em>)</span>, and the saturation curve, corresponding to region 4, by a saturation-pressure
+equation <span><em>p</em><sub>s</sub>( <em>T</em> )</span>. The high-temperature
+region 5 is also covered by a <span class=\"nobr\"><em>g</em>( <em>p</em>,<em>T</em> )</span> equation. These
+5 equations, shown in rectangular boxes in Fig. 1, form the so-called <em>basic
+equations</em>.
 </p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Figure 1: Regions and equations of IAPWS-IF97</caption>
@@ -5797,16 +5803,15 @@ equations</I>.
   </tr>
 </table>
 <p>
-In addition to these basic equations, so-called <I>backward
-equations</I> are provided for regions 1, 2, and 4 in form of
-<nobr><I>T </I>(<I> p</I>,<I>h </I>)</nobr> and <nobr><I>T </I>(<I>
-p</I>,<I>s </I>)</nobr> for regions 1 and 2, and <nobr><I>T</I><FONT
-SIZE=-1><sub>s</sub> </FONT>(<I> p </I>)</nobr> for region 4. These
+In addition to these basic equations, so-called <em>backward
+equations</em> are provided for regions 1, 2, and 4 in form of
+<span class=\"nobr\"><em>T</em>( <em>p</em>,<em>h</em> )</span> and <span class=\"nobr\"><em>T</em>( <em>
+p</em>,<em>s</em> )</span> for regions 1 and 2, and <span class=\"nobr\"><em>T</em><sub>s</sub>( <em>p</em> )</span> for region 4. These
 backward equations, marked in grey in Fig. 1, were developed in such a
 way that they are numerically very consistent with the corresponding
-basic equation. Thus, properties as functions of&nbsp; <I>p</I>,<I>h
-</I>and of&nbsp;<I> p</I>,<I>s </I>for regions 1 and 2, and of
-<I>p</I> for region 4 can be calculated without any iteration. As a
+basic equation. Thus, properties as functions of&nbsp; <em>p</em>,<em>h
+</em>and of&nbsp;<em> p</em>,<em>s </em>for regions 1 and 2, and of
+<em>p</em> for region 4 can be calculated without any iteration. As a
 result of this special concept for the development of the new
 industrial standard IAPWS-IF97, the most important properties can be
 calculated extremely quickly. All Modelica functions are optimized
@@ -5820,15 +5825,15 @@ and the increase of computing speed in comparison with IFC-67, etc.) can
 be taken from <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> or [2].
 </p>
 <p>
-<a name=\"steamprop\">[1]<I>Wagner, W., Kruse, A.</I> Properties of Water
+<a name=\"steamprop\">[1]<em>Wagner, W., Kruse, A.</em> Properties of Water
 and Steam / Zustandsgr&ouml;&szlig;en von Wasser und Wasserdampf / IAPWS-IF97.
 Springer-Verlag, Berlin, 1998.</a>
 </p>
 <p>
-[2] <I>Wagner, W., Cooper, J. R., Dittmann, A., Kijima,
+[2] <em>Wagner, W., Cooper, J. R., Dittmann, A., Kijima,
 J., Kretzschmar, H.-J., Kruse, A., Mare&#353; R., Oguchi, K., Sato, H., St&ouml;cker,
 I., &#352;ifner, O., Takaishi, Y., Tanishita, I., Tr&uuml;benbach, J., and Willkommen,
-Th.</I> The IAPWS Industrial Formulation 1997 for the Thermodynamic Properties
+Th.</em> The IAPWS Industrial Formulation 1997 for the Thermodynamic Properties
 of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (2000), 150 - 182.
 </p>
 <HR size=3 width=\"90%\">
@@ -5913,7 +5918,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <td valign=\"top\">&nbsp;8<br>
       </td>
       <td valign=\"top\">Specific isobaric heat capacity</td>
-       <td valign=\"top\">c<font size=\"-1\"><sub>p</sub></font><br>
+       <td valign=\"top\">c<sub>p</sub><br>
        </td>
        <td valign=\"top\">J/(kg K)<br>
        </td>
@@ -5922,7 +5927,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <td valign=\"top\">&nbsp;9<br>
       </td>
       <td valign=\"top\">Specific isochoric heat capacity</td>
-       <td valign=\"top\">c<font size=\"-1\"><sub>v</sub></font><br>
+       <td valign=\"top\">c<sub>v</sub><br>
        </td>
        <td valign=\"top\">J/(kg K)<br>
        </td>
@@ -5930,9 +5935,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
        <tr>
        <td valign=\"top\">10<br>
       </td>
-      <td valign=\"top\">Isentropic exponent, kappa<nobr>=       <font face=\"Symbol\">-</font>(v/p)
-(dp/dv)<font size=\"-1\"><sub>s</sub> </font></nobr></td>
-     <td valign=\"top\">kappa (     <font face=\"Symbol\">k</font>)<br>
+      <td valign=\"top\">Isentropic exponent, kappa<span class=\"nobr\">=<font face=\"Symbol\">-</font>(v/p)
+(dp/dv)<sub>s</sub></span></td>
+     <td valign=\"top\">kappa (<font face=\"Symbol\">k</font>)<br>
      </td>
      <td valign=\"top\">1<br>
      </td>
@@ -5978,8 +5983,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">15<br>
       </td>
-      <td valign=\"top\">Isenthalpic exponent, <nobr> theta     = -(v/p)(dp/dv)<font
- size=\"-1\"><sub>h</sub></font></nobr></td>
+      <td valign=\"top\">Isenthalpic exponent, <span class=\"nobr\"> theta = -(v/p)(dp/dv)<sub>h</sub></span></td>
      <td valign=\"top\">theta (<font face=\"Symbol\">q</font>)<br>
      </td>
      <td valign=\"top\">1<br>
@@ -5988,9 +5992,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">16<br>
       </td>
-      <td valign=\"top\">Isobaric volume expansion coefficient,     alpha = v<font
- size=\"-1\"><sup>-1</sup></font>       (dv/dT)<font size=\"-1\"><sub>p</sub>
-    </font></td>
+      <td valign=\"top\">Isobaric volume expansion coefficient, alpha = v<sup>-1</sup>       (dv/dT)<sub>p</sub></td>
      <td valign=\"top\">alpha  (<font face=\"Symbol\">a</font>)<br>
      </td>
        <td valign=\"top\">1/K<br>
@@ -5999,9 +6001,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      <tr>
      <td valign=\"top\">17<br>
       </td>
-      <td valign=\"top\">Isochoric pressure coefficient,     <nobr>beta = p<font
- size=\"-1\"><sup><font face=\"Symbol\">-</font>1</sup>     </font>(dp/dT)<font
- size=\"-1\"><sub>v</sub></font></nobr>     </td>
+      <td valign=\"top\">Isochoric pressure coefficient,     <span class=\"nobr\">beta = p<sup><font face=\"Symbol\">-</font>1</sup>(dp/dT)<sub>v</sub></span></td>
      <td valign=\"top\">beta (<font face=\"Symbol\">b</font>)<br>
      </td>
      <td valign=\"top\">1/K<br>
@@ -6009,11 +6009,10 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
      </tr>
      <tr>
      <td valign=\"top\">18<br>
-      </td>
-      <td valign=\"top\">Isothermal compressibility,     g<nobr>amma  = <font
- face=\"Symbol\">-</font>v        <sup><font size=\"-1\"><font face=\"Symbol\">-</font>1</font></sup>(dv/dp)<font
- size=\"-1\"><sub>T</sub></font></nobr> </td>
-        <td valign=\"top\">gamma (<font face=\"Symbol\">g</font>)<br>
+     </td>
+     <td valign=\"top\">Isothermal compressibility, <span class=\"nobr\">gamma = <font
+ face=\"Symbol\">-</font>v<sup><font face=\"Symbol\">-</font>1</sup>(dv/dp)<sub>T</sub></span></td>
+     <td valign=\"top\">gamma (<font face=\"Symbol\">g</font>)<br>
      </td>
      <td valign=\"top\">1/Pa<br>
      </td>
