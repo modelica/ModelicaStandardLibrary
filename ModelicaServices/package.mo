@@ -1,5 +1,5 @@
 within ;
-package ModelicaServices "(version = 3.2.1, Default implementation) Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
+package ModelicaServices "(Default implementation) Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
 extends Modelica.Icons.Package;
 constant String target="Default"
   "Target of this ModelicaServices implementation";
@@ -576,7 +576,7 @@ printing and shipping costs may be recovered.</p>
      to define the integration method to solve differential equations in a
      clocked discretized continuous-time partition.
      </li>
-<li> New package 
+<li> New package
      <a href=\"modelica://ModelicaServices.Machine\">Machine</a>
      to define the processor dependent constants as used in
      <a href=\"modelica://Modelica.Constants\">Modelica.Constants</a>.
@@ -717,7 +717,7 @@ package Machine
   annotation (Documentation(info="<html>
 <p>
 Package in which processor specific constants are defined that are needed
-by numerical algorithms. Typically these constants are not directly used, 
+by numerical algorithms. Typically these constants are not directly used,
 but indirectly via the alias definition in
 <a href=\"modelica://Modelica.Constants\">Modelica.Constants</a>.
 </p>
