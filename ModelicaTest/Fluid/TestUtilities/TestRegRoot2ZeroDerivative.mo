@@ -1,4 +1,4 @@
-within ModelicaTest.Fluid.TestComponents.Utilities;
+within ModelicaTest.Fluid.TestUtilities;
 model TestRegRoot2ZeroDerivative
   "Test whether regRoot2 can be differentiated with a zero derivative (like in incompressible valve"
   extends Modelica.Icons.Example;
