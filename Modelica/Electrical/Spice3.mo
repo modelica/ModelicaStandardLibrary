@@ -7663,6 +7663,13 @@ on the model behaviour.
           end if;
         end if;
 
+	  out_qm.qm_qgs := 0.0;
+	  out_qm.qm_qgb := 0.0;
+	  out_qm.qm_qgd := 0.0;
+	  out_qm.qm_vgs := 0.0;
+	  out_qm.qm_vgb := 0.0;
+	  out_qm.qm_vgd := 0.0;
+
         annotation (Documentation(info="<html>
 <p>This function mosCalcDEVqmeyer calculates the Meyer capacities and charge for the Meyer model.</p>
 </html>"));
