@@ -11535,6 +11535,30 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           "Output record with Bjt model line parameters";
 
       algorithm
+
+	  intern.m_minBaseResistIsGiven := 0;
+  	  intern.m_collectorConduct := 0;
+  	  intern.m_emitterConduct := 0;
+ 	  intern.m_transitTimeVBCFactor := 0;
+ 	  intern.m_excessPhaseFactor := 0;
+  	  intern.m_invEarlyVoltF := 0;
+  	  intern.m_invRollOffF := 0;
+  	  intern.m_invEarlyVoltR := 0;
+	  intern.m_invRollOffR := 0;
+
+   	  //obsolete
+  	  intern.m_bNPN:=1;
+ ´	  intern.m_bPNP:=1;
+
+ 	  intern.m_area :=1.0;
+ 	  intern.m_bOff :=false;
+ 	  intern.m_dICvbe :=0;
+ 	  intern.m_bICvbeIsGiven :=0;
+ 	  intern.m_dICvce :=0;
+  	  intern.m_bICvceIsGiven :=0;
+ 	  intern.m_bSensArea :=false;
+ 	  intern.m_dTemp :=1;
+
         intern.m_satCur := ex.IS;
         intern.m_betaF := ex.BF;
         intern.m_emissionCoeffF := ex.NF;
