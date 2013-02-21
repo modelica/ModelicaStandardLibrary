@@ -8680,6 +8680,14 @@ out_c.m_tTransconductance := 0;
           "Output record model line parameters";
 
       algorithm
+
+	    intern.m_cgboIsGiven := 0;
+	    intern.m_cgdoIsGiven := 0;
+	    intern.m_cgsoIsGiven := 0;
+	    intern.m_mjswIsGiven := 0;
+ 	    intern.m_pbIsGiven := 0;
+	    intern.m_surfaceStateDensityIsGiven := 0;			
+
           intern.m_oxideCapFactor := 0;
 
           intern.m_vtOIsGiven := if          (ex.VTO > -1e40) then 1 else 0;
