@@ -8818,6 +8818,10 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         assert(ex.LEVEL== 1, "only MOS Level1 implemented");
         dev.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK "Device temperature";
 
+	  dev.m_drainPerimiter := 0;
+	  dev.m_sourcePerimiter := 0;
+	  dev.m_uic := false;
+
         annotation (Documentation(info="<html>
 <p>This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</p>
 </html>"));
