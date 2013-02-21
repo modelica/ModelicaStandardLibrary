@@ -7274,64 +7274,63 @@ on the model behaviour.
         out_c.m_capGBovl := in_p.m_gateBulkOverlapCapFactor * out_c.m_lEff;
         out_c.m_capOx    := in_vp.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
 
-out_c.m_tTransconductance := 0;
-  out_c.m_tSurfMob := 0;
-  out_c.m_tPhi := 0.7;
-  out_c.m_tVto := 1.;
-  out_c.m_tSatCurDens := 0;
-  out_c.m_tDrainSatCur := 0;
-  out_c.m_tSourceSatCur := 0;
-  out_c.m_tCBDb := 0;
-  out_c.m_tCBDs := 0;
-  out_c.m_tCBSb := 0;
-  out_c.m_tCBSs := 0;
-  out_c.m_tCj := 0;
-  out_c.m_tCjsw := 0;
-  out_c.m_tBulkPot := 0.7;
-  out_c.m_tDepCap := 0.35;
-  out_c.m_tVbi := 1.;
-  out_c.m_VBScrit := 0.7;
-  out_c.m_VBDcrit := 0.7;
-  out_c.m_f1b := 0;
-  out_c.m_f2b := 0;
-  out_c.m_f3b := 0;
-  out_c.m_f1s := 0;
-  out_c.m_f2s := 0;
-  out_c.m_f3s := 0;
-  out_c.m_dVt := 0; 
+        out_c.m_tTransconductance := 0;
+        out_c.m_tSurfMob := 0;
+        out_c.m_tPhi := 0.7;
+        out_c.m_tVto := 1.;
+        out_c.m_tSatCurDens := 0;
+        out_c.m_tDrainSatCur := 0;
+        out_c.m_tSourceSatCur := 0;
+        out_c.m_tCBDb := 0;
+        out_c.m_tCBDs := 0;
+        out_c.m_tCBSb := 0;
+        out_c.m_tCBSs := 0;
+        out_c.m_tCj := 0;
+        out_c.m_tCjsw := 0;
+        out_c.m_tBulkPot := 0.7;
+        out_c.m_tDepCap := 0.35;
+        out_c.m_tVbi := 1.;
+        out_c.m_VBScrit := 0.7;
+        out_c.m_VBDcrit := 0.7;
+        out_c.m_f1b := 0;
+        out_c.m_f2b := 0;
+        out_c.m_f3b := 0;
+        out_c.m_f1s := 0;
+        out_c.m_f2s := 0;
+        out_c.m_f3s := 0;
+        out_c.m_dVt := 0;
 
-  out_c.m_capgd := 0;
-  out_c.m_capgs := 0;
-  out_c.m_capgb := 0;
-  out_c.m_qgs := 0;
-  out_c.m_qgd := 0;
-  out_c.m_qgb := 0;
-  
-  out_c.m_vds:= 0;
-  out_c.m_vgs:= 0;
-  out_c.m_vbs:= 0;
-  out_c.m_cbs := 0;
-  out_c.m_gbs := 0;
-  out_c.m_cbd := 0;
-  out_c.m_gbd := 0;
-  out_c.m_cdrain := 0;
-  out_c.m_gds := 0;
-  out_c.m_gm := 0;
-  out_c.m_gmbs := 0;
-  out_c.m_capbsb := 0;
-  out_c.m_chargebsb := 0;
-  out_c.m_capbss := 0;
-  out_c.m_chargebss := 0 ;
-  out_c.m_capbdb := 0;
-  out_c.m_chargebdb := 0;
-  out_c.m_capbds := 0;
-  out_c.m_chargebds := 0;
-  out_c.m_Beta := 0;
+        out_c.m_capgd := 0;
+        out_c.m_capgs := 0;
+        out_c.m_capgb := 0;
+        out_c.m_qgs := 0;
+        out_c.m_qgd := 0;
+        out_c.m_qgb := 0;
 
-  out_c.m_von := 0;
-  out_c.m_vdsat := 0;
-  out_c.m_mode := 1;
+        out_c.m_vds := 0;
+        out_c.m_vgs := 0;
+        out_c.m_vbs := 0;
+        out_c.m_cbs := 0;
+        out_c.m_gbs := 0;
+        out_c.m_cbd := 0;
+        out_c.m_gbd := 0;
+        out_c.m_cdrain := 0;
+        out_c.m_gds := 0;
+        out_c.m_gm := 0;
+        out_c.m_gmbs := 0;
+        out_c.m_capbsb := 0;
+        out_c.m_chargebsb := 0;
+        out_c.m_capbss := 0;
+        out_c.m_chargebss := 0;
+        out_c.m_capbdb := 0;
+        out_c.m_chargebdb := 0;
+        out_c.m_capbds := 0;
+        out_c.m_chargebds := 0;
+        out_c.m_Beta := 0;
 
+        out_c.m_von := 0;
+        out_c.m_vdsat := 0;
+        out_c.m_mode := 1;
 
         annotation (Documentation(info="<html>
 <p>This function mosCalcInitEquations does the initial precalculation of the MOSFET parameters (level 1).</p>
@@ -7722,12 +7721,12 @@ out_c.m_tTransconductance := 0;
           end if;
         end if;
 
-	  out_qm.qm_qgs := 0.0;
-	  out_qm.qm_qgb := 0.0;
-	  out_qm.qm_qgd := 0.0;
-	  out_qm.qm_vgs := 0.0;
-	  out_qm.qm_vgb := 0.0;
-	  out_qm.qm_vgd := 0.0;
+        out_qm.qm_qgs := 0.0;
+        out_qm.qm_qgb := 0.0;
+        out_qm.qm_qgd := 0.0;
+        out_qm.qm_vgs := 0.0;
+        out_qm.qm_vgb := 0.0;
+        out_qm.qm_vgd := 0.0;
 
         annotation (Documentation(info="<html>
 <p>This function mosCalcDEVqmeyer calculates the Meyer capacities and charge for the Meyer model.</p>
@@ -8680,13 +8679,12 @@ out_c.m_tTransconductance := 0;
           "Output record model line parameters";
 
       algorithm
-
-	    intern.m_cgboIsGiven := 0;
-	    intern.m_cgdoIsGiven := 0;
-	    intern.m_cgsoIsGiven := 0;
-	    intern.m_mjswIsGiven := 0;
- 	    intern.m_pbIsGiven := 0;
-	    intern.m_surfaceStateDensityIsGiven := 0;			
+        intern.m_cgboIsGiven := 0;
+        intern.m_cgdoIsGiven := 0;
+        intern.m_cgsoIsGiven := 0;
+        intern.m_mjswIsGiven := 0;
+      intern.m_pbIsGiven := 0;
+        intern.m_surfaceStateDensityIsGiven := 0;
 
           intern.m_oxideCapFactor := 0;
 
@@ -8826,9 +8824,9 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         assert(ex.LEVEL== 1, "only MOS Level1 implemented");
         dev.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK "Device temperature";
 
-	  dev.m_drainPerimiter := 0;
-	  dev.m_sourcePerimiter := 0;
-	  dev.m_uic := false;
+        dev.m_drainPerimiter := 0;
+        dev.m_sourcePerimiter := 0;
+        dev.m_uic := false;
 
         annotation (Documentation(info="<html>
 <p>This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</p>
@@ -11535,29 +11533,28 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           "Output record with Bjt model line parameters";
 
       algorithm
+        intern.m_minBaseResistIsGiven := 0;
+        intern.m_collectorConduct := 0;
+        intern.m_emitterConduct := 0;
+        intern.m_transitTimeVBCFactor := 0;
+        intern.m_excessPhaseFactor := 0;
+        intern.m_invEarlyVoltF := 0;
+        intern.m_invRollOffF := 0;
+        intern.m_invEarlyVoltR := 0;
+        intern.m_invRollOffR := 0;
 
-	  intern.m_minBaseResistIsGiven := 0;
-  	  intern.m_collectorConduct := 0;
-  	  intern.m_emitterConduct := 0;
- 	  intern.m_transitTimeVBCFactor := 0;
- 	  intern.m_excessPhaseFactor := 0;
-  	  intern.m_invEarlyVoltF := 0;
-  	  intern.m_invRollOffF := 0;
-  	  intern.m_invEarlyVoltR := 0;
-	  intern.m_invRollOffR := 0;
+      //obsolete
+        intern.m_bNPN := 1;
+      intern.m_bPNP:=1;
 
-   	  //obsolete
-  	  intern.m_bNPN:=1;
- ´	  intern.m_bPNP:=1;
-
- 	  intern.m_area :=1.0;
- 	  intern.m_bOff :=false;
- 	  intern.m_dICvbe :=0;
- 	  intern.m_bICvbeIsGiven :=0;
- 	  intern.m_dICvce :=0;
-  	  intern.m_bICvceIsGiven :=0;
- 	  intern.m_bSensArea :=false;
- 	  intern.m_dTemp :=1;
+        intern.m_area := 1.0;
+        intern.m_bOff := false;
+        intern.m_dICvbe := 0;
+        intern.m_bICvbeIsGiven := 0;
+        intern.m_dICvce := 0;
+        intern.m_bICvceIsGiven := 0;
+        intern.m_bSensArea := false;
+        intern.m_dTemp := 1;
 
         intern.m_satCur := ex.IS;
         intern.m_betaF := ex.BF;
@@ -11653,9 +11650,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         dev.m_dTemp := TEMP + Spice3.Internal.SpiceConstants.CONSTCtoK
           "Device temperature";
 
- 	 dev.m_transitTimeHighCurrentF := 0;
-       dev.m_invRollOffF : = 0;
-       dev.m_invRollOffR : = 0;
+        dev.m_transitTimeHighCurrentF := 0;
+       dev.m_invRollOffF := 0;
+       dev.m_invRollOffR := 0;
        dev.m_CScap := 0;
         annotation (Documentation(info="<html>
 <p>This function assigns the external (given by the user, e.g. AREA) device parameters</p>
