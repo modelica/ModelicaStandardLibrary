@@ -7274,6 +7274,65 @@ on the model behaviour.
         out_c.m_capGBovl := in_p.m_gateBulkOverlapCapFactor * out_c.m_lEff;
         out_c.m_capOx    := in_vp.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
 
+out_c.m_tTransconductance := 0;
+  out_c.m_tSurfMob := 0;
+  out_c.m_tPhi := 0.7;
+  out_c.m_tVto := 1.;
+  out_c.m_tSatCurDens := 0;
+  out_c.m_tDrainSatCur := 0;
+  out_c.m_tSourceSatCur := 0;
+  out_c.m_tCBDb := 0;
+  out_c.m_tCBDs := 0;
+  out_c.m_tCBSb := 0;
+  out_c.m_tCBSs := 0;
+  out_c.m_tCj := 0;
+  out_c.m_tCjsw := 0;
+  out_c.m_tBulkPot := 0.7;
+  out_c.m_tDepCap := 0.35;
+  out_c.m_tVbi := 1.;
+  out_c.m_VBScrit := 0.7;
+  out_c.m_VBDcrit := 0.7;
+  out_c.m_f1b := 0;
+  out_c.m_f2b := 0;
+  out_c.m_f3b := 0;
+  out_c.m_f1s := 0;
+  out_c.m_f2s := 0;
+  out_c.m_f3s := 0;
+  out_c.m_dVt := 0; 
+
+  out_c.m_capgd := 0;
+  out_c.m_capgs := 0;
+  out_c.m_capgb := 0;
+  out_c.m_qgs := 0;
+  out_c.m_qgd := 0;
+  out_c.m_qgb := 0;
+  
+  out_c.m_vds:= 0;
+  out_c.m_vgs:= 0;
+  out_c.m_vbs:= 0;
+  out_c.m_cbs := 0;
+  out_c.m_gbs := 0;
+  out_c.m_cbd := 0;
+  out_c.m_gbd := 0;
+  out_c.m_cdrain := 0;
+  out_c.m_gds := 0;
+  out_c.m_gm := 0;
+  out_c.m_gmbs := 0;
+  out_c.m_capbsb := 0;
+  out_c.m_chargebsb := 0;
+  out_c.m_capbss := 0;
+  out_c.m_chargebss := 0 ;
+  out_c.m_capbdb := 0;
+  out_c.m_chargebdb := 0;
+  out_c.m_capbds := 0;
+  out_c.m_chargebds := 0;
+  out_c.m_Beta := 0;
+
+  out_c.m_von := 0;
+  out_c.m_vdsat := 0;
+  out_c.m_mode := 1;
+
+
         annotation (Documentation(info="<html>
 <p>This function mosCalcInitEquations does the initial precalculation of the MOSFET parameters (level 1).</p>
 </html>"));
