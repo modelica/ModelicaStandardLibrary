@@ -7452,6 +7452,7 @@ on the model behaviour.
 
       algorithm
         int_c := in_c;
+        out_cc.m_capgd := 0;
 
         int_c.m_vgs := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[4]); // ( G , SP)
         int_c.m_vbs := in_m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( B , SP)
