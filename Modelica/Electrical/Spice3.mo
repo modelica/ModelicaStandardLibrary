@@ -10852,6 +10852,11 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
        output ResistorVariables out "Output record with resistor variables";
 
       algorithm
+
+      out.m_dLength := 0;
+	out.m_dConduct := 0;
+	out.m_dCond_dTemp := 0;
+
       out.m_dWidth := in_p.m_dWidth;
         if ( in_p.m_dResIsGiven < 0.5) then
             if (abs(in_p.m_dLength)>1e-8) and (abs(in_p2.m_dRsh)>1e-25) then
@@ -12651,43 +12656,6 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
         SI.Conductance m_gm "Gm";
         SI.Conductance m_gds "Gds";
 
-      /*
-Fet::Fet( const String& modelname, const String& elementname)
-        : Model( modelname, elementname), m_pModel( NULL)
-{
-   AddParameter( "AREA", m_area, 1.);//Area factor
-   AddParameter( "OFF", m_off, false);//Device initially off
-   m_bICVDSValue = AddParameter( "IC_VDS", m_dICVDS, 0.0)->Alias( "IC_1")->Alias( "IC");
-   m_bICVGSValue = AddParameter( "IC_VGS", m_dICVGS, 0.0)->Alias( "IC_2");
-
-   m_tSatCur = 0.;
-   m_tGatePot = 0.;
-   m_tCGS = 0.;
-   m_tCGD = 0.;
-   m_corDepCap = 0.;
-   m_vcrit = 0.;
-   m_f1   = 0.;
-   m_f2 = 0.;
-   m_f3 = 0.;
-   m_dVt = 0.0;
-
-   AddValue( "Vgs", m_vgs);//Voltage G-S
-   AddValue( "Vgd", m_vgd);//Voltage G-D
-   AddValue( "Vds", m_vds);
-   AddValue( "Igd", m_cgd);
-   AddValue( "Ggd", m_ggd);
-   AddValue( "Igs", m_cgs);
-   AddValue( "Ggs", m_ggs);
-   AddValue( "Qgd", m_chargegd);
-   AddValue( "Cgd", m_capgd);//G-D junction cap
-   AddValue( "Qgs", m_chargegs);
-   AddValue( "Cgs", m_capgs);//G-S junction capactance
-   AddValue( "Idrain", m_cdrain);
-   AddValue( "Gm", m_gm);
-   AddValue( "Gds", m_gds);
-}
-
-*/
       end Fet;
 
       record FetModelLine "Record for Fet model line parameters"
@@ -12710,31 +12678,6 @@ Fet::Fet( const String& modelname, const String& elementname)
         SI.Conductance m_sourceConduct(start = 0);
         SI.Temp_K m_tnom(start=Modelica.Electrical.Spice3.Internal.SpiceConstants.CKTnomTemp) "TNOM";
 
-      /*
-Fet_Model_Line::Fet_Model_Line(
-   const String& modelname, const String& elementname)
-        : DotModel( modelname, elementname)
-{
-   AddParameter( "VTO", m_threshold, -2.)->Alias( "VT0");
-   AddParameter( "BETA", m_beta, 1e-4);
-   AddParameter( "LAMBDA", m_lModulation, 0.);
-   AddParameter( "RD", m_drainResist, 0.);
-   AddParameter( "RS", m_sourceResist, 0.);
-   AddParameter( "CGS", m_capGS, 0.);
-   AddParameter( "CGD", m_capGD, 0.);
-   AddParameter( "PB", m_gatePotential, 1.);
-   AddParameter( "IS", m_gateSatCurrent, 1e-14);
-   AddParameter( "FC", m_depletionCapCoeff, .5);
-   AddParameter( "B", m_b, 1.0);
-   AddParameter( "KF", m_fNcoef, 0.0);
-   AddParameter( "AF", m_fNexp, 1.0);
-
-   m_drainConduct = 0.;
-   m_sourceConduct = 0.;
-   m_tnom = CKTnomTemp;
-   m_type = NFET;
-}
-*/
       end FetModelLine;
 
       record CurrrentsCapacitances "Currents and Capacities"
@@ -12750,7 +12693,7 @@ Fet_Model_Line::Fet_Model_Line(
 </html>"));
       end CurrrentsCapacitances;
 
-      function fetRenameParametersDev
+      function 
         "Device parameter renaming to internal names"
       extends Modelica.Icons.Function;
         input Real AREA "Number of parallel connected identical elements";
@@ -12766,6 +12709,32 @@ Fet_Model_Line::Fet_Model_Line(
         output Fet dev "Output record MESFET";
 
       algorithm
+
+  	  dev.m_capgd := 0;
+  	  dev.m_capgs := 0;
+ 	   dev.m_cdrain := 0;
+  	  dev.m_cgd := 0;
+  	  dev.m_cgs := 0;
+  	  dev.m_chargegd := 0;
+  	  dev.m_chargegs := 0;
+  	  dev.m_corDepCap := 0;
+  	  dev.m_dVt := 0;
+  	  dev.m_f1 := 0;
+ 	  dev.m_f2 := 0;
+  	  dev.m_f3 := 0;
+  	  dev.m_gds := 0;
+  	  dev.m_ggd := 0;
+ 	  dev.m_ggs := 0;
+ 	  dev.m_gm := 0;
+  	  dev.m_tCGD := 0;
+  	  dev.m_tCGS := 0;
+  	  dev.m_tGatePot := 0;
+ 	  dev.m_tSatCur := 0;
+  	  dev.m_vcrit := 0;
+ 	  dev.m_vds := 0;
+  	  dev.m_vgd := 0;
+  	  dev.m_vgs := 0;
+
         dev.m_bICVDSIsGiven := if ( IC_VDS > -1e40) then 1 else 0;
         dev.m_dICVDS := if ( IC_VDS > -1e40) then IC_VDS else 0;
 
@@ -13092,6 +13061,11 @@ Fet_Model_Line::Fet_Model_Line(
         output JfetModelLine intern "Output record model line parameters";
 
       algorithm
+
+        intern.m_drainConduct := 0;
+	  intern.m_sourceConduct := 0;
+	  intern.m_bFac := 0;
+
         intern.m_capGS := if ( ex.CGS > -1e40) then ex.CGS else 0;
         // Zero-bias G-S junction capacitance, default 0
         intern.m_capGD := if ( ex.CGD > -1e40) then ex.CGD else 0;
