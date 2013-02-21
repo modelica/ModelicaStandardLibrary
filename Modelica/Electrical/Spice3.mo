@@ -11652,6 +11652,11 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         dev.m_bSensArea := SENS_AREA;
         dev.m_dTemp := TEMP + Spice3.Internal.SpiceConstants.CONSTCtoK
           "Device temperature";
+
+ 	 dev.m_transitTimeHighCurrentF := 0;
+       dev.m_invRollOffF : = 0;
+       dev.m_invRollOffR : = 0;
+       dev.m_CScap := 0;
         annotation (Documentation(info="<html>
 <p>This function assigns the external (given by the user, e.g. AREA) device parameters</p>
 <p>to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</p>
