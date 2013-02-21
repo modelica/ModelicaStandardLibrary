@@ -1657,6 +1657,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         Re := max(MIN, IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
         kc := Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC(IN_con, IN_var);
         Nu := kc*IN_con.d_hyd/max(MIN, IN_var.lambda);
+
+        failureStatus := 0;
       annotation (Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
