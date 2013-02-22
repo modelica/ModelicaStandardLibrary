@@ -2180,7 +2180,7 @@ library, this is irrelevant and therefore the usage of the function is correct.
       output Real y_dd;
     algorithm
       y_dd := if u1 > u2 then u1_dd else u2_dd;
-      annotation(Inline=true, GenerateEvents=false, InlineNoEvent=true);
+      annotation(Inline=true, GenerateEvents=false, __Dymola_InlineNoEvent=true);
     end maxWithoutEvent_dd;
 
     function resolve1_der "Derivative of function Frames.resolve1(..)"
