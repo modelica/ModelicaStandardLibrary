@@ -11014,14 +11014,14 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_bNPN= 1;
         Real m_bPNP= 1;
 
-        parameter Real m_area = 1.0;
-        parameter Boolean m_bOff = false;
-        parameter Modelica.SIunits.Voltage m_dICvbe = 0;
-        parameter Real m_bICvbeIsGiven = 0;
-        parameter Modelica.SIunits.Voltage m_dICvce = 0;
-        parameter Real m_bICvceIsGiven = 0;
-        parameter Boolean m_bSensArea = false;
-        parameter Real m_dTemp = 1;
+        Real m_area = 1.0;
+        Boolean m_bOff = false;
+        Modelica.SIunits.Voltage m_dICvbe = 0;
+        Real m_bICvbeIsGiven = 0;
+        Modelica.SIunits.Voltage m_dICvce = 0;
+        Real m_bICvceIsGiven = 0;
+        Boolean m_bSensArea = false;
+        Real m_dTemp = 1;
 
         annotation (Documentation(info="<html>
 <p>This record contains the model line (also called model card) parameters that are used for the bipolar transistor model in SPICE3.</p>
@@ -11550,7 +11550,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       //obsolete
         intern.m_bNPN := 1;
-      intern.m_bPNP:=1;
+        intern.m_bPNP:=1;
 
         intern.m_area := 1.0;
         intern.m_bOff := false;
@@ -13194,7 +13194,6 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       end Csemiconductor;
   end Internal;
-
 
     annotation (Documentation(info="<html>
 <p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
