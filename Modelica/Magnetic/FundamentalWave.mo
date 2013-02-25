@@ -2233,7 +2233,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
                          final lossPowerRotorCore = 0));
 
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
-          "Main field inductance"
+          "Stator main field inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
           "Rotor leakage inductance w.r.t. stator side"
@@ -2331,16 +2331,16 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           annotation (Placement(transformation(extent={{-110,70},{-90,50}}, rotation=0)));
 
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
-          "Main field inductance"
+          "Stator main field inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start = 3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-          "Rotor leakage inductance w.r.t. stator side"
+          "Rotor leakage inductance w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrzero=Lrsigma
-          "Rotor zero inductance w.r.t. stator side"
+          "Rotor zero inductance w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start = 0.04)
-          "Rotor resistance w.r.t. stator side"
+          "Rotor resistance per phase w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance"
@@ -2372,7 +2372,8 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           final m=3,
           PRef=0,
           VRef(start=1)=1,
-          wRef(start=1)=1) "Rotor core losses"
+          wRef(start=1)=1)
+          "Rotor core losses; all parameters refer to rotor side"
           annotation(Dialog(tab="Losses"));
 
         output Modelica.SIunits.Voltage vr[m] = plug_rp.pin.v - plug_rn.pin.v
@@ -2497,10 +2498,10 @@ Resistances and stray inductances of the machine always refer to either stator o
                          final lossPowerPermanentMagnet = 0));
 
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
-          "Main field inductance, d-axis"
+          "Stator main field inductance, d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.3/(2*pi*fsNominal))
-          "Main field inductance, q-axis"
+          "Stator main field inductance, q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
         // Rotor cage parameters
@@ -2670,10 +2671,10 @@ Resistances and stray inductances of the machine refer to the stator phases. The
                          final lossPowerRotorCore = 0));
 
         parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
-          "Main field inductance, d-axis"
+          "Stator main field inductance, d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=1.5/(2*pi*fsNominal))
-          "Main field inductance, q-axis"
+          "Stator main field inductance, q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
         // Rotor cage parameters
@@ -2902,10 +2903,10 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort and useDamperCage));
 
         parameter Modelica.SIunits.Inductance Lmd(start=2.9/(2*pi*fsNominal))
-          "Main field inductance, d-axis"
+          "Stator main field inductance, d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.9/(2*pi*fsNominal))
-          "Main field inductance, q-axis"
+          "Stator main field inductance, q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
         // Rotor cage parameters
@@ -4518,10 +4519,10 @@ This model is mainly used to extend from in order build more complex - equation 
         "Effective number of stator turns";
 
       parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-        "Stator stray inductance per phase"
+        "Stator stray inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance Lszero=Lssigma
-        "Stator zero inductance per phase"
+        "Stator zero inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance L0(d(start=1),q(start=1))
         "Salient inductance of an unchorded coil"
@@ -4534,7 +4535,8 @@ This model is mainly used to extend from in order build more complex - equation 
         statorCoreParameters(
           final m=3,
           wRef(start=2*pi*fsNominal/p),
-          VRef(start=100)) "Stator core losses"
+          VRef(start=100))
+        "Stator core losses; all parameters refer to stator side"
         annotation(Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters
         strayLoadParameters(
@@ -4987,6 +4989,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
+<tr><td>1.7.3</td><td>6029</td>  <td>2013-02-25</td>  <td>C. Kral</td>  <td>Corrected wrong parameter description</td></tr>
 <tr><td>1.7.2</td><td>4621</td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in prametrization of symmetrical multi phase winding model<br>Necessary adaptions due to conditional heatPorts of loss models (backwards compatibility)</td></tr>
 <tr><td>1.7.1</td><td>4170</td>  <td>2010-09-13</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
 <tr><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
