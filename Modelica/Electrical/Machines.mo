@@ -2020,15 +2020,15 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-10,0})));
-        Modelica.Electrical.Machines.Utilities.DqController dqController(
+        Modelica.Electrical.Machines.Utilities.VoltageController voltageController(
           p=smpm.p,
           Ld=smpm.Lssigma + smpm.Lmd,
           Lq=smpm.Lssigma + smpm.Lmq,
           Rs=Modelica.Electrical.Machines.Thermal.convertResistance(
-              smpm.Rs,
-              smpm.TsRef,
-              smpm.alpha20s,
-              smpm.TsOperational))
+                    smpm.Rs,
+                    smpm.TsRef,
+                    smpm.alpha20s,
+                    smpm.TsOperational))
           annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
         Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
           annotation (Placement(transformation(extent={{10,10},{-10,-10}},
@@ -2101,23 +2101,23 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             points={{-10,10},{-10,30}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(id.y, dqController.id_rms)      annotation (Line(
+        connect(id.y, voltageController.id_rms) annotation (Line(
             points={{-69,60},{-60,60},{-60,46},{-50,46}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(iq.y, dqController.iq_rms)      annotation (Line(
+        connect(iq.y, voltageController.iq_rms) annotation (Line(
             points={{-69,20},{-60,20},{-60,34},{-50,34}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(angleSensor.phi, dqController.phi)      annotation (Line(
+        connect(angleSensor.phi, voltageController.phi) annotation (Line(
             points={{10,11},{10,20},{-34,20},{-34,30}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(dqController.y, signalVoltage.v)      annotation (Line(
+        connect(voltageController.y, signalVoltage.v) annotation (Line(
             points={{-29,40},{-17,40}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(currentSensor.i, dqController.iActual)      annotation (Line(
+        connect(currentSensor.i, voltageController.iActual) annotation (Line(
             points={{-21,2.22045e-015},{-46,2.22045e-015},{-46,30}},
             color={0,0,127},
             smooth=Smooth.None));
@@ -2162,7 +2162,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           Documentation(info="<html>
 <p>
 A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
-The rms values of d- and q-current in rotor fixed coordinate system are controlled by the dqController,
+The rms values of d- and q-current in rotor fixed coordinate system are controlled by the voltageController,
 and the output voltages fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.</p>
 <p>
@@ -10109,8 +10109,6 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
-            Line(points={{-10,68},{-10,80},{-50,80},{-50,100}}, color={0,0,127}),
-            Line(points={{10,68},{10,80},{50,80},{50,100}}, color={0,0,127}),
             Ellipse(
               extent={{-70,70},{70,-70}},
               lineColor={0,0,0},
@@ -10138,7 +10136,9 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               extent={{-40,-20},{40,-60}},
               lineColor={0,0,255},
               textString="P Q"),
-            Line(points={{0,-70},{0,-90}}, color={0,0,255})}),
+            Line(points={{0,-70},{0,-90}}, color={0,0,255}),
+            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,127}),
+            Line(points={{10,70},{10,80},{50,80},{50,100}}, color={0,0,127})}),
         Documentation(info="<HTML>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
 which are used to calculate power quantities:<br>
@@ -15441,14 +15441,18 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
               textString=
                    "iq_rms")}),
         Documentation(info="<html>
-Simple Current-Controller.<br>
-The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
-Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"i[3]\") are calculated.
+<p>
+Simple Current-Controller.
+</p>
+<p>
+The desired rms values of d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
+Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"i[3]\") are calculated. 
 They can be used to feed a current source which in turn feeds an induction machine.
+</p>
 </HTML>"));
     end CurrentController;
 
-    model DqController "Current controller"
+    model VoltageController "Current controller"
       constant Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
       parameter Modelica.SIunits.Resistance Rs
@@ -15569,19 +15573,19 @@ They can be used to feed a current source which in turn feeds an induction machi
                    "iq_rms")}),
         Documentation(info="<html>
 <p>
-Simple Current-Controller
+Simple Voltage-Controller
 </p>
 <p>
-The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"<code>id_rms</code>\" and \"<code>iq_rms</code>\".
-Using the given rotor position (input \"<code>phi</code>\"), the actual threephase currents are measured and transformed to the d-q coordinate system.
-Two PI-controller determine the necessary d- and q- voltages, which are transformed back to threephase (output \"<code>y[3]</code>\").
-They can be used to feed a volatge source which in turn feeds a permanent magnet synchronous machine.
+The desired rms values of d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
+Using the given rotor position (input \"phi\"), the actual threephase currents are measured and transformed to the d-q coordinate system.
+Two PI-controller determine the necessary d- and q- voltages, which are transformed back to threephase (output \"y[3]\").
+They can be used to feed a voltage source which in turn feeds a permanent magnet synchronous machine.
 </p>
 <p>
 Note: No care is taken for current or voltage limiting, as well as for field weakening.
 </p>
 </html>"));
-    end DqController;
+    end VoltageController;
 
     block ToDQ
       extends Modelica.Blocks.Icons.Block;
