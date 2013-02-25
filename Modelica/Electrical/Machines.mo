@@ -9929,15 +9929,22 @@ The induction machine models use package SpacePhasors.
         annotation (Line(points={{-100,0},{-100,50},{-10,50}}, color={0,0,255}));
       connect(VoltageSensor1.plug_n, plug_n)
         annotation (Line(points={{10,50},{100,50},{100,0}}, color={0,0,255}));
-      connect(VoltageSensor1.v, ToSpacePhasor1.u) annotation (Line(points={{0,39},{
-              0,22},{0,22}},       color={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (Line(points={{
-              0,-1},{0,-8.5},{0,-8.5},{
-              0,-18}},  color={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (Line(points={{-0.5,-41},{-0.5,
-              -49.5},{0,-49.5},{0,-58}},   color={0,0,255}));
-      connect(Gain1.y, V) annotation (Line(points={{0,-81},{
-              0,-91.5},{0,-91.5},{0,-110}},color={0,0,255}));
+      connect(VoltageSensor1.v, ToSpacePhasor1.u) annotation (Line(
+          points={{0,39},{0,22}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (Line(
+          points={{0,-1},{0,-18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(ToPolar1.y[1], Gain1.u) annotation (Line(
+          points={{-0.5,-41},{-0.5,-49.5},{0,-49.5},{0,-58}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Gain1.y, V) annotation (Line(
+          points={{0,-81},{0,-110}},
+          color={0,0,127},
+          smooth=Smooth.None));
       annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
@@ -9963,7 +9970,7 @@ The induction machine models use package SpacePhasors.
               fillPattern=FillPattern.Solid),
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,255}),
+            Line(points={{0,-70},{0,-100}}, color={0,0,127}),
             Text(
               extent={{-40,-20},{40,-60}},
               lineColor={0,0,255},
@@ -9971,7 +9978,9 @@ The induction machine models use package SpacePhasors.
         Documentation(info="<HTML>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
-</HTML>"));
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end VoltageQuasiRMSSensor;
 
     model CurrentQuasiRMSSensor "Length of space phasor -> RMS current"
@@ -10011,15 +10020,22 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
         annotation (Line(points={{-100,0},{-100,50},{-10,50}}, color={0,0,255}));
       connect(CurrentSensor1.plug_n, plug_n)
         annotation (Line(points={{10,50},{100,50},{100,0}}, color={0,0,255}));
-      connect(CurrentSensor1.i, ToSpacePhasor1.u) annotation (Line(points={{0,39},{
-              0,22},{0,22}},       color={0,0,255}));
-      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (Line(points={{
-              0,-1},{0,-8.5},{0,-8.5},{
-              0,-18}},  color={0,0,255}));
-      connect(ToPolar1.y[1], Gain1.u) annotation (Line(points={{-0.5,-41},{-0.5,
-              -49.5},{0,-49.5},{0,-58}},   color={0,0,255}));
-      connect(Gain1.y,I)  annotation (Line(points={{0,-81},{
-              0,-91.5},{0,-91.5},{0,-110}},color={0,0,255}));
+      connect(CurrentSensor1.i, ToSpacePhasor1.u) annotation (Line(
+          points={{0,39},{0,22}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(ToSpacePhasor1.y, ToPolar1.u) annotation (Line(
+          points={{0,-1},{0,-18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(ToPolar1.y[1], Gain1.u) annotation (Line(
+          points={{-0.5,-41},{-0.5,-50.5},{0,-50.5},{0,-58}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Gain1.y, I) annotation (Line(
+          points={{0,-81},{0,-110}},
+          color={0,0,127},
+          smooth=Smooth.None));
       annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
@@ -10045,7 +10061,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               fillPattern=FillPattern.Solid),
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,255}),
+            Line(points={{0,-70},{0,-100}}, color={0,0,127}),
             Text(
               extent={{-40,-20},{40,-60}},
               lineColor={0,0,255},
@@ -10053,7 +10069,9 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
         Documentation(info="<HTML>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
-</HTML>"));
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end CurrentQuasiRMSSensor;
 
     model ElectricalPowerSensor "Instantaneous power from space phasors"
@@ -10091,6 +10109,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
+            Line(points={{-10,68},{-10,80},{-50,80},{-50,100}}, color={0,0,127}),
+            Line(points={{10,68},{10,80},{50,80},{50,100}}, color={0,0,127}),
             Ellipse(
               extent={{-70,70},{70,-70}},
               lineColor={0,0,0},
@@ -10118,9 +10138,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               extent={{-40,-20},{40,-60}},
               lineColor={0,0,255},
               textString="P Q"),
-            Line(points={{0,-70},{0,-90}}, color={0,0,255}),
-            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}),
-            Line(points={{10,70},{10,80},{50,80},{50,100}}, color={0,0,255})}),
+            Line(points={{0,-70},{0,-90}}, color={0,0,255})}),
         Documentation(info="<HTML>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
 which are used to calculate power quantities:<br>
@@ -10166,19 +10184,9 @@ Q = giving in stationary state reactive power.<br>
                                                    color={0,0,0}));
       connect(torqueSensor.flange_b, flange_b)
         annotation (Line(points={{40,0},{100,0}}, color={0,0,0}));
-      connect(product.y, P)  annotation (Line(points={{0,41},{
-              0,52},{0,52},{0,110}},        color={0,0,255}));
-      connect(torqueSensor.tau, product.u2) annotation (Line(
-          points={{22,-11},{22,-20},{6,-20},{6,18}},
-          color={0,0,127},
-          smooth=Smooth.None));
       connect(flange_a, relSpeedSensor.flange_b) annotation (Line(
           points={{-100,0},{-30,0},{-30,-20}},
           color={0,0,0},
-          smooth=Smooth.None));
-      connect(relSpeedSensor.w_rel, product.u1) annotation (Line(
-          points={{-19,-30},{-6,-30},{-6,18}},
-          color={0,0,127},
           smooth=Smooth.None));
       connect(relSpeedSensor.flange_a, fixed.flange) annotation (Line(
           points={{-30,-40},{-30,-90}},
@@ -10187,6 +10195,18 @@ Q = giving in stationary state reactive power.<br>
       connect(relSpeedSensor.flange_a, support) annotation (Line(
           points={{-30,-40},{-30,-80},{0,-80},{0,-100}},
           color={0,0,0},
+          smooth=Smooth.None));
+      connect(relSpeedSensor.w_rel, product.u1) annotation (Line(
+          points={{-19,-30},{-6,-30},{-6,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(torqueSensor.tau, product.u2) annotation (Line(
+          points={{22,-11},{22,-20},{6,-20},{6,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(product.y, P) annotation (Line(
+          points={{0,41},{0,110}},
+          color={0,0,127},
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -10213,7 +10233,7 @@ Q = giving in stationary state reactive power.<br>
               fillPattern=FillPattern.Solid),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{0,70},{0,100}}, color={0,0,255}),
+            Line(points={{0,70},{0,100}}, color={0,0,127}),
             Text(
               extent={{-40,-20},{40,-60}},
               lineColor={0,0,255},
@@ -10250,7 +10270,9 @@ Q = giving in stationary state reactive power.<br>
               smooth=Smooth.None)}),
         Documentation(info="<HTML>
 Calculates (mechanical) power from torque times angular speed.
-</HTML>"));
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end MechanicalPowerSensor;
 
     model RotorDisplacementAngle "Rotor lagging angle"
@@ -10308,27 +10330,10 @@ Calculates (mechanical) power from torque times angular speed.
         annotation (Placement(transformation(extent={{90,70},{110,90}},
               rotation=0)));
     equation
-      connect(constant_.y, add.u2) annotation (Line(points={{-29,40},{-16,40},{
-              -16,32}}, color={0,0,255}));
-      connect(add.y, rotatorVS2R.angle) annotation (Line(points={{-10,9},{-10,
-              5.5},{-10,5.5},{-10,2}},
-            color={0,0,255}));
-      connect(ToSpacePhasorVS.y, rotatorVS2R.u) annotation (Line(points={{-39,
-              -10},{-22,-10}}, color={0,0,255}));
-      connect(rotatorVS2R.y, ToPolarVSR.u)
-        annotation (Line(points={{1,-10},{18,-10}}, color={0,0,255}));
-      connect(ToPolarVSR.y, deMultiplex2.u)
-        annotation (Line(points={{41,-10},{58,-10}}, color={0,0,255}));
       connect(plug_p, VoltageSensor1.plug_p) annotation (Line(points={{-100,60},
               {-80,60},{-80,0}}, color={0,0,255}));
       connect(plug_n, VoltageSensor1.plug_n) annotation (Line(points={{-100,-60},
               {-80,-60},{-80,-20}}, color={0,0,255}));
-      connect(VoltageSensor1.v, ToSpacePhasorVS.u)
-        annotation (Line(points={{-69,-10},{-62,-10}}, color={0,0,255}));
-      connect(deMultiplex2.y2[1], rotorDisplacementAngle) annotation (Line(
-            points={{81,-16},{90,-16},{90,0},{110,0}}, color={0,0,255}));
-      connect(relativeAngleSensor.phi_rel, add.u1) annotation (Line(points={{30,69},
-              {30,40},{-4,40},{-4,32}},     color={0,0,255}));
       connect(relativeAngleSensor.flange_b, flange)
                                                    annotation (Line(points={{20,
               80},{0,80},{0,100}}, color={0,0,0}));
@@ -10339,6 +10344,38 @@ Calculates (mechanical) power from torque times angular speed.
       connect(relativeAngleSensor.flange_a, fixed.flange) annotation (Line(
           points={{40,80},{100,80}},
           color={0,0,0},
+          smooth=Smooth.None));
+      connect(relativeAngleSensor.phi_rel, add.u1) annotation (Line(
+          points={{30,69},{30,40},{-4,40},{-4,32}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(constant_.y, add.u2) annotation (Line(
+          points={{-29,40},{-16,40},{-16,32},{-16,32}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(VoltageSensor1.v, ToSpacePhasorVS.u) annotation (Line(
+          points={{-69,-10},{-62,-10}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(ToSpacePhasorVS.y, rotatorVS2R.u) annotation (Line(
+          points={{-39,-10},{-22,-10}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(rotatorVS2R.y, ToPolarVSR.u) annotation (Line(
+          points={{1,-10},{18,-10}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(add.y, rotatorVS2R.angle) annotation (Line(
+          points={{-10,9},{-10,2}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(ToPolarVSR.y, deMultiplex2.u) annotation (Line(
+          points={{41,-10},{58,-10}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(deMultiplex2.y2[1], rotorDisplacementAngle) annotation (Line(
+          points={{81,-16},{90,-16},{90,0},{110,0}},
+          color={0,0,127},
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -10419,7 +10456,9 @@ If the machine's stator also implicitly fixed (useSupport=false), the angle at t
 is equal to the angle of the machine's rotor against the stator.<br>
 Otherwise, the sensor's support has to be connected to the machine's support.
 </p>
-</HTML>"));
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end RotorDisplacementAngle;
     annotation (Documentation(info="<HTML>
 This package contains sensors that are useful when modelling machines.

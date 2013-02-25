@@ -2058,11 +2058,13 @@ like thyristor, diode, switch, transformer.
     equation
       connect(potentialSensor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
-      connect(potentialSensor.phi, phi)
-        annotation (Line(points={{11,0},{110,0}}, color={0,0,255}));
+      connect(potentialSensor.phi, phi) annotation (Line(
+          points={{11,0},{110,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
       annotation (
         Icon(graphics={
-            Line(points={{70,0},{100,0}}, color={0,0,255}),
+            Line(points={{70,0},{100,0}}, color={0,0,127}),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Text(
               extent={{-100,-70},{100,-110}},
@@ -2077,7 +2079,9 @@ like thyristor, diode, switch, transformer.
 Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor),
 thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
 </p>
-</HTML>"));
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end PotentialSensor;
 
     model VoltageSensor "Multiphase voltage sensor"
@@ -2101,8 +2105,10 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(voltageSensor.p, plug_p.pin)
         annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
-      connect(voltageSensor.v, v)
-        annotation (Line(points={{0,-10},{0,-110}}, color={0,0,255}));
+      connect(voltageSensor.v, v) annotation (Line(
+          points={{0,-10},{0,-110}},
+          color={0,0,127},
+          smooth=Smooth.None));
       annotation (
         Icon(graphics={
             Text(
@@ -2119,7 +2125,7 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
               textString="m="),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{0,-100},{0,-70}}, color={0,0,255}),
+            Line(points={{0,-100},{0,-70}}, color={0,0,127}),
             Text(
               extent={{20,-60},{100,-100}},
               lineColor={0,0,0},
@@ -2129,7 +2135,9 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
 Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor),
 thus measuring the m potential differences <i>v[m]</i> between the m pins of plug_p and plug_n.
 </p>
-</HTML>"));
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end VoltageSensor;
 
     model CurrentSensor "Multiphase current sensor"
@@ -2153,8 +2161,10 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
         annotation (Line(points={{-100,0},{-10,0}}, color={0,0,255}));
       connect(currentSensor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      connect(currentSensor.i, i)
-        annotation (Line(points={{0,-10},{0,-110}}, color={0,0,255}));
+      connect(currentSensor.i, i) annotation (Line(
+          points={{0,-10},{0,-110}},
+          color={0,0,127},
+          smooth=Smooth.None));
       annotation (
         Icon(graphics={
             Text(
@@ -2171,7 +2181,7 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
               textString="m="),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{0,-100},{0,-70}}, color={0,0,255}),
+            Line(points={{0,-100},{0,-70}}, color={0,0,127}),
             Text(
               extent={{20,-60},{100,-100}},
               lineColor={0,0,0},
@@ -2181,7 +2191,9 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
 Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
 thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to the m pins of plug_n.
 </p>
-</HTML>"));
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end CurrentSensor;
 
   model PowerSensor "Multiphase instantaneous power sensor"
@@ -2210,7 +2222,7 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
     MultiPhase.Sensors.VoltageSensor voltageSensor(final m=m)
       annotation (Placement(transformation(
             origin={0,-20},
-            extent={{10,-10},{-10,10}},
+            extent={{10,10},{-10,-10}},
             rotation=90)));
     MultiPhase.Sensors.CurrentSensor currentSensor(final m=m)
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}},
@@ -2234,19 +2246,27 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
               -10},{0,-10},{0,100}}, color={0,0,255}));
     connect(voltageSensor.plug_n, nv) annotation (Line(points={{-6.12303e-016,
               -30},{0,-30},{0,-100}}, color={0,0,255}));
-    connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-11},{
-              -40,-20},{-36,-20},{-36,-28}}, color={0,0,127}));
-    connect(product.u1, voltageSensor.v) annotation (Line(points={{-24,-28},{
-              -24,-20},{11,-20}},  color={0,0,127}));
-    connect(product.y, sum.u) annotation (Line(points={{-30,-51},{-30,-58}},
-            color={0,0,127}));
-    connect(sum.y, power) annotation (Line(points={{-30,-81},{-30,-90},{-80,-90},
-              {-80,-110}}, color={0,0,127}));
+      connect(voltageSensor.v, product.u1) annotation (Line(
+          points={{-11,-20},{-24,-20},{-24,-28}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(currentSensor.i, product.u2) annotation (Line(
+          points={{-40,-11},{-40,-20},{-36,-20},{-36,-28}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(product.y, sum.u) annotation (Line(
+          points={{-30,-51},{-30,-58}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sum.y, power) annotation (Line(
+          points={{-30,-81},{-30,-90},{-80,-90},{-80,-110}},
+          color={0,0,127},
+          smooth=Smooth.None));
     annotation (
       Icon(graphics={
             Line(points={{0,100},{0,70}}, color={0,0,255}),
             Line(points={{0,-70},{0,-100}}, color={0,0,255}),
-            Line(points={{-80,-100},{-80,0}}, color={0,0,255}),
+            Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
             Text(
               extent={{150,120},{-150,160}},
               textString="%name",
@@ -2283,7 +2303,9 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
             Line(points={{-100,0},{100,0}}, color={0,0,255})}),
       Documentation(info="<html><p>
 This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
-</p></html>"));
+</p></html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
   end PowerSensor;
     annotation (Documentation(info="<HTML>
 <p>
