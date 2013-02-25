@@ -3656,7 +3656,7 @@ This package contains test examples of electric machines.
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
-          "Main field inductance"
+          "Stator main field inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
           "Rotor stray inductance (equivalent three phase winding)"
@@ -3862,16 +3862,16 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
-          "Main field inductance"
+          "Stator main field inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-          "Rotor stray inductance per phase"
+          "Rotor stray inductance w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrzero=Lrsigma
-          "Rotor zero sequence inductance"
+          "Rotor zero sequence inductance w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start=0.04)
-          "Rotor resistance per phase at TRef"
+          "Rotor resistance per phase at TRef w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance"
@@ -3897,7 +3897,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final m=3,
           PRef=0,
           VRef(start=1)=1,
-          wRef(start=1)=1) "Rotor core losses"
+          wRef(start=1)=1)
+          "Rotor core losses; all parameters refer to rotor side"
           annotation(Dialog(tab="Losses"));
         output Modelica.SIunits.Current i_0_r(stateSelect=StateSelect.prefer) = spacePhasorR.zero.i
           "Rotor zero-sequence current";
@@ -3932,19 +3933,22 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Negative rotor plug"
           annotation (Placement(transformation(extent={{-110,-50},{-90,-70}},
                 rotation=0)));
-        Machines.BasicMachines.Components.Inductor lrsigma(final L=fill(Lrsigma, 2)) annotation (Placement(
+        Machines.BasicMachines.Components.Inductor lrsigma(final L=fill(
+              internalTurnsRatio^2*Lrsigma, 2))                                      annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={20,-20})));
-        Modelica.Electrical.Analog.Basic.Inductor lrzero(final L=Lrzero)
+        Modelica.Electrical.Analog.Basic.Inductor lrzero(final L=
+              internalTurnsRatio^2*Lrzero)
           annotation (Placement(transformation(extent={{10,10},{-10,-10}},
               rotation=90,
               origin={-50,-60})));
         Machines.Losses.InductionMachines.Core rotorCore(
           final coreParameters=rotorCoreParameters,
           final w=rotorCoreParameters.wRef,
-          final useHeatPort=true)
+          final useHeatPort=true,
+          final turnsRatio=internalTurnsRatio)
           annotation (Placement(transformation(
               extent={{-10,10},{10,-10}},
               rotation=180,
@@ -3967,7 +3971,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={0,0,255},
             smooth=Smooth.None));
         connect(lrsigma.spacePhasor_b, airGapS.spacePhasor_r) annotation (Line(
-            points={{20,-10},{15,-10},{15,-10},{10,-10}},
+            points={{20,-10},{10,-10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(rr.plug_n, spacePhasorR.plug_p) annotation (Line(
@@ -4235,10 +4239,10 @@ These models use package SpacePhasors.
         parameter Modelica.SIunits.Voltage VsOpenCircuit(start=112.3)
           "Open circuit RMS voltage per phase @ fsNominal";
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
-          "Main field inductance in d-axis"
+          "Stator main field inductance in d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.3/(2*pi*fsNominal))
-          "Main field inductance in q-axis"
+          "Stator main field inductance in q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start = true)
           "Enable / disable damper cage"
@@ -4527,10 +4531,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Operational temperature of (optional) damper cage"
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort and useDamperCage));
         parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
-          "Main field inductance in d-axis"
+          "Stator main field inductance in d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=1.5/(2*pi*fsNominal))
-          "Main field inductance in q-axis"
+          "Stator main field inductance in q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start = true)
           "Enable / disable damper cage"
@@ -4682,7 +4686,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={0,0,255},
             smooth=Smooth.None));
         connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (Line(
-            points={{-70,50},{50,50},{50,-80},{0,-80}},
+            points={{-70,50},{-60,50},{-60,40},{50,40},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(re.heatPort, internalThermalPort.heatPortExcitation) annotation (Line(
@@ -4934,10 +4938,10 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Operational temperature of (optional) damper cage"
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort and useDamperCage));
         parameter Modelica.SIunits.Inductance Lmd(start=2.9/(2*pi*fsNominal))
-          "Main field inductance in d-axis"
+          "Stator main field inductance in d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.9/(2*pi*fsNominal))
-          "Main field inductance in q-axis"
+          "Stator main field inductance in q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start = true)
           "Enable / disable damper cage"
@@ -10595,6 +10599,8 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 
       model Core "Model of core losses"
         parameter Machines.Losses.CoreParameters coreParameters(final m=3);
+        parameter Real turnsRatio(final min=Modelica.Constants.small)
+          "Effective number of stator turns / effective number of rotor turns (if used as rotor core)";
         extends
           Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
            useHeatPort=false);
@@ -10613,7 +10619,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           Gc = 0;
           spacePhasor.i_ = zeros(2);
         else
-          Gc = coreParameters.GcRef;
+          Gc = coreParameters.GcRef/turnsRatio^2;
           //  * (coreParameters.wRef/wsLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
           spacePhasor.i_ = Gc*spacePhasor.v_;
         end if;
@@ -12216,7 +12222,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         "Stator zero sequence inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-        "Stator stray inductance per phase"
+        "Stator stray inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       extends PartialBasicMachine(Jr(start=0.29),
         frictionParameters(wRef(start=2*pi*fsNominal/p)),
@@ -12224,7 +12230,8 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       parameter Machines.Losses.CoreParameters statorCoreParameters(
         final m=3,
         VRef(start=100),
-        wRef=2*pi*fsNominal) "Stator core losses"
+        wRef=2*pi*fsNominal)
+        "Stator core losses; all parameters refer to stator side"
         annotation(Dialog(tab="Losses"));
       parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
         IRef(start=100), wRef(start=2*pi*fsNominal/p)) "Stray load losses"
@@ -12280,7 +12287,8 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       Modelica.Electrical.Analog.Basic.Inductor lszero(final L=Lszero)
         annotation (Placement(transformation(extent={{0,40},{-20,60}})));
       Machines.Losses.InductionMachines.Core statorCore(final coreParameters=statorCoreParameters, final
-          useHeatPort=true)
+          useHeatPort=true,
+        final turnsRatio=1)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
@@ -14620,6 +14628,8 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
        quasistationary DC machine models</li>
   <li> v2.4.0 2010/04/20 Anton Haumer<br>
        loss models</li>
+  <li> v2.6.0 2013/02/25 Anton Haumer<br>
+       corrected turnsRatio bug in asynchronous induction machine with slipring; corrected parameter descriptions</li>
   </ul>
 </HTML>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,

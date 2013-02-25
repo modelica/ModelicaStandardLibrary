@@ -2402,6 +2402,9 @@ that can lead to wrong simulation results):
 <tr><td valign=\"top\">ThermalAmbientSMPM</td>
     <td valign=\"top\"> Corrected a bug of optional temperature input for PM temperature.</td></tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing</b></td></tr>
+<tr><td valign=\"top\">turnsRation</td>
+    <td valign=\"top\"> Corrected a bug in transforming zero inductance, stray inductance and core losses by turnsRatio.</td></tr>
 </table>
 
 <p><br>
@@ -2444,7 +2447,7 @@ units are wrong or errors in documentation):
     <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/570\">#570</a>
                       This model was changed from version 3.1 to 3.2 in not backwards
                       compatible way by adding a \"friction\" component with a heatPort in 3.2 and
-                      this heatPort is always active. If a user model is baed on
+                      this heatPort is always active. If a user model is based on
                       PartialBasicMachine, and MSL is changed from 3.1 to 3.2, then suddenly an
                       element is added with a heatPort, and this heatPort is not connected.
                       This gives a singular system during translation. This has been fixed
@@ -7539,9 +7542,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2",
-versionBuild=14,
+versionBuild=15,
 versionDate="2010-10-25",
-dateModified = "2012-03-06 21:00:00Z",
+dateModified = "2013-02-25 20:30:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="1.1"), ModelicaServices(version="1.1")),
 conversion(
