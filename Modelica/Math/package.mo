@@ -47,7 +47,7 @@ Icon for a mathematical function, consisting of an y-axis on the left side.
 It is expected, that an x-axis is added and a plot of the function.
 </p>
 </html>"));
-    end AxisLeft;
+  end AxisLeft;
 
   partial function AxisCenter
     "Basic icon for mathematical function with y-axis in the center"
@@ -86,9 +86,9 @@ Icon for a mathematical function, consisting of an y-axis in the middle.
 It is expected, that an x-axis is added and a plot of the function.
 </p>
 </html>"));
-    end AxisCenter;
+  end AxisCenter;
 
-  end Icons;
+end Icons;
 
 
 package Vectors "Library of functions operating on vectors"
@@ -108,7 +108,7 @@ package Vectors "Library of functions operating on vectors"
     String space=Strings.repeat(8);
     Integer r=size(v, 1);
 
-    algorithm
+  algorithm
     if r == 0 then
       s := if name == "" then "[]" else name + " = []";
     else
@@ -163,7 +163,7 @@ The default values of \"name\" and \"significantDigits\" are \"\" and 6 respecti
 </HTML>", revisions="<html>
 
 </html>"));
-    end toString;
+  end toString;
 
   function isEqual "Determine if two Real vectors are numerically identical"
     extends Modelica.Icons.Function;
@@ -177,7 +177,7 @@ The default values of \"name\" and \"significantDigits\" are \"\" and 6 respecti
   protected
     Integer n=size(v1, 1) "Dimension of vector v1";
     Integer i=1;
-    algorithm
+  algorithm
     result := false;
     if size(v2, 1) == n then
       result := true;
@@ -223,7 +223,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </p>
 </HTML>"));
-    end isEqual;
+  end isEqual;
 
   function norm "Return the p-norm of a vector"
     extends Modelica.Icons.Function;
@@ -232,7 +232,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       "Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)";
     output Real result "p-norm of vector v";
 
-    algorithm
+  algorithm
     if p == 2 then
       result := sqrt(v*v);
     elseif p == Modelica.Constants.inf then
@@ -296,14 +296,14 @@ Note, for any vector norm the following inequality holds:
 <a href=\"modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
 </p>
 </HTML>"));
-    end norm;
+  end norm;
 
   function length
     "Return length of a vector (better as norm(), if further symbolic processing is performed)"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
     output Real result "Length of vector v";
-    algorithm
+  algorithm
     result := sqrt(v*v);
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
@@ -330,7 +330,7 @@ not the case with function norm(..).
 <a href=\"modelica://Modelica.Math.Vectors.norm\">Vectors.norm</a>
 </p>
 </html>"));
-    end length;
+  end length;
 
   function normalize
     "Return normalized vector such that length = 1 and prevent zero-division for zero vector"
@@ -340,7 +340,7 @@ not the case with function norm(..).
       "if |v| < eps then result = v/eps";
     output Real result[size(v, 1)] "Input vector v normalized to length=1";
 
-    algorithm
+  algorithm
     result := smooth(0, noEvent(if length(v) >= eps then v/length(v) else v/eps));
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
@@ -375,14 +375,14 @@ possible.
 <a href=\"modelica://Modelica.Math.Vectors.length\">Vectors.length</a>
 </p>
 </html>"));
-    end normalize;
+  end normalize;
 
   function reverse "Reverse vector elements (e.g., v[1] becomes last element)"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
     output Real result[size(v, 1)] "Elements of vector v in reversed order";
 
-    algorithm
+  algorithm
     result := {v[end - i + 1] for i in 1:size(v, 1)};
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
@@ -399,7 +399,7 @@ vector elements in reverse order.
   <b>reverse</b>({1,2,3,4});  // = {4,3,2,1}
 </pre></blockquote>
 </html>"));
-    end reverse;
+  end reverse;
 
   function sort "Sort elements of vector in ascending or descending order"
     extends Modelica.Icons.Function;
@@ -418,7 +418,7 @@ vector elements in reverse order.
     Integer wi;
     Integer nv=size(v, 1);
     Boolean swap;
-    algorithm
+  algorithm
     gap := div(nv, 2);
 
     while gap > 0 loop
@@ -479,7 +479,7 @@ to the original vector are given, such that sorted_v = v[indices].
           i2 = {1, 5, 3, 4, 2}
 </pre></blockquote>
 </HTML>"));
-    end sort;
+  end sort;
 
   function find "Find element in a vector"
     extends Modelica.Icons.Function;
@@ -491,7 +491,7 @@ to the original vector are given, such that sorted_v = v[indices].
       "v[result] = e (first occurrence of e); result=0, if not found";
   protected
     Integer i;
-    algorithm
+  algorithm
     result := 0;
     i := 1;
     while i <= size(v, 1) loop
@@ -531,7 +531,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <a href=\"modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>
 </p>
 </html>"));
-    end find;
+  end find;
 
   function interpolate "Interpolate in a vector"
     extends Modelica.Icons.Function;
@@ -549,7 +549,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
     Real x2;
     Real y1;
     Real y2;
-    algorithm
+  algorithm
     assert(nx > 0, "The table vectors must have at least 1 entry.");
     if nx == 1 then
       yi := y[1];
@@ -611,7 +611,7 @@ if many interpolations take place.
 </pre></blockquote>
 
 </html>"));
-    end interpolate;
+  end interpolate;
 
   function relNodePositions "Return vector of relative node positions (0..1)"
     extends Modelica.Icons.Function;
@@ -620,7 +620,7 @@ if many interpolations take place.
     output Real xsi[nNodes] "Relative node positions";
   protected
     Real delta;
-    algorithm
+  algorithm
     if nNodes >= 1 then
       xsi[1] := 0;
     end if;
@@ -667,7 +667,7 @@ at the left and at the right side of the pipe), see next figure:
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">MultiBody.Visualizers.PipeWithScalarField</a>
 </p>
 </html>"));
-    end relNodePositions;
+  end relNodePositions;
 
   package Utilities
     "Utility functions that should not be directly utilized by the user"
@@ -685,7 +685,7 @@ at the left and at the right side of the pipe), see next figure:
       Real norm_b=norm(b, 2);
       Real alpha;
 
-      algorithm
+    algorithm
       assert(norm_b > 0,
         "Vector b in function householderVector is zero vector, but at least one element should be different from zero");
       assert(norm_a > 0,
@@ -743,7 +743,7 @@ with scalar c, |c| = ||<b>a</b>|| / ||<b>b</b>||. <b>Q</b>*<b>a</b> is the refle
 </ul>
 
 </html>"));
-      end householderVector;
+    end householderVector;
 
     function householderReflection
       "Reflect a vector a on a plane with orthogonal vector u"
@@ -758,7 +758,7 @@ with scalar c, |c| = ||<b>a</b>|| / ||<b>b</b>||. <b>Q</b>*<b>a</b> is the refle
       Real norm_a=Vectors.length(a);
       Real h=2*u*a;
 
-      algorithm
+    algorithm
       ra := a - h*u;
 
       // Values close to zero are set to zero.
@@ -812,7 +812,7 @@ where <b>Q</b> is an orthogonal matrix, i.e.
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-      end householderReflection;
+    end householderReflection;
 
     encapsulated function roots
       "Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero"
@@ -830,7 +830,7 @@ where <b>Q</b> is an orthogonal matrix, i.e.
       Integer n=size(p, 1) - 1;
       Real A[max(size(p, 1) - 1, 0), max(size(p, 1) - 1, 0)] "Companion matrix";
       Real ev[max(size(p, 1) - 1, 0), 2] "Eigenvalues";
-      algorithm
+    algorithm
       if n > 0 then
         assert(abs(p[1]) > 0,
           "Computing the roots of a polynomial with function \"Modelica.Math.Vectors.Utilities.roots\"\n"
@@ -883,7 +883,7 @@ provides efficient eigenvalue computation for those matrices.
   // which corresponds to the roots: -1.0 +/- j*1.41421356237309
 </pre></blockquote>
 </html>"));
-      end roots;
+    end roots;
     annotation (Documentation(info="<html>
 <p>
 This package contains utility functions that are utilized by higher level vector
@@ -891,7 +891,7 @@ and matrix functions. These functions are usually not useful for an end-user.
 </p>
 
 </html>"));
-    end Utilities;
+  end Utilities;
 
   annotation (preferredView="info", Documentation(info="<HTML>
 <h4>Library content</h4>
@@ -936,7 +936,7 @@ This library provides functions operating on vectors:
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices\">Matrices</a>
 </HTML>"));
-  end Vectors;
+end Vectors;
 
 
 package Matrices "Library of functions operating on matrices"
@@ -967,7 +967,7 @@ package Matrices "Library of functions operating on matrices"
       Real B3[3, 2]=[b3, -3*b3];
       Real X3[3, 2];
 
-      algorithm
+    algorithm
       print("\nDemonstrate how to solve linear equation systems:\n");
 
       // Solve regular linear equation with a right hand side vector
@@ -996,8 +996,8 @@ and how to solve singular linear equation systems with
 Matrices.leastSquares and Matrices.leastSquares2.
 </p>
 </html>"));
-      end solveLinearEquations;
-    end Examples;
+    end solveLinearEquations;
+  end Examples;
 
   function toString "Convert a matrix into its string representation "
     extends Modelica.Icons.Function;
@@ -1015,7 +1015,7 @@ Matrices.leastSquares and Matrices.leastSquares2.
     Integer r=size(M, 1);
     Integer c=size(M, 2);
 
-    algorithm
+  algorithm
     if r == 0 or c == 0 then
       s := name + " = []";
     else
@@ -1071,7 +1071,7 @@ prefix \"&lt;name&gt; =\" is leaved out.
 
 </HTML>", revisions="<html>
 </html>"));
-    end toString;
+  end toString;
 
   extends Modelica.Icons.Package;
 
@@ -1089,7 +1089,7 @@ prefix \"&lt;name&gt; =\" is leaved out.
     Integer ncol=size(M1, 2) "Number of columns of matrix M1";
     Integer i=1;
     Integer j;
-    algorithm
+  algorithm
     result := false;
     if size(M2, 1) == nrow and size(M2, 2) == ncol then
       result := true;
@@ -1138,7 +1138,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <a href=\"modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>,
 <a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </HTML>"));
-    end isEqual;
+  end isEqual;
 
   function solve
     "Solve real system of linear equations A*x=b with a b vector (Gaussian elimination with partial pivoting)"
@@ -1150,7 +1150,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 
   protected
     Integer info;
-    algorithm
+  algorithm
     (x,info) := LAPACK.dgesv_vec(A, b);
     assert(info == 0, "Solving a linear system of equations with function
 \"Matrices.solve\" is not possible, because the system has either
@@ -1197,7 +1197,7 @@ i.e., by Gaussian elimination with partial pivoting.
 <a href=\"modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>.
 </HTML>"));
-    end solve;
+  end solve;
 
   function solve2
     "Solve real system of linear equations A*X=B with a B matrix (Gaussian elimination with partial pivoting)"
@@ -1209,7 +1209,7 @@ i.e., by Gaussian elimination with partial pivoting.
 
   protected
     Integer info;
-    algorithm
+  algorithm
     (X,info) := LAPACK.dgesv(A, B);
     assert(info == 0, "Solving a linear system of equations with function
 \"Matrices.solve2\" is not possible, because the system has either
@@ -1263,7 +1263,7 @@ i.e., by Gaussian elimination with partial pivoting.
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>.
 </p>
 </HTML>"));
-    end solve2;
+  end solve2;
 
   function leastSquares
     "Solve linear equation A*x = b (exactly if possible, or otherwise in a least square sense; A may be non-square and may be rank deficient)"
@@ -1278,7 +1278,7 @@ i.e., by Gaussian elimination with partial pivoting.
   protected
     Integer info;
     Real xx[max(size(A, 1), size(A, 2))];
-    algorithm
+  algorithm
     if min(size(A)) > 0 then
       (xx,info,rank) := LAPACK.dgelsx_vec(
             A,
@@ -1418,7 +1418,7 @@ where Q1 consists of the first \"rank\" columns of Q.
 </p>
 
 </html>"));
-    end leastSquares;
+  end leastSquares;
 
   function leastSquares2
     "Solve linear equation A*X = B (exactly if possible, or otherwise in a least square sense; A may be non-square and may be rank deficient)"
@@ -1433,7 +1433,7 @@ where Q1 consists of the first \"rank\" columns of Q.
   protected
     Integer info;
     Real XX[max(size(A, 1), size(A, 2)), size(B, 2)];
-    algorithm
+  algorithm
     (XX,info,rank) := LAPACK.dgelsx(
           A,
           B,
@@ -1568,7 +1568,7 @@ where Q1 consists of the first \"rank\" columns of Q.
 </p>
 
 </html>"));
-    end leastSquares2;
+  end leastSquares2;
 
   function equalityLeastSquares
     "Solve a linear equality constrained least squares problem"
@@ -1581,7 +1581,7 @@ where Q1 consists of the first \"rank\" columns of Q.
 
   protected
     Integer info;
-    algorithm
+  algorithm
     assert(size(A, 2) >= size(B, 1) and size(A, 2) <= size(A, 1) + size(B, 1),
       "It is required that size(B,1) <= size(A,2) <= size(A,1) + size(B,1)\n"
        +
@@ -1630,7 +1630,7 @@ full column rank (= size(A,2)). In this case, the problem
 has a unique solution.
 </p>
 </HTML>"));
-    end equalityLeastSquares;
+  end equalityLeastSquares;
 
   function LU "LU decomposition of square or rectangular matrix"
     extends Modelica.Icons.Function;
@@ -1725,7 +1725,7 @@ matrix A was interchanged with row pivots[i].
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
 </p>
 </HTML>"));
-    end LU;
+  end LU;
 
   function LU_solve
     "Solve real system of linear equations P*L*U*x=b with a b vector and an LU decomposition (from LU(..))"
@@ -1737,7 +1737,7 @@ matrix A was interchanged with row pivots[i].
     input Real b[size(LU, 1)] "Right hand side vector of P*L*U*x=b";
     output Real x[size(b, 1)] "Solution vector such that P*L*U*x = b";
 
-    algorithm
+  algorithm
     for i in 1:size(LU, 1) loop
       assert(LU[i, i] <> 0, "Solving a linear system of equations with function
 \"Matrices.LU_solve\" is not possible, since the LU decomposition
@@ -1811,7 +1811,7 @@ matrix A was interchanged with row pivots[i].
 <a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
 </HTML>"));
-    end LU_solve;
+  end LU_solve;
 
   function LU_solve2
     "Solve real system of linear equations P*L*U*X=B with a B matrix and an LU decomposition (from LU(..))"
@@ -1824,7 +1824,7 @@ matrix A was interchanged with row pivots[i].
     output Real X[size(B, 1), size(B, 2)]
       "Solution matrix such that P*L*U*X = B";
 
-    algorithm
+  algorithm
     for i in 1:size(LU, 1) loop
       assert(LU[i, i] <> 0, "Solving a linear system of equations with function
 \"Matrices.LU_solve\" is not possible, since the LU decomposition
@@ -1906,7 +1906,7 @@ matrix A was interchanged with row pivots[i].
 <a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
 <a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>,
 </HTML>"));
-    end LU_solve2;
+  end LU_solve2;
 
   function eigenValues
     "Return eigenvalues and eigenvectors for a real, nonsymmetric matrix in a Real representation"
@@ -1922,7 +1922,7 @@ matrix A was interchanged with row pivots[i].
     Integer info;
     // replace with "isPresent(..)" if supported by Dymola
     Boolean onlyEigenvalues=false;
-    algorithm
+  algorithm
     if size(A, 1) > 0 then
       if onlyEigenvalues then
         (eigenvalues[:, 1],eigenvalues[:, 2],info) := LAPACK.dgeev_eigenValues(
@@ -1989,7 +1989,7 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 <a href=\"modelica://Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
 <a href=\"modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
 </html>"));
-    end eigenValues;
+  end eigenValues;
 
   function eigenValueMatrix
     "Return real valued block diagonal matrix J of eigenvalues of matrix A (A=V*J*Vinv)"
@@ -2003,7 +2003,7 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
   protected
     Integer n=size(eigenValues, 1);
     Integer i;
-    algorithm
+  algorithm
     J := zeros(n, n);
     i := 1;
     while i <= n loop
@@ -2048,7 +2048,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </HTML>"));
-    end eigenValueMatrix;
+  end eigenValueMatrix;
 
   function singularValues
     "Return singular values and left and right singular vectors"
@@ -2063,7 +2063,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
   protected
     Integer info;
     Integer n=min(size(A, 1), size(A, 2)) "Number of singular values";
-    algorithm
+  algorithm
     if n > 0 then
       (sigma,U,VT,info) := Modelica.Math.Matrices.LAPACK.dgesvd(A);
       assert(info == 0, "The numerical algorithm to compute the
@@ -2112,7 +2112,7 @@ matrices <code>U</code> and <code>V</code>.
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </HTML>"));
-    end singularValues;
+  end singularValues;
 
   function QR
     "Return the QR decomposition of a square matrix with optional column pivoting (A(:,p) = Q*R)"
@@ -2130,7 +2130,7 @@ matrices <code>U</code> and <code>V</code>.
     Integer nrow=size(A, 1);
     Integer ncol=size(A, 2);
     Real tau[size(A, 2)];
-    algorithm
+  algorithm
     assert(nrow >= ncol, "\nInput matrix A[" + String(nrow) + "," + String(ncol)
        + "] has more columns as rows.
 This is not allowed when calling Modelica.Matrices.QR(A).");
@@ -2216,7 +2216,7 @@ called as: <code>(,R,p) = QR(A)</code>.
                                     0     ,  0     ,  0.65..];
 </pre></blockquote>
 </HTML>"));
-    end QR;
+  end QR;
 
   function hessenberg "Return upper Hessenberg form of a matrix"
     extends Modelica.Icons.Function;
@@ -2234,7 +2234,7 @@ called as: <code>(,R,p) = QR(A)</code>.
     Real tau[max(0, size(A, 1) - 1)]
       "Scalar factors of the elementary reflectors";
 
-    algorithm
+  algorithm
     (H,V,tau) := Matrices.Utilities.toUpperHessenberg(
           A,
           1,
@@ -2297,7 +2297,7 @@ by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end hessenberg;
+  end hessenberg;
 
   function realSchur
     "Return the real Schur form (rsf) S of a square matrix A, A=QZ*S*QZ'"
@@ -2317,7 +2317,7 @@ by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b
   protected
     Integer info;
 
-    algorithm
+  algorithm
     if size(A, 1) > 1 then
       (S,QZ,alphaReal,alphaImag,info) := Matrices.LAPACK.dgees(A);
       assert(info == 0, "The output info of LAPACK.dgees should be zero, else if\n
@@ -2395,7 +2395,7 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end realSchur;
+  end realSchur;
 
   function cholesky
     "Return the Cholesky factorization of a symmetric positive definite matrix"
@@ -2412,7 +2412,7 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
     Integer n=size(A, 1);
     Integer info;
 
-    algorithm
+  algorithm
     if size(A, 1) > 0 then
       (H,info) := LAPACK.dpotrf(A, upper);
     else
@@ -2498,7 +2498,7 @@ The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPA
 </ul>
 
 </html>"));
-    end cholesky;
+  end cholesky;
 
   function balance
     "Return a balanced form of matrix A to improve the condition of A"
@@ -2523,7 +2523,7 @@ The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPA
     Real S;
     /*auxiliary variables*/
 
-    algorithm
+  algorithm
     // B = inv(D)*A*D, so that cond(B)<=cond(A)
     D := ones(na);
     B := A;
@@ -2615,7 +2615,7 @@ which based on the <code>balance</code> function from EISPACK.
 </li>
 </ul>
 </html>"));
-    end balance;
+  end balance;
 
   function trace
     "Return the trace of matrix A, i.e., the sum of the diagonal elements"
@@ -2623,7 +2623,7 @@ which based on the <code>balance</code> function from EISPACK.
 
     input Real A[:, size(A, 1)] "Square matrix A";
     output Real result "Trace of A";
-    algorithm
+  algorithm
     result := sum(A[i, i] for i in 1:size(A, 1));
     annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
@@ -2653,7 +2653,7 @@ This function computes the trace, i.e., the sum of the elements in the diagonal 
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end trace;
+  end trace;
 
   function det
     "Return determinant of a matrix (computed by LU decomposition; try to avoid det(..))"
@@ -2665,7 +2665,7 @@ This function computes the trace, i.e., the sum of the elements in the diagonal 
     Real LU[size(A, 1), size(A, 1)];
     Integer pivots[size(A, 1)];
 
-    algorithm
+  algorithm
     (LU,pivots) := Matrices.LU(A);
     result := product(LU[i, i] for i in 1:size(A, 1))*product(if pivots[i] == i
        then 1 else -1 for i in 1:size(pivots, 1));
@@ -2698,7 +2698,7 @@ as by computing the determinant. Examples:
 <a href=\"modelica://Modelica.Math.Matrices.rank\">Matrices.rank</a>,
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
 </html>"));
-    end det;
+  end det;
 
   function inv "Return inverse of a matrix (try to avoid inv(..))"
     extends Modelica.Icons.Function;
@@ -2708,7 +2708,7 @@ as by computing the determinant. Examples:
     Integer info;
     Integer pivots[size(A, 1)] "Pivot vector";
     Real LU[size(A, 1), size(A, 2)] "LU factors of A";
-    algorithm
+  algorithm
     (LU,pivots,info) := LAPACK.dgetrf(A);
 
     assert(info == 0, "Calculating an inverse matrix with function
@@ -2741,7 +2741,7 @@ x = inv(A)*b, because this is much more efficient and much more reliable.
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
 <a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>
 </html>"));
-    end inv;
+  end inv;
 
   function rank
     "Return rank of a rectangular matrix (computed with singular values)"
@@ -2756,7 +2756,7 @@ x = inv(A)*b, because this is much more efficient and much more reliable.
     Integer i=n;
     Real sigma[min(size(A, 1), size(A, 2))];
     Real eps2;
-    algorithm
+  algorithm
     result := 0;
     if n > 0 then
       sigma := Modelica.Math.Matrices.singularValues(A);
@@ -2793,7 +2793,7 @@ To be more precise:
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.rcond\">Matrices.rcond</a>.
 </html>"));
-    end rank;
+  end rank;
 
   function conditionNumber
     "Return the condition number norm(A)*norm(inv(A)) of a matrix A"
@@ -2808,7 +2808,7 @@ To be more precise:
     Real eps=1e-25;
     Real s[size(A, 1)] "singular values";
 
-    algorithm
+  algorithm
     if min(size(A)) > 0 then
       if p == 2 then
         s := Modelica.Math.Matrices.singularValues(A);
@@ -2858,7 +2858,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end conditionNumber;
+  end conditionNumber;
 
   function rcond "Return the reciprocal condition number of a matrix"
     extends Modelica.Icons.Function;
@@ -2873,7 +2873,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">
     Real anorm "Norm of matrix A";
     String normspec=if inf then "I" else "1" "Specifies the norm 1 or inf";
 
-    algorithm
+  algorithm
     if min(size(A)) > 0 then
       (LU,,info) := Modelica.Math.Matrices.LAPACK.dgetrf(A);
       anorm := Modelica.Math.Matrices.LAPACK.dlange(A, normspec);
@@ -2921,7 +2921,7 @@ If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill condit
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end rcond;
+  end rcond;
 
   function norm "Return the p-norm of a matrix"
     extends Modelica.Icons.Function;
@@ -2930,7 +2930,7 @@ If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill condit
       "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
     output Real result=0.0 "p-norm of matrix A";
 
-    algorithm
+  algorithm
     if p == 1 then
       // column sum norm
       for i in 1:size(A, 2) loop
@@ -2991,14 +2991,14 @@ Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,
 </p>
 
 </HTML>"));
-    end norm;
+  end norm;
 
   function frobeniusNorm "Return the Frobenius norm of a matrix"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Input matrix";
     output Real result "Frobenius norm of matrix A";
 
-    algorithm
+  algorithm
     result := if min(size(A)) > 0 then sqrt(sum(A .* A)) else -1e100;
 
     annotation (Inline=true, Documentation(info="<html>
@@ -3036,7 +3036,7 @@ This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end frobeniusNorm;
+  end frobeniusNorm;
 
   function nullSpace "Return the orthonormal nullspace of a matrix"
     extends Modelica.Icons.Function;
@@ -3053,7 +3053,7 @@ This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e
     Integer n=min(size(A, 1), size(A, 2));
     Integer i=n;
 
-    algorithm
+  algorithm
     (sigma,,V) := Modelica.Math.Matrices.singularValues(A);
     V := transpose(V);
     // rank computation
@@ -3155,7 +3155,7 @@ with
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end nullSpace;
+  end nullSpace;
 
   function exp
     "Return the exponential of a matrix by adaptive Taylor series expansion with scaling and balancing"
@@ -3185,13 +3185,13 @@ with
     encapsulated function columnNorm "Returns the column norm of a matrix"
       input Real A[:, :] "Input matrix";
       output Real result=0.0 "1-norm of matrix A";
-      algorithm
+    algorithm
       for i in 1:size(A, 2) loop
         result := max(result, sum(abs(A[:, i])));
       end for;
-      end columnNorm;
+    end columnNorm;
 
-    algorithm
+  algorithm
     // balancing of A
     (Diag,Atransf) := balance(A);
 
@@ -3297,7 +3297,7 @@ implementation variant used in this function.
 </li>
 </ul>
 </html>"));
-    end exp;
+  end exp;
 
   function integralExp
     "Return the exponential and the integral of the exponential of a matrix"
@@ -3328,12 +3328,12 @@ implementation variant used in this function.
     encapsulated function columnNorm "Returns the column norm of a matrix"
       input Real A[:, :] "Input matrix";
       output Real result=0.0 "1-norm of matrix A";
-      algorithm
+    algorithm
       for i in 1:size(A, 2) loop
         result := max(result, sum(abs(A[:, i])));
       end for;
-      end columnNorm;
-    algorithm
+    end columnNorm;
+  algorithm
     // balancing of A
     (Diag,Atransf) := balance(A);
 
@@ -3470,7 +3470,7 @@ The Algorithm to calculate psi is taken from
 </li>
 </ul>
 </html>"));
-    end integralExp;
+  end integralExp;
 
   function integralExpT
     "Return the exponential, the integral of the exponential, and time-weighted integral of the exponential of a matrix"
@@ -3491,7 +3491,7 @@ The Algorithm to calculate psi is taken from
     Boolean done=false;
     Real F[na + 2*nb, na + 2*nb];
 
-    algorithm
+  algorithm
     F := [A, B, zeros(na, nb); zeros(2*nb, na), zeros(2*nb, nb), [identity(nb);
       zeros(nb, nb)]];
     F := exp(F, T);
@@ -3547,7 +3547,7 @@ is, e.g., described in
 </li>
 </ul>
 </html>"));
-    end integralExpT;
+  end integralExpT;
 
   //
   // protected
@@ -3583,7 +3583,7 @@ is, e.g., described in
     output Real X[size(A, 1), size(A, 2)]
       "Solution X of the Lyapunov equation  X*A + A'*X = C";
 
-    algorithm
+  algorithm
     if n > 1 then
       if ATisSchur then
         R := transpose(A);
@@ -3763,7 +3763,7 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end continuousLyapunov;
+  end continuousLyapunov;
 
   function continuousSylvester
     "Return solution X of the continuous-time Sylvester equation A*X + X*B = C"
@@ -3789,7 +3789,7 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     Real scale;
     Integer info;
 
-    algorithm
+  algorithm
     if n > 1 and m > 1 then
       if AisSchur then
         S := A;
@@ -3911,7 +3911,7 @@ for more information.
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end continuousSylvester;
+  end continuousSylvester;
 
   function continuousRiccati
     "Return solution X of the continuous-time algebraic Riccati equation A'*X + X*A - X*B*inv(R)*B'*X + Q = 0 (care)"
@@ -3944,7 +3944,7 @@ for more information.
       "Real parts of eigenvalue=alphaReal+i*alphaImag";
     output Real alphaImag[size(H, 1)]
       "Imaginary parts of eigenvalue=(alphaReal+i*alphaImag";
-    algorithm
+  algorithm
     if n > 1 then
       (H_RSF,Z,alphaReal,alphaImag) := Modelica.Math.Matrices.realSchur(H);
       (H_RSF,Z,alphaReal,alphaImag) := Matrices.Utilities.reorderRSF(
@@ -4111,7 +4111,7 @@ X = [2.0, 1.0;
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end continuousRiccati;
+  end continuousRiccati;
 
   function discreteLyapunov
     "Return solution X of the discrete-time Lyapunov equation A'*X*A + sgn*X = C"
@@ -4145,7 +4145,7 @@ X = [2.0, 1.0;
     output Real X[size(A, 1), size(A, 2)]
       "Solution X of the Lyapunov equation A'*X*A + sgn*X = C";
 
-    algorithm
+  algorithm
     assert(sgn == 1 or sgn == -1,
       "Input sgn in function Math.Matrices.discreteLyapunov() must be 1 or -1, however it is "
        + String(sgn));
@@ -4288,7 +4288,7 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end discreteLyapunov;
+  end discreteLyapunov;
 
   function discreteSylvester
     "Return solution of the discrete-time Sylvester equation A*X*B + sgn*X = C"
@@ -4327,7 +4327,7 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     output Real X[size(A, 2), size(B, 1)]
       "solution of the discrete Sylvester equation A*X*B + sgn*X = C";
 
-    algorithm
+  algorithm
     assert(sgn == 1 or sgn == -1,
       "Input sgn in function Math.Matrices.discreteLyapunov() must be 1 or -1, however it is "
        + String(sgn));
@@ -4494,7 +4494,7 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end discreteSylvester;
+  end discreteSylvester;
 
   function discreteRiccati
     "Return solution of discrete-time algebraic Riccati equation A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0 (dare)"
@@ -4533,7 +4533,7 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
       "Real part of eigenvalue=alphaReal+i*alphaImag";
     output Real alphaImag[size(H, 1)]
       "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
-    algorithm
+  algorithm
     (LU,p) := Modelica.Math.Matrices.LU(AT);
     H21 := Modelica.Math.Matrices.LU_solve2(
           LU,
@@ -4720,7 +4720,7 @@ X = [14.5623, 9.7082;
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end discreteRiccati;
+  end discreteRiccati;
 
   function sort
     "Sort the rows or columns of a matrix in ascending or descending order"
@@ -4754,7 +4754,7 @@ X = [14.5623, 9.7082;
     protected
       Integer n=size(v1, 1);
       Integer i=1;
-      algorithm
+    algorithm
       result := false;
       while i <= n loop
         if v1[i] > v2[i] then
@@ -4765,7 +4765,7 @@ X = [14.5623, 9.7082;
         end if;
         i := i + 1;
       end while;
-      end greater;
+    end greater;
 
     encapsulated function less "Compare whether vector v1 < v2"
       import Modelica;
@@ -4777,7 +4777,7 @@ X = [14.5623, 9.7082;
     protected
       Integer n=size(v1, 1);
       Integer i=1;
-      algorithm
+    algorithm
       result := false;
       while i <= n loop
         if v1[i] < v2[i] then
@@ -4788,8 +4788,8 @@ X = [14.5623, 9.7082;
         end if;
         i := i + 1;
       end while;
-      end less;
-    algorithm
+    end less;
+  algorithm
     if not sortRows then
       (sorted_MT,indices) := sort(transpose(M), ascending=ascending);
       sorted_M := transpose(sorted_MT);
@@ -4865,13 +4865,13 @@ to the original matrix are given, such that
           i2 = {2,1};
 </pre></blockquote>
 </HTML>"));
-    end sort;
+  end sort;
 
   function flipLeftRight "Flip the columns of a matrix in left/right direction"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix to be flipped";
     output Real Aflip[size(A, 1), size(A, 2)] "Flipped matrix";
-    algorithm
+  algorithm
     Aflip := A[:, {i for i in size(A, 2):-1:1}];
 
     annotation (Inline=true, Documentation(info="<html>
@@ -4911,13 +4911,13 @@ Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end flipLeftRight;
+  end flipLeftRight;
 
   function flipUpDown "Flip the rows of a matrix in up/down direction"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix to be flipped";
     output Real Aflip[size(A, 1), size(A, 2)] "Flipped matrix";
-    algorithm
+  algorithm
     Aflip := A[{i for i in size(A, 1):-1:1}, :];
 
     annotation (Inline=true, Documentation(info="<html>
@@ -4957,7 +4957,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-    end flipUpDown;
+  end flipUpDown;
 
   package LAPACK
     "Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)"
@@ -5074,7 +5074,7 @@ Lapack documentation
                   elements i+1:N of WR and WI contain eigenvalues which
                   have converged.
 "));
-      end dgeev;
+    end dgeev;
 
     function dgeev_eigenValues
       "Compute eigenvalues for real nonsymmetric matrix A"
@@ -5191,7 +5191,7 @@ Lapack documentation
                   elements i+1:N of WR and WI contain eigenvalues which
                   have converged.
 "));
-      end dgeev_eigenValues;
+    end dgeev_eigenValues;
 
     function dgegv "Compute generalized eigenvalues for a (A,B) system"
       extends Modelica.Icons.Function;
@@ -5378,7 +5378,7 @@ form[*] of the \"balanced\" versions of A and B.  If no eigenvectors
 are computed, then only the diagonal blocks will be correct.
 [*] See DHGEQZ, DGEGS, or read the book \"Matrix Computations\",
 "));
-      end dgegv;
+    end dgegv;
 
     function dgelsx
       "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A"
@@ -5510,7 +5510,7 @@ are computed, then only the diagonal blocks will be correct.
           = 0:  successful exit
           < 0:  if INFO = -i, the i-th argument had an illegal value    "));
 
-      end dgelsx;
+    end dgelsx;
 
     function dgelsx_vec
       "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A"
@@ -5641,7 +5641,7 @@ are computed, then only the diagonal blocks will be correct.
           = 0:  successful exit
           < 0:  if INFO = -i, the i-th argument had an illegal value    "));
 
-      end dgelsx_vec;
+    end dgelsx_vec;
 
     function dgels_vec
       "Solves overdetermined or underdetermined real linear equations A*x=b with a b vector"
@@ -5767,7 +5767,7 @@ are computed, then only the diagonal blocks will be correct.
           < 0:  if INFO = -i, the i-th argument had an illegal value
                                                                           "));
 
-      end dgels_vec;
+    end dgels_vec;
 
     function dgesv
       "Solve real system of linear equations A*X=B with a B matrix"
@@ -5834,7 +5834,7 @@ are computed, then only the diagonal blocks will be correct.
                   has been completed, but the factor U is exactly
                   singular, so the solution could not be computed.
 "));
-      end dgesv;
+    end dgesv;
 
     function dgesv_vec
       "Solve real system of linear equations A*x=b with a b vector"
@@ -5862,7 +5862,7 @@ are computed, then only the diagonal blocks will be correct.
 Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgesv.
 "));
-      end dgesv_vec;
+    end dgesv_vec;
 
     function dgglse_vec
       "Solve a linear equality constrained least squares problem"
@@ -5980,7 +5980,7 @@ For details of the arguments, see documentation of dgesv.
           = 0:  successful exit.
           < 0:  if INFO = -i, the i-th argument had an illegal value.
 "));
-      end dgglse_vec;
+    end dgglse_vec;
 
     function dgtsv
       "Solve real system of linear equations A*X=B with B matrix and tridiagonal A"
@@ -6052,7 +6052,7 @@ For details of the arguments, see documentation of dgesv.
 
                   completed unless i = N.
 "));
-      end dgtsv;
+    end dgtsv;
 
     function dgtsv_vec
       "Solve real system of linear equations A*x=b with b vector and tridiagonal A"
@@ -6082,7 +6082,7 @@ For details of the arguments, see documentation of dgesv.
 Same as function LAPACK.dgtsv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgtsv.
 "));
-      end dgtsv_vec;
+    end dgtsv_vec;
 
     function dgbsv
       "Solve real system of linear equations A*X=B with a B matrix"
@@ -6173,7 +6173,7 @@ On entry:                       On exit:
 Array elements marked * are not used by the routine; elements marked
 + need not be set on entry, but are required by the routine to store
 elements of U because of fill-in resulting from the row interchanges."));
-      end dgbsv;
+    end dgbsv;
 
     function dgbsv_vec
       "Solve real system of linear equations A*x=b with a b vector"
@@ -6202,7 +6202,7 @@ elements of U because of fill-in resulting from the row interchanges."));
               info) annotation (Library="Lapack");
       annotation (Documentation(info="Lapack documentation:
 "));
-      end dgbsv_vec;
+    end dgbsv_vec;
 
     function dgesvd "Determine singular value decomposition"
       extends Modelica.Icons.Function;
@@ -6327,7 +6327,7 @@ elements of U because of fill-in resulting from the row interchanges."));
                   did not converge to zero. See the description of WORK
                   above for details.
 "));
-      end dgesvd;
+    end dgesvd;
 
     function dgesvd_sigma "Determine singular values"
       extends Modelica.Icons.Function;
@@ -6452,7 +6452,7 @@ elements of U because of fill-in resulting from the row interchanges."));
                   did not converge to zero. See the description of WORK
                   above for details.
 "));
-      end dgesvd_sigma;
+    end dgesvd_sigma;
 
     function dgetrf
       "Compute LU factorization of square or rectangular matrix A (A = P*L*U)"
@@ -6517,7 +6517,7 @@ INFO    (output) INTEGER
               singular, and division by zero will occur if it is used
               to solve a system of equations.
 "));
-      end dgetrf;
+    end dgetrf;
 
     function dgetrs
       "Solves a system of linear equations with the LU decomposition from dgetrf(..)"
@@ -6593,7 +6593,7 @@ INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument had an illegal value
 "));
-      end dgetrs;
+    end dgetrs;
 
     function dgetrs_vec
       "Solves a system of linear equations with the LU decomposition from dgetrf(..)"
@@ -6670,7 +6670,7 @@ INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument had an illegal value
 "));
-      end dgetrs_vec;
+    end dgetrs_vec;
 
     function dgetri
       "Computes the inverse of a matrix using the LU factorization from dgetrf(..)"
@@ -6739,7 +6739,7 @@ INFO    (output) INTEGER
         < 0:  if INFO = -i, the i-th argument had an illegal value
         > 0:  if INFO = i, U(i,i) is exactly zero; the matrix is
               singular and its inverse could not be computed."));
-      end dgetri;
+    end dgetri;
 
     function dgeqpf
       "Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)"
@@ -6820,7 +6820,7 @@ v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i).
 The matrix P is represented in jpvt as follows: If
    jpvt(j) = i
 then the jth column of P is the ith canonical unit vector."));
-      end dgeqpf;
+    end dgeqpf;
 
     function dorgqr
       "Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf"
@@ -6896,7 +6896,7 @@ INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument has an illegal value
 "));
-      end dorgqr;
+    end dorgqr;
 
     function dgees
       "Computes real Schur form T of  real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues"
@@ -7080,7 +7080,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
                      the Schur form no longer satisfy SELECT=.TRUE.  This
                      could also be caused by underflow due to scaling.
 "));
-      end dgees;
+    end dgees;
 
     function dtrsen "Reorder the real Schur factorization of a real matrix"
       extends Modelica.Icons.Function;
@@ -7341,7 +7341,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
                        EPS * norm(T) / SEP
 
    =====================================================================  "));
-      end dtrsen;
+    end dtrsen;
 
     function dgesvx
       "Solve real system of linear equations op(A)*X=B, op(A) is A or A' according to the Boolean input transposed"
@@ -7620,7 +7620,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
 
     =====================================================================
 "));
-      end dgesvx;
+    end dgesvx;
 
     function dtrsyl
       "Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C"
@@ -7810,7 +7810,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
                        EPS * norm(T) / SEP
 
    =====================================================================  "));
-      end dtrsyl;
+    end dtrsyl;
 
     function dhseqr
       "Compute eingenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix"
@@ -7953,7 +7953,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
                  eigenvalues which have been successfully computed.
 
    =====================================================================  "));
-      end dhseqr;
+    end dhseqr;
 
     function dlange "Norm of a matrix"
       extends Modelica.Icons.Function;
@@ -8049,7 +8049,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
    =====================================================================
 "));
 
-      end dlange;
+    end dlange;
 
     function dgecon
       "Estimates the reciprocal of the condition number of a general real matrix A"
@@ -8129,7 +8129,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
     =====================================================================
 "));
-      end dgecon;
+    end dgecon;
 
     function dgehrd
       "reduces a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q' * A * Q = H"
@@ -8252,7 +8252,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
    =====================================================================
 "));
-      end dgehrd;
+    end dgehrd;
 
     function dgeqrf "computes a QR factorization without pivoting"
       extends Modelica.Icons.Function;
@@ -8346,7 +8346,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
    and tau in TAU(i).
 
    =====================================================================  "));
-      end dgeqrf;
+    end dgeqrf;
 
     function dgeevx
       "Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx "
@@ -8581,7 +8581,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
    =====================================================================
 "));
-      end dgeevx;
+    end dgeevx;
 
     function dgesdd "Determine singular value decomposition"
       extends Modelica.Icons.Function;
@@ -8746,7 +8746,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       California at Berkeley, USA
 
    =====================================================================  "));
-      end dgesdd;
+    end dgesdd;
 
     function dggev
       "Compute generalized eigenvalues, as well as the left and right eigenvectors for a (A,B) system"
@@ -8917,7 +8917,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
    =====================================================================
 "));
-      end dggev;
+    end dggev;
 
     function dggevx
       "Compute generalized eigenvalues for a (A,B) system, using lapack routine dggevx"
@@ -9221,7 +9221,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
    =====================================================================
 "));
-      end dggevx;
+    end dggevx;
 
     function dhgeqz "Compute generalized eigenvalues for a (A,B) system"
       extends Modelica.Icons.Function;
@@ -9462,7 +9462,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
    =====================================================================
 "));
-      end dhgeqz;
+    end dhgeqz;
 
     function dormhr
       "overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix as returned by dgehrd"
@@ -9593,7 +9593,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
            < 0:  if INFO = -i, the i-th argument had an illegal value
 
    =====================================================================  "));
-      end dormhr;
+    end dormhr;
 
     function dormqr
       "overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf"
@@ -9718,7 +9718,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
            < 0:  if INFO = -i, the i-th argument had an illegal value
 
    =====================================================================  "));
-      end dormqr;
+    end dormqr;
 
     function dtrevc
       "Compute the right and/or left eigenvectors of a real upper quasi-triangular matrix T"
@@ -9886,7 +9886,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
  (x,y) is taken to be |x| + |y|.
 
    =====================================================================  "));
-      end dtrevc;
+    end dtrevc;
 
     function dpotrf
       "Computes the Cholesky factorization of a real symmetric positive definite matrix A"
@@ -9954,7 +9954,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
                   positive definite, and the factorization could not be
                   completed."));
 
-      end dpotrf;
+    end dpotrf;
 
     function dtrsm
       "Solve one of the matrix equations  op( A )*X = alpha*B,   or   X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine"
@@ -10074,7 +10074,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
              max( 1, m ).
              Unchanged on exit.
     Level 3 Blas routine.   "));
-      end dtrsm;
+    end dtrsm;
 
     function dorghr
       "Generates a real orthogonal matrix Q which is defined as the product of IHI-ILO elementary reflectors of order N, as returned by DGEHRD"
@@ -10163,7 +10163,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
     =====================================================================
 "));
-      end dorghr;
+    end dorghr;
     annotation (Documentation(info="<html>
 <p>
 This package contains external Modelica functions as interface to the
@@ -10193,7 +10193,7 @@ This package contains a direct interface to the LAPACK subroutines
 </p>
 
 </html>"));
-    end LAPACK;
+  end LAPACK;
 
   package Utilities
     "Utility functions that should not be directly utilized by the user"
@@ -10234,7 +10234,7 @@ This package contains a direct interface to the LAPACK subroutines
       Integer k;
       Boolean stop;
 
-      algorithm
+    algorithm
       if n > 1 then
         k := 0;
         stop := false;
@@ -10363,7 +10363,7 @@ The algorithm is taken from [1] and [2].
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-      end continuousRiccatiIterative;
+    end continuousRiccatiIterative;
 
     function discreteRiccatiIterative
       "Newton's method with exact line search for solving discrete algebraic Riccati equation"
@@ -10401,7 +10401,7 @@ The algorithm is taken from [1] and [2].
 
       Boolean stop;
 
-      algorithm
+    algorithm
       if n > 0 then
         k := 0;
         stop := false;
@@ -10523,7 +10523,7 @@ The algorithm is taken from [1] and [2].
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-      end discreteRiccatiIterative;
+    end discreteRiccatiIterative;
 
     function householderReflection
       "Reflect each of the vectors a_i of matrix  A=[a_1, a_2, ..., a_n] on a plane with orthogonal vector u"
@@ -10540,7 +10540,7 @@ The algorithm is taken from [1] and [2].
       Real h;
       Real lu=(Vectors.length(u))^2;
 
-      algorithm
+    algorithm
       for i in 1:n loop
         h := scalar(2*transpose(matrix(u))*A[:, i]/lu);
         RA[:, i] := A[:, i] - h*u;
@@ -10600,7 +10600,7 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-      end householderReflection;
+    end householderReflection;
 
     function householderSimilarityTransformation
       "Perform the similarity transformation S*A*S of matrix A with symmetric householder matrix S = I - 2u*u'"
@@ -10617,7 +10617,7 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
       Integer na=size(A, 1);
       Real S[size(A, 1), size(A, 1)] "Symmetric matrix";
       Integer i;
-      algorithm
+    algorithm
       if na > 0 then
         S := -2*matrix(u)*transpose(matrix(u))/(Vectors.length(u)*
           Vectors.length(u));
@@ -10685,7 +10685,7 @@ This transformation is widely used for transforming non-symmetric matrices to a 
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-      end householderSimilarityTransformation;
+    end householderSimilarityTransformation;
 
     function toUpperHessenberg
       "Transform a real square matrix A to upper Hessenberg form H by orthogonal similarity transformation:  Q' * A * Q = H"
@@ -10712,7 +10712,7 @@ This transformation is widely used for transforming non-symmetric matrices to a 
       Real Aout[size(A, 1), size(A, 2)];
       Integer i;
 
-      algorithm
+    algorithm
       if n > 0 then
         (Aout,tau,info) := LAPACK.dgehrd(
                 A,
@@ -10769,7 +10769,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.Lapack.
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-      end toUpperHessenberg;
+    end toUpperHessenberg;
 
     function eigenvaluesHessenberg
       "Compute eigenvalues of an upper Hessenberg form matrix"
@@ -10794,7 +10794,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.Lapack.
                 n,
                 n);
 
-      algorithm
+    algorithm
       if size(H, 1) > 0 then
         (alphaReal,alphaImag,info) := LAPACK.dhseqr(H);
       else
@@ -10849,7 +10849,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.Lapack.
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-      end eigenvaluesHessenberg;
+    end eigenvaluesHessenberg;
 
     function reorderRSF
       "Reorders a real Schur form to clusters of stable and unstable eigenvalues"
@@ -10875,7 +10875,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.Lapack.
       Integer n=size(T, 2);
       Boolean select[size(T, 2)]=fill(false, size(T, 2));
       Integer i;
-      algorithm
+    algorithm
       if iscontinuous then
         for i in 1:n loop
           if alphaReal[i] < 0 then
@@ -10939,7 +10939,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-      end reorderRSF;
+    end reorderRSF;
 
     function findLocal_tk
       "Find a local minimizer tk to define the length of the step tk*Nk in continuousRiccatiIterative and discreteRiccatiIterative"
@@ -10960,7 +10960,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
       Real p[3, 2];
       Boolean h;
 
-      algorithm
+    algorithm
       alpha_k := Matrices.trace(Rk*Rk);
       beta_k := Matrices.trace(Rk*Vk);
       gamma_k := Matrices.trace(Vk*Vk);
@@ -11021,14 +11021,14 @@ See [1] for more information
        by Marcus Baur, DLR-RM</li>
 </ul>
 </html>"));
-      end findLocal_tk;
+    end findLocal_tk;
     annotation (Documentation(info="<html>
 <p>
 This package contains utility functions that are utilized by higher level matrix functions.
 These functions are usually not useful for an end-user.
 </p>
 </html>"));
-    end Utilities;
+  end Utilities;
   annotation (Documentation(info="<HTML>
 <h4>Library content</h4>
 <p>
@@ -11203,7 +11203,7 @@ Note: A' is a short hand notation of transpose(A):
 <a href=\"modelica://Modelica.Math.Vectors\">Vectors</a>
 
 </html>"));
-  end Matrices;
+end Matrices;
 
 
 function isEqual "Determine if two Real scalars are numerically identical"
@@ -11213,7 +11213,7 @@ function isEqual "Determine if two Real scalars are numerically identical"
   input Real eps(min=0) = 0
     "The two scalars are identical if abs(s1-s2) <= eps";
   output Boolean result "= true, if scalars are identical";
-  algorithm
+algorithm
   result := abs(s1 - s2) <= eps;
   annotation (Inline=true, Documentation(info="<HTML>
 <h4>Syntax</h4>
@@ -11247,7 +11247,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </p>
 </HTML>"));
-  end isEqual;
+end isEqual;
 
 
 function sin "Sine"
@@ -11319,7 +11319,7 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"modelica://Modelica/Resources/Images/Math/sin.png\">
 </p>
 </html>"));
-  end sin;
+end sin;
 
 
 function cos "Cosine"
@@ -11388,7 +11388,7 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"modelica://Modelica/Resources/Images/Math/cos.png\">
 </p>
 </html>"));
-  end cos;
+end cos;
 
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
@@ -11459,7 +11459,7 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 <img src=\"modelica://Modelica/Resources/Images/Math/tan.png\">
 </p>
 </html>"));
-  end tan;
+end tan;
 
 
 function asin "Inverse sine (-1 <= u <= 1)"
@@ -11530,7 +11530,7 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 <img src=\"modelica://Modelica/Resources/Images/Math/asin.png\">
 </p>
 </html>"));
-  end asin;
+end asin;
 
 
 function acos "Inverse cosine (-1 <= u <= 1)"
@@ -11598,7 +11598,7 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 <img src=\"modelica://Modelica/Resources/Images/Math/acos.png\">
 </p>
 </html>"));
-  end acos;
+end acos;
 
 
 function atan "Inverse tangent"
@@ -11662,7 +11662,7 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"modelica://Modelica/Resources/Images/Math/atan.png\">
 </p>
 </html>"));
-  end atan;
+end atan;
 
 
 function atan2 "Four quadrant inverse tangent"
@@ -11751,7 +11751,7 @@ u1 = sin(y) and u2 = cos(y):
 </p>
 
 </html>"));
-  end atan2;
+end atan2;
 
 
 function atan3
@@ -11860,7 +11860,7 @@ Note, for the default case (y0=0), exactly the same result as with atan2(..)
 is returned.
 </p>
 </html>"));
-  end atan3;
+end atan3;
 
 
 function sinh "Hyperbolic sine"
@@ -11933,7 +11933,7 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\">
 </p>
 </html>"));
-  end sinh;
+end sinh;
 
 
 function cosh "Hyperbolic cosine"
@@ -11966,8 +11966,8 @@ external "builtin" y = cosh(u) annotation(Library="ModelicaExternalC");
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,-84.083},{84,-84.083}}, color
-          ={95,95,95}),Polygon(
+        grid={2,2}), graphics={Line(points={{-100,-84.083},{84,-84.083}}, color=
+           {95,95,95}),Polygon(
             points={{98,-84.083},{82,-78.083},{82,-90.083},{98,-84.083}},
             lineColor={95,95,95},
             fillColor={95,95,95},
@@ -12006,7 +12006,7 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\">
 </p>
 </html>"));
-  end cosh;
+end cosh;
 
 
 function tanh "Hyperbolic tangent"
@@ -12070,7 +12070,7 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\">
 </p>
 </html>"));
-  end tanh;
+end tanh;
 
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
@@ -12078,7 +12078,7 @@ function asinh "Inverse of sinh (area hyperbolic sine)"
   input Real u;
   output Real y;
 
-  algorithm
+algorithm
   y := Modelica.Math.log(u + sqrt(u*u + 1));
   annotation (
     Icon(coordinateSystem(
@@ -12145,7 +12145,7 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 <img src=\"modelica://Modelica/Resources/Images/Math/asinh.png\">
 </p>
 </html>"));
-  end asinh;
+end asinh;
 
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
@@ -12153,7 +12153,7 @@ function acosh "Inverse of cosh (area hyperbolic cosine)"
   input Real u;
   output Real y;
 
-  algorithm
+algorithm
   assert(u >= 1.0, "Input argument u (= " + String(u) +
     ") of acosh(u) must be >= 1.0");
   y := Modelica.Math.log(u + sqrt(u*u - 1));
@@ -12231,7 +12231,7 @@ can become close to 1:
 <img src=\"modelica://Modelica/Resources/Images/Math/acosh.png\">
 </p>
 </html>"));
-  end acosh;
+end acosh;
 
 
 function exp "Exponential, base e"
@@ -12302,7 +12302,7 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"modelica://Modelica/Resources/Images/Math/exp.png\">
 </p>
 </html>"));
-  end exp;
+end exp;
 
 
 function log "Natural (base e) logarithm (u shall be > 0)"
@@ -12375,7 +12375,7 @@ with u &gt; 0:
 <img src=\"modelica://Modelica/Resources/Images/Math/log.png\">
 </p>
 </html>"));
-  end log;
+end log;
 
 
 function log10 "Base 10 logarithm (u shall be > 0)"
@@ -12448,7 +12448,7 @@ with u &gt; 0:
 <img src=\"modelica://Modelica/Resources/Images/Math/log10.png\">
 </p>
 </html>"));
-  end log10;
+end log10;
 
 
 partial function baseIcon1
@@ -12490,7 +12490,7 @@ partial function baseIcon1
 Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisLeft\">Modelica.Math.Icons.AxisLeft</a> shall be used.
 </p>
 </html>"));
-  end baseIcon1;
+end baseIcon1;
 
 
 partial function baseIcon2
@@ -12531,7 +12531,7 @@ partial function baseIcon2
 Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisCenter\">Modelica.Math.Icons.AxisCenter</a> shall be used.
 </p>
 </html>"));
-  end baseIcon2;
+end baseIcon2;
 
 
 function tempInterpol1
@@ -12550,7 +12550,7 @@ protected
   Real u2;
   Real y1;
   Real y2;
-  algorithm
+algorithm
   n := size(table, 1);
 
   if n <= 1 then
@@ -12592,7 +12592,7 @@ protected
   annotation (Documentation(info="<html>
 
 </html>"));
-  end tempInterpol1;
+end tempInterpol1;
 
 
 function tempInterpol2
@@ -12612,7 +12612,7 @@ protected
   Real u2;
   Real y1[1, size(icol, 1)];
   Real y2[1, size(icol, 1)];
-  algorithm
+algorithm
   n := size(table, 1);
 
   if n <= 1 then
@@ -12654,7 +12654,7 @@ protected
   annotation (Documentation(info="<html>
 
 </html>"));
-  end tempInterpol2;
+end tempInterpol2;
 
 
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},

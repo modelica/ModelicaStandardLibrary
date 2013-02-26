@@ -28,6 +28,9 @@ extends Modelica.Icons.ExamplesPackage;
     assert(abs(Math.log10(1))        <= 1e-15, "log10 is wrong");
     assert(abs(Math.exp(1) - Modelica.Constants.e) <= 1e-15, "exp is wrong");
 
+    assert(Math.isPowerOf2(1), "isPowerOf2(1) is wrong");
+    assert(Math.isPowerOf2(4), "isPowerOf2(4) is wrong");
+    assert(not Math.isPowerOf2(9), "isPowerOf(9) is wrong");
     ok:=true;
   end ScalarFunctions;
 

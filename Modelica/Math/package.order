@@ -4,6 +4,7 @@ Matrices
 Nonlinear
 BooleanVectors
 isEqual
+isPowerOf2
 sin
 cos
 tan
