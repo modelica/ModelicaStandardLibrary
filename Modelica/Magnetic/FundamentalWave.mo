@@ -137,6 +137,12 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
+<h5>Version 1.7.3, 2013-02-26</h5>
+
+<ul>
+<li>Corrected wrong parameter description</li>
+</ul>
+
 <h5>Version 1.7.2, 2011-06-28</h5>
 
 <ul>
@@ -2405,13 +2411,13 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
                          final lossPowerRotorCore = 0));
 
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
-          "Main field inductance"
+          "Stator main field inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-          "Rotor leakage inductance w.r.t. stator side"
+          "Rotor leakage inductance of equivalent three phase winding w.r.t. stator side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start=0.04)
-          "Rotor resistance w.r.t. stator side"
+          "Rotor resistance of equivalent three phase winding w.r.t. stator side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance"
@@ -2503,16 +2509,16 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           annotation (Placement(transformation(extent={{-110,70},{-90,50}}, rotation=0)));
 
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
-          "Main field inductance"
+          "Stator main field inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma(start = 3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-          "Rotor leakage inductance w.r.t. stator side"
+          "Rotor leakage inductance w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrzero=Lrsigma
-          "Rotor zero inductance w.r.t. stator side"
+          "Rotor zero inductance w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start = 0.04)
-          "Rotor resistance w.r.t. stator side"
+          "Rotor resistance w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance"
@@ -2544,7 +2550,8 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           final m=3,
           PRef=0,
           VRef(start=1)=1,
-          wRef(start=1)=1) "Rotor core losses"
+          wRef(start=1)=1)
+          "Rotor core losses; all parameters refer to rotor side"
           annotation(Dialog(tab="Losses"));
 
         output Modelica.SIunits.Voltage vr[m] = plug_rp.pin.v - plug_rn.pin.v
@@ -2669,10 +2676,10 @@ Resistances and stray inductances of the machine always refer to either stator o
                          final lossPowerPermanentMagnet = -permanentMagnetLosses.heatPort.Q_flow));
 
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
-          "Main field inductance, d-axis"
+          "Stator main field inductance, d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.3/(2*pi*fsNominal))
-          "Main field inductance, q-axis"
+          "Stator main field inductance, q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
         // Rotor cage parameters
@@ -2874,10 +2881,10 @@ Resistances and stray inductances of the machine refer to the stator phases. The
                          final lossPowerRotorCore = 0));
 
         parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
-          "Main field inductance, d-axis"
+          "Stator main field inductance, d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=1.5/(2*pi*fsNominal))
-          "Main field inductance, q-axis"
+          "Stator main field inductance, q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
         // Rotor cage parameters
@@ -3106,10 +3113,10 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort and useDamperCage));
 
         parameter Modelica.SIunits.Inductance Lmd(start=2.9/(2*pi*fsNominal))
-          "Main field inductance, d-axis"
+          "Stator main field inductance, d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.9/(2*pi*fsNominal))
-          "Main field inductance, q-axis"
+          "Stator main field inductance, q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
         // Rotor cage parameters
@@ -4697,10 +4704,10 @@ This model is mainly used to extend from in order build more complex - equation 
         "Effective number of stator turns";
 
       parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-        "Stator stray inductance per phase"
+        "Stator stray inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance Lszero=Lssigma
-        "Stator zero inductance per phase"
+        "Stator zero inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance L0(d(start=1),q(start=1))
         "Salient inductance of an unchorded coil"
@@ -4713,7 +4720,8 @@ This model is mainly used to extend from in order build more complex - equation 
         statorCoreParameters(
           final m=3,
           wRef(start=2*pi*fsNominal/p),
-          VRef(start=100)) "Stator core losses"
+          VRef(start=100))
+        "Stator core losses; all parameters refer to stator side"
         annotation(Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters
         strayLoadParameters(
@@ -5020,10 +5028,10 @@ This model is mainly used to extend from in order build more complex - equation 
         "Effective number of stator turns";
 
       parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal))
-        "Stator stray inductance per phase"
+        "Stator stray inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance Lszero=Lssigma
-        "Stator zero inductance per phase"
+        "Stator zero inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance L0(d(start=1),q(start=1))
         "Salient inductance of an unchorded coil"
@@ -5036,7 +5044,8 @@ This model is mainly used to extend from in order build more complex - equation 
         statorCoreParameters(
           final m=3,
           wRef(start=2*pi*fsNominal/p),
-          VRef(start=100)) "Stator core losses"
+          VRef(start=100))
+        "Stator core losses; all parameters refer to stator side"
         annotation(Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters
         strayLoadParameters(
@@ -5478,23 +5487,24 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 
 <table border=\"1\" rules=\"groups\" cellpadding=\"2\">
 <thead>
-<tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
+<tr><td>MSL</td><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.2</td><td>4621</td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in parameterization of symmetrical multi phase winding model<br>Necessary adaptions due to conditional heatPorts of loss models (backwards compatibility)</td></tr>
-<tr><td>1.7.1</td><td>4170</td>  <td>2010-09-13</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
-<tr><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
-<tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
-<tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
-<tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
-<tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
-<tr><td>1.2.0</td><td>3468</td>   <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
-<tr><td>1.1.0</td><td>3424</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
-<tr><td>1.0.0</td><td>3426</td>  <td>2010-02-04</td>  <td>C. Kral</td>  <td>Integrated the library into the MSL</td></tr>
-<tr><td>0.4.0</td> <td></td>  <td>2009-10-29</td>  <td>C. Kral<br>A.&nbsp;Haumer</td>  <td>Corrected bug in magnetic potential calculation</td></tr>
-<tr><td>0.3.0</td> <td></td>  <td>2009-10-28</td>  <td>C. Kral</td>  <td>Renamed number of turns and winding angles</td></tr>
-<tr><td>0.2.0</td> <td></td>  <td>2009-10-20</td>  <td>C. Kral</td>  <td>Added idle model</td></tr>
-<tr><td>0.1.0</td> <td></td>  <td>2009-07-22</td>  <td>C. Kral</td>  <td>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel</td></tr>
+<tr><td>3.2<br>3.2.1</td><td>1.7.3</td><td>6029<br>6033</td>  <td>2013-02-25<br>2013-02-26</td>  <td>C. Kral</td>  <td>Corrected wrong parameter description</td></tr>
+<tr><td>3.2</td><td>1.7.2</td><td>4621</td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in parameterization of symmetrical multi phase winding model<br>Necessary adaptions due to conditional heatPorts of loss models (backwards compatibility)</td></tr>
+<tr><td></td><td>1.7.1</td><td>4170</td>  <td>2010-09-13</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
+<tr><td></td><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
+<tr><td></td><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
+<tr><td></td><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
+<tr><td></td><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
+<tr><td></td><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
+<tr><td></td><td>1.2.0</td><td>3468</td>   <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
+<tr><td></td><td>1.1.0</td><td>3424</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
+<tr><td></td><td>1.0.0</td><td>3426</td>  <td>2010-02-04</td>  <td>C. Kral</td>  <td>Integrated the library into the MSL</td></tr>
+<tr><td></td><td>0.4.0</td> <td></td>  <td>2009-10-29</td>  <td>C. Kral<br>A.&nbsp;Haumer</td>  <td>Corrected bug in magnetic potential calculation</td></tr>
+<tr><td></td><td>0.3.0</td> <td></td>  <td>2009-10-28</td>  <td>C. Kral</td>  <td>Renamed number of turns and winding angles</td></tr>
+<tr><td></td><td>0.2.0</td> <td></td>  <td>2009-10-20</td>  <td>C. Kral</td>  <td>Added idle model</td></tr>
+<tr><td></td><td>0.1.0</td> <td></td>  <td>2009-07-22</td>  <td>C. Kral</td>  <td>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel</td></tr>
 </tbody>
 </table>
 </html>", info="<html>
