@@ -4698,11 +4698,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final idq_rr = airGapS.i_rr,
           redeclare final
             Machines.Thermal.AsynchronousInductionMachines.ThermalAmbientAIMS
-            thermalAmbient(final Tr=TrOperational),
+            thermalAmbient(final Tr=TrOperational, final mr=m),
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMS
-            thermalPort,
+            thermalPort(final mr=m),
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMS
-            internalThermalPort,
+            internalThermalPort(final mr=m),
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceAIMS
             powerBalance(final lossPowerRotorWinding = -sum(rr.heatPort.Q_flow),
@@ -12094,7 +12094,9 @@ Additionally, all losses = heat flows are recorded.
         extends
           Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines(
            redeclare final
-            Machines.Interfaces.InductionMachines.ThermalPortAIMS                thermalPort);
+            Machines.Interfaces.InductionMachines.ThermalPortAIMS                thermalPort(final mr=
+                mr));
+        parameter Integer mr=m "Number of rotor phases";
         parameter Modelica.SIunits.Temperature Tr(start=TDefault)
           "Temperature of rotor windings"
           annotation(Dialog(enable=not useTemperatureInputs));
@@ -12120,7 +12122,7 @@ Additionally, all losses = heat flows are recorded.
               rotation=90,
               origin={-50,-10})));
         Modelica.Thermal.HeatTransfer.Components.ThermalCollector
-          thermalCollectorRotor(m=thermalPort.m)
+          thermalCollectorRotor(final m=mr)
           annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
         Modelica.Thermal.HeatTransfer.Sources.FixedTemperature temperatureBrush(final T=
               TDefault)
@@ -12162,7 +12164,9 @@ Additionally, all losses = heat flows are recorded.
                 textString="AIMS")}),  Documentation(info="<HTML>
 Thermal ambient for asynchronous induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end ThermalAmbientAIMS;
     annotation(Documentation(info="<HTML>
 Thermal parts for asynchronous induction machines
@@ -13341,7 +13345,9 @@ Partial model for induction machine models
 </HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Line(points={{-50,100},{-20,100},{-20,70}}, color={0,0,255}),
-                    Line(points={{50,100},{20,100},{20,70}}, color={0,0,255})}));
+                    Line(points={{50,100},{20,100},{20,70}}, color={0,0,255})}),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end PartialBasicInductionMachine;
 
     partial model PartialBasicNewInductionMachine
@@ -13541,7 +13547,7 @@ Partial model for induction machine models
 
       connector PartialThermalPortInductionMachines
         "Partial thermal port of induction machines"
-        parameter Integer m=3 "Number of phases";
+        parameter Integer m=3 "Number of stator phases";
 
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortStatorWinding[m]
           "Heat port of stator windings"
@@ -13582,7 +13588,7 @@ Partial thermal port for induction machines
 
       model PartialThermalAmbientInductionMachines
         "Partial thermal ambient for induction machines"
-        parameter Integer m=3 "Number of phases";
+        parameter Integer m=3 "Number of stator phases";
         parameter Boolean useTemperatureInputs=false
           "If true, temperature inputs are used; else, temperatures are constant"
           annotation(Evaluate=true);
@@ -13761,8 +13767,9 @@ Power balance of asynchronous induction machines with squirrel cage.
         "Thermal port of asynchronous induction machine with slipring"
         extends
           Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines;
+        parameter Integer mr=m "Number of rotor phases";
 
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortRotorWinding[m]
+        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortRotorWinding[mr]
           "Heat port of rotor windings"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortBrush
