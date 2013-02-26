@@ -14992,7 +14992,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           "Stator zero sequence inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)
-          "Stator stray inductance per phase"
+          "Stator stray inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
         parameter Modelica.Electrical.Machines.Losses.FrictionParameters frictionParameters(
@@ -15003,7 +15003,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           final m=m,
           PRef=0,
           VRef=100,
-          wRef=2*pi*fsNominal) "Stator core losses"
+          wRef=2*pi*fsNominal)
+          "Stator core losses; all parameters refer tpo stator side"
           annotation(Dialog(tab="Losses"));
         parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters strayLoadParameters(
           PRef=0,
@@ -15021,7 +15022,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         extends InductionMachineData;
         import Modelica.Constants.pi;
         parameter Modelica.SIunits.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*fsNominal)
-          "Main field inductance"
+          "Stator main field inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)
           "Rotor stray inductance (equivalent three phase winding)"
@@ -15046,27 +15047,28 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         extends InductionMachineData;
         import Modelica.Constants.pi;
          parameter Modelica.SIunits.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*fsNominal)
-          "Main field inductance"
+          "Stator main field inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)
-          "Rotor stray inductance per phase"
+        parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)/turnsRatio^2
+          "Rotor stray inductance w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.SIunits.Inductance Lrzero=Lrsigma
-          "Rotor zero sequence inductance"
+        parameter Modelica.SIunits.Inductance Lrzero=Lrsigma/turnsRatio^2
+          "Rotor zero sequence inductance w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.SIunits.Resistance Rr=0.04
-          "Rotor resistance per phase at TRef"
+        parameter Modelica.SIunits.Resistance Rr=0.04/turnsRatio^2
+          "Rotor resistance per phase at TRef w.r.t. rotor side"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of rotor resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter
-          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
-          "Temperature coefficient of rotor resistance at 20 degC"
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20r=0 "Temperature coefficient of rotor resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio=true
           "Use turnsRatio or calculate from locked-rotor voltage?";
-        parameter Real turnsRatio(final min=Modelica.Constants.small)=1
+        parameter Real turnsRatio(final min=Modelica.Constants.small)=
+          VsNominal/VrLockedRotor*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2)
           "Effective number of stator turns / effective number of rotor turns"
           annotation(Dialog(enable=useTurnsRatio));
         parameter Modelica.SIunits.Voltage VsNominal=100
@@ -15079,7 +15081,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           final m=3,
           PRef=0,
           VRef=1,
-          wRef=1) "Rotor core losses"
+          wRef=1) "Rotor core losses; all parameters refer to rotor side"
           annotation(Dialog(tab="Losses"));
         annotation(defaultComponentName="aimsData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
 <p>Basic parameters of asynchronous induction machines with slip ring are predefined with default values.</p>
@@ -15145,10 +15147,10 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         extends InductionMachineData(Lssigma=0.1/(2*pi*fsNominal));
         import Modelica.Constants.pi;
         parameter Modelica.SIunits.Inductance Lmd=2.9/(2*pi*fsNominal)
-          "Main field inductance in d-axis"
+          "Stator main field inductance in d-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lmq=0.9/(2*pi*fsNominal)
-          "Main field inductance in q-axis"
+          "Stator main field inductance in q-axis"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage = true "Enable / disable damper cage"
           annotation(Evaluate=true, Dialog(tab="Nominal resistances and inductances", group = "DamperCage"));
