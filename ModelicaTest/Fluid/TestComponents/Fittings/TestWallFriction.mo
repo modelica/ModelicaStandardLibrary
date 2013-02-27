@@ -144,7 +144,5 @@ pipe1.WallFriction = WallFriction.QuadraticTurbulent (since the same equations).
 pipe1 and pipe2 should be identical to pressureLossPipe for
 pipe1.WallFriction = WallFriction.Detailed (since the same equations).
 </p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics));
+</html>"));
 end TestWallFriction;

@@ -706,9 +706,7 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics));
+</html>"));
   end BranchingPipes12;
 
   model BranchingPipes13
@@ -824,9 +822,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes.
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics));
+</html>"));
   end BranchingPipes13;
 
   model BranchingPipes14
@@ -1069,9 +1065,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and t=4 valve 2 gradually closes until 1e-3.
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics));
+</html>"));
   end BranchingPipes15;
 
   model BranchingPipes16
@@ -1322,9 +1316,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
       experiment(StopTime=5, Tolerance=1e-007),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and t=4 valve 2 gradually closes completely.
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics));
+</html>"));
   end BranchingPipes17;
 
   model BranchingPipes18
@@ -1617,9 +1609,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with the valve open. At t=1, the valve is closed.
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics));
+</html>"));
   end SeriesPipes1;
 
   model SeriesPipes12

@@ -130,6 +130,5 @@ equation
       points={{46,24},{46,30},{48.6667,30}},
       color={0,127,255},
       smooth=Smooth.None));
-  annotation (experiment(StopTime=15), Diagram(coordinateSystem(
-          preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
+  annotation (experiment(StopTime=15));
 end TestTemperature2;

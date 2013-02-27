@@ -463,8 +463,7 @@ equation
       points={{-59,50},{-52,50},{-52,10},{-42,10}},
       color={0,0,127},
       smooth=Smooth.None));
-  annotation (experiment(StopTime=2), Diagram(coordinateSystem(
-          preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
+  annotation (experiment(StopTime=2));
 end RootMeanSquare;
 
 model FirstOrderHold "Test first order hold of Discrete package"
@@ -486,8 +485,6 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics),
     experiment(StopTime=2));
 end FirstOrderHold;
 

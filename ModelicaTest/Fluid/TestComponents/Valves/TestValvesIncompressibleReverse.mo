@@ -133,7 +133,5 @@ annotation (
     Documentation(info="<html>
 Multiple valves are mutually connected in a purely algebraic model.
 <p/>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+</html>"));
 end TestValvesIncompressibleReverse;

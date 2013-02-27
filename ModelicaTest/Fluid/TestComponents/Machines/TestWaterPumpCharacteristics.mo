@@ -114,7 +114,5 @@ equation
 annotation (
   experiment(StopTime=10, Tolerance=1e-006),
   Documentation(info="<html>The simulation results of two times two pumps being parameterized identically are compared.
-  The test includes extrapolation for heads ranging from about -10m to 110m, while the pump curves only cover 0m to 100m<p/> </html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}),     graphics));
+  The test includes extrapolation for heads ranging from about -10m to 110m, while the pump curves only cover 0m to 100m<p/> </html>"));
 end TestWaterPumpCharacteristics;

@@ -60,7 +60,5 @@ equation
       smooth=Smooth.None));
 annotation (
   experiment(StopTime=10, Tolerance=1e-006),
-  Documentation(info=""),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics));
+  Documentation(info=""));
 end TestWaterPumpDefaultCV;
