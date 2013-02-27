@@ -131,7 +131,8 @@ equation
 annotation (
   experiment(StopTime=4, Tolerance=1e-006),
     Documentation(info="<html>
+<p>
 Multiple valves are mutually connected in a purely algebraic model.
-<p/>
+</p>
 </html>"));
 end TestValvesIncompressibleReverse;
