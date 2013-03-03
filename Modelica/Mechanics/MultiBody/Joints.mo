@@ -2753,7 +2753,7 @@ that has this property.
       r=frame_ia.r_0,
       R=frame_ia.R) if world.enableAnimation and animation and showUniversalAxes;
 
-initial equation
+  initial equation
   if not computeRodLength then
     rodLength = Modelica.Math.Vectors.length(rRod_ia);
   end if;
@@ -7184,7 +7184,7 @@ pair of joints\" from Woernle and Hiller is described in:
       "Universal cut-joint and translational directions may be constrained or released"
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       import MBS = Modelica.Mechanics.MultiBody;
-
+    //Modelica.Constants.eps
       parameter MBS.Types.Axis n_a={1,0,0}
         "Axis of revolute joint 1 resolved in frame_a" annotation (Evaluate=true);
       parameter MBS.Types.Axis n_b={0,1,0}
@@ -7257,42 +7257,11 @@ pair of joints\" from Woernle and Hiller is described in:
       else
         frame_a.f=zeros(3);
       end if;
-
       // Constraint equations concerning rotations
-      if n_a[2]==1 and n_b[3]==1 then
-        // Rotation order 1-2-3, 1 locked
-        R_rel.T[3,2]=0;
-        frame_a.t[2]=0;
-        frame_b.t[3]=0;
-        elseif n_a[3]==1 and n_b[2]==1 then
-         // Rotation order 1-3-2, 1 locked
-        R_rel.T[2,3]=0;
-        frame_a.t[3]=0;
-        frame_b.t[2]=0;
-        elseif n_a[1]==1 and n_b[2]==1 then
-         // Rotation order 3-1-2, 3 locked
-        R_rel.T[2,1]=0;
-        frame_a.t[1]=0;
-        frame_b.t[2]=0;
-        elseif n_a[2]==1 and n_b[1]==1 then
-         // Rotation order 3-2-1, 3 locked
-        R_rel.T[1,2]=0;
-        frame_a.t[2]=0;
-        frame_b.t[1]=0;
-        elseif n_a[1]==1 and n_b[3]==1 then
-         // Rotation order 2-1-3, 2 locked
-        R_rel.T[3,1]=0;
-        frame_a.t[1]=0;
-        frame_b.t[3]=0;
-        elseif n_a[3]==1 and n_b[1]==1 then
-         // Rotation order 2-3-1, 2 locked
-        R_rel.T[1,3]=0;
-        frame_a.t[3]=0;
-        frame_b.t[1]=0;
-      else
-        // No rotation
-        {1,1,1}=R_rel.T * {1,1,1};
-      end if;
+      frame_a.t*n_a=0;
+      frame_b.t*n_b=0;
+      n_b*R_rel.T*n_a=0;
+      assert(abs(n_a*n_b) < Modelica.Constants.eps, "The two axis that constitute the UniversalJoint must be different");
 
       zeros(3)=frame_a.f + MBS.Frames.resolve1(R_rel, frame_b.f);
       zeros(3) = frame_a.t+MBS.Frames.resolve1(R_rel, frame_b.t)- cross(r_rel_a, frame_a.f);
@@ -7631,8 +7600,21 @@ pair of joints\" from Woernle and Hiller is described in:
         "Dummy or relative orientation object from frame_a to frame_b";
       Modelica.SIunits.Position r_rel_a[3]
         "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-      Real c[3];
       Modelica.SIunits.InstantaneousPower P;
+      parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(
+                                           n,0.0)
+        "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
+
+      parameter Real nnx_a[3](each final unit="1")=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
+           > 0.1 then {0,0,1} else {1,0,0})
+        "Arbitrary vector that is not aligned with rotation axis n"
+        annotation (Evaluate=true);
+          parameter Real ey_a[3](each final unit="1")=Modelica.Math.Vectors.normalize(
+                                              cross(e, nnx_a),0.0)
+        "Unit vector orthogonal to axis n of revolute joint, resolved in frame_a"
+        annotation (Evaluate=true);
+      parameter Real ex_a[3](each final unit="1")=cross(ey_a, e)
+        "Unit vector orthogonal to axis n of revolute joint and to ey_a, resolved in frame_a";
 
     public
       Visualizers.Advanced.Shape sphere(
@@ -7685,22 +7667,9 @@ pair of joints\" from Woernle and Hiller is described in:
       end if;
 
       // Constraint equations concerning rotations
-      c = R_rel.T*n;
-      if n[1]==0 then
-        c[1]=0;
-      else
-        frame_a.t[1]=0;
-      end if;
-      if n[2]==0 then
-        c[2]=0;
-      else
-        frame_a.t[2]=0;
-      end if;
-      if n[3]==0 then
-        c[3]=0;
-      else
-        frame_a.t[3]=0;
-      end if;
+      0 = ex_a*R_rel.T*e;
+      0 = ey_a*R_rel.T*e;
+      frame_a.t*n=0;
 
       zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
       zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t) - cross(r_rel_a,
@@ -7751,7 +7720,7 @@ pair of joints\" from Woernle and Hiller is described in:
               thickness=0.5,
               smooth=Smooth.None),
             Text(
-              extent={{-49,-36},{45,-59}},
+              extent={{-49,82},{45,59}},
               textString="constraint",
               pattern=LinePattern.None),
             Text(

@@ -670,7 +670,7 @@ extends Modelica.Icons.ExamplesPackage;
       angle_3(fixed=true),
       angle_d_1(fixed=true),
       angle_d_3(fixed=true),
-      sequence_start={3,2,1})
+      sequence_start={1,2,3})
       annotation (Placement(transformation(extent={{60,70},{40,90}})));
   equation
     connect(fixedTranslation.frame_a, world.frame_b)
