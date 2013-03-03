@@ -1147,10 +1147,12 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMap.jet(),
       protected
          Real a=ceil(n_colors/4);
          Real d=1/a;
-         Real v1[:]=if d >= 0.5 then {1} else if d >= 0.25 then  1-d:d:1 else 0.5+d:d:1;
+         Real b=ceil(a/2);
+         Real c=floor(a/2);
+         Real v1[:]={1-(b-i)*d for i in 1:b};
          Real v2[:]=0+d:d:1;
          Real v3[:]=1-d:-d:0;
-         Real v4[:]=1-d:-d:0.5;
+         Real v4[:]={0.5+(c-i)*d for i in 1:c};
          Real cm[integer(ceil(n_colors/4))*4,3];
       algorithm
          cm:=255*[zeros(size(v1,1)),zeros(size(v1,1)),  v1;
