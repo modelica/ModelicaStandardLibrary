@@ -7184,7 +7184,7 @@ pair of joints\" from Woernle and Hiller is described in:
       "Universal cut-joint and translational directions may be constrained or released"
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       import MBS = Modelica.Mechanics.MultiBody;
-    //Modelica.Constants.eps
+
       parameter MBS.Types.Axis n_a={1,0,0}
         "Axis of revolute joint 1 resolved in frame_a" annotation (Evaluate=true);
       parameter MBS.Types.Axis n_b={0,1,0}
@@ -7218,7 +7218,7 @@ pair of joints\" from Woernle and Hiller is described in:
       Real w_rel[3];
       Modelica.SIunits.Position r_rel_a[3]
         "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-      //Modelica.SIunits.Angle phi_rel[3];
+
       Modelica.SIunits.InstantaneousPower P;
     equation
       // Determine relative position vector resolved in frame_a
@@ -7226,7 +7226,6 @@ pair of joints\" from Woernle and Hiller is described in:
       w_rel = MBS.Frames.angularVelocity1(R_rel);
       r_rel_a = MBS.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 
-      //phi_rel=MBS.Frames.smallRotation(R_rel,false);
       // Constraint equations concerning translations
       if x_locked and y_locked and z_locked then
         r_rel_a=zeros(3);

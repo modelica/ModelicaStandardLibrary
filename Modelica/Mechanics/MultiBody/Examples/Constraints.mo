@@ -590,7 +590,8 @@ extends Modelica.Icons.ExamplesPackage;
       resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
       get_r_rel=true,
       get_a_rel=false,
-      get_angles=true)
+      get_angles=true,
+      sequence={3,2,1})
       annotation (Placement(transformation(extent={{60,60},{40,40}})));
     Modelica.Mechanics.MultiBody.Parts.BodyShape bodyOfJoint(
       m=1,
