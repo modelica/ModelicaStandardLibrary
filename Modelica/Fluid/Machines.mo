@@ -775,8 +775,7 @@ provided a two-phase medium model is used (see Advanced tab).
 
       model PumpMonitoringNPSH "Monitor Net Positive Suction Head (NPSH)"
         extends PumpMonitoringBase(redeclare replaceable package Medium =
-          Modelica.Media.Interfaces.PartialTwoPhaseMedium constrainedby
-            Modelica.Media.Interfaces.PartialTwoPhaseMedium);
+          Modelica.Media.Interfaces.PartialTwoPhaseMedium);
         Medium.Density rho_in = Medium.density(state_in)
           "Liquid density at the inlet port_a";
         SI.Length NPSHa=NPSPa/(rho_in*system.g)
