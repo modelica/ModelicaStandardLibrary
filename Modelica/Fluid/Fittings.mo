@@ -363,7 +363,7 @@ equation
                          m_flow_turbulent,
                          BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/Medium.density(state_a),
                          BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/Medium.density(state_b)),
-                     m_flow_nominal*dp_fg/dp_nominal);
+                     dp_nominal*m_flow/m_flow_nominal);
   end if;
 
   // Isenthalpic state transformation (no storage and no loss of energy)
@@ -1656,7 +1656,7 @@ The used sufficient criteria for monotonicity follows from:
                                 Medium.dynamicViscosity(state_b),
                               data) else
                               pressureLoss_m_flow(m_flow, Medium.density(state_a), Medium.density(state_b), data, m_flow_small),
-                            m_flow_nominal*dp_fg/dp_nominal);
+                            dp_nominal*m_flow/m_flow_nominal);
         end if;
 
         // Isenthalpic state transformation (no storage and no loss of energy)
