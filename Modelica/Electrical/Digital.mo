@@ -1326,9 +1326,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
             annotation (Placement(transformation(extent={{-11,-41},{103,73}})));
           Modelica.Electrical.Digital.Sources.Table
                         addr_1(
-            y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
+            y0=L.'U',
             x={L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',
-                L.'-',1,L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',1,L.'X',L.'0',L.'1',L.'Z',L.'W',
+                L.'-',L.'1',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'1',L.'X',L.'0',L.'1',L.'Z',L.'W',
                 L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-'},
             t={5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,
                 115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,
