@@ -64,19 +64,12 @@ model System
     "Default small mass flow rate for regularization of laminar and zero flow"
     annotation(Dialog(tab = "Advanced", group="Classic", enable = not use_eps_Re));
 initial equation
-  //assert(use_eps_Re, "Using classic system.m_flow_small and system.dp_small."
-  //       + " Please update the model to new system.use_eps_Re = true",
+  //assert(use_eps_Re, "*** Using classic system.m_flow_small and system.dp_small."
+  //       + " They do not distinguish between laminar flow and regularization of zero flow."
+  //       + " Absolute small values are error prone for models with local nominal values."
+  //       + " Moreover dp_small can generally be obtained automatically."
+  //       + " Please update the model to new system.use_eps_Re = true  (see system, Advanced tab). ***",
   //       level=AssertionLevel.warning);
-  if not use_eps_Re then
-    Modelica.Utilities.Streams.print("***");
-    Modelica.Utilities.Streams.print("Using global system.m_flow_small and system.dp_small, which are classic.");
-    Modelica.Utilities.Streams.print("They do not distinguish between laminar flow and regularization of zero flow.");
-    Modelica.Utilities.Streams.print("Absolute small values are error prone for models with local nominal values.");
-    Modelica.Utilities.Streams.print("Moreover dp_small can generally be obtained automatically.");
-    Modelica.Utilities.Streams.print("Consider updating to the new system.use_eps_Re = true (see system, Advanced tab).");
-    Modelica.Utilities.Streams.print("***");
-  end if;
-
   annotation (
     defaultComponentName="system",
     defaultComponentPrefixes="inner",
