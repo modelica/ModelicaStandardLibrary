@@ -1316,7 +1316,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                   lineColor={0,0,255},
                   pattern=LinePattern.None,
                   fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}));
+                  fillPattern=FillPattern.Solid)}), experiment(StopTime=15));
         end MUX2x1;
 
         model RAM
@@ -6863,7 +6863,7 @@ Clock transition definitions:
 </html>"));
       end Registers;
 
-  package Tristates "Transfergates, Buffers, Inverters, and WiredX"
+  package "Transfergates, Buffers, Inverters, and WiredX"
       extends Modelica.Icons.Package;
     import D = Modelica.Electrical.Digital;
     import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -6885,7 +6885,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL,y(start=L.'U', fixed=true));
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL,y(start=L.'U', fixed=true));
     algorithm
       nextstate := T.NXferTable[enable, x];
       yy := nextstate;
@@ -6973,7 +6973,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL, y(start=L.'U', fixed=true));
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U', fixed=true));
     algorithm
       nextstate := T.NRXferTable[enable, x];
       yy := nextstate;
@@ -7061,7 +7061,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
     algorithm
       nextstate := T.PXferTable[enable, x];
       yy := nextstate;
@@ -7149,7 +7149,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
     algorithm
       nextstate := T.PRXferTable[enable, x];
       yy := nextstate;
@@ -7237,7 +7237,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL, y(start=L.'U', fixed=true));
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U', fixed=true));
     algorithm
       nextstate := T.Buf3sTable[strength, T.UX01Table[enable], T.UX01Table[x]];
       yy := nextstate;
@@ -7322,7 +7322,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
     algorithm
       nextstate := T.Buf3slTable[strength, T.UX01Table[enable], T.UX01Table[x]];
       yy := nextstate;
@@ -7407,7 +7407,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL, y(start=L.'U',fixed=true));
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U',fixed=true));
     algorithm
       nextstate := T.Buf3sTable[strength, T.UX01Table[enable], T.NotTable[x]];
       yy := nextstate;
@@ -7497,7 +7497,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
     algorithm
       nextstate := T.Buf3sTable[strength, T.NotTable[enable], T.NotTable[x]];
       yy := nextstate;
@@ -8082,7 +8082,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL, y(start=L.'U',fixed=true));
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U',fixed=true));
 
     algorithm
       nextstate := T.MUX2x1Table[T.UX01Table[in1], T.UX01Table[sel], T.UX01Table[in0]];
