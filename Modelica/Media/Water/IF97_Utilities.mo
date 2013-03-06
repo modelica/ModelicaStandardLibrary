@@ -4818,6 +4818,7 @@ Ordinary Water Substance<br>
         SI.Density dmin "lower density limit";
         SI.Density dmax "upper density limit";
         SI.Temperature Tmax "maximum temperature";
+        Real damping "damping factor";
       algorithm
         found := false;
         assert(p >= data.PLIMIT4A,
@@ -4830,19 +4831,28 @@ Ordinary Water Substance<br>
           "BaseIF97.dofpt3: function called outside of region 3! T too high\n" +
           "p = " + String(p) + " Pa, T = " + String(T) + " K");
         supercritical := p > data.PCRIT;
-        dmax := dofp13(p);
-        dmin := dofp23(p);
+        damping := if supercritical then 1.0 else 1.0;
         Tmax := Regions.boundary23ofp(p);
         if supercritical then
-          dguess := dmin + (T - data.TLIMIT1)/(data.TLIMIT1 - Tmax)*(dmax -
+          dmax := dofp13(p);
+          dmin := dofp23(p);
+          dguess := dmax - (T - data.TLIMIT1)/(data.TLIMIT1 - Tmax)*(dmax -
             dmin);
-          //this may need improvement!!
+          //this may need even further improvement!!
         else
           liquid := T < Basic.tsat(p);
           if liquid then
-            dguess := 0.5*(Regions.rhol_p_R4b(p) + dmax);
+            dmax := dofp13(p);
+            dmin := Regions.rhol_p_R4b(p);
+            dguess := 1.1*Regions.rhol_T(T)
+              "guess: 10 percent more than on the phase boundary for same T";
+      //      dguess := 0.5*(dmax + dmin);
           else
-            dguess := 0.5*(Regions.rhov_p_R4b(p) + dmin);
+            dmax := Regions.rhov_p_R4b(p);
+            dmin := dofp23(p);
+            dguess := 0.9*Regions.rhov_T(T)
+              "guess: 10% less than on the phase boundary for same T";
+      //      dguess := 0.5*(dmax + dmin);
           end if;
         end if;
         while ((i < IterationData.IMAX) and not found) loop
@@ -4853,7 +4863,8 @@ Ordinary Water Substance<br>
           if (abs(dp/p) <= delp) then
             found := true;
           end if;
-          deld := dp/nDerivs.pd;
+          deld := dp/nDerivs.pd*damping;
+          LogVariable(deld);
           d := d - deld;
           if d > dmin and d < dmax then
             dguess := d;
