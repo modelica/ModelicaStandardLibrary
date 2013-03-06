@@ -474,7 +474,7 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
      end solve;
     end Internal;
     algorithm
-      T:=Internal.solve(p, T_min, T_max, f_nonlinear_data = Internal.f_nonlinear_Data());
+      T:=Internal.solve(p, T_min, T_max, f_nonlinear_data=  Internal.f_nonlinear_Data());
       annotation (Documentation(info="<html>
  Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href=\"modelica://Modelica.Media.Air.MoistAir.saturationPressure\">saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
 </html>"));
@@ -777,7 +777,8 @@ Derivative function for <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\"
     protected
     MassFraction[nX] X "complete X-vector";
   algorithm
-    X := if reducedX then cat(1,state.X,{1-sum(state.X)}) else state.X;
+    X := state.X;
+  //  X := if reducedX then cat(1,state.X,{1-sum(state.X)}) else state.X;
     h := {Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=steam,  T=state.T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5),
         Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=dryair, T=state.T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684)}*X;
 
