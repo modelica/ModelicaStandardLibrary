@@ -6253,6 +6253,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
+      aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 2) then
       aux.T := BaseIF97.Basic.tps2(p, s);
       g := BaseIF97.Basic.g2(p, aux.T);
@@ -6263,6 +6264,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
+      aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 3) then
       (aux.rho,aux.T,error) := BaseIF97.Inverses.dtofps3(p=p,s=s,delp=1.0e-7,dels=
         1.0e-6);
@@ -6274,6 +6276,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
       aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*aux.rho*aux.pd);
       aux.x := 0.0;
+      aux.dpT := aux.pt; /*safety against div-by-0 in initialization*/
     elseif (aux.region == 4) then
       s_liq := BaseIF97.Regions.sl_p(p);
       s_vap := BaseIF97.Regions.sv_p(p);
@@ -6313,6 +6316,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.dpT := -aux.vt/aux.vp;
+      aux.x := 1.0;
     else
       assert(false, "error in region computation of IF97 steam tables"
       + "(p = " + String(p) + ", s = " + String(s) + ")");
@@ -6835,6 +6840,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
+      aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 2) then
       g := BaseIF97.Basic.g2(p, T);
       aux.h := aux.R*aux.T*g.tau*g.gtau;
@@ -6845,6 +6851,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
+      aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 3) then
       (aux.rho,error) := BaseIF97.Inverses.dofpt3(p=p,T= T,delp= 1.0e-7);
       f := BaseIF97.Basic.f3(aux.rho, T);
@@ -6854,6 +6861,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
       aux.x := 0.0;
+      aux.dpT := aux.pt; /*safety against div-by-0 in initialization*/
     elseif (aux.region == 5) then
       g := BaseIF97.Basic.g5(p, T);
       aux.h := aux.R*aux.T*g.tau*g.gtau;
@@ -6863,6 +6871,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vp := aux.R*T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
       aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.x := 1.0;
+      aux.dpT := -aux.vt/aux.vp;
     else
       assert(false, "error in region computation of IF97 steam tables"
        + "(p = " + String(p) + ", T = " + String(T) + ")");
