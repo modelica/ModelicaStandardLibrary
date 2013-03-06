@@ -6863,7 +6863,7 @@ Clock transition definitions:
 </html>"));
       end Registers;
 
-  package "Transfergates, Buffers, Inverters, and WiredX"
+  package Tristates "Transfergates, Buffers, Inverters, and WiredX"
       extends Modelica.Icons.Package;
     import D = Modelica.Electrical.Digital;
     import L = Modelica.Electrical.Digital.Interfaces.Logic;
