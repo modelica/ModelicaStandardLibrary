@@ -1388,7 +1388,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                   lineColor={0,0,255},
                   pattern=LinePattern.None,
                   fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}));
+                  fillPattern=FillPattern.Solid)}), experiment(StopTime=400));
         end RAM;
 
       package Utilities "Utility components used by package Examples"
