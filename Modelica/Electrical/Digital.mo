@@ -4202,7 +4202,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         block Table "Digital Tabular Source"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          parameter D.Interfaces.Logic x[:]={1} "vector of values";
+          parameter D.Interfaces.Logic x[:]={L.'1'} "vector of values";
           parameter Real t[size(x, 1)]={1}
         "vector of corresponding time points";
           parameter D.Interfaces.Logic y0=L.'U' "initial output value";
