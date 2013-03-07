@@ -609,7 +609,8 @@ for a smooth transition from y1 to y2.
     if abs(Delta0) <= 0 then
       // Points (x0,y0) and (x1,y1) on horizontal line
       // Degenerate case as we cannot fulfill the C1 goal an comonotone behaviour at the same time
-      y := y0;     // == y1
+      y := y0 + Delta0*(x-x0);     // y == y0 == y1 with additional term to assist automatic differentiation
+      c := 0;
     elseif abs(y1d + y0d - 2*Delta0) < 100*Modelica.Constants.eps then
       // Inflection point at +/- infinity, thus S0 is co-monotone and can be returned directly
       y := y0 + (x-x0)*(y0d + (x-x0)/h0*( (-2*y0d-y1d+3*Delta0) + (x-x0)*(y0d+y1d-2*Delta0)/h0));
@@ -710,10 +711,11 @@ for a smooth transition from y1 to y2.
     end if;
 
     annotation (smoothOrder=1, Documentation(revisions="<html>
-<ul>
+<p><ul>
 <li><i>May 2008</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>Designed and implemented.</li>
 <li><i>February 2011</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the inflection point of the cubic S0 was at +/- infinity, the test criteria of <i>[Gasparo and Morandi, 1991]</i> result in division by zero. This case is handled properly now.</li>
-</ul>
+<li><i>March 2013</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the arguments prescribed a degenerate case with points <code>(x0,y0)</code> and <code>(x1,y1)</code> on horizontal line, then return value <code>c</code> was undefined. This was corrected. Furthermore, an additional term was included for the computation of <code>y</code> in this case to assist automatic differentiation.</li>
+</ul></p>
 </html>",   info="<html>
 <p>
 Approximates a function in a region between <code>x0</code> and <code>x1</code>
