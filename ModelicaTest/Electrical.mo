@@ -28,7 +28,8 @@ package Electrical
     Modelica.Electrical.Analog.Basic.Transformer basicTransformer(
       L1=L,
       L2=L,
-      M=L) annotation (Placement(transformation(extent={{-10,32},{10,52}},
+      M=L,
+      i1(fixed=true)) annotation (Placement(transformation(extent={{-10,32},{10,52}},
             rotation=0)));
   equation
     connect(sineVoltage1.n, ground1.p)

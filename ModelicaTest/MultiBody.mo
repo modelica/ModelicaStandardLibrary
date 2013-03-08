@@ -2891,17 +2891,15 @@ a linear damper is connected here.
             origin={0,-108})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(
         useAxisFlange=false,
-        s(fixed=false, start=0.5),
-        v(fixed=false, start=-0.1),
+        s(fixed=true, start=0.5),
+        v(fixed=true, start=-0.1),
         stateSelect=StateSelect.never)
         annotation (Placement(transformation(extent={{-12,-144},{14,-118}})));
       Modelica.Mechanics.MultiBody.Forces.Force force
         annotation (Placement(transformation(extent={{-10,-88},{12,-66}})));
       Modelica.Mechanics.MultiBody.Parts.Body body(
         m=5,
-        r_CM={0,0,0},
-        r_0(each fixed=true, start={0.5,0.1,0}),
-        v_0(each fixed=true, start={-0.1,0.1,0}))
+        r_CM={0,0,0})
         annotation (Placement(transformation(extent={{66,-118},{86,-98}})));
       Modelica.Blocks.Sources.Sine sine(freqHz=2, amplitude=50)
         annotation (Placement(transformation(extent={{152,-60},{132,-40}})));
@@ -4621,9 +4619,7 @@ a linear damper is connected here.
         rRod_0(start={1,0.2,0})) annotation (Placement(transformation(extent={{
                 -20,-10},{0,10}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Prismatic Prismatic1(
-        animation=false,
-        s(fixed=true),
-        v(fixed=true)) annotation (Placement(transformation(extent={{20,-10},{
+        animation=false) annotation (Placement(transformation(extent={{20,-10},{
                 40,10}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Fixed Fixed1(r={1,0.2,0}, animation=
             false) annotation (Placement(transformation(extent={{80,-10},{60,10}},
@@ -5109,7 +5105,6 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Joints.Revolute revolute(
         n={0,0,1},
         cylinderDiameter=1/15,
-        a(fixed=false),
         w(fixed=true, start=2),
         phi(fixed=true, start=0.78539816339745)) annotation (Placement(
             transformation(extent={{-20,20},{0,40}}, rotation=0)));
@@ -5134,9 +5129,7 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(
         n={0,0,1},
         cylinderDiameter=1/15,
-        a(fixed=false),
         useAxisFlange=true,
-        w(start=2, fixed=true),
         phi(fixed=true, start=0.78539816339745)) annotation (Placement(
             transformation(extent={{-22,-48},{-2,-28}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body body1(
