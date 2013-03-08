@@ -493,9 +493,19 @@ end Conductor;
     parameter SI.Inductance L1(start=1) "Primary inductance";
     parameter SI.Inductance L2(start=1) "Secondary inductance";
     parameter SI.Inductance M(start=1) "Coupling inductance";
+    Real dv;
   equation
     v1 = L1*der(i1) + M*der(i2);
-    v2 = M*der(i1) + L2*der(i2);
+
+    /* Original equation:
+        v2 = M*der(i1) + L2*der(i2);
+     If L1 = L2 = M, then this model has one state less. However,
+     it might be difficult for a tool to detect this. For this reason
+     the model is defined with a relative potential:
+  */
+    dv = (L1 - M)*der(i1) + (M - L2)*der(i2);
+    v2 = v1 - dv;
+
     annotation (
       Documentation(info="<html>
 <p>The transformer is a two port. The left port voltage <i>v1</i>, left port current <i>i1</i>, right port voltage <i>v2</i> and right port current <i>i2</i> are connected by the following relation:</p>
@@ -503,8 +513,7 @@ end Conductor;
          |    |    =    |         |  |     |
          | v2 |         | M    L2 |  | i2&#39;; |</pre>
 <p><i>L1</i>, <i>L2</i>, and <i>M</i> are the primary, secondary, and coupling inductances respectively.</p>
-</html>",
-   revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
