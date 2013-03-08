@@ -489,7 +489,7 @@ end Conductor;
   end SaturatingInductor;
 
   model Transformer "Transformer with two ports"
-    extends Interfaces.TwoPort;
+    extends Interfaces.TwoPort(i1(start=0),i2(start=0));
     parameter SI.Inductance L1(start=1) "Primary inductance";
     parameter SI.Inductance L2(start=1) "Secondary inductance";
     parameter SI.Inductance M(start=1) "Coupling inductance";
