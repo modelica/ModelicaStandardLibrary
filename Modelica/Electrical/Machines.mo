@@ -891,38 +891,38 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3)
           annotation (Placement(transformation(
-              origin={-30,-10},
+              origin={-30,18},
               extent={{-10,-10},{10,10}},
               rotation=90)));
         Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p2(m=m, k=2)
           annotation (Placement(transformation(
-              origin={-10,-10},
+              origin={-10,18},
               extent={{-10,-10},{10,10}},
               rotation=90)));
         Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
           annotation (Placement(transformation(
-              origin={10,-10},
+              origin={10,18},
               extent={{-10,-10},{10,10}},
               rotation=90)));
         Modelica.Electrical.Analog.Basic.Capacitor cRun(C=Cr)
           annotation (Placement(transformation(
-              origin={10,20},
+              origin={10,50},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Analog.Basic.Capacitor cStart(C=Cs)
           annotation (Placement(transformation(
-              origin={30,20},
+              origin={30,50},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpener
           annotation (Placement(transformation(
-              origin={30,50},
+              origin={30,80},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Blocks.Logical.GreaterThreshold greaterThreshold(threshold=
           wSwitch)
           annotation (Placement(transformation(
-              origin={50,20},
+              origin={50,50},
               extent={{-10,-10},{10,10}},
               rotation=90)));
         Mechanics.Rotational.Sensors.SpeedSensor             relSpeedSensor
@@ -932,7 +932,12 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               rotation=0,
               origin={30,-30})));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
-          annotation (Placement(transformation(extent={{-20,-82},{0,-62}})));
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+        Sensors.CurrentQuasiRMSSensor          currentQuasiRMSSensor
+          annotation (Placement(transformation(
+              origin={-10,-10},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
       initial equation
         cStart.v=0;
         cRun.v = 0;
@@ -945,44 +950,32 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Line(points={{-50,90},{-30,90}}, color={0,0,255}));
         connect(booleanStep.y, idealCloser.control)  annotation (Line(points={{
                 -29,70},{-20,70},{-20,83}}, color={255,0,255}));
-        connect(plugToPin_p3.pin_p, sineVoltage.n)  annotation (Line(points={{-30,
-                -8},{-70,-8},{-70,90}}, color={0,0,255}));
+        connect(plugToPin_p3.pin_p, sineVoltage.n)  annotation (Line(points={{-30,20},
+                {-70,20},{-70,90}},     color={0,0,255}));
         connect(idealCloser.n, plugToPin_p2.pin_p)
-          annotation (Line(points={{-10,90},{-10,-8}}, color={0,0,255}));
+          annotation (Line(points={{-10,90},{-10,20}}, color={0,0,255}));
         connect(cRun.n, plugToPin_p1.pin_p)
-          annotation (Line(points={{10,10},{10,-8}}, color={0,0,255}));
+          annotation (Line(points={{10,40},{10,20}}, color={0,0,255}));
         connect(loadInertia.flange_b, quadraticLoadTorque.flange)
           annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
-        connect(cRun.p, idealCloser.n)       annotation (Line(points={{10,30},{
+        connect(cRun.p, idealCloser.n)       annotation (Line(points={{10,60},{
                 10,90},{-10,90}},
                                color={0,0,255}));
-        connect(plugToPin_p1.pin_p,cStart. n)     annotation (Line(points={{10,-8},
-                {30,-8},{30,10}}, color={0,0,255}));
+        connect(plugToPin_p1.pin_p,cStart. n)     annotation (Line(points={{10,20},
+                {30,20},{30,40}}, color={0,0,255}));
         connect(idealOpener.n, cStart.p)
-          annotation (Line(points={{30,40},{30,37.5},{30,35},{30,30}},
+          annotation (Line(points={{30,70},{30,67.5},{30,65},{30,60}},
                                                      color={0,0,255}));
-        connect(idealOpener.p, idealCloser.n)   annotation (Line(points={{30,60},
+        connect(idealOpener.p, idealCloser.n)   annotation (Line(points={{30,90},
                 {30,90},{-10,90}}, color={0,0,255}));
-        connect(greaterThreshold.y, idealOpener.control)  annotation (Line(points=
-               {{50,31},{50,50},{37,50}}, color={255,0,255}));
+        connect(greaterThreshold.y, idealOpener.control)  annotation (Line(points={{50,61},
+                {50,80},{37,80}},         color={255,0,255}));
         connect(TerminalBox1.plug_sn, aimc.plug_sn)  annotation (Line(
             points={{-16,-30},{-16,-30}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(TerminalBox1.plug_sp, aimc.plug_sp)  annotation (Line(
             points={{-4,-30},{-4,-30}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(TerminalBox1.plugSupply, plugToPin_p2.plug_p) annotation (Line(
-            points={{-10,-28},{-10,-12}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(TerminalBox1.plugSupply, plugToPin_p3.plug_p) annotation (Line(
-            points={{-10,-28},{-10,-20},{-30,-20},{-30,-12}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(TerminalBox1.plugSupply, plugToPin_p1.plug_p) annotation (Line(
-            points={{-10,-28},{-10,-20},{10,-20},{10,-12}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
@@ -994,8 +987,28 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         connect(relSpeedSensor.w, greaterThreshold.u) annotation (Line(
-            points={{41,-30},{50,-30},{50,8}},
+            points={{41,-30},{50,-30},{50,38}},
             color={0,0,127},
+            smooth=Smooth.None));
+        connect(plugToPin_p3.plug_p, currentQuasiRMSSensor.plug_p) annotation (
+            Line(
+            points={{-30,16},{-30,0},{-10,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(plugToPin_p2.plug_p, currentQuasiRMSSensor.plug_p) annotation (
+            Line(
+            points={{-10,16},{-10,0},{-10,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(plugToPin_p1.plug_p, currentQuasiRMSSensor.plug_p) annotation (
+            Line(
+            points={{10,16},{10,0},{-10,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(currentQuasiRMSSensor.plug_n, TerminalBox1.plugSupply)
+          annotation (Line(
+            points={{-10,-20},{-10,-28},{-10,-28}},
+            color={0,0,255},
             smooth=Smooth.None));
         annotation (
           experiment(StopTime=1.5, Interval=0.001),
@@ -1004,8 +1017,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                  100}}), graphics));
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                          graphics));
       end AIMC_Steinmetz;
 
       model AIMC_withLosses
@@ -1780,7 +1794,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, rotation=0)));
         MultiPhase.Sources.SignalCurrent signalCurrent(final m=m)
           annotation (Placement(transformation(
-              origin={-10,40},
+              origin={-10,50},
               extent={{-10,10},{10,-10}},
               rotation=270)));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
@@ -1792,23 +1806,23 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Utilities.CurrentController currentController(p=smpm.p)
-          annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
+          annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
         Blocks.Sources.Constant iq(k=84.6)
-          annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
+          annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
         Blocks.Sources.Constant id(k=-53.5)
-          annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
+          annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
         Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
-              origin={-20,-8})));
+              origin={-30,-10})));
         MultiPhase.Basic.Star starM(final m=m) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
-              origin={-50,-8})));
+              origin={-60,-10})));
         Modelica.Electrical.Analog.Basic.Ground groundM
           annotation (Placement(transformation(
-              origin={-70,-28},
+              origin={-80,-28},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
@@ -1843,6 +1857,11 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
         parameter Utilities.ParameterRecords.SM_PermanentMagnetData smpmData(
             useDamperCage=false)
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+        Sensors.CurrentQuasiRMSSensor          currentQuasiRMSSensor
+          annotation (Placement(transformation(
+              origin={-10,0},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -1863,7 +1882,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
-            points={{-10,50},{-10,90},{-50,90}},
+            points={{-10,60},{-10,90},{-50,90}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (Line(
@@ -1871,23 +1890,19 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         connect(angleSensor.phi, currentController.phi) annotation (Line(
-            points={{10,11},{10,20},{-40,20},{-40,30}},
+            points={{10,11},{10,30},{-40,30},{-40,40}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(signalCurrent.plug_n, terminalBox.plugSupply) annotation (Line(
-            points={{-10,30},{-10,1},{-10,1},{-10,-28}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(id.y, currentController.id_rms) annotation (Line(
-            points={{-69,60},{-60,60},{-60,46},{-50,46}},
+            points={{-69,70},{-60,70},{-60,56},{-50,56}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(iq.y, currentController.iq_rms) annotation (Line(
-            points={{-69,20},{-60,20},{-60,34},{-50,34}},
+            points={{-69,30},{-60,30},{-60,44},{-50,44}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(groundM.p, terminalBox.starpoint) annotation (Line(
-            points={{-60,-28},{-39.5,-28},{-39.5,-28},{-19,-28}},
+            points={{-70,-28},{-19,-28}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
@@ -1896,19 +1911,19 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             smooth=Smooth.None));
         connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply) annotation (
             Line(
-            points={{-10,-8},{-10,-28}},
+            points={{-20,-10},{-10,-10},{-10,-28}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
-            points={{-40,-8},{-37.5,-8},{-37.5,-8},{-35,-8},{-35,-8},{-30,-8}},
+            points={{-50,-10},{-40,-10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(starM.pin_n, groundM.p) annotation (Line(
-            points={{-60,-8},{-60,-28},{-60,-28}},
+            points={{-70,-10},{-70,-28}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(currentController.y, signalCurrent.i) annotation (Line(
-            points={{-29,40},{-17,40}},
+            points={{-29,50},{-17,50}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(speedSensor.flange, smpm.flange) annotation (Line(
@@ -1924,6 +1939,16 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             points={{50,-60},{50,-40}},
             color={0,0,0},
             smooth=Smooth.None));
+        connect(signalCurrent.plug_n, currentQuasiRMSSensor.plug_p) annotation
+          (Line(
+            points={{-10,40},{-10,10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
+          annotation (Line(
+            points={{-10,-10},{-20,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
         annotation (
           experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<html>
@@ -1934,7 +1959,9 @@ whereas the stator voltage is influenced by the d-current.</p>
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</html>"));
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end SMPM_CurrentSource;
 
       model SMPM_VoltageSource
@@ -1985,7 +2012,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(final m=m)
           annotation (Placement(transformation(
-              origin={-10,40},
+              origin={-10,50},
               extent={{10,10},{-10,-10}},
               rotation=270)));
         Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
@@ -1997,9 +2024,9 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Blocks.Sources.Constant iq(k=84.6)
-          annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
+          annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
         Modelica.Blocks.Sources.Constant id(k=-53.5)
-          annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
+          annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
             terminalConnection="Y")
           annotation (Placement(transformation(
@@ -2029,7 +2056,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
                     smpm.TsRef,
                     smpm.alpha20s,
                     smpm.TsOperational))
-          annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
+          annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
         Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
           annotation (Placement(transformation(extent={{10,10},{-10,-10}},
               rotation=180,
@@ -2066,6 +2093,11 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
           smpmData(useDamperCage=false)
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+        Sensors.CurrentQuasiRMSSensor          currentQuasiRMSSensor
+          annotation (Placement(transformation(
+              origin={-10,20},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
       initial equation
         smpm.idq_sr=zeros(2);
 
@@ -2090,35 +2122,31 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             color={0,0,0},
             smooth=Smooth.None));
         connect(star.plug_p, signalVoltage.plug_n) annotation (Line(
-            points={{-50,90},{-10,90},{-10,50}},
+            points={{-50,90},{-10,90},{-10,60}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(currentSensor.plug_n, terminalBox.plugSupply) annotation (Line(
             points={{-10,-10},{-10,-28}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(currentSensor.plug_p, signalVoltage.plug_p) annotation (Line(
-            points={{-10,10},{-10,30}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(id.y, voltageController.id_rms) annotation (Line(
-            points={{-69,60},{-60,60},{-60,46},{-50,46}},
+            points={{-69,70},{-60,70},{-60,56},{-50,56}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(iq.y, voltageController.iq_rms) annotation (Line(
-            points={{-69,20},{-60,20},{-60,34},{-50,34}},
+            points={{-69,30},{-60,30},{-60,44},{-50,44}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(angleSensor.phi, voltageController.phi) annotation (Line(
-            points={{10,11},{10,20},{-34,20},{-34,30}},
+            points={{10,11},{10,30},{-34,30},{-34,40}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(voltageController.y, signalVoltage.v) annotation (Line(
-            points={{-29,40},{-17,40}},
+            points={{-29,50},{-17,50}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(currentSensor.i, voltageController.iActual) annotation (Line(
-            points={{-21,2.22045e-015},{-46,2.22045e-015},{-46,30}},
+            points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,40}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(inertiaLoad.flange_a, torqueSensor.flange_b) annotation (Line(
@@ -2157,6 +2185,16 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             points={{-70,-30},{-70,-10}},
             color={0,0,255},
             smooth=Smooth.None));
+        connect(currentQuasiRMSSensor.plug_n, currentSensor.plug_p) annotation
+          (Line(
+            points={{-10,10},{-10,10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation
+          (Line(
+            points={{-10,40},{-10,30}},
+            color={0,0,255},
+            smooth=Smooth.None));
         annotation (
           experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<html>
@@ -2168,7 +2206,9 @@ whereas the stator voltage is influenced by the d-current.</p>
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</html>"));
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end SMPM_VoltageSource;
 
       model SMEE_Generator
@@ -2294,7 +2334,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           TrRef=293.15,
           TeSpecification=293.15,
           TeRef=293.15)
-          annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         smee.idq_sr=zeros(2);
         smee.idq_dr=zeros(2);
@@ -5158,7 +5198,8 @@ These models use package SpacePhasors.
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
         Losses.InductionMachines.PermanentMagnetLosses permanentMagnetLosses(final
             permanentMagnetLossParameters=permanentMagnetLossParameters, final
-            useHeatPort=true)
+            useHeatPort=true,
+          final m=m)
           annotation (Placement(transformation(extent={{-30,70},{-50,90}})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
@@ -11369,7 +11410,7 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
       extends Modelica.Icons.VariantsPackage;
 
       model Brush "Model considering voltage drop of carbon brushes"
-        extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug(final m=3);
+        extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
         parameter Machines.Losses.BrushParameters brushParameters
           "Brush loss parameters";
         extends
@@ -11415,14 +11456,15 @@ Model of voltage drop and losses of carbon brushes. This three-phase model uses 
 
       model StrayLoad
         "Model of stray load losses dependent on current and speed"
-        extends Modelica.Electrical.MultiPhase.Interfaces.OnePort(final m=3);
+        extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
         extends Machines.Interfaces.FlangeSupport;
+        import Modelica.Electrical.MultiPhase.Sensors.Functions.quasiRMS;
         parameter Machines.Losses.StrayLoadParameters strayLoadParameters
           "Stray load loss parameters";
         extends
           Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
            useHeatPort=false);
-        Modelica.SIunits.Current iRMS=Machines.SpacePhasors.Functions.quasiRMS(i);
+        Modelica.SIunits.Current iRMS=quasiRMS(i);
       equation
         v = zeros(m);
         if (strayLoadParameters.PRef<=0) then
@@ -11474,14 +11516,15 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 
       model PermanentMagnetLosses
         "Model of permanent magnet losses dependent on current and speed"
-        extends Modelica.Electrical.MultiPhase.Interfaces.OnePort(final m=3);
+        extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
         extends Machines.Interfaces.FlangeSupport;
+        import Modelica.Electrical.MultiPhase.Sensors.Functions.quasiRMS;
         parameter Machines.Losses.PermanentMagnetLossParameters permanentMagnetLossParameters
           "Permanent magnet loss parameters";
         extends
           Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
            useHeatPort=false);
-        Modelica.SIunits.Current iRMS=Machines.SpacePhasors.Functions.quasiRMS(i);
+        Modelica.SIunits.Current iRMS=quasiRMS(i);
       equation
         v = zeros(m);
         if (permanentMagnetLossParameters.PRef<=0) then
@@ -11548,7 +11591,8 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
       end PermanentMagnetLosses;
 
       model Core "Model of core losses"
-        parameter Machines.Losses.CoreParameters coreParameters(final m=3);
+        parameter Machines.Losses.CoreParameters coreParameters(final m=m);
+        final parameter Integer m=3 "Number of phases";
         parameter Real turnsRatio(final min=Modelica.Constants.small)
           "Effective number of stator turns / effective number of rotor turns (if used as rotor core)";
         extends
@@ -12164,8 +12208,7 @@ Additionally, all losses = heat flows are recorded.
                 textString="AIMS")}),  Documentation(info="<HTML>
 Thermal ambient for asynchronous induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
       end ThermalAmbientAIMS;
     annotation(Documentation(info="<HTML>
@@ -13252,7 +13295,8 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
             extent={{10,10},{-10,-10}},
             rotation=90)));
       Machines.Losses.InductionMachines.StrayLoad strayLoad(final strayLoadParameters=
-            strayLoadParameters, final useHeatPort=true)
+            strayLoadParameters, final useHeatPort=true,
+        final m=m)
         annotation (Placement(transformation(extent={{90,70},{70,90}})));
       replaceable
         Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
@@ -13449,7 +13493,8 @@ Partial model for induction machine models
             extent={{10,10},{-10,-10}},
             rotation=90)));
       Machines.Losses.InductionMachines.StrayLoad strayLoad(final strayLoadParameters=
-            strayLoadParameters, final useHeatPort=true)
+            strayLoadParameters, final useHeatPort=true,
+        final m=m)
         annotation (Placement(transformation(extent={{90,70},{70,90}})));
       replaceable
         Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
