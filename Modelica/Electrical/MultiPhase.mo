@@ -313,6 +313,181 @@ neglecting initial transient.
 </p>
 </HTML>"),     experiment(StopTime=1.0, Interval=0.0001));
     end Rectifier;
+
+    model TestSensors
+      extends Modelica.Icons.Example;
+      constant Integer m=3 "Number of phases";
+      import Modelica.Constants.pi;
+      parameter Modelica.SIunits.Voltage VRMS=100
+        "Nominal RMS voltage per phase";
+      parameter Modelica.SIunits.Frequency f=50 "Frequency";
+      parameter Modelica.SIunits.Resistance R = 1/sqrt(2) "Load resistance";
+      parameter Modelica.SIunits.Inductance L = 1/sqrt(2)/(2*pi*f)
+        "Load inductance";
+      final parameter Modelica.SIunits.Current IRMS = VRMS/sqrt(R^2+(2*pi*f*L)^2)
+        "Steady state RMS current";
+      Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        final m=m,
+        V=fill(sqrt(2)*VRMS, m),
+        freqHz=fill(f, m))
+        annotation (Placement(transformation(
+            origin={-20,70},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+        annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+              rotation=90,
+            origin={-20,-70})));
+      Modelica.Electrical.Analog.Basic.Ground ground
+        annotation (Placement(transformation(
+            origin={-20,-100},
+            extent={{-10,-10},{10,10}},
+            rotation=0)));
+      Modelica.Electrical.MultiPhase.Basic.Resistor resistor(m=m, R=fill(R, m))
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={20,-10})));
+      Modelica.Electrical.MultiPhase.Basic.Inductor inductor(m=m, L=fill(L, m))
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={20,-40})));
+      Modelica.Electrical.MultiPhase.Basic.Star starLoad(m=m) annotation (Placement(
+            transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={20,-70})));
+      Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(m=m)
+                                                            annotation (Placement(
+            transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=270,
+            origin={20,70})));
+      Modelica.Blocks.Math.Feedback feedbackI
+        annotation (Placement(transformation(extent={{70,60},{90,80}})));
+      Modelica.Blocks.Sources.Constant constI(k=IRMS)
+                                                     annotation (Placement(
+            transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=270,
+            origin={80,40})));
+
+      Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(m=m) annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-50,70})));
+      Modelica.Blocks.Math.Feedback feedbackV
+        annotation (Placement(transformation(extent={{-70,60},{-90,80}})));
+      Modelica.Blocks.Sources.Constant constV(k=VRMS)
+                                                     annotation (Placement(
+            transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=270,
+            origin={-80,40})));
+      Sensors.PowerSensor powerSensor(m=m)
+                                      annotation (Placement(transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={20,20})));
+      Modelica.Blocks.Math.Feedback feedbackP
+        annotation (Placement(transformation(extent={{50,10},{70,30}})));
+      Blocks.Sources.RealExpression realExpression(y=
+            Modelica.Electrical.MultiPhase.Sensors.Functions.activePower(
+            voltageQuasiRMSSensor.v, currentQuasiRMSSensor.i))                                                       annotation (Placement(
+            transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={60,-10})));
+    initial equation
+      for k in 1:m-1 loop
+        inductor.i[k]=0;
+      end for;
+
+    equation
+      connect(star.pin_n, ground.p)
+        annotation (Line(points={{-20,-80},{-20,-90}},
+                                                     color={0,0,255}));
+      connect(sineVoltage.plug_n, star.plug_p)
+        annotation (Line(points={{-20,60},{-20,-60}},
+            color={0,0,255}));
+
+      connect(resistor.plug_n, inductor.plug_p) annotation (Line(
+          points={{20,-20},{20,-30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(inductor.plug_n, starLoad.plug_p) annotation (Line(
+          points={{20,-50},{20,-60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(currentQuasiRMSSensor.I, feedbackI.u1)          annotation (Line(
+          points={{30,70},{72,70}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(feedbackI.u2, constI.y)
+                                    annotation (Line(
+          points={{80,62},{80,51}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p)
+        annotation (Line(
+          points={{-20,80},{-20,90},{20,90},{20,80}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(voltageQuasiRMSSensor.plug_n, sineVoltage.plug_n) annotation (Line(
+          points={{-50,60},{-20,60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(voltageQuasiRMSSensor.plug_p, sineVoltage.plug_p) annotation (Line(
+          points={{-50,80},{-20,80}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(feedbackV.u1, voltageQuasiRMSSensor.V) annotation (Line(
+          points={{-72,70},{-60,70}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(constV.y, feedbackV.u2) annotation (Line(
+          points={{-80,51},{-80,62}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(powerSensor.nc, resistor.plug_p) annotation (Line(
+          points={{20,10},{20,0}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(currentQuasiRMSSensor.plug_n, powerSensor.pc)           annotation (
+          Line(
+          points={{20,60},{20,30}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(powerSensor.pc, powerSensor.pv) annotation (Line(
+          points={{20,30},{10,30},{10,20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(powerSensor.nv, starLoad.plug_p) annotation (Line(
+          points={{30,20},{30,-60},{20,-60}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(powerSensor.power, feedbackP.u1) annotation (Line(
+          points={{31,28},{40,28},{40,20},{52,20}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(realExpression.y, feedbackP.u2) annotation (Line(
+          points={{60,1},{60,12}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (
+        experiment(StopTime=0.1, Interval=0.0001),
+        Documentation(info="<HTML>
+<p>
+Test multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
+</p>
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}),
+                graphics),
+        __Dymola_experimentSetupOutput);
+    end TestSensors;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains test examples of analog electrical multiphase circuits.
@@ -2140,6 +2315,70 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
                 {100,100}}), graphics));
     end VoltageSensor;
 
+    model VoltageQuasiRMSSensor
+      "Continuous quasi voltage RMS sensor for multi phase system"
+      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
+      parameter Integer m(min=1)=3 "Number of phases";
+
+      Modelica.Blocks.Interfaces.RealOutput V "Continuous quasi RMS of voltage"
+        annotation (Placement(transformation(
+            origin={0,-100},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(
+        final m=m)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0)));
+      Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-50})));
+    equation
+      connect(plug_p,voltageSensor. plug_p)
+        annotation (Line(points={{-100,5.55112e-016},{-100,0},{-10,0}},
+                                                               color={0,0,255}));
+      connect(voltageSensor.plug_n, plug_n)
+        annotation (Line(points={{10,0},{100,0},{100,5.55112e-016}},
+                                                            color={0,0,255}));
+      connect(voltageSensor.v, quasiRMS.u) annotation (Line(
+          points={{0,-11},{0,-38}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(quasiRMS.y, V) annotation (Line(
+          points={{0,-61},{0,-100}},
+          color={0,0,127},
+          smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                            graphics),
+        Icon(graphics={
+            Line(points={{0,-70},{0,-90}}, color={0,0,255}),
+            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+            Line(points={{70,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{-100,60},{100,120}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,-60},{-20,-100}},
+              lineColor={0,0,0},
+              textString="m="),
+            Text(
+              extent={{20,-60},{100,-100}},
+              lineColor={0,0,0},
+              textString="%m")}),
+        Documentation(revisions="<html>
+</html>",             info="<html>
+<p>
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representiong an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value. 
+</p>
+<pre>
+ V = sqrt(sum(v[k]^2 for k in 1:m)/m)
+</pre>
+</html>"));
+    end VoltageQuasiRMSSensor;
+
     model CurrentSensor "Multiphase current sensor"
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(final min=1) = 3 "Number of phases";
@@ -2166,7 +2405,9 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
           color={0,0,127},
           smooth=Smooth.None));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+             graphics={
             Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
@@ -2195,6 +2436,72 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics));
     end CurrentSensor;
+
+    model CurrentQuasiRMSSensor
+      "Continuous quasi current RMS sensor for multi phase system"
+      extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
+      parameter Integer m(min=1)=3 "Number of phases";
+      Modelica.Blocks.Interfaces.RealOutput I
+        "Continuous quasi average RMS of current"
+        annotation (Placement(transformation(
+            origin={0,-100},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(
+        final m=m)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0)));
+      Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={0,-50})));
+    equation
+      connect(plug_p,currentSensor. plug_p)
+        annotation (Line(points={{-100,5.55112e-016},{-100,0},{-10,0}},
+                                                               color={0,0,255}));
+      connect(currentSensor.plug_n, plug_n)
+        annotation (Line(points={{10,0},{100,0},{100,5.55112e-016}},
+                                                            color={0,0,255}));
+      connect(currentSensor.i, quasiRMS.u) annotation (Line(
+          points={{0,-11},{0,-38}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(quasiRMS.y, I) annotation (Line(
+          points={{0,-61},{0,-100}},
+          color={0,0,127},
+          smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                            graphics),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+             graphics={                                                 Line(
+                points={{-90,0},{-70,0}},color={0,0,255}),
+                       Line(points={{0,-70},{0,-90}}, color={0,0,255}),
+            Text(
+              extent={{-100,60},{100,120}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,-60},{-20,-100}},
+              lineColor={0,0,0},
+              textString="m="),
+            Text(
+              extent={{20,-60},{100,-100}},
+              lineColor={0,0,0},
+              textString="%m"),                                         Line(
+                points={{70,0},{90,0}},  color={0,0,255})}),
+        Documentation(revisions="<html>
+</html>",             info="<html>
+<p>
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase current system, representiong an equivalent RMS current vector <code>I</code> or phasor. If the current waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+</p>
+<pre>
+ I = sqrt(sum(i[k]^2 for k in 1:m)/m) 
+</pre>
+</html>"));
+    end CurrentQuasiRMSSensor;
 
   model PowerSensor "Multiphase instantaneous power sensor"
     parameter Integer m(min=1) = 3 "Number of phases";
@@ -2307,6 +2614,67 @@ This power sensor measures instantaneous electrical power of a multiphase system
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics));
   end PowerSensor;
+
+    package Blocks "Blocks used for multiphase sensors"
+      extends Modelica.Icons.Package;
+      block QuasiRMS
+        import Modelica;
+        extends Modelica.Blocks.Interfaces.SO;
+        parameter Integer m(min=2)=3 "Number of phases";
+        Modelica.Blocks.Interfaces.RealInput u[m]
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+      equation
+        y=Modelica.Electrical.MultiPhase.Sensors.Functions.quasiRMS(u);
+
+        annotation (Documentation(info="<HTML>
+<p>
+This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value. 
+</p>
+<pre>
+ y = sqrt(sum(u[k]^2 for k in 1:m)/m)
+</pre>
+</HTML>"));
+      end QuasiRMS;
+    end Blocks;
+
+    package Functions "Functions used for mutliphase sensors"
+      extends Modelica.Icons.Package;
+      function quasiRMS "Calculate continuous quasi RMS value of input"
+        extends Modelica.Icons.Function;
+        input Real x[:];
+        output Real y;
+      algorithm
+        y := sqrt(sum(x.^2/size(x,1)));
+        annotation (Inline=true, Documentation(info="<HTML>
+<p>
+This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value. 
+</p>
+<pre>
+ y = sqrt(sum(u[k]^2 for k in 1:m)/m)
+</pre>
+</HTML>"));
+      end quasiRMS;
+
+      function activePower
+        "Calculate active power of voltage and current input"
+        extends Modelica.Icons.Function;
+        input Modelica.SIunits.Voltage v[:] "phase voltages";
+        input Modelica.SIunits.Current i[:] "phase currents";
+        output Modelica.SIunits.Power p "Active power";
+      algorithm
+        assert(size(v,1)==size(i,1), "activePower: voltage and current have to have smae number of phases!");
+        p :=sum(v .* i)
+        annotation (Inline=true, Documentation(info="<HTML>
+Calculates instantaneous power from multiphase voltages and currents.
+</HTML>"));
+        annotation (Documentation(info="<HTML>
+<p>
+Calculates instantaneous power from multiphase voltages and currents. 
+In quasistaionary operation, instantaneous power equals active power;
+</p>
+</HTML>"));
+      end activePower;
+    end Functions;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains multiphase potential, voltage, and current sensors.
