@@ -1939,8 +1939,8 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             points={{50,-60},{50,-40}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(signalCurrent.plug_n, currentQuasiRMSSensor.plug_p) annotation
-          (Line(
+        connect(signalCurrent.plug_n, currentQuasiRMSSensor.plug_p) annotation (
+           Line(
             points={{-10,40},{-10,10}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -1959,8 +1959,7 @@ whereas the stator voltage is influenced by the d-current.</p>
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</html>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
       end SMPM_CurrentSource;
 
@@ -2185,13 +2184,13 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             points={{-70,-30},{-70,-10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(currentQuasiRMSSensor.plug_n, currentSensor.plug_p) annotation
-          (Line(
+        connect(currentQuasiRMSSensor.plug_n, currentSensor.plug_p) annotation (
+           Line(
             points={{-10,10},{-10,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation
-          (Line(
+        connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
+           Line(
             points={{-10,40},{-10,30}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -2206,8 +2205,7 @@ whereas the stator voltage is influenced by the d-current.</p>
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</html>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
       end SMPM_VoltageSource;
 
@@ -15388,6 +15386,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
       extends Modelica.Blocks.Interfaces.SIMO(final nout=m);
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       parameter Integer m=3 "Number of phases";
+      parameter Modelica.SIunits.Angle orientation[m]={(k - 1)*2*pi/m for k in 1:m}
+        "Orientation of phases";
       parameter Modelica.SIunits.Voltage VNominal
         "Nominal RMS voltage per phase";
       parameter Modelica.SIunits.Frequency fNominal "Nominal frequency";
@@ -15398,7 +15398,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
     //amplitude = sqrt(2)*VNominal*min(abs(u)/fNominal, 1);
       amplitude = sqrt(2)*VNominal*(if abs(u)<fNominal then abs(u)/fNominal else 1);
       der(x) = 2*pi*u;
-      y = {amplitude*sin(x + BasePhase - (k - 1)*2/m*pi) for k in 1:m};
+      y = amplitude*sin(fill(x + BasePhase, m) - orientation);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
