@@ -15386,7 +15386,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
       extends Modelica.Blocks.Interfaces.SIMO(final nout=m);
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       parameter Integer m=3 "Number of phases";
-      parameter Modelica.SIunits.Angle orientation[m]={(k - 1)*2*pi/m for k in 1:m}
+      parameter Modelica.SIunits.Angle orientation[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
         "Orientation of phases";
       parameter Modelica.SIunits.Voltage VNominal
         "Nominal RMS voltage per phase";
@@ -15398,7 +15398,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
     //amplitude = sqrt(2)*VNominal*min(abs(u)/fNominal, 1);
       amplitude = sqrt(2)*VNominal*(if abs(u)<fNominal then abs(u)/fNominal else 1);
       der(x) = 2*pi*u;
-      y = amplitude*sin(fill(x + BasePhase, m) - orientation);
+      y = amplitude*sin(fill(x + BasePhase, m) + orientation);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={

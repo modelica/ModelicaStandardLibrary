@@ -2715,7 +2715,6 @@ This power sensor measures instantaneous electrical power of a multiphase system
                 {100,100}}), graphics));
   end PowerSensor;
 
-
     annotation (Documentation(info="<HTML>
 <p>
 This package contains multiphase potential, voltage, and current sensors.
@@ -2857,8 +2856,8 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
         "Amplitudes of sine waves";
-      parameter Modelica.SIunits.Angle phase[m]=-{(j - 1)/m*2*Modelica.
-          Constants.pi for j in 1:m} "Phases of sine waves";
+      parameter Modelica.SIunits.Angle phase[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
+        "Phases of sine waves";
       parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
         "Frequencies of sine waves";
       parameter Modelica.SIunits.Voltage offset[m]=zeros(m) "Voltage offsets";
@@ -3020,8 +3019,8 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Current I[m](start=fill(1, m))
         "Amplitudes of sine waves";
-      parameter Modelica.SIunits.Angle phase[m]=-{(j - 1)/m*2*Modelica.
-          Constants.pi for j in 1:m} "Phases of sine waves";
+      parameter Modelica.SIunits.Angle phase[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
+        "Phases of sine waves";
       parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
         "Frequencies of sine waves";
       parameter Modelica.SIunits.Current offset[m]=zeros(m) "Current offsets";
