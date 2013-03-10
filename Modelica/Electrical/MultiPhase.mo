@@ -485,8 +485,7 @@ Test multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                 100}}),
-                graphics),
-        __Dymola_experimentSetupOutput);
+                graphics));
     end TestSensors;
     annotation (Documentation(info="<HTML>
 <p>
