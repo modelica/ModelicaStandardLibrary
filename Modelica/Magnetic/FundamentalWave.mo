@@ -108,20 +108,6 @@ The term <b>fundamental wave</b> refers to spatial waves of the electro magnetic
       extends Modelica.Icons.Information;
       annotation (Documentation(info="<html>
 
-<h4>Stator main inductance</h4>
-
-<p>
-The stator main inductance 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_m.png\">
-of an
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\"> 
-phase induction machine is related with the self inductance of on stator phase,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lss.png\">,
-by:</p>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_m_Lss.png\">
-</p>
-
 <h4>Symmetrical three phase system</h4>
 
 <p>Symmetrical three phases systems of currents (or voltages) consists of three sinusoidal sine waves with with an angular displacement of 
@@ -234,6 +220,20 @@ see Fig. 1 and 2 for odd phase numbers and Fig. 3 and 4 for even phase numbes.
     class Parameters "Parameters of equivalent machines models"
       extends Modelica.Icons.Information;
       annotation (Documentation(info="<html>
+
+<h4>Stator main inductance</h4>
+
+<p>
+The stator main inductance 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_m.png\">
+of an
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\"> 
+phase induction machine is related with the self inductance of on stator phase,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lss.png\">,
+by:</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_m_Lss.png\">
+</p>
 
 <h4>Parameters of equivalent multi phase induction machines models</h4>
 
