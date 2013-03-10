@@ -394,7 +394,7 @@ neglecting initial transient.
       Modelica.Blocks.Math.Feedback feedbackP
         annotation (Placement(transformation(extent={{50,10},{70,30}})));
       Blocks.Sources.RealExpression realExpression(y=
-            Modelica.Electrical.MultiPhase.Sensors.Functions.activePower(
+            Modelica.Electrical.MultiPhase.Functions.activePower(
             voltageQuasiRMSSensor.v, currentQuasiRMSSensor.i))                                                       annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
@@ -2213,6 +2213,103 @@ like thyristor, diode, switch, transformer.
           Line(points={{20,0},{20,-80}}, color={0,0,255})}));
   end Ideal;
 
+  package Blocks "Blocks for multi phase systems"
+    extends Modelica.Icons.Package;
+    block QuasiRMS
+      import Modelica;
+      extends Modelica.Blocks.Interfaces.SO;
+      parameter Integer m(min=2)=3 "Number of phases";
+      Modelica.Blocks.Interfaces.RealInput u[m]
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+    equation
+      y=Modelica.Electrical.MultiPhase.Functions.quasiRMS(        u);
+
+      annotation (Documentation(info="<HTML>
+<p>
+This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value. 
+</p>
+<pre>
+ y = sqrt(sum(u[k]^2 for k in 1:m)/m)
+</pre>
+</HTML>"));
+    end QuasiRMS;
+  end Blocks;
+
+  package Functions "Functions for multi phase systems"
+    extends Modelica.Icons.Package;
+    function quasiRMS "Calculate continuous quasi RMS value of input"
+      extends Modelica.Icons.Function;
+      input Real x[:];
+      output Real y;
+    algorithm
+      y := sqrt(sum(x.^2/size(x,1)));
+      annotation (Inline=true, Documentation(info="<HTML>
+<p>
+This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value. 
+</p>
+<pre>
+ y = sqrt(sum(u[k]^2 for k in 1:m)/m)
+</pre>
+</HTML>"));
+    end quasiRMS;
+
+    function activePower "Calculate active power of voltage and current input"
+      extends Modelica.Icons.Function;
+      input Modelica.SIunits.Voltage v[:] "phase voltages";
+      input Modelica.SIunits.Current i[:] "phase currents";
+      output Modelica.SIunits.Power p "Active power";
+    algorithm
+      assert(size(v,1)==size(i,1), "activePower: voltage and current have to have smae number of phases!");
+      p :=sum(v .* i)
+      annotation (Inline=true, Documentation(info="<HTML>
+Calculates instantaneous power from multiphase voltages and currents.
+</HTML>"));
+      annotation (Documentation(info="<HTML>
+<p>
+Calculates instantaneous power from multiphase voltages and currents. 
+In quasistaionary operation, instantaneous power equals active power;
+</p>
+</HTML>"));
+    end activePower;
+
+    function symmetricOrientation
+      "Orientations of the resulting fundamental wave field phasors"
+      extends Modelica.Icons.Function;
+
+      input Integer m "Number of phases";
+      output Modelica.SIunits.Angle orientation[m]
+        "Orientation of the resulting fundamental wave field phasors";
+
+      import Modelica.Constants.pi;
+
+    algorithm
+      if mod(m, 2) == 0 then
+        // Even number of phases
+        if m == 2 then
+          // Special case two phase machine
+          orientation[1] := 0;
+          orientation[2] := +pi/2;
+        else
+          orientation[1:integer(m/2)] := symmetricOrientation(integer(m/2));
+          orientation[integer(m/2) + 1:m] := symmetricOrientation(integer(m/2))
+             - fill(pi/m, integer(m/2));
+        end if;
+      else
+        // Odd number of phases
+        orientation := {(k - 1)*2*pi/m for k in 1:m};
+      end if;
+      annotation (Documentation(info="<html>
+<p>
+This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_m.png\">.
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide on multi phase winding</a>,
+</p>
+</html>"));
+    end symmetricOrientation;
+  end Functions;
+
   package Sensors "Multiphase potential, voltage and current Sensors"
     extends Modelica.Icons.SensorsPackage;
 
@@ -2316,6 +2413,7 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
 
     model VoltageQuasiRMSSensor
       "Continuous quasi voltage RMS sensor for multi phase system"
+      import Modelica;
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1)=3 "Number of phases";
@@ -2329,7 +2427,8 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
         final m=m)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
-      Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(transformation(
+      Modelica.Electrical.MultiPhase.Blocks.QuasiRMS
+                      quasiRMS(final m=m) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,-50})));
@@ -2438,6 +2537,7 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
 
     model CurrentQuasiRMSSensor
       "Continuous quasi current RMS sensor for multi phase system"
+      import Modelica;
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1)=3 "Number of phases";
@@ -2451,7 +2551,8 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
         final m=m)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
-      Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(transformation(
+      Modelica.Electrical.MultiPhase.Blocks.QuasiRMS
+                      quasiRMS(final m=m) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,-50})));
@@ -2614,66 +2715,7 @@ This power sensor measures instantaneous electrical power of a multiphase system
                 {100,100}}), graphics));
   end PowerSensor;
 
-    package Blocks "Blocks used for multiphase sensors"
-      extends Modelica.Icons.Package;
-      block QuasiRMS
-        import Modelica;
-        extends Modelica.Blocks.Interfaces.SO;
-        parameter Integer m(min=2)=3 "Number of phases";
-        Modelica.Blocks.Interfaces.RealInput u[m]
-          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      equation
-        y=Modelica.Electrical.MultiPhase.Sensors.Functions.quasiRMS(u);
 
-        annotation (Documentation(info="<HTML>
-<p>
-This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value. 
-</p>
-<pre>
- y = sqrt(sum(u[k]^2 for k in 1:m)/m)
-</pre>
-</HTML>"));
-      end QuasiRMS;
-    end Blocks;
-
-    package Functions "Functions used for mutliphase sensors"
-      extends Modelica.Icons.Package;
-      function quasiRMS "Calculate continuous quasi RMS value of input"
-        extends Modelica.Icons.Function;
-        input Real x[:];
-        output Real y;
-      algorithm
-        y := sqrt(sum(x.^2/size(x,1)));
-        annotation (Inline=true, Documentation(info="<HTML>
-<p>
-This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value. 
-</p>
-<pre>
- y = sqrt(sum(u[k]^2 for k in 1:m)/m)
-</pre>
-</HTML>"));
-      end quasiRMS;
-
-      function activePower
-        "Calculate active power of voltage and current input"
-        extends Modelica.Icons.Function;
-        input Modelica.SIunits.Voltage v[:] "phase voltages";
-        input Modelica.SIunits.Current i[:] "phase currents";
-        output Modelica.SIunits.Power p "Active power";
-      algorithm
-        assert(size(v,1)==size(i,1), "activePower: voltage and current have to have smae number of phases!");
-        p :=sum(v .* i)
-        annotation (Inline=true, Documentation(info="<HTML>
-Calculates instantaneous power from multiphase voltages and currents.
-</HTML>"));
-        annotation (Documentation(info="<HTML>
-<p>
-Calculates instantaneous power from multiphase voltages and currents. 
-In quasistaionary operation, instantaneous power equals active power;
-</p>
-</HTML>"));
-      end activePower;
-    end Functions;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains multiphase potential, voltage, and current sensors.

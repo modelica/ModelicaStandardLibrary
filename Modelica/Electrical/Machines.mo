@@ -11456,7 +11456,7 @@ Model of voltage drop and losses of carbon brushes. This three-phase model uses 
         "Model of stray load losses dependent on current and speed"
         extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
         extends Machines.Interfaces.FlangeSupport;
-        import Modelica.Electrical.MultiPhase.Sensors.Functions.quasiRMS;
+        import Modelica.Electrical.MultiPhase.Functions.quasiRMS;
         parameter Machines.Losses.StrayLoadParameters strayLoadParameters
           "Stray load loss parameters";
         extends
@@ -11516,7 +11516,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         "Model of permanent magnet losses dependent on current and speed"
         extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
         extends Machines.Interfaces.FlangeSupport;
-        import Modelica.Electrical.MultiPhase.Sensors.Functions.quasiRMS;
+        import Modelica.Electrical.MultiPhase.Functions.quasiRMS;
         parameter Machines.Losses.PermanentMagnetLossParameters permanentMagnetLossParameters
           "Permanent magnet loss parameters";
         extends
