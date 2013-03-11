@@ -183,7 +183,7 @@ The orientation of the winding axis of such winding is given by:
 <p>
 In the current implementation of the FundamentalWave library, phase numbers equal to the power of two are not supported. However, any other multi phase systems with an phase numbers,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png\">,
-can be split into a two symmetrical systems with odd phase numbers, as depicted in Fig. 3 and 4. The displacement between the two symmetrical systems is 
+can be recursively split into various symmetrical systems with odd phase numbers, as depicted in Fig. 3 and 4. The displacement between the two symmetrical systems is 
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/pi_m.png\">. 
 A function for calculating the 
 <a href=\"Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a> 
