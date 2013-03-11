@@ -107,113 +107,44 @@ The term <b>fundamental wave</b> refers to spatial waves of the electro magnetic
     class MultiPhase "Multi phase windings"
       extends Modelica.Icons.Information;
       annotation (Documentation(info="<html>
-
-<h4>Symmetrical three phase system</h4>
-
-<p>Symmetrical three phases systems of currents (or voltages) consists of three sinusoidal sine waves with with an angular displacement of 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\">.</p>
-
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/i123.png\">, 
-</p>
-
-<p>Electrical three phase machines have (usually) symmetrical three phase windings which excite spatial magnetic potential with a spacial displacement of 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\">
--- with respect to the fundamental wave, see 
-[<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Laughton02</a>]. Such a symmetrical three phase system of currents (or voltages) can be represented by 
-<a href=\"http://en.wikipedia.org/wiki/Phasor\">phasors</a>, as depicted in Fig. 1(a). The associated three phase winding is depicted in Fig. 2(a). The winding axis are displaced by
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\">:
-</p>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_3.png\">
-</p>
-<p>
-So there is is a strong coherence between angular displacement in the time and spatial domain which also applies to multi phase systems. 
-</p>
-
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Symmetrical (a) three phase and (b) five phase current system</caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png\">
-    </td>
-  </tr>
+<p><b>Symmetrical three phase system</b> </p>
+<p>Symmetrical three phases systems of currents (or voltages) consists of three sinusoidal sine waves with with an angular displacement of <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\"/>. </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/i123.png\"/>, </p>
+<p>Electrical three phase machines have (usually) symmetrical three phase windings which excite spatial magnetic potential with a spacial displacement of <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\"/> -- with respect to the fundamental wave, see [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Laughton02</a>]. Such a symmetrical three phase system of currents (or voltages) can be represented by <a href=\"http://en.wikipedia.org/wiki/Phasor\">phasors</a>, as depicted in Fig. 1(a). The associated three phase winding is depicted in Fig. 2(a). The winding axis are displaced by <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png\"/>: </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_3.png\"/> </p>
+<p>So there is is a strong coherence between angular displacement in the time and spatial domain which also applies to multi phase systems. </p>
+<p><b>Fig. 1:</b> Symmetrical (a) three phase and (b) five phase current system </p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png\"/> </p></td>
+</tr>
 </table>
-
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 2:</b> Symmetrical (a) three phase and (b) five phase winding</caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding35.png\">
-    </td>
-  </tr>
+<p><br/><b>Fig. 2:</b> Symmetrical (a) three phase and (b) five phase winding </p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding35.png\"/> </p></td>
+</tr>
 </table>
-
-<h4>Symmetrical multi phase system</h4>
-
-<p>
-In symmetrical multi phase systems odd and even phase numbers have to be distinguished.
-</p>
-
-<h5>Odd number of phases</h5>
-
-<p>
-For a symmetrical multi phase system with
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png\"> 
-phases the displacement in the time and spatial domain is 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_m.png\">, as depicted in Fig. 1 and 2.
-</p>
-
-<p>
-Mathematically, this symmetry is expressd in terms of phase currents by:
-</p>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/ik_odd.png\"> 
-</p>
-<p>
-The orientation of the winding axis of such winding is given by:
-</p>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_m.png\"> 
-</p>
-
-
-<h5>Even number of phases</h5>
-
-<p>
-In the current implementation of the FundamentalWave library, phase numbers equal to the power of two are not supported. However, any other multi phase systems with an phase numbers,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png\">,
-can be recursively split into various symmetrical systems with odd phase numbers, as depicted in Fig. 3 and 4. The displacement between the two symmetrical systems is 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/pi_m.png\">. 
-A function for calculating the 
-<a href=\"Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a> 
-is available. 
-</p>
-
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 3:</b> Symmetrical (a) six and (b) ten phase current system</caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase610.png\">
-    </td>
-  </tr>
+<p><br/><b>Symmetrical multi phase system</b> </p>
+<p>In symmetrical multi phase systems odd and even phase numbers have to be distinguished. </p>
+<p><b><font style=\"font-size: 7pt; \">Odd number of phases</b> </p>
+<p>For a symmetrical multi phase system with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png\"/> phases the displacement in the time and spatial domain is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_m.png\"/>, as depicted in Fig. 1 and 2. </p>
+<p>Mathematically, this symmetry is expressd in terms of phase currents by: </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/ik_odd.png\"/> </p>
+<p>The orientation of the winding axis of such winding is given by: </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_m.png\"/> </p>
+<p><b>Even number of phases</b> </p>
+<p>In the current implementation of the FundamentalWave library, phase numbers equal to the power of two are not supported. However, any other multi phase system with even an phase number, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png\"/>, can be recursively split into various symmetrical systems with odd phase numbers, as depicted in Fig. 3 and 4. The displacement between the two symmetrical systems is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/pi_m.png\"/>. A function for calculating the <a href=\"Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a> is available. </p>
+<p><b>Fig. 3:</b> Symmetrical (a) six and (b) ten phase current system </p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase610.png\"/> </p></td>
+</tr>
 </table>
-
-<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 4:</b> Symmetrical (a) six and (b) ten phase winding</caption>
-  <tr>
-    <td>
-      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding610.png\">
-    </td>
-  </tr>
+<p><br/><b>Fig. 4:</b> Symmetrical (a) six and (b) ten phase winding </p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding610.png\"/> </p></td>
+</tr>
 </table>
-
-<h4>Note</h4>
-<p>
-In a fully symmetrical machine, the orientation of the winding axes and the symmetrical currents (or voltages) 
-<a href=\"http://en.wikipedia.org/wiki/Phasor\">phasors</a> have different signs; 
-see Fig. 1 and 2 for odd phase numbers and Fig. 3 and 4 for even phase numbes.
-</p>
+<p><br/><h4>Note</h4></p>
+<p>In a fully symmetrical machine, the orientation of the winding axes and the symmetrical currents (or voltages) <a href=\"http://en.wikipedia.org/wiki/Phasor\">phasors</a> have different signs; see Fig. 1 and 2 for odd phase numbers and Fig. 3 and 4 for even phase numbes. </p>
 </html>"));
     end MultiPhase;
 
@@ -1024,7 +955,8 @@ Simulate for 1.5 seconds and plot (versus time):
       model AIMC_DOL_MultiPhase
         "Direct on line start of multi phase asynchronous induction machine with squirrel cage"
         extends Modelica.Icons.Example;
-        constant Integer m=6 "Number of stator phases";
+        constant Integer m3=3 "Number of stator phases of threephase system";
+        parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
@@ -1034,31 +966,33 @@ Simulate for 1.5 seconds and plot (versus time):
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
         parameter Integer p=2 "Number of pole pairs";
-        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+        Modelica.Electrical.Analog.Basic.Ground groundM
+                                                       annotation (Placement(
               transformation(
               origin={-90,50},
               extent={{-10,-10},{10,10}},
               rotation=0)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m)
+                                                                  annotation (
             Placement(transformation(extent={{-70,62},{-90,82}}, rotation=0)));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltageM(
           final m=m,
           freqHz=fill(fNominal, m),
           V=fill(sqrt(2.0)*VsNominal, m),
-          phase=-
-              Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
               m)) annotation (Placement(transformation(
               origin={-50,72},
               extent={{10,-10},{-10,10}},
               rotation=0)));
-        Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+        Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloserM(
           final m=m,
-          Ron=fill(1e-5, m),
-          Goff=fill(1e-5, m)) annotation (Placement(transformation(
+          Ron=fill(1e-5*m/m3, m),
+          Goff=fill(1e-5*m3/m, m))
+                              annotation (Placement(transformation(
               origin={-20,72},
               extent={{-10,10},{10,-10}},
               rotation=0)));
-        Blocks.Sources.BooleanStep booleanStep[m](each startTime=tOn, each
+        Blocks.Sources.BooleanStep booleanStepM[m](each startTime=tOn, each
             startValue=false) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
@@ -1116,37 +1050,41 @@ Simulate for 1.5 seconds and plot (versus time):
               origin={-90,-52},
               extent={{-10,-10},{10,10}},
               rotation=0)));
-        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=3) annotation (
+        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3)
+                                                                   annotation (
             Placement(transformation(extent={{-70,-40},{-90,-20}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage3(
-          final m=3,
-          freqHz=fill(fNominal, 3),
-          V=fill(sqrt(2.0)*VsNominal, 3)) annotation (Placement(transformation(
+          final m=m3,
+          V=fill(sqrt(2.0)*VsNominal, m3),
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m3),
+          freqHz=fill(fNominal, m3))      annotation (Placement(transformation(
               origin={-50,-30},
               extent={{10,-10},{-10,10}},
               rotation=0)));
         Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser3(
-          final m=3,
-          Ron=fill(1e-5, 3),
-          Goff=fill(1e-5, 3)) annotation (Placement(transformation(
+          final m=m3,
+          Ron=fill(1e-5, m3),
+          Goff=fill(1e-5, m3))
+                              annotation (Placement(transformation(
               origin={-20,-30},
               extent={{-10,10},{10,-10}},
               rotation=0)));
-        Blocks.Sources.BooleanStep booleanStep3[3](each startTime=tOn, each
+        Blocks.Sources.BooleanStep booleanStep3[m3](each startTime=tOn, each
             startValue=false) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-20,-62})));
-        Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentRMSsensorM3(m=
-              3) annotation (Placement(transformation(
+        Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentRMSsensor3(m=3)
+                 annotation (Placement(transformation(
               origin={10,-30},
               extent={{-10,10},{10,-10}},
               rotation=0)));
-        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM3(
-            terminalConnection="Y", m=3) annotation (Placement(transformation(
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox3(
+            terminalConnection="Y", m=m3)
+                                         annotation (Placement(transformation(
                 extent={{20,-42},{40,-22}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-          aimcM3(
+          aimc3(
           Jr=aimcData.Jr,
           Js=aimcData.Js,
           p=aimcData.p,
@@ -1170,30 +1108,34 @@ Simulate for 1.5 seconds and plot (versus time):
           TsOperational=293.15,
           TrOperational=293.15) annotation (Placement(transformation(extent={{
                   20,-62},{40,-42}}, rotation=0)));
-        Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM3(J=J_Load)
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertia3(J=J_Load)
           annotation (Placement(transformation(extent={{50,-62},{70,-42}},
                 rotation=0)));
-        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
-          quadraticLoadTorqueM3(
+        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque quadraticLoadTorque3(
           w_nominal=w_Load,
           tau_nominal=-T_Load,
           TorqueDirection=false,
           useSupport=false) annotation (Placement(transformation(extent={{100,-62},
                   {80,-42}}, rotation=0)));
-        Blocks.Math.Gain gain(k=(m/3)) annotation (Placement(transformation(
+        Blocks.Math.Gain gain(k=(m/m3))
+                                       annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={10,32})));
         Blocks.Math.Feedback feedback
           annotation (Placement(transformation(extent={{80,10},{100,-10}})));
       initial equation
-        // aimcM.is[2:m]=zeros(m-1);
+        aimc3.stator.port_p.Phi = Complex(0, 0);
+        aimc3.rotorCage.strayInductor.i[1:m3 - 1] = zeros(m3 - 1);
         aimcM.stator.port_p.Phi = Complex(0, 0);
+        aimcM.rotorCage.strayInductor.i[1:m - 1] = zeros(m - 1);
 
       equation
-        connect(star.pin_n, ground.p) annotation (Line(points={{-90,72},{-90,70},
+        connect(starM.pin_n, groundM.p)
+                                      annotation (Line(points={{-90,72},{-90,70},
                 {-90,60}}, color={0,0,255}));
-        connect(sineVoltage.plug_n, star.plug_p) annotation (Line(points={{-60,
+        connect(sineVoltageM.plug_n, starM.plug_p)
+                                                 annotation (Line(points={{-60,
                 72},{-60,72},{-70,72}}, color={0,0,255}));
         connect(aimcM.flange, loadInertiaM.flange_a)
           annotation (Line(points={{40,50},{40,50},{50,50}}, color={0,0,0}));
@@ -1201,15 +1143,18 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Line(points={{24,60},{24,60}}, color={0,0,255}));
         connect(terminalBoxM.plug_sp, aimcM.plug_sp)
           annotation (Line(points={{36,60},{36,60}}, color={0,0,255}));
-        connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(
+        connect(sineVoltageM.plug_p, idealCloserM.plug_p)
+                                                        annotation (Line(
             points={{-40,72},{-30,72}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
+        connect(idealCloserM.plug_n, currentRMSsensorM.plug_p)
+                                                              annotation (Line(
             points={{-10,72},{-5.55112e-16,72}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(booleanStep.y, idealCloser.control) annotation (Line(
+        connect(booleanStepM.y, idealCloserM.control)
+                                                    annotation (Line(
             points={{-20,51},{-20,65}},
             color={255,0,255},
             smooth=Smooth.None));
@@ -1217,22 +1162,22 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Line(points={{-90,-30},{-90,-42}}, color={0,0,255}));
         connect(sineVoltage3.plug_n, star3.plug_p) annotation (Line(points={{-60,
                 -30},{-60,-30},{-70,-30}}, color={0,0,255}));
-        connect(aimcM3.flange, loadInertiaM3.flange_a) annotation (Line(points=
+        connect(aimc3.flange, loadInertia3.flange_a)   annotation (Line(points=
                 {{40,-52},{40,-52},{50,-52}}, color={0,0,0}));
-        connect(loadInertiaM3.flange_b, quadraticLoadTorqueM3.flange)
+        connect(loadInertia3.flange_b, quadraticLoadTorque3.flange)
           annotation (Line(points={{70,-52},{74,-52},{76,-52},{80,-52}}, color=
                 {0,0,0}));
-        connect(terminalBoxM3.plug_sn, aimcM3.plug_sn)
+        connect(terminalBox3.plug_sn, aimc3.plug_sn)
           annotation (Line(points={{24,-42},{24,-42}}, color={0,0,255}));
-        connect(terminalBoxM3.plug_sp, aimcM3.plug_sp)
+        connect(terminalBox3.plug_sp, aimc3.plug_sp)
           annotation (Line(points={{36,-42},{36,-42}}, color={0,0,255}));
-        connect(terminalBoxM3.plugSupply, currentRMSsensorM3.plug_n)
+        connect(terminalBox3.plugSupply, currentRMSsensor3.plug_n)
           annotation (Line(points={{30,-40},{30,-30},{20,-30}}, color={0,0,255}));
         connect(sineVoltage3.plug_p, idealCloser3.plug_p) annotation (Line(
             points={{-40,-30},{-30,-30}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(idealCloser3.plug_n, currentRMSsensorM3.plug_p) annotation (
+        connect(idealCloser3.plug_n, currentRMSsensor3.plug_p)  annotation (
             Line(
             points={{-10,-30},{-5.55112e-16,-30}},
             color={0,0,255},
@@ -1242,7 +1187,7 @@ Simulate for 1.5 seconds and plot (versus time):
             color={255,0,255},
             smooth=Smooth.None));
         connect(currentRMSsensorM.I, gain.u) annotation (Line(
-            points={{10,62},{10,53},{10,44},{10,44}},
+            points={{10,62},{10,44}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange) annotation (
@@ -1250,12 +1195,12 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{70,50},{80,50}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(currentRMSsensorM3.I, feedback.u1) annotation (Line(
+        connect(currentRMSsensor3.I, feedback.u1)  annotation (Line(
             points={{10,-19},{10,-6.66134e-16},{82,-6.66134e-16}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(feedback.u2, gain.y) annotation (Line(
-            points={{90,8},{90,16},{10,16},{10,18},{10,22},{10,21},{10,21}},
+            points={{90,8},{90,16},{10,16},{10,21}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(currentRMSsensorM.plug_n, terminalBoxM.plugSupply) annotation (
@@ -1285,8 +1230,9 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimsM/M3.wMechanical</code>: machine speed</li>
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={Rectangle(
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                               graphics={Rectangle(
                       extent={{-100,100},{100,20}},
                       lineColor={0,0,255},
                       fillColor={255,255,170},
@@ -1554,6 +1500,7 @@ Simulate for 1.5 seconds and plot (versus time):
         "Starting of multi phase asynchronous induction machine with slip rings"
         import Modelica;
         extends Modelica.Icons.Example;
+        constant Integer m3=3 "Number of stator phases of threephase system";
         parameter Integer m=5 "Number of stator phases";
         parameter Integer mr=5 "Number of rotor phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
@@ -1571,8 +1518,9 @@ Simulate for 1.5 seconds and plot (versus time):
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(m=m,
             terminalConnection="Y") annotation (Placement(transformation(extent=
                  {{20,50},{40,70}}, rotation=0)));
-        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(m=3,
-            terminalConnection="Y") annotation (Placement(transformation(extent=
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox3(
+            terminalConnection="Y", m=m3)
+                                    annotation (Placement(transformation(extent=
                  {{20,-50},{40,-30}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
           aimsM(
@@ -1607,7 +1555,7 @@ Simulate for 1.5 seconds and plot (versus time):
           TrOperational=293.15) annotation (Placement(transformation(extent={{
                   20,30},{40,50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
-          aimsM3(
+          aims3(
           p=aimsData.p,
           fsNominal=aimsData.fsNominal,
           Rs=aimsData.Rs,
@@ -1632,23 +1580,26 @@ Simulate for 1.5 seconds and plot (versus time):
           VsNominal=aimsData.VsNominal,
           VrLockedRotor=aimsData.VrLockedRotor,
           rotorCoreParameters=aimsData.rotorCoreParameters,
+          m=m3,
           TsOperational=566.3,
           TrOperational=566.3) annotation (Placement(transformation(extent={{20,
                   -70},{40,-50}}, rotation=0)));
         Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
           tStart=tRheostat,
           m=mr,
-          RStart=RStart*mr/3) annotation (Placement(transformation(extent={{-10,
+          RStart=RStart*mr/m3)
+                              annotation (Placement(transformation(extent={{-10,
                   30},{10,50}}, rotation=0)));
-        Electrical.Machines.Utilities.SwitchedRheostat rheostatM3(
+        Electrical.Machines.Utilities.SwitchedRheostat rheostat3(
           RStart=RStart,
           tStart=tRheostat,
-          m=3) annotation (Placement(transformation(extent={{-10,-70},{10,-50}},
+          m=m3)
+               annotation (Placement(transformation(extent={{-10,-70},{10,-50}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=J_Load)
           annotation (Placement(transformation(extent={{50,30},{70,50}},
                 rotation=0)));
-        Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM3(J=J_Load)
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertia3(J=J_Load)
           annotation (Placement(transformation(extent={{50,-70},{70,-50}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
@@ -1658,8 +1609,7 @@ Simulate for 1.5 seconds and plot (versus time):
           useSupport=false,
           w_nominal=w_Load) annotation (Placement(transformation(extent={{100,
                   30},{80,50}}, rotation=0)));
-        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
-          quadraticLoadTorqueM3(
+        Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque quadraticLoadTorque3(
           tau_nominal=-T_Load,
           TorqueDirection=false,
           useSupport=false,
@@ -1669,28 +1619,33 @@ Simulate for 1.5 seconds and plot (versus time):
           Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
           aimsData annotation (Placement(transformation(extent={{-100,-100},{-80,
                   -80}})));
-        Electrical.Analog.Basic.Ground ground annotation (Placement(
+        Electrical.Analog.Basic.Ground groundM
+                                              annotation (Placement(
               transformation(
               origin={-90,50},
               extent={{-10,-10},{10,10}},
               rotation=0)));
-        Electrical.MultiPhase.Basic.Star star(final m=m) annotation (Placement(
+        Electrical.MultiPhase.Basic.Star starM(final m=m)
+                                                         annotation (Placement(
               transformation(extent={{-70,62},{-90,82}}, rotation=0)));
-        Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Electrical.MultiPhase.Sources.SineVoltage sineVoltageM(
           final m=m,
           freqHz=fill(fNominal, m),
-          V=fill(sqrt(2.0)*VsNominal, m)) annotation (Placement(transformation(
+          V=fill(sqrt(2.0)*VsNominal, m),
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              m))                         annotation (Placement(transformation(
               origin={-50,72},
               extent={{10,-10},{-10,10}},
               rotation=0)));
-        Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
+        Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloserM(
           final m=m,
-          Ron=fill(1e-5, m),
-          Goff=fill(1e-5, m)) annotation (Placement(transformation(
+          Ron=fill(1e-5*m/3, m),
+          Goff=fill(1e-5*m3/m, m))
+                              annotation (Placement(transformation(
               origin={-20,72},
               extent={{-10,10},{10,-10}},
               rotation=0)));
-        Blocks.Sources.BooleanStep booleanStep[m](each startTime=tOn, each
+        Blocks.Sources.BooleanStep booleanStepM[m](each startTime=tOn, each
             startValue=false) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
@@ -1706,54 +1661,57 @@ Simulate for 1.5 seconds and plot (versus time):
               origin={-90,-52},
               extent={{-10,-10},{10,10}},
               rotation=0)));
-        Electrical.MultiPhase.Basic.Star star3(final m=3) annotation (Placement(
+        Electrical.MultiPhase.Basic.Star star3(final m=m3)
+                                                          annotation (Placement(
               transformation(extent={{-70,-40},{-90,-20}}, rotation=0)));
         Electrical.MultiPhase.Sources.SineVoltage sineVoltage3(
-          final m=3,
-          freqHz=fill(fNominal, 3),
-          V=fill(sqrt(2.0)*VsNominal, 3)) annotation (Placement(transformation(
+          final m=m3,
+          V=fill(sqrt(2.0)*VsNominal, m3),
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m3),
+          freqHz=fill(fNominal, m3))      annotation (Placement(transformation(
               origin={-50,-30},
               extent={{10,-10},{-10,10}},
               rotation=0)));
         Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser3(
-          final m=3,
-          Ron=fill(1e-5, 3),
-          Goff=fill(1e-5, 3)) annotation (Placement(transformation(
+          final m=m3,
+          Ron=fill(1e-5, m3),
+          Goff=fill(1e-5, m3))
+                              annotation (Placement(transformation(
               origin={-20,-30},
               extent={{-10,10},{10,-10}},
               rotation=0)));
-        Blocks.Sources.BooleanStep booleanStep3[3](each startTime=tOn, each
+        Blocks.Sources.BooleanStep booleanStep3[m3](each startTime=tOn, each
             startValue=false) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={-40,-60})));
-        Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
-          currentRMSsensorM3(m=3) annotation (Placement(transformation(
+        Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentRMSsensor3(m=3)
+                                  annotation (Placement(transformation(
               origin={10,-30},
               extent={{-10,10},{10,-10}},
               rotation=0)));
-        Blocks.Math.Gain gain(k=(m/3))
+        Blocks.Math.Gain gain(k=(m/m3))
           annotation (Placement(transformation(extent={{40,80},{60,100}})));
         Modelica.Blocks.Math.Feedback feedback
           annotation (Placement(transformation(extent={{80,10},{100,-10}})));
       initial equation
-        // aimsM.is=zeros(m);
-        // aimsM.ir=zeros(m);
-        // aimsM3.is=zeros(m);
-        // aimsM3.ir=zeros(3);
+        aims3.stator.port_p.Phi = Complex(0, 0);
+        aims3.ir[1:3] = zeros(3);
+        aimsM.stator.port_p.Phi = Complex(0, 0);
+        aimsM.ir[1:3] = zeros(3);
 
       equation
-        connect(loadInertiaM3.flange_b, quadraticLoadTorqueM3.flange)
+        connect(loadInertia3.flange_b, quadraticLoadTorque3.flange)
           annotation (Line(points={{70,-60},{76,-60},{80,-60}}, color={0,0,0}));
-        connect(aimsM3.flange, loadInertiaM3.flange_a) annotation (Line(points=
+        connect(aims3.flange, loadInertia3.flange_a)   annotation (Line(points=
                 {{40,-60},{40,-60},{50,-60}}, color={0,0,0}));
-        connect(terminalBoxE.plug_sn, aimsM3.plug_sn)
+        connect(terminalBox3.plug_sn, aims3.plug_sn)
           annotation (Line(points={{24,-50},{24,-50}}, color={0,0,255}));
-        connect(terminalBoxE.plug_sp, aimsM3.plug_sp)
+        connect(terminalBox3.plug_sp, aims3.plug_sp)
           annotation (Line(points={{36,-50},{36,-50}}, color={0,0,255}));
-        connect(rheostatM3.plug_p, aimsM3.plug_rp) annotation (Line(points={{10,
+        connect(rheostat3.plug_p, aims3.plug_rp)   annotation (Line(points={{10,
                 -54},{10,-54},{20,-54}}, color={0,0,255}));
-        connect(rheostatM3.plug_n, aimsM3.plug_rn) annotation (Line(points={{10,
+        connect(rheostat3.plug_n, aims3.plug_rn)   annotation (Line(points={{10,
                 -66},{10,-66},{20,-66}}, color={0,0,255}));
         connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange)
           annotation (Line(points={{70,40},{70,40},{80,40}}, color={0,0,0}));
@@ -1771,19 +1729,24 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{10,34},{20,34}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(star.pin_n, ground.p) annotation (Line(points={{-90,72},{-90,72},
+        connect(starM.pin_n, groundM.p)
+                                      annotation (Line(points={{-90,72},{-90,72},
                 {-90,60}}, color={0,0,255}));
-        connect(sineVoltage.plug_n, star.plug_p) annotation (Line(points={{-60,
+        connect(sineVoltageM.plug_n, starM.plug_p)
+                                                 annotation (Line(points={{-60,
                 72},{-60,72},{-70,72}}, color={0,0,255}));
-        connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(
+        connect(sineVoltageM.plug_p, idealCloserM.plug_p)
+                                                        annotation (Line(
             points={{-40,72},{-30,72}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
+        connect(idealCloserM.plug_n, currentRMSsensorM.plug_p)
+                                                              annotation (Line(
             points={{-10,72},{0,72}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(booleanStep.y, idealCloser.control) annotation (Line(
+        connect(booleanStepM.y, idealCloserM.control)
+                                                    annotation (Line(
             points={{-29,40},{-20,40},{-20,65}},
             color={255,0,255},
             smooth=Smooth.None));
@@ -1795,7 +1758,7 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-40,-30},{-30,-30}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(idealCloser3.plug_n, currentRMSsensorM3.plug_p) annotation (
+        connect(idealCloser3.plug_n, currentRMSsensor3.plug_p)  annotation (
             Line(
             points={{-10,-30},{-5.55112e-16,-30}},
             color={0,0,255},
@@ -1808,7 +1771,7 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{10,82},{10,90},{38,90}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(currentRMSsensorM3.plug_n, terminalBoxE.plugSupply) annotation (
+        connect(currentRMSsensor3.plug_n, terminalBox3.plugSupply)  annotation (
            Line(
             points={{20,-30},{30,-30},{30,-48}},
             color={0,0,255},
@@ -1818,8 +1781,8 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{20,72},{30,72},{30,52}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(currentRMSsensorM3.I, feedback.u1) annotation (Line(
-            points={{10,-19},{10,-2},{10,-2},{10,8.88178e-16},{82,8.88178e-16}},
+        connect(currentRMSsensor3.I, feedback.u1)  annotation (Line(
+            points={{10,-19},{10,8.88178e-016},{82,8.88178e-016}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(feedback.u2, gain.y) annotation (Line(
@@ -1849,8 +1812,9 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={Rectangle(
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                               graphics={Rectangle(
                       extent={{-100,100},{100,20}},
                       lineColor={0,0,255},
                       fillColor={255,255,170},
@@ -2104,7 +2068,8 @@ and accelerate the inertias.</p>
         "Starting of multi phase permanent magnet synchronous machine with inverter"
         import Modelica;
         extends Modelica.Icons.Example;
-        constant Integer m=5 "Number of stator phases";
+        constant Integer m3=3 "Number of stator phases of threephase system";
+        parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
@@ -2119,10 +2084,11 @@ and accelerate the inertias.</p>
               origin={-90,90},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=3) annotation (
+        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3)
+                                                                   annotation (
             Placement(transformation(extent={{-50,80},{-70,100}}, rotation=0)));
-        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage3(
-            final m=3) annotation (Placement(transformation(
+        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage3(final m=
+              m3)      annotation (Placement(transformation(
               origin={0,70},
               extent={{10,10},{-10,-10}},
               rotation=270)));
@@ -2133,7 +2099,9 @@ and accelerate the inertias.</p>
           VNominal=VsNominal,
           fNominal=fsNominal,
           BasePhase=+Modelica.Constants.pi/2,
-          final m=3) annotation (Placement(transformation(extent={{-40,60},{-20,
+          final m=m3,
+          orientation=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              m3))   annotation (Placement(transformation(extent={{-40,60},{-20,
                   80}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
                                                           currentRMSsensorM(m=m)
@@ -2142,15 +2110,16 @@ and accelerate the inertias.</p>
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
-          currentRMSsensorE annotation (Placement(transformation(
+          currentRMSsensor3 annotation (Placement(transformation(
               origin={-80,0},
               extent={{-10,10},{10,-10}},
               rotation=270)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
             terminalConnection="Y", m=m) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}}, rotation=0)));
-        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-            terminalConnection="Y") annotation (Placement(transformation(extent=
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox3(
+            terminalConnection="Y", m=m3)
+                                    annotation (Placement(transformation(extent=
                  {{-10,-70},{10,-50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
           smpmM(
@@ -2184,7 +2153,7 @@ and accelerate the inertias.</p>
           TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -30},{10,-10}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
-          smpmM3(
+          smpm3(
           p=smpmData.p,
           fsNominal=smpmData.fsNominal,
           Rs=smpmData.Rs,
@@ -2210,18 +2179,20 @@ and accelerate the inertias.</p>
           TrRef=smpmData.TrRef,
           alpha20r(displayUnit="1/K") = smpmData.alpha20r,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+          m=m3,
           TsOperational=293.15,
           TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}}, rotation=0)));
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
-          rotorAngleM3(p=smpmM3.p) annotation (Placement(transformation(
+
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(p=smpm3.p)
+                                   annotation (Placement(transformation(
               origin={30,-80},
               extent={{-10,10},{10,-10}},
               rotation=270)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=J_Load)
           annotation (Placement(transformation(extent={{50,-30},{70,-10}},
                 rotation=0)));
-        Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM3(J=J_Load)
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertia3(J=J_Load)
           annotation (Placement(transformation(extent={{50,-90},{70,-70}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStepM(
@@ -2230,7 +2201,7 @@ and accelerate the inertias.</p>
           useSupport=false,
           offsetTorque=0) annotation (Placement(transformation(extent={{100,-30},
                   {80,-10}}, rotation=0)));
-        Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStepM3(
+        Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep3(
           startTime=tStep,
           stepTorque=-T_Load,
           useSupport=false,
@@ -2240,17 +2211,18 @@ and accelerate the inertias.</p>
           Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
           smpmData annotation (Placement(transformation(extent={{-100,-100},{-80,
                   -80}})));
-        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage1(
+        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltageM(
             final m=m) annotation (Placement(transformation(
               origin={30,50},
               extent={{10,10},{-10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m)
+                                                                  annotation (
             Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=180,
               origin={60,90})));
-        Modelica.Electrical.Analog.Basic.Ground ground1 annotation (Placement(
+        Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
               transformation(
               origin={90,90},
               extent={{-10,-10},{10,10}},
@@ -2259,7 +2231,10 @@ and accelerate the inertias.</p>
           VNominal=VsNominal,
           fNominal=fsNominal,
           BasePhase=+Modelica.Constants.pi/2,
-          final m=m) annotation (Placement(transformation(
+          final m=m,
+          orientation=-
+              Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+                     annotation (Placement(transformation(
               extent={{10,10},{-10,-10}},
               rotation=180,
               origin={-30,50})));
@@ -2268,11 +2243,11 @@ and accelerate the inertias.</p>
               extent={{-10,10},{10,-10}},
               rotation=0,
               origin={-50,0})));
-        Modelica.Blocks.Math.Gain gain(k=(m/3))
+        Modelica.Blocks.Math.Gain gain(k=(m/m3))
           annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
       initial equation
+        smpm3.stator.port_p.Phi = Complex(0, 0);
         smpmM.stator.port_p.Phi = Complex(0, 0);
-        smpmM3.stator.port_p.Phi = Complex(0, 0);
 
       equation
         connect(signalVoltage3.plug_n, star3.plug_p) annotation (Line(points={{
@@ -2294,37 +2269,39 @@ and accelerate the inertias.</p>
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n) annotation (
             Line(points={{6.10623e-16,-8},{6.10623e-16,-1},{-7.26686e-16,-1},{-7.26686e-16,
                 10},{30,10}}, color={0,0,255}));
-        connect(loadInertiaM3.flange_b, torqueStepM3.flange)
+        connect(loadInertia3.flange_b, torqueStep3.flange)
           annotation (Line(points={{70,-80},{80,-80}}, color={0,0,0}));
-        connect(rotorAngleM3.plug_n, smpmM3.plug_sn) annotation (Line(points={{
+        connect(rotorAngle3.plug_n, smpm3.plug_sn)   annotation (Line(points={{
                 36,-70},{36,-64},{-6,-64},{-6,-70}}, color={0,0,255}));
-        connect(rotorAngleM3.plug_p, smpmM3.plug_sp)
+        connect(rotorAngle3.plug_p, smpm3.plug_sp)
           annotation (Line(points={{24,-70},{6,-70}}, color={0,0,255}));
-        connect(rotorAngleM3.flange, smpmM3.flange)
+        connect(rotorAngle3.flange, smpm3.flange)
           annotation (Line(points={{20,-80},{10,-80}}, color={0,0,0}));
-        connect(smpmM3.flange, loadInertiaM3.flange_a)
+        connect(smpm3.flange, loadInertia3.flange_a)
           annotation (Line(points={{10,-80},{50,-80}}, color={0,0,0}));
-        connect(terminalBoxE.plug_sn, smpmM3.plug_sn)
+        connect(terminalBox3.plug_sn, smpm3.plug_sn)
           annotation (Line(points={{-6,-70},{-6,-70}}, color={0,0,255}));
-        connect(terminalBoxE.plug_sp, smpmM3.plug_sp)
+        connect(terminalBox3.plug_sp, smpm3.plug_sp)
           annotation (Line(points={{6,-70},{6,-70}}, color={0,0,255}));
-        connect(currentRMSsensorE.plug_n, terminalBoxE.plugSupply) annotation (
+        connect(currentRMSsensor3.plug_n,terminalBox3. plugSupply) annotation (
             Line(points={{-80,-10},{-80,-60},{6.10623e-16,-60},{6.10623e-16,-68}},
               color={0,0,255}));
-        connect(signalVoltage3.plug_p, currentRMSsensorE.plug_p) annotation (
+        connect(signalVoltage3.plug_p,currentRMSsensor3. plug_p) annotation (
             Line(
             points={{-2.44753e-15,60},{-2.44753e-15,34},{-80,34},{-80,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(signalVoltage1.plug_n, star.plug_p) annotation (Line(
+        connect(signalVoltageM.plug_n, starM.plug_p)
+                                                    annotation (Line(
             points={{30,60},{30,90},{50,90}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(star.pin_n, ground1.p) annotation (Line(
+        connect(starM.pin_n, groundM.p)
+                                       annotation (Line(
             points={{70,90},{80,90}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(vfController.y, signalVoltage1.v) annotation (Line(
+        connect(vfController.y,signalVoltageM. v) annotation (Line(
             points={{-19,50},{23,50}},
             color={0,0,127},
             smooth=Smooth.None));
@@ -2332,12 +2309,12 @@ and accelerate the inertias.</p>
             points={{-42,50},{-50,50},{-50,70},{-59,70}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(signalVoltage1.plug_p, currentRMSsensorM.plug_p) annotation (
+        connect(signalVoltageM.plug_p, currentRMSsensorM.plug_p) annotation (
             Line(
             points={{30,40},{30,30}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(currentRMSsensorE.I, feedback.u1) annotation (Line(
+        connect(currentRMSsensor3.I, feedback.u1) annotation (Line(
             points={{-69,-2.63122e-15},{-64.5,-2.63122e-15},{-64.5,-6.66134e-16},
                 {-58,-6.66134e-16}},
             color={0,0,255},
@@ -2374,7 +2351,9 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(graphics={Rectangle(
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                  graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -2707,7 +2686,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         import Modelica;
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
-        constant Integer m=5 "Number of stator phases";
+        constant Integer m3=3 "Number of stator phases of threephase system";
+        parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
@@ -2735,7 +2715,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           "Warm damper resistance (equivalent three phase winding) d-axis";
         parameter Modelica.SIunits.Resistance Rrq=Rrd
           "Warm damper resistance (equivalent three phase winding) q-axis";
-        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=3) annotation (
+        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3)
+                                                                   annotation (
             Placement(transformation(extent={{-50,-30},{-70,-10}}, rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground ground3 annotation (Placement(
               transformation(
@@ -2743,25 +2724,28 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage3(
-          final m=3,
-          final V=fill(VsNominal*sqrt(2), 3),
-          final freqHz=fill(fsNominal, 3)) annotation (Placement(transformation(
+          final m=m3,
+          final V=fill(VsNominal*sqrt(2), m3),
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m3),
+          final freqHz=fill(fsNominal, m3))
+                                           annotation (Placement(transformation(
                 extent={{-20,-30},{-40,-10}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sensors.PowerSensor
           electricalPowerSensorM(m=m) annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=180,
               origin={-2,80})));
-        Electrical.Machines.Sensors.ElectricalPowerSensor
-          electricalPowerSensorE annotation (Placement(transformation(
+        Electrical.Machines.Sensors.ElectricalPowerSensor electricalPowerSensor3
+                                 annotation (Placement(transformation(
               extent={{-10,10},{10,-10}},
               rotation=0,
               origin={0,-20})));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
             terminalConnection="Y", m=m) annotation (Placement(transformation(
                 extent={{-10,50},{10,70}}, rotation=0)));
-        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-            terminalConnection="Y", m=3) annotation (Placement(transformation(
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox3(
+            terminalConnection="Y", m=m3)
+                                         annotation (Placement(transformation(
                 extent={{-10,-70},{10,-50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smeeM(
@@ -2799,7 +2783,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           TeOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   30},{10,50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
-          smeeM3(
+          smee3(
           phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true),
           p=2,
           fsNominal=smeeData.fsNominal,
@@ -2828,17 +2812,19 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           brushParameters(V=0, ILinear=0.01),
           Lrsigmaq=smeeData.Lrsigmaq,
           TrRef=smeeData.TrRef,
-          m=3,
+          m=m3,
           TsOperational=293.15,
           TrOperational=293.15,
           TeOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}}, rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
+
+        Modelica.Electrical.Analog.Basic.Ground groundRM
+                                                        annotation (Placement(
               transformation(
               origin={-20,20},
               extent={{-10,-10},{10,10}},
               rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground groundM3 annotation (Placement(
+        Modelica.Electrical.Analog.Basic.Ground groundR3 annotation (Placement(
               transformation(
               origin={-20,-100},
               extent={{-10,-10},{10,10}},
@@ -2850,29 +2836,29 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
               origin={-30,40},
               extent={{-10,-10},{10,10}},
               rotation=90)));
-        Modelica.Electrical.Analog.Sources.RampCurrent rampCurrentM3(
+        Modelica.Electrical.Analog.Sources.RampCurrent rampCurrent3(
           duration=0.1,
           I=Ie - Ie0,
           offset=Ie0) annotation (Placement(transformation(
               origin={-30,-80},
               extent={{-10,-10},{10,10}},
               rotation=90)));
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
-          rotorAngleM3(p=p) annotation (Placement(transformation(
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(p=p)
+                            annotation (Placement(transformation(
               origin={30,-80},
               extent={{-10,10},{10,-10}},
               rotation=270)));
         Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor
           mechanicalPowerSensorM annotation (Placement(transformation(extent={{
                   20,30},{40,50}}, rotation=0)));
-        Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor
-          mechanicalPowerSensorM3 annotation (Placement(transformation(extent={
+        Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor mechanicalPowerSensor3
+                                  annotation (Placement(transformation(extent={
                   {50,-90},{70,-70}}, rotation=0)));
         Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeedM(
             final w_fixed=w, useSupport=false) annotation (Placement(
               transformation(extent={{70,30},{50,50}}, rotation=0)));
-        Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeedM3(
-            final w_fixed=w, useSupport=false) annotation (Placement(
+        Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed3(final
+            w_fixed=w, useSupport=false)       annotation (Placement(
               transformation(extent={{100,-90},{80,-70}}, rotation=0)));
         parameter Electrical.Machines.Utilities.SynchronousMachineData smeeData(
           SNominal=30e3,
@@ -2906,11 +2892,12 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
               extent={{-10,10},{10,-10}},
               rotation=0)));
         Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
-          currentRMSsensorE annotation (Placement(transformation(
+          currentRMSsensor3 annotation (Placement(transformation(
               origin={30,-20},
               extent={{-10,10},{10,-10}},
               rotation=0)));
-        Modelica.Blocks.Math.Gain gain(k=(m/3)) annotation (Placement(
+        Modelica.Blocks.Math.Gain gain(k=(m/m3))
+                                                annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
@@ -2920,49 +2907,58 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
               extent={{-10,10},{10,-10}},
               rotation=0,
               origin={90,0})));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m)
+                                                                  annotation (
             Placement(transformation(extent={{-50,70},{-70,90}}, rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+        Modelica.Electrical.Analog.Basic.Ground groundM
+                                                       annotation (Placement(
               transformation(
               origin={-90,80},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltageM(
           final V=fill(VsNominal*sqrt(2), m),
           final freqHz=fill(fsNominal, m),
-          final m=m) annotation (Placement(transformation(extent={{-20,70},{-40,
+          final m=m,
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              m))    annotation (Placement(transformation(extent={{-20,70},{-40,
                   90}}, rotation=0)));
+      initial equation
+        smee3.airGap.Phi_sr = Complex(-0.45, 0);
+        smeeM.airGap.Phi_sr = Complex(-0.45, 0);
+
       equation
-        connect(rotorAngleM3.plug_n, smeeM3.plug_sn) annotation (Line(points={{
+        connect(rotorAngle3.plug_n, smee3.plug_sn)   annotation (Line(points={{
                 36,-70},{36,-60},{-6,-60},{-6,-70}}, color={0,0,255}));
-        connect(rotorAngleM3.plug_p, smeeM3.plug_sp)
+        connect(rotorAngle3.plug_p, smee3.plug_sp)
           annotation (Line(points={{24,-70},{6,-70}}, color={0,0,255}));
-        connect(rotorAngleM3.flange, smeeM3.flange)
+        connect(rotorAngle3.flange, smee3.flange)
           annotation (Line(points={{20,-80},{10,-80}}, color={0,0,0}));
-        connect(star3.pin_n, ground3.p) annotation (Line(points={{-70,-20},{-75,
-                -20},{-75,-20},{-80,-20}}, color={0,0,255}));
+        connect(star3.pin_n, ground3.p) annotation (Line(points={{-70,-20},{-75,-20},{
+                -80,-20}},                 color={0,0,255}));
         connect(star3.plug_p, sineVoltage3.plug_n) annotation (Line(points={{-50,
                 -20},{-48,-20},{-46,-20},{-40,-20}}, color={0,0,255}));
-        connect(smeeM3.flange, mechanicalPowerSensorM3.flange_a)
+        connect(smee3.flange, mechanicalPowerSensor3.flange_a)
           annotation (Line(points={{10,-80},{50,-80}}, color={0,0,0}));
-        connect(mechanicalPowerSensorM3.flange_b, constantSpeedM3.flange)
+        connect(mechanicalPowerSensor3.flange_b, constantSpeed3.flange)
           annotation (Line(points={{70,-80},{80,-80}}, color={0,0,0}));
-        connect(rampCurrentM3.p, groundM3.p) annotation (Line(points={{-30,-90},
+        connect(rampCurrent3.p,groundR3. p)  annotation (Line(points={{-30,-90},
                 {-26,-90},{-20,-90}}, color={0,0,255}));
-        connect(rampCurrentM3.p, smeeM3.pin_en) annotation (Line(points={{-30,-90},
+        connect(rampCurrent3.p, smee3.pin_en)   annotation (Line(points={{-30,-90},
                 {-20,-90},{-20,-86},{-10,-86}},color={0,0,255}));
-        connect(rampCurrentM3.n, smeeM3.pin_ep) annotation (Line(points={{-30,-70},
+        connect(rampCurrent3.n, smee3.pin_ep)   annotation (Line(points={{-30,-70},
                 {-20,-70},{-20,-74},{-10,-74}},color={0,0,255}));
-        connect(smeeM3.plug_sn, terminalBoxE.plug_sn)
+        connect(smee3.plug_sn, terminalBox3.plug_sn)
           annotation (Line(points={{-6,-70},{-6,-70}}, color={0,0,255}));
-        connect(smeeM3.plug_sp, terminalBoxE.plug_sp)
+        connect(smee3.plug_sp, terminalBox3.plug_sp)
           annotation (Line(points={{6,-70},{6,-70}}, color={0,0,255}));
         connect(smeeM.flange, mechanicalPowerSensorM.flange_a)
           annotation (Line(points={{10,40},{10,40},{20,40}}, color={0,0,0}));
         connect(mechanicalPowerSensorM.flange_b, constantSpeedM.flange)
           annotation (Line(points={{40,40},{44,40},{46,40},{50,40}}, color={0,0,
                 0}));
-        connect(rampCurrentM.p, groundM.p) annotation (Line(points={{-30,30},{-30,
+        connect(rampCurrentM.p, groundRM.p)
+                                           annotation (Line(points={{-30,30},{-30,
                 30},{-20,30}}, color={0,0,255}));
         connect(rampCurrentM.p, smeeM.pin_en) annotation (Line(points={{-30,30},
                 {-20,30},{-20,34},{-10,34}}, color={0,0,255}));
@@ -2972,12 +2968,12 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           annotation (Line(points={{-6,50},{-6,50}}, color={0,0,255}));
         connect(smeeM.plug_sp, terminalBoxM.plug_sp)
           annotation (Line(points={{6,50},{6,50}}, color={0,0,255}));
-        connect(electricalPowerSensorE.plug_p, sineVoltage3.plug_p) annotation (
+        connect(electricalPowerSensor3.plug_p, sineVoltage3.plug_p) annotation (
            Line(
             points={{-10,-20},{-20,-20}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(electricalPowerSensorE.plug_nv, star3.plug_p) annotation (Line(
+        connect(electricalPowerSensor3.plug_nv, star3.plug_p) annotation (Line(
             points={{6.10623e-16,-10},{6.10623e-16,-8},{-50,-8},{-50,-20}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -2985,18 +2981,18 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             points={{90,19},{90,8}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(electricalPowerSensorE.plug_ni, currentRMSsensorE.plug_p)
+        connect(electricalPowerSensor3.plug_ni, currentRMSsensor3.plug_p)
           annotation (Line(
             points={{10,-20},{20,-20}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(currentRMSsensorE.plug_n, terminalBoxE.plugSupply) annotation (
+        connect(currentRMSsensor3.plug_n,terminalBox3. plugSupply) annotation (
             Line(
             points={{40,-20},{40,-40},{6.10623e-16,-40},{6.10623e-16,-68}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(currentRMSsensorE.I, feedback.u1) annotation (Line(
-            points={{30,-9},{30,-10},{30,-10},{30,-10},{30,-6.66134e-16},{82,-6.66134e-16}},
+        connect(currentRMSsensor3.I, feedback.u1) annotation (Line(
+            points={{30,-9},{30,-6.66134e-016},{82,-6.66134e-016}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n) annotation (
@@ -3008,11 +3004,14 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             points={{30,90},{30,100},{90,100},{90,42}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(star.pin_n, ground.p) annotation (Line(points={{-70,80},{-75,80},
+        connect(starM.pin_n, groundM.p)
+                                      annotation (Line(points={{-70,80},{-75,80},
                 {-80,80}}, color={0,0,255}));
-        connect(star.plug_p, sineVoltage.plug_n) annotation (Line(points={{-50,
+        connect(starM.plug_p, sineVoltageM.plug_n)
+                                                 annotation (Line(points={{-50,
                 80},{-48,80},{-40,80}}, color={0,0,255}));
-        connect(sineVoltage.plug_p, electricalPowerSensorM.pc) annotation (Line(
+        connect(sineVoltageM.plug_p, electricalPowerSensorM.pc)
+                                                               annotation (Line(
             points={{-20,80},{-12,80}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -3026,7 +3025,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             points={{8,80},{20,80}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(electricalPowerSensorM.nv, star.plug_p) annotation (Line(
+        connect(electricalPowerSensorM.nv, starM.plug_p)
+                                                        annotation (Line(
             points={{-2,90},{-2,94},{-50,94},{-50,80}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -3054,7 +3054,9 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(graphics={Rectangle(
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                  graphics={Rectangle(
                       extent={{-50,60},{70,20}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -3305,7 +3307,8 @@ Simulate for 1.5 seconds and plot (versus time):
         "Starting of multi phase synchronous reluctance machine with inverter"
         import Modelica;
         extends Modelica.Icons.Example;
-        constant Integer m=5 "Number of stator phases";
+        constant Integer m3=3 "Number of stator phases of threephase system";
+        parameter Integer m=5 "Number of stator phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
@@ -3318,8 +3321,9 @@ Simulate for 1.5 seconds and plot (versus time):
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
             terminalConnection="Y", m=m) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}}, rotation=0)));
-        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-            terminalConnection="Y") annotation (Placement(transformation(extent=
+        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox3(
+            terminalConnection="Y", m=m3)
+                                    annotation (Placement(transformation(extent=
                  {{-10,-70},{10,-50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
           smrM(
@@ -3351,7 +3355,7 @@ Simulate for 1.5 seconds and plot (versus time):
           TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -30},{10,-10}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
-          smrM3(
+          smr3(
           p=smrData.p,
           fsNominal=smrData.fsNominal,
           Rs=smrData.Rs,
@@ -3375,18 +3379,19 @@ Simulate for 1.5 seconds and plot (versus time):
           Rrq=smrData.Rrq,
           TrRef=smrData.TrRef,
           alpha20r(displayUnit="1/K") = smrData.alpha20r,
+          m=m3,
           TsOperational=293.15,
           TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}}, rotation=0)));
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
-          rotorAngleM3(p=smrM3.p) annotation (Placement(transformation(
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(p=smr3.p)
+                                  annotation (Placement(transformation(
               origin={30,-80},
               extent={{10,-10},{-10,10}},
               rotation=90)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=J_Load)
           annotation (Placement(transformation(extent={{50,-30},{70,-10}},
                 rotation=0)));
-        Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM3(J=J_Load)
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertia3(J=J_Load)
           annotation (Placement(transformation(extent={{50,-90},{70,-70}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStepM(
@@ -3395,7 +3400,7 @@ Simulate for 1.5 seconds and plot (versus time):
           useSupport=false,
           offsetTorque=0) annotation (Placement(transformation(extent={{100,-30},
                   {80,-10}}, rotation=0)));
-        Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStepM3(
+        Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep3(
           startTime=tStep,
           stepTorque=-T_Load,
           useSupport=false,
@@ -3410,10 +3415,11 @@ Simulate for 1.5 seconds and plot (versus time):
               origin={-90,90},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=3) annotation (
+        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3)
+                                                                   annotation (
             Placement(transformation(extent={{-50,80},{-70,100}}, rotation=0)));
-        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage3(
-            final m=3) annotation (Placement(transformation(
+        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage3(final m=
+              m3)      annotation (Placement(transformation(
               origin={0,70},
               extent={{10,10},{-10,-10}},
               rotation=270)));
@@ -3424,7 +3430,10 @@ Simulate for 1.5 seconds and plot (versus time):
           VNominal=VsNominal,
           fNominal=fsNominal,
           BasePhase=+Modelica.Constants.pi/2,
-          final m=3) annotation (Placement(transformation(extent={{-40,60},{-20,
+          final m=m3,
+          orientation=-
+              Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m3))
+                     annotation (Placement(transformation(extent={{-40,60},{-20,
                   80}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
                                                           currentRMSsensorM(m=m)
@@ -3432,31 +3441,35 @@ Simulate for 1.5 seconds and plot (versus time):
               origin={30,20},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor
-          currentRMSsensorE annotation (Placement(transformation(
+        Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentRMSsensor3
+                            annotation (Placement(transformation(
               origin={-80,0},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage1(
+        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltageM(
             final m=m) annotation (Placement(transformation(
               origin={30,50},
               extent={{10,10},{-10,-10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+        Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m)
+                                                                  annotation (
             Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=180,
               origin={60,90})));
-        Modelica.Electrical.Analog.Basic.Ground ground1 annotation (Placement(
+        Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
               transformation(
               origin={90,90},
               extent={{-10,-10},{10,10}},
               rotation=90)));
-        Modelica.Electrical.Machines.Utilities.VfController vfController(
+        Modelica.Electrical.Machines.Utilities.VfController vfControllerM(
           VNominal=VsNominal,
           fNominal=fsNominal,
           BasePhase=+Modelica.Constants.pi/2,
-          final m=m) annotation (Placement(transformation(
+          final m=m,
+          orientation=-
+              Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+                     annotation (Placement(transformation(
               extent={{10,10},{-10,-10}},
               rotation=180,
               origin={-30,50})));
@@ -3465,26 +3478,26 @@ Simulate for 1.5 seconds and plot (versus time):
               extent={{-10,10},{10,-10}},
               rotation=0,
               origin={-50,0})));
-        Modelica.Blocks.Math.Gain gain(k=(m/3))
+        Modelica.Blocks.Math.Gain gain(k=(m/m3))
           annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
       initial equation
         smrM.stator.port_p.Phi = Complex(0, 0);
-        smrM3.stator.port_p.Phi = Complex(0, 0);
+        smr3.stator.port_p.Phi = Complex(0, 0);
 
       equation
-        connect(smrM3.flange, loadInertiaM3.flange_a)
+        connect(smr3.flange, loadInertia3.flange_a)
           annotation (Line(points={{10,-80},{50,-80}}, color={0,0,0}));
-        connect(loadInertiaM3.flange_b, torqueStepM3.flange)
+        connect(loadInertia3.flange_b, torqueStep3.flange)
           annotation (Line(points={{70,-80},{80,-80}}, color={0,0,0}));
-        connect(smrM3.plug_sn, rotorAngleM3.plug_n) annotation (Line(points={{-6,
+        connect(smr3.plug_sn, rotorAngle3.plug_n)   annotation (Line(points={{-6,
                 -70},{-6,-60},{36,-60},{36,-70}}, color={0,0,255}));
-        connect(smrM3.plug_sp, rotorAngleM3.plug_p)
+        connect(smr3.plug_sp, rotorAngle3.plug_p)
           annotation (Line(points={{6,-70},{24,-70}}, color={0,0,255}));
-        connect(smrM3.flange, rotorAngleM3.flange)
+        connect(smr3.flange, rotorAngle3.flange)
           annotation (Line(points={{10,-80},{20,-80}}, color={0,0,0}));
-        connect(terminalBoxE.plug_sp, smrM3.plug_sp)
+        connect(terminalBox3.plug_sp, smr3.plug_sp)
           annotation (Line(points={{6,-70},{6,-70}}, color={0,0,255}));
-        connect(terminalBoxE.plug_sn, smrM3.plug_sn)
+        connect(terminalBox3.plug_sn, smr3.plug_sn)
           annotation (Line(points={{-6,-70},{-6,-70}}, color={0,0,255}));
         connect(smrM.flange, loadInertiaM.flange_a) annotation (Line(points={{
                 10,-20},{10,-20},{50,-20}}, color={0,0,0}));
@@ -3505,28 +3518,32 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n) annotation (
             Line(points={{4.44089e-16,-8},{4.44089e-16,-1},{0,-1},{0,10},{30,10}},
               color={0,0,255}));
-        connect(signalVoltage3.plug_p, currentRMSsensorE.plug_p) annotation (
+        connect(signalVoltage3.plug_p, currentRMSsensor3.plug_p) annotation (
             Line(
             points={{0,60},{0,34},{-80,34},{-80,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(signalVoltage1.plug_n, star.plug_p) annotation (Line(
+        connect(signalVoltageM.plug_n, starM.plug_p)
+                                                    annotation (Line(
             points={{30,60},{30,90},{50,90}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(star.pin_n, ground1.p) annotation (Line(
+        connect(starM.pin_n, groundM.p)
+                                       annotation (Line(
             points={{70,90},{80,90}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(vfController.y, signalVoltage1.v) annotation (Line(
+        connect(vfControllerM.y, signalVoltageM.v)
+                                                  annotation (Line(
             points={{-19,50},{23,50}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(vfController.u, ramp.y) annotation (Line(
+        connect(vfControllerM.u, ramp.y)
+                                        annotation (Line(
             points={{-42,50},{-50,50},{-50,70},{-59,70}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(signalVoltage1.plug_p, currentRMSsensorM.plug_p) annotation (
+        connect(signalVoltageM.plug_p, currentRMSsensorM.plug_p) annotation (
             Line(
             points={{30,40},{30,30}},
             color={0,0,255},
@@ -3539,10 +3556,10 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-18,20},{20,20}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(currentRMSsensorE.plug_n, terminalBoxE.plugSupply) annotation (
+        connect(currentRMSsensor3.plug_n, terminalBox3.plugSupply) annotation (
             Line(points={{-80,-10},{-80,-60},{4.44089e-16,-60},{4.44089e-16,-68}},
               color={0,0,255}));
-        connect(currentRMSsensorE.I, feedback.u1) annotation (Line(
+        connect(currentRMSsensor3.I, feedback.u1) annotation (Line(
             points={{-69,0},{-58,0}},
             color={0,0,127},
             smooth=Smooth.None));
@@ -3572,8 +3589,9 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={Rectangle(
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                               graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -4330,11 +4348,11 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
         connect(rotor.plug_n, plug_rn) annotation (Line(points={{-10,-50},{-10,
                 -50},{-100,-50},{-100,-60}}, color={0,0,255}));
         connect(airGap.port_rn, rotor.port_n) annotation (Line(
-            points={{-10,-10},{-10,-20},{-10,-20},{-10,-30}},
+            points={{-10,-10},{-10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(airGap.port_rp, rotor.port_p) annotation (Line(
-            points={{10,-10},{10,-10},{10,-30},{10,-30}},
+            points={{10,-10},{10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(rotor.heatPortCore, internalThermalPort.heatPortRotorCore)
