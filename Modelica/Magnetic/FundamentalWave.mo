@@ -684,8 +684,8 @@ The magnetic potential difference of the connector therefore also refers to an e
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-10,60})));
-        Modelica.Magnetic.FundamentalWave.Components.EddyCurrent loss_m(G=3*N^2
-              *Gc/2) annotation (Placement(transformation(
+        Modelica.Magnetic.FundamentalWave.Components.EddyCurrent loss_m(G=m*N^2*
+              Gc/2)  annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={60,-20})));
@@ -739,7 +739,7 @@ The magnetic potential difference of the connector therefore also refers to an e
             color={255,128,0},
             smooth=Smooth.None));
         connect(converter_m.port_p, loss_m.port_p) annotation (Line(
-            points={{40,-20},{45,-20},{45,-20},{50,-20}},
+            points={{40,-20},{50,-20}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(loss_m.port_n, reluctance_m.port_p) annotation (Line(
