@@ -23,7 +23,7 @@ package Functions
       *(data.alow[6] + data.alow[7]*T))))))) else data.R*(1/(T*T)*(data.ahigh[1]
        + T*(data.ahigh[2] + T*(1.*data.ahigh[3] + T*(data.ahigh[4] + T*(data.
       ahigh[5] + T*(data.ahigh[6] + data.ahigh[7]*T))))))));
-    annotation (Inline=true,smoothOrder=2,GenerateEvents=false);
+    annotation (Inline=true,smoothOrder=2);
   end cp_T;
 
   function cp_Tlow
