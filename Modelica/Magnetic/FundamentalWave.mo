@@ -4410,7 +4410,7 @@ Resistances and stray inductances of the machine always refer to either stator o
       model SM_PermanentMagnet
         "Permanent magnet synchronous machine with optional damper cage"
         extends
-          Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicNewInductionMachine(
+          Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine(
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
@@ -4431,7 +4431,7 @@ Resistances and stray inductances of the machine always refer to either stator o
             powerBalance(
             final lossPowerRotorWinding=heatFlowSensorDamperCage.Q_flow,
             final lossPowerRotorCore=0,
-            final lossPowerPermanentMagnet=-permanentMagnetLosses.heatPort.Q_flow));
+            final lossPowerPermanentMagnet=-permanentMagnet.heatPort.Q_flow));
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
           "Stator main field inductance, d-axis"
           annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -4520,9 +4520,13 @@ Resistances and stray inductances of the machine always refer to either stator o
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={20,-40})));
-        Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference
-          permanentMagnet(final V_m=Complex(V_mPM, 0))
-          "Magnetic potential difference of permanent magnet" annotation (
+        Components.PermanentMagnet
+          permanentMagnet(final V_m=Complex(V_mPM, 0),
+          final m=m,
+          final permanentMagnetLossParameters=permanentMagnetLossParameters,
+          final useHeatPort=true,
+          final is=is) "Magnetic potential difference of permanent magnet"
+                                                              annotation (
             Placement(transformation(
               origin={-10,-40},
               extent={{-10,-10},{10,10}},
@@ -4533,15 +4537,9 @@ Resistances and stray inductances of the machine always refer to either stator o
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={40,-50})));
-        Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses
-                                         permanentMagnetLosses(
-          final permanentMagnetLossParameters=permanentMagnetLossParameters,
-          final useHeatPort=true,
-          m=m)
-          annotation (Placement(transformation(extent={{-40,60},{-60,80}})));
       equation
         connect(permanentMagnet.port_p, airGap.port_rn) annotation (Line(
-            points={{-10,-30},{-10,-25},{-10,-25},{-10,-20},{-10,-10},{-10,-10}},
+            points={{-10,-30},{-10,-10}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(permanentMagnet.port_n, short.port_n) annotation (Line(
@@ -4570,31 +4568,18 @@ Resistances and stray inductances of the machine always refer to either stator o
             points={{40,-60},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(stator.plug_n, permanentMagnetLosses.plug_p) annotation (Line(
-            points={{-10,50},{-10,70},{-40,70}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(permanentMagnetLosses.plug_n, plug_sn) annotation (Line(
-            points={{-60,70},{-60,100}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(permanentMagnetLosses.flange, inertiaRotor.flange_b)
-          annotation (Line(
-            points={{-50,80},{90,80},{90,-1.72421e-15}},
+        connect(permanentMagnet.support, airGap.support) annotation (Line(
+            points={{-20,-40},{-50,-40},{-50,0},{-10,0}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(permanentMagnetLosses.support, airGap.support) annotation (Line(
-            points={{-50,60},{-50,2.33651e-15},{-10,2.33651e-15}},
-            color={0,0,0},
-            smooth=Smooth.None));
-        connect(permanentMagnetLosses.heatPort, internalThermalPort.heatPortPermanentMagnet)
+        connect(permanentMagnet.heatPort, internalThermalPort.heatPortPermanentMagnet)
           annotation (Line(
-            points={{-40,60},{-40,-90}},
+            points={{-20,-30},{-40,-30},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(stator.port_p, airGap.port_sn) annotation (Line(
-            points={{10,30},{10,30},{10,10},{10,10}},
-            color={255,128,0},
+        connect(permanentMagnet.flange, inertiaRotor.flange_b) annotation (Line(
+            points={{0,-40},{0,-20},{90,-20},{90,-1.33227e-015}},
+            color={0,0,0},
             smooth=Smooth.None));
         annotation (
           defaultComponentName="smpm",
@@ -4629,7 +4614,9 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                  100}}),
+                  graphics));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -5821,6 +5808,23 @@ This package contains components for
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines\">synchronous induction machines</a>.
 </p>
 </html>"));
+      model PermanentMagnet
+        extends
+          Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference;
+        extends
+          Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses;
+      equation
+
+        annotation (Documentation(info="<html>
+<p>
+Simple model of a permanent magnet, containing:
+</p>
+<ul>
+<li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">constant magnetomotive force</a></li>
+<li><a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses\">loss model</a></li>
+</ul>
+</html>"));
+      end PermanentMagnet;
     end Components;
 
     annotation (Documentation(info="<html>
@@ -6607,315 +6611,6 @@ This model is mainly used to extend from in order build more complex - equation 
         Diagram(graphics));
     end PartialBasicInductionMachine;
 
-    partial model PartialBasicNewInductionMachine
-      "Partial model for induction machine"
-      extends Modelica.Electrical.Machines.Icons.FundamentalWaveMachine;
-      constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
-      parameter Integer m(min=3) = 3 "Number of stator phases";
-      // Mechanical parameters
-      parameter Modelica.SIunits.Inertia Jr(start=0.29) "Rotor inertia";
-      parameter Boolean useSupport=false
-        "Enable / disable (=fixed stator) support" annotation (Evaluate=true);
-      parameter Modelica.SIunits.Inertia Js(start=Jr) "Stator inertia"
-        annotation (Dialog(enable=useSupport));
-      parameter Boolean useThermalPort=false
-        "Enable / disable (=fixed temperatures) thermal port"
-        annotation (Evaluate=true);
-      parameter Integer p(min=1, start=2) "Number of pole pairs (Integer)";
-      parameter Modelica.SIunits.Frequency fsNominal(start=50)
-        "Nominal frequency";
-      parameter Modelica.SIunits.Temperature TsOperational(start=293.15)
-        "Operational temperature of stator resistance" annotation (Dialog(group=
-             "Operational temperatures", enable=not useThermalPort));
-      parameter Modelica.SIunits.Resistance Rs(start=0.03)
-        "Stator resistance per phase at TRef"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.SIunits.Temperature TsRef(start=293.15)
-        "Reference temperature of stator resistance"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter
-        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-        alpha20s(start=0)
-        "Temperature coefficient of stator resistance at 20 degC"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Real effectiveStatorTurns=1 "Effective number of stator turns";
-      parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 -
-            0.0667))/(2*pi*fsNominal)) "Stator stray inductance"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.SIunits.Inductance Lszero=Lssigma
-        "Stator zero inductance"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance L0(d(
-            start=1), q(start=1)) "Salient inductance of an unchorded coil"
-        annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Losses.FrictionParameters
-        frictionParameters(wRef(start=2*pi*fsNominal/p)) "Friction losses"
-        annotation (Dialog(tab="Losses"));
-      parameter Modelica.Electrical.Machines.Losses.CoreParameters
-        statorCoreParameters(
-        final m=3,
-        wRef(start=2*pi*fsNominal/p),
-        VRef(start=100))
-        "Stator core losses; all parameters refer to stator side"
-        annotation (Dialog(tab="Losses"));
-      parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters
-        strayLoadParameters(IRef(start=100), wRef(start=2*pi*fsNominal/p))
-        "Stray load losses" annotation (Dialog(tab="Losses"));
-      // Mechanical quantities
-      output Modelica.SIunits.Angle phiMechanical(start=0) = flange.phi -
-        internalSupport.phi "Mechanical angle of rotor against stator";
-      output Modelica.SIunits.AngularVelocity wMechanical(
-        start=0,
-        displayUnit="1/min") = der(phiMechanical)
-        "Mechanical angular velocity of rotor against stator";
-      output Modelica.SIunits.Torque tauElectrical=inertiaRotor.flange_a.tau
-        "Electromagnetic torque";
-      output Modelica.SIunits.Torque tauShaft=-flange.tau "Shaft torque";
-      replaceable output
-        Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines
-        powerBalance(
-        final powerStator=
-            Modelica.Electrical.MultiPhase.Functions.activePower(
-            vs, is),
-        final powerMechanical=wMechanical*tauShaft,
-        final powerInertiaStator=inertiaStator.J*inertiaStator.a*inertiaStator.w,
-        final powerInertiaRotor=inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
-        final lossPowerStatorWinding=-sum(stator.heatPortWinding.Q_flow),
-        final lossPowerStatorCore=-stator.heatPortCore.Q_flow,
-        final lossPowerStrayLoad=-strayLoad.heatPort.Q_flow,
-        final lossPowerFriction=-friction.heatPort.Q_flow) "Power balance";
-      // Stator voltages and currents
-      output Modelica.SIunits.Voltage vs[m]=plug_sp.pin.v - plug_sn.pin.v
-        "Stator instantaneous voltages";
-      output Modelica.SIunits.Current is[m]=plug_sp.pin.i
-        "Stator instantaneous currents";
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange "Shaft"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertiaRotor(final J=Jr)
-        annotation (Placement(transformation(
-            origin={80,0},
-            extent={{10,10},{-10,-10}},
-            rotation=180)));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a support if useSupport
-        "Support at which the reaction torque is acting" annotation (Placement(
-            transformation(extent={{90,-110},{110,-90}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Inertia inertiaStator(final J=Js)
-        annotation (Placement(transformation(
-            origin={80,-100},
-            extent={{10,10},{-10,-10}},
-            rotation=180)));
-      Modelica.Mechanics.Rotational.Components.Fixed fixed if (not useSupport)
-        annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=180,
-            origin={70,-90})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
-        "Positive plug of stator" annotation (Placement(transformation(extent={
-                {50,90},{70,110}}, rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
-        "Negative plug of stator" annotation (Placement(transformation(extent={
-                {-70,90},{-50,110}}, rotation=0)));
-      BasicMachines.Components.SymmetricMultiPhaseWinding stator(
-        final useHeatPort=true,
-        final m=m,
-        final RRef=Rs,
-        final TRef=TsRef,
-        final Lsigma=Lssigma,
-        final effectiveTurns=effectiveStatorTurns,
-        final TOperational=TsOperational,
-        final GcRef=statorCoreParameters.GcRef,
-        final alpha20=alpha20s,
-        final Lzero=Lszero)
-        "Symmetric stator winding including resistances, zero and stray inductances and core losses"
-        annotation (Placement(transformation(
-            origin={0,40},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      replaceable
-        Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines
-        thermalAmbient(
-        final useTemperatureInputs=false,
-        final Ts=TsOperational,
-        final m=m) if not useThermalPort annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-70,-90})));
-      replaceable
-        Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
-        thermalPort(final m=m) if useThermalPort
-        "Thermal port of induction machines"
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      Modelica.Magnetic.FundamentalWave.Components.Ground groundS
-        "Ground of stator magnetic circuit" annotation (Placement(
-            transformation(extent={{-40,30},{-20,10}}, rotation=0)));
-      Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap
-        airGap(final p=p, final L0=L0) annotation (Placement(transformation(
-            origin={0,0},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Magnetic.FundamentalWave.Components.Ground groundR
-        "Ground of rotor magnetic circuit" annotation (Placement(transformation(
-              extent={{-40,-30},{-20,-10}}, rotation=0)));
-      /* previously used: state selection, now commented
-  FundamentalWave.Interfaces.StateSelector stateSelectorS(
-    final m=m,
-    final xi=is,
-    final gamma=p*phiMechanical) "State selection of stator currents"
-    annotation (Placement(transformation(extent={{-10,80},{10,100}})));
-  */
-      Electrical.Machines.Losses.InductionMachines.StrayLoad
-                                         strayLoad(
-        final strayLoadParameters=strayLoadParameters,
-        final useHeatPort=true,
-        final m=m)
-        annotation (Placement(transformation(extent={{60,60},{40,80}})));
-      Electrical.Machines.Losses.Friction friction(final frictionParameters=
-            frictionParameters, final useHeatPort=true) annotation (Placement(
-            transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=0,
-            origin={90,-30})));
-    protected
-      replaceable
-        Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
-        internalThermalPort(final m=m)
-        annotation (Placement(transformation(extent={{-44,-94},{-36,-86}})));
-      Modelica.Mechanics.Rotational.Interfaces.Support internalSupport
-        annotation (Placement(transformation(extent={{56,-104},{64,-96}},
-              rotation=0)));
-    initial algorithm
-      assert(not Modelica.Math.isPowerOf2(m), String(m) +
-        " phases are currently not supported in this version of FundametalWave");
-
-    equation
-      connect(thermalPort, internalThermalPort) annotation (Line(
-          points={{5.55112e-16,-100},{5.55112e-16,-90},{-40,-90}},
-          color={199,0,0},
-          smooth=Smooth.None));
-      connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
-          points={{-60,-90},{-40,-90}},
-          color={199,0,0},
-          smooth=Smooth.None));
-      connect(inertiaRotor.flange_b, flange) annotation (Line(points={{90,-1.72421e-15},
-              {100,-1.72421e-15},{100,5.55112e-16}}, color={0,0,0}));
-      connect(internalSupport, inertiaStator.flange_a) annotation (Line(
-          points={{60,-100},{70,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(internalSupport, fixed.flange) annotation (Line(
-          points={{60,-100},{60,-90},{70,-90}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(inertiaStator.flange_b, support) annotation (Line(points={{90,-100},
-              {90,-100},{100,-100}}, color={0,0,0}));
-      connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
-          points={{10,-1.33731e-15},{25,-1.33731e-15},{25,-6.12304e-16},{40,-6.12304e-16},
-              {40,7.25006e-16},{70,7.25006e-16}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(airGap.support, internalSupport) annotation (Line(
-          points={{-10,2.33651e-15},{-50,2.33651e-15},{-50,-70},{60,-70},{60,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(groundR.port_p, airGap.port_rn) annotation (Line(points={{-30,-10},
-              {-10,-10},{-10,-10}}, color={255,128,0}));
-      connect(stator.plug_p, strayLoad.plug_n) annotation (Line(
-          points={{10,50},{10,70},{40,70}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(plug_sp, strayLoad.plug_p) annotation (Line(
-          points={{60,100},{60,70}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(strayLoad.support, internalSupport) annotation (Line(
-          points={{50,60},{50,50},{60,50},{60,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
-        annotation (Line(
-          points={{60,60},{60,50},{50,50},{50,-80},{-40,-80},{-40,-90}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(friction.support, internalSupport) annotation (Line(
-          points={{90,-40},{90,-70},{60,-70},{60,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{50,80},{90,80},{90,-1.72421e-15}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(friction.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{90,-20},{90,-1.72421e-15}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(friction.heatPort, internalThermalPort.heatPortFriction)
-        annotation (Line(
-          points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-90}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(groundS.port_p, airGap.port_sp) annotation (Line(
-          points={{-30,10},{-20,10},{-20,10},{-10,10}},
-          color={255,128,0},
-          smooth=Smooth.None));
-      connect(stator.port_n, airGap.port_sp) annotation (Line(
-          points={{-10,30},{-10,25},{-10,25},{-10,20},{-10,10},{-10,10}},
-          color={255,128,0},
-          smooth=Smooth.None));
-      connect(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding)
-        annotation (Line(
-          points={{-10,44},{-40,44},{-40,-90}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(stator.heatPortCore, internalThermalPort.heatPortStatorCore)
-        annotation (Line(
-          points={{-10,36},{-40,36},{-40,-90}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      annotation (
-        Documentation(info="<HTML>
-<p>This partial model for induction machines contains elements common in all machine models.</p>
-</HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{80,-80},{120,-120}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-50,100},{-20,100},{-20,70}}, color={0,0,255}),
-            Line(points={{50,100},{20,100},{20,70}}, color={0,0,255}),
-            Text(
-              extent={{-150,-120},{150,-180}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Line(
-              visible=not useSupport,
-              points={{80,-100},{120,-100}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{90,-100},{80,-120}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{100,-100},{90,-120}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{110,-100},{100,-120}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{120,-100},{110,-120}},
-              color={0,0,0},
-              smooth=Smooth.None)}),
-        Diagram(graphics));
-    end PartialBasicNewInductionMachine;
 
     model StateSelector
       "Transform instantaneous values to space phasors and select states"
