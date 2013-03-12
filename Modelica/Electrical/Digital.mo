@@ -3354,9 +3354,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end Not;
 
         model And "And logic component with multiple input and one output"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
+          //D.Interfaces.Logic auxiliary[n];
     protected
           D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
         equation
@@ -3526,8 +3527,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end Nor;
 
         model Xor "Xor logic component with multiple input and one output"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
           D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -4063,14 +4064,17 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         extends Modelica.Icons.SourcesPackage;
 
         block Set "Digital Set Source"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter D.Interfaces.Logic x(start=L.'1') "Logic value to be set";
           D.Interfaces.DigitalOutput y
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
+    protected
+          D.Interfaces.Logic auxiliary(start=L.'U', fixed=true);
         algorithm
-          y := x;
+          auxiliary := x;
+          y := pre(auxiliary);
           annotation (Documentation(info="<HTML>
 <P>
 Sets a nine valued digital signal, which is specified by the <i>setval</i> parameter.
