@@ -2956,10 +2956,7 @@ equation
     Documentation(info="<html>
 <p>
 On the highest level of a StateGraph, an instance of StateGraphRoot
-has to be present. If it is not within in a model, it is automatically
-included by a Modelica translator due to an appropriate annotation.
-Practically, this means that it need not be present in a
-StateGraph model.
+has to be present.
 </p>
 <p>
 The StateGraphRoot object is needed, since all Step objects have
