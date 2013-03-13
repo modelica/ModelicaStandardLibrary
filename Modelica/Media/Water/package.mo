@@ -231,6 +231,7 @@ partial package WaterIF97_base
     output Density d "Density";
   algorithm
     d := IF97_Utilities.rho_ph(p, h, phase);
+    annotation(Inline = true);
   end density_ph;
 
   redeclare function temperature_ph
@@ -242,6 +243,7 @@ partial package WaterIF97_base
     output Temperature T "Temperature";
   algorithm
     T := IF97_Utilities.T_ph(p, h, phase);
+    annotation(Inline = true);
   end temperature_ph;
 
   redeclare function temperature_ps
@@ -253,6 +255,7 @@ partial package WaterIF97_base
     output Temperature T "Temperature";
   algorithm
     T := IF97_Utilities.T_ps(p, s, phase);
+    annotation(Inline = true);
   end temperature_ps;
 
   redeclare function density_ps
@@ -264,6 +267,7 @@ partial package WaterIF97_base
     output Density d "density";
   algorithm
     d := IF97_Utilities.rho_ps(p, s, phase);
+    annotation(Inline = true);
   end density_ps;
 
   redeclare function pressure_dT
@@ -275,6 +279,7 @@ partial package WaterIF97_base
     output AbsolutePressure p "Pressure";
   algorithm
     p := IF97_Utilities.p_dT(d, T, phase);
+    annotation(Inline = true);
   end pressure_dT;
 
   redeclare function specificEnthalpy_dT
@@ -286,6 +291,7 @@ partial package WaterIF97_base
     output SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := IF97_Utilities.h_dT(d, T, phase);
+    annotation(Inline = true);
   end specificEnthalpy_dT;
 
   redeclare function specificEnthalpy_pT
@@ -297,6 +303,7 @@ partial package WaterIF97_base
     output SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := IF97_Utilities.h_pT(p, T);
+    annotation(Inline = true);
   end specificEnthalpy_pT;
 
   redeclare function specificEnthalpy_ps
@@ -308,6 +315,7 @@ partial package WaterIF97_base
     output SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := IF97_Utilities.h_ps(p, s, phase);
+    annotation(Inline = true);
   end specificEnthalpy_ps;
 
   redeclare function density_pT
@@ -319,6 +327,7 @@ partial package WaterIF97_base
     output Density d "Density";
   algorithm
     d := IF97_Utilities.rho_pT(p, T);
+    annotation(Inline = true);
   end density_pT;
 
   redeclare function extends setDewState
@@ -330,6 +339,7 @@ partial package WaterIF97_base
        T=  sat.Tsat,
        h=  dewEnthalpy(sat),
        d=  dewDensity(sat));
+    annotation(Inline = true);
   end setDewState;
 
   redeclare function extends setBubbleState
@@ -341,12 +351,14 @@ partial package WaterIF97_base
        T=  sat.Tsat,
        h=  bubbleEnthalpy(sat),
        d=  bubbleDensity(sat));
+    annotation(Inline = true);
   end setBubbleState;
 
   redeclare function extends dynamicViscosity "Dynamic viscosity of water"
   algorithm
     eta := IF97_Utilities.dynamicViscosity(state.d, state.T, state.p, state.
       phase);
+    annotation(Inline = true);
   end dynamicViscosity;
 
   redeclare function extends thermalConductivity
@@ -354,33 +366,39 @@ partial package WaterIF97_base
   algorithm
     lambda := IF97_Utilities.thermalConductivity(state.d, state.T, state.p,
       state.phase);
+    annotation(Inline = true);
   end thermalConductivity;
 
   redeclare function extends surfaceTension
     "Surface tension in two phase region of water"
   algorithm
     sigma := IF97_Utilities.surfaceTension(sat.Tsat);
+    annotation(Inline = true);
   end surfaceTension;
 
   redeclare function extends pressure "return pressure of ideal gas"
   algorithm
     p := state.p;
+    annotation(Inline = true);
   end pressure;
 
   redeclare function extends temperature "return temperature of ideal gas"
   algorithm
     T := state.T;
+    annotation(Inline = true);
   end temperature;
 
   redeclare function extends density "return density of ideal gas"
   algorithm
     d := state.d;
+    annotation(Inline = true);
   end density;
 
   redeclare function extends specificEnthalpy "Return specific enthalpy"
     extends Modelica.Icons.Function;
   algorithm
     h := state.h;
+    annotation(Inline = true);
   end specificEnthalpy;
 
   redeclare function extends specificInternalEnergy
@@ -388,12 +406,14 @@ partial package WaterIF97_base
     extends Modelica.Icons.Function;
   algorithm
     u := state.h  - state.p/state.d;
+    annotation(Inline = true);
   end specificInternalEnergy;
 
   redeclare function extends specificGibbsEnergy "Return specific Gibbs energy"
     extends Modelica.Icons.Function;
   algorithm
     g := state.h - state.T*specificEntropy(state);
+    annotation(Inline = true);
   end specificGibbsEnergy;
 
   redeclare function extends specificHelmholtzEnergy
@@ -401,31 +421,31 @@ partial package WaterIF97_base
     extends Modelica.Icons.Function;
   algorithm
     f := state.h - state.p/state.d - state.T*specificEntropy(state);
+    annotation(Inline = true);
   end specificHelmholtzEnergy;
 
   redeclare function extends specificEntropy "specific entropy of water"
   algorithm
-    if dT_explicit then
-      s := IF97_Utilities.s_dT(state.d, state.T, state.phase);
-    elseif pT_explicit then
-      s := IF97_Utilities.s_pT(state.p, state.T);
-    else
-      s := IF97_Utilities.s_ph(state.p, state.h, state.phase);
-    end if;
+    s := if dT_explicit then
+           IF97_Utilities.s_dT(state.d, state.T, state.phase)
+         else if pT_explicit then
+           IF97_Utilities.s_pT(state.p, state.T)
+         else
+           IF97_Utilities.s_ph(state.p, state.h, state.phase);
+    annotation(Inline = true);
   end specificEntropy;
 
   redeclare function extends specificHeatCapacityCp
     "specific heat capacity at constant pressure of water"
-
   algorithm
-    if dT_explicit then
-      cp := IF97_Utilities.cp_dT(state.d, state.T, state.phase);
-    elseif pT_explicit then
-      cp := IF97_Utilities.cp_pT(state.p, state.T);
-    else
-      cp := IF97_Utilities.cp_ph(state.p, state.h, state.phase);
-    end if;
-      annotation (Documentation(info="<html>
+    cp := if dT_explicit then
+            IF97_Utilities.cp_dT(state.d, state.T, state.phase)
+          else if pT_explicit then
+            IF97_Utilities.cp_pT(state.p, state.T)
+          else
+            IF97_Utilities.cp_ph(state.p, state.h, state.phase);
+      annotation (Inline = true,
+                  Documentation(info="<html>
                                 <p>In the two phase region this function returns the interpolated heat capacity between the
                                 liquid and vapour state heat capacities.</p>
                                 </html>"));
@@ -434,79 +454,79 @@ partial package WaterIF97_base
   redeclare function extends specificHeatCapacityCv
     "specific heat capacity at constant volume of water"
   algorithm
-    if dT_explicit then
-      cv := IF97_Utilities.cv_dT(state.d, state.T, state.phase);
-    elseif pT_explicit then
-      cv := IF97_Utilities.cv_pT(state.p, state.T);
-    else
-      cv := IF97_Utilities.cv_ph(state.p, state.h, state.phase);
-    end if;
+    cv := if dT_explicit then
+            IF97_Utilities.cv_dT(state.d, state.T, state.phase)
+          else if pT_explicit then
+            IF97_Utilities.cv_pT(state.p, state.T)
+          else
+            IF97_Utilities.cv_ph(state.p, state.h, state.phase);
+    annotation(Inline = true);
   end specificHeatCapacityCv;
 
   redeclare function extends isentropicExponent "Return isentropic exponent"
   algorithm
-    if dT_explicit then
-      gamma := IF97_Utilities.isentropicExponent_dT(state.d, state.T, state.
-        phase);
-    elseif pT_explicit then
-      gamma := IF97_Utilities.isentropicExponent_pT(state.p, state.T);
-    else
-      gamma := IF97_Utilities.isentropicExponent_ph(state.p, state.h, state.
-        phase);
-    end if;
+   gamma := if dT_explicit then
+              IF97_Utilities.isentropicExponent_dT(state.d, state.T, state.phase)
+            else if pT_explicit then
+              IF97_Utilities.isentropicExponent_pT(state.p, state.T)
+            else
+              IF97_Utilities.isentropicExponent_ph(state.p, state.h, state.phase);
   end isentropicExponent;
 
   redeclare function extends isothermalCompressibility
     "Isothermal compressibility of water"
   algorithm
-    if dT_explicit then
-      kappa := IF97_Utilities.kappa_dT(state.d, state.T, state.phase);
-    elseif pT_explicit then
-      kappa := IF97_Utilities.kappa_pT(state.p, state.T);
-    else
-      kappa := IF97_Utilities.kappa_ph(state.p, state.h, state.phase);
-    end if;
+    kappa := if dT_explicit then
+                IF97_Utilities.kappa_dT(state.d, state.T, state.phase)
+              else if pT_explicit then
+                IF97_Utilities.kappa_pT(state.p, state.T)
+              else
+                IF97_Utilities.kappa_ph(state.p, state.h, state.phase);
+    annotation(Inline = true);
   end isothermalCompressibility;
 
   redeclare function extends isobaricExpansionCoefficient
     "isobaric expansion coefficient of water"
   algorithm
-    if dT_explicit then
-      beta := IF97_Utilities.beta_dT(state.d, state.T, state.phase);
-    elseif pT_explicit then
-      beta := IF97_Utilities.beta_pT(state.p, state.T);
-    else
-      beta := IF97_Utilities.beta_ph(state.p, state.h, state.phase);
-    end if;
+    beta := if dT_explicit then
+              IF97_Utilities.beta_dT(state.d, state.T, state.phase)
+            else if pT_explicit then
+              IF97_Utilities.beta_pT(state.p, state.T)
+            else
+              IF97_Utilities.beta_ph(state.p, state.h, state.phase);
+    annotation(Inline = true);
   end isobaricExpansionCoefficient;
 
   redeclare function extends velocityOfSound
     "Return velocity of sound as a function of the thermodynamic state record"
   algorithm
-    if dT_explicit then
-      a := IF97_Utilities.velocityOfSound_dT(state.d, state.T, state.phase);
-    elseif pT_explicit then
-      a := IF97_Utilities.velocityOfSound_pT(state.p, state.T);
-    else
-      a := IF97_Utilities.velocityOfSound_ph(state.p, state.h, state.phase);
-    end if;
+    a := if dT_explicit then
+           IF97_Utilities.velocityOfSound_dT(state.d, state.T, state.phase)
+         else if pT_explicit then
+           IF97_Utilities.velocityOfSound_pT(state.p, state.T)
+         else
+           IF97_Utilities.velocityOfSound_ph(state.p, state.h, state.phase);
+    annotation(Inline = true);
   end velocityOfSound;
 
   redeclare function extends isentropicEnthalpy "compute h(p,s)"
   algorithm
     h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
       refState), 0);
+    annotation(Inline = true);
   end isentropicEnthalpy;
 
   redeclare function extends density_derh_p
     "density derivative by specific enthalpy"
   algorithm
     ddhp := IF97_Utilities.ddhp(state.p, state.h, state.phase);
+    annotation(Inline = true);
   end density_derh_p;
 
   redeclare function extends density_derp_h "density derivative by pressure"
   algorithm
     ddph := IF97_Utilities.ddph(state.p, state.h, state.phase);
+    annotation(Inline = true);
   end density_derp_h;
 
 //   redeclare function extends density_derT_p
@@ -525,82 +545,91 @@ partial package WaterIF97_base
     "boiling curve specific enthalpy of water"
   algorithm
     hl := IF97_Utilities.BaseIF97.Regions.hl_p(sat.psat);
+    annotation(Inline = true);
   end bubbleEnthalpy;
 
   redeclare function extends dewEnthalpy "dew curve specific enthalpy of water"
   algorithm
     hv := IF97_Utilities.BaseIF97.Regions.hv_p(sat.psat);
+    annotation(Inline = true);
   end dewEnthalpy;
 
   redeclare function extends bubbleEntropy
     "boiling curve specific entropy of water"
   algorithm
     sl := IF97_Utilities.BaseIF97.Regions.sl_p(sat.psat);
+    annotation(Inline = true);
   end bubbleEntropy;
 
   redeclare function extends dewEntropy "dew curve specific entropy of water"
   algorithm
     sv := IF97_Utilities.BaseIF97.Regions.sv_p(sat.psat);
+    annotation(Inline = true);
   end dewEntropy;
 
   redeclare function extends bubbleDensity
     "boiling curve specific density of water"
   algorithm
-    if ph_explicit or pT_explicit then
-      dl := IF97_Utilities.BaseIF97.Regions.rhol_p(sat.psat);
-    else
-      dl := IF97_Utilities.BaseIF97.Regions.rhol_T(sat.Tsat);
-    end if;
+    dl := if ph_explicit then IF97_Utilities.BaseIF97.Regions.rhol_p(sat.psat) else
+                              IF97_Utilities.BaseIF97.Regions.rhol_T(sat.Tsat);
+    annotation(Inline = true);
   end bubbleDensity;
 
   redeclare function extends dewDensity "dew curve specific density of water"
   algorithm
-    if ph_explicit or pT_explicit then
-      dv := IF97_Utilities.BaseIF97.Regions.rhov_p(sat.psat);
+    dv := if ph_explicit or pT_explicit then
+      IF97_Utilities.BaseIF97.Regions.rhov_p(sat.psat)
     else
-      dv := IF97_Utilities.BaseIF97.Regions.rhov_T(sat.Tsat);
-    end if;
+      IF97_Utilities.BaseIF97.Regions.rhov_T(sat.Tsat);
+    annotation(Inline = true);
   end dewDensity;
 
   redeclare function extends saturationTemperature
     "saturation temperature of water"
   algorithm
     T := IF97_Utilities.BaseIF97.Basic.tsat(p);
+    annotation(Inline = true);
   end saturationTemperature;
 
   redeclare function extends saturationTemperature_derp
     "derivative of saturation temperature w.r.t. pressure"
   algorithm
     dTp := IF97_Utilities.BaseIF97.Basic.dtsatofp(p);
+    annotation(Inline = true);
   end saturationTemperature_derp;
 
   redeclare function extends saturationPressure "saturation pressure of water"
   algorithm
     p := IF97_Utilities.BaseIF97.Basic.psat(T);
+    annotation(Inline = true);
   end saturationPressure;
 
   redeclare function extends dBubbleDensity_dPressure
     "bubble point density derivative"
   algorithm
     ddldp := IF97_Utilities.BaseIF97.Regions.drhol_dp(sat.psat);
+    annotation(Inline = true);
   end dBubbleDensity_dPressure;
 
   redeclare function extends dDewDensity_dPressure
     "dew point density derivative"
   algorithm
     ddvdp := IF97_Utilities.BaseIF97.Regions.drhov_dp(sat.psat);
+    annotation(Inline = true);
   end dDewDensity_dPressure;
 
   redeclare function extends dBubbleEnthalpy_dPressure
     "bubble point specific enthalpy derivative"
   algorithm
     dhldp := IF97_Utilities.BaseIF97.Regions.dhl_dp(sat.psat);
+    annotation(Inline = true);
   end dBubbleEnthalpy_dPressure;
 
   redeclare function extends dDewEnthalpy_dPressure
     "dew point specific enthalpy derivative"
   algorithm
     dhvdp := IF97_Utilities.BaseIF97.Regions.dhv_dp(sat.psat);
+    annotation(Inline = true);
   end dDewEnthalpy_dPressure;
 
   redeclare function extends setState_dTX
@@ -612,6 +641,7 @@ partial package WaterIF97_base
       phase=0,
       h=specificEnthalpy_dT(d,T),
       p=pressure_dT(d,T));
+    annotation(Inline = true);
   end setState_dTX;
 
   redeclare function extends setState_phX
@@ -623,6 +653,7 @@ partial package WaterIF97_base
       phase=0,
       h=h,
       p=p);
+    annotation(Inline = true);
   end setState_phX;
 
   redeclare function extends setState_psX
@@ -634,6 +665,7 @@ partial package WaterIF97_base
       phase=0,
       h=specificEnthalpy_ps(p,s),
       p=p);
+    annotation(Inline = true);
   end setState_psX;
 
   redeclare function extends setState_pTX
@@ -645,6 +677,7 @@ partial package WaterIF97_base
       phase=1,
       h=specificEnthalpy_pT(p,T),
       p=p);
+    annotation(Inline = true);
   end setState_pTX;
 
       redeclare function extends setSmoothState
@@ -659,6 +692,7 @@ partial package WaterIF97_base
           T=temperature_ph(smoothStep(x, state_a.p, state_b.p, x_small),
                            smoothStep(x, state_a.h, state_b.h, x_small)),
           phase=0);
+        annotation(Inline = true);
       end setSmoothState;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
@@ -823,6 +857,7 @@ partial package WaterIF97_fixedregion
     output Density d "Density";
   algorithm
     d := IF97_Utilities.rho_ph(p, h, phase, region);
+    annotation(Inline = true);
   end density_ph;
 
   redeclare function temperature_ph
@@ -836,6 +871,7 @@ partial package WaterIF97_fixedregion
     output Temperature T "Temperature";
   algorithm
     T := IF97_Utilities.T_ph(p, h, phase, region);
+    annotation(Inline = true);
   end temperature_ph;
 
   redeclare function temperature_ps
@@ -849,6 +885,7 @@ partial package WaterIF97_fixedregion
     output Temperature T "Temperature";
   algorithm
     T := IF97_Utilities.T_ps(p, s, phase,region);
+    annotation(Inline = true);
   end temperature_ps;
 
   redeclare function density_ps
@@ -862,6 +899,7 @@ partial package WaterIF97_fixedregion
     output Density d "density";
   algorithm
     d := IF97_Utilities.rho_ps(p, s, phase, region);
+    annotation(Inline = true);
   end density_ps;
 
   redeclare function pressure_dT
@@ -875,6 +913,7 @@ partial package WaterIF97_fixedregion
     output AbsolutePressure p "Pressure";
   algorithm
     p := IF97_Utilities.p_dT(d, T, phase, region);
+    annotation(Inline = true);
   end pressure_dT;
 
   redeclare function specificEnthalpy_dT
@@ -888,6 +927,7 @@ partial package WaterIF97_fixedregion
     output SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := IF97_Utilities.h_dT(d, T, phase, region);
+    annotation(Inline = true);
   end specificEnthalpy_dT;
 
   redeclare function specificEnthalpy_pT
@@ -901,6 +941,7 @@ partial package WaterIF97_fixedregion
     output SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := IF97_Utilities.h_pT(p, T, region);
+    annotation(Inline = true);
   end specificEnthalpy_pT;
 
   redeclare function specificEnthalpy_ps
@@ -914,6 +955,7 @@ partial package WaterIF97_fixedregion
     output SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := IF97_Utilities.h_ps(p, s, phase, region);
+    annotation(Inline = true);
   end specificEnthalpy_ps;
 
   redeclare function density_pT
@@ -927,32 +969,38 @@ partial package WaterIF97_fixedregion
     output Density d "Density";
   algorithm
     d := IF97_Utilities.rho_pT(p, T, region);
+    annotation(Inline = true);
   end density_pT;
 
   redeclare function extends setDewState
     "set the thermodynamic state on the dew line"
   algorithm
-    state.phase := phase;
-    state.p := sat.psat;
-    state.T := sat.Tsat;
-    state.h := dewEnthalpy(sat);
-    state.d := dewDensity(sat);
+    state := ThermodynamicState(
+       phase=  phase,
+       p=  sat.psat,
+       T=  sat.Tsat,
+       h=  dewEnthalpy(sat),
+       d=  dewDensity(sat));
+    annotation(Inline = true);
   end setDewState;
 
   redeclare function extends setBubbleState
     "set the thermodynamic state on the bubble line"
   algorithm
-    state.phase := phase;
-    state.p := sat.psat;
-    state.T := sat.Tsat;
-    state.h := bubbleEnthalpy(sat);
-    state.d := bubbleDensity(sat);
+    state := ThermodynamicState(
+       phase=  phase,
+       p=  sat.psat,
+       T=  sat.Tsat,
+       h=  bubbleEnthalpy(sat),
+       d=  bubbleDensity(sat));
+    annotation(Inline = true);
   end setBubbleState;
 
   redeclare function extends dynamicViscosity "Dynamic viscosity of water"
   algorithm
     eta := IF97_Utilities.dynamicViscosity(state.d, state.T, state.p, state.
       phase);
+    annotation(Inline = true);
   end dynamicViscosity;
 
   redeclare function extends thermalConductivity
@@ -960,33 +1008,39 @@ partial package WaterIF97_fixedregion
   algorithm
     lambda := IF97_Utilities.thermalConductivity(state.d, state.T, state.p,
       state.phase);
+    annotation(Inline = true);
   end thermalConductivity;
 
   redeclare function extends surfaceTension
     "Surface tension in two phase region of water"
   algorithm
     sigma := IF97_Utilities.surfaceTension(sat.Tsat);
+    annotation(Inline = true);
   end surfaceTension;
 
   redeclare function extends pressure "return pressure of ideal gas"
   algorithm
     p := state.p;
+    annotation(Inline = true);
   end pressure;
 
   redeclare function extends temperature "return temperature of ideal gas"
   algorithm
     T := state.T;
+    annotation(Inline = true);
   end temperature;
 
   redeclare function extends density "return density of ideal gas"
   algorithm
     d := state.d;
+    annotation(Inline = true);
   end density;
 
   redeclare function extends specificEnthalpy "Return specific enthalpy"
     extends Modelica.Icons.Function;
   algorithm
     h := state.h;
+    annotation(Inline = true);
   end specificEnthalpy;
 
   redeclare function extends specificInternalEnergy
@@ -994,12 +1048,14 @@ partial package WaterIF97_fixedregion
     extends Modelica.Icons.Function;
   algorithm
     u := state.h  - state.p/state.d;
+    annotation(Inline = true);
   end specificInternalEnergy;
 
   redeclare function extends specificGibbsEnergy "Return specific Gibbs energy"
     extends Modelica.Icons.Function;
   algorithm
     g := state.h - state.T*specificEntropy(state);
+    annotation(Inline = true);
   end specificGibbsEnergy;
 
   redeclare function extends specificHelmholtzEnergy
@@ -1007,193 +1063,204 @@ partial package WaterIF97_fixedregion
     extends Modelica.Icons.Function;
   algorithm
     f := state.h - state.p/state.d - state.T*specificEntropy(state);
+    annotation(Inline = true);
   end specificHelmholtzEnergy;
 
   redeclare function extends specificEntropy "specific entropy of water"
   algorithm
-    if dT_explicit then
-      s := IF97_Utilities.s_dT(state.d, state.T, state.phase, Region);
-    elseif pT_explicit then
-      s := IF97_Utilities.s_pT(state.p, state.T, Region);
-    else
-      s := IF97_Utilities.s_ph(state.p, state.h, state.phase, Region);
-    end if;
+    s := if dT_explicit then
+           IF97_Utilities.s_dT(state.d, state.T, state.phase, Region)
+         else if pT_explicit then
+           IF97_Utilities.s_pT(state.p, state.T, Region)
+         else
+           IF97_Utilities.s_ph(state.p, state.h, state.phase, Region);
+    annotation(Inline = true);
   end specificEntropy;
 
   redeclare function extends specificHeatCapacityCp
     "specific heat capacity at constant pressure of water"
   algorithm
-    if dT_explicit then
-      cp := IF97_Utilities.cp_dT(state.d, state.T, Region);
-    elseif pT_explicit then
-      cp := IF97_Utilities.cp_pT(state.p, state.T, Region);
-    else
-      cp := IF97_Utilities.cp_ph(state.p, state.h, Region);
-    end if;
+    cp := if dT_explicit then
+            IF97_Utilities.cp_dT(state.d, state.T, Region)
+          else if pT_explicit then
+            IF97_Utilities.cp_pT(state.p, state.T, Region)
+          else
+            IF97_Utilities.cp_ph(state.p, state.h, Region);
+    annotation(Inline = true);
   end specificHeatCapacityCp;
 
   redeclare function extends specificHeatCapacityCv
     "specific heat capacity at constant volume of water"
   algorithm
-    if dT_explicit then
-      cv := IF97_Utilities.cv_dT(state.d, state.T, state.phase, Region);
-    elseif pT_explicit then
-      cv := IF97_Utilities.cv_pT(state.p, state.T, Region);
-    else
-      cv := IF97_Utilities.cv_ph(state.p, state.h, state.phase, Region);
-    end if;
+    cv := if dT_explicit then
+            IF97_Utilities.cv_dT(state.d, state.T, state.phase, Region)
+          else if pT_explicit then
+            IF97_Utilities.cv_pT(state.p, state.T, Region)
+          else
+            IF97_Utilities.cv_ph(state.p, state.h, state.phase, Region);
+    annotation(Inline = true);
   end specificHeatCapacityCv;
 
   redeclare function extends isentropicExponent "Return isentropic exponent"
   algorithm
-    if dT_explicit then
-      gamma := IF97_Utilities.isentropicExponent_dT(state.d, state.T,
-          state.phase, Region);
-    elseif pT_explicit then
-      gamma := IF97_Utilities.isentropicExponent_pT(state.p, state.T, Region);
-    else
-      gamma := IF97_Utilities.isentropicExponent_ph(state.p, state.h,
-          state.phase, Region);
-    end if;
+    gamma := if dT_explicit then
+               IF97_Utilities.isentropicExponent_dT(state.d, state.T, state.phase, Region)
+             else if pT_explicit then
+               IF97_Utilities.isentropicExponent_pT(state.p, state.T, Region)
+             else
+               IF97_Utilities.isentropicExponent_ph(state.p, state.h, state.phase, Region);
+    annotation(Inline = true);
   end isentropicExponent;
 
   redeclare function extends isothermalCompressibility
     "Isothermal compressibility of water"
   algorithm
     //    assert(state.phase <> 2, "isothermal compressibility can not be computed with 2-phase inputs!");
-    if dT_explicit then
-      kappa := IF97_Utilities.kappa_dT(state.d, state.T, state.phase, Region);
-    elseif pT_explicit then
-      kappa := IF97_Utilities.kappa_pT(state.p, state.T, Region);
-    else
-      kappa := IF97_Utilities.kappa_ph(state.p, state.h, state.phase, Region);
-    end if;
+    kappa := if dT_explicit then
+               IF97_Utilities.kappa_dT(state.d, state.T, state.phase, Region)
+             else if pT_explicit then
+               IF97_Utilities.kappa_pT(state.p, state.T, Region)
+             else
+               IF97_Utilities.kappa_ph(state.p, state.h, state.phase, Region);
+    annotation(Inline = true);
   end isothermalCompressibility;
 
   redeclare function extends isobaricExpansionCoefficient
     "isobaric expansion coefficient of water"
   algorithm
     //    assert(state.phase <> 2, "the isobaric expansion coefficient can not be computed with 2-phase inputs!");
-    if dT_explicit then
-      beta := IF97_Utilities.beta_dT(state.d, state.T, state.phase, Region);
-    elseif pT_explicit then
-      beta := IF97_Utilities.beta_pT(state.p, state.T, Region);
-    else
-      beta := IF97_Utilities.beta_ph(state.p, state.h, state.phase, Region);
-    end if;
+    beta := if dT_explicit then
+              IF97_Utilities.beta_dT(state.d, state.T, state.phase, Region)
+            else if pT_explicit then
+              IF97_Utilities.beta_pT(state.p, state.T, Region)
+            else
+              IF97_Utilities.beta_ph(state.p, state.h, state.phase, Region);
+    annotation(Inline = true);
   end isobaricExpansionCoefficient;
 
   redeclare function extends velocityOfSound
     "Return velocity of sound as a function of the thermodynamic state record"
   algorithm
-    if dT_explicit then
-      a := IF97_Utilities.velocityOfSound_dT(state.d, state.T, state.phase,
-        Region);
-    elseif pT_explicit then
-      a := IF97_Utilities.velocityOfSound_pT(state.p, state.T, Region);
-    else
-      a := IF97_Utilities.velocityOfSound_ph(state.p, state.h, state.phase,
-        Region);
-    end if;
+    a := if dT_explicit then
+           IF97_Utilities.velocityOfSound_dT(state.d, state.T, state.phase, Region)
+         else if pT_explicit then
+           IF97_Utilities.velocityOfSound_pT(state.p, state.T, Region)
+         else
+           IF97_Utilities.velocityOfSound_ph(state.p, state.h, state.phase, Region);
+    annotation(Inline = true);
   end velocityOfSound;
 
   redeclare function extends isentropicEnthalpy "compute h(s,p)"
   algorithm
     h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
       refState), 0);
+    annotation(Inline = true);
   end isentropicEnthalpy;
 
   redeclare function extends density_derh_p
     "density derivative by specific enthalpy"
   algorithm
     ddhp := IF97_Utilities.ddhp(state.p, state.h, state.phase, Region);
+    annotation(Inline = true);
   end density_derh_p;
 
   redeclare function extends density_derp_h "density derivative by pressure"
   algorithm
     ddph := IF97_Utilities.ddph(state.p, state.h, state.phase, Region);
+    annotation(Inline = true);
   end density_derp_h;
 
   redeclare function extends bubbleEnthalpy
     "boiling curve specific enthalpy of water"
   algorithm
     hl := IF97_Utilities.BaseIF97.Regions.hl_p(sat.psat);
+    annotation(Inline = true);
   end bubbleEnthalpy;
 
   redeclare function extends dewEnthalpy "dew curve specific enthalpy of water"
   algorithm
     hv := IF97_Utilities.BaseIF97.Regions.hv_p(sat.psat);
+    annotation(Inline = true);
   end dewEnthalpy;
 
   redeclare function extends bubbleEntropy
     "boiling curve specific entropy of water"
   algorithm
     sl := IF97_Utilities.BaseIF97.Regions.sl_p(sat.psat);
+    annotation(Inline = true);
   end bubbleEntropy;
 
   redeclare function extends dewEntropy "dew curve specific entropy of water"
   algorithm
     sv := IF97_Utilities.BaseIF97.Regions.sv_p(sat.psat);
+    annotation(Inline = true);
   end dewEntropy;
 
   redeclare function extends bubbleDensity
     "boiling curve specific density of water"
   algorithm
-    if ph_explicit or pT_explicit then
-      dl := IF97_Utilities.BaseIF97.Regions.rhol_p(sat.psat);
-    else
-      dl := IF97_Utilities.BaseIF97.Regions.rhol_T(sat.Tsat);
-    end if;
+    dl := if ph_explicit or pT_explicit then
+            IF97_Utilities.BaseIF97.Regions.rhol_p(sat.psat)
+          else
+            IF97_Utilities.BaseIF97.Regions.rhol_T(sat.Tsat);
+    annotation(Inline = true);
   end bubbleDensity;
 
   redeclare function extends dewDensity "dew curve specific density of water"
   algorithm
-    if ph_explicit or pT_explicit then
-      dv := IF97_Utilities.BaseIF97.Regions.rhov_p(sat.psat);
-    else
-      dv := IF97_Utilities.BaseIF97.Regions.rhov_T(sat.Tsat);
-    end if;
+    dv := if ph_explicit or pT_explicit then
+            IF97_Utilities.BaseIF97.Regions.rhov_p(sat.psat)
+          else
+            IF97_Utilities.BaseIF97.Regions.rhov_T(sat.Tsat);
+    annotation(Inline = true);
   end dewDensity;
 
   redeclare function extends saturationTemperature
     "saturation temperature of water"
   algorithm
     T := IF97_Utilities.BaseIF97.Basic.tsat(p);
+    annotation(Inline = true);
   end saturationTemperature;
 
   redeclare function extends saturationTemperature_derp
     "derivative of saturation temperature w.r.t. pressure"
   algorithm
     dTp := IF97_Utilities.BaseIF97.Basic.dtsatofp(p);
+    annotation(Inline = true);
   end saturationTemperature_derp;
 
   redeclare function extends saturationPressure "saturation pressure of water"
   algorithm
     p := IF97_Utilities.BaseIF97.Basic.psat(T);
+    annotation(Inline = true);
   end saturationPressure;
 
   redeclare function extends dBubbleDensity_dPressure
     "bubble point density derivative"
   algorithm
     ddldp := IF97_Utilities.BaseIF97.Regions.drhol_dp(sat.psat);
+    annotation(Inline = true);
   end dBubbleDensity_dPressure;
 
   redeclare function extends dDewDensity_dPressure
     "dew point density derivative"
   algorithm
     ddvdp := IF97_Utilities.BaseIF97.Regions.drhov_dp(sat.psat);
+    annotation(Inline = true);
   end dDewDensity_dPressure;
 
   redeclare function extends dBubbleEnthalpy_dPressure
     "bubble point specific enthalpy derivative"
   algorithm
     dhldp := IF97_Utilities.BaseIF97.Regions.dhl_dp(sat.psat);
+    annotation(Inline = true);
   end dBubbleEnthalpy_dPressure;
 
   redeclare function extends dDewEnthalpy_dPressure
     "dew point specific enthalpy derivative"
   algorithm
     dhvdp := IF97_Utilities.BaseIF97.Regions.dhv_dp(sat.psat);
+    annotation(Inline = true);
   end dDewEnthalpy_dPressure;
 
   redeclare function extends setState_dTX
@@ -1207,6 +1274,7 @@ partial package WaterIF97_fixedregion
       phase= if region == 0 then IF97_Utilities.phase_dT(d,T) else if region == 4 then 2 else 1,
       h=specificEnthalpy_dT(d,T,region=region),
       p=pressure_dT(d,T,region=region));
+    annotation(Inline = true);
   end setState_dTX;
 
   redeclare function extends setState_phX
@@ -1220,6 +1288,7 @@ partial package WaterIF97_fixedregion
       phase=if region == 0 then IF97_Utilities.phase_ph(p,h) else if region == 4 then 2 else 1,
       h=h,
       p=p);
+    annotation(Inline = true);
   end setState_phX;
 
   redeclare function extends setState_psX
@@ -1233,6 +1302,7 @@ partial package WaterIF97_fixedregion
       phase=IF97_Utilities.phase_ps(p,s),
       h=specificEnthalpy_ps(p,s,region=region),
       p=p);
+    annotation(Inline = true);
   end setState_psX;
 
   redeclare function extends setState_pTX
@@ -1246,12 +1316,13 @@ partial package WaterIF97_fixedregion
       phase=1,
       h=specificEnthalpy_pT(p,T,region=region),
       p=p);
+    annotation(Inline = true);
   end setState_pTX;
 
-      redeclare function extends setSmoothState
+  redeclare function extends setSmoothState
     "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
       import Modelica.Media.Common.smoothStep;
-      algorithm
+  algorithm
         state :=ThermodynamicState(
           p=smoothStep(x, state_a.p, state_b.p, x_small),
           h=smoothStep(x, state_a.h, state_b.h, x_small),
@@ -1260,7 +1331,8 @@ partial package WaterIF97_fixedregion
           T=temperature_ph(smoothStep(x, state_a.p, state_b.p, x_small),
                            smoothStep(x, state_a.h, state_b.h, x_small)),
           phase=0);
-      end setSmoothState;
+    annotation(Inline = true);
+  end setSmoothState;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-94,84},{94,40}},

@@ -977,6 +977,7 @@ package IF97_Utilities
         output SI.SpecificEnthalpy h "specific enthalpy";
       algorithm
         h := hvl_p(p, boilingcurve_p(p));
+      annotation(Inline = true);
       end hl_p;
 
       function hv_p
@@ -987,6 +988,7 @@ package IF97_Utilities
         output SI.SpecificEnthalpy h "specific enthalpy";
       algorithm
         h := hvl_p(p, dewcurve_p(p));
+        annotation(Inline = true);
       end hv_p;
 
       function hvl_p_der
@@ -1006,6 +1008,7 @@ package IF97_Utilities
         else
           h_der := (1/bpro.d - bpro.T*bpro.vt)*p_der + bpro.cp/bpro.dpT*p_der;
         end if;
+        annotation(Inline = true);
       end hvl_p_der;
 
       function rhovl_p
@@ -1027,6 +1030,7 @@ package IF97_Utilities
         output SI.Density rho "density of steam at the condensation point";
       algorithm
         rho := rhovl_p(p, boilingcurve_p(p));
+        annotation(Inline = true);
       end rhol_p;
 
       function rhov_p "density of saturated vapour"
@@ -1035,6 +1039,7 @@ package IF97_Utilities
         output SI.Density rho "density of steam at the condensation point";
       algorithm
         rho := rhovl_p(p, dewcurve_p(p));
+        annotation(Inline = true);
       end rhov_p;
 
       function rhovl_p_der
@@ -1046,6 +1051,7 @@ package IF97_Utilities
       algorithm
         d_der := if bpro.region3boundary then (p_der - bpro.pt*p_der/bpro.dpT)/
           bpro.pd else -bpro.d*bpro.d*(bpro.vp + bpro.vt/bpro.dpT)*p_der;
+        annotation(Inline = true);
       end rhovl_p_der;
 
       function sl_p
@@ -1465,6 +1471,7 @@ package IF97_Utilities
           "specific enthalpy derivative w.r.t. pressure";
       algorithm
         dh_dp := hvl_dp(p, boilingcurve_p(p));
+        annotation(Inline = true);
       end dhl_dp;
 
       function dhv_dp
@@ -1476,6 +1483,7 @@ package IF97_Utilities
           "specific enthalpy derivative w.r.t. pressure";
       algorithm
         dh_dp := hvl_dp(p, dewcurve_p(p));
+        annotation(Inline = true);
       end dhv_dp;
 
       function drhovl_dp
@@ -1487,6 +1495,7 @@ package IF97_Utilities
       algorithm
         dd_dp := if bpro.region3boundary then (1.0 - bpro.pt/bpro.dpT)/
           bpro.pd else -bpro.d*bpro.d*(bpro.vp + bpro.vt/bpro.dpT);
+        annotation(Inline = true);
       end drhovl_dp;
 
       function drhol_dp
@@ -1497,6 +1506,7 @@ package IF97_Utilities
           "derivative of density of water at the boiling point";
       algorithm
         dd_dp := drhovl_dp(p, boilingcurve_p(p));
+        annotation(Inline = true);
       end drhol_dp;
 
       function drhov_dp
@@ -1507,6 +1517,7 @@ package IF97_Utilities
           "derivative of density of water at the boiling point";
       algorithm
         dd_dp := drhovl_dp(p, dewcurve_p(p));
+        annotation(Inline = true);
       end drhov_dp;
       annotation (Documentation(info="<HTML><h4>Package description</h4>
  <p>Package <b>Regions</b> contains a large number of auxiliary functions which are needed to compute the current region
@@ -6358,6 +6369,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Density rho "density";
   algorithm
     rho := rho_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
+    annotation(Inline = true);
   end rho_ps;
 
   function T_props_ps
@@ -6383,6 +6395,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Temperature T "Temperature";
   algorithm
     T := T_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
+    annotation(Inline = true);
   end T_ps;
 
   function h_props_ps
@@ -6409,6 +6422,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := h_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
+    annotation(Inline = true);
   end h_ps;
 
   function phase_ps "phase as a function of  pressure and specific entropy"
@@ -6418,7 +6432,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Integer phase "true if in liquid or gas or supercritical region";
   algorithm
     phase := if ((s < sl_p(p) or s > sv_p(p)) or p > BaseIF97.data.PCRIT) then 1 else 2;
-    annotation (GenerateEvents=true);
+    annotation (Inline = true, GenerateEvents=true);
   end phase_ps;
 
   function phase_ph "phase as a function of  pressure and specific enthalpy"
@@ -6428,7 +6442,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Integer phase "true if in liquid or gas or supercritical region";
   algorithm
     phase := if ((h < hl_p(p) or h > hv_p(p)) or p > BaseIF97.data.PCRIT) then 1 else 2;
-    annotation (GenerateEvents=true);
+    annotation (Inline = true, GenerateEvents=true);
   end phase_ph;
 
   function phase_dT "phase as a function of  pressure and temperature"
@@ -6439,7 +6453,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
   algorithm
     phase := if not ((rho < rhol_T(T) and rho > rhov_T(T)) and T < BaseIF97.
       data.TCRIT) then 1 else 2;
-    annotation (GenerateEvents=true);
+    annotation (Inline = true, GenerateEvents=true);
   end phase_dT;
 
   function rho_props_ph "density as function of pressure and specific enthalpy"
@@ -6466,6 +6480,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Density rho "density";
   algorithm
     rho := rho_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
+    annotation(Inline = true);
   end rho_ph;
 
   function rho_ph_der "derivative function of rho_ph"
@@ -6515,6 +6530,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Temperature T "Temperature";
   algorithm
     T := T_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
+    annotation(Inline = true);
   end T_ph;
 
   function T_ph_der "derivative function of T_ph"
@@ -6564,6 +6580,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEntropy s "specific entropy";
   algorithm
     s := s_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
+    annotation(Inline = true);
   end s_ph;
 
   function s_ph_der
@@ -6577,6 +6594,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Real s_der "derivative of entropy";
   algorithm
     s_der := -1/(aux.rho*aux.T)*p_der + 1/aux.T*h_der;
+    annotation(Inline = true);
   end s_ph_der;
 
   function cv_props_ph
@@ -6604,6 +6622,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm
     cv := cv_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
+    annotation(Inline = true);
   end cv_ph;
 
   function regionAssertReal "assert function for inlining"
@@ -6639,6 +6658,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm
     cp := cp_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
+    annotation(Inline = true);
   end cp_ph;
 
   function beta_props_ph
@@ -6668,6 +6688,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm
     beta := beta_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
+    annotation(Inline = true);
   end beta_ph;
 
   function kappa_props_ph
@@ -6698,6 +6719,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       "isothermal compressibility factor";
   algorithm
     kappa := kappa_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
+    annotation(Inline = true);
   end kappa_ph;
 
   function velocityOfSound_props_ph
@@ -6728,6 +6750,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Velocity v_sound "speed of sound";
   algorithm
     v_sound := velocityOfSound_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
+    annotation(Inline = true);
   end velocityOfSound_ph;
 
   function isentropicExponent_props_ph
@@ -6789,6 +6812,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.DerDensityByPressure ddph "density derivative by pressure";
   algorithm
     ddph := ddph_props(p, h, waterBaseProp_ph(p, h, phase, region));
+    annotation(Inline = true);
   end ddph;
 
   function ddhp_props "density derivative by specific enthalpy"
@@ -6819,6 +6843,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       "density derivative by specific enthalpy";
   algorithm
     ddhp := ddhp_props(p, h, waterBaseProp_ph(p, h, phase, region));
+    annotation(Inline = true);
   end ddhp;
 
   function waterBaseProp_pT
@@ -6913,6 +6938,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Density rho "density";
   algorithm
     rho := rho_props_pT(p, T, waterBaseProp_pT(p, T, region));
+    annotation(Inline = true);
   end rho_pT;
 
   function h_props_pT
@@ -6939,6 +6965,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := h_props_pT(p, T, waterBaseProp_pT(p, T, region));
+    annotation(Inline = true);
   end h_pT;
 
   function h_pT_der "derivative function of h_pT"
@@ -7001,7 +7028,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEntropy s "specific entropy";
   algorithm
     s := s_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (GenerateEvents=true);
+    annotation (Inline = true);
   end s_pT;
 
   function cv_props_pT
@@ -7029,7 +7056,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm
     cv := cv_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (GenerateEvents=true);
+    annotation (Inline = true);
   end cv_pT;
 
   function cp_props_pT
@@ -7059,7 +7086,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm
     cp := cp_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (GenerateEvents=true);
+    annotation (Inline = true);
   end cp_pT;
 
   function beta_props_pT
@@ -7088,7 +7115,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm
     beta := beta_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (GenerateEvents=true);
+    annotation (Inline=true);
   end beta_pT;
 
   function kappa_props_pT
@@ -7118,7 +7145,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       "isothermal compressibility factor";
   algorithm
     kappa := kappa_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (GenerateEvents=true);
+    annotation (Inline=true);
   end kappa_pT;
 
   function velocityOfSound_props_pT
@@ -7147,6 +7174,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Velocity v_sound "speed of sound";
   algorithm
     v_sound := velocityOfSound_props_pT(p, T, waterBaseProp_pT(p, T, region));
+    annotation(Inline = true);
   end velocityOfSound_pT;
 
   function isentropicExponent_props_pT
@@ -7319,6 +7347,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := h_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
+    annotation(Inline = true);
   end h_dT;
 
   function h_dT_der "derivative function of h_dT"
@@ -7366,6 +7395,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Pressure p "pressure";
   algorithm
     p := p_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
+    annotation(Inline = true);
   end p_dT;
 
   function p_dT_der "derivative function of p_dT"
@@ -7411,6 +7441,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEntropy s "specific entropy";
   algorithm
     s := s_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
+    annotation(Inline = true);
   end s_dT;
 
   function cv_props_dT
@@ -7438,6 +7469,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm
     cv := cv_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
+    annotation(Inline = true);
   end cv_dT;
 
   function cp_props_dT
@@ -7465,6 +7497,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm
     cp := cp_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
+    annotation(Inline = true);
   end cp_dT;
 
   function beta_props_dT
@@ -7494,6 +7527,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm
     beta := beta_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
+    annotation(Inline = true);
   end beta_dT;
 
   function kappa_props_dT
@@ -7524,6 +7558,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       "isothermal compressibility factor";
   algorithm
     kappa := kappa_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
+    annotation(Inline = true);
   end kappa_dT;
 
   function velocityOfSound_props_dT
@@ -7555,6 +7590,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Velocity v_sound "speed of sound";
   algorithm
     v_sound := velocityOfSound_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
+    annotation(Inline = true);
   end velocityOfSound_dT;
 
   function isentropicExponent_props_dT
@@ -7756,6 +7792,7 @@ public
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := isentropicEnthalpy_props(p, s, waterBaseProp_ps(p, s, phase, region));
+    annotation(Inline = true);
   end isentropicEnthalpy;
 
   function isentropicEnthalpy_props
@@ -7767,8 +7804,8 @@ public
   algorithm
     h := aux.h;
     annotation (derivative(noDerivative=aux) = isentropicEnthalpy_der,
-  Inline=false,
-  LateInline=true);
+      Inline=false,
+      LateInline=true);
   end isentropicEnthalpy_props;
 
   function isentropicEnthalpy_der
@@ -7782,6 +7819,7 @@ public
     output Real h_der "specific enthalpy derivative";
   algorithm
     h_der := 1/aux.rho*p_der + aux.T*s_der;
+    annotation(Inline = true);
   end isentropicEnthalpy_der;
 
   function dynamicIsentropicEnthalpy
@@ -7796,6 +7834,7 @@ public
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
    h := BaseIF97.Isentropic.water_hisentropic_dyn(p,s,dguess,Tguess,0);
+    annotation(Inline = true);
   end dynamicIsentropicEnthalpy;
 
   annotation (Documentation(info="<HTML>

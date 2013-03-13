@@ -8035,7 +8035,10 @@ end BridgmansTablesForWater;
                    if x < -x_small then y2 else
                    if abs(x_small)>0 then (x/x_small)*((x/x_small)^2 - 3)*(y2-y1)/4 + (y1+y2)/2 else (y1+y2)/2);
 
-    annotation(Documentation(revisions="<html>
+    annotation (
+      Inline = true,
+      smoothOrder = 1,
+      Documentation(revisions="<html>
 <ul>
 <li><i>April 29, 2008</i>
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
@@ -8120,7 +8123,8 @@ Summing all mass fractions together results in
       "Nonlinear algebraic equation in one unknown: y = f_nonlinear(x,p,X)"
       extends Modelica.Icons.Function;
       input Real x "Independent variable of function";
-      input Real p = 0.0 "disregarded variables (here always used for pressure)";
+      input Real p = 0.0
+        "disregarded variables (here always used for pressure)";
       input Real[:] X = fill(0,0)
         "disregarded variables (her always used for composition)";
       input f_nonlinear_Data f_nonlinear_data
