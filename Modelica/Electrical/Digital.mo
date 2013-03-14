@@ -3357,16 +3357,17 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
-          //D.Interfaces.Logic auxiliary[n];
     protected
-          D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
+          D.Interfaces.Logic auxiliary[n](each start=L.'U');
+          D.Interfaces.Logic auxiliary_n( start=L.'U', fixed=true);
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
             auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.AndTable[
           auxiliary[i], x[i + 1]];
           end for;
-          y = pre(auxiliary[n]);
+          auxiliary_n = auxiliary[n];
+          y = pre(auxiliary_n);
           annotation (
             Documentation(info="<html>
 <p>And component with multiple input values and one output.</p>
@@ -3394,18 +3395,20 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end And;
 
         model Nand "Nand logic component with multiple input and one output"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
-          D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
+          D.Interfaces.Logic auxiliary[n](each start=L.'U');
+          D.Interfaces.Logic auxiliary_n( start=L.'U', fixed=true);
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
             auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.AndTable[
           auxiliary[i], x[i + 1]];
           end for;
-          y = pre(Modelica.Electrical.Digital.Tables.NotTable[auxiliary[n]]);
+          auxiliary_n = Modelica.Electrical.Digital.Tables.NotTable[auxiliary[n]];
+          y = pre(auxiliary_n);
           annotation (
             Documentation(info="<html>
 <p>Nand component with multiple input values and one output.</p>
@@ -3441,18 +3444,20 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end Nand;
 
         model Or "Or logic component with multiple input and one output"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
-          D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
+          D.Interfaces.Logic auxiliary[n](each start=L.'U');
+          D.Interfaces.Logic auxiliary_n( start=L.'U', fixed=true);
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
             auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.OrTable[
           auxiliary[i], x[i + 1]];
           end for;
-          y = pre(auxiliary[n]);
+          auxiliary_n = auxiliary[n];
+          y = pre(auxiliary_n);
           annotation (
             Documentation(info="<html>
 <p>Or component with multiple input values and one output.</p>
@@ -3480,18 +3485,21 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end Or;
 
         model Nor "Nor logic component with multiple input and one output"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
+        //  D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
     protected
-          D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
+          D.Interfaces.Logic auxiliary[n](each start=L.'U');
+          D.Interfaces.Logic auxiliary_n( start=L.'U', fixed=true);
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
             auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.OrTable[
           auxiliary[i], x[i + 1]];
           end for;
-          y = pre(Modelica.Electrical.Digital.Tables.NotTable[auxiliary[n]]);
+          auxiliary_n = Modelica.Electrical.Digital.Tables.NotTable[auxiliary[n]];
+          y = pre(auxiliary_n);
           annotation (
             Documentation(info="<html>
 <p>Nor component with multiple input values and one output.</p>
@@ -3531,14 +3539,16 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
-          D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
+          D.Interfaces.Logic auxiliary[n](each start=L.'U');
+          D.Interfaces.Logic auxiliary_n( start=L.'U', fixed=true);
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
             auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.XorTable[
           auxiliary[i], x[i + 1]];
           end for;
-          y = pre(auxiliary[n]);
+          auxiliary_n = auxiliary[n];
+          y = pre(auxiliary_n);
           annotation (
             Documentation(info="<html>
 <p>Xor component with multiple input values and one output.</p>
@@ -3566,18 +3576,20 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end Xor;
 
         model Xnor "Xnor logic component with multiple input and one output"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
-          D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
+          D.Interfaces.Logic auxiliary[n](each start=L.'U');
+          D.Interfaces.Logic auxiliary_n( start=L.'U', fixed=true);
         equation
           auxiliary[1] = x[1];
           for i in 1:n - 1 loop
             auxiliary[i + 1] =Modelica.Electrical.Digital.Tables.XorTable[
           auxiliary[i], x[i + 1]];
           end for;
-          y = pre(Modelica.Electrical.Digital.Tables.NotTable[auxiliary[n]]);
+          auxiliary_n = Modelica.Electrical.Digital.Tables.NotTable[auxiliary[n]];
+          y = pre(auxiliary_n);
           annotation (
             Documentation(info="<html>
 <p>Xnor component with multiple input values and one output.</p>
@@ -4070,11 +4082,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           D.Interfaces.DigitalOutput y
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
-    protected
-          D.Interfaces.Logic auxiliary(start=L.'U', fixed=true);
         algorithm
-          auxiliary := x;
-          y := pre(auxiliary);
+          y := x;
           annotation (Documentation(info="<HTML>
 <P>
 Sets a nine valued digital signal, which is specified by the <i>setval</i> parameter.
