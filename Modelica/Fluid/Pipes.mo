@@ -3450,7 +3450,7 @@ Laminar region:
           Real Delta = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re1 = min(745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Boundary between laminar regime and transition";
-          constant SI.ReynoldsNumber Re2 = Re_turbulent
+          SI.ReynoldsNumber Re2 = Re_turbulent
             "Boundary between transition and turbulent regime";
 
           SI.Pressure dp_a
@@ -3517,7 +3517,7 @@ Laminar region:
           Real Delta = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re1 = min(745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Boundary between laminar regime and transition";
-          constant SI.ReynoldsNumber Re2 = Re_turbulent
+          SI.ReynoldsNumber Re2 = Re_turbulent
             "Boundary between transition and turbulent regime";
 
           SI.MassFlowRate m_flow_a
@@ -3941,7 +3941,7 @@ identical to laminar wall friction.
           SI.ReynoldsNumber Re "Reynolds number";
           SI.ReynoldsNumber Re1 = min((745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta))^0.97, Re_turbulent)
             "Boundary between laminar regime and transition";
-          constant SI.ReynoldsNumber Re2 = Re_turbulent
+          SI.ReynoldsNumber Re2 = Re_turbulent
             "Boundary between transition and turbulent regime";
           SI.Pressure dp_a
             "Upper end of regularization domain of the m_flow(dp) relation";
@@ -4001,7 +4001,7 @@ identical to laminar wall friction.
           Real Delta = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re1 = min(745*exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Boundary between laminar regime and transition";
-          constant SI.ReynoldsNumber Re2 = Re_turbulent
+          SI.ReynoldsNumber Re2 = Re_turbulent
             "Boundary between transition and turbulent regime";
 
           SI.MassFlowRate m_flow_a
