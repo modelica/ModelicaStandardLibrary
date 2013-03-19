@@ -343,8 +343,9 @@ is used. Translate and simulate with the default settings
 to plot variables.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
-
+</p>
 </HTML>"));
   end fullRobot;
   extends Modelica.Icons.ExamplesPackage;
@@ -1896,7 +1897,7 @@ This model contains the mechanical components of the r3 robot
               textString="6",
               lineColor={0,0,255}),
             Bitmap(extent={{-130,195},{195,-195}}, fileName=
-                  "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.bmp")}));
+                  "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png")}));
     end MechanicalStructure;
 
     annotation (Documentation(info="<html>
@@ -1919,7 +1920,7 @@ Furthermore, it is shown how CAD data can be used
 for animation.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.bmp\"
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png\"
 ALT=\"model Examples.Systems.RobotR3\">
 
 <p>
