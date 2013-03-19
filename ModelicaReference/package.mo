@@ -238,6 +238,36 @@ following typographic conventions are used:
 
 package Annotations "Annotations"
   extends ModelicaReference.Icons.Information;
+  class absoluteValue "absoluteValue"
+    extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+<p>
+A simple type or component of a simple type may have the annotation <code>absoluteValue</code>.
+</p>
+<p>
+If <code>false</code>, then the variable defines a relative quantity, and if <code>true</code> an absolute quantity.
+</p>
+
+<h4>Syntax</h4>
+
+<pre>
+   <b>annotation</b>\"(\" absoluteValue \"=\" ( <b>false</b> | <b>true</b> ) \")
+</pre>
+
+<h4>Description</h4>
+
+<p>
+When converting between units (in the user-interface for plotting and entering parameters), the offset must be ignored, for a variable defined with annotation <code>absoluteValue = false</code>.
+</p>
+
+<h4>Example usage</h4>
+<p>
+This annotation is used in the Modelica Standard Library for example in <a href=\"modelica://Modelica.SIunits\">Modelica.SIunits</a> for the type definition TemperatureDifference.
+</p>
+</html>"));
+  end absoluteValue;
+
   class choices "choices"
     extends ModelicaReference.Icons.Information;
 
@@ -285,6 +315,42 @@ This is a hint for users of the model, and can also be used by the user interfac
 
 </html>"));
     end choices;
+
+  class dateModified "dateModified"
+    extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+<p>UTC date and time of the latest change to the package in the following format (with one space between date and time):<br>
+&nbsp;&nbsp;<code>YYYY-MM-DD hh:mm:ssZ</code></p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>annotation</b>&quot;(&quot; dateModified &quot;=&quot; STRING &quot;)&quot;
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+&ldquo;<code>dateModified</code>&rdquo; is the UTC date and time (according to <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>) of the last modification of the package.
+<em>The intention is that a Modelica tool updates this annotation whenever the package or part of it was modified and is saved on persistent storage (like file or database system).</em>
+</p>
+<h4>Examples</h4>
+<pre>
+<b>package</b> Modelica
+  <b>annotation</b>(version      = &quot;3.0.1&quot;,
+             versionDate  = &quot;2008-04-10&quot;,
+             versionBuild = 4,
+             <em>dateModified = &quot;2009-02-15 16:33:14Z&quot;</em>,
+             revisionId   = &quot;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&quot;);
+  ...
+  <b>end</b> Modelica;
+</pre>
+<h5>Related annotations:</h5>
+<ul>
+  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+</ul>
+</html>"));
+    end dateModified;
 
   class defaultComponentName "defaultComponentName"
     extends ModelicaReference.Icons.Information;
@@ -336,6 +402,39 @@ The following prefixes may be included in the string prefixes: inner, outer, rep
 
 </html>"));
     end defaultComponentPrefixes;
+
+  class defaultConnectionStructurallyInconsistent "defaultConnectionStructurallyInconsistent"
+    extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+<p>
+A model or block definition may contain the annotation <code>defaultConnectionStructurallyInconsistent</code>.
+</p>
+
+<h4>Syntax</h4>
+
+<pre>
+   <b>annotation</b>\"(\" defaultConnectionStructurallyInconsistent \"=\" ( <b>false</b> | <b>true</b> ) \")
+</pre>
+
+<h4>Description</h4>
+
+<p>
+If <code>true</code>, it is stated that a default connection will result in a structurally inconsistent <code>model</code> or <code>block</code>.
+A \"default connection\" is constructed by instantiating the respective <code>model</code> or <code>block</code> and for every input <code>u</code> providing an equation <code>0=f(u)</code>, and for every (potential,flow) pair of the form <code>(v,i)</code>, providing an equation of the form <code>0=f(v,i)</code>.
+</p>
+
+<h4>Example usage</h4>
+<p>
+It is useful to check all models/blocks of a Modelica package in a simple way. One check is to default connect every model/block and to check whether the resulting class is structurally consistent (= a stronger requirement as \"balanced\").
+</p>
+<p>
+It is rarely needed; but can be used for InverseBlockConstraints, in order to prevent a wrong error message.
+Additionally, when a user defined model is structurally inconsistent, a tool should try to pinpoint in which class the error is present.
+This annotation avoids then to show a wrong error message.
+</p>
+</html>"));
+  end defaultConnectionStructurallyInconsistent;
 
   class derivative "derivative"
     extends ModelicaReference.Icons.Information;
@@ -591,29 +690,25 @@ A parameter dialog is a sequence of tabs with a sequence of groups inside them.
 <p>
 Annotations for documentation
 </p>
-
 <h4>Syntax</h4>
-
-<pre>documentation_annotation:
+<pre>
+documentation_annotation:
    <b>annotation</b>\"(\" Documentation \"(\" \"info\" \"=\" STRING
                             [\",\" \"revisions\" \"=\" STRING ] \")\" \")\"
 </pre>
-
 <h4>Description</h4>
 <P>
 The \"Documentation\" annotation can contain the \"info\" annotation giving a textual description, the \"revisions\" annotation giving a list of revisions and other annotations defined by a tool [The \"revisions\" documentation may be omitted in printed documentation]. How the tool interprets the information in \"Documentation\" is unspecified. Within a string of the \"Documentation\" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define optionally begin and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme \"Modelica\", e.g.,
 </p>
-
-<pre>    &lt;a href=\"modelica://MultiBody.Tutorial\"&gt;MultiBody.Tutorial&lt;/a&gt;
+<pre>
+    &lt;a href=\"modelica://MultiBody.Tutorial\"&gt;MultiBody.Tutorial&lt;/a&gt;
 </pre>
-
 <p>
 Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info, #text, #icon may be used to reference different layers. Example:
 </p>
-
-<pre>   &lt;a href=\"modelica://MultiBody.Joints.Revolute#info\"&gt;Revolute&lt;/a&gt;
+<pre>
+   &lt;a href=\"modelica://MultiBody.Joints.Revolute#info\"&gt;Revolute&lt;/a&gt;
 </pre>
-
 </html>"));
     end Documentation;
 
@@ -667,9 +762,10 @@ Annotation for code generation (evaluate parameter value)
 </pre>
 
 <h4>Description</h4>
-
 <p>
-Has only an effect for a declaration with the prefix parameter.
+The annotation Evaluate can occur in the component declaration, its type declaration, or a base-class of the type-declaration.
+In the case of multiple conflicting annotations it is handled similarly to modifiers (e.g., an Evaluate-annotation on the component declaration takes precedence).
+The annotation Evaluate only has effect for a component declared with the prefix <code>parameter</code>.
 </p>
 
 <p>
@@ -720,36 +816,37 @@ The experiment annotation defines the default start time (StartTime) in [s], the
 </html>"));
     end experiment;
 
-  class dateModified "dateModified"
+
+    class GenerateEvents "GenerateEvents"
     extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
-<p>UTC date and time of the latest change to the package in the following format (with one space between date and time):<br>
-&nbsp;&nbsp;<code>YYYY-MM-DD hh:mm:ssZ</code></p>
-<p><b><font style=\"color: #008000; \">Examples</font></b></p>
-<pre><b>package</b> Modelica
-  <b>annotation</b>(version      = &quot;3.0.1&quot;,
-             versionDate  = &quot;2008-04-10&quot;,
-             versionBuild = 4,
-             <em>dateModified = &quot;2009-02-15 16:33:14Z&quot;</em>,
-             revisionId   = &quot;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&quot;);
-  ...
-  <b>end</b> Modelica;</pre>
-<p><b><font style=\"color: #008000; \">Syntax</font></b></p>
-<blockquote><p><code><b>annotation</b>&quot;(&quot; dateModified &quot;=&quot; STRING &quot;)&quot;</code></p></blockquote>
-<p><b><font style=\"color: #008000; \">Description</font></b> </p>
-<p>&ldquo;<code>dateModified</code>&rdquo; is the UTC date and time (according to <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>) of the last modification of the
-package. <em>The intention is that a Modelica tool updates this annotation whenever the package or part of it
-was modified and is saved on persistent storage (like file or database system).</em></p>
-<p>Related annotations:</p>
-<ul>
-  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
-</ul>
+<p>
+Annotation for special event handling in function calls.
+</p>
+
+<h4>Syntax</h4>
+
+<pre>
+   <b>annotation</b>\"(\" GenerateEvents \"=\" ( <b>false</b> | <b>true</b> ) \")
+</pre>
+
+<h4>Description</h4>
+
+<p>
+Has only an effect within a function declaration, and limited to non-recursive simple functions which consist of a single assignment to the single output variable.
+</p>
+<p>
+If \"<code>GenerateEvents = true</code>\", the model developer proposes to generate events for any relations in the function (e.g., by inlining the function).
+The  \"<code>GenerateEvents = true</code>\" generate events for functions called directly, or indirectly from functions fulfilling the simple function requirement, that has <code>Inline = true</code>, <code>LateInline = true</code>, or <code>InlineAfterIndexReduction = true</code>.
+</p>
+
+<h4>Example usage</h4>
+<p>
+<code>GenerateEvents = true</code> is for example used in <a href=\"modelica://Modelica.Media.Water.IF97_Utilities.phase_dT\">Modelica.Media.Water.IF97_Utilities.phase_dT</a> to indicate that the output should generate an event when it changes.
+</p>
 </html>"));
-    end dateModified;
+    end GenerateEvents;
 
   class HideResult "HideResult"
     extends ModelicaReference.Icons.Information;
@@ -791,7 +888,8 @@ Annotation for code generation (inline function body)
 
 <h4>Syntax</h4>
 
-<pre>   <b>annotation</b>\"(\" Inline \"=\" ( <b>false</b> | <b>true</b> ) \")
+<pre>
+   <b>annotation</b>\"(\" Inline \"=\" ( <b>false</b> | <b>true</b> ) \")
 </pre>
 
 <h4>Description</h4>
@@ -809,12 +907,45 @@ This means, that the body of the function is included at all places where the fu
 If \"Inline = false\", the model developer proposes to not inline the function.
 </p>
 
-<p>
-Inline = true is for example used in Modelica.Mechanics.MultiBody.Frames and in functions of Modelica.Media to have no overhead for function calls such as resolving a vector in a different coordinate system and at the same time the function can be analytically differentiated, e.g., for index reduction needed for mechanical systems.
-</p>
+<h4>Example usage</h4>
 
+<p>
+Inline = true is for example used in  <a href=\"modelica://Modelica.Mechanics.MultiBody.Frames\">Modelica.Mechanics.MultiBody.Frames</a> and in functions of <a href=\"modelica://Modelica.Media\">Modelica.Media</a> to have no overhead for function calls such as resolving a vector in a different coordinate system and at the same time the function can be analytically differentiated, e.g., for index reduction needed for mechanical systems.
+</p>
 </html>"));
     end Inline;
+
+  class InlineAfterIndexReduction "InlineAfterIndexReduction"
+    extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+<p>
+Annotation for code generation
+</p>
+
+<h4>Syntax</h4>
+
+<pre>
+   <b>annotation</b>\"(\" InlineAfterIndexReduction \"=\" ( <b>false</b> | <b>true</b> ) \")
+</pre>
+
+<h4>Description</h4>
+
+<p>
+Has only an effect within a function declaration.
+If true, the model developer proposes to inline the function after the function is differentiated for index reduction, and before any other symbolic transformations are performed.
+</p>
+<p>
+<em>This annotation cannot be combined with annotations <a href=\"modelica://ModelicaReference.Annotations.Inline\">Inline</a> and <a href=\"modelica://ModelicaReference.Annotations.LateInline\">LateInline</a>!</em>
+</p>
+
+<h4>Example usage</h4>
+<p>
+<code>InlineAfterIndexReduction = true</code> is for example used in <a href=\"modelica://Modelica.Mechanics.Rotational.Sources.Move\">Modelica.Mechanics.Rotational.Sources.Move</a> to define that an input signal is the derivative of another input signal.
+</p>
+</html>"));
+    end InlineAfterIndexReduction;
+
 
   class LateInline "LateInline"
     extends ModelicaReference.Icons.Information;
@@ -843,10 +974,10 @@ If \"LateInline = true\", the model developer proposes to inline the function af
 If \"LateInline = false\", the model developer proposes to not inline the function after symbolic transformations have been performed.
 </p>
 
+<h4>Example usage</h4>
 <p>
-This annotation is for example used in Modelica.Media.Water.IF97_Utilities.T_props_ph to provide in combination with common subexpression elimination the automatic caching of function calls. Furthermore, it is used in order that a tool is able to propagate specific enthalpy over connectors in the Modelica_Fluid library.
+This annotation is for example used in  <a href=\"modelica://Modelica.Media.Water.IF97_Utilities.T_props_ph\">Modelica.Media.Water.IF97_Utilities.T_props_ph</a> to provide in combination with common subexpression elimination the automatic caching of function calls. Furthermore, it is used in order that a tool is able to propagate specific enthalpy over connectors in the <a href=\"modelica://Modelica.Fluid\">Modelica.Fluid</a> library.
 </p>
-
 </html>"));
     end LateInline;
 
@@ -882,6 +1013,31 @@ When an outer component of the class does not have a corresponding inner compone
 </html>"));
     end missingInnerMessage;
 
+  class obsolete "obsolete"
+    extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+<p>
+A class may have the following annotation:
+</p>
+<pre>
+    annotation(obsolete = \"message\");
+</pre>
+
+<h4>Syntax</h4>
+
+<pre>
+   <b>annotation</b>\"(\" obsolete \"=\" STRING \")\"
+</pre>
+
+<h4>Description</h4>
+
+<p>
+It indicates that the class ideally should not be used anymore and gives a message indicating the recommended action.
+</p>
+</html>"));
+  end obsolete;
+
   class PreferredView "preferredView"
     extends ModelicaReference.Icons.Information;
 
@@ -910,7 +1066,15 @@ The preferredView annotation defines the default view when selecting the class. 
 
     annotation (Documentation(info="<html>
 <p>Revision identifier of the version management system used to manage this library. It marks the latest submitted change to any file belonging to the package.</p>
-<p><b><font style=\"color: #008000; \">Examples</font></b> </p>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>annotation</b>&quot;(&quot; revisionId &quot;=&quot; STRING &quot;)&quot;
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+&ldquo;<code>revisionId</code>&rdquo; is a tool specific revision identifier possibly generated by a source code management system (e.g., <a href=\"http://subversion.apache.org\">Subversion</a> or <a href=\"http://en.wikipedia.org/wiki/Concurrent_Versions_System\">CVS</a>). This information allows to exactly identify the library source code in the source code management system.
+</p>
+<h4>Examples</h4>
 <pre><b>package</b> Modelica
   <b>annotation</b>(version      = &quot;3.0.1&quot;,
              versionDate  = &quot;2008-04-10&quot;,
@@ -919,11 +1083,7 @@ The preferredView annotation defines the default view when selecting the class. 
              <em>revisionId   = &quot;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&quot;</em>);
   ...
   <b>end</b> Modelica;</pre>
-<p><b><font style=\"color: #008000; \">Syntax</font></b></p>
-<blockquote><p><code><b>annotation</b>&quot;(&quot; revisionId &quot;=&quot; STRING &quot;)&quot;</code></p></blockquote>
-<p><b><font style=\"color: #008000; \">Description</font></b> </p>
-<p>&ldquo;<code>revisionId</code>&rdquo; is a tool specific revision identifier possibly generated by a source code management system (e.g., <a href=\"http://subversion.apache.org\">Subversion</a> or <a href=\"http://en.wikipedia.org/wiki/Concurrent_Versions_System\">CVS</a>). This information allows to exactly identify the library source code in the source code management system.</p>
-<p>Related annotations:</p>
+<h5>Related annotations:</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
@@ -1007,7 +1167,8 @@ PlanarCutJoint=true in the Advanced menu.
 
 <h4>Syntax</h4>
 
-<pre>   <b>annotation</b>\"(\" unassignedMessage \"=\" STRING \")\"
+<pre>
+   <b>annotation</b>\"(\" unassignedMessage \"=\" STRING \")\"
 </pre>
 
 <h4>Description</h4>
@@ -1118,7 +1279,7 @@ of the following ways in a directory given in the MODELICAPATH:
 <p>
 This allows a tool to access multiple versions of the same package.
 </p>
-<p>Related annotations:</p>
+<h5>Related annotations:</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
@@ -1133,20 +1294,30 @@ This allows a tool to access multiple versions of the same package.
 
     annotation (Documentation(info="<html>
 <p>Defines the optional build number of the library.</p>
-<p><b><font style=\"color: #008000; \">Examples</font></b> </p>
-<pre><b>package</b> Modelica
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>annotation</b>&quot;(&quot; versionBuild &quot;=&quot; INTEGER &quot;)&quot;
+</pre></blockquote>
+<h4>Description</h4>
+<p>&ldquo;<code>versionBuild</code>&rdquo; is the optional build number of the library.
+When a new version is released &ldquo;<code>versionBuild</code>&rdquo; should be omitted or &ldquo;<code>versionBuild = 1</code>&rdquo;.
+There might be bug fixes to the library that do not justify a new library version.
+Such maintenance changes are called a &ldquo;build&rdquo; release of the library.
+For every new maintenance change, the &ldquo;<code>versionBuild</code>&rdquo; number is increased.
+A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<code>versionBuild</code>&rdquo; number B, is a newer release of the library. There are no conversions between the same versions with different build numbers.
+</p>
+<h4>Examples</h4>
+<pre>
+<b>package</b> Modelica
   <b>annotation</b>(version      = &quot;3.0.1&quot;,
              versionDate  = &quot;2008-04-10&quot;,
              <em>versionBuild = 4</em>,
              dateModified = &quot;2009-02-15 16:33:14Z&quot;,
              revisionId   = &quot;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&quot;);
   ...
-  <b>end</b> Modelica;</pre>
-<p><b><font style=\"color: #008000; \">Syntax</font></b></p>
-<blockquote><p><code><b>annotation</b>&quot;(&quot; versionBuild &quot;=&quot; INTEGER &quot;)&quot;</code></p></blockquote>
-<p><b><font style=\"color: #008000; \">Description</font></b> </p>
-<p>&ldquo;<code>versionBuild</code>&rdquo; is the optional build number of the library. When a new version is released &ldquo;<code>versionBuild</code>&rdquo; should be omitted or &ldquo;<code>versionBuild = 1</code>&rdquo;. There might be bug fixes to the library that do not justify a new library version. Such maintenance changes are called a &ldquo;build&rdquo; release of the library. For every new maintenance change, the &ldquo;<code>versionBuild</code>&rdquo; number is increased. A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<code>versionBuild</code>&rdquo; number B, is a newer release of the library. There are no conversions between the same versions with different build numbers.</p>
-<p>Related annotations:</p>
+  <b>end</b> Modelica;
+</pre>
+<h5>Related annotations:</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
@@ -1161,8 +1332,15 @@ This allows a tool to access multiple versions of the same package.
 
     annotation (Documentation(info="<html>
 <p>UTC date of first version build (in format: <code>YYYY-MM-DD</code>).</p>
-<p><b><font style=\"color: #008000; \">Examples</font></b> </p>
-<pre><b>package</b> Modelica
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>annotation</b>&quot;(&quot; versionDate &quot;=&quot; STRING &quot;)&quot;
+</pre></blockquote>
+<h4>Description</h4>
+<p>&ldquo;<code>versionDate</code>&rdquo; is the date in UTC format (according to <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>) when the library was released.</p>
+<h4>Examples</h4>
+<pre>
+<b>package</b> Modelica
   <b>annotation</b>(version      = &quot;3.0.1&quot;,
              <em>versionDate  = &quot;2008-04-10&quot;</em>,
              versionBuild = 4,
@@ -1170,11 +1348,7 @@ This allows a tool to access multiple versions of the same package.
              revisionId   = &quot;$I&#8203;d:: package.mo 2566 2009-02-15 16:33:14Z #$&quot;);
   ...
   <b>end</b> Modelica;</pre>
-<p><b><font style=\"color: #008000; \">Syntax</font></b></p>
-<blockquote><p><code><b>annotation</b>&quot;(&quot; versionDate &quot;=&quot; STRING &quot;)&quot;</code></p></blockquote>
-<p><b><font style=\"color: #008000; \">Description</font></b> </p>
-<p>&ldquo;<code>versionDate</code>&rdquo; is the date in UTC format (according to <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a>) when the library was released.</p>
-<p>Related annotations:</p>
+<h5>Related annotations:</h5>
 <ul>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
@@ -1182,7 +1356,7 @@ This allows a tool to access multiple versions of the same package.
   <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
 </ul>
 </html>"));
-    end versionDate;
+  end versionDate;
 
   annotation (Documentation(info="<html>
 <p>
