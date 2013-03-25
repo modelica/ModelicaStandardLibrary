@@ -6432,7 +6432,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Integer phase "true if in liquid or gas or supercritical region";
   algorithm
     phase := if ((s < sl_p(p) or s > sv_p(p)) or p > BaseIF97.data.PCRIT) then 1 else 2;
-    annotation (Inline = true, GenerateEvents=true);
+    annotation (Inline = true);
   end phase_ps;
 
   function phase_ph "phase as a function of  pressure and specific enthalpy"
@@ -6442,7 +6442,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Integer phase "true if in liquid or gas or supercritical region";
   algorithm
     phase := if ((h < hl_p(p) or h > hv_p(p)) or p > BaseIF97.data.PCRIT) then 1 else 2;
-    annotation (Inline = true, GenerateEvents=true);
+    annotation (Inline = true);
   end phase_ph;
 
   function phase_dT "phase as a function of  pressure and temperature"
@@ -6453,7 +6453,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
   algorithm
     phase := if not ((rho < rhol_T(T) and rho > rhov_T(T)) and T < BaseIF97.
       data.TCRIT) then 1 else 2;
-    annotation (Inline = true, GenerateEvents=true);
+    annotation (Inline = true);
   end phase_dT;
 
   function rho_props_ph "density as function of pressure and specific enthalpy"
