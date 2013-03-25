@@ -4875,7 +4875,8 @@ Ordinary Water Substance<br>
             found := true;
           end if;
           deld := dp/nDerivs.pd*damping;
-          LogVariable(deld);
+// Can be used for debugging in Dymola: not a standard function
+//          LogVariable(deld);
           d := d - deld;
           if d > dmin and d < dmax then
             dguess := d;
