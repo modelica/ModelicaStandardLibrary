@@ -493,7 +493,7 @@ which is only exactly true for a fluid with constant density d=d0.
           y := if singleState then h_T(x) else h_pT(p,x);
         end f_nonlinear;
 
-        // Dummy definition has to be added for current Dymola
+        // Dummy definition (has to be added for one tool)
         redeclare function extends solve
         end solve;
       end Internal;
@@ -523,7 +523,7 @@ which is only exactly true for a fluid with constant density d=d0.
           y := s_T(x);
         end f_nonlinear;
 
-        // Dummy definition has to be added for current Dymola
+        // Dummy definition (has to be added for one tool)
         redeclare function extends solve
         end solve;
       end Internal;
