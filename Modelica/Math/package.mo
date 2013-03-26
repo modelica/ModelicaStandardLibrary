@@ -6895,57 +6895,30 @@ INFO    (output) INTEGER
         "imaginary part of the eigenvectors of A";
       output Integer info;
 
-    protected
-      Integer n=size(A, 1) "Row dimension of A";
-      Integer lda=max(1, n);
-      Integer sdim=0;
-      Boolean bwork[size(A, 1)];
+protected
+  Integer n=size(A, 1) "Row dimension of A";
+  Integer lda=max(1, n);
+  Integer sdim=0;
+  Integer lwork=max(1, 10*size(A, 1));
+  Real work[lwork];
+  Boolean bwork[size(A, 1)];
 
-    external"FORTRAN 77" c_inter_dgees(
-              "V",
-              "N",
-              n,
-              T,
-              lda,
-              sdim,
-              eval_real,
-              eval_imag,
-              Z,
-              lda,
-              bwork,
-              info) annotation (Include="
-#include<f2c.h>
-#ifdef __cplusplus
-typedef logical (*L_fp2)(...);
-#else
-typedef logical (*L_fp2)();
-#endif
-logical select_(doublereal *par1, doublereal *par2)
-{
-return false;
-};
-
-extern  int dgees_(char *, char *, L_fp2, integer *, doublereal *, integer *, integer *, doublereal *, doublereal *,
-                   doublereal *, integer *, doublereal *, integer *, logical *, integer *);
-extern logical select_(doublereal *par1, doublereal *par2);
-
-int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *lda, integer *sdim, doublereal *wr,
-        doublereal *wi, doublereal *z, integer *ldz, logical *bwork, integer *info)
-{
-
-  doublereal *work;
-  integer nn=*n;
-  integer lwork=-1;
-
-   work = (doublereal *) malloc((3*nn+1)*sizeof(doublereal));
-   dgees_(jobvs, sort, (L_fp2)select_, n, a, lda, sdim, wr, wi, z, ldz, work, &lwork, bwork, info);
-   lwork=(int)(work[0]);
-   free(work);
-   work = (doublereal *) malloc((lwork+1)*sizeof(doublereal));
-   dgees_(jobvs, sort, (L_fp2)select_, n, a, lda, sdim, wr, wi, z, ldz, work, &lwork, bwork, info);
-  free(work);
-  return 0;
-  }", Library={"lapack"});
+external"FORTRAN 77" dgees(
+    "V",
+    "N",
+    0,
+    n,
+    T,
+    lda,
+    sdim,
+    eval_real,
+    eval_imag,
+    Z,
+    lda,
+    work,
+    lwork,
+    bwork,
+    info) annotation (Library={"Lapack"});
 
       annotation (Documentation(info="Lapack documentation
 
@@ -7949,35 +7922,15 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
       Integer m=size(A, 1);
       Integer n=size(A, 2);
       Integer lda=max(1, size(A, 1));
-      Real work[2*size(A, 1)];
+      Real work[lda];
 
-    external"Fortran 77" dlange2(
+    external"Fortran 77" anorm = dlange(
               norm,
               m,
               n,
               A,
               lda,
-              work,
-              anorm) annotation (Include="
-  #include<f2c.h>
-  #include <stdio.h>
-
-extern  doublereal dlange_(char *, integer *, integer *, doublereal *, integer *, doublereal *);
-
-int dlange2_(char *norm, integer *m, integer *n, doublereal *a, integer *lda, doublereal *work, doublereal *anorm)
-{
-   FILE *fileptr;
-
-   fileptr = fopen(\"test.txt\",\"w\");
-
-  *anorm=dlange_(norm, m, n, a, lda, work);
-
-fprintf(fileptr,\"anorm=%f \\n\",*anorm);
-
-  fclose(fileptr);
-
-  return 0;
-}", Library={"lapack"});
+              work) annotation (Library={"Lapack"});
       annotation (Documentation(info="Lapack documentation
 
     Purpose
