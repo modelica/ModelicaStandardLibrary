@@ -5210,7 +5210,10 @@ This function computes the specific internal energy of the fluid, but neglects t
   partial package PartialSimpleIdealGasMedium
     "Medium model of Ideal gas with constant cp and cv. All other quantities, e.g., transport properties, are constant."
 
-    extends Interfaces.PartialPureSubstance(ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
+    extends Interfaces.PartialPureSubstance(redeclare replaceable record
+        FluidConstants =
+          Modelica.Media.Interfaces.Types.Basic.FluidConstants,
+          ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
         final singleState=false);
 
     constant SpecificHeatCapacity cp_const
@@ -5230,9 +5233,6 @@ This function computes the specific internal energy of the fluid, but neglects t
       AbsolutePressure p "Absolute pressure of medium";
       Temperature T "Temperature of medium";
     end ThermodynamicState;
-
-    redeclare record extends FluidConstants "fluid constants"
-    end FluidConstants;
 
     redeclare replaceable model extends BaseProperties(T(stateSelect=if
             preferredMediumStates then StateSelect.prefer else StateSelect.default),
