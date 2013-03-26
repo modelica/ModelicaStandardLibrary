@@ -16,6 +16,9 @@
 
 
     Release Notes:
+      March 26, 2013, by Martin Otter, DLR.
+        Changed type of variable valueStart from int to size_t (ticket #1032)
+
       Jan.   5, 2013: by Martin Otter, DLR.
         Removed "static" declarations from the Modelica interface functions.
 
@@ -768,7 +771,7 @@ void ModelicaInternal_setenv(const char* name, const char* value, int convertFro
 {
 #if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
 
-    int valueStart;
+    size_t valueStart;
     if (strlen(name) + strlen(value) + 1 > sizeof(buffer)) {
         ModelicaFormatError("Environment variable\n"
             "\"%s\"=\"%s\"\n"

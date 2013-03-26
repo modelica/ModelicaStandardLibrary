@@ -2,6 +2,10 @@
    Modelica.Functions.Strings.
 
    Release Notes:
+      Mar. 26, 2013: by Martin Otter, DLR.
+                     Changed len1 from int to size_t and introduced two (int) casts
+                     to avoid warning messages (ticket #1032).
+
       Jan. 11, 2013: by Jesper Mattsson, Modelon AB.
                      Made code C89 compatible.
 
@@ -44,7 +48,7 @@ const char* ModelicaStrings_substring(const char* string, int startIndex, int en
      An assert is triggered, if startIndex/endIndex are not valid.
   */
      char* substring;
-     int len1 = strlen(string);
+     size_t len1 = strlen(string);
      int len2;
 
   /* Check arguments */
@@ -77,7 +81,7 @@ const char* ModelicaStrings_substring(const char* string, int startIndex, int en
 int ModelicaStrings_length(const char* string)
 /* Returns the number of characters "string" */
 {
-     return strlen(string);
+     return (int) strlen(string);
 }
 
 
@@ -175,7 +179,7 @@ static int MatchUnsignedInteger(const char* string, int start)
     const char* p = begin;
     while (*p != '\0' && isdigit(*p))
         ++p;
-    return p - begin;
+    return (int) (p - begin);
 }
 
 /* --------------- end of utility functions used in scanXXX functions ----------- */
