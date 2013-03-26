@@ -4064,14 +4064,6 @@ See <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiItera
 for more information.
 </p>
 
-<p>
-The algorithm calls LAPACK routines <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">dgehrd</a> (to compute the upper Hessenberg matrix of <b>H</b>),
-<a href=\"modelica://Modelica.Math.Matrices.LAPACK.dorghr\">dorghr</a> (to calculate the orthogonal
-matrix from the elementary reflectors as returned from dgehrd), <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">dhseqr</a>
-(to put transformed <b>H</b> to Schur form and to calculate the eigenvalues
-of the closed loop system) and <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dtrsen\">dtrsen</a> (to compute the ordered real Schur form and matrix <b>U</b>).
-</p>
-
 <h4>References</h4>
 <PRE>
   [1] Laub, A.J.
@@ -4673,14 +4665,6 @@ according to <b>S</b>, the solution <b>X</b> can be calculated by
 <blockquote><pre>
 <b>X</b>*<b>U11</b> = <b>U21</b>.
 </pre></blockquote>
-
-<p>
-The algorithm calls LAPACK routines <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">dgehrd</a> (to compute the upper Hessenberg matrix of <b>H</b>),
-<a href=\"modelica://Modelica.Math.Matrices.LAPACK.dorghr\">dorghr</a> (to calculate the orthogonal
-matrix from the elementary reflectors as returned from dgehrd), <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">dhseqr</a>
-(to put transformed <b>H</b> to Schur form and to calculate the eigenvalues
-of the closed loop system) and <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dtrsen\">dtrsen</a> (to compute the ordered real Schur form and matrix <b>U</b>).
-</p>
 
 <h4>References</h4>
 <PRE>
