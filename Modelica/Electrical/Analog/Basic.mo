@@ -608,13 +608,13 @@ model M_Transformer "Generic transformer with free number of inductors"
           extent={{62,-40},{80,40}})));
 
   Modelica.SIunits.Voltage v[N];
-  Modelica.SIunits.Current i[N];
-  Modelica.SIunits.Inductance Lm[N,N];
+  Modelica.SIunits.Current i[N](each start=0, fixed=true);
+  parameter Modelica.SIunits.Inductance Lm[N,N](final fixed=false);
 
-algorithm
+initial equation
   for s in 1:N loop
      for z in 1:N loop
-       Lm[z,s]:= if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else
+       Lm[z,s]=  if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else
                  Lm[s,z];
      end for;
   end for;
