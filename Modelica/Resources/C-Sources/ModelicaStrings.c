@@ -3,8 +3,7 @@
 
    Release Notes:
       Mar. 26, 2013: by Martin Otter, DLR.
-                     Changed len1 from int to size_t and introduced two (int) casts
-                     to avoid warning messages (ticket #1032).
+                     Introduced three (int) casts to avoid warning messages (ticket #1032).
 
       Jan. 11, 2013: by Jesper Mattsson, Modelon AB.
                      Made code C89 compatible.
@@ -48,7 +47,7 @@ const char* ModelicaStrings_substring(const char* string, int startIndex, int en
      An assert is triggered, if startIndex/endIndex are not valid.
   */
      char* substring;
-     size_t len1 = strlen(string);
+     int len1 = (int) strlen(string);
      int len2;
 
   /* Check arguments */
