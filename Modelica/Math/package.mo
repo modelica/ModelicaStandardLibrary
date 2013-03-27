@@ -6896,6 +6896,7 @@ INFO    (output) INTEGER
       output Integer info;
 
 protected
+  constant Integer dummyFunctionPointerNotUsed[1] = {0};
   Integer n=size(A, 1) "Row dimension of A";
   Integer lda=max(1, n);
   Integer sdim=0;
@@ -6906,7 +6907,7 @@ protected
 external"FORTRAN 77" dgees(
     "V",
     "N",
-    0,
+    dummyFunctionPointerNotUsed,
     n,
     T,
     lda,
