@@ -16,7 +16,7 @@ package Icons "Library of icons"
             fillColor={0,174,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-14,56},{16,38}},_D
+            extent={{-14,56},{16,38}},
             lineColor={0,0,255},
             pattern=LinePattern.None,
             fillColor={255,255,255},
