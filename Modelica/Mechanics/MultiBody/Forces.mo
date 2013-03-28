@@ -357,19 +357,19 @@ This leads to the following animation
       "Frame in which input force and torque are resolved (1: world, 2: frame_b, 3: frame_resolve)";
 
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      " Force arrow scaling (length = force/N_to_m)"
+      "Force arrow scaling (length = force/N_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      " Torque arrow scaling (length = torque/Nm_to_m)"
+      "Torque arrow scaling (length = torque/Nm_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow"
                                   annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
-      " Color of force arrow" annotation (colorSelector=true, Dialog(group="if animation = true", enable=animation));
+      "Color of force arrow" annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
-      " Color of torque arrow" annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
+      "Color of torque arrow" annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -2093,7 +2093,7 @@ in the other flange connector.
       " Diameter of mass point sphere" annotation (Dialog(tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      " Color of mass point" annotation (colorSelector=true, Dialog(tab="Animation", group=
+      " Color of mass point" annotation (Dialog(colorSelector=true, tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
     parameter Boolean fixedRotationAtFrame_a=false
       "=true, if rotation frame_a.R is fixed (to directly connect line forces)"

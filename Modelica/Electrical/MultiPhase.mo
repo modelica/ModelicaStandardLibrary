@@ -2259,12 +2259,9 @@ This function determines the continuous quasi <a href=\"Modelica://Modelica.Bloc
       input Modelica.SIunits.Current i[:] "phase currents";
       output Modelica.SIunits.Power p "Active power";
     algorithm
-      assert(size(v,1)==size(i,1), "activePower: voltage and current have to have smae number of phases!");
-      p :=sum(v .* i)
+      assert(size(v,1)==size(i,1), "activePower: voltage and current have to have same number of phases!");
+      p :=sum(v .* i);
       annotation (Inline=true, Documentation(info="<HTML>
-Calculates instantaneous power from multiphase voltages and currents.
-</HTML>"));
-      annotation (Documentation(info="<HTML>
 <p>
 Calculates instantaneous power from multiphase voltages and currents.
 In quasistaionary operation, instantaneous power equals active power;

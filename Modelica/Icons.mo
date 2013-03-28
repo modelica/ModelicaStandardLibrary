@@ -16,7 +16,7 @@ package Icons "Library of icons"
             fillColor={0,174,0},
             fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-14,56},{16,38}},
+            extent={{-14,56},{16,38}},_D
             lineColor={0,0,255},
             pattern=LinePattern.None,
             fillColor={255,255,255},
@@ -881,7 +881,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Information\">Information</a> shall be used.</p></html>"));
   end Info;
-  annotation(Documentation(__Dymola_DocumentationClass=true, info="<html>
+  annotation(__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer. </p>
 
 <h4>Main Authors:</h4>
