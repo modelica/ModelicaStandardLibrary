@@ -1648,7 +1648,7 @@ has a unique solution.
           LU,
           lda,
           pivots,
-          info) annotation (Library="Lapack");
+          info) annotation (Library="lapack");
 
     annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
@@ -4977,7 +4977,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
               n,
               work,
               size(work, 1),
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="This function is not a full interface to the LAPACK function DGEEV,
 but calls it in such a way that only eigenvalues and right eigenvectors
 are computed.
@@ -5097,7 +5097,7 @@ Lapack documentation
               size(EigenvectorsL, 1),
               work,
               size(work, 1),
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
 
       annotation (Documentation(info="Lapack documentation
     Purpose
@@ -5212,7 +5212,7 @@ Lapack documentation
               1,
               work,
               size(work, 1),
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation
 
 Purpose
@@ -5401,7 +5401,7 @@ are computed, then only the diagonal blocks will be correct.
               rank,
               work,
               lwork,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
 
       annotation (Documentation(info="Lapack documentation
   Purpose
@@ -5532,7 +5532,7 @@ are computed, then only the diagonal blocks will be correct.
               rank,
               work,
               lwork,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
 
       annotation (Documentation(info="Lapack documentation
   Purpose
@@ -5656,7 +5656,7 @@ are computed, then only the diagonal blocks will be correct.
               nx,
               work,
               lwork,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
 
       annotation (Documentation(info="Lapack documentation
   Purpose
@@ -5774,7 +5774,7 @@ are computed, then only the diagonal blocks will be correct.
               ipiv,
               X,
               ldb,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation:
     Purpose
     =======
@@ -5841,7 +5841,7 @@ are computed, then only the diagonal blocks will be correct.
               ipiv,
               x,
               ldb,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="
 Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgesv.
@@ -5881,7 +5881,7 @@ For details of the arguments, see documentation of dgesv.
               x,
               work,
               lwork,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
 
       annotation (Documentation(info="Lapack documentation
 
@@ -5989,7 +5989,7 @@ For details of the arguments, see documentation of dgesv.
               superdiagwork,
               X,
               size(B, 1),
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation:
     Purpose
     =======
@@ -6061,7 +6061,7 @@ For details of the arguments, see documentation of dgesv.
               superdiagwork,
               x,
               size(b, 1),
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="
 Same as function LAPACK.dgtsv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgtsv.
@@ -6092,7 +6092,7 @@ For details of the arguments, see documentation of dgtsv.
               ipiv,
               X,
               n,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation:
 Purpose
 =======
@@ -6183,7 +6183,7 @@ elements of U because of fill-in resulting from the row interchanges."));
               ipiv,
               x,
               n,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation:
 "));
     end dgbsv_vec;
@@ -6214,7 +6214,7 @@ elements of U because of fill-in resulting from the row interchanges."));
               size(A, 2),
               work,
               lwork,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation:
     Purpose
     =======
@@ -6339,7 +6339,7 @@ elements of U because of fill-in resulting from the row interchanges."));
               size(A, 2),
               work,
               lwork,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation:
     Purpose
     =======
@@ -6454,7 +6454,7 @@ elements of U because of fill-in resulting from the row interchanges."));
               LU,
               lda,
               pivots,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation:
   SUBROUTINE DGETRF( M, N, A, LDA, IPIV, INFO )
 -- LAPACK routine (version 1.1) --
@@ -6527,7 +6527,7 @@ INFO    (output) INTEGER
               pivots,
               X,
               ldb,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation:
   SUBROUTINE DGETRS( TRANS, N, NRHS, A, LDA, IPIV, B, LDB, INFO )
 -- LAPACK routine (version 1.1) --
@@ -6604,7 +6604,7 @@ INFO    (output) INTEGER
               pivots,
               x,
               ldb,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation:
   SUBROUTINE DGETRS( TRANS, N, NRHS, A, LDA, IPIV, B, LDB, INFO )
 -- LAPACK routine (version 1.1) --
@@ -6679,7 +6679,7 @@ INFO    (output) INTEGER
               pivots,
               work,
               lwork,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation:
    SUBROUTINE DGETRI( N, A, LDA, IPIV, WORK, LWORK, INFO )
 -- LAPACK routine (version 1.1) --
@@ -6748,7 +6748,7 @@ INFO    (output) INTEGER
               p,
               tau,
               work,
-              info) annotation (Library={"Lapack"});
+              info) annotation (Library={"lapack"});
       annotation (Documentation(info="Lapack documentation:
    SUBROUTINE DGEQPF( M, N, A, LDA, JPVT, TAU, WORK, INFO )
 -- LAPACK test routine (version 1.1) --
@@ -6830,7 +6830,7 @@ then the jth column of P is the ith canonical unit vector."));
               tau,
               work,
               lwork,
-              info) annotation (Library={"Lapack"});
+              info) annotation (Library={"lapack"});
       annotation (Documentation(info="Lapack documentation:
    SUBROUTINE DORGQR( M, N, K, A, LDA, TAU, WORK, LWORK, INFO )
 -- LAPACK routine (version 1.1) --
@@ -6919,7 +6919,7 @@ external"FORTRAN 77" dgees(
     work,
     lwork,
     bwork,
-    info) annotation (Library={"Lapack"});
+    info) annotation (Library={"lapack"});
 
       annotation (Documentation(info="Lapack documentation
 
@@ -7931,7 +7931,7 @@ external"FORTRAN 77" dgees(
               n,
               A,
               lda,
-              work) annotation (Library={"Lapack"});
+              work) annotation (Library={"lapack"});
       annotation (Documentation(info="Lapack documentation
 
     Purpose
@@ -9844,7 +9844,7 @@ external"FORTRAN 77" dgees(
               n,
               Acholesky,
               lda,
-              info) annotation (Library="Lapack");
+              info) annotation (Library="lapack");
 
       annotation (Documentation(info="Lapack documentation
     Purpose
