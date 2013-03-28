@@ -12,13 +12,14 @@ package Air "Medium models for air"
        lambda_const=0.026,
        T_min=Cv.from_degC(0),
        T_max=Cv.from_degC(100),
+       fluidConstants = airConstants,
        Temperature(min = Modelica.SIunits.Conversions.from_degC(0),
                    max = Modelica.SIunits.Conversions.from_degC(100)));
 
     import Modelica.Constants;
 
-    constant FluidConstants[nS] fluidConstants=
-      FluidConstants(iupacName={"simple air"},
+    constant Modelica.Media.Interfaces.Types.Basic.FluidConstants[nS] airConstants=
+      Modelica.Media.Interfaces.Types.Basic.FluidConstants(iupacName={"simple air"},
                      casRegistryNumber={"not a real substance"},
                      chemicalFormula={"N2, O2"},
                      structureFormula={"N2, O2"},

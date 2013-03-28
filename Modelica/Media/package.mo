@@ -2570,8 +2570,6 @@ points, e.g., when an isentropic reference state is computed.
 </html>"));
   end TwoPhaseWater;
 
-
-
   package SolveOneNonlinearEquation
     "Demonstrate how to solve one non-linear algebraic equation in one unknown"
     extends Modelica.Icons.ExamplesPackage;
@@ -5227,6 +5225,7 @@ This function computes the specific internal energy of the fluid, but neglects t
     constant Temperature T_min "Minimum temperature valid for medium model";
     constant Temperature T_max "Maximum temperature valid for medium model";
     constant Temperature T0=reference_T "Zero enthalpy temperature";
+    constant FluidConstants[nS] fluidConstants "fluid constants";
 
     redeclare record extends ThermodynamicState
       "Thermodynamic state of ideal gas"
