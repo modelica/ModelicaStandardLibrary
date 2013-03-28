@@ -2977,7 +2977,7 @@ past values of expression expr. Without further information, the complete
 time history of the delayed signals need to be stored, because the delay
 time may change during simulation. To avoid excessive storage requirements
 and to enhance efficiency, the maximum allowed delay time has to be given
-via delayMax, or delayTime must be a parameter expression (so that the 
+via delayMax, or delayTime must be a parameter expression (so that the
 constant delay is known before simulation starts).
 This gives an upper bound on the values of the delayed
 signals which have to be stored. For realtime simulation where fixed step
@@ -6735,6 +6735,5 @@ It is based on the
       <td valign=\"top\">Implemented.</td>
     </tr>
 </table>
-</html>"),
-  uses(Modelica(version="3.2")));
+</html>"));
 end ModelicaReference;
