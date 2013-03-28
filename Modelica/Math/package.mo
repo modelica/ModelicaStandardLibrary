@@ -336,11 +336,12 @@ not the case with function norm(..).
     "Return normalized vector such that length = 1 and prevent zero-division for zero vector"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
-    input Real eps=100*Modelica.Constants.eps
+    input Real eps(min=0.0)=100*Modelica.Constants.eps
       "if |v| < eps then result = v/eps";
     output Real result[size(v, 1)] "Input vector v normalized to length=1";
 
   algorithm
+    assert(eps > 0.0 or eps == 0.0 and length(v) > 0.0, "A division of zero occurs, because v={0,0,0} shall be normalized (= v/sqrt(v*v)).");
     result := smooth(0, noEvent(if length(v) >= eps then v/length(v) else v/eps));
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
