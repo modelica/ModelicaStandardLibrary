@@ -266,7 +266,7 @@ When converting between units (in the user-interface for plotting and entering p
 This annotation is used in the Modelica Standard Library for example in <a href=\"modelica://Modelica.SIunits\">Modelica.SIunits</a> for the type definition TemperatureDifference.
 </p>
 </html>"));
-  end absoluteValue;
+    end absoluteValue;
 
   class choices "choices"
     extends ModelicaReference.Icons.Information;
@@ -403,7 +403,8 @@ The following prefixes may be included in the string prefixes: inner, outer, rep
 </html>"));
     end defaultComponentPrefixes;
 
-  class defaultConnectionStructurallyInconsistent "defaultConnectionStructurallyInconsistent"
+  class defaultConnectionStructurallyInconsistent
+    "defaultConnectionStructurallyInconsistent"
     extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
@@ -434,7 +435,7 @@ Additionally, when a user defined model is structurally inconsistent, a tool sho
 This annotation avoids then to show a wrong error message.
 </p>
 </html>"));
-  end defaultConnectionStructurallyInconsistent;
+    end defaultConnectionStructurallyInconsistent;
 
   class derivative "derivative"
     extends ModelicaReference.Icons.Information;
@@ -816,8 +817,7 @@ The experiment annotation defines the default start time (StartTime) in [s], the
 </html>"));
     end experiment;
 
-
-    class GenerateEvents "GenerateEvents"
+  class GenerateEvents "GenerateEvents"
     extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
@@ -946,7 +946,6 @@ If true, the model developer proposes to inline the function after the function 
 </html>"));
     end InlineAfterIndexReduction;
 
-
   class LateInline "LateInline"
     extends ModelicaReference.Icons.Information;
 
@@ -1036,7 +1035,7 @@ A class may have the following annotation:
 It indicates that the class ideally should not be used anymore and gives a message indicating the recommended action.
 </p>
 </html>"));
-  end obsolete;
+    end obsolete;
 
   class PreferredView "preferredView"
     extends ModelicaReference.Icons.Information;
@@ -1356,7 +1355,7 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
   <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
 </ul>
 </html>"));
-  end versionDate;
+    end versionDate;
 
   annotation (Documentation(info="<html>
 <p>
@@ -2978,7 +2977,9 @@ past values of expression expr. Without further information, the complete
 time history of the delayed signals need to be stored, because the delay
 time may change during simulation. To avoid excessive storage requirements
 and to enhance efficiency, the maximum allowed delay time has to be given
-via delayMax. This gives an upper bound on the values of the delayed
+via delayMax, or delayTime must be a parameter expression (so that the 
+constant delay is known before simulation starts).
+This gives an upper bound on the values of the delayed
 signals which have to be stored. For realtime simulation where fixed step
 size integrators are used, this information is sufficient to allocate the
 necessary storage for the internal buffer before the simulation starts.
@@ -6734,5 +6735,6 @@ It is based on the
       <td valign=\"top\">Implemented.</td>
     </tr>
 </table>
-</html>"));
+</html>"),
+  uses(Modelica(version="3.2")));
 end ModelicaReference;
