@@ -393,7 +393,7 @@ neglecting initial transient.
             origin={20,20})));
       Modelica.Blocks.Math.Feedback feedbackP
         annotation (Placement(transformation(extent={{50,10},{70,30}})));
-      Blocks.Sources.RealExpression realExpression(y=
+      Modelica.Blocks.Sources.RealExpression realExpression(y=
             Modelica.Electrical.MultiPhase.Functions.activePower(
             voltageQuasiRMSSensor.v, currentQuasiRMSSensor.i))                                                       annotation (Placement(
             transformation(
@@ -2226,7 +2226,7 @@ like thyristor, diode, switch, transformer.
 
       annotation (Documentation(info="<HTML>
 <p>
-This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value. 
+This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
@@ -2245,7 +2245,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       y := sqrt(sum(x.^2/size(x,1)));
       annotation (Inline=true, Documentation(info="<HTML>
 <p>
-This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value. 
+This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
@@ -2266,7 +2266,7 @@ Calculates instantaneous power from multiphase voltages and currents.
 </HTML>"));
       annotation (Documentation(info="<HTML>
 <p>
-Calculates instantaneous power from multiphase voltages and currents. 
+Calculates instantaneous power from multiphase voltages and currents.
 In quasistaionary operation, instantaneous power equals active power;
 </p>
 </HTML>"));
@@ -2469,7 +2469,7 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
         Documentation(revisions="<html>
 </html>",             info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representiong an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value. 
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representiong an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  V = sqrt(sum(v[k]^2 for k in 1:m)/m)
@@ -2598,7 +2598,7 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
 This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase current system, representiong an equivalent RMS current vector <code>I</code> or phasor. If the current waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
- I = sqrt(sum(i[k]^2 for k in 1:m)/m) 
+ I = sqrt(sum(i[k]^2 for k in 1:m)/m)
 </pre>
 </html>"));
     end CurrentQuasiRMSSensor;
