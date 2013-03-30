@@ -459,7 +459,7 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
 <p>
 There is a much improved library available called \"Modelica_StateGraph2\".
 If this library is not yet distributed with your Modelica tool, you can download
-it from <a href=\"http://www.modelica.org/libraries/Modelica_StateGraph2\">http://www.modelica.org/libraries/Modelica_StateGraph2</a>.
+it from <a href=\"https://www.modelica.org/libraries/Modelica_StateGraph2\">https://www.modelica.org/libraries/Modelica_StateGraph2</a>.
 Find below a comparison with respect to Modelica.StateGraph.
 It is not yet clear whether Modelica_StateGraph2 will be included in a
 future version of the Modelica package. Another option is to provide
@@ -582,7 +582,7 @@ based on the following references:
      </dd>
 
 <dt>Malmheden M., Elmqvist H., Mattsson S.E., Henrisson D., Otter M. (2008):</dt>
-<dd> <a href=\"http://www.modelica.org/events/modelica2008/Proceedings/sessions/session3a3.pdf\">
+<dd> <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session3a3.pdf\">
       ModeGraph - A Modelica Library for Embedded Control based on Mode-Automata</a>.
       Modelica'2008 Conference, March 3-4, 2008.<br>&nbsp;
      </dd>
@@ -593,7 +593,7 @@ based on the following references:
      </dd>
 
 <dt>Mosterman P., Otter M., Elmqvist H. (1998):</dt>
-<dd><a href=\"http://www.modelica.org/publications/papers/scsc98fp.pdf\">
+<dd><a href=\"https://www.modelica.org/publications/papers/scsc98fp.pdf\">
      Modeling Petri Nets as Local Constraint Equations for
      Hybrid Systems using Modelica</a>.
      SCSC'98, Reno, Nevada, USA,
@@ -601,7 +601,7 @@ based on the following references:
      </dd>
 
 <dt>Otter M., Malmheden M., Elmqvist H., Mattsson S.E., Johnsson C. (2009):</dt>
-<dd> <a href=\"http://www.modelica.org/events/modelica2009\">
+<dd> <a href=\"https://www.modelica.org/events/modelica2009\">
      A New Formalism for Modeling of Reactive and Hybrid Systems</a>.
       Modelica'2009 Conference, Como, Italy, Sept. 20-22, 2009.
      </dd>
@@ -3151,7 +3151,7 @@ annotation (
 Note, there is a much improved version of this library called
 \"Modelica_StateGraph2\". If this library is not yet distributed with your
 Modelica tool, you can download it from
-<a href=\"http://www.modelica.org/libraries/Modelica_StateGraph2\">http://www.modelica.org/libraries/Modelica_StateGraph2</a>.
+<a href=\"https://www.modelica.org/libraries/Modelica_StateGraph2\">https://www.modelica.org/libraries/Modelica_StateGraph2</a>.
 In the
 <a href=\"modelica://Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2\">Users Guide</a>
 a detailed comparison is given. It is highly recommended to use Modelica_StateGraph2 instead
@@ -3209,7 +3209,7 @@ are nearly always needed).
 Copyright &copy; 1998-2013, Modelica Association and DLR
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={

@@ -440,7 +440,7 @@ model from R to G</li>
     <tr>
       <td valign=\"top\">[Beuschel00]</td>
       <td valign=\"top\">M. Beuschel,
-        &quot;<a href=\"http://www.modelica.org/events/workshop2000/proceedings/Beuschel.pdf\">
+        &quot;<a href=\"https://www.modelica.org/events/workshop2000/proceedings/Beuschel.pdf\">
         A uniform approach for modelling electrical machines</a>,&quot;
         <i>Modelica Workshop</i>,
         pp. 101-108, October 23-24, 2000.</td>
@@ -456,7 +456,7 @@ model from R to G</li>
     <tr>
       <td valign=\"top\">[Haumer09]</td>
       <td valign=\"top\">A. Haumer, and C. Kral,
-        &quot;<a href=\"http://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">The
+        &quot;<a href=\"https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">The
         AdvancedMachines Library: Loss Models for Electric Machines</a>,&quot;
         <i>Modelica Conference</i>, 2009.</td>
     </tr>
@@ -6804,7 +6804,7 @@ Copyright &copy; 2009-2013, <a href=\"modelica://Modelica.Magnetic.FundamentalWa
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>"));
 end FundamentalWave;

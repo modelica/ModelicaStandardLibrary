@@ -1006,7 +1006,7 @@ calls in 0.99 should be changed:
      Modelica 2003 Conference, Link&ouml;ping, Sweden,
      pp. 311-330, Nov. 3-4, 2003.
      Download from:
-     <a href=\"http://www.modelica.org/events/Conference2003/papers/h37_Otter_multibody.pdf\">http://www.modelica.org/events/Conference2003/papers/h37_Otter_multibody.pdf</a>
+     <a href=\"https://www.modelica.org/events/Conference2003/papers/h37_Otter_multibody.pdf\">https://www.modelica.org/events/Conference2003/papers/h37_Otter_multibody.pdf</a>
      </dd>
 </dl>
 </li>
@@ -1019,7 +1019,7 @@ dynamical effects is described in:
      Modelica 2003 Conference, Link&ouml;ping, Sweden,
      pp. 149-158, Nov. 3-4, 2003.
      Download from:
-<a href=\"http://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf\">http://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf</a>
+<a href=\"https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf\">https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf</a>
      </dd>
 </dl>
 </li>
@@ -1572,7 +1572,7 @@ For an introduction, have especially a look at:
 Copyright &copy; 1998-2013, Modelica Association and DLR.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>"));
 end MultiBody;

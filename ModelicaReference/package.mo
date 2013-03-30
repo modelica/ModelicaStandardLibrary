@@ -3497,7 +3497,7 @@ Additional equations need to be generated for the stream variables of outside co
 Neglecting zero flow conditions, the above implicit equations can be
 analytically solved for the inStream(..) operators.
 The details are given in Section 15.2 of the
-<a href=\"http://www.modelica.org/documents/ModelicaSpec32Revision1.pdf\">Modelica Language Specification version 3.2 Revision 1</a>.
+<a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision1.pdf\">Modelica Language Specification version 3.2 Revision 1</a>.
 The stream connection equations have singularities and/or multiple solutions if one or more
 of the flow variables become zero. When all the flows are zero, a singularity is always
 present, so it is necessary to approximate the solution in an open neighborhood
@@ -6139,7 +6139,7 @@ type_prefix :
 <p>
 A detailed description of the stream keyword and the inStream operator is given
 in Chapter 15 and Appendix D of the
-<a href=\"http://www.modelica.org/documents/ModelicaSpec32Revision1.pdf\">Modelica Language Specification version 3.2 Revision 1</a>.
+<a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision1.pdf\">Modelica Language Specification version 3.2 Revision 1</a>.
 An overview and a rational is provided in a
 <a href=\"modelica://Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">slide set</a>.
 </p>
@@ -6629,14 +6629,14 @@ This package is a reference to Modelica keywords,
 <a href=\"modelica://ModelicaReference.Operators\">Modelica builtin operators</a>
 , and the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica grammar</a>.
 It is based on the
-<a href=\"http://www.modelica.org/documents/ModelicaSpec32Revision1.pdf\">Modelica Language Specification version 3.2 Revision 1</a> from 29th February 2012. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
+<a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision1.pdf\">Modelica Language Specification version 3.2 Revision 1</a> from 29th February 2012. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
 </p>
 
 <p>
 <b>Copyright &copy; 2003-2013 Modelica Association, DLR, Telemark University College, and Maplesoft.</b>
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">

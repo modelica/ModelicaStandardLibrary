@@ -950,7 +950,7 @@ This section is partly based on the following paper:
      Modelica 2003 Conference, Link&ouml;ping, Sweden,
      pp. 269-286, Nov. 3-4, 2003.
      Download from:
-     <a href=\"http://www.modelica.org/events/Conference2003/papers/h40_Elmqvist_fluid.pdf\">http://www.modelica.org/events/Conference2003/papers/h40_Elmqvist_fluid.pdf</a>
+     <a href=\"https://www.modelica.org/events/Conference2003/papers/h40_Elmqvist_fluid.pdf\">https://www.modelica.org/events/Conference2003/papers/h40_Elmqvist_fluid.pdf</a>
      </dd>
 </dl>
 Please note that the design of the connectors has been changed with respect to the design presented in that paper.
@@ -1635,7 +1635,7 @@ and many have contributed.
 <ul>
 <li>The previous design of this library (until beginning of 2008) was based on the paper
      Elmqvist H., Tummescheit H., and Otter M.:
-     <a href=\"http://www.modelica.org/events/Conference2003/papers/h40_Elmqvist_fluid.pdf\">Object-Oriented Modeling of Thermo-Fluid Systems</a>.
+     <a href=\"https://www.modelica.org/events/Conference2003/papers/h40_Elmqvist_fluid.pdf\">Object-Oriented Modeling of Thermo-Fluid Systems</a>.
      Modelica 2003 Conference, Link&ouml;ping, Sweden, pp. 269-286, Nov. 3-4, 2003.<br>
      This design has been partly changed, especially by the introduction of the streams
      concept.</li>
@@ -1740,7 +1740,7 @@ The following parts are useful, when newly starting with this library:
 Copyright &copy; 2002-2013, ABB, DLR, Dassault Syst&egrave;mes AB, Modelon, TU Braunschweig, TU Hamburg-Harburg, Politecnico di Milano.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>"));
 end Fluid;

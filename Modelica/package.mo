@@ -1754,7 +1754,7 @@ c/o PELAB, IDA, Link&ouml;pings Universitet <br>
 S-58183 Link&ouml;ping <br>
 Sweden<br>
 email: Board@Modelica.org<br>
-web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
+web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
 Copyright &copy; 1998-2013,
@@ -3689,17 +3689,17 @@ Note:
 </p>
 <ul>
 <li> Libraries
-     <a href=\"http://www.modelica.org/libraries/Modelica_FundamentalWave\">Modelica_FundamentalWave</a>
+     <a href=\"https://www.modelica.org/libraries/Modelica_FundamentalWave\">Modelica_FundamentalWave</a>
      and
-     <a href=\"http://www.modelica.org/libraries/Modelica_QuasiStationary\">Modelica_QuasiStationary</a>
+     <a href=\"https://www.modelica.org/libraries/Modelica_QuasiStationary\">Modelica_QuasiStationary</a>
      are included in this version in an improved form.</li>
 <li> From library
-     <a href=\"http://www.modelica.org/libraries/Modelica_LinearSystems2\">Modelica_LinearSystems2</a>,
+     <a href=\"https://www.modelica.org/libraries/Modelica_LinearSystems2\">Modelica_LinearSystems2</a>,
      the sublibraries
      Math.Complex, Math.Vectors and Math.Matrices are included in this version
      in an improved form.</li>
 <li> From library
-     <a href=\"http://www.modelica.org/libraries/Modelica_StateGraph2\">Modelica_StateGraph2</a>,
+     <a href=\"https://www.modelica.org/libraries/Modelica_StateGraph2\">Modelica_StateGraph2</a>,
      the sublibrary Blocks is included in this version in an improved form.</li>
 </ul>
 </html>"));
@@ -7018,7 +7018,7 @@ class Contact "Contact"
 <dd>S-58183 Link&ouml;ping</dd>
 <dd>Sweden</dd>
 <dd>email: <a href=\"mailto:Board@Modelica.org\">Board@Modelica.org</a></dd>
-<dd>web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></dd>
+<dd>web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></dd>
 <dd>&nbsp;&nbsp;</dd>
 <dt>The development of this Modelica package is organized by:</dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dd>
@@ -7384,7 +7384,7 @@ annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 Package <b>Modelica</b> is a <b>standardized</b> and <b>pre-defined</b> package
 that is developed together with the Modelica language from the
 Modelica Association, see
-<a href=\"http://www.Modelica.org\">http://www.Modelica.org</a>.
+<a href=\"https://www.Modelica.org\">https://www.Modelica.org</a>.
 It is also called <b>Modelica Standard Library</b>.
 It provides constants, types, connectors, partial models and model
 components in various disciplines.
@@ -7465,7 +7465,7 @@ Documentation(info="<HTML>
 Package <b>Modelica&reg;</b> is a <b>standardized</b> and <b>free</b> package
 that is developed together with the Modelica&reg; language from the
 Modelica Association, see
-<a href=\"http://www.Modelica.org\">http://www.Modelica.org</a>.
+<a href=\"https://www.Modelica.org\">https://www.Modelica.org</a>.
 It is also called <b>Modelica Standard Library</b>.
 It provides model components in many domains that are based on
 standardized interface definitions. Some typical examples are shown
@@ -7509,7 +7509,7 @@ TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 </p>
 
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>"));
 end Modelica;

@@ -36,7 +36,7 @@ c/o PELAB, IDA, Link&ouml;pings Universitet <br>
 S-58183 Link&ouml;ping <br>
 Sweden<br>
 email: Board@Modelica.org<br>
-web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
+web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
 Copyright &copy; 1998-2013, DLR, Dassault Syst&egrave;mes AB.
@@ -807,7 +807,7 @@ Copyright &copy; 2009-2013, DLR and Dassault Syst&egrave;mes AB.
 </p>
 
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 
 </html>"));

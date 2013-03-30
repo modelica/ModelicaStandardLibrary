@@ -3628,7 +3628,7 @@ Modelica.Mechanics.Rotational.GearEfficiency model.
 <li>Pelchen C.,
 <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Schweiger C.</a>,
 and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Otter M.</a>:
-&quot;<a href=\"http://www.modelica.org/events/Conference2002/papers/p33_Pelchen.pdf\">Modeling
+&quot;<a href=\"https://www.modelica.org/events/Conference2002/papers/p33_Pelchen.pdf\">Modeling
 and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</A>,&quot; in
 <I>Proceedings of the 2nd International Modelica Conference, Oberpfaffenhofen, Germany,</I>
 pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics,
@@ -6886,7 +6886,7 @@ positive if heat is flowing out of the heatPort). For an example, see
 Copyright &copy; 1998-2013, Modelica Association and DLR.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>", revisions=""), Icon(coordinateSystem(preserveAspectRatio=true, extent=
            {{-100,-100},{100,100}}), graphics={
