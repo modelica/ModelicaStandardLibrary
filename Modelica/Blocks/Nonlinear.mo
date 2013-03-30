@@ -7,8 +7,11 @@ package Nonlinear
       block Limiter "Limit the range of a signal"
         parameter Real uMax(start=1) "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
-        parameter Boolean limitsAtInit = true
-      "= false, if limits are ignored during initialization (i.e., y=u)";
+        parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
+          annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+        parameter Boolean limitsAtInit=true
+          "= false, if limits are ignored during initialization (i.e., y=u)"
+          annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         extends Interfaces.SISO;
 
       equation
@@ -21,6 +24,8 @@ package Nonlinear
                  "Limiter: During initialization the limits have been ignored.\n"+
                  "However, the result is that the input u is not within the required limits:\n"+
                  "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
+        elseif strict then
+           y = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u));
         else
            y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
         end if;
@@ -56,7 +61,17 @@ as output.
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Line(
+            visible=strict,
+            points={{50,70},{80,70}},
+            color={255,0,0},
+            smooth=Smooth.None),
+          Line(
+            visible=strict,
+            points={{-80,-70},{-50,-70}},
+            color={255,0,0},
+            smooth=Smooth.None)}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -94,8 +109,11 @@ as output.
 
   block VariableLimiter "Limit the range of a signal with variable limits"
     extends Interfaces.SISO;
-    parameter Boolean limitsAtInit = true
-      "= false, if limits are ignored during initialization (i.e., y=u)";
+    parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
+      annotation (Evaluate=true, choices(checkBox=true));
+    parameter Boolean limitsAtInit=true
+      "= false, if limits are ignored during initialization (i.e., y=u)"
+      annotation (Evaluate=true, choices(checkBox=true));
     Interfaces.RealInput limit1
       "Connector of Real input signal used as maximum of input u"
                                 annotation (Placement(transformation(extent={{
@@ -109,8 +127,13 @@ as output.
     Real uMin;
 
   equation
-    uMax = max(limit1, limit2);
-    uMin = min(limit1, limit2);
+    if strict then
+      uMax = noEvent(max(limit1, limit2));
+      uMin = noEvent(min(limit1, limit2));
+    else
+      uMax = max(limit1, limit2);
+      uMin = min(limit1, limit2);
+    end if;
 
     if initial() and not limitsAtInit then
        y = u;
@@ -119,6 +142,8 @@ as output.
              "VariableLimiter: During initialization the limits have been ignored.\n"+
              "However, the result is that the input u is not within the required limits:\n"+
              "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
+    elseif strict then
+      y = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u));
     else
        y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
     end if;
@@ -154,7 +179,17 @@ is passed as output.
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
             fillColor={192,192,192},
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid),
+          Line(
+            visible=strict,
+            points={{50,70},{80,70}},
+            color={255,0,0},
+            smooth=Smooth.None),
+          Line(
+            visible=strict,
+            points={{-80,-70},{-50,-70}},
+            color={255,0,0},
+            smooth=Smooth.None)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{0,-60},{0,50}}, color={192,192,192}),
@@ -202,10 +237,16 @@ is passed as output.
       "Maximum falling slew rate (-inf..-small]";
     parameter Modelica.SIunits.Time Td(min=small) = 0.001
       "Derivative time constant";
+    parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
+      annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
   initial equation
       y = u;
   equation
-    der(y) = smooth(1, min(max((u - y)/Td, Falling), Rising));
+    if strict then
+      der(y) = smooth(1, noEvent(min(max((u - y)/Td, Falling), Rising)));
+    else
+      der(y) = smooth(1, min(max((u - y)/Td, Falling), Rising));
+    end if;
     annotation (Icon(graphics={
       Line(points={{-90,0},{68,0}}, color={192,192,192}),
       Line(points={{0,-90},{0,68}}, color={192,192,192}),
@@ -219,10 +260,15 @@ is passed as output.
         lineColor={192,192,192},
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid),
-          Line(
-            points={{-50,-70},{50,70}},
-            color={0,0,0},
-            smooth=Smooth.None)}),
+      Line(
+        points={{-50,-70},{50,70}},
+        color={0,0,0},
+        smooth=Smooth.None),
+      Line(
+        visible=strict,
+        points={{50,70},{-50,-70}},
+        color={255,0,0},
+        smooth=Smooth.None)}),
   Documentation(info="<html>
 <p>The <code>SlewRateLimiter</code> block limits the slew rate of its input signal in the range of <code>[Falling, Rising]</code>.</p>
 <p>To ensure this for arbitrary inputs and in order to produce a differential output, the input is numerically differentiated

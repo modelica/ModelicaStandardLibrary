@@ -105,6 +105,8 @@ This is discussed in the description of package
     parameter Real y_start=0
       "Initial or guess value of output (must be in the limits outMin .. outMax)"
       annotation (Dialog(group="Initialization"));
+    parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
+      annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
     extends Interfaces.SISO(y(start=y_start));
 
   initial equation
@@ -121,6 +123,8 @@ This is discussed in the description of package
             "LimIntegrator: During initialization the limits have been ignored.\n"
           + "However, the result is that the output y is not within the required limits:\n"
           + "  y = " + String(y) + ", outMin = " + String(outMin) + ", outMax = " + String(outMax));
+    elseif strict then
+       der(y) = noEvent(if y < outMin and k*u < 0 or y > outMax and k*u > 0 then 0 else k*u);
     else
        der(y) = if y < outMin and k*u < 0 or y > outMax and k*u > 0 then 0 else k*u;
     end if;
@@ -174,7 +178,12 @@ to use <b>limitAtInit</b> = <b>false</b>.
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
-            textString="k=%k")}),
+            textString="k=%k"),
+          Line(
+            visible=strict,
+            points={{20,20},{80,20}},
+            color={255,0,0},
+            smooth=Smooth.None)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -879,7 +888,8 @@ to compute u by an algebraic equation.
     parameter Real y_start=0 "Initial value of output"
       annotation(Dialog(enable=initType == .Modelica.Blocks.Types.InitPID.InitialOutput, group=
             "Initialization"));
-
+    parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
+      annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
     Blocks.Math.Add addP(k1=wp, k2=-1)
       annotation (Placement(transformation(extent={{-80,40},{-60,60}}, rotation=
              0)));
@@ -919,7 +929,7 @@ to compute u by an algebraic equation.
     Blocks.Math.Gain gainTrack(k=1/(k*Ni)) if with_I
       annotation (Placement(transformation(extent={{40,-80},{20,-60}}, rotation=
              0)));
-    Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin, limitsAtInit=limitsAtInit)
+    Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin, strict=strict, limitsAtInit=limitsAtInit)
       annotation (Placement(transformation(extent={{70,-10},{90,10}}, rotation=
               0)));
   protected
@@ -1020,7 +1030,12 @@ to compute u by an algebraic equation.
           Text(
             extent={{-20,-20},{80,-60}},
             lineColor={192,192,192},
-            textString="%controllerType")}),
+            textString="%controllerType"),
+          Line(
+            visible=strict,
+            points={{30,60},{81,60}},
+            color={255,0,0},
+            smooth=Smooth.None)}),
       Documentation(info="<HTML>
 <p>
 Via parameter <b>controllerType</b> either <b>P</b>, <b>PI</b>, <b>PD</b>,

@@ -241,6 +241,131 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (      experiment(StopTime=1.1));
   end Limiters;
 
+  model StrictLimiters
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Nonlinear.Limiter limiter1(uMax=1.1)
+      annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
+    Modelica.Blocks.Sources.Sine sine1(amplitude=1.5, freqHz=2)
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    Modelica.Blocks.Nonlinear.Limiter limiter2(uMax=1.1, strict=true)
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+    Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter1
+      annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+    Modelica.Blocks.Sources.Sine sine2(amplitude=1.5, freqHz=2)
+      annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+    Modelica.Blocks.Sources.Sine sine2a(
+      amplitude=0.3,
+      freqHz=4,
+      offset=1.0)
+      annotation (Placement(transformation(extent={{-80,-8},{-60,12}})));
+    Modelica.Blocks.Sources.Sine sine2ab(
+      amplitude=0.3,
+      freqHz=4,
+      offset=-1.0)
+      annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
+    Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter2(strict=true)
+      annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+    Modelica.Blocks.Nonlinear.SlewRateLimiter slewRateLimiter1(Rising=13)
+      annotation (Placement(transformation(extent={{40,60},{60,80}})));
+    Modelica.Blocks.Sources.Sine sine3(amplitude=1.5, freqHz=2)
+      annotation (Placement(transformation(extent={{0,60},{20,80}})));
+    Modelica.Blocks.Continuous.Der der1
+      annotation (Placement(transformation(extent={{72,60},{92,80}})));
+    Modelica.Blocks.Nonlinear.SlewRateLimiter slewRateLimiter2(strict=true,
+        Rising=13)
+      annotation (Placement(transformation(extent={{40,30},{60,50}})));
+    Modelica.Blocks.Continuous.Der der2
+      annotation (Placement(transformation(extent={{72,30},{92,50}})));
+    Modelica.Blocks.Continuous.LimIntegrator limIntegrator1(k=5.0, outMax=0.9)
+      annotation (Placement(transformation(extent={{40,0},{60,20}})));
+    Modelica.Blocks.Continuous.LimIntegrator limIntegrator2(
+      strict=true,
+      k=5.0,
+      outMax=0.9)
+      annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
+    Modelica.Blocks.Continuous.LimPID PID1(yMax=0.4, initType=Modelica.Blocks.Types.InitPID.InitialOutput)
+      annotation (Placement(transformation(extent={{38,-60},{58,-40}})));
+    Modelica.Blocks.Continuous.LimPID PID2(
+      yMax=0.4,
+      strict=true,
+      initType=Modelica.Blocks.Types.InitPID.InitialOutput)
+      annotation (Placement(transformation(extent={{40,-100},{60,-80}})));
+  equation
+    connect(sine1.y, limiter1.u) annotation (Line(
+        points={{-59,70},{-42,70}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine1.y, limiter2.u) annotation (Line(
+        points={{-59,70},{-52,70},{-52,30},{-42,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine2.y, variableLimiter1.u) annotation (Line(
+        points={{-59,-30},{-22,-30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine2a.y, variableLimiter1.limit1) annotation (Line(
+        points={{-59,2},{-50,2},{-50,-22},{-22,-22}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine2ab.y, variableLimiter1.limit2) annotation (Line(
+        points={{-59,-70},{-52,-70},{-52,-38},{-22,-38}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(variableLimiter2.limit1, variableLimiter1.limit1) annotation (Line(
+        points={{-22,-62},{-34,-62},{-34,-22},{-22,-22}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(variableLimiter2.limit2, variableLimiter1.limit2) annotation (Line(
+        points={{-22,-78},{-46,-78},{-46,-38},{-22,-38}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(variableLimiter2.u, variableLimiter1.u) annotation (Line(
+        points={{-22,-70},{-40,-70},{-40,-30},{-22,-30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine3.y, slewRateLimiter1.u) annotation (Line(
+        points={{21,70},{38,70}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(slewRateLimiter1.y, der1.u) annotation (Line(
+        points={{61,70},{70,70}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine3.y, slewRateLimiter2.u) annotation (Line(
+        points={{21,70},{28,70},{28,40},{38,40}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(slewRateLimiter2.y, der2.u) annotation (Line(
+        points={{61,40},{70,40}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine3.y, limIntegrator1.u) annotation (Line(
+        points={{21,70},{28,70},{28,10},{38,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(limIntegrator2.u, limIntegrator1.u) annotation (Line(
+        points={{38,-20},{28,-20},{28,10},{38,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(PID1.u_s, limIntegrator1.u) annotation (Line(
+        points={{36,-50},{28,-50},{28,10},{38,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(variableLimiter2.y, PID1.u_m) annotation (Line(
+        points={{1,-70},{48,-70},{48,-62}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(PID2.u_s, limIntegrator1.u) annotation (Line(
+        points={{38,-90},{28,-90},{28,10},{38,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(PID2.u_m, PID1.u_m) annotation (Line(
+        points={{50,-102},{50,-110},{16,-110},{16,-70},{48,-70},{48,-62}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StopTime=1.1));
+  end StrictLimiters;
+
   model KinematicPTP
     extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP1a(
