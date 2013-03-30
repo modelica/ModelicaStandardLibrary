@@ -3137,7 +3137,7 @@ This package contains basic components 1D mechanical translational drive trains.
 
     model PositionSensor "Ideal sensor to measure the absolute position"
       extends Translational.Interfaces.PartialAbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput s(final quantity="Position", final unit="m") "Absolute position of flange as output signal"
+      Modelica.Blocks.Interfaces.RealOutput s(final quantity="Length", final unit="m") "Absolute position of flange as output signal"
                                     annotation (Placement(transformation(extent={{100,-11},
                 {120,9}},            rotation=0), iconTransformation(extent={{100,
                 -10},{120,10}})));
@@ -3221,7 +3221,7 @@ Modelica.Blocks library).
 
     model RelPositionSensor "Ideal sensor to measure the relative position"
       extends Translational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput s_rel(final quantity="Position", final unit="m")
+      Modelica.Blocks.Interfaces.RealOutput s_rel(final quantity="Length", final unit="m")
         "Distance between two flanges (= flange_b.s - flange_a.s) as output signal"
                                     annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}},            rotation=270,

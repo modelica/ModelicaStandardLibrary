@@ -5,7 +5,7 @@ package Sensors "Sensors to measure variables"
   model AbsoluteSensor
     "Measure absolute kinematic quantities of frame connector"
 
-    Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each
+    Blocks.Interfaces.RealOutput r[3](each final quantity="Length", each
         final unit="m") if
                      get_r
       "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
@@ -534,7 +534,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       "Frame in which vectors are resolved after differentiation (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)"
       annotation(Dialog(tab="Advanced", group="if get_v_rel or get_a_rel or get_z_rel", enable=get_v_rel or get_a_rel or get_z_rel));
 
-    Blocks.Interfaces.RealOutput r_rel[3](each final quantity="Position", each final
+    Blocks.Interfaces.RealOutput r_rel[3](each final quantity="Length", each final
               unit="m") if get_r_rel
       "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
@@ -987,7 +987,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   model AbsolutePosition
     "Measure absolute position vector of the origin of a frame connector"
     extends Internal.PartialAbsoluteSensor;
-    Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each final
+    Blocks.Interfaces.RealOutput r[3](each final quantity="Length", each final
               unit =                                                                    "m")
       "Absolute position vector resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
@@ -2915,7 +2915,7 @@ transformed output vector as \"Real r_out[3]\";
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor;
-      Modelica.Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each final
+      Modelica.Blocks.Interfaces.RealOutput r[3](each final quantity="Length", each final
                 unit = "m")
         "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(
@@ -2993,7 +2993,7 @@ transformed output vector as \"Real r_out[3]\";
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor;
-      Modelica.Blocks.Interfaces.RealOutput r_rel[3](each final quantity="Position", each final
+      Modelica.Blocks.Interfaces.RealOutput r_rel[3](each final quantity="Length", each final
                 unit = "m")
         "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(

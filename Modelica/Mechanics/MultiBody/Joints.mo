@@ -7766,12 +7766,12 @@ of this subpackage.
         annotation (Placement(transformation(extent={{-50,90},{-70,110}},
               rotation=0)));
 
-      Modelica.Blocks.Interfaces.RealInput position_a[3](each final quantity="Position", each final
+      Modelica.Blocks.Interfaces.RealInput position_a[3](each final quantity="Length", each final
                 unit =                                                                                   "m")
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput position_b[3](each final quantity="Position",
+      Modelica.Blocks.Interfaces.RealInput position_b[3](each final quantity="Length",
         each final unit="m")
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
         annotation (Placement(transformation(extent={{140,-80},{100,-40}},
