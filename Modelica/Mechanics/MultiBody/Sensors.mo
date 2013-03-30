@@ -1345,7 +1345,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     "Measure absolute angular velocity of frame connector"
     extends Internal.PartialAbsoluteSensor;
     Blocks.Interfaces.RealOutput w[3](each final quantity="AngularVelocity",
-        each final unit="1/s")
+        each final unit="rad/s")
       "Absolute angular velocity vector of frame_a with respect to world frame, resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -1833,7 +1833,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     "Measure relative angular velocity between two frame connectors"
     extends Internal.PartialRelativeSensor;
     Blocks.Interfaces.RealOutput w_rel[3](each final quantity="AngularVelocity", each final
-              unit =                                                                               "1/s")
+              unit = "rad/s")
       "Relative angular velocity vector between frame_a and frame_b resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
