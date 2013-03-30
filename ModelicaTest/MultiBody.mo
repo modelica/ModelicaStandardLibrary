@@ -6121,6 +6121,121 @@ a linear damper is connected here.
           smooth=Smooth.None));
       annotation (experiment(StopTime=4));
     end JointUPS2;
+
+model GearConstraint
+  extends Modelica.Icons.Example;
+  Modelica.Mechanics.MultiBody.Joints.GearConstraint gearConstraint(ratio=10,
+    phi_b(fixed=true, start=0),
+    w_b(fixed=true, start=0))
+    annotation (Placement(transformation(extent={{34,40},{54,60}}, rotation=0)));
+  inner Modelica.Mechanics.MultiBody.World world(driveTrainMechanics3D=true, g=
+        0) annotation (Placement(transformation(extent={{-62,10},{-42,30}},
+          rotation=0)));
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder cyl1(
+    diameter=0.1,
+    color={0,128,0},
+    r={0.4,0,0})
+    annotation (Placement(transformation(extent={{2,40},{22,60}}, rotation=0)));
+  Modelica.Mechanics.MultiBody.Parts.BodyCylinder cyl2(r={0.4,0,0}, diameter=
+        0.2) annotation (Placement(transformation(extent={{64,20},{84,40}},
+          rotation=0)));
+  Modelica.Mechanics.MultiBody.Forces.Torque torque1 annotation (Placement(
+        transformation(extent={{-26,40},{-6,60}}, rotation=0)));
+  Modelica.Blocks.Sources.Sine sine[3](amplitude={2,0,0}, freqHz={1,1,1})
+    annotation (Placement(transformation(extent={{-100,60},{-80,80}}, rotation=
+            0)));
+  Modelica.Mechanics.MultiBody.Parts.Fixed fixed annotation (Placement(
+        transformation(extent={{-48,-90},{-28,-70}}, rotation=0)));
+  Modelica.Mechanics.Rotational.Components.Inertia inertia1(
+    J=cyl1.I[1, 1],
+    phi(fixed=true, start=0.0),
+    w(fixed=true, start=0.0)) annotation (Placement(transformation(extent={{-20,-40},{0,-20}},
+          rotation=0)));
+  Modelica.Mechanics.Rotational.Components.IdealGear idealGear(ratio=10,
+      useSupport=true) annotation (Placement(transformation(extent={{12,-40},{
+            32,-20}}, rotation=0)));
+  Modelica.Mechanics.Rotational.Components.Inertia inertia2(J=cyl2.I[1, 1])
+    annotation (Placement(transformation(extent={{60,-60},{80,-40}}, rotation=0)));
+  Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true)
+    annotation (Placement(transformation(extent={{-48,-40},{-28,-20}}, rotation
+          =0)));
+  Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D annotation (
+      Placement(transformation(extent={{-20,-70},{0,-50}}, rotation=0)));
+  Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame2
+    annotation (Placement(transformation(extent={{92,20},{112,40}})));
+  Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame1
+    annotation (Placement(transformation(extent={{4,70},{24,90}})));
+equation
+  connect(cyl1.frame_b, gearConstraint.frame_a) annotation (Line(
+      points={{22,50},{34,50}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  connect(torque1.frame_b, cyl1.frame_a) annotation (Line(
+      points={{-6,50},{2,50}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  connect(torque1.frame_a, world.frame_b) annotation (Line(
+      points={{-26,50},{-36,50},{-36,20},{-42,20}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  connect(sine.y, torque1.torque) annotation (Line(
+      points={{-79,70},{-22,70},{-22,62}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(inertia1.flange_b, idealGear.flange_a) annotation (Line(
+      points={{0,-30},{12,-30}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(torque2.flange, inertia1.flange_a) annotation (Line(
+      points={{-28,-30},{-20,-30}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(sine[1].y, torque2.tau) annotation (Line(
+      points={{-79,70},{-72,70},{-72,-30},{-50,-30}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(mounting1D.flange_b, torque2.support) annotation (Line(
+      points={{0,-60},{4,-60},{4,-48},{-38,-48},{-38,-40}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(fixed.frame_b, mounting1D.frame_a) annotation (Line(
+      points={{-28,-80},{-10,-80},{-10,-70}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  connect(world.frame_b, gearConstraint.frame_b) annotation (Line(
+      points={{-42,20},{60,20},{60,50},{54,50}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  connect(cyl2.frame_a, gearConstraint.bearing) annotation (Line(
+      points={{64,30},{44,30},{44,40}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  connect(mounting1D.flange_b, idealGear.flange_b) annotation (Line(
+      points={{0,-60},{38,-60},{38,-30},{32,-30}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(inertia2.flange_a, idealGear.support) annotation (Line(
+      points={{60,-50},{22,-50},{22,-40}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(cyl2.frame_b, fixedFrame2.frame_a) annotation (Line(
+      points={{84,30},{92,30}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  connect(fixedFrame1.frame_a, cyl1.frame_a) annotation (Line(
+      points={{4,80},{2,80},{2,50}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  annotation (experiment(StopTime=5));
+end GearConstraint;
   end Joints;
 
   package Parts "Test MultiBody.Parts"
