@@ -63,11 +63,39 @@ extends Modelica.Icons.ExamplesPackage;
     assert(BooleanVectors.oneTrue(b3) == false, "oneTrue is wrong at (3)");
     assert(BooleanVectors.oneTrue(b4) == true,  "oneTrue is wrong at (4)");
 
+    assert(BooleanVectors.countTrue(b1) == 3, "countTrue is wrong at (1)");
+    assert(BooleanVectors.countTrue(b2) == 0, "countTrue is wrong at (2)");
+    assert(BooleanVectors.countTrue(b3) == 2, "countTrue is wrong at (3)");
+
+    for i in 1:size(b1,1) loop
+      assert((BooleanVectors.enumerate(b1))[i] == {1,2,3}[i],
+         "enumerate is wrong at entry " + String(i) + " of (1)");
+    end for;
+    for i in 1:size(b2,1) loop
+      assert((BooleanVectors.enumerate(b2))[i] == {0,0,0}[i],
+         "enumerate is wrong at entry " + String(i) + " of (2)");
+    end for;
+    for i in 1:size(b3,1) loop
+      assert((BooleanVectors.enumerate(b3))[i] == {0,1,0,2}[i],
+         "enumerate is wrong at entry " + String(i) + " of (3)");
+    end for;
+
     assert(BooleanVectors.firstTrueIndex(b1) == 1, "firstTrueIndex is wrong at (1)");
     assert(BooleanVectors.firstTrueIndex(b2) == 0, "firstTrueIndex is wrong at (2)");
     assert(BooleanVectors.firstTrueIndex(b3) == 2, "firstTrueIndex is wrong at (3)");
 
-    ok:=true;
+    for i in 1:3 loop
+      assert((BooleanVectors.index(b1))[i] == {1,2,3}[i],
+        "index is wrong at entry " + String(i) + " of (1)");
+    end for;
+    assert(size(BooleanVectors.index(b2),1) == 0, "index is wrong at (2)");
+    for i in 1:2 loop
+      assert((BooleanVectors.index(b3))[i] == {2,4}[i],
+        "index is wrong at entry " + String(i) + " of (3)");
+    end for;
+
+    ok := true;
+
   end BooleanFunctions;
 
   function Polynomials

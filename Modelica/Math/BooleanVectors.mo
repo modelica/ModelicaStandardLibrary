@@ -7,10 +7,13 @@ function allTrue
   input Boolean b[:] "Boolean vector";
   output Boolean result "= true, if all elements of b are true";
 algorithm
-  result := size(b,1) > 0;
   for i in 1:size(b,1) loop
-     result := result and b[i];
+      if not b[i] then
+        result := false;
+        return;
+      end if;
   end for;
+    result := size(b, 1) > 0;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -37,8 +40,11 @@ i.e., size(b,1)=0, the function returns <b>false</b>.
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>.
+<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
 </p>
 
 </html>"));
@@ -51,10 +57,13 @@ function anyTrue
   input Boolean b[:];
   output Boolean result;
 algorithm
-  result := false;
   for i in 1:size(b,1) loop
-     result := result or b[i];
+     if b[i] then
+        result := true;
+        return;
+     end if;
   end for;
+  result := false;
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -81,26 +90,206 @@ i.e., size(b,1)=0, the function returns <b>false</b>.
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>.
+<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
 </p>
 </html>"));
 end anyTrue;
 
-function oneTrue
-    "Returns true, if exactly one element of the Boolean input vector is true ('xor')"
+function countTrue "Returns the number of true entries in a Boolean vector"
 
   extends Modelica.Icons.Function;
+  input Boolean b[:] "Boolean vector";
+  output Integer n "Number of true entries";
+algorithm
+  n := sum(if b[i] then 1 else 0 for i in 1:size(b, 1))
+     annotation (Inline=true);
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>countTrue</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the number of <b>true</b> entries in a Boolean vector b.
+</p>
+
+<h4>Example</h4>
+<p><code>countTrue({false, true, false, true})</code> returns 2.</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+</p>
+</html>"));
+end countTrue;
+
+function enumerate
+    "Enumerates the true entries in a Boolean vector (0 for false entries)"
+  extends Modelica.Icons.Function;
+
+  input Boolean b[:] "Boolean vector";
+  output Integer enumerated[size(b, 1)]
+      "Indices of the true entries (increasing order; 0 for false entries)";
+
+protected
+  Integer count;
+
+algorithm
+    count := 1;
+    for i in 1:size(b, 1) loop
+      if b[i] then
+        enumerated[i] := count;
+        count := count + 1;
+      else
+        enumerated[i] := 0;
+      end if;
+    end for;
+
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>enumerate</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns an integer vector that consecutively numbers
+the <b>true</b> entries in a Boolean vector b.  The <b>false</b> entries are
+indicated by 0.
+</p>
+
+<h4>Example</h4>
+<p><code>enumerate({false, true, false, true})</code> returns <code>{0,1,0,2}</code>.</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+</p>
+</html>"));
+end enumerate;
+
+function firstTrueIndex
+    "Returns the index of the first true element of a Boolean vector"
+  extends Modelica.Icons.Function;
+  input Boolean b[:];
+  output Integer index;
+algorithm
+   index :=0;
+   for i in 1:size(b,1) loop
+      if b[i] then
+         index :=i;
+         return;
+      end if;
+   end for;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>firstTrueIndex</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns the index of the first <b>true</b> element of the Boolean vector b.
+If no element is <b>true</b> or b is an empty vector (i.e., size(b,1)=0) the
+function returns 0.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean b3[4] = {false, true, false, true};
+  Integer r1, r2, r3;
+<b>algorithm</b>
+  r1 = firstTrueIndex(b1);  // r1 = 0
+  r2 = firstTrueIndex(b2);  // r2 = 2
+  r3 = firstTrueIndex(b3);  // r3 = 2
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>, and
+<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+</p>
+</html>"));
+end firstTrueIndex;
+
+function index "Returns the indices of the true entries of a Boolean vector"
+  extends Modelica.Icons.Function;
+
+  input Boolean b[:] "Boolean vector";
+  output Integer indices[countTrue(b)] "Indices of the true entries";
+
+protected
+  Integer count;
+
+algorithm
+    count := 1;
+    for i in 1:size(b, 1) loop
+      if b[i] then
+        indices[count] := i;
+        count := count + 1;
+      end if;
+    end for;
+
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>index</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns an integer vector that contains indices to the
+<b>true</b> entries in a Boolean vector b.  The number of entries in
+the integer vector is the number of <b>true</b> entries in b.
+</p>
+
+<h4>Example</h4>
+<code>index({false, true, false, true})</code> returns <code>{2,4}</code>.
+
+  <h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>, and
+<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+</p>
+</html>"));
+end index;
+
+function oneTrue
+    "Returns true, if exactly one element of the Boolean input vector is true (\"xor\")"
+  extends Modelica.Icons.Function;
+
   input Boolean b[:];
   output Boolean result;
-  protected
-  Integer count = 0;
+
 algorithm
-  for i in 1:size(b,1) loop
-     count := if b[i] then count+1 else count;
-  end for;
-  result :=count == 1;
-    annotation (Documentation(info="<html>
+  result := countTrue(b) == 1;
+
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 <b>oneTrue</b>(b);
@@ -129,57 +318,13 @@ i.e., size(b,1)=0, the function returns <b>false</b>.
 <p>
 <a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
 <a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>.
+<a href=\"modelica://Modelica.Math.BooleanVectors.countTrue\">countTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.enumerate\">enumerate</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>, and
+<a href=\"modelica://Modelica.Math.BooleanVectors.index\">index</a>.
 </p>
 </html>"));
 end oneTrue;
-
-function firstTrueIndex
-    "Returns the index of the first element of the Boolean vector that is true and returns 0, if no element is true"
-  extends Modelica.Icons.Function;
-  input Boolean b[:];
-  output Integer index;
-algorithm
-   index :=0;
-   for i in 1:size(b,1) loop
-      if b[i] then
-         index :=i;
-         return;
-      end if;
-   end for;
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-<b>firstTrueIndex</b>(b);
-</pre></blockquote>
-
-<h4>Description</h4>
-<p>
-Returns the index of the first element of the Boolean vector b
-that is <b>true</b> and returns 0, if no element is <b>true</b>\"
-If b is an empty vector, i.e., size(b,1)=0, the function returns 0.
-</p>
-
-<h4>Example</h4>
-<blockquote><pre>
-  Boolean b1[3] = {false, false, false};
-  Boolean b2[3] = {false, true, false};
-  Boolean b3[4] = {false, true, false, true};
-  Integer r1, r2, r3;
-<b>algorithm</b>
-  r1 = firstTrueIndex(b1);  // r1 = 0
-  r2 = firstTrueIndex(b2);  // r2 = 2
-  r3 = firstTrueIndex(b3);  // r3 = 2
-</pre></blockquote>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
-</p>
-</html>"));
-end firstTrueIndex;
   annotation (Documentation(info="<html>
 <p>
 This library provides functions operating on vectors that have
