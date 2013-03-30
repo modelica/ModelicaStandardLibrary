@@ -233,9 +233,10 @@ If \"searchString\" is not found, a value of \"0\" is returned.
   protected
     Integer lenString = length(string);
     Integer lenSearchString = length(searchString);
+    Integer iMax=lenString - lenSearchString + 1;
     Integer i;
   algorithm
-    i := if startIndex == 0 then lenString-lenSearchString+1 else startIndex;
+    i := if startIndex == 0 or startIndex > iMax then iMax else startIndex;
     index := 0;
     while i >= 1 loop
        if isEqual(substring(string,i,i+lenSearchString-1),
@@ -259,7 +260,8 @@ index = Strings.<b>findLast</b>(string, searchString,
 Finds first occurrence of \"searchString\" within \"string\"
 when searching from the last character of \"string\"
 backwards, and return the corresponding index.
-Start search at index \"startIndex\" (default = length(string)).
+Start search at index \"startIndex\" (default = 0;
+if startIndex = 0, search starts at length(string)).
 If the optional argument \"caseSensitive\" is false, lower
 and upper case are ignored for the search.
 If \"searchString\" is not found, a value of \"0\" is returned.
