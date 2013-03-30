@@ -2,13 +2,14 @@
 #define MODELICA_UTILITIES_H
 
 #include <stddef.h>
+#include <stdarg.h>
 
 
 /* Utility functions which can be called by external Modelica functions.
 
    These functions are defined in section 12.8.6 of the
    Modelica Specification 3.0 and section 12.9.6 of the
-   Modelica Specification 3.1.
+   Modelica Specification 3.1 and 3.2.
 
    A generic C-implementation of these functions cannot be given,
    because it is tool dependent how strings are output in a
@@ -28,6 +29,12 @@ Output the message under the same format control as the C-function printf.
   */
 
 
+static void ModelicaVFormatMessage(const char *string, va_list);
+  /*
+Output the message under the same format control as the C-function vprintf.
+  */
+
+
 void ModelicaError(const char *string);
 /*
 Output the error message string (no format control). This function
@@ -40,6 +47,14 @@ void ModelicaFormatError(const char *string,...);
 /*
 Output the error message under the same format control as the C-function
 printf. This function never returns to the calling function,
+but handles the error similarly to an assert in the Modelica code.
+*/
+
+
+static void ModelicaVFormatError(const char *string, va_list);
+/*
+Output the error message under the same format control as the C-function
+vprintf. This function never returns to the calling function,
 but handles the error similarly to an assert in the Modelica code.
 */
 
