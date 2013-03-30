@@ -105,9 +105,9 @@ function countTrue "Returns the number of true entries in a Boolean vector"
   input Boolean b[:] "Boolean vector";
   output Integer n "Number of true entries";
 algorithm
-  n := sum(if b[i] then 1 else 0 for i in 1:size(b, 1))
-     annotation (Inline=true);
-    annotation (Documentation(info="<html>
+  n := sum(if b[i] then 1 else 0 for i in 1:size(b, 1));
+
+    annotation (Inline=true,Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 <b>countTrue</b>(b);
