@@ -341,7 +341,6 @@ not the case with function norm(..).
     output Real result[size(v, 1)] "Input vector v normalized to length=1";
 
   algorithm
-    assert(eps > 0.0 or eps == 0.0 and length(v) > 0.0, "A division of zero occurs, because v={0,0,0} shall be normalized (= v/sqrt(v*v)).");
     result := smooth(0, noEvent(if length(v) >= eps then v/length(v) else v/eps));
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
@@ -362,9 +361,8 @@ i.e., x*<b>e</b> is small, when length(<b>v</b>) is small and then
 it is fine to replace <b>e</b> by <b>v</b> to avoid a division by zero.
 </p>
 <p>
-Since the function is implemented in one statement,
-it is usually inlined and therefore symbolic processing is
-possible.
+Since the function has the \"Inline\" annotation, it
+is usually inlined and symbolic processing is applied.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -373,10 +371,51 @@ possible.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Vectors.length\">Vectors.length</a>
+<a href=\"modelica://Modelica.Math.Vectors.length\">Vectors.length</a>,
+<a href=\"modelica://Modelica.Math.Vectors.normalize\">Vectors.normalizeWithAssert</a>
 </p>
 </html>"));
   end normalize;
+
+function normalizeWithAssert
+  "Return normalized vector such that length = 1 (trigger an assert for zero vector)"
+  import Modelica.Math.Vectors.length;
+  extends Modelica.Icons.Function;
+  input Real v[:] "Vector";
+  output Real result[size(v, 1)] "Input vector v normalized to length=1";
+
+algorithm
+  assert(length(v) > 0.0, "Vector v={0,0,0} shall be normalized (= v/sqrt(v*v)), but this results in a division by zero.\nProvide a non-zero vector!");
+  result := v/length(v);
+  annotation (
+    Inline=true,
+    Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<b>normalizeWithAssert</b>(v);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>Vectors.<b>normalizeWithAssert</b>(v)</code>\" returns the
+<b>unit vector</b> \"<code>v/sqrt(v*v)</code>\" of vector v.
+If vector v is a zero vector, an assert is triggered.
+</p>
+<p>
+Since the function has the \"Inline\" annotation, it
+is usually inlined and symbolic processing is applied.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  <b>normalizeWithAssert</b>({1,2,3});  // = {0.267, 0.534, 0.802}
+  <b>normalizeWithAssert</b>({0,0,0});  // error (an assert is triggered)
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.Vectors.length\">Vectors.length</a>,
+<a href=\"modelica://Modelica.Math.Vectors.normalize\">Vectors.normalize</a>
+</p>
+</html>"));
+end normalizeWithAssert;
 
   function reverse "Reverse vector elements (e.g., v[1] becomes last element)"
     extends Modelica.Icons.Function;

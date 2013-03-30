@@ -366,8 +366,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     final parameter Frames.Orientation R_rel=if rotationType == Types.RotationTypes.RotationAxis then
-        Frames.planarRotation(Modelica.Math.Vectors.normalize(
-                                               n,0.0), Cv.from_deg(angle), 0) else
+        Frames.planarRotation(Modelica.Math.Vectors.normalizeWithAssert(
+                                               n), Cv.from_deg(angle), 0) else
         if rotationType == Types.RotationTypes.TwoAxesVectors then Frames.from_nxy(n_x, n_y) else
         Frames.axesRotations(sequence, Cv.from_deg(angles), zeros(3))
       "Fixed rotation object from frame_a to frame_b";
@@ -1973,8 +1973,8 @@ November 3-4, 2003, pp. 149-158</p>
 
     protected
     outer Modelica.Mechanics.MultiBody.World world;
-    parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                         n,0.0)
+    parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(
+                                         n)
         "Unit vector in direction of rotor axis, resolved in frame_a";
     parameter SI.Inertia nJ[3]=J*e;
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
@@ -2081,8 +2081,8 @@ November 3-4, 2003, pp. 149-158</p>
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
-    parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(
-                                         n,0.0)
+    parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(
+                                         n)
       "Unit vector in direction of rotor axis, resolved in frame_a";
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
       shapeType="cylinder",
@@ -2227,9 +2227,9 @@ November 3-4, 2003, pp. 149-158</p>
 
   protected
     outer World world;
-    parameter Real e_a[3](each final unit="1")=Modelica.Math.Vectors.normalize(n_a,0.0)
+    parameter Real e_a[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(n_a)
       "Unit vector in direction of flange_a rotation axis";
-    parameter Real e_b[3](each final unit="1")=Modelica.Math.Vectors.normalize(n_b,0.0)
+    parameter Real e_b[3](each final unit="1")=Modelica.Math.Vectors.normalizeWithAssert(n_b)
       "Unit vector in direction of flange_b rotation axis";
     encapsulated model Housing
       import Modelica;
