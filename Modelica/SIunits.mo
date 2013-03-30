@@ -1778,6 +1778,11 @@ argument):</p>
 
   type TimeAging = Real (final quantity="1/Modelica.SIunits.Time",final unit="1/s");
   type ChargeAging = Real (final quantity="1/Modelica.SIunits.ElectricCharge",final unit="1/(A.s)");
+
+ // Other types not defined in ISO 31-1992
+  type PerUnit = Real(unit = "1");
+
+ // Complex types for electrical systems (not defined in ISO 31-1992)
   record ComplexCurrent =
     Complex(redeclare Modelica.SIunits.Current re,
              redeclare Modelica.SIunits.Current im)
@@ -1851,12 +1856,12 @@ argument):</p>
             pattern=LinePattern.Dash,
             lineThickness=0.5)}), Documentation(info="<html>
 <p>
-Since magnetic material properties like reluctance and permeance often are anisotropic resp. salient, 
-a special operator instead of multiplication (compare: tensor vs. vector) is required. 
+Since magnetic material properties like reluctance and permeance often are anisotropic resp. salient,
+a special operator instead of multiplication (compare: tensor vs. vector) is required.
 Modelica.Magentic.FundamentalWave uses a special record Salient which is only valid in the rotor-fixed coordinate system.
 </p>
 <p>
-<b>Note:</b> To avoid confusion, no magnetic material properties should be defined as Complex units. 
+<b>Note:</b> To avoid confusion, no magnetic material properties should be defined as Complex units.
 </p>
 </html>"));
   record ComplexImpedance =
