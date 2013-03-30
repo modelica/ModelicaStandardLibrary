@@ -609,7 +609,7 @@ model M_Transformer "Generic transformer with free number of inductors"
 
   Modelica.SIunits.Voltage v[N];
   Modelica.SIunits.Current i[N](each start=0, fixed=true);
-  parameter Modelica.SIunits.Inductance Lm[N,N](final fixed=false);
+  parameter Modelica.SIunits.Inductance Lm[N,N](each final fixed=false);
 
 initial equation
   for s in 1:N loop
