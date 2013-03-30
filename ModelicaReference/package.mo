@@ -817,36 +817,6 @@ The experiment annotation defines the default start time (StartTime) in [s], the
 </html>"));
     end experiment;
 
-  class GenerateEvents "GenerateEvents"
-    extends ModelicaReference.Icons.Information;
-
-    annotation (Documentation(info="<html>
-<p>
-Annotation for special event handling in function calls.
-</p>
-
-<h4>Syntax</h4>
-
-<pre>
-   <b>annotation</b>\"(\" GenerateEvents \"=\" ( <b>false</b> | <b>true</b> ) \")
-</pre>
-
-<h4>Description</h4>
-
-<p>
-Has only an effect within a function declaration, and limited to non-recursive simple functions which consist of a single assignment to the single output variable.
-</p>
-<p>
-If \"<code>GenerateEvents = true</code>\", the model developer proposes to generate events for any relations in the function (e.g., by inlining the function).
-The  \"<code>GenerateEvents = true</code>\" generate events for functions called directly, or indirectly from functions fulfilling the simple function requirement, that has <code>Inline = true</code>, <code>LateInline = true</code>, or <code>InlineAfterIndexReduction = true</code>.
-</p>
-
-<h4>Example usage</h4>
-<p>
-<code>GenerateEvents = true</code> is for example used in <a href=\"modelica://Modelica.Media.Water.IF97_Utilities.phase_dT\">Modelica.Media.Water.IF97_Utilities.phase_dT</a> to indicate that the output should generate an event when it changes.
-</p>
-</html>"));
-    end GenerateEvents;
 
   class HideResult "HideResult"
     extends ModelicaReference.Icons.Information;
