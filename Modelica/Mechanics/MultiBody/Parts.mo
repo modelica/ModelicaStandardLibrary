@@ -2102,7 +2102,7 @@ November 3-4, 2003, pp. 149-158</p>
           0)) if world.enableAnimation and animation and not world.driveTrainMechanics3D;
 
     Modelica.Mechanics.Rotational.Components.Inertia inertia(
-      J=J) if
+      J=J, stateSelect=StateSelect.never) if
           not world.driveTrainMechanics3D
       annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
     RotorWith3DEffects rotorWith3DEffects(
@@ -2114,7 +2114,8 @@ November 3-4, 2003, pp. 149-158</p>
       cylinderDiameter=cylinderDiameter,
       cylinderColor=cylinderColor,
       specularCoefficient=specularCoefficient,
-      exact=exact) if world.driveTrainMechanics3D annotation (Placement(
+      exact=exact,
+      stateSelect=StateSelect.never) if world.driveTrainMechanics3D annotation (Placement(
           transformation(extent={{-20,-80},{20,-40}}, rotation=0)));
   equation
     phi = flange_a.phi;
