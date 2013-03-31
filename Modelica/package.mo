@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library (Version 3.2.1)"
+package Modelica "Modelica Standard Library (Version 3.2.1 Build 0)"
 extends Modelica.Icons.Package;
 
 
@@ -2389,15 +2389,87 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_BugFixes "Version 3.2 with bug fixes"
+class Version_3_2_1 "Version 3.2.1 (May xx, 2013)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
 
 <p>
-Below the bug fixes are summarized that have been incorporated into the
-maintenance branch of Version 3.2. All these changes are backwards compatible.
+Version 3.2.1 is backward compatible to version 3.2, that is models developed with
+versions 3.0, 3.0.1, 3.1, or 3.2 will work without any changes also with version 3.2.1.
+This version is a \"clean-up\" with major emphasis on quality improvement and
+tool compatibility. The goal is that all
+<a href=\"https://www.modelica.org/tools\">Modelica tools</a> will support this package
+and will interpret it in the same way. Short Overview:
 </p>
+
+<ul>
+<li> This version of the Modelica package is <b>fully compatible</b> to
+     Modelica Specification <b>3.2 revision 2</b>.<br>
+     (Especially, some operators used in package Modelica,
+     such as \"rooted\", have been standardized in 3.2 rev. 2,
+     as well as vendor annotations. Furthermore,
+     ambiguous/unclear descriptions in the specification have
+     been corrected/improved.)</li>
+
+<li> All tickets with compliance issues regarding the specification have been fixed.</li>
+
+<li> About <b>300 tickets</b> have been fixed for this release
+     (for an overview see below; for details see the
+     <a href=\"https://trac.modelica.org/Modelica/query?status=accepted&status=assigned&status=closed&milestone=MSL3.2.1&group=component&max=200&col=id&col=summary&col=milestone&col=status&col=owner&col=type&col=priority&order=id\">Modelica trac</a>).
+     </li>
+
+<li> An open source implementation of the <b>table blocks</b> has been provided
+     by <a href=\"http://www.itisim.com\">ITI GmbH</a> based on a
+     <a href=\"https://www.modelica.org/publications/newsletters/2013-1/index_html#item195\">payed contract</a>
+     of the Modelica Association. As a result, all parts of package Modelica are now available
+     in a free implementation.</li>
+
+<li> New media models for <b>moist air</b> (large operating range and based on real gas equations)
+     and the refrigerant <b>R134a</b> are included in the Modelica.Media library.
+     These models have been developed by
+     <a href=\"http://www.xrg-simulation.de/\">XRG Simulation GmbH</a>
+     as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project
+     (Project number: 296369; Theme: JTI-CS-2011-1-SGO-02-026).
+     The partial financial support by the European Union for this development
+     is highly appreciated.</li>
+
+<li> <b>60</b> models and blocks and <b>90</b> functions are newly included.</li>
+
+<li><b>xx</b> new libraries are included.</li>
+
+</ul>
+
+<p>
+This release of the Modelica package has been tested with several tools in the following way:
+</p>
+
+<ul>
+<li><b>Tests with Dymola 2014</b>
+    <ul>
+    <li>\"Check\" and \"Check with Simulation\" with pedantic flag performed
+        successfully on packages Modelica and ModelicaTest
+        (This flag is activated with option \"Advanced.PedanticModelica := true\".
+         In this case Dymola requires strict Modelica 3.2 rev. 2 compliance and triggers
+         an error if this is not the case. For example, if the initialization of an
+         executable model is not completely defined, an error is triggered.)</li>
+    <li><b>Still needs to be performed:</b> Regression tests with packages Modelica and ModelicaTest performed with
+        regards to version 3.2 build 9 (the version shipped with Dymola 2013 FD01).
+        That is, all executable models in version 3.2 build 9 give the same results
+        as in version 3.2.1 build 0.</li>
+    </ul>
+    </li>
+<li> <b>Other Tools (needs still to be performed)</b></li>
+</ul>
+
+
+<p><br>
+The following <b style=\"color:blue\">new components</b> have been added
+to <b style=\"color:blue\">existing</b> libraries:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+</table>
 
 <p><br>
 The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
@@ -2454,10 +2526,34 @@ units are wrong or errors in documentation):
                       Change</td>
     <td valign=\"top\"> Changed component definition from model to block.
                       (Maintenance back to version 2.2.1)</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Examples.</b></td></tr>
+<tr><td valign=\"top\">HeatingSystem</td>
+    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/680\">#680</a>
+    The model did not simulate since initialization failed.
+    The convergence of the initialization was improved by setting the start values
+    of ports.p to 1 bar and of s to 1.
+   </td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Utilities.</b></td></tr>
+<tr><td valign=\"top\">regRoot3</td>
+    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/495\">#495</a>
+    The function was modified so that the reported numerical problems do no longer occur
+    (if the saddle point is close to infinity, and the derivatives at y0 and y1 go in the
+    same direction, then it is guaranteed that the cublic polynomial is monotonic, and therefore
+    it can be directly used without going through the rest of the code).
+   </td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
+<tr><td valign=\"top\">Examples.*</td>
+    <td valign=\"top\">
+    The CAD data used in examples (RobotR3, EngineV6) was copied under Modelica/Resources/Data
+    and in the models this data is now referenced with an URI.
+   </td></tr>
+
 </table>
 
 </html>"));
-end Version_3_2_BugFixes;
+end Version_3_2_1;
 
 class Version_3_2 "Version 3.2 (Oct. 25, 2010)"
   extends Modelica.Icons.ReleaseNotes;
@@ -7447,7 +7543,7 @@ annotation (
 preferredView="info",
 version="3.2.1",
 versionBuild=0,
-versionDate="2012-06-18",
+versionDate="2013-04-01",
 dateModified = "2012-11-02 11:00:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
@@ -7495,8 +7591,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><b>1280</b> models and blocks, and</li>
-<li><b>910</b> functions</li>
+<li><b>1340</b> models and blocks, and</li>
+<li><b>1000</b> functions</li>
 </ul>
 <p>
 that are directly usable (= number of public, non-partial classes).
