@@ -29,7 +29,7 @@ Output the message under the same format control as the C-function printf.
   */
 
 
-static void ModelicaVFormatMessage(const char *string, va_list);
+void ModelicaVFormatMessage(const char *string, va_list);
   /*
 Output the message under the same format control as the C-function vprintf.
   */
@@ -51,7 +51,7 @@ but handles the error similarly to an assert in the Modelica code.
 */
 
 
-static void ModelicaVFormatError(const char *string, va_list);
+void ModelicaVFormatError(const char *string, va_list);
 /*
 Output the error message under the same format control as the C-function
 vprintf. This function never returns to the calling function,
