@@ -40,5 +40,5 @@ equation
   y4d = der(y4);
   y4dd = der(y4d);
 
-  annotation (experiment(StopTime=2, Interval=5000));
+  annotation (experiment(StopTime=2, Interval=4e-4));
 end TestRegRoot2ZeroDerivative;
