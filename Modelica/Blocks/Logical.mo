@@ -965,7 +965,7 @@ input becomes false.
   end Timer;
 
   block RSFlipFlop "A basic RS Flip Flop"
-    extends Modelica.Blocks.Icons.BooleanBlock;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
     parameter Boolean Qini=false "Start value of Q at initial time";
     Modelica.Blocks.Interfaces.BooleanOutput Q annotation (Placement(
           transformation(extent={{100,50},{120,70}}, rotation=0)));
@@ -1000,25 +1000,53 @@ input becomes false.
         points={{-120,-60},{-40,-60},{-40,-18},{-22,-18}},
         color={255,0,255},
         smooth=Smooth.None));
-    annotation (
-      Diagram(graphics),
-      Icon(graphics={
-          Text(
-            extent={{-70,-30},{-30,-90}},
-            lineColor={255,85,255},
-            textString="R"),
-          Text(
-            extent={{-70,90},{-30,30}},
-            lineColor={255,85,255},
-            textString="S"),
-          Text(
-            extent={{40,90},{80,30}},
-            lineColor={255,85,255},
-            textString="Q"),
-          Text(
-            extent={{30,-30},{90,-90}},
-            lineColor={255,85,255},
-            textString="Q!")}),
+  annotation (
+    Diagram(graphics),
+    Icon(graphics={
+        Text(
+          extent={{-60,-30},{-20,-90}},
+          lineColor={0,0,0},
+          textString="R"),
+        Text(
+          extent={{-62,90},{-22,30}},
+          lineColor={0,0,0},
+          textString="S"),
+        Text(
+          extent={{20,90},{60,30}},
+          lineColor={0,0,0},
+          textString="Q"),
+        Text(
+          extent={{6,-30},{66,-90}},
+          lineColor={0,0,0},
+          textString="Q!"),
+        Ellipse(
+          extent={{-73,54},{-87,68}},
+          lineColor=DynamicSelect({235,235,235}, if S > 0.5 then {0,255,0}
+               else {235,235,235}),
+          fillColor=DynamicSelect({235,235,235}, if S > 0.5 then {0,255,0}
+               else {235,235,235}),
+          fillPattern=FillPattern.Solid),
+        Ellipse(
+          extent={{83,-53},{69,-67}},
+          lineColor=DynamicSelect({235,235,235}, if QI > 0.5 then {0,255,0}
+               else {235,235,235}),
+          fillColor=DynamicSelect({235,235,235}, if QI > 0.5 then {0,255,0}
+               else {235,235,235}),
+          fillPattern=FillPattern.Solid),
+        Ellipse(
+          extent={{-71,-52},{-85,-66}},
+          lineColor=DynamicSelect({235,235,235}, if R > 0.5 then {0,255,0}
+               else {235,235,235}),
+          fillColor=DynamicSelect({235,235,235}, if R > 0.5 then {0,255,0}
+               else {235,235,235}),
+          fillPattern=FillPattern.Solid),
+        Ellipse(
+          extent={{71,67},{85,53}},
+          lineColor=DynamicSelect({235,235,235}, if Q > 0.5 then {0,255,0}
+               else {235,235,235}),
+          fillColor=DynamicSelect({235,235,235}, if Q > 0.5 then {0,255,0}
+               else {235,235,235}),
+          fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 The output <code>Q</code> is set by the input <code>S</code> and reset by the input <code>R</code>, and keeps its value in between. <code>QI</code> is the inverse of <code>Q</code>.
