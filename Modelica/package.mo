@@ -2408,11 +2408,11 @@ and will interpret it in the same way. Short Overview:
      Modelica Specification <b>3.2 revision 2</b>.<br>
      (Especially, some operators used in package Modelica,
      such as \"rooted\", have been standardized in 3.2 rev. 2,
-     as well as vendor annotations. Furthermore,
+     as well as vendor specific annotations. Furthermore,
      ambiguous/unclear descriptions in the specification have
      been corrected/improved.)</li>
 
-<li> All tickets with compliance issues regarding the specification have been fixed.</li>
+<li> All tickets with compliance issues have been fixed.</li>
 
 <li> About <b>300 tickets</b> have been fixed for this release
      (for an overview see below; for details see the
@@ -2421,12 +2421,13 @@ and will interpret it in the same way. Short Overview:
 
 <li> An open source implementation of the <b>table blocks</b> has been provided
      by <a href=\"http://www.itisim.com\">ITI GmbH</a> based on a
-     <a href=\"https://www.modelica.org/publications/newsletters/2013-1/index_html#item195\">payed contract</a>
+     <a href=\"https://www.modelica.org/news_items/call-texts-to-improve-modelica-2012/2012-12-20-Call-for-quotation-for-MSL-tables.pdf/at_download/file\">payed contract</a>
      of the Modelica Association. As a result, all parts of package Modelica are now available
      in a free implementation.</li>
 
 <li> New media models for <b>moist air</b> (large operating range and based on real gas equations)
-     and the refrigerant <b>R134a</b> are included in the Modelica.Media library.
+     and the refrigerant <b>R134a</b> are included in the Modelica.Media library in order to
+     improve the modeling of air conditioning systems especially in aircrafts.
      These models have been developed by
      <a href=\"http://www.xrg-simulation.de/\">XRG Simulation GmbH</a>
      as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project
@@ -2436,12 +2437,12 @@ and will interpret it in the same way. Short Overview:
 
 <li> <b>60</b> models and blocks and <b>90</b> functions are newly included.</li>
 
-<li><b>xx</b> new libraries are included.</li>
-
 </ul>
 
+
 <p>
-This release of the Modelica package has been tested with several tools in the following way:
+This release of the Modelica package has been tested with several tools in the following way
+(new components have been tested by the respective component developer):
 </p>
 
 <ul>
@@ -2455,12 +2456,18 @@ This release of the Modelica package has been tested with several tools in the f
          executable model is not completely defined, an error is triggered.)</li>
     <li><b>Still needs to be performed:</b> Regression tests with packages Modelica and ModelicaTest performed with
         regards to version 3.2 build 9 (the version shipped with Dymola 2013 FD01).
-        That is, all executable models in version 3.2 build 9 give the same results
+        That is, all 500 executable models in version 3.2 build 9 give the same results
         as in version 3.2.1 build 0.</li>
     </ul>
     </li>
 <li> <b>Other Tools (needs still to be performed)</b></li>
 </ul>
+
+<p>
+The exact difference between package Modelica version 3.2 and version 3.2.1 is
+summarized in a
+<a href=\"modelica://Modelica/Resources/Documentation/Differences-Modelica-32-321.html\">comparison table</a>.
+</p>
 
 
 <p><br>
@@ -2469,7 +2476,64 @@ to <b style=\"color:blue\">existing</b> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Logical.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> RSFlipFlop</td>
+    <td valign=\"top\"> Basic RS flip flop</td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> MinMax</td>
+    <td valign=\"top\">Output the minimum and the maximum element of the input vector </td></tr>
+<tr><td valign=\"top\" width=\"150\"> LinearDependency </td>
+    <td valign=\"top\">Output a linear combination of the two inputs </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Nonlinear.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> SlewRateLimiter</td>
+    <td valign=\"top\"> Limit the slew rate of a signal </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.MultiBody.Examples.Constraints.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> PrismaticConstraint <br>
+                        RevoluteConstraint<br>
+                        SphericalConstraint<br>
+                        UniversalConstraint</td>
+    <td valign=\"top\"> Demonstrates the use of the new Joints.Constraints joints by comparing
+                        them with the standard joints.</td></tr>
+<tr><td colspan=\"2\"><b>Modelica.MultiBody.Joints.Constraints.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> Prismatic <br>
+                        Revolute<br>
+                        Spherical<br>
+                        Universal</td>
+    <td valign=\"top\"> Joint elements formulated as kinematic constraints. These elements are
+                        designed to break kinematic loops and result usually in numerically more
+                        efficient and reliable loop handling as the (standard) automatic handling.</td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> MultiSensor</td>
+    <td valign=\"top\"> Ideal sensor to measure the torque and power between two flanges and the absolute angular velocity </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> MultiSensor</td>
+    <td valign=\"top\"> Ideal sensor to measure the absolute velocity, force and power between two flanges </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> isPowerOf2</td>
+    <td valign=\"top\"> Determine if the integer input is a power of 2 </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Vectors.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> normalizedWithAssert</td>
+    <td valign=\"top\"> Return normalized vector such that length = 1 (trigger an assert for zero vector) </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.BooleanVectors.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> countTrue</td>
+    <td valign=\"top\"> Returns the number of true entries in a Boolean vector  </td></tr>
+<tr><td valign=\"top\" width=\"150\"> enumerate</td>
+    <td valign=\"top\"> Enumerates the true entries in a Boolean vector (0 for false entries) </td></tr>
+<tr><td valign=\"top\" width=\"150\"> index</td>
+    <td valign=\"top\"> Returns the indices of the true entries of a Boolean vector</td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Utilities.Files.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> loadResource</td>
+    <td valign=\"top\"> Return the absolute path name of a URI or local file name  </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> PressureDifference<br>
+                        MolarEnergy<br>
+                        MolarEnthalpy<br>
+                        TimeAging<br>
+                        ChargeAging<br>
+                        PreUnit</td>
+    <td valign=\"top\"> New SI unit types </td></tr>
 </table>
+
 
 <p><br>
 The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
@@ -2478,7 +2542,7 @@ that can lead to wrong simulation results):
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><b>Modelica.Math.Mechanic.Translational.Components.</b></td></tr>
-<tr><td valign=\"top\"> SupportFriction</td>
+<tr><td valign=\"top\" width=\"150\"> SupportFriction</td>
     <td valign=\"top\"> Corrected wrong calculation of position s (and consequently velocity and acceleration) relative to support.
                       (Maintenance back to Version 3.0)</td></tr>
 </table>
@@ -2491,17 +2555,17 @@ units are wrong or errors in documentation):
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
-<tr><td valign=\"top\"> rcond<br>
+<tr><td valign=\"top\" width=\"150\"> rcond<br>
                       discreteRiccati<br>
                        </td>
     <td valign=\"top\"> The unspecified dimensions in an array in the protected section
                       replaced by concrete dimensions.</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.Utilities.</b></td></tr>
-<tr><td valign=\"top\"> householderSimilarityTransformation</td>
+<tr><td valign=\"top\" width=\"150\"> householderSimilarityTransformation</td>
     <td valign=\"top\"> The unspecified dimensions in an array in the protected section
                       replaced by concrete dimensions.</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.SpacePhacors.Functions.</b></td></tr>
-<tr><td valign=\"top\"> ToSpacePhasor<br>
+<tr><td valign=\"top\" width=\"150\"> ToSpacePhasor<br>
                       FromSpacePhasor<br>
                       ToPolar<br>
                       FromPolar<br>
@@ -2510,11 +2574,11 @@ units are wrong or errors in documentation):
     <td valign=\"top\"> Moved constants (like pi) to protected section.
                       (Maintenance back to version 2.2.1)</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
-<tr><td valign=\"top\"> Mean</td>
+<tr><td valign=\"top\" width=\"150\"> Mean</td>
     <td valign=\"top\"> Changed discrete t0 to parameter t0(fixed=false).
                       (Maintenance back to version 3.2)</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Logical.</b></td></tr>
-<tr><td valign=\"top\"> And<br>
+<tr><td valign=\"top\" width=\"150\"> And<br>
                       Or<br>
                       Xor<br>
                       Nor<br>
@@ -2527,7 +2591,7 @@ units are wrong or errors in documentation):
     <td valign=\"top\"> Changed component definition from model to block.
                       (Maintenance back to version 2.2.1)</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Fluid.Examples.</b></td></tr>
-<tr><td valign=\"top\">HeatingSystem</td>
+<tr><td valign=\"top\" width=\"150\">HeatingSystem</td>
     <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/680\">#680</a>
     The model did not simulate since initialization failed.
     The convergence of the initialization was improved by setting the start values
@@ -2535,7 +2599,7 @@ units are wrong or errors in documentation):
    </td></tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Fluid.Utilities.</b></td></tr>
-<tr><td valign=\"top\">regRoot3</td>
+<tr><td valign=\"top\" width=\"150\">regRoot3</td>
     <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/495\">#495</a>
     The function was modified so that the reported numerical problems do no longer occur
     (if the saddle point is close to infinity, and the derivatives at y0 and y1 go in the
@@ -2544,7 +2608,7 @@ units are wrong or errors in documentation):
    </td></tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
-<tr><td valign=\"top\">Examples.*</td>
+<tr><td valign=\"top\" width=\"150\">Examples.*</td>
     <td valign=\"top\">
     The CAD data used in examples (RobotR3, EngineV6) was copied under Modelica/Resources/Data
     and in the models this data is now referenced with an URI.
