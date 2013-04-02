@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples;
 package Constraints "Examples with constraint joints"
 extends Modelica.Icons.ExamplesPackage;
 
-  model ConstrainPrismaticJoint
+  model PrismaticConstraint
     "Body attached by one spring and two prismatic joints or constrained to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "True, if animation shall be enabled";
@@ -15,7 +15,7 @@ extends Modelica.Icons.ExamplesPackage;
       s(fixed=true),
       v(fixed=true))
       annotation (Placement(transformation(extent={{40,-30},{20,-10}})));
-    Joints.Constraints.PrismaticJoints constraint(x_locked=false, y_locked=
+    Joints.Constraints.Prismatic constraint(x_locked=false, y_locked=
           false)
       annotation (Placement(transformation(extent={{60,10},{40,30}})));
     Modelica.Mechanics.MultiBody.Sensors.RelativeSensor sensorConstraintRelative(
@@ -199,9 +199,9 @@ extends Modelica.Icons.ExamplesPackage;
 <p><b>Simulation results</b> </p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict both position and angle deviations in the constraining element.</p>
 </html>"));
-  end ConstrainPrismaticJoint;
+  end PrismaticConstraint;
 
-  model ConstrainRevoluteJoint
+  model RevoluteConstraint
     "Body attached by one spring and revolute joint or constrained to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -210,7 +210,7 @@ extends Modelica.Icons.ExamplesPackage;
       phi(fixed=true),
       w(fixed=true))
       annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
-    Joints.Constraints.RevoluteJoint constraint(n=joint.n)
+    Joints.Constraints.Revolute constraint(n=joint.n)
       annotation (Placement(transformation(extent={{60,10},{40,30}})));
     Modelica.Mechanics.MultiBody.Sensors.RelativeSensor sensorConstraintRelative(
       resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
@@ -382,9 +382,9 @@ extends Modelica.Icons.ExamplesPackage;
 <p><b>Simulation results</b> </p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict both position and angle deviations in the constraining element.</p>
 </html>"));
-  end ConstrainRevoluteJoint;
+  end RevoluteConstraint;
 
-  model ConstrainSphericalJoint
+  model SphericalConstraint
     "Body attached by one spring and spherical joint or constrained to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -393,7 +393,7 @@ extends Modelica.Icons.ExamplesPackage;
       w_rel_a_fixed=true,
       enforceStates=true)
       annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
-    Joints.Constraints.SphericalJoint constraint
+    Joints.Constraints.Spherical constraint
       annotation (Placement(transformation(extent={{60,10},{40,30}})));
     Modelica.Mechanics.MultiBody.Sensors.RelativeSensor sensorConstraintRelative(
       resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
@@ -569,9 +569,9 @@ extends Modelica.Icons.ExamplesPackage;
 <p><b>Simulation results</b> </p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict position deviations in the constraining element.</p>
 </html>"));
-  end ConstrainSphericalJoint;
+  end SphericalConstraint;
 
-  model ConstrainUniversalJoint
+  model UniversalConstraint
     "Body attached by one spring and universal joint or constrained to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -584,7 +584,7 @@ extends Modelica.Icons.ExamplesPackage;
       w_a(fixed=true),
       w_b(fixed=true))
       annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
-    Joints.Constraints.UniversalJoint constraint(n_a=joint.n_a, n_b=joint.n_b)
+    Joints.Constraints.Universal constraint(n_a=joint.n_a, n_b=joint.n_b)
       annotation (Placement(transformation(extent={{60,10},{40,30}})));
     Modelica.Mechanics.MultiBody.Sensors.RelativeSensor sensorConstraintRelative(
       resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
@@ -776,7 +776,7 @@ extends Modelica.Icons.ExamplesPackage;
 <p><b>Simulation results</b> </p>
 <p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict position deviations in the constraining element.</p>
 </html>"));
-  end ConstrainUniversalJoint;
+  end UniversalConstraint;
   annotation (Documentation(info="<html>
 <p>This package is a collection of simulatable models involving constraints in a multibody system.
   The examples mainly show comparison of constraints to the standard joints.</p>
