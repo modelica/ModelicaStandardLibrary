@@ -60,7 +60,7 @@ package Sensors "Sensors to measure variables"
       "= true, if animation shall be enabled (show arrow)";
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
         Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
-      "Frame in which vectors are resolved (1: world, 2: frame_a, 3: frame_resolve)";
+      "Frame in which vectors are resolved (world, frame_a, or frame_resolve)";
     parameter Boolean get_r=false
       "= true, to measure the absolute position vector of the origin of frame_a"
       annotation(HideResult=true, choices(checkBox=true));
@@ -491,7 +491,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
       resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
-      "Frame in which vectors are resolved before differentiation (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+      "Frame in which vectors are resolved before differentiation (world, frame_a, frame_b, or frame_resolve)";
     parameter Boolean get_r_rel=false
       "= true, to measure the relative position vector from the origin of frame_a to frame_b"
       annotation(HideResult=true, choices(checkBox=true));
@@ -531,7 +531,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
       resolveInFrameAfterDifferentiation = resolveInFrame
-      "Frame in which vectors are resolved after differentiation (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)"
+      "Frame in which vectors are resolved after differentiation (world, frame_a, frame_b, or frame_resolve)"
       annotation(Dialog(tab="Advanced", group="if get_v_rel or get_a_rel or get_z_rel", enable=get_v_rel or get_a_rel or get_z_rel));
 
     Blocks.Interfaces.RealOutput r_rel[3](each final quantity="Length", each final
@@ -1007,7 +1007,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
-      "Frame in which output vector r shall be resolved (1: world, 2: frame_a, 3:frame_resolve)";
+      "Frame in which output vector r shall be resolved (world, frame_a, or frame_resolve)";
 
   protected
     Internal.BasicAbsolutePosition position(resolveInFrame=resolveInFrame)
@@ -1125,7 +1125,7 @@ computed as:
 
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
         Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
-      "Frame in which output vector v shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
+      "Frame in which output vector v shall be resolved (world, frame_a, or frame_resolve)";
 
   protected
     Internal.BasicAbsolutePosition position(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
@@ -1364,7 +1364,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
-      "Frame in which output vector w shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
+      "Frame in which output vector w shall be resolved (world, frame_a, or frame_resolve)";
 
   protected
     Internal.BasicAbsoluteAngularVelocity angularVelocity(resolveInFrame=
@@ -1481,7 +1481,7 @@ computed as:
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
       resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
-      "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+      "Frame in which output vector r_rel shall be resolved (world, frame_a, frame_b, or frame_resolve)";
 
   protected
     Internal.BasicRelativePosition relativePosition(resolveInFrame=resolveInFrame)
@@ -1595,7 +1595,7 @@ computed as:
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
       resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
-      "Frame in which output vector v_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+      "Frame in which output vector v_rel shall be resolved (world, frame_a, frame_b, or frame_resolve)";
 
   protected
     RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a)
@@ -1849,7 +1849,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
       resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
-      "Frame in which output vector w_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+      "Frame in which output vector w_rel shall be resolved (world, frame_a, frame_b, or frame_resolve)";
 
   protected
     Internal.BasicRelativeAngularVelocity relativeAngularVelocity(resolveInFrame=
@@ -2557,10 +2557,10 @@ as output signal <b>power</b>.
 
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_in=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
-      "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_resolve)";
+      "Frame in which vector r_in is resolved (world, frame_a, or frame_resolve)";
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_out=
                     frame_r_in
-      "Frame in which vector r_in shall be resolved and provided as r_out (1: world, 2: frame_a, 3: frame_resolve)";
+      "Frame in which vector r_in shall be resolved and provided as r_out (world, frame_a, or frame_resolve)";
 
   protected
     Internal.BasicTransformAbsoluteVector basicTransformVector(frame_r_in=
@@ -2666,10 +2666,10 @@ transformed output vector as \"Real r_out[3]\";
 
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_in=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
-      "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+      "Frame in which vector r_in is resolved (world, frame_a, frame_b, or frame_resolve)";
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_out=
                     frame_r_in
-      "Frame in which vector r_in shall be resolved and provided as r_out (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+      "Frame in which vector r_in shall be resolved and provided as r_out (world, frame_a, frame_b, or frame_resolve)";
 
   protected
     Modelica.Mechanics.MultiBody.Sensors.Internal.BasicTransformRelativeVector
@@ -2926,7 +2926,7 @@ transformed output vector as \"Real r_out[3]\";
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
         resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
-        "Frame in which output vector r is resolved (1: world, 2: frame_a, 3: frame_resolve)";
+        "Frame in which output vector r is resolved (world, frame_a, or frame_resolve)";
 
     equation
        if resolveInFrame == ResolveInFrameA.world then
@@ -2965,7 +2965,7 @@ transformed output vector as \"Real r_out[3]\";
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
         resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
-        "Frame in which output vector w is resolved (1: world, 2: frame_a, 3: frame_resolve)";
+        "Frame in which output vector w is resolved (world, frame_a, or frame_resolve)";
 
     equation
        if resolveInFrame == ResolveInFrameA.world then
@@ -3004,7 +3004,7 @@ transformed output vector as \"Real r_out[3]\";
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
         resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
-        "Frame in which output vector r_rel is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+        "Frame in which output vector r_rel is resolved (world, frame_a, frame_b, or frame_resolve)";
 
     equation
        if resolveInFrame == ResolveInFrameAB.frame_a then
@@ -3045,7 +3045,7 @@ transformed output vector as \"Real r_out[3]\";
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
         resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
-        "Frame in which output vector w_rel is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+        "Frame in which output vector w_rel is resolved (world, frame_a, frame_b, or frame_resolve)";
 
     protected
       Modelica.Mechanics.MultiBody.Frames.Orientation R_rel
@@ -3083,10 +3083,10 @@ transformed output vector as \"Real r_out[3]\";
 
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_in=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
-        "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_resolve)";
+        "Frame in which vector r_in is resolved (world, frame_a, or frame_resolve)";
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_out=
                       frame_r_in
-        "Frame in which vector r_out (= r_in in other frame) is resolved (1: world, 2: frame_a, 3: frame_resolve)";
+        "Frame in which vector r_out (= r_in in other frame) is resolved (world, frame_a, or frame_resolve)";
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Coordinate system from which absolute kinematic quantities are measured"
@@ -3196,10 +3196,10 @@ transformed output vector as \"Real r_out[3]\";
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor;
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_in=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
-        "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+        "Frame in which vector r_in is resolved (world, frame_a, frame_b, or frame_resolve)";
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_out=
                       frame_r_in
-        "Frame in which vector r_out (= r_in in other frame) is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+        "Frame in which vector r_out (= r_in in other frame) is resolved (world, frame_a, frame_b, or frame_resolve)";
 
       Blocks.Interfaces.RealInput r_in[3]
         "Input vector resolved in frame defined by frame_r_in"
@@ -3291,7 +3291,7 @@ transformed output vector as \"Real r_out[3]\";
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
         resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
-        "Frame in which output vector(s) is/are resolved (1: world, 2: frame_a, 3: frame_resolve)";
+        "Frame in which output vector(s) is/are resolved (world, frame_a, or frame_resolve)";
 
     protected
       outer Modelica.Mechanics.MultiBody.World world;
@@ -3358,7 +3358,7 @@ with the blocks of package Modelica.Blocks.
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
         resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
-        "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_resolve)";
+        "Frame in which output vector is resolved (world, frame_a, or frame_resolve)";
 
     protected
       outer Modelica.Mechanics.MultiBody.World world;
