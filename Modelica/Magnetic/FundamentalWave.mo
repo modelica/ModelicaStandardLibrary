@@ -66,7 +66,7 @@ The specific arrangement of windings in electric machines with <img src=\"modeli
 
 <p>
 The main components of an electric machine model based on the FundamentalWave library are <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">multi phase</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase windings</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">air gap</a> as well as <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric</a> or <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">salient cage</a> models.
-The electric machine models provided in this library are based on symmetrical windings in the stator and equivalent two or three phase windings in squirrel cage rotors. Slip ring induction machines may have different phase numbers in the stator and rotor. 
+The electric machine models provided in this library are based on symmetrical windings in the stator and equivalent two or three phase windings in squirrel cage rotors. Slip ring induction machines may have different phase numbers in the stator and rotor.
 </p>
 
 <h4>Assumptions</h4>
@@ -86,7 +86,7 @@ The machine models of the FundamentalWave library are currently based on the fol
 <li>All resistances and inductances are modeled as constant quantities; saturation effects, cross coupling effects
     [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Li07</a>], temperature dependency of resistances and deep bar effects could be considered in an extension to this library</li>
 <li>Hysteresis losses are currently not considered [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Haumer09</a>]</li>
-<li>The losses dissipated in the electric machine models are 
+<li>The losses dissipated in the electric machine models are
     <ul>
     <li>ohmic heat losses,</li>
     <li>eddy current losses in the stator core,</li>
@@ -155,10 +155,10 @@ The term <b>fundamental wave</b> refers to spatial waves of the electro magnetic
 <h4>Stator main inductance</h4>
 
 <p>
-The stator main inductance 
+The stator main inductance
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_m.png\">
 of an
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\"> 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\">
 phase induction machine is related with the self inductance of on stator phase,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lss.png\">,
 by:</p>
@@ -168,24 +168,24 @@ by:</p>
 
 <h4>Parameters of equivalent multi phase induction machines models</h4>
 
-<p>Assume a set parameters, 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Rs_3.png\">, 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lssigma_3.png\">, 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/L0_3.png\">, 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_3.png\">, 
-of a three phase induction machine and a set of parameters, 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Rs_m.png\">, 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lssigma_m.png\">, 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/L0_m.png\">, 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_m.png\">, 
-of an 
+<p>Assume a set parameters,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Rs_3.png\">,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lssigma_3.png\">,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/L0_3.png\">,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_3.png\">,
+of a three phase induction machine and a set of parameters,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Rs_m.png\">,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lssigma_m.png\">,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/L0_m.png\">,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_m.png\">,
+of an
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\">
-phase induction machine. It is also assumed that 
+phase induction machine. It is also assumed that
 <ul>
 <li>the nominal phase voltages</li>
 <li>the nominal stator frequences</li>
 </ul>
-of the three and 
+of the three and
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\">
 phase induction machine are equal. In this case the two parameter sets are related by:</p>
 <p>
@@ -203,12 +203,12 @@ This way the same torque is generated and the machine currents are related by:
 <p>
 The same applies for the rotor parameters of a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">
-slip ring induction machine</a>, where the phase number  
+slip ring induction machine</a>, where the phase number
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\">
-is simply replaced by 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/mr.png\"> 
-for transforming equivalent three phase to 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/mr.png\"> 
+is simply replaced by
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/mr.png\">
+for transforming equivalent three phase to
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/mr.png\">
 phase winding parameters -- at the same nominal rotor voltage and frequency.
 </p>
 
@@ -464,7 +464,7 @@ model from R to G</li>
     <tr>
       <td valign=\"top\">[Lang84]</td>
       <td valign=\"top\">W. Lang,
-        <i>&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r Pulsumrichterspeisung</i> 
+        <i>&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r Pulsumrichterspeisung</i>
        (in German),
        Doctoral Thesis, Technical University of Vienna, 1984.</td>
     </tr>
@@ -5801,13 +5801,6 @@ The salient cage model is a two axis model with two phases. The electromagnetic 
 </html>"));
       end SaliencyCageWinding;
 
-      annotation (Documentation(info="<html>
-<p>
-This package contains components for
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines\">asynchronous induction machines</a> and
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines\">synchronous induction machines</a>.
-</p>
-</html>"));
       model PermanentMagnet
         extends
           Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference;
