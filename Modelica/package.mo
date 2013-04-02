@@ -2487,6 +2487,102 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Nonlinear.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> SlewRateLimiter</td>
     <td valign=\"top\"> Limit the slew rate of a signal </td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Memories</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> DLATRAM</td>
+    <td valign=\"top\"> Level sensitive Random Access Memory </td></tr>
+<tr><td valign=\"top\" width=\"150\"> DLATROM</td>
+    <td valign=\"top\"> Level sensitive Read Only Memory </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Multiplexers</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> MUX2x1</td>
+    <td valign=\"top\"> A two inputs MULTIPLEXER for multiple value logic (2 data inputs, 1 select input, 1 output) </td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> AIMC_Initialize </td>
+    <td valign=\"top\"> Steady-State Initialization examnple of AsynchronousInductionMachineSquirrelCage </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> SMPM_VoltageSource </td>
+    <td valign=\"top\"> PermanentMagnetSynchronousInductionMachine example fed by FOC </td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Examples.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> TestSensors </td>
+    <td valign=\"top\"> Example for multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Sensors.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> VoltageQuasiRMSSensor </td>
+    <td valign=\"top\"> Continuous quasi voltage RMS sensor for multi phase system </td></tr>
+<tr><td valign=\"top\" width=\"150\"> CurrentQuasiRMSSensor </td>
+    <td valign=\"top\"> Continuous quasi current RMS sensor for multi phase system </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Blocks.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> QuasiRMS </td>
+    <td valign=\"top\"> Determine quasi RMS value of a multi-phase system </td></tr>
+v<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Functions.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> quasiRMS </td>
+    <td valign=\"top\"> Calculate continuous quasi RMS value of input </td></tr>
+<tr><td valign=\"top\" width=\"150\"> activePower </td>
+    <td valign=\"top\"> Calculate active power of voltage and current input </td></tr>
+<tr><td valign=\"top\" width=\"150\"> symmetricOrientation </td>
+    <td valign=\"top\"> Orientations of the resulting fundamental wave field phasors </td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Spice3.Examples.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> CoupledInductors<br>
+                                      CascodeCircuit<br>
+                                      Spice3BenchmarkDifferentialPair<br>
+                                      Spice3BenchmarkMosfetCharacterization<br>
+                                      Spice3BenchmarkRtlInverter<br>
+                                      Spice3BenchmarkFourBitBinaryAdder</td>
+    <td valign=\"top\"> Spice3 examples and benchmarks from the SPICE3 Version e3 Users's Manual </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Spice3.Basic.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> K_CoupledInductors</td>
+    <td valign=\"top\"> Inductive coupling via coupling factor K </td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Spice3.Semiconductors.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> M_NMOS2 <br>
+                                      M_PMOS2 <br>
+                                      ModelcardMOS2</td>
+    <td valign=\"top\">  N/P channel MOSFET transistor with fixed level 2 </td></tr>
+<tr><td valign=\"top\" width=\"150\"> J_NJFJFE <br>
+                                      J_PJFJFE <br>
+                                      ModelcardJFET</td>
+    <td valign=\"top\">  N/P-channel junction field-effect transistor </td></tr>
+<tr><td valign=\"top\" width=\"150\"> C_Capacitor <br>
+                                      ModelcardCAPACITOR</td>
+    <td valign=\"top\">  Semiconductor capacitor model </td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> AIMC_DOL_MultiPhase<br>
+                                      AIMS_Start_MultiPhase<br>
+                                      SMPM_Inverter_MultiPhase<br>
+                                      SMEE_Generator_MultiPhase<br>
+                                      SMR_Inverter_MultiPhase</td>
+    <td valign=\"top\"> Multi-phase machine examples </td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Sensors.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> MassFractions<br>
+                                      MassFractionsTwoPort</td>
+    <td valign=\"top\"> Ideal mass fraction sensors </td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Media.Air.MoistAir.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> velocityOfSound<br>
+                                      isobaricExpansionCoefficient<br>
+                                      isothermalCompressibility<br>
+                                      density_derp_h<br>
+                                      density_derh_p<br>
+                                      density_derp_T<br>
+                                      density_derT_p<br>
+                                      density_derX<br>
+                                      molarMass<br>
+                                      T_psX<br>
+                                      setState_psX<br>
+                                      s_pTX<br>
+                                      s_pTX_der<br>
+                                      isentropicEnthalpy</td>
+    <td valign=\"top\"> Functions returning additional properties of the moist air medium model</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Thermal.HeatTransfer.Components.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> ThermalResistor</td>
+    <td valign=\"top\"> Lumped thermal element transporting heat without storing it (dT = R*Q_flow) </td></tr>
+<tr><td valign=\"top\" width=\"150\"> ConvectiveResistor</td>
+    <td valign=\"top\"> Lumped thermal element for heat convection (dT = Rc*Q_flow) </td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.MultiBody.Examples.Constraints.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> PrismaticConstraint <br>
                         RevoluteConstraint<br>
@@ -2502,12 +2598,15 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Joint elements formulated as kinematic constraints. These elements are
                         designed to break kinematic loops and result usually in numerically more
                         efficient and reliable loop handling as the (standard) automatic handling.</td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> MultiSensor</td>
     <td valign=\"top\"> Ideal sensor to measure the torque and power between two flanges and the absolute angular velocity </td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> MultiSensor</td>
     <td valign=\"top\"> Ideal sensor to measure the absolute velocity, force and power between two flanges </td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Math.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> isPowerOf2</td>
     <td valign=\"top\"> Determine if the integer input is a power of 2 </td></tr>
@@ -2521,9 +2620,11 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Enumerates the true entries in a Boolean vector (0 for false entries) </td></tr>
 <tr><td valign=\"top\" width=\"150\"> index</td>
     <td valign=\"top\"> Returns the indices of the true entries of a Boolean vector</td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Utilities.Files.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> loadResource</td>
     <td valign=\"top\"> Return the absolute path name of a URI or local file name  </td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> PressureDifference<br>
                         MolarEnergy<br>
