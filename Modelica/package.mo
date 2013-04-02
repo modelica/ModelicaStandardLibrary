@@ -2414,9 +2414,8 @@ and will interpret it in the same way. Short Overview:
 
 <li> All tickets with compliance issues have been fixed.</li>
 
-<li> About <b>300 tickets</b> have been fixed for this release
-     (for an overview see below; for details see the
-     <a href=\"https://trac.modelica.org/Modelica/query?status=accepted&status=assigned&status=closed&milestone=MSL3.2.1&group=component&max=200&col=id&col=summary&col=milestone&col=status&col=owner&col=type&col=priority&order=id\">Modelica trac</a>).
+<li> About <b>300 tickets</b> have been fixed for this release, and
+     especially all compliance issues.
      </li>
 
 <li> An open source implementation of the <b>table blocks</b> has been provided
@@ -2466,7 +2465,13 @@ This release of the Modelica package has been tested with several tools in the f
 <p>
 The exact difference between package Modelica version 3.2 and version 3.2.1 is
 summarized in a
-<a href=\"modelica://Modelica/Resources/Documentation/Differences-Modelica-32-321.html\">comparison table</a>.
+<a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/DifferencesTo32.html\">comparison table</a>.
+</p>
+
+<p>
+About <b>300</b> trac tickets have been fixed for this release. An overview is given
+<a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html\">here</a>.
+Clicking on the respective ticket number gives all information for the respective ticket.
 </p>
 
 
@@ -2633,88 +2638,6 @@ v<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Functions.</b></td></tr
                         ChargeAging<br>
                         PreUnit</td>
     <td valign=\"top\"> New SI unit types </td></tr>
-</table>
-
-
-<p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
-that can lead to wrong simulation results):
-</p>
-
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.Math.Mechanic.Translational.Components.</b></td></tr>
-<tr><td valign=\"top\" width=\"150\"> SupportFriction</td>
-    <td valign=\"top\"> Corrected wrong calculation of position s (and consequently velocity and acceleration) relative to support.
-                      (Maintenance back to Version 3.0)</td></tr>
-</table>
-
-<p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
-that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
-units are wrong or errors in documentation):
-</p>
-
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
-<tr><td valign=\"top\" width=\"150\"> rcond<br>
-                      discreteRiccati<br>
-                       </td>
-    <td valign=\"top\"> The unspecified dimensions in an array in the protected section
-                      replaced by concrete dimensions.</td></tr>
-<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.Utilities.</b></td></tr>
-<tr><td valign=\"top\" width=\"150\"> householderSimilarityTransformation</td>
-    <td valign=\"top\"> The unspecified dimensions in an array in the protected section
-                      replaced by concrete dimensions.</td> </tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.SpacePhacors.Functions.</b></td></tr>
-<tr><td valign=\"top\" width=\"150\"> ToSpacePhasor<br>
-                      FromSpacePhasor<br>
-                      ToPolar<br>
-                      FromPolar<br>
-                      quasiRMS<br>
-                      activePower</td>
-    <td valign=\"top\"> Moved constants (like pi) to protected section.
-                      (Maintenance back to version 2.2.1)</td> </tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
-<tr><td valign=\"top\" width=\"150\"> Mean</td>
-    <td valign=\"top\"> Changed discrete t0 to parameter t0(fixed=false).
-                      (Maintenance back to version 3.2)</td> </tr>
-<tr><td colspan=\"2\"><b>Modelica.Blocks.Logical.</b></td></tr>
-<tr><td valign=\"top\" width=\"150\"> And<br>
-                      Or<br>
-                      Xor<br>
-                      Nor<br>
-                      Nand<br>
-                      Not<br>
-                      Pre<br>
-                      Edge<br>
-                      FallingEdge<br>
-                      Change</td>
-    <td valign=\"top\"> Changed component definition from model to block.
-                      (Maintenance back to version 2.2.1)</td> </tr>
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Examples.</b></td></tr>
-<tr><td valign=\"top\" width=\"150\">HeatingSystem</td>
-    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/680\">#680</a>
-    The model did not simulate since initialization failed.
-    The convergence of the initialization was improved by setting the start values
-    of ports.p to 1 bar and of s to 1.
-   </td></tr>
-
-<tr><td colspan=\"2\"><b>Modelica.Fluid.Utilities.</b></td></tr>
-<tr><td valign=\"top\" width=\"150\">regRoot3</td>
-    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/495\">#495</a>
-    The function was modified so that the reported numerical problems do no longer occur
-    (if the saddle point is close to infinity, and the derivatives at y0 and y1 go in the
-    same direction, then it is guaranteed that the cublic polynomial is monotonic, and therefore
-    it can be directly used without going through the rest of the code).
-   </td></tr>
-
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.</b></td></tr>
-<tr><td valign=\"top\" width=\"150\">Examples.*</td>
-    <td valign=\"top\">
-    The CAD data used in examples (RobotR3, EngineV6) was copied under Modelica/Resources/Data
-    and in the models this data is now referenced with an URI.
-   </td></tr>
-
 </table>
 
 </html>"));
