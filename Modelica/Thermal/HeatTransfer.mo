@@ -902,7 +902,7 @@ McGraw-Hill, 1997, p.270):
             Text(
               extent={{-119,-86},{117,-125}},
               lineColor={0,0,0},
-              textString="G=%G"),
+              textString="Gr=%Gr"),
             Rectangle(
               extent={{-50,80},{-44,-80}},
               lineColor={191,0,0},
