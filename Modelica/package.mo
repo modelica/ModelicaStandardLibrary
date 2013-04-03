@@ -2640,7 +2640,7 @@ v<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Functions.</b></td></tr
                         MolarEnthalpy<br>
                         TimeAging<br>
                         ChargeAging<br>
-                        PreUnit</td>
+                        PerUnit</td>
     <td valign=\"top\"> New SI unit types </td></tr>
 </table>
 </html>"));
