@@ -7207,7 +7207,15 @@ class Contact "Contact"
 <dd>email: <a href=\"mailto:Board@Modelica.org\">Board@Modelica.org</a></dd>
 <dd>web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></dd>
 <dd>&nbsp;&nbsp;</dd>
-<dt>The development of this Modelica package is organized by:</dt>
+
+<dt>The development of this Modelica package (after version 3.2) is organized by:</dt>
+<dd>Anton Haumer</dd>
+<dd>xxx</dd>
+<dd>Austria</dd>
+<dd>email: <a href=\"mailto:A.Haumer@Haumer.at\">A.Haumer@Haumer.at</a></dd>
+
+<dd>&nbsp;&nbsp;</dd>
+<dt>The development of this Modelica package up to version 3.2 was organized by:</dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dd>
 <dd>Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)</dd>
 <dd>Institut f&uuml;r Robotik und Mechatronik</dd>
