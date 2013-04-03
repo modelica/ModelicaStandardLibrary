@@ -2412,8 +2412,6 @@ and will interpret it in the same way. Short Overview:
      ambiguous/unclear descriptions in the specification have
      been corrected/improved.)</li>
 
-<li> All tickets with compliance issues have been fixed.</li>
-
 <li> About <b>300 tickets</b> have been fixed for this release, and
      especially all compliance issues.
      </li>
@@ -2459,6 +2457,12 @@ This release of the Modelica package has been tested with several tools in the f
         as in version 3.2.1 build 0.</li>
     </ul>
     </li>
+<li><b>Tests with MapleSim</b>
+    <ul>
+    <li> Checking packages Modelica and ModelicaTest successfully with the
+         moparser (Maplesim) parser (the used default options check for
+         strict Modelica 3.2 rev. 2 compliance).</li>
+    </ul>
 <li> <b>Other Tools (needs still to be performed)</b></li>
 </ul>
 
@@ -2471,7 +2475,7 @@ summarized in a
 <p>
 About <b>300</b> trac tickets have been fixed for this release. An overview is given
 <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html\">here</a>.
-Clicking on the respective ticket number gives all information for the respective ticket.
+Clicking on a ticket gives all information about it.
 </p>
 
 
@@ -2639,7 +2643,6 @@ v<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Functions.</b></td></tr
                         PreUnit</td>
     <td valign=\"top\"> New SI unit types </td></tr>
 </table>
-
 </html>"));
 end Version_3_2_1;
 
