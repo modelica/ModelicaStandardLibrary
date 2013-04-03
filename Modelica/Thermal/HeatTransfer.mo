@@ -865,7 +865,7 @@ especially if it shall be allowed that a convective resistance is defined to be 
             Text(
               extent={{-150,-90},{150,-120}},
               lineColor={0,0,0},
-              textString="G=%G"),
+              textString="Gr=%Gr"),
             Rectangle(
               extent={{-50,80},{-44,-80}},
               lineColor={191,0,0},
