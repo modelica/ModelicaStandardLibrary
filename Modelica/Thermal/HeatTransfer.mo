@@ -721,7 +721,7 @@ McGraw-Hill, 1997, p.270):
             Text(
               extent={{-119,-86},{117,-125}},
               lineColor={0,0,0},
-              textString="G=%G"),
+              textString="Gr=%Gr"),
             Rectangle(
               extent={{-50,80},{-44,-80}},
               lineColor={191,0,0},
@@ -2362,7 +2362,8 @@ and provides them as output signals.
 "));
     end FromKelvin;
 
-    model FixedTemperature "Fixed temperature boundary condition in °Rankine"
+    model FixedTemperature
+      "Fixed temperature boundary condition in °Rankine"
 
       parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk T
         "Fixed Temperature at the port";
