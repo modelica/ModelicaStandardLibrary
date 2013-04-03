@@ -826,7 +826,7 @@ McGraw-Hill, 1997, p.270):
         Text(extent=[-132, 144; 108, 84], string="%name"),
         Text(
           extent=[-119, -86; 117, -125],
-          string="G=%G",
+          string="Gr=%Gr",
           style(color=0)),
         Rectangle(extent=[-50,80; -44,-80],   style(color=42, fillColor=42)),
         Rectangle(extent=[45,80; 50,-80],   style(color=42, fillColor=42))),
