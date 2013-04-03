@@ -38,64 +38,73 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
     import Modelica.Math.BooleanVectors;
-    input String logFile = "ModelicaTestLog.txt"
-      "Filename where the log is stored";
+    input String logFile="ModelicaTestLog.txt" "Filename where the log is stored";
     output Boolean ok;
   protected
-    Boolean b1[:] = {true, true, true};
-    Boolean b2[:] = {false, false, false};
-    Boolean b3[:] = {false, true, false, true};
-    Boolean b4[:] = {false, true, false};
+    Boolean b1[:]={true,true,true};
+    Boolean b2[:]={false,false,false};
+    Boolean b3[:]={false,true,false,true};
+    Boolean b4[:]={false,true,false};
+    Integer b1Result[size(b1, 1)];
+    Integer b2Result[size(b2, 1)];
+    Integer b3Result[size(b3, 1)];
+    Integer b3Result2[2];
+    Integer b1Desired[size(b1, 1)]={1,2,3};
+    Integer b2Desired[size(b2, 1)]={0,0,0};
+    Integer b3Desired[size(b3, 1)]={0,1,0,2};
+    Integer b3Desired2[2]={2,4};
   algorithm
-    ok:=false;
+    ok := false;
     Streams.print("... Test of Modelica.Math.<Boolean functions>", logFile);
 
-    assert(BooleanVectors.allTrue(b1) == true,  "allTrue is wrong at (1)");
+    assert(BooleanVectors.allTrue(b1) == true, "allTrue is wrong at (1)");
     assert(BooleanVectors.allTrue(b2) == false, "allTrue is wrong at (2)");
     assert(BooleanVectors.allTrue(b3) == false, "allTrue is wrong at (3)");
 
-    assert(BooleanVectors.anyTrue(b1) == true,  "anyTrue is wrong at (1)");
+    assert(BooleanVectors.anyTrue(b1) == true, "anyTrue is wrong at (1)");
     assert(BooleanVectors.anyTrue(b2) == false, "anyTrue is wrong at (2)");
-    assert(BooleanVectors.anyTrue(b3) == true,  "anyTrue is wrong at (3)");
+    assert(BooleanVectors.anyTrue(b3) == true, "anyTrue is wrong at (3)");
 
     assert(BooleanVectors.oneTrue(b1) == false, "oneTrue is wrong at (1)");
     assert(BooleanVectors.oneTrue(b2) == false, "oneTrue is wrong at (2)");
     assert(BooleanVectors.oneTrue(b3) == false, "oneTrue is wrong at (3)");
-    assert(BooleanVectors.oneTrue(b4) == true,  "oneTrue is wrong at (4)");
+    assert(BooleanVectors.oneTrue(b4) == true, "oneTrue is wrong at (4)");
 
     assert(BooleanVectors.countTrue(b1) == 3, "countTrue is wrong at (1)");
     assert(BooleanVectors.countTrue(b2) == 0, "countTrue is wrong at (2)");
     assert(BooleanVectors.countTrue(b3) == 2, "countTrue is wrong at (3)");
 
-    for i in 1:size(b1,1) loop
-      assert((BooleanVectors.enumerate(b1))[i] == {1,2,3}[i],
-         "enumerate is wrong at entry " + String(i) + " of (1)");
-    end for;
-    for i in 1:size(b2,1) loop
-      assert((BooleanVectors.enumerate(b2))[i] == {0,0,0}[i],
-         "enumerate is wrong at entry " + String(i) + " of (2)");
-    end for;
-    for i in 1:size(b3,1) loop
-      assert((BooleanVectors.enumerate(b3))[i] == {0,1,0,2}[i],
-         "enumerate is wrong at entry " + String(i) + " of (3)");
+    b1Result := BooleanVectors.enumerate(b1);
+    for i in 1:size(b1, 1) loop
+      assert(b1Result[i] == b1Desired[i], "enumerate(..) return vector is wrong at entry " + String(i) + " of (1)");
     end for;
 
-    assert(BooleanVectors.firstTrueIndex(b1) == 1, "firstTrueIndex is wrong at (1)");
-    assert(BooleanVectors.firstTrueIndex(b2) == 0, "firstTrueIndex is wrong at (2)");
-    assert(BooleanVectors.firstTrueIndex(b3) == 2, "firstTrueIndex is wrong at (3)");
+    b2Result := BooleanVectors.enumerate(b2);
+    for i in 1:size(b2, 1) loop
+      assert(b2Result[i] == b2Desired[i], "enumerate(..) return vector is wrong at entry " + String(i) + " of (2)");
+    end for;
 
+    b3Result := BooleanVectors.enumerate(b3);
+    for i in 1:size(b3, 1) loop
+      assert(b3Result[i] == b3Desired[i], "enumerate(..) return vector is wrong at entry " + String(i) + " of (3)");
+    end for;
+
+    assert(BooleanVectors.firstTrueIndex(b1) == 1, "firstTrueIndex(..) return is wrong at (1)");
+    assert(BooleanVectors.firstTrueIndex(b2) == 0, "firstTrueIndex(..) return is wrong at (2)");
+    assert(BooleanVectors.firstTrueIndex(b3) == 2, "firstTrueIndex(..) return is wrong at (3)");
+
+    b1Result := BooleanVectors.index(b1);
     for i in 1:3 loop
-      assert((BooleanVectors.index(b1))[i] == {1,2,3}[i],
-        "index is wrong at entry " + String(i) + " of (1)");
+      assert(b1Result[i] == b1Desired[i], "index(..) return vector is wrong at entry " + String(i) + " of (1)");
     end for;
-    assert(size(BooleanVectors.index(b2),1) == 0, "index is wrong at (2)");
+    assert(size(BooleanVectors.index(b2), 1) == 0, "index(..) return is wrong at (2)");
+
+    b3Result2 := BooleanVectors.index(b3);
     for i in 1:2 loop
-      assert((BooleanVectors.index(b3))[i] == {2,4}[i],
-        "index is wrong at entry " + String(i) + " of (3)");
+      assert(b3Result2[i] == b3Desired2[i], "index(..) return vector is wrong at entry " + String(i) + " of (3)");
     end for;
 
     ok := true;
-
   end BooleanFunctions;
 
   function Polynomials
