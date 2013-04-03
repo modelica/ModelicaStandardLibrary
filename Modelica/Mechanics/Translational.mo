@@ -2609,7 +2609,7 @@ provided via a signal bus.
         "Exponential decay";
     extends
         Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
-      Integer stopped = if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
+      Integer stopped;
     encapsulated partial model PartialFrictionWithStop
         "Base model of Coulomb friction elements with stop"
 
@@ -2720,6 +2720,7 @@ Additionally, a left and right stop are handled.
 
     // Define events for hard stops and reinitialize the state variables velocity v and position s
     algorithm
+      stopped := if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
       when (initial()) then
         assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
           "Error in initialization of hard stop. (s - L/2) must be >= smin\n"+
