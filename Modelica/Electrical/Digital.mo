@@ -1276,7 +1276,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </html>"));
         end WiredX;
 
-        model MUX2x1
+        model MUX2x1 "Simple Multiplexer test"
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           D.Multiplexers.MUX2x1 Mux2x1
@@ -1306,7 +1306,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               color={127,0,127},
               smooth=Smooth.None));
           connect(Input1.y, Mux2x1.in1) annotation (Line(
-              points={{-70,24},{-49.75,24},{-49.75,24},{-29.5,24}},
+              points={{-70,24},{-29.5,24}},
               color={127,0,127},
               smooth=Smooth.None));
           annotation (Icon(graphics={            Ellipse(extent={{-100,100},{
@@ -1316,10 +1316,13 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                   lineColor={0,0,255},
                   pattern=LinePattern.None,
                   fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}), experiment(StopTime=15));
+                  fillPattern=FillPattern.Solid)}), experiment(StopTime=15),
+            Documentation(info="<html>
+<p>This example is a simple test of a single multiplexer component with 2 inputs prescribed by sources, one select input, and one output. After simulation until 15 s plot Mux2x1.in0, Mux2x1.in1, Mux2x1.sel, and Mux2x1.out. Compare the output signal with the input signals. If the select signal changes, the output switches to the other input.</p>
+</html>"));
         end MUX2x1;
 
-        model RAM
+        model RAM "Simple RAM test example"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Memories.DLATRAM
                          dLATRAM
@@ -1327,9 +1330,15 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           Modelica.Electrical.Digital.Sources.Table
                         addr_1(
             y0=L.'U',
-            x={L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',
-                L.'-',L.'1',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',L.'1',L.'X',L.'0',L.'1',L.'Z',L.'W',
-                L.'L',L.'H',L.'-',L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-'},
+            x={L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',
+               L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',
+               L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',
+               L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',
+               L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',
+               L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',
+               L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',
+               L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-',
+               L.'U',L.'X',L.'0',L.'1',L.'Z',L.'W',L.'L',L.'H',L.'-'},
             t={5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,
                 115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,
                 200,205,210,215,220,225,230,235,240,245,250,255,260,265,270,275,280,
@@ -1388,7 +1397,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                   lineColor={0,0,255},
                   pattern=LinePattern.None,
                   fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}), experiment(StopTime=400));
+                  fillPattern=FillPattern.Solid)}), experiment(StopTime=400),
+            Documentation(info="<html>
+<p>This example is a simple and uncomplete test of a single DLATRAM component . After simulation until 400 s plot dLATRAM.addr[1], dLATRAM.addr[2], and dLATRAM.dataOUT[1], dLATRAM.dataOut[2]. The address inputs are  prescribed with all possible combinations of logic values. It can be checked in which cases of address values the output is 'X' or '0'. </p>
+</html>"));
         end RAM;
 
       package Utilities "Utility components used by package Examples"
