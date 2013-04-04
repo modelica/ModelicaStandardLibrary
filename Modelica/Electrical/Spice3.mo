@@ -1550,7 +1550,7 @@ Zeunerstrasse 38<br />
       Basic.R_Resistor RC2(R=10000);
       Basic.R_Resistor RE(R=10000);
       Sources.V_constant VIE(V=0);
-      parameter Semiconductors.ModelcardBJT MOD1(BF=50, VAF=50, IS=1e-012, RB=100, CJC=5e-013, TF=6e-010);
+      parameter Semiconductors.ModelcardBJT MOD1(BF=50, VAF=50, IS=1e-012, RB=100, CJC=5e-09, TF=6e-010);
       Basic.Ground g;
 
       Real OutputVoltage;
@@ -1601,7 +1601,7 @@ Zeunerstrasse 38<br />
           Tolerance=1e-005),
           Documentation(info="<html>
 <p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3).</p>
-<p>The differential pair circuit we have here is operating in the differential mode. This means the input voltage VIN that is only applied at one transistor
+<p>The differential pair circuit is operating in the differential mode. This means the input voltage VIN that is only applied at one transistor
 is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe \"VIN.p.v\" which is the input voltage and \"Outputvoltage\" which is the
 amplified output voltage.</p>
 <p>Original SPICE3 netlist of the Differential pair:</p>
@@ -1622,6 +1622,9 @@ RE 4 8 10K<br/>
 .AC DEC 10 1 100MEG<br/>
 .END
 </pre>
+<p>In the Modelica representation the tiny capacity CJC was set to 1.e-9F to get a higher numerical
+robustness. In future the numerical behavior will be analysed to be able to apply the original value
+CJC=.5PF.</p>
 </html>"));
     end Spice3BenchmarkDifferentialPair;
 
