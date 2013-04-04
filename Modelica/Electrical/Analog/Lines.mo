@@ -147,8 +147,8 @@ package Lines
 
   model M_OLine "Multiple OLine"
 
-    parameter Modelica.SIunits.Length length(final min=Modelica.Constants.small)
-       = 0.1 "Length of line";
+    parameter Modelica.SIunits.Length length(final min=Modelica.Constants.small)=
+         0.1 "Length of line";
     parameter Integer N(final min=2) = 5 "Number of lumped segments";
     parameter Integer lines(final min=2) = 4 "Number of lines";
   protected
@@ -392,8 +392,8 @@ package Lines
       annotation (Placement(transformation(extent={{-100,-80},{-80,80}},
             rotation=0)));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-      annotation (Placement(transformation(extent={{80,-80},{100,80}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{80,-80},{100,80}}, rotation=
+             0)));
 
   equation
     connect(p, s_first.p);
@@ -694,8 +694,8 @@ The capacitances are calculated with: C=c*length/N.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}),graphics={Rectangle(extent={{-60,60},{60,-60}}, lineColor
-            ={0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,255}),Line(
+          grid={1,1}),graphics={Rectangle(extent={{-60,60},{60,-60}}, lineColor=
+             {0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,255}),Line(
             points={{60,50},{96,50}}, color={0,0,255}),Line(points={{-60,50},{-96,
             50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}}, color={0,
             0,255}),Line(points={{30,30},{-30,30}}, color={0,0,255}),Line(
@@ -853,7 +853,7 @@ The capacitances are calculated with: C=c*length/N.
   end TLine3;
 
   model OLine_weg "Lossy Transmission Line"
-    //extends Interfaces.ThreePol;
+    extends Modelica.Icons.ObsoleteModel;
     Interfaces.Pin p1 annotation (Placement(transformation(extent={{-110,-10},{
               -90,10}}, rotation=0)));
     Interfaces.Pin p2 annotation (Placement(transformation(extent={{90,-10},{
@@ -959,7 +959,7 @@ The capacitances are calculated with: C=c*length/N.
   end OLine_weg;
 
   model ULine_weg "Lossy RC Line"
-    //extends Interfaces.ThreePol;
+    extends Modelica.Icons.ObsoleteModel;
     Interfaces.Pin p1 annotation (Placement(transformation(extent={{-110,-10},{
               -90,10}}, rotation=0)));
     Interfaces.Pin p2 annotation (Placement(transformation(extent={{90,-10},{
