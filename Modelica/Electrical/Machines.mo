@@ -1890,15 +1890,15 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         connect(angleSensor.phi, currentController.phi) annotation (Line(
-            points={{10,11},{10,30},{-40,30},{-40,40}},
+            points={{10,11},{10,30},{-40,30},{-40,38}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(id.y, currentController.id_rms) annotation (Line(
-            points={{-69,70},{-60,70},{-60,56},{-50,56}},
+            points={{-69,70},{-60,70},{-60,56},{-52,56}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(iq.y, currentController.iq_rms) annotation (Line(
-            points={{-69,30},{-60,30},{-60,44},{-50,44}},
+            points={{-69,30},{-60,30},{-60,44},{-52,44}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(groundM.p, terminalBox.starpoint) annotation (Line(
@@ -2129,15 +2129,15 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             color={0,0,255},
             smooth=Smooth.None));
         connect(id.y, voltageController.id_rms) annotation (Line(
-            points={{-69,70},{-60,70},{-60,56},{-50,56}},
+            points={{-69,70},{-60,70},{-60,56},{-52,56}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(iq.y, voltageController.iq_rms) annotation (Line(
-            points={{-69,30},{-60,30},{-60,44},{-50,44}},
+            points={{-69,30},{-60,30},{-60,44},{-52,44}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(angleSensor.phi, voltageController.phi) annotation (Line(
-            points={{10,11},{10,30},{-34,30},{-34,40}},
+            points={{10,11},{10,30},{-34,30},{-34,38}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(voltageController.y, signalVoltage.v) annotation (Line(
@@ -2145,7 +2145,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             color={0,0,127},
             smooth=Smooth.None));
         connect(currentSensor.i, voltageController.iActual) annotation (Line(
-            points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,40}},
+            points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(inertiaLoad.flange_a, torqueSensor.flange_b) annotation (Line(
@@ -15222,13 +15222,13 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
       parameter Integer p "Number of pole pairs";
       extends Modelica.Blocks.Interfaces.MO(final nout=m);
       Modelica.Blocks.Interfaces.RealInput id_rms
-        annotation (Placement(transformation(extent={{-120,40},{-80,80}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-140,40},{-100,80}},rotation=0)));
       Modelica.Blocks.Interfaces.RealInput iq_rms
-        annotation (Placement(transformation(extent={{-120,-80},{-80,-40}},
+        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealInput phi
         annotation (Placement(transformation(
-            origin={0,-100},
+            origin={0,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
       Modelica.Blocks.Math.Gain toPeak_d(k=sqrt(2))
@@ -15249,10 +15249,9 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
         annotation (Placement(transformation(extent={{40,10},{60,-10}},rotation=0)));
     equation
       connect(iq_rms, toPeak_q.u)
-                          annotation (Line(points={{-100,-60},{-62,-60}}, color={0,0,
+                          annotation (Line(points={{-120,-60},{-62,-60}}, color={0,0,
               127}));
-      connect(phi, toGamma.u) annotation (Line(points={{0,-100},{0,-62},{
-              0,-62}},
+      connect(phi, toGamma.u) annotation (Line(points={{0,-120},{0,-62}},
                     color={0,0,127}));
       connect(rotator.angle, toGamma.y) annotation (Line(points={{0,-12},{0,-39},
               {0,-39}},
@@ -15261,7 +15260,7 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
               38,0}},
             color={0,0,127}));
       connect(toPeak_d.u, id_rms) annotation (Line(
-          points={{-62,60},{-100,60}},
+          points={{-62,60},{-120,60}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(toPeak_d.y, rotator.u[1]) annotation (Line(
@@ -15280,14 +15279,16 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
           points={{61,0},{110,0}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (         Icon(graphics={
+      annotation (         Icon(coordinateSystem(preserveAspectRatio=false,
+              extent={{-100,-100},{100,100}}),
+                                graphics={
             Text(
-              extent={{-90,60},{30,40}},
+              extent={{-100,60},{20,40}},
               lineColor={0,0,255},
               textString=
                    "id_rms"),
             Text(
-              extent={{-90,-40},{30,-60}},
+              extent={{-100,-40},{20,-60}},
               lineColor={0,0,255},
               textString=
                    "iq_rms")}),
@@ -15300,7 +15301,9 @@ The desired rms values of d- and q-component of the space phasor current in roto
 Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"i[3]\") are calculated. 
 They can be used to feed a current source which in turn feeds an induction machine.
 </p>
-</HTML>"));
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end CurrentController;
 
     model VoltageController "Current controller"
@@ -15312,18 +15315,18 @@ They can be used to feed a current source which in turn feeds an induction machi
       parameter Modelica.SIunits.Inductance Lq "Inductance in q-axis";
       extends Modelica.Blocks.Interfaces.MO(final nout=m);
       Modelica.Blocks.Interfaces.RealInput id_rms
-        annotation (Placement(transformation(extent={{-120,40},{-80,80}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-140,40},{-100,80}},rotation=0)));
       Modelica.Blocks.Interfaces.RealInput iq_rms
-        annotation (Placement(transformation(extent={{-120,-80},{-80,-40}},
+        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealInput phi
         annotation (Placement(transformation(
-            origin={60,-100},
+            origin={60,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
       Modelica.Blocks.Interfaces.RealInput iActual[3]
         annotation (Placement(transformation(
-            origin={-60,-100},
+            origin={-60,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
       Modelica.Electrical.Machines.Utilities.FromDQ fromDQ(final p=p)
@@ -15359,23 +15362,23 @@ They can be used to feed a current source which in turn feeds an induction machi
           color={0,0,127},
           smooth=Smooth.None));
       connect(phi, fromDQ.phi)          annotation (Line(
-          points={{60,-100},{60,-60},{80,-60},{80,-10}},
+          points={{60,-120},{60,-60},{80,-60},{80,-12}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(iActual, toDQ.u)    annotation (Line(
-          points={{-60,-100},{-60,-40},{-40,-40}},
+          points={{-60,-120},{-60,-40},{-42,-40}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(phi, toDQ.phi)          annotation (Line(
-          points={{60,-100},{60,-60},{-30,-60},{-30,-50}},
+          points={{60,-120},{60,-60},{-30,-60},{-30,-52}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(toPeak_d.u, id_rms) annotation (Line(
-          points={{-62,60},{-100,60}},
+          points={{-62,60},{-120,60}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(toPeak_q.u, iq_rms) annotation (Line(
-          points={{-62,0},{-70,0},{-70,-60},{-100,-60}},
+          points={{-62,0},{-70,0},{-70,-60},{-120,-60}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(toPeak_q.y, feedback_q.u1) annotation (Line(
@@ -15404,21 +15407,21 @@ They can be used to feed a current source which in turn feeds an induction machi
           color={0,0,127},
           smooth=Smooth.None));
       connect(PI_d.y, fromDQ.u[1])          annotation (Line(
-          points={{41,60},{60,60},{60,-1},{70,-1}},
+          points={{41,60},{60,60},{60,-1},{68,-1}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(PI_q.y, fromDQ.u[2])          annotation (Line(
-          points={{41,0},{55.5,0},{55.5,1},{70,1}},
+          points={{41,0},{55.5,0},{55.5,1},{68,1}},
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Icon(graphics={
             Text(
-              extent={{-90,60},{30,40}},
+              extent={{-100,60},{20,40}},
               lineColor={0,0,255},
               textString=
                    "id_rms"),
             Text(
-              extent={{-90,-40},{30,-60}},
+              extent={{-100,-40},{20,-60}},
               lineColor={0,0,255},
               textString=
                    "iq_rms")}),
@@ -15435,7 +15438,9 @@ They can be used to feed a voltage source which in turn feeds a permanent magnet
 <p>
 Note: No care is taken for current or voltage limiting, as well as for field weakening.
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end VoltageController;
 
     block ToDQ
@@ -15454,18 +15459,18 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
             rotation=0)));
       Modelica.Blocks.Interfaces.RealInput phi
         annotation (Placement(transformation(
-            origin={0,-100},
+            origin={0,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
       Modelica.Blocks.Interfaces.RealInput u[3]
         "Connector of Real input signals"
-        annotation (Placement(transformation(extent={{-120,-20},{-80,20}})));
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
       Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                                                                        rotation=0)));
     equation
-      connect(phi,toGamma. u) annotation (Line(points={{0,-100},{-2.22045e-015,-100},
-              {-2.22045e-015,-62}},
+      connect(phi,toGamma. u) annotation (Line(points={{0,-120},{-2.22045e-015,
+              -120},{-2.22045e-015,-62}},
                     color={0,0,127}));
       connect(rotator2.angle, toGamma.y)
                                         annotation (Line(points={{0,-12},{0,-39},{2.22045e-015,
@@ -15475,7 +15480,7 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
           color={0,0,127},
           smooth=Smooth.None));
       connect(u, toSpacePhasor.u) annotation (Line(
-          points={{-100,0},{-62,0}},
+          points={{-120,0},{-62,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(toSpacePhasor.y, rotator2.u) annotation (Line(
@@ -15511,15 +15516,15 @@ using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q-
             rotation=0)));
       Modelica.Blocks.Interfaces.RealInput phi
         annotation (Placement(transformation(
-            origin={0,-100},
+            origin={0,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
       Modelica.Blocks.Interfaces.RealInput u[2]
         "Connector of Real input signals"
-        annotation (Placement(transformation(extent={{-120,-20},{-80,20}})));
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     equation
-      connect(phi,toGamma. u) annotation (Line(points={{0,-100},{-2.22045e-015,-100},
-              {-2.22045e-015,-62}},
+      connect(phi,toGamma. u) annotation (Line(points={{0,-120},{-2.22045e-015,
+              -120},{-2.22045e-015,-62}},
                     color={0,0,127}));
       connect(rotator2.angle, toGamma.y)
                                         annotation (Line(points={{0,-12},{0,-39},{2.22045e-015,
@@ -15537,7 +15542,7 @@ using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q-
           color={0,0,127},
           smooth=Smooth.None));
       connect(rotator2.u, u) annotation (Line(
-          points={{-12,0},{-100,0}},
+          points={{-12,0},{-120,0}},
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
