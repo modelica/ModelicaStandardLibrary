@@ -19,11 +19,11 @@ package Air "Medium models for air"
     import Modelica.Constants;
 
     constant Modelica.Media.Interfaces.Types.Basic.FluidConstants[nS] airConstants=
-      Modelica.Media.Interfaces.Types.Basic.FluidConstants(iupacName={"simple air"},
-                     casRegistryNumber={"not a real substance"},
-                     chemicalFormula={"N2, O2"},
-                     structureFormula={"N2, O2"},
-                     molarMass=Modelica.Media.IdealGases.Common.SingleGasesData.N2.MM)
+      {Modelica.Media.Interfaces.Types.Basic.FluidConstants(iupacName="simple air",
+                     casRegistryNumber="not a real substance",
+                     chemicalFormula="N2, O2",
+                     structureFormula="N2, O2",
+                     molarMass=Modelica.Media.IdealGases.Common.SingleGasesData.N2.MM)}
       "constant data for the fluid";
 
     annotation (Documentation(info="<html>
