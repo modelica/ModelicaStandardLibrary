@@ -613,6 +613,29 @@ equation
     experiment(StopTime=2));
 end FirstOrderHold;
 
+model OnDelay
+  extends Modelica.Icons.Example;
+  Modelica.Blocks.MathBoolean.OnDelay onDelay1(delayTime=1)
+    annotation (Placement(transformation(extent={{-14,66},{-6,74}})));
+  Modelica.Blocks.Sources.BooleanTable booleanTable(table={1,4,6,8,9,9.5})
+    annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
+  Modelica.Blocks.Sources.BooleanStep booleanStep(startValue=true, startTime=2)
+    annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+  Modelica.Blocks.MathBoolean.OnDelay onDelay2(delayTime=1)
+    annotation (Placement(transformation(extent={{-14,26},{-6,34}})));
+equation
+  connect(booleanTable.y, onDelay1.u) annotation (Line(
+      points={{-39,70},{-15.6,70}},
+      color={255,0,255},
+      smooth=Smooth.None));
+  connect(booleanStep.y, onDelay2.u) annotation (Line(
+      points={{-39,30},{-15.6,30}},
+      color={255,0,255},
+      smooth=Smooth.None));
+  annotation (experiment(StopTime=11), Diagram(coordinateSystem(
+          preserveAspectRatio=false, extent={{-100,-140},{100,140}}), graphics));
+end OnDelay;
+
   package FilterTests "Test of Blocks.Continuous.Filter"
     extends Modelica.Icons.ExamplesPackage;
     model AllOptions

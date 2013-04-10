@@ -410,10 +410,10 @@ The usage is demonstrated, e.g., in example
         pre(u) = false;
         pre(t_next) = time - 1;
   algorithm
-        when u then
+        when {u, initial()} then
            delaySignal := true;
            t_next := time + delayTime;
-        elsewhen not u then
+        elsewhen {not u, initial()} then
            delaySignal := false;
            t_next := time - 1;
         end when;
