@@ -2620,12 +2620,17 @@ The Boolean output y is a constant signal:
     equation
      y = if time >= startTime then not startValue else startValue;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Line(points={{-80,-70},{0,-70},{0,50},
-                {80,50}}, color={0,0,0}), Text(
-            extent={{-150,-140},{150,-110}},
-            lineColor={0,0,0},
+              -100},{100,100}}), graphics={
+          Line(visible=not startValue,
+            points={{-80,-70},{0,-70},{0,50},
+                {80,50}}, color={0,0,0}),
+          Line(visible=startValue,
+            points={{-80,50},{0,50},{0,-70},{68,-70}},
+            color={0,0,0}),
+          Text(extent={{-150,-140},{150,-110}},
+              lineColor={0,0,0},
             textString="%startTime")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=false,
+       Diagram(coordinateSystem(preserveAspectRatio=false,
                      extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-80,-70},{0,-70},{0,50},{80,50}},
