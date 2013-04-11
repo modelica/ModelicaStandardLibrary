@@ -619,7 +619,11 @@ model OnDelay
     annotation (Placement(transformation(extent={{-14,66},{-6,74}})));
   Modelica.Blocks.Sources.BooleanTable booleanTable(table={1,4,6,8,9,9.5})
     annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
-  Modelica.Blocks.Sources.BooleanStep booleanStep(startValue=true, startTime=2)
+  Modelica.Blocks.Sources.BooleanStep booleanStep3(startValue=true, startTime=2)
+    annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
+  Modelica.Blocks.MathBoolean.OnDelay onDelay3(delayTime=1)
+    annotation (Placement(transformation(extent={{-14,-14},{-6,-6}})));
+  Modelica.Blocks.Sources.BooleanStep booleanStep2(startTime=2, startValue=false)
     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
   Modelica.Blocks.MathBoolean.OnDelay onDelay2(delayTime=1)
     annotation (Placement(transformation(extent={{-14,26},{-6,34}})));
@@ -628,13 +632,18 @@ equation
       points={{-39,70},{-15.6,70}},
       color={255,0,255},
       smooth=Smooth.None));
-  connect(booleanStep.y, onDelay2.u) annotation (Line(
+  connect(booleanStep3.y, onDelay3.u) annotation (Line(
+      points={{-39,-10},{-15.6,-10}},
+      color={255,0,255},
+      smooth=Smooth.None));
+  connect(booleanStep2.y, onDelay2.u) annotation (Line(
       points={{-39,30},{-15.6,30}},
       color={255,0,255},
       smooth=Smooth.None));
   annotation (experiment(StopTime=11), Diagram(coordinateSystem(
           preserveAspectRatio=false, extent={{-100,-140},{100,140}}), graphics));
 end OnDelay;
+
 
   package FilterTests "Test of Blocks.Continuous.Filter"
     extends Modelica.Icons.ExamplesPackage;
