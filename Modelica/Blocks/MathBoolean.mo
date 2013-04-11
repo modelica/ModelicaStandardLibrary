@@ -413,7 +413,7 @@ The usage is demonstrated, e.g., in example
         when initial() then
            delaySignal := u;
            t_next := time - 1;
-        else when u then
+        elsewhen u then
            delaySignal := true;
            t_next := time + delayTime;
         elsewhen not u then
