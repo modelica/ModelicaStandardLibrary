@@ -94,7 +94,7 @@ static void ModelicaNotExistError(const char* name) {
   const char* ModelicaInternal_getcwd(int dummy) {
        ModelicaNotExistError("ModelicaInternal_getcwd"); return 0; }
   void ModelicaInternal_getenv(const char* name, int convertToSlash, char** content, int* exist) {
-       ModelicaNotExistError("ModelicaInternal_getenv"); return 0; }
+       ModelicaNotExistError("ModelicaInternal_getenv"); }
   void ModelicaInternal_setenv(const char* name, const char* value, int convertFromSlash) {
        ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
