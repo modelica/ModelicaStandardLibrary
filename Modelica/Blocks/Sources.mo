@@ -1723,46 +1723,7 @@ a flange according to a given acceleration.
     Real s3;
     Real s;
     Real sd;
-    Real r_s;
-    Real r_sd;
-    Real r_sdd;
 
-    function position
-       input Real q_qd_qdd[3]
-        "Required values for position, speed, acceleration";
-       input Real dummy
-        "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
-       output Real q;
-    algorithm
-      q :=q_qd_qdd[1];
-      annotation (derivative(noDerivative=q_qd_qdd) = position_der,
-          InlineAfterIndexReduction=true);
-    end position;
-
-    function position_der
-       input Real q_qd_qdd[3]
-        "Required values for position, speed, acceleration";
-       input Real dummy
-        "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
-       input Real dummy_der;
-       output Real qd;
-    algorithm
-      qd :=q_qd_qdd[2];
-      annotation (derivative(noDerivative=q_qd_qdd, order=2) = position_der2,
-          InlineAfterIndexReduction=true);
-    end position_der;
-
-    function position_der2
-       input Real q_qd_qdd[3]
-        "Required values for position, speed, acceleration";
-       input Real dummy
-        "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
-       input Real dummy_der;
-       input Real dummy_der2;
-       output Real qdd;
-    algorithm
-      qdd :=q_qd_qdd[3];
-    end position_der2;
   equation
     for i in 1:nout loop
       aux1[i] = p_deltaq[i]/p_qd_max[i];
@@ -1788,9 +1749,7 @@ a flange according to a given acceleration.
       s1 = 0;
       s2 = 0;
       s3 = 0;
-      r_sdd = 0;
-      r_sd = 0;
-      r_s = 0;
+      s = 0;
     else
       sd_max = 1/max(abs(aux1));
       sdd_max = 1/max(abs(aux2));
@@ -1810,53 +1769,35 @@ a flange according to a given acceleration.
       s3 = s2 + sd_max*(Te - Tv) - (sdd_max/2)*(Te - Tv)*(Te - Tv);
 
       if time < startTime then
-        r_sdd = 0;
-        r_sd = 0;
-        r_s = 0;
+        s = 0;
       elseif noWphase then
         if time < Ta1s then
-          r_sdd = sdd_max;
-          r_sd = sdd_max*(time - startTime);
-          r_s = (sdd_max/2)*(time - startTime)*(time - startTime);
+          s = (sdd_max/2)*(time - startTime)*(time - startTime);
         elseif time < Tes then
-          r_sdd = -sdd_max;
-          r_sd = sd_max2 - sdd_max*(time - Ta1s);
-          r_s = s1 + sd_max2*(time - Ta1s) - (sdd_max/2)*(time - Ta1s)*(time
+          s = s1 + sd_max2*(time - Ta1s) - (sdd_max/2)*(time - Ta1s)*(time
              - Ta1s);
         else
-          r_sdd = 0;
-          r_sd = 0;
-          r_s = s2;
+          s = s2;
         end if;
       elseif time < Ta2s then
-        r_sdd = sdd_max;
-        r_sd = sdd_max*(time - startTime);
-        r_s = (sdd_max/2)*(time - startTime)*(time - startTime);
+        s = (sdd_max/2)*(time - startTime)*(time - startTime);
       elseif time < Tvs then
-        r_sdd = 0;
-        r_sd = sd_max;
-        r_s = s1 + sd_max*(time - Ta2s);
+        s = s1 + sd_max*(time - Ta2s);
       elseif time < Tes then
-        r_sdd = -sdd_max;
-        r_sd = sd_max - sdd_max*(time - Tvs);
-        r_s = s2 + sd_max*(time - Tvs) - (sdd_max/2)*(time - Tvs)*(time - Tvs);
+        s = s2 + sd_max*(time - Tvs) - (sdd_max/2)*(time - Tvs)*(time - Tvs);
       else
-        r_sdd = 0;
-        r_sd = 0;
-        r_s = s3;
+        s = s3;
       end if;
 
     end if;
 
-    // acceleration
+    sd = der(s);
+    sdd = der(sd);
+
     qdd = p_deltaq*sdd;
     qd = p_deltaq*sd;
     q = p_q_begin + p_deltaq*s;
     endTime = Tes;
-
-    s = position({r_s, r_sd, r_sdd}, time);
-    sd = der(s);
-    sdd = der(sd);
 
     // report when axis is moving
     motion_ref = time <= endTime;
