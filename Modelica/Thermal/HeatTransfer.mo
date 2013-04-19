@@ -63,7 +63,7 @@ Tsensor1.T, Tsensor2.T, T_final_degC
         "Ambient Temperature";
       parameter Modelica.SIunits.TemperatureDifference TDif = 2
         "Error in Temperature";
-      output Modelica.SIunits.Temperature TRes(displayUnit="degC") = heatingResistor.heatPort.T
+      output Modelica.SIunits.Temperature TRes(displayUnit="degC") = heatingResistor.T_heatPort
         "Resulting Temperature";
       Modelica.Electrical.Analog.Basic.Ground ground
                                   annotation (Placement(transformation(extent={
