@@ -204,7 +204,8 @@ end OpenTank;
         parameter Boolean use_portsData=true
         "= false to neglect pressure loss and kinetic energy"
           annotation(Evaluate=true, Dialog(tab="General",group="Ports"));
-        parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData[nPorts] portsData "Data of inlet/outlet ports"
+        parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData[:] portsData=
+      fill(Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.0), 0) "Data of inlet/outlet ports"
           annotation(Dialog(tab="General",group="Ports",enable= use_portsData));
 
         parameter Medium.MassFlowRate m_flow_nominal = if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
@@ -298,6 +299,10 @@ end OpenTank;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_zeta_out;
 
       equation
+        assert(size(portsData, 1) == nPorts or not use_portsData,
+            "Parameter vector portsData has dimension = " + String(size(portsData, 1)) +
+            " but must have length nPorts = " + String(nPorts));
+
         mb_flow = sum(ports.m_flow);
         mbXi_flow = sum_ports_mXi_flow;
         mbC_flow  = sum_ports_mC_flow;
