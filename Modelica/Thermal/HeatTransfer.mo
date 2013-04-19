@@ -690,7 +690,7 @@ McGraw-Hill, 1997, p.270):
       cp : specific heat capacity of fluid (material constant)
       k  : thermal conductivity of fluid (material constant)
    and the equation for h holds, provided
-      Re < 5e5 and 0.6 < Pr < 50
+      Re &lt; 5e5 and 0.6 &lt; Pr &lt; 50
 </pre>
 </html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
