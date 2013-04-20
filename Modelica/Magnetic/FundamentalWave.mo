@@ -1987,6 +1987,7 @@ Simulate for 1.5 seconds and plot (versus time):
         smpmE.is[1:2] = zeros(2);
         smpmE.damperCage.spacePhasor_r.i_ = zeros(2);
         smpmM.is[1:2] = zeros(2);
+        smpmM.rotorCage.i = zeros(2);
 
       equation
         connect(signalVoltage.plug_n, star.plug_p) annotation (Line(points={{
@@ -2247,7 +2248,9 @@ and accelerate the inertias.</p>
           annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
       initial equation
         smpm3.stator.port_p.Phi = Complex(0, 0);
+        smpm3.rotorCage.i = zeros(2);
         smpmM.stator.port_p.Phi = Complex(0, 0);
+        smpmM.rotorCage.i = zeros(2);
 
       equation
         connect(signalVoltage3.plug_n, star3.plug_p) annotation (Line(points={{
@@ -2583,6 +2586,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
         smeeE.idq_sr = zeros(2);
         smeeE.idq_dr = zeros(2);
         smeeM.airGap.Phi_sr = Complex(-0.45, 0);
+        smeeM.rotorCage.i = zeros(2);
 
       equation
         connect(rotorAngleE.plug_n, smeeE.plug_sn) annotation (Line(points={{36,
@@ -2925,7 +2929,9 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
                   90}}, rotation=0)));
       initial equation
         smee3.airGap.Phi_sr = Complex(-0.45, 0);
+        smee3.rotorCage.i = zeros(2);
         smeeM.airGap.Phi_sr = Complex(-0.45, 0);
+        smeeM.rotorCage.i = zeros(2);
 
       equation
         connect(rotorAngle3.plug_n, smee3.plug_sn)   annotation (Line(points={{
@@ -3224,6 +3230,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
         smrE.idq_sr = zeros(2);
         smrE.idq_rr = zeros(2);
         smrM.stator.port_p.Phi = Complex(0, 0);
+        smrM.rotorCage.i = zeros(2);
 
       equation
         connect(signalVoltage.plug_n, star.plug_p) annotation (Line(points={{
@@ -3482,7 +3489,9 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
       initial equation
         smrM.stator.port_p.Phi = Complex(0, 0);
+        smrM.rotorCage.i = zeros(2);
         smr3.stator.port_p.Phi = Complex(0, 0);
+        smr3.rotorCage.i = zeros(2);
 
       equation
         connect(smr3.flange, loadInertia3.flange_a)
@@ -5671,11 +5680,9 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
         parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance
           Lsigma(d(start=1), q(start=1)) "Salient cage stray inductance";
         parameter Real effectiveTurns=1 "Effective number of turns";
-        Modelica.Magnetic.FundamentalWave.Types.SalientCurrent i(d(
-            start=0,
-            fixed=true) = strayInductor.i[1], q(
-            start=0,
-            fixed=true) = strayInductor.i[2]) "Cage current";
+        Modelica.SIunits.Current i[2](each start=0) = strayInductor.i
+          "Cage currents";
+
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           winding(
           final m=2,
