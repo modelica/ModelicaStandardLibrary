@@ -1984,9 +1984,9 @@ Simulate for 1.5 seconds and plot (versus time):
           smpmData
           annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
       initial equation
-        smpmE.idq_sr = zeros(2);
-        smpmE.idq_rr = zeros(2);
-        smpmM.stator.port_p.Phi = Complex(0, 0);
+        smpmE.is[1:2] = zeros(2);
+        smpmE.damperCage.spacePhasor_r.i_ = zeros(2);
+        smpmM.is[1:2] = zeros(2);
 
       equation
         connect(signalVoltage.plug_n, star.plug_p) annotation (Line(points={{
@@ -6603,7 +6603,6 @@ This model is mainly used to extend from in order build more complex - equation 
               smooth=Smooth.None)}),
         Diagram(graphics));
     end PartialBasicInductionMachine;
-
 
     model StateSelector
       "Transform instantaneous values to space phasors and select states"
