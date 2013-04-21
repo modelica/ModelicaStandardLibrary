@@ -80,7 +80,7 @@ The desired conversion can be selected in the parameter menu
 </html>"));
     end ConvertAllUnits;
 
-    block To_degC "Convert from Kelvin to °Celsius"
+    block To_degC "Convert from Kelvin to degCelsius"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degC"));
 
@@ -90,9 +90,9 @@ The desired conversion can be selected in the parameter menu
             string="K"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="°C")), Documentation(info="<html>
+            string="degC")), Documentation(info="<html>
 <p>
-This block converts the input signal from Kelvin to °Celsius and returns
+This block converts the input signal from Kelvin to &deg;Celsius and returns
 the result as output signal.
 </p>
 </html>"));
@@ -100,18 +100,18 @@ the result as output signal.
       y = SI.Conversions.to_degC(u);
     end To_degC;
 
-    block From_degC "Convert from °Celsius to Kelvin"
+    block From_degC "Convert from degCelsius to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degC"),
           y(unit="K"));
       annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
-            string="°C"), Text(
+            string="degC"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
             string="K")), Documentation(info="<html>
 <p>
-This block converts the input signal from °Celsius to Kelvin and returns
+This block converts the input signal from &deg;Celsius to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));
@@ -119,7 +119,7 @@ the result as output signal.
       y = SI.Conversions.from_degC(u);
     end From_degC;
 
-    block To_degF "Convert from Kelvin to °Fahrenheit"
+    block To_degF "Convert from Kelvin to degFahrenheit"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degF"));
       annotation (Icon(Text(
@@ -128,9 +128,9 @@ the result as output signal.
             string="K"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="°F")), Documentation(info="<html>
+            string="degF")), Documentation(info="<html>
 <p>
-This block converts the input signal from Kelvin to °Fahrenheit and returns
+This block converts the input signal from Kelvin to &deg;Fahrenheit and returns
 the result as output signal.
 </p>
 </html>"));
@@ -138,18 +138,18 @@ the result as output signal.
       y = SI.Conversions.to_degF(u);
     end To_degF;
 
-    block From_degF "Convert from °Fahrenheit to Kelvin"
+    block From_degF "Convert from degFahrenheit to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degF"),
           y(unit="K"));
       annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
-            string="°F"), Text(
+            string="degF"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
             string="K")), Documentation(info="<html>
 <p>
-This block converts the input signal from °Fahrenheit to Kelvin and returns
+This block converts the input signal from &deg;Fahrenheit to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));
@@ -157,7 +157,7 @@ the result as output signal.
       y = SI.Conversions.from_degF(u);
     end From_degF;
 
-    block To_degRk "Convert from Kelvin to °Rankine"
+    block To_degRk "Convert from Kelvin to degRankine"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degRk"));
       annotation (Icon(Text(
@@ -166,9 +166,9 @@ the result as output signal.
             string="K"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="°Rk")), Documentation(info="<html>
+            string="degRk")), Documentation(info="<html>
 <p>
-This block converts the input signal from Kelvin to °Rankine and returns
+This block converts the input signal from Kelvin to &deg;Rankine and returns
 the result as output signal.
 </p>
 </html>"));
@@ -176,18 +176,18 @@ the result as output signal.
       y = SI.Conversions.to_degRk(u);
     end To_degRk;
 
-    block From_degRk "Convert from °Rankine to Kelvin"
+    block From_degRk "Convert from degRankine to Kelvin"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degRk"),
           y(unit="K"));
       annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
-            string="°Rk"), Text(
+            string="degRk"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
             string="K")), Documentation(info="<html>
 <p>
-This block converts the input signal from °Rankine to Kelvin and returns
+This block converts the input signal from &deg;Rankine to Kelvin and returns
 the result as output signal.
 </p>
 </html>"));

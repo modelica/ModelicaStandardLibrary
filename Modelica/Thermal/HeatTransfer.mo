@@ -1277,7 +1277,7 @@ to port_b.
 
     extends Modelica.Icons.Library2;
 
-    model ToKelvin "Conversion block from °Celsius to Kelvin"
+    model ToKelvin "Conversion block from degCelsius to Kelvin"
       annotation (
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
@@ -1286,7 +1286,7 @@ to port_b.
               fillColor=7)),
           Text(
             extent=[-40, -50; -99, -99],
-            string="°C",
+            string="degC",
             style(color=0, thickness=4)),
           Text(
             extent=[100, -47; 44, -100],
@@ -1305,7 +1305,7 @@ to port_b.
             style(color=0)),
           Text(
             extent=[-31, -39; -111, -119],
-            string="°C",
+            string="degC",
             style(color=0, thickness=4)),
           Line(points=[-41, 0; -100, 0]),
           Line(points=[100, 0; 40, 0]),
@@ -1330,7 +1330,7 @@ and provide is as output signal.
       Kelvin = from_degC(Celsius);
     end ToKelvin;
 
-    model FromKelvin "Conversion from Kelvin to °Celsius"
+    model FromKelvin "Conversion from Kelvin to degCelsius"
       annotation (
         Icon(
           Text(extent=[-137, 99; 132, 49], string="%name"),
@@ -1344,7 +1344,7 @@ and provide is as output signal.
             style(color=0, thickness=4)),
           Text(
             extent=[110, -39; 30, -119],
-            string="°C",
+            string="degC",
             style(color=0)),
           Line(points=[-40, 0; -100, 0]),
           Line(points=[40, 0; 100, 0])),
@@ -1359,7 +1359,7 @@ and provide is as output signal.
             style(color=0, thickness=4)),
           Text(
             extent=[100, -40; 30, -100],
-            string="°C",
+            string="degC",
             style(color=0)),
           Line(points=[-100, 0; -40, 0]),
           Line(points=[40, 0; 100, 0])),
@@ -1396,7 +1396,7 @@ and provides is as output signal.
               fillPattern=8)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°C",
+            string="degC",
             style(color=0)),
           Polygon(points=[52,-20; 52,20; 90,0; 52,-20],      style(
               color=42,
@@ -1422,7 +1422,7 @@ i.e., it defines a fixed temperature as a boundary condition.
           Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°C",
+            string="degC",
             style(color=0)),
           Polygon(points=[52,-20; 52,20; 90,0; 52,-20],      style(
               color=42,
@@ -1434,7 +1434,7 @@ i.e., it defines a fixed temperature as a boundary condition.
     end FixedTemperature;
 
     model PrescribedTemperature
-      "Variable temperature boundary condition in °Celsius"
+      "Variable temperature boundary condition in degCelsius"
 
       annotation (
         Icon(
@@ -1446,7 +1446,7 @@ i.e., it defines a fixed temperature as a boundary condition.
           Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°C",
+            string="degC",
             style(color=0)),
           Text(extent=[-122, 163; 118, 103], string="%name"),
           Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
@@ -1472,7 +1472,7 @@ as required to keep the temperature at the specified value.
           Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°C",
+            string="degC",
             style(color=0)),
           Polygon(points=[52,-20; 52,20; 90,0; 52,-20],      style(
               color=42,
@@ -1509,9 +1509,9 @@ Example:
 "), Icon(
         Text(
           extent=[38,10; -62,-90],
-          string="°C",
+          string="degC",
           style(color=0))));
-    model TemperatureSensor "Absolute temperature sensor in °Celsius"
+    model TemperatureSensor "Absolute temperature sensor in degCelsius"
 
       annotation (
         Diagram(
@@ -1531,7 +1531,7 @@ Example:
           Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
             extent=[102, -22; 60, -74],
-            string="°C",
+            string="degC",
             style(color=0))),
         Icon(
           Ellipse(extent=[-20, -98; 20, -60], style(
@@ -1550,7 +1550,7 @@ Example:
           Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
             extent=[126, -20; 26, -120],
-            string="°C",
+            string="degC",
             style(color=0)),
           Text(extent=[-132, 144; 108, 84], string="%name")),
         Documentation(info="<HTML>
@@ -1577,7 +1577,7 @@ sensor model.
 
     extends Modelica.Icons.Library2;
 
-    model ToKelvin "Conversion block from °Fahrenheit to Kelvin"
+    model ToKelvin "Conversion block from degFahrenheit to Kelvin"
       annotation (
         Diagram(
           Ellipse(extent=[-40, 40; 40, -40], style(
@@ -1586,7 +1586,7 @@ sensor model.
               fillColor=7)),
           Text(
             extent=[-40, -50; -99, -99],
-            string="°F",
+            string="degF",
             style(color=0, thickness=4)),
           Text(
             extent=[100, -47; 44, -100],
@@ -1605,7 +1605,7 @@ sensor model.
             style(color=0)),
           Text(
             extent=[-31, -39; -111, -119],
-            string="°F",
+            string="degF",
             style(color=0, thickness=4)),
           Line(points=[-41, 0; -100, 0]),
           Line(points=[100, 0; 40, 0]),
@@ -1628,7 +1628,7 @@ and provides is as output signal.
       Kelvin = from_degF(Fahrenheit);
     end ToKelvin;
 
-    model FromKelvin "Conversion from Kelvin to °Fahrenheit"
+    model FromKelvin "Conversion from Kelvin to degFahrenheit"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       annotation (
         Icon(
@@ -1643,7 +1643,7 @@ and provides is as output signal.
             style(color=0, thickness=4)),
           Text(
             extent=[110, -39; 30, -119],
-            string="°F",
+            string="degF",
             style(color=0)),
           Line(points=[-40, 0; -100, 0]),
           Line(points=[40, 0; 100, 0])),
@@ -1658,7 +1658,7 @@ and provides is as output signal.
             style(color=0, thickness=4)),
           Text(
             extent=[100, -40; 30, -100],
-            string="°F",
+            string="degF",
             style(color=0)),
           Line(points=[-100, 0; -40, 0]),
           Line(points=[40, 0; 100, 0])),
@@ -1683,7 +1683,7 @@ and provides them as output signals.
     end FromKelvin;
 
     model FixedTemperature
-      "Fixed temperature boundary condition in °Fahrenheit"
+      "Fixed temperature boundary condition in degFahrenheit"
       parameter NonSI.Temperature_degF T "Fixed Temperature at the port";
       annotation (
         Icon(
@@ -1695,7 +1695,7 @@ and provides them as output signals.
               fillPattern=8)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°F",
+            string="degF",
             style(color=0)),
           Polygon(points=[52,-20; 52,20; 90,0; 52,-20],      style(
               color=42,
@@ -1721,7 +1721,7 @@ i.e., it defines a fixed temperature as a boundary condition.
           Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°F",
+            string="degF",
             style(color=0)),
           Polygon(points=[52,-20; 52,20; 90,0; 52,-20],      style(
               color=42,
@@ -1733,7 +1733,7 @@ i.e., it defines a fixed temperature as a boundary condition.
     end FixedTemperature;
 
     model PrescribedTemperature
-      "Variable temperature boundary condition in °Fahrenheit"
+      "Variable temperature boundary condition in degFahrenheit"
 
       annotation (
         Icon(
@@ -1745,7 +1745,7 @@ i.e., it defines a fixed temperature as a boundary condition.
           Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°F",
+            string="degF",
             style(color=0)),
           Text(extent=[-122, 163; 118, 103], string="%name"),
           Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
@@ -1771,7 +1771,7 @@ as required to keep the temperature at the specified value.
           Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°F",
+            string="degF",
             style(color=0)),
           Polygon(points=[52,-20; 52,20; 90,0; 52,-20],      style(
               color=42,
@@ -1808,9 +1808,9 @@ Example:
 "), Icon(
         Text(
           extent=[40,10; -60,-90],
-          string="°F",
+          string="degF",
           style(color=0))));
-    model TemperatureSensor "Absolute temperature sensor in °Fahrenheit"
+    model TemperatureSensor "Absolute temperature sensor in degFahrenheit"
 
       annotation (
         Diagram(
@@ -1830,7 +1830,7 @@ Example:
           Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
             extent=[102, -22; 60, -74],
-            string="°F",
+            string="degF",
             style(color=0))),
         Icon(
           Ellipse(extent=[-20, -98; 20, -60], style(
@@ -1849,7 +1849,7 @@ Example:
           Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
             extent=[126, -20; 26, -120],
-            string="°F",
+            string="degF",
             style(color=0)),
           Text(extent=[-132, 144; 108, 84], string="%name")),
         Documentation(info="<HTML>
@@ -1876,7 +1876,7 @@ sensor model.
 
     extends Modelica.Icons.Library2;
 
-    model ToKelvin "Conversion block from °Rankine to Kelvin"
+    model ToKelvin "Conversion block from degRankine to Kelvin"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       annotation (
         Diagram(
@@ -1886,7 +1886,7 @@ sensor model.
               fillColor=7)),
           Text(
             extent=[-40, -50; -99, -99],
-            string="°Rk",
+            string="degRk",
             style(color=0, thickness=4)),
           Text(
             extent=[100, -47; 44, -100],
@@ -1905,7 +1905,7 @@ sensor model.
             style(color=0)),
           Text(
             extent=[-31, -39; -111, -119],
-            string="°Rk",
+            string="degRk",
             style(color=0, thickness=4)),
           Line(points=[-41, 0; -100, 0]),
           Line(points=[100, 0; 40, 0]),
@@ -1930,7 +1930,7 @@ and provides them as output signals.
       Kelvin = from_degRk(Rankine);
     end ToKelvin;
 
-    model FromKelvin "Conversion from Kelvin to °Rankine"
+    model FromKelvin "Conversion from Kelvin to degRankine"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       annotation (
         Icon(
@@ -1945,7 +1945,7 @@ and provides them as output signals.
             style(color=0, thickness=4)),
           Text(
             extent=[110, -39; 30, -119],
-            string="°Rk",
+            string="degRk",
             style(color=0)),
           Line(points=[-40, 0; -100, 0]),
           Line(points=[40, 0; 100, 0])),
@@ -1960,7 +1960,7 @@ and provides them as output signals.
             style(color=0, thickness=4)),
           Text(
             extent=[100, -40; 30, -100],
-            string="°Rk",
+            string="degRk",
             style(color=0)),
           Line(points=[-100, 0; -40, 0]),
           Line(points=[40, 0; 100, 0])),
@@ -1984,7 +1984,7 @@ and provides them as output signals.
       Rankine = to_degRk(Kelvin);
     end FromKelvin;
 
-    model FixedTemperature "Fixed temperature boundary condition in °Rankine"
+    model FixedTemperature "Fixed temperature boundary condition in degRankine"
 
       parameter NonSI.Temperature_degRk T "Fixed Temperature at the port";
       annotation (
@@ -1997,7 +1997,7 @@ and provides them as output signals.
               fillPattern=8)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°Rk",
+            string="degRk",
             style(color=0)),
           Polygon(points=[52,-20; 52,20; 90,0; 52,-20],      style(
               color=42,
@@ -2023,7 +2023,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
           Line(points=[-42, 0; 66, 0], style(color=42, thickness=2)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°Rk",
+            string="degRk",
             style(color=0)),
           Polygon(points=[52,-20; 52,20; 90,0; 52,-20],      style(
               color=42,
@@ -2035,7 +2035,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
     end FixedTemperature;
 
     model PrescribedTemperature
-      "Variable temperature boundary condition in °Rankine"
+      "Variable temperature boundary condition in degRankine"
 
       annotation (
         Icon(
@@ -2047,7 +2047,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
           Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°Rk",
+            string="degRk",
             style(color=0)),
           Text(extent=[-122, 163; 118, 103], string="%name"),
           Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
@@ -2073,7 +2073,7 @@ as required to keep the temperature at the specified value.
           Line(points=[-102, 0; 64, 0], style(color=42, thickness=2)),
           Text(
             extent=[0, 0; -100, -100],
-            string="°Rk",
+            string="degRk",
             style(color=0)),
           Polygon(points=[52,-20; 52,20; 90,0; 52,-20],      style(
               color=42,
@@ -2109,9 +2109,9 @@ Example:
 "), Icon(
         Text(
           extent=[40,10; -60,-90],
-          string="°Rk",
+          string="degRk",
           style(color=0))));
-    model TemperatureSensor "Absolute temperature sensor in °Rankine"
+    model TemperatureSensor "Absolute temperature sensor in degRankine"
 
       annotation (
         Diagram(
@@ -2131,7 +2131,7 @@ Example:
           Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
             extent=[102, -22; 60, -74],
-            string="°Rk",
+            string="degRk",
             style(color=0))),
         Icon(
           Ellipse(extent=[-20, -98; 20, -60], style(
@@ -2150,7 +2150,7 @@ Example:
           Line(points=[-40, 60; -12, 60], style(color=0)),
           Text(
             extent=[126, -20; 26, -120],
-            string="°Rk",
+            string="degRk",
             style(color=0)),
           Text(extent=[-132, 144; 108, 84], string="%name")),
         Documentation(info="<HTML>

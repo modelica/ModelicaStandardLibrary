@@ -159,7 +159,7 @@ This is a simple drive train controlled by a PID controller:
      is used as PI controller.</li>
 
 <li> The output of the controller is a torque that drives a motor inertia
-     \"inertia1\". Via a complöiant spring/damper component, the load
+     \"inertia1\". Via a compliant spring/damper component, the load
      inertia \"inertia2\" is attached. A constant external torque of 10 Nm
      is acting on the load inertia.</li>
 </ul>

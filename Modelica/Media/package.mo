@@ -704,7 +704,7 @@ medium implementation package if they are useful)
       <td valign=\"top\">K</td>
       <td valign=\"top\">Temperature at p, h, X</td></tr>
   <tr><td valign=\"top\">Medium.density_phX(p,h,X)</td>
-      <td valign=\"top\">kg/m³</td>
+      <td valign=\"top\">kg/m3</td>
       <td valign=\"top\">Density at p, h, X</td></tr>
   <tr><td valign=\"top\">Medium.temperature_psX(p,s,X)</td>
       <td valign=\"top\">K</td>

@@ -4741,7 +4741,7 @@ The values val... are given by parameters.</P>
       parameter Real value_W=0.5 "value for digital W (Weak    Unknown)";
       parameter Real value_L=0 "value for digital L (Weak    0)";
       parameter Real value_H=1 "value for digital H (Weak    1)";
-      parameter Real value_m=0.5 "value for digital m (Don´t care)";
+      parameter Real value_m=0.5 "value for digital m (Don't care)";
     equation 
       for i in 1:n loop
        y[i]= if x[i] == L.'U' then value_U else 

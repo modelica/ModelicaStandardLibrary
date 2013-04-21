@@ -1659,7 +1659,7 @@ See also sketch at diagram layer.
             Text(
               extent=[30,60; 60,40],
               style(color=3, rgbcolor={0,0,255}),
-              string="dp ~ V_flow²")));
+              string="dp ~ V_flow2")));
         parameter Modelica.SIunits.VolumeFlowRate V_flowLaminar(min=Modelica.Constants.small)=0.1
           "Laminar volume flow"
           annotation(Dialog(group="Simple Friction"));
