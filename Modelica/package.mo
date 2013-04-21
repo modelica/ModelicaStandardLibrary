@@ -1,3 +1,4 @@
+within;
 package Modelica "Modelica Standard Library"
 extends Icons.Library;
 

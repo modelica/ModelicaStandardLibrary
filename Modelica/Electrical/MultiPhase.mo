@@ -1,3 +1,4 @@
+within Modelica.Electrical;
 
 
 package MultiPhase "Library for electrical components with 2, 3 or more phases"
