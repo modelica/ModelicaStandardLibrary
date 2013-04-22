@@ -871,10 +871,10 @@ In this example the eddy current losses are implemented in two different ways. C
               rotation=270,
               origin={0,10})));
       initial equation
-        aimcM.is = zeros(m);
-        aimcM.stator.port_p.Phi = Complex(0, 0);
         aimcE.is = zeros(m);
         aimcE.idq_rr = zeros(2);
+        aimcM.is = zeros(m);
+        aimcM.ir[1:2] = zeros(2);
 
       equation
         connect(star.pin_n, ground.p)
@@ -1125,10 +1125,10 @@ Simulate for 1.5 seconds and plot (versus time):
         Blocks.Math.Feedback feedback
           annotation (Placement(transformation(extent={{80,10},{100,-10}})));
       initial equation
-        aimc3.stator.port_p.Phi = Complex(0, 0);
-        aimc3.rotorCage.strayInductor.i[1:m3 - 1] = zeros(m3 - 1);
-        aimcM.stator.port_p.Phi = Complex(0, 0);
-        aimcM.rotorCage.strayInductor.i[1:m - 1] = zeros(m - 1);
+        aimc3.is[1:2] = zeros(2);
+        aimc3.ir[1:2] = zeros(2);
+        aimcM.is[1:2] = zeros(2);
+        aimcM.ir[1:m - 1] = zeros(m - 1);
 
       equation
         connect(starM.pin_n, groundM.p)
@@ -1409,10 +1409,10 @@ Simulate for 1.5 seconds and plot (versus time):
           aimsData(turnsRatio=2)
           annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
       initial equation
-        aimsM.is = zeros(3);
-        aimsM.ir = zeros(3);
         aimsE.is = zeros(3);
         aimsE.ir = zeros(3);
+        aimsM.is = zeros(3);
+        aimsM.ir = zeros(3);
 
       equation
         connect(star.pin_n, ground.p)
@@ -1695,10 +1695,10 @@ Simulate for 1.5 seconds and plot (versus time):
         Modelica.Blocks.Math.Feedback feedback
           annotation (Placement(transformation(extent={{80,10},{100,-10}})));
       initial equation
-        aims3.stator.port_p.Phi = Complex(0, 0);
+        aims3.is[1:2] = zeros(2);
         aims3.ir[1:3] = zeros(3);
-        aimsM.stator.port_p.Phi = Complex(0, 0);
-        aimsM.ir[1:3] = zeros(3);
+        aimsM.is[1:2] = zeros(2);
+        aimsM.ir[1:mr - 2] = zeros(mr - 2);
 
       equation
         connect(loadInertia3.flange_b, quadraticLoadTorque3.flange)
@@ -1985,9 +1985,9 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
       initial equation
         smpmE.is[1:2] = zeros(2);
-        smpmE.damperCage.spacePhasor_r.i_ = zeros(2);
+        smpmE.idq_dr = zeros(2);
         smpmM.is[1:2] = zeros(2);
-        smpmM.rotorCage.i = zeros(2);
+        smpmM.ir = zeros(2);
 
       equation
         connect(signalVoltage.plug_n, star.plug_p) annotation (Line(points={{
@@ -2247,10 +2247,10 @@ and accelerate the inertias.</p>
         Modelica.Blocks.Math.Gain gain(k=(m/m3))
           annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
       initial equation
-        smpm3.stator.port_p.Phi = Complex(0, 0);
-        smpm3.rotorCage.i = zeros(2);
-        smpmM.stator.port_p.Phi = Complex(0, 0);
-        smpmM.rotorCage.i = zeros(2);
+        smpm3.is[1:2] = zeros(2);
+        smpm3.ir = zeros(2);
+        smpmM.is[1:2] = zeros(2);
+        smpmM.ir = zeros(2);
 
       equation
         connect(signalVoltage3.plug_n, star3.plug_p) annotation (Line(points={{
@@ -2585,8 +2585,8 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
       initial equation
         smeeE.idq_sr = zeros(2);
         smeeE.idq_dr = zeros(2);
-        smeeM.airGap.Phi_sr = Complex(-0.45, 0);
-        smeeM.rotorCage.i = zeros(2);
+        smeeM.is[1:2] = zeros(2);
+        smeeM.ir = zeros(2);
 
       equation
         connect(rotorAngleE.plug_n, smeeE.plug_sn) annotation (Line(points={{36,
@@ -2928,10 +2928,10 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
               m))    annotation (Placement(transformation(extent={{-20,70},{-40,
                   90}}, rotation=0)));
       initial equation
-        smee3.airGap.Phi_sr = Complex(-0.45, 0);
-        smee3.rotorCage.i = zeros(2);
-        smeeM.airGap.Phi_sr = Complex(-0.45, 0);
-        smeeM.rotorCage.i = zeros(2);
+        smee3.is[1:2] = zeros(2);
+        smee3.ir = zeros(2);
+        smeeM.is[1:2] = zeros(2);
+        smeeM.ir = zeros(2);
 
       equation
         connect(rotorAngle3.plug_n, smee3.plug_sn)   annotation (Line(points={{
@@ -3229,8 +3229,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
       initial equation
         smrE.idq_sr = zeros(2);
         smrE.idq_rr = zeros(2);
-        smrM.stator.port_p.Phi = Complex(0, 0);
-        smrM.rotorCage.i = zeros(2);
+        smrM.is[1:2] = zeros(2);
+        smrM.ir = zeros(2);
 
       equation
         connect(signalVoltage.plug_n, star.plug_p) annotation (Line(points={{
@@ -3488,10 +3488,10 @@ Simulate for 1.5 seconds and plot (versus time):
         Modelica.Blocks.Math.Gain gain(k=(m/m3))
           annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
       initial equation
-        smrM.stator.port_p.Phi = Complex(0, 0);
-        smrM.rotorCage.i = zeros(2);
-        smr3.stator.port_p.Phi = Complex(0, 0);
-        smr3.rotorCage.i = zeros(2);
+        smr3.is[1:2] = zeros(2);
+        smr3.ir = zeros(2);
+        smrM.is[1:2] = zeros(2);
+        smrM.ir = zeros(2);
 
       equation
         connect(smr3.flange, loadInertia3.flange_a)
@@ -4192,6 +4192,8 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of rotor resistance" annotation (Dialog(
               group="Operational temperatures", enable=not useThermalPort));
+        output Modelica.SIunits.Current ir[m] = rotorCage.strayInductor.i
+          "Rotor cage currents";
         Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding
           rotorCage(
           final Lsigma=Lrsigma,
@@ -4207,7 +4209,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
                 rotation=0)));
       equation
         connect(airGap.port_rn, rotorCage.port_n) annotation (Line(
-            points={{-10,-10},{-10,-15},{-10,-15},{-10,-20},{-10,-30},{-10,-30}},
+            points={{-10,-10},{-10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(airGap.port_rp, rotorCage.port_p) annotation (Line(
@@ -4499,6 +4501,8 @@ Resistances and stray inductances of the machine always refer to either stator o
           permanentMagnetLossParameters(IRef(start=100), wRef(start=2*pi*
                 fsNominal/p)) "Permanent magnet loss losses"
           annotation (Dialog(tab="Losses"));
+        output Modelica.SIunits.Current ir[2] = rotorCage.strayInductor.i if useDamperCage
+          "Damper cage currents";
       protected
         final parameter Modelica.SIunits.MagneticPotentialDifference V_mPM=(2/
             pi)*sqrt(2)*(m/2)*VsOpenCircuit/effectiveStatorTurns/(Lmd/
@@ -4737,6 +4741,8 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
         output Modelica.SIunits.Voltage ve=pin_ep.v - pin_en.v
           "Excitation voltage";
         output Modelica.SIunits.Current ie=pin_ep.i "Excitation current";
+        output Modelica.SIunits.Current ir[2] = rotorCage.strayInductor.i if useDamperCage
+          "Damper cage currents";
       protected
         final parameter Real turnsRatio=sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*
             IeOpenCircuit) "Stator current / excitation current";
@@ -4952,6 +4958,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             tab="Nominal resistances and inductances",
             group="DamperCage",
             enable=useDamperCage));
+        output Modelica.SIunits.Current ir[2] = rotorCage.strayInductor.i if useDamperCage
+          "Damper cage currents";
         Modelica.Magnetic.FundamentalWave.Components.Ground groundR
           "Ground of rotor magnetic circuit" annotation (Placement(
               transformation(extent={{-40,-30},{-20,-10}}, rotation=0)));

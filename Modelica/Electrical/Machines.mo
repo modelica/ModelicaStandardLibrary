@@ -429,9 +429,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{-20,-82},{0,-62}})));
       initial equation
+        transformer.i1[1:2]=zeros(2);
         aimc.is=zeros(3);
         aimc.idq_rr=zeros(2);
-        transformer.i2[1:2]=zeros(2);
 
       equation
         connect(star.pin_n, ground.p)
@@ -1685,7 +1685,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         smpm.idq_sr=zeros(2);
-        smpm.damperCage.spacePhasor_r.i_ = zeros(2);
+        smpm.idq_dr=zeros(2);
 
       equation
         connect(signalVoltage.plug_n, star.plug_p)
@@ -9370,8 +9370,7 @@ Temperatures of both axis are the same, both losses are added.
 Material properties alpha can be set differently for both d- and q-axis,
 although reference temperature for both resistances is the same.
 </p>
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
       end DamperCage;
 
