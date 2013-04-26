@@ -498,7 +498,7 @@ The simulation stop time should be 10 seconds.
         x={L.'0'},
         t={1}) annotation (Placement(transformation(extent={{70,40},{110,80}},
               rotation=0)));
-      Sources.Set Set(x=3)
+      Sources.Set Set(x=L.'0')
         annotation (Placement(transformation(
             origin={-150,-74},
             extent={{20,20},{-20,-20}},
@@ -3374,7 +3374,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     block Table "Digital Tabular Source"
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      parameter D.Interfaces.Logic x[:]={1} "vector of values";
+      parameter D.Interfaces.Logic x[:]={L.'U'} "vector of values";
       parameter Real t[size(x, 1)]={1} "vector of corresponding time points";
       parameter D.Interfaces.Logic y0=L.'U' "initial output value";
       final parameter Integer n=size(x, 1) "table size";

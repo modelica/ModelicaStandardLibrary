@@ -1124,7 +1124,8 @@ housing dynamics.</p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <tt>housing.w</tt>,
 <tt>shaft.w</tt> and <tt>load.w</tt>.</p>
 </html>
-"));
+"),
+experiment(StopTime=10, Interval=0.01));
     end ElasticBearing;
 
     model Backlash "Example to demonstrate backlash"
