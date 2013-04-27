@@ -2758,7 +2758,7 @@ The same restrictions as for the pre() operator apply.</P>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Connect objects
+Connect objects (defines <em>breakable</em> branches)
 </p>
 <h4>Examples</h4>
 
@@ -2853,6 +2853,127 @@ connected as a pair of scalar connectors.</P>
 </ul>
 </html>"));
   end 'connect()';
+
+  class 'Connections.branch()' "Connections.branch()"
+      extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Defines <em>non-breakable</em> branch
+</p>
+
+<h4>Syntax</h4>
+<pre>
+Connections.branch(A.R,B.R);
+</pre>
+
+<h4>Description</h4>
+<p>
+Defines a non-breakable branch from the overdetermined type or record instance <code>R</code> in connector instance <code>A</code> to the corresponding overdetermined type or record instance <code>R</code> in connector instance <code>B</code> for a virtual connection graph.
+</p>
+<h4>Examples</h4>
+<p>
+This function can be used at all places where a <a href=\"modelica://ModelicaReference.Operators.'connect()'\">connect(...)</a> statement is allowed.
+</p>
+<p>
+E.g., it is not allowed to use this function in a when-clause.
+This definition shall be used if in a model with connectors <code>A</code> and <code>B</code> the overdetermined records <code>A.R</code> and <code>B.R</code> are algebraically coupled in the model, e.g., due to <code>B.R = f(A.R, &lt;other unknowns&gt;)</code>.
+</p>
+</html>"));
+  end 'Connections.branch()';
+
+  class 'Connections.root()' "Connections.root()"
+      extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Defines a <em>definite</em> root node.
+</p>
+<h4>Syntax</h4>
+<pre>
+Connections.root(A.R);
+</pre>
+
+<h4>Description</h4>
+<p>
+The overdetermined type or record instance <code>R</code> in connector instance <code>A</code> is a (definite) root node in a virtual connection graph.
+</p>
+
+<h4>Examples</h4>
+<p>
+This definition shall be used if in a model with connector <code>A</code> the overdetermined record <code>A.R</code> is (consistently) assigned, e.g.,  from a parameter expressions.
+</p>
+</html>"));
+  end 'Connections.root()';
+
+  class 'Connections.potentialRoot()' "Connection.potentialRoot()"
+      extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Defines a <em>potential</em> root node.
+</p>
+<h4>Syntax</h4>
+<pre>
+Connections.potentialRoot(A.R);
+Connections.potentialRoot(A.R, priority = p);
+</pre>
+
+<h4>Description</h4>
+<p>
+The overdetermined type or record instance <code>R</code> in connector instance <code>A</code> is a potential root node in a virtual connection graph with priority <code>p</code> (with <code>p &ge; 0</code>).
+If no second argument is provided, the priority is zero. <code>p</code> shall be a parameter expression of type Integer.
+In a virtual connection subgraph without a  <a href=\"modelica://ModelicaReference.Operators.'Connections.root()'\">Connections.root()</a> definition, one of the potential roots with the lowest priority number is selected as root.
+</p>
+
+<h4>Examples</h4>
+<p>
+This definition may  be used if in a model with connector <code>A</code> the overdetermined record <code>A.R</code> appears differentiated, <code>der(A.R)</code>, together with the constraint equations of <code>A.R</code>, i.e., a non-redundant subset of <code>A.R</code> maybe used as states.
+</p>
+</html>"));
+  end 'Connections.potentialRoot()';
+
+
+
+  class 'Connections.isRoot()' "Connections.isRoot()"
+      extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Returns root status.
+</p>
+<h4>Syntax</h4>
+<pre>
+b = Connections.isRoot(A.R);
+</pre>
+
+<h4>Description</h4>
+<p>
+Returns true, if the overdetermined type or record instance <code>R</code> in connector instance <code>A</code> is selected as a root in the virtual connection graph.
+</p>
+</html>"));
+  end 'Connections.isRoot()';
+
+  class 'Connections.rooted()' "Connections.rooted()"
+      extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+Returns which node of a connection branch is closer to root.
+</p>
+<h4>Syntax</h4>
+<pre>
+b = Connections.rooted(A.R);
+b = rooted(A.R);  // deprecated
+</pre>
+
+<h4>Description</h4>
+<p>
+If the operator <code>Connections.rooted(A.R)</code> is used, or the equivalent <em>but deprecated</em> operator <code>rooted(A.R)</code>, then there must be exactly one statement <code>Connections.branch(A.R,B.R)</code> involving <code>A.R</code> (the argument of <code>Connections.rooted</code> must be the first argument of <code>Connections.branch</code>).
+In that case <code>Connections.rooted(A.R)</code> returns <em>true</em>, if <code>A.R</code> is closer to the root of the spanning tree than <code>B.R</code>; otherwise <em>false</em> is returned.
+
+<h4>Examples</h4>
+<p>
+This operator can be used to avoid equation systems by providing analytic inverses, see <a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.FixedRotation\">Modelica.Mechanics.MultiBody.Parts.FixedRotation</a>.
+</p>
+</html>"));
+  end 'Connections.rooted()';
+
 
   class 'cos()' "cos()"
     extends ModelicaReference.Icons.Information;
@@ -4045,6 +4166,16 @@ the return value changes discontinuously.]</I></P>
  = 0.2</pre>
 </html>"));
   end 'rem()';
+
+  class 'rooted()' "rooted() - deprecated"
+    extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+<strong>Deprecated</strong> operator, see <a href=\"modelica://ModelicaReference.Operators.'Connections.rooted()'\">Connections.rooted()</a> instead.
+</p>
+</html>"));
+  end 'rooted()';
+
 
   class 'sample()' "sample()"
     extends ModelicaReference.Icons.Information;
