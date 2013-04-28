@@ -276,9 +276,18 @@ This annotation is used in the Modelica Standard Library for example in <a href=
 Define graphical layout of choices in a parameter menu
 </p>
 
-<h4>Examples</h4>
+<h4>Description</h4>
+<p>
+A declaration can have an annotation <code>choices</code> containing modifiers on choice, where each of them indicates a suitable redeclaration or modifications of the element.
+This is a hint for users of the model, and can also be used by the user interface to suggest reasonable redeclaration, where the string comments on the choice declaration can be used as textual explanations of the choices.  The annotation is not restricted to replaceable elements but can also be applied to non-replaceable elements, enumeration types, and simple variables.
+</p>
+<p>
+For a Boolean variable, a <code>choices</code> annotation may contain the definition <code>checkbox = true</code>, meaning to display a checkbox to input the values <code>false</code> or <code>true</code> in the graphical user interface.
+</p>
 
-<pre><b>replaceable model</b> MyResistor=Resistor
+<h4>Examples</h4>
+<pre>
+<b>replaceable model</b> MyResistor=Resistor
   <b>annotation</b>(choices(
               choice(redeclare MyResistor=lib2.Resistor(a={2}) \"...\"),
               choice(redeclare MyResistor=lib2.Resistor2 \"...\")));
@@ -305,16 +314,40 @@ Define graphical layout of choices in a parameter menu
 <b>end</b> A;
 A a(x=3 \"PID\");
 </pre>
-
-<h4>Description</h4>
-
 <p>
-A declaration can have an annotation \"choices\" containing modifiers on choice, where each of them indicates a suitable redeclaration or modifications of the element.
-This is a hint for users of the model, and can also be used by the user interface to suggest reasonable redeclaration, where the string comments on the choice declaration can be used as textual explanations of the choices.  The annotation is not restricted to replaceable elements but can also be applied to non-replaceable elements, enumeration types, and simple variables.
+It can also be applied to Boolean variables to define a check box:
 </p>
-
+<pre>
+  <b>parameter</b> Boolean useHeatPort=false <b>annotation</b>(choices(checkBox=true));
+</pre>
 </html>"));
   end choices;
+
+  class choicesAllMatching "choicesAllMatching"
+    extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+<p>
+Automatically display a list of matching choises in a graphical parameter menu.
+</p>
+
+<h4>Description</h4>
+<p>
+Choices menus of replaceable elements can be automatically constructed showing the names of all classes that are either directly or indirectly derived by inheritance from the constraining class of the declaration.
+</p>
+<p>
+This can be recommended by having  <code><strong>annotation</strong> choicesAllMatching = true;</code> and disabled by having  <code><strong>annotation</strong> choicesAllMatching = false;</code>.
+</p>
+
+<h4>Examples</h4>
+<pre>
+<strong>replaceable package</strong> Medium = Modelica.Media.Water.ConstantPropertyLiquidWater
+                             <strong>constrainedby</strong> Modelica.Media.Interfaces.PartialMedium
+                             <strong>annotation</strong> (choicesAllMatching=true);
+</pre>
+</html>"));
+  end choicesAllMatching;
+
 
   class dateModified "dateModified"
     extends ModelicaReference.Icons.Information;
@@ -631,6 +664,7 @@ Define graphical layout of the parameter menu.
                      <b>tab</b> = \"General\",
                    <b>group</b> = \"Parameters\",
       <b>showStartAttribute</b> = false,
+           <b>colorSelector</b> = false,
               <b>groupImage</b> = \"modelica://MyPackage/Resources/Images/image.png\",
          <b>connectorSizing</b> = false));
 </pre>
@@ -639,6 +673,9 @@ Define graphical layout of the parameter menu.
 <h4>Description</h4>
 <p>
 The annotations <b><code>tab</code></b> and <b><code>group</code></b> define the placement of the component or of variables in a dialog with optional tab and group specification. If <code><b>enable</b> = false</code>, the input field may be disabled [and no input can be given]. If <code><b>showStartAttribute</b> = true</code> the dialog should allow the user to set the start-value and the fixed attribute for the variable instead of the value-attribute [this is primarily intended for non-parameter values and avoids introducing a separate parameter for the start-value of the variable].
+</p>
+<p>
+If <code>colorSelector=true</code>, it indicates that an rgb-value selector can be presented for a vector of  three elements and generate values <code>0..255</code> (the annotation should be useable both for vectors of Integers and Reals).
 </p>
 <p>
 The annotation <b><code>groupImage</code></b> references an image using an Modelica URI, and the image is intended to be shown together with the parameter-group (only one image per group is supported). Disabling the input field will not disable the image.
@@ -658,13 +695,24 @@ Annotation \"Dialog\" is defined as:
   <b>parameter</b> Boolean enable             = <b>true</b>;
   <b>parameter</b> Boolean showStartAttribute = <b>false</b>;
   <b>parameter</b> Boolean connectorSizing    = <b>false</b>;
+  <b>parameter</b> Boolean colorSelector      = <b>false</b>;
+  <b>parameter</b> Selector loadSelector;
+  <b>parameter</b> Selector saveSelector;
 <b>end</b> Dialog;
+
+<b>record</b> Selector
+  <b>parameter</b> String filter=\"\";
+  <b>parameter</b> String caption=\"\";
+<b>end</b> Selector;
 </pre>
 </blockquote>
 
 <h4>Examples</h4>
 <p>
 A parameter dialog is a sequence of tabs with a sequence of groups inside them.
+</p>
+<p>
+A <code>Selector</code> displays a file dialog to select a file: Parameter <code>filter</code> only shows files that fulfill the given pattern defined by \"<code>text1 (*.ext1);text2 (*.ext2);</code>\" to show only files <code>*.ext1</code> and <code>*.ext2</code> and displaying a description text \"<code>text1</code>\" and \"<code>text2</code>\", respectively. Parameter caption is the text displayed in the dialog menu. Parameter <code>loadSelector</code> is used to select an existing file for reading, whereas parameter <code>saveSelector</code> is used to define a file for writing.
 </p>
 
 <pre><b>model</b> DialogDemo
@@ -805,15 +853,14 @@ Define default experiment parameters
 experimentOption:
    StartTime  \"=\" [\"+\" | \"-\"] UNSIGNED_NUMBER |
    StopTime   \"=\" [\"+\" | \"-\"] UNSIGNED_NUMBER |
+   Interval   \"=\" UNSIGNED_NUMBER
    Tolerance  \"=\" UNSIGNED_NUMBER
 </pre>
 
 <h4>Description</h4>
-
 <p>
-The experiment annotation defines the default start time (StartTime) in [s], the default stop time (StopTime) in [s], and the default relative integration tolerance (Tolerance) for simulation experiments to be carried out with the model or block at hand.
+The experiment annotation defines the default start time (<code>StartTime</code>) in [s], the default stop time (<code>StopTime</code>) in [s], the suitable time resolution for the result grid (<code>Interval</code>) in [s], and the default relative integration tolerance (<code>Tolerance</code>) for simulation experiments to be carried out with the model or block at hand.
 </p>
-
 </html>"));
   end experiment;
 
@@ -1069,9 +1116,35 @@ The preferredView annotation defines the default view when selecting the class. 
 Define differentiability of function body
 </p>
 
-<h4>Examples</h4>
+<h4>Syntax</h4>
+<pre>
+   <strong>annotation</strong>\"(\" smoothOrder \"=\" UNSIGNED_INTEGER \")\"
+   <strong>annotation</strong>\"(\" smoothOrder \"(\" normallyConstant=NAME [\",\" normallyConstant=NAME] \")\"
+                             \"=\" UNSIGNED_NUMBER \")\"
+</pre>
 
-<pre><b>function</b> SpecialPolynomial
+<h4>Description</h4>
+<p>
+This annotation has only an effect within a function declaration.
+</p>
+
+<p>
+smoothOrder defines the number of differentiations of the function, in order that all of the differentiated outputs are continuous provided all input arguments and their derivatives up to order smoothOrder are continuous.
+</p>
+
+<p>
+This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 1 means that the function can be differentiated at least once in order that all output arguments are still continuous, provided the input arguments are continuous. If a tool needs the derivative of a function, e.g., for index reduction or to compute an analytic Jacobian, the function can be differentiated analytically at most smoothOrder times.
+</p>
+<p>
+The optional argument <code>normallyConstant</code> of <code>smoothOrder</code> defines that the function argument <code>NAME</code> is usually constant.
+</p>
+
+<h4>Examples</h4>
+<p>
+This annotation is used by many functions of the <a href=\"modelica://Modelica.Fluid\">Modelica.Fluid</a> library, such as <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\">Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP</a>, since geometric arguments to these functions are usually constant.
+</p>
+<pre>
+<b>function</b> SpecialPolynomial
   <b>input</b>  Real u;
   <b>output</b> Real y;
 <b>algorithm</b>
@@ -1089,26 +1162,6 @@ Define differentiability of function body
    ydd = <b>der</b>(yd);    // error, SpecialPolynomial cannot be differentiated twice
 <b>end</b> TestSpecialPolynomial;
 </pre>
-
-<h4>Syntax</h4>
-
-<pre>   <b>annotation</b>\"(\" smoothOrder \"=\" UNSIGNED_INTEGER \")\"
-</pre>
-
-<h4>Description</h4>
-
-<p>
-This annotation has only an effect within a function declaration.
-</p>
-
-<p>
-smoothOrder defines the minimum number of differentiations of the function, in order that all of the differentiated outputs are continuous provided all input arguments and their derivatives up to order smoothOrder are continuous.
-</p>
-
-<p>
-This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 1 means that the function can be differentiated at least once in order that all output arguments are still continuous, provided the input arguments are continuous. If a tool needs the derivative of a function, e.g., for index reduction or to compute an analytic Jacobian, the function can be differentiated analytically at most smoothOrder times.
-</p>
-
 </html>"));
   end smoothOrder;
 
