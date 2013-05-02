@@ -279,15 +279,16 @@ Examples to demonstrate the usage of quasistationary electric components.
                0)));
       QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      PlugToPins_p plugToPins_p annotation (Placement(transformation(extent={{-80,
+      PlugToPins_p plugToPins_p(final m=m)
+                                annotation (Placement(transformation(extent={{-80,
                 -10},{-60,10}}, rotation=0)));
     equation
       for j in 1:m loop
         connect(plugToPins_p.pin_p[j], pin_n);
       end for;
       connect(plug_p, plugToPins_p.plug_p)
-        annotation (Line(points={{-100,0},{-93,0},{-93,0},{-86,0},
-              {-86,0},{-72,0}},                                  color={85,170,255}));
+        annotation (Line(points={{-100,0},{-93,0},{-86,0},{-72,0}},
+                                                                 color={85,170,255}));
       annotation (Icon(graphics={
             Text(extent={{-150,60},{150,120}}, textString=
                                                   "%name",
@@ -318,7 +319,9 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end Star;
 
     model Delta "Delta (polygon) connection"
@@ -329,9 +332,11 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
       Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
 
-      PlugToPins_p plugToPins_p annotation (Placement(transformation(extent={{-80,
+      PlugToPins_p plugToPins_p(final m=m)
+                                annotation (Placement(transformation(extent={{-80,
                 -10},{-60,10}}, rotation=0)));
-      PlugToPins_n plugToPins_n annotation (Placement(transformation(extent={{80,
+      PlugToPins_n plugToPins_n(final m=m)
+                                annotation (Placement(transformation(extent={{80,
                 -10},{60,10}}, rotation=0)));
     equation
       for j in 1:m loop
@@ -342,8 +347,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
         end if;
       end for;
       connect(plug_p, plugToPins_p.plug_p)
-        annotation (Line(points={{-100,0},{-93,0},{-93,0},{-86,0},
-              {-86,0},{-72,0}},
+        annotation (Line(points={{-100,0},{-93,0},{-86,0},{-72,0}},
             color={85,170,255}));
       connect(plugToPins_n.plug_n, plug_n)
         annotation (Line(points={{72,0},{79,0},{79,0},{86,0},
@@ -372,7 +376,9 @@ Delta (polygon) connection of a multi phase circuit.
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end Delta;
 
     model PlugToPin_p "Connect one (positive) pin"
@@ -588,15 +594,13 @@ Connects all <i>m</i> single phase (negative) pins of the multi phase (negative)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
       connect(plugToPins_p.pin_p, resistor.pin_p)
-        annotation (Line(points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},
-              {-39,0},{-10,0}},
+        annotation (Line(points={{-68,0},{-53.5,0},{-39,0},{-10,0}},
             color={85,170,255}));
       connect(resistor.pin_n, plugToPins_n.pin_n)
-        annotation (Line(points={{10,0},{39,0},{39,0},{68,
-              0}},                   color={85,170,255}));
+        annotation (Line(points={{10,0},{39,0},{68,0}},
+                                     color={85,170,255}));
       connect(resistor.heatPort, heatPort)
-        annotation (Line(points={{0,-10},{0,-32.5},{0,-32.5},{0,
-              -55},{0,-55},{0,-100}},
+        annotation (Line(points={{0,-10},{0,-32.5},{0,-55},{0,-100}},
                                    color={191,0,0}));
       annotation (Icon(graphics={
             Text(extent={{100,60},{-100,100}}, textString=
@@ -640,7 +644,9 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end Resistor;
 
     model Conductor "Multiphase linear conductor"
@@ -712,7 +718,9 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end Conductor;
 
     model Capacitor "Multiphase linear capacitor"
@@ -2265,12 +2273,11 @@ Additionally the reference angle is specified in the connector. The time derivat
       v = plug_p.pin.v - plug_n.pin.v;
       i = plug_p.pin.i;
       connect(plug_p, plugToPins_p.plug_p)
-        annotation (Line(points={{-100,0},{-93,0},{-93,0},{-86,0},
-              {-86,0},{-72,0}},
+        annotation (Line(points={{-100,0},{-93,0},{-86,0},{-72,0}},
             color={85,170,255}));
       connect(plugToPins_n.plug_n, plug_n)
-        annotation (Line(points={{72,0},{86,0},{86,0},{
-              100,0}},                           color={85,170,255}));
+        annotation (Line(points={{72,0},{86,0},{100,0}},
+                                                 color={85,170,255}));
       annotation (         Documentation(info="<html>
 <p>
 This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">positive</a>
@@ -2284,7 +2291,8 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>,
 </p>
-</html>"));
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics));
     end TwoPlug;
 
     partial model OnePort
@@ -2304,6 +2312,8 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
       v = plug_p.pin.v - plug_n.pin.v;
       i = plug_p.pin.i;
       plug_p.pin.i + plug_n.pin.i = fill(Complex(0),m);
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics));
     end OnePort;
 
     partial model AbsoluteSensor "Partial potential sensor"
