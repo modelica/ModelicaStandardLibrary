@@ -272,7 +272,8 @@ Examples to demonstrate the usage of quasistationary electric components.
                0)));
       QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      PlugToPins_p plugToPins_p annotation (Placement(transformation(extent={{-80,
+      PlugToPins_p plugToPins_p(final m=m)
+                                annotation (Placement(transformation(extent={{-80,
                 -10},{-60,10}}, rotation=0)));
     equation
       for j in 1:m loop
@@ -322,9 +323,11 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
       Interfaces.NegativePlug plug_n(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
 
-      PlugToPins_p plugToPins_p annotation (Placement(transformation(extent={{-80,
+      PlugToPins_p plugToPins_p(final m=m)
+                                annotation (Placement(transformation(extent={{-80,
                 -10},{-60,10}}, rotation=0)));
-      PlugToPins_n plugToPins_n annotation (Placement(transformation(extent={{80,
+      PlugToPins_n plugToPins_n(final m=m)
+                                annotation (Placement(transformation(extent={{80,
                 -10},{60,10}}, rotation=0)));
     equation
       for j in 1:m loop
@@ -365,7 +368,9 @@ Delta (polygon) connection of a multi phase circuit.
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end Delta;
 
     model PlugToPin_p "Connect one (positive) pin"
