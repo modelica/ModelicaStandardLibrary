@@ -443,7 +443,7 @@ The design flow direction with positive m_flow variables is counterflow.</p>
     //Temperatures
       SI.Temperature[n] Tb(each start=T_start+0.5*dT);
       SI.Temperature[n] Ta(each start=T_start-0.5*dT);
-      SI.Temperature[n] T(start=ones(n)*T_start, stateSelect=StateSelect.prefer)
+      SI.Temperature[n] T(start=ones(n)*T_start, each stateSelect=StateSelect.prefer)
         "Wall temperature";
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a[n] heatPort_a
         "Thermal port"
