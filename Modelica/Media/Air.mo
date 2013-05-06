@@ -73,7 +73,7 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
 </html>"));
   end DryAirNasa;
 
-  package MoistAir "Air: Moist air model (240 ... 400 K)"
+  package MoistAir "Air: Moist air model (190 ... 647 K)"
     extends Interfaces.PartialCondensingGases(
        mediumName="Moist air",
        substanceNames={"water", "air"},
@@ -131,9 +131,9 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
         "Steam water mass content of saturation boundary in kg_water/kg_dryair";
       AbsolutePressure p_steam_sat "Partial saturation pressure of steam";
     equation
-      assert(T >= 200.0 and T <= 423.15, "
+      assert(T >= 190 and T <= 647, "
 Temperature T is not in the allowed range
-200.0 K <= (T =" + String(T) + " K) <= 423.15 K
+190.0 K <= (T =" + String(T) + " K) <= 647.0 K
 required from medium model \""       + mediumName + "\".");
       MM = 1/(Xi[Water]/MMX[Water]+(1.0-Xi[Water])/MMX[Air]);
 
@@ -350,50 +350,90 @@ The ideal gas constant for moist air is computed from the gas phase composition.
     end gasConstant_X;
 
     function saturationPressureLiquid
-      "Return saturation pressure of water as a function of temperature T in the range of 273.16 to 373.16 K"
+      "Return saturation pressure of water as a function of temperature T in the range of 273.16 to 647.096 K"
 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "saturation temperature";
       output SI.AbsolutePressure psat "saturation pressure";
+    protected
+      SI.Temperature Tcritical=647.096 "Critical temperature";
+      SI.AbsolutePressure pcritical=22.064e6 "Critical pressure";
+      Real r1=(1 - Tsat/Tcritical) "Common subexpression";
+      Real a[:]={-7.85951783,1.84408259,-11.7866497,22.6807411,-15.9618719,1.80122502}
+        "Coefficients a[:]";
+      Real n[:]={1.0,1.5,3.0,3.5,4.0,7.5} "Coefficients n[:]";
     algorithm
-      psat := 611.657*Math.exp(17.2799 - 4102.99/(Tsat - 35.719));
-      annotation(Inline=false,smoothOrder=5,derivative=saturationPressureLiquid_der,
+    // Approach used here is based on Baehr: "Thermodynamik", 12th edition p.204ff, "Method of Wagner"
+      psat := exp(((a[1]*r1^n[1] + a[2]*r1^n[2] + a[3]*r1^n[3] + a[4]*r1^n[4] + a[
+        5]*r1^n[5] + a[6]*r1^n[6])*Tcritical)/Tsat)*pcritical;
+      annotation (
+        derivative=saturationPressureLiquid_der,
+        Inline=false,
+        smoothOrder=5,
         Documentation(info="<html>
-Saturation pressure of water above the triple point temperature is computed from temperature. It's range of validity is between
-273.16 and 373.16 K. Outside these limits a less accurate result is returned.
-</html>"));
+<p>Saturation pressure of water above the triple point temperature is computed from temperature. </p>
+<p>Source: A Saul, W Wagner: &QUOT;International equations for the saturation properties of ordinary water substance&QUOT;, equation 2.1 </p>
+</html>"),
+        Icon(graphics));
     end saturationPressureLiquid;
 
     function saturationPressureLiquid_der
-      "Time derivative of saturationPressureLiquid"
+      "Derivative function for 'saturationPressureLiquid'"
 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "Saturation temperature";
-      input Real dTsat(unit="K/s") "Saturation temperature derivative";
-      output Real psat_der(unit="Pa/s") "Saturation pressure";
+      input Real Tsat_der(unit="K/s") "Saturation temperature derivative";
+      output Real psat_der(unit="Pa/s") "Saturation pressure derivative";
+    protected
+      SI.Temperature Tcritical=647.096 "Critical temperature";
+      SI.AbsolutePressure pcritical=22.064e6 "Critical pressure";
+      Real r1=(1 - Tsat/Tcritical) "Common subexpression 1";
+      Real r1_der=-1/Tcritical*Tsat_der "Derivative of common subexpression 1";
+      Real a[:]={-7.85951783,1.84408259,-11.7866497,22.6807411,-15.9618719,1.80122502}
+        "Coefficients a[:]";
+      Real n[:]={1.0,1.5,3.0,3.5,4.0,7.5} "Coefficients n[:]";
+      Real r2=(a[1]*r1^n[1] + a[2]*r1^n[2] + a[3]*r1^n[3] + a[4]*r1^n[4] + a[5]*
+          r1^n[5] + a[6]*r1^n[6]) "Common subexpression 2";
     algorithm
-    /*psat := 611.657*Math.exp(17.2799 - 4102.99/(Tsat - 35.719));*/
-      psat_der:=611.657*Math.exp(17.2799 - 4102.99/(Tsat - 35.719))*4102.99*dTsat/(Tsat - 35.719)/(Tsat - 35.719);
-
-      annotation(Inline=false,smoothOrder=5,
+      // Approach used here is based on Baehr: "Thermodynamik", 12th edition p.204ff, "Method of Wagner"
+      //psat := exp(((a[1]*r1^n[1] + a[2]*r1^n[2] + a[3]*r1^n[3] + a[4]*r1^n[4] + a[5]*r1^n[5] + a[6]*r1^n[6])*Tcritical)/Tsat) * pcritical;
+      psat_der := exp((r2*Tcritical)/Tsat)*pcritical*((a[1]*(r1^(n[1] - 1)*n[1]*
+        r1_der) + a[2]*(r1^(n[2] - 1)*n[2]*r1_der) + a[3]*(r1^(n[3] - 1)*n[3]*
+        r1_der) + a[4]*(r1^(n[4] - 1)*n[4]*r1_der) + a[5]*(r1^(n[5] - 1)*n[5]*
+        r1_der) + a[6]*(r1^(n[6] - 1)*n[6]*r1_der))*Tcritical/Tsat - r2*Tcritical*
+        Tsat_der/Tsat^2);
+      annotation (
+        Inline=false,
+        smoothOrder=5,
         Documentation(info="<html>
-Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturationPressureLiquid\">saturationPressureLiquid</a>
-</html>"));
+<p>Saturation pressure of water above the triple point temperature is computed from temperature. </p>
+<p>Source: A Saul, W Wagner: &QUOT;International equations for the saturation properties of ordinary water substance&QUOT;, equation 2.1 </p>
+</html>"),
+        Icon(graphics));
     end saturationPressureLiquid_der;
 
     function sublimationPressureIce
-      "Return sublimation pressure of water as a function of temperature T between 223.16 and 273.16 K"
+      "Return sublimation pressure of water as a function of temperature T between 190 and 273.16 K"
 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "sublimation temperature";
       output SI.AbsolutePressure psat "sublimation pressure";
+    protected
+      SI.Temperature Ttriple=273.16 "Triple point temperature";
+      SI.AbsolutePressure ptriple=611.657 "Triple point pressure";
+      Real r1=Tsat/Ttriple "Common subexpression";
+      Real a[:]={-13.9281690,34.7078238} "Coefficients a[:]";
+      Real n[:]={-1.5,-1.25} "Coefficients n[:]";
     algorithm
-      psat := 611.657*Math.exp(22.5159*(1.0 - 273.16/Tsat));
-      annotation(Inline=false,smoothOrder=5,derivative=sublimationPressureIce_der,
+      psat := exp(a[1] - a[1]*r1^n[1] + a[2] - a[2]*r1^n[2])*ptriple;
+      annotation (
+        Inline=false,
+        smoothOrder=5,
         Documentation(info="<html>
-Sublimation pressure of water below the triple point temperature is computed from temperature. It's range of validity is between
- 223.16 and 273.16 K. Outside of these limits a less accurate result is returned.
-</html>"));
+<p>Sublimation pressure of water below the triple point temperature is computed from temperature.</p>
+<p>Source: W Wagner, A Saul, A Pruss: &QUOT;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&QUOT;, equation 3.5</p>
+</html>"),
+        Icon(graphics));
     end sublimationPressureIce;
 
     function sublimationPressureIce_der
@@ -401,19 +441,31 @@ Sublimation pressure of water below the triple point temperature is computed fro
 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "Sublimation temperature";
-      input Real dTsat(unit="K/s") "Time derivative of sublimation temperature";
-      output Real psat_der(unit="Pa/s") "Sublimation pressure";
+      input Real Tsat_der(unit="K/s") "Sublimation temperature derivative";
+      output Real psat_der(unit="Pa/s") "Sublimation pressure derivative";
+    protected
+      SI.Temperature Ttriple=273.16 "Triple point temperature";
+      SI.AbsolutePressure ptriple=611.657 "Triple point pressure";
+      Real r1=Tsat/Ttriple "Common subexpression 1";
+      Real r1_der=Tsat_der/Ttriple "Derivative of common subexpression 1";
+      Real a[:]={-13.9281690,34.7078238} "Coefficients a[:]";
+      Real n[:]={-1.5,-1.25} "Coefficients n[:]";
     algorithm
-      /*psat := 611.657*Math.exp(22.5159*(1.0 - 273.16/Tsat));*/
-      psat_der:=611.657*Math.exp(22.5159*(1.0 - 273.16/Tsat))*22.5159*273.16*dTsat/Tsat/Tsat;
-      annotation(Inline=false,smoothOrder=5,
+      //psat := exp(a[1] - a[1]*r1^n[1] + a[2] - a[2]*r1^n[2]) * ptriple;
+      psat_der := exp(a[1] - a[1]*r1^n[1] + a[2] - a[2]*r1^n[2])*ptriple*(-(a[1]*(
+        r1^(n[1] - 1)*n[1]*r1_der)) - (a[2]*(r1^(n[2] - 1)*n[2]*r1_der)));
+      annotation (
+        Inline=false,
+        smoothOrder=5,
         Documentation(info="<html>
-Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.sublimationPressureIce\">saturationPressureIce</a>
-</html>"));
+<p>Sublimation pressure of water below the triple point temperature is computed from temperature.</p>
+<p>Source: W Wagner, A Saul, A Pruss: &QUOT;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&QUOT;, equation 3.5</p>
+</html>"),
+        Icon(graphics));
     end sublimationPressureIce_der;
 
     redeclare function extends saturationPressure
-      "Return saturation pressure of water as a function of temperature T between 223.16 and 373.16 K"
+      "Return saturation pressure of water as a function of temperature T between 190 and 647.096 K"
 
     algorithm
       psat := Utilities.spliceFunction(saturationPressureLiquid(Tsat),sublimationPressureIce(Tsat),Tsat-273.16,1.0);
@@ -452,8 +504,8 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
       "Return saturation temperature of water as a function of (partial) pressure p"
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
-      input SI.Temperature T_min=200 "Lower boundary of solution";
-      input SI.Temperature T_max=400 "Upper boundary of solution";
+      input SI.Temperature T_min=190 "Lower boundary of solution";
+      input SI.Temperature T_max=647 "Upper boundary of solution";
       output SI.Temperature T "Saturation temperature";
 
     protected
@@ -482,18 +534,42 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
     end saturationTemperature;
 
    redeclare function extends enthalpyOfVaporization
-      "Return enthalpy of vaporization of water as a function of temperature T, 0 - 130 degC"
+      "Return enthalpy of vaporization of water as a function of temperature T, 273.16 to 647.096 K"
 
+    protected
+     Real Tcritical=647.096 "Critical temperature";
+     Real dcritical=322 "Critical density";
+     Real pcritical=22.064e6 "Critical pressure";
+     Real n[:]={1,1.5,3,3.5,4,7.5} "Powers in equation (1)";
+     Real a[:]={-7.85951783,1.84408259,-11.7866497,22.6807411,-15.9618719,1.80122502}
+        "Coefficients in equation (1) of [1]";
+     Real m[:]={1/3,2/3,5/3,16/3,43/3,110/3} "Powers in equation (2)";
+     Real b[:]={1.99274064,1.09965342,-0.510839303,-1.75493479,-45.5170352,-6.74694450e5}
+        "Coefficients in equation (2) of [1]";
+     Real o[:]={2/6,4/6,8/6,18/6,37/6,71/6} "Powers in equation (3)";
+     Real c[:]={-2.03150240,-2.68302940,-5.38626492,-17.2991605,-44.7586581,-63.9201063}
+        "Coefficients in equation (3) of [1]";
+     Real tau=1 - T/Tcritical "Temperature expression";
+     Real r1=(a[1]*Tcritical*tau^n[1])/T + (a[2]*Tcritical*tau^n[2])/T + (a[3]*
+         Tcritical*tau^n[3])/T + (a[4]*Tcritical*tau^n[4])/T + (a[5]*Tcritical*
+         tau^n[5])/T + (a[6]*Tcritical*tau^n[6])/T "Expression 1";
+     Real r2=a[1]*n[1]*tau^n[1] + a[2]*n[2]*tau^n[2] + a[3]*n[3]*tau^n[3] + a[4]*
+         n[4]*tau^n[4] + a[5]*n[5]*tau^n[5] + a[6]*n[6]*tau^n[6] "Expression 2";
+     Real dp=dcritical*(1 + b[1]*tau^m[1] + b[2]*tau^m[2] + b[3]*tau^m[3] + b[4]*
+         tau^m[4] + b[5]*tau^m[5] + b[6]*tau^m[6])
+        "Density of saturated liquid";
+     Real dpp=dcritical*exp(c[1]*tau^o[1] + c[2]*tau^o[2] + c[3]*tau^o[3] + c[4]*
+         tau^o[4] + c[5]*tau^o[5] + c[6]*tau^o[6]) "Density of saturated vapor";
    algorithm
-    /*r0 := 1e3*(2501.0145 - (T - 273.15)*(2.3853 + (T - 273.15)*(0.002969 - (T
-      - 273.15)*(7.5293e-5 + (T - 273.15)*4.6084e-7))));*/
-   //katrin: replaced by linear correlation, simpler and more accurate in the entire region
-   //source VDI-Waermeatlas, linear inter- and extrapolation between values for 0.01 &deg;C and 40 &deg;C.
-   r0:=(2405900-2500500)/(40-0)*(T-273.16)+2500500;
-     annotation(smoothOrder=2,
-                  Documentation(info="<html>
-Enthalpy of vaporization of water is computed from temperature in the region of 0 to 130 &deg;C.
-</html>"));
+     r0 := -(((dp - dpp)*exp(r1)*pcritical*(r2 + r1*tau))/(dp*dpp*tau))
+        "Difference of equations (7) and (6)";
+     annotation (
+       smoothOrder=2,
+       Documentation(info="<html>
+<p>Enthalpy of vaporization of water is computed from temperature in the region of 273.16 to 647.096 K.</p>
+<p>Source: W Wagner, A Pruss: \"International equations for the saturation properties of ordinary water substance. Revised according to the international temperature scale of 1990\" (1993).</p>
+</html>"),
+       Icon(graphics));
    end enthalpyOfVaporization;
 
     function HeatCapacityOfWater
@@ -648,7 +724,7 @@ Temperature is returned from the thermodynamic state record input as a simple as
   end Internal;
 
   algorithm
-    T := Internal.solve(h, 240, 400, p, X[1:nXi], steam);
+    T := Internal.solve(h, 190, 647, p, X[1:nXi], steam);
       annotation (Documentation(info="<html>
 Temperature is computed from pressure, specific enthalpy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\">h_pTX</a>.
 </html>"));
@@ -949,28 +1025,30 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
   end specificHeatCapacityCv;
 
   redeclare function extends dynamicViscosity
-      "Return dynamic viscosity as a function of the thermodynamic state record, valid from 73.15 K to 373.15 K"
+      "Return dynamic viscosity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K"
 
       import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
   algorithm
-    eta := Polynomials_Temp.evaluate({(-4.96717436974791E-011), 5.06626785714286E-008, 1.72937731092437E-005},
-         Cv.to_degC(state.T));
-    annotation(smoothOrder=2,
-                  Documentation(info="<html>
-Dynamic viscosity is computed from temperature using a simple polynomial for dry air, assuming that moisture influence is small. Range of  validity is from 73.15 K to 373.15 K.
+    eta := 1e-6*Polynomials_Temp.evaluate({9.7391102886305869E-15,-3.1353724870333906E-11,
+      4.3004876595642225E-08,-3.8228016291758240E-05,5.0427874367180762E-02,1.7239260139242528E+01},
+      Cv.to_degC(state.T));
+    annotation (smoothOrder=2, Documentation(info="<html>
+<p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected. </p>
+<p>Source: VDI Waermeatlas, 8th edition. </p>
 </html>"));
   end dynamicViscosity;
 
   redeclare function extends thermalConductivity
-      "Return thermal conductivity as a function of the thermodynamic state record, valid from 73.15 K to 373.15 K"
+      "Return thermal conductivity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K"
 
       import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
   algorithm
-    lambda := Polynomials_Temp.evaluate({(-4.8737307422969E-008), 7.67803133753502E-005, 0.0241814385504202},
-     Cv.to_degC(state.T));
-    annotation(smoothOrder=2,
-                  Documentation(info="<html>
-Thermal conductivity is computed from temperature using a simple polynomial for dry air, assuming that moisture influence is small. Range of  validity is from 73.15 K to 373.15 K.
+    lambda := 1e-3*Polynomials_Temp.evaluate({6.5691470817717812E-15,-3.4025961923050509E-11,
+      5.3279284846303157E-08,-4.5340839289219472E-05,7.6129675309037664E-02,2.4169481088097051E+01},
+      Modelica.SIunits.Conversions.to_degC(state.T));
+    annotation (smoothOrder=2, Documentation(info="<html>
+<p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected. </p>
+<p>Source: VDI Waermeatlas, 8th edition. </p>
 </html>"));
   end thermalConductivity;
 
@@ -1295,7 +1373,7 @@ It must be noted that the relationship of both axis variables is not right-angle
   end Internal;
 
   algorithm
-    T := Internal.solve(s, 240, 400, p, X[1:nX], steam);
+    T := Internal.solve(s, 190, 647, p, X[1:nX], steam);
       annotation (Documentation(info="<html>
 Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.specificEntropy\">specificEntropy</a>.
 </html>", revisions="<html>
