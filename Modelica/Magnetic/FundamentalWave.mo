@@ -266,6 +266,14 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
+<h5>Version 3.2.1, 2013-05-12</h5>
+
+<ul>
+<li>Added voltages, currents, complex flux and magnetic potential difference as global variables in 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">multi phase converter</a></li>
+<li>Added two more component examples, showing the equivalent nature of electrical and magnetic domain</li>
+</ul>
+
 <h5>Version 2.0.0, 2013-03-10</h5>
 
 <ul>
@@ -734,6 +742,248 @@ The magnetic potential difference of the connector therefore also refers to an e
 In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters.</p>
 </html>"));
       end EddyCurrentLosses;
+
+      model SinglePhaseInductance "Single phase inductance"
+        extends Modelica.Icons.Example;
+
+        parameter Modelica.SIunits.Frequency f = 1 "Supply frequency";
+        parameter Modelica.SIunits.Voltage VRMS = 100 "RMS supply voltage";
+        parameter Modelica.SIunits.Resistance RLeader = 0.1
+          "Leader cable resistance";
+        parameter Modelica.SIunits.Inductance L = 1 "Load inductance";
+        parameter Real effectiveTurns = 5 "Effective number of turns";
+        final parameter Modelica.SIunits.Reluctance R_m = effectiveTurns^2/L
+          "Equivalent magnetic reluctance";
+
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+        Modelica.Electrical.Analog.Basic.Ground ground_m
+          annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource(V=VRMS, freqHz=f)
+                 annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-60,70})));
+        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_m(V=VRMS, freqHz=
+             f)  annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-60,-30})));
+        Modelica.Electrical.Analog.Basic.Resistor resistor(R=RLeader)
+          annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+        Modelica.Electrical.Analog.Basic.Resistor resistor_m(R=RLeader)
+          annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+        Modelica.Electrical.Analog.Basic.Inductor inductor(L=L)
+                 annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={0,70})));
+        Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter
+          converter_m(effectiveTurns=effectiveTurns, orientation=0)
+          annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+        Modelica.Magnetic.FundamentalWave.Components.Reluctance reluctance_m(
+          R_m(d=R_m,q=R_m))
+          annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={60,-30})));
+        Modelica.Magnetic.FundamentalWave.Components.Ground groundM_m
+          annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
+
+      equation
+        connect(converter_m.port_p, reluctance_m.port_p)
+          annotation (Line(
+            points={{20,-20},{60,-20}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(converter_m.port_n, reluctance_m.port_n)
+          annotation (Line(
+            points={{20,-40},{60,-40}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(converter_m.port_n, groundM_m.port_p)
+          annotation (Line(
+            points={{20,-40},{20,-60}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(voltageSource.n, inductor.n) annotation (Line(
+            points={{-60,60},{0,60}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(voltageSource.n, ground.p) annotation (Line(
+            points={{-60,60},{-60,40}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(voltageSource_m.n, converter_m.pin_n) annotation (Line(
+            points={{-60,-40},{0,-40}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(voltageSource_m.n, ground_m.p) annotation (Line(
+            points={{-60,-40},{-60,-60}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(voltageSource.p, resistor.p) annotation (Line(
+            points={{-60,80},{-40,80}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(resistor.n, inductor.p) annotation (Line(
+            points={{-20,80},{0,80}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(voltageSource_m.p, resistor_m.p) annotation (Line(
+            points={{-60,-20},{-40,-20}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(resistor_m.n, converter_m.pin_p) annotation (Line(
+            points={{-20,-20},{-4.44089e-16,-20}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                            graphics), Icon(coordinateSystem(extent={{-100,-100},
+                  {100,100}})));
+      end SinglePhaseInductance;
+
+      model MultiPhaseInductance "Multi phase inductance"
+        import QuasiStationaryFundamentalWave;
+        extends Modelica.Icons.Example;
+        parameter Integer m = 3 "Number of phases";
+        parameter Modelica.SIunits.Frequency f = 1 "Supply frequency";
+        parameter Modelica.SIunits.Voltage VRMS = 100 "RMS supply voltage";
+        parameter Modelica.SIunits.Resistance RLeader = 0.1
+          "Leader cable resistance";
+        parameter Real effectiveTurns = 5 "Effective number of turns";
+        parameter Modelica.SIunits.Inductance L = 1 "Load inductance";
+        final parameter Modelica.SIunits.Reluctance R_m = m*effectiveTurns^2/2/L
+          "Equivalent magnetic reluctance";
+        Modelica.Electrical.Analog.Basic.Ground                      ground
+          annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
+        Modelica.Electrical.Analog.Basic.Ground                      ground_m
+          annotation (Placement(transformation(extent={{-70,-90},{-50,-70}})));
+        Modelica.Electrical.MultiPhase.Basic.Star                 star(m=m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-60,40})));
+        Modelica.Electrical.MultiPhase.Basic.Star                 star_m(m=m)
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-60,-60})));
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage                   voltageSource(
+          m=m,
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+          freqHz=fill(f, m),
+          V=fill(sqrt(2)*VRMS, m))
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-60,70})));
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage                   voltageSource_m(
+          m=m,
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+          freqHz=fill(f, m),
+          V=fill(sqrt(2)*VRMS, m))
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-60,-30})));
+        Modelica.Electrical.MultiPhase.Basic.Resistor                 resistor(m=m, R=fill(
+              RLeader, m))
+        annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+        Modelica.Electrical.MultiPhase.Basic.Resistor                 resistor_m(m=m, R=fill(
+              RLeader, m))
+        annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+        Modelica.Electrical.MultiPhase.Basic.Inductor                 inductor(m=m, L=fill(L,
+              m))         annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={0,70})));
+        Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+                                                                          converter_m(
+          m=m,
+          orientation=Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+          effectiveTurns=fill(effectiveTurns, m))
+          annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+        Modelica.Magnetic.FundamentalWave.Components.Reluctance
+                                                             reluctance_m(R_m(d=R_m,
+              q=R_m))
+          annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={60,-30})));
+        Modelica.Magnetic.FundamentalWave.Components.Ground
+                                                         groundM_m
+          annotation (Placement(transformation(extent={{10,-90},{30,-70}})));
+      equation
+        connect(star.plug_p, voltageSource.plug_n)   annotation (Line(
+            points={{-60,50},{-60,60}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(voltageSource.plug_n, inductor.plug_n)  annotation (Line(
+            points={{-60,60},{-1.33227e-15,60}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(converter_m.port_p, reluctance_m.port_p)
+                                                       annotation (Line(
+            points={{20,-20},{60,-20}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(converter_m.port_n, reluctance_m.port_n)
+                                                       annotation (Line(
+            points={{20,-40},{60,-40}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(converter_m.port_n, groundM_m.port_p)
+                                                    annotation (Line(
+            points={{20,-40},{20,-70}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(voltageSource_m.plug_n, star_m.plug_p)
+                                                     annotation (Line(
+            points={{-60,-40},{-60,-50}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(voltageSource_m.plug_n, converter_m.plug_n)
+                                                          annotation (Line(
+            points={{-60,-40},{-4.44089e-16,-40}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(voltageSource.plug_p, resistor.plug_p)
+                                                      annotation (Line(
+          points={{-60,80},{-40,80}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(resistor.plug_n, inductor.plug_p) annotation (Line(
+          points={{-20,80},{2.66454e-15,80}},
+          color={0,0,255},
+          smooth=Smooth.None));
+        connect(voltageSource_m.plug_p, resistor_m.plug_p)
+                                                       annotation (Line(
+          points={{-60,-20},{-40,-20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+        connect(resistor_m.plug_n, converter_m.plug_p)
+                                                   annotation (Line(
+          points={{-20,-20},{-4.44089e-16,-20}},
+          color={0,0,255},
+          smooth=Smooth.None));
+        connect(star.pin_n, ground.p) annotation (Line(
+            points={{-60,30},{-60,30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(star_m.pin_n, ground_m.p) annotation (Line(
+            points={{-60,-70},{-60,-70}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                            graphics), Icon(graphics),
+          experiment(StopTime=200, Interval=0.01),
+          __Dymola_experimentSetupOutput);
+      end MultiPhaseInductance;
     end Components;
 
     package BasicMachines "Examples of machines of the FundamentalWave library"
@@ -3873,8 +4123,8 @@ relationship of the voltage and current space phasor.
       // and angles of orientation of winding
       // -v = effectiveTurns*cos(orientation)*der(Phi.re)
       //    + effectiveTurns*sin(orientation)*der(Phi.im);
-      -v = Modelica.ComplexMath.real(Modelica.ComplexMath.conj(N)*Complex(der(
-        Phi.re), der(Phi.im)));
+      -v = Modelica.ComplexMath.real(Modelica.ComplexMath.conj(N)*
+           Complex(der(Phi.re), der(Phi.im)));
       annotation (
         defaultComponentName="converter",
         Icon(coordinateSystem(
@@ -3963,6 +4213,14 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
       Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort port_n
         "Negative complex magnetic port" annotation (Placement(transformation(
               extent={{90,-110},{110,-90}}, rotation=0)));
+
+      // Global plug and port variables
+      Modelica.SIunits.Voltage v[m] = plug_p.pin.v - plug_n.pin.v "Voltages";
+      Modelica.SIunits.Current i[m] = plug_p.pin.i "Currents";
+      Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
+        "Magnetic potential difference";
+      Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi "Magnetic flux";
+
       parameter Integer m=3 "Number of phases";
       parameter Real effectiveTurns[m] "Effective number of turns";
       parameter Modelica.SIunits.Angle orientation[m]
@@ -5378,11 +5636,11 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
             Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
         parameter Integer p "Number of pole pairs";
         parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance L0(
-            d(start=1), q(start=1))
+          d(start=1), q(start=1))
           "Salient inductance of a single unchorded coil w.r.t. the fundamental wave";
         final parameter
-          Modelica.Magnetic.FundamentalWave.Types.SalientReluctance R_m(d=1/L0.d,
-            q=1/L0.q) "Reluctance of the air gap model";
+          Modelica.Magnetic.FundamentalWave.Types.SalientReluctance               R_m(
+          d=1/L0.d,q=1/L0.q) "Reluctance of the air gap model";
         // Complex phasors of magnetic potential differences
         Modelica.SIunits.ComplexMagneticPotentialDifference V_mss
           "Complex magnetic potential difference of stator w.r.t. stator reference frame";
@@ -6517,7 +6775,7 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,0},
           smooth=Smooth.None));
       connect(groundR.port_p, airGap.port_rn) annotation (Line(points={{-30,-10},
-              {-10,-10},{-10,-10}}, color={255,128,0}));
+              {-10,-10}},           color={255,128,0}));
       connect(stator.plug_p, strayLoad.plug_n) annotation (Line(
           points={{10,50},{10,70},{40,70}},
           color={0,0,255},
@@ -6553,15 +6811,15 @@ This model is mainly used to extend from in order build more complex - equation 
           color={191,0,0},
           smooth=Smooth.None));
       connect(groundS.port_p, airGap.port_sp) annotation (Line(
-          points={{-30,10},{-20,10},{-20,10},{-10,10}},
+          points={{-30,10},{-10,10}},
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.port_n, airGap.port_sp) annotation (Line(
-          points={{-10,30},{-10,25},{-10,25},{-10,20},{-10,10},{-10,10}},
+          points={{-10,30},{-10,10}},
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.port_p, airGap.port_sn) annotation (Line(
-          points={{10,30},{10,30},{10,10},{10,10}},
+          points={{10,30},{10,10}},
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding)
