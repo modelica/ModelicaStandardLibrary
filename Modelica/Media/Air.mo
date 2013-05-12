@@ -382,13 +382,13 @@ The ideal gas constant for moist air is computed from the gas phase composition.
 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "Saturation temperature";
-      input Real Tsat_der(unit="K/s") "Saturation temperature derivative";
+      input Real dTsat(unit="K/s") "Saturation temperature derivative";
       output Real psat_der(unit="Pa/s") "Saturation pressure derivative";
     protected
       SI.Temperature Tcritical=647.096 "Critical temperature";
       SI.AbsolutePressure pcritical=22.064e6 "Critical pressure";
       Real r1=(1 - Tsat/Tcritical) "Common subexpression 1";
-      Real r1_der=-1/Tcritical*Tsat_der "Derivative of common subexpression 1";
+      Real r1_der=-1/Tcritical*dTsat "Derivative of common subexpression 1";
       Real a[:]={-7.85951783,1.84408259,-11.7866497,22.6807411,-15.9618719,1.80122502}
         "Coefficients a[:]";
       Real n[:]={1.0,1.5,3.0,3.5,4.0,7.5} "Coefficients n[:]";
@@ -401,7 +401,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
         r1_der) + a[2]*(r1^(n[2] - 1)*n[2]*r1_der) + a[3]*(r1^(n[3] - 1)*n[3]*
         r1_der) + a[4]*(r1^(n[4] - 1)*n[4]*r1_der) + a[5]*(r1^(n[5] - 1)*n[5]*
         r1_der) + a[6]*(r1^(n[6] - 1)*n[6]*r1_der))*Tcritical/Tsat - r2*Tcritical*
-        Tsat_der/Tsat^2);
+        dTsat/Tsat^2);
       annotation (
         Inline=false,
         smoothOrder=5,
@@ -441,13 +441,13 @@ The ideal gas constant for moist air is computed from the gas phase composition.
 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "Sublimation temperature";
-      input Real Tsat_der(unit="K/s") "Sublimation temperature derivative";
+      input Real dTsat(unit="K/s") "Sublimation temperature derivative";
       output Real psat_der(unit="Pa/s") "Sublimation pressure derivative";
     protected
       SI.Temperature Ttriple=273.16 "Triple point temperature";
       SI.AbsolutePressure ptriple=611.657 "Triple point pressure";
       Real r1=Tsat/Ttriple "Common subexpression 1";
-      Real r1_der=Tsat_der/Ttriple "Derivative of common subexpression 1";
+      Real r1_der=dTsat/Ttriple "Derivative of common subexpression 1";
       Real a[:]={-13.9281690,34.7078238} "Coefficients a[:]";
       Real n[:]={-1.5,-1.25} "Coefficients n[:]";
     algorithm
