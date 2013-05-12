@@ -4679,6 +4679,95 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
         min=-1.0e5,
         max=1.e5) "Type for mass flow rate with medium specific attributes";
 
+  // Only for backwards compatibility to version 3.2 (
+  // (do not use these definitions in new models, but use Modelica.Media.Interfaces.Choices/.Types instead)
+     package Choices = Modelica.Media.Interfaces.Choices
+        annotation(obsolete="Use Modelica.Media.Interfaces.Choices");
+
+    type AbsolutePressure = Modelica.Media.Interfaces.Types.AbsolutePressure
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.AbsolutePressure");
+
+    type Density = Modelica.Media.Interfaces.Types.Density
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.Density");
+
+    type DynamicViscosity = Modelica.Media.Interfaces.Types.DynamicViscosity
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.DynamicViscosity");
+
+    type EnthalpyFlowRate = Modelica.Media.Interfaces.Types.EnthalpyFlowRate
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.EnthalpyFlowRate");
+
+    type MassFraction = Modelica.Media.Interfaces.Types.MassFraction
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.MassFraction");
+
+    type MoleFraction = Modelica.Media.Interfaces.Types.MoleFraction
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.MoleFraction");
+
+    type MolarMass = Modelica.Media.Interfaces.Types.MolarMass
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.MolarMass");
+
+    type MolarVolume = Modelica.Media.Interfaces.Types.MolarVolume
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.MolarVolume");
+
+    type IsentropicExponent = Modelica.Media.Interfaces.Types.IsentropicExponent
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.IsentropicExponent");
+
+    type SpecificEnergy = Modelica.Media.Interfaces.Types.SpecificEnergy
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.SpecificEnergy");
+
+    type SpecificInternalEnergy = Modelica.Media.Interfaces.Types.SpecificInternalEnergy
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.SpecificInternalEnergy");
+
+    type SpecificEnthalpy = Modelica.Media.Interfaces.Types.SpecificEnthalpy
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.SpecificEnthalpy");
+
+    type SpecificEntropy = Modelica.Media.Interfaces.Types.SpecificEntropy
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.SpecificEntropy");
+
+    type SpecificHeatCapacity = Modelica.Media.Interfaces.Types.SpecificHeatCapacity
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.SpecificHeatCapacity");
+
+    type SurfaceTension = Modelica.Media.Interfaces.Types.SurfaceTension
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.SurfaceTension");
+
+    type Temperature = Modelica.Media.Interfaces.Types.Temperature
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.Temperature");
+
+    type ThermalConductivity = Modelica.Media.Interfaces.Types.ThermalConductivity
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.ThermalConductivity");
+
+    type PrandtlNumber = Modelica.Media.Interfaces.Types.PrandtlNumber
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.PrandtlNumber");
+
+    type VelocityOfSound = Modelica.Media.Interfaces.Types.VelocityOfSound
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.VelocityOfSound");
+
+    type ExtraProperty = Modelica.Media.Interfaces.Types.ExtraProperty
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.ExtraProperty");
+
+    type CumulativeExtraProperty = Modelica.Media.Interfaces.Types.CumulativeExtraProperty
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.CumulativeExtraProperty");
+
+    type ExtraPropertyFlowRate = Modelica.Media.Interfaces.Types.ExtraPropertyFlowRate
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.ExtraPropertyFlowRate");
+
+    type IsobaricExpansionCoefficient = Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient");
+
+    type DipoleMoment = Modelica.Media.Interfaces.Types.DipoleMoment
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.DipoleMoment");
+
+    type DerDensityByPressure = Modelica.Media.Interfaces.Types.DerDensityByPressure
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.DerDensityByPressure");
+
+    type DerDensityByEnthalpy = Modelica.Media.Interfaces.Types.DerDensityByEnthalpy
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.DerDensityByEnthalpy");
+
+    type DerEnthalpyByPressure = Modelica.Media.Interfaces.Types.DerEnthalpyByPressure
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.DerEnthalpyByPressure");
+
+    type DerDensityByTemperature = Modelica.Media.Interfaces.Types.DerDensityByTemperature
+        annotation(obsolete="Use Modelica.Media.Interfaces.Types.DerDensityByTemperature");
+
     annotation (Documentation(info="<html>
 <p>
 <b>PartialMedium</b> is a package and contains all <b>declarations</b> for
@@ -6585,6 +6674,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
   end Choices;
 
   package Types "Types to be used in fluid models"
+    extends Modelica.Icons.Package;
 
     type AbsolutePressure = SI.AbsolutePressure (
         min=0,
