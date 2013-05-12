@@ -2410,7 +2410,11 @@ and will interpret it in the same way. Short Overview:
      such as \"rooted\", have been standardized in 3.2 rev. 2,
      as well as vendor specific annotations. Furthermore,
      ambiguous/unclear descriptions in the specification have
-     been corrected/improved.)</li>
+     been corrected/improved. One important improvement in packages
+     Modelica and ModelicaTest is that the initialization has been fully defined
+     in all example models, in order that all tools can produce the same result
+     without relying on tool heuristics).
+     </li>
 
 <li> About <b>300 tickets</b> have been fixed for this release, and
      especially all compliance issues.
@@ -2422,7 +2426,11 @@ and will interpret it in the same way. Short Overview:
      of the Modelica Association. As a result, all parts of package Modelica are now available
      in a free implementation.</li>
 
-<li> New media models for <b>moist air</b> (large operating range and based on real gas equations)
+<li> The <b>Modelica.Media.Air.MoistAir</b> media model has been improved so that it
+     can be used in a temperature range of 190 ... 647 K (previously: 240 ... 400 K).</li>
+
+<li> New media models for <b>moist air</b> (large operating range and based on real gas equations,
+     but 1-2 orders of magnitude slower as Modelica.Media.Air.MoistAir)
      and the refrigerant <b>R134a</b> are included in the Modelica.Media library in order to
      improve the modeling of air conditioning systems especially in aircrafts.
      These models have been developed by
@@ -2569,6 +2577,10 @@ v<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Functions.</b></td></tr
                                       MassFractionsTwoPort</td>
     <td valign=\"top\"> Ideal mass fraction sensors </td></tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Media.Air.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> MoistAir</td>
+    <td valign=\"top\"> Temperature range of functions of MoistAir medium enlarged from
+                        240 - 400 K to  190 - 647 K.</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Media.Air.MoistAir.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> velocityOfSound<br>
                                       isobaricExpansionCoefficient<br>
