@@ -510,7 +510,7 @@ model from R to G</li>
 </table>
 </html>"));
     end References;
-    annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This library contains components for modelling of electromagnetic fundamental wave models for the application in multi phase phase
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines\">electric machines</a>. The number of phases is not restricted to three. DC machines are (currently) not included in this library. The FundamentalWave library is an alternative approach to the <a href=\"modelica://Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> library. A great advantage of this library is the strict object orientation of the electrical and magnetic components that the electric machines models are composed of. From a didactic point of view this library is very beneficial for students in the field of electrical engineering.
@@ -755,11 +755,12 @@ In this example the eddy current losses are implemented in two different ways. C
         final parameter Modelica.SIunits.Reluctance R_m = effectiveTurns^2/L
           "Equivalent magnetic reluctance";
 
-        Modelica.Electrical.Analog.Basic.Ground ground
+        Modelica.Electrical.Analog.Basic.Ground ground_e
           annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
         Modelica.Electrical.Analog.Basic.Ground ground_m
           annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
-        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource(V=VRMS, freqHz=f)
+        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_e(V=VRMS,
+            freqHz=f)
                  annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -769,11 +770,11 @@ In this example the eddy current losses are implemented in two different ways. C
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,-30})));
-        Modelica.Electrical.Analog.Basic.Resistor resistor(R=RLeader)
+        Modelica.Electrical.Analog.Basic.Resistor leader_e(R=RLeader)
           annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
-        Modelica.Electrical.Analog.Basic.Resistor resistor_m(R=RLeader)
+        Modelica.Electrical.Analog.Basic.Resistor leader_m(R=RLeader)
           annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-        Modelica.Electrical.Analog.Basic.Inductor inductor(L=L)
+        Modelica.Electrical.Analog.Basic.Inductor inductor_e(L=L)
                  annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -807,11 +808,13 @@ In this example the eddy current losses are implemented in two different ways. C
             points={{20,-40},{20,-60}},
             color={255,128,0},
             smooth=Smooth.None));
-        connect(voltageSource.n, inductor.n) annotation (Line(
+        connect(voltageSource_e.n, inductor_e.n)
+                                             annotation (Line(
             points={{-60,60},{0,60}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(voltageSource.n, ground.p) annotation (Line(
+        connect(voltageSource_e.n, ground_e.p)
+                                           annotation (Line(
             points={{-60,60},{-60,40}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -823,19 +826,21 @@ In this example the eddy current losses are implemented in two different ways. C
             points={{-60,-40},{-60,-60}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(voltageSource.p, resistor.p) annotation (Line(
+        connect(voltageSource_e.p, leader_e.p)
+                                             annotation (Line(
             points={{-60,80},{-40,80}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(resistor.n, inductor.p) annotation (Line(
+        connect(leader_e.n, inductor_e.p)
+                                        annotation (Line(
             points={{-20,80},{0,80}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(voltageSource_m.p, resistor_m.p) annotation (Line(
+        connect(voltageSource_m.p, leader_m.p)   annotation (Line(
             points={{-60,-20},{-40,-20}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(resistor_m.n, converter_m.pin_p) annotation (Line(
+        connect(leader_m.n, converter_m.pin_p)   annotation (Line(
             points={{-20,-20},{-4.44089e-16,-20}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -857,11 +862,11 @@ In this example the eddy current losses are implemented in two different ways. C
         parameter Modelica.SIunits.Inductance L = 1 "Load inductance";
         final parameter Modelica.SIunits.Reluctance R_m = m*effectiveTurns^2/2/L
           "Equivalent magnetic reluctance";
-        Modelica.Electrical.Analog.Basic.Ground                      ground
+        Modelica.Electrical.Analog.Basic.Ground ground_e
           annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
         Modelica.Electrical.Analog.Basic.Ground                      ground_m
           annotation (Placement(transformation(extent={{-70,-90},{-50,-70}})));
-        Modelica.Electrical.MultiPhase.Basic.Star                 star(m=m)
+        Modelica.Electrical.MultiPhase.Basic.Star star_e(m=m)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -871,9 +876,10 @@ In this example the eddy current losses are implemented in two different ways. C
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,-60})));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage                   voltageSource(
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage voltageSource_e(
           m=m,
-          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              m),
           freqHz=fill(f, m),
           V=fill(sqrt(2)*VRMS, m))
           annotation (Placement(transformation(
@@ -889,13 +895,13 @@ In this example the eddy current losses are implemented in two different ways. C
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,-30})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor                 resistor(m=m, R=fill(
+        Modelica.Electrical.MultiPhase.Basic.Resistor                 leader_e(m=m, R=fill(
               RLeader, m))
         annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor                 resistor_m(m=m, R=fill(
+        Modelica.Electrical.MultiPhase.Basic.Resistor leader_m(m=m, R=fill(
               RLeader, m))
         annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-        Modelica.Electrical.MultiPhase.Basic.Inductor                 inductor(m=m, L=fill(L,
+        Modelica.Electrical.MultiPhase.Basic.Inductor inductor_e(m=m, L=fill(L,
               m))         annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -918,11 +924,13 @@ In this example the eddy current losses are implemented in two different ways. C
                                                          groundM_m
           annotation (Placement(transformation(extent={{10,-90},{30,-70}})));
       equation
-        connect(star.plug_p, voltageSource.plug_n)   annotation (Line(
+        connect(star_e.plug_p, voltageSource_e.plug_n)
+                                                     annotation (Line(
             points={{-60,50},{-60,60}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(voltageSource.plug_n, inductor.plug_n)  annotation (Line(
+        connect(voltageSource_e.plug_n, inductor_e.plug_n)
+                                                        annotation (Line(
             points={{-60,60},{-1.33227e-15,60}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -951,26 +959,28 @@ In this example the eddy current losses are implemented in two different ways. C
             points={{-60,-40},{-4.44089e-16,-40}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(voltageSource.plug_p, resistor.plug_p)
+        connect(voltageSource_e.plug_p, leader_e.plug_p)
                                                       annotation (Line(
           points={{-60,80},{-40,80}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(resistor.plug_n, inductor.plug_p) annotation (Line(
+        connect(leader_e.plug_n, inductor_e.plug_p)
+                                                annotation (Line(
           points={{-20,80},{2.66454e-15,80}},
           color={0,0,255},
           smooth=Smooth.None));
-        connect(voltageSource_m.plug_p, resistor_m.plug_p)
+        connect(voltageSource_m.plug_p, leader_m.plug_p)
                                                        annotation (Line(
           points={{-60,-20},{-40,-20}},
           color={0,0,255},
           smooth=Smooth.None));
-        connect(resistor_m.plug_n, converter_m.plug_p)
+        connect(leader_m.plug_n, converter_m.plug_p)
                                                    annotation (Line(
           points={{-20,-20},{-4.44089e-16,-20}},
           color={0,0,255},
           smooth=Smooth.None));
-        connect(star.pin_n, ground.p) annotation (Line(
+        connect(star_e.pin_n, ground_e.p)
+                                      annotation (Line(
             points={{-60,30},{-60,30}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -979,10 +989,8 @@ In this example the eddy current losses are implemented in two different ways. C
             color={0,0,255},
             smooth=Smooth.None));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}),
-                            graphics), Icon(graphics),
-          experiment(StopTime=200, Interval=0.01),
-          __Dymola_experimentSetupOutput);
+                  -100},{100,100}}),graphics),
+          experiment(StopTime=200, Interval=0.01));
       end MultiPhaseInductance;
     end Components;
 
@@ -7045,6 +7053,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
+<tr><td>3.2.1</td><td></td>  <td>2013-05-13</td>  <td>C. Kral</td>  <td>New component examples, added variables in multi phase converter models</td></tr>
 <tr><td>2.0.0</td><td>6083</td>  <td>2013-03-10</td>  <td>C. Kral<br>A. Haumer</td>  <td>Extended machines models for phase numbers greater or equal than three</td></tr>
 <tr><td>1.7.3</td><td>6029</td>  <td>2013-02-25</td>  <td>C. Kral</td>  <td>Corrected wrong parameter description</td></tr>
 <tr><td>1.7.2</td><td>4621</td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in parameterization of symmetrical multi phase winding model<br>Necessary adaptions due to conditional heatPorts of loss models (backwards compatibility)</td></tr>
