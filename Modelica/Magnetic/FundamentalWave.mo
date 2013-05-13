@@ -542,7 +542,7 @@ The magnetic potential difference of the connector therefore also refers to an e
         "Comparison of equivalent circuits of eddy current loss models"
         extends Modelica.Icons.Example;
         parameter Integer m=3 "Number of phases";
-        parameter Modelica.SIunits.Resistance RLeader=0.1
+        parameter Modelica.SIunits.Resistance R=0.1
           "Resistance of leader cables";
         parameter Modelica.SIunits.Conductance Gc=1 "Loss conductance";
         parameter Modelica.SIunits.Reluctance R_m=1
@@ -578,13 +578,13 @@ The magnetic potential difference of the connector therefore also refers to an e
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,-30})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor leader_e(m=m, R=fill(
-              RLeader, m)) annotation (Placement(transformation(
+        Modelica.Electrical.MultiPhase.Basic.Resistor resistor_e(m=m, R=fill(
+              R, m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={-60,70})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor leader_m(m=m, R=fill(
-              RLeader, m)) annotation (Placement(transformation(
+        Modelica.Electrical.MultiPhase.Basic.Resistor resistor_m(m=m, R=fill(
+              R, m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={-60,-20})));
@@ -689,15 +689,18 @@ The magnetic potential difference of the connector therefore also refers to an e
             points={{40,-40},{40,-70}},
             color={255,128,0},
             smooth=Smooth.None));
-        connect(leader_e.plug_p, sineVoltage_e.plug_p) annotation (Line(
+        connect(resistor_e.plug_p, sineVoltage_e.plug_p)
+                                                       annotation (Line(
             points={{-70,70},{-80,70}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(sineVoltage_m.plug_p, leader_m.plug_p) annotation (Line(
+        connect(sineVoltage_m.plug_p, resistor_m.plug_p)
+                                                       annotation (Line(
             points={{-80,-20},{-70,-20}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(leader_e.plug_n, powerb_e.pc) annotation (Line(
+        connect(resistor_e.plug_n, powerb_e.pc)
+                                              annotation (Line(
             points={{-50,70},{-40,70}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -713,7 +716,8 @@ The magnetic potential difference of the connector therefore also refers to an e
             points={{-30,60},{-30,50},{-80,50}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(leader_m.plug_n, powerb_m.pc) annotation (Line(
+        connect(resistor_m.plug_n, powerb_m.pc)
+                                              annotation (Line(
             points={{-50,-20},{-40,-20}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -748,8 +752,7 @@ In this example the eddy current losses are implemented in two different ways. C
 
         parameter Modelica.SIunits.Frequency f = 1 "Supply frequency";
         parameter Modelica.SIunits.Voltage VRMS = 100 "RMS supply voltage";
-        parameter Modelica.SIunits.Resistance RLeader = 0.1
-          "Leader cable resistance";
+        parameter Modelica.SIunits.Resistance R = 0.1 "Leader cable resistance";
         parameter Modelica.SIunits.Inductance L = 1 "Load inductance";
         parameter Real effectiveTurns = 5 "Effective number of turns";
         final parameter Modelica.SIunits.Reluctance R_m = effectiveTurns^2/L
@@ -759,21 +762,21 @@ In this example the eddy current losses are implemented in two different ways. C
           annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
         Modelica.Electrical.Analog.Basic.Ground ground_m
           annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
-        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_e(
-          V=sqrt(2)*VRMS,
-          freqHz=f) annotation (Placement(transformation(
+        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_e(freqHz=f, V=
+              sqrt(2)*VRMS)
+                 annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,70})));
-        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_m(
-          V=sqrt(2)*VRMS, 
-          freqHz=f) annotation (Placement(transformation(
+        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_m(        freqHz=
+             f, V=sqrt(2)*VRMS)
+                 annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,-30})));
-        Modelica.Electrical.Analog.Basic.Resistor leader_e(R=RLeader)
+        Modelica.Electrical.Analog.Basic.Resistor resistor_e(R=R)
           annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
-        Modelica.Electrical.Analog.Basic.Resistor leader_m(R=RLeader)
+        Modelica.Electrical.Analog.Basic.Resistor resistor_m(R=R)
           annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
         Modelica.Electrical.Analog.Basic.Inductor inductor_e(L=L)
                  annotation (Placement(transformation(
@@ -827,21 +830,21 @@ In this example the eddy current losses are implemented in two different ways. C
             points={{-60,-40},{-60,-60}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(voltageSource_e.p, leader_e.p)
+        connect(voltageSource_e.p, resistor_e.p)
                                              annotation (Line(
             points={{-60,80},{-40,80}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(leader_e.n, inductor_e.p)
+        connect(resistor_e.n, inductor_e.p)
                                         annotation (Line(
             points={{-20,80},{0,80}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(voltageSource_m.p, leader_m.p)   annotation (Line(
+        connect(voltageSource_m.p, resistor_m.p) annotation (Line(
             points={{-60,-20},{-40,-20}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(leader_m.n, converter_m.pin_p)   annotation (Line(
+        connect(resistor_m.n, converter_m.pin_p) annotation (Line(
             points={{-20,-20},{-4.44089e-16,-20}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -857,8 +860,7 @@ In this example the eddy current losses are implemented in two different ways. C
         parameter Integer m = 3 "Number of phases";
         parameter Modelica.SIunits.Frequency f = 1 "Supply frequency";
         parameter Modelica.SIunits.Voltage VRMS = 100 "RMS supply voltage";
-        parameter Modelica.SIunits.Resistance RLeader = 0.1
-          "Leader cable resistance";
+        parameter Modelica.SIunits.Resistance R = 0.1 "Leader cable resistance";
         parameter Real effectiveTurns = 5 "Effective number of turns";
         parameter Modelica.SIunits.Inductance L = 1 "Load inductance";
         final parameter Modelica.SIunits.Reluctance R_m = m*effectiveTurns^2/2/L
@@ -879,8 +881,7 @@ In this example the eddy current losses are implemented in two different ways. C
               origin={-60,-60})));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage voltageSource_e(
           m=m,
-          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
-              m),
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
           freqHz=fill(f, m),
           V=fill(sqrt(2)*VRMS, m))
           annotation (Placement(transformation(
@@ -896,14 +897,14 @@ In this example the eddy current losses are implemented in two different ways. C
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,-30})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor                 leader_e(m=m, R=fill(
-              RLeader, m))
+        Modelica.Electrical.MultiPhase.Basic.Resistor resistor_e(m=m, R=fill(
+              R, m))
         annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor leader_m(m=m, R=fill(
-              RLeader, m))
+        Modelica.Electrical.MultiPhase.Basic.Resistor resistor_m(m=m, R=fill(
+              R, m))
         annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-        Modelica.Electrical.MultiPhase.Basic.Inductor inductor_e(m=m, L=fill(L,
-              m))         annotation (Placement(transformation(
+        Modelica.Electrical.MultiPhase.Basic.Inductor inductor_e(m=m, L=fill(L, m))
+                          annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={0,70})));
@@ -960,22 +961,22 @@ In this example the eddy current losses are implemented in two different ways. C
             points={{-60,-40},{-4.44089e-16,-40}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(voltageSource_e.plug_p, leader_e.plug_p)
+        connect(voltageSource_e.plug_p, resistor_e.plug_p)
                                                       annotation (Line(
           points={{-60,80},{-40,80}},
           color={0,0,255},
           smooth=Smooth.None));
-        connect(leader_e.plug_n, inductor_e.plug_p)
+        connect(resistor_e.plug_n, inductor_e.plug_p)
                                                 annotation (Line(
           points={{-20,80},{2.66454e-15,80}},
           color={0,0,255},
           smooth=Smooth.None));
-        connect(voltageSource_m.plug_p, leader_m.plug_p)
+        connect(voltageSource_m.plug_p, resistor_m.plug_p)
                                                        annotation (Line(
           points={{-60,-20},{-40,-20}},
           color={0,0,255},
           smooth=Smooth.None));
-        connect(leader_m.plug_n, converter_m.plug_p)
+        connect(resistor_m.plug_n, converter_m.plug_p)
                                                    annotation (Line(
           points={{-20,-20},{-4.44089e-16,-20}},
           color={0,0,255},
