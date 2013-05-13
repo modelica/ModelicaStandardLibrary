@@ -759,14 +759,15 @@ In this example the eddy current losses are implemented in two different ways. C
           annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
         Modelica.Electrical.Analog.Basic.Ground ground_m
           annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
-        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_e(V=VRMS,
-            freqHz=f)
-                 annotation (Placement(transformation(
+        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_e(
+          V=sqrt(2)*VRMS,
+          freqHz=f) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,70})));
-        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_m(V=VRMS, freqHz=
-             f)  annotation (Placement(transformation(
+        Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_m(
+          V=sqrt(2)*VRMS, 
+          freqHz=f) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,-30})));
