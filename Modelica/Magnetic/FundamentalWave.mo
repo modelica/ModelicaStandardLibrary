@@ -763,13 +763,15 @@ In this example the eddy current losses are implemented in two different ways. C
         Modelica.Electrical.Analog.Basic.Ground ground_m
           annotation (Placement(transformation(extent={{-70,-80},{-50,-60}})));
         Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_e(freqHz=f, V=
-              sqrt(2)*VRMS)
+              sqrt(2)*VRMS,
+          phase=Modelica.Constants.pi/2)
                  annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,70})));
         Modelica.Electrical.Analog.Sources.SineVoltage voltageSource_m(        freqHz=
-             f, V=sqrt(2)*VRMS)
+             f, V=sqrt(2)*VRMS,
+          phase=Modelica.Constants.pi/2)
                  annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -851,7 +853,8 @@ In this example the eddy current losses are implemented in two different ways. C
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
                             graphics), Icon(coordinateSystem(extent={{-100,-100},
-                  {100,100}})));
+                  {100,100}})),
+          experiment(StopTime=100, Interval=0.01));
       end SinglePhaseInductance;
 
       model MultiPhaseInductance "Multi phase inductance"
@@ -881,18 +884,20 @@ In this example the eddy current losses are implemented in two different ways. C
               origin={-60,-60})));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage voltageSource_e(
           m=m,
-          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
           freqHz=fill(f, m),
-          V=fill(sqrt(2)*VRMS, m))
+          V=fill(sqrt(2)*VRMS, m),
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              m) - Modelica.Constants.pi/2)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,70})));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage                   voltageSource_m(
           m=m,
-          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
           freqHz=fill(f, m),
-          V=fill(sqrt(2)*VRMS, m))
+          V=fill(sqrt(2)*VRMS, m),
+          phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
+              m) - Modelica.Constants.pi/2)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -992,7 +997,7 @@ In this example the eddy current losses are implemented in two different ways. C
             smooth=Smooth.None));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),graphics),
-          experiment(StopTime=200, Interval=0.01));
+          experiment(StopTime=100, Interval=0.01));
       end MultiPhaseInductance;
     end Components;
 
