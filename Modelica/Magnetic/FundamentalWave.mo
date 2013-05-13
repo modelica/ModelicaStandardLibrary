@@ -887,7 +887,7 @@ In this example the eddy current losses are implemented in two different ways. C
           freqHz=fill(f, m),
           V=fill(sqrt(2)*VRMS, m),
           phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
-              m) - Modelica.Constants.pi/2)
+              m) - fill(Modelica.Constants.pi/2, m))
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
@@ -897,7 +897,7 @@ In this example the eddy current losses are implemented in two different ways. C
           freqHz=fill(f, m),
           V=fill(sqrt(2)*VRMS, m),
           phase=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
-              m) - Modelica.Constants.pi/2)
+              m) - fill(Modelica.Constants.pi/2, m))
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
