@@ -2806,7 +2806,7 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
     model ConstantVoltage "Multiphase constant voltage source"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
-        "Value of constant voltage";
+        "Values of constant voltages";
       Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage[m](
         final V=V) annotation (Placement(transformation(extent={{-10,-10},{10,
                 10}}, rotation=0)));
@@ -2906,10 +2906,75 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
         Documentation(info="<HTML>
 <p>
 Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
-with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
+with a default phase shift determined by 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </HTML>"));
     end SineVoltage;
+
+    model CosineVoltage "Multiphase cosine voltage source"
+      extends Interfaces.TwoPlug;
+      parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
+        "Amplitudes of cosine waves";
+      parameter Modelica.SIunits.Angle phase[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
+        "Phases of cosine waves";
+      parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
+        "Frequencies of cosine waves";
+      parameter Modelica.SIunits.Voltage offset[m]=zeros(m) "Voltage offsets";
+      parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
+      Analog.Sources.CosineVoltage cosineVoltage[m](
+        final V=V,
+        final phase=phase,
+        final freqHz=freqHz,
+        final offset=offset,
+        final startTime=startTime) annotation (Placement(transformation(extent=
+                {{-10,-10},{10,10}}, rotation=0)));
+    equation
+      connect(cosineVoltage.p, plug_p.pin)
+        annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
+      connect(cosineVoltage.n, plug_n.pin)
+        annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+            Line(points={{50,0},{90,0}}, color={0,0,255}),
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-50,0},{50,0}}, color={0,0,255}),
+            Text(
+              extent={{-150,-110},{150,-50}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,100},{100,60}},
+              lineColor={0,0,0},
+              textString="m=%m"),
+            Text(
+              extent={{30,60},{110,0}},
+              lineColor={0,0,255},
+              textString="-"),
+            Text(
+              extent={{-110,60},{-30,0}},
+              lineColor={0,0,255},
+              textString="+"),     Line(points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,
+                  61},{-53.6,52},{-48,38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},
+                  {-14.2,-56.2},{-9.3,-64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,
+                  -62.5},{15.3,-54.1},{20.9,-41.3},{28,-21.7},{35,0}},
+                color={192,192,192}),
+                                   Line(points={{35,0},{44.8,29.9},{51.2,46.5},{56.8,
+                  58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,192,192})}),
+        Documentation(info="<HTML>
+<p>
+Contains m cosine voltage sources (Modelica.Electrical.Analog.Sources.CosineVoltage)
+with a default phase shift determined by 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+</p>
+</HTML>"));
+    end CosineVoltage;
 
     model SignalCurrent "Multiphase sine current source"
       parameter Integer m(min=1) = 3 "Number of phases";
@@ -2972,7 +3037,7 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
     model ConstantCurrent "Multiphase constant current source"
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Current I[m](start=fill(1, m))
-        "Value of constant current";
+        "Values of constant currents";
       Modelica.Electrical.Analog.Sources.ConstantCurrent constantCurrent[m](
         final I=I) annotation (Placement(transformation(extent={{-10,-10},{10,
                 10}}, rotation=0)));
@@ -3065,19 +3130,88 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
         Documentation(info="<HTML>
 <p>
 Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent)
-with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
+with a default phase shift determined by 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </HTML>"));
     end SineCurrent;
+
+    model CosineCurrent "Multiphase cosine current source"
+      extends Interfaces.TwoPlug;
+      parameter Modelica.SIunits.Current I[m](start=fill(1, m))
+        "Amplitudes of cosine waves";
+      parameter Modelica.SIunits.Angle phase[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
+        "Phases of cosine waves";
+      parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m))
+        "Frequencies of cosine waves";
+      parameter Modelica.SIunits.Current offset[m]=zeros(m) "Current offsets";
+      parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
+      Analog.Sources.CosineCurrent cosineCurrent[m](
+        final I=I,
+        final phase=phase,
+        final freqHz=freqHz,
+        final offset=offset,
+        final startTime=startTime) annotation (Placement(transformation(extent=
+                {{-10,-10},{10,10}}, rotation=0)));
+    equation
+      connect(cosineCurrent.p, plug_p.pin)
+        annotation (Line(points={{-10,0},{-100,0}}, color={0,0,255}));
+      connect(cosineCurrent.n, plug_n.pin)
+        annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
+      annotation (
+        Icon(graphics={
+            Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+            Line(points={{50,0},{90,0}}, color={0,0,255}),
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,50},{0,-50}}, color={0,0,255}),
+            Line(points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
+                  65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},{-23.6,61},{-18.6,
+                  52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},
+                  {25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},
+                  {50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}}, color={192,192,
+                  192}),
+            Text(
+              extent={{-150,-110},{150,-50}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,100},{100,60}},
+              lineColor={0,0,0},
+              textString="m=%m"),
+            Polygon(
+              points={{90,0},{60,10},{60,-10},{90,0}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}),
+        Documentation(info="<HTML>
+<p>
+Contains m cosine current sources (Modelica.Electrical.Analog.Sources.CosineCurrent)
+with a default phase shift determined by 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+</p>
+</HTML>"));
+    end CosineCurrent;
     annotation (Documentation(info="<HTML>
 <p>
 This package contains time-dependent and controlled multiphase voltage and current sources:
 </p>
 <ul>
 <li>SignalVoltage: fed by Modelica.Blocks.Sources arbitrary waveforms of voltages are possible</li>
-<li>SineVoltage : phase shift between consecutive voltages by default <code>= pi/m</code></li>
+<li>ConstantVoltage: constant multi phase voltages</li>
+<li>SineVoltage : phase shift between consecutive voltages by default given by 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<li>CosineVoltage : phase shift between consecutive voltages by default given by 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>SignalCurrent: fed by Modelica.Blocks.Sources arbitrary waveforms of currents are possible</li>
-<li>SineCurrent : phase shift between consecutive currents by default <code>= pi/m</code></li>
+<li>ConstantCurrent: constant multi phase currents</li>
+<li>SineCurrent : phase shift between consecutive currents by default given by 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
+<li>CosineCurrent : phase shift between consecutive currents by default given by 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 </ul>
 </HTML>", revisions="<html>
 <dl>

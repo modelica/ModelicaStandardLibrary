@@ -374,16 +374,16 @@ package Sources "Time-dependent and controlled voltage and current sources"
         phase=phase));
     annotation (
       Icon(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-66,0},{-56.2,29.9},{-49.8,46.5},
-                {-44.2,58.1},{-39.3,65.2},{-34.3,69.2},{-29.4,69.8},{-24.5,67},
-                {-19.6,61},{-14.6,52},{-9,38.6},{-1.98,18.6},{12.79,-26.9},{
-                19.1,-44},{24.8,-56.2},{29.7,-64},{34.6,-68.6},{39.5,-70},{44.5,
-                -67.9},{49.4,-62.5},{54.3,-54.1},{59.9,-41.3},{67,-21.7},{74,0}},
+          grid={1,1}), graphics={Line(points={{-70,0},{-60.2,29.9},{-53.8,46.5},
+                {-48.2,58.1},{-43.3,65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},
+                {-23.6,61},{-18.6,52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{
+                15.1,-44},{20.8,-56.2},{25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,
+                -67.9},{45.4,-62.5},{50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
               color={192,192,192})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-80,-90},{-80,84}}, color={192,192,192}),
@@ -469,6 +469,116 @@ package Sources "Time-dependent and controlled voltage and current sources"
 </html>"));
 
   end SineVoltage;
+
+  model CosineVoltage "Cosine voltage source"
+    parameter SI.Voltage V(start=1) "Amplitude of cosine wave";
+    parameter SI.Angle phase=0 "Phase of cosine wave";
+    parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
+    extends Interfaces.VoltageSource(redeclare Modelica.Blocks.Sources.Cosine
+        signalSource(
+        amplitude=V,
+        freqHz=freqHz,
+        phase=phase));
+    annotation (
+      Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={Line(points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,
+                61},{-53.6,52},{-48,38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},
+                {-14.2,-56.2},{-9.3,-64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,
+                -62.5},{15.3,-54.1},{20.9,-41.3},{28,-21.7},{35,0}},
+              color={192,192,192}),
+                                 Line(points={{35,0},{44.8,29.9},{51.2,46.5},{56.8,
+                58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,192,192})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Line(points={{-80,-90},{-80,84}}, color={192,192,192}),
+          Polygon(
+            points={{-80,100},{-86,84},{-74,84},{-80,100}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-99,-40},{100,-40}},color={192,192,192}),
+          Polygon(
+            points={{100,-40},{84,-34},{84,-46},{100,-40}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-41,78},{-38,78},{-35.42,74.6},{-31.201,67.7},{-26.98,57.4},{
+                -22.16,42.1},{-16.1,19.2},{-3.5,-32.8},{2,-52.2},{6.8,-66.2},{11,-75.1},
+                {15.2,-80.4},{19.5,-82},{23.7,-79.6},{27.9,-73.5},{32.1,-63.9},{36.9,
+                -49.2},{43,-26.8},{49,-2},{49,-2},{57.4,32.2},{62.9,51.1},{67.7,64.4},
+                {71.9,72.6},{76.1,77.1},{80,78}},
+            color={0,0,0},
+            thickness=0.5),
+          Line(
+            points={{-41,-2},{-80,-2}},
+            color={0,0,0},
+            thickness=0.5),
+          Text(
+            extent={{-106,-11},{-60,-29}},
+            lineColor={160,160,164},
+            textString="offset"),
+          Line(
+            points={{-41,-2},{-41,-40}},
+            color={192,192,192},
+            pattern=LinePattern.Dash),
+          Text(
+            extent={{-60,-43},{-14,-61}},
+            lineColor={160,160,164},
+            textString="startTime"),
+          Text(
+            extent={{76,-52},{100,-72}},
+            lineColor={160,160,164},
+            textString="time"),
+          Line(
+            points={{-8,78},{45,78}},
+            color={192,192,192},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{-41,-2},{52,-2}},
+            color={192,192,192},
+            pattern=LinePattern.Dash),
+          Polygon(
+            points={{33,78},{30,65},{37,65},{33,78}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{37,57},{83,39}},
+            lineColor={160,160,164},
+            textString="V"),
+          Polygon(
+            points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{33,78},{33,-2}},
+            color={192,192,192},
+            pattern=LinePattern.Solid,
+            thickness=0.25,
+            arrow={Arrow.None,Arrow.None}),
+          Text(
+            extent={{-69,109},{-4,83}},
+            lineColor={160,160,164},
+            textString="v = p.v - n.v"),
+          Line(
+            points={{-41,78},{-41,-2}},
+            color={0,0,0},
+            thickness=0.5)}),
+      Documentation(revisions="<html>
+<ul>
+<li>Initially implemented by Christian Kral on 2013-05-14</li>
+</ul>
+</html>", info="<html>
+<p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+</html>"));
+
+  end CosineVoltage;
 
   model ExpSineVoltage "Exponentially damped sine voltage source"
     parameter SI.Voltage V(start=1) "Amplitude of sine wave";
@@ -1772,6 +1882,120 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 </html>"));
 
   end SineCurrent;
+
+  model CosineCurrent "Cosine current source"
+    parameter SI.Current I(start=1) "Amplitude of cosine wave";
+    parameter SI.Angle phase=0 "Phase of cosine wave";
+    parameter SI.Frequency freqHz(start=1) "Frequency of cosine wave";
+    extends Interfaces.CurrentSource(redeclare Modelica.Blocks.Sources.Cosine
+        signalSource(
+        amplitude=I,
+        freqHz=freqHz,
+        phase=phase));
+    annotation (
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={Line(points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,
+                61},{-53.6,52},{-48,38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},
+                {-14.2,-56.2},{-9.3,-64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,
+                -62.5},{15.3,-54.1},{20.9,-41.3},{28,-21.7},{35,0}},
+              color={192,192,192}),
+                                 Line(points={{35,0},{44.8,29.9},{51.2,46.5},{56.8,
+                58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,192,192})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Line(points={{-80,-90},{-80,84}}, color={192,192,192}),
+          Polygon(
+            points={{-80,100},{-86,84},{-74,84},{-80,100}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-99,-40},{85,-40}}, color={192,192,192}),
+          Polygon(
+            points={{101,-40},{85,-34},{85,-46},{101,-40}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-41,-2},{-80,-2}},
+            color={0,0,0},
+            thickness=0.5),
+          Text(
+            extent={{-106,-11},{-60,-29}},
+            lineColor={160,160,164},
+            textString="offset"),
+          Line(
+            points={{-41,-2},{-41,-40}},
+            color={192,192,192},
+            pattern=LinePattern.Dash),
+          Text(
+            extent={{-60,-43},{-14,-61}},
+            lineColor={160,160,164},
+            textString="startTime"),
+          Text(
+            extent={{84,-52},{108,-72}},
+            lineColor={160,160,164},
+            textString="time"),
+          Line(
+            points={{-10,78},{42,78}},
+            color={192,192,192},
+            pattern=LinePattern.Dash),
+          Line(
+            points={{-41,-2},{5,-2},{5,-2},{51,-2}},
+            color={192,192,192},
+            pattern=LinePattern.Dash),
+          Polygon(
+            points={{33,78},{30,65},{37,65},{33,78}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{37,57},{83,39}},
+            lineColor={160,160,164},
+            textString="I"),
+          Polygon(
+            points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{33,78},{33,-2}},
+            color={192,192,192},
+            pattern=LinePattern.Solid,
+            thickness=0.25,
+            arrow={Arrow.None,Arrow.None}),
+          Text(
+            extent={{-73,82},{-53,102}},
+            lineColor={192,192,192},
+            textString="i"),
+          Line(
+            points={{-41,78},{-41,-2}},
+            color={0,0,0},
+            thickness=0.5),
+          Line(
+            points={{-41,78},{-38,78},{-35.42,74.6},{-31.201,67.7},{-26.98,57.4},{
+                -22.16,42.1},{-16.1,19.2},{-3.5,-32.8},{2,-52.2},{6.8,-66.2},{11,-75.1},
+                {15.2,-80.4},{19.5,-82},{23.7,-79.6},{27.9,-73.5},{32.1,-63.9},{36.9,
+                -49.2},{43,-26.8},{49,-2}},
+            color={0,0,0},
+            thickness=0.5),
+          Line(
+            points={{49,-2},{57.4,32.2},{62.9,51.1},{67.7,64.4},{71.9,72.6},{76.1,
+                77.1},{80,78}},
+            color={0,0,0},
+            thickness=0.5)}),
+      Documentation(revisions="<html>
+<ul>
+<li>Initially implemented by Christian Kral on 2013-05-14</li>
+</ul>
+</html>", info="<html>
+<p>This current source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
+</html>"));
+
+  end CosineCurrent;
 
   model ExpSineCurrent "Exponentially damped sine current source"
     parameter Real I(start=1) "Amplitude of sine wave";

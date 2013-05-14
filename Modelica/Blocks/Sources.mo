@@ -429,7 +429,8 @@ The Real output y is a step signal:
 
       block Ramp "Generate ramp signal"
         parameter Real height=1 "Height of ramps";
-        parameter Modelica.SIunits.Time duration(min=0.0, start = 2) "Duration of ramp (= 0.0 gives a Step)";
+        parameter Modelica.SIunits.Time duration(min=0.0, start = 2)
+      "Duration of ramp (= 0.0 gives a Step)";
         parameter Real offset=0 "Offset of output signal";
         parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
@@ -684,6 +685,125 @@ The Real output y is a sine signal:
 </p>
 </html>"));
       end Sine;
+
+      block Cosine "Generate cosine signal"
+        parameter Real amplitude=1 "Amplitude of cosine wave";
+        parameter SIunits.Frequency freqHz(start=1) "Frequency of cosine wave";
+        parameter SIunits.Angle phase=0 "Phase of cosine wave";
+        parameter Real offset=0 "Offset of output signal";
+        parameter SIunits.Time startTime=0
+      "Output = offset for time < startTime";
+        extends Interfaces.SO;
+  protected
+        constant Real pi=Modelica.Constants.pi;
+
+      equation
+        y = offset + (if time < startTime then 0 else amplitude*
+          Modelica.Math.cos(2*pi*freqHz*(time - startTime) + phase));
+        annotation (
+          Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,80},{-76.2,79.8},{-70.6,76.6},{-64.9,69.7},{-59.3,59.4},{-52.9,
+                    44.1},{-44.83,21.2},{-27.9,-30.8},{-20.7,-50.2},{-14.3,-64.2},{-8.7,
+                    -73.1},{-3,-78.4},{2.6,-80},{8.2,-77.6},{13.9,-71.5},{19.5,-61.9},
+                    {25.9,-47.2},{34,-24.8},{42,0}},          color={0,0,0}),
+          Text(
+            extent={{-147,-152},{153,-112}},
+            lineColor={0,0,0},
+            textString="freqHz=%freqHz"),
+          Line(points={{42,1},{53.3,35.2},{60.5,54.1},{66.9,67.4},{72.6,75.6},{78.2,80.1},
+                    {83.8,80.8}},                             color={0,0,0})}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Line(points={{-80,-90},{-80,84}}, color={95,95,95}),
+          Polygon(
+            points={{-80,97},{-84,81},{-76,81},{-80,97}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-99,-40},{85,-40}}, color={95,95,95}),
+          Polygon(
+            points={{97,-40},{81,-36},{81,-45},{97,-40}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-41,-2},{-80,-2}},
+            color={0,0,255},
+            thickness=0.5),
+          Text(
+            extent={{-87,12},{-40,0}},
+            lineColor={0,0,0},
+            textString="offset"),
+          Line(points={{-41,-2},{-41,-40}}, color={95,95,95}),
+          Text(
+            extent={{-60,-43},{-14,-54}},
+            lineColor={0,0,0},
+            textString="startTime"),
+          Text(
+            extent={{75,-47},{100,-60}},
+            lineColor={0,0,0},
+            textString="time"),
+          Text(
+            extent={{-80,99},{-40,82}},
+            lineColor={0,0,0},
+            textString="y"),
+          Line(points={{-41,80},{43,80}},color={95,95,95}),
+          Line(points={{-41,-2},{40,-2}}, color={95,95,95}),
+          Polygon(
+            points={{33,80},{30,67},{36,67},{33,80}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{37,57},{83,39}},
+            lineColor={0,0,0},
+            textString="amplitude"),
+          Polygon(
+            points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Line(points={{33,80},{33,-2}}, color={95,95,95}),
+              Line(
+                points={{-41,80},{-38,79},{-35.42,75.6},{-31.201,68.7},{-26.98,58.4},{
+                    -22.16,43.1},{-16.1,20.2},{-3.5,-31.8},{2,-51.2},{6.8,-65.2},{11,-74.1},
+                    {15.2,-79.4},{19.5,-81},{23.7,-78.6},{27.9,-72.5},{32.1,-62.9},{36.9,
+                    -48.2},{43,-25.8},{49,-1},{49,-1},{57.4,33.2},{62.9,52.1},{67.7,65.4},
+                    {71.9,73.6},{76.1,78.1},{80,79}},
+                color={0,0,255},
+                thickness=0.5),
+          Line(
+            points={{-41,80},{-41,-2}},
+            color={0,0,255},
+            thickness=0.5)}),
+      Documentation(info="<html>
+<p>
+The Real output y is a cosine signal:
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Cosine.png\"
+     alt=\"Cosine.png\">
+</p>
+</html>"));
+      end Cosine;
 
       block ExpSine "Generate exponentially damped sine signal"
         parameter Real amplitude=1 "Amplitude of sine wave";
