@@ -1182,6 +1182,8 @@ argument):</p>
   type DerEnthalpyByPressure = Real (final unit="J.m.s2/kg2");
   type DerEnergyByDensity = Real (final unit="J.m3/kg");
   type DerEnergyByPressure = Real (final unit="J.m.s2/kg");
+  type DerPressureByDensity = Real (final unit="Pa.m3/kg");
+  type DerPressureByTemperature = Real (final unit="Pa/K");
 
   // Electricity and Magnetism (chapter 5 of ISO 31-1992)
   type ElectricCurrent = Real (final quantity="ElectricCurrent", final unit="A");
@@ -1426,6 +1428,7 @@ argument):</p>
       min=0);
   type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol",min=0);
   type MolarVolume = Real (final quantity="MolarVolume", final unit="m3/mol", min=0);
+  type MolarDensity = Real (final quantity="MolarDensity", unit="mol/m3");
   type MolarEnergy = Real (final quantity="MolarEnergy", final unit="J/mol", nominal=2e4);
   type MolarInternalEnergy = MolarEnergy;
   type MolarHeatCapacity = Real (final quantity="MolarHeatCapacity", final unit=
