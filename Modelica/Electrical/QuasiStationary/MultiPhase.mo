@@ -19,7 +19,7 @@ package MultiPhase "Multiphase AC components"
         m=m,
         f=f,
         V=fill(V, m),
-        phi={-(j - 1)*2*Modelica.Constants.pi/m for j in 1:m})
+        phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
         annotation (Placement(transformation(
             origin={-80,-20},
             extent={{-10,-10},{10,10}},
@@ -146,7 +146,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
         m=m,
         f=f,
         V=fill(V_LL, m),
-        phi={-(j - 1)*2*Modelica.Constants.pi/m for j in 1:m})
+        phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
         annotation (Placement(transformation(
             origin={-70,-20},
             extent={{-10,-10},{10,10}},
@@ -1929,7 +1929,7 @@ Quasi stationary theory can be found in the
       parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       parameter Modelica.SIunits.Voltage V[m](start=fill(1,m))
         "RMS voltage of the source";
-      parameter Modelica.SIunits.Angle phi[m]={0 - (j-1)*2*pi/m for j in 1:m}
+      parameter Modelica.SIunits.Angle phi[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
         "Phase shift of the source";
       QuasiStationary.SinglePhase.Sources.VoltageSource voltageSource[
                                                       m](
@@ -1959,7 +1959,9 @@ Quasi stationary theory can be found in the
       Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts.
+This model describes <i>m</i> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts 
+(defaults are
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
 <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">single phase VoltageSources</a> are used.
 </p>
 
@@ -2040,7 +2042,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
       parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       parameter Modelica.SIunits.Current I[m](start=fill(1,m))
         "RMS current of the source";
-      parameter Modelica.SIunits.Angle phi[m]={0 - (j-1)*2*pi/m for j in 1:m}
+      parameter Modelica.SIunits.Angle phi[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
         "Phase shift of the source";
       QuasiStationary.SinglePhase.Sources.CurrentSource currentSource[
                                                       m](
@@ -2064,7 +2066,9 @@ Additionally, the frequency of the voltage source is defined by a real signal in
       Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the phase shifts.
+This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the the phase shifts 
+(defaults are
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
 <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.
 </p>
 
@@ -2256,9 +2260,11 @@ Additionally the reference angle is specified in the connector. The time derivat
       Modelica.SIunits.ComplexCurrent  i[m];
       Modelica.SIunits.AngularVelocity omega;
       PositivePlug plug_p(final m=m)
+        "Positive quasi stationary multi phase plug"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
       NegativePlug plug_n(final m=m)
+        "Negative quasi stationary multi phase plug"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Basic.PlugToPins_p plugToPins_p(final m=m)
         annotation (Placement(transformation(extent={{-80,-10},{-60,10}}, rotation=
@@ -2301,9 +2307,11 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
       Modelica.SIunits.ComplexCurrent  i[m];
       Modelica.SIunits.AngularVelocity omega;
       PositivePlug plug_p(final m=m)
+        "Positive quasi stationary multi phase plug"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
       NegativePlug plug_n(final m=m)
+        "Negative quasi stationary multi phase plug"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     equation
       Connections.branch(plug_p.reference, plug_n.reference);
@@ -2321,6 +2329,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
       parameter Integer m(min=1) = 3 "number of phases";
       Modelica.SIunits.AngularVelocity omega;
       PositivePlug plug_p(final m=m)
+        "Positive quasi stationary multi phase plug"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
     equation
