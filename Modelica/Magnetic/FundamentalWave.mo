@@ -744,7 +744,9 @@ The magnetic potential difference of the connector therefore also refers to an e
         annotation (experiment(StopTime=40, Interval=0.01), Documentation(info="<html>
 <p>
 In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters.</p>
-</html>"));
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end EddyCurrentLosses;
 
       model SinglePhaseInductance "Single phase inductance"
@@ -4211,6 +4213,14 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
 
     model MultiPhaseElectroMagneticConverter
       "Multi phase electro magnetic converter"
+
+      // Global plug and port variables
+      Modelica.SIunits.Voltage v[m] = plug_p.pin.v - plug_n.pin.v "Voltages";
+      Modelica.SIunits.Current i[m] = plug_p.pin.i "Currents";
+      Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
+        "Magnetic potential difference";
+      Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi "Magnetic flux";
+
       import Modelica.Constants.pi;
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
         "Positive plug" annotation (Placement(transformation(
@@ -4228,13 +4238,6 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
       Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort port_n
         "Negative complex magnetic port" annotation (Placement(transformation(
               extent={{90,-110},{110,-90}}, rotation=0)));
-
-      // Global plug and port variables
-      Modelica.SIunits.Voltage v[m] = plug_p.pin.v - plug_n.pin.v "Voltages";
-      Modelica.SIunits.Current i[m] = plug_p.pin.i "Currents";
-      Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
-        "Magnetic potential difference";
-      Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi "Magnetic flux";
 
       parameter Integer m=3 "Number of phases";
       parameter Real effectiveTurns[m] "Effective number of turns";
