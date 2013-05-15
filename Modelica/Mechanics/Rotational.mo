@@ -704,7 +704,8 @@ in the housing on one side via component Fixed.</p>
           start=0,
           fixed=true,
           displayUnit="deg"),
-        w(start=100,
+        w(
+          start=100,
           fixed=true,
           displayUnit="rad/s")) annotation (Placement(transformation(extent={{-60,
                 -10},{-40,10}}, rotation=0)));
@@ -1137,11 +1138,11 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-20,
                 40},{0,60}}, rotation=0)));
       Rotational.Components.Inertia load(J=50, w(fixed=true, start=0))
-        annotation (Placement(transformation(extent={{70,40},{90,60}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{70,40},{90,60}}, rotation
+              =0)));
       Rotational.Components.Spring spring(c=1e3, phi_rel(fixed=true))
-        annotation (Placement(transformation(extent={{40,40},{60,60}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{40,40},{60,60}}, rotation
+              =0)));
       Rotational.Components.Fixed fixed annotation (Placement(transformation(
               extent={{10,-70},{30,-50}}, rotation=0)));
       Rotational.Components.SpringDamper springDamper(
@@ -1157,8 +1158,8 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
       Modelica.Blocks.Sources.Ramp ramp(duration=5, height=100) annotation (
           Placement(transformation(extent={{-90,40},{-70,60}}, rotation=0)));
       Rotational.Components.IdealGear idealGear(ratio=3, useSupport=true)
-        annotation (Placement(transformation(extent={{10,40},{30,60}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{10,40},{30,60}}, rotation
+              =0)));
       Rotational.Components.Inertia housing(J=5) annotation (Placement(
             transformation(
             origin={20,22},
@@ -1476,6 +1477,7 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
           smooth=Smooth.None));
       connect(lossyGear.heatPort, convection.solid) annotation (Line(
           points={{-10,70},{-10,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
+
           color={191,0,0},
           smooth=Smooth.None));
 
@@ -1485,6 +1487,7 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
           smooth=Smooth.None));
       connect(clutch.heatPort, convection.solid) annotation (Line(
           points={{20,70},{20,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
+
           color={191,0,0},
           smooth=Smooth.None));
 
@@ -1518,6 +1521,7 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
           smooth=Smooth.None));
       connect(oneWayClutch.heatPort, convection.solid) annotation (Line(
           points={{80,70},{80,60},{140,60},{140,0},{-10,0},{-10,-30},{20,-30}},
+
           color={191,0,0},
           smooth=Smooth.None));
 
@@ -1562,7 +1566,7 @@ is present in variable convection.fluid.
         w(fixed=true, start=0))
         annotation (Placement(transformation(extent={{30,-20},{50,0}})));
       Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
-        quadraticSpeedDependentTorque(w_nominal(displayUnit="rpm")=
+        quadraticSpeedDependentTorque(w_nominal(displayUnit="rpm") =
           10.471975511966, tau_nominal=-20)
         annotation (Placement(transformation(extent={{80,-20},{60,0}})));
       Modelica.Mechanics.Rotational.Components.Clutch clutch(
@@ -1637,6 +1641,192 @@ is present in variable convection.fluid.
 </ul>
 </html>"));
     end SimpleGearShift;
+
+    model GenerationOfFMUs
+      "Example to demonstrate variants to generate FMUs (Functional Mockup Units)"
+      extends Modelica.Icons.Example;
+
+      Blocks.Sources.Sine sine1(freqHz=2, amplitude=10)
+        annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+      Utilities.DirectInertia directInertia(J=1.1)
+        annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+      Utilities.InverseInertia inverseInertia(J=2.2)
+        annotation (Placement(transformation(extent={{20,40},{40,60}})));
+      Utilities.SpringDamper springDamper(c=1e4, d=100)
+        annotation (Placement(transformation(extent={{10,-20},{30,0}})));
+      Blocks.Sources.Sine sine2(freqHz=2, amplitude=10)
+        annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
+      Components.Inertia inertia2a(
+        J=1.1,
+        phi(fixed=true, start=0),
+        w(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+      Sources.Torque torque2
+        annotation (Placement(transformation(extent={{-68,-20},{-48,0}})));
+      Components.TorqueToAngleAdaptor torqueToAngle2a(use_a=false)
+        annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
+      Components.Inertia inertia2b(
+        phi(fixed=true, start=0),
+        w(fixed=true, start=0),
+        J=2.2) annotation (Placement(transformation(extent={{60,-20},{80,0}})));
+      Components.TorqueToAngleAdaptor torqueToAngle2b(use_a=false)
+        annotation (Placement(transformation(extent={{60,-20},{40,0}})));
+      Utilities.Spring spring(c=1e4)
+        annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
+      Blocks.Sources.Sine sine3(freqHz=2, amplitude=10)
+        annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
+      Components.Inertia inertia3a(
+        J=1.1,
+        phi(fixed=true, start=0),
+        w(fixed=true, start=0))
+        annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+      Sources.Torque torque3
+        annotation (Placement(transformation(extent={{-68,-80},{-48,-60}})));
+      Components.TorqueToAngleAdaptor torqueToAngle3a(use_a=false, use_w=false)
+        annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+      Components.Inertia inertia3b(
+        phi(fixed=true, start=0),
+        w(fixed=true, start=0),
+        J=2.2)
+        annotation (Placement(transformation(extent={{60,-80},{80,-60}})));
+      Components.TorqueToAngleAdaptor torqueToAngle3b(use_a=false, use_w=false)
+        annotation (Placement(transformation(extent={{60,-80},{40,-60}})));
+    equation
+      connect(sine1.y, directInertia.tauDrive) annotation (Line(
+          points={{-39,50},{-22,50}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(directInertia.phi, inverseInertia.phi) annotation (Line(
+          points={{1,58},{18,58}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(directInertia.w, inverseInertia.w) annotation (Line(
+          points={{1,53},{18,53}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(directInertia.a, inverseInertia.a) annotation (Line(
+          points={{1,47},{18,47}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(inverseInertia.tau, directInertia.tau) annotation (Line(
+          points={{19,42},{2,42}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(torque2.flange, inertia2a.flange_a) annotation (Line(
+          points={{-48,-10},{-40,-10}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(sine2.y, torque2.tau) annotation (Line(
+          points={{-79,-10},{-70,-10}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(inertia2a.flange_b, torqueToAngle2a.flange) annotation (Line(
+          points={{-20,-10},{-12,-10}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(torqueToAngle2a.phi, springDamper.phi1) annotation (Line(
+          points={{-7,-2},{8,-2}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(torqueToAngle2a.w, springDamper.w1) annotation (Line(
+          points={{-7,-7},{8,-7}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(springDamper.tau1, torqueToAngle2a.tau) annotation (Line(
+          points={{9,-18},{-6,-18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(torqueToAngle2b.phi, springDamper.phi2) annotation (Line(
+          points={{47,-2},{32,-2}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(torqueToAngle2b.w, springDamper.w2) annotation (Line(
+          points={{47,-7},{32,-7}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(springDamper.tau2, torqueToAngle2b.tau) annotation (Line(
+          points={{31,-18},{46,-18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(inertia2b.flange_a, torqueToAngle2b.flange) annotation (Line(
+          points={{60,-10},{52,-10}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(torque3.flange, inertia3a.flange_a) annotation (Line(
+          points={{-48,-70},{-40,-70}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(sine3.y, torque3.tau) annotation (Line(
+          points={{-79,-70},{-70,-70}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(inertia3a.flange_b, torqueToAngle3a.flange) annotation (Line(
+          points={{-20,-70},{-12,-70}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(torqueToAngle3a.phi, spring.phi1) annotation (Line(
+          points={{-7,-62},{8,-62}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(spring.tau1, torqueToAngle3a.tau) annotation (Line(
+          points={{9,-78},{-6,-78}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(torqueToAngle3b.phi, spring.phi2) annotation (Line(
+          points={{47,-62},{32,-62}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(spring.tau2, torqueToAngle3b.tau) annotation (Line(
+          points={{31,-78},{46,-78}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(inertia3b.flange_a, torqueToAngle3b.flange) annotation (Line(
+          points={{60,-70},{52,-70}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics), Documentation(info="<html>
+<p>
+This example demonstrates how to generate an input/output block (e.g. in form of an
+FMU - <a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>) from various Rotational components. 
+The goal is to export such an input/output block from Modelica and import
+it in another modeling environment. The essential issue is that before
+exporting it must be known in which way the component is utilized in the
+target environment. Depending on the target usage, different flange variables
+need to be in the interface with either input or output causality.
+Note, this example model can be used to test the FMU export/import of a Modelica tool.
+Just export the components marked in the icons as \"toFMU\" as FMUs and import
+them back. The models should then still work and give the same results as a 
+pure Modelica model.
+</p>
+
+<p>
+<b>Connecting two inertias</b><br>
+The upper part (DirectInertia, InverseInertia)
+demonstrates how to export two inertias and connect them
+together in a target system. This requires that one of the inertias
+(here: DirectInertia)
+is defined to have states and the angle, angular velocity and angular
+acceleration are provided in the interface.
+The other inertia (here: InverseInertia) is moved according
+to the provided input angle, angular velocity and angular acceleration.
+</p>
+
+<p>
+<b>Connecting a force element that needs angles and angular velocities</b><br>
+The middle part (SpringDamper) demonstrates how to export a force element
+that needs both angles and angular velocities for its force law and connect this
+force law in a target system between two inertias.
+</p>
+
+<p>
+<b>Connecting a force element that needs only angles</b><br>
+The lower part (Spring) demonstrates how to export a force element
+that needs only angles for its force law and connect this
+force law in a target system between two inertias.
+</p>
+</html>"));
+    end GenerationOfFMUs;
     annotation (Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the usage of the
@@ -1645,6 +1835,437 @@ simulate them according to the provided description in the models.
 </p>
 
 </html>"));
+    package Utilities "Utility components used by the example models"
+      extends Modelica.Icons.Package;
+      model DirectInertia "Input/output block of a direct inertia model"
+        extends Modelica.Blocks.Icons.Block;
+        Modelica.Mechanics.Rotational.Components.Inertia inertia(
+          phi(start=0, fixed=true),
+          w(start=0, fixed=true),
+          J=J) annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+        parameter Modelica.SIunits.Inertia J "Moment of inertia";
+        Modelica.Mechanics.Rotational.Sources.Torque torque
+          annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+        Modelica.Blocks.Interfaces.RealInput tauDrive
+          "Accelerating torque acting at flange (= -flange.tau)"
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Components.TorqueToAngleAdaptor torqueToAngle
+          annotation (Placement(transformation(extent={{4,-10},{24,10}})));
+        Modelica.Blocks.Interfaces.RealOutput phi(unit="rad")
+          "Inertia moves with angle phi due to torque tau"
+          annotation (Placement(transformation(extent={{100,70},{120,90}})));
+        Modelica.Blocks.Interfaces.RealOutput w(unit="rad/s")
+          "Inertia moves with speed w due to torque tau"
+          annotation (Placement(transformation(extent={{100,20},{120,40}})));
+        Modelica.Blocks.Interfaces.RealOutput a(unit="rad/s2")
+          "Inertia moves with angular acceleration a due to torque tau"
+          annotation (Placement(transformation(extent={{100,-40},{120,-20}})));
+        Modelica.Blocks.Interfaces.RealInput tau(unit="N.m")
+          "Torque to drive the inertia"
+          annotation (Placement(transformation(extent={{140,-100},{100,-60}})));
+      equation
+
+        connect(torque.flange, inertia.flange_a) annotation (Line(
+            points={{-30,0},{-20,0}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(torque.tau, tauDrive) annotation (Line(
+            points={{-52,0},{-120,0}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(inertia.flange_b, torqueToAngle.flange) annotation (Line(
+            points={{0,0},{12,0}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(torqueToAngle.phi, phi) annotation (Line(
+            points={{17,8},{60,8},{60,80},{110,80}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(torqueToAngle.w, w) annotation (Line(
+            points={{17,3},{66,3},{66,30},{110,30}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(torqueToAngle.tau, tau) annotation (Line(
+            points={{18,-8},{60,-8},{60,-80},{120,-80}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(torqueToAngle.a, a) annotation (Line(
+            points={{17,-3},{66,-3},{66,-30},{110,-30}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+                  {{-100,-100},{100,100}}), graphics), Icon(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics={
+              Text(
+                extent={{-84,-58},{24,-90}},
+                lineColor={135,135,135},
+                fillColor={235,245,255},
+                fillPattern=FillPattern.Solid,
+                textString="to FMU"),
+              Text(
+                extent={{8,96},{92,66}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                textString="phi",
+                horizontalAlignment=TextAlignment.Right),
+              Text(
+                extent={{10,46},{94,16}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Right,
+                textString="w"),
+              Text(
+                extent={{6,-10},{90,-40}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Right,
+                textString="a"),
+              Text(
+                extent={{-150,-110},{150,-140}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                textString="J=%J"),
+              Bitmap(extent={{-96,54},{64,-42}}, fileName=
+                    "modelica://Modelica/Resources/Images/Mechanics/Rotational/DirectInertia.png"),
+
+              Text(
+                extent={{10,-60},{94,-90}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Right,
+                textString="tau")}));
+
+      end DirectInertia;
+
+      model InverseInertia "Input/output block of an inverse inertia model"
+        extends Modelica.Blocks.Icons.Block;
+        Modelica.Mechanics.Rotational.Components.Inertia inertia(
+          J=J,
+          phi(start=0, fixed=false),
+          w(start=0, fixed=false))
+          annotation (Placement(transformation(extent={{-12,-10},{8,10}})));
+        parameter Modelica.SIunits.Inertia J "Moment of inertia";
+        Components.AngleToTorqueAdaptor angleToTorque
+          annotation (Placement(transformation(extent={{-36,-10},{-16,10}})));
+        Modelica.Blocks.Interfaces.RealInput phi(unit="rad")
+          "Angle to drive the inertia"
+          annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+        Modelica.Blocks.Interfaces.RealInput w(unit="rad/s")
+          "Speed to drive the inertia"
+          annotation (Placement(transformation(extent={{-140,10},{-100,50}})));
+        Modelica.Blocks.Interfaces.RealInput a(unit="rad/s2")
+          "Angular acceleration to drive the inertia" annotation (Placement(
+              transformation(extent={{-140,-50},{-100,-10}})));
+        Modelica.Blocks.Interfaces.RealOutput tau(unit="N.m")
+          "Torque needed to drive the flange according to phi, w, a"
+          annotation (Placement(transformation(extent={{-100,-90},{-120,-70}})));
+      equation
+
+        connect(angleToTorque.phi, phi) annotation (Line(
+            points={{-30,8},{-84,8},{-84,80},{-120,80}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleToTorque.w, w) annotation (Line(
+            points={{-30,2.8},{-90,2.8},{-90,30},{-120,30}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleToTorque.a, a) annotation (Line(
+            points={{-30,-3.2},{-80,-3.2},{-80,-30},{-120,-30}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleToTorque.flange, inertia.flange_a) annotation (Line(
+            points={{-24,0},{-12,0}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(angleToTorque.tau, tau) annotation (Line(
+            points={{-29,-8},{-70,-8},{-70,-80},{-110,-80}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+                  {{-100,-100},{100,100}}), graphics), Icon(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics={
+              Text(
+                extent={{0,-62},{96,-94}},
+                lineColor={135,135,135},
+                fillColor={235,245,255},
+                fillPattern=FillPattern.Solid,
+                textString="to FMU"),
+              Text(
+                extent={{-94,96},{-10,66}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Left,
+                textString="phi"),
+              Text(
+                extent={{-94,46},{-10,16}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Left,
+                textString="w"),
+              Text(
+                extent={{-92,-14},{-8,-44}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Left,
+                textString="a"),
+              Text(
+                extent={{-150,-110},{150,-140}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                textString="J=%J"),
+              Bitmap(extent={{-58,48},{98,-42}}, fileName=
+                    "modelica://Modelica/Resources/Images/Mechanics/Rotational/InverseInertia.png"),
+
+              Text(
+                extent={{-90,-64},{-6,-94}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Left,
+                textString="tau")}));
+
+      end InverseInertia;
+
+      model SpringDamper "Input/output block of a spring/damper model"
+        extends Modelica.Blocks.Icons.Block;
+        Components.AngleToTorqueAdaptor angleToTorque1(use_a=false)
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+        Modelica.Blocks.Interfaces.RealInput phi1(unit="rad")
+          "Angle of left flange of force element"
+          annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+        Modelica.Blocks.Interfaces.RealInput w1(unit="rad/s")
+          "Speed to left flange of force element"
+          annotation (Placement(transformation(extent={{-140,10},{-100,50}})));
+        Modelica.Blocks.Interfaces.RealOutput tau1(unit="N.m")
+          "Torque generated by the force element" annotation (Placement(
+              transformation(extent={{-100,-90},{-120,-70}})));
+        Components.SpringDamper springDamper(
+          c=c,
+          d=d,
+          phi_rel0=phi_rel0)
+          annotation (Placement(transformation(extent={{-6,-10},{14,10}})));
+        parameter SI.RotationalSpringConstant c "Spring constant";
+        parameter SI.RotationalDampingConstant d "Damping constant";
+        parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
+        Modelica.Blocks.Interfaces.RealInput phi2(unit="rad")
+          "Angle of left flange of force element"
+          annotation (Placement(transformation(extent={{140,60},{100,100}})));
+        Modelica.Blocks.Interfaces.RealInput w2(unit="rad/s")
+          "Speed to left flange of force element"
+          annotation (Placement(transformation(extent={{140,10},{100,50}})));
+        Modelica.Blocks.Interfaces.RealOutput tau2(unit="N.m")
+          "Torque generated by the force element"
+          annotation (Placement(transformation(extent={{100,-90},{120,-70}})));
+        Components.AngleToTorqueAdaptor angleToTorque2(use_a=false)
+          annotation (Placement(transformation(extent={{38,-10},{18,10}})));
+      equation
+
+        connect(angleToTorque1.phi, phi1) annotation (Line(
+            points={{-24,8},{-84,8},{-84,80},{-120,80}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleToTorque1.w, w1) annotation (Line(
+            points={{-24,2.8},{-90,2.8},{-90,30},{-120,30}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleToTorque1.tau, tau1) annotation (Line(
+            points={{-23,-8},{-70,-8},{-70,-80},{-110,-80}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleToTorque1.flange, springDamper.flange_a) annotation (Line(
+            points={{-18,0},{-6,0}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(springDamper.flange_b, angleToTorque2.flange) annotation (Line(
+            points={{14,0},{26,0}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(phi2, angleToTorque2.phi) annotation (Line(
+            points={{120,80},{60,80},{60,8},{32,8}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(w2, angleToTorque2.w) annotation (Line(
+            points={{120,30},{70,30},{70,2.8},{32,2.8}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleToTorque2.tau, tau2) annotation (Line(
+            points={{31,-8},{60,-8},{60,-80},{110,-80}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+                  {{-100,-100},{100,100}}), graphics), Icon(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics={
+              Text(
+                extent={{-48,-36},{48,-68}},
+                lineColor={135,135,135},
+                fillColor={235,245,255},
+                fillPattern=FillPattern.Solid,
+                textString="to FMU"),
+              Text(
+                extent={{-94,96},{-10,66}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Left,
+                textString="phi1"),
+              Text(
+                extent={{-150,-118},{150,-148}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                textString="c=%c
+d=%d"),
+              Bitmap(extent={{-72,46},{84,-44}}, fileName=
+                    "modelica://Modelica/Resources/Images/Mechanics/Rotational/SpringDamper.png"),
+
+              Text(
+                extent={{12,96},{96,66}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Right,
+                textString="phi2"),
+              Text(
+                extent={{12,48},{96,18}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Right,
+                textString="w2"),
+              Text(
+                extent={{10,-60},{94,-90}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Right,
+                textString="tau2"),
+              Text(
+                extent={{-94,46},{-10,16}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Left,
+                textString="w1"),
+              Text(
+                extent={{-90,-64},{-6,-94}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Left,
+                textString="tau1")}));
+
+      end SpringDamper;
+
+      model Spring "Input/output block of a spring model"
+        extends Modelica.Blocks.Icons.Block;
+        Components.AngleToTorqueAdaptor angleToTorque1(use_a=false, use_w=false)
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+        Modelica.Blocks.Interfaces.RealInput phi1(unit="rad")
+          "Angle of left flange of force element"
+          annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
+        Modelica.Blocks.Interfaces.RealOutput tau1(unit="N.m")
+          "Torque generated by the force element" annotation (Placement(
+              transformation(extent={{-100,-90},{-120,-70}})));
+        Components.Spring spring(c=c, phi_rel0=phi_rel0)
+          annotation (Placement(transformation(extent={{-6,-10},{14,10}})));
+        parameter SI.RotationalSpringConstant c "Spring constant";
+        parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
+        Modelica.Blocks.Interfaces.RealInput phi2(unit="rad")
+          "Angle of left flange of force element"
+          annotation (Placement(transformation(extent={{140,60},{100,100}})));
+        Modelica.Blocks.Interfaces.RealOutput tau2(unit="N.m")
+          "Torque generated by the force element"
+          annotation (Placement(transformation(extent={{100,-90},{120,-70}})));
+        Components.AngleToTorqueAdaptor angleToTorque2(use_a=false, use_w=false)
+          annotation (Placement(transformation(extent={{38,-10},{18,10}})));
+      equation
+
+        connect(angleToTorque1.phi, phi1) annotation (Line(
+            points={{-24,8},{-84,8},{-84,80},{-120,80}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleToTorque1.tau, tau1) annotation (Line(
+            points={{-23,-8},{-70,-8},{-70,-80},{-110,-80}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleToTorque1.flange, spring.flange_a) annotation (Line(
+            points={{-18,0},{-6,0}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(spring.flange_b, angleToTorque2.flange) annotation (Line(
+            points={{14,0},{26,0}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(phi2, angleToTorque2.phi) annotation (Line(
+            points={{120,80},{60,80},{60,8},{32,8}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(angleToTorque2.tau, tau2) annotation (Line(
+            points={{31,-8},{60,-8},{60,-80},{110,-80}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+                  {{-100,-100},{100,100}}), graphics), Icon(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics={
+              Text(
+                extent={{-48,-36},{48,-68}},
+                lineColor={135,135,135},
+                fillColor={235,245,255},
+                fillPattern=FillPattern.Solid,
+                textString="to FMU"),
+              Text(
+                extent={{-94,96},{-10,66}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Left,
+                textString="phi1"),
+              Text(
+                extent={{-150,-114},{150,-144}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                textString="c=%c"),
+              Bitmap(extent={{-88,56},{92,-36}}, fileName=
+                    "modelica://Modelica/Resources/Images/Mechanics/Rotational/Spring.png"),
+
+              Text(
+                extent={{12,96},{96,66}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Right,
+                textString="phi2"),
+              Text(
+                extent={{10,-60},{94,-90}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Right,
+                textString="tau2"),
+              Text(
+                extent={{-90,-64},{-6,-94}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={245,245,245},
+                horizontalAlignment=TextAlignment.Left,
+                textString="tau1")}));
+
+      end Spring;
+    end Utilities;
   end Examples;
 
   package Components "Components for 1D rotational mechanical drive trains"
@@ -1689,13 +2310,11 @@ at an angle phi0 in the <b>housing</b>. May be used:
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-            Line(points={{-80,-40},{80,-40}}, color={0,0,0}),
-            Line(points={{80,-40},{40,-80}}, color={0,0,0}),
-            Line(points={{40,-40},{0,-80}}, color={0,0,0}),
-            Line(points={{0,-40},{-40,-80}}, color={0,0,0}),
-            Line(points={{-40,-40},{-80,-80}}, color={0,0,0}),
-            Line(points={{0,-40},{0,-4}}, color={0,0,0})}));
+            grid={2,2}), graphics={Line(points={{-80,-40},{80,-40}}, color={0,0,
+              0}),Line(points={{80,-40},{40,-80}}, color={0,0,0}),Line(points={
+              {40,-40},{0,-80}}, color={0,0,0}),Line(points={{0,-40},{-40,-80}},
+              color={0,0,0}),Line(points={{-40,-40},{-80,-80}}, color={0,0,0}),
+              Line(points={{0,-40},{0,-4}}, color={0,0,0})}));
     end Fixed;
 
     model Inertia "1D-rotational component with inertia"
@@ -1860,21 +2479,17 @@ a coupling of the element with the housing via a spring.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(points={{-68,0},{-68,65}}, color={128,128,128}),
-            Line(points={{72,0},{72,65}}, color={128,128,128}),
-            Line(points={{-68,60},{72,60}}, color={128,128,128}),
-            Polygon(
-              points={{62,63},{72,60},{62,57},{62,63}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-22,62},{18,87}},
-              lineColor={0,0,255},
-              textString="phi_rel"),
-            Line(points={{-96,0},{-60,0},{-42,-32},{-12,30},{18,-30},{48,28},{
-                  62,0},{96,0}}, color={0,0,255})}));
+            grid={1,1}), graphics={Line(points={{-68,0},{-68,65}}, color={128,
+              128,128}),Line(points={{72,0},{72,65}}, color={128,128,128}),Line(
+              points={{-68,60},{72,60}}, color={128,128,128}),Polygon(
+                  points={{62,63},{72,60},{62,57},{62,63}},
+                  lineColor={128,128,128},
+                  fillColor={128,128,128},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-22,62},{18,87}},
+                  lineColor={0,0,255},
+                  textString="phi_rel"),Line(points={{-96,0},{-60,0},{-42,-32},
+              {-12,30},{18,-30},{48,28},{62,0},{96,0}}, color={0,0,255})}));
     end Spring;
 
     model Damper "Linear 1D rotational damper"
@@ -1932,29 +2547,25 @@ in the User's Guide of the Rotational library.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(points={{-96,0},{-60,0}}, color={0,0,0}),
-            Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
-            Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
-            Line(points={{-60,30},{60,30}}, color={0,0,0}),
-            Rectangle(
-              extent={{-60,30},{30,-30}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(points={{30,0},{96,0}}, color={0,0,0}),
-            Line(points={{-68,0},{-68,65}}, color={128,128,128}),
-            Text(
-              extent={{-40,66},{33,85}},
-              lineColor={0,0,255},
-              textString="phi_rel"),
-            Line(points={{-68,60},{72,60}}, color={128,128,128}),
-            Line(points={{72,0},{72,65}}, color={128,128,128}),
-            Polygon(
-              points={{62,63},{72,60},{62,57},{62,63}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid)}));
+            grid={1,1}), graphics={Line(points={{-96,0},{-60,0}}, color={0,0,0}),
+              Line(points={{-60,-30},{-60,30}}, color={0,0,0}),Line(points={{-60,
+              -30},{60,-30}}, color={0,0,0}),Line(points={{-60,30},{60,30}},
+              color={0,0,0}),Rectangle(
+                  extent={{-60,30},{30,-30}},
+                  lineColor={0,0,0},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),Line(points={{30,0},{96,0}},
+              color={0,0,0}),Line(points={{-68,0},{-68,65}}, color={128,128,128}),
+              Text(
+                  extent={{-40,66},{33,85}},
+                  lineColor={0,0,255},
+                  textString="phi_rel"),Line(points={{-68,60},{72,60}}, color={
+              128,128,128}),Line(points={{72,0},{72,65}}, color={128,128,128}),
+              Polygon(
+                  points={{62,63},{72,60},{62,57},{62,63}},
+                  lineColor={128,128,128},
+                  fillColor={128,128,128},
+                  fillPattern=FillPattern.Solid)}));
     end Damper;
 
     model SpringDamper "Linear 1D rotational spring and damper in parallel"
@@ -2031,37 +2642,30 @@ in the User's Guide of the Rotational library.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(
-              points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},
-                  {80,32}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(points={{-68,32},{-68,97}}, color={128,128,128}),
-            Line(points={{72,32},{72,97}}, color={128,128,128}),
-            Line(points={{-68,92},{72,92}}, color={128,128,128}),
-            Polygon(
-              points={{62,95},{72,92},{62,89},{62,95}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-44,79},{29,91}},
-              lineColor={0,0,255},
-              textString="phi_rel"),
-            Rectangle(
-              extent={{-50,-20},{40,-80}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-50,-80},{68,-80}}, color={0,0,0}),
-            Line(points={{-50,-20},{68,-20}}, color={0,0,0}),
-            Line(points={{40,-50},{80,-50}}, color={0,0,0}),
-            Line(points={{-80,-50},{-50,-50}}, color={0,0,0}),
-            Line(points={{-80,32},{-80,-50}}, color={0,0,0}),
-            Line(points={{80,32},{80,-50}}, color={0,0,0}),
-            Line(points={{-96,0},{-80,0}}, color={0,0,0}),
-            Line(points={{96,0},{80,0}}, color={0,0,0})}));
+            grid={1,1}), graphics={Line(
+                  points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,
+                32},{80,32}},
+                  color={0,0,0},
+                  thickness=0.5),Line(points={{-68,32},{-68,97}}, color={128,
+              128,128}),Line(points={{72,32},{72,97}}, color={128,128,128}),
+              Line(points={{-68,92},{72,92}}, color={128,128,128}),Polygon(
+                  points={{62,95},{72,92},{62,89},{62,95}},
+                  lineColor={128,128,128},
+                  fillColor={128,128,128},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-44,79},{29,91}},
+                  lineColor={0,0,255},
+                  textString="phi_rel"),Rectangle(
+                  extent={{-50,-20},{40,-80}},
+                  lineColor={0,0,0},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),Line(points={{-50,-80},{68,-80}},
+              color={0,0,0}),Line(points={{-50,-20},{68,-20}}, color={0,0,0}),
+              Line(points={{40,-50},{80,-50}}, color={0,0,0}),Line(points={{-80,
+              -50},{-50,-50}}, color={0,0,0}),Line(points={{-80,32},{-80,-50}},
+              color={0,0,0}),Line(points={{80,32},{80,-50}}, color={0,0,0}),
+              Line(points={{-96,0},{-80,0}}, color={0,0,0}),Line(points={{96,0},
+              {80,0}}, color={0,0,0})}));
     end SpringDamper;
 
     model ElastoBacklash
@@ -2360,78 +2964,61 @@ in the User's Guide of the Rotational library.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(
-              points={{-80,32},{-58,32},{-48,0},{-34,60},{-20,0},{-8,60},{0,30},
-                  {20,30}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(points={{-68,32},{-68,97}}, color={128,128,128}),
-            Line(points={{80,0},{80,96}}, color={128,128,128}),
-            Line(points={{-68,92},{72,92}}, color={128,128,128}),
-            Polygon(
-              points={{70,95},{80,92},{70,89},{70,95}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-34,77},{40,90}},
-              lineColor={128,128,128},
-              textString="phi_rel"),
-            Rectangle(
-              extent={{-60,-20},{-10,-80}},
-              lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{-52,-80},{0,-80}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(
-              points={{-52,-20},{0,-20}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(
-              points={{-10,-50},{20,-50}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(
-              points={{-80,-50},{-60,-50}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(
-              points={{-80,32},{-80,-50}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(
-              points={{20,30},{20,-50}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(points={{-96,0},{-80,0}}, color={0,0,0}),
-            Line(
-              points={{96,0},{80,0}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(
-              points={{20,0},{60,0},{60,-30}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(
-              points={{40,-12},{40,-40},{80,-40},{80,0}},
-              color={0,0,0},
-              thickness=0.5),
-            Line(points={{30,0},{30,64}}, color={128,128,128}),
-            Line(points={{30,60},{80,60}}, color={128,128,128}),
-            Polygon(
-              points={{70,63},{80,60},{70,57},{70,63}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{39,60},{68,46}},
-              lineColor={160,160,164},
-              textString="b")}));
+            grid={1,1}), graphics={Line(
+                  points={{-80,32},{-58,32},{-48,0},{-34,60},{-20,0},{-8,60},{0,
+                30},{20,30}},
+                  color={0,0,0},
+                  thickness=0.5),Line(points={{-68,32},{-68,97}}, color={128,
+              128,128}),Line(points={{80,0},{80,96}}, color={128,128,128}),Line(
+              points={{-68,92},{72,92}}, color={128,128,128}),Polygon(
+                  points={{70,95},{80,92},{70,89},{70,95}},
+                  lineColor={128,128,128},
+                  fillColor={128,128,128},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-34,77},{40,90}},
+                  lineColor={128,128,128},
+                  textString="phi_rel"),Rectangle(
+                  extent={{-60,-20},{-10,-80}},
+                  lineColor={0,0,0},
+                  lineThickness=0.5,
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),Line(
+                  points={{-52,-80},{0,-80}},
+                  color={0,0,0},
+                  thickness=0.5),Line(
+                  points={{-52,-20},{0,-20}},
+                  color={0,0,0},
+                  thickness=0.5),Line(
+                  points={{-10,-50},{20,-50}},
+                  color={0,0,0},
+                  thickness=0.5),Line(
+                  points={{-80,-50},{-60,-50}},
+                  color={0,0,0},
+                  thickness=0.5),Line(
+                  points={{-80,32},{-80,-50}},
+                  color={0,0,0},
+                  thickness=0.5),Line(
+                  points={{20,30},{20,-50}},
+                  color={0,0,0},
+                  thickness=0.5),Line(points={{-96,0},{-80,0}}, color={0,0,0}),
+              Line(
+                  points={{96,0},{80,0}},
+                  color={0,0,0},
+                  thickness=0.5),Line(
+                  points={{20,0},{60,0},{60,-30}},
+                  color={0,0,0},
+                  thickness=0.5),Line(
+                  points={{40,-12},{40,-40},{80,-40},{80,0}},
+                  color={0,0,0},
+                  thickness=0.5),Line(points={{30,0},{30,64}}, color={128,128,
+              128}),Line(points={{30,60},{80,60}}, color={128,128,128}),Polygon(
+                  points={{70,63},{80,60},{70,57},{70,63}},
+                  lineColor={128,128,128},
+                  fillColor={128,128,128},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{39,60},{68,46}},
+                  lineColor={160,160,164},
+                  textString="b")}));
     end ElastoBacklash;
 
     model BearingFriction "Coulomb friction in bearings "
@@ -2764,6 +3351,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               fillPattern=FillPattern.Solid),
             Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}),
             Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}),
+
             Text(
               extent={{-150,-180},{150,-140}},
               textString="%name",
@@ -3788,92 +4376,74 @@ in the flanges, are along the axis vector displayed in the icon.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Rectangle(
-              extent={{50,100},{10,-100}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-10,45},{-50,85}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-10,30},{-50,-30}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-50,10},{-100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{100,10},{50,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{50,100},{-50,105}},
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{50,-100},{-50,-105}},
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-80,70},{-50,60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Line(points={{-90,40},{-70,40}}, color={0,0,0}),
-            Line(points={{-80,50},{-60,50}}, color={0,0,0}),
-            Line(points={{-70,50},{-70,40}}, color={0,0,0}),
-            Line(points={{-80,80},{-59,80}}, color={0,0,0}),
-            Line(points={{-70,90},{-70,80}}, color={0,0,0}),
-            Line(
-              points={{-26,-42},{-32,-2}},
-              pattern=LinePattern.Dot,
-              color={0,0,255}),
-            Line(
-              points={{36,-26},{64,-60}},
-              pattern=LinePattern.Dot,
-              color={0,0,255}),
-            Text(
-              extent={{58,-66},{98,-78}},
-              textString="ring gear",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-112,111},{-56,87}},
-              textString="planet carrier ",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-47,-42},{-3,-56}},
-              textString="sun gear",
-              lineColor={0,0,255}),
-            Polygon(
-              points={{58,130},{28,140},{28,120},{58,130}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-52,130},{28,130}}, color={0,0,0}),
-            Line(
-              points={{-92,93},{-70,80}},
-              pattern=LinePattern.Dot,
-              color={0,0,255}),
-            Polygon(
-              points={{-7,-86},{-27,-81},{-27,-91},{-7,-86}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-97,-86},{-26,-86}}, color={128,128,128}),
-            Text(
-              extent={{-96,-71},{-28,-84}},
-              lineColor={128,128,128},
-              textString="rotation axis")}));
+            grid={1,1}), graphics={Rectangle(
+                  extent={{50,100},{10,-100}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={192,192,192}),Rectangle(
+                  extent={{-10,45},{-50,85}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={192,192,192}),Rectangle(
+                  extent={{-10,30},{-50,-30}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={192,192,192}),Rectangle(
+                  extent={{-50,10},{-100,-10}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={192,192,192}),Rectangle(
+                  extent={{100,10},{50,-10}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={192,192,192}),Rectangle(
+                  extent={{50,100},{-50,105}},
+                  lineColor={160,160,164},
+                  fillColor={160,160,164},
+                  fillPattern=FillPattern.Solid),Rectangle(
+                  extent={{50,-100},{-50,-105}},
+                  lineColor={160,160,164},
+                  fillColor={160,160,164},
+                  fillPattern=FillPattern.Solid),Rectangle(
+                  extent={{-80,70},{-50,60}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={192,192,192}),Line(points={{-90,40},{-70,40}},
+              color={0,0,0}),Line(points={{-80,50},{-60,50}}, color={0,0,0}),
+              Line(points={{-70,50},{-70,40}}, color={0,0,0}),Line(points={{-80,
+              80},{-59,80}}, color={0,0,0}),Line(points={{-70,90},{-70,80}},
+              color={0,0,0}),Line(
+                  points={{-26,-42},{-32,-2}},
+                  pattern=LinePattern.Dot,
+                  color={0,0,255}),Line(
+                  points={{36,-26},{64,-60}},
+                  pattern=LinePattern.Dot,
+                  color={0,0,255}),Text(
+                  extent={{58,-66},{98,-78}},
+                  textString="ring gear",
+                  lineColor={0,0,255}),Text(
+                  extent={{-112,111},{-56,87}},
+                  textString="planet carrier ",
+                  lineColor={0,0,255}),Text(
+                  extent={{-47,-42},{-3,-56}},
+                  textString="sun gear",
+                  lineColor={0,0,255}),Polygon(
+                  points={{58,130},{28,140},{28,120},{58,130}},
+                  lineColor={128,128,128},
+                  fillColor={128,128,128},
+                  fillPattern=FillPattern.Solid),Line(points={{-52,130},{28,130}},
+              color={0,0,0}),Line(
+                  points={{-92,93},{-70,80}},
+                  pattern=LinePattern.Dot,
+                  color={0,0,255}),Polygon(
+                  points={{-7,-86},{-27,-81},{-27,-91},{-7,-86}},
+                  lineColor={128,128,128},
+                  fillColor={128,128,128},
+                  fillPattern=FillPattern.Solid),Line(points={{-97,-86},{-26,-86}},
+              color={128,128,128}),Text(
+                  extent={{-96,-71},{-28,-84}},
+                  lineColor={128,128,128},
+                  textString="rotation axis")}));
     end IdealPlanetary;
 
     model Gearbox "Realistic model of a gearbox (based on LossyGear)"
@@ -4257,8 +4827,8 @@ no rolling resistance. This component defines the kinematic constraint:
             transformation(extent={{-20,-10},{0,10}}, rotation=0)));
       Set_a_start set_a_start if use_a_start annotation (Placement(
             transformation(extent={{-20,-90},{0,-70}}, rotation=0)));
-      Set_flange_tau set_flange_tau annotation (Placement(transformation(extent=
-               {{96,-90},{76,-70}}, rotation=0)));
+      Set_flange_tau set_flange_tau annotation (Placement(transformation(extent
+              ={{96,-90},{76,-70}}, rotation=0)));
     equation
       connect(set_phi_start.phi_start, phi_start) annotation (Line(
           points={{-22,80},{-120,80}},
@@ -4417,48 +4987,437 @@ in the User's Guide of the Rotational library.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-            Ellipse(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,255,255},
-              fillColor={0,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-40,40},{40,-40}},
-              textString="S",
-              lineColor={0,0,255}),
-            Line(
-              points={{40,0},{96,0}},
-              color={0,0,0},
-              pattern=LinePattern.Dash),
-            Line(points={{-100,-10},{-100,-80}}, color={160,160,164}),
-            Line(points={{100,-10},{100,-80}}, color={160,160,164}),
-            Polygon(
-              points={{80,-65},{80,-55},{100,-60},{80,-65}},
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,-60},{80,-60}}, color={160,160,164}),
-            Text(
-              extent={{-30,-70},{30,-90}},
-              textString="w_rel",
-              lineColor={0,0,255}),
-            Line(points={{-76,80},{-5,80}}, color={128,128,128}),
-            Polygon(
-              points={{14,80},{-6,85},{-6,75},{14,80}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{18,87},{86,74}},
-              lineColor={128,128,128},
-              textString="rotation axis"),
-            Line(
-              points={{-96,0},{-40,0}},
-              color={0,0,0},
-              pattern=LinePattern.Dash)}));
+            grid={2,2}), graphics={Ellipse(
+                  extent={{-40,40},{40,-40}},
+                  lineColor={0,255,255},
+                  fillColor={0,255,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-40,40},{40,-40}},
+                  textString="S",
+                  lineColor={0,0,255}),Line(
+                  points={{40,0},{96,0}},
+                  color={0,0,0},
+                  pattern=LinePattern.Dash),Line(points={{-100,-10},{-100,-80}},
+              color={160,160,164}),Line(points={{100,-10},{100,-80}}, color={
+              160,160,164}),Polygon(
+                  points={{80,-65},{80,-55},{100,-60},{80,-65}},
+                  lineColor={160,160,164},
+                  fillColor={160,160,164},
+                  fillPattern=FillPattern.Solid),Line(points={{-100,-60},{80,-60}},
+              color={160,160,164}),Text(
+                  extent={{-30,-70},{30,-90}},
+                  textString="w_rel",
+                  lineColor={0,0,255}),Line(points={{-76,80},{-5,80}}, color={
+              128,128,128}),Polygon(
+                  points={{14,80},{-6,85},{-6,75},{14,80}},
+                  lineColor={128,128,128},
+                  fillColor={128,128,128},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{18,87},{86,74}},
+                  lineColor={128,128,128},
+                  textString="rotation axis"),Line(
+                  points={{-96,0},{-40,0}},
+                  color={0,0,0},
+                  pattern=LinePattern.Dash)}));
     end RelativeStates;
 
+    model TorqueToAngleAdaptor
+      "Signal adaptor for a Rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)"
+      parameter Boolean use_w=true
+        "= true, enable the output connector w (angular velocity)" annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+      parameter Boolean use_a=true
+        "= true, enable the output connector a (angular acceleration)"
+        annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
+      Modelica.Blocks.Interfaces.RealOutput phi(unit="rad")
+        "Flange moves with angle phi due to torque tau"
+        annotation (Placement(transformation(extent={{20,70},{40,90}})));
+      Modelica.Blocks.Interfaces.RealOutput w(unit="rad/s") if use_w
+        "Flange moves with speed w due to torque tau"
+        annotation (Placement(transformation(extent={{20,20},{40,40}})));
+      Modelica.Blocks.Interfaces.RealOutput a(unit="rad/s2") if use_a
+        "Flange moves with angular acceleration a due to torque tau"
+        annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+      Modelica.Blocks.Interfaces.RealInput tau(unit="N.m")
+        "Torque to drive the flange"
+        annotation (Placement(transformation(extent={{60,-100},{20,-60}})));
+    protected
+      Modelica.Blocks.Interfaces.RealInput w_internal
+        "Needed to connect to conditional connector w";
+      Modelica.Blocks.Interfaces.RealInput a_internal
+        "Needed to connect to conditional connector a";
+    equation
+      connect(w, w_internal);
+      connect(a, a_internal);
+      phi = flange.phi;
+      if use_w then
+        w_internal = der(phi);
+      else
+        w_internal = 0.0;
+      end if;
+      if use_a then
+        a_internal = der(w_internal);
+      else
+        a_internal = 0.0;
+      end if;
+      flange.tau = tau;
+
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-20,100},{20,-100}},
+              lineColor={0,0,0},
+              fillColor={245,245,245},
+              fillPattern=FillPattern.HorizontalCylinder),
+            Text(
+              extent={{-20,92},{20,70}},
+              lineColor={0,0,0},
+              fillColor={235,245,255},
+              fillPattern=FillPattern.Solid,
+              textString="phi"),
+            Text(
+              visible=use_w,
+              extent={{-20,42},{20,20}},
+              lineColor={0,0,0},
+              fillColor={235,245,255},
+              fillPattern=FillPattern.Solid,
+              textString="w"),
+            Text(
+              visible=use_a,
+              extent={{-20,-18},{20,-40}},
+              lineColor={0,0,0},
+              fillColor={235,245,255},
+              fillPattern=FillPattern.Solid,
+              textString="a"),
+            Text(
+              extent={{-20,-68},{20,-90}},
+              lineColor={0,0,0},
+              fillColor={235,245,255},
+              fillPattern=FillPattern.Solid,
+              textString="tau"),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              lineColor={0,0,255})}),
+        Documentation(info="<html>
+<p>
+Adaptor between a flange connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a Rotational model
+and export this model in form of an input/output block, 
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
+This adaptor has torque as input and angle, angular velocity and angular acceleration as output signals.
+</p>
+</html>"));
+    end TorqueToAngleAdaptor;
+
+    model AngleToTorqueAdaptor
+      "Signal adaptor for a Rotational flange with torque as output and angle, speed, and optionally acceleration as inputs (especially useful for FMUs)"
+      parameter Boolean use_w=true
+        "= true, enable the output connector w (angular velocity)" annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+      parameter Boolean use_a=true
+        "= true, enable the input connector a (angular acceleration)"
+        annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b flange annotation (
+          Placement(transformation(extent={{56,-10},{76,10}}),
+            iconTransformation(extent={{10,-10},{30,10}})));
+      Modelica.Blocks.Interfaces.RealInput phi(unit="rad")
+        "Angle to drive the flange" annotation (Placement(transformation(extent
+              ={{-80,60},{-40,100}}), iconTransformation(extent={{-60,60},{-20,
+                100}})));
+      Modelica.Blocks.Interfaces.RealInput w(unit="rad/s") if use_w or use_a
+        "Speed to drive the flange  (w=der(phi) required)" annotation (
+          Placement(transformation(extent={{-80,10},{-40,50}}),
+            iconTransformation(extent={{-60,8},{-20,48}})));
+      Modelica.Blocks.Interfaces.RealInput a(unit="rad/s2") if use_a
+        "Angular acceleration to drive the flange (a = der(w) required)"
+        annotation (Placement(transformation(extent={{-80,-50},{-40,-10}}),
+            iconTransformation(extent={{-60,-52},{-20,-12}})));
+      Modelica.Blocks.Interfaces.RealOutput tau(unit="N.m")
+        "Torque needed to drive the flange according to phi, w, a" annotation (
+          Placement(transformation(extent={{-40,-90},{-60,-70}}),
+            iconTransformation(extent={{-20,-90},{-40,-70}})));
+
+    protected
+      Modelica.Mechanics.Rotational.Sources.Move move if use_a
+        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+      Modelica.Blocks.Routing.Multiplex3 multiplex3 if use_a
+        annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+      Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
+        annotation (Placement(transformation(extent={{36,-10},{56,10}})));
+
+      Modelica.Blocks.Routing.Multiplex2 multiplex2 if use_w and not use_a
+        annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+      Move_phi move_phi if not use_w and not use_a
+        annotation (Placement(transformation(extent={{10,70},{30,90}})));
+      Move_w move_w if use_w and not use_a
+        annotation (Placement(transformation(extent={{10,40},{30,60}})));
+
+      model Move_phi "Forced movement of a flange according to an angle signal"
+        extends
+          Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
+
+        Modelica.Blocks.Interfaces.RealInput phi(
+          final quantity="Angle",
+          final unit="rad",
+          displayUnit="deg") "Rotation angle of flange with respect to support"
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
+                rotation=0)));
+      equation
+        phi = flange.phi - phi_support;
+        annotation (Documentation(info="<html>
+<p>
+Flange <b>flange</b> is <b>forced</b> to move relative to flange support with a predefined motion
+according to the input signal u
+</p>
+<pre>
+    u[1]: angle of flange
+    u[2]: angular velocity of flange
+</pre>
+<p>
+The user has to guarantee that the input signals are consistent to each other,
+i.e., that u[2] is the derivative of u[1]. 
+</p>
+<p>
+The input signals can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+</html>"), Icon(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={2,2}), graphics={
+              Text(
+                extent={{-80,-60},{-80,-100}},
+                lineColor={0,0,0},
+                textString="phi"),
+              Rectangle(
+                extent={{-100,20},{100,-20}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={192,192,192}),
+              Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+              Line(points={{0,52},{0,32}}, color={0,0,0}),
+              Line(points={{-29,32},{30,32}}, color={0,0,0}),
+              Line(points={{0,-32},{0,-100}}, color={0,0,0}),
+              Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+              Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+              Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+              Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+              Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+              Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+              Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+              Text(
+                extent={{-150,100},{150,60}},
+                textString="%name",
+                lineColor={0,0,255})}));
+      end Move_phi;
+
+      model Move_w
+        "Forced movement of a flange according to an angle and speed signal"
+        extends
+          Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
+
+        Modelica.SIunits.Angle phi
+          "Rotation angle of flange with respect to support";
+        Modelica.Blocks.Interfaces.RealInput u[2]
+          "Angle and angular velocity of flange with respect to support as input signals"
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
+                rotation=0)));
+      protected
+        function position
+          input Real q_qd[2] "Required values for position and speed";
+          input Real dummy
+            "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+          output Real q;
+        algorithm
+          q := q_qd[1];
+          annotation (derivative(noDerivative=q_qd) = position_der,
+              InlineAfterIndexReduction=true);
+        end position;
+
+        function position_der
+          input Real q_qd[2] "Required values for position and speed";
+          input Real dummy
+            "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+          input Real dummy_der;
+          output Real qd;
+        algorithm
+          qd := q_qd[2];
+        end position_der;
+      equation
+        phi = flange.phi - phi_support;
+        phi = position(u, time);
+        annotation (Documentation(info="<html>
+<p>
+Flange <b>flange</b> is <b>forced</b> to move relative to flange support with a predefined motion
+according to the input signals:
+</p>
+<pre>
+    u[1]: angle of flange
+    u[2]: angular velocity of flange
+</pre>
+<p>
+The user has to guarantee that the input signals are consistent to each other,
+i.e., that u[2] is the derivative of u[1]. 
+</p>
+<p>
+The input signals can be provided from one of the signal generator
+blocks of the block library Modelica.Blocks.Sources.
+</p>
+</html>"), Icon(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={2,2}), graphics={
+              Text(
+                extent={{-80,-60},{-80,-100}},
+                lineColor={0,0,0},
+                textString="phi,w"),
+              Rectangle(
+                extent={{-100,20},{100,-20}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={192,192,192}),
+              Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+              Line(points={{0,52},{0,32}}, color={0,0,0}),
+              Line(points={{-29,32},{30,32}}, color={0,0,0}),
+              Line(points={{0,-32},{0,-100}}, color={0,0,0}),
+              Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+              Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+              Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+              Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+              Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+              Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+              Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+              Text(
+                extent={{-150,100},{150,60}},
+                textString="%name",
+                lineColor={0,0,255})}));
+      end Move_w;
+    equation
+      connect(multiplex3.y, move.u) annotation (Line(
+          points={{1,0},{8,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(phi, multiplex3.u1[1]) annotation (Line(
+          points={{-60,80},{-32,80},{-32,7},{-22,7}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(w, multiplex3.u2[1]) annotation (Line(
+          points={{-60,30},{-36,30},{-36,0},{-22,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(a, multiplex3.u3[1]) annotation (Line(
+          points={{-60,-30},{-32,-30},{-32,-7},{-22,-7}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(flange, torqueSensor.flange_b) annotation (Line(
+          points={{66,0},{56,0}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(move.flange, torqueSensor.flange_a) annotation (Line(
+          points={{30,0},{36,0}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(torqueSensor.tau, tau) annotation (Line(
+          points={{38,-11},{38,-80},{-50,-80}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(multiplex2.y, move_w.u) annotation (Line(
+          points={{1,50},{8,50}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(phi, multiplex2.u1[1]) annotation (Line(
+          points={{-60,80},{-46,80},{-46,80},{-32,80},{-32,56},{-22,56}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(w, multiplex2.u2[1]) annotation (Line(
+          points={{-60,30},{-28,30},{-28,44},{-22,44}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(move_w.flange, torqueSensor.flange_a) annotation (Line(
+          points={{30,50},{36,50},{36,0}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(phi, move_phi.phi) annotation (Line(
+          points={{-60,80},{8,80}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(move_phi.flange, torqueSensor.flange_a) annotation (Line(
+          points={{30,80},{36,80},{36,0}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-20,100},{20,-100}},
+              lineColor={0,0,0},
+              fillColor={245,245,245},
+              fillPattern=FillPattern.HorizontalCylinder),
+            Text(
+              extent={{-20,100},{20,78}},
+              lineColor={0,0,0},
+              fillColor={235,245,255},
+              fillPattern=FillPattern.Solid,
+              textString="phi"),
+            Text(
+              visible=use_w or use_a,
+              extent={{-20,40},{20,18}},
+              lineColor={0,0,0},
+              fillColor={235,245,255},
+              fillPattern=FillPattern.Solid,
+              textString="w"),
+            Text(
+              visible=use_a,
+              extent={{-20,-20},{20,-42}},
+              lineColor={0,0,0},
+              fillColor={235,245,255},
+              fillPattern=FillPattern.Solid,
+              textString="a"),
+            Text(
+              extent={{-20,-70},{20,-92}},
+              lineColor={0,0,0},
+              fillColor={235,245,255},
+              fillPattern=FillPattern.Solid,
+              textString="tau"),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics),
+        Documentation(info="<html>
+<p>
+Adaptor between a flange connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a Rotational model
+and export this model in form of an input/output block, 
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>).
+Examples of the usage of this adaptor are provided in
+<a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
+This adaptor has angle, angular velocity and angular acceleration as input signals and
+torque as output signal. Note, the input signals must be consistent to each other
+(w=der(phi), a=der(w)).
+</p>
+</html>"));
+    end AngleToTorqueAdaptor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Rectangle(
@@ -5249,27 +6208,23 @@ blocks of Modelica.Blocks.Sources.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Text(
-              extent={{14,86},{82,73}},
-              lineColor={128,128,128},
-              textString="rotation axis"),
-            Polygon(
-              points={{10,80},{-10,85},{-10,75},{10,80}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-80,80},{-9,80}}, color={128,128,128}),
-            Line(
-              points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,28},
-                  {76,14},{80,10}},
-              color={0,0,0},
-              thickness=0.5),
-            Polygon(
-              points={{86,0},{66,58},{38,28},{86,0}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}));
+            grid={1,1}), graphics={Text(
+                  extent={{14,86},{82,73}},
+                  lineColor={128,128,128},
+                  textString="rotation axis"),Polygon(
+                  points={{10,80},{-10,85},{-10,75},{10,80}},
+                  lineColor={128,128,128},
+                  fillColor={128,128,128},
+                  fillPattern=FillPattern.Solid),Line(points={{-80,80},{-9,80}},
+              color={128,128,128}),Line(
+                  points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,
+                28},{76,14},{80,10}},
+                  color={0,0,0},
+                  thickness=0.5),Polygon(
+                  points={{86,0},{66,58},{38,28},{86,0}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid)}));
     end Torque;
 
     model Torque2 "Input signal acting as torque on two flanges"
@@ -5328,39 +6283,33 @@ blocks of Modelica.Blocks.Sources.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Text(
-              extent={{15,-71},{83,-84}},
-              lineColor={128,128,128},
-              textString="rotation axis"),
-            Polygon(
-              points={{11,-77},{-9,-72},{-9,-82},{11,-77}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-79,-77},{-8,-77}}, color={128,128,128}),
-            Line(
-              points={{-75,20},{-71,23},{-66,26},{-61,28},{-57,29},{-51,30},{-42,
-                  30},{-36,29},{-32,28},{-27,26},{-22,23},{-18,20},{-14,15},{-11,
-                  9}},
-              color={0,0,0},
-              thickness=0.5),
-            Polygon(
-              points={{-79,24},{-70,17},{-90,0},{-79,24}},
-              lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{73,20},{69,23},{64,26},{59,28},{55,29},{49,30},{40,30},{
-                  34,29},{30,28},{25,26},{20,23},{16,20},{12,15},{9,9}},
-              color={0,0,0},
-              thickness=0.5),
-            Polygon(
-              points={{88,0},{77,24},{68,17},{88,0}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}));
+            grid={1,1}), graphics={Text(
+                  extent={{15,-71},{83,-84}},
+                  lineColor={128,128,128},
+                  textString="rotation axis"),Polygon(
+                  points={{11,-77},{-9,-72},{-9,-82},{11,-77}},
+                  lineColor={128,128,128},
+                  fillColor={128,128,128},
+                  fillPattern=FillPattern.Solid),Line(points={{-79,-77},{-8,-77}},
+              color={128,128,128}),Line(
+                  points={{-75,20},{-71,23},{-66,26},{-61,28},{-57,29},{-51,30},
+                {-42,30},{-36,29},{-32,28},{-27,26},{-22,23},{-18,20},{-14,15},
+                {-11,9}},
+                  color={0,0,0},
+                  thickness=0.5),Polygon(
+                  points={{-79,24},{-70,17},{-90,0},{-79,24}},
+                  lineColor={0,0,0},
+                  lineThickness=0.5,
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),Line(
+                  points={{73,20},{69,23},{64,26},{59,28},{55,29},{49,30},{40,
+                30},{34,29},{30,28},{25,26},{20,23},{16,20},{12,15},{9,9}},
+                  color={0,0,0},
+                  thickness=0.5),Polygon(
+                  points={{88,0},{77,24},{68,17},{88,0}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid)}));
     end Torque2;
 
     model LinearSpeedDependentTorque "Linear dependency of torque versus speed"
@@ -5827,12 +6776,12 @@ and instead the component is internally fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-              extent={{-38,-98},{-6,-96}},
-              lineColor={95,95,95},
-              textString="(if useSupport)"), Text(
-              extent={{21,-95},{61,-96}},
-              lineColor={95,95,95},
-              textString="(if not useSupport)")}),
+                  extent={{-38,-98},{-6,-96}},
+                  lineColor={95,95,95},
+                  textString="(if useSupport)"),Text(
+                  extent={{21,-95},{61,-96}},
+                  lineColor={95,95,95},
+                  textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -5906,12 +6855,12 @@ and instead the component is internally fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-              extent={{-38,-98},{-6,-96}},
-              lineColor={95,95,95},
-              textString="(if useSupport)"), Text(
-              extent={{24,-97},{64,-98}},
-              lineColor={95,95,95},
-              textString="(if not useSupport)")}),
+                  extent={{-38,-98},{-6,-96}},
+                  lineColor={95,95,95},
+                  textString="(if useSupport)"),Text(
+                  extent={{24,-97},{64,-98}},
+                  lineColor={95,95,95},
+                  textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -6085,12 +7034,12 @@ and instead the component is internally fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-              extent={{25,-97},{65,-98}},
-              lineColor={95,95,95},
-              textString="(if not useSupport)"), Text(
-              extent={{-38,-98},{-6,-96}},
-              lineColor={95,95,95},
-              textString="(if useSupport)")}),
+                  extent={{25,-97},{65,-98}},
+                  lineColor={95,95,95},
+                  textString="(if not useSupport)"),Text(
+                  extent={{-38,-98},{-6,-96}},
+                  lineColor={95,95,95},
+                  textString="(if useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -6222,12 +7171,12 @@ and instead the component is internally fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-              extent={{24,-97},{64,-98}},
-              lineColor={95,95,95},
-              textString="(if not useSupport)"), Text(
-              extent={{-38,-98},{-6,-96}},
-              lineColor={95,95,95},
-              textString="(if useSupport)")}),
+                  extent={{24,-97},{64,-98}},
+                  lineColor={95,95,95},
+                  textString="(if not useSupport)"),Text(
+                  extent={{-38,-98},{-6,-96}},
+                  lineColor={95,95,95},
+                  textString="(if useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -6771,6 +7720,7 @@ This is the icon of a gear from the rotational package.
               fillColor={192,192,192}),
             Polygon(
               points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -6888,8 +7838,8 @@ Copyright &copy; 1998-2013, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</html>", revisions=""), Icon(coordinateSystem(preserveAspectRatio=true, extent=
-           {{-100,-100},{100,100}}), graphics={
+</html>", revisions=""), Icon(coordinateSystem(preserveAspectRatio=true, extent
+          ={{-100,-100},{100,100}}), graphics={
         Line(points={{-83,-66},{-63,-66}}, color={0,0,0}),
         Line(points={{36,-68},{56,-68}}, color={0,0,0}),
         Line(points={{-73,-66},{-73,-91}}, color={0,0,0}),
