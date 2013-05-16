@@ -7751,39 +7751,49 @@ The package MoistAir can be used as any other medium model (see <a href=\"modeli
 <h5>Unsaturated and saturated humid air (0 &le; x<sub>w</sub> &le; x<sub>ws</sub>)</h5>
 <p>
 Ideal mixture of dry air and steam
+</p>
+
 <ul>
-<li>Dry air:</li>
+<li>Dry air:
 <ul>
 <li>d,h,u,s,c<sub>p</sub> from [1]</li>
 <li>&lambda;, &eta; from [2]</li>
 </ul>
-<li>Steam:</li>
+</li>
+
+<li>Steam:
 <ul>
 <li>d,h,u,s,c<sub>p</sub> from [4]</li>
 <li>&lambda;, &eta; for 273.15 K &le; T &le; 1073.15 K from [5] and [6]</li>
 <li>&lambda;, &eta; for T &lt; 273.15 K or T &gt; 1073.15 K from [12]</li>
 </ul>
+</li>
 </ul>
-</p>
 
 <h5>Supersaturated humid air (liquid fog and ice fog)</h5>
 <p>
 <b>Liquid fog (x<sub>w</sub> &gt; x<sub>wsw</sub>) and T &ge; 273.16 K</b>
 </p>
+
 <p>
 Ideal mixture of saturated humid air and water
+</p>
+
 <ul>
 <li>Saturated humid air (see above)</li>
 <li>d,h,u,s of liquid droplets from [4]</li>
 <li>c<sub>p</sub> is not defined</li>
 <li>&lambda;, &eta; of liquid droplets from [5] and [6]</li>
 </ul>
-</p>
+
 <p>
 <b>Ice fog (x<sub>w</sub> &gt; x<sub>wsw</sub>) and T &lt; 273.16 K</b>
 </p>
+
 <p>
 Ideal mixture of saturated humid air and ice
+</p>
+
 <ul>
 <li>Saturated humid air (see above)</li>
 <li>d,h,u,s of ice crystals from [7]</li>
@@ -7791,17 +7801,19 @@ Ideal mixture of saturated humid air and ice
 <li>&lambda; of ice as constant value</li>
 <li>&eta; of ice is neglected</li>
 </ul>
-</p>
+
 
 <h5>Saturation pressure of water in moist air</h5>
 <p>
 The saturation pressure p<sub>ds</sub> of water in moist air is calculated by p<sub>ds</sub> = f*p<sub>sat</sub>, where
+</p>
+
 <ul>
 <li>f is the enhancement factor from [9] and [3]</li>
 <li>p<sub>sat</sub> for T &ge; 273.16 K is the saturation pressure from [4]</li>
 <li>p<sub>sat</sub> for T &lt; 273.16 K is the saturation pressure from [8]</li>
 </ul>
-</p>
+
 
 <h5>Dissociation</h5>
 <p>

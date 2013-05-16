@@ -384,6 +384,7 @@ package R134a "R134a: Medium model for R134a"
 <p>This function should be used by default in order to calculate the thermodynamic state record used as input by many functions.</p>
 <p>
 Example:
+</p>
 <pre>
      parameter Medium.AbsolutePressure p = 3e5;
      parameter Medium.SpecificEnthalpy h = 4.2e5;
@@ -394,7 +395,7 @@ Example:
 
      rho = Medium.density(setState_phX(p, h, fill(0, Medium.nX)));
 </pre>
-</p>
+
 
 </html>"));
     end setState_phX;
@@ -432,6 +433,7 @@ Example:
 </ul>
 <p>
 Example:
+</p>
 <pre>
      parameter Medium.Density d = 4;
      parameter Medium.Temperature T = 298;
@@ -442,7 +444,7 @@ Example:
 
      s = Medium.specificEntropy(setState_dTX(d, T, fill(0, Medium.nX)));
 </pre>
-</p>
+
 </html>"));
     end setState_dTX;
 
@@ -480,6 +482,7 @@ Example:
 </ul>
 <p>
 Example:
+</p>
 <pre>
      parameter Medium.AbsolutePressure p = 3e5;
      parameter Medium.SpecficEntropy s = 1.7e3;
@@ -490,7 +493,6 @@ Example:
 
      h = Medium.specificEnthalpy(setState_psX(p, s, fill(0, Medium.nX)));
 </pre>
-</p>
 </html>"));
     end setState_psX;
 
@@ -607,7 +609,11 @@ Example:
       d := state.d;
 
       annotation (Inline=true, Documentation(info="<html>
-<p> This function calculates the density of R134a from the state record (e.g., use setState_phX function for input). The density is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
+<p>
+This function calculates the density of R134a from the state record
+(e.g., use setState_phX function for input). The density is modelled
+by the fundamental equation of state of Tillner-Roth and Baehr (1994).
+</p>
 
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)d-Diagram-R134a.png\"/> </p>
 </html>"));
@@ -1792,11 +1798,20 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
             specificEntropy(refState),
             reference_X);
       annotation (Documentation(info="<html>
-<p> This function calculates the specific enthalpy of R134a for an isentropic pressure change from refState.p to p_downstream (e.g., use setState_phX function for input of refState).
+<p>
+This function calculates the specific enthalpy of R134a for an isentropic pressure change
+from refState.p to p_downstream (e.g., use setState_phX function for input of refState).
 </p>
-<p> The function can be used for instance to calculate an isentropic efficiency of a compressor or calculate the power consumption (obtained from the isentropic enthalpy) for a given efficiency.</p>
+
+<p>
+The function can be used for instance to calculate an isentropic efficiency
+of a compressor or calculate the power consumption (obtained from the isentropic enthalpy)
+for a given efficiency.
+</p>
+
 <p>
 Example:
+</p>
 <pre>
      Medium.AbsolutePressure p_downstream=10e5;
      Medium.SpecificEnthalpy h_downstream=4.1e5;
@@ -1812,7 +1827,7 @@ Example:
 
      eta_is = (h_is-h_upstream)/(h_downstream - h_upstream);
 </pre>
-</p>
+
 <h4>Restrictions</h4>
 <p>
 The isentropic efficiency function should not be applied in liquid region.
