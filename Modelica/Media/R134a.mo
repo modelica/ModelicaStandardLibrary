@@ -35,12 +35,12 @@ package R134a "R134a: Medium model for R134a"
         "heat capacity at constant volume";
       Modelica.SIunits.IsothermalCompressibility kappa "isentropic exponent";
       Modelica.SIunits.Velocity a "velocity of sound";
-      Modelica.Media.Interfaces.PartialMedium.IsobaricExpansionCoefficient beta
+      Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient beta
         "isobaric expansion coefficient";
-      Modelica.Media.Interfaces.PartialMedium.IsentropicExponent gamma
+      Modelica.SIunits.IsentropicExponent gamma
         "isentropic exponent";
-      Real pt "derivative of pressure wrt temperature";
-      Real pd "derivative of pressure wrt density";
+      Modelica.SIunits.DerPressureByTemperature pt "derivative of pressure wrt temperature";
+      Modelica.SIunits.DerPressureByDensity pd "derivative of pressure wrt density";
 
     end PhaseBoundaryProperties;
 
