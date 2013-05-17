@@ -103,7 +103,6 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
       "RealGasAir.Air_dT: Detailed dry air model (130 ... 2000 K) explicit in d and T"
       extends Modelica.Media.Air.RealGasAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.dTX,
-
         final ph_explicit=false,
         final dT_explicit=true,
         final pT_explicit=false);
@@ -120,7 +119,6 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       "RealGasAir.Air_pT: Detailed dry air model (130 ... 2000 K) explicit in p and T"
       extends Modelica.Media.Air.RealGasAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
-
         final ph_explicit=false,
         final dT_explicit=false,
         final pT_explicit=true);
@@ -137,7 +135,6 @@ The package Air_pT can be used as any other medium model (see <a href=\"modelica
       "RealGasAir.Air_ph: Detailed dry air model (130 ... 2000 K) explicit in p and h"
       extends Modelica.Media.Air.RealGasAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
-
         final ph_explicit=true,
         final dT_explicit=false,
         final pT_explicit=false);
@@ -2270,7 +2267,6 @@ In no event will XRG Simulation GmbH be liable for any direct, indirect, inciden
       final singleState=false,
       reference_X={0.01,0.99},
       fluidConstants={IdealGases.Common.FluidData.H2O,IdealGases.Common.FluidData.N2},
-
       Temperature(min=200, max=423.15));
 
     import Modelica.Media.IdealGases.Common.Functions;
@@ -2667,6 +2663,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
       annotation (
         Inline=false,
         smoothOrder=5,
+        derivative=sublimationPressureIce_der,
         Documentation(info="<html>
 <p>Sublimation pressure of water below the triple point temperature is computed from temperature.</p>
 <p>Source: W Wagner, A Saul, A Pruss: &quot;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&quot;, equation 3.5</p>
@@ -3254,8 +3251,8 @@ Specific internal energy is determined from the thermodynamic state record, assu
             refChoice=ReferenceEnthalpy.UserDefined,
             h_off=25104.684) + enthalpyOfWater(T)*X_liquid - R_gas*T;
 
-      annotation (derivative=specificInternalEnergy_pTX_der, Documentation(info
-            ="<html>
+      annotation (derivative=specificInternalEnergy_pTX_der, Documentation(info=
+             "<html>
 Specific internal energy is determined from pressure p, temperature T and composition X, assuming that the liquid or solid water volume is negligible.
 </html>"));
     end specificInternalEnergy_pTX;
@@ -3590,8 +3587,8 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
           T_step for i in 1:n_T} "Constant temperatures";
       final parameter SIunits.SpecificEnthalpy[n_h] h_const={(i - 1)*h_step +
           h_min for i in 1:n_h} "Constant enthalpies";
-      final parameter Real[n_phi] phi_const={(i - 1)*phi_step + phi_min for i
-           in 1:n_phi} "Constant relative humidities";
+      final parameter Real[n_phi] phi_const={(i - 1)*phi_step + phi_min for i in
+              1:n_phi} "Constant relative humidities";
       final parameter Real diagSlope=Medium.enthalpyOfVaporization(273.15)
         "Rotation of diagram that zero degrees isotherm becomes horizontal outside the fog region";
       final parameter SIunits.MassFraction x_start=x_min
@@ -6885,8 +6882,8 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                   p,
                   T,
                   Y);
-          u := (Modelica.Media.Air.RealGasMoistAir.Utilities.ReactionIndices.U2
-            (     p,
+          u := (Modelica.Media.Air.RealGasMoistAir.Utilities.ReactionIndices.U2(
+                  p,
                   T,
                   Y)*
             Modelica.Media.Air.RealGasMoistAir.Utilities.ReactionIndices.V2(T)
@@ -7152,7 +7149,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               d_der := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT_der(
                       pl,
                       T,
-
                   Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(pl,
                   T), pl_der,
                       T_der) + Modelica.Media.Air.RealGasMoistAir.steam.R*(
@@ -7163,7 +7159,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               d_der := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT_der(
                       pl,
                       T,
-
                   Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(pl,
                   T), pl_der,
                       T_der) + IF97_new.rho_pT_der(
@@ -7184,7 +7179,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               o[4] := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT_der(
                       pl,
                       T,
-
                   Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(p,
                   T), p_der,
                       T_der);
@@ -7195,7 +7189,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT_der(
                       p,
                       T,
-
                   Modelica.Media.Water.IAPWS09.Ice09_Utilities.ice09BaseProp_pT(
                   p, T),
                       p_der,
@@ -7203,7 +7196,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT_der(
                       p,
                       T,
-
                   Modelica.Media.Water.IAPWS09.Ice09_Utilities.ice09BaseProp_pT(
                   p, T),
                       p_der,
@@ -7224,7 +7216,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               o[4] := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT_der(
                       pl,
                       T,
-
                   Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(p,
                   T), p_der,
                       T_der) + IF97_new.rho_pT_der(
@@ -7503,7 +7494,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               h_der := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT_der(
                       pl,
                       T,
-
                   Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(pl,
                   T), pl_der,
                       T_der) + xw_der*
@@ -7531,7 +7521,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               h_der := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT_der(
                       pl,
                       T,
-
                   Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(pl,
                   T), pl_der,
                       T_der) + xw_der*
@@ -7550,7 +7539,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               h_der := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT_der(
                       pl,
                       T,
-
                   Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(pl,
                   T), pl_der,
                       T_der) + xws_der*
@@ -7566,7 +7554,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.h_pT_der(
                       p,
                       T,
-
                   Modelica.Media.Water.IAPWS09.Ice09_Utilities.ice09BaseProp_pT(
                   p, T),
                       p_der,
@@ -7575,7 +7562,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.h_pT_der(
                       p,
                       T,
-
                   Modelica.Media.Water.IAPWS09.Ice09_Utilities.ice09BaseProp_pT(
                   p, T),
                       p_der,
@@ -7585,7 +7571,6 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               h_der := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT_der(
                       pl,
                       T,
-
                   Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(p,
                   T), pl_der,
                       T_der) + xws_der*
