@@ -2054,7 +2054,9 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
                     smpm.Rs,
                     smpm.TsRef,
                     smpm.alpha20s,
-                    smpm.TsOperational))
+                    smpm.TsOperational),
+          fsNominal=smpm.fsNominal,
+          VsOpenCircuit=smpm.VsOpenCircuit)
           annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
         Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
           annotation (Placement(transformation(extent={{10,10},{-10,-10}},
@@ -15308,12 +15310,22 @@ They can be used to feed a current source which in turn feeds an induction machi
     end CurrentController;
 
     model VoltageController "Current controller"
+      import Modelica.Constants.pi;
       constant Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
+      parameter Modelica.SIunits.Frequency fsNominal "Nominal frequency";
+      parameter Modelica.SIunits.Voltage VsOpenCircuit
+        "Open circuit RMS voltage per phase @ fsNominal";
       parameter Modelica.SIunits.Resistance Rs
         "Stator resistance per phase at TOperational";
       parameter Modelica.SIunits.Inductance Ld "Inductance in d-axis";
       parameter Modelica.SIunits.Inductance Lq "Inductance in q-axis";
+    //Decoupling
+      parameter Boolean decoupling=false "Use decoupling network";
+      final parameter Modelica.SIunits.MagneticFlux psiM=sqrt(2)*VsOpenCircuit/(2*pi*fsNominal);
+      Modelica.SIunits.AngularVelocity omega=p*der(phi);
+      Modelica.SIunits.Voltage Vd=sqrt(2)*(Rs*id_rms - omega*Lq*iq_rms);
+      Modelica.SIunits.Voltage Vq=sqrt(2)*(Rs*iq_rms + omega*Ld*id_rms) + omega*psiM;
       extends Modelica.Blocks.Interfaces.MO(final nout=m);
       Modelica.Blocks.Interfaces.RealInput id_rms
         annotation (Placement(transformation(extent={{-140,40},{-100,80}},rotation=0)));
@@ -15335,84 +15347,97 @@ They can be used to feed a current source which in turn feeds an induction machi
       Modelica.Electrical.Machines.Utilities.ToDQ toDQ(final p=p)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=0,
-            origin={-30,-40})));
+            rotation=90,
+            origin={-60,-80})));
       Modelica.Blocks.Math.Gain toPeak_d(final k=sqrt(2))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0,
-            origin={-50,60})));
+            origin={-70,60})));
       Modelica.Blocks.Math.Gain toPeak_q(final k=sqrt(2))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},   rotation=0,
-            origin={-50,0})));
+            origin={-70,0})));
       Modelica.Blocks.Math.Feedback feedback_d
-        annotation (Placement(transformation(extent={{-20,50},{0,70}})));
+        annotation (Placement(transformation(extent={{-38,50},{-18,70}})));
       Modelica.Blocks.Math.Feedback feedback_q
-        annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Modelica.Blocks.Continuous.PI PI_d(
         final k=1/Rs,
         final T=Ld/Rs,
         initType=Modelica.Blocks.Types.Init.InitialOutput)
-        annotation (Placement(transformation(extent={{20,50},{40,70}})));
+        annotation (Placement(transformation(extent={{-10,50},{10,70}})));
       Modelica.Blocks.Continuous.PI PI_q(
         final k=1/Rs,
         final T=Lq/Rs,
         initType=Modelica.Blocks.Types.Init.InitialOutput)
-        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      Blocks.Math.Add add[2](final k1=fill(+1, 2), final k2=fill(if decoupling
+             then +1 else 0, 2))
+        annotation (Placement(transformation(extent={{32,-10},{52,10}})));
+      Blocks.Sources.RealExpression deCoupling[2](y={Vd,Vq})
+        annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
     equation
       connect(fromDQ.y, y)          annotation (Line(
           points={{91,0},{110,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(phi, fromDQ.phi)          annotation (Line(
-          points={{60,-120},{60,-60},{80,-60},{80,-12}},
+          points={{60,-120},{60,-80},{80,-80},{80,-12}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(iActual, toDQ.u)    annotation (Line(
-          points={{-60,-120},{-60,-40},{-42,-40}},
+          points={{-60,-120},{-60,-92}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(phi, toDQ.phi)          annotation (Line(
-          points={{60,-120},{60,-60},{-30,-60},{-30,-52}},
+          points={{60,-120},{60,-80},{-48,-80}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(toPeak_d.u, id_rms) annotation (Line(
-          points={{-62,60},{-120,60}},
+          points={{-82,60},{-120,60}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(toPeak_q.u, iq_rms) annotation (Line(
-          points={{-62,0},{-70,0},{-70,-60},{-120,-60}},
+          points={{-82,0},{-90,0},{-90,-60},{-120,-60}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(toPeak_q.y, feedback_q.u1) annotation (Line(
-          points={{-39,0},{-18,0}},
+          points={{-59,0},{-38,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(toPeak_d.y, feedback_d.u1) annotation (Line(
-          points={{-39,60},{-18,60}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(toDQ.y[2], feedback_q.u2)          annotation (Line(
-          points={{-19,-39.5},{-10,-39.5},{-10,-8}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(toDQ.y[1], feedback_d.u2)          annotation (Line(
-          points={{-19,-40.5},{-10,-40.5},{-10,-20},{-30,-20},{-30,40},{-10,40},{
-              -10,52}},
+          points={{-59,60},{-36,60}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(feedback_d.y, PI_d.u) annotation (Line(
-          points={{-1,60},{18,60}},
+          points={{-19,60},{-12,60}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(feedback_q.y, PI_q.u) annotation (Line(
-          points={{-1,0},{18,0}},
+          points={{-21,0},{-12,0}},
           color={0,0,127},
           smooth=Smooth.None));
-      connect(PI_d.y, fromDQ.u[1])          annotation (Line(
-          points={{41,60},{60,60},{60,-1},{68,-1}},
+      connect(toDQ.y[1], feedback_d.u2) annotation (Line(
+          points={{-59.5,-69},{-59.5,-60},{-50,-60},{-50,40},{-28,40},{-28,52}},
           color={0,0,127},
           smooth=Smooth.None));
-      connect(PI_q.y, fromDQ.u[2])          annotation (Line(
-          points={{41,0},{55.5,0},{55.5,1},{68,1}},
+      connect(toDQ.y[2], feedback_q.u2) annotation (Line(
+          points={{-60.5,-69},{-60.5,-60},{-50,-60},{-50,-20},{-30,-20},{-30,-8}},
+          color={0,0,127},
+          smooth=Smooth.None));
+
+      connect(add.y, fromDQ.u) annotation (Line(
+          points={{53,0},{68,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(PI_d.y, add[1].u1) annotation (Line(
+          points={{11,60},{20,60},{20,6},{30,6}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(PI_q.y, add[2].u1) annotation (Line(
+          points={{11,0},{20,0},{20,6},{30,6}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(deCoupling.y, add.u2) annotation (Line(
+          points={{11,-30},{20,-30},{20,-6},{30,-6}},
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Icon(graphics={
@@ -15989,58 +16014,58 @@ normally given in a technical description, according to the standard EN&nbsp;600
 </html>"));
     end SynchronousMachineData;
 
-  record TransformerData "Calculates Impedances from nominal values"
-    extends Modelica.Icons.Record;
-    parameter Modelica.SIunits.Frequency f(start=50) "Nominal frequency";
-    parameter Modelica.SIunits.Voltage V1(start=100)
+    record TransformerData "Calculates Impedances from nominal values"
+      extends Modelica.Icons.Record;
+      parameter Modelica.SIunits.Frequency f(start=50) "Nominal frequency";
+      parameter Modelica.SIunits.Voltage V1(start=100)
         "Primary nominal line-to-line voltage (RMS)";
-    parameter String C1(start="Y") "Choose primary connection"
-      annotation(choices(choice="Y" "Star connection",
+      parameter String C1(start="Y") "Choose primary connection"
+        annotation(choices(choice="Y" "Star connection",
                          choice="D" "Delta connection"));
-    parameter Modelica.SIunits.Voltage V2(start=100)
+      parameter Modelica.SIunits.Voltage V2(start=100)
         "Secondary open circuit line-to-line voltage (RMS) @ primary nominal voltage";
-    parameter String C2(start="y") "Choose secondary connection"
-      annotation(choices(choice="y" "Star connection",
+      parameter String C2(start="y") "Choose secondary connection"
+        annotation(choices(choice="y" "Star connection",
                          choice="d" "Delta connection",
                          choice="z" "Zig-zag connection"));
-    parameter Modelica.SIunits.ApparentPower SNominal(start=30E3)
+      parameter Modelica.SIunits.ApparentPower SNominal(start=30E3)
         "Nominal apparent power";
-    parameter Real v_sc(final min=0, final max=1, start=0.05)
+      parameter Real v_sc(final min=0, final max=1, start=0.05)
         "Impedance voltage drop pu";
-    parameter Modelica.SIunits.Power P_sc(start=300)
+      parameter Modelica.SIunits.Power P_sc(start=300)
         "Short-circuit (copper) losses";
 
-    parameter Real n = V1/V2
+      parameter Real n = V1/V2
         "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)"
-      annotation(Dialog(tab="Result", enable = false));
-    final parameter Modelica.SIunits.Voltage V1ph = V1/(if C1=="D" then 1 else sqrt(3))
+        annotation(Dialog(tab="Result", enable = false));
+      final parameter Modelica.SIunits.Voltage V1ph = V1/(if C1=="D" then 1 else sqrt(3))
         "Primary phase voltage (RMS)";
-    final parameter Modelica.SIunits.Current I1ph = SNominal/(3*V1ph)
+      final parameter Modelica.SIunits.Current I1ph = SNominal/(3*V1ph)
         "Primary phase current (RMS)";
-    final parameter Modelica.SIunits.Voltage V2ph = V2/(if C2=="d" then 1 else sqrt(3))
+      final parameter Modelica.SIunits.Voltage V2ph = V2/(if C2=="d" then 1 else sqrt(3))
         "Secondary phase voltage (RMS)";
-    final parameter Modelica.SIunits.Current I2ph = SNominal/(3*V2ph)
+      final parameter Modelica.SIunits.Current I2ph = SNominal/(3*V2ph)
         "Secondary phase current (RMS)";
-    final parameter Modelica.SIunits.Impedance Z1ph = 0.5*v_sc*V1ph/I1ph
+      final parameter Modelica.SIunits.Impedance Z1ph = 0.5*v_sc*V1ph/I1ph
         "Primary impedance per phase";
-    parameter Modelica.SIunits.Resistance R1= 0.5*P_sc/(3*I1ph^2)
+      parameter Modelica.SIunits.Resistance R1= 0.5*P_sc/(3*I1ph^2)
         "Warm primary resistance per phase"
-      annotation(Dialog(tab="Result", enable = false));
-    parameter Modelica.SIunits.Inductance L1sigma= sqrt(Z1ph^2-R1^2)/(2*Modelica.Constants.pi*f)
+        annotation(Dialog(tab="Result", enable = false));
+      parameter Modelica.SIunits.Inductance L1sigma= sqrt(Z1ph^2-R1^2)/(2*Modelica.Constants.pi*f)
         "Primary stray inductance per phase"
-      annotation(Dialog(tab="Result", enable = false));
-    final parameter Modelica.SIunits.Impedance Z2ph = 0.5*v_sc*V2ph/I2ph
+        annotation(Dialog(tab="Result", enable = false));
+      final parameter Modelica.SIunits.Impedance Z2ph = 0.5*v_sc*V2ph/I2ph
         "Secondary impedance per phase";
-    parameter Modelica.SIunits.Resistance R2= 0.5*P_sc/(3*I2ph^2)
+      parameter Modelica.SIunits.Resistance R2= 0.5*P_sc/(3*I2ph^2)
         "Warm secondary resistance per phase"
-      annotation(Dialog(tab="Result", enable = false));
-    parameter Modelica.SIunits.Inductance L2sigma= sqrt(Z2ph^2-R2^2)/(2*Modelica.Constants.pi*f)
+        annotation(Dialog(tab="Result", enable = false));
+      parameter Modelica.SIunits.Inductance L2sigma= sqrt(Z2ph^2-R2^2)/(2*Modelica.Constants.pi*f)
         "Secondary stray inductance per phase"
-      annotation(Dialog(tab="Result", enable = false));
-    annotation(defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+        annotation(Dialog(tab="Result", enable = false));
+      annotation(defaultComponentPrefixes="parameter", Documentation(info="<HTML>
 <p>The parameters of the transformer models are calculated from parameters normally given in a technical description.</p>
 </HTML>"));
-  end TransformerData;
+    end TransformerData;
 
     annotation (Documentation(info="<HTML>
 This package contains utility components for testing examples.
