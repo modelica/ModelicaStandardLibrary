@@ -2610,7 +2610,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
         smoothOrder=5,
         Documentation(info="<html>
 <p>Saturation pressure of water above the triple point temperature is computed from temperature. </p>
-<p>Source: A Saul, W Wagner: &QUOT;International equations for the saturation properties of ordinary water substance&QUOT;, equation 2.1 </p>
+<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1 </p>
 </html>"),
         Icon(graphics));
     end saturationPressureLiquid;
@@ -2645,7 +2645,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
         smoothOrder=5,
         Documentation(info="<html>
 <p>Saturation pressure of water above the triple point temperature is computed from temperature. </p>
-<p>Source: A Saul, W Wagner: &QUOT;International equations for the saturation properties of ordinary water substance&QUOT;, equation 2.1 </p>
+<p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1 </p>
 </html>"),
         Icon(graphics));
     end saturationPressureLiquid_der;
@@ -2669,7 +2669,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
         smoothOrder=5,
         Documentation(info="<html>
 <p>Sublimation pressure of water below the triple point temperature is computed from temperature.</p>
-<p>Source: W Wagner, A Saul, A Pruss: &QUOT;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&QUOT;, equation 3.5</p>
+<p>Source: W Wagner, A Saul, A Pruss: &quot;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&quot;, equation 3.5</p>
 </html>"),
         Icon(graphics));
     end sublimationPressureIce;
@@ -2697,7 +2697,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
         smoothOrder=5,
         Documentation(info="<html>
 <p>Sublimation pressure of water below the triple point temperature is computed from temperature.</p>
-<p>Source: W Wagner, A Saul, A Pruss: &QUOT;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&QUOT;, equation 3.5</p>
+<p>Source: W Wagner, A Saul, A Pruss: &quot;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&quot;, equation 3.5</p>
 </html>"),
         Icon(graphics));
     end sublimationPressureIce_der;
