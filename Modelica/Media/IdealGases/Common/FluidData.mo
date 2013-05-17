@@ -6,7 +6,7 @@ package FluidData "Critical data, dipole moments and related data"
   import Modelica.Media.Interfaces.PartialMixtureMedium;
   import Modelica.Media.IdealGases.Common.SingleGasesData;
 
-  constant PartialMixtureMedium.FluidConstants N2(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants N2(
                        chemicalFormula =        "N2",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -24,7 +24,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants O2(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants O2(
                        chemicalFormula =        "O2",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -42,7 +42,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants CL2(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants CL2(
                        chemicalFormula =        "CL2",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -60,7 +60,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants F2(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants F2(
                        chemicalFormula =        "F2",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -78,7 +78,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants CO2(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants CO2(
                        chemicalFormula =        "CO2",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -96,7 +96,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true); // does not exist!
 
-  constant PartialMixtureMedium.FluidConstants CO(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants CO(
                        chemicalFormula =        "CO",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -114,7 +114,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants H2(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants H2(
                        chemicalFormula =        "H2",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -132,7 +132,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants H2O(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants H2O(
                        chemicalFormula =        "H2O",
                        iupacName =              "oxidane",
                        structureFormula =       "H2O",
@@ -150,7 +150,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants N2O(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants N2O(
                        chemicalFormula =        "N2O",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -168,7 +168,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants NO(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants NO(
                        chemicalFormula =        "NO",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -186,7 +186,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants NO2(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants NO2(
                        chemicalFormula =        "NO2",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -204,7 +204,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants NH3(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants NH3(
                        chemicalFormula =        "NH3",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -222,7 +222,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants SO2(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants SO2(
                        chemicalFormula =        "SO2",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -240,7 +240,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants SO3(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants SO3(
                        chemicalFormula =        "SO3",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -258,7 +258,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants Ar(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants Ar(
                        chemicalFormula =        "Ar",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -276,7 +276,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants He(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants He(
                        chemicalFormula =        "He",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -294,7 +294,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
- constant PartialMixtureMedium.FluidConstants Ne(
+ constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants Ne(
                        chemicalFormula =        "Ne",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -312,7 +312,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants CH4(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants CH4(
                        chemicalFormula =        "CH4",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -330,7 +330,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C2H6(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C2H6(
                        chemicalFormula =        "C2H6",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -348,7 +348,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C3H8(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C3H8(
                        chemicalFormula =        "C3H8",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -366,7 +366,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C4H10_n_butane(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C4H10_n_butane(
                        chemicalFormula =        "C4H10",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -384,7 +384,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C5H12_n_pentane(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C5H12_n_pentane(
                        chemicalFormula =        "C5H12",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -402,7 +402,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C6H14_n_hexane(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C6H14_n_hexane(
                        chemicalFormula =        "C6H14",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -420,7 +420,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C7H16_n_heptane(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C7H16_n_heptane(
                        chemicalFormula =        "C7H16",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -438,7 +438,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C2H4(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C2H4(
                        chemicalFormula =        "C2H4",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -456,7 +456,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C3H6_propylene(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C3H6_propylene(
                        chemicalFormula =        "C3H6",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -474,7 +474,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C4H8_1_butene(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C4H8_1_butene(
                        chemicalFormula =        "C4H8",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -492,7 +492,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C5H10_1_pentene(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C5H10_1_pentene(
                        chemicalFormula =        "C5H10",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -510,7 +510,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C6H12_1_hexene(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C6H12_1_hexene(
                        chemicalFormula =        "C6H12",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -528,7 +528,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C7H14_1_heptene(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C7H14_1_heptene(
                        chemicalFormula =        "C7H14",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -546,7 +546,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C2H2_vinylidene(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C2H2_vinylidene(
                        chemicalFormula =        "C2H2",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -564,7 +564,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C6H6(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C6H6(
                        chemicalFormula =        "C6H6",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -582,7 +582,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C8H18_n_octane(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C8H18_n_octane(
                        chemicalFormula =        "C8H18",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -600,7 +600,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C8H10_ethylbenz(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C8H10_ethylbenz(
                        chemicalFormula =        "C8H10",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -618,7 +618,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants CH3OH(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants CH3OH(
                        chemicalFormula =        "CH3OH",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -636,7 +636,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C2H5OH(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C2H5OH(
                        chemicalFormula =        "C2H5OH",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -654,7 +654,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C3H7OH(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C3H7OH(
                        chemicalFormula =        "C3H7OH",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
@@ -672,7 +672,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
 
-  constant PartialMixtureMedium.FluidConstants C4H9OH(
+  constant Modelica.Media.Interfaces.Types.IdealGas.FluidConstants C4H9OH(
                        chemicalFormula =        "C4H9OH",
                        iupacName =              "unknown",
                        structureFormula =       "unknown",
