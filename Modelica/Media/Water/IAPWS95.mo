@@ -1,4 +1,4 @@
-﻿within Modelica.Media.Water;
+within Modelica.Media.Water;
 package IAPWS95
   "Water: Water model as described by IAPWS-95 (273.15 ... 1273 K)"
   extends Modelica.Icons.MaterialPropertiesPackage;
@@ -2505,7 +2505,7 @@ Ordinary Water Substance</b>. 2011 International Association for the Properties 
 
 <h4>Acknowledgment</h4>
 <p>
-This library was developed by XRG Simulation GmbH as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project (Project title: MoMoLib—Modelica Model Library Development for Media, Magnetic Systems and Wavelets; Project number: 296369; Theme: JTI-CS-2011-1-SGO-02-026: Modelica Model Library Development Part I). The partial financial support for the development of this library by the European Union is highly appreciated.
+This library was developed by XRG Simulation GmbH as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project (Project title: MoMoLib-Modelica Model Library Development for Media, Magnetic Systems and Wavelets; Project number: 296369; Theme: JTI-CS-2011-1-SGO-02-026: Modelica Model Library Development Part I). The partial financial support for the development of this library by the European Union is highly appreciated.
 </p>
 
 <p>
