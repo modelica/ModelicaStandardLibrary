@@ -2532,7 +2532,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Blocks.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> QuasiRMS </td>
     <td valign=\"top\"> Determine quasi RMS value of a multi-phase system </td></tr>
-v<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Functions.</b></td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Functions.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> quasiRMS </td>
     <td valign=\"top\"> Calculate continuous quasi RMS value of input </td></tr>
 <tr><td valign=\"top\" width=\"150\"> activePower </td>

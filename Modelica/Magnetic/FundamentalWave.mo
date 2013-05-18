@@ -148,7 +148,7 @@ spatial domain which also applies to multi phase systems.
            alt=\"phase35.png\">
     </td>
   </tr>
-</table> 
+</table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) three phase and (b) five phase winding</caption>
@@ -158,7 +158,7 @@ spatial domain which also applies to multi phase systems.
            alt=\"winding35.png\">
     </td>
   </tr>
-</table> 
+</table>
 
 <h4>Symmetrical multi phase system</h4>
 
@@ -207,7 +207,7 @@ A function for calculating the <a href=\"Modelica.Electrical.MultiPhase.Function
            alt=\"phase610.png\">
     </td>
   </tr>
-</table> 
+</table>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\"><strong>Fig. 4: </strong>Symmetrical (a) six and (b) ten phase winding</caption>
@@ -217,7 +217,7 @@ A function for calculating the <a href=\"Modelica.Electrical.MultiPhase.Function
            alt=\"winding610.png\">
     </td>
   </tr>
-</table> 
+</table>
 
 
 <h4>Note</h4>
@@ -262,12 +262,12 @@ of a three phase induction machine and a set of parameters,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/Lm_m.png\">,
 of an
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\">
-phase induction machine. It is also assumed that
+phase induction machine. It is also assumed that</p>
 <ul>
 <li>the nominal phase voltages</li>
 <li>the nominal stator frequences</li>
 </ul>
-of the three and
+<p>of the three and
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\">
 phase induction machine are equal. In this case the two parameter sets are related by:</p>
 <p>
