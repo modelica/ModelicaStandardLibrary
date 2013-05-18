@@ -2584,14 +2584,14 @@ points, e.g., when an isentropic reference state is computed.
     model DryAir1 "Example 1 for dry air"
       extends Modelica.Icons.Example;
       extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
-          redeclare package Medium = Modelica.Media.Air.RealGasAir.Air_pT);
+          redeclare package Medium = Modelica.Media.Air.ReferenceAir.Air_pT);
       annotation (experiment(StopTime=1.01));
       end DryAir1;
 
     model DryAir2 "Example 2 for dry air"
       extends Modelica.Icons.Example;
       extends Modelica.Media.Examples.Tests.Components.PartialTestModel2(
-          redeclare package Medium = Modelica.Media.Air.RealGasAir.Air_pT);
+          redeclare package Medium = Modelica.Media.Air.ReferenceAir.Air_pT);
       annotation (experiment(StopTime=1.01));
       end DryAir2;
 
@@ -2655,7 +2655,7 @@ points, e.g., when an isentropic reference state is computed.
       "Solve h = h_pT(p, T), s = s_pT(p, T) for T, if h or s is given"
       extends Modelica.Icons.Example;
 
-      import Medium = Modelica.Media.Air.RealGasAir.Air_pT "Medium model";
+      import Medium = Modelica.Media.Air.ReferenceAir.Air_pT "Medium model";
 
       parameter Modelica.SIunits.Temperature T_min=300
         "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";

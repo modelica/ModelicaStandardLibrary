@@ -76,7 +76,8 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
 </html>"));
   end DryAirNasa;
 
-  package RealGasAir "RealGasAir: Detailed dry air model (130 ... 2000 K)"
+  package ReferenceAir
+    "ReferenceAir: Detailed dry air model with a large operating range (130 ... 2000 K, 0 ... 2000 MPa) based on Helmholtz equations of state"
     extends Modelica.Icons.MaterialPropertiesPackage;
     import SI = Modelica.SIunits;
 
@@ -101,8 +102,9 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
   public
     package Air_dT
       "RealGasAir.Air_dT: Detailed dry air model (130 ... 2000 K) explicit in d and T"
-      extends Modelica.Media.Air.RealGasAir.Air_Base(
+      extends Modelica.Media.Air.ReferenceAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.dTX,
+
         final ph_explicit=false,
         final dT_explicit=true,
         final pT_explicit=false);
@@ -117,8 +119,9 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
 
     package Air_pT
       "RealGasAir.Air_pT: Detailed dry air model (130 ... 2000 K) explicit in p and T"
-      extends Modelica.Media.Air.RealGasAir.Air_Base(
+      extends Modelica.Media.Air.ReferenceAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
+
         final ph_explicit=false,
         final dT_explicit=false,
         final pT_explicit=true);
@@ -133,8 +136,9 @@ The package Air_pT can be used as any other medium model (see <a href=\"modelica
 
     package Air_ph
       "RealGasAir.Air_ph: Detailed dry air model (130 ... 2000 K) explicit in p and h"
-      extends Modelica.Media.Air.RealGasAir.Air_Base(
+      extends Modelica.Media.Air.ReferenceAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
+
         final ph_explicit=true,
         final dT_explicit=false,
         final pT_explicit=false);
@@ -2188,7 +2192,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Modelica.Media.Common.HelmholtzDerivs f
             "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
         algorithm
-          d := Modelica.Media.Air.RealGasAir.Air_Utilities.Inverses.dofpT(
+          d := Modelica.Media.Air.ReferenceAir.Air_Utilities.Inverses.dofpT(
                     p=p,
                     T=T,
                     delp=1e-7);
@@ -2257,7 +2261,7 @@ In no event will XRG Simulation GmbH be liable for any direct, indirect, inciden
 <h4> Copyright (C) 2013, XRG Simulation GmbH </h4>
 
 </html>"));
-  end RealGasAir;
+  end ReferenceAir;
 
   package MoistAir "Air: Moist air model (190 ... 647 K)"
     extends Interfaces.PartialCondensingGases(
@@ -2267,6 +2271,7 @@ In no event will XRG Simulation GmbH be liable for any direct, indirect, inciden
       final singleState=false,
       reference_X={0.01,0.99},
       fluidConstants={IdealGases.Common.FluidData.H2O,IdealGases.Common.FluidData.N2},
+
       Temperature(min=200, max=423.15));
 
     import Modelica.Media.IdealGases.Common.Functions;
@@ -3251,8 +3256,8 @@ Specific internal energy is determined from the thermodynamic state record, assu
             refChoice=ReferenceEnthalpy.UserDefined,
             h_off=25104.684) + enthalpyOfWater(T)*X_liquid - R_gas*T;
 
-      annotation (derivative=specificInternalEnergy_pTX_der, Documentation(info=
-             "<html>
+      annotation (derivative=specificInternalEnergy_pTX_der, Documentation(info
+            ="<html>
 Specific internal energy is determined from pressure p, temperature T and composition X, assuming that the liquid or solid water volume is negligible.
 </html>"));
     end specificInternalEnergy_pTX;
@@ -3587,8 +3592,8 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
           T_step for i in 1:n_T} "Constant temperatures";
       final parameter SIunits.SpecificEnthalpy[n_h] h_const={(i - 1)*h_step +
           h_min for i in 1:n_h} "Constant enthalpies";
-      final parameter Real[n_phi] phi_const={(i - 1)*phi_step + phi_min for i in
-              1:n_phi} "Constant relative humidities";
+      final parameter Real[n_phi] phi_const={(i - 1)*phi_step + phi_min for i
+           in 1:n_phi} "Constant relative humidities";
       final parameter Real diagSlope=Medium.enthalpyOfVaporization(273.15)
         "Rotation of diagram that zero degrees isotherm becomes horizontal outside the fog region";
       final parameter SIunits.MassFraction x_start=x_min
@@ -3974,7 +3979,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
       final singleState=false,
       reference_X={0.01,0.99},
       fluidConstants={Modelica.Media.Water.IAPWS95.Water95_Base.waterConstants,
-          Modelica.Media.Air.RealGasAir.Air_Base.airConstants},
+          Modelica.Media.Air.ReferenceAir.Air_Base.airConstants},
       ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pTX);
 
     constant Integer Water=1
@@ -3991,7 +3996,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 
     constant Real k_mair=steam.MM/dryair.MM "ratio of molar weights";
 
-    constant Common.FundamentalConstants dryair=Modelica.Media.Air.RealGasAir.Air_Utilities.Basic.Constants;
+    constant Common.FundamentalConstants dryair=Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.Constants;
     constant Common.FundamentalConstants steam=Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants;
     constant SI.MolarMass[2] MMX={steam.MM,dryair.MM}
       "Molar masses of components";
@@ -4387,15 +4392,15 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
       xw := state.X[1]/(1 - state.X[1]);
       xws := Utilities.xws_pT(state.p, state.T);
       if ((xw <= xws) or (xws == -1)) then
-        h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, state.T) + xw
-          *Utilities.IF97_new.h_pT(pd, state.T);
+        h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, state.T) +
+          xw*Utilities.IF97_new.h_pT(pd, state.T);
       else
         if (state.T < 273.16) then
-          h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, state.T) +
-            xws*Utilities.IF97_new.h_pT(pd, state.T);
+          h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, state.T)
+             + xws*Utilities.IF97_new.h_pT(pd, state.T);
         else
-          h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, state.T) +
-            xws*Utilities.IF97_new.h_pT(pd, state.T);
+          h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, state.T)
+             + xws*Utilities.IF97_new.h_pT(pd, state.T);
         end if;
       end if;
       annotation (Inline=false, LateInline=true);
@@ -4421,7 +4426,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
       "Return specific enthalpy of dry air"
 
     algorithm
-      h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(state.p, state.T);
+      h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(state.p, state.T);
     end enthalpyOfNonCondensingGas;
 
     function enthalpyOfDryAir = enthalpyOfNonCondensingGas
@@ -4653,7 +4658,8 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                     173.15,
                     2000.0,
                     1e-9);
-          annotation (inverse(h=Modelica.Media.Air.RealGasMoistAir.Utilities.h_pTX(
+          annotation (inverse(h=
+                  Modelica.Media.Air.RealGasMoistAir.Utilities.h_pTX(
                           p=p,
                           T=T,
                           X=X)));
@@ -4696,7 +4702,8 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                     173.15,
                     2000.0,
                     1e-9);
-          annotation (inverse(s=Modelica.Media.Air.RealGasMoistAir.Utilities.s_pTX(
+          annotation (inverse(s=
+                  Modelica.Media.Air.RealGasMoistAir.Utilities.s_pTX(
                           p=p,
                           T=T,
                           X=X)));
@@ -4739,7 +4746,8 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                     173.15,
                     2000.0,
                     1e-9);
-          annotation (inverse(d=Modelica.Media.Air.RealGasMoistAir.Utilities.rho_pTX(
+          annotation (inverse(d=
+                  Modelica.Media.Air.RealGasMoistAir.Utilities.rho_pTX(
                           p=p,
                           T=T,
                           X=X)));
@@ -4796,7 +4804,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                     T,
                     X);
           pl := p - pd;
-          da := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(pl, T);
+          da := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T);
           if ((xw <= xws) or (xws == -1)) then
             if (T < 273.16) then
               dd := pd/(Modelica.Media.Air.RealGasMoistAir.steam.R*T);
@@ -4807,8 +4815,8 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                 coef.w[4]*Tred)/(coef.w[5] + Tred);
               etad := 2.6695E-006*sqrt(T*coef.M)/(coef.sigma^2*Omega);
               eta := ya*
-                Modelica.Media.Air.RealGasAir.Air_Utilities.Transport.eta_dT(da,
-                T) + yd*etad;
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.eta_dT(
+                da, T) + yd*etad;
             else
               dd :=
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.rho_pT(pd,
@@ -4816,8 +4824,8 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               ya := da/(da + dd);
               yd := 1 - ya;
               eta := ya*
-                Modelica.Media.Air.RealGasAir.Air_Utilities.Transport.eta_dT(da,
-                T) + yd*
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.eta_dT(
+                da, T) + yd*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.visc_dT(
                 dd, T);
             end if;
@@ -4831,8 +4839,8 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                 coef.w[4]*Tred)/(coef.w[5] + Tred);
               etad := 2.6695E-006*sqrt(T*coef.M)/(coef.sigma^2*Omega);
               eta := ya*
-                Modelica.Media.Air.RealGasAir.Air_Utilities.Transport.eta_dT(da,
-                T) + yd*etad;
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.eta_dT(
+                da, T) + yd*etad;
             else
               dd :=
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.rho_pT(pd,
@@ -4842,8 +4850,8 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               ya := (1 - yf)/(1 + dd/da);
               yd := 1 - (ya + yf);
               eta := ya*
-                Modelica.Media.Air.RealGasAir.Air_Utilities.Transport.eta_dT(da,
-                T) + yd*
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.eta_dT(
+                da, T) + yd*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.visc_dT(
                 dd, T) + yf*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.visc_dT(
@@ -4890,7 +4898,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                     T,
                     X);
           pl := p - pd;
-          da := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(pl, T);
+          da := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T);
           if ((xw <= xws) or (xws == -1)) then
             if (T < 273.16) then
               dd := pd/(Modelica.Media.Air.RealGasMoistAir.steam.R*T);
@@ -4905,7 +4913,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               Eu := 0;
               lambdad := 0.083232*sqrt(T/coef.M)/(coef.sigma^2*Omega)*Eu;
               lambda := ya*
-                Modelica.Media.Air.RealGasAir.Air_Utilities.Transport.lambda_dT(
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.lambda_dT(
                 da, T) + yd*lambdad;
             else
               dd :=
@@ -4914,7 +4922,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               ya := da/(da + dd);
               yd := 1 - ya;
               lambda := ya*
-                Modelica.Media.Air.RealGasAir.Air_Utilities.Transport.lambda_dT(
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.lambda_dT(
                 da, T) + yd*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.cond_dT(
                 dd, T);
@@ -4934,7 +4942,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               Eu := 0.35424*cp + 0.1144;
               lambdad := 0.083232*sqrt(T/coef.M)/(coef.sigma^2*Omega)*Eu;
               lambda := ya*
-                Modelica.Media.Air.RealGasAir.Air_Utilities.Transport.lambda_dT(
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.lambda_dT(
                 da, T) + yd*lambdad + yf*2.21;
             else
               dd :=
@@ -4945,7 +4953,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               ya := (1 - yf)/(1 + dd/da);
               yd := 1 - (ya + yf);
               lambda := ya*
-                Modelica.Media.Air.RealGasAir.Air_Utilities.Transport.lambda_dT(
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.lambda_dT(
                 da, T) + yd*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.cond_dT(
                 dd, T) + yf*
@@ -4977,7 +4985,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           final constant Integer[19] i={1,1,1,2,3,3,4,4,4,6,1,3,5,6,1,3,11,1,3};
           final constant Real[19] j={0,0.33,1.01,0,0,0.15,0,0.2,0.35,1.35,1.6,
               0.8,0.95,1.25,3.6,6,3.25,3.5,15};
-          Real tau=Modelica.Media.Air.RealGasAir.Air_Utilities.Basic.Constants.Tred
+          Real tau=Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.Constants.Tred
               /T;
 
         algorithm
@@ -4985,7 +4993,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           for k in 1:19 loop
             baa := if (i[k] == 1) then baa + N[k]*tau^j[k] else baa;
           end for;
-          baa := 1/Modelica.Media.Air.RealGasAir.Air_Utilities.Basic.Constants.rhored
+          baa := 1/Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.Constants.rhored
             *baa;
 
         end Baa_dT;
@@ -5151,7 +5159,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           final constant Real[19] j={0,0.33,1.01,0,0,0.15,0,0.2,0.35,1.35,1.6,
               0.8,0.95,1.25,3.6,6,3.25,3.5,15};
           final constant Integer[19] l={0,0,0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,3,3};
-          Real tau=Modelica.Media.Air.RealGasAir.Air_Utilities.Basic.Constants.Tred
+          Real tau=Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.Constants.Tred
               /T;
 
         algorithm
@@ -5163,7 +5171,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
             caaa := if (i[k] == 2) then caaa + 2*N[k]*tau^j[k] elseif ((i[k]
                == 1) and (l[k] == 1)) then caaa - 2*N[k]*tau^j[k] else caaa;
           end for;
-          caaa := 1/Modelica.Media.Air.RealGasAir.Air_Utilities.Basic.Constants.rhored
+          caaa := 1/Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.Constants.rhored
             ^2*caaa;
         end Caaa_dT;
 
@@ -6367,7 +6375,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 
       algorithm
         if (X[1] == 0) then
-          d := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(p, T);
+          d := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(p, T);
         else
           xw := X[1]/(1 - X[1]);
           xws := xws_pT(p, T);
@@ -6378,21 +6386,21 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           pl := p - pd;
           if ((xw <= xws) or (xws == -1)) then
             if (T < 273.16) then
-              d := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(pl, T) +
-                pd/(.Modelica.Media.Air.RealGasMoistAir.steam.R*T);
+              d := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T)
+                 + pd/(.Modelica.Media.Air.RealGasMoistAir.steam.R*T);
             else
-              d := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(pl, T) +
-                IF97_new.rho_pT(pd, T);
+              d := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T)
+                 + IF97_new.rho_pT(pd, T);
             end if;
           else
             if (T < 273.16) then
               d := (1 + xw)/((1 + xws)/(
-                Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(pl, T) + pd/
-                (.Modelica.Media.Air.RealGasMoistAir.steam.R*T)) + (xw - xws)/
-                Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT(p, T));
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) +
+                pd/(.Modelica.Media.Air.RealGasMoistAir.steam.R*T)) + (xw - xws)
+                /Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT(p, T));
             else
               d := (1 + xw)/((1 + xws)/(
-                Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(pl, T) +
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) +
                 IF97_new.rho_pT(pd, T)) + (xw - xws)/
                 Modelica.Media.Water.IF97_Utilities.rho_pT(p, T));
             end if;
@@ -6539,13 +6547,13 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
       algorithm
         if (X[1] == 0.0) then
           if (T >= 773.15) then
-            cp := Modelica.Media.Air.RealGasAir.Air_Utilities.cp_pT(p, T) +
+            cp := Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(p, T) +
               Utilities.cp_dis_pTX(
                     p,
                     T,
                     X);
           else
-            cp := Modelica.Media.Air.RealGasAir.Air_Utilities.cp_pT(p, T);
+            cp := Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(p, T);
           end if;
         else
           pd := Modelica.Media.Air.RealGasMoistAir.Utilities.pd_pTX(
@@ -6559,16 +6567,17 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
             if (T >= 773.15) then
               cp := X[1]*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.cp_pT(pd,
-                T) + X[2]*Modelica.Media.Air.RealGasAir.Air_Utilities.cp_pT(pl,
-                T) + Modelica.Media.Air.RealGasMoistAir.Utilities.cp_dis_pTX(
+                T) + X[2]*Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(
+                pl, T) +
+                Modelica.Media.Air.RealGasMoistAir.Utilities.cp_dis_pTX(
                       p,
                       T,
                       X);
             else
               cp := X[1]*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.cp_pT(pd,
-                T) + X[2]*Modelica.Media.Air.RealGasAir.Air_Utilities.cp_pT(pl,
-                T);
+                T) + X[2]*Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT(
+                pl, T);
             end if;
           else
             cp := -1;
@@ -6594,7 +6603,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 
       algorithm
         if (X[1] == 0) then
-          cv := Modelica.Media.Air.RealGasAir.Air_Utilities.cv_pT(p, T);
+          cv := Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT(p, T);
         else
           pd := Modelica.Media.Air.RealGasMoistAir.Utilities.pd_pTX(
                   p,
@@ -6606,7 +6615,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           if ((xw <= xws) or (xws == -1)) then
             cv := X[1]*
               Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.cv_pT(pd, T)
-               + X[2]*Modelica.Media.Air.RealGasAir.Air_Utilities.cv_pT(pl, T);
+               + X[2]*Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT(pl, T);
           else
             cv := -1;
           end if;
@@ -6630,7 +6639,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 
       algorithm
         if (X[1] == 0) then
-          h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(p, T);
+          h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(p, T);
         else
           pd := Modelica.Media.Air.RealGasMoistAir.Utilities.pd_pTX(
                   p,
@@ -6641,26 +6650,26 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           xws := Modelica.Media.Air.RealGasMoistAir.Utilities.xws_pT(p, T);
           if ((xw <= xws) or (xws == -1)) then
             if (T >= 773.15) then
-              h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, T) + xw
-                *Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(pd,
-                T) + (1 + xw)*
+              h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, T) +
+                xw*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(
+                pd, T) + (1 + xw)*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.h_dis_pTX(
                       p,
                       T,
                       X);
             else
-              h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, T) + xw
-                *Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(pd,
-                T);
+              h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, T) +
+                xw*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(
+                pd, T);
             end if;
           else
             if (T < 273.16) then
-              h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, T) +
+              h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, T) +
                 xws*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(
                 pd, T) + (xw - xws)*
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.h_pT(p, T);
             else
-              h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, T) +
+              h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, T) +
                 xws*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(
                 pd, T) + (xw - xws)*Modelica.Media.Water.IF97_Utilities.h_pT(p,
                 T);
@@ -6772,7 +6781,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 
       algorithm
         if (X[1] == 0) then
-          s := Modelica.Media.Air.RealGasAir.Air_Utilities.s_pT(p, T);
+          s := Modelica.Media.Air.ReferenceAir.Air_Utilities.s_pT(p, T);
         else
           pd := Modelica.Media.Air.RealGasMoistAir.Utilities.pd_pTX(
                   p,
@@ -6783,26 +6792,26 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           xws := Modelica.Media.Air.RealGasMoistAir.Utilities.xws_pT(p, T);
           if ((xw <= xws) or (xws == -1)) then
             if (T >= 773.15) then
-              s := Modelica.Media.Air.RealGasAir.Air_Utilities.s_pT(pl, T) + xw
-                *Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.s_pT(pd,
-                T) + (1 + xw)*
+              s := Modelica.Media.Air.ReferenceAir.Air_Utilities.s_pT(pl, T) +
+                xw*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.s_pT(
+                pd, T) + (1 + xw)*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.s_dis_pTX(
                       p,
                       T,
                       X);
             else
-              s := Modelica.Media.Air.RealGasAir.Air_Utilities.s_pT(pl, T) + xw
-                *Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.s_pT(pd,
-                T);
+              s := Modelica.Media.Air.ReferenceAir.Air_Utilities.s_pT(pl, T) +
+                xw*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.s_pT(
+                pd, T);
             end if;
           else
             if (T < 273.16) then
-              s := Modelica.Media.Air.RealGasAir.Air_Utilities.s_pT(pl, T) +
+              s := Modelica.Media.Air.ReferenceAir.Air_Utilities.s_pT(pl, T) +
                 xws*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.s_pT(
                 pd, T) + (xw - xws)*
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.s_pT(p, T);
             else
-              s := Modelica.Media.Air.RealGasAir.Air_Utilities.s_pT(pl, T) +
+              s := Modelica.Media.Air.ReferenceAir.Air_Utilities.s_pT(pl, T) +
                 xws*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.s_pT(
                 pd, T) + (xw - xws)*Modelica.Media.Water.IF97_Utilities.s_pT(p,
                 T);
@@ -6882,8 +6891,8 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                   p,
                   T,
                   Y);
-          u := (Modelica.Media.Air.RealGasMoistAir.Utilities.ReactionIndices.U2(
-                  p,
+          u := (Modelica.Media.Air.RealGasMoistAir.Utilities.ReactionIndices.U2
+            (     p,
                   T,
                   Y)*
             Modelica.Media.Air.RealGasMoistAir.Utilities.ReactionIndices.V2(T)
@@ -7116,11 +7125,12 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 
       algorithm
         if (X[1] == 0) then
-          d_der := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT_der(
+          d_der := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der(
                   p,
                   T,
-                  Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(p,
-              T), p_der,
+                  Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
+              p, T),
+                  p_der,
                   T_der);
         else
           xw := X[1]/(1 - X[1]);
@@ -7146,21 +7156,25 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           pl_der := p_der - pd_der;
           if ((xw <= xws) or (xws == -1)) then
             if (T < 273.16) then
-              d_der := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT_der(
+              d_der := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der(
                       pl,
                       T,
-                  Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(pl,
-                  T), pl_der,
+
+                  Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
+                  pl, T),
+                      pl_der,
                       T_der) + Modelica.Media.Air.RealGasMoistAir.steam.R*(
                 pd_der*T - pd*T_der)/(Modelica.Media.Air.RealGasMoistAir.steam.R
                 *T)^2;
 
             else
-              d_der := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT_der(
+              d_der := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der(
                       pl,
                       T,
-                  Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(pl,
-                  T), pl_der,
+
+                  Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
+                  pl, T),
+                      pl_der,
                       T_der) + IF97_new.rho_pT_der(
                       pd,
                       T,
@@ -7170,17 +7184,20 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
             end if;
           else
             if (T < 273.16) then
-              o[1] := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(pl, T);
+              o[1] := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl,
+                T);
               o[2] := Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT(p, T);
               o[3] := ((1 + xws)/(
-                Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(pl, T) + pd/
-                (.Modelica.Media.Air.RealGasMoistAir.steam.R*T)) + (xw - xws)/
-                Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT(p, T));
-              o[4] := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT_der(
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) +
+                pd/(.Modelica.Media.Air.RealGasMoistAir.steam.R*T)) + (xw - xws)
+                /Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT(p, T));
+              o[4] := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der(
                       pl,
                       T,
-                  Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(p,
-                  T), p_der,
+
+                  Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
+                  p, T),
+                      p_der,
                       T_der);
 
               o[5] := (xws_der*o[1] - (1 + xws)*o[4])/o[1]^2 + (pd_der*T - pd*
@@ -7189,6 +7206,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT_der(
                       p,
                       T,
+
                   Modelica.Media.Water.IAPWS09.Ice09_Utilities.ice09BaseProp_pT(
                   p, T),
                       p_der,
@@ -7196,6 +7214,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT_der(
                       p,
                       T,
+
                   Modelica.Media.Water.IAPWS09.Ice09_Utilities.ice09BaseProp_pT(
                   p, T),
                       p_der,
@@ -7206,18 +7225,20 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
               //           (.Modelica.Media.Air.RealGasMoistAir.steam.R*T)) + (xw - xws)/
               //           Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT(p, T));
             else
-              o[1] := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(pl, T)
-                 + IF97_new.rho_pT(pd, T);
+              o[1] := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl,
+                T) + IF97_new.rho_pT(pd, T);
               o[2] := Modelica.Media.Water.IF97_Utilities.rho_pT(p, T);
               o[3] := ((1 + xws)/(
-                Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT(pl, T) +
+                Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl, T) +
                 IF97_new.rho_pT(pd, T)) + (xw - xws)/
                 Modelica.Media.Water.IF97_Utilities.rho_pT(p, T));
-              o[4] := Modelica.Media.Air.RealGasAir.Air_Utilities.rho_pT_der(
+              o[4] := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der(
                       pl,
                       T,
-                  Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(p,
-                  T), p_der,
+
+                  Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
+                  p, T),
+                      p_der,
                       T_der) + IF97_new.rho_pT_der(
                       pd,
                       T,
@@ -7461,11 +7482,12 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 
       algorithm
         if (X[1] == 0) then
-          h_der := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT_der(
+          h_der := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT_der(
                   p,
                   T,
-                  Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(p,
-              T), p_der,
+                  Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
+              p, T),
+                  p_der,
                   T_der);
         else
           pd := Modelica.Media.Air.RealGasMoistAir.Utilities.pd_pTX(
@@ -7491,11 +7513,13 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                   T_der);
           if ((xw <= xws) or (xws == -1)) then
             if (T >= 773.15) then
-              h_der := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT_der(
+              h_der := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT_der(
                       pl,
                       T,
-                  Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(pl,
-                  T), pl_der,
+
+                  Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
+                  pl, T),
+                      pl_der,
                       T_der) + xw_der*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(pd,
                 T) + xw*
@@ -7518,11 +7542,13 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                       X_der);
 
             else
-              h_der := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT_der(
+              h_der := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT_der(
                       pl,
                       T,
-                  Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(pl,
-                  T), pl_der,
+
+                  Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
+                  pl, T),
+                      pl_der,
                       T_der) + xw_der*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(pd,
                 T) + xw*
@@ -7536,11 +7562,13 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
             end if;
           else
             if (T < 273.16) then
-              h_der := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT_der(
+              h_der := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT_der(
                       pl,
                       T,
-                  Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(pl,
-                  T), pl_der,
+
+                  Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
+                  pl, T),
+                      pl_der,
                       T_der) + xws_der*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(pd,
                 T) + xws*
@@ -7554,6 +7582,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.h_pT_der(
                       p,
                       T,
+
                   Modelica.Media.Water.IAPWS09.Ice09_Utilities.ice09BaseProp_pT(
                   p, T),
                       p_der,
@@ -7562,17 +7591,20 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.h_pT_der(
                       p,
                       T,
+
                   Modelica.Media.Water.IAPWS09.Ice09_Utilities.ice09BaseProp_pT(
                   p, T),
                       p_der,
                       T_der);
 
             else
-              h_der := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT_der(
+              h_der := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT_der(
                       pl,
                       T,
-                  Modelica.Media.Air.RealGasAir.Air_Utilities.airBaseProp_pT(p,
-                  T), pl_der,
+
+                  Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT(
+                  p, T),
+                      pl_der,
                       T_der) + xws_der*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(pd,
                 T) + xws*
@@ -7599,26 +7631,26 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           end if;
           if ((xw <= xws) or (xws == -1)) then
             if (T >= 773.15) then
-              h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, T) + xw
-                *Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(pd,
-                T) + (1 + xw)*
+              h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, T) +
+                xw*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(
+                pd, T) + (1 + xw)*
                 Modelica.Media.Air.RealGasMoistAir.Utilities.h_dis_pTX(
                       p,
                       T,
                       X);
             else
-              h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, T) + xw
-                *Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(pd,
-                T);
+              h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, T) +
+                xw*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(
+                pd, T);
             end if;
           else
             if (T < 273.16) then
-              h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, T) +
+              h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, T) +
                 xws*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(
                 pd, T) + (xw - xws)*
                 Modelica.Media.Water.IAPWS09.Ice09_Utilities.h_pT(p, T);
             else
-              h := Modelica.Media.Air.RealGasAir.Air_Utilities.h_pT(pl, T) +
+              h := Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT(pl, T) +
                 xws*Modelica.Media.Air.RealGasMoistAir.Utilities.IF97_new.h_pT(
                 pd, T) + (xw - xws)*Modelica.Media.Water.IF97_Utilities.h_pT(p,
                 T);
