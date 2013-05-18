@@ -9374,7 +9374,7 @@ provide a package in the following way:
   end Common;
 
 
-annotation (Documentation(info="<HTML>
+annotation (preferredView="info",Documentation(info="<HTML>
 <p>
 This library contains <a href=\"modelica://Modelica.Media.Interfaces\">interface</a>
 definitions for media and the following <b>property</b> models for
@@ -9389,7 +9389,7 @@ single and multiple substance fluids with one and multiple phases:
      ConstantPropertyLiquidWater, WaterIF97 (high precision
      water model according to the IAPWS/IF97 standard)</li>
 <li> <a href=\"modelica://Modelica.Media.Air\">Air models:</a><br>
-     SimpleAir, DryAirNasa, and MoistAir</li>
+     SimpleAir, DryAirNasa, ReferenceAir, MoistAir, RealGasMoistAir.</li>
 <li> <a href=\"modelica://Modelica.Media.Incompressible\">
      Incompressible media:</a><br>
      TableBased incompressible fluid models (properties are defined by tables rho(T),
@@ -9397,6 +9397,7 @@ single and multiple substance fluids with one and multiple phases:
 <li> <a href=\"modelica://Modelica.Media.CompressibleLiquids\">
      Compressible liquids:</a><br>
      Simple liquid models with linear compressibility</li>
+<li> <a href=\"modelica://Modelica.Media.R134a\">Refrigerant Tetrafluoroethane (R134a)</a>.</li>
 </ul>
 <p>
 The following parts are useful, when newly starting with this library:
@@ -9420,6 +9421,8 @@ Copyright &copy; 1998-2013, Modelica Association.
 </p>
 </HTML>", revisions="<html>
 <ul>
+<li><i>May 16, 2013</i> by Stefan Wischhusen (XRG Simulation):<br/>
+    Added new media models Air.ReferenceAir, Air.RealGasAir, R135a, Water.IAPWS95, Water.IAPWS09.</li>
 <li><i>May 25, 2011</i> by Francesco Casella:<br/>Added min/max attributes to Water, TableBased, MixtureGasNasa, SimpleAir and MoistAir local types.</li>
 <li><i>May 25, 2011</i> by Stefan Wischhusen:<br/>Added individual settings for polynomial fittings of properties.</li>
 </ul>
