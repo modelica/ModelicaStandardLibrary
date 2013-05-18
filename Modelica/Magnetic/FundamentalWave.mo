@@ -107,7 +107,8 @@ The term <b>fundamental wave</b> refers to spatial waves of the electro magnetic
     class MultiPhase "Multi phase windings"
       extends Modelica.Icons.Information;
       annotation (Documentation(info="<html>
-<p><b>Symmetrical three phase system</b> </p>
+<h4>Symmetrical three phase system</h4>
+
 <p>
 Symmetrical three phases systems of currents (or voltages) consists of three sinusoidal
 sine waves with with an angular displacement of
@@ -139,26 +140,27 @@ So there is is a strong coherence between angular displacement in the time and
 spatial domain which also applies to multi phase systems.
 </p>
 
-<p>
-<b>Fig. 1:</b> Symmetrical (a) three phase and (b) five phase current system
-</p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three phase and (b) five phase current system</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png\"
+           alt=\"phase35.png\">
+    </td>
+  </tr>
+</table> 
 
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-<tr><td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png\"/> </p></td>
-</tr>
-</table>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) three phase and (b) five phase winding</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding35.png\"
+           alt=\"winding35.png\">
+    </td>
+  </tr>
+</table> 
 
-<p>
-<br/><b>Fig. 2:</b> Symmetrical (a) three phase and (b) five phase winding
-</p>
-
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-<tr><td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding35.png\"/> </p></td>
-</tr>
-</table>
-
-<p>
-<br/><b>Symmetrical multi phase system</b> </p>
+<h4>Symmetrical multi phase system</h4>
 
 <p>
 In symmetrical multi phase systems odd and even phase numbers have to be distinguished.
@@ -197,25 +199,28 @@ The displacement between the two symmetrical systems is
 A function for calculating the <a href=\"Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a> is available.
 </p>
 
-<p><b>Fig. 3:</b> Symmetrical (a) six and (b) ten phase current system </p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 3: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase610.png\"
+           alt=\"phase610.png\">
+    </td>
+  </tr>
+</table> 
 
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-<tr><td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase610.png\"/> </p></td>
-</tr>
-</table>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 4: </strong>Symmetrical (a) six and (b) ten phase winding</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding610.png\"
+           alt=\"winding610.png\">
+    </td>
+  </tr>
+</table> 
 
-<p>
-<br/><b>Fig. 4:</b> Symmetrical (a) six and (b) ten phase winding
-</p>
 
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
-<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding610.png\"/> </p></td>
-</tr>
-</table>
-
-<p>
-<br/><h4>Note</h4>
-</p>
+<h4>Note</h4>
 
 <p>
 In a fully symmetrical machine, the orientation of the winding axes and the symmetrical currents (or voltages)
@@ -828,8 +833,7 @@ The magnetic potential difference of the connector therefore also refers to an e
         annotation (experiment(StopTime=40, Interval=0.01), Documentation(info="<html>
 <p>
 In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters.</p>
-</html>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
       end EddyCurrentLosses;
 
