@@ -5867,7 +5867,9 @@ to the above list of assumptions</li>
 
   partial package PartialRealCondensingGases
     "Base class for mixtures of real condensing and non-condensing gases"
-    extends Modelica.Media.Interfaces.PartialMixtureMedium;
+    extends Modelica.Media.Interfaces.PartialMixtureMedium(redeclare
+        replaceable record FluidConstants =
+          Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants);
 
     replaceable partial function saturationPressure
       "Return saturation pressure of condensing fluid"
@@ -7347,6 +7349,26 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
       AbsolutePressure psat "saturation pressure";
       Temperature Tsat "saturation temperature";
       end SaturationProperties;
+
+    record FluidLimits "validity limits for fluid model"
+      extends Modelica.Icons.Record;
+      Temperature TMIN "minimum temperature";
+      Temperature TMAX "maximum temperature";
+      Density DMIN "minimum density";
+      Density DMAX "maximum density";
+      AbsolutePressure PMIN "minimum pressure";
+      AbsolutePressure PMAX "maximum pressure";
+      SpecificEnthalpy HMIN "minimum enthalpy";
+      SpecificEnthalpy HMAX "maximum enthalpy";
+      SpecificEntropy SMIN "minimum entropy";
+      SpecificEntropy SMAX "maximum entropy";
+      annotation (Documentation(info="<html>
+          <p>The minimum pressure mostly applies to the liquid state only.
+          The minimum density is also arbitrary, but is reasonable for technical
+          applications to limit iterations in non-linear systems. The limits in
+          enthalpy and entropy are used as safeguards in inverse iterations.</p>
+          </html>"));
+      end FluidLimits;
 
     type FixedPhase = Integer (min=0, max=2)
       "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use";

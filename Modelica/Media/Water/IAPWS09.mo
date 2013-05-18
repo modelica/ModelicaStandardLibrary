@@ -3,6 +3,24 @@ package IAPWS09 "Water: Ice model as described by IAPWS-09 (0 ... 273.16 K)"
   extends Modelica.Icons.MaterialPropertiesPackage;
   import SI = Modelica.SIunits;
 
+  constant Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants
+    waterConstants(
+    each chemicalFormula="H2O",
+    each structureFormula="H2O",
+    each casRegistryNumber="7732-18-5",
+    each iupacName="oxidane",
+    each molarMass=0.018015268,
+    each criticalTemperature=647.096,
+    each criticalPressure=22064.0e3,
+    each criticalMolarVolume=1/322.0*0.018015268,
+    each normalBoilingPoint=373.124,
+    each meltingPoint=273.15,
+    each acentricFactor=0.344,
+    each dipoleMoment=1.8,
+    each hasCriticalData=true,
+    each triplePointTemperature=273.16,
+    each triplePointPressure=611.657);
+
 protected
   type MolarHeatCapacity = SI.MolarHeatCapacity (min=0)
     "Type for molar heat capacity with medium specific attributes";
@@ -15,15 +33,6 @@ protected
   type IsothermalExpansionCoefficient = Real (min=0, unit="1");
 
 public
-  package Ice09_ph
-    "Water: Ice model as described by IAPWS-09 (0 ... 273.16 K) explicit in p and h"
-    extends Modelica.Media.Water.IAPWS09.Ice09_Base(
-      ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
-      final ph_explicit=true,
-      final dT_explicit=false,
-      final pT_explicit=false);
-  end Ice09_ph;
-
   package Ice09_dT
     "Water: Ice model as described by IAPWS-09 (0 ... 273.16 K) explicit in d and T"
     extends Modelica.Media.Water.IAPWS09.Ice09_Base(
@@ -42,6 +51,17 @@ public
       final pT_explicit=true);
   end Ice09_pT;
 
+public
+  package Ice09_ph
+    "Water: Ice model as described by IAPWS-09 (0 ... 273.16 K) explicit in p and h"
+    extends Modelica.Media.Water.IAPWS09.Ice09_Base(
+      ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
+      final ph_explicit=true,
+      final dT_explicit=false,
+      final pT_explicit=false);
+  end Ice09_ph;
+
+public
   partial package Ice09_Base
     "Properties of ice calculated using the equation of state as given by IAPWS-09"
 
@@ -66,37 +86,6 @@ public
       "true if explicit in pressure and specific enthalpy";
     constant Boolean dT_explicit "true if explicit in density and temperature";
     constant Boolean pT_explicit "true if explicit in pressure and temperature";
-
-    redeclare record extends FluidConstants
-      Temperature criticalTemperature "critical temperature";
-      AbsolutePressure criticalPressure "critical pressure";
-      MolarVolume criticalMolarVolume "critical molar Volume";
-      Real acentricFactor "Pitzer acentric factor";
-      Temperature triplePointTemperature "triple point temperature";
-      AbsolutePressure triplePointPressure "triple point pressure";
-      Temperature meltingPoint "melting point at 101325 Pa";
-      Temperature normalBoilingPoint "normal boiling point (at 101325 Pa)";
-      DipoleMoment dipoleMoment
-        "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
-      Boolean hasCriticalData=false "true if critical data are known";
-    end FluidConstants;
-
-    constant FluidConstants waterConstants(
-      each chemicalFormula="H2O",
-      each structureFormula="H2O",
-      each casRegistryNumber="7732-18-5",
-      each iupacName="oxidane",
-      each molarMass=0.018015268,
-      each criticalTemperature=647.096,
-      each criticalPressure=22064.0e3,
-      each criticalMolarVolume=1/322.0*0.018015268,
-      each normalBoilingPoint=373.124,
-      each meltingPoint=273.15,
-      each acentricFactor=0.344,
-      each dipoleMoment=1.8,
-      each hasCriticalData=true,
-      each triplePointTemperature=273.16,
-      each triplePointPressure=611.657);
 
     redeclare record extends ThermodynamicState "thermodynamic state"
       SpecificEnthalpy h "specific enthalpy";

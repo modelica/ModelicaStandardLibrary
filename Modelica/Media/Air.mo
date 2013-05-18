@@ -81,6 +81,27 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
     extends Modelica.Icons.MaterialPropertiesPackage;
     import SI = Modelica.SIunits;
 
+    constant Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants
+      airConstants(
+      each chemicalFormula="N2+O2+Ar",
+      each structureFormula="N2+O2+Ar",
+      each casRegistryNumber="1",
+      each iupacName="air",
+      each molarMass=0.02896546,
+      each criticalTemperature=132.5306,
+      each criticalPressure=3.786e6,
+      each criticalMolarVolume=0.02896546/342.68,
+      each triplePointTemperature=63.05 "from N2",
+      each triplePointPressure=0.1253e5 "from N2",
+      each normalBoilingPoint=78.903,
+      each meltingPoint=0,
+      each acentricFactor=0.0335,
+      each dipoleMoment=0.0,
+      each hasCriticalData=true,
+      each hasFundamentalEquation=true,
+      each hasAccurateViscosityData=true,
+      each hasAcentricFactor=true);
+
   protected
     type MolarHeatCapacity = SI.MolarHeatCapacity (
         min=0,
@@ -100,22 +121,22 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
         unit="1");
 
   public
-    package Air_dT
-      "RealGasAir.Air_dT: Detailed dry air model (130 ... 2000 K) explicit in d and T"
+    package Air_ph
+      "RealGasAir.Air_ph: Detailed dry air model (130 ... 2000 K) explicit in p and h"
       extends Modelica.Media.Air.ReferenceAir.Air_Base(
-        ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.dTX,
+        ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
 
-        final ph_explicit=false,
-        final dT_explicit=true,
+        final ph_explicit=true,
+        final dT_explicit=false,
         final pT_explicit=false);
 
       annotation (Documentation(info="<html>
 <h4>Usage</h4>
 <p>
-The package Air_dT can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information).
+The package Air_ph can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information).
 </p>
 </html>"));
-    end Air_dT;
+    end Air_ph;
 
     package Air_pT
       "RealGasAir.Air_pT: Detailed dry air model (130 ... 2000 K) explicit in p and T"
@@ -134,22 +155,23 @@ The package Air_pT can be used as any other medium model (see <a href=\"modelica
 </html>"));
     end Air_pT;
 
-    package Air_ph
-      "RealGasAir.Air_ph: Detailed dry air model (130 ... 2000 K) explicit in p and h"
+  public
+    package Air_dT
+      "RealGasAir.Air_dT: Detailed dry air model (130 ... 2000 K) explicit in d and T"
       extends Modelica.Media.Air.ReferenceAir.Air_Base(
-        ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
+        ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.dTX,
 
-        final ph_explicit=true,
-        final dT_explicit=false,
+        final ph_explicit=false,
+        final dT_explicit=true,
         final pT_explicit=false);
 
       annotation (Documentation(info="<html>
 <h4>Usage</h4>
 <p>
-The package Air_ph can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information).
+The package Air_dT can be used as any other medium model (see <a href=\"modelica://Modelica.Media.UsersGuide\">User's Guide of Media Library</a> for further information).
 </p>
 </html>"));
-    end Air_ph;
+    end Air_dT;
 
   public
     partial package Air_Base
@@ -172,68 +194,6 @@ The package Air_ph can be used as any other medium model (see <a href=\"modelica
           min=130,
           max=2000));
 
-      redeclare record extends FluidConstants
-        Temperature criticalTemperature "critical temperature";
-        AbsolutePressure criticalPressure "critical pressure";
-        MolarVolume criticalMolarVolume "critical molar Volume";
-        Real acentricFactor "Pitzer acentric factor";
-        //   Temperature triplePointTemperature "triple point temperature";
-        //   AbsolutePressure triplePointPressure "triple point pressure";
-        Temperature meltingPoint "melting point at 101325 Pa";
-        Temperature normalBoilingPoint "normal boiling point (at 101325 Pa)";
-        DipoleMoment dipoleMoment
-          "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
-        Boolean hasCriticalData=true "true if critical data are known";
-        Boolean hasIdealGasHeatCapacity=false
-          "true if ideal gas heat capacity is available";
-        Boolean hasDipoleMoment=false "true if a dipole moment known";
-        Boolean hasFundamentalEquation=true "true if a fundamental equation";
-        Boolean hasLiquidHeatCapacity=false
-          "true if liquid heat capacity is available";
-        Boolean hasSolidHeatCapacity=false
-          "true if solid heat capacity is available";
-        Boolean hasAccurateViscosityData=true
-          "true if accurate data for a viscosity function is available";
-        Boolean hasAccurateConductivityData=true
-          "true if accurate data for thermal conductivity is available";
-        Boolean hasVapourPressureCurve=false
-          "true if vapour pressure data, e.g., Antoine coefficients are known";
-        Boolean hasAcentricFactor=true
-          "true if Pitzer accentric factor is known";
-        SpecificEnthalpy HCRIT0=0.0
-          "Critical specific enthalpy of the fundamental equation";
-        SpecificEntropy SCRIT0=0.0
-          "Critical specific entropy of the fundamental equation";
-        SpecificEnthalpy deltah=0.0
-          "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
-        SpecificEntropy deltas=0.0
-          "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
-      end FluidConstants;
-
-      constant FluidConstants airConstants(
-        each chemicalFormula="N2+O2+Ar",
-        each structureFormula="N2+O2+Ar",
-        each casRegistryNumber="1",
-        each iupacName="air",
-        each molarMass=0.02896546,
-        each criticalTemperature=132.5306,
-        each criticalPressure=3.786e6,
-        each criticalMolarVolume=0.02896546/342.68,
-        each normalBoilingPoint=78.903,
-        each meltingPoint=0,
-        each acentricFactor=0.0335,
-        each dipoleMoment=0.0);
-
-      record Constants "Constants used in the model"
-        final constant MolarHeatCapacity R_bar=8.31451;
-        final constant SpecificHeatCapacity R=287.117;
-        final constant MolarMass MM=28.9586E-003;
-        final constant MolarDensity rhored=10447.7;
-        final constant Temperature Tred=132.6312;
-        final constant AbsolutePressure pred=3785020;
-        constant SpecificEnthalpy h_off=1589557.62320524;
-        constant SpecificEntropy s_off=6610.41237132543;
-      end Constants;
       constant Boolean ph_explicit
         "true if explicit in pressure and specific enthalpy";
       constant Boolean dT_explicit
@@ -260,7 +220,7 @@ The package Air_ph can be used as any other medium model (see <a href=\"modelica
         "Base properties of water"
 
       equation
-        MM = Constants.MM;
+        MM = ReferenceAir.Air_Utilities.Basic.Constants.MM;
         if dT_explicit then
           p = pressure_dT(d, T);
           h = specificEnthalpy_dT(d, T);
@@ -676,13 +636,13 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       package Basic "Fundamental equation of state"
         extends Modelica.Icons.BasesPackage;
 
-        constant Common.FundamentalConstants Constants(
-          R_bar=8.31451,
-          R=287.117,
-          MM=28.9586E-003,
-          rhored=10447.7,
-          Tred=132.6312,
-          pred=3785020,
+        constant Modelica.Media.Common.FundamentalConstants Constants(
+          final R_bar=8.31451,
+          final R=287.117,
+          final MM=28.9586E-003,
+          final rhored=10447.7,
+          final Tred=132.6312,
+          final pred=3785020,
           h_off=1589557.62320524,
           s_off=6610.41237132543);
 
@@ -712,11 +672,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         algorithm
           f.d := d;
           f.T := T;
-          f.R := Air_Utilities.Basic.Constants.R;
+          f.R := ReferenceAir.Air_Utilities.Basic.Constants.R;
           //Reduced density
-          f.delta := d/(Air_Utilities.Basic.Constants.MM*Air_Utilities.Basic.Constants.rhored);
+          f.delta := d/(ReferenceAir.Air_Utilities.Basic.Constants.MM*
+            ReferenceAir.Air_Utilities.Basic.Constants.rhored);
           //Reciprocal reduced temperature
-          f.tau := Air_Utilities.Basic.Constants.Tred/T;
+          f.tau := ReferenceAir.Air_Utilities.Basic.Constants.Tred/T;
 
           //Dimensionless Helmholtz equation
           f.f := 0;
@@ -845,7 +806,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Boolean found=false "flag for iteration success";
 
         algorithm
-          d := p/(Air_Utilities.Basic.Constants.R*T);
+          d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R*T);
 
           while ((i < 100) and not found) loop
             f := Basic.Helmholtz(d, T);
@@ -887,13 +848,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         algorithm
           // Stefan Wischhusen: better guess for high temperatures:
           T := h/1000 + 273.15;
-          d := p/(Air_Base.Constants.R*T);
+          d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R*T);
           i := 0;
 
           while ((i < 100) and not found) loop
             f := Basic.Helmholtz(d, T);
             nDerivs := Modelica.Media.Common.Helmholtz_ph(f);
-            dh := nDerivs.h - Air_Base.Constants.h_off - h;
+            dh := nDerivs.h - ReferenceAir.Air_Utilities.Basic.Constants.h_off
+               - h;
             dp := nDerivs.p - p;
             if ((abs(dh) <= delh) and (abs(dp) <= delp)) then
               found := true;
@@ -933,13 +895,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         algorithm
           T := 273.15;
-          d := p/(Air_Base.Constants.R*T);
+          d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R*T);
           i := 0;
 
           while ((i < 100) and not found) loop
             f := Basic.Helmholtz(d, T);
             nDerivs := Modelica.Media.Common.Helmholtz_ps(f);
-            ds := nDerivs.s - Air_Base.Constants.s_off - s;
+            ds := nDerivs.s - ReferenceAir.Air_Utilities.Basic.Constants.s_off
+               - s;
             dp := nDerivs.p - p;
             if ((abs(ds) <= dels) and (abs(dp) <= delp)) then
               found := true;
@@ -964,9 +927,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           output SI.DynamicViscosity eta "Dynamic viscosity";
 
         protected
-          Real delta=d/(Air_Utilities.Basic.Constants.MM*Air_Utilities.Basic.Constants.rhored)
+          Real delta=d/(ReferenceAir.Air_Utilities.Basic.Constants.MM*
+              ReferenceAir.Air_Utilities.Basic.Constants.rhored)
             "Reduced density";
-          Real tau=Air_Utilities.Basic.Constants.Tred/T
+          Real tau=ReferenceAir.Air_Utilities.Basic.Constants.Tred/T
             "Reciprocal reduced temperature";
           Real Omega "Collision integral";
           SI.DynamicViscosity eta_0=0 "Dilute gas viscosity";
@@ -982,8 +946,8 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           Omega := exp(
             Modelica.Media.Incompressible.TableBased.Polynomials_Temp.evaluate(
             {b[5],b[4],b[3],b[2],b[1]}, log(T/103.3)));
-          eta_0 := 0.0266958*sqrt(1000*Air_Utilities.Basic.Constants.MM*T)/(
-            0.36^2*Omega);
+          eta_0 := 0.0266958*sqrt(1000*ReferenceAir.Air_Utilities.Basic.Constants.MM
+            *T)/(0.36^2*Omega);
           for i in 1:5 loop
             eta_r := eta_r + (Nvis[i]*(tau^tvis[i])*(delta^dvis[i])*exp(-
               gammavis[i]*(delta^lvis[i])));
@@ -1028,18 +992,20 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         algorithm
           //chi_tilde in at the reference temperature 265.262
           f := Basic.Helmholtz(d, 265.262);
-          pddTref := Air_Utilities.Basic.Constants.R_bar*265.262*(1 + 2*f.delta
-            *(f.fdelta - 1/f.delta) + f.delta^2*(f.fdeltadelta + 1/f.delta^2));
-          xiref := Air_Utilities.Basic.Constants.pred*(d/Air_Utilities.Basic.Constants.MM)
-            /Air_Utilities.Basic.Constants.rhored^2/pddTref;
+          pddTref := ReferenceAir.Air_Utilities.Basic.Constants.R_bar*265.262*(
+            1 + 2*f.delta*(f.fdelta - 1/f.delta) + f.delta^2*(f.fdeltadelta + 1
+            /f.delta^2));
+          xiref := ReferenceAir.Air_Utilities.Basic.Constants.pred*(d/
+            ReferenceAir.Air_Utilities.Basic.Constants.MM)/ReferenceAir.Air_Utilities.Basic.Constants.rhored
+            ^2/pddTref;
           //calculating f at the given state
           f := Basic.Helmholtz(d, T);
           Omega := exp(
             Modelica.Media.Incompressible.TableBased.Polynomials_Temp.evaluate(
             {b[5],b[4],b[3],b[2],b[1]}, log(T/103.3)));
           //Ideal-gas part of dynamic viscosity
-          eta_0 := 0.0266958*sqrt(1000*Air_Utilities.Basic.Constants.MM*T)/(
-            0.36^2*Omega);
+          eta_0 := 0.0266958*sqrt(1000*ReferenceAir.Air_Utilities.Basic.Constants.MM
+            *T)/(0.36^2*Omega);
           //Ideal-gas part of thermal conductivity
           lambda_0 := Ncon[1]*eta_0 + Ncon[2]*f.tau^tcon[2] + Ncon[3]*f.tau^
             tcon[3];
@@ -1049,11 +1015,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
               gammacon[i]*f.delta^lcon[i]);
           end for;
           //Derivative of p w.r.t. d at constant temperature
-          pddT := Air_Utilities.Basic.Constants.R*T*(1 + 2*f.delta*(f.fdelta -
-            1/f.delta) + f.delta^2*(f.fdeltadelta + 1/f.delta^2));
+          pddT := ReferenceAir.Air_Utilities.Basic.Constants.R*T*(1 + 2*f.delta
+            *(f.fdelta - 1/f.delta) + f.delta^2*(f.fdeltadelta + 1/f.delta^2));
           //chi_tilde at the given state
-          xi := Air_Utilities.Basic.Constants.pred*(d/Air_Utilities.Basic.Constants.MM)
-            /Air_Utilities.Basic.Constants.rhored^2/(pddT*Air_Utilities.Basic.Constants.MM);
+          xi := ReferenceAir.Air_Utilities.Basic.Constants.pred*(d/ReferenceAir.Air_Utilities.Basic.Constants.MM)
+            /ReferenceAir.Air_Utilities.Basic.Constants.rhored^2/(pddT*
+            ReferenceAir.Air_Utilities.Basic.Constants.MM);
           //Thermal conductivity critical enhancement
           xi := xi - xiref*265.262/T;
           if (xi <= 0) then
@@ -1061,17 +1028,17 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           else
             xi := 0.11*(xi/0.055)^(0.63/1.2415);
             //Derivative of p w.r.t. T at constant p
-            pdTp := Air_Utilities.Basic.Constants.R*d*(1 + f.delta*(f.fdelta -
-              1/f.delta) - f.delta*f.tau*f.fdeltatau);
+            pdTp := ReferenceAir.Air_Utilities.Basic.Constants.R*d*(1 + f.delta
+              *(f.fdelta - 1/f.delta) - f.delta*f.tau*f.fdeltatau);
             //Specific isochoric heat capacity
-            cv := Air_Utilities.Basic.Constants.R*(-f.tau*f.tau*f.ftautau);
+            cv := ReferenceAir.Air_Utilities.Basic.Constants.R*(-f.tau*f.tau*f.ftautau);
             //Specific isobaric heat capacity
             cp := cv + T*pdTp*pdTp/(d*d*pddT);
             Omega_tilde := 2/Modelica.Constants.pi*((cp - cv)/cp*atan(xi/0.31)
                + cv/cp*xi/0.31);
             Omega_0_tilde := 2/Modelica.Constants.pi*(1 - exp(-1/((0.31/xi) + 1
-              /3*(xi/0.31)^2*(Air_Utilities.Basic.Constants.rhored/(d/
-              Air_Utilities.Basic.Constants.MM))^2)));
+              /3*(xi/0.31)^2*(ReferenceAir.Air_Utilities.Basic.Constants.rhored
+              /(d/ReferenceAir.Air_Utilities.Basic.Constants.MM))^2)));
             lambda_c := d*cp*1.380658E-023*1.01*T/(6*Modelica.Constants.pi*xi*
               eta_dT(d, T))*(Omega_tilde - Omega_0_tilde)*1E012;
           end if;
@@ -1090,14 +1057,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       algorithm
         aux.p := p;
         aux.s := s;
-        aux.R := Air_Utilities.Basic.Constants.R;
+        aux.R := ReferenceAir.Air_Utilities.Basic.Constants.R;
         (aux.rho,aux.T) := Inverses.dTofps(
                 p=p,
                 s=s,
                 delp=iter.delp,
                 dels=iter.dels);
         f := Basic.Helmholtz(aux.rho, aux.T);
-        aux.h := aux.R*aux.T*(f.tau*f.ftau + f.delta*f.fdelta) - Air_Utilities.Basic.Constants.h_off;
+        aux.h := aux.R*aux.T*(f.tau*f.ftau + f.delta*f.fdelta) - ReferenceAir.Air_Utilities.Basic.Constants.h_off;
         aux.pd := aux.R*aux.T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
         aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
         aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
@@ -1190,14 +1157,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       algorithm
         aux.p := p;
         aux.h := h;
-        aux.R := Air_Utilities.Basic.Constants.R;
+        aux.R := ReferenceAir.Air_Utilities.Basic.Constants.R;
         (aux.rho,aux.T) := Inverses.dTofph(
                 p,
                 h,
                 delp=iter.delp,
                 delh=iter.delh);
         f := Basic.Helmholtz(aux.rho, aux.T);
-        aux.s := aux.R*(f.tau*f.ftau - f.f) - Air_Utilities.Basic.Constants.s_off;
+        aux.s := aux.R*(f.tau*f.ftau - f.f) - ReferenceAir.Air_Utilities.Basic.Constants.s_off;
         aux.pd := aux.R*aux.T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
         aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
         aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
@@ -1552,14 +1519,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       algorithm
         aux.p := p;
         aux.T := T;
-        aux.R := Air_Utilities.Basic.Constants.R;
+        aux.R := ReferenceAir.Air_Utilities.Basic.Constants.R;
         (aux.rho) := Inverses.dofpT(
                 p=p,
                 T=T,
                 delp=iter.delp);
         f := Basic.Helmholtz(aux.rho, T);
-        aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta) - Air_Utilities.Basic.Constants.h_off;
-        aux.s := aux.R*(f.tau*f.ftau - f.f) - Air_Utilities.Basic.Constants.s_off;
+        aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta) - ReferenceAir.Air_Utilities.Basic.Constants.h_off;
+        aux.s := aux.R*(f.tau*f.ftau - f.f) - ReferenceAir.Air_Utilities.Basic.Constants.s_off;
         aux.pd := aux.R*T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
         aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
         aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
@@ -1845,11 +1812,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       algorithm
         aux.rho := d;
         aux.T := T;
-        aux.R := Air_Utilities.Basic.Constants.R;
+        aux.R := ReferenceAir.Air_Utilities.Basic.Constants.R;
         f := Basic.Helmholtz(d, T);
         aux.p := aux.R*d*T*f.delta*f.fdelta;
-        aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta) - Air_Utilities.Basic.Constants.h_off;
-        aux.s := aux.R*(f.tau*f.ftau - f.f) - Air_Utilities.Basic.Constants.s_off;
+        aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta) - ReferenceAir.Air_Utilities.Basic.Constants.h_off;
+        aux.s := aux.R*(f.tau*f.ftau - f.f) - ReferenceAir.Air_Utilities.Basic.Constants.s_off;
         aux.pd := aux.R*T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
         aux.pt := aux.R*d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
         aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
@@ -3855,9 +3822,9 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"),
         Icon(graphics={Text(
-                  extent={{-100,100},{100,-100}},
-                  lineColor={255,127,0},
-                  textString="f")}));
+              extent={{-100,100},{100,-100}},
+              lineColor={255,127,0},
+              textString="f")}));
     end s_pTX;
 
     function s_pTX_der
@@ -3914,9 +3881,9 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"),
         Icon(graphics={Text(
-                  extent={{-100,100},{100,-100}},
-                  lineColor={255,127,0},
-                  textString="f")}));
+              extent={{-100,100},{100,-100}},
+              lineColor={255,127,0},
+              textString="f")}));
     end s_pTX_der;
 
     redeclare function extends isentropicEnthalpy
@@ -3932,9 +3899,9 @@ Specific entropy of moist air is computed from pressure, temperature and composi
             refState.X);
 
       annotation (Icon(graphics={Text(
-                  extent={{-100,100},{100,-100}},
-                  lineColor={255,127,0},
-                  textString="f")}), Documentation(revisions="<html>
+              extent={{-100,100},{100,-100}},
+              lineColor={255,127,0},
+              textString="f")}), Documentation(revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end isentropicEnthalpy;
@@ -3978,8 +3945,8 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
       final reducedX=true,
       final singleState=false,
       reference_X={0.01,0.99},
-      fluidConstants={Modelica.Media.Water.IAPWS95.Water95_Base.waterConstants,
-          Modelica.Media.Air.ReferenceAir.Air_Base.airConstants},
+      fluidConstants={Modelica.Media.Water.IAPWS95.waterConstants,Modelica.Media.Air.ReferenceAir.airConstants},
+
       ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pTX);
 
     constant Integer Water=1
@@ -3996,7 +3963,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 
     constant Real k_mair=steam.MM/dryair.MM "ratio of molar weights";
 
-    constant Common.FundamentalConstants dryair=Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.Constants;
+    constant Common.FundamentalConstants dryair=ReferenceAir.Air_Utilities.Basic.Constants;
     constant Common.FundamentalConstants steam=Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants;
     constant SI.MolarMass[2] MMX={steam.MM,dryair.MM}
       "Molar masses of components";
@@ -4985,16 +4952,14 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           final constant Integer[19] i={1,1,1,2,3,3,4,4,4,6,1,3,5,6,1,3,11,1,3};
           final constant Real[19] j={0,0.33,1.01,0,0,0.15,0,0.2,0.35,1.35,1.6,
               0.8,0.95,1.25,3.6,6,3.25,3.5,15};
-          Real tau=Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.Constants.Tred
-              /T;
+          Real tau=ReferenceAir.Air_Utilities.Basic.Constants.Tred/T;
 
         algorithm
           baa := 0;
           for k in 1:19 loop
             baa := if (i[k] == 1) then baa + N[k]*tau^j[k] else baa;
           end for;
-          baa := 1/Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.Constants.rhored
-            *baa;
+          baa := 1/ReferenceAir.Air_Utilities.Basic.Constants.rhored*baa;
 
         end Baa_dT;
 
@@ -5159,8 +5124,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
           final constant Real[19] j={0,0.33,1.01,0,0,0.15,0,0.2,0.35,1.35,1.6,
               0.8,0.95,1.25,3.6,6,3.25,3.5,15};
           final constant Integer[19] l={0,0,0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,3,3};
-          Real tau=Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.Constants.Tred
-              /T;
+          Real tau=ReferenceAir.Air_Utilities.Basic.Constants.Tred/T;
 
         algorithm
           caaa := 0;
@@ -5171,8 +5135,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
             caaa := if (i[k] == 2) then caaa + 2*N[k]*tau^j[k] elseif ((i[k]
                == 1) and (l[k] == 1)) then caaa - 2*N[k]*tau^j[k] else caaa;
           end for;
-          caaa := 1/Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.Constants.rhored
-            ^2*caaa;
+          caaa := 1/ReferenceAir.Air_Utilities.Basic.Constants.rhored^2*caaa;
         end Caaa_dT;
 
         function Caaw_dT "third molar cross-virial coefficient"

@@ -37,10 +37,11 @@ package R134a "R134a: Medium model for R134a"
       Modelica.SIunits.Velocity a "velocity of sound";
       Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient beta
         "isobaric expansion coefficient";
-      Modelica.SIunits.IsentropicExponent gamma
-        "isentropic exponent";
-      Modelica.SIunits.DerPressureByTemperature pt "derivative of pressure wrt temperature";
-      Modelica.SIunits.DerPressureByDensity pd "derivative of pressure wrt density";
+      Modelica.SIunits.IsentropicExponent gamma "isentropic exponent";
+      Modelica.SIunits.DerPressureByTemperature pt
+        "derivative of pressure wrt temperature";
+      Modelica.SIunits.DerPressureByDensity pd
+        "derivative of pressure wrt density";
 
     end PhaseBoundaryProperties;
 
@@ -289,7 +290,7 @@ package R134a "R134a: Medium model for R134a"
 
     constant Boolean ph_explicit=true;
     constant Boolean dT_explicit=false;
-    constant FluidLimits[1] r134aLimits(
+    constant Modelica.Media.Interfaces.Types.FluidLimits[1] r134aLimits(
       each TMIN=169.85,
       each TMAX=455,
       each DMIN=0,
@@ -301,7 +302,8 @@ package R134a "R134a: Medium model for R134a"
       each SMIN=0,
       each SMAX=0);
 
-    constant FluidConstants[1] r134aConstants(
+    constant Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants[1]
+      r134aConstants(
       each chemicalFormula="CF3CH2F",
       each structureFormula="1,1,1,2-tetrafluoroethane",
       each iupacName="tetrafluoroethan",

@@ -4,6 +4,37 @@ package IAPWS95
   extends Modelica.Icons.MaterialPropertiesPackage;
   import SI = Modelica.SIunits;
 
+  constant Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants
+    waterConstants(
+    each chemicalFormula="H2O",
+    each structureFormula="H2O",
+    each casRegistryNumber="7732-18-5",
+    each iupacName="oxidane",
+    each molarMass=0.018015268,
+    each criticalTemperature=647.096,
+    each criticalPressure=22064.0e3,
+    each criticalMolarVolume=1/322.0*0.018015268,
+    each triplePointTemperature=273.16,
+    each triplePointPressure=611.657,
+    each normalBoilingPoint=373.124,
+    each meltingPoint=273.15,
+    each acentricFactor=0.344,
+    each dipoleMoment=1.8,
+    each hasCriticalData=true,
+    each hasIdealGasHeatCapacity=false,
+    each hasDipoleMoment=true,
+    each hasFundamentalEquation=true,
+    each hasLiquidHeatCapacity=true,
+    each hasSolidHeatCapacity=false,
+    each hasAccurateViscosityData=true,
+    each hasAccurateConductivityData=true,
+    each hasVapourPressureCurve=false,
+    each hasAcentricFactor=true,
+    each HCRIT0=0.0,
+    each SCRIT0=0.0,
+    each deltah=0.0,
+    each deltas=0.0);
+
 protected
   type MolarHeatCapacity = SI.MolarHeatCapacity (
       min=0,
@@ -23,24 +54,6 @@ protected
       unit="1");
 
 public
-  package Water95_ph
-    "Water: Water model as described by IAPWS-95 (273.15 ... 1273 K) explicit in p and h"
-    extends Modelica.Media.Water.IAPWS95.Water95_Base(
-      ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
-      final ph_explicit=true,
-      final dT_explicit=false,
-      final pT_explicit=false);
-  end Water95_ph;
-
-  package Water95_dT
-    "Water: Water model as described by IAPWS-95 (273.15 ... 1273 K) explicit in d and T"
-    extends Modelica.Media.Water.IAPWS95.Water95_Base(
-      ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.dTX,
-      final ph_explicit=false,
-      final dT_explicit=true,
-      final pT_explicit=false);
-  end Water95_dT;
-
   package Water95_pT
     "Water: Water model as described by IAPWS-95 (273.15 ... 1273 K) explicit in p and T"
     extends Modelica.Media.Water.IAPWS95.Water95_Base(
@@ -50,6 +63,27 @@ public
       final pT_explicit=true);
   end Water95_pT;
 
+public
+  package Water95_dT
+    "Water: Water model as described by IAPWS-95 (273.15 ... 1273 K) explicit in d and T"
+    extends Modelica.Media.Water.IAPWS95.Water95_Base(
+      ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.dTX,
+      final ph_explicit=false,
+      final dT_explicit=true,
+      final pT_explicit=false);
+  end Water95_dT;
+
+public
+  package Water95_ph
+    "Water: Water model as described by IAPWS-95 (273.15 ... 1273 K) explicit in p and h"
+    extends Modelica.Media.Water.IAPWS95.Water95_Base(
+      ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
+      final ph_explicit=true,
+      final dT_explicit=false,
+      final pT_explicit=false);
+  end Water95_ph;
+
+public
   partial package Water95_Base
     "Properties of water calculated using the equation of state as given by IAPWS-95"
 
@@ -66,74 +100,6 @@ public
       "true if explicit in pressure and specific enthalpy";
     constant Boolean dT_explicit "true if explicit in density and temperature";
     constant Boolean pT_explicit "true if explicit in pressure and temperature";
-
-    redeclare record extends FluidConstants
-      Temperature criticalTemperature "critical temperature";
-      AbsolutePressure criticalPressure "critical pressure";
-      MolarVolume criticalMolarVolume "critical molar Volume";
-      Real acentricFactor "Pitzer acentric factor";
-      //   Temperature triplePointTemperature "triple point temperature";
-      //   AbsolutePressure triplePointPressure "triple point pressure";
-      Temperature meltingPoint "melting point at 101325 Pa";
-      Temperature normalBoilingPoint "normal boiling point (at 101325 Pa)";
-      DipoleMoment dipoleMoment
-        "dipole moment of molecule in Debye (1 debye = 3.33564e10-30 C.m)";
-      Boolean hasIdealGasHeatCapacity=false
-        "true if ideal gas heat capacity is available";
-      Boolean hasCriticalData=false "true if critical data are known";
-      Boolean hasDipoleMoment=false "true if a dipole moment known";
-      Boolean hasFundamentalEquation=false "true if a fundamental equation";
-      Boolean hasLiquidHeatCapacity=false
-        "true if liquid heat capacity is available";
-      Boolean hasSolidHeatCapacity=false
-        "true if solid heat capacity is available";
-      Boolean hasAccurateViscosityData=false
-        "true if accurate data for a viscosity function is available";
-      Boolean hasAccurateConductivityData=false
-        "true if accurate data for thermal conductivity is available";
-      Boolean hasVapourPressureCurve=false
-        "true if vapour pressure data, e.g., Antoine coefficients are known";
-      Boolean hasAcentricFactor=false
-        "true if Pitzer accentric factor is known";
-      SpecificEnthalpy HCRIT0=0.0
-        "Critical specific enthalpy of the fundamental equation";
-      SpecificEntropy SCRIT0=0.0
-        "Critical specific entropy of the fundamental equation";
-      SpecificEnthalpy deltah=0.0
-        "Difference between specific enthalpy model (h_m) and f.eq. (h_f) (h_m - h_f)";
-      SpecificEntropy deltas=0.0
-        "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
-    end FluidConstants;
-
-    constant FluidConstants waterConstants(
-      each chemicalFormula="H2O",
-      each structureFormula="H2O",
-      each casRegistryNumber="7732-18-5",
-      each iupacName="oxidane",
-      each molarMass=0.018015268,
-      each criticalTemperature=647.096,
-      each criticalPressure=22064.0e3,
-      each criticalMolarVolume=1/322.0*0.018015268,
-      each normalBoilingPoint=373.124,
-      each meltingPoint=273.15,
-      each acentricFactor=0.344,
-      each dipoleMoment=1.8,
-      each hasCriticalData=true,
-      each hasIdealGasHeatCapacity=false,
-      each hasDipoleMoment=true,
-      each hasFundamentalEquation=true,
-      each hasLiquidHeatCapacity=true,
-      each hasSolidHeatCapacity=false,
-      each hasAccurateViscosityData=true,
-      each hasAccurateConductivityData=true,
-      each hasVapourPressureCurve=false,
-      each hasAcentricFactor=true,
-      each HCRIT0=0.0,
-      each SCRIT0=0.0,
-      each deltah=0.0,
-      each deltas=0.0);
-    // each triplePointTemperature=273.16,
-    // each triplePointPressure=611.657);
 
     redeclare record extends ThermodynamicState "thermodynamic state"
       SpecificEnthalpy h "specific enthalpy";
@@ -154,7 +120,7 @@ public
       "Base properties of water"
 
     equation
-      MM = Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.MM;
+      MM = Water95_Utilities.Basic.Constants.MM;
       if dT_explicit then
         p = pressure_dT(d, T);
         h = specificEnthalpy_dT(d, T);
@@ -166,7 +132,7 @@ public
         d = density_pT(p, T);
       end if;
       u = h - p/d;
-      R = Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.R;
+      R = Water95_Utilities.Basic.Constants.R;
       h = state.h;
       p = state.p;
       T = state.T;
@@ -665,12 +631,11 @@ public
       algorithm
         f.d := d;
         f.T := T;
-        f.R := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.R;
+        f.R := Water95_Utilities.Basic.Constants.R;
         //Reduced density
-        f.delta := d/Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.rhored;
+        f.delta := d/Water95_Utilities.Basic.Constants.rhored;
         //Reciprocal reduced temperature
-        f.tau := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.Tred
-          /T;
+        f.tau := Water95_Utilities.Basic.Constants.Tred/T;
 
         //calculate auxilliary values
         theta55 := (1 - f.tau) + AA[55]*((f.delta - 1)^2)^(1/(2*beta[55]));
@@ -1096,8 +1061,7 @@ public
           f := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Helmholtz(d,
             T);
           nDerivs := Modelica.Media.Common.Helmholtz_ph(f);
-          dh := nDerivs.h - Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.h_off
-             - h;
+          dh := nDerivs.h - Water95_Utilities.Basic.Constants.h_off - h;
           dp := nDerivs.p - p;
           if ((abs(dh) <= delh) and (abs(dp) <= delp)) then
             found := true;
@@ -1143,8 +1107,7 @@ public
           f := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Helmholtz(d,
             T);
           nDerivs := Modelica.Media.Common.Helmholtz_ps(f);
-          ds := nDerivs.s - Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.s_off
-             - s;
+          ds := nDerivs.s - Water95_Utilities.Basic.Constants.s_off - s;
           dp := nDerivs.p - p;
           if ((abs(ds) <= dels) and (abs(dp) <= delp)) then
             found := true;
@@ -1187,8 +1150,8 @@ public
         Omega := exp(
           Modelica.Media.Incompressible.TableBased.Polynomials_Temp.evaluate({b[
           5],b[4],b[3],b[2],b[1]}, log(T/103.3)));
-        eta_0 := 0.0266958*sqrt(1000*Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.MM
-          *T)/(0.36^2*Omega);
+        eta_0 := 0.0266958*sqrt(1000*Water95_Utilities.Basic.Constants.MM*T)/(
+          0.36^2*Omega);
         for i in 1:5 loop
           eta_r := eta_r + (Nvis[i]*(tau^tvis[i])*(delta^dvis[i])*exp(-gammavis[
             i]*(delta^lvis[i])));
@@ -1231,21 +1194,18 @@ public
       algorithm
         //chi_tilde in at the reference temperature 265.262
         f := Basic.Helmholtz(d, 265.262);
-        pddTref := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.R_bar
-          *265.262*(1 + 2*f.delta*(f.fdelta - 1/f.delta) + f.delta^2*(f.fdeltadelta
-           + 1/f.delta^2));
-        xiref := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.pred
-          *(d/Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.MM)
-          /Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.rhored
-          ^2/pddTref;
+        pddTref := Water95_Utilities.Basic.Constants.R_bar*265.262*(1 + 2*f.delta
+          *(f.fdelta - 1/f.delta) + f.delta^2*(f.fdeltadelta + 1/f.delta^2));
+        xiref := Water95_Utilities.Basic.Constants.pred*(d/Water95_Utilities.Basic.Constants.MM)
+          /Water95_Utilities.Basic.Constants.rhored^2/pddTref;
         //calculating f at the given state
         f := Basic.Helmholtz(d, T);
         Omega := exp(
           Modelica.Media.Incompressible.TableBased.Polynomials_Temp.evaluate({b[
           5],b[4],b[3],b[2],b[1]}, log(T/103.3)));
         //Ideal-gas part of dynamic viscosity
-        eta_0 := 0.0266958*sqrt(1000*Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.MM
-          *T)/(0.36^2*Omega);
+        eta_0 := 0.0266958*sqrt(1000*Water95_Utilities.Basic.Constants.MM*T)/(
+          0.36^2*Omega);
         //Ideal-gas part of thermal conductivity
         lambda_0 := Ncon[1]*eta_0 + Ncon[2]*f.tau^tcon[2] + Ncon[3]*f.tau^tcon[
           3];
@@ -1255,14 +1215,11 @@ public
             gammacon[i]*f.delta^lcon[i]);
         end for;
         //Derivative of p w.r.t. d at constant temperature
-        pddT := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.R
-          *T*(1 + 2*f.delta*(f.fdelta - 1/f.delta) + f.delta^2*(f.fdeltadelta
-           + 1/f.delta^2));
+        pddT := Water95_Utilities.Basic.Constants.R*T*(1 + 2*f.delta*(f.fdelta
+           - 1/f.delta) + f.delta^2*(f.fdeltadelta + 1/f.delta^2));
         //chi_tilde at the given state
-        xi := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.pred
-          *(d/Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.MM)
-          /Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.rhored
-          ^2/(pddT*Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.MM);
+        xi := Water95_Utilities.Basic.Constants.pred*(d/Water95_Utilities.Basic.Constants.MM)
+          /Water95_Utilities.Basic.Constants.rhored^2/(pddT*Water95_Utilities.Basic.Constants.MM);
         //Thermal conductivity critical enhancement
         xi := xi - xiref*265.262/T;
         if (xi <= 0) then
@@ -1270,19 +1227,17 @@ public
         else
           xi := 0.11*(xi/0.055)^(0.63/1.2415);
           //Derivative of p w.r.t. T at constant p
-          pdTp := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.R
-            *d*(1 + f.delta*(f.fdelta - 1/f.delta) - f.delta*f.tau*f.fdeltatau);
+          pdTp := Water95_Utilities.Basic.Constants.R*d*(1 + f.delta*(f.fdelta
+             - 1/f.delta) - f.delta*f.tau*f.fdeltatau);
           //Specific isochoric heat capacity
-          cv := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.R
-            *(-f.tau*f.tau*f.ftautau);
+          cv := Water95_Utilities.Basic.Constants.R*(-f.tau*f.tau*f.ftautau);
           //Specific isobaric heat capacity
           cp := cv + T*pdTp*pdTp/(d*d*pddT);
           Omega_tilde := 2/Modelica.Constants.pi*((cp - cv)/cp*atan(xi/0.31) +
             cv/cp*xi/0.31);
           Omega_0_tilde := 2/Modelica.Constants.pi*(1 - exp(-1/((0.31/xi) + 1/3
-            *(xi/0.31)^2*(Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.rhored
-            /(d/Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.MM))
-            ^2)));
+            *(xi/0.31)^2*(Water95_Utilities.Basic.Constants.rhored/(d/
+            Water95_Utilities.Basic.Constants.MM))^2)));
           lambda_c := d*cp*1.380658E-023*1.01*T/(6*Modelica.Constants.pi*xi*
             eta_dT(d, T))*(Omega_tilde - Omega_0_tilde)*1E012;
         end if;
@@ -1301,14 +1256,15 @@ public
     algorithm
       aux.p := p;
       aux.s := s;
-      aux.R := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.R;
+      aux.R := Water95_Utilities.Basic.Constants.R;
       (aux.rho,aux.T) := Inverses.dTofps(
             p=p,
             s=s,
             delp=iter.delp,
             dels=iter.dels);
       f := Basic.Helmholtz(aux.rho, aux.T);
-      aux.h := aux.R*aux.T*(f.tau*f.ftau + f.delta*f.fdelta) - Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.h_off;
+      aux.h := aux.R*aux.T*(f.tau*f.ftau + f.delta*f.fdelta) -
+        Water95_Utilities.Basic.Constants.h_off;
       aux.pd := aux.R*aux.T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
       aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
@@ -1407,14 +1363,14 @@ public
     algorithm
       aux.p := p;
       aux.h := h;
-      aux.R := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.R;
+      aux.R := Water95_Utilities.Basic.Constants.R;
       (aux.rho,aux.T) := Inverses.dTofph(
             p,
             h,
             delp=iter.delp,
             delh=iter.delh);
       f := Basic.Helmholtz(aux.rho, aux.T);
-      aux.s := aux.R*(f.tau*f.ftau - f.f) - Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.s_off;
+      aux.s := aux.R*(f.tau*f.ftau - f.f) - Water95_Utilities.Basic.Constants.s_off;
       aux.pd := aux.R*aux.T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
       aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
@@ -1787,15 +1743,15 @@ public
     algorithm
       aux.p := p;
       aux.T := T;
-      aux.R := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.R;
+      aux.R := Water95_Utilities.Basic.Constants.R;
       aux.rho := Modelica.Media.Water.IAPWS95.Water95_Utilities.Inverses.dofpT(
             p=p,
             T=T,
             delp=iter.delp);
       f := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Helmholtz(aux.rho,
         T);
-      aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta) - Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.h_off;
-      aux.s := aux.R*(f.tau*f.ftau - f.f) - Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.s_off;
+      aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta) - Water95_Utilities.Basic.Constants.h_off;
+      aux.s := aux.R*(f.tau*f.ftau - f.f) - Water95_Utilities.Basic.Constants.s_off;
       aux.pd := aux.R*T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
       aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
@@ -2095,11 +2051,11 @@ public
     algorithm
       aux.rho := d;
       aux.T := T;
-      aux.R := Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.R;
+      aux.R := Water95_Utilities.Basic.Constants.R;
       f := Basic.Helmholtz(d, T);
       aux.p := aux.R*d*T*f.delta*f.fdelta;
-      aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta) - Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.h_off;
-      aux.s := aux.R*(f.tau*f.ftau - f.f) - Modelica.Media.Water.IAPWS95.Water95_Utilities.Basic.Constants.s_off;
+      aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta) - Water95_Utilities.Basic.Constants.h_off;
+      aux.s := aux.R*(f.tau*f.ftau - f.f) - Water95_Utilities.Basic.Constants.s_off;
       aux.pd := aux.R*T*f.delta*(2*f.fdelta + f.delta*f.fdeltadelta);
       aux.pt := aux.R*d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
