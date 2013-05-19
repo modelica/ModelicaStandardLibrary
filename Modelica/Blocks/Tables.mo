@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Tables
   "Library of blocks to interpolate in one and two-dimensional tables"
   extends Modelica.Icons.Package;
-  model CombiTable1D
+  block CombiTable1D
     "Table look-up in one dimension (matrix/file) with n inputs and n outputs"
     extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
     parameter Boolean tableOnFile=false
@@ -289,7 +289,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             lineColor={0,0,255})}));
   end CombiTable1D;
 
-  model CombiTable1Ds
+  block CombiTable1Ds
     "Table look-up in one dimension (matrix/file) with one input and n outputs"
     extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
     parameter Boolean tableOnFile=false
@@ -576,7 +576,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             lineColor={0,0,255})}));
   end CombiTable1Ds;
 
-  model CombiTable2D "Table look-up in two dimensions (matrix/file)"
+  block CombiTable2D "Table look-up in two dimensions (matrix/file)"
     extends Modelica.Blocks.Interfaces.SI2SO;
     parameter Boolean tableOnFile=false
       "true, if table is defined on file or in function usertab"

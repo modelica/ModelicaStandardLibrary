@@ -2076,7 +2076,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 </html>"));
   end TimeTable;
 
-  model CombiTimeTable
+  block CombiTimeTable
     "Table look-up with respect to time and linear/periodic extrapolation methods (data from matrix/file)"
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1);
           size(offset, 1)]));
@@ -2188,6 +2188,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Return minimum time value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Real tableAvailable;
       output Modelica.SIunits.Time timeMin "Minimum time value in table";
     external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(
         tableID) annotation (Library={"ModelicaStandardTables"});
@@ -2197,6 +2198,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Return maximum time value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Real tableAvailable;
       output Modelica.SIunits.Time timeMax "Maximum time value in table";
     external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(
         tableID) annotation (Library={"ModelicaStandardTables"});
@@ -2220,8 +2222,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     else
       tableOnFileRead := 1.;
     end if;
-    t_min := getTableTimeTmin(tableID);
-    t_max := getTableTimeTmax(tableID);
+    t_min := getTableTimeTmin(tableID, tableOnFileRead);
+    t_max := getTableTimeTmax(tableID, tableOnFileRead);
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
