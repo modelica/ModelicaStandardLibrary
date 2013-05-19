@@ -3,12 +3,12 @@ package CombiTable2D
   extends Modelica.Icons.ExamplesPackage;
   partial model Test0
     Modelica.Blocks.Tables.CombiTable2D t_new
-      annotation (Placement(transformation(extent={{-41,0},{-21,20}})));
+      annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Continuous.Der d_t_new
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
   equation
     connect(t_new.y, d_t_new.u) annotation (Line(
-        points={{-20,10},{-2,10}},
+        points={{-19,10},{-2,10}},
         color={0,0,127},
         thickness=0.0625));
   end Test0;
@@ -24,10 +24,22 @@ package CombiTable2D
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
             Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Sources.Clock clock
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Constant const(k=2)
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = time;
-    t_new.u2 = 2;
-    annotation (experiment(StartTime=0, StopTime=60));
+    connect(clock.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-52,30},{-52,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(const.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test1;
 
   model Test2 "Akima, u2 extrapolation"
@@ -41,10 +53,23 @@ package CombiTable2D
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
             Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Sources.Clock clock
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+    Modelica.Blocks.Sources.Constant const(k=2)
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
   equation
-    t_new.u1 = 2;
-    t_new.u2 = time;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(clock.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(const.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test2;
 
   model Test3 "Akima, u1 and u2 extrapolation"
@@ -58,10 +83,23 @@ package CombiTable2D
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
             Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = time;
-    t_new.u2 = time;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-52,30},{-52,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test3;
 
   model Test4 "Bilinear, u1 extrapolation"
@@ -74,10 +112,23 @@ package CombiTable2D
             2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0; 35,
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
+    Modelica.Blocks.Sources.Clock clock
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Constant const(k=2)
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = time;
-    t_new.u2 = 2;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(clock.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(const.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test4;
 
   model Test5 "Bilinear, u2 extrapolation"
@@ -90,10 +141,23 @@ package CombiTable2D
             2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0; 35,
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
+    Modelica.Blocks.Sources.Constant const(k=2)
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = 2;
-    t_new.u2 = time;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(const.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-52,30},{-52,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50.5,-10},{-50.5,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test5;
 
   model Test6 "Bilinear, u1 and u2 extrapolation"
@@ -106,10 +170,23 @@ package CombiTable2D
             2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0; 35,
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = time;
-    t_new.u2 = time;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-52,30},{-52,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test6;
 
   model Test7 "Constant segments, u1 extrapolation"
@@ -123,10 +200,23 @@ package CombiTable2D
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
             Modelica.Blocks.Types.Smoothness.ConstantSegments));
+    Modelica.Blocks.Sources.Clock clock
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Constant const(k=2)
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = time;
-    t_new.u2 = 2;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(clock.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(const.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test7;
 
   model Test8 "Constant segments, u2 extrapolation"
@@ -140,10 +230,23 @@ package CombiTable2D
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
             Modelica.Blocks.Types.Smoothness.ConstantSegments));
+    Modelica.Blocks.Sources.Constant const(k=2)
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = 2;
-    t_new.u2 = time;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(const.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-52,30},{-52,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test8;
 
   model Test9 "Constant segments, u1 and u2 extrapolation"
@@ -157,10 +260,23 @@ package CombiTable2D
             3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
             0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
             Modelica.Blocks.Types.Smoothness.ConstantSegments));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = time;
-    t_new.u2 = time;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test9;
 
   model Test10 "MAT-File v4"
@@ -169,10 +285,23 @@ package CombiTable2D
         tableOnFile=true,
         tableName="akima2D",
         fileName="modelica://Modelica/Resources/Data/Tables/test_v4.mat"));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = time;
-    t_new.u2 = time;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test10;
 
   model Test11 "MAT-File v6"
@@ -181,10 +310,23 @@ package CombiTable2D
         tableOnFile=true,
         tableName="akima2D",
         fileName="modelica://Modelica/Resources/Data/Tables/test_v6.mat"));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = time;
-    t_new.u2 = time;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test11;
 
   model Test12 "MAT-File v7"
@@ -193,10 +335,23 @@ package CombiTable2D
         tableOnFile=true,
         tableName="akima2D",
         fileName="modelica://Modelica/Resources/Data/Tables/test_v7.mat"));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = time;
-    t_new.u2 = time;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test12;
 
   /*
@@ -218,10 +373,23 @@ package CombiTable2D
         tableOnFile=true,
         tableName="akima2D",
         fileName="modelica://Modelica/Resources/Data/Tables/test.txt"));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-    t_new.u1 = time;
-    t_new.u2 = time;
-    annotation (experiment(StartTime=0, StopTime=60));
+
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
   end Test14;
 
   model Test15 "Constant 2D surface"

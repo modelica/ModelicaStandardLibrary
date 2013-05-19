@@ -2,16 +2,24 @@ within ModelicaTest.Tables;
 package CombiTable1Ds
   extends Modelica.Icons.ExamplesPackage;
   partial model Test0
+
     Modelica.Blocks.Tables.CombiTable1Ds t_new
       annotation (Placement(transformation(extent={{-41,0},{-21,20}})));
     Modelica.Blocks.Continuous.Der d_t_new
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
+    Modelica.Blocks.Sources.Clock clock
+      annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
   equation
-    t_new.u = time;
     connect(t_new.y[1], d_t_new.u) annotation (Line(
         points={{-20,10},{-2,10}},
         color={0,0,127},
         thickness=0.0625));
+    connect(clock.y, t_new.u) annotation (Line(
+        points={{-59,10},{-43,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics));
   end Test0;
 
   model Test1 "Single row, t_min = 0"
@@ -83,7 +91,7 @@ package CombiTable1Ds
     extends Test0(t_new(table={{0.25,1},{1.25,0}}));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test8;
-/*
+  /*
   model Test9 "Two rows, t_min = 0, hold last value"
     extends Modelica.Icons.Example;
     extends Test0(t_new(table={{0,1},{1,0}}, extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
@@ -107,7 +115,7 @@ package CombiTable1Ds
     extends Test0(t_new(table={{0,1},{0.5,2},{1,0}}));
     annotation (experiment(StartTime=0, StopTime=2.5));
   end Test12;
-/*
+  /*
   model Test13 "Three rows, t_min = 0, hold last value"
     extends Modelica.Icons.Example;
     extends Test0(t_new(table={{0,1},{0.5,2},{1,0}}, extrapolation=
@@ -135,7 +143,7 @@ package CombiTable1Ds
             Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     annotation (experiment(StartTime=0, StopTime=3));
   end Test16;
-/*
+  /*
   model Test17 "Constant segments, hold last value"
     extends Modelica.Icons.Example;
     extends Test0(t_new(
