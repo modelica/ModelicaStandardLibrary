@@ -3,70 +3,103 @@ package Tables
   "Library of blocks to interpolate in one and two-dimensional tables"
   extends Modelica.Icons.Package;
   model CombiTable1D
-    "Table look-up in one dimension (matrix/file) with n inputs and n outputs "
-    import Modelica.Blocks.Types;
+    "Table look-up in one dimension (matrix/file) with n inputs and n outputs"
+    extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
     parameter Boolean tableOnFile=false
       "true, if table is defined on file or in function usertab"
-      annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2)
-      "table matrix (grid = first column; e.g., table=[0,2])"
-         annotation(Dialog(group="table data definition", enable = not tableOnFile));
+      annotation (Dialog(group="Table data definition"));
+    parameter Real table[:, :]=fill(
+          0.0,
+          0,
+          2) "Table matrix (grid = first column; e.g., table=[0,2])"
+      annotation (Dialog(group="Table data definition",enable=not tableOnFile));
     parameter String tableName="NoName"
-      "table name on file or in function usertab (see docu)"
-         annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored"
-         annotation(Dialog(group="table data definition", enable = tableOnFile,
-                           loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
-                           caption="Open file in which table is present")));
+      "Table name on file or in function usertab (see docu)"
+      annotation (Dialog(group="Table data definition",enable=tableOnFile));
+    parameter String fileName="NoName" "File where matrix is stored"
+      annotation (Dialog(
+        group="Table data definition",
+        enable=tableOnFile,
+        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
+            caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2)
-      "columns of table to be interpolated"
-    annotation(Dialog(group="table data interpretation"));
-    parameter Modelica.Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
-      "smoothness of table interpolation"
-    annotation(Dialog(group="table data interpretation"));
-    extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
-
+      "Columns of table to be interpolated"
+      annotation (Dialog(group="Table data interpretation"));
+    parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
+      "Smoothness of table interpolation"
+      annotation (Dialog(group="Table data interpretation"));
   protected
-    Integer tableID;
+    Modelica.Blocks.Types.ExternalCombiTable1D tableID=
+        Modelica.Blocks.Types.ExternalCombiTable1D(
+          if tableOnFile then tableName else "NoName",
+          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName)
+           else "NoName",
+          table,
+          columns,
+          smoothness) "External table object";
+    parameter Real tableOnFileRead(fixed=false)
+      "= 1, if table was successfully read from file";
 
-    function tableInit
-      "Initialize 1-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
-      input String tableName;
-      input String fileName;
-      input Real table[ :, :];
-      input Modelica.Blocks.Types.Smoothness smoothness;
-      output Integer tableID;
-    external "C" tableID = ModelicaTables_CombiTable1D_init(
-                   tableName, fileName, table, size(table, 1), size(table, 2),
-                   smoothness) annotation(Library="ModelicaExternalC");
-    end tableInit;
+    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer forceRead "Force reading of table data";
+      output Real readSuccess "Table read success";
+    external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID,
+        forceRead) annotation (Library={"ModelicaStandardTables"});
+    end readTableData;
 
-    function tableIpo
-      "Interpolate 1-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
-      input Integer tableID;
+    function getTableValue "Interpolate 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      output Real value;
-    external "C" value =
-                       ModelicaTables_CombiTable1D_interpolate(tableID, icol, u) annotation(Library="ModelicaExternalC");
-    end tableIpo;
+      input Real tableAvailable;
+      output Real y;
+    external"C" y = ModelicaStandardTables_CombiTable1D_getValue(
+            tableID,
+            icol,
+            u) annotation (Library={"ModelicaStandardTables"});
+      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
+    end getTableValue;
+
+    function getDerTableValue
+      "Derivative of interpolated 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      input Real tableAvailable;
+      input Real der_u;
+      output Real der_y;
+    external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(
+            tableID,
+            icol,
+            u,
+            der_u) annotation (Library={"ModelicaStandardTables"});
+    end getDerTableValue;
+
+  initial algorithm
+    if tableOnFile then
+      tableOnFileRead := readTableData(tableID, 0);
+    else
+      tableOnFileRead := 1.;
+    end if;
   equation
     if tableOnFile then
-      assert(tableName<>"NoName", "tableOnFile = true and no table name given");
+      assert(tableName <> "NoName",
+        "tableOnFile = true and no table name given");
+    else
+      assert(size(table, 1) > 0 and size(table, 2) > 0,
+        "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    if not tableOnFile then
-      assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
-    end if;
-
     for i in 1:n loop
-      y[i] = if not tableOnFile and size(table,1)==1 then
-               table[1, columns[i]] else tableIpo(tableID, columns[i], u[i]);
+      y[i] = getTableValue(
+          tableID,
+          i,
+          u[i],
+          tableOnFileRead);
     end for;
-    when initial() then
-      tableID=tableInit(if tableOnFile then tableName else "NoName",
-                        if tableOnFile then Modelica.Utilities.Files.loadResource(fileName)
-                                       else "NoName", table, smoothness);
-    end when;
     annotation (
       Documentation(info="<html>
 <p>
@@ -101,8 +134,7 @@ other columns contain the data to be interpolated. Example:
      u[i] &gt; table[size(table,1),i+1] or u[i] &lt; table[1,1], the corresponding
      value is also determined by linear
      interpolation through the last or first two points of the table.</li>
-<li> The grid values (first column) have to be <b>strict</b>
-     monotonically increasing.</li>
+<li> The grid values (first column) have to be strictly increasing.</li>
 </ul>
 <p>
 The table matrix can be defined in the following ways:
@@ -115,24 +147,30 @@ The table matrix can be defined in the following ways:
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
 <li> <b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
-      \"tableName\". Both ASCII and binary file format is possible.
-      (the ASCII format is described below).
-      It is most convenient to generate the binary file from Matlab
-      (Matlab 4 storage format), e.g., by command
+      \"tableName\". Both ASCII and MAT-file format is possible.
+      (The ASCII format is described below).
+      The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+      The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+      It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg
+      by command
 <pre>
-   save tables.mat tab1 tab2 tab3 -V4
+   save tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be
-      used from the model.</li>
+      or Scilab by command
+<pre>
+   savematfile tables.mat tab1 tab2 tab3
+</pre>
+      when the three tables tab1, tab2, tab3 should be used from the model.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks.</li>
+      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
+      preferred as otherwise the table is reallocated and transposed.</li>
 </ol>
 <p>
-Table definition methods (1) and (3) do <b>not</b> allocate dynamic memory,
-and do not access files, whereas method (2) does. Therefore (1) and (3)
-are suited for hardware-in-the-loop simulation (e.g., with dSpace hardware).
-When the constant \"NO_FILE\" is defined in \"usertab.c\", all parts of the
+Table definition methods (1) and (3) (if row-wise storage) do <b>not</b> allocate
+dynamic memory, and do not access files, whereas method (2) does. Therefore (1)
+and (3) are suited for hardware-in-the-loop simulation (e.g., with dSPACE hardware).
+When the constant \"NO_FILE_SYSTEM\" is defined, all parts of the
 source code of method (2) are removed by the C-preprocessor, such that
 no dynamic memory allocation and no access to files takes place.
 </p>
@@ -164,7 +202,11 @@ with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
-</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+</html>"),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
@@ -249,70 +291,102 @@ Several matrices may be defined one after another.
 
   model CombiTable1Ds
     "Table look-up in one dimension (matrix/file) with one input and n outputs"
-
-    import Modelica.Blocks.Types;
+    extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
     parameter Boolean tableOnFile=false
       "true, if table is defined on file or in function usertab"
-      annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2)
-      "table matrix (grid = first column; e.g., table=[0,2])"
-         annotation(Dialog(group="table data definition", enable = not tableOnFile));
+      annotation (Dialog(group="Table data definition"));
+    parameter Real table[:, :]=fill(
+          0.0,
+          0,
+          2) "Table matrix (grid = first column; e.g., table=[0,2])"
+      annotation (Dialog(group="Table data definition",enable=not tableOnFile));
     parameter String tableName="NoName"
-      "table name on file or in function usertab (see docu)"
-         annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored"
-         annotation(Dialog(group="table data definition", enable = tableOnFile,
-                           loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
-                           caption="Open file in which table is present")));
+      "Table name on file or in function usertab (see docu)"
+      annotation (Dialog(group="Table data definition",enable=tableOnFile));
+    parameter String fileName="NoName" "File where matrix is stored"
+      annotation (Dialog(
+        group="Table data definition",
+        enable=tableOnFile,
+        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
+            caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2)
-      "columns of table to be interpolated"
-    annotation(Dialog(group="table data interpretation"));
-    parameter Modelica.Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
-      "smoothness of table interpolation"
-    annotation(Dialog(group="table data interpretation"));
-    extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
-
+      "Columns of table to be interpolated"
+      annotation (Dialog(group="Table data interpretation"));
+    parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
+      "Smoothness of table interpolation"
+      annotation (Dialog(group="Table data interpretation"));
   protected
-    Integer tableID;
+    Modelica.Blocks.Types.ExternalCombiTable1D tableID=
+        Modelica.Blocks.Types.ExternalCombiTable1D(
+          if tableOnFile then tableName else "NoName",
+          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName)
+           else "NoName",
+          table,
+          columns,
+          smoothness) "External table object";
+    parameter Real tableOnFileRead(fixed=false)
+      "= 1, if table was successfully read from file";
 
-    function tableInit
-      "Initialize 1-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
-      input String tableName;
-      input String fileName;
-      input Real table[ :, :];
-      input Modelica.Blocks.Types.Smoothness smoothness;
-      output Integer tableID;
-    external "C" tableID = ModelicaTables_CombiTable1D_init(
-                   tableName, fileName, table, size(table, 1), size(table, 2),
-                   smoothness) annotation(Library="ModelicaExternalC");
-    end tableInit;
+    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer forceRead "Force reading of table data";
+      output Real readSuccess "Table read success";
+    external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID,
+        forceRead) annotation (Library={"ModelicaStandardTables"});
+    end readTableData;
 
-    function tableIpo
-      "Interpolate 1-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
-      input Integer tableID;
+    function getTableValue "Interpolate 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      output Real value;
-    external "C" value =
-                       ModelicaTables_CombiTable1D_interpolate(tableID, icol, u) annotation(Library="ModelicaExternalC");
-    end tableIpo;
+      input Real tableAvailable;
+      output Real y;
+    external"C" y = ModelicaStandardTables_CombiTable1D_getValue(
+            tableID,
+            icol,
+            u) annotation (Library={"ModelicaStandardTables"});
+      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
+    end getTableValue;
 
+    function getDerTableValue
+      "Derivative of interpolated 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      input Real tableAvailable;
+      input Real der_u;
+      output Real der_y;
+    external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(
+            tableID,
+            icol,
+            u,
+            der_u) annotation (Library={"ModelicaStandardTables"});
+    end getDerTableValue;
+
+  initial algorithm
+    if tableOnFile then
+      tableOnFileRead := readTableData(tableID, 0);
+    else
+      tableOnFileRead := 1.;
+    end if;
   equation
     if tableOnFile then
-      assert(tableName<>"NoName", "tableOnFile = true and no table name given");
+      assert(tableName <> "NoName",
+        "tableOnFile = true and no table name given");
+    else
+      assert(size(table, 1) > 0 and size(table, 2) > 0,
+        "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    if not tableOnFile then
-      assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
-    end if;
-
     for i in 1:nout loop
-      y[i] = if not tableOnFile and size(table,1)==1 then
-               table[1, columns[i]] else tableIpo(tableID, columns[i], u);
+      y[i] = getTableValue(
+          tableID,
+          i,
+          u,
+          tableOnFileRead);
     end for;
-    when initial() then
-      tableID=tableInit(if tableOnFile then tableName else "NoName",
-                        if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName", table, smoothness);
-    end when;
     annotation (
       Documentation(info="<html>
 <p>
@@ -347,8 +421,7 @@ other columns contain the data to be interpolated. Example:
      u &gt; table[size(table,1),1] or u &lt; table[1,1], the corresponding
      value is also determined by linear
      interpolation through the last or first two points of the table.</li>
-<li> The grid values (first column) have to be <b>strict</b>
-     monotonically increasing.</li>
+<li> The grid values (first column) have to be strictly increasing.</li>
 </ul>
 <p>
 The table matrix can be defined in the following ways:
@@ -361,24 +434,30 @@ The table matrix can be defined in the following ways:
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
 <li> <b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
-      \"tableName\". Both ASCII and binary file format is possible.
-      (the ASCII format is described below).
-      It is most convenient to generate the binary file from Matlab
-      (Matlab 4 storage format), e.g., by command
+      \"tableName\". Both ASCII and MAT-file format is possible.
+      (The ASCII format is described below).
+      The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+      The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+      It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg
+      by command
 <pre>
-   save tables.mat tab1 tab2 tab3 -V4
+   save tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be
-      used from the model.</li>
+      or Scilab by command
+<pre>
+   savematfile tables.mat tab1 tab2 tab3
+</pre>
+      when the three tables tab1, tab2, tab3 should be used from the model.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks.</li>
+      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
+      preferred as otherwise the table is reallocated and transposed.</li>
 </ol>
 <p>
-Table definition methods (1) and (3) do <b>not</b> allocate dynamic memory,
-and do not access files, whereas method (2) does. Therefore (1) and (3)
-are suited for hardware-in-the-loop simulation (e.g., with dSpace hardware).
-When the constant \"NO_FILE\" is defined, all parts of the
+Table definition methods (1) and (3) (if row-wise storage) do <b>not</b> allocate
+dynamic memory, and do not access files, whereas method (2) does. Therefore (1)
+and (3) are suited for hardware-in-the-loop simulation (e.g., with dSPACE hardware).
+When the constant \"NO_FILE_SYSTEM\" is defined, all parts of the
 source code of method (2) are removed by the C-preprocessor, such that
 no dynamic memory allocation and no access to files takes place.
 </p>
@@ -410,7 +489,11 @@ with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
-</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+</html>"),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
@@ -493,66 +576,100 @@ Several matrices may be defined one after another.
             lineColor={0,0,255})}));
   end CombiTable1Ds;
 
-  model CombiTable2D "Table look-up in two dimensions (matrix/file) "
-
-    import Modelica.Blocks.Types;
+  model CombiTable2D "Table look-up in two dimensions (matrix/file)"
     extends Modelica.Blocks.Interfaces.SI2SO;
-
     parameter Boolean tableOnFile=false
       "true, if table is defined on file or in function usertab"
-      annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2)
-      "table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0,0;0,1])"
-         annotation(Dialog(group="table data definition", enable = not tableOnFile));
+      annotation (Dialog(group="Table data definition"));
+    parameter Real table[:, :]=fill(
+          0.0,
+          0,
+          2)
+      "Table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0,0;0,1])"
+      annotation (Dialog(group="Table data definition",enable=not tableOnFile));
     parameter String tableName="NoName"
-      "table name on file or in function usertab (see docu)"
-         annotation(Dialog(group="table data definition", enable = tableOnFile));
-    parameter String fileName="NoName" "file where matrix is stored"
-         annotation(Dialog(group="table data definition", enable = tableOnFile,
-                           loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
-                           caption="Open file in which table is present")));
-    parameter Modelica.Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
-      "smoothness of table interpolation"
-    annotation(Dialog(group="table data interpretation"));
+      "Table name on file or in function usertab (see docu)"
+      annotation (Dialog(group="Table data definition",enable=tableOnFile));
+    parameter String fileName="NoName" "File where matrix is stored"
+      annotation (Dialog(
+        group="Table data definition",
+        enable=tableOnFile,
+        loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
+            caption="Open file in which table is present")));
+    parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
+      "Smoothness of table interpolation"
+      annotation (Dialog(group="Table data interpretation"));
   protected
-    Integer tableID;
+    Modelica.Blocks.Types.ExternalCombiTable2D tableID=
+        Modelica.Blocks.Types.ExternalCombiTable2D(
+          if tableOnFile then tableName else "NoName",
+          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName)
+           else "NoName",
+          table,
+          smoothness) "External table object";
+    parameter Real tableOnFileRead(fixed=false)
+      "= 1, if table was successfully read from file";
 
-    function tableInit
-      "Initialize 2-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
+    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Integer forceRead "Force reading of table data";
+      output Real readSuccess "Table read success";
+    external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
+        forceRead) annotation (Library={"ModelicaStandardTables"});
+    end readTableData;
 
-      input String tableName;
-      input String fileName;
-      input Real table[ :, :];
-      input Modelica.Blocks.Types.Smoothness smoothness;
-      output Integer tableID;
-    external "C" tableID = ModelicaTables_CombiTable2D_init(
-                   tableName, fileName, table, size(table, 1), size(table, 2),
-                   smoothness) annotation(Library="ModelicaExternalC");
-    end tableInit;
-
-    function tableIpo
-      "Interpolate 2-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
-      input Integer tableID;
+    function getTableValue "Interpolate 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Real u1;
       input Real u2;
-      output Real value;
-    external "C" value =
-                       ModelicaTables_CombiTable2D_interpolate(tableID, u1, u2) annotation(Library="ModelicaExternalC");
-    end tableIpo;
+      input Real tableAvailable;
+      output Real y;
+    external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
+            tableID,
+            u1,
+            u2) annotation (Library={"ModelicaStandardTables"});
+      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
+    end getTableValue;
 
+    function getDerTableValue
+      "Derivative of interpolated 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      input Real tableAvailable;
+      input Real der_u1;
+      input Real der_u2;
+      output Real der_y;
+    external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(
+            tableID,
+            u1,
+            u2,
+            der_u1,
+            der_u2) annotation (Library={"ModelicaStandardTables"});
+    end getDerTableValue;
+
+  initial algorithm
+    if tableOnFile then
+      tableOnFileRead := readTableData(tableID, 0);
+    else
+      tableOnFileRead := 1.;
+    end if;
   equation
     if tableOnFile then
-      assert(tableName<>"NoName", "tableOnFile = true and no table name given");
+      assert(tableName <> "NoName",
+        "tableOnFile = true and no table name given");
+    else
+      assert(size(table, 1) > 0 and size(table, 2) > 0,
+        "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    if not tableOnFile then
-      assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
-    end if;
-
-    y = tableIpo(tableID, u1, u2);
-    when initial() then
-      tableID=tableInit(if tableOnFile then tableName else "NoName",
-                        if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName", table, smoothness);
-    end when;
+    y = getTableValue(
+        tableID,
+        u1,
+        u2,
+        tableOnFileRead);
     annotation (
       Documentation(info="<html>
 <p>
@@ -585,15 +702,15 @@ Example:
        e.g., the input u is [2.0;1.5], the output y is 3.0.
 </pre>
 <ul>
-<li> The interpolation is <b>efficient</b>, because a search for a new interpolation
-     starts at the interval used in the last call.</li>
+<li> The interpolation is <b>efficient</b>, because a search for a new
+     interpolation starts at the interval used in the last call.</li>
 <li> If the table has only <b>one element</b>, the table value is returned,
      independent of the value of the input signal.</li>
-<li> If the input signal <b>u1</b> or <b>u2</b> is <b>outside</b> of the defined <b>interval</b>,
-     the corresponding value is also determined by linear
+<li> If the input signal <b>u1</b> or <b>u2</b> is <b>outside</b> of the defined
+     <b>interval</b>, the corresponding value is also determined by linear
      interpolation through the last or first two points of the table.</li>
-<li> The grid values (first column and first row) have to be <b>strict</b>
-     monotonically increasing.</li>
+<li> The grid values (first column and first row) have to be strictly
+     increasing.</li>
 </ul>
 <p>
 The table matrix can be defined in the following ways:
@@ -606,24 +723,30 @@ The table matrix can be defined in the following ways:
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
 <li> <b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
-      \"tableName\". Both ASCII and binary file format is possible.
-      (the ASCII format is described below).
-      It is most convenient to generate the binary file from Matlab
-      (Matlab 4 storage format), e.g., by command
+      \"tableName\". Both ASCII and MAT-file format is possible.
+      (The ASCII format is described below).
+      The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+      The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+      It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg
+      by command
 <pre>
-   save tables.mat tab1 tab2 tab3 -V4
+   save tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be
-      used from the model.</li>
+      or Scilab by command
+<pre>
+   savematfile tables.mat tab1 tab2 tab3
+</pre>
+      when the three tables tab1, tab2, tab3 should be used from the model.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks.</li>
+      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
+      preferred as otherwise the table is reallocated and transposed.</li>
 </ol>
 <p>
-Table definition methods (1) and (3) do <b>not</b> allocate dynamic memory,
-and do not access files, whereas method (2) does. Therefore (1) and (3)
-are suited for hardware-in-the-loop simulation (e.g., with dSpace hardware).
-When the constant \"NO_FILE\" is defined, all parts of the
+Table definition methods (1) and (3) (if row-wise storage) do <b>not</b> allocate
+dynamic memory, and do not access files, whereas method (2) does. Therefore (1)
+and (3) are suited for hardware-in-the-loop simulation (e.g., with dSPACE hardware).
+When the constant \"NO_FILE_SYSTEM\" is defined, all parts of the
 source code of method (2) are removed by the C-preprocessor, such that
 no dynamic memory allocation and no access to files takes place.
 </p>
@@ -657,8 +780,11 @@ as if the matrix is given as a parameter. For example, the first
 column \"table2D_1[2:,1]\" contains the u[1] grid points,
 and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 </p>
-
-</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+</html>"),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},

@@ -1,0 +1,220 @@
+within ModelicaTest.Tables;
+package CombiTable1Ds
+  extends Modelica.Icons.ExamplesPackage;
+  partial model Test0
+    Modelica.Blocks.Tables.CombiTable1Ds t_new
+      annotation (Placement(transformation(extent={{-41,0},{-21,20}})));
+    Modelica.Blocks.Continuous.Der d_t_new
+      annotation (Placement(transformation(extent={{0,0},{20,20}})));
+  equation
+    t_new.u = time;
+    connect(t_new.y[1], d_t_new.u) annotation (Line(
+        points={{-20,10},{-2,10}},
+        color={0,0,127},
+        thickness=0.0625));
+  end Test0;
+
+  model Test1 "Single row, t_min = 0"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table={{0,1}}));
+    annotation (experiment(StartTime=0, StopTime=2.5));
+  end Test1;
+
+  model Test2 "Single row, t_min > 0"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table={{0.5,1}}));
+    annotation (experiment(StartTime=0, StopTime=2.5));
+  end Test2;
+
+  model Test3 "Two columns, Akima"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table=[0.3, 0; 0.4, 1; 0.5, 0; 0.6, -1; 0.7, 0],
+          smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test3;
+
+  model Test4 "Three columns, Akima"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table=[0.3, 0, 0; 0.4, 1, -1; 0.5, 0, 0; 0.6, -1, 1;
+            0.7, 0, 0], smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Continuous.Der d_t_new2
+      annotation (Placement(transformation(extent={{-60,25},{-40,45}})));
+  equation
+    connect(t_new.y[2], d_t_new2.u) annotation (Line(
+        points={{-84,35},{-79,35},{-63,35},{-58,35}},
+        color={0,0,127},
+        thickness=0.0625));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test4;
+
+  model Test5 "Third column, Akima"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        table=[0.3, 0, 0; 0.4, 1, -1; 0.5, 0, 0; 0.6, -1, 1; 0.7, 0, 0],
+        columns={3},
+        smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test5;
+
+  model Test6 "Three columns, Akima"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        table=[0.3, 0, 0; 0.4, 1, -1; 0.5, 0, 0; 0.6, -1, 1; 0.7, 0, 0],
+        columns={2,3},
+        smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Continuous.Der d_t_new2
+      annotation (Placement(transformation(extent={{-60,25},{-40,45}})));
+  equation
+    connect(t_new.y[2], d_t_new2.u) annotation (Line(
+        points={{-84,35},{-79,35},{-63,35},{-58,35}},
+        color={0,0,127},
+        thickness=0.0625));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test6;
+
+  model Test7 "Two rows, t_min = 0"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table={{0,1},{1,0}}));
+    annotation (experiment(StartTime=0, StopTime=2.5));
+  end Test7;
+
+  model Test8 "Two rows, t_min > 0"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table={{0.25,1},{1.25,0}}));
+    annotation (experiment(StartTime=0, StopTime=2.5));
+  end Test8;
+/*
+  model Test9 "Two rows, t_min = 0, hold last value"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table={{0,1},{1,0}}, extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+    annotation (experiment(StartTime=0, StopTime=2.5));
+  end Test9;
+
+  model Test10 "Two rows, t_min > 0, hold last value"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table={{0.25,1},{1.25,0}}, extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+    annotation (experiment(StartTime=0, StopTime=2.5));
+  end Test10;
+*/
+  model Test11 "Three rows, t_min = 0"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table={{0,1},{0.5,2},{1,0}}));
+    annotation (experiment(StartTime=0, StopTime=2.5));
+  end Test11;
+
+  model Test12 "Three rows, t_min > 0"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table={{0,1},{0.5,2},{1,0}}));
+    annotation (experiment(StartTime=0, StopTime=2.5));
+  end Test12;
+/*
+  model Test13 "Three rows, t_min = 0, hold last value"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table={{0,1},{0.5,2},{1,0}}, extrapolation=
+            Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+    annotation (experiment(StartTime=0, StopTime=2.5));
+  end Test13;
+
+  model Test14 "Three rows, t_min > 0, hold last value"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table={{0,1},{0.5,2},{1,0}}, extrapolation=
+            Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+    annotation (experiment(StartTime=0, StopTime=2.5));
+  end Test14;
+*/
+  model Test15 "Problematic Akima"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table=[0, 5; 1, 3; 2, 1; 3, 1; 4, 1; 5, 3], smoothness=
+            Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    annotation (experiment(StartTime=0, StopTime=3));
+  end Test15;
+
+  model Test16 "Problematic Akima, flipped"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(table=[0, 3; 1, 1; 2, 1; 3, 1; 4, 3; 5, 5], smoothness=
+            Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    annotation (experiment(StartTime=0, StopTime=3));
+  end Test16;
+/*
+  model Test17 "Constant segments, hold last value"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        table=[0, 0; 2.5, 1; 3, 0],
+        smoothness=Types.Smoothness.ConstantSegments,
+        extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
+    annotation (experiment(StartTime=0, StopTime=3.5));
+  end Test17;
+*/
+  model Test18 "ASCII Text file (Very long line length)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="longLine",
+        fileName="modelica://Modelica/Resources/Data/Tables/test.txt",
+        columns={2,2500}));
+    Modelica.Blocks.Continuous.Der d_t_new2
+      annotation (Placement(transformation(extent={{-60,25},{-40,45}})));
+  equation
+    connect(t_new.y[2], d_t_new2.u) annotation (Line(
+        points={{-84,35},{-79,35},{-63,35},{-58,35}},
+        color={0,0,127},
+        thickness=0.0625));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test18;
+
+  model Test19 "MAT-File v4"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="a",
+        fileName="modelica://Modelica/Resources/Data/Tables/test_v4.mat"));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test19;
+
+  model Test20 "MAT-File v6"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="a",
+        fileName="modelica://Modelica/Resources/Data/Tables/test_v6.mat"));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test20;
+
+  model Test21 "MAT-File v7"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="a",
+        fileName="modelica://Modelica/Resources/Data/Tables/test_v7.mat"));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test21;
+
+  /*
+  model Test22 "MAT-File v7.3"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="a",
+        fileName="modelica://Modelica/Resources/Data/Tables/test_v7.3.mat"));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test22;
+*/
+  model Test23 "ASCII Text file"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="a",
+        fileName="modelica://Modelica/Resources/Data/Tables/test.txt"));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test23;
+
+  model Test24 "ASCII Text file (TAB separated)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+        tableOnFile=true,
+        tableName="a_tab",
+        fileName="modelica://Modelica/Resources/Data/Tables/test.txt"));
+    annotation (experiment(StartTime=0, StopTime=100));
+  end Test24;
+
+end CombiTable1Ds;

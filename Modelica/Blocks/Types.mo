@@ -2,10 +2,14 @@ within Modelica.Blocks;
 package Types
   "Library of constants and types with choices, especially to build menus"
   extends Modelica.Icons.Package;
+
   type Smoothness = enumeration(
       LinearSegments "Table points are linearly interpolated",
       ContinuousDerivative
-        "Table points are interpolated such that the first derivative is continuous")
+        "Table points are interpolated such that the first derivative is continuous",
+
+      ConstantSegments
+        "Table points are not interpolated, but the value from the previous abscissa point is returned")
     "Enumeration defining the smoothness of table interpolation";
 
   type Extrapolation = enumeration(
@@ -13,7 +17,8 @@ package Types
       LastTwoPoints
         "Extrapolate linearly through the last two table points outside of the table scope",
 
-      Periodic "Repeat the table scope periodically")
+      Periodic "Repeat the table scope periodically",
+      NoExtrapolation "Extrapolation triggers an error")
     "Enumeration defining the extrapolation of time table interpolation";
 
   type Init = enumeration(
@@ -25,8 +30,7 @@ package Types
       InitialState "Initialization with initial states",
       InitialOutput
         "Initialization with initial outputs (and steady state of the states if possible)")
-    "Enumeration defining initialization of a block"
-    annotation(Evaluate=true);
+    "Enumeration defining initialization of a block" annotation (Evaluate=true);
 
   type InitPID = enumeration(
       NoInit
@@ -40,8 +44,8 @@ package Types
 
       DoNotUse_InitialIntegratorState
         "Don not use, only for backward compatibility (initialize only integrator state)")
-    "Enumeration defining initialization of PID and LimPID blocks"
-    annotation (Evaluate=true, Documentation(info="<html>
+    "Enumeration defining initialization of PID and LimPID blocks" annotation (
+      Evaluate=true, Documentation(info="<html>
 <p>
 This initialization type is identical to Types.Init and has just one
 additional option <b>DoNotUse_InitialIntegratorState</b>. This option
@@ -60,26 +64,116 @@ initialization definition.
       PI "PI controller",
       PD "PD controller",
       PID "PID controller")
-    "Enumeration defining P, PI, PD, or PID simple controller type"
-    annotation(Evaluate=true);
+    "Enumeration defining P, PI, PD, or PID simple controller type" annotation
+    (Evaluate=true);
 
-type AnalogFilter = enumeration(
+  type AnalogFilter = enumeration(
       CriticalDamping "Filter with critical damping",
       Bessel "Bessel filter",
       Butterworth "Butterworth filter",
       ChebyshevI "Chebyshev I filter")
-    "Enumeration defining the method of filtering"
-    annotation(Evaluate=true);
+    "Enumeration defining the method of filtering" annotation (Evaluate=true);
 
-type FilterType = enumeration(
+  type FilterType = enumeration(
       LowPass "Low pass filter",
       HighPass "High pass filter",
       BandPass "Band pass filter",
       BandStop "Band stop / notch filter")
     "Enumeration of analog filter types (low, high, band pass or band stop filter"
-    annotation(Evaluate=true);
+    annotation (Evaluate=true);
 
-  annotation ( Documentation(info="<HTML>
+  class ExternalCombiTimeTable
+    "External object of  1-dim. table where first column is time"
+    extends ExternalObject;
+
+    function constructor "Initialize 1-dim. table where first column is time"
+      input String tableName "Table name";
+      input String fileName "File name";
+      input Real table[:, :];
+      input Modelica.SIunits.Time startTime;
+      input Integer columns[:];
+      input Modelica.Blocks.Types.Smoothness smoothness;
+      input Modelica.Blocks.Types.Extrapolation extrapolation;
+      output ExternalCombiTimeTable externalCombiTimeTable;
+    external"C" externalCombiTimeTable =
+        ModelicaStandardTables_CombiTimeTable_init(
+            tableName,
+            fileName,
+            table,
+            size(table, 1),
+            size(table, 2),
+            startTime,
+            columns,
+            size(columns, 1),
+            smoothness,
+            extrapolation) annotation (Library="ModelicaStandardTables");
+    end constructor;
+
+    function destructor "Terminate 1-dim. table where first column is time"
+      input ExternalCombiTimeTable externalCombiTimeTable;
+    external"C" ModelicaStandardTables_CombiTimeTable_close(
+        externalCombiTimeTable) annotation (Library="ModelicaStandardTables");
+    end destructor;
+
+  end ExternalCombiTimeTable;
+
+  class ExternalCombiTable1D
+    "External object of 1-dim. table defined by matrix"
+    extends ExternalObject;
+
+    function constructor "Initialize 1-dim. table defined by matrix"
+      input String tableName "Table name";
+      input String fileName "File name";
+      input Real table[:, :];
+      input Integer columns[:];
+      input Modelica.Blocks.Types.Smoothness smoothness;
+      output ExternalCombiTable1D externalCombiTable1D;
+    external"C" externalCombiTable1D = ModelicaStandardTables_CombiTable1D_init(
+            tableName,
+            fileName,
+            table,
+            size(table, 1),
+            size(table, 2),
+            columns,
+            size(columns, 1),
+            smoothness) annotation (Library="ModelicaStandardTables");
+    end constructor;
+
+    function destructor "Terminate 1-dim. table defined by matrix"
+      input ExternalCombiTable1D externalCombiTable1D;
+    external"C" ModelicaStandardTables_CombiTable1D_close(externalCombiTable1D)
+        annotation (Library="ModelicaStandardTables");
+    end destructor;
+
+  end ExternalCombiTable1D;
+
+  class ExternalCombiTable2D
+    "External object of 2-dim. table defined by matrix"
+    extends ExternalObject;
+
+    function constructor "Initialize 2-dim. table defined by matrix"
+      input String tableName "Table name";
+      input String fileName "File name";
+      input Real table[:, :];
+      input Modelica.Blocks.Types.Smoothness smoothness;
+      output ExternalCombiTable2D externalCombiTable2D;
+    external"C" externalCombiTable2D = ModelicaStandardTables_CombiTable2D_init(
+            tableName,
+            fileName,
+            table,
+            size(table, 1),
+            size(table, 2),
+            smoothness) annotation (Library="ModelicaStandardTables");
+    end constructor;
+
+    function destructor "Terminate 2-dim. table defined by matrix"
+      input ExternalCombiTable2D externalCombiTable2D;
+    external"C" ModelicaStandardTables_CombiTable2D_close(externalCombiTable2D)
+        annotation (Library="ModelicaStandardTables");
+    end destructor;
+
+  end ExternalCombiTable2D;
+  annotation (Documentation(info="<HTML>
 <p>
 In this package <b>types</b> and <b>constants</b> are defined that are used
 in library Modelica.Blocks. The types have additional annotation choices
