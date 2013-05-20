@@ -65,8 +65,12 @@ package IF97_Utilities
         "the calculated specific entropy at the critical point";
       constant SI.SpecificEnthalpy HCRIT=2087546.84511715
         "the calculated specific enthalpy at the critical point";
-      constant Real[5] n=array(0.34805185628969e3, -0.11671859879975e1,
-          0.10192970039326e-2, 0.57254459862746e3, 0.13918839778870e2)
+      constant Real[5] n=array(
+              0.34805185628969e3,
+              -0.11671859879975e1,
+              0.10192970039326e-2,
+              0.57254459862746e3,
+              0.13918839778870e2)
         "polynomial coefficients for boundary between regions 2 and 3";
       annotation (Documentation(info="<HTML>
  <h4>Record description</h4>
@@ -98,14 +102,11 @@ package IF97_Utilities
       output SI.Temperature Tstar "normalization temperature";
     algorithm
       if region == 1 then
-        Tstar
-       := data.TSTAR1;
+        Tstar := data.TSTAR1;
       elseif region == 2 then
-        Tstar
-       := data.TSTAR2;
+        Tstar := data.TSTAR2;
       else
-        Tstar
-       := data.TSTAR5;
+        Tstar := data.TSTAR5;
       end if;
     end getTstar;
 
@@ -115,14 +116,11 @@ package IF97_Utilities
       output SI.Pressure pstar "normalization pressure";
     algorithm
       if region == 1 then
-        pstar
-       := data.PSTAR1;
+        pstar := data.PSTAR1;
       elseif region == 2 then
-        pstar
-       := data.PSTAR2;
+        pstar := data.PSTAR2;
       else
-        pstar
-       := data.PSTAR5;
+        pstar := data.PSTAR5;
       end if;
     end getpstar;
 
@@ -222,8 +220,9 @@ package IF97_Utilities
       algorithm
         pi := p/1.0e6;
         assert(p > triple.ptriple,
-          "IF97 medium function boundary23ofp called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "IF97 medium function boundary23ofp called with too low pressure\n"
+           + "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         t := n[4] + ((pi - n[5])/n[3])^0.5;
       end boundary23ofp;
 
@@ -238,7 +237,8 @@ package IF97_Utilities
         pi := p/data.PSTAR5;
         assert(p > triple.ptriple,
           "IF97 medium function hlowerofp5 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         h := 461526.*(9.01505286876203 + pi*(-0.00979043490246092 + (-0.0000203245575263501
            + 3.36540214679088e-7*pi)*pi));
       end hlowerofp5;
@@ -254,7 +254,8 @@ package IF97_Utilities
         pi := p/data.PSTAR5;
         assert(p > triple.ptriple,
           "IF97 medium function hupperofp5 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         h := 461526.*(15.9838891400332 + pi*(-0.000489898813722568 + (-5.01510211858761e-8
            + 7.5006972718273e-8*pi)*pi));
       end hupperofp5;
@@ -271,7 +272,8 @@ package IF97_Utilities
         pi := p/data.PSTAR5;
         assert(p > triple.ptriple,
           "IF97 medium function slowerofp5 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         s := 461.526*(18.4296209980112 + pi*(-0.00730911805860036 + (-0.0000168348072093888
            + 2.09066899426354e-7*pi)*pi) - Modelica.Math.log(pi));
       end slowerofp5;
@@ -288,7 +290,8 @@ package IF97_Utilities
         pi := p/data.PSTAR5;
         assert(p > triple.ptriple,
           "IF97 medium function supperofp5 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         s := 461.526*(22.7281531474243 + pi*(-0.000656650220627603 + (-1.96109739782049e-8
            + 2.19979537113031e-8*pi)*pi) - Modelica.Math.log(pi));
       end supperofp5;
@@ -306,7 +309,8 @@ package IF97_Utilities
         pi1 := 7.1 - p/data.PSTAR1;
         assert(p > triple.ptriple,
           "IF97 medium function hlowerofp1 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         o[1] := pi1*pi1;
         o[2] := o[1]*o[1];
         o[3] := o[2]*o[2];
@@ -331,7 +335,8 @@ package IF97_Utilities
         pi1 := 7.1 - p/data.PSTAR1;
         assert(p > triple.ptriple,
           "IF97 medium function hupperofp1 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         o[1] := pi1*pi1;
         o[2] := o[1]*o[1];
         o[3] := o[2]*o[2];
@@ -356,7 +361,8 @@ package IF97_Utilities
         pi1 := 7.1 - p/data.PSTAR1;
         assert(p > triple.ptriple,
           "IF97 medium function slowerofp1 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         o[1] := pi1*pi1;
         o[2] := o[1]*o[1];
         o[3] := o[2]*o[2];
@@ -381,7 +387,8 @@ package IF97_Utilities
         pi1 := 7.1 - p/data.PSTAR1;
         assert(p > triple.ptriple,
           "IF97 medium function supperofp1 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         o[1] := pi1*pi1;
         o[2] := o[1]*o[1];
         o[3] := o[2]*o[2];
@@ -408,7 +415,8 @@ package IF97_Utilities
         pi := p/data.PSTAR2;
         assert(p > triple.ptriple,
           "IF97 medium function hlowerofp2 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         q1 := 572.54459862746 + 31.3220101646784*(-13.91883977887 + pi)^0.5;
         q2 := -0.5 + 540./q1;
         o[1] := q1*q1;
@@ -469,7 +477,8 @@ package IF97_Utilities
         pi := p/data.PSTAR2;
         assert(p > triple.ptriple,
           "IF97 medium function hupperofp2 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         o[1] := pi*pi;
         o[2] := o[1]*o[1]*o[1];
         h := 4.16066337647071e6 + pi*(-4518.48617188327 + pi*(-8.53409968320258
@@ -497,7 +506,8 @@ package IF97_Utilities
         pi := p/data.PSTAR2;
         assert(p > triple.ptriple,
           "IF97 medium function slowerofp2 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         q1 := 572.54459862746 + 31.3220101646784*(-13.91883977887 + pi)^0.5;
         q2 := -0.5 + 540.0/q1;
         o[1] := pi*pi;
@@ -609,7 +619,8 @@ package IF97_Utilities
         pi := p/data.PSTAR2;
         assert(p > triple.ptriple,
           "IF97 medium function supperofp2 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         o[1] := pi*pi;
         o[2] := o[1]*o[1]*o[1];
         s := 8505.73409708683 - 461.526*Modelica.Math.log(pi) + pi*(-3.36563543302584
@@ -783,13 +794,12 @@ package IF97_Utilities
       protected
         Real x "auxiliary variable";
       algorithm
-          // documentation of accuracy in notebook ~hubertus/props/IAPWS/R3Approx.nb
+        // documentation of accuracy in notebook ~hubertus/props/IAPWS/R3Approx.nb
         // boundary between region IVa and III
         x := Modelica.Math.acos(p/data.PCRIT);
         h := (1 + x*(-0.4945586958175176 + x*(1.346800016564904 + x*(-3.889388153209752
            + x*(6.679385472887931 + x*(-6.75820241066552 + x*(3.558919744656498
-           + (-0.7179818554978939 - 0.0001152032945617821*x)*x)))))))*data.
-          HCRIT;
+           + (-0.7179818554978939 - 0.0001152032945617821*x)*x)))))))*data.HCRIT;
       end hl_p_R4b;
 
       function hv_p_R4b
@@ -834,7 +844,7 @@ package IF97_Utilities
         Real x "auxiliary variable";
       algorithm
 
-          // documentation of accuracy in notebook ~hubertus/props/IAPWS/R3Approx.nb
+        // documentation of accuracy in notebook ~hubertus/props/IAPWS/R3Approx.nb
         // boundary between region IVa and III
         x := Modelica.Math.acos(p/data.PCRIT);
         s := (1 + x*(0.35682641826674344 + x*(0.1642457027815487 + x*(-4.425350377422446
@@ -875,8 +885,7 @@ package IF97_Utilities
           dv := (1 + x*(-1.8463850803362596 + x*(-1.1447872718878493 + x*(
             59.18702203076563 + x*(-403.5391431811611 + x*(1437.2007245332388
              + x*(-3015.853540307519 + x*(3740.5790348670057 + x*(-2537.375817253895
-             + (725.8761975803782 - 0.0011151111658332337*x)*x)))))))))*data.
-            DCRIT;
+             + (725.8761975803782 - 0.0011151111658332337*x)*x)))))))))*data.DCRIT;
         else
           dv := data.DCRIT;
         end if;
@@ -890,7 +899,7 @@ package IF97_Utilities
         Common.GibbsDerivs g "dimensionless Gibbs function and derivatives";
         Common.HelmholtzDerivs f
           "dimensionless Helmholtz function and derivatives";
-        SI.Pressure plim=min(p, data.PCRIT-1e-7)
+        SI.Pressure plim=min(p, data.PCRIT - 1e-7)
           "pressure limited to critical pressure - epsilon";
       algorithm
         bpro.R := data.RH2O;
@@ -927,7 +936,7 @@ package IF97_Utilities
         Common.GibbsDerivs g "dimensionless Gibbs function and derivatives";
         Common.HelmholtzDerivs f
           "dimensionless Helmholtz function and derivatives";
-        SI.Pressure plim=min(p, data.PCRIT-1e-7)
+        SI.Pressure plim=min(p, data.PCRIT - 1e-7)
           "pressure limited to critical pressure - epsilon";
       algorithm
         bpro.R := data.RH2O;
@@ -977,7 +986,7 @@ package IF97_Utilities
         output SI.SpecificEnthalpy h "specific enthalpy";
       algorithm
         h := hvl_p(p, boilingcurve_p(p));
-      annotation(Inline = true);
+        annotation (Inline=true);
       end hl_p;
 
       function hv_p
@@ -988,7 +997,7 @@ package IF97_Utilities
         output SI.SpecificEnthalpy h "specific enthalpy";
       algorithm
         h := hvl_p(p, dewcurve_p(p));
-        annotation(Inline = true);
+        annotation (Inline=true);
       end hv_p;
 
       function hvl_p_der
@@ -1008,7 +1017,7 @@ package IF97_Utilities
         else
           h_der := (1/bpro.d - bpro.T*bpro.vt)*p_der + bpro.cp/bpro.dpT*p_der;
         end if;
-        annotation(Inline = true);
+        annotation (Inline=true);
       end hvl_p_der;
 
       function rhovl_p
@@ -1030,7 +1039,7 @@ package IF97_Utilities
         output SI.Density rho "density of steam at the condensation point";
       algorithm
         rho := rhovl_p(p, boilingcurve_p(p));
-        annotation(Inline = true);
+        annotation (Inline=true);
       end rhol_p;
 
       function rhov_p "density of saturated vapour"
@@ -1039,7 +1048,7 @@ package IF97_Utilities
         output SI.Density rho "density of steam at the condensation point";
       algorithm
         rho := rhovl_p(p, dewcurve_p(p));
-        annotation(Inline = true);
+        annotation (Inline=true);
       end rhov_p;
 
       function rhovl_p_der
@@ -1051,7 +1060,7 @@ package IF97_Utilities
       algorithm
         d_der := if bpro.region3boundary then (p_der - bpro.pt*p_der/bpro.dpT)/
           bpro.pd else -bpro.d*bpro.d*(bpro.vp + bpro.vt/bpro.dpT)*p_der;
-        annotation(Inline = true);
+        annotation (Inline=true);
       end rhovl_p_der;
 
       function sl_p
@@ -1119,7 +1128,7 @@ package IF97_Utilities
         SI.Pressure p "saturation pressure";
       algorithm
 
-          // assert(T <= data.TCRIT,"input temperature has to be below the critical temperature");
+        // assert(T <= data.TCRIT,"input temperature has to be below the critical temperature");
         p := Basic.psat(T);
         if T < data.TLIMIT1 then
           d := d2n(p, T);
@@ -1133,11 +1142,12 @@ package IF97_Utilities
       function region_ph
         "return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-       input SI.Pressure p "pressure";
-       input SI.SpecificEnthalpy h "specific enthalpy";
-       input Integer phase=0
+        input SI.Pressure p "pressure";
+        input SI.SpecificEnthalpy h "specific enthalpy";
+        input Integer phase=0
           "phase: 2 for two-phase, 1 for one phase, 0 if not known";
-       input Integer mode=0 "mode: 0 means check, otherwise assume region=mode";
+        input Integer mode=0
+          "mode: 0 means check, otherwise assume region=mode";
         output Integer region "region (valid values: 1,2,3,4,5) in IF97";
         // If mode is different from 0, no checking for the region is done and
         // the mode is assumed to be the correct region. This can be used to
@@ -1159,10 +1169,9 @@ package IF97_Utilities
             region := 4;
           else
             // phase == 1 or 0, now check if we are in the legal area
-            if
-              (p < triple.ptriple) or (p > data.PLIMIT1) or (h < hlowerofp1(p)) or
-              ((p < 10.0e6) and (h > hupperofp5(p)))
-              or ((p >= 10.0e6) and (h > hupperofp2(p))) then
+            if (p < triple.ptriple) or (p > data.PLIMIT1) or (h < hlowerofp1(p))
+                 or ((p < 10.0e6) and (h > hupperofp5(p))) or ((p >= 10.0e6)
+                 and (h > hupperofp2(p))) then
               // outside of valid range
               region := -1;
             else
@@ -1175,7 +1184,7 @@ package IF97_Utilities
                   if (phase == 1) then
                     region := 1;
                   else
-                    if (h < Isentropic.hofpT1(p,Basic.tsat(p))) then
+                    if (h < Isentropic.hofpT1(p, Basic.tsat(p))) then
                       region := 1;
                     else
                       region := 4;
@@ -1196,12 +1205,13 @@ package IF97_Utilities
                     if (phase == 1) then
                       region := 2;
                     else
-                      if (h > Isentropic.hofpT2(p,Basic.tsat(p))) then
+                      if (h > Isentropic.hofpT2(p, Basic.tsat(p))) then
                         region := 2;
                       else
                         region := 4;
                       end if;
-                    end if;  // external or internal phase check
+                    end if;
+                    // external or internal phase check
                   end if;
                   // tests for region 2 or 5
                 end if;
@@ -1213,10 +1223,10 @@ package IF97_Utilities
                   if h < hupperofp1(p) then
                     region := 1;
                   else
-                    if h < hl  or p > data.PCRIT then
+                    if h < hl or p > data.PCRIT then
                       region := 3;
                     else
-                      region :=4;
+                      region := 4;
                     end if;
                   end if;
                   // end of test for region 1, 3 or 4
@@ -1225,7 +1235,7 @@ package IF97_Utilities
                   if (h > hlowerofp2(p)) then
                     region := 2;
                   else
-                    if h > hv  or p > data.PCRIT then
+                    if h > hv or p > data.PCRIT then
                       region := 3;
                     else
                       region := 4;
@@ -1248,12 +1258,12 @@ package IF97_Utilities
       function region_ps
         "return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific entropy"
         extends Modelica.Icons.Function;
-       input SI.Pressure p "pressure";
-       input SI.SpecificEntropy s "specific entropy";
-       input Integer phase=
-                      0 "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
-       input Integer mode=
-                     0 "mode: 0 means check, otherwise assume region=mode";
+        input SI.Pressure p "pressure";
+        input SI.SpecificEntropy s "specific entropy";
+        input Integer phase=0
+          "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
+        input Integer mode=0
+          "mode: 0 means check, otherwise assume region=mode";
         output Integer region "region (valid values: 1,2,3,4,5) in IF97";
         //  If mode is different from 0, no checking for the region is done and
         //    the mode is assumed to be the correct region. This can be used to
@@ -1272,7 +1282,8 @@ package IF97_Utilities
           sl := sl_p(p);
           sv := sv_p(p);
           // check all cases two-phase
-          if (phase == 2) or (phase == 0 and s > sl and s < sv and p < data.PCRIT) then
+          if (phase == 2) or (phase == 0 and s > sl and s < sv and p < data.PCRIT)
+               then
             region := 4;
           else
             // phase == 1
@@ -1290,7 +1301,8 @@ package IF97_Utilities
               region := -6;
             end if;
             if region < 0 then
-              assert(false, "region computation from p and s failed: function called outside the legal region");
+              assert(false,
+                "region computation from p and s failed: function called outside the legal region");
             else
               ssubcrit := (s < data.SCRIT);
               // simple precheck: very simple if pressure < PLIMIT4A
@@ -1320,7 +1332,7 @@ package IF97_Utilities
                   if s < supperofp1(p) then
                     region := 1;
                   else
-                    if s < sl  or p > data.PCRIT then
+                    if s < sl or p > data.PCRIT then
                       region := 3;
                     else
                       region := 4;
@@ -1332,7 +1344,7 @@ package IF97_Utilities
                   if (s > slowerofp2(p)) then
                     region := 2;
                   else
-                    if s > sv  or p > data.PCRIT then
+                    if s > sv or p > data.PCRIT then
                       region := 3;
                     else
                       region := 4;
@@ -1393,9 +1405,9 @@ package IF97_Utilities
         extends Modelica.Icons.Function;
         input SI.Density d "density";
         input SI.Temperature T "temperature (K)";
-        input Integer phase= 0
+        input Integer phase=0
           "phase: 2 for two-phase, 1 for one phase, 0 if not known";
-        input Integer mode= 0
+        input Integer mode=0
           "mode: 0 means check, otherwise assume region=mode";
         output Integer region "(valid values: 1,2,3,4,5) in IF97";
       protected
@@ -1412,7 +1424,8 @@ package IF97_Utilities
               // check for the density in the upper corner of validity!
               region := 5;
             else
-              assert(false,"out of valid region for IF97, pressure above region 5!");
+              assert(false,
+                "out of valid region for IF97, pressure above region 5!");
             end if;
           elseif Tovercrit then
             //check for regions 1, 2 or 3
@@ -1420,7 +1433,8 @@ package IF97_Utilities
               region := 3;
             elseif T < data.TLIMIT1 then
               region := 1;
-            else // d  < d2n(p23, T) and T > data.TLIMIT1
+            else
+              // d  < d2n(p23, T) and T > data.TLIMIT1
               region := 2;
             end if;
             // below critical, check for regions 1, 2, 3 or 4
@@ -1454,9 +1468,8 @@ package IF97_Utilities
           "derivative of specific enthalpy along the phase boundary";
       algorithm
         if bpro.region3boundary then
-          dh_dp := ((bpro.d*bpro.pd - bpro.T*bpro.pt) + (bpro.T*bpro.pt*
-            bpro.pt + bpro.d*bpro.d*bpro.pd*bpro.cv)/bpro.dpT)/(bpro.pd*
-            bpro.d*bpro.d);
+          dh_dp := ((bpro.d*bpro.pd - bpro.T*bpro.pt) + (bpro.T*bpro.pt*bpro.pt
+             + bpro.d*bpro.d*bpro.pd*bpro.cv)/bpro.dpT)/(bpro.pd*bpro.d*bpro.d);
         else
           dh_dp := (1/bpro.d - bpro.T*bpro.vt) + bpro.cp/bpro.dpT;
         end if;
@@ -1471,7 +1484,7 @@ package IF97_Utilities
           "specific enthalpy derivative w.r.t. pressure";
       algorithm
         dh_dp := hvl_dp(p, boilingcurve_p(p));
-        annotation(Inline = true);
+        annotation (Inline=true);
       end dhl_dp;
 
       function dhv_dp
@@ -1483,7 +1496,7 @@ package IF97_Utilities
           "specific enthalpy derivative w.r.t. pressure";
       algorithm
         dh_dp := hvl_dp(p, dewcurve_p(p));
-        annotation(Inline = true);
+        annotation (Inline=true);
       end dhv_dp;
 
       function drhovl_dp
@@ -1493,9 +1506,9 @@ package IF97_Utilities
         output Real dd_dp(unit="kg/(m3.Pa)")
           "derivative of density along the phase boundary";
       algorithm
-        dd_dp := if bpro.region3boundary then (1.0 - bpro.pt/bpro.dpT)/
-          bpro.pd else -bpro.d*bpro.d*(bpro.vp + bpro.vt/bpro.dpT);
-        annotation(Inline = true);
+        dd_dp := if bpro.region3boundary then (1.0 - bpro.pt/bpro.dpT)/bpro.pd
+           else -bpro.d*bpro.d*(bpro.vp + bpro.vt/bpro.dpT);
+        annotation (Inline=true);
       end drhovl_dp;
 
       function drhol_dp
@@ -1506,7 +1519,7 @@ package IF97_Utilities
           "derivative of density of water at the boiling point";
       algorithm
         dd_dp := drhovl_dp(p, boilingcurve_p(p));
-        annotation(Inline = true);
+        annotation (Inline=true);
       end drhol_dp;
 
       function drhov_dp
@@ -1517,7 +1530,7 @@ package IF97_Utilities
           "derivative of density of water at the boiling point";
       algorithm
         dd_dp := drhovl_dp(p, dewcurve_p(p));
-        annotation(Inline = true);
+        annotation (Inline=true);
       end drhov_dp;
       annotation (Documentation(info="<HTML><h4>Package description</h4>
  <p>Package <b>Regions</b> contains a large number of auxiliary functions which are needed to compute the current region
@@ -1624,12 +1637,13 @@ package IF97_Utilities
       algorithm
         pl := min(p, data.PCRIT - 1);
         assert(p > triple.ptriple,
-          "IF97 medium function g1 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
-        assert(p <= 100.0e6,
-          "IF97 medium function g1: the input pressure (= " + String(p) + " Pa) is higher than 100 Mpa");
-        assert(T >= 273.15,
-          "IF97 medium function g1: the temperature (= " + String(T) + " K)  is lower than 273.15 K!");
+          "IF97 medium function g1 called with too low pressure\n" + "p = " +
+          String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
+        assert(p <= 100.0e6, "IF97 medium function g1: the input pressure (= "
+           + String(p) + " Pa) is higher than 100 Mpa");
+        assert(T >= 273.15, "IF97 medium function g1: the temperature (= " +
+          String(T) + " K)  is lower than 273.15 K!");
         g.p := p;
         g.T := T;
         g.R := data.RH2O;
@@ -1782,14 +1796,15 @@ package IF97_Utilities
         g.T := T;
         g.R := data.RH2O;
         assert(p > 0.0,
-          "IF97 medium function g2 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <=  0.0 Pa");
-        assert(p <= 100.0e6,
-          "IF97 medium function g2: the input pressure (= " + String(p) + " Pa) is higher than 100 Mpa");
-        assert(T >= 273.15,
-          "IF97 medium function g2: the temperature (= " + String(T) + " K) is lower than 273.15 K!");
+          "IF97 medium function g2 called with too low pressure\n" + "p = " +
+          String(p) + " Pa <=  0.0 Pa");
+        assert(p <= 100.0e6, "IF97 medium function g2: the input pressure (= "
+           + String(p) + " Pa) is higher than 100 Mpa");
+        assert(T >= 273.15, "IF97 medium function g2: the temperature (= " +
+          String(T) + " K) is lower than 273.15 K!");
         assert(T <= 1073.15,
-          "IF97 medium function g2: the input temperature (= " + String(T) + " K) is higher than the limit of 1073.15 K");
+          "IF97 medium function g2: the input temperature (= " + String(T) +
+          " K) is higher than the limit of 1073.15 K");
         g.pi := p/data.PSTAR2;
         g.tau := data.TSTAR2/T;
         tau2 := -0.5 + g.tau;
@@ -1853,9 +1868,9 @@ package IF97_Utilities
            + (-0.000189489875163150 + o[1]*(-0.0039392777243355 + (-0.043797295650573
            - 0.0000266745479140870*o[13])*o[2]))*tau2) + g.pi*(
           2.04817376923090e-8 + (4.3870667284435e-7 + o[1]*(-0.000032277677238570
-           + (-0.00150339245421480 - 0.040668253562649*o[13])*o[2]))*tau2 + g.
-          pi*(g.pi*(2.29220763376610e-6*o[14] + g.pi*((-1.67147664510610e-11 +
-          o[15]*(-0.00211714723213550 - 23.8957419341040*o[16]))*o[2] + g.pi*(-5.9059564324270e-18
+           + (-0.00150339245421480 - 0.040668253562649*o[13])*o[2]))*tau2 + g.pi
+          *(g.pi*(2.29220763376610e-6*o[14] + g.pi*((-1.67147664510610e-11 + o[
+          15]*(-0.00211714723213550 - 23.8957419341040*o[16]))*o[2] + g.pi*(-5.9059564324270e-18
            + o[17]*(-1.26218088991010e-6 - 0.038946842435739*o[18]) + g.pi*(o[
           11]*(1.12562113604590e-11 - 8.2311340897998*o[19]) + g.pi*(
           1.98097128020880e-8*o[15] + g.pi*(o[10]*(1.04069652101740e-19 + (-1.02347470959290e-13
@@ -1908,11 +1923,11 @@ package IF97_Utilities
 
         g.gtau := (0.0280439559151000 + g.tau*(-0.285810955258200 + g.tau*(
           1.22131494717840 + g.tau*(-2.84816394288800 + g.tau*(4.3839511194500
-           + o[33]*(10.0866556801800 + (-0.56817265215440 + 0.063805390599210*g.
-           tau)*g.tau))))))/(o[33]*o[34]) + g.pi*(-0.0178348622923580 + o[49]
-           + g.pi*(-0.000033032641670203 + (-0.00037897975032630 + o[1]*(-0.0157571108973420
-           + (-0.306581069554011 - 0.00096028372490713*o[13])*o[2]))*tau2 + g.
-          pi*(4.3870667284435e-7 + o[1]*(-0.000096833031715710 + (-0.0090203547252888
+           + o[33]*(10.0866556801800 + (-0.56817265215440 + 0.063805390599210*g.tau)
+          *g.tau))))))/(o[33]*o[34]) + g.pi*(-0.0178348622923580 + o[49] + g.pi
+          *(-0.000033032641670203 + (-0.00037897975032630 + o[1]*(-0.0157571108973420
+           + (-0.306581069554011 - 0.00096028372490713*o[13])*o[2]))*tau2 + g.pi
+          *(4.3870667284435e-7 + o[1]*(-0.000096833031715710 + (-0.0090203547252888
            - 1.42338887469272*o[13])*o[2]) + g.pi*(-7.8847309559367e-10 + g.pi*
           (0.0000160454534363627*o[20] + g.pi*(o[1]*(-5.0144299353183e-11 + o[
           15]*(-0.033874355714168 - 836.35096769364*o[16])) + g.pi*((-0.0000138839897890111
@@ -1935,12 +1950,12 @@ package IF97_Utilities
            + o[1]*(-0.047271332692026 + (-1.83948641732407 - 0.033609930371750*
           o[13])*o[2]) + g.pi*((-0.000193666063431420 + (-0.045101773626444 -
           48.395221739552*o[13])*o[2])*tau2 + g.pi*(2.55814357045700e-8 +
-          2.89352236311042e-6*tau2 + g.pi*(0.000096272720618176*o[10]*tau2 + g.
-          pi*((-1.00288598706366e-10 + o[15]*(-0.50811533571252 -
+          2.89352236311042e-6*tau2 + g.pi*(0.000096272720618176*o[10]*tau2 + g.pi
+          *((-1.00288598706366e-10 + o[15]*(-0.50811533571252 -
           28435.9329015838*o[16]))*tau2 + g.pi*(o[11]*(-0.000138839897890111 -
           23.3681054614434*o[18])*tau2 + g.pi*((6.3034783618570e-10 -
-          10371.2289531477*o[19])*o[20] + g.pi*(3.09031519712573e-6*o[17] + g.
-          pi*(o[1]*(1.24883582522088e-18 + (-9.2112723863361e-12 -
+          10371.2289531477*o[19])*o[20] + g.pi*(3.09031519712573e-6*o[17] + g.pi
+          *(o[1]*(1.24883582522088e-18 + (-9.2112723863361e-12 -
           1.82330864707100e-7*o[10])*o[20]) + o[23]*(o[1]*o[11]*o[12]*(-6.5676921821352e-8
            + 261.979281045521*o[24])*tau2 + o[21]*(-1074.49903832754*o[1]*o[10]
           *o[12]*o[25]*tau2 + o[21]*((3.3890621235060e-22 + (
@@ -1987,11 +2002,14 @@ package IF97_Utilities
           "IF97 medium function g2metastable called with too low pressure\n" +
           "p = " + String(p) + " Pa <=  0.0 Pa");
         assert(p <= 100.0e6,
-          "IF97 medium function g2metastable: the input pressure (= " + String(p) + " Pa) is higher than 100 Mpa");
+          "IF97 medium function g2metastable: the input pressure (= " + String(
+          p) + " Pa) is higher than 100 Mpa");
         assert(T >= 273.15,
-          "IF97 medium function g2metastable: the temperature (= " + String(T) + " K) is lower than 273.15 K!");
+          "IF97 medium function g2metastable: the temperature (= " + String(T)
+           + " K) is lower than 273.15 K!");
         assert(T <= 1073.15,
-          "IF97 medium function g2metastable: the input temperature (= " + String(T) + " K) is higher than the limit of 1073.15 K");
+          "IF97 medium function g2metastable: the input temperature (= " +
+          String(T) + " K) is higher than the limit of 1073.15 K");
         g.p := p;
         g.T := T;
         g.R := data.RH2O;
@@ -2048,8 +2066,8 @@ package IF97_Utilities
 
         g.gtau := (0.0280439559151 + g.tau*(-0.2858109552582 + g.tau*(
           1.2213149471784 + g.tau*(-2.848163942888 + g.tau*(4.38395111945 + o[
-          14]*(10.087275970006 + (-0.5681726521544 + 0.06380539059921*g.tau)*g.
-          tau))))))/(o[14]*o[15]) + g.pi*(o[26] + g.pi*(0.0020097803380207 + (-0.371321453290494
+          14]*(10.087275970006 + (-0.5681726521544 + 0.06380539059921*g.tau)*g.tau))))))
+          /(o[14]*o[15]) + g.pi*(o[26] + g.pi*(0.0020097803380207 + (-0.371321453290494
            - 0.121904654539152*o[11])*o[4] + g.pi*((-0.0253992150629252 -
           1.37668948845741*o[12])*o[2] + g.pi*((0.052725107065939 -
           0.079238375446139*o[2])*o[4] + o[10]*g.pi*(-0.00205993447006023 -
@@ -2084,8 +2102,8 @@ package IF97_Utilities
         f.d := d;
         f.R := data.RH2O;
         f.tau := data.TCRIT/T;
-        f.delta := if (d == data.DCRIT and T == data.TCRIT) then 1 - Modelica.
-          Constants.eps else abs(d/data.DCRIT);
+        f.delta := if (d == data.DCRIT and T == data.TCRIT) then 1 - Modelica.Constants.eps
+           else abs(d/data.DCRIT);
         o[1] := f.tau*f.tau;
         o[2] := o[1]*o[1];
         o[3] := o[2]*f.tau;
@@ -2135,23 +2153,23 @@ package IF97_Utilities
           0.125584084243080*o[2]))*f.tau)) + f.delta*(-0.279993296987100 + o[1]
           *(1.38997995694600 + o[1]*(-2.01899150235700 + o[16]*(-0.0082147637173963
            - 0.47596035734923*o[17]))) + f.delta*(0.043984074473500 + o[1]*(-0.44476435428739
-           + o[1]*(0.90572070719733 + 0.70522450087967*o[19])) + f.delta*(f.
-          delta*(-0.0221754008730960 + o[1]*(0.094260751665092 +
-          0.164362784479610*o[21]) + f.delta*(-0.0135033722413480*o[1] + f.
-          delta*(-0.0148343453524720*o[22] + f.delta*(o[1]*(0.00057922953628084
-           + 0.0032308904703711*o[21]) + f.delta*(0.000080964802996215 -
-          0.000044923899061815*f.delta*o[22] - 0.000165576797950370*f.tau)))))
-           + (0.107705126263320 + o[1]*(-0.32913623258954 - 0.50871062041158*o[
-          20]))*f.tau))))) + 1.06580700285130*Modelica.Math.log(f.delta);
+           + o[1]*(0.90572070719733 + 0.70522450087967*o[19])) + f.delta*(f.delta
+          *(-0.0221754008730960 + o[1]*(0.094260751665092 + 0.164362784479610*o[
+          21]) + f.delta*(-0.0135033722413480*o[1] + f.delta*(-0.0148343453524720
+          *o[22] + f.delta*(o[1]*(0.00057922953628084 + 0.0032308904703711*o[21])
+           + f.delta*(0.000080964802996215 - 0.000044923899061815*f.delta*o[22]
+           - 0.000165576797950370*f.tau))))) + (0.107705126263320 + o[1]*(-0.32913623258954
+           - 0.50871062041158*o[20]))*f.tau))))) + 1.06580700285130*
+          Modelica.Math.log(f.delta);
 
         f.fdelta := (1.06580700285130 + f.delta*(o[14] + f.delta*(
           0.76986920373342 + o[31] + f.delta*(-0.83997989096130 + o[1]*(
           4.1699398708380 + o[1]*(-6.0569745070710 + o[16]*(-0.0246442911521889
            - 1.42788107204769*o[17]))) + f.delta*(0.175936297894000 + o[1]*(-1.77905741714956
-           + o[1]*(3.6228828287893 + 2.82089800351868*o[19])) + f.delta*(f.
-          delta*(-0.133052405238576 + o[1]*(0.56556450999055 + 0.98617670687766
-          *o[21]) + f.delta*(-0.094523605689436*o[1] + f.delta*(-0.118674762819776
-          *o[22] + f.delta*(o[1]*(0.0052130658265276 + 0.0290780142333399*o[21])
+           + o[1]*(3.6228828287893 + 2.82089800351868*o[19])) + f.delta*(f.delta
+          *(-0.133052405238576 + o[1]*(0.56556450999055 + 0.98617670687766*o[21])
+           + f.delta*(-0.094523605689436*o[1] + f.delta*(-0.118674762819776*o[
+          22] + f.delta*(o[1]*(0.0052130658265276 + 0.0290780142333399*o[21])
            + f.delta*(0.00080964802996215 - 0.00049416288967996*f.delta*o[22]
            - 0.00165576797950370*f.tau))))) + (0.53852563131660 + o[1]*(-1.64568116294770
            - 2.54355310205790*o[20]))*f.tau))))))/f.delta;
@@ -2177,10 +2195,10 @@ package IF97_Utilities
            - 12.3749692910800*o[17])))*f.tau + f.delta*((-0.88952870857478 + o[
           1]*(3.6228828287893 + 18.3358370228714*o[19]))*f.tau + f.delta*(
           0.107705126263320 + o[1]*(-0.98740869776862 - 13.2264761307011*o[20])
-           + f.delta*((0.188521503330184 + 4.2734323964699*o[21])*f.tau + f.
-          delta*(-0.0270067444826960*f.tau + f.delta*(-0.38569297916427*o[40]
-           + f.delta*(f.delta*(-0.000165576797950370 - 0.00116802137560719*f.
-          delta*o[40]) + (0.00115845907256168 + 0.084003152229649*o[21])*f.tau)))))))));
+           + f.delta*((0.188521503330184 + 4.2734323964699*o[21])*f.tau + f.delta
+          *(-0.0270067444826960*f.tau + f.delta*(-0.38569297916427*o[40] + f.delta
+          *(f.delta*(-0.000165576797950370 - 0.00116802137560719*f.delta*o[40])
+           + (0.00115845907256168 + 0.084003152229649*o[21])*f.tau)))))))));
 
         f.ftautau := -15.3735415757432 + o[3]*(109.980980709407 + o[4]*(-252.727030337580
            + o[1]*(159.104479994024 - 4.2790807283126*o[6]))) + f.delta*(-2.53086309554280
@@ -2198,13 +2216,13 @@ package IF97_Utilities
         f.fdeltatau := o[39] + f.delta*(f.tau*(-3.4085883529682 + o[2]*(
           58.766737850252 + (-42.703664159751 + o[15]*(1.73450362268278 +
           6.5303723806402*o[2]))*f.tau)) + f.delta*((8.3398797416760 + o[1]*(-24.2278980282840
-           + o[16]*(-0.39430865843502 - 37.124907873240*o[17])))*f.tau + f.
-          delta*((-3.5581148342991 + o[1]*(14.4915313151573 + 73.343348091486*o[
-          19]))*f.tau + f.delta*(0.53852563131660 + o[1]*(-4.9370434888431 -
+           + o[16]*(-0.39430865843502 - 37.124907873240*o[17])))*f.tau + f.delta
+          *((-3.5581148342991 + o[1]*(14.4915313151573 + 73.343348091486*o[19]))
+          *f.tau + f.delta*(0.53852563131660 + o[1]*(-4.9370434888431 -
           66.132380653505*o[20]) + f.delta*((1.13112901998110 +
-          25.6405943788192*o[21])*f.tau + f.delta*(-0.189047211378872*f.tau + f.
-           delta*(-3.08554383331418*o[40] + f.delta*(f.delta*(-0.00165576797950370
-           - 0.0128482351316791*f.delta*o[40]) + (0.0104261316530551 +
+          25.6405943788192*o[21])*f.tau + f.delta*(-0.189047211378872*f.tau + f.delta
+          *(-3.08554383331418*o[40] + f.delta*(f.delta*(-0.00165576797950370 -
+          0.0128482351316791*f.delta*o[40]) + (0.0104261316530551 +
           0.75602837006684*o[21])*f.tau))))))));
       end f3;
 
@@ -2218,12 +2236,12 @@ package IF97_Utilities
         Real[11] o "vector of auxiliary variables";
       algorithm
         assert(p > 0.0,
-          "IF97 medium function g5 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <=  0.0 Pa");
-        assert(p <= data.PLIMIT5,
-          "IF97 medium function g5: input pressure (= " + String(p) + " Pa) is higher than 10 Mpa in region 5");
-        assert(T <= 2273.15,
-          "IF97 medium function g5: input temperature (= " + String(T) + " K) is higher than limit of 2273.15K in region 5");
+          "IF97 medium function g5 called with too low pressure\n" + "p = " +
+          String(p) + " Pa <=  0.0 Pa");
+        assert(p <= data.PLIMIT5, "IF97 medium function g5: input pressure (= "
+           + String(p) + " Pa) is higher than 10 Mpa in region 5");
+        assert(T <= 2273.15, "IF97 medium function g5: input temperature (= "
+           + String(T) + " K) is higher than limit of 2273.15K in region 5");
         g.p := p;
         g.T := T;
         g.R := data.RH2O;
@@ -2250,8 +2268,8 @@ package IF97_Utilities
         g.gpi := (1.0 + g.pi*(-0.000125631835895920 + o[4] + g.pi*(o[9] +
           3.8757684869352e-7*o[5]*g.pi)))/g.pi;
 
-        g.gpipi := (-1.00000000000000 + o[10]*(o[9] + 7.7515369738704e-7*o[5]*g.
-           pi))/o[10];
+        g.gpipi := (-1.00000000000000 + o[10]*(o[9] + 7.7515369738704e-7*o[5]*g.pi))
+          /o[10];
 
         g.gtau := g.pi*(0.00217746787145710 + o[11] + g.pi*(-0.000035752345523612
           *o[7] + 3.8757684869352e-7*o[1]*g.pi)) + (0.074415446800398 + g.tau*(
@@ -2271,29 +2289,23 @@ package IF97_Utilities
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.Temperature T "temperature (K)";
-       input Integer region "IF97 region, 1, 2 or 5";
+        input Integer region "IF97 region, 1, 2 or 5";
         output Real g "dimensionless Gibbs function";
       protected
         Modelica.Media.Common.GibbsDerivs gibbs
           "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
       algorithm
         assert(region == 1 or region == 2 or region == 5,
-          "IF97 medium function gibbs called with wrong region (= " + String(region) + ").\n" +
-          "Only regions 1, 2 or 5 are possible");
-        if region
-           == 1 then
-          gibbs
-         := g1(p,T);
-        elseif
-        region == 2 then
-          gibbs
-         := g2(p,T);
+          "IF97 medium function gibbs called with wrong region (= " + String(
+          region) + ").\n" + "Only regions 1, 2 or 5 are possible");
+        if region == 1 then
+          gibbs := g1(p, T);
+        elseif region == 2 then
+          gibbs := g2(p, T);
         else
-          gibbs
-         := g5(p,T);
+          gibbs := g5(p, T);
         end if;
-        g :=
-      gibbs.g;
+        g := gibbs.g;
       end gibbs;
 
       function g1pitau "derivative of g w.r.t. pi and tau"
@@ -2312,11 +2324,13 @@ package IF97_Utilities
       algorithm
         assert(p > triple.ptriple,
           "IF97 medium function g1pitau called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         assert(p <= 100.0e6,
-          "IF97 medium function g1pitau: the input pressure (= " + String(p) + " Pa) is higher than 100 Mpa");
-        assert(T >= 273.15,
-          "IF97 medium function g1pitau: the temperature (= " + String(T) + " K) is lower than 273.15 K!");
+          "IF97 medium function g1pitau: the input pressure (= " + String(p) +
+          " Pa) is higher than 100 Mpa");
+        assert(T >= 273.15, "IF97 medium function g1pitau: the temperature (= "
+           + String(T) + " K) is lower than 273.15 K!");
         pi := p/data.PSTAR1;
         tau := data.TSTAR1/T;
         pi1 := 7.1 - pi;
@@ -2395,13 +2409,16 @@ package IF97_Utilities
       algorithm
         assert(p > 0.0,
           "IF97 medium function g2pitau called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         assert(p <= 100.0e6,
-          "IF97 medium function g2pitau: the input pressure (= " + String(p) + " Pa) is higher than 100 Mpa");
-        assert(T >= 273.15,
-          "IF97 medium function g2pitau: the temperature (= " + String(T) + " K) is lower than 273.15 K!");
+          "IF97 medium function g2pitau: the input pressure (= " + String(p) +
+          " Pa) is higher than 100 Mpa");
+        assert(T >= 273.15, "IF97 medium function g2pitau: the temperature (= "
+           + String(T) + " K) is lower than 273.15 K!");
         assert(T <= 1073.15,
-          "IF97 medium function g2pitau: the input temperature (= " + String(T) + " K) is higher than the limit of 1073.15 K");
+          "IF97 medium function g2pitau: the input temperature (= " + String(T)
+           + " K) is higher than the limit of 1073.15 K");
         pi := p/data.PSTAR2;
         tau := data.TSTAR2/T;
         tau2 := -0.5 + tau;
@@ -2486,11 +2503,14 @@ package IF97_Utilities
       algorithm
         assert(p > 0.0,
           "IF97 medium function g5pitau called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         assert(p <= data.PLIMIT5,
-          "IF97 medium function g5pitau: input pressure (= " + String(p) + " Pa) is higher than 10 Mpa in region 5");
+          "IF97 medium function g5pitau: input pressure (= " + String(p) +
+          " Pa) is higher than 10 Mpa in region 5");
         assert(T <= 2273.15,
-          "IF97 medium function g5pitau: input temperature (= " + String(T) + " K) is higher than limit of 2273.15 K in region 5");
+          "IF97 medium function g5pitau: input temperature (= " + String(T) +
+          " K) is higher than limit of 2273.15 K in region 5");
         pi := p/data.PSTAR5;
         tau := data.TSTAR5/T;
         o[1] := tau*tau;
@@ -2519,8 +2539,8 @@ package IF97_Utilities
         Real[13] o "vector of auxiliary variables";
       algorithm
         tau := data.TCRIT/T;
-        delta := if (d == data.DCRIT and T == data.TCRIT) then 1 + Modelica.
-          Constants.eps else d/data.DCRIT;
+        delta := if (d == data.DCRIT and T == data.TCRIT) then 1 + Modelica.Constants.eps
+           else d/data.DCRIT;
         o[1] := tau*tau;
         o[2] := o[1]*o[1];
         o[3] := o[2]*o[2];
@@ -2575,8 +2595,9 @@ package IF97_Utilities
         Real[3] o "vector of auxiliary variables";
       algorithm
         assert(p > triple.ptriple,
-          "IF97 medium function tph1 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "IF97 medium function tph1 called with too low pressure\n" + "p = "
+           + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         pi := p/data.PSTAR2;
         eta1 := h/data.HSTAR1 + 1.0;
         o[1] := eta1*eta1;
@@ -2606,8 +2627,9 @@ package IF97_Utilities
       algorithm
         pi := p/pstar;
         assert(p > triple.ptriple,
-          "IF97 medium function tps1 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "IF97 medium function tps1 called with too low pressure\n" + "p = "
+           + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
 
         sigma1 := s/sstar + 2.0;
         o[1] := sigma1*sigma1;
@@ -2874,11 +2896,12 @@ package IF97_Utilities
         Real[20] o "vector of auxiliary variables";
       algorithm
         assert(p > triple.ptriple,
-          "IF97 medium function tsat called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
-      //  assert(p <= data.PCRIT,
-      //    "tsat: input pressure is higher than the critical point pressure");
-        pi := min(p,data.PCRIT)*data.IPSTAR;
+          "IF97 medium function tsat called with too low pressure\n" + "p = "
+           + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
+        //  assert(p <= data.PCRIT,
+        //    "tsat: input pressure is higher than the critical point pressure");
+        pi := min(p, data.PCRIT)*data.IPSTAR;
         o[1] := pi^0.25;
         o[2] := -3.2325550322333e6*o[1];
         o[3] := pi^0.5;
@@ -2913,7 +2936,7 @@ package IF97_Utilities
         Real pi "dimensionless pressure";
         Real[49] o "vector of auxiliary variables";
       algorithm
-        pi := max(Modelica.Constants.small,p*data.IPSTAR);
+        pi := max(Modelica.Constants.small, p*data.IPSTAR);
         o[1] := pi^0.75;
         o[2] := 1/o[1];
         o[3] := -4.268461735023*o[2];
@@ -2994,8 +3017,8 @@ package IF97_Utilities
         Real[8] o "vector of auxiliary variables";
         Real Tlim=min(T, data.TCRIT);
       algorithm
-        assert(T >= 273.16,
-          "IF97 medium function psat: input temperature (= " + String(triple.ptriple) + " K).\n" +
+        assert(T >= 273.16, "IF97 medium function psat: input temperature (= "
+           + String(triple.ptriple) + " K).\n" +
           "lower than the triple point temperature 273.16 K");
         o[1] := -650.17534844798 + Tlim;
         o[2] := 1/o[1];
@@ -3017,7 +3040,7 @@ package IF97_Utilities
 
         extends Modelica.Icons.Function;
         input SI.Temperature T "temperature (K)";
-        output Real dpt(unit = "Pa/K") "temperature derivative of pressure";
+        output Real dpt(unit="Pa/K") "temperature derivative of pressure";
       protected
         Real[31] o "vector of auxiliary variables";
         Real Tlim "temperature limited to TCRIT";
@@ -3064,8 +3087,8 @@ package IF97_Utilities
       function psat_der "derivative function for psat"
         extends Modelica.Icons.Function;
         input SI.Temperature T "temperature (K)";
-        input Real der_T(unit = "K/s") "temperature derivative";
-        output Real der_psat(unit = "Pa/s") "pressure";
+        input Real der_T(unit="K/s") "temperature derivative";
+        output Real der_psat(unit="Pa/s") "pressure";
       protected
         Real dpt;
       algorithm
@@ -3080,23 +3103,24 @@ package IF97_Utilities
         input SI.SpecificEnthalpy h "specific enthalpy";
         input SI.SpecificEntropy s "specific entropy";
         output SI.Pressure p "Pressure";
-        constant Real[:] n=
-          {-0.691997014660582,-0.183612548787560e2,-0.928332409297335e1,0.659639569909906e2,
-           -0.162060388912024e2,0.450620017338667e3,0.854680678224170e3,0.607523214001162e4,0.326487682621856e2,
-           -0.269408844582931e2,-0.319947848334300e3,-0.928354307043320e3,0.303634537455249e2,-0.650540422444146e2,
-           -0.430991316516130e4,-0.747512324096068e3,0.730000345529245e3,0.114284032569021e4,-0.436407041874559e3};
-        constant Real[:] I = {0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,3,4,4,5};
-        constant Real[:] J = {0,1,2,4,5,6,8,14,0,1,4,6,0,1,10,4,1,4,0};
-        constant SI.SpecificEnthalpy hstar = 3400e3 "normalization enthalpy";
-        constant SI.Pressure pstar = 100e6 "normalization pressure";
-        constant SI.SpecificEntropy sstar = 7.6e3 "normalization entropy";
+        constant Real[:] n={-0.691997014660582,-0.183612548787560e2,-0.928332409297335e1,
+            0.659639569909906e2,-0.162060388912024e2,0.450620017338667e3,
+            0.854680678224170e3,0.607523214001162e4,0.326487682621856e2,-0.269408844582931e2,
+            -0.319947848334300e3,-0.928354307043320e3,0.303634537455249e2,-0.650540422444146e2,
+            -0.430991316516130e4,-0.747512324096068e3,0.730000345529245e3,
+            0.114284032569021e4,-0.436407041874559e3};
+        constant Real[:] I={0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,3,4,4,5};
+        constant Real[:] J={0,1,2,4,5,6,8,14,0,1,4,6,0,1,10,4,1,4,0};
+        constant SI.SpecificEnthalpy hstar=3400e3 "normalization enthalpy";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.SpecificEntropy sstar=7.6e3 "normalization entropy";
       protected
-        Real eta = h/hstar "normalized specific enthalpy";
-        Real sigma = s/sstar "normalized specific entropy";
+        Real eta=h/hstar "normalized specific enthalpy";
+        Real sigma=s/sstar "normalized specific entropy";
       algorithm
-        p := sum(n[i]*(eta + 0.05)^I[i]*(sigma + 0.05)^J[i] for i in 1:19)*pstar;
-        annotation (
-            Documentation(                                                                                                    info="<html>
+        p := sum(n[i]*(eta + 0.05)^I[i]*(sigma + 0.05)^J[i] for i in 1:19)*
+          pstar;
+        annotation (Documentation(info="<html>
 <p>
   Equation number 1 from:<br>
   The International Association for the Properties of Water and Steam<br>
@@ -3114,14 +3138,14 @@ package IF97_Utilities
         output SI.SpecificEnthalpy h "Enthalpy";
         input SI.SpecificEntropy s "Entropy";
       protected
-        constant Real[:] n = {-0.349898083432139e4,0.257560716905876e4,-0.421073558227969e3,0.276349063799944e2};
-        constant SI.SpecificEnthalpy hstar = 1e3 "normalization enthalpy";
-        constant SI.SpecificEntropy sstar = 1e3 "normalization entropy";
-        Real sigma = s/sstar "normalized specific entropy";
+        constant Real[:] n={-0.349898083432139e4,0.257560716905876e4,-0.421073558227969e3,
+            0.276349063799944e2};
+        constant SI.SpecificEnthalpy hstar=1e3 "normalization enthalpy";
+        constant SI.SpecificEntropy sstar=1e3 "normalization entropy";
+        Real sigma=s/sstar "normalized specific entropy";
       algorithm
         h := (n[1] + n[2]*sigma + n[3]*sigma^2 + n[4]*sigma^3)*hstar;
-        annotation (
-            Documentation(                                                                                                    info="<html>
+        annotation (Documentation(info="<html>
   <p>
   Equation number 2 from:<br>
   The International Association for the Properties of Water and Steam<br>
@@ -3140,25 +3164,29 @@ package IF97_Utilities
         input SI.SpecificEnthalpy h "specific enthalpy";
         input SI.SpecificEntropy s "specific entropy";
         output SI.Pressure p "Pressure";
-        constant Real[:] n=
-          {-0.182575361923032e-1,-0.125229548799536,0.592290437320145,0.604769706185122e1,
-           0.238624965444474e3,-0.298639090222922e3,0.512250813040750e-1,-0.437266515606486,0.413336902999504,
-           -0.516468254574773e1,-0.557014838445711e1,0.128555037824478e2,0.114144108953290e2,-0.119504225652714e3,
-           -0.284777985961560e4,0.431757846408006e4,0.112894040802650e1,0.197409186206319e4,0.151612444706087e4,
-           0.141324451421235e-1,0.585501282219601,-0.297258075863012e1,0.594567314847319e1,-0.623656565798905e4,
-           0.965986235133332e4,0.681500934948134e1,-0.633207286824489e4,-0.558919224465760e1,0.400645798472063e-1};
-        constant Real[:] I = {0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,3,3,3,3,3,4,5,5,6,7};
-        constant Real[:] J = {1,3,6,16,20,22,0,1,2,3,5,6,10,16,20,22,3,16,20,0,2,3,6,16,16,3,16,3,1};
-        constant SI.SpecificEnthalpy hstar = 4200e3 "normalization enthalpy";
-        constant SI.Pressure pstar = 4e6 "normalization pressure";
-        constant SI.SpecificEntropy sstar = 12e3 "normalization entropy";
+        constant Real[:] n={-0.182575361923032e-1,-0.125229548799536,
+            0.592290437320145,0.604769706185122e1,0.238624965444474e3,-0.298639090222922e3,
+            0.512250813040750e-1,-0.437266515606486,0.413336902999504,-0.516468254574773e1,
+            -0.557014838445711e1,0.128555037824478e2,0.114144108953290e2,-0.119504225652714e3,
+            -0.284777985961560e4,0.431757846408006e4,0.112894040802650e1,
+            0.197409186206319e4,0.151612444706087e4,0.141324451421235e-1,
+            0.585501282219601,-0.297258075863012e1,0.594567314847319e1,-0.623656565798905e4,
+            0.965986235133332e4,0.681500934948134e1,-0.633207286824489e4,-0.558919224465760e1,
+            0.400645798472063e-1};
+        constant Real[:] I={0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,3,3,3,3,3,4,5,
+            5,6,7};
+        constant Real[:] J={1,3,6,16,20,22,0,1,2,3,5,6,10,16,20,22,3,16,20,0,2,
+            3,6,16,16,3,16,3,1};
+        constant SI.SpecificEnthalpy hstar=4200e3 "normalization enthalpy";
+        constant SI.Pressure pstar=4e6 "normalization pressure";
+        constant SI.SpecificEntropy sstar=12e3 "normalization entropy";
       protected
-        Real eta = h/hstar "normalized specific enthalpy";
-        Real sigma = s/sstar "normalized specific entropy";
+        Real eta=h/hstar "normalized specific enthalpy";
+        Real sigma=s/sstar "normalized specific entropy";
       algorithm
-        p := sum(n[i]*(eta - 0.5)^I[i]*(sigma - 1.2)^J[i] for i in 1:29)^4*pstar;
-        annotation (
-            Documentation(                                                                                                    info="<html>
+        p := sum(n[i]*(eta - 0.5)^I[i]*(sigma - 1.2)^J[i] for i in 1:29)^4*
+          pstar;
+        annotation (Documentation(info="<html>
   <p>
   Equation number 3 from:<br>
   The International Association for the Properties of Water and Steam<br>
@@ -3171,32 +3199,36 @@ package IF97_Utilities
   </html>"));
       end p2a_hs;
 
-    function p2b_hs
+      function p2b_hs
         "pressure as a function of enthalpy and entropy in subregion 2a"
-      extends Modelica.Icons.Function;
-      input SI.SpecificEnthalpy h "specific enthalpy";
-      input SI.SpecificEntropy s "specific entropy";
-      output SI.Pressure p "Pressure";
-      constant Real[:] n=
-        {0.801496989929495e-1,-0.543862807146111,0.337455597421283,0.890555451157450e1,
-         0.313840736431485e3,0.797367065977789,-0.121616973556240e1,0.872803386937477e1,-0.169769781757602e2,
-         -0.186552827328416e3,0.951159274344237e5,-0.189168510120494e2,-0.433407037194840e4,0.543212633012715e9,
-         0.144793408386013,0.128024559637516e3,-0.672309534071268e5,0.336972380095287e8,-0.586634196762720e3,
-         -0.221403224769889e11,0.171606668708389e4,-0.570817595806302e9,-0.312109693178482e4,-0.207841384633010e7,
-         0.305605946157786e13,0.322157004314333e4,0.326810259797295e12,-0.144104158934487e4,0.410694867802691e3,
-         0.109077066873024e12,-0.247964654258893e14,0.188801906865134e10,-0.123651009018773e15};
-      constant Real[:] I = {0,0,0,0,0,1,1,1,1,1,1,2,2,2,3,3,3,3,4,4,5,5,6,6,6,7,7,8,8,8,8,12,14};
-      constant Real[:] J = {0,1,2,4,8,0,1,2,3,5,12,1,6,18,0,1,7,12,1,16,1,12,1,8,18,1,16,1,3,14,18,10,16};
-      constant SI.SpecificEnthalpy hstar = 4100e3 "normalization enthalpy";
-      constant SI.Pressure pstar = 100e6 "normalization pressure";
-      constant SI.SpecificEntropy sstar = 7.9e3 "normalization entropy";
+        extends Modelica.Icons.Function;
+        input SI.SpecificEnthalpy h "specific enthalpy";
+        input SI.SpecificEntropy s "specific entropy";
+        output SI.Pressure p "Pressure";
+        constant Real[:] n={0.801496989929495e-1,-0.543862807146111,
+            0.337455597421283,0.890555451157450e1,0.313840736431485e3,
+            0.797367065977789,-0.121616973556240e1,0.872803386937477e1,-0.169769781757602e2,
+            -0.186552827328416e3,0.951159274344237e5,-0.189168510120494e2,-0.433407037194840e4,
+            0.543212633012715e9,0.144793408386013,0.128024559637516e3,-0.672309534071268e5,
+            0.336972380095287e8,-0.586634196762720e3,-0.221403224769889e11,
+            0.171606668708389e4,-0.570817595806302e9,-0.312109693178482e4,-0.207841384633010e7,
+            0.305605946157786e13,0.322157004314333e4,0.326810259797295e12,-0.144104158934487e4,
+            0.410694867802691e3,0.109077066873024e12,-0.247964654258893e14,
+            0.188801906865134e10,-0.123651009018773e15};
+        constant Real[:] I={0,0,0,0,0,1,1,1,1,1,1,2,2,2,3,3,3,3,4,4,5,5,6,6,6,7,
+            7,8,8,8,8,12,14};
+        constant Real[:] J={0,1,2,4,8,0,1,2,3,5,12,1,6,18,0,1,7,12,1,16,1,12,1,
+            8,18,1,16,1,3,14,18,10,16};
+        constant SI.SpecificEnthalpy hstar=4100e3 "normalization enthalpy";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.SpecificEntropy sstar=7.9e3 "normalization entropy";
       protected
-      Real eta = h/hstar "normalized specific enthalpy";
-      Real sigma = s/sstar "normalized specific entropy";
-    algorithm
-      p := sum(n[i]*(eta - 0.6)^I[i]*(sigma - 1.01)^J[i] for i in 1:33)^4*pstar;
-      annotation (
-            Documentation(                                                                                                    info="<html>
+        Real eta=h/hstar "normalized specific enthalpy";
+        Real sigma=s/sstar "normalized specific entropy";
+      algorithm
+        p := sum(n[i]*(eta - 0.6)^I[i]*(sigma - 1.01)^J[i] for i in 1:33)^4*
+          pstar;
+        annotation (Documentation(info="<html>
 <p>
 Equation number 4 from:<br>
 The International Association for the Properties of Water and Steam<br>
@@ -3207,34 +3239,38 @@ Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
 Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 </p>
       </html>"));
-    end p2b_hs;
+      end p2b_hs;
 
       function p2c_hs
         "pressure as a function of enthalpy and entropy in subregion 2c"
-          extends Modelica.Icons.Function;
-          input SI.SpecificEnthalpy h "specific enthalpy";
-          input SI.SpecificEntropy s "specific entropy";
-          output SI.Pressure p "Pressure";
-          constant Real[:] n=
-            {0.112225607199012,-0.339005953606712e1,-0.320503911730094e2,-0.197597305104900e3,
-             -0.407693861553446e3,0.132943775222331e5,0.170846839774007e1,0.373694198142245e2,0.358144365815434e4,
-             0.423014446424664e6,-0.751071025760063e9,0.523446127607898e2,-0.228351290812417e3,-0.960652417056937e6,
-             -0.807059292526074e8,0.162698017225669e13,0.772465073604171,0.463929973837746e5,-0.137317885134128e8,
-             0.170470392630512e13,-0.251104628187308e14,0.317748830835520e14,0.538685623675312e2,-0.553089094625169e5,
-             -0.102861522421405e7,0.204249418756234e13,0.273918446626977e9,-0.263963146312685e16,-0.107890854108088e10,
-             -0.296492620980124e11,-0.111754907323424e16};
-          constant Real[:] I = {0,0,0,0,0,0,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,5,5,5,5,6,6,10,12,16};
-          constant Real[:] J = {0,1,2,3,4,8,0,2,5,8,14,2,3,7,10,18,0,5,8,16,18,18,1,4,6,14,8,18,7,7,10};
-          constant SI.SpecificEnthalpy hstar = 3500e3 "normalization enthalpy";
-          constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.SpecificEntropy sstar = 5.9e3 "normalization entropy";
+        extends Modelica.Icons.Function;
+        input SI.SpecificEnthalpy h "specific enthalpy";
+        input SI.SpecificEntropy s "specific entropy";
+        output SI.Pressure p "Pressure";
+        constant Real[:] n={0.112225607199012,-0.339005953606712e1,-0.320503911730094e2,
+            -0.197597305104900e3,-0.407693861553446e3,0.132943775222331e5,
+            0.170846839774007e1,0.373694198142245e2,0.358144365815434e4,
+            0.423014446424664e6,-0.751071025760063e9,0.523446127607898e2,-0.228351290812417e3,
+            -0.960652417056937e6,-0.807059292526074e8,0.162698017225669e13,
+            0.772465073604171,0.463929973837746e5,-0.137317885134128e8,
+            0.170470392630512e13,-0.251104628187308e14,0.317748830835520e14,
+            0.538685623675312e2,-0.553089094625169e5,-0.102861522421405e7,
+            0.204249418756234e13,0.273918446626977e9,-0.263963146312685e16,-0.107890854108088e10,
+            -0.296492620980124e11,-0.111754907323424e16};
+        constant Real[:] I={0,0,0,0,0,0,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,5,5,5,5,
+            6,6,10,12,16};
+        constant Real[:] J={0,1,2,3,4,8,0,2,5,8,14,2,3,7,10,18,0,5,8,16,18,18,1,
+            4,6,14,8,18,7,7,10};
+        constant SI.SpecificEnthalpy hstar=3500e3 "normalization enthalpy";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.SpecificEntropy sstar=5.9e3 "normalization entropy";
       protected
-          Real eta = h/hstar "normalized specific enthalpy";
-          Real sigma = s/sstar "normalized specific entropy";
+        Real eta=h/hstar "normalized specific enthalpy";
+        Real sigma=s/sstar "normalized specific entropy";
       algorithm
-          p := sum(n[i]*(eta - 0.7)^I[i]*(sigma - 1.1)^J[i] for i in 1:31)^4*pstar;
-          annotation (
-            Documentation(                                                                                                    info="<html>
+        p := sum(n[i]*(eta - 0.7)^I[i]*(sigma - 1.1)^J[i] for i in 1:31)^4*
+          pstar;
+        annotation (Documentation(info="<html>
       <p>
       Equation number 5 from:<br>
       The International Association for the Properties of Water and Steam<br>
@@ -3249,19 +3285,19 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 
       // Inverses from the 2003 additions to IF97
       function h3ab_p "region 3 a b boundary for pressure/enthalpy"
-          extends Modelica.Icons.Function;
-          output SI.SpecificEnthalpy h "Enthalpy";
-          input SI.Pressure p "Pressure";
+        extends Modelica.Icons.Function;
+        output SI.SpecificEnthalpy h "Enthalpy";
+        input SI.Pressure p "Pressure";
       protected
-          constant Real[:] n = {0.201464004206875e4,0.374696550136983e1,-0.219921901054187e-1,0.875131686009950e-4};
-          constant SI.SpecificEnthalpy hstar = 1000 "normalization enthalpy";
-          constant SI.Pressure pstar = 1e6 "normalization pressure";
-          Real pi = p/pstar "normalized specific pressure";
+        constant Real[:] n={0.201464004206875e4,0.374696550136983e1,-0.219921901054187e-1,
+            0.875131686009950e-4};
+        constant SI.SpecificEnthalpy hstar=1000 "normalization enthalpy";
+        constant SI.Pressure pstar=1e6 "normalization pressure";
+        Real pi=p/pstar "normalized specific pressure";
 
       algorithm
-          h := (n[1] + n[2]*pi + n[3]*pi^2 + n[4]*pi^3)*hstar;
-          annotation (
-      Documentation(info="<html>
+        h := (n[1] + n[2]*pi + n[3]*pi^2 + n[4]*pi^3)*hstar;
+        annotation (Documentation(info="<html>
       <p>
       &nbsp;Equation number 1 from:
       </p>
@@ -3278,32 +3314,32 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end h3ab_p;
 
       function T3a_ph "Region 3 a: inverse function T(p,h)"
-          extends Modelica.Icons.Function;
-          input SI.Pressure p "Pressure";
-          input SI.SpecificEnthalpy h "specific enthalpy";
-          output SI.Temp_K T "Temperature";
+        extends Modelica.Icons.Function;
+        input SI.Pressure p "Pressure";
+        input SI.SpecificEnthalpy h "specific enthalpy";
+        output SI.Temp_K T "Temperature";
       protected
-          constant Real[:] n=
-            {-0.133645667811215e-6,0.455912656802978e-5,-0.146294640700979e-4, 0.639341312970080e-2,0.372783927268847e3,
-             -0.718654377460447e4,0.573494752103400e6,-0.267569329111439e7,-0.334066283302614e-4,-0.245479214069597e-1,
-             0.478087847764996e2,0.764664131818904e-5,0.128350627676972e-2,0.171219081377331e-1,-0.851007304583213e1,
-             -0.136513461629781e-1,-0.384460997596657e-5,0.337423807911655e-2,-0.551624873066791,0.729202277107470,
-             -0.992522757376041e-2,-0.119308831407288,0.793929190615421,0.454270731799386,0.209998591259910,
-             -0.642109823904738e-2,-0.235155868604540e-1,0.252233108341612e-2,-0.764885133368119e-2,0.136176427574291e-1,
-             -0.133027883575669e-1};
-          constant Real[:] I = {-12,-12,-12,-12,-12,-12,-12,-12,-10,-10,
-                                -10,-8,-8,-8,-8,-5,-3,-2,-2,-2,-1,-1,0,0,1,3,3,4,4,10,12};
-          constant Real[:] J = { 0,1,2,6,14,16,20,22,1,5,12,0,2,4,10,2,0,1,3,4,0,2,0,1,1,0,1,0,3,4,5};
-          constant SI.SpecificEnthalpy hstar = 2300e3 "normalization enthalpy";
-          constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.Temp_K Tstar = 760 "normalization temperature";
-          Real pi = p/pstar "normalized specific pressure";
-          Real eta = h/hstar "normalized specific enthalpy";
+        constant Real[:] n={-0.133645667811215e-6,0.455912656802978e-5,-0.146294640700979e-4,
+            0.639341312970080e-2,0.372783927268847e3,-0.718654377460447e4,
+            0.573494752103400e6,-0.267569329111439e7,-0.334066283302614e-4,-0.245479214069597e-1,
+            0.478087847764996e2,0.764664131818904e-5,0.128350627676972e-2,
+            0.171219081377331e-1,-0.851007304583213e1,-0.136513461629781e-1,-0.384460997596657e-5,
+            0.337423807911655e-2,-0.551624873066791,0.729202277107470,-0.992522757376041e-2,
+            -0.119308831407288,0.793929190615421,0.454270731799386,
+            0.209998591259910,-0.642109823904738e-2,-0.235155868604540e-1,
+            0.252233108341612e-2,-0.764885133368119e-2,0.136176427574291e-1,-0.133027883575669e-1};
+        constant Real[:] I={-12,-12,-12,-12,-12,-12,-12,-12,-10,-10,-10,-8,-8,-8,
+            -8,-5,-3,-2,-2,-2,-1,-1,0,0,1,3,3,4,4,10,12};
+        constant Real[:] J={0,1,2,6,14,16,20,22,1,5,12,0,2,4,10,2,0,1,3,4,0,2,0,
+            1,1,0,1,0,3,4,5};
+        constant SI.SpecificEnthalpy hstar=2300e3 "normalization enthalpy";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.Temp_K Tstar=760 "normalization temperature";
+        Real pi=p/pstar "normalized specific pressure";
+        Real eta=h/hstar "normalized specific enthalpy";
       algorithm
-          T := sum(n[i]*(pi + 0.240)^I[i]*(eta - 0.615)^J[i] for i in 1:31)*Tstar;
-          annotation (
-            Documentation(
-       info="<html>
+        T := sum(n[i]*(pi + 0.240)^I[i]*(eta - 0.615)^J[i] for i in 1:31)*Tstar;
+        annotation (Documentation(info="<html>
 <p>
  &nbsp;Equation number 2 from:
 </p>
@@ -3320,32 +3356,33 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end T3a_ph;
 
       function T3b_ph "Region 3 b: inverse function T(p,h)"
-          extends Modelica.Icons.Function;
-          input SI.Pressure p "Pressure";
-          input SI.SpecificEnthalpy h "specific enthalpy";
-          output SI.Temp_K T "Temperature";
+        extends Modelica.Icons.Function;
+        input SI.Pressure p "Pressure";
+        input SI.SpecificEnthalpy h "specific enthalpy";
+        output SI.Temp_K T "Temperature";
       protected
-          constant Real[:] n=
-            {0.323254573644920e-4,-0.127575556587181e-3,-0.475851877356068e-3,0.156183014181602e-2,
-             0.105724860113781,-0.858514221132534e2,0.724140095480911e3,0.296475810273257e-2,-0.592721983365988e-2,
-             -0.126305422818666e-1,-0.115716196364853,0.849000969739595e2,-0.108602260086615e-1,0.154304475328851e-1,
-             0.750455441524466e-1,0.252520973612982e-1,-0.602507901232996e-1,-0.307622221350501e1,-0.574011959864879e-1,
-             0.503471360939849e1,-0.925081888584834,0.391733882917546e1,-0.773146007130190e2,0.949308762098587e4,
-             -0.141043719679409e7,0.849166230819026e7,0.861095729446704,0.323346442811720,0.873281936020439,
-             -0.436653048526683,0.286596714529479,-0.131778331276228,0.676682064330275e-2};
-          constant Real[:] I = {-12,-12,-10,-10,-10,-10,-10,-8,-8,-8,-8,
-                                -8,-6,-6,-6,-4,-4,-3,-2,-2,-1,-1,-1,-1,-1,-1,0,0,1,3,5,6,8};
-          constant Real[:] J = {0,1,0,1,5,10,12,0,1,2,4,10,0,1,2,0,1,5,0,4,2,4,6,10,14,16,0,2,1,1,1,1,1};
-          constant SI.Temp_K Tstar = 860 "normalization temperature";
-          constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.SpecificEnthalpy hstar = 2800e3 "normalization enthalpy";
-          Real pi = p/pstar "normalized specific pressure";
-          Real eta = h/hstar "normalized specific enthalpy";
+        constant Real[:] n={0.323254573644920e-4,-0.127575556587181e-3,-0.475851877356068e-3,
+            0.156183014181602e-2,0.105724860113781,-0.858514221132534e2,
+            0.724140095480911e3,0.296475810273257e-2,-0.592721983365988e-2,-0.126305422818666e-1,
+            -0.115716196364853,0.849000969739595e2,-0.108602260086615e-1,
+            0.154304475328851e-1,0.750455441524466e-1,0.252520973612982e-1,-0.602507901232996e-1,
+            -0.307622221350501e1,-0.574011959864879e-1,0.503471360939849e1,-0.925081888584834,
+            0.391733882917546e1,-0.773146007130190e2,0.949308762098587e4,-0.141043719679409e7,
+            0.849166230819026e7,0.861095729446704,0.323346442811720,
+            0.873281936020439,-0.436653048526683,0.286596714529479,-0.131778331276228,
+            0.676682064330275e-2};
+        constant Real[:] I={-12,-12,-10,-10,-10,-10,-10,-8,-8,-8,-8,-8,-6,-6,-6,
+            -4,-4,-3,-2,-2,-1,-1,-1,-1,-1,-1,0,0,1,3,5,6,8};
+        constant Real[:] J={0,1,0,1,5,10,12,0,1,2,4,10,0,1,2,0,1,5,0,4,2,4,6,10,
+            14,16,0,2,1,1,1,1,1};
+        constant SI.Temp_K Tstar=860 "normalization temperature";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.SpecificEnthalpy hstar=2800e3 "normalization enthalpy";
+        Real pi=p/pstar "normalized specific pressure";
+        Real eta=h/hstar "normalized specific enthalpy";
       algorithm
-          T := sum(n[i]*(pi + 0.298)^I[i]*(eta - 0.720)^J[i] for i in 1:33)*Tstar;
-          annotation (
-            Documentation(
-       info="<html>
+        T := sum(n[i]*(pi + 0.298)^I[i]*(eta - 0.720)^J[i] for i in 1:33)*Tstar;
+        annotation (Documentation(info="<html>
  <p>
  &nbsp;Equation number 3 from:
 </p>
@@ -3362,32 +3399,33 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end T3b_ph;
 
       function v3a_ph "Region 3 a: inverse function v(p,h)"
-          extends Modelica.Icons.Function;
-          input SI.Pressure p "Pressure";
-          input SI.SpecificEnthalpy h "specific enthalpy";
-          output SI.SpecificVolume v "specific volume";
+        extends Modelica.Icons.Function;
+        input SI.Pressure p "Pressure";
+        input SI.SpecificEnthalpy h "specific enthalpy";
+        output SI.SpecificVolume v "specific volume";
       protected
-          constant Real[:] n=
-            { 0.529944062966028e-2,-0.170099690234461,0.111323814312927e2,-0.217898123145125e4,
-             -0.506061827980875e-3,0.556495239685324,-0.943672726094016e1,-0.297856807561527,0.939353943717186e2,
-             0.192944939465981e-1,0.421740664704763,-0.368914126282330e7,-0.737566847600639e-2,-0.354753242424366,
-             -0.199768169338727e1,0.115456297059049e1,0.568366875815960e4,0.808169540124668e-2,0.172416341519307,
-             0.104270175292927e1,-0.297691372792847,0.560394465163593,0.275234661176914,-0.148347894866012,
-             -0.651142513478515e-1,-0.292468715386302e1,0.664876096952665e-1,0.352335014263844e1,-0.146340792313332e-1,
-             -0.224503486668184e1,0.110533464706142e1,-0.408757344495612e-1};
-          constant Real[:] I = {-12,-12,-12,-12,-10,-10,-10,-8,-8,-6,
-                                -6,-6,-4,-4,-3,-2,-2,-1,-1,-1,-1,0,0,1,1,1,2,2,3,4,5,8};
-          constant Real[:] J = {6,8,12,18,4,7,10,5,12,3,4,22,2,3,7,3,16,0,1,2,3,0,1,0,1,2,0,2,0,2,2,2};
-          constant SI.Volume vstar = 0.0028 "normalization temperature";
-          constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.SpecificEnthalpy hstar = 2100e3 "normalization enthalpy";
-          Real pi = p/pstar "normalized specific pressure";
-          Real eta = h/hstar "normalized specific enthalpy";
+        constant Real[:] n={0.529944062966028e-2,-0.170099690234461,
+            0.111323814312927e2,-0.217898123145125e4,-0.506061827980875e-3,
+            0.556495239685324,-0.943672726094016e1,-0.297856807561527,
+            0.939353943717186e2,0.192944939465981e-1,0.421740664704763,-0.368914126282330e7,
+            -0.737566847600639e-2,-0.354753242424366,-0.199768169338727e1,
+            0.115456297059049e1,0.568366875815960e4,0.808169540124668e-2,
+            0.172416341519307,0.104270175292927e1,-0.297691372792847,
+            0.560394465163593,0.275234661176914,-0.148347894866012,-0.651142513478515e-1,
+            -0.292468715386302e1,0.664876096952665e-1,0.352335014263844e1,-0.146340792313332e-1,
+            -0.224503486668184e1,0.110533464706142e1,-0.408757344495612e-1};
+        constant Real[:] I={-12,-12,-12,-12,-10,-10,-10,-8,-8,-6,-6,-6,-4,-4,-3,
+            -2,-2,-1,-1,-1,-1,0,0,1,1,1,2,2,3,4,5,8};
+        constant Real[:] J={6,8,12,18,4,7,10,5,12,3,4,22,2,3,7,3,16,0,1,2,3,0,1,
+            0,1,2,0,2,0,2,2,2};
+        constant SI.Volume vstar=0.0028 "normalization temperature";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.SpecificEnthalpy hstar=2100e3 "normalization enthalpy";
+        Real pi=p/pstar "normalized specific pressure";
+        Real eta=h/hstar "normalized specific enthalpy";
       algorithm
-          v := sum(n[i]*(pi + 0.128)^I[i]*(eta - 0.727)^J[i] for i in 1:32)*vstar;
-          annotation (
-            Documentation(
-       info="<html>
+        v := sum(n[i]*(pi + 0.128)^I[i]*(eta - 0.727)^J[i] for i in 1:32)*vstar;
+        annotation (Documentation(info="<html>
 <p>
 &nbsp;Equation number 4 from:
 </p>
@@ -3404,32 +3442,34 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end v3a_ph;
 
       function v3b_ph "Region 3 b: inverse function v(p,h)"
-          extends Modelica.Icons.Function;
-          input SI.Pressure p "Pressure";
-          input SI.SpecificEnthalpy h "specific enthalpy";
-          output SI.SpecificVolume v "specific volume";
+        extends Modelica.Icons.Function;
+        input SI.Pressure p "Pressure";
+        input SI.SpecificEnthalpy h "specific enthalpy";
+        output SI.SpecificVolume v "specific volume";
       protected
-          constant Real[:] n=
-            { -0.225196934336318e-8,0.140674363313486e-7,0.233784085280560e-5,-0.331833715229001e-4,
-             0.107956778514318e-2,-0.271382067378863,0.107202262490333e1,-0.853821329075382,-0.215214194340526e-4,
-             0.769656088222730e-3,-0.431136580433864e-2,0.453342167309331,-0.507749535873652,-0.100475154528389e3,
-             -0.219201924648793,-0.321087965668917e1,0.607567815637771e3,0.557686450685932e-3,0.187499040029550,
-             0.905368030448107e-2,0.285417173048685,0.329924030996098e-1,0.239897419685483,0.482754995951394e1,
-             -0.118035753702231e2,0.169490044091791,-0.179967222507787e-1,0.371810116332674e-1,-0.536288335065096e-1,
-             0.160697101092520e1};
-          constant Real[:] I = {-12,-12,-8,-8,-8,-8,-8,-8,-6,-6,
-                                -6,-6,-6,-6,-4,-4,-4,-3,-3,-2,-2,-1,-1,-1,-1,0,1,1,2,2};
-          constant Real[:] J = {0,1,0,1,3,6,7,8,0,1,2,5,6,10,3,6,10,0,2,1,2,0,1,4,5,0,0,1,2,6};
-          constant SI.Volume vstar = 0.0088 "normalization temperature";
-          constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.SpecificEnthalpy hstar = 2800e3 "normalization enthalpy";
-          Real pi = p/pstar "normalized specific pressure";
-          Real eta = h/hstar "normalized specific enthalpy";
+        constant Real[:] n={-0.225196934336318e-8,0.140674363313486e-7,
+            0.233784085280560e-5,-0.331833715229001e-4,0.107956778514318e-2,-0.271382067378863,
+            0.107202262490333e1,-0.853821329075382,-0.215214194340526e-4,
+            0.769656088222730e-3,-0.431136580433864e-2,0.453342167309331,-0.507749535873652,
+            -0.100475154528389e3,-0.219201924648793,-0.321087965668917e1,
+            0.607567815637771e3,0.557686450685932e-3,0.187499040029550,
+            0.905368030448107e-2,0.285417173048685,0.329924030996098e-1,
+            0.239897419685483,0.482754995951394e1,-0.118035753702231e2,
+            0.169490044091791,-0.179967222507787e-1,0.371810116332674e-1,-0.536288335065096e-1,
+            0.160697101092520e1};
+        constant Real[:] I={-12,-12,-8,-8,-8,-8,-8,-8,-6,-6,-6,-6,-6,-6,-4,-4,-4,
+            -3,-3,-2,-2,-1,-1,-1,-1,0,1,1,2,2};
+        constant Real[:] J={0,1,0,1,3,6,7,8,0,1,2,5,6,10,3,6,10,0,2,1,2,0,1,4,5,
+            0,0,1,2,6};
+        constant SI.Volume vstar=0.0088 "normalization temperature";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.SpecificEnthalpy hstar=2800e3 "normalization enthalpy";
+        Real pi=p/pstar "normalized specific pressure";
+        Real eta=h/hstar "normalized specific enthalpy";
       algorithm
-          v := sum(n[i]*(pi + 0.0661)^I[i]*(eta - 0.720)^J[i] for i in 1:30)*vstar;
-          annotation (
-            Documentation(
-       info="<html>
+        v := sum(n[i]*(pi + 0.0661)^I[i]*(eta - 0.720)^J[i] for i in 1:30)*
+          vstar;
+        annotation (Documentation(info="<html>
 <p>
  &nbsp;Equation number 5 from:
 </p>
@@ -3446,32 +3486,35 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end v3b_ph;
 
       function T3a_ps "Region 3 a: inverse function T(p,s)"
-          extends Modelica.Icons.Function;
-          input SI.Pressure p "Pressure";
-          input SI.SpecificEntropy s "specific entropy";
-          output SI.Temp_K T "Temperature";
+        extends Modelica.Icons.Function;
+        input SI.Pressure p "Pressure";
+        input SI.SpecificEntropy s "specific entropy";
+        output SI.Temp_K T "Temperature";
       protected
-          constant Real[:] n=
-            {0.150042008263875e10,-0.159397258480424e12,0.502181140217975e-3,-0.672057767855466e2,
-             0.145058545404456e4,-0.823889534888890e4,-0.154852214233853,0.112305046746695e2,-0.297000213482822e2,
-             0.438565132635495e11,0.137837838635464e-2,-0.297478527157462e1,0.971777947349413e13,-0.571527767052398e-4,
-             0.288307949778420e5,-0.744428289262703e14,0.128017324848921e2,-0.368275545889071e3,0.664768904779177e16,
-             0.449359251958880e-1,-0.422897836099655e1,-0.240614376434179,-0.474341365254924e1,0.724093999126110,
-             0.923874349695897,0.399043655281015e1,0.384066651868009e-1,-0.359344365571848e-2,-0.735196448821653,
-             0.188367048396131,0.141064266818704e-3,-0.257418501496337e-2,0.123220024851555e-2};
-          constant Real[:] I = {-12,-12,-10,-10,-10,-10,-8,-8,
-                                -8,-8,-6,-6,-6,-5,-5,-5,-4,-4,-4,-2,-2,-1,-1,0,0,0,1,2,2,3,8,8,10};
-          constant Real[:] J = {28,32,4,10,12,14,5,7,8,28,2,6,32,0,14,32,6,10,36,1,4,1,6,0,1,4,0,0,3,2,0,1,2};
-          constant SI.Temp_K Tstar = 760 "normalization temperature";
-          constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.SpecificEntropy sstar = 4.4e3 "normalization entropy";
-          Real pi = p/pstar "normalized specific pressure";
-          Real sigma = s/sstar "normalized specific entropy";
+        constant Real[:] n={0.150042008263875e10,-0.159397258480424e12,
+            0.502181140217975e-3,-0.672057767855466e2,0.145058545404456e4,-0.823889534888890e4,
+            -0.154852214233853,0.112305046746695e2,-0.297000213482822e2,
+            0.438565132635495e11,0.137837838635464e-2,-0.297478527157462e1,
+            0.971777947349413e13,-0.571527767052398e-4,0.288307949778420e5,-0.744428289262703e14,
+            0.128017324848921e2,-0.368275545889071e3,0.664768904779177e16,
+            0.449359251958880e-1,-0.422897836099655e1,-0.240614376434179,-0.474341365254924e1,
+            0.724093999126110,0.923874349695897,0.399043655281015e1,
+            0.384066651868009e-1,-0.359344365571848e-2,-0.735196448821653,
+            0.188367048396131,0.141064266818704e-3,-0.257418501496337e-2,
+            0.123220024851555e-2};
+        constant Real[:] I={-12,-12,-10,-10,-10,-10,-8,-8,-8,-8,-6,-6,-6,-5,-5,
+            -5,-4,-4,-4,-2,-2,-1,-1,0,0,0,1,2,2,3,8,8,10};
+        constant Real[:] J={28,32,4,10,12,14,5,7,8,28,2,6,32,0,14,32,6,10,36,1,
+            4,1,6,0,1,4,0,0,3,2,0,1,2};
+        constant SI.Temp_K Tstar=760 "normalization temperature";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.SpecificEntropy sstar=4.4e3 "normalization entropy";
+        Real pi=p/pstar "normalized specific pressure";
+        Real sigma=s/sstar "normalized specific entropy";
       algorithm
-          T := sum(n[i]*(pi + 0.240)^I[i]*(sigma - 0.703)^J[i] for i in 1:33)*Tstar;
-          annotation (
-            Documentation(
-       info="<html>
+        T := sum(n[i]*(pi + 0.240)^I[i]*(sigma - 0.703)^J[i] for i in 1:33)*
+          Tstar;
+        annotation (Documentation(info="<html>
 <p>
  &nbsp;Equation number 6 from:
 </p>
@@ -3488,30 +3531,32 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end T3a_ps;
 
       function T3b_ps "Region 3 b: inverse function T(p,s)"
-          extends Modelica.Icons.Function;
-          input SI.Pressure p "Pressure";
-          input SI.SpecificEntropy s "specific entropy";
-          output SI.Temp_K T "Temperature";
+        extends Modelica.Icons.Function;
+        input SI.Pressure p "Pressure";
+        input SI.SpecificEntropy s "specific entropy";
+        output SI.Temp_K T "Temperature";
       protected
-          constant Real[:] n=
-            {0.527111701601660,-0.401317830052742e2,0.153020073134484e3,-0.224799398218827e4,
-             -0.193993484669048,-0.140467557893768e1,0.426799878114024e2,0.752810643416743,0.226657238616417e2,
-             -0.622873556909932e3,-0.660823667935396,0.841267087271658,-0.253717501764397e2,0.485708963532948e3,
-             0.880531517490555e3,0.265015592794626e7,-0.359287150025783,-0.656991567673753e3,0.241768149185367e1,
-             0.856873461222588,0.655143675313458,-0.213535213206406,0.562974957606348e-2,-0.316955725450471e15,
-             -0.699997000152457e-3,0.119845803210767e-1,0.193848122022095e-4,-0.215095749182309e-4};
-          constant Real[:] I = {-12,-12,-12,-12,-8,-8,-8,-6,-6,-6,-5,-5,-5,-5,-5,-4,-3,-3,-2,0,2,3,4,5,6,8,12,14};
-          constant Real[:] J = {1,3,4,7,0,1,3,0,2,4,0,1,2,4,6,12,1,6,2,0,1,1,0,24,0,3,1,2};
-          constant SI.Temp_K Tstar = 860 "normalization temperature";
-          constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.SpecificEntropy sstar = 5.3e3 "normalization entropy";
-          Real pi = p/pstar "normalized specific pressure";
-          Real sigma = s/sstar "normalized specific entropy";
+        constant Real[:] n={0.527111701601660,-0.401317830052742e2,
+            0.153020073134484e3,-0.224799398218827e4,-0.193993484669048,-0.140467557893768e1,
+            0.426799878114024e2,0.752810643416743,0.226657238616417e2,-0.622873556909932e3,
+            -0.660823667935396,0.841267087271658,-0.253717501764397e2,
+            0.485708963532948e3,0.880531517490555e3,0.265015592794626e7,-0.359287150025783,
+            -0.656991567673753e3,0.241768149185367e1,0.856873461222588,
+            0.655143675313458,-0.213535213206406,0.562974957606348e-2,-0.316955725450471e15,
+            -0.699997000152457e-3,0.119845803210767e-1,0.193848122022095e-4,-0.215095749182309e-4};
+        constant Real[:] I={-12,-12,-12,-12,-8,-8,-8,-6,-6,-6,-5,-5,-5,-5,-5,-4,
+            -3,-3,-2,0,2,3,4,5,6,8,12,14};
+        constant Real[:] J={1,3,4,7,0,1,3,0,2,4,0,1,2,4,6,12,1,6,2,0,1,1,0,24,0,
+            3,1,2};
+        constant SI.Temp_K Tstar=860 "normalization temperature";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.SpecificEntropy sstar=5.3e3 "normalization entropy";
+        Real pi=p/pstar "normalized specific pressure";
+        Real sigma=s/sstar "normalized specific entropy";
       algorithm
-          T := sum(n[i]*(pi + 0.760)^I[i]*(sigma - 0.818)^J[i] for i in 1:28)*Tstar;
-          annotation (
-            Documentation(
-       info="<html>
+        T := sum(n[i]*(pi + 0.760)^I[i]*(sigma - 0.818)^J[i] for i in 1:28)*
+          Tstar;
+        annotation (Documentation(info="<html>
 <p>
  &nbsp;Equation number 7 from:
 </p>
@@ -3528,30 +3573,33 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end T3b_ps;
 
       function v3a_ps "Region 3 a: inverse function v(p,s)"
-          extends Modelica.Icons.Function;
-          input SI.Pressure p "Pressure";
-          input SI.SpecificEntropy s "specific entropy";
-          output SI.SpecificVolume v "specific volume";
+        extends Modelica.Icons.Function;
+        input SI.Pressure p "Pressure";
+        input SI.SpecificEntropy s "specific entropy";
+        output SI.SpecificVolume v "specific volume";
       protected
-          constant Real[:] n=
-            {0.795544074093975e2,-0.238261242984590e4,0.176813100617787e5,-0.110524727080379e-2,
-             -0.153213833655326e2,0.297544599376982e3,-0.350315206871242e8,0.277513761062119,-0.523964271036888,
-             -0.148011182995403e6,0.160014899374266e7,0.170802322663427e13,0.246866996006494e-3,0.165326084797980e1,
-             -0.118008384666987,0.253798642355900e1,0.965127704669424,-0.282172420532826e2,0.203224612353823,
-             0.110648186063513e1,0.526127948451280,0.277000018736321,0.108153340501132e1,-0.744127885357893e-1,
-             0.164094443541384e-1,-0.680468275301065e-1,0.257988576101640e-1,-0.145749861944416e-3};
-          constant Real[:] I = {-12,-12,-12,-10,-10,-10,-10,-8,-8,-8,-8,-6,-5,-4,-3,-3,-2,-2,-1,-1,0,0,0,1,2,4,5,6};
-          constant Real[:] J = {10,12,14,4,8,10,20,5,6,14,16,28,1,5,2,4,3,8,1,2,0,1,3,0,0,2,2,0};
-          constant SI.Volume vstar = 0.0028 "normalization temperature";
-          constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.SpecificEntropy sstar = 4.4e3 "normalization entropy";
-          Real pi = p/pstar "normalized specific pressure";
-          Real sigma = s/sstar "normalized specific entropy";
+        constant Real[:] n={0.795544074093975e2,-0.238261242984590e4,
+            0.176813100617787e5,-0.110524727080379e-2,-0.153213833655326e2,
+            0.297544599376982e3,-0.350315206871242e8,0.277513761062119,-0.523964271036888,
+            -0.148011182995403e6,0.160014899374266e7,0.170802322663427e13,
+            0.246866996006494e-3,0.165326084797980e1,-0.118008384666987,
+            0.253798642355900e1,0.965127704669424,-0.282172420532826e2,
+            0.203224612353823,0.110648186063513e1,0.526127948451280,
+            0.277000018736321,0.108153340501132e1,-0.744127885357893e-1,
+            0.164094443541384e-1,-0.680468275301065e-1,0.257988576101640e-1,-0.145749861944416e-3};
+        constant Real[:] I={-12,-12,-12,-10,-10,-10,-10,-8,-8,-8,-8,-6,-5,-4,-3,
+            -3,-2,-2,-1,-1,0,0,0,1,2,4,5,6};
+        constant Real[:] J={10,12,14,4,8,10,20,5,6,14,16,28,1,5,2,4,3,8,1,2,0,1,
+            3,0,0,2,2,0};
+        constant SI.Volume vstar=0.0028 "normalization temperature";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.SpecificEntropy sstar=4.4e3 "normalization entropy";
+        Real pi=p/pstar "normalized specific pressure";
+        Real sigma=s/sstar "normalized specific entropy";
       algorithm
-          v := sum(n[i]*(pi + 0.187)^I[i]*(sigma - 0.755)^J[i] for i in 1:28)*vstar;
-          annotation (
-            Documentation(
-       info="<html>
+        v := sum(n[i]*(pi + 0.187)^I[i]*(sigma - 0.755)^J[i] for i in 1:28)*
+          vstar;
+        annotation (Documentation(info="<html>
 <p>
  &nbsp;Equation number 8 from:
 </p>
@@ -3568,32 +3616,34 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end v3a_ps;
 
       function v3b_ps "Region 3 b: inverse function v(p,s)"
-          extends Modelica.Icons.Function;
-          input SI.Pressure p "Pressure";
-          input SI.SpecificEntropy s "specific entropy";
-          output SI.SpecificVolume v "specific volume";
+        extends Modelica.Icons.Function;
+        input SI.Pressure p "Pressure";
+        input SI.SpecificEntropy s "specific entropy";
+        output SI.SpecificVolume v "specific volume";
       protected
-          constant Real[:] n=
-            {0.591599780322238e-4,-0.185465997137856e-2,0.104190510480013e-1,0.598647302038590e-2,
-             -0.771391189901699,0.172549765557036e1,-0.467076079846526e-3,0.134533823384439e-1,-0.808094336805495e-1,
-             0.508139374365767,0.128584643361683e-2,-0.163899353915435e1,0.586938199318063e1,-0.292466667918613e1,
-             -0.614076301499537e-2,0.576199014049172e1,-0.121613320606788e2,0.167637540957944e1,-0.744135838773463e1,
-             0.378168091437659e-1,0.401432203027688e1,0.160279837479185e2,0.317848779347728e1,-0.358362310304853e1,
-             -0.115995260446827e7,0.199256573577909,-0.122270624794624,-0.191449143716586e2,-0.150448002905284e-1,
-             0.146407900162154e2,-0.327477787188230e1};
-          constant Real[:] I = {-12,-12,-12,-12,-12,-12,-10,-10,
-                                -10,-10,-8,-5,-5,-5,-4,-4,-4,-4,-3,-2,-2,-2,-2,-2,-2,0,0,0,1,1,2};
-          constant Real[:] J = {0,1,2,3,5,6,0,1,2,4,0,1,2,3,0,1,2,3,1,0,1,2,3,4,12,0,1,2,0,2,2};
-          constant SI.Volume vstar = 0.0088 "normalization temperature";
-          constant SI.Pressure pstar = 100e6 "normalization pressure";
-          constant SI.SpecificEntropy sstar = 5.3e3 "normalization entropy";
-          Real pi = p/pstar "normalized specific pressure";
-          Real sigma = s/sstar "normalized specific entropy";
+        constant Real[:] n={0.591599780322238e-4,-0.185465997137856e-2,
+            0.104190510480013e-1,0.598647302038590e-2,-0.771391189901699,
+            0.172549765557036e1,-0.467076079846526e-3,0.134533823384439e-1,-0.808094336805495e-1,
+            0.508139374365767,0.128584643361683e-2,-0.163899353915435e1,
+            0.586938199318063e1,-0.292466667918613e1,-0.614076301499537e-2,
+            0.576199014049172e1,-0.121613320606788e2,0.167637540957944e1,-0.744135838773463e1,
+            0.378168091437659e-1,0.401432203027688e1,0.160279837479185e2,
+            0.317848779347728e1,-0.358362310304853e1,-0.115995260446827e7,
+            0.199256573577909,-0.122270624794624,-0.191449143716586e2,-0.150448002905284e-1,
+            0.146407900162154e2,-0.327477787188230e1};
+        constant Real[:] I={-12,-12,-12,-12,-12,-12,-10,-10,-10,-10,-8,-5,-5,-5,
+            -4,-4,-4,-4,-3,-2,-2,-2,-2,-2,-2,0,0,0,1,1,2};
+        constant Real[:] J={0,1,2,3,5,6,0,1,2,4,0,1,2,3,0,1,2,3,1,0,1,2,3,4,12,
+            0,1,2,0,2,2};
+        constant SI.Volume vstar=0.0088 "normalization temperature";
+        constant SI.Pressure pstar=100e6 "normalization pressure";
+        constant SI.SpecificEntropy sstar=5.3e3 "normalization entropy";
+        Real pi=p/pstar "normalized specific pressure";
+        Real sigma=s/sstar "normalized specific entropy";
       algorithm
-          v := sum(n[i]*(pi + 0.298)^I[i]*(sigma - 0.816)^J[i] for i in 1:31)*vstar;
-          annotation (
-            Documentation(
-       info="<html>
+        v := sum(n[i]*(pi + 0.298)^I[i]*(sigma - 0.816)^J[i] for i in 1:31)*
+          vstar;
+        annotation (Documentation(info="<html>
 <p>
  &nbsp;Equation number 9 from:
 </p>
@@ -3676,9 +3726,9 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
        </html>"));
     end Basic;
 
-  package IceBoundaries
+    package IceBoundaries
       "the melting line and sublimation line curves from IAPWS"
-    extends Modelica.Icons.Package;
+      extends Modelica.Icons.Package;
       function pmIceI_T
         "Melting pressure of ice I (temperature range from 273.16 to 251.165 K)"
         extends Modelica.Icons.Function;
@@ -3686,13 +3736,13 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         output SI.Pressure pm
           "Melting pressure of iceI(for T from 273.16 to 251.165 K)";
       protected
-        constant SI.Temp_K Tn = 273.16 "normalization temperature";
-        constant SI.Pressure pn = 611.657 "normalization pressure";
-        Real sigma = T/Tn "normalized temperature";
+        constant SI.Temp_K Tn=273.16 "normalization temperature";
+        constant SI.Pressure pn=611.657 "normalization pressure";
+        Real sigma=T/Tn "normalized temperature";
       algorithm
-        pm := (1-0.626000e6*(1-sigma^(-3)) + 0.197135e6*(1-sigma^(21.2)))*pn;
-        annotation (
-            Documentation(                                                                                                    info="<html>
+        pm := (1 - 0.626000e6*(1 - sigma^(-3)) + 0.197135e6*(1 - sigma^(21.2)))
+          *pn;
+        annotation (Documentation(info="<html>
   <p>
   Equation 1 from:<br>
   The International Association for the Properties of Water and Steam<br>
@@ -3711,13 +3761,12 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         output SI.Pressure pm
           "Melting pressure of iceIII(for T from 251.165 to 256.164 K)";
       protected
-        constant SI.Temp_K Tn = 251.165 "normalization temperature";
-        constant SI.Pressure pn = 209.9e6 "normalization pressure";
-        Real sigma = T/Tn "normalized temperature";
+        constant SI.Temp_K Tn=251.165 "normalization temperature";
+        constant SI.Pressure pn=209.9e6 "normalization pressure";
+        Real sigma=T/Tn "normalized temperature";
       algorithm
-        pm := (1-0.295252*(1-sigma^60))*pn;
-        annotation (
-            Documentation(                                                                                                    info="<html>
+        pm := (1 - 0.295252*(1 - sigma^60))*pn;
+        annotation (Documentation(info="<html>
   <p>
   Equation 2 from:<br>
   The International Association for the Properties of Water and Steam<br>
@@ -3736,14 +3785,13 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         output SI.Pressure pm
           "Melting pressure of iceV(for T from 256.164 to 273.31 K)";
       protected
-        constant SI.Temp_K Tn = 256.164 "normalization temperature";
-        constant SI.Pressure pn = 350.1e6 "normalization pressure";
-        Real sigma = T/Tn "normalized temperature";
+        constant SI.Temp_K Tn=256.164 "normalization temperature";
+        constant SI.Pressure pn=350.1e6 "normalization pressure";
+        Real sigma=T/Tn "normalized temperature";
 
       algorithm
-        pm := (1-1.18721*(1-sigma^8))*pn;
-        annotation (
-            Documentation(                                                                                                    info="<html>
+        pm := (1 - 1.18721*(1 - sigma^8))*pn;
+        annotation (Documentation(info="<html>
   <p>
   Equation 3 from:<br>
   The International Association for the Properties of Water and Steam<br>
@@ -3762,14 +3810,14 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
         output SI.Pressure psubl
           "sublimation pressure (for T from 190 to 273.16)";
       protected
-        constant SI.Temp_K Tn = 273.16 "normalization temperature";
-        constant SI.Pressure pn = 611.657 "normalization pressure";
-        constant Real[2] a = {-13.9281690,34.7078238} "constant values";
-        Real sigma = T/Tn "normalized temperature";
+        constant SI.Temp_K Tn=273.16 "normalization temperature";
+        constant SI.Pressure pn=611.657 "normalization pressure";
+        constant Real[2] a={-13.9281690,34.7078238} "constant values";
+        Real sigma=T/Tn "normalized temperature";
       algorithm
-        psubl := Modelica.Math.exp(a[1]*(1-sigma^(-1.5)) + a[2]*(1-sigma^(-1.25)))*pn;
-        annotation (
-            Documentation(                                                                                                    info="<html>
+        psubl := Modelica.Math.exp(a[1]*(1 - sigma^(-1.5)) + a[2]*(1 - sigma^(-1.25)))
+          *pn;
+        annotation (Documentation(info="<html>
   <p>
   Equation 6 from:<br>
   The International Association for the Properties of Water and Steam<br>
@@ -3790,11 +3838,11 @@ Release on the Pressure along the Melting and the Sublimation Curves of
 Ordinary Water Substance<br>
 </p>
 </html>"));
-  end IceBoundaries;
+    end IceBoundaries;
 
     package Transport "transport properties for water according to IAPWS/IF97"
 
-       extends Modelica.Icons.Package;
+      extends Modelica.Icons.Package;
 
       function visc_dTp "dynamic viscosity eta(d,T,p), industrial formulation"
         extends Modelica.Icons.Function;
@@ -3809,12 +3857,49 @@ Ordinary Water Substance<br>
         constant Real n1=0.978197 "viscosity coefficient";
         constant Real n2=0.579829 "viscosity coefficient";
         constant Real n3=-0.202354 "viscosity coefficient";
-        constant Real[42] nn=array(0.5132047, 0.3205656, 0.0, 0.0, -0.7782567,
-            0.1885447, 0.2151778, 0.7317883, 1.241044, 1.476783, 0.0, 0.0, -0.2818107,
-             -1.070786, -1.263184, 0.0, 0.0, 0.0, 0.1778064, 0.460504,
-            0.2340379, -0.4924179, 0.0, 0.0, -0.0417661, 0.0, 0.0, 0.1600435,
-            0.0, 0.0, 0.0, -0.01578386, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.003629481,
-             0.0, 0.0) "viscosity coefficients";
+        constant Real[42] nn=array(
+                  0.5132047,
+                  0.3205656,
+                  0.0,
+                  0.0,
+                  -0.7782567,
+                  0.1885447,
+                  0.2151778,
+                  0.7317883,
+                  1.241044,
+                  1.476783,
+                  0.0,
+                  0.0,
+                  -0.2818107,
+                  -1.070786,
+                  -1.263184,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.1778064,
+                  0.460504,
+                  0.2340379,
+                  -0.4924179,
+                  0.0,
+                  0.0,
+                  -0.0417661,
+                  0.0,
+                  0.0,
+                  0.1600435,
+                  0.0,
+                  0.0,
+                  0.0,
+                  -0.01578386,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  -0.003629481,
+                  0.0,
+                  0.0) "viscosity coefficients";
         constant SI.Density rhostar=317.763 "scaling density";
         constant SI.DynamicViscosity etastar=55.071e-6 "scaling viscosity";
         constant SI.Temperature tstar=647.226 "scaling temperature";
@@ -3840,13 +3925,15 @@ Ordinary Water Substance<br>
         // assert(phase <> 2, "viscosity can not be computed for two-phase states");
         delta := d/rhostar;
         assert(d > triple.dvtriple,
-          "IF97 medium function visc_dTp for viscosity called with too low density\n" +
-          "d = " + String(d) + " <= " + String(triple.dvtriple) + " (triple point density)");
+          "IF97 medium function visc_dTp for viscosity called with too low density\n"
+           + "d = " + String(d) + " <= " + String(triple.dvtriple) +
+          " (triple point density)");
         assert((p <= 500e6 and (Tc >= 0.0 and Tc <= 150)) or (p <= 350e6 and (
           Tc > 150.0 and Tc <= 600)) or (p <= 300e6 and (Tc > 600.0 and Tc <=
           900)),
-          "IF97 medium function visc_dTp: viscosity computed outside the range\n" +
-          "of validity of the IF97 formulation: p = " + String(p) + " Pa, Tc = " + String(Tc) + " K");
+          "IF97 medium function visc_dTp: viscosity computed outside the range\n"
+           + "of validity of the IF97 formulation: p = " + String(p) +
+          " Pa, Tc = " + String(Tc) + " K");
         deltam1 := delta - 1.0;
         tau := tstar/T;
         taum1 := tau - 1.0;
@@ -3885,12 +3972,37 @@ Ordinary Water Substance<br>
         constant Real n1=6.978267 "conductivity coefficient";
         constant Real n2=2.599096 "conductivity coefficient";
         constant Real n3=-0.998254 "conductivity coefficient";
-        constant Real[30] nn=array(1.3293046, 1.7018363, 5.2246158, 8.7127675,
-            -1.8525999, -0.40452437, -2.2156845, -10.124111, -9.5000611,
-            0.9340469, 0.2440949, 1.6511057, 4.9874687, 4.3786606, 0.0,
-            0.018660751, -0.76736002, -0.27297694, -0.91783782, 0.0, -0.12961068,
-             0.37283344, -0.43083393, 0.0, 0.0, 0.044809953, -0.1120316,
-            0.13333849, 0.0, 0.0) "conductivity coefficient";
+        constant Real[30] nn=array(
+                  1.3293046,
+                  1.7018363,
+                  5.2246158,
+                  8.7127675,
+                  -1.8525999,
+                  -0.40452437,
+                  -2.2156845,
+                  -10.124111,
+                  -9.5000611,
+                  0.9340469,
+                  0.2440949,
+                  1.6511057,
+                  4.9874687,
+                  4.3786606,
+                  0.0,
+                  0.018660751,
+                  -0.76736002,
+                  -0.27297694,
+                  -0.91783782,
+                  0.0,
+                  -0.12961068,
+                  0.37283344,
+                  -0.43083393,
+                  0.0,
+                  0.0,
+                  0.044809953,
+                  -0.1120316,
+                  0.13333849,
+                  0.0,
+                  0.0) "conductivity coefficient";
         constant SI.ThermalConductivity lamstar=0.4945 "scaling conductivity";
         constant SI.Density rhostar=317.763 "scaling density";
         constant SI.Temperature tstar=647.226 "scaling temperature";
@@ -3946,12 +4058,13 @@ Ordinary Water Substance<br>
         //   "thermalConductivity can not be called with 2-phase inputs!");
         assert(d > triple.dvtriple,
           "IF97 medium function cond_dTp called with too low density\n" +
-          "d = " + String(d) + " <= " + String(triple.dvtriple) + " (triple point density)");
-        assert((p <= 100e6 and (Tc >= 0.0 and Tc <= 500)) or
-        (p <= 70e6 and (Tc > 500.0 and Tc <= 650)) or
-        (p <= 40e6 and (Tc > 650.0 and Tc <= 800)),
-        "IF97 medium function cond_dTp: thermal conductivity computed outside the range\n" +
-        "of validity of the IF97 formulation: p = " + String(p) + " Pa, Tc = " + String(Tc) + " K");
+          "d = " + String(d) + " <= " + String(triple.dvtriple) +
+          " (triple point density)");
+        assert((p <= 100e6 and (Tc >= 0.0 and Tc <= 500)) or (p <= 70e6 and (Tc
+           > 500.0 and Tc <= 650)) or (p <= 40e6 and (Tc > 650.0 and Tc <= 800)),
+          "IF97 medium function cond_dTp: thermal conductivity computed outside the range\n"
+           + "of validity of the IF97 formulation: p = " + String(p) +
+          " Pa, Tc = " + String(Tc) + " K");
         if industrialMethod == true then
           deltaTREL := abs(TREL - 1) + C[4];
           Q := 2 + C[5]/deltaTREL^(3/5);
@@ -3960,10 +4073,10 @@ Ordinary Water Substance<br>
           else
             S := C[6]/deltaTREL^(3/5);
           end if;
-          lambdaREL2 := (dpar[1]/TREL^10 + dpar[2])*rhoREL^(9/5)*Modelica.Math.exp(C[1]*(1 - rhoREL^(14
-            /5))) + dpar[3]*S*rhoREL^Q*Modelica.Math.exp((Q/(1 + Q))*(1 -
-            rhoREL^(1 + Q))) + dpar[4]*Modelica.Math.exp(C[2]*TREL^(3/2) + C[3]
-            /rhoREL^5);
+          lambdaREL2 := (dpar[1]/TREL^10 + dpar[2])*rhoREL^(9/5)*
+            Modelica.Math.exp(C[1]*(1 - rhoREL^(14/5))) + dpar[3]*S*rhoREL^Q*
+            Modelica.Math.exp((Q/(1 + Q))*(1 - rhoREL^(1 + Q))) + dpar[4]*
+            Modelica.Math.exp(C[2]*TREL^(3/2) + C[3]/rhoREL^5);
           lambdaREL1 := b[1] + b[2]*rhoREL + b[3]*Modelica.Math.exp(B[1]*(
             rhoREL + B[2])^2);
           lambdaREL0 := TREL^(1/2)*sum(a[i]*TREL^(i - 1) for i in 1:4);
@@ -3973,9 +4086,9 @@ Ordinary Water Substance<br>
           if p < data.PLIMIT4A then
             //regions are 1 or 2,
             if d > data.DCRIT then
-       region := 1;
+              region := 1;
             else
-       region := 2;
+              region := 2;
             end if;
           else
             //region is 3, or illegal
@@ -3989,18 +4102,16 @@ Ordinary Water Substance<br>
           Lam0 := 1/(n0 + (n1 + (n2 + n3*tau)*tau)*tau)/(tau^0.5);
           Lam1 := 0.0;
           tfun := 1.0;
-          for
-       i in 1:5 loop
+          for i in 1:5 loop
             if (i <> 1) then
-       tfun := tfun*taum1;
+              tfun := tfun*taum1;
             end if;
             rhofun := 1.0;
-            for
-         j in 0:5 loop
-       if (j <> 0) then
+            for j in 0:5 loop
+              if (j <> 0) then
                 rhofun := rhofun*deltam1;
-       end if;
-       Lam1 := Lam1 + nn[i + j*5]*tfun*rhofun;
+              end if;
+              Lam1 := Lam1 + nn[i + j*5]*tfun*rhofun;
             end for;
           end for;
           if (region == 1) then
@@ -4008,15 +4119,13 @@ Ordinary Water Substance<br>
             // dp/dT @ cont d = -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
             dpitau := -tstar/pstar*(data.PSTAR1*(g.gpi - data.TSTAR1/T*g.gtaupi)
               /g.gpipi/T);
-            ddelpi := -pstar/rhostar*data.RH2O/data.PSTAR1/data.PSTAR1*T*d*d*g.
-              gpipi;
+            ddelpi := -pstar/rhostar*data.RH2O/data.PSTAR1/data.PSTAR1*T*d*d*g.gpipi;
             Chi := delta*ddelpi;
           elseif (region == 2) then
             g := Basic.g2(p, T);
             dpitau := -tstar/pstar*(data.PSTAR2*(g.gpi - data.TSTAR2/T*g.gtaupi)
               /g.gpipi/T);
-            ddelpi := -pstar/rhostar*data.RH2O/data.PSTAR2/data.PSTAR2*T*d*d*g.
-              gpipi;
+            ddelpi := -pstar/rhostar*data.RH2O/data.PSTAR2/data.PSTAR2*T*d*d*g.gpipi;
             Chi := delta*ddelpi;
             //         elseif (region == 3) then
             //           f := Basic.f3(T, d);
@@ -4025,14 +4134,17 @@ Ordinary Water Substance<br>
             //    Chi := delta*ddelpi;
           else
             assert(false,
-              "thermal conductivity can only be called in the one-phase regions below 623.15 K\n" +
-              "(p = " + String(p) + " Pa, T = " + String(T) + " K, region = " + String(region) + ")");
+              "thermal conductivity can only be called in the one-phase regions below 623.15 K\n"
+               + "(p = " + String(p) + " Pa, T = " + String(T) +
+              " K, region = " + String(region) + ")");
           end if;
           taum1 := 1/tau - 1;
           d2 := deltam1*deltam1;
-          Lam2 := 0.0013848*etastar/visc_dTp(d, T, p)/(tau*tau*delta*delta)*
-            dpitau*dpitau*max(Chi, Modelica.Constants.small)^0.4678*(delta)^0.5
-            *Modelica.Math.exp(-18.66*taum1*taum1 - d2*d2);
+          Lam2 := 0.0013848*etastar/visc_dTp(
+                  d,
+                  T,
+                  p)/(tau*tau*delta*delta)*dpitau*dpitau*max(Chi, Modelica.Constants.small)
+            ^0.4678*(delta)^0.5*Modelica.Math.exp(-18.66*taum1*taum1 - d2*d2);
           lambda := lamstar*(Lam0*Modelica.Math.exp(delta*Lam1) + Lam2);
         end if;
       end cond_dTp;
@@ -4045,7 +4157,7 @@ Ordinary Water Substance<br>
       protected
         Real Theta "dimensionless temperature";
       algorithm
-        Theta := min(1.0,T/data.TCRIT);
+        Theta := min(1.0, T/data.TCRIT);
         sigma := 235.8e-3*(1 - Theta)^1.256*(1 - 0.625*(1 - Theta));
       end surfaceTension;
 
@@ -4105,7 +4217,8 @@ Ordinary Water Substance<br>
         pi1 := 7.1 - p/data.PSTAR1;
         assert(p > triple.ptriple,
           "IF97 medium function hofpT1  called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         tau1 := -1.222 + tau;
         o[1] := tau1*tau1;
         o[2] := o[1]*tau1;
@@ -4157,7 +4270,8 @@ Ordinary Water Substance<br>
       algorithm
         assert(p > triple.ptriple,
           "IF97 medium function handsofpT1 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         tau := data.TSTAR1/T;
         pi1 := 7.1 - p/data.PSTAR1;
         tau1 := -1.222 + tau;
@@ -4255,8 +4369,9 @@ Ordinary Water Substance<br>
         Real tau2 "dimensionless temperature";
       algorithm
         assert(p > triple.ptriple,
-          "IF97 medium function hofpT2 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "IF97 medium function hofpT2 called with too low pressure\n" + "p = "
+           + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         pi := p/data.PSTAR2;
         tau := data.TSTAR2/T;
         tau2 := -0.5 + tau;
@@ -4318,7 +4433,8 @@ Ordinary Water Substance<br>
       algorithm
         assert(p > triple.ptriple,
           "IF97 medium function handsofpT2 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         tau := data.TSTAR2/T;
         pi := p/data.PSTAR2;
         tau2 := tau - 0.5;
@@ -4488,7 +4604,11 @@ Ordinary Water Substance<br>
         SI.SpecificEntropy dels=IterationData.DELS "iteration accuracy";
         Integer error "error if not 0";
       algorithm
-        (d,T,error) := Inverses.dtofps3(p=p,s= s,delp= delp,dels= dels);
+        (d,T,error) := Inverses.dtofps3(
+                p=p,
+                s=s,
+                delp=delp,
+                dels=dels);
         h := hofdT3(d, T);
       end hofps3;
 
@@ -4510,8 +4630,13 @@ Ordinary Water Substance<br>
         SI.Temperature T "temperature (K)";
         Integer error "error flag";
       algorithm
-        (d,T,error) := Inverses.dtofpsdt3(p=p,s= s,dguess= dguess,Tguess=
-          Tguess,delp= delp,dels= dels);
+        (d,T,error) := Inverses.dtofpsdt3(
+                p=p,
+                s=s,
+                dguess=dguess,
+                Tguess=Tguess,
+                delp=delp,
+                dels=dels);
         h := hofdT3(d, T);
       end hofpsdt3;
 
@@ -4538,7 +4663,7 @@ Ordinary Water Substance<br>
           hl := Regions.hl_p_R4b(p);
           hv := Regions.hv_p_R4b(p);
         end if;
-        x := max(min(if sl <> sv then (s - sl)/(sv - sl) else 1.0, 1.0),0.0);
+        x := max(min(if sl <> sv then (s - sl)/(sv - sl) else 1.0, 1.0), 0.0);
         h := hl + x*(hv - hl);
       end hofps4;
 
@@ -4555,8 +4680,9 @@ Ordinary Water Substance<br>
         tau := data.TSTAR5/T;
         pi := p/data.PSTAR5;
         assert(p > triple.ptriple,
-          "IF97 medium function hofpT5 called with too low pressure\n" +
-          "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
+          "IF97 medium function hofpT5 called with too low pressure\n" + "p = "
+           + String(p) + " Pa <= " + String(triple.ptriple) +
+          " Pa (triple point pressure)");
         o[1] := tau*tau;
         o[2] := o[1]*o[1];
         o[3] := pi*pi;
@@ -4574,8 +4700,8 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.SpecificEntropy s "specific entropy";
-       input Integer phase=
-                      0 "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
+        input Integer phase=0
+          "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
         output SI.SpecificEnthalpy h "specific enthalpy";
       protected
         Modelica.Media.Common.GibbsDerivs g
@@ -4587,19 +4713,28 @@ Ordinary Water Substance<br>
         SI.Temperature T "temperature";
         SI.Density d "density";
       algorithm
-        region := Regions.region_ps(p=p,s= s,phase=phase);
+        region := Regions.region_ps(
+                p=p,
+                s=s,
+                phase=phase);
         if (region == 1) then
           h := hofps1(p, s);
         elseif (region == 2) then
           h := hofps2(p, s);
         elseif (region == 3) then
-          (d,T,error) := Inverses.dtofps3(p=p,s= s,delp= IterationData.DELP,dels=
-                 IterationData.DELS);
+          (d,T,error) := Inverses.dtofps3(
+                  p=p,
+                  s=s,
+                  delp=IterationData.DELP,
+                  dels=IterationData.DELS);
           h := hofdT3(d, T);
         elseif (region == 4) then
           h := hofps4(p, s);
         elseif (region == 5) then
-          (T,error) := Inverses.tofps5(p=p,s= s,relds= IterationData.DELS);
+          (T,error) := Inverses.tofps5(
+                  p=p,
+                  s=s,
+                  relds=IterationData.DELS);
           h := hofpT5(p, T);
         end if;
       end water_hisentropic;
@@ -4625,19 +4760,30 @@ Ordinary Water Substance<br>
         SI.Temperature T "temperature";
         SI.Density d "density";
       algorithm
-        region := Regions.region_ps(p=p,s= s,phase= phase);
+        region := Regions.region_ps(
+                p=p,
+                s=s,
+                phase=phase);
         if (region == 1) then
           h := hofps1(p, s);
         elseif (region == 2) then
           h := hofps2(p, s);
         elseif (region == 3) then
-          h := hofpsdt3(p=p,s= s,dguess= dguess,Tguess= Tguess,delp=
-            IterationData.DELP,dels= IterationData.DELS);
+          h := hofpsdt3(
+                  p=p,
+                  s=s,
+                  dguess=dguess,
+                  Tguess=Tguess,
+                  delp=IterationData.DELP,
+                  dels=IterationData.DELS);
         elseif (region == 4) then
           h := hofps4(p, s);
         elseif (region == 5) then
-          (T,error) := Inverses.tofpst5(p=p,s= s,Tguess= Tguess,relds=
-            IterationData.DELS);
+          (T,error) := Inverses.tofpst5(
+                  p=p,
+                  s=s,
+                  Tguess=Tguess,
+                  relds=IterationData.DELS);
           h := hofpT5(p, T);
         end if;
       end water_hisentropic_dyn;
@@ -4833,14 +4979,14 @@ Ordinary Water Substance<br>
       algorithm
         found := false;
         assert(p >= data.PLIMIT4A,
-          "BaseIF97.dofpt3: function called outside of region 3! p too low\n" +
-          "p = " + String(p) + " Pa < " + String(data.PLIMIT4A) + " Pa");
+          "BaseIF97.dofpt3: function called outside of region 3! p too low\n"
+           + "p = " + String(p) + " Pa < " + String(data.PLIMIT4A) + " Pa");
         assert(T >= data.TLIMIT1,
-          "BaseIF97.dofpt3: function called outside of region 3! T too low\n" +
-          "T = " + String(T) + " K < " + String(data.TLIMIT1) + " K");
+          "BaseIF97.dofpt3: function called outside of region 3! T too low\n"
+           + "T = " + String(T) + " K < " + String(data.TLIMIT1) + " K");
         assert(p >= Regions.boundary23ofT(T),
-          "BaseIF97.dofpt3: function called outside of region 3! T too high\n" +
-          "p = " + String(p) + " Pa, T = " + String(T) + " K");
+          "BaseIF97.dofpt3: function called outside of region 3! T too high\n"
+           + "p = " + String(p) + " Pa, T = " + String(T) + " K");
         supercritical := p > data.PCRIT;
         damping := if supercritical then 1.0 else 1.0;
         Tmax := Regions.boundary23ofp(p);
@@ -4857,13 +5003,13 @@ Ordinary Water Substance<br>
             dmin := Regions.rhol_p_R4b(p);
             dguess := 1.1*Regions.rhol_T(T)
               "guess: 10 percent more than on the phase boundary for same T";
-      //      dguess := 0.5*(dmax + dmin);
+            //      dguess := 0.5*(dmax + dmin);
           else
             dmax := Regions.rhov_p_R4b(p);
             dmin := dofp23(p);
             dguess := 0.9*Regions.rhov_T(T)
               "guess: 10% less than on the phase boundary for same T";
-      //      dguess := 0.5*(dmax + dmin);
+            //      dguess := 0.5*(dmax + dmin);
           end if;
         end if;
         while ((i < IterationData.IMAX) and not found) loop
@@ -4875,15 +5021,15 @@ Ordinary Water Substance<br>
             found := true;
           end if;
           deld := dp/nDerivs.pd*damping;
-// Can be used for debugging in Dymola: not a standard function
-//          LogVariable(deld);
+          // Can be used for debugging in Dymola: not a standard function
+          //          LogVariable(deld);
           d := d - deld;
           if d > dmin and d < dmax then
             dguess := d;
           else
             if d > dmax then
               dguess := dmax - sqrt(Modelica.Constants.eps);
-                // put it on the correct spot just inside the boundary here instead
+              // put it on the correct spot just inside the boundary here instead
             else
               dguess := dmin + sqrt(Modelica.Constants.eps);
             end if;
@@ -4922,20 +5068,22 @@ Ordinary Water Substance<br>
           "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Modelica.Media.Common.NewtonDerivatives_ph nDerivs
           "derivatives needed in Newton iteration";
-        Boolean found = false "flag for iteration success";
+        Boolean found=false "flag for iteration success";
         Integer subregion "1 for subregion 3a, 2 for subregion 3b";
       algorithm
         if p < data.PCRIT then
           // allow a 10 J margin inside the (well approximated) phase boundary
-          subregion := if h < (Regions.hl_p(p) + 10.0) then 1 else
-            if h > (Regions.hv_p(p) - 10.0) then 2 else 0;
-          assert(subregion <> 0,"inverse iteration of dt from ph called in 2 phase region: this can not work");
+          subregion := if h < (Regions.hl_p(p) + 10.0) then 1 else if h > (
+            Regions.hv_p(p) - 10.0) then 2 else 0;
+          assert(subregion <> 0,
+            "inverse iteration of dt from ph called in 2 phase region: this can not work");
         else
           //supercritical
           subregion := if h < Basic.h3ab_p(p) then 1 else 2;
         end if;
-        T := if subregion == 1 then Basic.T3a_ph(p,h) else Basic.T3b_ph(p,h);
-        d := if subregion == 1 then 1/Basic.v3a_ph(p,h) else 1/Basic.v3b_ph(p,h);
+        T := if subregion == 1 then Basic.T3a_ph(p, h) else Basic.T3b_ph(p, h);
+        d := if subregion == 1 then 1/Basic.v3a_ph(p, h) else 1/Basic.v3b_ph(p,
+          h);
         i := 0;
         error := 0;
         while ((i < IterationData.IMAX) and not found) loop
@@ -4993,14 +5141,16 @@ Ordinary Water Substance<br>
         found := false;
         if p < data.PCRIT then
           // allow a 1 J/K margin inside the (well approximated) phase boundary
-          subregion := if s < (Regions.sl_p(p) + 10.0) then 1 else
-            if s > (Regions.sv_p(p) - 10.0) then 2 else 0;
-          assert(subregion <> 0,"inverse iteration of dt from ps called in 2 phase region: this is illegal!");
+          subregion := if s < (Regions.sl_p(p) + 10.0) then 1 else if s > (
+            Regions.sv_p(p) - 10.0) then 2 else 0;
+          assert(subregion <> 0,
+            "inverse iteration of dt from ps called in 2 phase region: this is illegal!");
         else
           subregion := if s < data.SCRIT then 1 else 2;
         end if;
-        T := if subregion == 1 then Basic.T3a_ps(p,s) else Basic.T3b_ps(p,s);
-        d := if subregion == 1 then 1/Basic.v3a_ps(p,s) else 1/Basic.v3b_ps(p,s);
+        T := if subregion == 1 then Basic.T3a_ps(p, s) else Basic.T3b_ps(p, s);
+        d := if subregion == 1 then 1/Basic.v3a_ps(p, s) else 1/Basic.v3b_ps(p,
+          s);
         while ((i < IterationData.IMAX) and not found) loop
           f := Basic.f3(d, T);
           nDerivs := Modelica.Media.Common.Helmholtz_ps(f);
@@ -5141,7 +5291,7 @@ Ordinary Water Substance<br>
           end if;
         end while;
 
-          // print("i = " + i2s(i) + ", p = " + r2s(p/1.0e5) + ", delp = " + r2s(delp*1.0e-5) + "\n");
+        // print("i = " + i2s(i) + ", p = " + r2s(p/1.0e5) + ", delp = " + r2s(delp*1.0e-5) + "\n");
         if not found then
           error := 1;
         end if;
@@ -5358,8 +5508,8 @@ Ordinary Water Substance<br>
         f := Basic.f3(d, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
         assert(pro.p <= 100.0e6,
-          "IF97 medium function waterR3_dT: the input pressure (= " + String(pro.p) +
-          " Pa) is higher than 100 Mpa");
+          "IF97 medium function waterR3_dT: the input pressure (= " + String(
+          pro.p) + " Pa) is higher than 100 Mpa");
       end waterR3_dT;
 
       function waterR5_pT "standard properties for region 5, (p,T) as inputs"
@@ -5502,14 +5652,18 @@ Ordinary Water Substance<br>
           pro.liq := Modelica.Media.Common.helmholtzToBoundaryProps(fl);
           pro.vap := Modelica.Media.Common.helmholtzToBoundaryProps(fv);
         end if;
-        pro.x := if (h < pro.liq.h) then 0.0 else if (pro.vap.h <> pro.liq.h) then
-                (h - pro.liq.h)/(pro.vap.h - pro.liq.h) else 1.0;
+        pro.x := if (h < pro.liq.h) then 0.0 else if (pro.vap.h <> pro.liq.h)
+           then (h - pro.liq.h)/(pro.vap.h - pro.liq.h) else 1.0;
         pro.d := pro.liq.d*pro.vap.d/(pro.vap.d + pro.x*(pro.liq.d - pro.vap.d));
         pro.u := pro.x*pro.vap.u + (1 - pro.x)*pro.liq.u;
         pro.s := pro.x*pro.vap.s + (1 - pro.x)*pro.liq.s;
         pro.cp := Modelica.Constants.inf;
-        pro.cv := Modelica.Media.Common.cv2Phase(pro.liq, pro.vap, pro.x, pro.T,
-           p);
+        pro.cv := Modelica.Media.Common.cv2Phase(
+                pro.liq,
+                pro.vap,
+                pro.x,
+                pro.T,
+                p);
         pro.kappa := 1/(pro.d*p)*pro.dpT*pro.dpT*pro.T/pro.cv;
         pro.R := data.RH2O;
       end waterSat_ph;
@@ -5560,7 +5714,12 @@ Ordinary Water Substance<br>
         pro.u := x*vap.u + (1 - x)*liq.u;
         pro.s := x*vap.s + (1 - x)*liq.s;
         pro.cp := Modelica.Constants.inf;
-        pro.cv := Modelica.Media.Common.cv2Phase(liq, vap, x, pro.T, p);
+        pro.cv := Modelica.Media.Common.cv2Phase(
+                liq,
+                vap,
+                x,
+                pro.T,
+                p);
         pro.kappa := 1/(pro.d*p)*dpT*dpT*pro.T/pro.cv;
         pro.a := Modelica.Constants.inf;
         pro.R := data.RH2O;
@@ -5613,7 +5772,12 @@ Ordinary Water Substance<br>
         pro.u := x*vap.u + (1 - x)*liq.u;
         pro.h := x*vap.h + (1 - x)*liq.h;
         pro.cp := Modelica.Constants.inf;
-        pro.cv := Modelica.Media.Common.cv2Phase(liq, vap, x, T, pro.p);
+        pro.cv := Modelica.Media.Common.cv2Phase(
+                liq,
+                vap,
+                x,
+                T,
+                pro.p);
         pro.kappa := 1/(d*pro.p)*dpT*dpT*T/pro.cv;
         pro.a := Modelica.Constants.inf;
         pro.R := data.RH2O;
@@ -5657,7 +5821,7 @@ Ordinary Water Substance<br>
       extends Modelica.Icons.Function;
       input SI.Pressure p "pressure";
       input SI.SpecificEnthalpy h "specific enthalpy";
-      input Integer phase= 0
+      input Integer phase=0
         "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
       output Modelica.Media.Common.ExtraDerivatives dpro
         "thermodynamic property collection";
@@ -5671,9 +5835,12 @@ Ordinary Water Substance<br>
       Modelica.Media.Common.GibbsDerivs g
         "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     algorithm
-      assert(phase ==1,
+      assert(phase == 1,
         "extraDerivs_ph: properties are not implemented in 2 phase region");
-      region := Regions.region_ph(p=p,h= h,phase= phase);
+      region := Regions.region_ph(
+            p=p,
+            h=h,
+            phase=phase);
       if region == 1 then
         T := Basic.tph1(p, h);
         g := Basic.g1(p, T);
@@ -5683,12 +5850,19 @@ Ordinary Water Substance<br>
         g := Basic.g2(p, T);
         dpro := Modelica.Media.Common.gibbsToExtraDerivs(g);
       elseif region == 3 then
-        (d,T,error) := Inverses.dtofph3(p=p,h= h,delp= 1.0e-7,delh= 1.0e-6);
+        (d,T,error) := Inverses.dtofph3(
+              p=p,
+              h=h,
+              delp=1.0e-7,
+              delh=1.0e-6);
         f := Basic.f3(d, T);
         dpro := Modelica.Media.Common.helmholtzToExtraDerivs(f);
       elseif region == 5 then
         // region assumed to be 5
-        (T,error) := Inverses.tofph5(p=p,h= h,reldh= 1.0e-7);
+        (T,error) := Inverses.tofph5(
+              p=p,
+              h=h,
+              reldh=1.0e-7);
         g := Basic.g5(p, T);
         dpro := Modelica.Media.Common.gibbsToExtraDerivs(g);
       end if;
@@ -5711,7 +5885,7 @@ Ordinary Water Substance<br>
       Modelica.Media.Common.GibbsDerivs g
         "dimensionless Gibbs function and derivatives w.r.t. pi and tau";
     algorithm
-      region := Regions.region_pT(p=p,T= T);
+      region := Regions.region_pT(p=p, T=T);
       if region == 1 then
         g := Basic.g1(p, T);
         dpro := Modelica.Media.Common.gibbsToExtraDerivs(g);
@@ -5719,7 +5893,10 @@ Ordinary Water Substance<br>
         g := Basic.g2(p, T);
         dpro := Modelica.Media.Common.gibbsToExtraDerivs(g);
       elseif region == 3 then
-        (d,error) := Inverses.dofpt3(p=p,T= T,delp= 1.0e-7);
+        (d,error) := Inverses.dofpt3(
+              p=p,
+              T=T,
+              delp=1.0e-7);
         f := Basic.f3(d, T);
         dpro := Modelica.Media.Common.helmholtzToExtraDerivs(f);
       elseif region == 5 then
@@ -6109,9 +6286,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase =  0
+    input Integer phase=0
       "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
-    input Integer region = 0
+    input Integer region=0
       "if 0, do region computation, otherwise assume the region is this input";
     output Common.IF97BaseTwoPhase aux "auxiliary record";
   protected
@@ -6139,11 +6316,14 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     SI.Temperature t2
       "temperature at phase boundary, using inverse from region 2";
   algorithm
-    aux.region := if region == 0 then
-      (if phase == 2 then 4 else BaseIF97.Regions.region_ph(p=p,h= h,phase= phase)) else region;
+    aux.region := if region == 0 then (if phase == 2 then 4 else
+      BaseIF97.Regions.region_ph(
+        p=p,
+        h=h,
+        phase=phase)) else region;
     aux.phase := if phase <> 0 then phase else if aux.region == 4 then 2 else 1;
-    aux.p := max(p,611.657);
-    aux.h := max(h,1e3);
+    aux.p := max(p, 611.657);
+    aux.h := max(h, 1e3);
     aux.R := BaseIF97.data.RH2O;
     if (aux.region == 1) then
       aux.T := BaseIF97.Basic.tph1(aux.p, aux.h);
@@ -6153,7 +6333,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
       aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 2) then
@@ -6164,12 +6345,16 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
       aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 3) then
-      (aux.rho,aux.T,error) := BaseIF97.Inverses.dtofph3(p=aux.p,h=aux.h,delp= 1.0e-7,delh=
-              1.0e-6);
+      (aux.rho,aux.T,error) := BaseIF97.Inverses.dtofph3(
+          p=aux.p,
+          h=aux.h,
+          delp=1.0e-7,
+          delh=1.0e-6);
       f := BaseIF97.Basic.f3(aux.rho, aux.T);
       aux.h := aux.R*aux.T*(f.tau*f.ftau + f.delta*f.fdelta);
       aux.s := aux.R*(f.tau*f.ftau - f.f);
@@ -6177,40 +6362,52 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       aux.cv := abs(aux.R*(-f.tau*f.tau*f.ftautau))
         "can be close to neg. infinity near critical point";
-      aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*aux.rho*aux.pd);
+      aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*
+        aux.rho*aux.pd);
       aux.x := 0.0;
-      aux.dpT := aux.pt; /*safety against div-by-0 in initialization*/
+      aux.dpT := aux.pt;
+      /*safety against div-by-0 in initialization*/
     elseif (aux.region == 4) then
       h_liq := hl_p(p);
       h_vap := hv_p(p);
       aux.x := if (h_vap <> h_liq) then (h - h_liq)/(h_vap - h_liq) else 1.0;
       if p < BaseIF97.data.PLIMIT4A then
-        t1:= BaseIF97.Basic.tph1(aux.p, h_liq);
-        t2:= BaseIF97.Basic.tph2(aux.p, h_vap);
+        t1 := BaseIF97.Basic.tph1(aux.p, h_liq);
+        t2 := BaseIF97.Basic.tph2(aux.p, h_vap);
         gl := BaseIF97.Basic.g1(aux.p, t1);
         gv := BaseIF97.Basic.g2(aux.p, t2);
         liq := Common.gibbsToBoundaryProps(gl);
         vap := Common.gibbsToBoundaryProps(gv);
-        aux.T := t1 + aux.x*(t2-t1);
+        aux.T := t1 + aux.x*(t2 - t1);
       else
-        aux.T := BaseIF97.Basic.tsat(aux.p); // how to avoid ?
-        d_liq:= rhol_T(aux.T);
-        d_vap:= rhov_T(aux.T);
+        aux.T := BaseIF97.Basic.tsat(aux.p);
+        // how to avoid ?
+        d_liq := rhol_T(aux.T);
+        d_vap := rhov_T(aux.T);
         fl := BaseIF97.Basic.f3(d_liq, aux.T);
         fv := BaseIF97.Basic.f3(d_vap, aux.T);
         liq := Common.helmholtzToBoundaryProps(fl);
         vap := Common.helmholtzToBoundaryProps(fv);
         //  aux.dpT := BaseIF97.Basic.dptofT(aux.T);
       end if;
-      aux.dpT := if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d - vap.d) else BaseIF97.Basic.dptofT(aux.T);
+      aux.dpT := if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d -
+        vap.d) else BaseIF97.Basic.dptofT(aux.T);
       aux.s := liq.s + aux.x*(vap.s - liq.s);
       aux.rho := liq.d*vap.d/(vap.d + aux.x*(liq.d - vap.d));
-      aux.cv := Common.cv2Phase(liq, vap, aux.x, aux.T, p);
+      aux.cv := Common.cv2Phase(
+          liq,
+          vap,
+          aux.x,
+          aux.T,
+          p);
       aux.cp := liq.cp + aux.x*(vap.cp - liq.cp);
       aux.pt := liq.pt + aux.x*(vap.pt - liq.pt);
       aux.pd := liq.pd + aux.x*(vap.pd - liq.pd);
     elseif (aux.region == 5) then
-      (aux.T,error) := BaseIF97.Inverses.tofph5(p=aux.p,h= aux.h,reldh= 1.0e-7);
+      (aux.T,error) := BaseIF97.Inverses.tofph5(
+          p=aux.p,
+          h=aux.h,
+          reldh=1.0e-7);
       assert(error == 0, "error in inverse iteration of steam tables");
       g := BaseIF97.Basic.g5(aux.p, aux.T);
       aux.s := aux.R*(g.tau*g.gtau - g.g);
@@ -6218,11 +6415,12 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.dpT := -aux.vt/aux.vp;
     else
-      assert(false, "error in region computation of IF97 steam tables"
-      + "(p = " + String(p) + ", h = " + String(h) + ")");
+      assert(false, "error in region computation of IF97 steam tables" +
+        "(p = " + String(p) + ", h = " + String(h) + ")");
     end if;
   end waterBaseProp_ph;
 
@@ -6230,9 +6428,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
-    input Integer phase = 0
+    input Integer phase=0
       "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
-    input Integer region = 0
+    input Integer region=0
       "if 0, do region computation, otherwise assume the region is this input";
     output Common.IF97BaseTwoPhase aux "auxiliary record";
   protected
@@ -6260,8 +6458,11 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     SI.Temperature t2
       "temperature at phase boundary, using inverse from region 2";
   algorithm
-    aux.region := if region == 0 then
-      (if phase == 2 then 4 else BaseIF97.Regions.region_ps(p=p,s=s,phase=phase)) else region;
+    aux.region := if region == 0 then (if phase == 2 then 4 else
+      BaseIF97.Regions.region_ps(
+        p=p,
+        s=s,
+        phase=phase)) else region;
     aux.phase := if phase <> 0 then phase else if aux.region == 4 then 2 else 1;
     aux.p := p;
     aux.s := s;
@@ -6274,7 +6475,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
       aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 2) then
@@ -6285,21 +6487,27 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
       aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 3) then
-      (aux.rho,aux.T,error) := BaseIF97.Inverses.dtofps3(p=p,s=s,delp=1.0e-7,dels=
-        1.0e-6);
+      (aux.rho,aux.T,error) := BaseIF97.Inverses.dtofps3(
+          p=p,
+          s=s,
+          delp=1.0e-7,
+          dels=1.0e-6);
       f := BaseIF97.Basic.f3(aux.rho, aux.T);
       aux.h := aux.R*aux.T*(f.tau*f.ftau + f.delta*f.fdelta);
       aux.s := aux.R*(f.tau*f.ftau - f.f);
       aux.pd := aux.R*aux.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
       aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
-      aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*aux.rho*aux.pd);
+      aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*
+        aux.rho*aux.pd);
       aux.x := 0.0;
-      aux.dpT := aux.pt; /*safety against div-by-0 in initialization*/
+      aux.dpT := aux.pt;
+      /*safety against div-by-0 in initialization*/
     elseif (aux.region == 4) then
       s_liq := BaseIF97.Regions.sl_p(p);
       s_vap := BaseIF97.Regions.sv_p(p);
@@ -6321,16 +6529,24 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         liq := Common.helmholtzToBoundaryProps(fl);
         vap := Common.helmholtzToBoundaryProps(fv);
       end if;
-      aux.dpT := if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d - vap.d) else
-           BaseIF97.Basic.dptofT(aux.T);
+      aux.dpT := if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d -
+        vap.d) else BaseIF97.Basic.dptofT(aux.T);
       aux.h := liq.h + aux.x*(vap.h - liq.h);
       aux.rho := liq.d*vap.d/(vap.d + aux.x*(liq.d - vap.d));
-      aux.cv := Common.cv2Phase(liq, vap, aux.x, aux.T, p);
+      aux.cv := Common.cv2Phase(
+          liq,
+          vap,
+          aux.x,
+          aux.T,
+          p);
       aux.cp := liq.cp + aux.x*(vap.cp - liq.cp);
       aux.pt := liq.pt + aux.x*(vap.pt - liq.pt);
       aux.pd := liq.pd + aux.x*(vap.pd - liq.pd);
     elseif (aux.region == 5) then
-      (aux.T,error) := BaseIF97.Inverses.tofps5(p=p,s=s,relds= 1.0e-7);
+      (aux.T,error) := BaseIF97.Inverses.tofps5(
+          p=p,
+          s=s,
+          relds=1.0e-7);
       assert(error == 0, "error in inverse iteration of steam tables");
       g := BaseIF97.Basic.g5(p, aux.T);
       aux.h := aux.R*aux.T*g.tau*g.gtau;
@@ -6338,12 +6554,13 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*aux.T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.dpT := -aux.vt/aux.vp;
       aux.x := 1.0;
     else
-      assert(false, "error in region computation of IF97 steam tables"
-      + "(p = " + String(p) + ", s = " + String(s) + ")");
+      assert(false, "error in region computation of IF97 steam tables" +
+        "(p = " + String(p) + ", s = " + String(s) + ")");
     end if;
   end waterBaseProp_ps;
 
@@ -6355,22 +6572,27 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Density rho "density";
   algorithm
     rho := properties.rho;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    annotation (Inline=false, LateInline=true);
   end rho_props_ps;
 
   function rho_ps "density as function of pressure and specific entropy"
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.Density rho "density";
   algorithm
-    rho := rho_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
-    annotation(Inline = true);
+    rho := rho_props_ps(
+        p,
+        s,
+        waterBaseProp_ps(
+          p,
+          s,
+          phase,
+          region));
+    annotation (Inline=true);
   end rho_ps;
 
   function T_props_ps
@@ -6382,21 +6604,27 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Temperature T "temperature";
   algorithm
     T := properties.T;
-    annotation (Inline=false,
-                LateInline=true);
+    annotation (Inline=false, LateInline=true);
   end T_props_ps;
 
   function T_ps "temperature as function of pressure and specific entropy"
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.Temperature T "Temperature";
   algorithm
-    T := T_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
-    annotation(Inline = true);
+    T := T_props_ps(
+        p,
+        s,
+        waterBaseProp_ps(
+          p,
+          s,
+          phase,
+          region));
+    annotation (Inline=true);
   end T_ps;
 
   function h_props_ps
@@ -6408,22 +6636,27 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
     h := aux.h;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    annotation (Inline=false, LateInline=true);
   end h_props_ps;
 
   function h_ps "specific enthalpy as function or pressure and temperature"
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
-    h := h_props_ps(p, s, waterBaseProp_ps(p, s, phase, region));
-    annotation(Inline = true);
+    h := h_props_ps(
+        p,
+        s,
+        waterBaseProp_ps(
+          p,
+          s,
+          phase,
+          region));
+    annotation (Inline=true);
   end h_ps;
 
   function phase_ps "phase as a function of  pressure and specific entropy"
@@ -6432,8 +6665,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input SI.SpecificEntropy s "specific entropy";
     output Integer phase "true if in liquid or gas or supercritical region";
   algorithm
-    phase := if ((s < sl_p(p) or s > sv_p(p)) or p > BaseIF97.data.PCRIT) then 1 else 2;
-    annotation (Inline = true);
+    phase := if ((s < sl_p(p) or s > sv_p(p)) or p > BaseIF97.data.PCRIT) then
+      1 else 2;
+    annotation (Inline=true);
   end phase_ps;
 
   function phase_ph "phase as a function of  pressure and specific enthalpy"
@@ -6442,8 +6676,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input SI.SpecificEnthalpy h "specific enthalpy";
     output Integer phase "true if in liquid or gas or supercritical region";
   algorithm
-    phase := if ((h < hl_p(p) or h > hv_p(p)) or p > BaseIF97.data.PCRIT) then 1 else 2;
-    annotation (Inline = true);
+    phase := if ((h < hl_p(p) or h > hv_p(p)) or p > BaseIF97.data.PCRIT) then
+      1 else 2;
+    annotation (Inline=true);
   end phase_ph;
 
   function phase_dT "phase as a function of  pressure and temperature"
@@ -6452,9 +6687,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input SI.Temperature T "temperature";
     output Integer phase "true if in liquid or gas or supercritical region";
   algorithm
-    phase := if not ((rho < rhol_T(T) and rho > rhov_T(T)) and T < BaseIF97.
-      data.TCRIT) then 1 else 2;
-    annotation (Inline = true);
+    phase := if not ((rho < rhol_T(T) and rho > rhov_T(T)) and T < BaseIF97.data.TCRIT)
+       then 1 else 2;
+    annotation (Inline=true);
   end phase_dT;
 
   function rho_props_ph "density as function of pressure and specific enthalpy"
@@ -6475,13 +6710,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.Density rho "density";
   algorithm
-    rho := rho_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation(Inline = true);
+    rho := rho_props_ph(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=true);
   end rho_ph;
 
   function rho_ph_der "derivative function of rho_ph"
@@ -6498,12 +6740,12 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
          + (-aux.rho*aux.rho/(aux.dpT*aux.T))*h_der;
     elseif (aux.region == 3) then
       rho_der := ((aux.rho*(aux.cv*aux.rho + aux.pt))/(aux.rho*aux.rho*aux.pd*
-        aux.cv + aux.T*aux.pt*aux.pt))*p_der + (-aux.rho*aux.rho*aux.pt/(aux.
-        rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt))*h_der;
+        aux.cv + aux.T*aux.pt*aux.pt))*p_der + (-aux.rho*aux.rho*aux.pt/(aux.rho
+        *aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt))*h_der;
     else
       //regions 1,2,5
-      rho_der := (-aux.rho*aux.rho*(aux.vp*aux.cp - aux.vt/aux.rho + aux.T*aux.
-        vt*aux.vt)/aux.cp)*p_der + (-aux.rho*aux.rho*aux.vt/(aux.cp))*h_der;
+      rho_der := (-aux.rho*aux.rho*(aux.vp*aux.cp - aux.vt/aux.rho + aux.T*aux.vt
+        *aux.vt)/aux.cp)*p_der + (-aux.rho*aux.rho*aux.vt/(aux.cp))*h_der;
     end if;
   end rho_ph_der;
 
@@ -6516,7 +6758,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Temperature T "temperature";
   algorithm
     T := properties.T;
-    annotation (derivative(noDerivative=properties) = T_ph_der,
+    annotation (
+      derivative(noDerivative=properties) = T_ph_der,
       Inline=false,
       LateInline=true);
   end T_props_ph;
@@ -6525,13 +6768,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.Temperature T "Temperature";
   algorithm
-    T := T_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation(Inline = true);
+    T := T_props_ph(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=true);
   end T_ph;
 
   function T_ph_der "derivative function of T_ph"
@@ -6547,8 +6797,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       T_der := 1/aux.dpT*p_der;
     elseif (aux.region == 3) then
       T_der := ((-aux.rho*aux.pd + aux.T*aux.pt)/(aux.rho*aux.rho*aux.pd*aux.cv
-         + aux.T*aux.pt*aux.pt))*p_der + ((aux.rho*aux.rho*aux.pd)/(aux.rho*aux.
-         rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt))*h_der;
+         + aux.T*aux.pt*aux.pt))*p_der + ((aux.rho*aux.rho*aux.pd)/(aux.rho*aux.rho
+        *aux.pd*aux.cv + aux.T*aux.pt*aux.pt))*h_der;
     else
       //regions 1,2 or 5
       T_der := ((-1/aux.rho + aux.T*aux.vt)/aux.cp)*p_der + (1/aux.cp)*h_der;
@@ -6564,9 +6814,10 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEntropy s "specific entropy";
   algorithm
     s := properties.s;
-    annotation (derivative(noDerivative=properties) = s_ph_der,
-  Inline=false,
-  LateInline=true);
+    annotation (
+      derivative(noDerivative=properties) = s_ph_der,
+      Inline=false,
+      LateInline=true);
   end s_props_ph;
 
   function s_ph
@@ -6574,14 +6825,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase =   0
-      "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificEntropy s "specific entropy";
   algorithm
-    s := s_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation(Inline = true);
+    s := s_props_ph(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=true);
   end s_ph;
 
   function s_ph_der
@@ -6595,7 +6852,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Real s_der "derivative of entropy";
   algorithm
     s_der := -1/(aux.rho*aux.T)*p_der + 1/aux.T*h_der;
-    annotation(Inline = true);
+    annotation (Inline=true);
   end s_ph_der;
 
   function cv_props_ph
@@ -6607,9 +6864,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm
     cv := aux.cv;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    annotation (Inline=false, LateInline=true);
   end cv_props_ph;
 
   function cv_ph
@@ -6617,13 +6872,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm
-    cv := cv_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation(Inline = true);
+    cv := cv_props_ph(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=true);
   end cv_ph;
 
   function regionAssertReal "assert function for inlining"
@@ -6643,9 +6905,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm
     cp := aux.cp;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    annotation (Inline=false, LateInline=true);
   end cp_props_ph;
 
   function cp_ph
@@ -6653,13 +6913,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm
-    cp := cp_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation(Inline = true);
+    cp := cp_props_ph(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=true);
   end cp_ph;
 
   function beta_props_ph
@@ -6670,12 +6937,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input Common.IF97BaseTwoPhase aux "auxiliary record";
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm
-    beta := if aux.region == 3 or aux.region == 4 then
-      aux.pt/(aux.rho*aux.pd) else
-      aux.vt*aux.rho;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    beta := if aux.region == 3 or aux.region == 4 then aux.pt/(aux.rho*aux.pd)
+       else aux.vt*aux.rho;
+    annotation (Inline=false, LateInline=true);
   end beta_props_ph;
 
   function beta_ph
@@ -6683,13 +6947,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm
-    beta := beta_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation(Inline = true);
+    beta := beta_props_ph(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=true);
   end beta_ph;
 
   function kappa_props_ph
@@ -6701,11 +6972,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.IsothermalCompressibility kappa
       "isothermal compressibility factor";
   algorithm
-    kappa := if aux.region == 3 or aux.region == 4 then
-      1/(aux.rho*aux.pd) else -aux.vp*aux.rho;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    kappa := if aux.region == 3 or aux.region == 4 then 1/(aux.rho*aux.pd)
+       else -aux.vp*aux.rho;
+    annotation (Inline=false, LateInline=true);
   end kappa_props_ph;
 
   function kappa_ph
@@ -6713,14 +6982,21 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.IsothermalCompressibility kappa
       "isothermal compressibility factor";
   algorithm
-    kappa := kappa_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation(Inline = true);
+    kappa := kappa_props_ph(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=true);
   end kappa_ph;
 
   function velocityOfSound_props_ph
@@ -6732,26 +7008,32 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Velocity v_sound "speed of sound";
   algorithm
     // dp/drho at constant s
-    v_sound := if aux.region == 3 then sqrt(max(0,(aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv))) else
-      if aux.region == 4 then
-      sqrt(max(0,1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T)))) else
-           sqrt(max(0,-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T))));
-    annotation (
-      Inline=false,
-      LateInline=true);
+    v_sound := if aux.region == 3 then sqrt(max(0, (aux.pd*aux.rho*aux.rho*aux.cv
+       + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv))) else if aux.region ==
+      4 then sqrt(max(0, 1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*
+      aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T)))) else sqrt(max(0, -
+      aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp + aux.vt*aux.vt*aux.T))));
+    annotation (Inline=false, LateInline=true);
   end velocityOfSound_props_ph;
 
   function velocityOfSound_ph
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.Velocity v_sound "speed of sound";
   algorithm
-    v_sound := velocityOfSound_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation(Inline = true);
+    v_sound := velocityOfSound_props_ph(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=true);
   end velocityOfSound_ph;
 
   function isentropicExponent_props_ph
@@ -6762,12 +7044,11 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input Common.IF97BaseTwoPhase aux "auxiliary record";
     output Real gamma "isentropic exponent";
   algorithm
-    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else
-           if aux.region == 4 then 1/(aux.rho*p)*aux.dpT*aux.dpT*aux.T/aux.cv else
-      -1/(aux.rho*aux.p)*aux.cp/(aux.vp*aux.cp + aux.vt*aux.vt*aux.T);
-    annotation (
-      Inline=false,
-      LateInline=true);
+    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho
+       + aux.pt*aux.pt*aux.T)/(aux.cv)) else if aux.region == 4 then 1/(aux.rho
+      *p)*aux.dpT*aux.dpT*aux.T/aux.cv else -1/(aux.rho*aux.p)*aux.cp/(aux.vp*
+      aux.cp + aux.vt*aux.vt*aux.T);
+    annotation (Inline=false, LateInline=true);
   end isentropicExponent_props_ph;
 
   function isentropicExponent_ph
@@ -6775,16 +7056,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase =   0
-      "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output Real gamma "isentropic exponent";
   algorithm
-    gamma := isentropicExponent_props_ph(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation (
-      Inline=false,
-      LateInline=true);
+    gamma := isentropicExponent_props_ph(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=false, LateInline=true);
   end isentropicExponent_ph;
 
   function ddph_props "density derivative by pressure"
@@ -6794,26 +7079,31 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input Common.IF97BaseTwoPhase aux "auxiliary record";
     output SI.DerDensityByPressure ddph "density derivative by pressure";
   algorithm
-    ddph := if aux.region == 3 then
-      ((aux.rho*(aux.cv*aux.rho + aux.pt))/(aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)) else
-      if aux.region == 4 then  (aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) else
-           (-aux.rho*aux.rho*(aux.vp*aux.cp - aux.vt/aux.rho + aux.T*aux.vt*aux.vt)/aux.cp);
-    annotation (
-      Inline=false,
-      LateInline=true);
+    ddph := if aux.region == 3 then ((aux.rho*(aux.cv*aux.rho + aux.pt))/(aux.rho
+      *aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)) else if aux.region == 4
+       then (aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) else (-aux.rho
+      *aux.rho*(aux.vp*aux.cp - aux.vt/aux.rho + aux.T*aux.vt*aux.vt)/aux.cp);
+    annotation (Inline=false, LateInline=true);
   end ddph_props;
 
   function ddph "density derivative by pressure"
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.DerDensityByPressure ddph "density derivative by pressure";
   algorithm
-    ddph := ddph_props(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation(Inline = true);
+    ddph := ddph_props(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=true);
   end ddph;
 
   function ddhp_props "density derivative by specific enthalpy"
@@ -6824,27 +7114,31 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.DerDensityByEnthalpy ddhp
       "density derivative by specific enthalpy";
   algorithm
-    ddhp := if aux.region == 3 then
-      -aux.rho*aux.rho*aux.pt/(aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt) else
-      if aux.region == 4 then -aux.rho*aux.rho/(aux.dpT*aux.T) else
-           -aux.rho*aux.rho*aux.vt/(aux.cp);
-    annotation (
-      Inline=false,
-      LateInline=true);
+    ddhp := if aux.region == 3 then -aux.rho*aux.rho*aux.pt/(aux.rho*aux.rho*
+      aux.pd*aux.cv + aux.T*aux.pt*aux.pt) else if aux.region == 4 then -aux.rho
+      *aux.rho/(aux.dpT*aux.T) else -aux.rho*aux.rho*aux.vt/(aux.cp);
+    annotation (Inline=false, LateInline=true);
   end ddhp_props;
 
   function ddhp "density derivative by specific enthalpy"
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEnthalpy h "specific enthalpy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.DerDensityByEnthalpy ddhp
       "density derivative by specific enthalpy";
   algorithm
-    ddhp := ddhp_props(p, h, waterBaseProp_ph(p, h, phase, region));
-    annotation(Inline = true);
+    ddhp := ddhp_props(
+        p,
+        h,
+        waterBaseProp_ph(
+          p,
+          h,
+          phase,
+          region));
+    annotation (Inline=true);
   end ddhp;
 
   function waterBaseProp_pT
@@ -6852,7 +7146,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
-    input Integer region = 0
+    input Integer region=0
       "if 0, do region computation, otherwise assume the region is this input";
     output Common.IF97BaseTwoPhase aux "auxiliary record";
   protected
@@ -6863,7 +7157,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     Integer error "error flag for inverse iterations";
   algorithm
     aux.phase := 1;
-    aux.region := if region == 0 then BaseIF97.Regions.region_pT(p=p,T= T) else region;
+    aux.region := if region == 0 then BaseIF97.Regions.region_pT(p=p, T=T)
+       else region;
     aux.R := BaseIF97.data.RH2O;
     aux.p := p;
     aux.T := T;
@@ -6875,7 +7170,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
       aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 2) then
@@ -6886,11 +7182,15 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
       aux.dpT := -aux.vt/aux.vp;
     elseif (aux.region == 3) then
-      (aux.rho,error) := BaseIF97.Inverses.dofpt3(p=p,T= T,delp= 1.0e-7);
+      (aux.rho,error) := BaseIF97.Inverses.dofpt3(
+          p=p,
+          T=T,
+          delp=1.0e-7);
       f := BaseIF97.Basic.f3(aux.rho, T);
       aux.h := aux.R*T*(f.tau*f.ftau + f.delta*f.fdelta);
       aux.s := aux.R*(f.tau*f.ftau - f.f);
@@ -6898,7 +7198,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.pt := aux.R*aux.rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
       aux.x := 0.0;
-      aux.dpT := aux.pt; /*safety against div-by-0 in initialization*/
+      aux.dpT := aux.pt;
+      /*safety against div-by-0 in initialization*/
     elseif (aux.region == 5) then
       g := BaseIF97.Basic.g5(p, T);
       aux.h := aux.R*aux.T*g.tau*g.gtau;
@@ -6907,12 +7208,13 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*T/(p*p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
       aux.dpT := -aux.vt/aux.vp;
     else
-      assert(false, "error in region computation of IF97 steam tables"
-       + "(p = " + String(p) + ", T = " + String(T) + ")");
+      assert(false, "error in region computation of IF97 steam tables" +
+        "(p = " + String(p) + ", T = " + String(T) + ")");
     end if;
   end waterBaseProp_pT;
 
@@ -6934,12 +7236,18 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
-    input Integer region =  0
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.Density rho "density";
   algorithm
-    rho := rho_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation(Inline = true);
+    rho := rho_props_pT(
+        p,
+        T,
+        waterBaseProp_pT(
+          p,
+          T,
+          region));
+    annotation (Inline=true);
   end rho_pT;
 
   function h_props_pT
@@ -6961,12 +7269,18 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "Temperature";
-    input Integer region =  0
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
-    h := h_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation(Inline = true);
+    h := h_props_pT(
+        p,
+        T,
+        waterBaseProp_pT(
+          p,
+          T,
+          region));
+    annotation (Inline=true);
   end h_pT;
 
   function h_pT_der "derivative function of h_pT"
@@ -7015,21 +7329,25 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEntropy s "specific entropy";
   algorithm
     s := aux.s;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    annotation (Inline=false, LateInline=true);
   end s_props_pT;
 
   function s_pT "temperature as function of pressure and temperature"
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
-    input Integer region =  0
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificEntropy s "specific entropy";
   algorithm
-    s := s_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (Inline = true);
+    s := s_props_pT(
+        p,
+        T,
+        waterBaseProp_pT(
+          p,
+          T,
+          region));
+    annotation (Inline=true);
   end s_pT;
 
   function cv_props_pT
@@ -7042,9 +7360,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm
     cv := aux.cv;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    annotation (Inline=false, LateInline=true);
   end cv_props_pT;
 
   function cv_pT
@@ -7052,12 +7368,18 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
-    input Integer region =  0
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm
-    cv := cv_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (Inline = true);
+    cv := cv_props_pT(
+        p,
+        T,
+        waterBaseProp_pT(
+          p,
+          T,
+          region));
+    annotation (Inline=true);
   end cv_pT;
 
   function cp_props_pT
@@ -7068,12 +7390,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input Common.IF97BaseTwoPhase aux "auxiliary record";
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm
-    cp := if aux.region == 3 then
-      (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*aux.rho*aux.pd) else
-      aux.cp;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    cp := if aux.region == 3 then (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt
+      *aux.pt)/(aux.rho*aux.rho*aux.pd) else aux.cp;
+    annotation (Inline=false, LateInline=true);
   end cp_props_pT;
 
   function cp_pT
@@ -7082,12 +7401,18 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
-    input Integer region =  0
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm
-    cp := cp_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (Inline = true);
+    cp := cp_props_pT(
+        p,
+        T,
+        waterBaseProp_pT(
+          p,
+          T,
+          region));
+    annotation (Inline=true);
   end cp_pT;
 
   function beta_props_pT
@@ -7098,12 +7423,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input Common.IF97BaseTwoPhase aux "auxiliary record";
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm
-    beta := if aux.region == 3 then
-      aux.pt/(aux.rho*aux.pd) else
-      aux.vt*aux.rho;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    beta := if aux.region == 3 then aux.pt/(aux.rho*aux.pd) else aux.vt*aux.rho;
+    annotation (Inline=false, LateInline=true);
   end beta_props_pT;
 
   function beta_pT
@@ -7111,11 +7432,17 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
-    input Integer region =  0
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm
-    beta := beta_props_pT(p, T, waterBaseProp_pT(p, T, region));
+    beta := beta_props_pT(
+        p,
+        T,
+        waterBaseProp_pT(
+          p,
+          T,
+          region));
     annotation (Inline=true);
   end beta_pT;
 
@@ -7128,11 +7455,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.IsothermalCompressibility kappa
       "isothermal compressibility factor";
   algorithm
-    kappa := if aux.region == 3 then
-      1/(aux.rho*aux.pd) else -aux.vp*aux.rho;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    kappa := if aux.region == 3 then 1/(aux.rho*aux.pd) else -aux.vp*aux.rho;
+    annotation (Inline=false, LateInline=true);
   end kappa_props_pT;
 
   function kappa_pT
@@ -7140,12 +7464,18 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
-    input Integer region =  0
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.IsothermalCompressibility kappa
       "isothermal compressibility factor";
   algorithm
-    kappa := kappa_props_pT(p, T, waterBaseProp_pT(p, T, region));
+    kappa := kappa_props_pT(
+        p,
+        T,
+        waterBaseProp_pT(
+          p,
+          T,
+          region));
     annotation (Inline=true);
   end kappa_pT;
 
@@ -7158,11 +7488,10 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Velocity v_sound "speed of sound";
   algorithm
     // dp/drho at constant s
-    v_sound := if aux.region == 3 then sqrt(max(0,(aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv))) else
-      sqrt(max(0,-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T))));
-    annotation (
-      Inline=false,
-      LateInline=true);
+    v_sound := if aux.region == 3 then sqrt(max(0, (aux.pd*aux.rho*aux.rho*aux.cv
+       + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv))) else sqrt(max(0, -aux.cp
+      /(aux.rho*aux.rho*(aux.vp*aux.cp + aux.vt*aux.vt*aux.T))));
+    annotation (Inline=false, LateInline=true);
   end velocityOfSound_props_pT;
 
   function velocityOfSound_pT
@@ -7170,12 +7499,18 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
-    input Integer region =  0
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.Velocity v_sound "speed of sound";
   algorithm
-    v_sound := velocityOfSound_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation(Inline = true);
+    v_sound := velocityOfSound_props_pT(
+        p,
+        T,
+        waterBaseProp_pT(
+          p,
+          T,
+          region));
+    annotation (Inline=true);
   end velocityOfSound_pT;
 
   function isentropicExponent_props_pT
@@ -7186,11 +7521,10 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input Common.IF97BaseTwoPhase aux "auxiliary record";
     output Real gamma "isentropic exponent";
   algorithm
-    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else
-      -1/(aux.rho*aux.p)*aux.cp/(aux.vp*aux.cp + aux.vt*aux.vt*aux.T);
-    annotation (
-      Inline=false,
-      LateInline=true);
+    gamma := if aux.region == 3 then 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho
+       + aux.pt*aux.pt*aux.T)/(aux.cv)) else -1/(aux.rho*aux.p)*aux.cp/(aux.vp*
+      aux.cp + aux.vt*aux.vt*aux.T);
+    annotation (Inline=false, LateInline=true);
   end isentropicExponent_props_pT;
 
   function isentropicExponent_pT
@@ -7198,14 +7532,18 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.Temperature T "temperature";
-    input Integer region =  0
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output Real gamma "isentropic exponent";
   algorithm
-    gamma := isentropicExponent_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (
-      Inline=false,
-      LateInline=true);
+    gamma := isentropicExponent_props_pT(
+        p,
+        T,
+        waterBaseProp_pT(
+          p,
+          T,
+          region));
+    annotation (Inline=false, LateInline=true);
   end isentropicExponent_pT;
 
   function waterBaseProp_dT
@@ -7213,9 +7551,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Density rho "density";
     input SI.Temperature T "temperature";
-    input Integer phase =  0
+    input Integer phase=0
       "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
-    input Integer region = 0
+    input Integer region=0
       "if 0, do region computation, otherwise assume the region is this input";
     output Common.IF97BaseTwoPhase aux "auxiliary record";
   protected
@@ -7241,15 +7579,21 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
     Integer error "error flag for inverse iterations";
   algorithm
-    aux.region := if region == 0 then
-      (if phase == 2 then 4 else BaseIF97.Regions.region_dT(d=rho,T= T,phase= phase)) else region;
+    aux.region := if region == 0 then (if phase == 2 then 4 else
+      BaseIF97.Regions.region_dT(
+        d=rho,
+        T=T,
+        phase=phase)) else region;
     aux.phase := if aux.region == 4 then 2 else 1;
     aux.R := BaseIF97.data.RH2O;
     aux.rho := rho;
     aux.T := T;
     if (aux.region == 1) then
-      (aux.p,error) := BaseIF97.Inverses.pofdt125(d=rho,T= T,reldd= 1.0e-8,region=
-               1);
+      (aux.p,error) := BaseIF97.Inverses.pofdt125(
+          d=rho,
+          T=T,
+          reldd=1.0e-8,
+          region=1);
       g := BaseIF97.Basic.g1(aux.p, T);
       aux.h := aux.R*aux.T*g.tau*g.gtau;
       aux.s := aux.R*(g.tau*g.gtau - g.g);
@@ -7257,11 +7601,15 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/aux.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*T/(aux.p*aux.p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 0.0;
     elseif (aux.region == 2) then
-      (aux.p,error) := BaseIF97.Inverses.pofdt125(d=rho,T= T,reldd= 1.0e-8,region=
-               2);
+      (aux.p,error) := BaseIF97.Inverses.pofdt125(
+          d=rho,
+          T=T,
+          reldd=1.0e-8,
+          region=2);
       g := BaseIF97.Basic.g2(aux.p, T);
       aux.h := aux.R*aux.T*g.tau*g.gtau;
       aux.s := aux.R*(g.tau*g.gtau - g.g);
@@ -7269,7 +7617,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/aux.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*T/(aux.p*aux.p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
       aux.x := 1.0;
     elseif (aux.region == 3) then
       f := BaseIF97.Basic.f3(rho, T);
@@ -7278,7 +7627,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.s := aux.R*(f.tau*f.ftau - f.f);
       aux.pd := aux.R*T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
       aux.pt := aux.R*rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-      aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*aux.rho*aux.pd);
+      aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*
+        aux.rho*aux.pd);
       aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
       aux.x := 0.0;
     elseif (aux.region == 4) then
@@ -7287,8 +7637,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       d_vap := rhov_T(T);
       h_liq := hl_p(aux.p);
       h_vap := hv_p(aux.p);
-      aux.x := if (d_vap <> d_liq) then (1/rho - 1/d_liq)/(1/d_vap - 1/d_liq) else
-      1.0;
+      aux.x := if (d_vap <> d_liq) then (1/rho - 1/d_liq)/(1/d_vap - 1/d_liq)
+         else 1.0;
       aux.h := h_liq + aux.x*(h_vap - h_liq);
       if T < BaseIF97.data.TLIMIT1 then
         gl := BaseIF97.Basic.g1(aux.p, T);
@@ -7301,14 +7651,24 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         liq := Common.helmholtzToBoundaryProps(fl);
         vap := Common.helmholtzToBoundaryProps(fv);
       end if;
-      aux.dpT := if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d - vap.d) else BaseIF97.Basic.dptofT(aux.T);
+      aux.dpT := if (liq.d <> vap.d) then (vap.s - liq.s)*liq.d*vap.d/(liq.d -
+        vap.d) else BaseIF97.Basic.dptofT(aux.T);
       aux.s := liq.s + aux.x*(vap.s - liq.s);
-      aux.cv := Common.cv2Phase(liq, vap, aux.x, aux.T, aux.p);
+      aux.cv := Common.cv2Phase(
+          liq,
+          vap,
+          aux.x,
+          aux.T,
+          aux.p);
       aux.cp := liq.cp + aux.x*(vap.cp - liq.cp);
       aux.pt := liq.pt + aux.x*(vap.pt - liq.pt);
       aux.pd := liq.pd + aux.x*(vap.pd - liq.pd);
     elseif (aux.region == 5) then
-      (aux.p,error) := BaseIF97.Inverses.pofdt125(d=rho,T= T,reldd= 1.0e-8,region=5);
+      (aux.p,error) := BaseIF97.Inverses.pofdt125(
+          d=rho,
+          T=T,
+          reldd=1.0e-8,
+          region=5);
       g := BaseIF97.Basic.g2(aux.p, T);
       aux.h := aux.R*aux.T*g.tau*g.gtau;
       aux.s := aux.R*(g.tau*g.gtau - g.g);
@@ -7316,10 +7676,11 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.vt := aux.R/aux.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
       aux.vp := aux.R*T/(aux.p*aux.p)*g.pi*g.pi*g.gpipi;
       aux.cp := -aux.R*g.tau*g.tau*g.gtautau;
-      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau*g.gtaupi)/g.gpipi));
+      aux.cv := aux.R*(-g.tau*g.tau*g.gtautau + ((g.gpi - g.tau*g.gtaupi)*(g.gpi
+         - g.tau*g.gtaupi)/g.gpipi));
     else
-      assert(false, "error in region computation of IF97 steam tables"
-       + "(rho = " + String(rho) + ", T = " + String(T) + ")");
+      assert(false, "error in region computation of IF97 steam tables" +
+        "(rho = " + String(rho) + ", T = " + String(T) + ")");
     end if;
   end waterBaseProp_dT;
 
@@ -7342,13 +7703,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Density d "density";
     input SI.Temperature T "Temperature";
-    input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
-    h := h_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
-    annotation(Inline = true);
+    h := h_props_dT(
+        d,
+        T,
+        waterBaseProp_dT(
+          d,
+          T,
+          phase,
+          region));
+    annotation (Inline=true);
   end h_dT;
 
   function h_dT_der "derivative function of h_dT"
@@ -7367,8 +7735,8 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       h_der := T*aux.dpT/(d*d)*d_der + ((aux.cv*d + aux.dpT)/d)*T_der;
     else
       //regions 1,2 or 5
-      h_der := (-(-1/d + T*aux.vt)/(d*d*aux.vp))*d_der + ((aux.vp*aux.cp - aux.
-        vt/d + T*aux.vt*aux.vt)/aux.vp)*T_der;
+      h_der := (-(-1/d + T*aux.vt)/(d*d*aux.vp))*d_der + ((aux.vp*aux.cp - aux.vt
+        /d + T*aux.vt*aux.vt)/aux.vp)*T_der;
     end if;
   end h_dT_der;
 
@@ -7390,13 +7758,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Density d "density";
     input SI.Temperature T "Temperature";
-    input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.Pressure p "pressure";
   algorithm
-    p := p_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
-    annotation(Inline = true);
+    p := p_props_dT(
+        d,
+        T,
+        waterBaseProp_dT(
+          d,
+          T,
+          phase,
+          region));
+    annotation (Inline=true);
   end p_dT;
 
   function p_dT_der "derivative function of p_dT"
@@ -7427,22 +7802,27 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEntropy s "specific entropy";
   algorithm
     s := aux.s;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    annotation (Inline=false, LateInline=true);
   end s_props_dT;
 
   function s_dT "temperature as function of density and temperature"
     extends Modelica.Icons.Function;
     input SI.Density d "density";
     input SI.Temperature T "Temperature";
-    input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificEntropy s "specific entropy";
   algorithm
-    s := s_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
-    annotation(Inline = true);
+    s := s_props_dT(
+        d,
+        T,
+        waterBaseProp_dT(
+          d,
+          T,
+          phase,
+          region));
+    annotation (Inline=true);
   end s_dT;
 
   function cv_props_dT
@@ -7454,9 +7834,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm
     cv := aux.cv;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    annotation (Inline=false, LateInline=true);
   end cv_props_dT;
 
   function cv_dT
@@ -7464,13 +7842,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Density d "density";
     input SI.Temperature T "temperature";
-    input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm
-    cv := cv_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
-    annotation(Inline = true);
+    cv := cv_props_dT(
+        d,
+        T,
+        waterBaseProp_dT(
+          d,
+          T,
+          phase,
+          region));
+    annotation (Inline=true);
   end cv_dT;
 
   function cp_props_dT
@@ -7482,9 +7867,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm
     cp := aux.cp;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    annotation (Inline=false, LateInline=true);
   end cp_props_dT;
 
   function cp_dT
@@ -7492,13 +7875,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Density d "density";
     input SI.Temperature T "temperature";
-    input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm
-    cp := cp_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
-    annotation(Inline = true);
+    cp := cp_props_dT(
+        d,
+        T,
+        waterBaseProp_dT(
+          d,
+          T,
+          phase,
+          region));
+    annotation (Inline=true);
   end cp_dT;
 
   function beta_props_dT
@@ -7509,12 +7899,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input Common.IF97BaseTwoPhase aux "auxiliary record";
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm
-    beta := if aux.region == 3 or aux.region == 4 then
-      aux.pt/(aux.rho*aux.pd) else
-      aux.vt*aux.rho;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    beta := if aux.region == 3 or aux.region == 4 then aux.pt/(aux.rho*aux.pd)
+       else aux.vt*aux.rho;
+    annotation (Inline=false, LateInline=true);
   end beta_props_dT;
 
   function beta_dT
@@ -7522,13 +7909,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Density d "density";
     input SI.Temperature T "temperature";
-    input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm
-    beta := beta_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
-    annotation(Inline = true);
+    beta := beta_props_dT(
+        d,
+        T,
+        waterBaseProp_dT(
+          d,
+          T,
+          phase,
+          region));
+    annotation (Inline=true);
   end beta_dT;
 
   function kappa_props_dT
@@ -7540,11 +7934,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.IsothermalCompressibility kappa
       "isothermal compressibility factor";
   algorithm
-    kappa := if aux.region == 3 or aux.region == 4 then
-      1/(aux.rho*aux.pd) else -aux.vp*aux.rho;
-    annotation (
-      Inline=false,
-      LateInline=true);
+    kappa := if aux.region == 3 or aux.region == 4 then 1/(aux.rho*aux.pd)
+       else -aux.vp*aux.rho;
+    annotation (Inline=false, LateInline=true);
   end kappa_props_dT;
 
   function kappa_dT
@@ -7552,14 +7944,21 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Density d "density";
     input SI.Temperature T "temperature";
-    input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.IsothermalCompressibility kappa
       "isothermal compressibility factor";
   algorithm
-    kappa := kappa_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
-    annotation(Inline = true);
+    kappa := kappa_props_dT(
+        d,
+        T,
+        waterBaseProp_dT(
+          d,
+          T,
+          phase,
+          region));
+    annotation (Inline=true);
   end kappa_dT;
 
   function velocityOfSound_props_dT
@@ -7571,13 +7970,12 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.Velocity v_sound "speed of sound";
   algorithm
     // dp/drho at constant s
-    v_sound := if aux.region == 3 then sqrt(max(0,((aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv)))) else
-      if aux.region == 4 then
-      sqrt(max(0,1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T)))) else
-           sqrt(max(0,-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T))));
-    annotation (
-      Inline=false,
-      LateInline=true);
+    v_sound := if aux.region == 3 then sqrt(max(0, ((aux.pd*aux.rho*aux.rho*aux.cv
+       + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv)))) else if aux.region
+       == 4 then sqrt(max(0, 1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT
+      *aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T)))) else sqrt(max(0,
+      -aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp + aux.vt*aux.vt*aux.T))));
+    annotation (Inline=false, LateInline=true);
   end velocityOfSound_props_dT;
 
   function velocityOfSound_dT
@@ -7585,13 +7983,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Density d "density";
     input SI.Temperature T "temperature";
-    input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.Velocity v_sound "speed of sound";
   algorithm
-    v_sound := velocityOfSound_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
-    annotation(Inline = true);
+    v_sound := velocityOfSound_props_dT(
+        d,
+        T,
+        waterBaseProp_dT(
+          d,
+          T,
+          phase,
+          region));
+    annotation (Inline=true);
   end velocityOfSound_dT;
 
   function isentropicExponent_props_dT
@@ -7602,12 +8007,11 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     input Common.IF97BaseTwoPhase aux "auxiliary record";
     output Real gamma "isentropic exponent";
   algorithm
-    gamma := if aux.region == 3 then 1/(aux.rho*aux.p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else
-           if aux.region == 4 then 1/(aux.rho*aux.p)*aux.dpT*aux.dpT*aux.T/aux.cv else
-      -1/(aux.rho*aux.p)*aux.cp/(aux.vp*aux.cp + aux.vt*aux.vt*aux.T);
-    annotation (
-      Inline=false,
-      LateInline=true);
+    gamma := if aux.region == 3 then 1/(aux.rho*aux.p)*((aux.pd*aux.cv*aux.rho*
+      aux.rho + aux.pt*aux.pt*aux.T)/(aux.cv)) else if aux.region == 4 then 1/(
+      aux.rho*aux.p)*aux.dpT*aux.dpT*aux.T/aux.cv else -1/(aux.rho*aux.p)*aux.cp
+      /(aux.vp*aux.cp + aux.vt*aux.vt*aux.T);
+    annotation (Inline=false, LateInline=true);
   end isentropicExponent_props_dT;
 
   function isentropicExponent_dT
@@ -7615,15 +8019,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Density d "density";
     input SI.Temperature T "temperature";
-    input Integer phase =  0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region =  0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output Real gamma "isentropic exponent";
   algorithm
-    gamma := isentropicExponent_props_dT(d, T, waterBaseProp_dT(d, T, phase, region));
-    annotation (
-      Inline=false,
-      LateInline=true);
+    gamma := isentropicExponent_props_dT(
+        d,
+        T,
+        waterBaseProp_dT(
+          d,
+          T,
+          phase,
+          region));
+    annotation (Inline=false, LateInline=true);
   end isentropicExponent_dT;
 
 protected
@@ -7633,7 +8042,7 @@ protected
       extends Modelica.Icons.Function;
       input SI.Pressure p "pressure";
       input SI.SpecificEnthalpy h "specific enthalpy";
-      input Integer phase= 0
+      input Integer phase=0
         "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
       output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph pro
         "property record for dynamic simulation";
@@ -7647,7 +8056,10 @@ protected
       SI.Temperature T "temperature";
       SI.Density d "density";
     algorithm
-      region := BaseIF97.Regions.region_ph(p, h, phase);
+      region := BaseIF97.Regions.region_ph(
+            p,
+            h,
+            phase);
       if (region == 1) then
         T := BaseIF97.Basic.tph1(p, h);
         g := BaseIF97.Basic.g1(p, T);
@@ -7657,14 +8069,20 @@ protected
         g := BaseIF97.Basic.g2(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph(g);
       elseif (region == 3) then
-        (d,T,error) := BaseIF97.Inverses.dtofph3(p=p,h= h,delp= 1.0e-7,delh=
-          1.0e-6);
+        (d,T,error) := BaseIF97.Inverses.dtofph3(
+              p=p,
+              h=h,
+              delp=1.0e-7,
+              delh=1.0e-6);
         f := BaseIF97.Basic.f3(d, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph(f);
       elseif (region == 4) then
-        pro := BaseIF97.TwoPhase.waterR4_ph(p=p,h= h);
+        pro := BaseIF97.TwoPhase.waterR4_ph(p=p, h=h);
       elseif (region == 5) then
-        (T,error) := BaseIF97.Inverses.tofph5(p=p,h= h,reldh= 1.0e-7);
+        (T,error) := BaseIF97.Inverses.tofph5(
+              p=p,
+              h=h,
+              reldh=1.0e-7);
         g := BaseIF97.Basic.g5(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph(g);
       end if;
@@ -7675,7 +8093,7 @@ protected
       extends Modelica.Icons.Function;
       input SI.Density d "density";
       input SI.Temperature T "temperature";
-      input Integer phase= 0
+      input Integer phase=0
         "phase: 2 for two-phase, 1 for one phase, 0 if unknown";
       output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT pro
         "property record for dynamic simulation";
@@ -7688,25 +8106,37 @@ protected
         "dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
       Integer error "error flag";
     algorithm
-      region := BaseIF97.Regions.region_dT(d, T, phase);
+      region := BaseIF97.Regions.region_dT(
+            d,
+            T,
+            phase);
       if (region == 1) then
-        (p,error) := BaseIF97.Inverses.pofdt125(d=d,T= T,reldd= iter.DELD,region=
-                 1);
+        (p,error) := BaseIF97.Inverses.pofdt125(
+              d=d,
+              T=T,
+              reldd=iter.DELD,
+              region=1);
         g := BaseIF97.Basic.g1(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT(g);
       elseif (region == 2) then
-        (p,error) := BaseIF97.Inverses.pofdt125(d=d,T= T,reldd= iter.DELD,region=
-                 2);
+        (p,error) := BaseIF97.Inverses.pofdt125(
+              d=d,
+              T=T,
+              reldd=iter.DELD,
+              region=2);
         g := BaseIF97.Basic.g2(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT(g);
       elseif (region == 3) then
         f := BaseIF97.Basic.f3(d, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
       elseif (region == 4) then
-        pro := BaseIF97.TwoPhase.waterR4_dT(d=d,T= T);
+        pro := BaseIF97.TwoPhase.waterR4_dT(d=d, T=T);
       elseif (region == 5) then
-        (p,error) := BaseIF97.Inverses.pofdt125(d=d,T= T,reldd= iter.DELD,region=
-                 5);
+        (p,error) := BaseIF97.Inverses.pofdt125(
+              d=d,
+              T=T,
+              reldd=iter.DELD,
+              region=5);
         g := BaseIF97.Basic.g5(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT(g);
       end if;
@@ -7737,7 +8167,10 @@ protected
         g := BaseIF97.Basic.g2(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
       elseif (region == 3) then
-        (d,error) := BaseIF97.Inverses.dofpt3(p=p,T= T,delp= iter.DELP);
+        (d,error) := BaseIF97.Inverses.dofpt3(
+              p=p,
+              T=T,
+              delp=iter.DELP);
         f := BaseIF97.Basic.f3(d, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT(f);
       elseif (region == 5) then
@@ -7771,29 +8204,36 @@ public
   function surfaceTension = BaseIF97.Transport.surfaceTension
     "compute sigma(T) at saturation T";
 
-//   function isentropicEnthalpy
-//     "isentropic specific enthalpy from p,s (preferably use dynamicIsentropicEnthalpy in dynamic simulation!)"
-//     extends Modelica.Icons.Function;
-//     input SI.Pressure p "pressure";
-//     input SI.SpecificEntropy s "specific entropy";
-//     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-//     output SI.SpecificEnthalpy h "specific enthalpy";
-//   algorithm
-//    h := BaseIF97.Isentropic.water_hisentropic(p,s,phase);
-//   end isentropicEnthalpy;
+  //   function isentropicEnthalpy
+  //     "isentropic specific enthalpy from p,s (preferably use dynamicIsentropicEnthalpy in dynamic simulation!)"
+  //     extends Modelica.Icons.Function;
+  //     input SI.Pressure p "pressure";
+  //     input SI.SpecificEntropy s "specific entropy";
+  //     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
+  //     output SI.SpecificEnthalpy h "specific enthalpy";
+  //   algorithm
+  //    h := BaseIF97.Isentropic.water_hisentropic(p,s,phase);
+  //   end isentropicEnthalpy;
 
   function isentropicEnthalpy
     "isentropic specific enthalpy from p,s (preferably use dynamicIsentropicEnthalpy in dynamic simulation!)"
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region = 0
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
-    h := isentropicEnthalpy_props(p, s, waterBaseProp_ps(p, s, phase, region));
-    annotation(Inline = true);
+    h := isentropicEnthalpy_props(
+        p,
+        s,
+        waterBaseProp_ps(
+          p,
+          s,
+          phase,
+          region));
+    annotation (Inline=true);
   end isentropicEnthalpy;
 
   function isentropicEnthalpy_props
@@ -7804,7 +8244,8 @@ public
     output SI.SpecificEnthalpy h "isentropic enthalpy";
   algorithm
     h := aux.h;
-    annotation (derivative(noDerivative=aux) = isentropicEnthalpy_der,
+    annotation (
+      derivative(noDerivative=aux) = isentropicEnthalpy_der,
       Inline=false,
       LateInline=true);
   end isentropicEnthalpy_props;
@@ -7820,7 +8261,7 @@ public
     output Real h_der "specific enthalpy derivative";
   algorithm
     h_der := 1/aux.rho*p_der + aux.T*s_der;
-    annotation(Inline = true);
+    annotation (Inline=true);
   end isentropicEnthalpy_der;
 
   function dynamicIsentropicEnthalpy
@@ -7831,11 +8272,16 @@ public
     input SI.Density dguess "good guess density, e.g., from adjacent volume";
     input SI.Temperature Tguess
       "good guess temperature, e.g., from adjacent volume";
-    input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
+    input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm
-   h := BaseIF97.Isentropic.water_hisentropic_dyn(p,s,dguess,Tguess,0);
-    annotation(Inline = true);
+    h := BaseIF97.Isentropic.water_hisentropic_dyn(
+        p,
+        s,
+        dguess,
+        Tguess,
+        0);
+    annotation (Inline=true);
   end dynamicIsentropicEnthalpy;
 
   annotation (Documentation(info="<HTML>
