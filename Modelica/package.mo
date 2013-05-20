@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library (Version 3.2.1 Build 0 Alpha 1)"
+package Modelica "Modelica Standard Library (Version 3.2.1 Build 0 Beta 1)"
 extends Modelica.Icons.Package;
 
 
@@ -2424,13 +2424,19 @@ and will interpret it in the same way. Short Overview:
      by <a href=\"http://www.itisim.com\">ITI GmbH</a> based on a
      <a href=\"https://www.modelica.org/news_items/call-texts-to-improve-modelica-2012/2012-12-20-Call-for-quotation-for-MSL-tables.pdf/at_download/file\">payed contract</a>
      of the Modelica Association. As a result, all parts of package Modelica are now available
-     in a free implementation.</li>
+     in a free implementation. Additionally new features have been added to the table blocks
+     by this implementation: The table outputs can be differentiated once,
+     support of Matlab binary file formats V6 and V7,
+     new option ConstantSegments for parameter Smoothness as well
+     as option NoExtrapolation for parameter Extrapolation.</li>
 
 <li> The <b>Modelica.Media.Air.MoistAir</b> media model has been improved so that it
      can be used in a temperature range of 190 ... 647 K (previously: 240 ... 400 K).</li>
 
-<li> New media models for <b>moist air</b> (large operating range and based on real gas equations,
-     but 1-2 orders of magnitude slower as Modelica.Media.Air.MoistAir)
+<li> New media models for air (<b>ReferenceAir</b> with a large operating range: 30 ... 2000 K,
+     0 ... 2000 MPa), for moist air (<b>RealGasMoistAir</b> with a large operating range:
+     143.15 ... 2000 K, 0 .. 10 MPa;  but 1-2 orders of magnitude slower as
+     Modelica.Media.Air.MoistAir),
      and the refrigerant <b>R134a</b> are included in the Modelica.Media library in order to
      improve the modeling of air conditioning systems especially in aircrafts.
      These models have been developed by
@@ -2451,7 +2457,7 @@ This release of the Modelica package has been tested with several tools in the f
 </p>
 
 <ul>
-<li><b>Tests with Dymola 2014</b>
+<li><b>Tests with Dymola 2014 by M. Otter (DLR)</b>
     <ul>
     <li>\"Check\" and \"Check with Simulation\" with pedantic flag performed
         successfully on packages Modelica and ModelicaTest
@@ -7654,7 +7660,7 @@ annotation (
 preferredView="info",
 version="3.2.1",
 versionBuild=0,
-versionDate="2013-04-01",
+versionDate="2013-05-22",
 dateModified = "2012-11-02 11:00:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
