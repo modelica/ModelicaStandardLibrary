@@ -8609,10 +8609,9 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Joints.Revolute rev(
         n={0,0,1},
         useAxisFlange=true,
-        a(fixed=false),
-        phi(fixed=true, start=0.5235987755983),
-        w(fixed=true, start=10)) annotation (Placement(transformation(extent={{
-                -40,0},{-20,20}}, rotation=0)));
+        phi(fixed=true),
+        w(fixed=true)) annotation (Placement(transformation(extent={{-40,0},{-20,
+                20}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1) annotation
         (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox box(r={1,0,0}, animation=false)
@@ -8703,6 +8702,7 @@ often possible to use the FreeMotion joint such that the singularity
               10}},
           color={0,0,0},
           pattern=LinePattern.Dot));
+
       connect(sensor_frame_a2.frame_resolve, rev.frame_b) annotation (Line(
           points={{60,70},{60,70},{70,70},{70,90},{-10,90},{-10,10},{-20,10}},
           color={0,0,0},
