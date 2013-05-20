@@ -2239,7 +2239,7 @@ In no event will XRG Simulation GmbH be liable for any direct, indirect, inciden
       reference_X={0.01,0.99},
       fluidConstants={IdealGases.Common.FluidData.H2O,IdealGases.Common.FluidData.N2},
 
-      Temperature(min=200, max=423.15));
+      Temperature(min=190, max=647));
 
     import Modelica.Media.IdealGases.Common.Functions;
     constant Integer Water=1
