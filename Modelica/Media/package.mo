@@ -2577,7 +2577,7 @@ points, e.g., when an isentropic reference state is computed.
 </html>"));
     end TwoPhaseWater;
 
-  package RealGasAir
+  package ReferenceAir
     "Examples for detailed dry air and moist air medium models"
     extends Modelica.Icons.ExamplesPackage;
 
@@ -2601,7 +2601,7 @@ points, e.g., when an isentropic reference state is computed.
         "Initial guess value for temperature";
       parameter Modelica.SIunits.Pressure p_start=1e5
         "Initial guess value for pressure";
-      package Medium = Modelica.Media.Air.RealGasMoistAir "Medium model";
+      package Medium = Modelica.Media.Air.ReferenceMoistAir "Medium model";
       Medium.BaseProperties medium(
         T(start=T_start, fixed=true),
         X(start={0.95,0.05}),
@@ -2640,14 +2640,14 @@ points, e.g., when an isentropic reference state is computed.
     model MoistAir1 "Example 1 for moist air"
       extends Modelica.Icons.Example;
       extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
-          redeclare package Medium = Modelica.Media.Air.RealGasMoistAir);
+          redeclare package Medium = Modelica.Media.Air.ReferenceMoistAir);
       annotation (experiment(StopTime=1.01));
       end MoistAir1;
 
     model MoistAir2 "Example 2 for moist air"
       extends Modelica.Icons.Example;
       extends Modelica.Media.Examples.Tests.Components.PartialTestModel2(
-          redeclare package Medium = Modelica.Media.Air.RealGasMoistAir);
+          redeclare package Medium = Modelica.Media.Air.ReferenceMoistAir);
       annotation (experiment(StopTime=1.01));
       end MoistAir2;
 
@@ -2721,36 +2721,36 @@ points, e.g., when an isentropic reference state is computed.
       "Solve h = h_pTX(p, T, X), s = s_pTX(p, T, X) for T, if h or s is given"
       extends Modelica.Icons.Example;
 
-      import Medium = Modelica.Media.Air.RealGasMoistAir "Medium model";
+      import Medium = Modelica.Media.Air.ReferenceMoistAir "Medium model";
 
       parameter Modelica.SIunits.Temperature T_min=300
         "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
       parameter Modelica.SIunits.Temperature T_max=500
         "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
       parameter Modelica.SIunits.Pressure p=1.0e5 "Fixed pressure in model";
-      parameter Modelica.SIunits.MassFraction[:] X=Modelica.Media.Air.RealGasMoistAir.reference_X
+      parameter Modelica.SIunits.MassFraction[:] X=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "mass fraction vector";
       final parameter Modelica.SIunits.SpecificEnthalpy h_min=
-          Modelica.Media.Air.RealGasMoistAir.specificEnthalpy(
-          Modelica.Media.Air.RealGasMoistAir.setState_pTX(
+          Modelica.Media.Air.ReferenceMoistAir.specificEnthalpy(
+          Modelica.Media.Air.ReferenceMoistAir.setState_pTX(
                 p,
                 T_min,
                 X)) "Specific enthalpy at T_min";
       final parameter Modelica.SIunits.SpecificEnthalpy h_max=
-          Modelica.Media.Air.RealGasMoistAir.specificEnthalpy(
-          Modelica.Media.Air.RealGasMoistAir.setState_pTX(
+          Modelica.Media.Air.ReferenceMoistAir.specificEnthalpy(
+          Modelica.Media.Air.ReferenceMoistAir.setState_pTX(
                 p,
                 T_max,
                 X)) "Specific enthalpy at T_max";
       final parameter Modelica.SIunits.SpecificEntropy s_min=
-          Modelica.Media.Air.RealGasMoistAir.specificEntropy(
-          Modelica.Media.Air.RealGasMoistAir.setState_pTX(
+          Modelica.Media.Air.ReferenceMoistAir.specificEntropy(
+          Modelica.Media.Air.ReferenceMoistAir.setState_pTX(
                 p,
                 T_min,
                 X)) "Specific entropy at T_min";
       final parameter Modelica.SIunits.SpecificEntropy s_max=
-          Modelica.Media.Air.RealGasMoistAir.specificEntropy(
-          Modelica.Media.Air.RealGasMoistAir.setState_pTX(
+          Modelica.Media.Air.ReferenceMoistAir.specificEntropy(
+          Modelica.Media.Air.ReferenceMoistAir.setState_pTX(
                 p,
                 T_max,
                 X)) "Specific entropy at T_max";
@@ -2799,287 +2799,8 @@ points, e.g., when an isentropic reference state is computed.
 
 </html>"));
       end Inverse_sh_TX;
-    end RealGasAir;
+    end ReferenceAir;
 
-  package Water95 "Examples for water"
-    extends Modelica.Icons.ExamplesPackage;
-
-    model Water95_pT1 "Example 1 for water explicit in p and T (IAPWS95)"
-      extends Modelica.Icons.Example;
-      extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
-          redeclare package Medium = Modelica.Media.Water.IAPWS95.Water95_pT);
-      annotation (experiment(StopTime=1.01));
-      end Water95_pT1;
-
-    model Water95_pT2 "Example 2 for water explicit in p and T (IAPWS95)"
-      extends Modelica.Icons.Example;
-      extends Modelica.Media.Examples.Tests.Components.PartialTestModel2(
-          redeclare package Medium = Modelica.Media.Water.IAPWS95.Water95_pT);
-      annotation (experiment(StopTime=1.01));
-      end Water95_pT2;
-
-    model Water95_ph1 "Example 1 for water explicit in p and h (IAPWS95)"
-      extends Modelica.Icons.Example;
-      extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
-        redeclare package Medium = Modelica.Media.Water.IAPWS95.Water95_ph,
-        ambient(use_T_ambient=false, h_ambient=112570),
-        fixedMassFlowRate(use_T_ambient=false, h_ambient=363755));
-      annotation (Documentation(info="<html>
-
-</html>"), experiment(StopTime=1.01));
-      end Water95_ph1;
-
-    model Water95_ph2 "Example 2 for water explicit in p and h (IAPWS95)"
-      extends Modelica.Icons.Example;
-      extends Modelica.Media.Examples.Tests.Components.PartialTestModel2(
-        redeclare package Medium = Modelica.Media.Water.IAPWS95.Water95_ph,
-        ambient(use_T_ambient=false, h_ambient=112570),
-        fixedMassFlowRate(use_T_ambient=false, h_ambient=363755));
-      annotation (Documentation(info="<html>
-
-</html>"), experiment(StopTime=1.01));
-      end Water95_ph2;
-
-    model Inverse_sh_T1
-      "Solve h = h_pT(p, T), s = s_pT(p, T) for T, if h or s is given (LIQUID WATER)"
-      extends Modelica.Icons.Example;
-
-      import Medium = Modelica.Media.Water.IAPWS95.Water95_pT "Medium model";
-
-      parameter Modelica.SIunits.Temperature T_min=280
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
-      parameter Modelica.SIunits.Temperature T_max=380
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
-      parameter Modelica.SIunits.Pressure p=1.0e6 "Fixed pressure in model";
-      final parameter Modelica.SIunits.SpecificEnthalpy h_min=
-          Medium.specificEnthalpy(Medium.setState_pT(p, T_min))
-        "Specific enthalpy at T_min";
-      final parameter Modelica.SIunits.SpecificEnthalpy h_max=
-          Medium.specificEnthalpy(Medium.setState_pT(p, T_max))
-        "Specific enthalpy at T_max";
-      final parameter Modelica.SIunits.SpecificEntropy s_min=
-          Medium.specificEntropy(Medium.setState_pT(p, T_min))
-        "Specific entropy at T_min";
-      final parameter Modelica.SIunits.SpecificEntropy s_max=
-          Medium.specificEntropy(Medium.setState_pT(p, T_max))
-        "Specific entropy at T_max";
-      Modelica.SIunits.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
-      Modelica.SIunits.SpecificEnthalpy h2
-        "Specific enthalpy computed from T (= h1 required)";
-      Modelica.SIunits.SpecificEntropy s1 "Pre-defined specific entropy";
-      Modelica.SIunits.SpecificEntropy s2
-        "Specific entropy computed from T (= h1 required)";
-      Modelica.SIunits.Temperature Th "Temperature computed from h1";
-      Modelica.SIunits.Temperature Ts "Temperature computed from s1";
-
-    protected
-      constant Modelica.SIunits.Time timeUnit=1.0;
-
-      equation
-      // Define specific enthalpy and specific entropy
-      h1 = if time < 0 then h_min else if time > 1 then h_max else h_min + time
-        /timeUnit*(h_max - h_min);
-      s1 = if time < 0 then s_min else if time > 1 then s_max else s_min + time
-        /timeUnit*(s_max - s_min);
-
-      // Solve for temperature
-      Th = Medium.temperature_phX(
-              p,
-              h1,
-              fill(0.0, 0));
-      Ts = Medium.temperature_psX(
-              p,
-              s1,
-              fill(0.0, 0));
-
-      // Check (h2 must be identical to h1)
-      h2 = Medium.specificEnthalpy_pTX(
-              p,
-              Th,
-              fill(0.0, 0));
-      s2 = Medium.specificEntropy_pTX(
-              p,
-              Ts,
-              fill(0.0, 0));
-      annotation (experiment(StopTime=1));
-      end Inverse_sh_T1;
-
-    model Inverse_sh_T2
-      "Solve h = h_pT(p, T), s = s_pT(p, T) for T, if h or s is given (WATER VAPOR)"
-      extends Modelica.Icons.Example;
-
-      import Medium = Modelica.Media.Water.IAPWS95.Water95_pT "Medium model";
-
-      parameter Modelica.SIunits.Temperature T_min=380
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
-      parameter Modelica.SIunits.Temperature T_max=580
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
-      parameter Modelica.SIunits.Pressure p=1.0e5 "Fixed pressure in model";
-      final parameter Modelica.SIunits.SpecificEnthalpy h_min=
-          Medium.specificEnthalpy(Medium.setState_pT(p, T_min))
-        "Specific enthalpy at T_min";
-      final parameter Modelica.SIunits.SpecificEnthalpy h_max=
-          Medium.specificEnthalpy(Medium.setState_pT(p, T_max))
-        "Specific enthalpy at T_max";
-      final parameter Modelica.SIunits.SpecificEntropy s_min=
-          Medium.specificEntropy(Medium.setState_pT(p, T_min))
-        "Specific entropy at T_min";
-      final parameter Modelica.SIunits.SpecificEntropy s_max=
-          Medium.specificEntropy(Medium.setState_pT(p, T_max))
-        "Specific entropy at T_max";
-      Modelica.SIunits.SpecificEnthalpy h1 "Pre-defined specific enthalpy";
-      Modelica.SIunits.SpecificEnthalpy h2
-        "Specific enthalpy computed from T (= h1 required)";
-      Modelica.SIunits.SpecificEntropy s1 "Pre-defined specific entropy";
-      Modelica.SIunits.SpecificEntropy s2
-        "Specific entropy computed from T (= h1 required)";
-      Modelica.SIunits.Temperature Th "Temperature computed from h1";
-      Modelica.SIunits.Temperature Ts "Temperature computed from s1";
-
-    protected
-      constant Modelica.SIunits.Time timeUnit=1.0;
-
-      equation
-      // Define specific enthalpy and specific entropy
-      h1 = if time < 0 then h_min else if time > 1 then h_max else h_min + time
-        /timeUnit*(h_max - h_min);
-      s1 = if time < 0 then s_min else if time > 1 then s_max else s_min + time
-        /timeUnit*(s_max - s_min);
-
-      // Solve for temperature
-      Th = Medium.temperature_phX(
-              p,
-              h1,
-              fill(0.0, 0));
-      Ts = Medium.temperature_psX(
-              p,
-              s1,
-              fill(0.0, 0));
-
-      // Check (h2 must be identical to h1)
-      h2 = Medium.specificEnthalpy_pTX(
-              p,
-              Th,
-              fill(0.0, 0));
-      s2 = Medium.specificEntropy_pTX(
-              p,
-              Ts,
-              fill(0.0, 0));
-      annotation (experiment(StopTime=1));
-      end Inverse_sh_T2;
-
-    model Ice09_pT "Test ice medium model explicit in p and T"
-      extends Modelica.Icons.Example;
-      package Medium = Modelica.Media.Water.IAPWS09.Ice09_pT "Medium model";
-      Medium.BaseProperties medium(
-        p(
-          start=1.e5,
-          fixed=true,
-          stateSelect=StateSelect.prefer),
-        T(
-          start=50,
-          fixed=true,
-          stateSelect=StateSelect.prefer),
-        h(start=-622.965),
-        d(start=933.75));
-      Modelica.SIunits.Volume V(start=0.1, fixed=true);
-      parameter Modelica.SIunits.VolumeFlowRate dV=0.0
-        "Fixed time derivative of volume";
-      parameter Medium.MassFlowRate m_flow_ext=0
-        "Fixed mass flow rate into volume";
-      parameter Medium.EnthalpyFlowRate H_flow_ext=10
-        "Fixed enthalpy flow rate into volume";
-      Modelica.SIunits.Mass m "Mass of volume";
-      Modelica.SIunits.InternalEnergy U "Internal energy of volume";
-
-      Medium.ThermodynamicState state2;
-      Medium.ThermodynamicState state;
-      Real m_flow_ext2;
-      Real der_p;
-      Real der_T;
-
-      equation
-      der(V) = dV;
-      m = medium.d*V;
-      U = m*medium.u;
-
-      // Mass balance
-      der(m) = m_flow_ext;
-
-      // Energy balance
-      der(U) = H_flow_ext;
-
-      // smooth states
-      m_flow_ext2 = time - 0.5;
-      state2 = Medium.setState_pT(1e5*(1 + time), 50 + 200*time);
-      state = Medium.setSmoothState(
-              m_flow_ext2,
-              medium.state,
-              state2,
-              0.05);
-      der_p = der(state.p);
-      der_T = der(state.T);
-      annotation (Documentation(info="<html>
-
-</html>"), experiment(StopTime=1));
-      end Ice09_pT;
-
-    model Ice09_ph "Test ice medium model explicit in p and h"
-      extends Modelica.Icons.Example;
-      package Medium = Modelica.Media.Water.IAPWS09.Ice09_ph "Medium model";
-      Medium.BaseProperties medium(
-        p(
-          start=101325,
-          fixed=true,
-          stateSelect=StateSelect.prefer),
-        h(
-          start=-622.965,
-          fixed=true,
-          stateSelect=StateSelect.prefer),
-        T(start=50.0),
-        d(start=933.75));
-      Modelica.SIunits.Volume V(start=0.1, fixed=true);
-      parameter Modelica.SIunits.VolumeFlowRate dV=0.0
-        "Fixed time derivative of volume";
-      parameter Medium.MassFlowRate m_flow_ext=0
-        "Fixed mass flow rate into volume";
-      parameter Medium.EnthalpyFlowRate H_flow_ext=1
-        "Fixed enthalpy flow rate into volume";
-      Modelica.SIunits.Mass m "Mass of volume";
-      Modelica.SIunits.InternalEnergy U "Internal energy of volume";
-
-      Medium.ThermodynamicState state2;
-      Medium.ThermodynamicState state;
-      Real m_flow_ext2;
-      Real der_p;
-      Real der_T;
-
-      equation
-      der(V) = dV;
-      m = medium.d*V;
-      U = m*medium.u;
-
-      // Mass balance
-      der(m) = m_flow_ext;
-
-      // Energy balance
-      der(U) = H_flow_ext;
-
-      // smooth states
-      m_flow_ext2 = time - 0.5;
-      state2 = Medium.setState_pT(1e5*(1 + time), 50 + 200*time);
-      state = Medium.setSmoothState(
-              m_flow_ext2,
-              medium.state,
-              state2,
-              0.05);
-      der_p = der(state.p);
-      der_T = der(state.T);
-      annotation (Documentation(info="<html>
-
-</html>"), experiment(StopTime=1));
-      end Ice09_ph;
-    end Water95;
 
   package R134a "Examples for R134a"
     extends Modelica.Icons.ExamplesPackage;
@@ -5969,16 +5690,16 @@ to the above list of assumptions</li>
 
     record FluidLimits "validity limits for fluid model"
       extends Modelica.Icons.Record;
-      Temperature TMIN "minimum temperature";
-      Temperature TMAX "maximum temperature";
-      Density DMIN "minimum density";
-      Density DMAX "maximum density";
-      AbsolutePressure PMIN "minimum pressure";
-      AbsolutePressure PMAX "maximum pressure";
-      SpecificEnthalpy HMIN "minimum enthalpy";
-      SpecificEnthalpy HMAX "maximum enthalpy";
-      SpecificEntropy SMIN "minimum entropy";
-      SpecificEntropy SMAX "maximum entropy";
+      constant Temperature TMIN "minimum temperature";
+      constant Temperature TMAX "maximum temperature";
+      constant Density DMIN "minimum density";
+      constant Density DMAX "maximum density";
+      constant AbsolutePressure PMIN "minimum pressure";
+      constant AbsolutePressure PMAX "maximum pressure";
+      constant SpecificEnthalpy HMIN "minimum enthalpy";
+      constant SpecificEnthalpy HMAX "maximum enthalpy";
+      constant SpecificEntropy SMIN "minimum entropy";
+      constant SpecificEntropy SMAX "maximum entropy";
       annotation (Documentation(info="<html>
           <p>The minimum pressure mostly applies to the liquid state only.
           The minimum density is also arbitrary, but is reasonable for technical
@@ -9422,7 +9143,7 @@ Copyright &copy; 1998-2013, Modelica Association.
 </HTML>", revisions="<html>
 <ul>
 <li><i>May 16, 2013</i> by Stefan Wischhusen (XRG Simulation):<br/>
-    Added new media models Air.ReferenceAir, Air.RealGasAir, R135a, Water.IAPWS95, Water.IAPWS09.</li>
+    Added new media models Air.ReferenceMoistAir, Air.ReferenceAir, R134a.</li>
 <li><i>May 25, 2011</i> by Francesco Casella:<br/>Added min/max attributes to Water, TableBased, MixtureGasNasa, SimpleAir and MoistAir local types.</li>
 <li><i>May 25, 2011</i> by Stefan Wischhusen:<br/>Added individual settings for polynomial fittings of properties.</li>
 </ul>
