@@ -610,7 +610,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
       "specific entropy w.r.t. thermodynamic state | use setState_phX function for input if necessary"
 
     protected
-      Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
       Common.PhaseBoundaryProperties liq "properties on liquid phase boundary";
       SaturationProperties sat "saturation temperature and pressure";
       Common.PhaseBoundaryProperties vap "properties on vapor phase boundary";
@@ -1608,7 +1608,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     redeclare function extends isobaricExpansionCoefficient
       "isobaric expansion coefficient w.r.t. thermodynamic state (only valid for one-phase)"
     protected
-      Modelica.Media.R134a.Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
     algorithm
       if getPhase_ph(state.p, state.h) == 2 then
         beta := 0;
@@ -1897,7 +1897,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
       Real det "determinante";
       Real deld "density change";
       Real delt "temperature change";
-      Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
       Modelica.Media.Common.NewtonDerivatives_ph nDerivs "newton derivatives";
       Boolean found "iteration converged";
     algorithm
@@ -2080,7 +2080,7 @@ The function shall only be used for one-phase inputs since the fundamental equat
 
       input Density d "density";
       input Temperature T "temperature";
-      output Common.HelmholtzDerivs f "helmholtz derivatives";
+      output Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
     protected
       Real delta "reduced density";
       Real tau "reduced temperature";
@@ -2141,7 +2141,7 @@ This function computes the ideal gas helmholtz derivatives of the fundamental eq
 
       input Real delta "reduced density (delta=d/dcrit)";
       input Real tau "reduced temperature (tau=Tcrit/T)";
-      output Common.HelmholtzDerivs f "helmholtz derivatives";
+      output Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
     protected
       Modelica.Media.R134a.R134aData.Residual res "residual coefficient";
       Real k "helping var";
@@ -2301,7 +2301,7 @@ This function computes the specific enthalpy in two-phase for R134a depending on
     protected
       Modelica.SIunits.Temperature T_vap "vapor temperature";
       Modelica.SIunits.Density d_vap "vapor density";
-      Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
     algorithm
       if T < R134aData.data.TCRIT then
         d_vap := dewDensity(setSat_T(T));
