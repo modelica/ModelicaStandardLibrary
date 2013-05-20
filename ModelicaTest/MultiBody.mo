@@ -1634,6 +1634,60 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model FrameForces
       extends Modelica.Icons.Example;
       import Modelica.Mechanics.MultiBody.*;
+      inner World world annotation (Placement(transformation(extent={{-100,80},
+                {-80,100}}, rotation=0)));
+      Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true)) annotation (
+          Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
+      Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
+            transformation(extent={{0,40},{20,60}}, rotation=0)));
+      Modelica.Blocks.Sources.Constant Constant1[3](k={0,500,0}) annotation (
+          Placement(transformation(extent={{100,40},{80,60}}, rotation=0)));
+      Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
+              extent={{-80,40},{-60,60}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Forces.WorldForce frameForce1(N_to_m=600,
+          resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
+        annotation (Placement(transformation(extent={{60,40},{40,60}}, rotation
+              =0)));
+      Joints.Revolute Revolute2(phi(fixed=true), w(fixed=true)) annotation (
+          Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
+      Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
+            transformation(extent={{0,0},{20,20}}, rotation=0)));
+      Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
+              extent={{-80,0},{-60,20}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Forces.WorldForce frameForce2(N_to_m=600,
+          resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
+        annotation (Placement(transformation(extent={{60,0},{40,20}}, rotation=
+                0)));
+      Parts.FixedRotation FixedRotation1(n={0,0,1}, angle=45) annotation (
+          Placement(transformation(extent={{-40,-40},{-20,-20}}, rotation=0)));
+    equation
+      connect(BodyCylinder1.frame_a, Revolute1.frame_b)
+        annotation (Line(points={{0,50},{-20,50}}));
+      connect(fixed1.frame_b, Revolute1.frame_a)
+        annotation (Line(points={{-60,50},{-40,50}}));
+      connect(frameForce1.frame_b, BodyCylinder1.frame_b)
+        annotation (Line(points={{40,50},{20,50}}));
+      connect(Constant1.y, frameForce1.force)
+        annotation (Line(points={{79,50},{62,50}}, color={0,0,255}));
+      connect(BodyCylinder2.frame_a, Revolute2.frame_b)
+        annotation (Line(points={{0,10},{-20,10}}));
+      connect(fixed2.frame_b, Revolute2.frame_a)
+        annotation (Line(points={{-60,10},{-40,10}}));
+      connect(frameForce2.frame_b, BodyCylinder2.frame_b)
+        annotation (Line(points={{40,10},{20,10}}));
+      connect(fixed2.frame_b, FixedRotation1.frame_a)
+        annotation (Line(points={{-60,10},{-52,10},{-52,-30},{-40,-30}}));
+      connect(FixedRotation1.frame_b, frameForce2.frame_resolve)
+        annotation (Line(points={{-20,-30},{50,-30},{50,0}}));
+      connect(Constant1.y, frameForce2.force) annotation (Line(points={{79,50},
+              {72,50},{72,10},{62,10}}, color={0,0,255}));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics), experiment(StopTime=1.1));
+    end FrameForces;
+
+    model FrameForces2
+      extends Modelica.Icons.Example;
+      import Modelica.Mechanics.MultiBody.*;
       parameter Real tol=1e-4;
       inner World world annotation (Placement(transformation(extent={{-90,-68},
                 {-70,-48}}, rotation=0)));
@@ -1708,7 +1762,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               {72,50},{72,10},{62,10}}, color={0,0,255}));
       connect(BodyCylinder2.frame_b, frameForce2.frame_resolve) annotation (
           Line(
-          points={{20,10},{22,10},{22,-28},{50,-28},{50,0}},
+          points={{20,10},{30,10},{30,-12},{50,-12},{50,0}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -1744,7 +1798,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         Diagram(coordinateSystem(extent={{-100,-120},{100,100}},
               preserveAspectRatio=true), graphics),
         Icon(coordinateSystem(extent={{-100,-120},{100,100}})));
-    end FrameForces;
+    end FrameForces2;
 
     model FrameForcesAndTorques
       extends Modelica.Icons.Example;
