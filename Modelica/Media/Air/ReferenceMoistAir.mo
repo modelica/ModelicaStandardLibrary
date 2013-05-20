@@ -1,6 +1,6 @@
 within Modelica.Media.Air;
   package ReferenceMoistAir
-    "RealGasMoistAir: Detailed moist air model (143.15 ... 2000 K)"
+    "ReferenceMoistAir: Detailed moist air model (143.15 ... 2000 K)"
 
     extends Modelica.Media.Interfaces.PartialRealCondensingGases(
       mediumName="Moist air",
@@ -5480,7 +5480,7 @@ In no event will XRG Simulation GmbH be liable for any direct, indirect, inciden
                   T,
                   p_der,
                   T_der);
-          //pd := xw/(Modelica.Media.Air.RealGasMoistAir.k_mair + xw)*p;
+          //pd := xw/(Modelica.Media.Air.ReferenceMoistAir.k_mair + xw)*p;
           pd_der := (xw_der*(Modelica.Media.Air.ReferenceMoistAir.k_mair + xw)
              - xw*xw_der)*p + xw/(Modelica.Media.Air.ReferenceMoistAir.k_mair
              + xw)*p_der;
@@ -5681,7 +5681,7 @@ In no event will XRG Simulation GmbH be liable for any direct, indirect, inciden
 
               d_der := (xw_der*o[3] - (1 + xw)*o[5])/o[3]^2;
               //         d := (1 + xw)/((1 + xws)/(MoMoLib.Air.Air_Utilities.rho_pT(pl, T) + pd/
-              //           (.Modelica.Media.Air.RealGasMoistAir.steam.R*T)) + (xw - xws)/
+              //           (.Modelica.Media.Air.ReferenceMoistAir.steam.R*T)) + (xw - xws)/
               //           Modelica.Media.Water.IAPWS09.Ice09_Utilities.rho_pT(p, T));
             else
               o[1] := Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT(pl,

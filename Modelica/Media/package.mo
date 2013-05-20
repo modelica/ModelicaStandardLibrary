@@ -9090,7 +9090,7 @@ single and multiple substance fluids with one and multiple phases:
      ConstantPropertyLiquidWater, WaterIF97 (high precision
      water model according to the IAPWS/IF97 standard)</li>
 <li> <a href=\"modelica://Modelica.Media.Air\">Air models:</a><br>
-     SimpleAir, DryAirNasa, ReferenceAir, MoistAir, RealGasMoistAir.</li>
+     SimpleAir, DryAirNasa, ReferenceAir, MoistAir, ReferenceMoistAir.</li>
 <li> <a href=\"modelica://Modelica.Media.Incompressible\">
      Incompressible media:</a><br>
      TableBased incompressible fluid models (properties are defined by tables rho(T),

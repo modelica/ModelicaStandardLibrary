@@ -2434,7 +2434,7 @@ and will interpret it in the same way. Short Overview:
      can be used in a temperature range of 190 ... 647 K (previously: 240 ... 400 K).</li>
 
 <li> New media models for air (<b>ReferenceAir</b> with a large operating range: 30 ... 2000 K,
-     0 ... 2000 MPa), for moist air (<b>RealGasMoistAir</b> with a large operating range:
+     0 ... 2000 MPa), for moist air (<b>ReferenceMoistAir</b> with a large operating range:
      143.15 ... 2000 K, 0 .. 10 MPa;  but 1-2 orders of magnitude slower as
      Modelica.Media.Air.MoistAir),
      and the refrigerant <b>R134a</b> are included in the Modelica.Media library in order to
