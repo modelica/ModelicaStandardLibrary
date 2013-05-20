@@ -2115,6 +2115,76 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model FrameTorques
       import Modelica.Mechanics.MultiBody.*;
       extends Modelica.Icons.Example;
+      inner World world annotation (Placement(transformation(extent={{-100,80},
+                {-80,100}}, rotation=0)));
+      Joints.Revolute Revolute1(
+        n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true)) annotation (Placement(transformation(
+            origin={-30,50},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+      Parts.BodyCylinder body1(r={1,0,0}) annotation (Placement(transformation(
+              extent={{0,80},{20,100}}, rotation=0)));
+      Modelica.Blocks.Sources.Constant Constant1[3](k={0,100,0}) annotation (
+          Placement(transformation(extent={{100,80},{80,100}}, rotation=0)));
+      Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
+              extent={{-80,20},{-60,40}}, rotation=0)));
+      Parts.BodyCylinder body2(r={1,0,0}) annotation (Placement(transformation(
+              extent={{0,0},{20,20}}, rotation=0)));
+      Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
+              extent={{-80,-40},{-60,-20}}, rotation=0)));
+      Parts.FixedRotation FixedRotation1(n={0,0,1}, angle=45) annotation (
+          Placement(transformation(extent={{0,-60},{20,-40}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Forces.WorldTorque frameTorque1(Nm_to_m=120,
+          resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
+        annotation (Placement(transformation(extent={{60,80},{40,100}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Forces.WorldTorque frameTorque2(Nm_to_m=120,
+          resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
+        annotation (Placement(transformation(extent={{60,20},{40,0}}, rotation=
+                0)));
+      Joints.Revolute Revolute2(
+        n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true)) annotation (Placement(transformation(
+            origin={-30,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+      Modelica.Blocks.Sources.Constant Constant2[3](k={0,100,0}) annotation (
+          Placement(transformation(extent={{100,0},{80,20}}, rotation=0)));
+    equation
+      connect(fixed2.frame_b, FixedRotation1.frame_a)
+        annotation (Line(points={{-60,-30},{-52,-30},{-52,-50},{0,-50}}));
+      connect(frameTorque1.frame_b, body1.frame_b)
+        annotation (Line(points={{40,90},{20,90}}));
+      connect(fixed1.frame_b, Revolute1.frame_a)
+        annotation (Line(points={{-60,30},{-30,30},{-30,40}}));
+      connect(Revolute1.frame_b, body1.frame_a)
+        annotation (Line(points={{-30,60},{-30,90},{0,90}}));
+      connect(fixed2.frame_b, Revolute2.frame_a)
+        annotation (Line(points={{-60,-30},{-30,-30},{-30,-20}}));
+      connect(Revolute2.frame_b, body2.frame_a)
+        annotation (Line(points={{-30,0},{-30,10},{0,10}}));
+      connect(frameTorque2.frame_b, body2.frame_b)
+        annotation (Line(points={{40,10},{20,10}}));
+      connect(FixedRotation1.frame_b, frameTorque2.frame_resolve)
+        annotation (Line(points={{20,-50},{50,-50},{50,0}}));
+      connect(Constant1.y, frameTorque1.torque) annotation (Line(
+          points={{79,90},{62,90}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant2.y, frameTorque2.torque) annotation (Line(
+          points={{79,10},{62,10}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics), experiment(StopTime=1.1));
+    end FrameTorques;
+
+    model FrameTorques2
+      import Modelica.Mechanics.MultiBody.*;
+      extends Modelica.Icons.Example;
       parameter Real tol=1e-4;
       inner World world annotation (Placement(transformation(extent={{-90,-26},
                 {-70,-6}}, rotation=0)));
@@ -2246,7 +2316,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           thickness=0.5,
           smooth=Smooth.None));
       annotation (experiment(StopTime=1.1));
-    end FrameTorques;
+    end FrameTorques2;
 
     model LineForceWithTwoMasses
       "Example to demonstrate how to construct force elements with masses"
