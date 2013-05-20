@@ -3,23 +3,6 @@ package R134a "R134a: Medium model for R134a"
   extends Modelica.Icons.MaterialPropertiesPackage;
   package Common
     extends Modelica.Icons.Package;
-    record HelmholtzDerivs
-      "derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressuredensity and temperature"
-      extends Modelica.Icons.Record;
-      import SI = Modelica.SIunits;
-      SI.Density d "density";
-      SI.Temperature T "temperature";
-      SI.SpecificHeatCapacity R "specific heat capacity";
-      Real delta(unit="1") "dimensionless density";
-      Real tau(unit="1") "dimensionless temperature";
-      Real f(unit="1") "dimensionless Helmholtz-function";
-      Real fdelta(unit="1") "derivative of f w.r.t. delta";
-      Real fdeltadelta(unit="1") "2nd derivative of f w.r.t. delta";
-      Real ftau(unit="1") "derivative of f w.r.t. tau";
-      Real ftautau(unit="1") "2nd derivative of f w.r.t. tau";
-      Real fdeltatau(unit="1") "mixed derivative of f w.r.t. delta and tau";
-
-    end HelmholtzDerivs;
 
     record PhaseBoundaryProperties
       "thermodynamic base properties on the phase boundary"
@@ -173,53 +156,12 @@ package R134a "R134a: Medium model for R134a"
 
     end FindInterval;
 
-    function Helmholtz_ph
-      "function to calculate analytic derivatives for computing d and t given p and h"
-      extends Modelica.Icons.Function;
-      import SI = Modelica.SIunits;
-      input HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
-      output Modelica.Media.Common.NewtonDerivatives_ph nderivs
-        "derivatives for Newton iteration to calculate d and t from p and h";
-    protected
-      SI.SpecificHeatCapacity cv "isochoric heat capacity";
-    algorithm
-      cv := -f.R*(f.tau*f.tau*f.ftautau);
-      nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
-      nderivs.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
-      nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      nderivs.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-      nderivs.ht := cv + nderivs.pt/f.d;
-      nderivs.hd := (nderivs.pd - f.T*nderivs.pt/f.d)/f.d;
-
-    end Helmholtz_ph;
-
-    function Helmholtz_ps
-      "function to calculate analytic derivatives for computing d and t given p and s"
-
-      extends Modelica.Icons.Function;
-      import SI = Modelica.SIunits;
-      input HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
-      output Modelica.Media.Common.NewtonDerivatives_ps nderivs
-        "derivatives for Newton iteration to compute d and t from p and s";
-    protected
-      SI.SpecificHeatCapacity cv "isochoric heat capacity";
-    algorithm
-      cv := -f.R*(f.tau*f.tau*f.ftautau);
-      nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
-      nderivs.s := f.R*(f.tau*f.ftau - f.f);
-      nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
-      nderivs.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
-      nderivs.st := cv/f.T;
-      nderivs.sd := -nderivs.pt/(f.d*f.d);
-
-    end Helmholtz_ps;
-
     function helmholtzToBoundaryProps
       "calulate phase boundary property record from dimensionless Helmholtz function"
 
       extends Modelica.Icons.Function;
       import SI = Modelica.SIunits;
-      input HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
+      input Modelica.Media.Common.HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
       output PhaseBoundaryProperties sat "phase boundary property record";
     protected
       SI.Pressure p "pressure";
@@ -377,7 +319,7 @@ Example:
     redeclare function extends setState_dTX
       "set state for density and temperature (X not used since single substance)"
     protected
-      Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
       Modelica.SIunits.SpecificHeatCapacity R "specific gas constant";
       SaturationProperties sat "saturation temperature and pressure";
       Modelica.SIunits.Density dl "liquid density";
@@ -430,7 +372,7 @@ Example:
       Modelica.SIunits.SpecificEntropy dels=1e-1
         "iteration accuracy for entropy";
       Integer error "if newton iteration fails (too many calls)";
-      Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
       SaturationProperties sat "saturation temperature and pressure";
     algorithm
       state.p := p;
@@ -1380,7 +1322,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       "specific heat capacity at constant pressure | turns inifity in two-phase region! | use setState_phX function for input "
 
     protected
-      Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
 
     algorithm
       f := f_R134a(state.d, state.T);
@@ -1401,7 +1343,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       "specific heat capacity at constant volume | use setState_phX function for input"
 
     protected
-      Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
       Common.PhaseBoundaryProperties liq "properties on liquid phase boundary";
       SaturationProperties sat "saturation temperature and pressure";
       Common.PhaseBoundaryProperties vap "properties on vapor phase boundary";
@@ -1503,8 +1445,8 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
       "thermal conductivity w.r.t. thermodynamic state | use setState_phX function for input"
 
     protected
-      Common.HelmholtzDerivs f "helmholtz derivatives";
-      Common.HelmholtzDerivs f_ref "helmholtz derivatives for reference state";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f_ref "helmholtz derivatives for reference state";
       Modelica.SIunits.ThermalConductivity lambda_dg
         "dilute gas contribution to lambda";
       R134aData.CoeffsThermalConductivity coeff
@@ -1621,7 +1563,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     redeclare function extends velocityOfSound
       "velocity of sound w.r.t. thermodynamic state (only valid for one-phase)"
     protected
-      Modelica.Media.R134a.Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
     algorithm
 
       if getPhase_ph(state.p, state.h) == 2 then
@@ -1645,7 +1587,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     redeclare function extends isothermalCompressibility
       "isothermal compressibility w.r.t. thermodynamic state (only valid for one-phase)"
     protected
-      Modelica.Media.R134a.Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
     algorithm
       if getPhase_ph(state.p, state.h) == 2 then
         kappa := 0;
@@ -1821,7 +1763,7 @@ The isentropic efficiency function should not be applied in liquid region.
         "inverse derivatives for density and temperature";
 
     protected
-      Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
       SaturationProperties sat "saturation temperature and pressure";
       Common.PhaseBoundaryProperties liq "properties on liquid phase boundary";
       Common.PhaseBoundaryProperties vap "properties on vapor phase boundary";
@@ -1856,7 +1798,7 @@ The isentropic efficiency function should not be applied in liquid region.
         f.d := derivs.rho;
         f.T := derivs.T;
         f.R := R134aData.R;
-        newder := Modelica.Media.R134a.Common.Helmholtz_ph(f=f);
+        newder := Modelica.Media.Common.Helmholtz_ph(f=f);
         derivs.cv := -f.R*(f.tau*f.tau*f.ftautau);
         derivs.pd := newder.pd;
         derivs.pt := newder.pt;
@@ -1996,7 +1938,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
         f := f_R134a(d, T);
         // nDerivs are the symbolic derivatives needed in the iteration
         // for given d and T
-        nDerivs := Modelica.Media.R134a.Common.Helmholtz_ph(f);
+        nDerivs := Modelica.Media.Common.Helmholtz_ph(f);
         dh := nDerivs.h - h;
         dp := nDerivs.p - p;
         if ((abs(dh) <= delh) and (abs(dp) <= delp)) then
@@ -2061,7 +2003,7 @@ The function shall only be used for one-phase inputs since the fundamental equat
       Real det "determinante";
       Real deld "density change";
       Real delt "temperature change";
-      Common.HelmholtzDerivs f
+      Modelica.Media.Common.HelmholtzDerivs f
         "dimensionless Helmholtz function and dervatives w.r.t. dimensionless d and T";
       Modelica.Media.Common.NewtonDerivatives_ps nDerivs "newton derivatives";
       Boolean liquid "is liquid";
@@ -2107,7 +2049,7 @@ The function shall only be used for one-phase inputs since the fundamental equat
 
       while ((i < 100) and not found) loop
         f := f_R134a(d=d, T=T);
-        nDerivs := Modelica.Media.R134a.Common.Helmholtz_ps(f);
+        nDerivs := Modelica.Media.Common.Helmholtz_ps(f);
         ds := nDerivs.s - s;
         dp := nDerivs.p - p;
         if ((abs(ds/s) <= dels) and (abs(dp/p) <= delp)) then
@@ -2142,7 +2084,7 @@ The function shall only be used for one-phase inputs since the fundamental equat
     protected
       Real delta "reduced density";
       Real tau "reduced temperature";
-      Common.HelmholtzDerivs fid "helmholtz derivstives";
+      Modelica.Media.Common.HelmholtzDerivs fid "helmholtz derivstives";
 
     algorithm
       delta := d/R134aData.data.DCRIT;
@@ -2168,7 +2110,7 @@ This function adds the ideal gas contribution of the fundamental equation to the
 
       input Real delta "reduced density (delta=d/dcrit)";
       input Real tau "reduced temperature (tau=Tcrit/T)";
-      output Common.HelmholtzDerivs fid "helmholtz derivatives of ideal part";
+      output Modelica.Media.Common.HelmholtzDerivs fid "helmholtz derivatives of ideal part";
     protected
       Modelica.Media.R134a.R134aData.Ideal id "ideal coeffcients";
       Real atau=abs(tau) "|tau|";
@@ -2334,7 +2276,7 @@ This function computes the specific enthalpy in two-phase for R134a depending on
     protected
       Modelica.SIunits.Temperature T_liq "liquid temperature";
       Modelica.SIunits.Density d_liq "liquid density";
-      Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
     algorithm
       if T < R134aData.data.TCRIT then
         d_liq := bubbleDensity(setSat_T(T));
