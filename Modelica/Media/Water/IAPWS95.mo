@@ -2465,7 +2465,9 @@ This library was developed by XRG Simulation GmbH as part of the <a href=\"http:
 </p>
 
 <p>
-Some parts of this library refer to the ThermoFluid library developed at Lund University (<a href=\"http://thermofluid.sourceforge.net/\">http://thermofluid.sourceforge.net</a>).
+Some parts of this library refer to the ThermoFluid library developed
+by Jonas Eborn, Hubertus Tummescheit, and Falko Jens Wagner
+(<a href=\"http://thermofluid.sourceforge.net/\">http://thermofluid.sourceforge.net</a>).
 </p>
 
 <h4>Disclaimer</h4>
