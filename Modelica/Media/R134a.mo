@@ -45,34 +45,6 @@ package R134a "R134a: Medium model for R134a"
 
     end PhaseBoundaryProperties;
 
-    record NewtonDerivatives_ph
-      "derivatives for fast inverse calculations of Helmholtz functions: p & h"
-
-      extends Modelica.Icons.Record;
-      import SI = Modelica.SIunits;
-      SI.Pressure p "pressure";
-      SI.SpecificEnthalpy h "specific enthalpy";
-      Real pd "derivative of pressure w.r.t. density";
-      Real pt "derivative of pressure w.r.t. temperature";
-      Real hd "derivative of specific enthalpy w.r.t. density";
-      Real ht "derivative of specific enthalpy w.r.t. temperature";
-
-    end NewtonDerivatives_ph;
-
-    record NewtonDerivatives_ps
-      "derivatives for fast inverse calculation of Helmholtz functions: p & s"
-
-      extends Modelica.Icons.Record;
-      import SI = Modelica.SIunits;
-      SI.Pressure p "pressure";
-      SI.SpecificEntropy s "specific entropy";
-      Real pd "derivative of pressure w.r.t. density";
-      Real pt "derivative of pressure w.r.t. temperature";
-      Real sd "derivative of specific entropy w.r.t. density";
-      Real st "derivative of specific entropy w.r.t. temperature";
-
-    end NewtonDerivatives_ps;
-
     record InverseDerivatives_rhoT
       "derivatives required for inversion of density and temperature functions w.r.t. pressure and enthalpy states"
       extends Modelica.Icons.Record;
@@ -206,7 +178,7 @@ package R134a "R134a: Medium model for R134a"
       extends Modelica.Icons.Function;
       import SI = Modelica.SIunits;
       input HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
-      output NewtonDerivatives_ph nderivs
+      output Modelica.Media.Common.NewtonDerivatives_ph nderivs
         "derivatives for Newton iteration to calculate d and t from p and h";
     protected
       SI.SpecificHeatCapacity cv "isochoric heat capacity";
@@ -227,7 +199,7 @@ package R134a "R134a: Medium model for R134a"
       extends Modelica.Icons.Function;
       import SI = Modelica.SIunits;
       input HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
-      output NewtonDerivatives_ps nderivs
+      output Modelica.Media.Common.NewtonDerivatives_ps nderivs
         "derivatives for Newton iteration to compute d and t from p and s";
     protected
       SI.SpecificHeatCapacity cv "isochoric heat capacity";
@@ -1853,7 +1825,7 @@ The isentropic efficiency function should not be applied in liquid region.
       SaturationProperties sat "saturation temperature and pressure";
       Common.PhaseBoundaryProperties liq "properties on liquid phase boundary";
       Common.PhaseBoundaryProperties vap "properties on vapor phase boundary";
-      Common.NewtonDerivatives_ph newder "newton derivatives";
+      Modelica.Media.Common.NewtonDerivatives_ph newder "newton derivatives";
       Real x "vapor quality";
       Real dxv "1/(v_vap - v_liq)";
     algorithm
@@ -1984,7 +1956,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
       Real deld "density change";
       Real delt "temperature change";
       Common.HelmholtzDerivs f "helmholtz derivatives";
-      Common.NewtonDerivatives_ph nDerivs "newton derivatives";
+      Modelica.Media.Common.NewtonDerivatives_ph nDerivs "newton derivatives";
       Boolean found "iteration converged";
     algorithm
       i := 0;
@@ -2091,7 +2063,7 @@ The function shall only be used for one-phase inputs since the fundamental equat
       Real delt "temperature change";
       Common.HelmholtzDerivs f
         "dimensionless Helmholtz function and dervatives w.r.t. dimensionless d and T";
-      Common.NewtonDerivatives_ps nDerivs "newton derivatives";
+      Modelica.Media.Common.NewtonDerivatives_ps nDerivs "newton derivatives";
       Boolean liquid "is liquid";
       Boolean supercritical "is supercritcal";
       Boolean found "iteration converged";
