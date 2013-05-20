@@ -10567,20 +10567,16 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D3(
         J=1,
         stateSelect=StateSelect.prefer,
-        a(fixed=false),
         phi(fixed=true),
-        w(
-          fixed=true,
-          start=1.74532925199433,
-          displayUnit="rad/s")) annotation (Placement(transformation(extent={{-10,
-                40},{10,60}}, rotation=0)));
+        w(fixed=true,displayUnit="rad/s")) annotation (Placement(transformation(
+              extent={{-10,40},{10,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D4(
         J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=false),
         w(fixed=true),
-        phi(fixed=true, start=0.75049157835756)) annotation (Placement(
-            transformation(extent={{20,40},{40,60}}, rotation=0)));
+        phi(fixed=true)) annotation (Placement(transformation(extent={{20,40},{
+                40,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D5(
         J=1,
         stateSelect=StateSelect.prefer,
@@ -10706,13 +10702,13 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           smooth=Smooth.None));
       annotation (experiment(StopTime=1.1), Diagram(graphics={Rectangle(
-                  extent={{-66,-16},{100,-94}},
-                  lineColor={255,170,85},
-                  fillColor={255,213,170},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{20,-30},{100,-80}},
-                  lineColor={0,0,255},
-                  textString="This two parts are identical
+              extent={{-66,-16},{100,-94}},
+              lineColor={255,170,85},
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid), Text(
+              extent={{20,-30},{100,-80}},
+              lineColor={0,0,255},
+              textString="This two parts are identical
 concerning structure, parameters
 and initialization.
 But for compatibility reasons
