@@ -5688,26 +5688,6 @@ to the above list of assumptions</li>
     constant Boolean onePhase=false
       "true if the (derived) model should never be called with two-phase inputs";
 
-    record FluidLimits "validity limits for fluid model"
-      extends Modelica.Icons.Record;
-      constant Temperature TMIN "minimum temperature";
-      constant Temperature TMAX "maximum temperature";
-      constant Density DMIN "minimum density";
-      constant Density DMAX "maximum density";
-      constant AbsolutePressure PMIN "minimum pressure";
-      constant AbsolutePressure PMAX "maximum pressure";
-      constant SpecificEnthalpy HMIN "minimum enthalpy";
-      constant SpecificEnthalpy HMAX "maximum enthalpy";
-      constant SpecificEntropy SMIN "minimum entropy";
-      constant SpecificEntropy SMAX "maximum entropy";
-      annotation (Documentation(info="<html>
-          <p>The minimum pressure mostly applies to the liquid state only.
-          The minimum density is also arbitrary, but is reasonable for technical
-          applications to limit iterations in non-linear systems. The limits in
-          enthalpy and entropy are used as safeguards in inverse iterations.</p>
-          </html>"));
-      end FluidLimits;
-
     constant FluidConstants[nS] fluidConstants "constant data for the fluid";
 
     redeclare replaceable record extends ThermodynamicState
