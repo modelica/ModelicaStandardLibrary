@@ -46,7 +46,7 @@ package Tables
       input Integer forceRead "Force reading of table data";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID,
-        forceRead) annotation (Library={"ModelicaStandardTables"});
+        forceRead) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
     end readTableData;
 
     function getTableValue "Interpolate 1-dim. table defined by matrix"
@@ -59,7 +59,7 @@ package Tables
     external"C" y = ModelicaStandardTables_CombiTable1D_getValue(
             tableID,
             icol,
-            u) annotation (Library={"ModelicaStandardTables"});
+            u) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
       annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
     end getTableValue;
 
@@ -76,7 +76,7 @@ package Tables
             tableID,
             icol,
             u,
-            der_u) annotation (Library={"ModelicaStandardTables"});
+            der_u) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
     end getDerTableValue;
 
   initial algorithm
@@ -333,7 +333,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Integer forceRead "Force reading of table data";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID,
-        forceRead) annotation (Library={"ModelicaStandardTables"});
+        forceRead) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
     end readTableData;
 
     function getTableValue "Interpolate 1-dim. table defined by matrix"
@@ -346,7 +346,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     external"C" y = ModelicaStandardTables_CombiTable1D_getValue(
             tableID,
             icol,
-            u) annotation (Library={"ModelicaStandardTables"});
+            u) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
       annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
     end getTableValue;
 
@@ -363,7 +363,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             tableID,
             icol,
             u,
-            der_u) annotation (Library={"ModelicaStandardTables"});
+            der_u) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
     end getDerTableValue;
 
   initial algorithm
@@ -616,7 +616,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Integer forceRead "Force reading of table data";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead) annotation (Library={"ModelicaStandardTables"});
+        forceRead) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
     end readTableData;
 
     function getTableValue "Interpolate 2-dim. table defined by matrix"
@@ -629,7 +629,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
             tableID,
             u1,
-            u2) annotation (Library={"ModelicaStandardTables"});
+            u2) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
       annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
     end getTableValue;
 
@@ -648,7 +648,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             u1,
             u2,
             der_u1,
-            der_u2) annotation (Library={"ModelicaStandardTables"});
+            der_u2) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
     end getDerTableValue;
 
   initial algorithm
