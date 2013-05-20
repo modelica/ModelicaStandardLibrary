@@ -1422,6 +1422,63 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 
     model ForceWithTwoMasses
       extends Modelica.Icons.Example;
+      inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+            transformation(extent={{-100,20},{-80,40}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute(phi(fixed=true), w(
+            fixed=true)) annotation (Placement(transformation(extent={{-40,20},
+                {-20,40}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.BodyBox BodyBox1(r={0.7,0,0})
+        annotation (Placement(transformation(extent={{0,20},{20,40}}, rotation=
+                0)));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation FixedTranslation1(
+        r={0,-0.9,0},
+        width=0.01,
+        animation=false) annotation (Placement(transformation(
+            origin={-60,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses force(
+        L_a=0.3,
+        L_b=0.3,
+        m_a=1,
+        m_b=1) annotation (Placement(transformation(extent={{-20,-20},{0,-40}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation FixedTranslation2(
+        width=0.01,
+        animation=false,
+        r={0,0.1,0}) annotation (Placement(transformation(
+            origin={-60,50},
+            extent={{10,-10},{-10,10}},
+            rotation=270)));
+      Modelica.Mechanics.Translational.Components.Damper damper(d=10)
+        annotation (Placement(transformation(extent={{-20,-80},{0,-60}},
+              rotation=0)));
+    equation
+      connect(BodyBox1.frame_a, revolute.frame_b)
+        annotation (Line(points={{0,30},{-20,30}}));
+      connect(force.frame_a, FixedTranslation1.frame_b)
+        annotation (Line(points={{-20,-30},{-60,-30},{-60,-20}}));
+      connect(force.frame_b, BodyBox1.frame_b)
+        annotation (Line(points={{0,-30},{40,-30},{40,30},{20,30}}));
+      connect(world.frame_b, FixedTranslation2.frame_a)
+        annotation (Line(points={{-80,30},{-60,30},{-60,40}}));
+      connect(FixedTranslation2.frame_b, revolute.frame_a) annotation (Line(
+            points={{-60,60},{-60,70},{-46,70},{-46,30},{-40,30}}));
+      connect(world.frame_b, FixedTranslation1.frame_a)
+        annotation (Line(points={{-80,30},{-60,30},{-60,0}}));
+      connect(force.flange_a, damper.flange_a) annotation (Line(points={{-16,-41},
+              {-16,-54},{-20,-54},{-20,-70}}, color={0,191,0}));
+      connect(force.flange_b, damper.flange_b) annotation (Line(points={{-4,-41},
+              {-4,-54},{0,-54},{0,-70}}, color={0,191,0}));
+      annotation (
+        experiment(StopTime=3),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics),
+        Diagram);
+    end ForceWithTwoMasses;
+
+    model ForceWithTwoMasses2
+      extends Modelica.Icons.Example;
       parameter Real m=2;
       parameter Real tol=1e-4;
       inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
@@ -1572,7 +1629,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(lineForceWithTwoMasses.flange_a, damper2.flange_a)
         annotation (Line(points={{2,-75},{-2,-75},{-2,-90}}, color={0,191,0}));
       annotation (experiment(StopTime=3));
-    end ForceWithTwoMasses;
+    end ForceWithTwoMasses2;
 
     model FrameForces
       extends Modelica.Icons.Example;
