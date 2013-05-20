@@ -2091,9 +2091,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         end air_pT;
       end ThermoFluidSpecial;
 
-      annotation (Documentation(info="<html>
-</html>", revisions="<h4>Intermediate release notes during development</h4>
-<p>Currenly the Events/noEvents switch is only implmented for p-h states. Only after testing that implmentation, it will be extended to dT.</p>"));
     end Air_Utilities;
     annotation (Documentation(info="<html>
 <p>
