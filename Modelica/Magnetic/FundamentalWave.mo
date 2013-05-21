@@ -316,7 +316,7 @@ Christian Kral<br>
 <a href=\"http://www.ait.ac.at\">AIT Austrian Institute of Technology GmbH</a><br>
 Mobility Department<br>
 Giefinggasse 2, 1210 Vienna, Austria<br>
-email: <a HREF=\"mailto:christian.kral@ait.ac.at\">christian.kral@ait.ac.at</a><br>
+email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
 </p>
 
 <p>

@@ -17,11 +17,10 @@ package QuasiStationary "Library for quasi-stationary electrical singlephase and
 </p>
   <p>
   Dr. Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
+  <a href=\"http://www.ait.ac.at/\">AIT Austrian Institute of Technology GmbH</a><br>
   Mobility Department<br>
-  Giefinggasse 2<br>
   A-1210 Vienna, Austria<br>
-  email: <a href=\"mailto:christian.kral@ait.ac.at\">christian.kral@ait.ac.at</a>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
 </p>
   </dd>
 </dl>

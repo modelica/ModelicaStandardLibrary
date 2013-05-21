@@ -897,7 +897,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
     <dd><a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a></dd>
     <dd>Mobility Department</dd><dd>Giefinggasse 2</dd>
     <dd>1210 Vienna, Austria</dd>
-    <dd>email: <a href=\"mailto:christian.kral@ait.ac.at\">christian.kral@ait.ac.at</a></dd>
+    <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a></dd>
 <dt>Johan Andreasson</dt>
     <dd><a href=\"http://www.modelon.se/\">Modelon AB</a></dd>
     <dd>Ideon Science Park</dd>

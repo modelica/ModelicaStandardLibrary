@@ -1472,7 +1472,7 @@ This class summarizes contact information of the contributing persons.
     &lt;tr&gt;
       &lt;td valign=\"top\"&gt;Contributor&lt;/td&gt;
       &lt;td valign=\"top\"&gt;
-        &lt;a href=\"mailto:christian.kral@ait.ac.at\"&gt;C. Kral&lt;/a&gt;
+        &lt;a href=\"mailto:dr.christian.kral@gmail.com\"&gt;C. Kral&lt;/a&gt;
       &lt;/td&gt;
       &lt;td valign=\"top\"&gt;
         &lt;a href=\"http://www.ait.ac.at\"&gt;Austrian Institute of Technology, AIT&lt;/a&gt;, Mobility Department&lt;br&gt;
@@ -1506,7 +1506,7 @@ This class summarizes contact information of the contributing persons.
     <tr>
       <td valign=\"top\">Contributor</td>
       <td valign=\"top\">
-        <a href=\"mailto:christian.kral@ait.ac.at\">C. Kral</a>
+        <a href=\"mailto:dr.christian.kral@gmail.com\">C. Kral</a>
       </td>
       <td valign=\"top\">
         <a href=\"http://www.ait.ac.at\">Austrian Institute of Technology, AIT</a>, Mobility Department<br>
