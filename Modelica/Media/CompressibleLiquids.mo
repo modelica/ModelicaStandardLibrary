@@ -1,10 +1,10 @@
 within Modelica.Media;
-package CompressibleLiquids "compressible liquid models"
+package CompressibleLiquids "Compressible liquid models"
   extends Modelica.Icons.MaterialPropertiesPackage;
-  package Common "base classes for compressible liquids"
+  package Common "Base classes for compressible liquids"
     extends Icons.Library;
     partial package LinearWater_pT
-      "base class for liquid, linear compressibility water models"
+      "Base class for liquid, linear compressibility water models"
       extends Media.Interfaces.PartialLinearFluid(
         constantJacobian=true,
         reference_d=Modelica.Media.Water.StandardWater.density(state),
@@ -22,7 +22,7 @@ package CompressibleLiquids "compressible liquid models"
     end LinearWater_pT;
   end Common;
 
-  package LinearColdWater "cold water model with linear compressibility"
+  package LinearColdWater "Cold water model with linear compressibility"
     extends Media.Interfaces.PartialLinearFluid(
       constantJacobian=true,
       reference_p=101325,
@@ -49,7 +49,7 @@ package CompressibleLiquids "compressible liquid models"
   end LinearColdWater;
 
   package LinearWater_pT_Ambient
-    "liquid, linear compressibility water model at 1.01325 bar and 25 degree Celsius"
+    "Liquid, linear compressibility water model at 1.01325 bar and 25 degree Celsius"
     extends Modelica.Media.CompressibleLiquids.Common.LinearWater_pT(
                            reference_p = 101325, reference_T = 298.15);
   redeclare function extends dynamicViscosity "Dynamic viscosity of water"

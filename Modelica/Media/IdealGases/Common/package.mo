@@ -61,7 +61,7 @@ partial package SingleGasNasa
      AbsolutePressure(start=10e5, nominal=10e5));
 
   redeclare record extends ThermodynamicState
-    "thermodynamic state variables for ideal gases"
+    "Thermodynamic state variables for ideal gases"
     AbsolutePressure p "Absolute pressure of medium";
     Temperature T "Temperature of medium";
   end ThermodynamicState;
@@ -72,7 +72,7 @@ partial package SingleGasNasa
   constant IdealGases.Common.DataRecord data
     "Data record of ideal gas substance";
 
-  constant FluidConstants[nS] fluidConstants "constant data for the fluid";
+  constant FluidConstants[nS] fluidConstants "Constant data for the fluid";
 
   redeclare model extends BaseProperties(
    T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
@@ -139,7 +139,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     redeclare function setState_dTX
     "Return thermodynamic state as function of d, T and composition X"
       extends Modelica.Icons.Function;
-      input Density d "density";
+      input Density d "Density";
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
@@ -156,19 +156,19 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
         annotation(Inline=true,smoothOrder=2);
       end setSmoothState;
 
-  redeclare function extends pressure "return pressure of ideal gas"
+  redeclare function extends pressure "Return pressure of ideal gas"
   algorithm
     p := state.p;
     annotation(Inline=true,smoothOrder=2);
   end pressure;
 
-  redeclare function extends temperature "return temperature of ideal gas"
+  redeclare function extends temperature "Return temperature of ideal gas"
   algorithm
     T := state.T;
     annotation(Inline=true,smoothOrder=2);
   end temperature;
 
-  redeclare function extends density "return density of ideal gas"
+  redeclare function extends density "Return density of ideal gas"
   algorithm
     d := state.p/(data.R*state.T);
     annotation(Inline=true,smoothOrder=2);
@@ -247,17 +247,17 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   end velocityOfSound;
 
   function isentropicEnthalpyApproximation
-    "approximate method of calculating h_is from upstream properties and downstream pressure"
+    "Approximate method of calculating h_is from upstream properties and downstream pressure"
     extends Modelica.Icons.Function;
-    input SI.Pressure p2 "downstream pressure";
-    input ThermodynamicState state "properties at upstream location";
+    input SI.Pressure p2 "Downstream pressure";
+    input ThermodynamicState state "Properties at upstream location";
     input Boolean exclEnthForm=Functions.excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
     input ReferenceEnthalpy refChoice=Functions.referenceChoice
       "Choice of reference enthalpy";
     input SpecificEnthalpy h_off=Functions.h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
-    output SI.SpecificEnthalpy h_is "isentropic enthalpy";
+    output SI.SpecificEnthalpy h_is "Isentropic enthalpy";
   protected
     IsentropicExponent gamma =  isentropicExponent(state) "Isentropic exponent";
   algorithm
@@ -314,7 +314,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     annotation(Inline=true,smoothOrder=2);
   end density_derX;
 
-  redeclare replaceable function extends dynamicViscosity "dynamic viscosity"
+  redeclare replaceable function extends dynamicViscosity "Dynamic viscosity"
   algorithm
     assert(fluidConstants[1].hasCriticalData,
     "Failed to compute dynamicViscosity: For the species \"" + mediumName + "\" no critical data is available.");
@@ -331,7 +331,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   end dynamicViscosity;
 
   redeclare replaceable function extends thermalConductivity
-    "thermal conductivity of gas"
+    "Thermal conductivity of gas"
   //  input IdealGases.Common.DataRecord data "Ideal gas data";
     input Integer method=Functions.methodForThermalConductivity
       "1: Eucken Method, 2: Modified Eucken Method";
@@ -344,7 +344,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     annotation (smoothOrder=2);
   end thermalConductivity;
 
-  redeclare function extends molarMass "return the molar mass of the medium"
+  redeclare function extends molarMass "Return the molar mass of the medium"
   algorithm
     MM := data.MM;
     annotation(Inline=true,smoothOrder=2);
@@ -615,10 +615,10 @@ partial package MixtureGasNasa
      AbsolutePressure(start=10e5, nominal=10e5),
      Temperature(min=200, max=6000, start=500, nominal=500));
 
-    redeclare record extends ThermodynamicState "thermodynamic state variables"
+    redeclare record extends ThermodynamicState "Thermodynamic state variables"
     end ThermodynamicState;
 
-//   redeclare record extends FluidConstants "fluid constants"
+//   redeclare record extends FluidConstants "Fluid constants"
 //   end FluidConstants;
 
   constant Modelica.Media.IdealGases.Common.DataRecord[:] data
@@ -633,8 +633,8 @@ partial package MixtureGasNasa
     "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
 
 //   constant FluidConstants[nX] fluidConstants
-//     "additional data needed for transport properties";
-  constant MolarMass[nX] MMX=data[:].MM "molar masses of components";
+//     "Additional data needed for transport properties";
+  constant MolarMass[nX] MMX=data[:].MM "Molar masses of components";
   constant Integer methodForThermalConductivity(min=1,max=2)=1;
   redeclare replaceable model extends BaseProperties(
     T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
@@ -701,7 +701,7 @@ required from medium model \""   + mediumName + "\".");
     redeclare function setState_dTX
     "Return thermodynamic state as function of d, T and composition X"
       extends Modelica.Icons.Function;
-      input Density d "density";
+      input Density d "Density";
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
@@ -813,7 +813,7 @@ required from medium model \""   + mediumName + "\".");
      input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     input Real dT "Temperature derivative";
-    input Real dX[nX] "independent mass fraction derivative";
+    input Real dX[nX] "Independent mass fraction derivative";
     output Real h_der "Specific enthalpy at temperature T";
   algorithm
     h_der := if fixedX then
@@ -850,8 +850,8 @@ required from medium model \""   + mediumName + "\".");
 
   function MixEntropy "Return mixing entropy of ideal gases / R"
     extends Modelica.Icons.Function;
-    input SI.MoleFraction x[:] "mole fraction of mixture";
-    output Real smix "mixing entropy contribution, divided by gas constant";
+    input SI.MoleFraction x[:] "Mole fraction of mixture";
+    output Real smix "Mixing entropy contribution, divided by gas constant";
   algorithm
     smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i]) else
                      x[i] for i in 1:size(x,1));
@@ -861,9 +861,9 @@ required from medium model \""   + mediumName + "\".");
   function s_TX
     "Return temperature dependent part of the entropy, expects full entropy vector"
     extends Modelica.Icons.Function;
-    input Temperature T "temperature";
-    input MassFraction[nX] X "mass fraction";
-    output SpecificEntropy s "specific entropy";
+    input Temperature T "Temperature";
+    input MassFraction[nX] X "Mass fraction";
+    output SpecificEntropy s "Specific entropy";
   algorithm
     s := sum(Modelica.Media.IdealGases.Common.Functions.s0_T(
                                 data[i], T)*X[i] for i in 1:size(X,1));
@@ -878,7 +878,7 @@ required from medium model \""   + mediumName + "\".");
 
   redeclare function extends velocityOfSound "Return velocity of sound"
     extends Modelica.Icons.Function;
-    input ThermodynamicState state "properties at upstream location";
+    input ThermodynamicState state "Properties at upstream location";
   algorithm
     a := sqrt(max(0,gasConstant(state)*state.T*specificHeatCapacityCp(state)/specificHeatCapacityCv(state)));
     annotation(Inline=true,smoothOrder=2);
@@ -887,15 +887,15 @@ required from medium model \""   + mediumName + "\".");
   function isentropicEnthalpyApproximation
     "Approximate method of calculating h_is from upstream properties and downstream pressure"
     extends Modelica.Icons.Function;
-    input AbsolutePressure p2 "downstream pressure";
-    input ThermodynamicState state "thermodynamic state at upstream location";
-    output SpecificEnthalpy h_is "isentropic enthalpy";
+    input AbsolutePressure p2 "Downstream pressure";
+    input ThermodynamicState state "Thermodynamic state at upstream location";
+    output SpecificEnthalpy h_is "Isentropic enthalpy";
   protected
-    SpecificEnthalpy h "specific enthalpy at upstream location";
-    SpecificEnthalpy h_component[nX] "specific enthalpy at upstream location";
+    SpecificEnthalpy h "Specific enthalpy at upstream location";
+    SpecificEnthalpy h_component[nX] "Specific enthalpy at upstream location";
     IsentropicExponent gamma =  isentropicExponent(state) "Isentropic exponent";
   protected
-    MassFraction[nX] X "complete X-vector";
+    MassFraction[nX] X "Complete X-vector";
   algorithm
     X := if reducedX then cat(1,state.X,{1-sum(state.X)}) else state.X;
     h_component :={Modelica.Media.IdealGases.Common.Functions.h_T(
@@ -909,7 +909,7 @@ required from medium model \""   + mediumName + "\".");
 
   redeclare function extends isentropicEnthalpy "Return isentropic enthalpy"
     input Boolean exact = false
-      "flag whether exact or approximate version should be used";
+      "Flag whether exact or approximate version should be used";
   algorithm
     h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refState.X) else
            isentropicEnthalpyApproximation(p_downstream,refState);
@@ -973,7 +973,7 @@ end gasMixtureViscosity;
     redeclare replaceable function extends dynamicViscosity
     "Return mixture dynamic viscosity"
   protected
-      DynamicViscosity[nX] etaX "component dynamic viscosities";
+      DynamicViscosity[nX] etaX "Component dynamic viscosities";
     algorithm
       for i in 1:nX loop
     etaX[i] := Modelica.Media.IdealGases.Common.Functions.dynamicViscosityLowPressure(
@@ -1015,7 +1015,7 @@ end gasMixtureViscosity;
   Real edivk[size(y,1),size(y,1)];
   Real Mm;
   Real Mij[size(y,1),size(y,1)];
-  Real wm "accentric factor";
+  Real wm "Accentric factor";
   Real wij[size(y,1),size(y,1)];
   Real kappam
       "Correlation for highly polar substances such as alcohols and acids";
@@ -1235,11 +1235,11 @@ end lowPressureThermalConductivity;
     redeclare replaceable function extends thermalConductivity
     "Return thermal conductivity for low pressure gas mixtures"
       input Integer method=methodForThermalConductivity
-      "method to compute single component thermal conductivity";
+      "Method to compute single component thermal conductivity";
   protected
-      ThermalConductivity[nX] lambdaX "component thermal conductivities";
-      DynamicViscosity[nX] eta "component thermal dynamic viscosities";
-      SpecificHeatCapacity[nX] cp "component heat capacity";
+      ThermalConductivity[nX] lambdaX "Component thermal conductivities";
+      DynamicViscosity[nX] eta "Component thermal dynamic viscosities";
+      SpecificHeatCapacity[nX] cp "Component heat capacity";
     algorithm
       for i in 1:nX loop
     assert(fluidConstants[i].hasCriticalData, "Critical data for "+ fluidConstants[i].chemicalFormula +
@@ -1297,7 +1297,7 @@ end lowPressureThermalConductivity;
 
   redeclare function density_derX "Return density derivative by mass fraction"
     extends Modelica.Icons.Function;
-    input ThermodynamicState state "thermodynamic state record";
+    input ThermodynamicState state "Thermodynamic state record";
     output Density[nX] dddX "Derivative of density w.r.t. mass fraction";
   algorithm
     dddX := {-state.p/(state.T*gasConstant(state))*molarMass(state)/data[
@@ -1313,8 +1313,8 @@ end lowPressureThermalConductivity;
 
   function T_hX "Return temperature from specific enthalpy and mass fraction"
     extends Modelica.Icons.Function;
-    input SpecificEnthalpy h "specific enthalpy";
-    input MassFraction[:] X "mass fractions of composition";
+    input SpecificEnthalpy h "Specific enthalpy";
+    input MassFraction[:] X "Mass fractions of composition";
      input Boolean exclEnthForm=excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
      input Modelica.Media.Interfaces.Choices.ReferenceEnthalpy
@@ -1322,7 +1322,7 @@ end lowPressureThermalConductivity;
       "Choice of reference enthalpy";
      input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
-    output Temperature T "temperature";
+    output Temperature T "Temperature";
   protected
     MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
   package Internal
@@ -1351,10 +1351,10 @@ end lowPressureThermalConductivity;
   function T_psX
     "Return temperature from pressure, specific entropy and mass fraction"
     extends Modelica.Icons.Function;
-    input AbsolutePressure p "pressure";
-    input SpecificEntropy s "specific entropy";
-    input MassFraction[:] X "mass fractions of composition";
-    output Temperature T "temperature";
+    input AbsolutePressure p "Pressure";
+    input SpecificEntropy s "Specific entropy";
+    input MassFraction[:] X "Mass fractions of composition";
+    output Temperature T "Temperature";
   protected
     MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
   package Internal
@@ -1366,7 +1366,7 @@ end lowPressureThermalConductivity;
     end f_nonlinear_Data;
 
     redeclare function extends f_nonlinear
-        "note that this function always sees the complete mass fraction vector"
+        "Note that this function always sees the complete mass fraction vector"
       protected
     MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
     Real[nX] Y(unit="mol/mol")=massToMoleFractions(if size(X,1) == nX then X else cat(1,X,{1-sum(X)}), data.MM)
@@ -1390,7 +1390,7 @@ end lowPressureThermalConductivity;
 
 //   redeclare function extends specificEnthalpy_psX
 //   protected
-//     Temperature T "temperature";
+//     Temperature T "Temperature";
 //   algorithm
 //     T := temperature_psX(p,s,X);
 //     h := specificEnthalpy_pTX(p,T,X);
@@ -1399,8 +1399,8 @@ end lowPressureThermalConductivity;
 //   redeclare function extends density_phX
 //     "Compute density from pressure, specific enthalpy and mass fraction"
 //     protected
-//     Temperature T "temperature";
-//     SpecificHeatCapacity R "gas constant";
+//     Temperature T "Temperature";
+//     SpecificHeatCapacity R "Gas constant";
 //   algorithm
 //     T := temperature_phX(p,h,X);
 //     R := if (not reducedX) then

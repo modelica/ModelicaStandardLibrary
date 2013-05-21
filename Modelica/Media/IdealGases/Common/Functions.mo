@@ -82,7 +82,7 @@ package Functions
     annotation (Inline=false,smoothOrder=2);
   end h_T;
 
-  function h_T_der "derivative function for h_T"
+  function h_T_der "Derivative function for h_T"
     import Modelica.Media.Interfaces.Choices;
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";

@@ -22,7 +22,7 @@ package SimpleAir "Air: Simple dry air model (0..100 degC)"
         chemicalFormula="N2, O2",
         structureFormula="N2, O2",
         molarMass=Modelica.Media.IdealGases.Common.SingleGasesData.N2.MM)}
-    "constant data for the fluid";
+    "Constant data for the fluid";
 
   annotation (Documentation(info="<html>
                             <h4>Simple Ideal gas air model for low temperatures</h4>

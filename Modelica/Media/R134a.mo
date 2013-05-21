@@ -5,114 +5,114 @@ package R134a "R134a: Medium model for R134a"
     extends Modelica.Icons.Package;
 
     record PhaseBoundaryProperties
-      "thermodynamic base properties on the phase boundary"
+      "Thermodynamic base properties on the phase boundary"
       extends Modelica.Icons.Record;
 
-      Modelica.SIunits.Density d "density";
-      Modelica.SIunits.SpecificEnthalpy h "enthalpy";
-      Modelica.SIunits.SpecificEnergy u "inner energy";
-      Modelica.SIunits.SpecificEntropy s "entropy";
+      Modelica.SIunits.Density d "Density";
+      Modelica.SIunits.SpecificEnthalpy h "Enthalpy";
+      Modelica.SIunits.SpecificEnergy u "Inner energy";
+      Modelica.SIunits.SpecificEntropy s "Entropy";
       Modelica.SIunits.SpecificHeatCapacity cp
-        "heat capacity at constant pressure";
+        "Heat capacity at constant pressure";
       Modelica.SIunits.SpecificHeatCapacity cv
-        "heat capacity at constant volume";
-      Modelica.SIunits.IsothermalCompressibility kappa "isentropic exponent";
-      Modelica.SIunits.Velocity a "velocity of sound";
+        "Heat capacity at constant volume";
+      Modelica.SIunits.IsothermalCompressibility kappa "Isentropic exponent";
+      Modelica.SIunits.Velocity a "Velocity of sound";
       Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient beta
-        "isobaric expansion coefficient";
-      Modelica.SIunits.IsentropicExponent gamma "isentropic exponent";
+        "Isobaric expansion coefficient";
+      Modelica.SIunits.IsentropicExponent gamma "Isentropic exponent";
       Modelica.SIunits.DerPressureByTemperature pt
-        "derivative of pressure wrt temperature";
+        "Derivative of pressure wrt temperature";
       Modelica.SIunits.DerPressureByDensity pd
-        "derivative of pressure wrt density";
+        "Derivative of pressure wrt density";
 
     end PhaseBoundaryProperties;
 
     record InverseDerivatives_rhoT
-      "derivatives required for inversion of density and temperature functions w.r.t. pressure and enthalpy states"
+      "Derivatives required for inversion of density and temperature functions w.r.t. pressure and enthalpy states"
       extends Modelica.Icons.Record;
 
-      Integer phase "number of phases";
-      Modelica.SIunits.Pressure p "pressure";
-      Modelica.SIunits.Temperature T "kelvin-temperature";
-      Modelica.SIunits.Density rho "density";
-      Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+      Integer phase "Number of phases";
+      Modelica.SIunits.Pressure p "Pressure";
+      Modelica.SIunits.Temperature T "Kelvin-temperature";
+      Modelica.SIunits.Density rho "Density";
+      Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
       Modelica.SIunits.SpecificHeatCapacity cv
-        "specific heat capacity at constant volume";
-      Real pt "derivative of pressure wrt temperature";
-      Real pd "derivative of pressure wrt density";
+        "Specific heat capacity at constant volume";
+      Real pt "Derivative of pressure wrt temperature";
+      Real pd "Derivative of pressure wrt density";
       Real dpT "dp/dT derivative of saturation curve";
 
     end InverseDerivatives_rhoT;
 
     record EOSIdealCoeff
-      "record for coefficients of ideal term of helmholtz equation of state"
+      "Record for coefficients of ideal term of helmholtz equation of state"
       extends Modelica.Icons.Record;
 
-      parameter Integer nc=5 "no. of coefficients in a";
+      parameter Integer nc=5 "No. of coefficients in a";
       parameter Real[nc] a
-        "coefficients of ideal term of helmholtz equation of state";
+        "Coefficients of ideal term of helmholtz equation of state";
 
     end EOSIdealCoeff;
 
     record EOSResidualCoeff
-      "record for coefficients of residual term of helmholtz equation of state"
+      "Record for coefficients of residual term of helmholtz equation of state"
       extends Modelica.Icons.Record;
 
-      parameter Integer nc=20 "no. of coefficients in c, d, t, n";
-      parameter Integer ns1 "no. of zero coefficients in c";
+      parameter Integer nc=20 "No. of coefficients in c, d, t, n";
+      parameter Integer ns1 "No. of zero coefficients in c";
       parameter Real[nc] c
-        "coefficients of residual term of helmholtz equation of state";
+        "Coefficients of residual term of helmholtz equation of state";
       parameter Real[nc] d
-        "coefficients of residual term of helmholtz equation of state";
+        "Coefficients of residual term of helmholtz equation of state";
       parameter Real[nc] t
-        "coefficients of residual term of helmholtz equation of state";
+        "Coefficients of residual term of helmholtz equation of state";
       parameter Real[nc] n
-        "coefficients of residual term of helmholtz equation of state";
+        "Coefficients of residual term of helmholtz equation of state";
 
     end EOSResidualCoeff;
 
-    function CubicSplineDerEval "derivative of cubic spline"
+    function CubicSplineDerEval "Derivative of cubic spline"
       extends Modelica.Icons.Function;
 
-      input Real x "input";
-      input Real[4] coefs "spline coefficients";
-      output Real yder "spline derivative";
+      input Real x "Input";
+      input Real[4] coefs "Spline coefficients";
+      output Real yder "Spline derivative";
     algorithm
       yder := coefs[3] + x*(2.0*coefs[2] + x*3.0*coefs[1]);
 
     end CubicSplineDerEval;
 
-    function CubicSplineEval "cubic spline"
+    function CubicSplineEval "Cubic spline"
       extends Modelica.Icons.Function;
 
-      input Real x "input";
-      input Real[4] coefs "spline coefficients";
-      output Real y "output";
+      input Real x "Input";
+      input Real[4] coefs "Spline coefficients";
+      output Real y "Output";
     algorithm
       y := coefs[4] + x*(coefs[3] + x*(coefs[2] + x*coefs[1]));
 
     end CubicSplineEval;
 
     function cv2Phase
-      "compute isochoric specific heat capacity inside the two-phase region"
+      "Compute isochoric specific heat capacity inside the two-phase region"
       extends Modelica.Icons.Function;
 
       import SI = Modelica.SIunits;
-      input PhaseBoundaryProperties liq "properties on the boiling curve";
-      input PhaseBoundaryProperties vap "properties on the condensation curve";
-      input SI.MassFraction x "vapour mass fraction";
-      input SI.Temperature T "temperature";
-      input SI.Pressure p "pressure";
-      output SI.SpecificHeatCapacity cv "isochoric specific heat capacity";
-      output Real dpT "derivative of pressure w.r.t. temperature";
+      input PhaseBoundaryProperties liq "Properties on the boiling curve";
+      input PhaseBoundaryProperties vap "Properties on the condensation curve";
+      input SI.MassFraction x "Vapour mass fraction";
+      input SI.Temperature T "Temperature";
+      input SI.Pressure p "Pressure";
+      output SI.SpecificHeatCapacity cv "Isochoric specific heat capacity";
+      output Real dpT "Derivative of pressure w.r.t. temperature";
     protected
-      Real dxv "derivative of vapour mass fraction w.r.t. specific volume";
-      Real dvTl "derivative of liquid specific volume w.r.t. temperature";
-      Real dvTv "derivative of vapour specific volume w.r.t. temperature";
-      Real duTl "derivative of liquid specific inner energy w.r.t. temperature";
-      Real duTv "derivative of vapour specific inner energy w.r.t. temperature";
-      Real dxt "derivative of vapour mass fraction w.r.t. temperature";
+      Real dxv "Derivative of vapour mass fraction w.r.t. specific volume";
+      Real dvTl "Derivative of liquid specific volume w.r.t. temperature";
+      Real dvTv "Derivative of vapour specific volume w.r.t. temperature";
+      Real duTl "Derivative of liquid specific inner energy w.r.t. temperature";
+      Real duTv "Derivative of vapour specific inner energy w.r.t. temperature";
+      Real dxt "Derivative of vapour mass fraction w.r.t. temperature";
     algorithm
       dxv := if (liq.d <> vap.d) then liq.d*vap.d/(liq.d - vap.d) else 0.0;
       dpT := (vap.s - liq.s)*dxv;
@@ -126,17 +126,17 @@ package R134a "R134a: Medium model for R134a"
 
     end cv2Phase;
 
-    function FindInterval "half-interval search algorithm"
+    function FindInterval "Half-interval search algorithm"
       extends Modelica.Icons.Function;
 
-      input Real x "input";
-      input Real[:] breaks "grid points defining the intervals";
-      output Integer i "found interval number";
+      input Real x "Input";
+      input Real[:] breaks "Grid points defining the intervals";
+      output Integer i "Found interval number";
       output Integer error=0 "1=did not find interval";
     protected
-      Integer n=scalar(size(breaks)) - 1 "max value";
-      Integer ix=1 "min value";
-      Integer m=n "new interval";
+      Integer n=scalar(size(breaks)) - 1 "Max value";
+      Integer ix=1 "Min value";
+      Integer m=n "New interval";
     algorithm
       i := 1;
       if ((x < breaks[1]) or (x >= breaks[n])) then
@@ -157,14 +157,14 @@ package R134a "R134a: Medium model for R134a"
     end FindInterval;
 
     function helmholtzToBoundaryProps
-      "calulate phase boundary property record from dimensionless Helmholtz function"
+      "Calulate phase boundary property record from dimensionless Helmholtz function"
 
       extends Modelica.Icons.Function;
       import SI = Modelica.SIunits;
-      input Modelica.Media.Common.HelmholtzDerivs f "dimensionless derivatives of Helmholtz function";
-      output PhaseBoundaryProperties sat "phase boundary property record";
+      input Modelica.Media.Common.HelmholtzDerivs f "Dimensionless derivatives of Helmholtz function";
+      output PhaseBoundaryProperties sat "Phase boundary property record";
     protected
-      SI.Pressure p "pressure";
+      SI.Pressure p "Pressure";
     algorithm
       p := f.R*f.d*f.T*f.delta*f.fdelta;
       sat.d := f.d;
@@ -186,7 +186,7 @@ package R134a "R134a: Medium model for R134a"
     end helmholtzToBoundaryProps;
   end Common;
 
-  package R134a_ph "medium model for R134a and p,h as states"
+  package R134a_ph "Medium model for R134a and p,h as states"
 
     extends Modelica.Media.Interfaces.PartialTwoPhaseMedium(
       ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
@@ -237,11 +237,11 @@ package R134a "R134a: Medium model for R134a"
     redeclare record extends SaturationProperties
     end SaturationProperties;
 
-    redeclare record extends ThermodynamicState "thermodynamic state"
-      SpecificEnthalpy h "specific enthalpy";
-      Density d "density";
-      Temperature T "temperature";
-      AbsolutePressure p "pressure";
+    redeclare record extends ThermodynamicState "Thermodynamic state"
+      SpecificEnthalpy h "Specific enthalpy";
+      Density d "Density";
+      Temperature T "Temperature";
+      AbsolutePressure p "Pressure";
 
     end ThermodynamicState;
 
@@ -256,7 +256,7 @@ package R134a "R134a: Medium model for R134a"
         max=2,
         start=1,
         fixed=false) "2 for two-phase, 1 for one-phase, 0 if not known";
-      MassFraction quality "quality of vapour";
+      MassFraction quality "Quality of vapour";
 
     equation
       MM = R134aData.data.MM;
@@ -278,14 +278,14 @@ package R134a "R134a: Medium model for R134a"
     end BaseProperties;
 
     redeclare function extends setState_phX
-      "set state for pressure and specific enthalpy (X not used since single substance)"
+      "Set state for pressure and specific enthalpy (X not used since single substance)"
 
     protected
       SaturationProperties sat(psat=p, Tsat=0)
-        "saturation temperature and pressure";
+        "Saturation temperature and pressure";
       Modelica.SIunits.SpecificEnthalpy hl=bubbleEnthalpy(sat)
-        "liquid enthalpy";
-      Modelica.SIunits.SpecificEnthalpy hv=dewEnthalpy(sat) "vapor enthalpy";
+        "Liquid enthalpy";
+      Modelica.SIunits.SpecificEnthalpy hv=dewEnthalpy(sat) "Vapor enthalpy";
 
     algorithm
       state.p := p;
@@ -317,13 +317,13 @@ Example:
     end setState_phX;
 
     redeclare function extends setState_dTX
-      "set state for density and temperature (X not used since single substance)"
+      "Set state for density and temperature (X not used since single substance)"
     protected
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
-      Modelica.SIunits.SpecificHeatCapacity R "specific gas constant";
-      SaturationProperties sat "saturation temperature and pressure";
-      Modelica.SIunits.Density dl "liquid density";
-      Modelica.SIunits.Density dv "vapor density";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
+      Modelica.SIunits.SpecificHeatCapacity R "Specific gas constant";
+      SaturationProperties sat "Saturation temperature and pressure";
+      Modelica.SIunits.Density dl "Liquid density";
+      Modelica.SIunits.Density dv "Vapor density";
 
     algorithm
       R := R134aData.data.R;
@@ -365,15 +365,15 @@ Example:
     end setState_dTX;
 
     redeclare function extends setState_psX
-      "set state for pressure and specific entropy (X not used since single substance)"
+      "Set state for pressure and specific entropy (X not used since single substance)"
 
     protected
-      Modelica.SIunits.Pressure delp=1e-2 "iteration accuracy for pressure";
+      Modelica.SIunits.Pressure delp=1e-2 "Iteration accuracy for pressure";
       Modelica.SIunits.SpecificEntropy dels=1e-1
-        "iteration accuracy for entropy";
-      Integer error "if newton iteration fails (too many calls)";
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
-      SaturationProperties sat "saturation temperature and pressure";
+        "Iteration accuracy for entropy";
+      Integer error "If newton iteration fails (too many calls)";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
+      SaturationProperties sat "Saturation temperature and pressure";
     algorithm
       state.p := p;
 
@@ -412,7 +412,7 @@ Example:
 </html>"));
     end setState_psX;
 
-    redeclare function extends setState_pTX "dummy function"
+    redeclare function extends setState_pTX "Dummy function"
     algorithm
       // Will probably result in an error so that the user has a chance to fix the model
       // With pressure and temperature a calculation of two-phase properties is not possible
@@ -437,7 +437,7 @@ Example:
         state.h := bubbleEnthalpy(sat);
       else
         assert(sat.psat < Modelica.Media.R134a.R134aData.data.FPCRIT,
-          "function setBubbleState is only valid in two-phase regime");
+          "Function setBubbleState is only valid in two-phase regime");
       end if;
       annotation (Documentation(info="<html>
 <p>This function shall be used in order to calculate the thermodynamic state record for the liquid phase boundary. It requires the saturation record as input which can be determined by both functions setSat_p and setSat_T:
@@ -470,7 +470,7 @@ Example:
         state.h := dewEnthalpy(sat);
       else
         assert(sat.psat < Modelica.Media.R134a.R134aData.data.FPCRIT,
-          "function setDewState is only valid in two-phase regime");
+          "Function setDewState is only valid in two-phase regime");
       end if;
       annotation (Documentation(info="<html>
 <p>This function shall be used in order to calculate the thermodynamic state record for the vapor phase boundary. It requires the saturation record as input which can be determined by both functions setSat_p and setSat_T:
@@ -494,12 +494,12 @@ Example:
     end setDewState;
 
     redeclare function density_ph
-      "density as function of pressure and specific enthalpy"
+      "Density as function of pressure and specific enthalpy"
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
       input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-      output Density d "density";
+      output Density d "Density";
 
     algorithm
       d := rho_props_ph(
@@ -519,7 +519,7 @@ Example:
     end density_ph;
 
     redeclare function extends density
-      "density as function of pressure and specific enthalpy | use setState_phX function for input"
+      "Density as function of pressure and specific enthalpy | use setState_phX function for input"
 
     algorithm
       d := state.d;
@@ -536,12 +536,12 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
     end density;
 
     redeclare function temperature_ph
-      "temperature as function of pressure and specific enthalpy"
+      "Temperature as function of pressure and specific enthalpy"
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
       input Integer phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-      output Temperature T "temperature";
+      output Temperature T "Temperature";
 
     algorithm
       T := T_props_ph(
@@ -562,7 +562,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
     end temperature_ph;
 
     redeclare function extends temperature
-      "temperature as function of pressure and specific enthalpy | use setState_phX function for input"
+      "Temperature as function of pressure and specific enthalpy | use setState_phX function for input"
 
     algorithm
       T := state.T;
@@ -573,7 +573,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
 </html>"));
     end temperature;
 
-    redeclare function extends pressure "pressure w.r.t. thermodynamic state"
+    redeclare function extends pressure "Pressure w.r.t. thermodynamic state"
     algorithm
       p := state.p;
       annotation (Inline=true, Documentation(info="<html>
@@ -583,7 +583,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
     end pressure;
 
     redeclare function extends specificInternalEnergy
-      "specific internal energy  w.r.t. thermodynamic state"
+      "Specific internal energy  w.r.t. thermodynamic state"
     algorithm
       u := specificEnthalpy(state) - pressure(state)/density(state);
 
@@ -595,7 +595,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
     end specificInternalEnergy;
 
     redeclare function extends specificEnthalpy
-      "specific enthalpy w.r.t. thermodynamic state | use setState_phX function for input"
+      "Specific enthalpy w.r.t. thermodynamic state | use setState_phX function for input"
 
     algorithm
       h := state.h;
@@ -607,15 +607,15 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
     end specificEnthalpy;
 
     redeclare function extends specificEntropy
-      "specific entropy w.r.t. thermodynamic state | use setState_phX function for input if necessary"
+      "Specific entropy w.r.t. thermodynamic state | use setState_phX function for input if necessary"
 
     protected
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
-      Common.PhaseBoundaryProperties liq "properties on liquid phase boundary";
-      SaturationProperties sat "saturation temperature and pressure";
-      Common.PhaseBoundaryProperties vap "properties on vapor phase boundary";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
+      Common.PhaseBoundaryProperties liq "Properties on liquid phase boundary";
+      SaturationProperties sat "Saturation temperature and pressure";
+      Common.PhaseBoundaryProperties vap "Properties on vapor phase boundary";
 
-      Modelica.SIunits.MassFraction x "vapor quality";
+      Modelica.SIunits.MassFraction x "Vapor quality";
 
     algorithm
       if getPhase_ph(state.p, state.h) == 2 then
@@ -638,17 +638,17 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
     end specificEntropy;
 
     redeclare function extends saturationTemperature
-      "saturation temperature in two-phase region"
+      "Saturation temperature in two-phase region"
 
     protected
       constant Real T_coef[:, :]=R134aData.Tcoef
-        "coefficients of cubic spline for Tsat(p)";
+        "Coefficients of cubic spline for Tsat(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := p/R134aData.data.FPCRIT;
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -668,17 +668,17 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end saturationTemperature;
 
     redeclare function extends saturationTemperature_derp
-      "derivative of saturation temperature in two-phase region"
+      "Derivative of saturation temperature in two-phase region"
 
     protected
       constant Real T_coef[:, :]=R134aData.Tcoef
-        "coefficients of cubic spline for Tsat(p)";
+        "Coefficients of cubic spline for Tsat(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := p/R134aData.data.FPCRIT;
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -695,21 +695,21 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end saturationTemperature_derp;
 
     function saturationTemperature_der_p
-      "time derivative of saturation temperature in two-phase region"
+      "Time derivative of saturation temperature in two-phase region"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.AbsolutePressure p "pressure";
-      input Real der_p "time derivative of pressure";
-      output Real der_Tsat "time derivative of saturation temperature";
+      input Modelica.SIunits.AbsolutePressure p "Pressure";
+      input Real der_p "Time derivative of pressure";
+      output Real der_Tsat "Time derivative of saturation temperature";
     protected
       constant Real T_coef[:, :]=R134aData.Tcoef
-        "coefficients of cubic spline for Tsat(p)";
+        "Coefficients of cubic spline for Tsat(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := p/R134aData.data.FPCRIT;
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -727,17 +727,17 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end saturationTemperature_der_p;
 
     redeclare function extends bubbleDensity
-      "density of liquid phase w.r.t saturation pressure | use setSat_p function for input"
+      "Density of liquid phase w.r.t saturation pressure | use setSat_p function for input"
 
     protected
       constant Real dl_coef[:, :]=R134aData.dlcoef
-        "coefficients of cubic spline for d_liq(p)";
+        "Coefficients of cubic spline for d_liq(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -758,17 +758,17 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end bubbleDensity;
 
     redeclare function extends dBubbleDensity_dPressure
-      "derivative of liquid density in two-phase region w.r.t pressure"
+      "Derivative of liquid density in two-phase region w.r.t pressure"
 
     protected
       constant Real dl_coef[:, :]=R134aData.dlcoef
-        "coefficients of cubic spline for d_liq(p)";
+        "Coefficients of cubic spline for d_liq(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -786,23 +786,23 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleDensity_dPressure;
 
     function dBubbleDensity_dPressure_der_sat
-      "time derivative of liquid density in two-phase region w.r.t pressure"
+      "Time derivative of liquid density in two-phase region w.r.t pressure"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
-        "saturation properties | pressure is used for interpolation";
-      input SaturationProperties der_sat "derivative of saturation properties";
+        "Saturation properties | pressure is used for interpolation";
+      input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_ddldp
-        "time derivative of liquid density in two-phase region w.r.t pressure";
+        "Time derivative of liquid density in two-phase region w.r.t pressure";
     protected
       constant Real dl_coef[:, :]=R134aData.dlcoef
-        "coefficients of cubic spline for d_liq(p)";
+        "Coefficients of cubic spline for d_liq(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -820,17 +820,17 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleDensity_dPressure_der_sat;
 
     redeclare function extends dewDensity
-      "density of vapor phase w.r.t saturation pressure | use setSat_p function for input"
+      "Density of vapor phase w.r.t saturation pressure | use setSat_p function for input"
 
     protected
       constant Real dv_coef[:, :]=R134aData.dvcoef
-        "coefficients of cubic spline for d_vap(p)";
+        "Coefficients of cubic spline for d_vap(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -850,17 +850,17 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dewDensity;
 
     redeclare function extends dDewDensity_dPressure
-      "derivative of vapor density in two-phase region w.r.t pressure"
+      "Derivative of vapor density in two-phase region w.r.t pressure"
 
     protected
       constant Real dv_coef[:, :]=R134aData.dvcoef
-        "coefficients of cubic spline for d_vap(p)";
+        "Coefficients of cubic spline for d_vap(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -878,23 +878,23 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewDensity_dPressure;
 
     function dDewDensity_dPressure_der_sat
-      "time derivative of vapor density in two-phase region w.r.t pressure"
+      "Time derivative of vapor density in two-phase region w.r.t pressure"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
-        "saturation properties | pressure is used for interpolation";
-      input SaturationProperties der_sat "derivative of saturation properties";
+        "Saturation properties | pressure is used for interpolation";
+      input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_ddvdp
-        "time derivative of vapor density in two-phase region w.r.t pressure";
+        "Time derivative of vapor density in two-phase region w.r.t pressure";
     protected
       constant Real dv_coef[:, :]=R134aData.dvcoef
-        "coefficients of cubic spline for d_vap(p)";
+        "Coefficients of cubic spline for d_vap(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -912,17 +912,17 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewDensity_dPressure_der_sat;
 
     redeclare function extends bubbleEnthalpy
-      "specific enthalpy of liquid phase w.r.t saturation pressure | use setSat_p function for input"
+      "Specific enthalpy of liquid phase w.r.t saturation pressure | use setSat_p function for input"
 
     protected
       constant Real hl_coef[:, :]=R134aData.hlcoef
-        "coefficients of cubic spline for h_liq(p)";
+        "Coefficients of cubic spline for h_liq(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -943,17 +943,17 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end bubbleEnthalpy;
 
     redeclare function extends dBubbleEnthalpy_dPressure
-      "derivative of liquid specific enthalpy in two-phase region w.r.t pressure"
+      "Derivative of liquid specific enthalpy in two-phase region w.r.t pressure"
 
     protected
       constant Real hl_coef[:, :]=R134aData.hlcoef
-        "coefficients of cubic spline for h_liq(p)";
+        "Coefficients of cubic spline for h_liq(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -971,23 +971,23 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleEnthalpy_dPressure;
 
     function dBubbleEnthalpy_dPressure_der_sat
-      "time derivative of liquid specific enthalpy in two-phase region w.r.t pressure"
+      "Time derivative of liquid specific enthalpy in two-phase region w.r.t pressure"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
-        "saturation properties | pressure is used for interpolation";
-      input SaturationProperties der_sat "derivative of saturation properties";
+        "Saturation properties | pressure is used for interpolation";
+      input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_dhldp
-        "time derivative of liquid specific enthalpy in two-phase region w.r.t pressure";
+        "Time derivative of liquid specific enthalpy in two-phase region w.r.t pressure";
     protected
       constant Real hl_coef[:, :]=R134aData.hlcoef
-        "coefficients of cubic spline for h_liq(p)";
+        "Coefficients of cubic spline for h_liq(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1005,17 +1005,17 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleEnthalpy_dPressure_der_sat;
 
     redeclare function extends dewEnthalpy
-      "specific enthalpy of vapor phase w.r.t saturation pressure | use setSat_p function for input"
+      "Specific enthalpy of vapor phase w.r.t saturation pressure | use setSat_p function for input"
 
     protected
       constant Real hv_coef[:, :]=R134aData.hvcoef
-        "coefficients of cubic spline for h_vap(p)";
+        "Coefficients of cubic spline for h_vap(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1036,17 +1036,17 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dewEnthalpy;
 
     redeclare function extends dDewEnthalpy_dPressure
-      "derivative of vapor specific enthalpy in two-phase region w.r.t pressure"
+      "Derivative of vapor specific enthalpy in two-phase region w.r.t pressure"
 
     protected
       constant Real hv_coef[:, :]=R134aData.hvcoef
-        "coefficients of cubic spline for h_vap(p)";
+        "Coefficients of cubic spline for h_vap(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1064,23 +1064,23 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewEnthalpy_dPressure;
 
     function dDewEnthalpy_dPressure_der_sat
-      "time derivative of vapor specific enthalpy in two-phase region w.r.t pressure"
+      "Time derivative of vapor specific enthalpy in two-phase region w.r.t pressure"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
-        "saturation properties | pressure is used for interpolation";
-      input SaturationProperties der_sat "derivative of saturation properties";
+        "Saturation properties | pressure is used for interpolation";
+      input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_dhvdp
-        "derivative of vapor specific enthalpy in two-phase region w.r.t pressure";
+        "Derivative of vapor specific enthalpy in two-phase region w.r.t pressure";
     protected
       constant Real hv_coef[:, :]=R134aData.hvcoef
-        "coefficients of cubic spline for h_vap(p)";
+        "Coefficients of cubic spline for h_vap(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1098,17 +1098,17 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewEnthalpy_dPressure_der_sat;
 
     redeclare function extends dewEntropy
-      "specific entropy of vapor phase w.r.t saturation pressure | use setSat_p function for input"
+      "Specific entropy of vapor phase w.r.t saturation pressure | use setSat_p function for input"
 
     protected
       constant Real sv_coef[:, :]=R134aData.svcoef
-        "coefficients of cubic spline for s_vap(p)";
+        "Coefficients of cubic spline for s_vap(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1128,22 +1128,22 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dewEntropy;
 
     function dDewEntropy_dPressure
-      "derivative of vapor specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
+      "Derivative of vapor specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
-        "saturation properties | pressure is used for interpolation";
+        "Saturation properties | pressure is used for interpolation";
       output Real dsvdp
-        "derivative of vapor specific entropy in two-phase region w.r.t pressure";
+        "Derivative of vapor specific entropy in two-phase region w.r.t pressure";
     protected
       constant Real sv_coef[:, :]=R134aData.svcoef
-        "coefficients of cubic spline for s_vap(p)";
+        "Coefficients of cubic spline for s_vap(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1161,23 +1161,23 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewEntropy_dPressure;
 
     function dDewEntropy_dPressure_der_sat
-      "time derivative of vapor specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
+      "Time derivative of vapor specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
       extends Modelica.Icons.Function;
 
       input SaturationProperties sat
-        "saturation properties | pressure is used for interpolation";
-      input SaturationProperties der_sat "derivative of saturation properties";
+        "Saturation properties | pressure is used for interpolation";
+      input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_dsvdp
-        "derivative of vapor specific entropy in two-phase region w.r.t pressure";
+        "Derivative of vapor specific entropy in two-phase region w.r.t pressure";
     protected
       constant Real sv_coef[:, :]=R134aData.svcoef
-        "coefficients of cubic spline for s_liq(p)";
+        "Coefficients of cubic spline for s_liq(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1195,16 +1195,16 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dDewEntropy_dPressure_der_sat;
 
     redeclare function extends bubbleEntropy
-      "specific entropy of liquid phase w.r.t saturation pressure | use setSat_p function for input"
+      "Specific entropy of liquid phase w.r.t saturation pressure | use setSat_p function for input"
     protected
       constant Real sl_coef[:, :]=R134aData.slcoef
-        "coefficients of cubic spline for s_liq(p)";
+        "Coefficients of cubic spline for s_liq(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1225,21 +1225,21 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end bubbleEntropy;
 
     function dBubbleEntropy_dPressure
-      "derivative of liquid specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
+      "Derivative of liquid specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
       extends Modelica.Icons.Function;
       input SaturationProperties sat
-        "saturation properties | pressure is used for interpolation";
+        "Saturation properties | pressure is used for interpolation";
       output Real dsldp
-        "derivative of liquid specific entropy in two-phase region w.r.t pressure";
+        "Derivative of liquid specific entropy in two-phase region w.r.t pressure";
     protected
       constant Real sl_coef[:, :]=R134aData.slcoef
-        "coefficients of cubic spline for s_liq(p)";
+        "Coefficients of cubic spline for s_liq(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1257,22 +1257,22 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleEntropy_dPressure;
 
     function dBubbleEntropy_dPressure_der_sat
-      "time derivative of liquid specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
+      "Time derivative of liquid specific entropy in two-phase region w.r.t pressure | use setState_phX function for input"
       extends Modelica.Icons.Function;
       input SaturationProperties sat
-        "saturation properties | pressure is used for interpolation";
-      input SaturationProperties der_sat "derivative of saturation properties";
+        "Saturation properties | pressure is used for interpolation";
+      input SaturationProperties der_sat "Derivative of saturation properties";
       output Real der_dsldp
-        "derivative of liquid specific entropy in two-phase region w.r.t pressure";
+        "Derivative of liquid specific entropy in two-phase region w.r.t pressure";
     protected
       constant Real sl_coef[:, :]=R134aData.slcoef
-        "coefficients of cubic spline for s_liq(p)";
+        "Coefficients of cubic spline for s_liq(p)";
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       pred := min(sat.psat/R134aData.data.FPCRIT, 1.0);
       (int,error) := Common.FindInterval(pred, p_breaks);
@@ -1290,18 +1290,18 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end dBubbleEntropy_dPressure_der_sat;
 
     redeclare function extends saturationPressure
-      "saturation pressure w.r.t. temperature"
+      "Saturation pressure w.r.t. temperature"
 
     protected
       constant Real pt_coef[:, :]=R134aData.ptcoef
-        "coefficients of cubic spline for psat(T)";
+        "Coefficients of cubic spline for psat(T)";
       constant Real T_breaks[:]=R134aData.Tbreaks
-        "grid points of reduced pressure";
-      Real Tred "reduced temperature";
-      Integer int "interval number";
-      Integer error "interval for spline interpolation not found";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
+        "Grid points of reduced pressure";
+      Real Tred "Reduced temperature";
+      Integer int "Interval number";
+      Integer error "Interval for spline interpolation not found";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
     algorithm
       Tred := T/R134aData.data.FTCRIT;
       (int,error) := Common.FindInterval(Tred, T_breaks);
@@ -1319,10 +1319,10 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end saturationPressure;
 
     redeclare function extends specificHeatCapacityCp
-      "specific heat capacity at constant pressure | turns inifity in two-phase region! | use setState_phX function for input "
+      "Specific heat capacity at constant pressure | turns inifity in two-phase region! | use setState_phX function for input "
 
     protected
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
 
     algorithm
       f := f_R134a(state.d, state.T);
@@ -1340,15 +1340,15 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end specificHeatCapacityCp;
 
     redeclare function extends specificHeatCapacityCv
-      "specific heat capacity at constant volume | use setState_phX function for input"
+      "Specific heat capacity at constant volume | use setState_phX function for input"
 
     protected
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
-      Common.PhaseBoundaryProperties liq "properties on liquid phase boundary";
-      SaturationProperties sat "saturation temperature and pressure";
-      Common.PhaseBoundaryProperties vap "properties on vapor phase boundary";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
+      Common.PhaseBoundaryProperties liq "Properties on liquid phase boundary";
+      SaturationProperties sat "Saturation temperature and pressure";
+      Common.PhaseBoundaryProperties vap "Properties on vapor phase boundary";
 
-      Modelica.SIunits.MassFraction x "vapor quality";
+      Modelica.SIunits.MassFraction x "Vapor quality";
 
     algorithm
       if getPhase_ph(state.p, state.h) == 2 then
@@ -1379,15 +1379,15 @@ Please note, that the function can also be called in the two-phase region, but t
     end specificHeatCapacityCv;
 
     redeclare function extends dynamicViscosity
-      "dynamic viscosity w.r.t. temperature and density | use setState_phX function for input"
+      "Dynamic viscosity w.r.t. temperature and density | use setState_phX function for input"
 
     protected
-      Real omega_log "log of collision integral";
-      Real omega "collision integral";
+      Real omega_log "Log of collision integral";
+      Real omega "Collision integral";
 
       constant Real K=0.021357 "Constant for low density term eta_star";
       constant Modelica.SIunits.Length sigma=0.50647e-09 "Hard-sphere diameter";
-      constant Modelica.SIunits.Temperature epsilon_k=288.82 "empirical factor";
+      constant Modelica.SIunits.Temperature epsilon_k=288.82 "Empirical factor";
       constant Real a[5]={2.218816e-01,-5.079322e-01,1.285776e-01,-8.328165e-02,
           -2.713173e-02} "Coefficients for term of collision integral";
       constant Real b[13]={-1.7999496,4.6692621e+01,-5.3460794e+02,
@@ -1397,12 +1397,12 @@ Please note, that the function can also be called in the two-phase region, but t
         "Coefficients for term of 2nd viscosity virial coefficient";
       constant Real c[6]={-0.331249e-01,-0.468509e-03,0.156983,3.073830,-0.306398,
           0.215221} "Coefficients for term of residiual viscosity";
-      constant Real DCRIT_mol=4.9788 "critical density in mol/l";
-      Real d_red "reduced density";
+      constant Real DCRIT_mol=4.9788 "Critical density in mol/l";
+      Real d_red "Reduced density";
       Real B_eta "2nd visosity virial coeff.";
-      Real E "temperature contribution to residual viscosity";
-      Real eta_res "residual part";
-      Real eta_star "dilute part";
+      Real E "Temperature contribution to residual viscosity";
+      Real eta_res "Residual part";
+      Real eta_star "Dilute part";
 
     algorithm
       omega_log := 0;
@@ -1442,32 +1442,32 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
     end dynamicViscosity;
 
     redeclare function extends thermalConductivity
-      "thermal conductivity w.r.t. thermodynamic state | use setState_phX function for input"
+      "Thermal conductivity w.r.t. thermodynamic state | use setState_phX function for input"
 
     protected
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
-      Modelica.Media.Common.HelmholtzDerivs f_ref "helmholtz derivatives for reference state";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f_ref "Helmholtz derivatives for reference state";
       Modelica.SIunits.ThermalConductivity lambda_dg
-        "dilute gas contribution to lambda";
+        "Dilute gas contribution to lambda";
       R134aData.CoeffsThermalConductivity coeff
-        "coefficients of thermal conductivity model";
-      Modelica.SIunits.ThermalConductivity lambda_reduced "reduced lambda";
+        "Coefficients of thermal conductivity model";
+      Modelica.SIunits.ThermalConductivity lambda_reduced "Reduced lambda";
       Modelica.SIunits.ThermalConductivity lambda_crit
-        "enhancement of lambda in the critical region";
-      Modelica.SIunits.ThermalConductivity chi_star "correlation length";
-      Modelica.SIunits.ThermalConductivity chi_star_ref "correlation length";
-      Modelica.SIunits.ThermalConductivity delta_chi "chi_star - chi_star_ref";
-      Real rho_molar "molar density [mol/l]";
-      Real dddp "derivative of density w.r.t. pressure";
-      Real dddp_ref "derivative of density w.r.t. pressure for reference state";
-      Modelica.SIunits.Length xi "correlation length";
+        "Enhancement of lambda in the critical region";
+      Modelica.SIunits.ThermalConductivity chi_star "Correlation length";
+      Modelica.SIunits.ThermalConductivity chi_star_ref "Correlation length";
+      Modelica.SIunits.ThermalConductivity delta_chi "Chi_star - chi_star_ref";
+      Real rho_molar "Molar density [mol/l]";
+      Real dddp "Derivative of density w.r.t. pressure";
+      Real dddp_ref "Derivative of density w.r.t. pressure for reference state";
+      Modelica.SIunits.Length xi "Correlation length";
       Modelica.SIunits.SpecificHeatCapacity cp
-        "specific heat capacity at constant pressure";
+        "Specific heat capacity at constant pressure";
       Modelica.SIunits.SpecificHeatCapacity cv
-        "specific heat capacity at constant volume";
-      Modelica.SIunits.DynamicViscosity eta "dynamic viscosity";
-      Modelica.SIunits.ThermalConductivity omega "crossover function";
-      Modelica.SIunits.ThermalConductivity omega_0 "crossover function";
+        "Specific heat capacity at constant volume";
+      Modelica.SIunits.DynamicViscosity eta "Dynamic viscosity";
+      Modelica.SIunits.ThermalConductivity omega "Crossover function";
+      Modelica.SIunits.ThermalConductivity omega_0 "Crossover function";
 
     algorithm
       f := f_R134a(state.d, state.T);
@@ -1527,12 +1527,12 @@ Int. J. Refrig., 23 (2000) 43-63.</dd>
     end thermalConductivity;
 
     redeclare function extends surfaceTension
-      "surface tension as a function of temperature (below critical point)"
+      "Surface tension as a function of temperature (below critical point)"
 
     protected
-      Real tau "reduced temperatur";
-      R134aData.CoeffsSurfaceTension coeff "polynomial coefficients";
-      Modelica.SIunits.Temperature Tc=374.21 "critical temperature";
+      Real tau "Reduced temperatur";
+      R134aData.CoeffsSurfaceTension coeff "Polynomial coefficients";
+      Modelica.SIunits.Temperature Tc=374.21 "Critical temperature";
 
     algorithm
       if sat.Tsat > Tc then
@@ -1561,9 +1561,9 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     end surfaceTension;
 
     redeclare function extends velocityOfSound
-      "velocity of sound w.r.t. thermodynamic state (only valid for one-phase)"
+      "Velocity of sound w.r.t. thermodynamic state (only valid for one-phase)"
     protected
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
     algorithm
 
       if getPhase_ph(state.p, state.h) == 2 then
@@ -1585,9 +1585,9 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     end velocityOfSound;
 
     redeclare function extends isothermalCompressibility
-      "isothermal compressibility w.r.t. thermodynamic state (only valid for one-phase)"
+      "Isothermal compressibility w.r.t. thermodynamic state (only valid for one-phase)"
     protected
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
     algorithm
       if getPhase_ph(state.p, state.h) == 2 then
         kappa := 0;
@@ -1606,9 +1606,9 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     end isothermalCompressibility;
 
     redeclare function extends isobaricExpansionCoefficient
-      "isobaric expansion coefficient w.r.t. thermodynamic state (only valid for one-phase)"
+      "Isobaric expansion coefficient w.r.t. thermodynamic state (only valid for one-phase)"
     protected
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
     algorithm
       if getPhase_ph(state.p, state.h) == 2 then
         beta := 0;
@@ -1627,7 +1627,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     end isobaricExpansionCoefficient;
 
     redeclare function extends isentropicExponent
-      "isentropic exponent gamma w.r.t. thermodynamic state | not defined in two-phase region | use setState_phX function for input"
+      "Isentropic exponent gamma w.r.t. thermodynamic state | not defined in two-phase region | use setState_phX function for input"
 
     algorithm
       gamma := density(state)/(if pressure(state) > 1e-6 then pressure(state)
@@ -1642,7 +1642,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     end isentropicExponent;
 
     redeclare function extends specificGibbsEnergy
-      "specific gibbs energy w.r.t. thermodynamic state"
+      "Specific gibbs energy w.r.t. thermodynamic state"
     algorithm
       g := state.h - state.T*specificEntropy(state);
       annotation (Documentation(info="<html>
@@ -1652,7 +1652,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     end specificGibbsEnergy;
 
     redeclare function extends specificHelmholtzEnergy
-      "helmholtz energy w.r.t. thermodynamic state"
+      "Helmholtz energy w.r.t. thermodynamic state"
     algorithm
       f := state.h - state.p/state.d - state.T*specificEntropy(state);
       annotation (Documentation(info="<html>
@@ -1662,11 +1662,11 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     end specificHelmholtzEnergy;
 
     redeclare function extends density_derh_p
-      "density derivative by specific enthalpy | use setState_phX function for input"
+      "Density derivative by specific enthalpy | use setState_phX function for input"
 
     protected
       Common.InverseDerivatives_rhoT derivs
-        "inverse derivatives for density and temperature";
+        "Inverse derivatives for density and temperature";
 
     algorithm
       derivs := derivsOf_ph(
@@ -1684,11 +1684,11 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     end density_derh_p;
 
     redeclare function extends density_derp_h
-      "density derivative by pressure | use setState_phX function for input"
+      "Density derivative by pressure | use setState_phX function for input"
 
     protected
       Common.InverseDerivatives_rhoT derivs
-        "inverse derivatives for density and temperature";
+        "Inverse derivatives for density and temperature";
 
     algorithm
       derivs := derivsOf_ph(
@@ -1707,7 +1707,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     end density_derp_h;
 
     redeclare function extends isentropicEnthalpy
-      "isentropic enthalpy of downstream pressure and upstream thermodynamic state (specific entropy)"
+      "Isentropic enthalpy of downstream pressure and upstream thermodynamic state (specific entropy)"
     algorithm
       h_is := specificEnthalpy_psX(
             p_downstream,
@@ -1752,23 +1752,23 @@ The isentropic efficiency function should not be applied in liquid region.
     end isentropicEnthalpy;
 
     function derivsOf_ph
-      "derivatives required for inversion of temperature and density functions"
+      "Derivatives required for inversion of temperature and density functions"
 
       extends Modelica.Icons.Function;
 
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
-      input Integer phase "number of phases";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input Integer phase "Number of phases";
       output Common.InverseDerivatives_rhoT derivs
-        "inverse derivatives for density and temperature";
+        "Inverse derivatives for density and temperature";
 
     protected
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
-      SaturationProperties sat "saturation temperature and pressure";
-      Common.PhaseBoundaryProperties liq "properties on liquid phase boundary";
-      Common.PhaseBoundaryProperties vap "properties on vapor phase boundary";
-      Modelica.Media.Common.NewtonDerivatives_ph newder "newton derivatives";
-      Real x "vapor quality";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
+      SaturationProperties sat "Saturation temperature and pressure";
+      Common.PhaseBoundaryProperties liq "Properties on liquid phase boundary";
+      Common.PhaseBoundaryProperties vap "Properties on vapor phase boundary";
+      Modelica.Media.Common.NewtonDerivatives_ph newder "Newton derivatives";
+      Real x "Vapor quality";
       Real dxv "1/(v_vap - v_liq)";
     algorithm
       derivs.p := p;
@@ -1812,28 +1812,28 @@ The isentropic efficiency function should not be applied in liquid region.
     end derivsOf_ph;
 
     function dt_ph
-      "density and temperature w.r.t. pressure and specific enthalpy"
+      "Density and temperature w.r.t. pressure and specific enthalpy"
 
       extends Modelica.Icons.Function;
 
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
-      output Density d "density";
-      output Temperature T "temperature";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      output Density d "Density";
+      output Temperature T "Temperature";
     protected
       SaturationProperties sat(psat=p, Tsat=0)
-        "saturation temperature and pressure";
-      Modelica.SIunits.Pressure delp=1.0e-2 "relative error in p in iteration";
+        "Saturation temperature and pressure";
+      Modelica.SIunits.Pressure delp=1.0e-2 "Relative error in p in iteration";
       Modelica.SIunits.SpecificEnthalpy delh=1.0e-2
-        "relative error in h in iteration";
+        "Relative error in h in iteration";
       Modelica.SIunits.SpecificEnthalpy hvapor=dewEnthalpy(sat=sat)
-        "vapor enthalpy";
+        "Vapor enthalpy";
       Modelica.SIunits.SpecificEnthalpy hliquid=bubbleEnthalpy(sat=sat)
-        "liquid enthalpy";
-      Integer error "iteration error";
-      Real x "vapor quality";
-      Real vvap "specific volume vapor";
-      Real vliq "specific volume liquid";
+        "Liquid enthalpy";
+      Integer error "Iteration error";
+      Real x "Vapor quality";
+      Real vvap "Specific volume vapor";
+      Real vliq "Specific volume liquid";
     algorithm
       if ((h < hliquid) or (h > hvapor) or (p > R134aData.data.FPCRIT)) then
         (d,T,error) := Modelica.Media.R134a.R134a_ph.dtofphOnePhase(
@@ -1859,47 +1859,47 @@ The function cannot be inverted in a numerical way. Please use functions <a href
     end dt_ph;
 
     function dtofphOnePhase
-      "density and temperature w.r.t. pressure and specific enthalpy in one-phase region"
+      "Density and temperature w.r.t. pressure and specific enthalpy in one-phase region"
 
       extends Modelica.Icons.Function;
 
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "enthalpy";
-      input AbsolutePressure delp "absolute error in p in iteration";
-      input SpecificEnthalpy delh "absolute error in h in iteration";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Enthalpy";
+      input AbsolutePressure delp "Absolute error in p in iteration";
+      input SpecificEnthalpy delh "Absolute error in h in iteration";
 
-      output Density d "density";
-      output Temperature T "temperature";
+      output Density d "Density";
+      output Temperature T "Temperature";
       output Integer error "1 if did not converged";
 
     protected
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
+        "Grid points of reduced pressure";
       constant Real hl_coef[:, 4]=R134aData.hlcoef
-        "coefficients of cubic spline for h_liq(p)";
+        "Coefficients of cubic spline for h_liq(p)";
       constant Real dl_coef[:, 4]=R134aData.dlcoef
-        "coefficients of cubic spline for rho_liq(p)";
+        "Coefficients of cubic spline for rho_liq(p)";
       constant Real T_coef[:, 4]=R134aData.Tcoef
-        "coefficients of cubic spline for Tsat(p)";
+        "Coefficients of cubic spline for Tsat(p)";
       constant Real dv_coef[:, 4]=R134aData.dvcoef
-        "coefficients of cubic spline for rho_vap(p)";
+        "Coefficients of cubic spline for rho_vap(p)";
 
-      Modelica.SIunits.SpecificEnthalpy hl "liquid enthalpy";
-      Boolean liquid "is liquid";
-      Boolean supercritical "is supercritcal";
-      Integer int "interval number";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
-      Integer i "newton iteration number";
-      Real dh "difference in h";
-      Real dp "difference in p";
-      Real damping "damping constant";
-      Real det "determinante";
-      Real deld "density change";
-      Real delt "temperature change";
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
-      Modelica.Media.Common.NewtonDerivatives_ph nDerivs "newton derivatives";
-      Boolean found "iteration converged";
+      Modelica.SIunits.SpecificEnthalpy hl "Liquid enthalpy";
+      Boolean liquid "Is liquid";
+      Boolean supercritical "Is supercritcal";
+      Integer int "Interval number";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
+      Integer i "Newton iteration number";
+      Real dh "Difference in h";
+      Real dp "Difference in p";
+      Real damping "Damping constant";
+      Real det "Determinante";
+      Real deld "Density change";
+      Real delt "Temperature change";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
+      Modelica.Media.Common.NewtonDerivatives_ph nDerivs "Newton derivatives";
+      Boolean found "Iteration converged";
     algorithm
       i := 0;
       error := 0;
@@ -1974,46 +1974,46 @@ The function shall only be used for one-phase inputs since the fundamental equat
     end dtofphOnePhase;
 
     function dtofpsOnePhase
-      "inverse iteration in one phase region (d,T) = f(p,s)"
+      "Inverse iteration in one phase region (d,T) = f(p,s)"
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEntropy s "specific entropy";
-      input AbsolutePressure delp "absolute iteration accuracy";
-      input SpecificEntropy dels "absolute iteration accuracy";
-      output Density d "density";
-      output Temperature T "temperature";
-      output Integer error "error flag: trouble if different from 0";
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      input AbsolutePressure delp "Absolute iteration accuracy";
+      input SpecificEntropy dels "Absolute iteration accuracy";
+      output Density d "Density";
+      output Temperature T "Temperature";
+      output Integer error "Error flag: trouble if different from 0";
 
     protected
       constant Real p_breaks[:]=R134aData.pbreaks
-        "grid points of reduced pressure";
+        "Grid points of reduced pressure";
       constant Real dl_coef[:, 4]=R134aData.dlcoef
-        "coefficients of cubic spline for rho_liq(p)";
+        "Coefficients of cubic spline for rho_liq(p)";
       constant Real dv_coef[:, 4]=R134aData.dvcoef
-        "coefficients of cubic spline for rho_vap(p)";
+        "Coefficients of cubic spline for rho_vap(p)";
       constant Real sl_coef[:, 4]=R134aData.slcoef
-        "coefficients of cubic spline for s_liq(p)";
+        "Coefficients of cubic spline for s_liq(p)";
       constant Real sv_coef[:, 4]=R134aData.svcoef
-        "coefficients of cubic spline for s_vap(p)";
+        "Coefficients of cubic spline for s_vap(p)";
       constant Real T_coef[:, 4]=R134aData.Tcoef
-        "coefficients of cubic spline for Tsat(p)";
-      Integer i "newton iteration number";
-      Real ds "difference in s";
-      Real dp "difference in p";
-      Real det "determinante";
-      Real deld "density change";
-      Real delt "temperature change";
+        "Coefficients of cubic spline for Tsat(p)";
+      Integer i "Newton iteration number";
+      Real ds "Difference in s";
+      Real dp "Difference in p";
+      Real det "Determinante";
+      Real deld "Density change";
+      Real delt "Temperature change";
       Modelica.Media.Common.HelmholtzDerivs f
-        "dimensionless Helmholtz function and dervatives w.r.t. dimensionless d and T";
-      Modelica.Media.Common.NewtonDerivatives_ps nDerivs "newton derivatives";
-      Boolean liquid "is liquid";
-      Boolean supercritical "is supercritcal";
-      Boolean found "iteration converged";
-      Integer int "interval number";
-      Real pred "reduced pressure";
-      Real localx "oordinate of local spline";
-      Real sl "liquid entropy";
-      Real sv "vapor entropy";
+        "Dimensionless Helmholtz function and dervatives w.r.t. dimensionless d and T";
+      Modelica.Media.Common.NewtonDerivatives_ps nDerivs "Newton derivatives";
+      Boolean liquid "Is liquid";
+      Boolean supercritical "Is supercritcal";
+      Boolean found "Iteration converged";
+      Integer int "Interval number";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
+      Real sl "Liquid entropy";
+      Real sv "Vapor entropy";
     algorithm
       i := 0;
       error := 0;
@@ -2075,16 +2075,16 @@ The function shall only be used for one-phase inputs since the fundamental equat
     end dtofpsOnePhase;
 
     function f_R134a
-      "calculation of helmholtz derivatives by density and temperature"
+      "Calculation of helmholtz derivatives by density and temperature"
       extends Modelica.Icons.Function;
 
-      input Density d "density";
-      input Temperature T "temperature";
-      output Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
+      input Density d "Density";
+      input Temperature T "Temperature";
+      output Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
     protected
-      Real delta "reduced density";
-      Real tau "reduced temperature";
-      Modelica.Media.Common.HelmholtzDerivs fid "helmholtz derivstives";
+      Real delta "Reduced density";
+      Real tau "Reduced temperature";
+      Modelica.Media.Common.HelmholtzDerivs fid "Helmholtz derivstives";
 
     algorithm
       delta := d/R134aData.data.DCRIT;
@@ -2105,14 +2105,14 @@ This function adds the ideal gas contribution of the fundamental equation to the
 </html>"));
     end f_R134a;
 
-    function fid_R134a "helmholtz coefficients of ideal part"
+    function fid_R134a "Helmholtz coefficients of ideal part"
       extends Modelica.Icons.Function;
 
-      input Real delta "reduced density (delta=d/dcrit)";
-      input Real tau "reduced temperature (tau=Tcrit/T)";
-      output Modelica.Media.Common.HelmholtzDerivs fid "helmholtz derivatives of ideal part";
+      input Real delta "Reduced density (delta=d/dcrit)";
+      input Real tau "Reduced temperature (tau=Tcrit/T)";
+      output Modelica.Media.Common.HelmholtzDerivs fid "Helmholtz derivatives of ideal part";
     protected
-      Modelica.Media.R134a.R134aData.Ideal id "ideal coeffcients";
+      Modelica.Media.R134a.R134aData.Ideal id "Ideal coeffcients";
       Real atau=abs(tau) "|tau|";
       Real adelta=abs(delta) "|delta|";
     algorithm
@@ -2136,17 +2136,17 @@ This function computes the ideal gas helmholtz derivatives of the fundamental eq
 </html>"));
     end fid_R134a;
 
-    function fres_R134a "calculation of helmholtz derivatives"
+    function fres_R134a "Calculation of helmholtz derivatives"
       extends Modelica.Icons.Function;
 
-      input Real delta "reduced density (delta=d/dcrit)";
-      input Real tau "reduced temperature (tau=Tcrit/T)";
-      output Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
+      input Real delta "Reduced density (delta=d/dcrit)";
+      input Real tau "Reduced temperature (tau=Tcrit/T)";
+      output Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
     protected
-      Modelica.Media.R134a.R134aData.Residual res "residual coefficient";
-      Real k "helping var";
-      Real dc "helping var";
-      Real cdc "helping var";
+      Modelica.Media.R134a.R134aData.Residual res "Residual coefficient";
+      Real k "Helping var";
+      Real dc "Helping var";
+      Real cdc "Helping var";
     algorithm
       f.tau := abs(tau);
       f.delta := abs(delta);
@@ -2191,19 +2191,19 @@ This function computes the residual helmholtz derivatives of the fundamental equ
 </html>"));
     end fres_R134a;
 
-    function getPhase_ph "number of phases by pressure and specific enthalpy"
+    function getPhase_ph "Number of phases by pressure and specific enthalpy"
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
 
-      output Integer phase "number of phases";
+      output Integer phase "Number of phases";
 
     protected
       SaturationProperties sat(psat=p, Tsat=0)
-        "saturation temperature and pressure";
+        "Saturation temperature and pressure";
       Modelica.SIunits.SpecificEnthalpy hl=bubbleEnthalpy(sat)
-        "liquid enthalpy";
-      Modelica.SIunits.SpecificEnthalpy hv=dewEnthalpy(sat) "vapor enthalpy";
+        "Liquid enthalpy";
+      Modelica.SIunits.SpecificEnthalpy hv=dewEnthalpy(sat) "Vapor enthalpy";
 
     algorithm
       phase := if ((h < hl) or (h > hv) or (p > R134aData.data.FPCRIT)) then 1
@@ -2214,17 +2214,17 @@ This function computes the number of phases for R134a depending on the inputs fo
 </html>"));
     end getPhase_ph;
 
-    function getPhase_ps "number of phases by pressure and entropy"
+    function getPhase_ps "Number of phases by pressure and entropy"
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEntropy s "specific entropy";
-      output Integer phase "number of phases";
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      output Integer phase "Number of phases";
 
     protected
       SaturationProperties sat(psat=p, Tsat=0)
-        "saturation temperature and pressure";
-      Modelica.SIunits.SpecificEntropy sl=bubbleEntropy(sat) "liquid entropy";
-      Modelica.SIunits.SpecificEntropy sv=dewEntropy(sat) "vapor entropy";
+        "Saturation temperature and pressure";
+      Modelica.SIunits.SpecificEntropy sl=bubbleEntropy(sat) "Liquid entropy";
+      Modelica.SIunits.SpecificEntropy sv=dewEntropy(sat) "Vapor entropy";
 
     algorithm
       phase := if ((s < sl) or (s > sv) or (p > R134aData.data.FPCRIT)) then 1
@@ -2236,19 +2236,19 @@ This function computes the number of phases for R134a depending on the inputs fo
     end getPhase_ps;
 
     function hofpsTwoPhase
-      "isentropic specific enthalpy in two phase region h(p,s)"
+      "Isentropic specific enthalpy in two phase region h(p,s)"
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEntropy s "specific entropy";
-      output SpecificEnthalpy h "specific enthalpy";
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      output SpecificEnthalpy h "Specific enthalpy";
 
     protected
-      SaturationProperties sat "saturation temperature and pressure";
-      Modelica.SIunits.MassFraction x "vapor quality";
-      Modelica.SIunits.SpecificEntropy sl "liquid entropy";
-      Modelica.SIunits.SpecificEntropy sv "vapor entropy";
-      Modelica.SIunits.SpecificEnthalpy hl "liquid enthalpy";
-      Modelica.SIunits.SpecificEnthalpy hv "vapor enthalpy";
+      SaturationProperties sat "Saturation temperature and pressure";
+      Modelica.SIunits.MassFraction x "Vapor quality";
+      Modelica.SIunits.SpecificEntropy sl "Liquid entropy";
+      Modelica.SIunits.SpecificEntropy sv "Vapor entropy";
+      Modelica.SIunits.SpecificEnthalpy hl "Liquid enthalpy";
+      Modelica.SIunits.SpecificEnthalpy hv "Vapor enthalpy";
     algorithm
       sat.psat := p;
       // dummy
@@ -2265,18 +2265,18 @@ This function computes the specific enthalpy in two-phase for R134a depending on
 </html>"));
     end hofpsTwoPhase;
 
-    function R134a_liqofdT "properties on liquid boundary phase"
+    function R134a_liqofdT "Properties on liquid boundary phase"
 
       extends Modelica.Icons.Function;
 
-      input Temperature T "temperature";
+      input Temperature T "Temperature";
 
       output Common.PhaseBoundaryProperties liq
-        "properties on liquid boundary phase";
+        "Properties on liquid boundary phase";
     protected
-      Modelica.SIunits.Temperature T_liq "liquid temperature";
-      Modelica.SIunits.Density d_liq "liquid density";
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.SIunits.Temperature T_liq "Liquid temperature";
+      Modelica.SIunits.Density d_liq "Liquid density";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
     algorithm
       if T < R134aData.data.TCRIT then
         d_liq := bubbleDensity(setSat_T(T));
@@ -2290,18 +2290,18 @@ This function computes the specific enthalpy in two-phase for R134a depending on
 
     end R134a_liqofdT;
 
-    function R134a_vapofdT "properties on vapor boundary phase"
+    function R134a_vapofdT "Properties on vapor boundary phase"
 
       extends Modelica.Icons.Function;
 
-      input Temperature T "temperature";
+      input Temperature T "Temperature";
 
       output Common.PhaseBoundaryProperties vap
-        "properties on vapor boundary phase";
+        "Properties on vapor boundary phase";
     protected
-      Modelica.SIunits.Temperature T_vap "vapor temperature";
-      Modelica.SIunits.Density d_vap "vapor density";
-      Modelica.Media.Common.HelmholtzDerivs f "helmholtz derivatives";
+      Modelica.SIunits.Temperature T_vap "Vapor temperature";
+      Modelica.SIunits.Density d_vap "Vapor density";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
     algorithm
       if T < R134aData.data.TCRIT then
         d_vap := dewDensity(setSat_T(T));
@@ -2315,15 +2315,15 @@ This function computes the specific enthalpy in two-phase for R134a depending on
 
     end R134a_vapofdT;
 
-    function rho_ph_der "time derivative function of density_ph"
+    function rho_ph_der "Time derivative function of density_ph"
       extends Modelica.Icons.Function;
 
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
-      input Common.InverseDerivatives_rhoT derivs "record for derivatives";
-      input Real p_der "derivative of pressure";
-      input Real h_der "derivative of specific enthalpy";
-      output Real d_der "derivative of density";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input Common.InverseDerivatives_rhoT derivs "Record for derivatives";
+      input Real p_der "Derivative of pressure";
+      input Real h_der "Derivative of specific enthalpy";
+      output Real d_der "Derivative of density";
     algorithm
       if (derivs.phase == 2) then
         d_der := (derivs.rho*(derivs.rho*derivs.cv/derivs.dpT + 1.0)/(derivs.dpT
@@ -2342,14 +2342,14 @@ This function calculates the derivative of density w.r.t. time. It is used as de
     end rho_ph_der;
 
     function rho_props_ph
-      "density as function of pressure and specific enthalpy"
+      "Density as function of pressure and specific enthalpy"
       extends Modelica.Icons.Function;
 
-      input Modelica.SIunits.Pressure p "pressure";
-      input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+      input Modelica.SIunits.Pressure p "Pressure";
+      input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
       input Common.InverseDerivatives_rhoT derivs
-        "record for the calculation of rho_ph_der";
-      output Modelica.SIunits.Density d "density";
+        "Record for the calculation of rho_ph_der";
+      output Modelica.SIunits.Density d "Density";
     algorithm
       d := derivs.rho;
 
@@ -2362,15 +2362,15 @@ This function integrates the derivative of density w.r.t. time in order to allow
 </html>"));
     end rho_props_ph;
 
-    function T_ph_der "time derivative function of T_ph"
+    function T_ph_der "Time derivative function of T_ph"
       extends Modelica.Icons.Function;
 
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
-      input Common.InverseDerivatives_rhoT derivs "auxiliary record";
-      input Real p_der "derivative of pressure";
-      input Real h_der "derivative of specific enthalpy";
-      output Real T_der "derivative of temperature";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      input Common.InverseDerivatives_rhoT derivs "Auxiliary record";
+      input Real p_der "Derivative of pressure";
+      input Real h_der "Derivative of specific enthalpy";
+      output Real T_der "Derivative of temperature";
     algorithm
       if (derivs.phase == 2) then
         T_der := 1/derivs.dpT*p_der;
@@ -2387,14 +2387,14 @@ This function calculates the derivative of temperature w.r.t. time. It is used a
     end T_ph_der;
 
     function T_props_ph
-      "temperature as function of pressure and specific enthalpy"
+      "Temperature as function of pressure and specific enthalpy"
       extends Modelica.Icons.Function;
 
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
       input Common.InverseDerivatives_rhoT derivs
-        "record for the calculation of T_ph_der";
-      output Temperature T "temperature";
+        "Record for the calculation of T_ph_der";
+      output Temperature T "Temperature";
     algorithm
       T := derivs.T;
 
@@ -2408,7 +2408,7 @@ This function integrates the derivative of temperature w.r.t. time in order to a
     end T_props_ph;
 
     redeclare function extends setSmoothState
-      "smooth transition function between state_a and state_b"
+      "Smooth transition function between state_a and state_b"
 
     algorithm
       state := ThermodynamicState(

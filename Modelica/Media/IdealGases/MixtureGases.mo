@@ -16,7 +16,7 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
 </html>"));
   end CombustionAir;
 
-  package AirSteam "air and steam mixture (no condensation!, pseudo-mixture)"
+  package AirSteam "Air and steam mixture (no condensation!, pseudo-mixture)"
     extends Common.MixtureGasNasa(
        mediumName="MoistAir",
        data={Common.SingleGasesData.H2O, Common.SingleGasesData.Air},
@@ -30,10 +30,10 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
   end AirSteam;
 
   package simpleMoistAir = AirSteam(reference_X={0.03,0.97})
-    "moist air without condensation";
+    "Moist air without condensation";
 
   package FlueGasLambdaOnePlus
-    "simple flue gas for over0stochiometric O2-fuel ratios"
+    "Simple flue gas for over0stochiometric O2-fuel ratios"
     extends Common.MixtureGasNasa(
        mediumName="FlueGasLambda1plus",
        data={Common.SingleGasesData.N2,
@@ -52,7 +52,7 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
   end FlueGasLambdaOnePlus;
 
   package FlueGasSixComponents
-    "simplest flue gas for over-and understochiometric combustion of hydrocarbons"
+    "Simplest flue gas for over-and understochiometric combustion of hydrocarbons"
     extends Common.MixtureGasNasa(
        mediumName="FlueGasSixComponents",
        data={Common.SingleGasesData.N2,
@@ -74,7 +74,7 @@ package MixtureGases "Medium models consisting of mixtures of ideal gases"
 </html>"));
   end FlueGasSixComponents;
 
-  package SimpleNaturalGas "simple natural gas mix with 6 components"
+  package SimpleNaturalGas "Simple natural gas mix with 6 components"
     extends Common.MixtureGasNasa(
        mediumName="SimpleNaturalGas",
        data={Common.SingleGasesData.CH4,

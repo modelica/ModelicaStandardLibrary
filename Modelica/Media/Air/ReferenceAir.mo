@@ -14,8 +14,8 @@ within Modelica.Media.Air;
       each criticalTemperature=132.5306,
       each criticalPressure=3.786e6,
       each criticalMolarVolume=0.02896546/342.68,
-      each triplePointTemperature=63.05 "from N2",
-      each triplePointPressure=0.1253e5 "from N2",
+      each triplePointTemperature=63.05 "From N2",
+      each triplePointPressure=0.1253e5 "From N2",
       each normalBoilingPoint=78.903,
       each meltingPoint=0,
       each acentricFactor=0.0335,
@@ -118,17 +118,17 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
           max=2000));
 
       constant Boolean ph_explicit
-        "true if explicit in pressure and specific enthalpy";
+        "True if explicit in pressure and specific enthalpy";
       constant Boolean dT_explicit
-        "true if explicit in density and temperature";
+        "True if explicit in density and temperature";
       constant Boolean pT_explicit
-        "true if explicit in pressure and temperature";
+        "True if explicit in pressure and temperature";
 
-      redeclare record extends ThermodynamicState "thermodynamic state"
-        SpecificEnthalpy h "specific enthalpy";
-        Density d "density";
-        Temperature T "temperature";
-        AbsolutePressure p "pressure";
+      redeclare record extends ThermodynamicState "Thermodynamic state"
+        SpecificEnthalpy h "Specific enthalpy";
+        Density d "Density";
+        Temperature T "Temperature";
+        AbsolutePressure p "Pressure";
       end ThermodynamicState;
 
       redeclare replaceable model extends BaseProperties(
@@ -197,7 +197,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         extends Modelica.Icons.Function;
         input AbsolutePressure p "Pressure";
         input SpecificEntropy s "Specific entropy";
-        output Density d "density";
+        output Density d "Density";
       algorithm
         d := Air_Utilities.rho_ps(p, s);
       end density_ps;
@@ -217,7 +217,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         extends Modelica.Icons.Function;
         input Density d "Density";
         input Temperature T "Temperature";
-        output SpecificEnthalpy h "specific enthalpy";
+        output SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := Air_Utilities.h_dT(d, T);
       end specificEnthalpy_dT;
@@ -227,7 +227,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         extends Modelica.Icons.Function;
         input AbsolutePressure p "Pressure";
         input Temperature T "Temperature";
-        output SpecificEnthalpy h "specific enthalpy";
+        output SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := Air_Utilities.h_pT(p, T);
       end specificEnthalpy_pT;
@@ -237,7 +237,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         extends Modelica.Icons.Function;
         input AbsolutePressure p "Pressure";
         input SpecificEntropy s "Specific entropy";
-        output SpecificEnthalpy h "specific enthalpy";
+        output SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := Air_Utilities.h_ps(p, s);
       end specificEnthalpy_ps;
@@ -264,17 +264,17 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         lambda := Air_Utilities.thermalConductivity(state);
       end thermalConductivity;
 
-      redeclare function extends pressure "return pressure of ideal gas"
+      redeclare function extends pressure "Return pressure of ideal gas"
       algorithm
         p := state.p;
       end pressure;
 
-      redeclare function extends temperature "return temperature of ideal gas"
+      redeclare function extends temperature "Return temperature of ideal gas"
       algorithm
         T := state.T;
       end temperature;
 
-      redeclare function extends density "return density of ideal gas"
+      redeclare function extends density "Return density of ideal gas"
       algorithm
         d := state.d;
       end density;
@@ -302,7 +302,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         f := state.h - state.p/state.d - state.T*specificEntropy(state);
       end specificHelmholtzEnergy;
 
-      redeclare function extends specificEntropy "specific entropy of water"
+      redeclare function extends specificEntropy "Specific entropy of water"
       algorithm
         if dT_explicit then
           s := Air_Utilities.s_dT(state.d, state.T);
@@ -314,7 +314,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end specificEntropy;
 
       redeclare function extends specificHeatCapacityCp
-        "specific heat capacity at constant pressure of water"
+        "Specific heat capacity at constant pressure of water"
 
       algorithm
         if dT_explicit then
@@ -327,7 +327,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end specificHeatCapacityCp;
 
       redeclare function extends specificHeatCapacityCv
-        "specific heat capacity at constant volume of water"
+        "Specific heat capacity at constant volume of water"
       algorithm
         if dT_explicit then
           cv := Air_Utilities.cv_dT(state.d, state.T);
@@ -363,7 +363,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end isothermalCompressibility;
 
       redeclare function extends isobaricExpansionCoefficient
-        "isobaric expansion coefficient of water"
+        "Isobaric expansion coefficient of water"
       algorithm
         if dT_explicit then
           beta := Air_Utilities.beta_dT(state.d, state.T);
@@ -387,25 +387,25 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end velocityOfSound;
 
       redeclare function extends density_derh_p
-        "density derivative by specific enthalpy"
+        "Density derivative by specific enthalpy"
       algorithm
         ddhp := Air_Utilities.ddhp(state.p, state.h);
       end density_derh_p;
 
       redeclare function extends density_derp_h
-        "density derivative by pressure"
+        "Density derivative by pressure"
       algorithm
         ddph := Air_Utilities.ddph(state.p, state.h);
       end density_derp_h;
 
       //   redeclare function extends density_derT_p
-      //     "density derivative by temperature"
+      //     "Density derivative by temperature"
       //   algorithm
       //     ddTp := IF97_Utilities.ddTp(state.p, state.h, state.phase);
       //   end density_derT_p;
       //
       //   redeclare function extends density_derp_T
-      //     "density derivative by pressure"
+      //     "Density derivative by pressure"
       //   algorithm
       //     ddpT := IF97_Utilities.ddpT(state.p, state.h, state.phase);
       //   end density_derp_T;
@@ -571,10 +571,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         function Helmholtz "Helmholtz equation of state"
           extends Modelica.Icons.Function;
-          input SI.Density d "density";
-          input SI.Temperature T "temperature (K)";
+          input SI.Density d "Density";
+          input SI.Temperature T "Temperature (K)";
           output Modelica.Media.Common.HelmholtzDerivs f
-            "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
 
         protected
           final constant Real[13] N_0={0.605719400E-007,-0.210274769E-004,-0.158860716E-003,
@@ -713,20 +713,20 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         function dofpT "Compute d for given p and T"
           extends Modelica.Icons.Function;
-          input SI.Pressure p "pressure";
-          input SI.Temperature T "temperature (K)";
-          input SI.Pressure delp "iteration converged if (p-pre(p) < delp)";
-          output SI.Density d "density";
+          input SI.Pressure p "Pressure";
+          input SI.Temperature T "Temperature (K)";
+          input SI.Pressure delp "Iteration converged if (p-pre(p) < delp)";
+          output SI.Density d "Density";
 
         protected
-          Integer i=0 "loop counter";
-          Real dp "pressure difference";
-          SI.Density deld "density step";
+          Integer i=0 "Loop counter";
+          Real dp "Pressure difference";
+          SI.Density deld "Density step";
           Modelica.Media.Common.HelmholtzDerivs f
-            "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
           Modelica.Media.Common.NewtonDerivatives_pT nDerivs
-            "derivatives needed in Newton iteration";
-          Boolean found=false "flag for iteration success";
+            "Derivatives needed in Newton iteration";
+          Boolean found=false "Flag for iteration success";
 
         algorithm
           d := p/(ReferenceAir.Air_Utilities.Basic.Constants.R*T);
@@ -746,27 +746,27 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         function dTofph "Return d and T as a function of p and h"
           extends Modelica.Icons.Function;
-          input SI.Pressure p "pressure";
-          input SI.SpecificEnthalpy h "specific enthalpy";
-          input SI.Pressure delp "iteration accuracy";
-          input SI.SpecificEnthalpy delh "iteration accuracy";
-          output SI.Density d "density";
-          output SI.Temperature T "temperature (K)";
+          input SI.Pressure p "Pressure";
+          input SI.SpecificEnthalpy h "Specific enthalpy";
+          input SI.Pressure delp "Iteration accuracy";
+          input SI.SpecificEnthalpy delh "Iteration accuracy";
+          output SI.Density d "Density";
+          output SI.Temperature T "Temperature (K)";
 
         protected
-          SI.Temperature Tguess "initial temperature";
-          SI.Density dguess "initial density";
-          Integer i "iteration counter";
+          SI.Temperature Tguess "Initial temperature";
+          SI.Density dguess "Initial density";
+          Integer i "Iteration counter";
           Real dh "Newton-error in h-direction";
           Real dp "Newton-error in p-direction";
-          Real det "determinant of directional derivatives";
+          Real det "Determinant of directional derivatives";
           Real deld "Newton-step in d-direction";
           Real delt "Newton-step in T-direction";
           Modelica.Media.Common.HelmholtzDerivs f
-            "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
           Modelica.Media.Common.NewtonDerivatives_ph nDerivs
-            "derivatives needed in Newton iteration";
-          Boolean found=false "flag for iteration success";
+            "Derivatives needed in Newton iteration";
+          Boolean found=false "Flag for iteration success";
 
         algorithm
           // Stefan Wischhusen: better guess for high temperatures:
@@ -794,27 +794,27 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         function dTofps "Return d and T as a function of p and s"
           extends Modelica.Icons.Function;
-          input SI.Pressure p "pressure";
-          input SI.SpecificEntropy s "specific entropy";
-          input SI.Pressure delp "iteration accuracy";
-          input SI.SpecificEntropy dels "iteration accuracy";
-          output SI.Density d "density";
-          output SI.Temperature T "temperature (K)";
+          input SI.Pressure p "Pressure";
+          input SI.SpecificEntropy s "Specific entropy";
+          input SI.Pressure delp "Iteration accuracy";
+          input SI.SpecificEntropy dels "Iteration accuracy";
+          output SI.Density d "Density";
+          output SI.Temperature T "Temperature (K)";
 
         protected
-          SI.Temperature Tguess "initial temperature";
-          SI.Density dguess "initial density";
-          Integer i "iteration counter";
+          SI.Temperature Tguess "Initial temperature";
+          SI.Density dguess "Initial density";
+          Integer i "Iteration counter";
           Real ds "Newton-error in s-direction";
           Real dp "Newton-error in p-direction";
-          Real det "determinant of directional derivatives";
+          Real det "Determinant of directional derivatives";
           Real deld "Newton-step in d-direction";
           Real delt "Newton-step in T-direction";
           Modelica.Media.Common.HelmholtzDerivs f
-            "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
           Modelica.Media.Common.NewtonDerivatives_ps nDerivs
-            "derivatives needed in Newton iteration";
-          Boolean found=false "flag for iteration success";
+            "Derivatives needed in Newton iteration";
+          Boolean found=false "Flag for iteration success";
 
         algorithm
           T := 273.15;
@@ -887,7 +887,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
         protected
           Modelica.Media.Common.HelmholtzDerivs f
-            "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
           SI.ThermalConductivity lambda_0=0 "Dilute gas thermal conductivity";
           SI.ThermalConductivity lambda_r=0
             "Residual fluid thermal conductivity";
@@ -969,14 +969,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         end lambda_dT;
       end Transport;
 
-      function airBaseProp_ps "intermediate property record for air"
+      function airBaseProp_ps "Intermediate property record for air"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEntropy s "specific entropy";
-        output Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEntropy s "Specific entropy";
+        output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
       algorithm
         aux.p := p;
         aux.s := s;
@@ -997,22 +997,22 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end airBaseProp_ps;
 
       function rho_props_ps
-        "density as function of pressure and specific entropy"
+        "Density as function of pressure and specific entropy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEntropy s "specific entropy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.Density rho "density";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEntropy s "Specific entropy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.Density rho "Density";
       algorithm
         rho := aux.rho;
         annotation (Inline=false, LateInline=true);
       end rho_props_ps;
 
-      function rho_ps "density as function of pressure and specific entropy"
+      function rho_ps "Density as function of pressure and specific entropy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEntropy s "specific entropy";
-        output Modelica.SIunits.Density rho "density";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEntropy s "Specific entropy";
+        output Modelica.SIunits.Density rho "Density";
       algorithm
         rho := rho_props_ps(
                 p,
@@ -1021,21 +1021,21 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end rho_ps;
 
       function T_props_ps
-        "temperature as function of pressure and specific entropy"
+        "Temperature as function of pressure and specific entropy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEntropy s "specific entropy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.Temperature T "temperature";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEntropy s "Specific entropy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.Temperature T "Temperature";
       algorithm
         T := aux.T;
         annotation (Inline=false, LateInline=true);
       end T_props_ps;
 
-      function T_ps "temperature as function of pressure and specific entropy"
+      function T_ps "Temperature as function of pressure and specific entropy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEntropy s "specific entropy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEntropy s "Specific entropy";
         output Modelica.SIunits.Temperature T "Temperature";
       algorithm
         T := T_props_ps(
@@ -1045,22 +1045,22 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end T_ps;
 
       function h_props_ps
-        "specific enthalpy as function or pressure and temperature"
+        "Specific enthalpy as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEntropy s "specific entropy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEntropy s "Specific entropy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := aux.h;
         annotation (Inline=false, LateInline=true);
       end h_props_ps;
 
-      function h_ps "specific enthalpy as function or pressure and temperature"
+      function h_ps "Specific enthalpy as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEntropy s "specific entropy";
-        output Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEntropy s "Specific entropy";
+        output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := h_props_ps(
                 p,
@@ -1068,15 +1068,15 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
                 Air_Utilities.airBaseProp_ps(p, s));
       end h_ps;
 
-      function airBaseProp_ph "intermediate property record for air"
+      function airBaseProp_ph "Intermediate property record for air"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        output Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
-        Integer error "error flag for inverse iterations";
+          "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+        Integer error "Error flag for inverse iterations";
       algorithm
         aux.p := p;
         aux.h := h;
@@ -1097,12 +1097,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end airBaseProp_ph;
 
       function rho_props_ph
-        "density as function of pressure and specific enthalpy"
+        "Density as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.Density rho "density";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.Density rho "Density";
       algorithm
         rho := aux.rho;
         annotation (
@@ -1111,11 +1111,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           LateInline=true);
       end rho_props_ph;
 
-      function rho_ph "density as function of pressure and specific enthalpy"
+      function rho_ph "Density as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        output Modelica.SIunits.Density rho "density";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        output Modelica.SIunits.Density rho "Density";
       algorithm
         rho := rho_props_ph(
                 p,
@@ -1123,14 +1123,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
                 Air_Utilities.airBaseProp_ph(p, h));
       end rho_ph;
 
-      function rho_ph_der "derivative function of rho_ph"
+      function rho_ph_der "Derivative function of rho_ph"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        input Real p_der "derivative of pressure";
-        input Real h_der "derivative of specific enthalpy";
-        output Real rho_der "derivative of density";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        input Real p_der "Derivative of pressure";
+        input Real h_der "Derivative of specific enthalpy";
+        output Real rho_der "Derivative of density";
       algorithm
         rho_der := ((aux.rho*(aux.cv*aux.rho + aux.pt))/(aux.rho*aux.rho*aux.pd
           *aux.cv + aux.T*aux.pt*aux.pt))*p_der + (-aux.rho*aux.rho*aux.pt/(aux.rho
@@ -1138,12 +1138,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end rho_ph_der;
 
       function T_props_ph
-        "temperature as function of pressure and specific enthalpy"
+        "Temperature as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.Temperature T "temperature";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.Temperature T "Temperature";
       algorithm
         T := aux.T;
         annotation (
@@ -1152,10 +1152,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           LateInline=true);
       end T_props_ph;
 
-      function T_ph "temperature as function of pressure and specific enthalpy"
+      function T_ph "Temperature as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
         output Modelica.SIunits.Temperature T "Temperature";
       algorithm
         T := T_props_ph(
@@ -1164,14 +1164,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
                 Air_Utilities.airBaseProp_ph(p, h));
       end T_ph;
 
-      function T_ph_der "derivative function of T_ph"
+      function T_ph_der "Derivative function of T_ph"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        input Real p_der "derivative of pressure";
-        input Real h_der "derivative of specific enthalpy";
-        output Real T_der "derivative of temperature";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        input Real p_der "Derivative of pressure";
+        input Real h_der "Derivative of specific enthalpy";
+        output Real T_der "Derivative of temperature";
       algorithm
         T_der := ((-aux.rho*aux.pd + aux.T*aux.pt)/(aux.rho*aux.rho*aux.pd*aux.cv
            + aux.T*aux.pt*aux.pt))*p_der + ((aux.rho*aux.rho*aux.pd)/(aux.rho*
@@ -1179,12 +1179,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end T_ph_der;
 
       function s_props_ph
-        "specific entropy as function of pressure and specific enthalpy"
+        "Specific entropy as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.SpecificEntropy s "specific entropy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.SpecificEntropy s "Specific entropy";
       algorithm
         s := aux.s;
         annotation (
@@ -1194,11 +1194,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end s_props_ph;
 
       function s_ph
-        "specific entropy as function of pressure and specific enthalpy"
+        "Specific entropy as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        output Modelica.SIunits.SpecificEntropy s "specific entropy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        output Modelica.SIunits.SpecificEntropy s "Specific entropy";
       algorithm
         s := s_props_ph(
                 p,
@@ -1207,38 +1207,38 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end s_ph;
 
       function s_ph_der
-        "specific entropy as function of pressure and specific enthalpy"
+        "Specific entropy as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        input Real p_der "derivative of pressure";
-        input Real h_der "derivative of specific enthalpy";
-        output Real s_der "derivative of entropy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        input Real p_der "Derivative of pressure";
+        input Real h_der "Derivative of specific enthalpy";
+        output Real s_der "Derivative of entropy";
       algorithm
         s_der := -1/(aux.rho*aux.T)*p_der + 1/aux.T*h_der;
       end s_ph_der;
 
       function cv_props_ph
-        "specific heat capacity at constant volume as function of pressure and specific enthalpy"
+        "Specific heat capacity at constant volume as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.SpecificHeatCapacity cv
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cv := aux.cv;
         annotation (Inline=false, LateInline=true);
       end cv_props_ph;
 
       function cv_ph
-        "specific heat capacity at constant volume as function of pressure and specific enthalpy"
+        "Specific heat capacity at constant volume as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
         output Modelica.SIunits.SpecificHeatCapacity cv
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cv := cv_props_ph(
                 p,
@@ -1247,25 +1247,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end cv_ph;
 
       function cp_props_ph
-        "specific heat capacity at constant pressure as function of pressure and specific enthalpy"
+        "Specific heat capacity at constant pressure as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.SpecificHeatCapacity cp
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cp := aux.cp;
         annotation (Inline=false, LateInline=true);
       end cp_props_ph;
 
       function cp_ph
-        "specific heat capacity at constant pressure as function of pressure and specific enthalpy"
+        "Specific heat capacity at constant pressure as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
         output Modelica.SIunits.SpecificHeatCapacity cp
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cp := cp_props_ph(
                 p,
@@ -1274,25 +1274,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end cp_ph;
 
       function beta_props_ph
-        "isobaric expansion coefficient as function of pressure and specific enthalpy"
+        "Isobaric expansion coefficient as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.RelativePressureCoefficient beta
-          "isobaric expansion coefficient";
+          "Isobaric expansion coefficient";
       algorithm
         beta := aux.pt/(aux.rho*aux.pd);
         annotation (Inline=false, LateInline=true);
       end beta_props_ph;
 
       function beta_ph
-        "isobaric expansion coefficient as function of pressure and specific enthalpy"
+        "Isobaric expansion coefficient as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
         output Modelica.SIunits.RelativePressureCoefficient beta
-          "isobaric expansion coefficient";
+          "Isobaric expansion coefficient";
       algorithm
         beta := beta_props_ph(
                 p,
@@ -1301,25 +1301,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end beta_ph;
 
       function kappa_props_ph
-        "isothermal compressibility factor as function of pressure and specific enthalpy"
+        "Isothermal compressibility factor as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.IsothermalCompressibility kappa
-          "isothermal compressibility factor";
+          "Isothermal compressibility factor";
       algorithm
         kappa := 1/(aux.rho*aux.pd);
         annotation (Inline=false, LateInline=true);
       end kappa_props_ph;
 
       function kappa_ph
-        "isothermal compressibility factor as function of pressure and specific enthalpy"
+        "Isothermal compressibility factor as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
         output Modelica.SIunits.IsothermalCompressibility kappa
-          "isothermal compressibility factor";
+          "Isothermal compressibility factor";
       algorithm
         kappa := kappa_props_ph(
                 p,
@@ -1328,12 +1328,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end kappa_ph;
 
       function velocityOfSound_props_ph
-        "speed of sound as function of pressure and specific enthalpy"
+        "Speed of sound as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.Velocity a "speed of sound";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.Velocity a "Speed of sound";
       algorithm
         a := sqrt(max(0, aux.pd + aux.pt*aux.pt*aux.T/(aux.rho*aux.rho*aux.cv)));
         annotation (Inline=false, LateInline=true);
@@ -1341,9 +1341,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
       function velocityOfSound_ph
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        output Modelica.SIunits.Velocity a "speed of sound";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        output Modelica.SIunits.Velocity a "Speed of sound";
       algorithm
         a := velocityOfSound_props_ph(
                 p,
@@ -1352,12 +1352,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end velocityOfSound_ph;
 
       function isentropicExponent_props_ph
-        "isentropic exponent as function of pressure and specific enthalpy"
+        "Isentropic exponent as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Real gamma "isentropic exponent";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Real gamma "Isentropic exponent";
       algorithm
         gamma := 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*
           aux.T)/(aux.cv));
@@ -1365,11 +1365,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end isentropicExponent_props_ph;
 
       function isentropicExponent_ph
-        "isentropic exponent as function of pressure and specific enthalpy"
+        "Isentropic exponent as function of pressure and specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        output Real gamma "isentropic exponent";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        output Real gamma "Isentropic exponent";
       algorithm
         gamma := isentropicExponent_props_ph(
                 p,
@@ -1378,25 +1378,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         annotation (Inline=false, LateInline=true);
       end isentropicExponent_ph;
 
-      function ddph_props "density derivative by pressure"
+      function ddph_props "Density derivative by pressure"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.DerDensityByPressure ddph
-          "density derivative by pressure";
+          "Density derivative by pressure";
       algorithm
         ddph := ((aux.rho*(aux.cv*aux.rho + aux.pt))/(aux.rho*aux.rho*aux.pd*
           aux.cv + aux.T*aux.pt*aux.pt));
         annotation (Inline=false, LateInline=true);
       end ddph_props;
 
-      function ddph "density derivative by pressure"
+      function ddph "Density derivative by pressure"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
         output Modelica.SIunits.DerDensityByPressure ddph
-          "density derivative by pressure";
+          "Density derivative by pressure";
       algorithm
         ddph := ddph_props(
                 p,
@@ -1404,25 +1404,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
                 Air_Utilities.airBaseProp_ph(p, h));
       end ddph;
 
-      function ddhp_props "density derivative by specific enthalpy"
+      function ddhp_props "Density derivative by specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.DerDensityByEnthalpy ddhp
-          "density derivative by specific enthalpy";
+          "Density derivative by specific enthalpy";
       algorithm
         ddhp := -aux.rho*aux.rho*aux.pt/(aux.rho*aux.rho*aux.pd*aux.cv + aux.T*
           aux.pt*aux.pt);
         annotation (Inline=false, LateInline=true);
       end ddhp_props;
 
-      function ddhp "density derivative by specific enthalpy"
+      function ddhp "Density derivative by specific enthalpy"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
         output Modelica.SIunits.DerDensityByEnthalpy ddhp
-          "density derivative by specific enthalpy";
+          "Density derivative by specific enthalpy";
       algorithm
         ddhp := ddhp_props(
                 p,
@@ -1431,14 +1431,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end ddhp;
 
       function airBaseProp_pT
-        "intermediate property record for air (p and T prefered states)"
+        "Intermediate property record for air (p and T prefered states)"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        output Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
       algorithm
         aux.p := p;
         aux.T := T;
@@ -1458,12 +1458,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         aux.vt := aux.pt/(aux.rho*aux.rho*aux.pd);
       end airBaseProp_pT;
 
-      function rho_props_pT "density as function or pressure and temperature"
+      function rho_props_pT "Density as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.Density rho "density";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.Density rho "Density";
       algorithm
         rho := aux.rho;
         annotation (
@@ -1472,11 +1472,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           LateInline=true);
       end rho_props_pT;
 
-      function rho_pT "density as function or pressure and temperature"
+      function rho_pT "Density as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        output Modelica.SIunits.Density rho "density";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        output Modelica.SIunits.Density rho "Density";
       algorithm
         rho := rho_props_pT(
                 p,
@@ -1484,25 +1484,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
                 Air_Utilities.airBaseProp_pT(p, T));
       end rho_pT;
 
-      function rho_pT_der "derivative function of rho_pT"
+      function rho_pT_der "Derivative function of rho_pT"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        input Real p_der "derivative of pressure";
-        input Real T_der "derivative of temperature";
-        output Real rho_der "derivative of density";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        input Real p_der "Derivative of pressure";
+        input Real T_der "Derivative of temperature";
+        output Real rho_der "Derivative of density";
       algorithm
         rho_der := (1/aux.pd)*p_der - (aux.pt/aux.pd)*T_der;
       end rho_pT_der;
 
       function h_props_pT
-        "specific enthalpy as function or pressure and temperature"
+        "Specific enthalpy as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := aux.h;
         annotation (
@@ -1511,11 +1511,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           LateInline=true);
       end h_props_pT;
 
-      function h_pT "specific enthalpy as function or pressure and temperature"
+      function h_pT "Specific enthalpy as function or pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
+        input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := h_props_pT(
                 p,
@@ -1523,14 +1523,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
                 Air_Utilities.airBaseProp_pT(p, T));
       end h_pT;
 
-      function h_pT_der "derivative function of h_pT"
+      function h_pT_der "Derivative function of h_pT"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        input Real p_der "derivative of pressure";
-        input Real T_der "derivative of temperature";
-        output Real h_der "derivative of specific enthalpy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        input Real p_der "Derivative of pressure";
+        input Real T_der "Derivative of temperature";
+        output Real h_der "Derivative of specific enthalpy";
       algorithm
         h_der := ((-aux.rho*aux.pd + T*aux.pt)/(aux.rho*aux.rho*aux.pd))*p_der
            + ((aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*
@@ -1538,22 +1538,22 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end h_pT_der;
 
       function s_props_pT
-        "specific entropy as function of pressure and temperature"
+        "Specific entropy as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.SpecificEntropy s "specific entropy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.SpecificEntropy s "Specific entropy";
       algorithm
         s := aux.s;
         annotation (Inline=false, LateInline=true);
       end s_props_pT;
 
-      function s_pT "temperature as function of pressure and temperature"
+      function s_pT "Temperature as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        output Modelica.SIunits.SpecificEntropy s "specific entropy";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        output Modelica.SIunits.SpecificEntropy s "Specific entropy";
       algorithm
         s := s_props_pT(
                 p,
@@ -1562,26 +1562,26 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end s_pT;
 
       function cv_props_pT
-        "specific heat capacity at constant volume as function of pressure and temperature"
+        "Specific heat capacity at constant volume as function of pressure and temperature"
 
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.SpecificHeatCapacity cv
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cv := aux.cv;
         annotation (Inline=false, LateInline=true);
       end cv_props_pT;
 
       function cv_pT
-        "specific heat capacity at constant volume as function of pressure and temperature"
+        "Specific heat capacity at constant volume as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
         output Modelica.SIunits.SpecificHeatCapacity cv
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cv := cv_props_pT(
                 p,
@@ -1590,26 +1590,26 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end cv_pT;
 
       function cp_props_pT
-        "specific heat capacity at constant pressure as function of pressure and temperature"
+        "Specific heat capacity at constant pressure as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.SpecificHeatCapacity cp
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cp := aux.cp;
         annotation (Inline=false, LateInline=true);
       end cp_props_pT;
 
       function cp_pT
-        "specific heat capacity at constant pressure as function of pressure and temperature"
+        "Specific heat capacity at constant pressure as function of pressure and temperature"
 
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
         output Modelica.SIunits.SpecificHeatCapacity cp
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cp := cp_props_pT(
                 p,
@@ -1618,25 +1618,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end cp_pT;
 
       function beta_props_pT
-        "isobaric expansion coefficient as function of pressure and temperature"
+        "Isobaric expansion coefficient as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.RelativePressureCoefficient beta
-          "isobaric expansion coefficient";
+          "Isobaric expansion coefficient";
       algorithm
         beta := aux.pt/(aux.rho*aux.pd);
         annotation (Inline=false, LateInline=true);
       end beta_props_pT;
 
       function beta_pT
-        "isobaric expansion coefficient as function of pressure and temperature"
+        "Isobaric expansion coefficient as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
         output Modelica.SIunits.RelativePressureCoefficient beta
-          "isobaric expansion coefficient";
+          "Isobaric expansion coefficient";
       algorithm
         beta := beta_props_pT(
                 p,
@@ -1645,25 +1645,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end beta_pT;
 
       function kappa_props_pT
-        "isothermal compressibility factor as function of pressure and temperature"
+        "Isothermal compressibility factor as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.IsothermalCompressibility kappa
-          "isothermal compressibility factor";
+          "Isothermal compressibility factor";
       algorithm
         kappa := 1/(aux.rho*aux.pd);
         annotation (Inline=false, LateInline=true);
       end kappa_props_pT;
 
       function kappa_pT
-        "isothermal compressibility factor as function of pressure and temperature"
+        "Isothermal compressibility factor as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
         output Modelica.SIunits.IsothermalCompressibility kappa
-          "isothermal compressibility factor";
+          "Isothermal compressibility factor";
       algorithm
         kappa := kappa_props_pT(
                 p,
@@ -1672,12 +1672,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end kappa_pT;
 
       function velocityOfSound_props_pT
-        "speed of sound as function of pressure and temperature"
+        "Speed of sound as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.Velocity a "speed of sound";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.Velocity a "Speed of sound";
       algorithm
         a := sqrt(max(0, (aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/
           (aux.rho*aux.rho*aux.cv)));
@@ -1685,11 +1685,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end velocityOfSound_props_pT;
 
       function velocityOfSound_pT
-        "speed of sound as function of pressure and temperature"
+        "Speed of sound as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        output Modelica.SIunits.Velocity a "speed of sound";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        output Modelica.SIunits.Velocity a "Speed of sound";
       algorithm
         a := velocityOfSound_props_pT(
                 p,
@@ -1698,12 +1698,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end velocityOfSound_pT;
 
       function isentropicExponent_props_pT
-        "isentropic exponent as function of pressure and temperature"
+        "Isentropic exponent as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Real gamma "isentropic exponent";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Real gamma "Isentropic exponent";
       algorithm
         gamma := 1/(aux.rho*p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt*
           aux.T)/(aux.cv));
@@ -1711,11 +1711,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end isentropicExponent_props_pT;
 
       function isentropicExponent_pT
-        "isentropic exponent as function of pressure and temperature"
+        "Isentropic exponent as function of pressure and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Pressure p "pressure";
-        input Modelica.SIunits.Temperature T "temperature";
-        output Real gamma "isentropic exponent";
+        input Modelica.SIunits.Pressure p "Pressure";
+        input Modelica.SIunits.Temperature T "Temperature";
+        output Real gamma "Isentropic exponent";
       algorithm
         gamma := isentropicExponent_props_pT(
                 p,
@@ -1724,14 +1724,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end isentropicExponent_pT;
 
       function airBaseProp_dT
-        "intermediate property record for air (d and T prefered states)"
+        "Intermediate property record for air (d and T prefered states)"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        output Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
       algorithm
         aux.rho := d;
         aux.T := T;
@@ -1749,12 +1749,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end airBaseProp_dT;
 
       function h_props_dT
-        "specific enthalpy as function of density and temperature"
+        "Specific enthalpy as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
+        input Modelica.SIunits.Density d "Density";
         input Modelica.SIunits.Temperature T "Temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := aux.h;
         annotation (
@@ -1763,11 +1763,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           LateInline=true);
       end h_props_dT;
 
-      function h_dT "specific enthalpy as function of density and temperature"
+      function h_dT "Specific enthalpy as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
+        input Modelica.SIunits.Density d "Density";
         input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+        output Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := h_props_dT(
                 d,
@@ -1775,25 +1775,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
                 Air_Utilities.airBaseProp_dT(d, T));
       end h_dT;
 
-      function h_dT_der "derivative function of h_dT"
+      function h_dT_der "Derivative function of h_dT"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        input Real d_der "derivative of density";
-        input Real T_der "derivative of temperature";
-        output Real h_der "derivative of specific enthalpy";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        input Real d_der "Derivative of density";
+        input Real T_der "Derivative of temperature";
+        output Real h_der "Derivative of specific enthalpy";
       algorithm
         h_der := ((-d*aux.pd + T*aux.pt)/(d*d))*d_der + ((aux.cv*d + aux.pt)/d)
           *T_der;
       end h_dT_der;
 
-      function p_props_dT "pressure as function of density and temperature"
+      function p_props_dT "Pressure as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
+        input Modelica.SIunits.Density d "Density";
         input Modelica.SIunits.Temperature T "Temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.Pressure p "pressure";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.Pressure p "Pressure";
       algorithm
         p := aux.p;
         annotation (
@@ -1802,11 +1802,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           LateInline=true);
       end p_props_dT;
 
-      function p_dT "pressure as function of density and temperature"
+      function p_dT "Pressure as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
+        input Modelica.SIunits.Density d "Density";
         input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.Pressure p "pressure";
+        output Modelica.SIunits.Pressure p "Pressure";
       algorithm
         p := p_props_dT(
                 d,
@@ -1814,35 +1814,35 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
                 Air_Utilities.airBaseProp_dT(d, T));
       end p_dT;
 
-      function p_dT_der "derivative function of p_dT"
+      function p_dT_der "Derivative function of p_dT"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        input Real d_der "derivative of density";
-        input Real T_der "derivative of temperature";
-        output Real p_der "derivative of pressure";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        input Real d_der "Derivative of density";
+        input Real T_der "Derivative of temperature";
+        output Real p_der "Derivative of pressure";
       algorithm
         p_der := aux.pd*d_der + aux.pt*T_der;
       end p_dT_der;
 
       function s_props_dT
-        "specific entropy as function of density and temperature"
+        "Specific entropy as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
+        input Modelica.SIunits.Density d "Density";
         input Modelica.SIunits.Temperature T "Temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.SpecificEntropy s "specific entropy";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.SpecificEntropy s "Specific entropy";
       algorithm
         s := aux.s;
         annotation (Inline=false, LateInline=true);
       end s_props_dT;
 
-      function s_dT "temperature as function of density and temperature"
+      function s_dT "Temperature as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
+        input Modelica.SIunits.Density d "Density";
         input Modelica.SIunits.Temperature T "Temperature";
-        output Modelica.SIunits.SpecificEntropy s "specific entropy";
+        output Modelica.SIunits.SpecificEntropy s "Specific entropy";
       algorithm
         s := s_props_dT(
                 d,
@@ -1851,25 +1851,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end s_dT;
 
       function cv_props_dT
-        "specific heat capacity at constant volume as function of density and temperature"
+        "Specific heat capacity at constant volume as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.SpecificHeatCapacity cv
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cv := aux.cv;
         annotation (Inline=false, LateInline=true);
       end cv_props_dT;
 
       function cv_dT
-        "specific heat capacity at constant volume as function of density and temperature"
+        "Specific heat capacity at constant volume as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
         output Modelica.SIunits.SpecificHeatCapacity cv
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cv := cv_props_dT(
                 d,
@@ -1878,25 +1878,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end cv_dT;
 
       function cp_props_dT
-        "specific heat capacity at constant pressure as function of density and temperature"
+        "Specific heat capacity at constant pressure as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.SpecificHeatCapacity cp
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cp := aux.cp;
         annotation (Inline=false, LateInline=true);
       end cp_props_dT;
 
       function cp_dT
-        "specific heat capacity at constant pressure as function of density and temperature"
+        "Specific heat capacity at constant pressure as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
         output Modelica.SIunits.SpecificHeatCapacity cp
-          "specific heat capacity";
+          "Specific heat capacity";
       algorithm
         cp := cp_props_dT(
                 d,
@@ -1905,25 +1905,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end cp_dT;
 
       function beta_props_dT
-        "isobaric expansion coefficient as function of density and temperature"
+        "Isobaric expansion coefficient as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.RelativePressureCoefficient beta
-          "isobaric expansion coefficient";
+          "Isobaric expansion coefficient";
       algorithm
         beta := aux.pt/(aux.rho*aux.pd);
         annotation (Inline=false, LateInline=true);
       end beta_props_dT;
 
       function beta_dT
-        "isobaric expansion coefficient as function of density and temperature"
+        "Isobaric expansion coefficient as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
         output Modelica.SIunits.RelativePressureCoefficient beta
-          "isobaric expansion coefficient";
+          "Isobaric expansion coefficient";
       algorithm
         beta := beta_props_dT(
                 d,
@@ -1932,25 +1932,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end beta_dT;
 
       function kappa_props_dT
-        "isothermal compressibility factor as function of density and temperature"
+        "Isothermal compressibility factor as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
         output Modelica.SIunits.IsothermalCompressibility kappa
-          "isothermal compressibility factor";
+          "Isothermal compressibility factor";
       algorithm
         kappa := 1/(aux.rho*aux.pd);
         annotation (Inline=false, LateInline=true);
       end kappa_props_dT;
 
       function kappa_dT
-        "isothermal compressibility factor as function of density and temperature"
+        "Isothermal compressibility factor as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
         output Modelica.SIunits.IsothermalCompressibility kappa
-          "isothermal compressibility factor";
+          "Isothermal compressibility factor";
       algorithm
         kappa := kappa_props_dT(
                 d,
@@ -1959,12 +1959,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end kappa_dT;
 
       function velocityOfSound_props_dT
-        "speed of sound as function of density and temperature"
+        "Speed of sound as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Modelica.SIunits.Velocity a "speed of sound";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Modelica.SIunits.Velocity a "Speed of sound";
       algorithm
         a := sqrt(max(0, ((aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)
           /(aux.rho*aux.rho*aux.cv))));
@@ -1972,11 +1972,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end velocityOfSound_props_dT;
 
       function velocityOfSound_dT
-        "speed of sound as function of density and temperature"
+        "Speed of sound as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        output Modelica.SIunits.Velocity a "speed of sound";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        output Modelica.SIunits.Velocity a "Speed of sound";
       algorithm
         a := velocityOfSound_props_dT(
                 d,
@@ -1985,12 +1985,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end velocityOfSound_dT;
 
       function isentropicExponent_props_dT
-        "isentropic exponent as function of density and temperature"
+        "Isentropic exponent as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        input Common.AuxiliaryProperties aux "auxiliary record";
-        output Real gamma "isentropic exponent";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        input Common.AuxiliaryProperties aux "Auxiliary record";
+        output Real gamma "Isentropic exponent";
       algorithm
         gamma := 1/(aux.rho*aux.p)*((aux.pd*aux.cv*aux.rho*aux.rho + aux.pt*aux.pt
           *aux.T)/(aux.cv));
@@ -1998,11 +1998,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end isentropicExponent_props_dT;
 
       function isentropicExponent_dT
-        "isentropic exponent as function of density and temperature"
+        "Isentropic exponent as function of density and temperature"
         extends Modelica.Icons.Function;
-        input Modelica.SIunits.Density d "density";
-        input Modelica.SIunits.Temperature T "temperature";
-        output Real gamma "isentropic exponent";
+        input Modelica.SIunits.Density d "Density";
+        input Modelica.SIunits.Temperature T "Temperature";
+        output Real gamma "Isentropic exponent";
       algorithm
         gamma := isentropicExponent_props_dT(
                 d,
@@ -2032,17 +2032,17 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       package ThermoFluidSpecial
 
         function air_ph
-          "calculate the property record for dynamic simulation properties using p,h as states"
+          "Calculate the property record for dynamic simulation properties using p,h as states"
           extends Modelica.Icons.Function;
-          input Modelica.SIunits.Pressure p "pressure";
-          input Modelica.SIunits.SpecificEnthalpy h "specific enthalpy";
+          input Modelica.SIunits.Pressure p "Pressure";
+          input Modelica.SIunits.SpecificEnthalpy h "Specific enthalpy";
           output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph
-            pro "property record for dynamic simulation";
+            pro "Property record for dynamic simulation";
         protected
           Modelica.Media.Common.HelmholtzDerivs f
-            "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
-          Modelica.SIunits.Temperature T "temperature";
-          Modelica.SIunits.Density d "density";
+            "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+          Modelica.SIunits.Temperature T "Temperature";
+          Modelica.SIunits.Density d "Density";
         algorithm
           (d,T) := Air_Utilities.Inverses.dTofph(
                     p=p,
@@ -2054,33 +2054,33 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         end air_ph;
 
         function air_dT
-          "calculate property record for dynamic simulation properties using d and T as dynamic states"
+          "Calculate property record for dynamic simulation properties using d and T as dynamic states"
           extends Modelica.Icons.Function;
-          input Modelica.SIunits.Density d "density";
-          input Modelica.SIunits.Temperature T "temperature";
+          input Modelica.SIunits.Density d "Density";
+          input Modelica.SIunits.Temperature T "Temperature";
           output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT
-            pro "property record for dynamic simulation";
+            pro "Property record for dynamic simulation";
         protected
-          Modelica.SIunits.Pressure p "pressure";
+          Modelica.SIunits.Pressure p "Pressure";
           Modelica.Media.Common.HelmholtzDerivs f
-            "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
         algorithm
           f := Air_Utilities.Basic.Helmholtz(d, T);
           pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
         end air_dT;
 
         function air_pT
-          "calculate property record for dynamic simulation properties using p and T as dynamic states"
+          "Calculate property record for dynamic simulation properties using p and T as dynamic states"
 
           extends Modelica.Icons.Function;
-          input Modelica.SIunits.Pressure p "pressure";
-          input Modelica.SIunits.Temperature T "temperature";
+          input Modelica.SIunits.Pressure p "Pressure";
+          input Modelica.SIunits.Temperature T "Temperature";
           output Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT
-            pro "property record for dynamic simulation";
+            pro "Property record for dynamic simulation";
         protected
-          Modelica.SIunits.Density d "density";
+          Modelica.SIunits.Density d "Density";
           Modelica.Media.Common.HelmholtzDerivs f
-            "dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
         algorithm
           d := Modelica.Media.Air.ReferenceAir.Air_Utilities.Inverses.dofpT(
                     p=p,

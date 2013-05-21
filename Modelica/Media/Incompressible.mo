@@ -96,23 +96,23 @@ density and heat capacity as functions of temperature.</li>
     // Extended record for input to functions based on polynomials
     record BaseProps_Tpoly "Fluid state record"
       extends Modelica.Icons.Record;
-      SI.Temperature T "temperature";
-      SI.Pressure p "pressure";
-      //    SI.Density d "density";
+      SI.Temperature T "Temperature";
+      SI.Pressure p "Pressure";
+      //    SI.Density d "Density";
     end BaseProps_Tpoly;
 
-    //     record BaseProps_Tpoly_old "fluid state record"
+    //     record BaseProps_Tpoly_old "Fluid state record"
     //       extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
-    //       //      SI.SpecificHeatCapacity cp "specific heat capacity";
-    //       SI.Temperature T "temperature";
-    //       SI.Pressure p "pressure";
-    //       //    SI.Density d "density";
-    //       parameter Real[:] poly_rho "polynomial coefficients";
-    //       parameter Real[:] poly_Cp "polynomial coefficients";
-    //       parameter Real[:] poly_eta "polynomial coefficients";
-    //       parameter Real[:] poly_pVap "polynomial coefficients";
-    //       parameter Real[:] poly_lam "polynomial coefficients";
-    //       parameter Real[:] invTK "inverse T [1/K]";
+    //       //      SI.SpecificHeatCapacity cp "Specific heat capacity";
+    //       SI.Temperature T "Temperature";
+    //       SI.Pressure p "Pressure";
+    //       //    SI.Density d "Density";
+    //       parameter Real[:] poly_rho "Polynomial coefficients";
+    //       parameter Real[:] poly_Cp "Polynomial coefficients";
+    //       parameter Real[:] poly_eta "Polynomial coefficients";
+    //       parameter Real[:] poly_pVap "Polynomial coefficients";
+    //       parameter Real[:] poly_lam "Polynomial coefficients";
+    //       parameter Real[:] invTK "Inverse T [1/K]";
     //     end BaseProps_Tpoly_old;
   end Common;
 
@@ -130,43 +130,43 @@ density and heat capacity as functions of temperature.</li>
        Temperature(min = T_min, max = T_max));
     // Constants to be set in actual Medium
     constant Boolean enthalpyOfT=true
-      "true if enthalpy is approximated as a function of T only, (p-dependence neglected)";
+      "True if enthalpy is approximated as a function of T only, (p-dependence neglected)";
     constant Boolean densityOfT = size(tableDensity,1) > 1
-      "true if density is a function of temperature";
+      "True if density is a function of temperature";
     constant Temperature T_min "Minimum temperature valid for medium model";
     constant Temperature T_max "Maximum temperature valid for medium model";
-    constant Temperature T0=273.15 "reference Temperature";
-    constant SpecificEnthalpy h0=0 "reference enthalpy at T0, reference_p";
-    constant SpecificEntropy s0=0 "reference entropy at T0, reference_p";
+    constant Temperature T0=273.15 "Reference Temperature";
+    constant SpecificEnthalpy h0=0 "Reference enthalpy at T0, reference_p";
+    constant SpecificEntropy s0=0 "Reference entropy at T0, reference_p";
     constant MolarMass MM_const=0.1 "Molar mass";
-    constant Integer npol=2 "degree of polynomial used for fitting";
+    constant Integer npol=2 "Degree of polynomial used for fitting";
     constant Integer npolDensity=npol
-      "degree of polynomial used for fitting rho(T)";
+      "Degree of polynomial used for fitting rho(T)";
     constant Integer npolHeatCapacity=npol
-      "degree of polynomial used for fitting Cp(T)";
+      "Degree of polynomial used for fitting Cp(T)";
     constant Integer npolViscosity=npol
-      "degree of polynomial used for fitting eta(T)";
+      "Degree of polynomial used for fitting eta(T)";
     constant Integer npolVaporPressure=npol
-      "degree of polynomial used for fitting pVap(T)";
+      "Degree of polynomial used for fitting pVap(T)";
     constant Integer npolConductivity=npol
-      "degree of polynomial used for fitting lambda(T)";
+      "Degree of polynomial used for fitting lambda(T)";
     constant Integer neta=size(tableViscosity,1)
-      "number of data points for viscosity";
+      "Number of data points for viscosity";
     constant Real[:,2] tableDensity "Table for rho(T)";
     constant Real[:,2] tableHeatCapacity "Table for Cp(T)";
     constant Real[:,2] tableViscosity "Table for eta(T)";
     constant Real[:,2] tableVaporPressure "Table for pVap(T)";
     constant Real[:,2] tableConductivity "Table for lambda(T)";
     //    constant Real[:] TK=tableViscosity[:,1]+T0*ones(neta) "Temperature for Viscosity";
-    constant Boolean TinK "true if T[K],Kelvin used for table temperatures";
+    constant Boolean TinK "True if T[K],Kelvin used for table temperatures";
     constant Boolean hasDensity = not (size(tableDensity,1)==0)
-      "true if table tableDensity is present";
+      "True if table tableDensity is present";
     constant Boolean hasHeatCapacity = not (size(tableHeatCapacity,1)==0)
-      "true if table tableHeatCapacity is present";
+      "True if table tableHeatCapacity is present";
     constant Boolean hasViscosity = not (size(tableViscosity,1)==0)
-      "true if table tableViscosity is present";
+      "True if table tableViscosity is present";
     constant Boolean hasVaporPressure = not (size(tableVaporPressure,1)==0)
-      "true if table tableVaporPressure is present";
+      "True if table tableVaporPressure is present";
     final constant Real invTK[neta] = if size(tableViscosity,1) > 0 then
         (if TinK then 1 ./ tableViscosity[:,1] else 1 ./ Cv.from_degC(tableViscosity[:,1])) else fill(0,neta);
     final constant Real poly_rho[:] = if hasDensity then
@@ -184,11 +184,11 @@ density and heat capacity as functions of temperature.</li>
     final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then
                                          Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npolConductivity) else
                                            zeros(npolConductivity+1);
-    function invertTemp "function to invert temperatures"
+    function invertTemp "Function to invert temperatures"
       extends Modelica.Icons.Function;
-      input Real[:] table "table temperature data";
-      input Boolean Tink "flag for Celsius or Kelvin";
-      output Real invTable[size(table,1)] "inverted temperatures";
+      input Real[:] table "Table temperature data";
+      input Boolean Tink "Flag for Celsius or Kelvin";
+      output Real invTable[size(table,1)] "Inverted temperatures";
     algorithm
       for i in 1:size(table,1) loop
         invTable[i] := if TinK then 1/table[i] else 1/Cv.from_degC(table[i]);
@@ -205,8 +205,8 @@ density and heat capacity as functions of temperature.</li>
       "Base properties of T dependent medium"
     //  redeclare parameter SpecificHeatCapacity R=Modelica.Constants.R,
 
-      SI.SpecificHeatCapacity cp "specific heat capacity";
-      parameter SI.Temperature T_start = 298.15 "initial temperature";
+      SI.SpecificHeatCapacity cp "Specific heat capacity";
+      parameter SI.Temperature T_start = 298.15 "Initial temperature";
     equation
       assert(hasDensity,"Medium " + mediumName +
                         " can not be used without assigning tableDensity.");
@@ -267,14 +267,14 @@ which is only exactly true for a fluid with constant density d=d0.
     redeclare function extends setState_dTX
       "Returns state record, given pressure and temperature"
     algorithm
-      assert(false, "for incompressible media with d(T) only, state can not be set from density and temperature");
+      assert(false, "For incompressible media with d(T) only, state can not be set from density and temperature");
     end setState_dTX;
 
-    function setState_pT "returns state record as function of p and T"
+    function setState_pT "Returns state record as function of p and T"
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input Temperature T "temperature";
-      output ThermodynamicState state "thermodynamic state";
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      output ThermodynamicState state "Thermodynamic state";
     algorithm
       state.T := T;
       state.p := p;
@@ -288,11 +288,11 @@ which is only exactly true for a fluid with constant density d=d0.
       annotation(Inline=true,smoothOrder=3);
     end setState_phX;
 
-    function setState_ph "returns state record as function of p and h"
+    function setState_ph "Returns state record as function of p and h"
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
-      output ThermodynamicState state "thermodynamic state";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      output ThermodynamicState state "Thermodynamic state";
     algorithm
       state :=ThermodynamicState(p=p,T=T_ph(p,h));
       annotation(Inline=true,smoothOrder=3);
@@ -305,11 +305,11 @@ which is only exactly true for a fluid with constant density d=d0.
       annotation(Inline=true,smoothOrder=3);
     end setState_psX;
 
-    function setState_ps "returns state record as function of p and s"
+    function setState_ps "Returns state record as function of p and s"
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEntropy s "specific entropy";
-      output ThermodynamicState state "thermodynamic state";
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      output ThermodynamicState state "Thermodynamic state";
     algorithm
       state :=ThermodynamicState(p=p,T=T_ps(p,s));
       annotation(Inline=true,smoothOrder=3);
@@ -363,10 +363,10 @@ which is only exactly true for a fluid with constant density d=d0.
      annotation(smoothOrder=2);
     end thermalConductivity;
 
-    function s_T "compute specific entropy"
+    function s_T "Compute specific entropy"
       extends Modelica.Icons.Function;
-      input Temperature T "temperature";
-      output SpecificEntropy s "specific entropy";
+      input Temperature T "Temperature";
+      output SpecificEntropy s "Specific entropy";
     algorithm
       s := s0 + (if TinK then
         Poly.integralValue(poly_Cp[1:npol],T, T0) else
@@ -403,8 +403,8 @@ which is only exactly true for a fluid with constant density d=d0.
       import Modelica.SIunits.Conversions.to_degC;
       extends Modelica.Icons.Function;
       input SI.Temperature T "Temperature";
-      input Real dT "temperature derivative";
-      output Real dh "derivative of Specific enthalpy at T";
+      input Real dT "Temperature derivative";
+      output Real dh "Derivative of Specific enthalpy at T";
     algorithm
       dh :=Poly.evaluate(poly_Cp, if TinK then T else Cv.to_degC(T))*dT;
      annotation(smoothOrder=1);
@@ -416,7 +416,7 @@ which is only exactly true for a fluid with constant density d=d0.
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
       input Boolean densityOfT = false
-        "include or neglect density derivative dependence of enthalpy" annotation(Evaluate);
+        "Include or neglect density derivative dependence of enthalpy" annotation(Evaluate);
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
     algorithm
       h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then
@@ -430,8 +430,8 @@ which is only exactly true for a fluid with constant density d=d0.
     function density_T "Return density as function of temperature"
       extends Modelica.Icons.Function;
 
-      input Temperature T "temperature";
-      output Density d "density";
+      input Temperature T "Temperature";
+      output Density d "Density";
     algorithm
       d := Poly.evaluate(poly_rho,if TinK then T else Cv.to_degC(T));
       annotation(Inline=true,smoothOrder=2);
@@ -475,20 +475,20 @@ which is only exactly true for a fluid with constant density d=d0.
 
     function T_ph "Compute temperature from pressure and specific enthalpy"
       extends Modelica.Icons.Function;
-      input AbsolutePressure p "pressure";
-      input SpecificEnthalpy h "specific enthalpy";
-      output Temperature T "temperature";
+      input AbsolutePressure p "Pressure";
+      input SpecificEnthalpy h "Specific enthalpy";
+      output Temperature T "Temperature";
     protected
       package Internal
         "Solve h(T) for T with given h (use only indirectly via temperature_phX)"
         extends Modelica.Media.Common.OneNonLinearEquation;
 
         redeclare record extends f_nonlinear_Data
-          "superfluous record, fix later when better structure of inverse functions exists"
+          "Superfluous record, fix later when better structure of inverse functions exists"
             constant Real[5] dummy = {1,2,3,4,5};
         end f_nonlinear_Data;
 
-        redeclare function extends f_nonlinear "p is smuggled in via vector"
+        redeclare function extends f_nonlinear "P is smuggled in via vector"
         algorithm
           y := if singleState then h_T(x) else h_pT(p,x);
         end f_nonlinear;
@@ -505,20 +505,20 @@ which is only exactly true for a fluid with constant density d=d0.
     function T_ps "Compute temperature from pressure and specific enthalpy"
       extends Modelica.Icons.Function;
 
-      input AbsolutePressure p "pressure";
-      input SpecificEntropy s "specific entropy";
-      output Temperature T "temperature";
+      input AbsolutePressure p "Pressure";
+      input SpecificEntropy s "Specific entropy";
+      output Temperature T "Temperature";
     protected
       package Internal
         "Solve h(T) for T with given h (use only indirectly via temperature_phX)"
         extends Modelica.Media.Common.OneNonLinearEquation;
 
         redeclare record extends f_nonlinear_Data
-          "superfluous record, fix later when better structure of inverse functions exists"
+          "Superfluous record, fix later when better structure of inverse functions exists"
             constant Real[5] dummy = {1,2,3,4,5};
         end f_nonlinear_Data;
 
-        redeclare function extends f_nonlinear "p is smuggled in via vector"
+        redeclare function extends f_nonlinear "P is smuggled in via vector"
         algorithm
           y := s_T(x);
         end f_nonlinear;
@@ -602,7 +602,7 @@ which is only exactly true for a fluid with constant density d=d0.
         output Real p2[size(p1, 1) + 1]
           "Polynomial coefficients of indefinite integral of polynomial p1 (polynomial p2 + C is the indefinite integral of p1, where C is an arbitrary constant)";
       protected
-        Integer n=size(p1, 1) + 1 "degree of output polynomial";
+        Integer n=size(p1, 1) + 1 "Degree of output polynomial";
       algorithm
         for j in 1:n-1 loop
           p2[j] := p1[j]/(n-j);
@@ -617,8 +617,8 @@ which is only exactly true for a fluid with constant density d=d0.
         output Real integral=0.0
           "Integral of polynomial p from u_low to u_high";
       protected
-        Integer n=size(p, 1) "degree of integrated polynomial";
-        Real y_low=0 "value at lower integrand";
+        Integer n=size(p, 1) "Degree of integrated polynomial";
+        Real y_low=0 "Value at lower integrand";
       algorithm
         for j in 1:n loop
           integral := u_high*(p[j]/(n - j + 1) + integral);
@@ -693,14 +693,14 @@ returned as a vector p[n+1] that has the following definition:
       end integralValue_der;
 
       function derivativeValue_der
-        "time derivative of derivative of polynomial"
+        "Time derivative of derivative of polynomial"
         extends Modelica.Icons.Function;
         input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
         input Real u "Abscissa value";
-        input Real du "delta of abscissa value";
+        input Real du "Delta of abscissa value";
         output Real dy
-          "time-derivative of derivative of polynomial w.r.t. input variable at u";
+          "Time-derivative of derivative of polynomial w.r.t. input variable at u";
       protected
         Integer n=size(p, 1);
       algorithm
