@@ -596,9 +596,9 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         m=0,
         T0=TAmb,
         V_flow0=2,
-        wNominal=0.10471975511966,
-        dp0=200000,
-        V_flow(start=0))
+        V_flow(start=0),
+        wNominal(displayUnit="rad/s") = 1,
+        dp0(displayUnit="Pa") = 2)
         annotation (Placement(transformation(extent={{-60,10},{-40,-10}},
               rotation=0)));
       FluidHeatFlow.Components.Valve valve(

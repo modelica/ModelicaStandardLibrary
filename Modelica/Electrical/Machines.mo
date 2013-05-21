@@ -15052,10 +15052,13 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           PRef=0,
           wRef=wNominal) "Friction losses"
           annotation(Dialog(tab="Losses"));
+        parameter Modelica.SIunits.Voltage ViNominal = VaNominal -
+          Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal -
+          Modelica.Electrical.Machines.Losses.DCMachines.brushVoltageDrop(brushParameters, IaNominal);
         parameter Modelica.Electrical.Machines.Losses.CoreParameters coreParameters(
           final m=1,
           PRef=0,
-          VRef=VaNominal,
+          VRef=ViNominal,
           wRef=wNominal) "Armature core losses"
           annotation(Dialog(tab="Losses"));
         parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters strayLoadParameters(
