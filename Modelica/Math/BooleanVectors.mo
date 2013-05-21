@@ -7,13 +7,10 @@ function allTrue
   input Boolean b[:] "Boolean vector";
   output Boolean result "= true, if all elements of b are true";
 algorithm
+  result := size(b,1) > 0;
   for i in 1:size(b,1) loop
-      if not b[i] then
-        result := false;
-        return;
-      end if;
+     result := result and b[i];
   end for;
-    result := size(b, 1) > 0;
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -57,13 +54,10 @@ function anyTrue
   input Boolean b[:];
   output Boolean result;
 algorithm
-  for i in 1:size(b,1) loop
-     if b[i] then
-        result := true;
-        return;
-     end if;
-  end for;
   result := false;
+  for i in 1:size(b,1) loop
+     result := result or b[i];
+  end for;
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
