@@ -2416,7 +2416,7 @@ and will interpret it in the same way. Short Overview:
      without relying on tool heuristics).
      </li>
 
-<li> About <b>300 tickets</b> have been fixed for this release, and
+<li> More than <b>300 tickets</b> have been fixed for this release, and
      especially all compliance issues.
      </li>
 
@@ -2427,7 +2427,7 @@ and will interpret it in the same way. Short Overview:
      in a free implementation. Additionally new features have been added to the table blocks
      by this implementation: The table outputs can be differentiated once,
      support of Matlab binary file formats V6 and V7,
-     new option ConstantSegments for parameter Smoothness as well
+     new option ConstantSegments for parameter Smoothness, as well
      as option NoExtrapolation for parameter Extrapolation.</li>
 
 <li> The <b>Modelica.Media.Air.MoistAir</b> media model has been improved so that it
@@ -2446,7 +2446,7 @@ and will interpret it in the same way. Short Overview:
      The partial financial support by the European Union for this development
      is highly appreciated.</li>
 
-<li> <b>60</b> models and blocks and <b>90</b> functions are newly included.</li>
+<li> <b>60</b> models and blocks and <b>90</b> functions are newly included, for details see below.</li>
 
 </ul>
 
@@ -2457,7 +2457,7 @@ This release of the Modelica package has been tested with several tools in the f
 </p>
 
 <ul>
-<li><b>Tests with Dymola 2014 by M. Otter (DLR)</b>
+<li><b>Tests with Dymola 2014 (64 bit) by M. Otter (DLR)</b>
     <ul>
     <li>\"Check\" and \"Check with Simulation\" with pedantic flag performed
         successfully on packages Modelica and ModelicaTest
@@ -2465,18 +2465,52 @@ This release of the Modelica package has been tested with several tools in the f
          In this case Dymola requires strict Modelica 3.2 rev. 2 compliance and triggers
          an error if this is not the case. For example, if the initialization of an
          executable model is not completely defined, an error is triggered.)</li>
-    <li><b>Still needs to be performed:</b> Regression tests with packages Modelica and ModelicaTest performed with
-        regards to version 3.2 build 9 (the version shipped with Dymola 2013 FD01).
-        That is, all 500 executable models in version 3.2 build 9 give the same results
+    <li>Regression tests performed with package Modelica with regards to version 3.2 build 9
+        (the version shipped with Dymola 2013, 2013 FD01, 2014),
+        and package ModelicaTest with regards to version 3.2 build 5
+        (on <a href=\"https://svn.modelica.org/projects/Modelica/tags/v3.2_build5/ModelicaTest\">Modelica Association svn server</a>).
+        That is, all 500 executable models in these packages give the same results
         as in version 3.2.1 build 0.</li>
     </ul>
     </li>
+
+<li><b>Tests of new open source tables by T. Beutlich (ITI)</b>
+    <ul>
+    <li> 193 Modelica test models for compatibility check with previous table implementation.
+         Performed tests with SimulationX 3.5.707 (32 bit) and
+         Dymola 2013 FD01 (32 bit). Furthermore a basic check was performed in OpenModelica
+         to make sure it works in general.
+         </li>
+    <li> The two C source files (Modelica/Resources/C-Sources/ModelicaStandardTables.c; ModelicaMatIO.c)
+         have been tested to successfully compile for the following platforms<br>
+         &nbsp;&nbsp;&nbsp;Windows 32 and 64 bit<br>
+         &nbsp;&nbsp;&nbsp;Linux 32 and 64 bit<br>
+         &nbsp;&nbsp;&nbsp;dSPACE SCALEXIO<br>
+         &nbsp;&nbsp;&nbsp;dSPACE DS1005 (no file system)<br>
+         &nbsp;&nbsp;&nbsp;dSPACE DS1006 (no file system)<br>
+         &nbsp;&nbsp;&nbsp;dSPACE DS1401 (no file system)
+         </li>
+    <li> The following compilers/environments have been used for the platform evaluation<br>
+         &nbsp;&nbsp;&nbsp;Microsoft compilers (VC6 and &ge; VS2005 (Win32 and x64)) <br>
+         &nbsp;&nbsp;&nbsp;MinGW (GCC 4.4.0 and GCC 4.7.2)<br>
+         &nbsp;&nbsp;&nbsp;Cygwin (GCC 4.3.0)<br>
+         &nbsp;&nbsp;&nbsp;Open WATCOM 1.3<br>
+         &nbsp;&nbsp;&nbsp;LCC 2.4.1<br>
+         &nbsp;&nbsp;&nbsp;Borland C/C++ (free command line tools) 5.5<br>
+         &nbsp;&nbsp;&nbsp;GCC 4.x on Linux<br>
+         &nbsp;&nbsp;&nbsp;GCC 3.3.5 (for DS1006)<br>
+         &nbsp;&nbsp;&nbsp;Microtec PowerPC Compiler 3.7 (for DS1005)
+         </li>
+    </ul>
+    </li>
+
 <li><b>Tests with MapleSim</b>
     <ul>
     <li> Checking packages Modelica and ModelicaTest successfully with the
          moparser (Maplesim) parser (the used default options check for
          strict Modelica 3.2 rev. 2 compliance).</li>
     </ul>
+
 <li> <b>Other Tools (needs still to be performed)</b></li>
 </ul>
 
