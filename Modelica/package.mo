@@ -232,6 +232,21 @@ variables is explained in section \"Connector Equations\" below):
      <br>SpacePhasor</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
+<tr><td valign=\"top\"><b>quasi<br>stationaray<br>single phase</b></td>
+   <td valign=\"top\">complex electrical potential</td>
+   <td valign=\"top\">complex electrical current</td>
+   <td valign=\"top\"></td>
+   <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces\">
+                                       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces</a>
+     <br>Pin, PositivePin, NegativePin</td>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStationarySinglePhasePins.png\"></td></tr>
+ 
+<tr><td valign=\"top\"><b>quasi<br>stationary<br>multi-phase</b></td>
+   <td colspan=\"3\">vector of quasi stationary electrical pins</td>
+   <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces\">Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>
+     <br>Plug, PositivePlug, NegativePlug</td>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStationaryMultiPhasePlugs.png\"></td></tr>
+
 <tr><td valign=\"top\"><b>electrical <br>digital</b></td>
    <td valign=\"top\">Integer (1..9)</td>
    <td valign=\"top\"></td>
@@ -240,7 +255,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>DigitalSignal, DigitalInput, DigitalOutput</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Digital.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>magnetic</b></td>
+<tr><td valign=\"top\"><b>magnetic<br>flux tubes</b></td>
    <td valign=\"top\">magnetic potential</td>
    <td valign=\"top\">magnetic flux</td>
    <td valign=\"top\"></td>
@@ -248,6 +263,15 @@ variables is explained in section \"Connector Equations\" below):
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces\">Modelica.Magnetic.FluxTubes.Interfaces</a>
      <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MagneticPorts.png\"></td></tr>
+
+<tr><td valign=\"top\"><b>magnetic<br>fundamental<br>wave</b></td>
+   <td valign=\"top\">complex magnetic potential</td>
+   <td valign=\"top\">complex magnetic flux</td>
+   <td valign=\"top\"></td>
+   <td valign=\"top\">
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces\">Modelica.Magnetic.FundamentalWave.Interfaces</a>
+     <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FundamentalWavePorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>translational</b></td>
    <td valign=\"top\">distance</td>
@@ -302,17 +326,28 @@ variables is explained in section \"Connector Equations\" below):
      <br>HeatPort, HeatPort_a, HeatPort_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>block<br>diagram</b></td>
-   <td valign=\"top\">Real variable<br>
+<tr><td valign=\"top\"><b>blocks</b></td>
+   <td valign=\"top\">
+    Real variable<br>
     Integer variable<br>
     Boolean variable</td>
    <td valign=\"top\"></td>
    <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Blocks.Interfaces\">Modelica.Blocks.Interfaces</a>
-     <br>RealSignal, RealInput, RealOutput<br>
+     <br>
+      RealSignal, RealInput, RealOutput<br>
       IntegerSignal, IntegerInput, IntegerOutput<br>
       BooleanSignal, BooleanInput, BooleanOutput</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Signals.png\"></tr>
+
+<tr><td valign=\"top\"><b>complex<br>blocks</b></td>
+   <td valign=\"top\">
+    Complex variable</td>
+   <td valign=\"top\"></td>
+   <td valign=\"top\"></td>
+   <td valign=\"top\"><a href=\"modelica://Modelica.ComplexBlocks.Interfaces\">Modelica.ComplexBlocks.Interfaces</a>
+     <br>ComplexSignal, ComplexInput, ComplexOutput</td>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ComplexSignals.png\"></tr>
 
 <tr><td valign=\"top\"><b>state<br>machine</b></td>
    <td valign=\"top\">Boolean variables<br>
