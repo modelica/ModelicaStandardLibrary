@@ -2139,7 +2139,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(
-        tableID, forceRead) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+        tableID, forceRead) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end readTableData;
 
     function getTableValue
@@ -2157,7 +2157,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
             icol,
             timeIn,
             nextTimeEvent,
-            pre_nextTimeEvent) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+            pre_nextTimeEvent) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
       annotation (derivative(
           noDerivative=nextTimeEvent,
           noDerivative=pre_nextTimeEvent,
@@ -2181,7 +2181,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
             timeIn,
             nextTimeEvent,
             pre_nextTimeEvent,
-            der_timeIn) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+            der_timeIn) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end getDerTableValue;
 
     function getTableTimeTmin
@@ -2191,7 +2191,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Real tableAvailable;
       output Modelica.SIunits.Time timeMin "Minimum time value in table";
     external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(
-        tableID) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+        tableID) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end getTableTimeTmin;
 
     function getTableTimeTmax
@@ -2201,7 +2201,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Real tableAvailable;
       output Modelica.SIunits.Time timeMax "Maximum time value in table";
     external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(
-        tableID) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+        tableID) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end getTableTimeTmax;
 
     function getNextTimeEvent
@@ -2213,7 +2213,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       output Modelica.SIunits.Time nextTimeEvent "Next time event in table";
     external"C" nextTimeEvent =
         ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
-        annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end getNextTimeEvent;
 
   initial algorithm

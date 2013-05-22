@@ -106,13 +106,13 @@ initialization definition.
             columns,
             size(columns, 1),
             smoothness,
-            extrapolation) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+            extrapolation) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end constructor;
 
     function destructor "Terminate 1-dim. table where first column is time"
       input ExternalCombiTimeTable externalCombiTimeTable;
     external"C" ModelicaStandardTables_CombiTimeTable_close(
-        externalCombiTimeTable) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+        externalCombiTimeTable) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end destructor;
 
   end ExternalCombiTimeTable;
@@ -136,13 +136,13 @@ initialization definition.
             size(table, 2),
             columns,
             size(columns, 1),
-            smoothness) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+            smoothness) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end constructor;
 
     function destructor "Terminate 1-dim. table defined by matrix"
       input ExternalCombiTable1D externalCombiTable1D;
     external"C" ModelicaStandardTables_CombiTable1D_close(externalCombiTable1D)
-        annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end destructor;
 
   end ExternalCombiTable1D;
@@ -163,13 +163,13 @@ initialization definition.
             table,
             size(table, 1),
             size(table, 2),
-            smoothness) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+            smoothness) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end constructor;
 
     function destructor "Terminate 2-dim. table defined by matrix"
       input ExternalCombiTable2D externalCombiTable2D;
     external"C" ModelicaStandardTables_CombiTable2D_close(externalCombiTable2D)
-        annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end destructor;
 
   end ExternalCombiTable2D;
