@@ -196,7 +196,7 @@ an phase number, <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundam
 can be recursively split into various symmetrical systems with odd phase numbers, as depicted in Fig. 3 and 4.
 The displacement between the two symmetrical systems is
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/pi_m.png\"/>.
-A function for calculating the <a href=\"Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a> is available.
+A function for calculating the <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a> is available.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
