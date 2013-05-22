@@ -98,6 +98,7 @@ package Machines "Library for electric machines"
       initial equation
         aimc.is=zeros(3);
         aimc.idq_rr=zeros(2);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -245,6 +246,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       initial equation
         aimc.is=zeros(3);
         aimc.idq_rr=zeros(2);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -427,7 +429,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
                 rotation=0)));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
-          annotation (Placement(transformation(extent={{-20,-82},{0,-62}})));
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         transformer.i1[1:2]=zeros(2);
         aimc.is=zeros(3);
@@ -943,6 +945,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         cRun.v = 0;
         aimc.is=zeros(3);
         aimc.idq_rr=zeros(2);
+
       equation
         connect(ground.p, sineVoltage.n)
           annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
@@ -1168,6 +1171,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         aimc.i_0_s=0;
         der(aimc.idq_sr)=zeros(2);
         der(aimc.idq_rr)=zeros(2);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,20},{-70,10}}, color={0,0,255}));
@@ -1792,7 +1796,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           alpha20r=smpmData.alpha20r,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, rotation=0)));
-        MultiPhase.Sources.SignalCurrent signalCurrent(final m=m)
+        Modelica.Electrical.MultiPhase.Sources.SignalCurrent signalCurrent(final m=m)
           annotation (Placement(transformation(
               origin={-10,50},
               extent={{-10,10},{10,-10}},
@@ -1807,16 +1811,16 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
               rotation=270)));
         Utilities.CurrentController currentController(p=smpm.p)
           annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
-        Blocks.Sources.Constant iq(k=84.6)
+        Modelica.Blocks.Sources.Constant iq(k=84.6)
           annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
-        Blocks.Sources.Constant id(k=-53.5)
+        Modelica.Blocks.Sources.Constant id(k=-53.5)
           annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
         Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
               origin={-30,-10})));
-        MultiPhase.Basic.Star starM(final m=m) annotation (Placement(transformation(
+        Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
               origin={-60,-10})));
@@ -1977,7 +1981,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
 
-        Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+        Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
           smpm(
           phiMechanical(start=0, fixed=true),
           wMechanical(start=0, fixed=true),
@@ -2026,7 +2030,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
         Modelica.Blocks.Sources.Constant id(k=-53.5)
           annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
-        Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
+        Machines.Utilities.TerminalBox terminalBox(
             terminalConnection="Y")
           annotation (Placement(transformation(
                 extent={{-20,-30},{0,-10}}, rotation=0)));
@@ -2046,11 +2050,11 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-10,0})));
-        Modelica.Electrical.Machines.Utilities.VoltageController voltageController(
+        Machines.Utilities.VoltageController voltageController(
           p=smpm.p,
           Ld=smpm.Lssigma + smpm.Lmd,
           Lq=smpm.Lssigma + smpm.Lmq,
-          Rs=Modelica.Electrical.Machines.Thermal.convertResistance(
+          Rs=Machines.Thermal.convertResistance(
                     smpm.Rs,
                     smpm.TsRef,
                     smpm.alpha20s,
@@ -2068,7 +2072,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={30,0})));
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
+        Machines.Sensors.RotorDisplacementAngle
           rotorDisplacementAngle(p=smpm.p)
           annotation (Placement(transformation(
               origin={20,-40},
@@ -2084,14 +2088,13 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               extent={{-10,-10},{10,10}},
               rotation=180,
               origin={-60,-10})));
-        Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor
+        Machines.Sensors.VoltageQuasiRMSSensor
           voltageQuasiRMSSensor annotation (Placement(
               transformation(
               extent={{-10,10},{10,-10}},
               rotation=180,
               origin={-30,-10})));
-        parameter
-          Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
+        parameter Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
           smpmData(useDamperCage=false)
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
         Sensors.CurrentQuasiRMSSensor          currentQuasiRMSSensor
@@ -2338,6 +2341,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
       initial equation
         smee.idq_sr=zeros(2);
         smee.idq_dr=zeros(2);
+
       equation
         connect(rotorDisplacementAngle.plug_n, smee.plug_sn)    annotation (Line(
               points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
@@ -2553,6 +2557,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
         smee.idq_sr=zeros(2);
         smee.idq_dr=zeros(2);
         smee.ie=0;
+
       equation
         connect(terminalBox.plug_sn, smee.plug_sn)   annotation (Line(
             points={{4,-20},{4,-20}},
@@ -3285,7 +3290,7 @@ Default machine parameters are used.
           fallTimeConst=0.5,
           startTime=0.1)
           annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
-        Blocks.Sources.Constant const(k=293.15)
+        Modelica.Blocks.Sources.Constant const(k=293.15)
           annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
         parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData(
           alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
@@ -4031,6 +4036,7 @@ This package contains test examples of DC machines.
 
       initial equation
         transformer.i2[1:2]=zeros(2);
+
       equation
         connect(starS.pin_n, groundS.p)
           annotation (Line(points={{-90,-50},{-90,-60}}, color={0,0,255}));
@@ -4129,7 +4135,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
         Modelica.Electrical.Analog.Basic.Ground groundS
           annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
                 rotation=0)));
-        MultiPhase.Sensors.CurrentSensor currentSensorS
+        Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensorS
           annotation (Placement(transformation(extent={{-60,20},{-40,0}},
                 rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground groundL
@@ -4160,7 +4166,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
           T2Operational=293.15)            annotation (Placement(transformation(
                 extent={{-20,-10},{20,30}}, rotation=0)));
 
-        MultiPhase.Basic.PlugToPin_n plugToPin_n(     k=1)
+        Modelica.Electrical.MultiPhase.Basic.PlugToPin_n plugToPin_n(     k=1)
           annotation (Placement(transformation(extent={{20,0},{40,20}})));
         Analog.Basic.Resistor load(R=RL) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -9076,8 +9082,8 @@ protected
   Modelica.SIunits.Angle psi_mrArg
     "(Wrapped) angle of main flux phasor with respect to the rotor fixed frame";
 initial equation
-  i_sm = Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator(i_ss, psi_msArg);
-  i_rm = Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator(i_rr, psi_mrArg);
+  i_sm = Machines.SpacePhasors.Functions.Rotator(i_ss, psi_msArg);
+  i_rm = Machines.SpacePhasors.Functions.Rotator(i_rr, psi_mrArg);
 equation
   // AngularVelocity of main flux phasor
   (psi_msAbs, psi_msArg) = Machines.SpacePhasors.Functions.ToPolar(psi_ms);
@@ -9086,9 +9092,9 @@ equation
     (spacePhasor_s.v_[2]*cos(psi_msArg) - spacePhasor_s.v_[1]*sin(psi_msArg))/psi_msAbs;
   omegaPsi_mr = omegaPsi_ms - der(gamma);
   // stator and rotor current w.r.t. main flux fixed frame
-  der(i_sm) = Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator(
+  der(i_sm) = Machines.SpacePhasors.Functions.Rotator(
     {der(i_ss[1]) + omegaPsi_ms*i_ss[2], der(i_ss[2]) - omegaPsi_ms*i_ss[1]}, psi_msArg);
-  der(i_rm) = Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator(
+  der(i_rm) = Machines.SpacePhasors.Functions.Rotator(
     {der(i_rr[1]) + omegaPsi_mr*i_rr[2], der(i_rr[2]) - omegaPsi_mr*i_rr[1]}, psi_mrArg);
 */
       equation
@@ -9473,10 +9479,8 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
       end PermanentMagnet;
 
       model PermanentMagnetWithLosses "Permanent magnet excitation"
-        extends
-          Modelica.Electrical.Machines.BasicMachines.Components.PermanentMagnet;
-        extends
-          Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses;
+        extends Machines.BasicMachines.Components.PermanentMagnet;
+        extends Machines.Losses.InductionMachines.PermanentMagnetLosses;
       end PermanentMagnetWithLosses;
 
       model InductorDC
@@ -11594,7 +11598,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
           spacePhasor.i_ = zeros(2);
         else
           Gc = coreParameters.GcRef;
-          //  * (coreParameters.wRef/wsLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
+          //  * (coreParameters.wRef/wLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
           spacePhasor.i_ = Gc*spacePhasor.v_;
         end if;
         lossPower = 3/2*(+spacePhasor.v_[1]*spacePhasor.i_[1]+spacePhasor.v_[2]*spacePhasor.i_[2]);
@@ -14824,8 +14828,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TsRef=293.15
           "Reference temperature of stator resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter
-          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        parameter Machines.Thermal.LinearTemperatureCoefficient20
           alpha20s=0 "Temperature coefficient of stator resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lszero=Lssigma
@@ -14835,18 +14838,18 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           "Stator stray inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
-        parameter Modelica.Electrical.Machines.Losses.FrictionParameters frictionParameters(
+        parameter Machines.Losses.FrictionParameters frictionParameters(
           PRef=0,
           wRef=2*pi*fsNominal/p) "Friction losses"
           annotation(Dialog(tab="Losses"));
-        parameter Modelica.Electrical.Machines.Losses.CoreParameters statorCoreParameters(
+        parameter Machines.Losses.CoreParameters statorCoreParameters(
           final m=m,
           PRef=0,
           VRef=100,
           wRef=2*pi*fsNominal)
           "Stator core losses; all parameters refer tpo stator side"
           annotation(Dialog(tab="Losses"));
-        parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters strayLoadParameters(
+        parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
           PRef=0,
           IRef=100,
           wRef=2*pi*fsNominal/p) "Stray load losses"
@@ -14873,8 +14876,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of rotor resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter
-          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
+        parameter Machines.Thermal.LinearTemperatureCoefficient20
+                                                          alpha20r=0
           "Temperature coefficient of rotor resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         annotation(defaultComponentName="aimcData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
@@ -14901,8 +14904,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of rotor resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter
-          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        parameter Machines.Thermal.LinearTemperatureCoefficient20
           alpha20r=0 "Temperature coefficient of rotor resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio=true
@@ -14917,7 +14919,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Voltage VrLockedRotor=100*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2)
           "Locked-rotor voltage per phase"
           annotation(Dialog(enable=not useTurnsRatio));
-        parameter Modelica.Electrical.Machines.Losses.CoreParameters rotorCoreParameters(
+        parameter Machines.Losses.CoreParameters rotorCoreParameters(
           final m=3,
           PRef=0,
           VRef=1,
@@ -14936,8 +14938,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         import Modelica.Constants.pi;
         parameter Modelica.SIunits.Voltage VsOpenCircuit=112.3
           "Open circuit RMS voltage per phase @ fsNominal";
-        parameter
-          Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters
+        parameter Machines.Losses.PermanentMagnetLossParameters
           permanentMagnetLossParameters(
           PRef=0,
           IRef=100,
@@ -14966,14 +14967,13 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
            annotation(Dialog(tab="Excitation"));
-        parameter
-          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        parameter Machines.Thermal.LinearTemperatureCoefficient20
           alpha20e=0 "Temperature coefficient of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Real sigmae(min=0, max=0.99)=0.025
           "Stray fraction of total excitation inductance"
            annotation(Dialog(tab="Excitation"));
-        parameter Modelica.Electrical.Machines.Losses.BrushParameters brushParameters(
+        parameter Machines.Losses.BrushParameters brushParameters(
           V=0,
           ILinear=0.01) "Brush losses"
           annotation(Dialog(tab="Losses"));
@@ -15009,8 +15009,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        parameter
-          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
+        parameter Machines.Thermal.LinearTemperatureCoefficient20
+                                                          alpha20r=0
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
           annotation(defaultComponentName="smrData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
@@ -15042,31 +15042,30 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TaRef=293.15
           "Reference temperature of armature resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter
-          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        parameter Machines.Thermal.LinearTemperatureCoefficient20
           alpha20a=0 "Temperature coefficient of armature resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance La=0.0015 "Armature inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Modelica.Electrical.Machines.Losses.FrictionParameters frictionParameters(
+        parameter Machines.Losses.FrictionParameters frictionParameters(
           PRef=0,
           wRef=wNominal) "Friction losses"
           annotation(Dialog(tab="Losses"));
         parameter Modelica.SIunits.Voltage ViNominal = VaNominal -
-          Modelica.Electrical.Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal -
-          Modelica.Electrical.Machines.Losses.DCMachines.brushVoltageDrop(brushParameters, IaNominal);
-        parameter Modelica.Electrical.Machines.Losses.CoreParameters coreParameters(
+          Machines.Thermal.convertResistance(Ra,TaRef,alpha20a,TaNominal)*IaNominal -
+          Machines.Losses.DCMachines.brushVoltageDrop(brushParameters, IaNominal);
+        parameter Machines.Losses.CoreParameters coreParameters(
           final m=1,
           PRef=0,
           VRef=ViNominal,
           wRef=wNominal) "Armature core losses"
           annotation(Dialog(tab="Losses"));
-        parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters strayLoadParameters(
+        parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
           PRef=0,
           IRef=IaNominal,
           wRef=wNominal) "Stray load losses"
           annotation(Dialog(tab="Losses"));
-        parameter Modelica.Electrical.Machines.Losses.BrushParameters brushParameters(
+        parameter Machines.Losses.BrushParameters brushParameters(
           V=0,
           ILinear=0.01*IaNominal) "Brush losses"
           annotation(Dialog(tab="Losses"));
@@ -15086,8 +15085,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
            annotation(Dialog(tab="Excitation"));
-        parameter
-          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
+        parameter Machines.Thermal.LinearTemperatureCoefficient20
+                                                          alpha20e=0
           "Temperature coefficient of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le=1
@@ -15110,8 +15109,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
            annotation(Dialog(tab="Excitation"));
-        parameter
-          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        parameter Machines.Thermal.LinearTemperatureCoefficient20
           alpha20e=0 "Temperature coefficient of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le=0.0005
@@ -15247,11 +15245,11 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
             origin={0,-50},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator
+      Machines.SpacePhasors.Blocks.Rotator rotator
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
       Modelica.Blocks.Sources.Constant i0(k=0)
         annotation (Placement(transformation(extent={{-10,50},{10,30}},   rotation=0)));
-      Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor fromSpacePhasor
+      Machines.SpacePhasors.Blocks.FromSpacePhasor fromSpacePhasor
         annotation (Placement(transformation(extent={{40,10},{60,-10}},rotation=0)));
     equation
       connect(iq_rms, toPeak_q.u)
@@ -15345,9 +15343,9 @@ They can be used to feed a current source which in turn feeds an induction machi
             origin={-60,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
-      Modelica.Electrical.Machines.Utilities.FromDQ fromDQ(final p=p)
+      Machines.Utilities.FromDQ fromDQ(final p=p)
         annotation (Placement(transformation(extent={{70,-10},{90,10}})));
-      Modelica.Electrical.Machines.Utilities.ToDQ toDQ(final p=p)
+      Machines.Utilities.ToDQ toDQ(final p=p)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
@@ -15372,10 +15370,10 @@ They can be used to feed a current source which in turn feeds an induction machi
         final T=Lq/Rs,
         initType=Modelica.Blocks.Types.Init.InitialOutput)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-      Blocks.Math.Add add[2](final k1=fill(+1, 2), final k2=fill(if decoupling
+      Modelica.Blocks.Math.Add add[2](final k1=fill(+1, 2), final k2=fill(if decoupling
              then +1 else 0, 2))
         annotation (Placement(transformation(extent={{32,-10},{52,10}})));
-      Blocks.Sources.RealExpression deCoupling[2](y={Vd,Vq})
+      Modelica.Blocks.Sources.RealExpression deCoupling[2](y={Vd,Vq})
         annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
     equation
       connect(fromDQ.y, y)          annotation (Line(
@@ -15480,7 +15478,7 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
             origin={0,-50},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator2
+      Machines.SpacePhasors.Blocks.Rotator rotator2
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput
                  y[2] "Connector of Real output signals"
@@ -15494,7 +15492,7 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
       Modelica.Blocks.Interfaces.RealInput u[3]
         "Connector of Real input signals"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor
+      Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                                                                        rotation=0)));
     equation
@@ -15533,11 +15531,11 @@ using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q-
             origin={0,-50},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator2
+      Machines.SpacePhasors.Blocks.Rotator rotator2
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
       Modelica.Blocks.Sources.Constant i0(final k=0)
         annotation (Placement(transformation(extent={{20,-20},{40,-40}},  rotation=0)));
-      Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor fromSpacePhasor
+      Machines.SpacePhasors.Blocks.FromSpacePhasor fromSpacePhasor
         annotation (Placement(transformation(extent={{60,-10},{80,10}},rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput
                  y[3] "Connector of Real output signals"
