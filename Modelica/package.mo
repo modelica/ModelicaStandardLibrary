@@ -240,7 +240,7 @@ variables is explained in section \"Connector Equations\" below):
                                        Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces</a>
      <br>Pin, PositivePin, NegativePin</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/QuasiStationarySinglePhasePins.png\"></td></tr>
- 
+
 <tr><td valign=\"top\"><b>quasi<br>stationary<br>multi-phase</b></td>
    <td colspan=\"3\">vector of quasi stationary single phase pins</td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces\">Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>

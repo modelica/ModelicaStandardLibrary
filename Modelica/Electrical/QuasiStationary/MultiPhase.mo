@@ -1959,7 +1959,7 @@ Quasi stationary theory can be found in the
       Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts 
+This model describes <i>m</i> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts
 (defaults are
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
 <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">single phase VoltageSources</a> are used.
@@ -2066,7 +2066,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
       Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the the phase shifts 
+This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the the phase shifts
 (defaults are
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
 <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.

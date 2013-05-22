@@ -16,4 +16,4 @@
 1	1	1	1
 
 #data0	#data1	#data2	#data3
-#lowest bit on left side	
+#lowest bit on left side

@@ -1788,7 +1788,7 @@ is present in variable convection.fluid.
                 -100,-100},{100,100}}), graphics), Documentation(info="<html>
 <p>
 This example demonstrates how to generate an input/output block (e.g. in form of an
-FMU - <a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>) from various Rotational components. 
+FMU - <a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>) from various Rotational components.
 The goal is to export such an input/output block from Modelica and import
 it in another modeling environment. The essential issue is that before
 exporting it must be known in which way the component is utilized in the
@@ -1796,7 +1796,7 @@ target environment. Depending on the target usage, different flange variables
 need to be in the interface with either input or output causality.
 Note, this example model can be used to test the FMU export/import of a Modelica tool.
 Just export the components marked in the icons as \"toFMU\" as FMUs and import
-them back. The models should then still work and give the same results as a 
+them back. The models should then still work and give the same results as a
 pure Modelica model.
 </p>
 
@@ -4946,7 +4946,7 @@ in the User's Guide of the Rotational library.
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
-and export this model in form of an input/output block, 
+and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
@@ -5026,7 +5026,7 @@ according to the input signal u
 </pre>
 <p>
 The user has to guarantee that the input signals are consistent to each other,
-i.e., that u[2] is the derivative of u[1]. 
+i.e., that u[2] is the derivative of u[1].
 </p>
 <p>
 The input signals can be provided from one of the signal generator
@@ -5102,7 +5102,7 @@ according to the input signals:
 </pre>
 <p>
 The user has to guarantee that the input signals are consistent to each other,
-i.e., that u[2] is the derivative of u[1]. 
+i.e., that u[2] is the derivative of u[1].
 </p>
 <p>
 The input signals can be provided from one of the signal generator
@@ -5222,7 +5222,7 @@ blocks of the block library Modelica.Blocks.Sources.
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
-and export this model in form of an input/output block, 
+and export this model in form of an input/output block,
 especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.

@@ -2906,7 +2906,7 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
         Documentation(info="<HTML>
 <p>
 Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
-with a default phase shift determined by 
+with a default phase shift determined by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </HTML>"));
@@ -2970,7 +2970,7 @@ with a default phase shift determined by
         Documentation(info="<HTML>
 <p>
 Contains m cosine voltage sources (Modelica.Electrical.Analog.Sources.CosineVoltage)
-with a default phase shift determined by 
+with a default phase shift determined by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </HTML>"));
@@ -3130,7 +3130,7 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
         Documentation(info="<HTML>
 <p>
 Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent)
-with a default phase shift determined by 
+with a default phase shift determined by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </HTML>"));
@@ -3190,7 +3190,7 @@ with a default phase shift determined by
         Documentation(info="<HTML>
 <p>
 Contains m cosine current sources (Modelica.Electrical.Analog.Sources.CosineCurrent)
-with a default phase shift determined by 
+with a default phase shift determined by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
 </HTML>"));
@@ -3202,15 +3202,15 @@ This package contains time-dependent and controlled multiphase voltage and curre
 <ul>
 <li>SignalVoltage: fed by Modelica.Blocks.Sources arbitrary waveforms of voltages are possible</li>
 <li>ConstantVoltage: constant multi phase voltages</li>
-<li>SineVoltage : phase shift between consecutive voltages by default given by 
+<li>SineVoltage : phase shift between consecutive voltages by default given by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
-<li>CosineVoltage : phase shift between consecutive voltages by default given by 
+<li>CosineVoltage : phase shift between consecutive voltages by default given by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 <li>SignalCurrent: fed by Modelica.Blocks.Sources arbitrary waveforms of currents are possible</li>
 <li>ConstantCurrent: constant multi phase currents</li>
-<li>SineCurrent : phase shift between consecutive currents by default given by 
+<li>SineCurrent : phase shift between consecutive currents by default given by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
-<li>CosineCurrent : phase shift between consecutive currents by default given by 
+<li>CosineCurrent : phase shift between consecutive currents by default given by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 </ul>
 </HTML>", revisions="<html>

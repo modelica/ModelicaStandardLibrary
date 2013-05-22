@@ -542,7 +542,7 @@ should be taken into account or to model a housing. This might be desirable if a
 </p>
 
 <p><b>Diagnostics of Cavitation</b></p>
-<p>The replaceable Monitoring submodel can be configured to PumpMonitoringNPSH, 
+<p>The replaceable Monitoring submodel can be configured to PumpMonitoringNPSH,
 in order to compute the Net Positive Suction Head available and check for cavitation,
 provided a two-phase medium model is used (see Advanced tab).
 </p>

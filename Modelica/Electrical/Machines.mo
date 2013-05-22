@@ -15302,7 +15302,7 @@ Simple Current-Controller.
 </p>
 <p>
 The desired rms values of d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
-Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"i[3]\") are calculated. 
+Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"i[3]\") are calculated.
 They can be used to feed a current source which in turn feeds an induction machine.
 </p>
 </HTML>"),
