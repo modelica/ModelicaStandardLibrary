@@ -2338,7 +2338,7 @@ The table matrix can be defined in the following ways:
       (The ASCII format is described below).
       The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
       The library supports at least v4, v6 and v7 whereas v7.3 is optional.
-      It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg
+      It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
       by command
 <pre>
    save tables.mat tab1 tab2 tab3
