@@ -2136,7 +2136,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Integer forceRead "Force reading of table data";
+      input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(
         tableID, forceRead) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
@@ -2218,7 +2218,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID, 0);
+      tableOnFileRead := readTableData(tableID);
     else
       tableOnFileRead := 1.;
     end if;

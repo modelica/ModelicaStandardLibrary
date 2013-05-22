@@ -43,7 +43,7 @@ package Tables
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer forceRead "Force reading of table data";
+      input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID,
         forceRead) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
@@ -81,7 +81,7 @@ package Tables
 
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID, 0);
+      tableOnFileRead := readTableData(tableID);
     else
       tableOnFileRead := 1.;
     end if;
@@ -330,7 +330,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer forceRead "Force reading of table data";
+      input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID,
         forceRead) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
@@ -368,7 +368,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID, 0);
+      tableOnFileRead := readTableData(tableID);
     else
       tableOnFileRead := 1.;
     end if;
@@ -613,7 +613,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Integer forceRead "Force reading of table data";
+      input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
         forceRead) annotation (Library={"ModelicaExternalC", "ModelicaStandardTables"});
@@ -653,7 +653,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID, 0);
+      tableOnFileRead := readTableData(tableID);
     else
       tableOnFileRead := 1.;
     end if;
