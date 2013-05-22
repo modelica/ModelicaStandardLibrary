@@ -45,7 +45,7 @@ within Modelica.Media.Air;
 
   public
     package Air_ph
-      "RealGasAir.Air_ph: Detailed dry air model (130 ... 2000 K) explicit in p and h"
+      "ReferenceAir.Air_ph: Detailed dry air model (130 ... 2000 K) explicit in p and h"
       extends Modelica.Media.Air.ReferenceAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
 
@@ -62,7 +62,7 @@ The package Air_ph can be used as any other medium model (see <a href=\"modelica
     end Air_ph;
 
     package Air_pT
-      "RealGasAir.Air_pT: Detailed dry air model (130 ... 2000 K) explicit in p and T"
+      "ReferenceAir.Air_pT: Detailed dry air model (130 ... 2000 K) explicit in p and T"
       extends Modelica.Media.Air.ReferenceAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
 
@@ -80,7 +80,7 @@ The package Air_pT can be used as any other medium model (see <a href=\"modelica
 
   public
     package Air_dT
-      "RealGasAir.Air_dT: Detailed dry air model (130 ... 2000 K) explicit in d and T"
+      "ReferenceAir.Air_dT: Detailed dry air model (130 ... 2000 K) explicit in d and T"
       extends Modelica.Media.Air.ReferenceAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.dTX,
 
@@ -2094,9 +2094,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     end Air_Utilities;
     annotation (Documentation(info="<html>
 <p>
-Calculation of fluid properties of air in the fluid region of 130 Kelvin to 2000 Kelvin at pressures up to 2000 MPa. To use this package in your model, select <a href=\"modelica://Modelica.Media.Air.RealGasAir.Air_dT\">
-Air_dT</a>, <a href=\"modelica://Modelica.Media.Air.RealGasAir.Air_pT\">
-Air_pT</a> or <a href=\"modelica://Modelica.Media.Air.RealGasAir.Air_ph\">Air_ph</a> according to which variables you choose to determine your state.
+Calculation of fluid properties of air in the fluid region of 130 Kelvin to 2000 Kelvin at pressures up to 2000 MPa. To use this package in your model, select <a href=\"modelica://Modelica.Media.Air.ReferenceAir.Air_dT\">
+Air_dT</a>, <a href=\"modelica://Modelica.Media.Air.ReferenceAir.Air_pT\">
+Air_pT</a> or <a href=\"modelica://Modelica.Media.Air.ReferenceAir.Air_ph\">Air_ph</a> according to which variables you choose to determine your state.
 </p>
 
 <h4>Restriction</h4>

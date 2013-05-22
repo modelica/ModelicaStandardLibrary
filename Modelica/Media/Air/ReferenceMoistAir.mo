@@ -4459,7 +4459,7 @@ The saturation pressure p<sub>ds</sub> of water in moist air is calculated by p<
 <p>
 For temperatures above 773.15 K effects of dissociation are taken into account. Dissociation is modeled according to [11].
 For high temperatures the calculated values for moist air with 0 kg(water)/kg(dry air) (i.e. dry air) may differ from those
-calculated by the package Modelica.Media.Air.RealGasAir, because there no dissociation is considered.
+calculated by the package Modelica.Media.Air.ReferenceAir, because there no dissociation is considered.
 </p>
 
 <h4>References</h4>
