@@ -1081,11 +1081,11 @@ This also allows for taking into account friction losses with respect to the act
                annotation(Dialog(group="Advanced"), Evaluate=true);
 
             // Variables
-            SI.Density[n] rhos = if use_rho_nominal then fill(rho_nominal, n) else Medium.density(states);
-            SI.Density[n-1] rhos_act "Actual density per segment";
+            Medium.Density[n] rhos = if use_rho_nominal then fill(rho_nominal, n) else Medium.density(states);
+            Medium.Density[n-1] rhos_act "Actual density per segment";
 
-            SI.DynamicViscosity[n] mus = if use_mu_nominal then fill(mu_nominal, n) else Medium.dynamicViscosity(states);
-            SI.DynamicViscosity[n-1] mus_act "Actual viscosity per segment";
+            Medium.DynamicViscosity[n] mus = if use_mu_nominal then fill(mu_nominal, n) else Medium.dynamicViscosity(states);
+            Medium.DynamicViscosity[n-1] mus_act "Actual viscosity per segment";
 
             // Variables
             Modelica.SIunits.Pressure[n-1] dps_fg(each start = (p_a_start - p_b_start)/(n-1))
