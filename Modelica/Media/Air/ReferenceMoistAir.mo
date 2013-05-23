@@ -2413,7 +2413,6 @@ package ReferenceMoistAir
       end Tsat_der;
     end Water95_Utilities;
 
-
     package Ice09_Utilities
       "Utility functions from IAPWS09 required for ice in air"
       extends Modelica.Icons.BasesPackage;
@@ -2425,6 +2424,114 @@ package ReferenceMoistAir
           extends Common.FundamentalConstants;
           Modelica.SIunits.AbsolutePressure p0;
         end IceConstants;
+
+        record MyComplex "Complex number with function"
+          Real re "Real part of complex number" annotation (Dialog);
+          Real im "Imaginary part of complex number" annotation (Dialog);
+
+          encapsulated function toReal "Extract Real part from Complex number"
+            import
+              Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplex;
+            input MyComplex c "Complex number";
+            output Real result=c.re "Real number";
+          algorithm
+
+            annotation (Inline=true, Documentation(info="<html>
+<p>This function returns the real part of a complex number.</p>
+</html>"));
+          end toReal;
+
+          encapsulated function '-' "Subtract two complex numbers"
+            import
+              Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplex;
+            input MyComplex c1 "Complex number 1";
+            input MyComplex c2 "Complex number 2";
+            output MyComplex c3 "= c1 - c2";
+          algorithm
+            c3 := MyComplex(c1.re - c2.re, c1.im - c2.im);
+            annotation (Inline=true,Documentation(info="<html>
+<p>This function returns the difference of two given Complex numbers.</p>
+</html>"));
+          end '-';
+
+          encapsulated function '*' "Multiplication"
+            import
+              Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplex;
+            input MyComplex c1 "Complex number 1";
+            input MyComplex c2 "Complex number 2";
+            output MyComplex c3 "= c1*c2";
+          algorithm
+            c3 := MyComplex(c1.re*c2.re - c1.im*c2.im, c1.re*c2.im + c1.im*c2.re);
+
+            annotation (Inline=true, Documentation(info="<html>
+<p>This function returns the product of two given Complex numbers.</p>
+</html>"));
+          end '*';
+
+          encapsulated function '+' "Add two complex numbers"
+            import
+              Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplex;
+            input MyComplex c1 "Complex number 1";
+            input MyComplex c2 "Complex number 2";
+            output MyComplex c3 "= c1 + c2";
+          algorithm
+            c3 := MyComplex(c1.re + c2.re, c1.im + c2.im);
+            annotation (Inline=true,Documentation(info="<html>
+<p>This function returns the sum of two given Complex numbers.</p>
+</html>"));
+          end '+';
+
+          encapsulated function '/' "Divide two complex numbers"
+            import
+              Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplex;
+            input MyComplex c1 "Complex number 1";
+            input MyComplex c2 "Complex number 2";
+            output MyComplex c3 "= c1/c2";
+          algorithm
+            c3 := MyComplex((+c1.re*c2.re + c1.im*c2.im)/(c2.re*c2.re + c2.im*
+              c2.im), (-c1.re*c2.im + c1.im*c2.re)/(c2.re*c2.re + c2.im*c2.im));
+            annotation (Inline=true,Documentation(info="<html>
+<p>This function returns the quotient of two given Complex numbers.</p>
+</html>"));
+          end '/';
+
+          encapsulated function '^' "Complex power of complex number"
+            import MyComplex;
+            input MyComplex c1 "Complex number";
+            input MyComplex c2 "Complex exponent";
+            output MyComplex c3 "= c1^c2";
+          protected
+            Real lnz=0.5*log(c1.re*c1.re + c1.im*c1.im);
+            Real phi=atan2(c1.im, c1.re);
+            Real re=lnz*c2.re - phi*c2.im;
+            Real im=lnz*c2.im + phi*c2.re;
+          algorithm
+            c3 := MyComplex(exp(re)*cos(im), exp(re)*sin(im));
+            annotation (Inline=true,Documentation(info="<html>
+<p>This function returns the given Complex numbers c1 to the power of the Complex number c2.</p>
+</html>"));
+          end '^';
+
+          encapsulated function 'log' "Logarithm of complex number"
+            import Modelica.Math.atan3;
+            import
+              Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplex;
+            input MyComplex c1 "Complex number";
+            output MyComplex c2 "= log(c1)";
+          protected
+            Real phi=atan3(
+                          c1.im,
+                          c1.re,
+                          0);
+          algorithm
+            c2 := MyComplex(log((c1.re^2 + c1.im^2)^0.5), phi);
+            annotation (Inline=true,Documentation(info="<html>
+<p>This function returns the Complex natural logarithm of the Complex input.</p>
+</html>"));
+          end 'log';
+          annotation ();
+
+        end MyComplex;
         constant IceConstants Constants(
           R_bar=8.314472,
           R=461.52364,
@@ -2443,29 +2550,30 @@ package ReferenceMoistAir
           output Common.GibbsDerivs2 g
             "Gibbs function and dervatives w.r.t. T and p";
 
-          import Modelica.ComplexMath;
-
         protected
           final constant Real[5] g_0={-0.632020233449497E+006,0.655022213658955,
-              -0.189369929326131E-007,0.339746123271053E-014,-0.556464869058991E-021};
-          final constant Real s_0=-0.332733756492168E+004;
-          final Complex[2] t={Complex(0.368017112855051E-001,
-              0.510878114959572E-001),Complex(0.337315741065416,
-              0.335449415919309)};
-          final constant Complex r_1=Complex(0.447050716285388E+002,
-              0.656876847463481E+002);
-          final Complex[3] r_2={Complex(-0.725974574329220E+002, -0.781008427112870E+002),
-              Complex(-0.557107698030123E-004, 0.464578634580806E-004),Complex(
-              0.234801409215913E-010, -0.285651142904972E-010)};
-          final Real pi0=Constants.p0/Constants.pred;
+              -0.189369929326131E-007,0.339746123271053E-014,-0.556464869058991E-021}
+            "Coefficients of EOS";
+          final constant Real s_0=-0.332733756492168E+004 "Coefficient of EOS";
+          final MyComplex[2] t={MyComplex(0.368017112855051E-001,
+              0.510878114959572E-001),MyComplex(0.337315741065416,
+              0.335449415919309)} "Coefficients of EOS";
+          final constant MyComplex r_1=MyComplex(0.447050716285388E+002,
+              0.656876847463481E+002) "Coefficients of EOS";
+          final MyComplex[3] r_2={MyComplex(-0.725974574329220E+002, -0.781008427112870E+002),
+              MyComplex(-0.557107698030123E-004, 0.464578634580806E-004),
+              MyComplex(0.234801409215913E-010, -0.285651142904972E-010)}
+            "Coefficients of EOS";
+          final Real pi0=Constants.p0/Constants.pred "Reduced pressure";
 
           //temporary variables needed for calculation
-          Real g0=0.0;
-          Real g0p=0.0;
-          Real g0pp=0.0;
-          Complex r2=Complex(0.0, 0.0);
-          Complex r2p=Complex(0.0, 0.0);
-          Complex r2pp=Complex(0.0, 0.0);
+          Real g0=0.0 "Help variable";
+          Real g0p=0.0 "Help variable";
+          Real g0pp=0.0 "Help variable";
+          MyComplex r2 "Help variable";
+          MyComplex r2p "Help variable";
+          MyComplex r2pp "Help variable";
+          MyComplex o[12] "Help variable";
 
         algorithm
           g.p := p;
@@ -2485,7 +2593,8 @@ package ReferenceMoistAir
           end for;
           r2 := r_2[1];
           for k in 2:3 loop
-            r2 := r2 + r_2[k]*(g.pi - pi0)^(k - 1);
+            r2 := MyComplex.'+'(r2, MyComplex.'*'(r_2[k], MyComplex((g.pi - pi0)
+              ^(k - 1), 0)));
           end for;
 
           //First derivative of g0 w.r.t. pi
@@ -2495,9 +2604,9 @@ package ReferenceMoistAir
               *(g.pi - pi0)^(k - 2);
           end for;
           //First derivative of r2 w.r.t. pi
-          r2p := r_2[2]/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
-             + r_2[3]*2/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
-            *(g.pi - pi0);
+          r2p := MyComplex.'+'(MyComplex.'/'(r_2[2], MyComplex(Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants
+            .pred, 0)), MyComplex.'*'(MyComplex.'/'(r_2[3], MyComplex(Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants
+            .pred/2, 0)), MyComplex(g.pi - pi0, 0)));
           //Second derivative of g0 w.r.t. pi
           g0pp := g_0[3]*2/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
             ^2;
@@ -2506,44 +2615,109 @@ package ReferenceMoistAir
               ^2*(g.pi - pi0)^(k - 3);
           end for;
           //Second derivative of g0 w.r.t. pi
-          r2pp := r_2[3]*2/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
-            ^2;
+          r2pp := MyComplex.'*'(r_2[3], MyComplex(2/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
+            ^2, 0));
 
-          //Gibbs equation
+          o[1] := MyComplex.'*'(MyComplex.'-'(t[1], MyComplex(g.theta, 0)),
+            MyComplex.'log'(MyComplex.'-'(t[1], MyComplex(g.theta, 0))));
+          o[2] := MyComplex.'*'(MyComplex.'+'(t[1], MyComplex(g.theta, 0)),
+            MyComplex.'log'(MyComplex.'+'(t[1], MyComplex(g.theta, 0))));
+          o[3] := MyComplex.'*'(MyComplex.'-'(t[2], MyComplex(g.theta, 0)),
+            MyComplex.'log'(MyComplex.'-'(t[2], MyComplex(g.theta, 0))));
+          o[4] := MyComplex.'*'(MyComplex.'+'(t[2], MyComplex(g.theta, 0)),
+            MyComplex.'log'(MyComplex.'+'(t[2], MyComplex(g.theta, 0))));
+          o[5] := MyComplex.'*'(MyComplex.'*'(MyComplex(2, 0), t[1]),
+            MyComplex.'log'(t[1]));
+          o[6] := MyComplex.'*'(MyComplex.'*'(MyComplex(2, 0), t[2]),
+            MyComplex.'log'(t[2]));
+          o[7] := MyComplex.'/'(MyComplex(g.theta^2, 0), t[1]);
+          o[8] := MyComplex.'/'(MyComplex(g.theta^2, 0), t[2]);
+          o[9] := MyComplex.'-'(MyComplex.'-'(MyComplex.'+'(o[1], o[2]), o[5]),
+            o[7]);
+          o[10] := MyComplex.'-'(MyComplex.'-'(MyComplex.'+'(o[3], o[4]), o[6]),
+            o[8]);
+
+          //   //Gibbs equation
+          //   g.g := g0 - s_0*Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
+          //     *g.theta + Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
+          //     *GibbsComplex.fromReal(r_1*((t[1] - g.theta)*GibbsComplexMath.log(t[1] - g.theta)
+          //      + (t[1] + g.theta)*GibbsComplexMath.log(t[1] + g.theta) - 2*t[1]*
+          //     GibbsComplexMath.log(t[1]) - g.theta^2/t[1]) + r2*((t[2] - g.theta)*
+          //     GibbsComplexMath.log(t[2] - g.theta) + (t[2] + g.theta)*
+          //     GibbsComplexMath.log(t[2] + g.theta) - 2*t[2]*GibbsComplexMath.log(t[2]) -
+          //     g.theta^2/t[2]));
+
+          //   //Gibbs equation
           g.g := g0 - s_0*Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
             *g.theta + Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-            *ComplexMath.real(r_1*((t[1] - g.theta)*ComplexMath.log(t[1] - g.theta)
-             + (t[1] + g.theta)*ComplexMath.log(t[1] + g.theta) - 2*t[1]*
-            ComplexMath.log(t[1]) - g.theta^2/t[1]) + r2*((t[2] - g.theta)*
-            ComplexMath.log(t[2] - g.theta) + (t[2] + g.theta)*ComplexMath.log(
-            t[2] + g.theta) - 2*t[2]*ComplexMath.log(t[2]) - g.theta^2/t[2]));
+            *MyComplex.toReal(MyComplex.'+'(MyComplex.'*'(r_1, o[9]),
+            MyComplex.'*'(r2, o[10])));
 
-          //First derivative of g w.r.t. p
+          // //First derivative of g w.r.t. p
+          // g.gp := g0p + MoMoLib.Water.IAPWS09.Ice09_Utilities.Basic.Constants.Tred*
+          //   ComplexMath.real(r2p*((t[2] - g.theta)*ComplexMath.log(t[2] - g.theta) + (t[
+          //   2] + g.theta)*ComplexMath.log(t[2] + g.theta) - 2*t[2]*ComplexMath.log(t[2])
+          //    - g.theta^2/t[2]));
+
+          // //First derivative of g w.r.t. p
           g.gp := g0p + Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-            *ComplexMath.real(r2p*((t[2] - g.theta)*ComplexMath.log(t[2] - g.theta)
-             + (t[2] + g.theta)*ComplexMath.log(t[2] + g.theta) - 2*t[2]*
-            ComplexMath.log(t[2]) - g.theta^2/t[2]));
+            *MyComplex.toReal(MyComplex.'*'(r2p, o[10]));
 
-          //Second derivative of g w.r.t. p
+          //   //Second derivative of g w.r.t. p
+          //   g.gpp := g0pp + Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
+          //     *GibbsComplex.fromReal(r2pp*((t[2] - g.theta)*GibbsComplexMath.log(t[2] - g.theta)
+          //      + (t[2] + g.theta)*GibbsComplexMath.log(t[2] + g.theta) - 2*t[2]*
+          //     GibbsComplexMath.log(t[2]) - g.theta^2/t[2]));
+
+          // //Second derivative of g w.r.t. p
           g.gpp := g0pp + Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-            *ComplexMath.real(r2pp*((t[2] - g.theta)*ComplexMath.log(t[2] - g.theta)
-             + (t[2] + g.theta)*ComplexMath.log(t[2] + g.theta) - 2*t[2]*
-            ComplexMath.log(t[2]) - g.theta^2/t[2]));
+            *MyComplex.toReal(MyComplex.'*'(r2pp, o[10]));
 
-          //First derivative of g w.r.t. T
-          g.gT := -s_0 + ComplexMath.real(r_1*(-ComplexMath.log(t[1] - g.theta)
-             + ComplexMath.log(t[1] + g.theta) - 2*g.theta/t[1]) + r2*(-
-            ComplexMath.log(t[2] - g.theta) + ComplexMath.log(t[2] + g.theta)
-             - 2*g.theta/t[2]));
+          //   //First derivative of g w.r.t. T
+          //   g.gT := -s_0 + GibbsComplex.fromReal(r_1*(
+          //      + GibbsComplexMath.log(t[1] + g.theta) - 2*g.theta/t[1] -GibbsComplexMath.log(t[1] - g.theta)) + r2*(-
+          //     GibbsComplexMath.log(t[2] - g.theta) + GibbsComplexMath.log(t[2] + g.theta) -
+          //     2*g.theta/t[2]));
 
-          //Second derivative of g w.r.t. T
+          o[11] := MyComplex.'-'(MyComplex.'-'(MyComplex.'log'(MyComplex.'+'(t[
+            1], MyComplex(g.theta, 0))), MyComplex.'/'(MyComplex(2*g.theta, 0),
+            t[1])), MyComplex.'log'(MyComplex.'-'(t[1], MyComplex(g.theta, 0))));
+
+          o[12] := MyComplex.'-'(MyComplex.'-'(MyComplex.'log'(MyComplex.'+'(t[
+            2], MyComplex(g.theta, 0))), MyComplex.'log'(MyComplex.'-'(t[2],
+            MyComplex(g.theta, 0)))), MyComplex.'/'(MyComplex(2*g.theta, 0), t[
+            2]));
+
+          //   //First derivative of g w.r.t. T
+          g.gT := -s_0 + MyComplex.toReal(MyComplex.'+'(MyComplex.'*'(r_1, o[11]),
+            MyComplex.'*'(r2, o[12])));
+
+          //   //Second derivative of g w.r.t. T
+          //   g.gTT := 1/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
+          //     *GibbsComplex.fromReal(r_1*(1/(t[1] - g.theta) + 1/(t[1] + g.theta) - 2/t[1])
+          //      + r2*(1/(t[2] - g.theta) + 1/(t[2] + g.theta) - 2/t[2]));
+
+          //   //Second derivative of g w.r.t. T
           g.gTT := 1/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred
-            *ComplexMath.real(r_1*(1/(t[1] - g.theta) + 1/(t[1] + g.theta) - 2/
-            t[1]) + r2*(1/(t[2] - g.theta) + 1/(t[2] + g.theta) - 2/t[2]));
+            *MyComplex.toReal(MyComplex.'+'(MyComplex.'*'(r_1, MyComplex.'-'(
+            MyComplex.'+'(MyComplex.'/'(MyComplex(1, 0), MyComplex.'-'(t[1],
+            MyComplex(g.theta, 0))), MyComplex.'/'(MyComplex(1, 0),
+            MyComplex.'+'(t[1], MyComplex(g.theta, 0)))), MyComplex.'/'(
+            MyComplex(2, 0), t[1]))), MyComplex.'*'(r2, MyComplex.'-'(
+            MyComplex.'+'(MyComplex.'/'(MyComplex(1, 0), MyComplex.'-'(t[2],
+            MyComplex(g.theta, 0))), MyComplex.'/'(MyComplex(1, 0),
+            MyComplex.'+'(t[2], MyComplex(g.theta, 0)))), MyComplex.'/'(
+            MyComplex(2, 0), t[2])))));
 
-          //Mixed derivative of g w.r.t. T and p
-          g.gTp := ComplexMath.real(r2p*(-ComplexMath.log(t[2] - g.theta) +
-            ComplexMath.log(t[2] + g.theta) - 2*g.theta/t[2]));
+          //  //Mixed derivative of g w.r.t. T and p
+          // g.gTp := ComplexMath.real(r2p*(-ComplexMath.log(t[2] - g.theta) +
+          //   ComplexMath.log(t[2] + g.theta) - 2*g.theta/t[2]));
+
+          //  //Mixed derivative of g w.r.t. T and p
+          g.gTp := MyComplex.toReal(MyComplex.'*'(r2p, MyComplex.'-'(
+            MyComplex.'log'(MyComplex.'+'(t[2], MyComplex(g.theta, 0))),
+            MyComplex.'+'(MyComplex.'/'(MyComplex(2*g.theta, 0), t[2]),
+            MyComplex.'log'(MyComplex.'-'(t[2], MyComplex(g.theta, 0)))))));
 
         end Gibbs;
 
@@ -2575,7 +2749,6 @@ package ReferenceMoistAir
             Inline=false,
             LateInline=true);
         end psub;
-
 
         function Tsub "Sublimation temperature"
           extends Modelica.Icons.Function;
@@ -2635,35 +2808,6 @@ package ReferenceMoistAir
 
         end psub_der;
 
-        function pmelt_der "Derivative of melting pressure"
-          extends Modelica.Icons.Function;
-
-          input SI.Temperature T "Temperature";
-          input Real T_der "Temperature";
-          output Real p_melt_der "Derivative of pressure";
-
-        protected
-          final constant Real[3] a={0.119539337E+007,0.808183159E+005,
-              0.333826860E+004};
-          final constant Real[3] b={0.3E+001,0.2575E+002,0.103750E+003};
-          Real theta;
-          Real theta_der;
-          Real sum=0;
-          Real sum_der=0;
-
-        algorithm
-          theta := T/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred;
-          theta_der := 1/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.Tred;
-
-          for k in 1:3 loop
-            sum := sum + a[k]*(1 - theta^b[k]);
-            sum_der := sum_der - a[k]*b[k]*theta^(b[k] - 1)*theta_der;
-          end for;
-
-          p_melt_der := sum_der*Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
-            *T_der;
-
-        end pmelt_der;
       end Basic;
 
       function ice09BaseProp_pT
