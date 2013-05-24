@@ -485,7 +485,7 @@ end Vectors;
   algorithm
     result := (c.re^2 + c.im^2)^0.5; //changed from sqrt
     annotation(Inline=true, Documentation(info="<html>
-<p>This function returns the Real absolute of the Complex input, i.e., it's length.</p>
+<p>This function returns the Real absolute of the Complex input, i.e., its length.</p>
 </html>"));
   end 'abs';
 
@@ -501,7 +501,7 @@ end Vectors;
         c.re,
         phi0);
     annotation(Inline=true, Documentation(info="<html>
-<p>This function returns the Real argument of the Complex input, i.e., it's angle.</p>
+<p>This function returns the Real argument of the Complex input, i.e., its angle.</p>
 </html>"));
   end arg;
 
@@ -546,7 +546,7 @@ end Vectors;
   algorithm
     c := Complex(len*Modelica.Math.cos(phi), len*Modelica.Math.sin(phi));
     annotation(Inline=true, Documentation(info="<html>
-<p>This function constructs a Complex number from it's length (absolute) and angle (argument).</p>
+<p>This function constructs a Complex number from its length (absolute) and angle (argument).</p>
 </html>"));
   end fromPolar;
 
