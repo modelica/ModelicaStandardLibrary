@@ -948,7 +948,6 @@ In this example the eddy current losses are implemented in two different ways. C
       end SinglePhaseInductance;
 
       model MultiPhaseInductance "Multi phase inductance"
-        import QuasiStationaryFundamentalWave;
         extends Modelica.Icons.Example;
         parameter Integer m = 3 "Number of phases";
         parameter Modelica.SIunits.Frequency f = 1 "Supply frequency";
