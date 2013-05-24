@@ -2496,7 +2496,8 @@ package ReferenceMoistAir
           end '/';
 
           encapsulated function '^' "Complex power of complex number"
-            import MyComplex;
+            import
+              Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.MyComplex;
             input MyComplex c1 "Complex number";
             input MyComplex c2 "Complex exponent";
             output MyComplex c3 "= c1^c2";
