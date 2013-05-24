@@ -519,7 +519,7 @@ Modelica_Export const char* ModelicaInternal_fullPathName(const char* name)
     fullName = ModelicaAllocateString(strlen(tempName));
     strcpy(fullName, tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
-elif defined(_POSIX_) || defined(__WATCOMC__) || defined(__BORLANDC__)
+#elif defined(_POSIX_) || defined(__WATCOMC__) || defined(__BORLANDC__)
     /* No such system call in _POSIX_ available (except realpath above) */
     char* cwd = getcwd(buffer, sizeof(buffer));
     if (cwd == NULL) {
