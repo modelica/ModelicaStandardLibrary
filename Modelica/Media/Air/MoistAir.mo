@@ -338,7 +338,6 @@ The ideal gas constant for moist air is computed from the gas phase composition.
           1.80122502} "Coefficients a[:]";
       Real n[:]={1.0,1.5,3.0,3.5,4.0,7.5} "Coefficients n[:]";
     algorithm
-      // Approach used here is based on Baehr: "Thermodynamik", 12th edition p.204ff, "Method of Wagner"
       psat := exp(((a[1]*r1^n[1] + a[2]*r1^n[2] + a[3]*r1^n[3] + a[4]*r1^n[4]
          + a[5]*r1^n[5] + a[6]*r1^n[6])*Tcritical)/Tsat)*pcritical;
       annotation (
@@ -454,8 +453,8 @@ The ideal gas constant for moist air is computed from the gas phase composition.
         smoothOrder=5,
         derivative=saturationPressure_der,
         Documentation(info="<html>
-Saturation pressure of water in the liquid and the solid region is computed using an Antoine-type correlation. It's range of validity is between 223.16 and 373.16 K. Outside of these limits a (less accurate) result is returned. Functions for the
-<a href=\"modelica://Modelica.Media.Air.MoistAir.sublimationPressureIce\">solid</a> and the <a href=\"modelica://Modelica.Media.Air.MoistAir.saturationPressureLiquid\"> liquid</a> region, respectively, are combined using the first derivative continuous <a href=\"modelica://Modelica.Media.Air.MoistAir.Utilities.spliceFunction\">spliceFunction</a>.
+Saturation pressure of water in the liquid and the solid region is computed using correlations. Functions for the
+<a href=\"modelica://Modelica.Media.Air.MoistAir.sublimationPressureIce\">solid</a> and the <a href=\"modelica://Modelica.Media.Air.MoistAir.saturationPressureLiquid\"> liquid</a> region, respectively, are combined using the first derivative continuous <a href=\"modelica://Modelica.Media.Air.MoistAir.Utilities.spliceFunction\">spliceFunction</a>. This functions range of validity is from 190 to 647.096 K. For more information on the type of correlation used, see the documentation of the linked functions.
 </html>"));
     end saturationPressure;
 
