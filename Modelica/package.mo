@@ -2460,10 +2460,13 @@ and will interpret it in the same way. Short Overview:
      <a href=\"https://www.modelica.org/news_items/call-texts-to-improve-modelica-2012/2012-12-20-Call-for-quotation-for-MSL-tables.pdf/at_download/file\">payed contract</a>
      of the Modelica Association. As a result, all parts of package Modelica are now available
      in a free implementation. Additionally new features have been added to the table blocks
-     by this implementation: The table outputs can be differentiated once,
-     support of Matlab binary file formats V6 and V7,
-     new option ConstantSegments for parameter Smoothness, as well
-     as option NoExtrapolation for parameter Extrapolation.</li>
+     by this implementation:
+     <ul>
+     <li>The table outputs can be differentiated once.</li>
+     <li>Support of binary MATLAB MAT-file formats v6 and v7</li>
+     <li>New option ConstantSegments for parameter Smoothness</li>
+     <li>New option NoExtrapolation for parameter Extrapolation</li>
+     </ul>
 
 <li> The <b>Modelica.Media.Air.MoistAir</b> media model has been improved so that it
      can be used in a temperature range of 190 ... 647 K (previously: 240 ... 400 K).</li>
@@ -2723,11 +2726,14 @@ to <b style=\"color:blue\">existing</b> libraries:
 
 <tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> PressureDifference<br>
+                        MolarDensity<br>
                         MolarEnergy<br>
                         MolarEnthalpy<br>
                         TimeAging<br>
                         ChargeAging<br>
-                        PerUnit</td>
+                        PerUnit<br>
+                        DerPressureByDensity<br>
+                        DerPressureByTemperature</td>
     <td valign=\"top\"> New SI unit types </td></tr>
 </table>
 </html>"));
