@@ -1136,7 +1136,7 @@ to show how diagram animations can be constructed.
 <p>
 In technical systems, such as vehicles, robots or satellites, many signals
 are exchanged between components. In a simulation system, these signals
-are  usually modelled by signal connections of input/output blocks.
+are usually modelled by signal connections of input/output blocks.
 Unfortunately, the signal connection structure may become very complicated,
 especially for hierarchical models.
 </p>

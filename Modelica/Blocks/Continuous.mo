@@ -1879,7 +1879,7 @@ The critical damping filter is defined as
             filterType == Modelica.Blocks.Types.FilterType.HighPass or
             f_min > 0, "f_min > 0 required for band pass and band stop filter");
      assert(A_ripple > 0, "A_ripple > 0 required");
-     assert(f_cut > 0, "f_cut > 0  required");
+     assert(f_cut > 0, "f_cut > 0 required");
 
      /* All filters have the same basic differential equations:
         Real poles:

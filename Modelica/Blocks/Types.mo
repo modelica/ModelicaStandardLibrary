@@ -83,7 +83,7 @@ initialization definition.
     annotation (Evaluate=true);
 
   class ExternalCombiTimeTable
-    "External object of  1-dim. table where first column is time"
+    "External object of 1-dim. table where first column is time"
     extends ExternalObject;
 
     function constructor "Initialize 1-dim. table where first column is time"
