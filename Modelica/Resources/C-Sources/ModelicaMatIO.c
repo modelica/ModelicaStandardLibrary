@@ -9188,11 +9188,6 @@ Mat_Open(const char *matname,int mode)
     bytesread += fread(mat->subsys_offset,1,8,fp);
     bytesread += 2*fread(&tmp2,2,1,fp);
     bytesread += fread(&tmp,1,2,fp);
-    if ( 128 != bytesread ) {
-        Mat_Critical("Could not read MAT file header");
-        Mat_Close(mat);
-        return NULL;
-    }
 
     mat->byteswap = -1;
     if (tmp == 0x4d49)
@@ -9207,6 +9202,11 @@ Mat_Open(const char *matname,int mode)
          -1 != mat->byteswap ) {
         mat->bof = ftell(mat->fp);
         mat->next_index    = 0;
+        if ( 128 != bytesread ) {
+            Mat_Critical("Could not read MAT file header");
+            Mat_Close(mat);
+            return NULL;
+        }
     } else {
         /* Maybe a V4 MAT file */
         matvar_t *var;
