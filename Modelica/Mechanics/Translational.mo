@@ -1095,50 +1095,50 @@ one where the brake is implicitly grounded and one where it is explicitly ground
         s(fixed=true),
         L=0.1,
         v(fixed=true))
-        annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+        annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
       Components.SpringDamper springDamper(
         s_rel(fixed=true),
         v_rel(fixed=true),
         c=100,
         d=10,
         useHeatPort=true)
-              annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+              annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
       Components.Damper damper(d=10, useHeatPort=true)
         annotation (Placement(transformation(extent={{-10,10},{10,-10}},
             rotation=-90,
-            origin={-40,-10})));
+            origin={-60,-10})));
       Components.ElastoGap elastoGap(
         c=100,
         d=20,
         s_rel0=-0.02,
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+        annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
       Components.Fixed fixed1
-        annotation (Placement(transformation(extent={{-50,-40},{-30,-20}})));
+        annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
       Sources.Force force
-        annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
+        annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
       Blocks.Sources.Sine sine1(freqHz=1, amplitude=20)
-        annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
+        annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
       Components.Mass mass2(
         m=1,
         L=0.1,
         s(fixed=false),
         v(fixed=false))
-        annotation (Placement(transformation(extent={{20,20},{40,40}})));
+        annotation (Placement(transformation(extent={{0,20},{20,40}})));
       Components.SupportFriction supportFriction(useHeatPort=true)
-        annotation (Placement(transformation(extent={{50,20},{70,40}})));
+        annotation (Placement(transformation(extent={{30,20},{50,40}})));
       Components.Spring spring(c=100, s_rel(fixed=true))
-        annotation (Placement(transformation(extent={{80,20},{100,40}})));
+        annotation (Placement(transformation(extent={{60,20},{80,40}})));
       Components.Mass mass3(
         m=1,
         L=0.1,
         s(fixed=false),
-        v(fixed=false))
-        annotation (Placement(transformation(extent={{110,20},{130,40}})));
+        v(fixed=true))
+        annotation (Placement(transformation(extent={{90,20},{110,40}})));
       Components.Brake brake(fn_max=10, useHeatPort=true)
-        annotation (Placement(transformation(extent={{140,20},{160,40}})));
+        annotation (Placement(transformation(extent={{120,20},{140,40}})));
       Blocks.Sources.Sine sine2(amplitude=10, freqHz=2)
-        annotation (Placement(transformation(extent={{120,50},{140,70}})));
+        annotation (Placement(transformation(extent={{100,50},{120,70}})));
       Components.MassWithStopAndFriction massWithStopAndFriction(
         L=0.1,
         m=1,
@@ -1150,107 +1150,121 @@ one where the brake is implicitly grounded and one where it is explicitly ground
         smax=0.4,
         v(fixed=true),
         useHeatPort=true)
-        annotation (Placement(transformation(extent={{170,20},{190,40}})));
+        annotation (Placement(transformation(extent={{180,20},{200,40}})));
       Thermal.HeatTransfer.Components.Convection convection
-        annotation (Placement(transformation(extent={{40,-40},{60,-60}})));
+        annotation (Placement(transformation(extent={{-10,-40},{10,-60}})));
       Blocks.Sources.Constant const(k=20)
-        annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
+        annotation (Placement(transformation(extent={{-30,-90},{-10,-70}})));
       Thermal.HeatTransfer.Celsius.FixedTemperature TAmbient(T=25)
         "Ambient temperature"
-        annotation (Placement(transformation(extent={{94,-60},{74,-40}})));
+        annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
       Components.Fixed fixed2
-        annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
+        annotation (Placement(transformation(extent={{-120,-10},{-100,10}})));
+      Components.SpringDamper springDamper1(
+        c=10000,
+        d=1000,
+        useHeatPort=true,
+        s_rel(fixed=true))
+        annotation (Placement(transformation(extent={{150,20},{170,40}})));
     equation
 
       connect(mass1.flange_b, springDamper.flange_a)
                                                     annotation (Line(
-          points={{-20,30},{-10,30}},
+          points={{-40,30},{-30,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(sine1.y, force.f) annotation (Line(
-          points={{-79,30},{-72,30}},
+          points={{-99,30},{-92,30}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(force.flange, mass1.flange_a) annotation (Line(
-          points={{-50,30},{-40,30}},
+          points={{-70,30},{-60,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(mass1.flange_a, damper.flange_a) annotation (Line(
-          points={{-40,30},{-40,0}},
+          points={{-60,30},{-60,0}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(damper.flange_b, fixed1.flange) annotation (Line(
-          points={{-40,-20},{-40,-30}},
+          points={{-60,-20},{-60,-30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(springDamper.flange_b, mass2.flange_a) annotation (Line(
-          points={{10,30},{20,30}},
+          points={{-10,30},{0,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(mass2.flange_b, supportFriction.flange_a) annotation (Line(
-          points={{40,30},{50,30}},
+          points={{20,30},{30,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(supportFriction.flange_b, spring.flange_a) annotation (Line(
-          points={{70,30},{80,30}},
+          points={{50,30},{60,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(spring.flange_b, mass3.flange_a) annotation (Line(
-          points={{100,30},{110,30}},
+          points={{80,30},{90,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(mass3.flange_b, brake.flange_a) annotation (Line(
-          points={{130,30},{140,30}},
+          points={{110,30},{120,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(sine2.y, brake.f_normalized) annotation (Line(
-          points={{141,60},{150,60},{150,41}},
+          points={{121,60},{130,60},{130,41}},
           color={0,0,127},
           smooth=Smooth.None));
-      connect(brake.flange_b, massWithStopAndFriction.flange_a) annotation (
-          Line(
-          points={{160,30},{170,30}},
-          color={0,127,0},
-          smooth=Smooth.None));
       connect(elastoGap.flange_b, mass1.flange_a) annotation (Line(
-          points={{-50,0},{-40,0},{-40,30}},
+          points={{-70,0},{-60,0},{-60,30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(const.y,convection. Gc) annotation (Line(
-          points={{41,-80},{50,-80},{50,-60}},
+          points={{-9,-80},{0,-80},{0,-60}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(TAmbient.port,convection. fluid) annotation (Line(
-          points={{74,-50},{60,-50}},
+          points={{20,-50},{10,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(elastoGap.flange_a, fixed2.flange) annotation (Line(
-          points={{-70,0},{-90,0}},
+          points={{-90,0},{-110,0}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(elastoGap.heatPort, convection.solid) annotation (Line(
-          points={{-70,-10},{-70,-50},{40,-50}},
+          points={{-90,-10},{-90,-50},{-10,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(damper.heatPort, convection.solid) annotation (Line(
-          points={{-30,0},{-20,0},{-10,0},{-10,-50},{40,-50}},
+          points={{-50,0},{-50,-50},{-10,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(springDamper.heatPort, convection.solid) annotation (Line(
-          points={{-10,20},{-10,-50},{40,-50}},
+          points={{-30,20},{-30,-50},{-10,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(supportFriction.heatPort, convection.solid) annotation (Line(
-          points={{50,20},{50,0},{-10,0},{-10,-50},{40,-50}},
+          points={{30,20},{30,0},{-30,0},{-30,-50},{-10,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(brake.heatPort, convection.solid) annotation (Line(
-          points={{140,20},{140,0},{-10,0},{-10,-50},{40,-50}},
+          points={{120,20},{120,0},{-30,0},{-30,-50},{-10,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(massWithStopAndFriction.heatPort, convection.solid) annotation (
           Line(
-          points={{170,20},{170,0},{-10,0},{-10,-50},{40,-50}},
+          points={{180,20},{180,0},{-30,0},{-30,-50},{-10,-50}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(brake.flange_b, springDamper1.flange_a) annotation (Line(
+          points={{140,30},{150,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(springDamper1.flange_b, massWithStopAndFriction.flange_a)
+        annotation (Line(
+          points={{170,30},{180,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(springDamper1.heatPort, convection.solid) annotation (Line(
+          points={{150,20},{150,0},{-30,0},{-30,-50},{-10,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       annotation (        Documentation(info="<html>
@@ -1263,7 +1277,8 @@ is present in variable convection.fluid.
 </p>
 </html>"),
         experiment(StopTime=2.0, Interval=0.001),
-        Diagram(coordinateSystem(extent={{-120,-100},{200,100}})));
+        Diagram(coordinateSystem(extent={{-120,-100},{200,100}},
+              preserveAspectRatio=false), graphics));
     end HeatLosses;
 
     package Utilities "Utility classes used by the Example models"
@@ -3138,7 +3153,8 @@ This package contains basic components 1D mechanical translational drive trains.
 
     model PositionSensor "Ideal sensor to measure the absolute position"
       extends Translational.Interfaces.PartialAbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput s(final quantity="Length", final unit="m") "Absolute position of flange as output signal"
+      Modelica.Blocks.Interfaces.RealOutput s(final quantity="Length", final unit="m")
+        "Absolute position of flange as output signal"
                                     annotation (Placement(transformation(extent={{100,-11},
                 {120,9}},            rotation=0), iconTransformation(extent={{100,
                 -10},{120,10}})));
@@ -3367,7 +3383,8 @@ with blocks of the Modelica.Blocks library).
     model PowerSensor
       "Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))"
       extends Translational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power", final unit="W") "Power in flange flange_a as output signal"
+      Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power", final unit="W")
+        "Power in flange flange_a as output signal"
          annotation (Placement(transformation(
             origin={-80,-110},
             extent={{10,-10},{-10,10}},
@@ -3398,7 +3415,8 @@ and provides the result as output signal <b>power</b>
     model MultiSensor
       "Ideal sensor to measure the absolute velocity, force and power between two flanges"
       extends Translational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power", final unit="W") "Power in flange flange_a as output signal"
+      Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power", final unit="W")
+        "Power in flange flange_a as output signal"
          annotation (Placement(transformation(
             origin={-60,-110},
             extent={{10,-10},{-10,10}},
