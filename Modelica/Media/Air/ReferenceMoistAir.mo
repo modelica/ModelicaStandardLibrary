@@ -2429,7 +2429,7 @@ protected
         record MyComplex "Complex number with function"
           Real re "Real part of complex number" annotation (Dialog);
           Real im "Imaginary part of complex number" annotation (Dialog);
-        end MyCmoplex;
+        end MyComplex;
 
         package MyComplexF
           function toReal "Extract Real part from Complex number"
