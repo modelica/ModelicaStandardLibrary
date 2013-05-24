@@ -19,7 +19,7 @@
                        (useful if file is included with other C-sources for an
                         embedded system)
                      - "__declspec(dllexport)" if included in a DLL and the
-                       functions shall be visible outside if the DLL
+                       functions shall be visible outside of the DLL
 
 
     Release Notes:
@@ -53,7 +53,7 @@
         ModelicaInternal_getFullPath
 
 
-    Copyright (C) 2002-20013, Modelica Association and DLR.
+    Copyright (C) 2002-2013, Modelica Association and DLR.
 
 
    The content of this file is free software; it can be redistributed
@@ -147,8 +147,12 @@ static void ModelicaNotExistError(const char* name) {
 #     include <sys/stat.h>
 #  endif
 
-#define BUFFER_LENGTH 1000
-static char buffer[BUFFER_LENGTH];  /* Buffer for temporary storage */
+#if PATH_MAX > 1024
+#define BUFFER_LENGTH PATH_MAX
+#else
+#define BUFFER_LENGTH 1024
+#endif
+static char buffer[BUFFER_LENGTH];  /* Buffer for temporary storage. Should be  */
 
 typedef enum {
    FileType_NoFile = 1,
@@ -500,8 +504,13 @@ Modelica_Export const char* ModelicaInternal_fullPathName(const char* name)
 
     char* fullName=0;
 
-#if defined(_WIN32) && (defined(_MSC_VER) || defined(__WATCOMC__))
+#if defined(_WIN32) && (defined(_MSC_VER) || defined(__WATCOMC__)) || (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED)
+#if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED)
+    /* realpath availability: 4.4BSD, POSIX.1-2001. Using the behaviour of NULL: POSIX.1-2008 */
+    char* tempName = realpath(name, buffer);
+#else
     char* tempName = _fullpath(buffer, name, sizeof(buffer));
+#endif
     if (tempName == NULL) {
         ModelicaFormatError("Not possible to construct full path name of \"%s\"\n%s",
             name, strerror(errno));
@@ -511,7 +520,7 @@ Modelica_Export const char* ModelicaInternal_fullPathName(const char* name)
     strcpy(fullName, tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
 elif defined(_POSIX_) || defined(__WATCOMC__) || defined(__BORLANDC__)
-    /* No such system call in _POSIX_ available */
+    /* No such system call in _POSIX_ available (except realpath above) */
     char* cwd = getcwd(buffer, sizeof(buffer));
     if (cwd == NULL) {
         ModelicaFormatError("Not possible to get current working directory:\n%s",
