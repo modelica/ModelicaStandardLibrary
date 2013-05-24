@@ -152,7 +152,7 @@ static void ModelicaNotExistError(const char* name) {
 #else
 #define BUFFER_LENGTH 1024
 #endif
-static char buffer[BUFFER_LENGTH];  /* Buffer for temporary storage. Should be  */
+static char buffer[BUFFER_LENGTH];  /* Buffer for temporary storage. Should be sufficient for PATH_MAX on all standard platforms.  */
 
 typedef enum {
    FileType_NoFile = 1,
