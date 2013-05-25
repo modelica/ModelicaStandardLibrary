@@ -1059,7 +1059,7 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
 
     model TemperatureSensor "Absolute temperature sensor in Kelvin"
 
-      Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature", final unit="K")
+      Modelica.Blocks.Interfaces.RealOutput T(quantity="ThermodynamicTemperature", unit="K")
         "Absolute temperature as output signal"                                                                                                  annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
@@ -1160,7 +1160,7 @@ sensor model.
                 -110,-10},{-90,10}}, rotation=0)));
       Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput T_rel(final quantity="ThermodynamicTemperature", final unit="K", displayUnit="K")
+      Modelica.Blocks.Interfaces.RealOutput T_rel(quantity="ThermodynamicTemperature", unit="K", displayUnit="K")
         "Relative temperature as output signal"
                             annotation (Placement(transformation(
             origin={0,-90},
