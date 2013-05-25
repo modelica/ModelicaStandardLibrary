@@ -1205,7 +1205,7 @@ the two ports of this component and is provided as output signal in Kelvin.
 
     model HeatFlowSensor "Heat flow rate sensor"
       extends Modelica.Icons.RotationalSensor;
-      Modelica.Blocks.Interfaces.RealOutput Q_flow(final quantity="Power", final unit="W")
+      Modelica.Blocks.Interfaces.RealOutput Q_flow(quantity="Power", unit="W")
         "Heat flow from port_a to port_b as output signal" annotation (Placement(
             transformation(
             origin={0,-100},
@@ -1267,7 +1267,7 @@ The output signal is positive, if the heat flows from port_a to port_b.
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-50,-30})));
-      Blocks.Interfaces.RealOutput Q_flow(final quantity="Power", final unit="W")
+      Blocks.Interfaces.RealOutput Q_flow(quantity="Power", unit="W")
         "Heat flow from port_a to port_b as output signal" annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
