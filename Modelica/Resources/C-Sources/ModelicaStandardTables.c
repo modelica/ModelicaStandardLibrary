@@ -2803,9 +2803,23 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 }
 
                 /* Loop over rows and store table row-wise */
-                for (i = 0; tableReadError == 0 && i < nRow; i++) {
+                i = 0;
+                while (tableReadError == 0 && i < nRow) {
+                    int k = 0;
+
                     if ((tableReadError = readLine(&buf, &bufLen, fp)) != 0) {
                         break;
+                    }
+                    /* Ignore leading white space */
+                    while (k < bufLen - 1) {
+                        if (buf[k] != ' ' && buf[k] != '\t') {
+                            break;
+                        }
+                        k++;
+                    }
+                    if (buf[k] == '\0' || buf[k] == '#') {
+                        /* Skip empty or comment line */
+                        continue;
                     }
                     token = strtok(buf, DELIM_TABLE_NUMBER);
                     for (j = 0; j < nCol; j++) {
@@ -2822,6 +2836,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                             break;
                         }
                     }
+                    i++;
                 }
                 break;
             }
