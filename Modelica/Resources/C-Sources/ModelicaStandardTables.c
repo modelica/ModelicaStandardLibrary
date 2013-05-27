@@ -2698,6 +2698,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         int foundTable = 0;
         int tableReadError;
         unsigned long nRow, nCol;
+        unsigned long lineNo = 1;
 
         fp = fopen(fileName, "r");
         if (!fp) {
@@ -2761,6 +2762,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         while (readLine(&buf, &bufLen, fp) == 0) {
             char* token;
 
+            lineNo++;
             /* Expected table header format: "double tableName(nRow,nCol)" */
             token = strtok(buf, DELIM_TABLE_HEADER);
             if (!token) {
@@ -2807,6 +2809,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 while (tableReadError == 0 && i < nRow) {
                     int k = 0;
 
+                    lineNo++;
                     if ((tableReadError = readLine(&buf, &bufLen, fp)) != 0) {
                         break;
                     }
@@ -2844,6 +2847,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 /* Skip next table lines */
                 size_t i;
                 for (i = 0; tableReadError == 0 && i < nRow; i++) {
+                    lineNo++;
                     if ((tableReadError = readLine(&buf, &bufLen, fp)) != 0) {
                         break;
                     }
@@ -2874,8 +2878,8 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             *_nRow = 0;
             *_nCol = 0;
             ModelicaFormatError(
-                "Error when reading numeric data of matrix \"%s(%lu,%lu)\" "
-                "from file \"%s\"\n", tableName, nRow, nCol, fileName);
+                "Error in line %lu when reading numeric data of matrix \"%s(%lu,%lu)\" "
+                "from file \"%s\"\n", lineNo, tableName, nRow, nCol, fileName);
             return NULL;
         }
     }
