@@ -25,10 +25,10 @@
     Release Notes:
       May 21, 2013, by Martin Otter, DLR.
         Included the improvements from DS Lund:
- 	      - Changed implementation of print to do nothing in case of missing file-system.
-		    Otherwise we just end up with an error message that is not written,
-		    and the failure in itself is not sufficiently fatal to just stop
-		  - Caching when reading from file
+          - Changed implementation of print to do nothing in case of missing file-system.
+            Otherwise we just end up with an error message that is not written,
+            and the failure in itself is not sufficiently fatal to just stop
+          - Caching when reading from file
 
       March 26, 2013, by Martin Otter, DLR.
         Changed type of variable valueStart from int to size_t (ticket #1032)
@@ -417,8 +417,8 @@ MODELICA_EXPORT void ModelicaInternal_readDirectory(const char* directory, int n
            /* Save pointer to file */
               files[iFiles] = pName;
               iFiles++;
-        };
-     };
+        }
+     }
 
      if ( errno != 0 ) {
         errnoTemp = errno;
@@ -463,8 +463,8 @@ MODELICA_EXPORT int ModelicaInternal_getNumberOfFiles(const char* directory) {
         if ( (strcmp(pinfo->d_name, "." ) != 0) &&
             (strcmp(pinfo->d_name, "..") != 0) ) {
             nFiles++;
-        };
-    };
+        }
+    }
     errnoTemp = errno;
     closedir(pdir);
     if ( errnoTemp != 0 ) {errno = errnoTemp; goto Modelica_ERROR;}
@@ -553,59 +553,59 @@ static FILE*cached_fp=0;
 static int cached_line;
 
 static void CacheFileForReading(FILE*f,const char*fileName, int line) {
-	if (cached_fp!=0) {
-		FILE*f1=cached_fp;
-		cached_fp=0;
-		fclose(f1);
-	}
-	if (fileName==0 || strlen(fileName)+1>=sizeof(cached_fileName)) {
-		/* Do not add, close file */
-		if (f)
-			fclose(f);
-		return;
-	}
-	strcpy(cached_fileName, fileName);
-	cached_fp=f;
-	cached_line=line;
+    if (cached_fp!=0) {
+        FILE*f1=cached_fp;
+        cached_fp=0;
+        fclose(f1);
+    }
+    if (fileName==0 || strlen(fileName)+1>=sizeof(cached_fileName)) {
+        /* Do not add, close file */
+        if (f)
+            fclose(f);
+        return;
+    }
+    strcpy(cached_fileName, fileName);
+    cached_fp=f;
+    cached_line=line;
 }
 static void CloseCachedFile() {
-	CacheFileForReading(0,0,0);
+    CacheFileForReading(0,0,0);
 }
 
 static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) {
    /* Open text file for reading */
       FILE* fp;
-	  int c;
+      int c;
 
    /* Open file */
-	  if (cached_fp && line!=0 && line>=cached_line && strncmp(fileName, cached_fileName, sizeof(cached_fileName))==0) {
-		  /* Cached value */
-		  line-=cached_line;
-		  fp=cached_fp;
-		  cached_fp=0;
-	  } else {
-		fp = fopen(fileName, "r");
-		if ( fp == NULL ) {
-			ModelicaFormatError("Not possible to open file \"%s\" for reading:\n"
-				"%s\n", fileName, strerror(errno));
-		}
-	  }
-	  c = 1;
-	  while ( line!=0 && c!=EOF) {
-		  c = fgetc(fp);
-		  while ( c != '\n' && c != EOF ) {
-			  c = fgetc(fp);
-		  }
-		  line--;
-	  }
+      if (cached_fp && line!=0 && line>=cached_line && strncmp(fileName, cached_fileName, sizeof(cached_fileName))==0) {
+          /* Cached value */
+          line-=cached_line;
+          fp=cached_fp;
+          cached_fp=0;
+      } else {
+        fp = fopen(fileName, "r");
+        if ( fp == NULL ) {
+            ModelicaFormatError("Not possible to open file \"%s\" for reading:\n"
+                "%s\n", fileName, strerror(errno));
+        }
+      }
+      c = 1;
+      while ( line!=0 && c!=EOF) {
+          c = fgetc(fp);
+          while ( c != '\n' && c != EOF ) {
+              c = fgetc(fp);
+          }
+          line--;
+      }
       return fp;
 }
 
 MODELICA_EXPORT void ModelicaStreams_closeFile(const char* fileName) {
    /* close file */
-	if (cached_fp && strncmp(fileName, cached_fileName, sizeof(cached_fileName))==0) {
-		CloseCachedFile(); /* Closes it */
-	}
+    if (cached_fp && strncmp(fileName, cached_fileName, sizeof(cached_fileName))==0) {
+        CloseCachedFile(); /* Closes it */
+    }
 }
 
 
@@ -620,7 +620,7 @@ static FILE* ModelicaStreams_openFileForWriting(const char* fileName) {
       }
 
    /* Open file */
-   	  ModelicaStreams_closeFile(fileName);
+      ModelicaStreams_closeFile(fileName);
       fp = fopen(fileName, "a");
       if ( fp == NULL ) {
          ModelicaFormatError("Not possible to open file \"%s\" for writing:\n"
@@ -710,21 +710,21 @@ MODELICA_EXPORT void ModelicaInternal_readFile(const char* fileName, const char*
            }
 
         /* Read next line */
-		       if (lineLen<=sizeof(localbuf)) {
-			        size_t i;
-			        for(i=0;i<lineLen;++i) line[i]=localbuf[i];
-		       } else {
+              if (lineLen<=sizeof(localbuf)) {
+                 size_t i;
+                 for(i=0;i<lineLen;++i) line[i]=localbuf[i];
+              } else {
               if ( fseek(fp, offset, SEEK_SET != 0) ) {
                  fclose(fp);
                  ModelicaFormatError("Error when reading line %i from file\n\"%s\":\n"
                                      "%s\n", iLines, fileName, strerror(errno));
-              };
+              }
               nc = ( iLines < nLines ? lineLen+1 : lineLen);
               if ( fread(line, sizeof(char), nc, fp) != nc ) {
                  fclose(fp);
                  ModelicaFormatError("Error when reading line %i from file\n\"%s\"\n",
                                      iLines, fileName);
-              };
+              }
            }
            line[lineLen] = '\0';
            string[iLines-1] = line;
