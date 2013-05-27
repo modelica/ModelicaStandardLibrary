@@ -204,8 +204,8 @@ end OpenTank;
         parameter Boolean use_portsData=true
         "= false to neglect pressure loss and kinetic energy"
           annotation(Evaluate=true, Dialog(tab="General",group="Ports"));
-        parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData[nPorts]
-        portsData if   use_portsData "Data of inlet/outlet ports"
+        parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData[if use_portsData then nPorts else 0]
+        portsData "Data of inlet/outlet ports"
           annotation(Dialog(tab="General",group="Ports",enable= use_portsData));
 
         parameter Medium.MassFlowRate m_flow_nominal = if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
