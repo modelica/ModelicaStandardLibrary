@@ -273,24 +273,6 @@ package Media
             Modelica.Media.Air.MoistAir);
     end MoistAir;
 
-    model ReferenceAir
-      extends Modelica.Icons.Example;
-      extends PartialMediumFunctions(redeclare package Medium =
-            Modelica.Media.Air.ReferenceAir);
-    end ReferenceAir;
-
-    model ReferenceMoistAir
-      extends Modelica.Icons.Example;
-      extends PartialMediumFunctions(redeclare package Medium =
-            Modelica.Media.Air.ReferenceMoistAir);
-    end ReferenceMoistAir;
-
-    model R134a
-      extends Modelica.Icons.Example;
-      extends PartialMediumFunctions(redeclare package Medium =
-            Modelica.Media.R134a);
-    end R134a;
-
     package IncompleteMedia
       extends Modelica.Icons.ExamplesPackage;
 
