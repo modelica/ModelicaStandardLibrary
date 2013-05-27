@@ -521,7 +521,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
 
       redeclare function extends molarMass "Return the molar mass of the medium"
       algorithm
-        MM = Modelica.Media.Air.ReferenceAir.airConstants.molarMass;
+        MM := Modelica.Media.Air.ReferenceAir.airConstants.molarMass;
         annotation (Inline=true);
       end molarMass;
 
