@@ -1,87 +1,114 @@
 within ModelicaTest;
 package Media
-extends Modelica.Icons.ExamplesPackage;
-  package TestAllProperties
   extends Modelica.Icons.ExamplesPackage;
+  package TestAllProperties
+    extends Modelica.Icons.ExamplesPackage;
     model PartialMediumFunctions
       import SI = Modelica.SIunits;
-       replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
+      replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
         "Medium model";
-       parameter Real eps_h_is = 1e-10;
-       Medium.ThermodynamicState state = Medium.setState_pTX(
-                Medium.reference_p, Medium.reference_T, Medium.reference_X);
-       Medium.DynamicViscosity eta =      Medium.dynamicViscosity(state);
-       Medium.ThermalConductivity lambda= Medium.thermalConductivity(state);
-       Medium.PrandtlNumber Pr = Medium.prandtlNumber(state);
-       Medium.AbsolutePressure p = Medium.pressure(state);
-       Medium.Temperature T = Medium.temperature(state);
-       Medium.Density d = Medium.density(state);
-       Medium.SpecificEnthalpy h = Medium.specificEnthalpy(state);
-       Medium.SpecificEnergy u = Medium.specificInternalEnergy(state);
-       Medium.SpecificEntropy s = Medium.specificEntropy(state);
-       Medium.SpecificEnergy g = Medium.specificGibbsEnergy(state);
-       Medium.SpecificEnergy f = Medium.specificHelmholtzEnergy(state);
-       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
-       Medium.SpecificHeatCapacity cp2=Medium.heatCapacity_cp(state);
-       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
-       Medium.SpecificHeatCapacity cv2=Medium.heatCapacity_cv(state);
-       Medium.SpecificEnthalpy h_is=Medium.isentropicEnthalpy(2*Medium.reference_p,state);
-        Medium.VelocityOfSound a=Medium.velocityOfSound(state);
-       Medium.IsobaricExpansionCoefficient beta = Medium.isobaricExpansionCoefficient(state);
-       Medium.IsobaricExpansionCoefficient beta2 = Medium.beta(state);
-       SI.IsothermalCompressibility kappa = Medium.isothermalCompressibility(state);
-       SI.IsothermalCompressibility kappa2 = Medium.kappa(state);
-       Medium.DerDensityByPressure ddpT = Medium.density_derp_T(state);
-       Medium.DerDensityByTemperature ddTp = Medium.density_derT_p(state);
-       Medium.Density dddX[Medium.nX] = Medium.density_derX(state);
-       Medium.MolarMass MM = Medium.molarMass(state);
-       Medium.SpecificEnthalpy h2 = Medium.specificEnthalpy_pTX(
-                            Medium.reference_p, Medium.reference_T, Medium.reference_X);
-       Medium.Density d2 = Medium.density_pTX(
-                            Medium.reference_p, Medium.reference_T, Medium.reference_X);
-       Medium.ThermodynamicState state2 = Medium.setState_phX(
-                Medium.reference_p, h, Medium.reference_X);
-       Medium.ThermodynamicState state3 = Medium.setState_psX(
-                Medium.reference_p, s, Medium.reference_X);
-       Medium.ThermodynamicState state4 = if Medium.singleState then state else
-                                       Medium.setState_dTX(d, T, Medium.reference_X);
-       Medium.ThermodynamicState state5 = Medium.setSmoothState(0.1, state,state2,0.001);
-       Medium.BaseProperties medium(preferredMediumStates=true,p(start=Medium.reference_p), T(start=Medium.reference_T), X(start=Medium.reference_X));
-       Real err_T = abs(medium.T - T);
-       Real err_d = abs(medium.d - d);
-       Real err_u = abs(medium.u - u);
+      parameter Real eps_h_is=1e-10;
+      Medium.ThermodynamicState state=Medium.setState_pTX(
+              Medium.reference_p,
+              Medium.reference_T,
+              Medium.reference_X);
+      Medium.DynamicViscosity eta=Medium.dynamicViscosity(state);
+      Medium.ThermalConductivity lambda=Medium.thermalConductivity(state);
+      Medium.PrandtlNumber Pr=Medium.prandtlNumber(state);
+      Medium.AbsolutePressure p=Medium.pressure(state);
+      Medium.Temperature T=Medium.temperature(state);
+      Medium.Density d=Medium.density(state);
+      Medium.SpecificEnthalpy h=Medium.specificEnthalpy(state);
+      Medium.SpecificEnergy u=Medium.specificInternalEnergy(state);
+      Medium.SpecificEntropy s=Medium.specificEntropy(state);
+      Medium.SpecificEnergy g=Medium.specificGibbsEnergy(state);
+      Medium.SpecificEnergy f=Medium.specificHelmholtzEnergy(state);
+      Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
+      Medium.SpecificHeatCapacity cp2=Medium.heatCapacity_cp(state);
+      Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
+      Medium.SpecificHeatCapacity cv2=Medium.heatCapacity_cv(state);
+      Medium.SpecificEnthalpy h_is=Medium.isentropicEnthalpy(2*Medium.reference_p,
+          state);
+      Medium.VelocityOfSound a=Medium.velocityOfSound(state);
+      Medium.IsobaricExpansionCoefficient beta=
+          Medium.isobaricExpansionCoefficient(state);
+      Medium.IsobaricExpansionCoefficient beta2=Medium.beta(state);
+      SI.IsothermalCompressibility kappa=Medium.isothermalCompressibility(state);
+      SI.IsothermalCompressibility kappa2=Medium.kappa(state);
+      Medium.DerDensityByPressure ddpT=Medium.density_derp_T(state);
+      Medium.DerDensityByTemperature ddTp=Medium.density_derT_p(state);
+      Medium.Density dddX[Medium.nX]=Medium.density_derX(state);
+      Medium.MolarMass MM=Medium.molarMass(state);
+      Medium.SpecificEnthalpy h2=Medium.specificEnthalpy_pTX(
+              Medium.reference_p,
+              Medium.reference_T,
+              Medium.reference_X);
+      Medium.Density d2=Medium.density_pTX(
+              Medium.reference_p,
+              Medium.reference_T,
+              Medium.reference_X);
+      Medium.ThermodynamicState state2=Medium.setState_phX(
+              Medium.reference_p,
+              h,
+              Medium.reference_X);
+      Medium.ThermodynamicState state3=Medium.setState_psX(
+              Medium.reference_p,
+              s,
+              Medium.reference_X);
+      Medium.ThermodynamicState state4=if Medium.singleState then state else
+          Medium.setState_dTX(
+              d,
+              T,
+              Medium.reference_X);
+      Medium.ThermodynamicState state5=Medium.setSmoothState(
+              0.1,
+              state,
+              state2,
+              0.001);
+      Medium.BaseProperties medium(
+        preferredMediumStates=true,
+        p(start=Medium.reference_p),
+        T(start=Medium.reference_T),
+        X(start=Medium.reference_X));
+      Real err_T=abs(medium.T - T);
+      Real err_d=abs(medium.d - d);
+      Real err_u=abs(medium.u - u);
 
-       // check isentropicEnthalpy
-       Medium.ThermodynamicState state_h_is = Medium.setState_phX(2*Medium.reference_p, h_is, Medium.reference_X);
-       Medium.SpecificEntropy s_is = Medium.specificEntropy(state_h_is);
-       Real err_h_is = abs( s - s_is);
-       constant Real eps=1e-10;
+      // check isentropicEnthalpy
+      Medium.ThermodynamicState state_h_is=Medium.setState_phX(
+              2*Medium.reference_p,
+              h_is,
+              Medium.reference_X);
+      Medium.SpecificEntropy s_is=Medium.specificEntropy(state_h_is);
+      Real err_h_is=abs(s - s_is);
+      constant Real eps=1e-10;
     equation
-       medium.p=p;
-       medium.h=h;
-       medium.Xi=Medium.reference_X[1:Medium.nXi];
+      medium.p = p;
+      medium.h = h;
+      medium.Xi = Medium.reference_X[1:Medium.nXi];
 
-       // When iterating at the initial time the asserts below could be violated.
-       // To avoid an error, the check is only performed at the end of the simulation.
-       when terminal() then
-          assert(err_T <= eps, "Error: abs(medium.T - T) > eps\n" +
-                               "(err_T = " + String(err_T) + ", eps = " + String(eps) + ")");
-       end when;
+      // When iterating at the initial time the asserts below could be violated.
+      // To avoid an error, the check is only performed at the end of the simulation.
+      when terminal() then
+        assert(err_T <= eps, "Error: abs(medium.T - T) > eps\n" + "(err_T = "
+           + String(err_T) + ", eps = " + String(eps) + ")");
+      end when;
 
-       when terminal() then
-          assert(err_d <= eps, "Error: abs(medium.d - d) > eps" +
-                               "(err_d = " + String(err_d) + ", eps = " + String(eps) + ")");
-       end when;
+      when terminal() then
+        assert(err_d <= eps, "Error: abs(medium.d - d) > eps" + "(err_d = " +
+          String(err_d) + ", eps = " + String(eps) + ")");
+      end when;
 
-       when terminal() then
-          assert(err_u <= eps, "Error: abs(medium.u - u) > eps" +
-                               "(err_u = " + String(err_u) + ", eps = " + String(eps) + ")");
-       end when;
+      when terminal() then
+        assert(err_u <= eps, "Error: abs(medium.u - u) > eps" + "(err_u = " +
+          String(err_u) + ", eps = " + String(eps) + ")");
+      end when;
 
       // when terminal() then
-          assert(err_h_is <= eps_h_is, "Error: entropy not constant for isentropicEnthalpy" +
-                               "(err_h_is = " + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
-       // end when;
+      assert(err_h_is <= eps_h_is,
+        "Error: entropy not constant for isentropicEnthalpy" + "(err_h_is = "
+         + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
+      // end when;
     end PartialMediumFunctions;
 
     model DryAirNasa
@@ -119,81 +146,110 @@ extends Modelica.Icons.ExamplesPackage;
       package Medium =
           Modelica.Media.IdealGases.MixtureGases.FlueGasSixComponents
         "Medium model";
-       parameter Real eps_h_is = 1e-10;
-       Medium.ThermodynamicState state = Medium.setState_pTX(
-                Medium.reference_p, Medium.reference_T, Medium.reference_X);
-       Medium.DynamicViscosity eta =      Medium.dynamicViscosity(state);
-       Medium.ThermalConductivity lambda= Medium.thermalConductivity(state);
-       Medium.PrandtlNumber Pr = Medium.prandtlNumber(state);
-       Medium.AbsolutePressure p = Medium.pressure(state);
-       Medium.Temperature T = Medium.temperature(state);
-       Medium.Density d = Medium.density(state);
-       Medium.SpecificEnthalpy h = Medium.specificEnthalpy(state);
-       Medium.SpecificEnergy u = Medium.specificInternalEnergy(state);
-       Medium.SpecificEntropy s = Medium.specificEntropy(state);
-       Medium.SpecificEnergy g = Medium.specificGibbsEnergy(state);
-       Medium.SpecificEnergy f = Medium.specificHelmholtzEnergy(state);
-       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
-       Medium.SpecificHeatCapacity cp2=Medium.heatCapacity_cp(state);
-       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
-       Medium.SpecificHeatCapacity cv2=Medium.heatCapacity_cv(state);
-       Medium.SpecificEnthalpy h_is=Medium.isentropicEnthalpy(2*Medium.reference_p,state,exact=true);
-        Medium.VelocityOfSound a=Medium.velocityOfSound(state);
-       Medium.IsobaricExpansionCoefficient beta = Medium.isobaricExpansionCoefficient(state);
-       Medium.IsobaricExpansionCoefficient beta2 = Medium.beta(state);
-       SI.IsothermalCompressibility kappa = Medium.isothermalCompressibility(state);
-       SI.IsothermalCompressibility kappa2 = Medium.kappa(state);
-       Medium.DerDensityByPressure ddpT = Medium.density_derp_T(state);
-       Medium.DerDensityByTemperature ddTp = Medium.density_derT_p(state);
-       Medium.Density dddX[Medium.nX] = Medium.density_derX(state);
-       Medium.MolarMass MM = Medium.molarMass(state);
-       Medium.SpecificEnthalpy h2 = Medium.specificEnthalpy_pTX(
-                            Medium.reference_p, Medium.reference_T, Medium.reference_X);
-       Medium.Density d2 = Medium.density_pTX(
-                            Medium.reference_p, Medium.reference_T, Medium.reference_X);
-       Medium.ThermodynamicState state2 = Medium.setState_phX(
-                Medium.reference_p, h, Medium.reference_X);
-       Medium.ThermodynamicState state3 = Medium.setState_psX(
-                Medium.reference_p, s, Medium.reference_X);
-       Medium.ThermodynamicState state4 = if Medium.singleState then state else
-                                       Medium.setState_dTX(d, T, Medium.reference_X);
-       Medium.ThermodynamicState state5 = Medium.setSmoothState(0.1, state,state2,0.001);
-       Medium.BaseProperties medium(preferredMediumStates=true,p(start=Medium.reference_p), T(start=Medium.reference_T), X(start=Medium.reference_X));
-       Real err_T = abs(medium.T - T);
-       Real err_d = abs(medium.d - d);
-       Real err_u = abs(medium.u - u);
+      parameter Real eps_h_is=1e-10;
+      Medium.ThermodynamicState state=Medium.setState_pTX(
+              Medium.reference_p,
+              Medium.reference_T,
+              Medium.reference_X);
+      Medium.DynamicViscosity eta=Medium.dynamicViscosity(state);
+      Medium.ThermalConductivity lambda=Medium.thermalConductivity(state);
+      Medium.PrandtlNumber Pr=Medium.prandtlNumber(state);
+      Medium.AbsolutePressure p=Medium.pressure(state);
+      Medium.Temperature T=Medium.temperature(state);
+      Medium.Density d=Medium.density(state);
+      Medium.SpecificEnthalpy h=Medium.specificEnthalpy(state);
+      Medium.SpecificEnergy u=Medium.specificInternalEnergy(state);
+      Medium.SpecificEntropy s=Medium.specificEntropy(state);
+      Medium.SpecificEnergy g=Medium.specificGibbsEnergy(state);
+      Medium.SpecificEnergy f=Medium.specificHelmholtzEnergy(state);
+      Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
+      Medium.SpecificHeatCapacity cp2=Medium.heatCapacity_cp(state);
+      Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
+      Medium.SpecificHeatCapacity cv2=Medium.heatCapacity_cv(state);
+      Medium.SpecificEnthalpy h_is=Medium.isentropicEnthalpy(
+              2*Medium.reference_p,
+              state,
+              exact=true);
+      Medium.VelocityOfSound a=Medium.velocityOfSound(state);
+      Medium.IsobaricExpansionCoefficient beta=
+          Medium.isobaricExpansionCoefficient(state);
+      Medium.IsobaricExpansionCoefficient beta2=Medium.beta(state);
+      SI.IsothermalCompressibility kappa=Medium.isothermalCompressibility(state);
+      SI.IsothermalCompressibility kappa2=Medium.kappa(state);
+      Medium.DerDensityByPressure ddpT=Medium.density_derp_T(state);
+      Medium.DerDensityByTemperature ddTp=Medium.density_derT_p(state);
+      Medium.Density dddX[Medium.nX]=Medium.density_derX(state);
+      Medium.MolarMass MM=Medium.molarMass(state);
+      Medium.SpecificEnthalpy h2=Medium.specificEnthalpy_pTX(
+              Medium.reference_p,
+              Medium.reference_T,
+              Medium.reference_X);
+      Medium.Density d2=Medium.density_pTX(
+              Medium.reference_p,
+              Medium.reference_T,
+              Medium.reference_X);
+      Medium.ThermodynamicState state2=Medium.setState_phX(
+              Medium.reference_p,
+              h,
+              Medium.reference_X);
+      Medium.ThermodynamicState state3=Medium.setState_psX(
+              Medium.reference_p,
+              s,
+              Medium.reference_X);
+      Medium.ThermodynamicState state4=if Medium.singleState then state else
+          Medium.setState_dTX(
+              d,
+              T,
+              Medium.reference_X);
+      Medium.ThermodynamicState state5=Medium.setSmoothState(
+              0.1,
+              state,
+              state2,
+              0.001);
+      Medium.BaseProperties medium(
+        preferredMediumStates=true,
+        p(start=Medium.reference_p),
+        T(start=Medium.reference_T),
+        X(start=Medium.reference_X));
+      Real err_T=abs(medium.T - T);
+      Real err_d=abs(medium.d - d);
+      Real err_u=abs(medium.u - u);
 
-       // check isentropicEnthalpy
-       Medium.ThermodynamicState state_h_is = Medium.setState_phX(2*Medium.reference_p, h_is, Medium.reference_X);
-       Medium.SpecificEntropy s_is = Medium.specificEntropy(state_h_is);
-       Real err_h_is = abs( s - s_is);
-       constant Real eps=1e-9;
+      // check isentropicEnthalpy
+      Medium.ThermodynamicState state_h_is=Medium.setState_phX(
+              2*Medium.reference_p,
+              h_is,
+              Medium.reference_X);
+      Medium.SpecificEntropy s_is=Medium.specificEntropy(state_h_is);
+      Real err_h_is=abs(s - s_is);
+      constant Real eps=1e-9;
     equation
-       medium.p=p;
-       medium.h=h;
-       medium.Xi=Medium.reference_X[1:Medium.nXi];
+      medium.p = p;
+      medium.h = h;
+      medium.Xi = Medium.reference_X[1:Medium.nXi];
 
-       // When iterating at the initial time the asserts below could be violated.
-       // To avoid an error, the check is only performed at the end of the simulation.
-       when terminal() then
-          assert(err_T <= eps, "Error: abs(medium.T - T) > eps\n" +
-                               "(err_T = " + String(err_T) + ", eps = " + String(eps) + ")");
-       end when;
+      // When iterating at the initial time the asserts below could be violated.
+      // To avoid an error, the check is only performed at the end of the simulation.
+      when terminal() then
+        assert(err_T <= eps, "Error: abs(medium.T - T) > eps\n" + "(err_T = "
+           + String(err_T) + ", eps = " + String(eps) + ")");
+      end when;
 
-       when terminal() then
-          assert(err_d <= eps, "Error: abs(medium.d - d) > eps" +
-                               "(err_d = " + String(err_d) + ", eps = " + String(eps) + ")");
-       end when;
+      when terminal() then
+        assert(err_d <= eps, "Error: abs(medium.d - d) > eps" + "(err_d = " +
+          String(err_d) + ", eps = " + String(eps) + ")");
+      end when;
 
-       when terminal() then
-          assert(err_u <= eps, "Error: abs(medium.u - u) > eps" +
-                               "(err_u = " + String(err_u) + ", eps = " + String(eps) + ")");
-       end when;
+      when terminal() then
+        assert(err_u <= eps, "Error: abs(medium.u - u) > eps" + "(err_u = " +
+          String(err_u) + ", eps = " + String(eps) + ")");
+      end when;
 
       // when terminal() then
-          assert(err_h_is <= eps_h_is, "Error: entropy not constant for isentropicEnthalpy" +
-                               "(err_h_is = " + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
-       // end when;
+      assert(err_h_is <= eps_h_is,
+        "Error: entropy not constant for isentropicEnthalpy" + "(err_h_is = "
+         + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
+      // end when;
       annotation (experiment(StopTime=1.01));
     end FlueGasSixComponents;
 
@@ -217,6 +273,12 @@ extends Modelica.Icons.ExamplesPackage;
             Modelica.Media.Air.MoistAir);
     end MoistAir;
 
+    model ReferenceMoistAir
+      extends Modelica.Icons.Example;
+      extends PartialMediumFunctions(redeclare package Medium =
+            Modelica.Media.Air.ReferenceMoistAir);
+    end ReferenceMoistAir;
+
     package IncompleteMedia
       extends Modelica.Icons.ExamplesPackage;
 
@@ -227,12 +289,12 @@ extends Modelica.Icons.ExamplesPackage;
 
       model WaterIF97_pT
         extends PartialMediumFunctions(redeclare package Medium =
-             Modelica.Media.Water.WaterIF97_pT);
+              Modelica.Media.Water.WaterIF97_pT);
       end WaterIF97_pT;
 
       model WaterIF97_ph
         extends PartialMediumFunctions(redeclare package Medium =
-             Modelica.Media.Water.WaterIF97_ph);
+              Modelica.Media.Water.WaterIF97_ph);
       end WaterIF97_ph;
     end IncompleteMedia;
   end TestAllProperties;
@@ -490,27 +552,27 @@ is given to compare the approximation.
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
-                        extent={{-100,100},{100,-100}},
-                        lineColor={0,127,255},
-                        fillColor={0,127,255},
-                        fillPattern=FillPattern.Solid),Ellipse(
-                        extent={{-100,100},{100,-100}},
-                        lineColor={0,0,0},
-                        fillColor={0,127,255},
-                        fillPattern=FillPattern.Solid),Text(
-                        extent={{-88,206},{112,112}},
-                        textString="%name",
-                        lineColor={0,0,255})}),
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,127,255},
+                      fillColor={0,127,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,0,0},
+                      fillColor={0,127,255},
+                      fillPattern=FillPattern.Solid),Text(
+                      extent={{-88,206},{112,112}},
+                      textString="%name",
+                      lineColor={0,0,255})}),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Ellipse(
-                        extent={{-100,100},{100,-100}},
-                        lineColor={0,127,255},
-                        fillColor={0,127,255},
-                        fillPattern=FillPattern.Solid),Ellipse(
-                        extent={{-100,100},{100,-100}},
-                        lineColor={0,0,0},
-                        fillColor={0,127,255},
-                        fillPattern=FillPattern.Solid)}),
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,127,255},
+                      fillColor={0,127,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,0,0},
+                      fillColor={0,127,255},
+                      fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>Modelica.Media.Examples.Tests.Components.FluidPort_a
 </html>"));
       end FluidPort_a;
@@ -520,35 +582,35 @@ is given to compare the approximation.
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
-                        extent={{-100,100},{100,-100}},
-                        lineColor={0,127,255},
-                        fillColor={0,127,255},
-                        fillPattern=FillPattern.Solid),Ellipse(
-                        extent={{-100,100},{100,-100}},
-                        lineColor={0,0,0},
-                        fillColor={0,127,255},
-                        fillPattern=FillPattern.Solid),Ellipse(
-                        extent={{-80,80},{80,-80}},
-                        lineColor={0,127,255},
-                        fillColor={255,255,255},
-                        fillPattern=FillPattern.Solid),Text(
-                        extent={{-88,192},{112,98}},
-                        textString="%name",
-                        lineColor={0,0,255})}),
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,127,255},
+                      fillColor={0,127,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,0,0},
+                      fillColor={0,127,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-80,80},{80,-80}},
+                      lineColor={0,127,255},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Text(
+                      extent={{-88,192},{112,98}},
+                      textString="%name",
+                      lineColor={0,0,255})}),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Ellipse(
-                        extent={{-100,100},{100,-100}},
-                        lineColor={0,127,255},
-                        fillColor={0,127,255},
-                        fillPattern=FillPattern.Solid),Ellipse(
-                        extent={{-100,100},{100,-100}},
-                        lineColor={0,0,0},
-                        fillColor={0,127,255},
-                        fillPattern=FillPattern.Solid),Ellipse(
-                        extent={{-80,80},{80,-80}},
-                        lineColor={0,127,255},
-                        fillColor={255,255,255},
-                        fillPattern=FillPattern.Solid)}),
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,127,255},
+                      fillColor={0,127,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,0,0},
+                      fillColor={0,127,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-80,80},{80,-80}},
+                      lineColor={0,127,255},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>
 
 </html>"));
@@ -629,16 +691,16 @@ is given to compare the approximation.
         der(U) = port.H_flow;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
-                        extent={{-100,100},{100,-100}},
-                        lineColor={0,0,0},
-                        fillPattern=FillPattern.Sphere,
-                        fillColor={170,213,255}),Text(
-                        extent={{-144,178},{146,116}},
-                        textString="%name",
-                        lineColor={0,0,255}),Text(
-                        extent={{-130,-108},{144,-150}},
-                        lineColor={0,0,0},
-                        textString="V=%V")}), Documentation(info="<html>
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,0,0},
+                      fillPattern=FillPattern.Sphere,
+                      fillColor={170,213,255}),Text(
+                      extent={{-144,178},{146,116}},
+                      textString="%name",
+                      lineColor={0,0,255}),Text(
+                      extent={{-130,-108},{144,-150}},
+                      lineColor={0,0,0},
+                      textString="V=%V")}), Documentation(info="<html>
 <p>
 This component models the <b>volume</b> of <b>fixed size</b> that is
 associated with the <b>fluid port</b> to which it is connected.
@@ -693,46 +755,46 @@ transport.
         medium.p = port.p;
         port.m_flow = -m_flow;
         port.mXi_flow = semiLinear(
-                  port.m_flow,
-                  port.Xi,
-                  medium.Xi);
+                port.m_flow,
+                port.Xi,
+                medium.Xi);
         port.H_flow = semiLinear(
-                  port.m_flow,
-                  port.h,
-                  medium.h);
+                port.m_flow,
+                port.h,
+                medium.h);
         annotation (Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={Rectangle(
-                        extent={{20,60},{100,-60}},
-                        lineColor={0,0,0},
-                        fillPattern=FillPattern.HorizontalCylinder,
-                        fillColor={192,192,192}),Rectangle(
-                        extent={{38,40},{100,-40}},
-                        lineColor={0,0,0},
-                        fillPattern=FillPattern.HorizontalCylinder,
-                        fillColor={0,127,255}),Ellipse(
-                        extent={{-100,80},{60,-80}},
-                        fillColor={255,255,255},
-                        fillPattern=FillPattern.Solid,
-                        lineColor={0,0,255}),Polygon(
-                        points={{-60,70},{60,0},{-60,-68},{-60,70}},
-                        lineColor={0,0,255},
-                        fillColor={0,0,255},
-                        fillPattern=FillPattern.Solid),Text(
-                        extent={{-54,32},{16,-30}},
-                        lineColor={255,0,0},
-                        textString="m"),Text(
-                        extent={{-142,142},{156,88}},
-                        textString="%name",
-                        lineColor={0,0,255}),Text(
-                        extent={{-154,-88},{150,-132}},
-                        lineColor={0,0,0},
-                        textString="%m_flow"),Ellipse(
-                        extent={{-26,30},{-18,22}},
-                        lineColor={255,0,0},
-                        fillColor={255,0,0},
-                        fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+                      extent={{20,60},{100,-60}},
+                      lineColor={0,0,0},
+                      fillPattern=FillPattern.HorizontalCylinder,
+                      fillColor={192,192,192}),Rectangle(
+                      extent={{38,40},{100,-40}},
+                      lineColor={0,0,0},
+                      fillPattern=FillPattern.HorizontalCylinder,
+                      fillColor={0,127,255}),Ellipse(
+                      extent={{-100,80},{60,-80}},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid,
+                      lineColor={0,0,255}),Polygon(
+                      points={{-60,70},{60,0},{-60,-68},{-60,70}},
+                      lineColor={0,0,255},
+                      fillColor={0,0,255},
+                      fillPattern=FillPattern.Solid),Text(
+                      extent={{-54,32},{16,-30}},
+                      lineColor={255,0,0},
+                      textString="m"),Text(
+                      extent={{-142,142},{156,88}},
+                      textString="%name",
+                      lineColor={0,0,255}),Text(
+                      extent={{-154,-88},{150,-132}},
+                      lineColor={0,0,0},
+                      textString="%m_flow"),Ellipse(
+                      extent={{-26,30},{-18,22}},
+                      lineColor={255,0,0},
+                      fillColor={255,0,0},
+                      fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 
 </html>"));
       end FixedMassFlowRate;
@@ -740,7 +802,7 @@ transport.
       model FixedAmbient
         "Ambient pressure, temperature and mass fraction source"
         extends Modelica.Icons.ObsoleteModel;
-          replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
+        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
 
         parameter Boolean use_p_ambient=true "select p_ambient or d_ambient"
@@ -789,24 +851,24 @@ transport.
 
         port.p = medium.p;
         port.H_flow = semiLinear(
-                  port.m_flow,
-                  port.h,
-                  medium.h);
+                port.m_flow,
+                port.h,
+                medium.h);
         port.mXi_flow = semiLinear(
-                  port.m_flow,
-                  port.Xi,
-                  medium.Xi);
+                port.m_flow,
+                port.Xi,
+                medium.Xi);
         annotation (Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={Ellipse(
-                        extent={{-100,80},{100,-80}},
-                        lineColor={0,0,0},
-                        fillPattern=FillPattern.Sphere,
-                        fillColor={0,127,255}),Text(
-                        extent={{-136,144},{132,82}},
-                        textString="%name",
-                        lineColor={0,0,255})}), Documentation(info="<html>
+                      extent={{-100,80},{100,-80}},
+                      lineColor={0,0,0},
+                      fillPattern=FillPattern.Sphere,
+                      fillColor={0,127,255}),Text(
+                      extent={{-136,144},{132,82}},
+                      textString="%name",
+                      lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Model <b>FixedAmbient_pt</b> defines constant values for ambient conditions:
 </p>
@@ -827,7 +889,7 @@ with exception of ambient pressure, do not have an effect.
 
       model ShortPipe "Simple pressure loss in pipe"
         extends Modelica.Icons.ObsoleteModel;
-          replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
+        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
 
         parameter Medium.AbsolutePressure dp_nominal(min=1.e-10)
@@ -849,13 +911,13 @@ with exception of ambient pressure, do not have an effect.
       equation
         /* Handle reverse and zero flow */
         port_a.H_flow = semiLinear(
-                  port_a.m_flow,
-                  port_a.h,
-                  port_b.h);
+                port_a.m_flow,
+                port_a.h,
+                port_b.h);
         port_a.mXi_flow = semiLinear(
-                  port_a.m_flow,
-                  port_a.Xi,
-                  port_b.Xi);
+                port_a.m_flow,
+                port_a.Xi,
+                port_b.Xi);
 
         /* Energy, mass and substance mass balance */
         port_a.H_flow + port_b.H_flow = 0;
@@ -870,20 +932,20 @@ with exception of ambient pressure, do not have an effect.
         m_flow = (m_flow_nominal/dp_nominal)*dp;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Rectangle(
-                        extent={{-100,60},{100,-60}},
-                        lineColor={0,0,0},
-                        fillPattern=FillPattern.HorizontalCylinder,
-                        fillColor={192,192,192}),Rectangle(
-                        extent={{-100,34},{100,-36}},
-                        lineColor={0,0,0},
-                        fillPattern=FillPattern.HorizontalCylinder,
-                        fillColor={0,127,255}),Text(
-                        extent={{-150,140},{150,80}},
-                        lineColor={0,0,0},
-                        textString="%name"),Text(
-                        extent={{-136,-62},{122,-108}},
-                        lineColor={0,0,0},
-                        textString="k=%m_flow_nominal/%dp_nominal")}),
+                      extent={{-100,60},{100,-60}},
+                      lineColor={0,0,0},
+                      fillPattern=FillPattern.HorizontalCylinder,
+                      fillColor={192,192,192}),Rectangle(
+                      extent={{-100,34},{100,-36}},
+                      lineColor={0,0,0},
+                      fillPattern=FillPattern.HorizontalCylinder,
+                      fillColor={0,127,255}),Text(
+                      extent={{-150,140},{150,80}},
+                      lineColor={0,0,0},
+                      textString="%name"),Text(
+                      extent={{-136,-62},{122,-108}},
+                      lineColor={0,0,0},
+                      textString="k=%m_flow_nominal/%dp_nominal")}),
             Documentation(info="<html>
 <p>
 Model <b>ShortPipe</b> defines a simple pipe model
@@ -921,29 +983,28 @@ no mass or energy is stored in the pipe.
           X_start=X_start,
           V=0.1,
           nPorts=2,
-          use_portsData=false)
-                 annotation (Placement(transformation(extent={{-40,0},{-20,20}},
-                rotation=0)));
+          use_portsData=false) annotation (Placement(transformation(extent={{-40,
+                  0},{-20,20}}, rotation=0)));
         Modelica.Fluid.Sources.MassFlowSource_T fixedMassFlowRate(
           redeclare package Medium = Medium,
           m_flow=1,
           T=system.T_ambient,
-          nPorts=1)              annotation (Placement(transformation(extent={{-80,-2},
-                  {-60,18}},        rotation=0)));
+          nPorts=1) annotation (Placement(transformation(extent={{-80,-2},{-60,
+                  18}}, rotation=0)));
         Modelica.Fluid.Sources.FixedBoundary ambient(
           redeclare package Medium = Medium,
           nPorts=1,
           p=p_start,
-          T=T_start)         annotation (Placement(transformation(extent={{60,0},
-                  {40,20}}, rotation=0)));
+          T=T_start) annotation (Placement(transformation(extent={{60,0},{40,20}},
+                rotation=0)));
         Modelica.Fluid.Pipes.StaticPipe shortPipe(
           redeclare package Medium = Medium,
           length=1,
           redeclare model FlowModel =
               Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
                 dp_nominal=1000000000, m_flow_nominal=1.0),
-          diameter=0.05)    annotation (Placement(transformation(extent={{0,0},
-                  {20,20}}, rotation=0)));
+          diameter=0.05) annotation (Placement(transformation(extent={{0,0},{20,
+                  20}}, rotation=0)));
         inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
           annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
       equation
@@ -961,7 +1022,7 @@ no mass or energy is stored in the pipe.
             smooth=Smooth.None));
         annotation (Documentation(info="<html>
 
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end PartialTestModel;
 
@@ -986,29 +1047,28 @@ no mass or energy is stored in the pipe.
           X_start=X_start,
           V=0.1,
           nPorts=2,
-          use_portsData=false)
-                 annotation (Placement(transformation(extent={{-60,20},{-40,40}},
-                rotation=0)));
+          use_portsData=false) annotation (Placement(transformation(extent={{-60,
+                  20},{-40,40}}, rotation=0)));
         Modelica.Fluid.Sources.MassFlowSource_T fixedMassFlowRate(
           redeclare package Medium = Medium,
           m_flow=1,
           T=system.T_ambient,
-          nPorts=1)              annotation (Placement(transformation(extent={{-100,0},
-                  {-80,20}},        rotation=0)));
+          nPorts=1) annotation (Placement(transformation(extent={{-100,0},{-80,
+                  20}}, rotation=0)));
         Modelica.Fluid.Sources.FixedBoundary ambient(
           redeclare package Medium = Medium,
           p=p_start,
           T=T_start,
-          nPorts=1)          annotation (Placement(transformation(extent={{60,0},{40,
-                  20}},     rotation=0)));
+          nPorts=1) annotation (Placement(transformation(extent={{60,0},{40,20}},
+                rotation=0)));
         Modelica.Fluid.Pipes.StaticPipe shortPipe(
           redeclare package Medium = Medium,
           length=1,
           redeclare model FlowModel =
               Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
                 dp_nominal=1000000000, m_flow_nominal=1.0),
-          diameter=0.05)    annotation (Placement(transformation(extent={{-42,0},{-22,
-                  20}},     rotation=0)));
+          diameter=0.05) annotation (Placement(transformation(extent={{-42,0},{
+                  -22,20}}, rotation=0)));
         inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
           annotation (Placement(transformation(extent={{-100,78},{-80,98}})));
         Modelica.Fluid.Pipes.StaticPipe shortPipe1(
@@ -1017,8 +1077,8 @@ no mass or energy is stored in the pipe.
           redeclare model FlowModel =
               Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
                 dp_nominal=1000000000, m_flow_nominal=1.0),
-          diameter=0.05)    annotation (Placement(transformation(extent={{0,0},{20,20}},
-                            rotation=0)));
+          diameter=0.05) annotation (Placement(transformation(extent={{0,0},{20,
+                  20}}, rotation=0)));
         Modelica.Fluid.Vessels.ClosedVolume volume1(
           redeclare package Medium = Medium,
           p_start=p_start,
@@ -1027,9 +1087,8 @@ no mass or energy is stored in the pipe.
           X_start=X_start,
           V=0.1,
           nPorts=2,
-          use_portsData=false)
-                 annotation (Placement(transformation(extent={{-18,20},{2,40}},
-                rotation=0)));
+          use_portsData=false) annotation (Placement(transformation(extent={{-18,
+                  20},{2,40}}, rotation=0)));
       equation
         connect(fixedMassFlowRate.ports[1], volume.ports[1]) annotation (Line(
             points={{-80,10},{-50,10},{-50,20},{-52,20}},
@@ -1053,7 +1112,7 @@ no mass or energy is stored in the pipe.
             smooth=Smooth.None));
         annotation (Documentation(info="<html>
 
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end PartialTestModel2;
       annotation (Documentation(info="<html>
@@ -1213,6 +1272,7 @@ no mass or energy is stored in the pipe.
             system(energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial),
 
             volume(medium(T(fixed=true), p(fixed=true))));
+
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
@@ -1225,6 +1285,7 @@ no mass or energy is stored in the pipe.
             system(energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial),
 
             volume(medium(h(fixed=true), p(fixed=true))));
+
           annotation (Documentation(info="<html>
 
 </html>"), experiment(StopTime=1.01));
