@@ -131,7 +131,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         AbsolutePressure p "Pressure";
       end ThermodynamicState;
 
-      redeclare replaceable model extends BaseProperties(
+      redeclare model extends BaseProperties(
         h(stateSelect=if ph_explicit and preferredMediumStates then StateSelect.prefer
                else StateSelect.default),
         d(stateSelect=if dT_explicit and preferredMediumStates then StateSelect.prefer
@@ -255,13 +255,13 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       redeclare function extends dynamicViscosity
         "Return dynamic viscosity as a function of the thermodynamic state record"
       algorithm
-        eta := Air_Utilities.dynamicViscosity(state);
+        eta := Air_Utilities.Transport.eta_dT(state.d, state.T);
       end dynamicViscosity;
 
       redeclare function extends thermalConductivity
         "Thermal conductivity of water"
       algorithm
-        lambda := Air_Utilities.thermalConductivity(state);
+        lambda := Air_Utilities.Transport.lambda_dT(state.d, state.T);
       end thermalConductivity;
 
       redeclare function extends pressure "Return pressure of ideal gas"
@@ -2014,24 +2014,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
                 T,
                 Air_Utilities.airBaseProp_dT(d, T));
       end isentropicExponent_dT;
-
-      function dynamicViscosity
-        "Return dynamic viscosity as a function of the thermodynamic state record"
-        extends Modelica.Icons.Function;
-        input Air_Base.ThermodynamicState state "Thermodynamic state record";
-        output SI.DynamicViscosity eta "Dynamic viscosity";
-      algorithm
-        eta := Transport.eta_dT(state.d, state.T);
-      end dynamicViscosity;
-
-      function thermalConductivity
-        "Return thermal conductivity as a function of the thermodynamic state record"
-        extends Modelica.Icons.Function;
-        input Air_Base.ThermodynamicState state "Thermodynamic state record";
-        output SI.ThermalConductivity lambda "Thermal conductivity";
-      algorithm
-        lambda := Transport.lambda_dT(state.d, state.T);
-      end thermalConductivity;
 
     protected
       package ThermoFluidSpecial
