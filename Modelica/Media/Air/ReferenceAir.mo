@@ -493,6 +493,11 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
                 reference_X);
       end isentropicEnthalpy;
 
+      redeclare function extends molarMass "Return the molar mass of the medium"
+      algorithm
+        MM = Modelica.Media.Air.ReferenceAir.airConstants.molarMass;
+      end molarMass;
+
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
                   extent={{-94,84},{94,40}},
