@@ -601,7 +601,7 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) 
       return fp;
 }
 
-static void ModelicaStreams_closeFile(const char* fileName) {
+MODELICA_EXPORT void ModelicaStreams_closeFile(const char* fileName) {
    /* close file */
 	if (cached_fp && strncmp(fileName, cached_fileName, sizeof(cached_fileName))==0) {
 		CloseCachedFile(); /* Closes it */
