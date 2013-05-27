@@ -6,13 +6,13 @@ extends ModelicaReference.Icons.Information;
 class ModelicaGrammar "Modelica Grammar"
   extends ModelicaReference.Icons.Information;
 
-  annotation (Documentation(info="<html><head><title>Modelica 3.2 Revision 1 Grammar</title>
+  annotation (Documentation(info="<html><head><title>Modelica 3.2 Revision 2 Grammar</title>
 <style type=\"text/css\">
 A.HREF { text-decoration:none; color:#003399 }
 </style>
 </head>
-<h4>Modelica 3.2 Revision 1 Grammar</h4>
-<p>This is the grammar of Modelica 3.2 Revision 1 in EBNF form. Each
+<h4>Modelica 3.2 Revision 2 Grammar</h4>
+<p>This is the grammar of Modelica 3.2 Revision 2 in EBNF form. Each
 non-terminal appearing on the right hand side of a production is a link to the
 production for that non-terminal. This grammar is identical to that in the
 Modelica 3.2 specification except for removal of some unnecessary parentheses,
