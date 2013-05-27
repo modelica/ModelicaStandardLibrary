@@ -2409,39 +2409,39 @@ This function integrates the derivative of temperature w.r.t. time in order to a
 
     redeclare function extends setSmoothState
       "Smooth transition function between state_a and state_b"
-
+      import Modelica.Media.Common.smoothStep;
     algorithm
       state := ThermodynamicState(
-            p=Modelica.Media.Common.smoothStep(
-              x,
-              state_a.p,
-              state_b.p,
-              x_small),
-            T=Modelica.Media.Common.smoothStep(
-              x,
-              state_a.T,
-              state_b.T,
-              x_small),
-            d=Modelica.Media.Common.smoothStep(
-              x,
-              state_a.d,
-              state_b.d,
-              x_small),
-            h=Modelica.Media.Common.smoothStep(
-              x,
-              state_a.h,
-              state_b.h,
-              x_small),
-            phase=getPhase_ph(p=Modelica.Media.Common.smoothStep(
-              x,
-              state_a.p,
-              state_b.p,
-              x_small), h=Modelica.Media.Common.smoothStep(
-              x,
-              state_a.h,
-              state_b.h,
-              x_small)));
-
+        p=smoothStep(
+          x,
+          state_a.p,
+          state_b.p,
+          x_small),
+        h=smoothStep(
+          x,
+          state_a.h,
+          state_b.h,
+          x_small),
+        T=temperature_ph(smoothStep(
+          x,
+          state_a.p,
+          state_b.p,
+          x_small), smoothStep(
+          x,
+          state_a.h,
+          state_b.h,
+          x_small)),
+        d=density_ph(smoothStep(
+          x,
+          state_a.p,
+          state_b.p,
+          x_small), smoothStep(
+          x,
+          state_a.h,
+          state_b.h,
+          x_small)),
+        phase=0);
+      annotation (Inline=true);
     end setSmoothState;
 
     annotation (Documentation(info="<html>
