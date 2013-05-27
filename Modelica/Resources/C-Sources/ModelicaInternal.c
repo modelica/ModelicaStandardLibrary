@@ -637,8 +637,7 @@ MODELICA_EXPORT void ModelicaInternal_print(const char* string, const char* file
 
      if ( fileName[0] == '\0' ) {
         /* Write string to terminal */
-           ModelicaMessage(string);
-           ModelicaMessage("\n");
+           ModelicaFormatMessage("%s\n", string);
      } else {
         /* Write string to file */
            FILE* fp = ModelicaStreams_openFileForWriting(fileName);
