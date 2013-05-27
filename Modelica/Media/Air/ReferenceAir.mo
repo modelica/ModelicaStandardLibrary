@@ -170,6 +170,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         output Density d "Density";
       algorithm
         d := Air_Utilities.rho_ph(p, h);
+        annotation (Inline=true);
       end density_ph;
 
       redeclare function temperature_ph
@@ -180,6 +181,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         output Temperature T "Temperature";
       algorithm
         T := Air_Utilities.T_ph(p, h);
+        annotation (Inline=true);
       end temperature_ph;
 
       redeclare function temperature_ps
@@ -190,6 +192,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         output Temperature T "Temperature";
       algorithm
         T := Air_Utilities.T_ps(p, s);
+        annotation (Inline=true);
       end temperature_ps;
 
       redeclare function density_ps
@@ -200,6 +203,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         output Density d "Density";
       algorithm
         d := Air_Utilities.rho_ps(p, s);
+        annotation (Inline=true);
       end density_ps;
 
       redeclare function pressure_dT
@@ -210,6 +214,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         output AbsolutePressure p "Pressure";
       algorithm
         p := Air_Utilities.p_dT(d, T);
+        annotation (Inline=true);
       end pressure_dT;
 
       redeclare function specificEnthalpy_dT
@@ -220,6 +225,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         output SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := Air_Utilities.h_dT(d, T);
+        annotation (Inline=true);
       end specificEnthalpy_dT;
 
       redeclare function specificEnthalpy_pT
@@ -230,6 +236,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         output SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := Air_Utilities.h_pT(p, T);
+        annotation (Inline=true);
       end specificEnthalpy_pT;
 
       redeclare function specificEnthalpy_ps
@@ -240,6 +247,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         output SpecificEnthalpy h "Specific enthalpy";
       algorithm
         h := Air_Utilities.h_ps(p, s);
+        annotation (Inline=true);
       end specificEnthalpy_ps;
 
       redeclare function density_pT
@@ -250,56 +258,66 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         output Density d "Density";
       algorithm
         d := Air_Utilities.rho_pT(p, T);
+        annotation (Inline=true);
       end density_pT;
 
       redeclare function extends dynamicViscosity
         "Return dynamic viscosity as a function of the thermodynamic state record"
       algorithm
         eta := Air_Utilities.Transport.eta_dT(state.d, state.T);
+        annotation (Inline=true);
       end dynamicViscosity;
 
       redeclare function extends thermalConductivity
         "Thermal conductivity of water"
       algorithm
         lambda := Air_Utilities.Transport.lambda_dT(state.d, state.T);
+        annotation (Inline=true);
       end thermalConductivity;
 
       redeclare function extends pressure "Return pressure of ideal gas"
       algorithm
         p := state.p;
+        annotation (Inline=true);
       end pressure;
 
       redeclare function extends temperature "Return temperature of ideal gas"
       algorithm
         T := state.T;
+        annotation (Inline=true);
       end temperature;
 
       redeclare function extends density "Return density of ideal gas"
       algorithm
         d := state.d;
+        annotation (Inline=true);
       end density;
 
       redeclare function extends specificEnthalpy "Return specific enthalpy"
       algorithm
         h := state.h;
+        annotation (Inline=true);
       end specificEnthalpy;
 
       redeclare function extends specificInternalEnergy
         "Return specific internal energy"
       algorithm
         u := state.h - state.p/state.d;
+        annotation (Inline=true);
       end specificInternalEnergy;
 
       redeclare function extends specificGibbsEnergy
         "Return specific Gibbs energy"
       algorithm
         g := state.h - state.T*specificEntropy(state);
+        annotation (Inline=true);
       end specificGibbsEnergy;
 
       redeclare function extends specificHelmholtzEnergy
         "Return specific Helmholtz energy"
       algorithm
         f := state.h - state.p/state.d - state.T*specificEntropy(state);
+        annotation (Inline=true);
       end specificHelmholtzEnergy;
 
       redeclare function extends specificEntropy "Specific entropy of water"
@@ -390,12 +408,14 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         "Density derivative by specific enthalpy"
       algorithm
         ddhp := Air_Utilities.ddhp(state.p, state.h);
+        annotation (Inline=true);
       end density_derh_p;
 
       redeclare function extends density_derp_h
         "Density derivative by pressure"
       algorithm
         ddph := Air_Utilities.ddph(state.p, state.h);
+        annotation (Inline=true);
       end density_derp_h;
 
       //   redeclare function extends density_derT_p
@@ -418,6 +438,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
                 T=T,
                 h=specificEnthalpy_dT(d, T),
                 p=pressure_dT(d, T));
+        annotation (Inline=true);
       end setState_dTX;
 
       redeclare function extends setState_phX
@@ -428,6 +449,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
                 T=temperature_ph(p, h),
                 h=h,
                 p=p);
+        annotation (Inline=true);
       end setState_phX;
 
       redeclare function extends setState_psX
@@ -438,6 +460,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
                 T=temperature_ps(p, s),
                 h=specificEnthalpy_ps(p, s),
                 p=p);
+        annotation (Inline=true);
       end setState_psX;
 
       redeclare function extends setState_pTX
@@ -448,6 +471,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
                 T=T,
                 h=specificEnthalpy_pT(p, T),
                 p=p);
+        annotation (Inline=true);
       end setState_pTX;
 
       redeclare function extends setSmoothState
@@ -483,6 +507,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
                   state_a.h,
                   state_b.h,
                   x_small)));
+        annotation (Inline=true);
       end setSmoothState;
 
       redeclare function extends isentropicEnthalpy
@@ -491,11 +516,13 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
                 p_downstream,
                 specificEntropy(refState),
                 reference_X);
+        annotation (Inline=true);
       end isentropicEnthalpy;
 
       redeclare function extends molarMass "Return the molar mass of the medium"
       algorithm
         MM = Modelica.Media.Air.ReferenceAir.airConstants.molarMass;
+        annotation (Inline=true);
       end molarMass;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
