@@ -313,7 +313,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -473,7 +473,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -636,7 +636,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -805,7 +805,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -990,7 +990,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -1198,7 +1198,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -1487,7 +1487,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -1634,7 +1634,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -1778,7 +1778,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -1937,7 +1937,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -2065,7 +2065,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -2189,7 +2189,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -2332,7 +2332,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -2487,7 +2487,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
@@ -2648,7 +2648,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         output SI.CoefficientOfHeatTransfer kc
           "Convective heat transfer coefficient"
           annotation (Dialog(group="Output"));
-        output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
+        output SI.PrandtlNumber Pr "Prandtl number" annotation (Dialog(group="Output"));
         output SI.ReynoldsNumber Re "Reynolds number"
           annotation (Dialog(group="Output"));
         output SI.NusseltNumber Nu "Nusselt number"
