@@ -373,7 +373,7 @@ package ReferenceMoistAir
 
   algorithm
     Tsat := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
-        function Tsat_res(state.p),
+        function Tsat_res(p=state.p),
         50.0,
         673.15,
         1e-9);

@@ -414,9 +414,9 @@ Example:
 
     redeclare function extends setState_pTX "Dummy function"
     algorithm
-      assert(false, "A calculation of two-phase properties with input of pressure and temperature is not possible.
-      Please use setState_dTX or setState_phX instead.".);
-      
+      assert(false, "A calculation of two-phase properties with input of pressure and temperature is not possible.\n" +
+      "Please use setState_dTX or setState_phX instead.");
+
       annotation (Documentation(info="<html>
 <p>This function is intentionally provided although it will result in an error. Please note, that pressure and temperature cannot be used to determine states in two-phase region. Therefore, in order to avoid wrong usage, the function will give an error message.</p>
 </html>"));
