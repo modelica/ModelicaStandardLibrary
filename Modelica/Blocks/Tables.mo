@@ -8,10 +8,8 @@ package Tables
     parameter Boolean tableOnFile=false
       "true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
-    parameter Real table[:, :]=fill(
-          0.0,
-          0,
-          2) "Table matrix (grid = first column; e.g., table=[0,2])"
+    parameter Real table[:, :](start=[0, 0; 1, 1; 2, 4; 3, 9; 4, 16])
+      "Table matrix (grid = first column; e.g., table=[0,2])"
       annotation (Dialog(group="Table data definition",enable=not tableOnFile));
     parameter String tableName="NoName"
       "Table name on file or in function usertab (see docu)"
@@ -295,10 +293,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     parameter Boolean tableOnFile=false
       "true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
-    parameter Real table[:, :]=fill(
-          0.0,
-          0,
-          2) "Table matrix (grid = first column; e.g., table=[0,2])"
+    parameter Real table[:, :](start=[0, 0; 1, 1; 2, 4; 3, 9; 4, 16])
+      "Table matrix (grid = first column; e.g., table=[0,2])"
       annotation (Dialog(group="Table data definition",enable=not tableOnFile));
     parameter String tableName="NoName"
       "Table name on file or in function usertab (see docu)"
@@ -581,10 +577,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     parameter Boolean tableOnFile=false
       "true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
-    parameter Real table[:, :]=fill(
-          0.0,
-          0,
-          2)
+    parameter Real table[:, :](start=[0, 0, 1, 2; 0, 0, 2, 4; 1, 1, 3, 5; 2, 2, 4, 7])
       "Table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0,0;0,1])"
       annotation (Dialog(group="Table data definition",enable=not tableOnFile));
     parameter String tableName="NoName"
