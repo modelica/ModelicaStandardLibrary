@@ -2545,8 +2545,8 @@ This release of the Modelica package has been tested with several tools in the f
 <li><b>Tests with MapleSim</b>
     <ul>
     <li> Checking packages Modelica and ModelicaTest successfully with the free
-         <a href=\"https://trac.modelica.org/Modelica/browser/Modelica/branches/tools/MoParse\">
-	 MapleSim Standalone Modelica Parser</a> (the used default options check for
+         <a href=\"https://trac.modelica.org/Modelica/browser/Modelica/branches/tools/MoParser\">
+         MapleSim Standalone Modelica Parser</a> (the used default options check for
          strict Modelica 3.2 Revison 2 compliance).</li>
     </ul>
 
