@@ -110,7 +110,7 @@ static void ModelicaNotExistError(const char* name) {
        ModelicaNotExistError("ModelicaInternal_chdir"); }
   MODELICA_EXPORT const char* ModelicaInternal_getcwd(int dummy) {
        ModelicaNotExistError("ModelicaInternal_getcwd"); return 0; }
-  MODELICA_EXPORT void ModelicaInternal_getenv(const char* name, int convertToSlash, char** content, int* exist) {
+  MODELICA_EXPORT void ModelicaInternal_getenv(const char* name, int convertToSlash, const char** content, int* exist) {
        ModelicaNotExistError("ModelicaInternal_getenv"); }
   MODELICA_EXPORT void ModelicaInternal_setenv(const char* name, const char* value, int convertFromSlash) {
        ModelicaNotExistError("ModelicaInternal_setenv"); }
@@ -216,11 +216,11 @@ MODELICA_EXPORT void ModelicaInternal_mkdir(const char* directoryName)
 
 MODELICA_EXPORT void ModelicaInternal_rmdir(const char* directoryName)
 {
-#if defined(__WATCOMC__) && !defined(SimStruct)
+#if defined(__WATCOMC__)
     int result = rmdir(directoryName);
-#elif defined(__BORLANDC__) && !defined(SimStruct)
+#elif defined(__BORLANDC__)
     int result = _rmdir(directoryName);
-#elif defined(_WIN32) && !defined(SimStruct)
+#elif defined(_WIN32)
     int result = _rmdir(directoryName);
 #elif defined(_POSIX_) || defined(__GNUC__)
     int result = rmdir(directoryName);
@@ -790,11 +790,11 @@ MODELICA_EXPORT const char* ModelicaInternal_readLine(const char* fileName, int 
 MODELICA_EXPORT void ModelicaInternal_chdir(const char* directoryName)
 {
 /* Change current working directory. */
-#if defined(__WATCOMC__) && !defined(SimStruct)
+#if defined(__WATCOMC__)
     int result = chdir(directoryName);
-#elif defined(__BORLANDC__) && !defined(SimStruct)
+#elif defined(__BORLANDC__)
     int result = chdir(directoryName);
-#elif defined(_WIN32) && !defined(SimStruct)
+#elif defined(_WIN32)
     int result = _chdir(directoryName);
 #elif defined(_POSIX_) || defined(__GNUC__)
     int result = chdir(directoryName);
@@ -837,7 +837,7 @@ MODELICA_EXPORT const char* ModelicaInternal_getcwd(int dummy)
 }
 
 
-MODELICA_EXPORT void ModelicaInternal_getenv(const char* name, int convertToSlash, char** content, int* exist)
+MODELICA_EXPORT void ModelicaInternal_getenv(const char* name, int convertToSlash, const char** content, int* exist)
 {
     /* Get content of environment variable */
     char* value = getenv(name);
