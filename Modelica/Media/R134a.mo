@@ -414,16 +414,11 @@ Example:
 
     redeclare function extends setState_pTX "Dummy function"
     algorithm
-      // Will probably result in an error so that the user has a chance to fix the model
-      // With pressure and temperature a calculation of two-phase properties is not possible
-      // Please use density and temperature or better pressure and specific enthalpy as states
-      state.d := 0;
-      state.h := 0;
-      state.p := 0;
-      state.T := 0;
-      state.phase := 0;
+      assert(false, "A calculation of two-phase properties with input of pressure and temperature is not possible.
+      Please use setState_dTX or setState_phX instead.".);
+      
       annotation (Documentation(info="<html>
-<p>This function is intentionally provided although it just calculates dummy values. Please note, that pressure and temperature cannot be used to determine states in two-phase region. Therefore, in order to avoid wrong usage, the function will set the remaining states to zero.</p>
+<p>This function is intentionally provided although it will result in an error. Please note, that pressure and temperature cannot be used to determine states in two-phase region. Therefore, in order to avoid wrong usage, the function will give an error message.</p>
 </html>"));
     end setState_pTX;
 
