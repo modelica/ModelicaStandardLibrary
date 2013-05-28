@@ -887,7 +887,9 @@ In this example the eddy current losses are implemented in two different ways. C
               origin={60,-30})));
         Modelica.Magnetic.FundamentalWave.Components.Ground groundM_m
           annotation (Placement(transformation(extent={{10,-80},{30,-60}})));
-
+      initial equation
+        resistor_e.i = 0;
+        resistor_m.i = 0;
       equation
         connect(converter_m.port_p, reluctance_m.port_p)
           annotation (Line(
@@ -1019,6 +1021,9 @@ In this example the eddy current losses are implemented in two different ways. C
         Modelica.Magnetic.FundamentalWave.Components.Ground
                                                          groundM_m
           annotation (Placement(transformation(extent={{10,-90},{30,-70}})));
+      initial equation
+        resistor_e.i = zeros(m);
+        resistor_m.i[1:2] = zeros(2);
       equation
         connect(star_e.plug_p, voltageSource_e.plug_n)
                                                      annotation (Line(
