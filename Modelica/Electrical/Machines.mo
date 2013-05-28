@@ -2504,7 +2504,8 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={30,-50})));
-        Modelica.Blocks.Math.Gain setPointGain(k=smeeData.VsNominal/wNominal)
+        Modelica.Blocks.Math.Gain setPointGain(k=(smeeData.VsNominal/wNominal)/
+              unitMagneticFlux)
           annotation (Placement(transformation(extent={{-50,-90},{-70,-70}})));
         Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor(
             ToSpacePhasor1(y(each start=1E-3, each fixed=true)))
@@ -2553,6 +2554,8 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-90,30})));
+      protected
+        constant Modelica.SIunits.MagneticFlux unitMagneticFlux= 1  annotation(HideResult=true);
       initial equation
         smee.idq_sr=zeros(2);
         smee.idq_dr=zeros(2);
@@ -15361,12 +15364,12 @@ They can be used to feed a current source which in turn feeds an induction machi
       Modelica.Blocks.Math.Feedback feedback_q
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Modelica.Blocks.Continuous.PI PI_d(
-        final k=1/Rs,
+        final k=unitResistance/Rs,
         final T=Ld/Rs,
         initType=Modelica.Blocks.Types.Init.InitialOutput)
         annotation (Placement(transformation(extent={{-10,50},{10,70}})));
       Modelica.Blocks.Continuous.PI PI_q(
-        final k=1/Rs,
+        final k=unitResistance/Rs,
         final T=Lq/Rs,
         initType=Modelica.Blocks.Types.Init.InitialOutput)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -15375,6 +15378,8 @@ They can be used to feed a current source which in turn feeds an induction machi
         annotation (Placement(transformation(extent={{32,-10},{52,10}})));
       Modelica.Blocks.Sources.RealExpression deCoupling[2](y={Vd,Vq})
         annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+    protected
+      constant Modelica.SIunits.Resistance unitResistance= 1  annotation(HideResult=true);
     equation
       connect(fromDQ.y, y)          annotation (Line(
           points={{91,0},{110,0}},

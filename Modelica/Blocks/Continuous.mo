@@ -849,8 +849,7 @@ to compute u by an algebraic equation.
       "Time constant of Integrator block"
        annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
                                 controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-    parameter SIunits.Time Td(min=0)= 0.1
-      "Time constant of Derivative block"
+    parameter SIunits.Time Td(min=0)= 0.1 "Time constant of Derivative block"
          annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
                                   controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real yMax(start=1) "Upper limit of output";
@@ -899,20 +898,22 @@ to compute u by an algebraic equation.
     Blocks.Math.Gain P(k=1)
                        annotation (Placement(transformation(extent={{-40,40},{
               -20,60}}, rotation=0)));
-    Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
+    Blocks.Continuous.Integrator I(        y_start=xi_start,
       initType=if initType==InitPID.SteadyState then
                   Init.SteadyState else
                if initType==InitPID.InitialState or
                   initType==InitPID.DoNotUse_InitialIntegratorState then
-                  Init.InitialState else Init.NoInit) if with_I
+                  Init.InitialState else Init.NoInit,
+      k=unitTime/Ti) if                                  with_I
       annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
             rotation=0)));
-    Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 1.e-14]), x_start=xd_start,
+    Blocks.Continuous.Derivative D(      T=max([Td/Nd, 1.e-14]), x_start=xd_start,
       initType=if initType==InitPID.SteadyState or
                   initType==InitPID.InitialOutput then Init.SteadyState else
                if initType==InitPID.InitialState then Init.InitialState else
-                  Init.NoInit) if with_D
-      annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
+                  Init.NoInit,
+      k=Td/unitTime) if           with_D
+      annotation (Placement(transformation(extent={{-42,-10},{-22,10}},
             rotation=0)));
     Blocks.Math.Gain gainPID(k=k) annotation (Placement(transformation(extent={
               {30,-10},{50,10}}, rotation=0)));
@@ -937,6 +938,7 @@ to compute u by an algebraic equation.
                                controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
     parameter Boolean with_D = controllerType==SimpleController.PD or
                                controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
+    constant Modelica.SIunits.Time unitTime= 1  annotation(HideResult=true);
   public
     Sources.Constant Dzero(k=0) if not with_D
       annotation (Placement(transformation(extent={{-30,20},{-20,30}}, rotation=
@@ -969,13 +971,13 @@ to compute u by an algebraic equation.
     connect(addP.y, P.u) annotation (Line(points={{-59,50},{-42,50}}, color={0,
             0,127}));
     connect(addD.y, D.u)
-      annotation (Line(points={{-59,0},{-42,0}}, color={0,0,127}));
+      annotation (Line(points={{-59,0},{-44,0}}, color={0,0,127}));
     connect(addI.y, I.u) annotation (Line(points={{-59,-50},{-42,-50}}, color={
             0,0,127}));
     connect(P.y, addPID.u1) annotation (Line(points={{-19,50},{-10,50},{-10,8},
             {-2,8}}, color={0,0,127}));
     connect(D.y, addPID.u2)
-      annotation (Line(points={{-19,0},{-2,0}}, color={0,0,127}));
+      annotation (Line(points={{-21,0},{-2,0}}, color={0,0,127}));
     connect(I.y, addPID.u3) annotation (Line(points={{-19,-50},{-10,-50},{-10,
             -8},{-2,-8}}, color={0,0,127}));
     connect(addPID.y, gainPID.u)
