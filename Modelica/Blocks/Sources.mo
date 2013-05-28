@@ -1843,7 +1843,7 @@ a flange according to a given acceleration.
   block TimeTable
     "Generate a (possibly discontinuous) signal by linear interpolation in a table"
 
-    parameter Real table[:, 2](start=[0, 0; 1, 1; 2, 4])
+    parameter Real table[:, 2] = fill(0.0, 0, 2)
       "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
     parameter Real offset=0 "Offset of output signal";
     parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
@@ -2083,7 +2083,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Boolean tableOnFile=false
       "= true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
-    parameter Real table[:, :](start=[0, 0; 1, 1; 2, 4; 3, 9; 4, 16])
+    parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (time = first column; e.g., table=[0,2])"
       annotation (Dialog(group="Table data definition",enable=not tableOnFile));
     parameter String tableName="NoName"
