@@ -52,7 +52,7 @@ package Tables
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Real y;
     external"C" y = ModelicaStandardTables_CombiTable1D_getValue(
             tableID,
@@ -67,7 +67,7 @@ package Tables
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       input Real der_u;
       output Real der_y;
     external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(
@@ -337,7 +337,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Real y;
     external"C" y = ModelicaStandardTables_CombiTable1D_getValue(
             tableID,
@@ -352,7 +352,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       input Real der_u;
       output Real der_y;
     external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(
@@ -617,7 +617,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Real u1;
       input Real u2;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Real y;
     external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
             tableID,
@@ -632,7 +632,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Real u1;
       input Real u2;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       input Real der_u1;
       input Real der_u2;
       output Real der_y;

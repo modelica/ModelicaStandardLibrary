@@ -2148,7 +2148,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Real y;
     external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(
             tableID,
@@ -2170,7 +2170,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       input Real der_timeIn;
       output Real der_y;
     external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(
@@ -2186,7 +2186,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Return minimum time value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time timeMin "Minimum time value in table";
     external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(
         tableID) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
@@ -2196,7 +2196,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Return maximum time value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time timeMax "Maximum time value in table";
     external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(
         tableID) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
@@ -2207,7 +2207,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Modelica.SIunits.Time timeIn;
-      input Real tableAvailable;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time nextTimeEvent "Next time event in table";
     external"C" nextTimeEvent =
         ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
