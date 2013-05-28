@@ -184,6 +184,7 @@ definition of the colors used in the MultiBody library
 
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
+    import Modelica.Math.Vectors.normalizeWithAssert;
 
     Interfaces.Frame_a frame_a
       "Coordinate system a (all shape definition vectors are resolved in this frame)"
@@ -201,7 +202,7 @@ definition of the colors used in the MultiBody library
     input SI.Position r_shape[3]={0,0,0}
       "Vector from frame_a to shape origin, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Axis lengthDirection=r - r_shape
+    input Types.Axis lengthDirection=normalizeWithAssert(r - r_shape)
       "Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
     input Types.Axis widthDirection={0,1,0}
@@ -1698,6 +1699,7 @@ This definition is also available as type
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
+      import Modelica.Math.Vectors.normalizeWithAssert;
 
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame." annotation(Dialog);
@@ -1734,7 +1736,7 @@ This definition is also available as type
             ArrowHeadLengthFraction)),
         width=diameter,
         height=diameter,
-        lengthDirection=r_head,
+        lengthDirection=normalizeWithAssert(r_head),
         widthDirection={0,1,0},
         shapeType="cylinder",
         color=color,
@@ -1749,7 +1751,7 @@ This definition is also available as type
             ArrowHeadWidthFraction)),
         height=noEvent(max(0, diameter*MultiBody.Types.Defaults.
             ArrowHeadWidthFraction)),
-        lengthDirection=r_head,
+        lengthDirection=normalizeWithAssert(r_head),
         widthDirection={0,1,0},
         shapeType="cone",
         color=color,
@@ -1809,6 +1811,7 @@ library (will be replaced by a color editor).
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
+      import Modelica.Math.Vectors.normalizeWithAssert;
 
       input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame." annotation(Dialog);
@@ -1849,7 +1852,7 @@ library (will be replaced by a color editor).
             ArrowHeadLengthFraction)),
         width=diameter,
         height=diameter,
-        lengthDirection=r_head,
+        lengthDirection=normalizeWithAssert(r_head),
         widthDirection={0,1,0},
         shapeType="cylinder",
         color=color,
@@ -1861,7 +1864,7 @@ library (will be replaced by a color editor).
         length=headLength,
         width=headWidth,
         height=headWidth,
-        lengthDirection=r_head,
+        lengthDirection=normalizeWithAssert(r_head),
         widthDirection={0,1,0},
         shapeType="cone",
         color=color,
@@ -1872,7 +1875,7 @@ library (will be replaced by a color editor).
         length=headLength,
         width=headWidth,
         height=headWidth,
-        lengthDirection=r_head,
+        lengthDirection=normalizeWithAssert(r_head),
         widthDirection={0,1,0},
         shapeType="cone",
         color=color,

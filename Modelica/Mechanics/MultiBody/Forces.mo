@@ -557,7 +557,7 @@ This leads to the following animation
 
   model Force
     "Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
-
+    import Modelica.Math.Vectors.normalizeWithAssert;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
@@ -608,7 +608,7 @@ This leads to the following animation
       r_head=-f_in_m) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
-      lengthDirection=basicForce.r_0,
+      lengthDirection=normalizeWithAssert(basicForce.r_0),
       widthDirection={0,1,0},
       length=Modelica.Math.Vectors.length(basicForce.r_0),
       width=connectionLineDiameter,
@@ -749,7 +749,7 @@ clarity this is not shown in the animation):
 
   model Torque
     "Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
-
+    import Modelica.Math.Vectors.normalizeWithAssert;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
@@ -801,7 +801,7 @@ clarity this is not shown in the animation):
       r_head=-t_in_m) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
-      lengthDirection=basicTorque.r_0,
+      lengthDirection=normalizeWithAssert(basicTorque.r_0),
       widthDirection={0,1,0},
       length=Modelica.Math.Vectors.length(
                            basicTorque.r_0),
@@ -947,6 +947,8 @@ clarity this is not shown in the animation):
     "Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
 
     import Modelica.Mechanics.MultiBody.Types;
+    import Modelica.Math.Vectors.normalizeWithAssert;
+
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
     Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
@@ -1023,7 +1025,7 @@ clarity this is not shown in the animation):
       r_head=-t_in_m) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
-      lengthDirection=basicForce.r_0,
+      lengthDirection=normalizeWithAssert(basicForce.r_0),
       widthDirection={0,1,0},
       length=Modelica.Math.Vectors.length(
                            basicForce.r_0),

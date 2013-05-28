@@ -2676,8 +2676,8 @@ that has this property.
     SI.Torque t_ia_a[3] "frame_ia.t resolved in frame_a";
     Real n2_a[3](each final unit="1")
       "Vector in direction of axis 2 of the universal joint (e2_ia), resolved in frame_a";
-    Real length2_n2_a(start=1, unit="m2") "Square of length of vector n2_a";
-    SI.Length length_n2_a "Length of vector n2_a";
+    Real length2_n2_a(start=1, unit="1") "Square of length of vector n2_a";
+    Real length_n2_a(unit="1") "Length of vector n2_a";
     Real e2_a[3](each final unit="1")
       "Unit vector in direction of axis 2 of the universal joint (e2_ia), resolved in frame_a";
     Real e3_a[3](each final unit="1")
@@ -3847,8 +3847,8 @@ November 3-4, 2003, pp. 149-158</p>
         "Unit vector perpendicular to eAxis_a and e2_a, resolved in frame_a";
       Real n2_a[3](each final unit="1")
         "Vector in direction of second rotation axis of universal joint, resolved in frame_a";
-      Real length2_n2_a(unit="m2") "Square of length of vector n2_a";
-      SI.Length length_n2_a "Length of vector n2_a";
+      Real length2_n2_a(unit="1") "Square of length of vector n2_a";
+      Real length_n2_a(unit="1") "Length of vector n2_a";
       Real der_rAxis_a_L[3](each unit="1/s") "= der(rAxis_a)/axisLength";
       SI.AngularVelocity w_rel_ia1[3];
       Frames.Orientation R_ia1_a;
@@ -6213,6 +6213,7 @@ component).
       "Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)"
 
       import Modelica.Mechanics.MultiBody.Types;
+      import Modelica.Math.Vectors.normalizeWithAssert;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
 
@@ -6348,7 +6349,7 @@ component).
                              rRod1_ia),
         width=rodDiameter,
         height=rodDiameter,
-        lengthDirection=rRod1_ia,
+        lengthDirection=normalizeWithAssert(rRod1_ia),
         widthDirection=e_ia,
         r=frame_ia.r_0,
         R=frame_ia.R) if world.enableAnimation and animation;
@@ -6360,7 +6361,7 @@ component).
                              rRod2_ib),
         width=rodDiameter,
         height=rodDiameter,
-        lengthDirection=rRod2_ib,
+        lengthDirection=normalizeWithAssert(rRod2_ib),
         widthDirection=e_b,
         r=frame_ib.r_0,
         R=frame_ib.R) if world.enableAnimation and animation;
@@ -6539,6 +6540,7 @@ are connected by rigid rods.
       "Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)"
 
       import Modelica.Mechanics.MultiBody.Types;
+      import Modelica.Math.Vectors.normalizeWithAssert;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
@@ -6684,7 +6686,7 @@ are connected by rigid rods.
                              rRod1_ia),
         width=rodDiameter,
         height=rodDiameter,
-        lengthDirection=rRod1_ia,
+        lengthDirection=normalizeWithAssert(rRod1_ia),
         widthDirection=e_ia,
         r=frame_ia.r_0,
         R=frame_ia.R) if world.enableAnimation and animation;
@@ -6696,7 +6698,7 @@ are connected by rigid rods.
                              rRod2_ib),
         width=rodDiameter,
         height=rodDiameter,
-        lengthDirection=rRod2_ib,
+        lengthDirection=normalizeWithAssert(rRod2_ib),
         widthDirection=e_b,
         r=frame_ib.r_0,
         R=frame_ib.R) if world.enableAnimation and animation;
