@@ -168,7 +168,7 @@ The default values of \"name\" and \"significantDigits\" are \"\" and 6 respecti
   function isEqual "Determine if two Real vectors are numerically identical"
     extends Modelica.Icons.Function;
     input Real v1[:] "First vector";
-    input Real v2[:] "Second vector (may have different length as v1";
+    input Real v2[:] "Second vector (may have different length as v1)";
     input Real eps(min=0) = 0
       "Two elements e1 and e2 of the two vectors are identical if abs(e1-e2) <= eps";
     output Boolean result
@@ -1118,7 +1118,7 @@ prefix \"&lt;name&gt; =\" is leaved out.
   function isEqual "Compare whether two Real matrices are identical"
     extends Modelica.Icons.Function;
     input Real M1[:, :] "First matrix";
-    input Real M2[:, :] "Second matrix (may have different size as M1";
+    input Real M2[:, :] "Second matrix (may have different size as M1)";
     input Real eps(min=0) = 0
       "Two elements e1 and e2 of the two matrices are identical if abs(e1-e2) <= eps";
     output Boolean result
@@ -2352,7 +2352,7 @@ by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b
     output Real alphaReal[size(A, 1)]
       "Real part of eigenvalue=alphaReal+i*alphaImag";
     output Real alphaImag[size(A, 1)]
-      "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
+      "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
 
   protected
     Integer info;
@@ -3983,7 +3983,7 @@ for more information.
     output Real alphaReal[size(H, 1)]
       "Real parts of eigenvalue=alphaReal+i*alphaImag";
     output Real alphaImag[size(H, 1)]
-      "Imaginary parts of eigenvalue=(alphaReal+i*alphaImag";
+      "Imaginary parts of eigenvalue=alphaReal+i*alphaImag";
   algorithm
     if n > 1 then
       (H_RSF,Z,alphaReal,alphaImag) := Modelica.Math.Matrices.realSchur(H);
@@ -4564,7 +4564,7 @@ The Boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
     output Real alphaReal[size(H, 1)]
       "Real part of eigenvalue=alphaReal+i*alphaImag";
     output Real alphaImag[size(H, 1)]
-      "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
+      "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
   algorithm
     (LU,p) := Modelica.Math.Matrices.LU(AT);
     H21 := Modelica.Math.Matrices.LU_solve2(
@@ -7825,7 +7825,7 @@ external"FORTRAN 77" dgees(
         "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
       output Integer info;
       output Real Ho[:, :]=H
-        "Schur decomposition (if eigenValuesOnly==false, unspecified else))";
+        "Schur decomposition (if eigenValuesOnly==false, unspecified else)";
       output Real Zo[:, :]=Z;
       output Real work[3*max(1, size(H, 1))];
 
@@ -10840,7 +10840,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.Lapack.
       input Real alphaReal[size(T, 1)]
         "Real part of eigenvalue=alphaReal+i*alphaImag";
       input Real alphaImag[size(T, 1)]
-        "Imaginary part of eigenvalue=(alphaReal+i*alphaImag";
+        "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
       input Boolean iscontinuous=true
         "True if the according system is continuous. False for discrete systems";
 
