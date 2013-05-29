@@ -7295,7 +7295,7 @@ with the blocks of package Modelica.Blocks.
       /* Friction characteristic
    locked is introduced to help the Modelica translator determining
    the different structural configurations,
-   if for each configuration special code shall be generated)
+   if for each configuration special code shall be generated
 */
       startForward = pre(mode) == Stuck and (sa > tau0_max/unitTorque or pre(
         startForward) and sa > tau0/unitTorque) or pre(mode) == Backward and
