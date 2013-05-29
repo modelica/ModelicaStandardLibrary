@@ -4540,7 +4540,7 @@ component).
       final parameter Real e2_ia[3](each final unit="1")=rod1.e2_ia
         "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia";
       final parameter SI.Distance rod1Length=rod1.rodLength
-        "Length of rod 1 (= distance between universal and spherical joint";
+        "Length of rod 1 (= distance between universal and spherical joint)";
       SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       SI.Position aux
@@ -4614,7 +4614,7 @@ component).
      Solving this equation for f_rod results in
        f_rod = (-tau - e*(frame_ib.t + frame_im.t + cross(rRod2_ib, frame_im.f)
                + cross(rRod2_ib, -rod1.f_b_a1)))
-               / (cross(e,rRod2_ib)*Frames.resolve2(rod1.R_rel, rod1.eRod_a)))
+               / (cross(e,rRod2_ib)*Frames.resolve2(rod1.R_rel, rod1.eRod_a))
      Additionally, a guard against division by zero is introduced
 
      f_rod is passed to component JointsUSR.rod1 via variable "constraintResidue" in the Advanced menu
@@ -5049,7 +5049,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       final parameter Real e2_ia[3](each final unit="1")=rod1.e2_ia
         "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia";
       final parameter SI.Distance rod1Length=rod1.rodLength
-        "Length of rod 1 (= distance between universal and spherical joint";
+        "Length of rod 1 (= distance between universal and spherical joint)";
       SI.Force f_rod
         "Constraint force in direction of the rod (positive, if rod is pressed)";
       SI.Power totalPower
@@ -5121,7 +5121,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           = e*(frame_ib.f + frame_im.f - Frames.resolve2(rod1.R_rel, rod1.f_b_a1)
               + rod1.f_rod*Frames.resolve2(rod1.R_rel, rod1.eRod_a))
      Solving this equation for f_rod results in
-       rod1.f_rod = -(f+e*(frame_ib.f + frame_im.f - Frames.resolve2(rod1.R_rel, rod1.f_b_a1))
+       rod1.f_rod = -(f+e*(frame_ib.f + frame_im.f - Frames.resolve2(rod1.R_rel, rod1.f_b_a1)))
                    /(e*Frames.resolve2(rod1.R_rel, rod1.eRod_a))
      Additionally, a guard against division by zero is introduced
   */
@@ -5626,7 +5626,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
      Solving this equation for f_rod results in
        rod1.f_rod = (tau - e*(frame_ib.t + frame_im.t + cross(rRod2_ib, frame_im.f)
                    + cross(rRod2_ib, -rod1.f_b_a1)))
-                   / (cross(e,rRod2_ib)*Frames.resolve2(rod1.R_rel, rod1.eRod_a)))
+                   / (cross(e,rRod2_ib)*Frames.resolve2(rod1.R_rel, rod1.eRod_a))
      Additionally, a guard against division by zero is introduced
   */
 
