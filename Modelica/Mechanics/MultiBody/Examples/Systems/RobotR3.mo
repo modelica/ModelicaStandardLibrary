@@ -1558,7 +1558,7 @@ Default values of the parameters are given for the axis of joint 1.
 
     model MechanicalStructure
       "Model of the mechanical part of the r3 robot (without animation)"
-      import Modelica.Math.Vectors.normalizeWithAssert;
+      import Modelica.SIunits.Conversions.to_unit1;
 
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter SI.Mass mLoad(min=0)=15 "Mass of load";
@@ -1769,7 +1769,7 @@ Default values of the parameters are given for the axis of joint 1.
         width=0.05,
         height=0.05,
         color={255,0,0},
-        lengthDirection=normalizeWithAssert(rLoad),
+        lengthDirection = to_unit1(rLoad),
         length=Modelica.Math.Vectors.length(              rLoad),
         animation=animation)
         annotation (Placement(transformation(

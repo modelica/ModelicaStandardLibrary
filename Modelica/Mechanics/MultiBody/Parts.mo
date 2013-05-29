@@ -5,7 +5,7 @@ package Parts
 
   model Fixed "Frame fixed in the world frame at a given position"
     import Modelica.Mechanics.MultiBody.Types;
-    import Modelica.Math.Vectors.normalizeWithAssert;
+    import Modelica.SIunits.Conversions.to_unit1;
 
     Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame"
       annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation
@@ -25,7 +25,7 @@ package Parts
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter Types.Axis lengthDirection = normalizeWithAssert(r - r_shape)
+    parameter Types.Axis lengthDirection = to_unit1(r - r_shape)
       " Vector in length direction of shape, resolved in world frame"
       annotation (Dialog(
         tab="Animation",
@@ -142,7 +142,7 @@ animation = <b>false</b>.
 
   model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
     import Modelica.Mechanics.MultiBody.Types;
-    import Modelica.Math.Vectors.normalizeWithAssert;
+    import Modelica.SIunits.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -167,7 +167,7 @@ animation = <b>false</b>.
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter Types.Axis lengthDirection=normalizeWithAssert(r - r_shape)
+    parameter Types.Axis lengthDirection = to_unit1(r - r_shape)
       " Vector in length direction of shape, resolved in frame_a" annotation (
         Evaluate=true, Dialog(
         tab="Animation",
@@ -337,7 +337,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
     "Fixed translation followed by a fixed rotation of frame_b with respect to frame_a"
 
     import Modelica.Mechanics.MultiBody.Frames;
-    import Modelica.Math.Vectors.normalizeWithAssert;
+    import Modelica.SIunits.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -393,7 +393,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
         group="if animation = true",
         enable=animation));
     parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection =
-        normalizeWithAssert(r - r_shape)
+        to_unit1(r - r_shape)
         "Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(
         tab="Animation",
@@ -644,7 +644,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Mechanics.MultiBody.Frames;
-    import Modelica.Math.Vectors.normalizeWithAssert;
+    import Modelica.SIunits.Conversions.to_unit1;
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
       "Coordinate system fixed at body" annotation (Placement(transformation(
@@ -816,7 +816,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
           sphereDiameter then sphereDiameter/2 else 0) else 0,
       width=cylinderDiameter,
       height=cylinderDiameter,
-      lengthDirection = normalizeWithAssert(r_CM),
+      lengthDirection = to_unit1(r_CM),
       widthDirection={0,1,0},
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
@@ -1019,7 +1019,7 @@ to the setting of parameters \"useQuaternions\" and
     "Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)"
 
     import Modelica.Mechanics.MultiBody.Types;
-    import Modelica.Math.Vectors.normalizeWithAssert;
+    import Modelica.SIunits.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -1114,7 +1114,7 @@ to the setting of parameters \"useQuaternions\" and
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter Types.Axis lengthDirection=normalizeWithAssert(r - r_shape)
+    parameter Types.Axis lengthDirection = to_unit1(r - r_shape)
       " Vector in length direction of shape, resolved in frame_a" annotation (
         Evaluate=true, Dialog(
         tab="Animation",
@@ -1341,6 +1341,7 @@ states and of the \"Advanced\" menu parameters, see model
 
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Math.Vectors.normalizeWithAssert;
+    import Modelica.SIunits.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -1357,7 +1358,7 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Position r_shape[3]={0,0,0}
       "Vector from frame_a to box origin, resolved in frame_a";
     parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=
-       normalizeWithAssert(r - r_shape)
+       to_unit1(r - r_shape)
       "Vector in length direction of box, resolved in frame_a"
       annotation (Evaluate=true);
     parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0}
@@ -1572,6 +1573,7 @@ states and of the \"Advanced\" menu parameters, see model
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Math.Vectors.normalizeWithAssert;
+    import Modelica.SIunits.Conversions.to_unit1;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -1588,7 +1590,7 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Position r_shape[3]={0,0,0}
       "Vector from frame_a to cylinder origin, resolved in frame_a";
     parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=
-      normalizeWithAssert(r - r_shape)
+      to_unit1(r - r_shape)
       "Vector in length direction of cylinder, resolved in frame_a"
       annotation (Evaluate=true);
     parameter SI.Length length=Modelica.Math.Vectors.length(r - r_shape)

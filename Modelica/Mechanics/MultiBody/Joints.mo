@@ -6213,7 +6213,7 @@ component).
       "Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)"
 
       import Modelica.Mechanics.MultiBody.Types;
-      import Modelica.Math.Vectors.normalizeWithAssert;
+      import Modelica.SIunits.Conversions.to_unit1;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
 
@@ -6349,7 +6349,7 @@ component).
                              rRod1_ia),
         width=rodDiameter,
         height=rodDiameter,
-        lengthDirection=normalizeWithAssert(rRod1_ia),
+        lengthDirection = to_unit1(rRod1_ia),
         widthDirection=e_ia,
         r=frame_ia.r_0,
         R=frame_ia.R) if world.enableAnimation and animation;
@@ -6361,7 +6361,7 @@ component).
                              rRod2_ib),
         width=rodDiameter,
         height=rodDiameter,
-        lengthDirection=normalizeWithAssert(rRod2_ib),
+        lengthDirection = to_unit1(rRod2_ib),
         widthDirection=e_b,
         r=frame_ib.r_0,
         R=frame_ib.R) if world.enableAnimation and animation;
@@ -6540,7 +6540,7 @@ are connected by rigid rods.
       "Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)"
 
       import Modelica.Mechanics.MultiBody.Types;
-      import Modelica.Math.Vectors.normalizeWithAssert;
+      import Modelica.SIunits.Conversions.to_unit1;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
@@ -6686,7 +6686,7 @@ are connected by rigid rods.
                              rRod1_ia),
         width=rodDiameter,
         height=rodDiameter,
-        lengthDirection=normalizeWithAssert(rRod1_ia),
+        lengthDirection = to_unit1(rRod1_ia),
         widthDirection=e_ia,
         r=frame_ia.r_0,
         R=frame_ia.R) if world.enableAnimation and animation;
@@ -6698,7 +6698,7 @@ are connected by rigid rods.
                              rRod2_ib),
         width=rodDiameter,
         height=rodDiameter,
-        lengthDirection=normalizeWithAssert(rRod2_ib),
+        lengthDirection = to_unit1(rRod2_ib),
         widthDirection=e_b,
         r=frame_ib.r_0,
         R=frame_ib.R) if world.enableAnimation and animation;

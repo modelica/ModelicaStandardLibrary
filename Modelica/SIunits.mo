@@ -346,6 +346,40 @@ still kept in Modelica.SIunits.</p>
               textString="[km/h]")}));
     end NonSIunits;
 
+
+  function to_unit1 "Change the unit of a Real number to unit=\"1\""
+    extends Modelica.SIunits.Icons.Conversion;
+    input Real r "Real number";
+    output Real result(unit="1") "Real number r with unit=\"1\"";
+algorithm
+    result := r;
+    annotation (Inline=true, Documentation(info="<HTML>
+<h4>Syntax</h4>
+<blockquote><pre>
+SIunits.Conversions.<b>to_unit1</b>(r);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with unit=\"1\".
+
+<h4>Example</h4>
+<blockquote><pre>
+  Modelica.SIunits.Velocity v = {3,2,1};
+  Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call of to_unit1
+</pre></blockquote>
+</HTML>"),
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={Text(
+          extent={{-90,86},{32,50}},
+          lineColor={0,0,0},
+          textString="any",
+          horizontalAlignment=TextAlignment.Left), Text(
+          extent={{-36,-52},{86,-88}},
+          lineColor={0,0,0},
+          horizontalAlignment=TextAlignment.Right,
+          textString="1")}));
+  end to_unit1;
+
     function to_degC "Convert from Kelvin to degCelsius"
       extends Modelica.SIunits.Icons.Conversion;
       input Temperature Kelvin "Kelvin value";
