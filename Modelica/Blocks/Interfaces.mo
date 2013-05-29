@@ -1229,7 +1229,7 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
   end partialBooleanThresholdComparison;
 
   partial block partialBooleanComparison
-    "Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs"
+    "Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)"
 
     Blocks.Interfaces.RealInput u1 "Connector of first Boolean input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
