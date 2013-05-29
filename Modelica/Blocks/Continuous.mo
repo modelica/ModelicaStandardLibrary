@@ -1462,7 +1462,7 @@ the model.
                                                                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x1_start[m]=zeros(m)
-      "Initial or guess values of states 1 (der(x1)=x2))"
+      "Initial or guess values of states 1 (der(x1)=x2)"
       annotation (Dialog(group="Initialization"));
     parameter Real x2_start[m]=zeros(m) "Initial or guess values of states 2"
       annotation (Dialog(group="Initialization"));
@@ -2465,11 +2465,11 @@ The development of this block was partially funded by BMBF within the
           /* The band pass filter is derived from the low pass filter by
        the transformation new(s) = (s + 1/s)/w   (w = w_band = (f_max - f_min)/sqrt(f_max*f_min) )
 
-       1/(s + cr)         -> 1/(s/w + 1/s/w) + cr)
+       1/(s + cr)         -> 1/((s/w + 1/s/w) + cr)
                              = w*s / (s^2 + cr*w*s + 1)
 
        1/(s^2 + c1*s + c0) -> 1/( (s+1/s)^2/w^2 + c1*(s + 1/s)/w + c0 )
-                              = 1 / ( s^2 + 1/s^2 + 2)/w^2 + (s + 1/s)*c1/w + c0 )
+                              = 1 /( ( s^2 + 1/s^2 + 2)/w^2 + (s + 1/s)*c1/w + c0 )
                               = w^2*s^2 / (s^4 + 2*s^2 + 1 + (s^3 + s)*c1*w + c0*w^2*s^2)
                               = w^2*s^2 / (s^4 + c1*w*s^3 + (2+c0*w^2)*s^2 + c1*w*s + 1)
 
@@ -2555,11 +2555,11 @@ The development of this block was partially funded by BMBF within the
           /* The band pass filter is derived from the low pass filter by
        the transformation new(s) = (s + 1/s)/w   (w = w_band = (f_max - f_min)/sqrt(f_max*f_min) )
 
-       1/(s + cr)         -> 1/(s/w + 1/s/w) + cr)
+       1/(s + cr)         -> 1/((s/w + 1/s/w) + cr)
                              = w*s / (s^2 + cr*w*s + 1)
 
        1/(s^2 + c1*s + c0) -> 1/( (s+1/s)^2/w^2 + c1*(s + 1/s)/w + c0 )
-                              = 1 / ( s^2 + 1/s^2 + 2)/w^2 + (s + 1/s)*c1/w + c0 )
+                              = 1 /( ( s^2 + 1/s^2 + 2)/w^2 + (s + 1/s)*c1/w + c0 )
                               = w^2*s^2 / (s^4 + 2*s^2 + 1 + (s^3 + s)*c1*w + c0*w^2*s^2)
                               = w^2*s^2 / (s^4 + c1*w*s^3 + (2+c0*w^2)*s^2 + c1*w*s + 1)
 
@@ -2581,7 +2581,7 @@ The development of this block was partially funded by BMBF within the
        The band stop filter is derived from the low pass filter by
        the transformation new(s) = w/( (s + 1/s) )   (w = w_band = (f_max - f_min)/sqrt(f_max*f_min) )
 
-       cr/(s + cr)         -> 1/( w/(s + 1/s) ) + cr)
+       cr/(s + cr)         -> 1/(( w/(s + 1/s) ) + cr)
                               = (s^2 + 1) / (s^2 + (w/cr)*s + 1)
 
        c0/(s^2 + c1*s + c0) -> c0/( w^2/(s + 1/s)^2 + c1*w/(s + 1/s) + c0 )
@@ -3047,7 +3047,7 @@ This representation has the following transfer function:
       package Utilities "Utility functions for filter computations"
           extends Modelica.Icons.Package;
         function BesselBaseCoefficients
-          "Return coefficients of normalized low pass Bessel filter (= gain at cut-off frequency 1 rad/s is decreased 3dB"
+          "Return coefficients of normalized low pass Bessel filter (= gain at cut-off frequency 1 rad/s is decreased 3dB)"
           extends Modelica.Icons.Function;
 
           import Modelica.Utilities.Streams;
@@ -4552,7 +4552,7 @@ This results in the following derivation:
 
 <pre>
   1/(p^2 + a*p + b) -> 1/( (p+1/p)^2/w^2 + a*(p + 1/p)/w + b )
-                     = 1 / ( p^2 + 1/p^2 + 2)/w^2 + (p + 1/p)*a/w + b )
+                     = 1 /( ( p^2 + 1/p^2 + 2)/w^2 + (p + 1/p)*a/w + b )
                      = w^2*p^2 / (p^4 + 2*p^2 + 1 + (p^3 + p)a*w + b*w^2*p^2)
                      = w^2*p^2 / (p^4 + a*w*p^3 + (2+b*w^2)*p^2 + a*w*p + 1)
 </pre>
@@ -4564,7 +4564,7 @@ polynomial can be represented (with the unknowns \"c\" and \"alpha\"):
 </p>
 
 <pre>
-  g(p) = w^2*p^2 / ( (p*alpha)^2 + c*(p*alpha) + 1) * (p/alpha)^2 + c*(p/alpha) + 1)
+  g(p) = w^2*p^2 / ( (p*alpha)^2 + c*(p*alpha) + 1) * ( (p/alpha)^2 + c*(p/alpha) + 1)
        = w^2*p^2 / ( p^4 + c*(alpha + 1/alpha)*p^3 + (alpha^2 + 1/alpha^2 + c^2)*p^2
                                                    + c*(alpha + 1/alpha)*p + 1 )
 </pre>
