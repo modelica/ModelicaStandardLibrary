@@ -44,14 +44,15 @@
 */
 
 /*
-By default v4 and v6 MAT-files are supported. The newer v7 and v7.3 MAT-file
-formats require additional preprocessor options and third-party libraries.
+   By default v4 and v6 MAT-files are supported. The v7 and v7.3 MAT-file
+   formats require additional preprocessor options and third-party libraries.
+   The following #define's are available.
 
- * Compilation with HAVE_ZLIB=1 enables the support of v7 MAT-files
-   The zlib library is required.
-
- * Compilation with HAVE_HDF5=1 enables the support of v7.3 MAT-files
-   The hdf5 (>= v1.8) and szip libraries are required.
+    NO_FILE_SYSTEM: A file system is not present (e.g. on dSPACE or xPC).
+    HAVE_ZLIB=1   : Enables the support of v7 MAT-files
+                    The zlib (>= v1.2.3) library is required.
+    HAVE_HDF5=1   : Enables the support of v7.3 MAT-files
+                    The hdf5 (>= v1.8) and szip libraries are required.
 */
 
 #include "ModelicaUtilities.h"

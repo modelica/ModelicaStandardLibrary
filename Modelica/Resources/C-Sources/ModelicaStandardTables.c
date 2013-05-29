@@ -7,6 +7,13 @@
        Modelica.Blocks.Tables.CombiTable2D
 
 
+   The following #define's are available.
+
+    NO_FILE_SYSTEM        : A file system is not present (e.g. on dSPACE or xPC).
+    DEBUG_TIME_EVENTS     : Trace time events of CombiTimeTable
+    DUMMY_FUNCTION_USERTAB: Use a dummy function "usertab"
+
+
    Release Notes:
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
                      Implemented a first version
