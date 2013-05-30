@@ -124,7 +124,7 @@ opendir (const char *szPath)
   /* Start the search, in order that the user may still
      change the current directory afterwards
   */
-  nd->dd_handle = _findfirst (nd->dd_name, &(nd->dd_dta));
+  nd->dd_handle = (long)_findfirst (nd->dd_name, &(nd->dd_dta));
   if (nd->dd_handle == -1) {
      /* Whoops! Seems there are no files in that
       * directory. */
@@ -192,7 +192,7 @@ readdir (DIR * dirp)
       /* Successfully got an entry. Everything about the file is
        * already appropriately filled in except the length of the
        * file name. */
-      dirp->dd_dir.d_namlen = strlen (dirp->dd_dir.d_name);
+      dirp->dd_dir.d_namlen = (unsigned short)strlen (dirp->dd_dir.d_name);
       return &dirp->dd_dir;
     }
 
