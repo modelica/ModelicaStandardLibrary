@@ -11273,7 +11273,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Modelica.SIunits.Voltage vbx;
         Modelica.SIunits.Voltage vbc;
         Modelica.SIunits.Conductance gbe;
-        Modelica.SIunits.Current cbe;
+       // Modelica.SIunits.Current cbe;
+        Real cbe;
         Modelica.SIunits.Conductance gbc;
         Modelica.SIunits.Current cbc;
         Modelica.SIunits.Conductance gben;
@@ -11453,7 +11454,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
             end if;
               arg2 := argtf;
               if (in_p.m_transitTimeHighCurrentF <> 0) then
-                temp  := cbe / (cbe + in_p.m_transitTimeHighCurrentF);
+               cbe := cbe / (cbe + in_p.m_transitTimeHighCurrentF);
                 argtf := argtf * temp * temp;
                 arg2  := argtf * (3-temp-temp);
               end if;
@@ -12177,7 +12178,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Modelica.SIunits.Charge chargebx;
           Real argtf;
           Real exponent;
-        Modelica.SIunits.Temp_K temp;
+      //  Modelica.SIunits.Temp_K temp;
+          Real temp;
 
           Real aux1;
           Real aux2;
@@ -12818,7 +12820,8 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
           SI.Voltage vto;
           SI.Voltage vgst;
           Real betap;
-          SI.InversePotential Bfac;
+        //  SI.InversePotential Bfac;
+          Real Bfac;
           Real apart;
           Real cpart;
           SI.Voltage vgdt;
