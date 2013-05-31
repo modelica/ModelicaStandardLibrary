@@ -646,7 +646,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
-      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
     end getTableValueNoDer;
 
     function getDerTableValue
