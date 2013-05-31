@@ -107,7 +107,7 @@ typedef struct CombiTimeTable {
     enum Smoothness smoothness; /* Smoothness kind */
     enum Extrapolation extrapolation; /* Extrapolation kind */
     enum TableSource source; /* Source kind */
-    int const* cols; /* Columns of table to be interpolated */
+    int* cols; /* Columns of table to be interpolated */
     size_t nCols; /* Number of columns of table to be interpolated */
     double startTime; /* Start time of interpolation */
     Akima1D* spline; /* Pre-calculated Akima-spline coefficients, only used if
@@ -135,7 +135,7 @@ typedef struct CombiTable1D {
     size_t last; /* Last accessed row index of table */
     enum Smoothness smoothness; /* Smoothness kind */
     enum TableSource source; /* Source kind */
-    int const* cols; /* Columns of table to be interpolated */
+    int* cols; /* Columns of table to be interpolated */
     size_t nCols; /* Number of columns of table to be interpolated */
     Akima1D* spline; /* Pre-calculated Akima-spline coefficients, only used if
         smoothness is CONTINUOUS_DERIVATIVE */
@@ -247,7 +247,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
   */
 
 static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
-                              int const* cols, size_t nCols);
+                              int* cols, size_t nCols);
   /* Calculate the spline coefficients for univariate Akima-spline interpolation
 
      <- RETURN: Pointer to array of coefficients
@@ -275,7 +275,7 @@ static int readLine(char** buf, int* bufLen, FILE* fp);
 void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                                  const char* fileName, double* table,
                                                  int nRow, int nColumn,
-                                                 double startTime, int const* cols,
+                                                 double startTime, int* cols,
                                                  int nCols, int smoothness,
                                                  int extrapolation) {
     CombiTimeTable* tableID;
@@ -283,8 +283,13 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
     if (tableID) {
         tableID->smoothness = (enum Smoothness)smoothness;
         tableID->extrapolation = (enum Extrapolation)extrapolation;
-        tableID->cols = cols;
         tableID->nCols = (size_t)nCols;
+        if (nCols > 0) {
+            tableID->cols = malloc(tableID->nCols*sizeof(int));
+            if (tableID->cols) {
+                memcpy(tableID->cols, cols, tableID->nCols*sizeof(int));
+            }
+        }
         tableID->startTime = startTime;
         tableID->source = getTableSource(tableName, fileName);
 
@@ -381,6 +386,10 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
             free(tableID->table);
             tableID->table = NULL;
         }
+        if (tableID->nCols > 0 && tableID->cols) {
+            free(tableID->cols);
+            tableID->cols = NULL;
+        }
         if (tableID->tableName) {
             free(tableID->tableName);
             tableID->tableName = NULL;
@@ -404,7 +413,7 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                                       double preNextTimeEvent) {
     double y = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (tableID && tableID->table) {
+    if (tableID && tableID->table && tableID->cols) {
         /* Shift time by start time */
         const double tOld = t;
         t -= tableID->startTime;
@@ -614,7 +623,7 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                                                          double der_t) {
     double der_y = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (tableID && tableID->table) {
+    if (tableID && tableID->table && tableID->cols) {
         /* Shift time by start time */
         const double tOld = t;
         t -= tableID->startTime;
@@ -1101,14 +1110,19 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int forceRead)
 void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                                                const char* fileName,
                                                double* table, int nRow,
-                                               int nColumn, int const* cols,
+                                               int nColumn, int* cols,
                                                int nCols, int smoothness) {
     CombiTable1D* tableID;
     tableID = calloc(1, sizeof(CombiTable1D));
     if (tableID) {
         tableID->smoothness = (enum Smoothness)smoothness;
-        tableID->cols = cols;
         tableID->nCols = (size_t)nCols;
+        if (nCols > 0) {
+            tableID->cols = malloc(tableID->nCols*sizeof(int));
+            if (tableID->cols) {
+                memcpy(tableID->cols, cols, tableID->nCols*sizeof(int));
+            }
+        }
         tableID->source = getTableSource(tableName, fileName);
 
         switch (tableID->source) {
@@ -1202,6 +1216,10 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
             free(tableID->table);
             tableID->table = NULL;
         }
+        if (tableID->nCols > 0 && tableID->cols) {
+            free(tableID->cols);
+            tableID->cols = NULL;
+        }
         if (tableID->tableName) {
             free(tableID->tableName);
             tableID->tableName = NULL;
@@ -1220,7 +1238,7 @@ double ModelicaStandardTables_CombiTable1D_getValue(void* _tableID, int iCol,
                                                     double u) {
     double y = 0.;
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
-    if (tableID && tableID->table) {
+    if (tableID && tableID->table && tableID->cols) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -1296,7 +1314,7 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
                                                        double u, double der_u) {
     double der_y = 0.;
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
-    if (tableID && tableID->table) {
+    if (tableID && tableID->table && tableID->cols) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -2149,7 +2167,7 @@ static enum TableSource getTableSource(const char *tableName,
 /* ----- Internal univariate spline functions ---- */
 
 static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
-                             int const* cols, size_t nCols) {
+                             int* cols, size_t nCols) {
   /* Reference:
 
      Akima, Hiroshi. A new method of interpolation and smooth

@@ -62,7 +62,7 @@ extern void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                                         double* table, int nRow,
                                                         int nColumn,
                                                         double startTime,
-                                                        int const* columns,
+                                                        int* columns,
                                                         int nCols, int smoothness,
                                                         int extrapolation);
   /* Initialize 1-dim. table where first column is time
@@ -150,7 +150,7 @@ extern void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                                                       const char* fileName,
                                                       double* table, int nRow,
                                                       int nColumn,
-                                                      int const* columns,
+                                                      int* columns,
                                                       int nCols, int smoothness);
   /* Initialize 1-dim. table defined by matrix, where first column
      is x-axis and further columns of matrix are interpolated
