@@ -388,7 +388,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    if smoothness == Modelica.Blocks.Types.Smoothness.ConstanteSegments then
+    if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:nout loop
         y[i] = getTableValueNoDer(tableID, i, u, tableOnFileRead);
       end for;
@@ -676,7 +676,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    if smoothness == Modelica.Blocks.Types.Smoothness.ConstanteSegments then
+    if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       y = getTableValueNoDer(tableID, u1, u2, tableOnFileRead);
     else
       y = getTableValue(tableID, u1, u2, tableOnFileRead);
