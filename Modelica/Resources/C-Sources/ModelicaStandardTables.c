@@ -1478,8 +1478,8 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                     if (isValidCombiTable2D((const CombiTable2D*)tableID)) {
                         if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                             /* Initialization of the Akima-spline coefficients */
-                            tableID->spline = spline2DInit(table, tableID->nRow,
-                                tableID->nCol);
+                            tableID->spline = spline2DInit(tableID->table,
+                                tableID->nRow, tableID->nCol);
                         }
                     }
                 }
