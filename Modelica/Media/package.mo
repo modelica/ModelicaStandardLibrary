@@ -2420,6 +2420,8 @@ package Examples
     Real m_flow_ext;
     Real der_p;
     Real der_T;
+    protected
+    constant Modelica.SIunits.Time unitTime=1;
     equation
     der(medium.p) = 0.0;
     der(medium.T) = 90;
@@ -2432,10 +2434,10 @@ package Examples
     m_flow_ext = time - 0.5;
     state1.p = 1.e5*(1 + time);
     state1.T = 300 + 10*time;
-    state1.X = {time,1 - time};
+    state1.X = {time,1 - time}/unitTime;
     state2.p = 1.e5*(1 + time/2);
     state2.T = 340 - 20*time;
-    state2.X = {0.5*time,1 - 0.5*time};
+    state2.X = {0.5*time,1 - 0.5*time}/unitTime;
     smoothState = Medium.setSmoothState(
           m_flow_ext,
           state1,
@@ -2616,6 +2618,8 @@ points, e.g., when an isentropic reference state is computed.
       Real m_flow_ext;
       Real der_p;
       Real der_T;
+      protected
+      constant Modelica.SIunits.Time unitTime=1;
       equation
       der(medium.p) = 0.0;
       der(medium.T) = 90;
@@ -2623,10 +2627,10 @@ points, e.g., when an isentropic reference state is computed.
       m_flow_ext = time - 0.5;
       state1.p = 1.e5*(1 + time);
       state1.T = 300 + 10*time;
-      state1.X = {time,1 - time};
+      state1.X = {time,1 - time}/unitTime;
       state2.p = 1.e5*(1 + time/2);
       state2.T = 340 - 20*time;
-      state2.X = {0.5*time,1 - 0.5*time};
+      state2.X = {0.5*time,1 - 0.5*time}/unitTime;
       smoothState = Medium.setSmoothState(
               m_flow_ext,
               state1,

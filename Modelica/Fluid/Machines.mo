@@ -403,7 +403,8 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     SI.Power W_single "Power Consumption (single pump)";
     SI.Power W_total = W_single*nParallel "Power Consumption (total)";
     Real eta "Global Efficiency";
-    Real s(start = m_flow_start)
+    final constant Medium.MassFlowRate unit_m_flow=1 annotation (HideResult=true);
+    Real s(start = m_flow_start/unit_m_flow)
         "Curvilinear abscissa for the flow curve in parametric form (either mass flow rate or head)";
 
     // Diagnostics

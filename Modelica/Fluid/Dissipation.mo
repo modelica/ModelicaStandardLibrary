@@ -4806,7 +4806,7 @@ This record is used as <b> input record </b> for the pressure loss functions
         SI.Diameter d_hyd_1=max(MIN, 4*A_1/IN_con.C_1)
           "Hydraulic diameter of large cross sectional area";
         SI.Length l=IN_con.L "Length of vena contraction";
-        SI.Length l_bar=IN_con.L/d_hyd_0;
+        Real l_bar=IN_con.L/d_hyd_0;
 
         //SOURCE_1, section 4, diagram 4-15, page 222:
         Real phi=0.25 + 0.535*min(l_bar, 2.4)^8/(0.05 + min(l_bar, 2.4)^8);
@@ -4884,7 +4884,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
         SI.Diameter d_hyd_1=max(MIN, 4*A_1/IN_con.C_1)
           "Hydraulic diameter of large cross sectional area";
         SI.Length l=IN_con.L "Length of vena contraction";
-        SI.Length l_bar=IN_con.L/d_hyd_0;
+        Real l_bar=IN_con.L/d_hyd_0;
 
         //SOURCE_1, section 4, diagram 4-15, page 222:
         Real phi=0.25 + 0.535*min(l_bar, 2.4)^8/(0.05 + min(l_bar, 2.4)^8);
