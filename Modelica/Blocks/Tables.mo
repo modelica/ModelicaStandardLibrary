@@ -30,8 +30,7 @@ package Tables
     Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName)
-           else "NoName",
+          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
           table,
           columns,
           smoothness) "External table object";
@@ -43,8 +42,8 @@ package Tables
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
-    external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID,
-        forceRead) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end readTableData;
 
     function getTableValue "Interpolate 1-dim. table defined by matrix"
@@ -54,12 +53,21 @@ package Tables
       input Real u;
       input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Real y;
-    external"C" y = ModelicaStandardTables_CombiTable1D_getValue(
-            tableID,
-            icol,
-            u) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
       annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
     end getTableValue;
+
+    function getTableValueNoDer "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+    end getTableValueNoDer;
 
     function getDerTableValue
       "Derivative of interpolated 1-dim. table defined by matrix"
@@ -70,11 +78,8 @@ package Tables
       input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       input Real der_u;
       output Real der_y;
-    external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(
-            tableID,
-            icol,
-            u,
-            der_u) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+      external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end getDerTableValue;
 
   initial algorithm
@@ -91,13 +96,15 @@ package Tables
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    for i in 1:n loop
-      y[i] = getTableValue(
-          tableID,
-          i,
-          u[i],
-          tableOnFileRead);
-    end for;
+    if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
+      for i in 1:n loop
+        y[i] = getTableValueNoDer(tableID, i, u[i], tableOnFileRead);
+      end for;
+    else
+      for i in 1:n loop
+        y[i] = getTableValue(tableID, i, u[i], tableOnFileRead);
+      end for;
+    end if;
     annotation (
       Documentation(info="<html>
 <p>
@@ -315,8 +322,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName)
-           else "NoName",
+          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
           table,
           columns,
           smoothness) "External table object";
@@ -328,8 +334,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
-    external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID,
-        forceRead) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end readTableData;
 
     function getTableValue "Interpolate 1-dim. table defined by matrix"
@@ -339,12 +345,21 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real u;
       input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Real y;
-    external"C" y = ModelicaStandardTables_CombiTable1D_getValue(
-            tableID,
-            icol,
-            u) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
       annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
     end getTableValue;
+
+    function getTableValueNoDer "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+    end getTableValueNoDer;
 
     function getDerTableValue
       "Derivative of interpolated 1-dim. table defined by matrix"
@@ -355,11 +370,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       input Real der_u;
       output Real der_y;
-    external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(
-            tableID,
-            icol,
-            u,
-            der_u) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+      external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end getDerTableValue;
 
   initial algorithm
@@ -376,13 +388,15 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    for i in 1:nout loop
-      y[i] = getTableValue(
-          tableID,
-          i,
-          u,
-          tableOnFileRead);
-    end for;
+    if smoothness == Modelica.Blocks.Types.Smoothness.ConstanteSegments then
+      for i in 1:nout loop
+        y[i] = getTableValueNoDer(tableID, i, u, tableOnFileRead);
+      end for;
+    else
+      for i in 1:nout loop
+        y[i] = getTableValue(tableID, i, u, tableOnFileRead);
+      end for;
+    end if;
     annotation (
       Documentation(info="<html>
 <p>
@@ -596,8 +610,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName)
-           else "NoName",
+          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
           table,
           smoothness) "External table object";
     parameter Real tableOnFileRead(fixed=false)
@@ -608,8 +621,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
-    external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end readTableData;
 
     function getTableValue "Interpolate 2-dim. table defined by matrix"
@@ -619,12 +632,22 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real u2;
       input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Real y;
-    external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
-            tableID,
-            u1,
-            u2) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
       annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
     end getTableValue;
+
+    function getTableValueNoDer "Interpolate 2-dim. table defined by matrix (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
+    end getTableValueNoDer;
 
     function getDerTableValue
       "Derivative of interpolated 2-dim. table defined by matrix"
@@ -636,12 +659,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Real der_u1;
       input Real der_u2;
       output Real der_y;
-    external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(
-            tableID,
-            u1,
-            u2,
-            der_u1,
-            der_u2) annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+      external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end getDerTableValue;
 
   initial algorithm
@@ -658,11 +677,11 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    y = getTableValue(
-        tableID,
-        u1,
-        u2,
-        tableOnFileRead);
+    if smoothness == Modelica.Blocks.Types.Smoothness.ConstanteSegments then
+      y = getTableValueNoDer(tableID, u1, u2, tableOnFileRead);
+    else
+      y = getTableValue(tableID, u1, u2, tableOnFileRead);
+    end if;
     annotation (
       Documentation(info="<html>
 <p>
