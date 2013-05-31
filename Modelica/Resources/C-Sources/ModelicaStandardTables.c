@@ -336,6 +336,10 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                 tableID->nRow = (size_t)nRow;
                 tableID->nCol = (size_t)nColumn;
                 tableID->table = table;
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
+                    tableID->nRow == 2) {
+                    tableID->smoothness = LINEAR_SEGMENTS;
+                }
                 if (isValidCombiTimeTable((const CombiTimeTable*)tableID)) {
                     if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                         /* Initialization of the Akima-spline coefficients */
@@ -388,7 +392,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                         tableID->table[IDX(j, i, dims[1])];
                                 }
                             }
-                           tableID->table = tableT;
+                            tableID->table = tableT;
                             tableID->nRow = dims[1];
                             tableID->nCol = dims[0];
                             tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
@@ -402,6 +406,10 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                             ModelicaError("Memory allocation error\n");
                             break;
                         }
+                    }
+                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
+                        tableID->nRow == 2) {
+                        tableID->smoothness = LINEAR_SEGMENTS;
                     }
                     if (isValidCombiTimeTable((const CombiTimeTable*)tableID)) {
                         if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
@@ -1145,11 +1153,13 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int forceRead)
                 if (!tableID->table) {
                     return 0.; /* Error */
                 }
-
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
+                    tableID->nRow == 2) {
+                    tableID->smoothness = LINEAR_SEGMENTS;
+                }
                 if (!isValidCombiTimeTable((const CombiTimeTable*)tableID)) {
                     return 0.; /* Error */
                 }
-
                 if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                     /* Reinitialization of the Akima-spline coefficients */
                     spline1DClose(tableID->spline);
@@ -1220,6 +1230,10 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                 tableID->nRow = (size_t)nRow;
                 tableID->nCol = (size_t)nColumn;
                 tableID->table = table;
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
+                    tableID->nRow == 2) {
+                    tableID->smoothness = LINEAR_SEGMENTS;
+                }
                 if (isValidCombiTable1D((const CombiTable1D*)tableID)) {
                     if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                         /* Initialization of Akima-spline coefficients */
@@ -1286,6 +1300,10 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                             ModelicaError("Memory allocation error\n");
                             break;
                         }
+                    }
+                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
+                        tableID->nRow == 2) {
+                        tableID->smoothness = LINEAR_SEGMENTS;
                     }
                     if (isValidCombiTable1D((const CombiTable1D*)tableID)) {
                         if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
@@ -1499,11 +1517,13 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int forceRead) {
                 if (!tableID->table) {
                     return 0.; /* Error */
                 }
-
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
+                    tableID->nRow == 2) {
+                    tableID->smoothness = LINEAR_SEGMENTS;
+                }
                 if (!isValidCombiTable1D((const CombiTable1D*)tableID)) {
                     return 0.; /* Error */
                 }
-
                 if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                     /* Reinitialization of the Akima-spline coefficients */
                     spline1DClose(tableID->spline);
@@ -2072,15 +2092,6 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
             isValid = 0;
             return isValid;
         }
-        if (tableID->smoothness == CONTINUOUS_DERIVATIVE && nRow < 5) {
-            ModelicaFormatError(
-                "Table matrix \"%s(%lu,%lu)\" does not have appropriate "
-                "dimensions for time interpolation with splines because "
-                "size(%s,1) (=%lu) < 5.\n", tableName, (unsigned long)nRow,
-                (unsigned long)nCol, tableName, (unsigned long)nRow);
-            isValid = 0;
-            return isValid;
-        }
 
         /* Check period */
         if (tableID->extrapolation == PERIODIC) {
@@ -2161,15 +2172,6 @@ static int isValidCombiTable1D(const CombiTable1D* tableID) {
                 "Table matrix \"%s(%lu,%lu)\" does not have appropriate "
                 "dimensions for 1D-interpolation.\n", tableName,
                 (unsigned long)nRow, (unsigned long)nCol);
-            isValid = 0;
-            return isValid;
-        }
-        if (tableID->smoothness == CONTINUOUS_DERIVATIVE && nRow < 5) {
-            ModelicaFormatError(
-                "Table matrix \"%s(%lu,%lu)\" does not have appropriate "
-                "dimensions for 1D-interpolation with splines because "
-                "size(%s,1) (=%lu) < 5.\n", tableName, (unsigned long)nRow,
-                (unsigned long)nCol, tableName, (unsigned long)nRow);
             isValid = 0;
             return isValid;
         }
@@ -2324,7 +2326,7 @@ static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
 
     Akima1D* spline = NULL;
 
-    if (table && cols) {
+    if (table && cols && nRow > 2) {
         double* d; /* Divided differences */
         size_t col;
 
