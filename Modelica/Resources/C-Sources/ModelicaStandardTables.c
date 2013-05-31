@@ -12,6 +12,8 @@
     NO_FILE_SYSTEM        : A file system is not present (e.g. on dSPACE or xPC).
     DEBUG_TIME_EVENTS     : Trace time events of CombiTimeTable
     DUMMY_FUNCTION_USERTAB: Use a dummy function "usertab"
+    NO_TABLE_COPY         : Do not copy table data passed to _init functions
+                            This is a potentially unsafe optimization (ticket #1143).
 
 
    Release Notes:
@@ -289,6 +291,11 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
             if (tableID->cols) {
                 memcpy(tableID->cols, cols, tableID->nCols*sizeof(int));
             }
+            else {
+                free(tableID);
+                ModelicaError("Memory allocation error\n");
+                return NULL;
+            }
         }
         tableID->startTime = startTime;
         tableID->source = getTableSource(tableName, fileName);
@@ -300,10 +307,28 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                 if (tableID->tableName) {
                     strcpy(tableID->tableName, tableName);
                 }
+                else {
+                    if (nCols > 0) {
+                        free(tableID->cols);
+                    }
+                    free(tableID);
+                    tableID = NULL;
+                    ModelicaError("Memory allocation error\n");
+                    break;
+                }
                 tableID->fileName =
                     malloc((strlen(fileName) + 1)*sizeof(char));
                 if (tableID->fileName) {
                     strcpy(tableID->fileName, fileName);
+                }
+                else {
+                    free(tableID->tableName);
+                    if (nCols > 0) {
+                        free(tableID->cols);
+                    }
+                    free(tableID);
+                    tableID = NULL;
+                    ModelicaError("Memory allocation error\n");
                 }
                 break;
 
@@ -317,6 +342,25 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                         tableID->spline = spline1DInit(table, tableID->nRow,
                             tableID->nCol, cols, tableID->nCols);
                     }
+#ifndef NO_TABLE_COPY
+                    tableID->table = malloc(tableID->nRow*tableID->nCol*
+                        sizeof(double));
+                    if (tableID->table) {
+                        memcpy(tableID->table, table, tableID->nRow*
+                            tableID->nCol*sizeof(double));
+                    }
+                    else {
+                        if (nCols > 0) {
+                            free(tableID->cols);
+                        }
+                        free(tableID);
+                        tableID = NULL;
+                        ModelicaError("Memory allocation error\n");
+                    }
+#endif
+                }
+                else {
+                    tableID->table = NULL;
                 }
                 break;
 
@@ -344,10 +388,19 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                         tableID->table[IDX(j, i, dims[1])];
                                 }
                             }
-                            tableID->table = tableT;
+                           tableID->table = tableT;
                             tableID->nRow = dims[1];
                             tableID->nCol = dims[0];
                             tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                        }
+                        else {
+                            if (nCols > 0) {
+                                free(tableID->cols);
+                            }
+                            free(tableID);
+                            tableID = NULL;
+                            ModelicaError("Memory allocation error\n");
+                            break;
                         }
                     }
                     if (isValidCombiTimeTable((const CombiTimeTable*)tableID)) {
@@ -381,6 +434,9 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
     if (tableID) {
         if ((tableID->source == TABLESOURCE_FILE ||
+#ifndef NO_TABLE_COPY
+            tableID->source == TABLESOURCE_MODEL ||
+#endif
             tableID->source == TABLESOURCE_FUNCTION_TRANSPOSE) &&
             tableID->table) {
             free(tableID->table);
@@ -1122,6 +1178,11 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
             if (tableID->cols) {
                 memcpy(tableID->cols, cols, tableID->nCols*sizeof(int));
             }
+            else {
+                free(tableID);
+                ModelicaError("Memory allocation error\n");
+                return NULL;
+            }
         }
         tableID->source = getTableSource(tableName, fileName);
 
@@ -1131,9 +1192,27 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                 if (tableID->tableName) {
                     strcpy(tableID->tableName, tableName);
                 }
+                else {
+                    if (nCols > 0) {
+                        free(tableID->cols);
+                    }
+                    free(tableID);
+                    tableID = NULL;
+                    ModelicaError("Memory allocation error\n");
+                    break;
+                }
                 tableID->fileName = malloc((strlen(fileName) + 1)*sizeof(char));
                 if (tableID->fileName) {
                     strcpy(tableID->fileName, fileName);
+                }
+                else {
+                    free(tableID->tableName);
+                    if (nCols > 0) {
+                        free(tableID->cols);
+                    }
+                    free(tableID);
+                    tableID = NULL;
+                    ModelicaError("Memory allocation error\n");
                 }
                 break;
 
@@ -1147,6 +1226,25 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                         tableID->spline = spline1DInit(table, tableID->nRow,
                             tableID->nCol, cols, tableID->nCols);
                     }
+#ifndef NO_TABLE_COPY
+                    tableID->table = malloc(tableID->nRow*tableID->nCol*
+                        sizeof(double));
+                    if (tableID->table) {
+                        memcpy(tableID->table, table, tableID->nRow*
+                            tableID->nCol*sizeof(double));
+                    }
+                    else {
+                        if (nCols > 0) {
+                            free(tableID->cols);
+                        }
+                        free(tableID);
+                        tableID = NULL;
+                        ModelicaError("Memory allocation error\n");
+                    }
+#endif
+                }
+                else {
+                    tableID->table = NULL;
                 }
                 break;
 
@@ -1178,6 +1276,15 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                             tableID->nRow = dims[1];
                             tableID->nCol = dims[0];
                             tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                        }
+                        else {
+                            if (nCols > 0) {
+                                free(tableID->cols);
+                            }
+                            free(tableID);
+                            tableID = NULL;
+                            ModelicaError("Memory allocation error\n");
+                            break;
                         }
                     }
                     if (isValidCombiTable1D((const CombiTable1D*)tableID)) {
@@ -1211,6 +1318,9 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
     if (tableID) {
         if ((tableID->source == TABLESOURCE_FILE ||
+#ifndef NO_TABLE_COPY
+            tableID->source == TABLESOURCE_MODEL ||
+#endif
             tableID->source == TABLESOURCE_FUNCTION_TRANSPOSE) &&
             tableID->table) {
             free(tableID->table);
@@ -1425,10 +1535,22 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                 if (tableID->tableName) {
                     strcpy(tableID->tableName, tableName);
                 }
+                else {
+                    free(tableID);
+                    tableID = NULL;
+                    ModelicaError("Memory allocation error\n");
+                    break;
+                }
                 tableID->fileName =
                     malloc((strlen(fileName) + 1)*sizeof(char));
                 if (tableID->fileName) {
                     strcpy(tableID->fileName, fileName);
+                }
+                else {
+                    free(tableID->tableName);
+                    free(tableID);
+                    tableID = NULL;
+                    ModelicaError("Memory allocation error\n");
                 }
                 break;
 
@@ -1442,6 +1564,22 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                         tableID->spline = spline2DInit(table, tableID->nRow,
                             tableID->nCol);
                     }
+#ifndef NO_TABLE_COPY
+                    tableID->table = malloc(tableID->nRow*tableID->nCol*
+                        sizeof(double));
+                    if (tableID->table) {
+                        memcpy(tableID->table, table, tableID->nRow*
+                            tableID->nCol*sizeof(double));
+                    }
+                    else {
+                        free(tableID);
+                        tableID = NULL;
+                        ModelicaError("Memory allocation error\n");
+                    }
+#endif
+                }
+                else {
+                    tableID->table = NULL;
                 }
                 break;
 
@@ -1474,6 +1612,12 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                             tableID->nCol = dims[0];
                             tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
                         }
+                        else {
+                            free(tableID);
+                            tableID = NULL;
+                            ModelicaError("Memory allocation error\n");
+                            break;
+                        }
                     }
                     if (isValidCombiTable2D((const CombiTable2D*)tableID)) {
                         if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
@@ -1505,6 +1649,9 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
     if (tableID) {
         if ((tableID->source == TABLESOURCE_FILE ||
+#ifndef NO_TABLE_COPY
+            tableID->source == TABLESOURCE_MODEL ||
+#endif
             tableID->source == TABLESOURCE_FUNCTION_TRANSPOSE) &&
             tableID->table) {
             free(tableID->table);
