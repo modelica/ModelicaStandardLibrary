@@ -598,10 +598,17 @@ for a smooth transition from y1 to y2.
     Boolean useSingleCubicPolynomial=false
       "Indicate to override further logic and use single cubic";
   algorithm
+    // Check arguments: Data point position
     assert(x0 < x1, "regFun3(): Data points not sorted appropriately (x0 = " +
       String(x0) + " > x1 = " + String(x1) + "). Please flip arguments.");
-    assert(y0d*y1d >= 0, "regFun3(): Derivatives at data points do not allow co-monotone interpolation, as both are non-zero and of opposite sign (y0d = " +
+    // Check arguments: Data point derivatives
+    if y0d*y1d >= 0 then
+      // Derivatives at data points allow co-monotone interpolation, nothing to do
+    else
+      // Strictily speaking, derivatives at data points do not allow co-monotone interpolation, however, they may be numerically zero so assert this
+      assert(abs(y0d)<Modelica.Constants.eps or abs(y1d)<Modelica.Constants.eps, "regFun3(): Derivatives at data points do not allow co-monotone interpolation, as both are non-zero, of opposite sign and have an absolute value larger than machine eps (y0d = " +
       String(y0d) + ", y1d = " + String(y1d) + "). Please correct arguments.");
+    end if;
 
     h0 := x1 - x0;
     Delta0 := (y1 - y0)/h0;
