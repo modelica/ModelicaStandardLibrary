@@ -1473,8 +1473,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       annotation (
         experiment(StopTime=3),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
-        Diagram);
+                {100,100}}), graphics));
     end ForceWithTwoMasses;
 
     model ForceWithTwoMasses2
