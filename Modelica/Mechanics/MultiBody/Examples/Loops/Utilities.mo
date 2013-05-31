@@ -411,7 +411,7 @@ package Utilities "Utility models for Examples.Loops"
                              ") >= 0 required for GasForce component.\n" +
                              "Most likely, the component has to be flipped.");
     assert(s_rel <= L + 1.e-12, " flange_b.s - flange_a.s (= " + String(s_rel) +
-                                " <= L (" + String(L) + ") required for GasForce component.\n" +
+                                ") <= L (= " + String(L) + ") required for GasForce component.\n" +
                                 "Most likely, parameter L is not correct.");
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
