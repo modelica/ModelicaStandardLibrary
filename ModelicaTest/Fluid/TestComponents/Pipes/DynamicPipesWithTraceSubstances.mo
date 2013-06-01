@@ -69,7 +69,7 @@ extends Modelica.Icons.Example;
     offset=1e5,
     startTime=5,
     height=1.0e5,
-    duration=1) annotation (Placement(transformation(extent={{92,78},{80,66}},
+    duration=0) annotation (Placement(transformation(extent={{92,78},{80,66}},
           rotation=0)));
 
   Modelica.Fluid.Pipes.DynamicPipe pipe4(
@@ -170,7 +170,7 @@ extends Modelica.Icons.Example;
     offset=1e5,
     startTime=5,
     height=1.0e5,
-    duration=1) annotation (Placement(transformation(extent={{92,22},{80,10}},
+    duration=0) annotation (Placement(transformation(extent={{92,22},{80,10}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe8(
     redeclare package Medium=Medium,
