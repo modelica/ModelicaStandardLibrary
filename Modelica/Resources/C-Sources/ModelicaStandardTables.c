@@ -228,7 +228,7 @@ static enum TableSource getTableSource(const char *tableName,
   */
 
 static double* readTable(const char* tableName, const char* fileName,
-                         size_t* nRow, size_t* nCol);
+                         size_t* nRow, size_t* nCol, int verbose);
   /* Read a table from an ASCII text or MATLAB MAT-file
 
      <- RETURN: Pointer to array (row-wise storage) of table values
@@ -1137,19 +1137,21 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
     return nextTimeEvent;
 }
 
-double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int forceRead) {
+double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
+                                                  int verbose) {
 #if !defined(NO_FILE_SYSTEM)
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
     if (tableID) {
         if (tableID->source == TABLESOURCE_FILE) {
-            if (forceRead || !tableID->table) {
+            if (force || !tableID->table) {
                 if (tableID->table) {
                     free(tableID->table);
                     tableID->table = NULL;
                 }
 
                 tableID->table = readTable(tableID->tableName,
-                    tableID->fileName, &tableID->nRow, &tableID->nCol);
+                    tableID->fileName, &tableID->nRow, &tableID->nCol,
+                    verbose);
                 if (!tableID->table) {
                     return 0.; /* Error */
                 }
@@ -1501,19 +1503,21 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
     return der_y;
 }
 
-double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int forceRead) {
+double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
+                                                int verbose) {
 #if !defined(NO_FILE_SYSTEM)
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
     if (tableID) {
         if (tableID->source == TABLESOURCE_FILE) {
-            if (forceRead || !tableID->table) {
+            if (force || !tableID->table) {
                 if (tableID->table) {
                     free(tableID->table);
                     tableID->table = NULL;
                 }
 
                 tableID->table = readTable(tableID->tableName,
-                    tableID->fileName, &tableID->nRow, &tableID->nCol);
+                    tableID->fileName, &tableID->nRow, &tableID->nCol,
+                    verbose);
                 if (!tableID->table) {
                     return 0.; /* Error */
                 }
@@ -1699,19 +1703,21 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
     }
 }
 
-double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int forceRead) {
+double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int force,
+                                                int verbose) {
 #if !defined(NO_FILE_SYSTEM)
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
     if (tableID) {
         if (tableID->source == TABLESOURCE_FILE) {
-            if (forceRead || !tableID->table) {
+            if (force || !tableID->table) {
                 if (tableID->table) {
                     free(tableID->table);
                     tableID->table = NULL;
                 }
 
                 tableID->table = readTable(tableID->tableName,
-                    tableID->fileName, &tableID->nRow, &tableID->nCol);
+                    tableID->fileName, &tableID->nRow, &tableID->nCol,
+                    verbose);
                 if (!tableID->table) {
                     return 0.; /* Error */
                 }
@@ -2775,7 +2781,7 @@ static void spline2DClose(Akima2D* spline) {
 /* ----- Internal I/O functions ----- */
 
 static double* readTable(const char* tableName, const char* fileName,
-                         size_t* nRow, size_t* nCol) {
+                         size_t* nRow, size_t* nCol, int verbose) {
     double* table = NULL;
 #if !defined(NO_FILE_SYSTEM)
     if (tableName && fileName && nRow && nCol) {
@@ -2790,9 +2796,11 @@ static double* readTable(const char* tableName, const char* fileName,
             }
         }
 
-        /* Print info message, that file is loading */
-        ModelicaFormatMessage("... \"%s\" loading (tables for interpolation)\n",
-            fileName);
+        if (verbose == 1) {
+            /* Print info message, that file is loading */
+            ModelicaFormatMessage("... \"%s\" loading (tables for interpolation)\n",
+                fileName);
+        }
 
         if (isMatExt) {
             table = readMatTable(tableName, fileName, nRow, nCol);

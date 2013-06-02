@@ -6,7 +6,7 @@ package Tables
     "Table look-up in one dimension (matrix/file) with n inputs and n outputs"
     extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
     parameter Boolean tableOnFile=false
-      "true, if table is defined on file or in function usertab"
+      "= true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (grid = first column; e.g., table=[0,2])"
@@ -20,6 +20,9 @@ package Tables
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
             caption="Open file in which table is present")));
+    parameter Boolean verboseRead=true
+      "= true, if info message that file is loading is to be printed"
+      annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated"
       annotation (Dialog(group="Table data interpretation"));
@@ -41,8 +44,9 @@ package Tables
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead "= true: Print info message; = false: No info message";
       output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead)
+      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end readTableData;
 
@@ -84,7 +88,7 @@ package Tables
 
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID);
+      tableOnFileRead := readTableData(tableID, false, verboseRead);
     else
       tableOnFileRead := 1.;
     end if;
@@ -298,7 +302,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     "Table look-up in one dimension (matrix/file) with one input and n outputs"
     extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
     parameter Boolean tableOnFile=false
-      "true, if table is defined on file or in function usertab"
+      "= true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (grid = first column; e.g., table=[0,2])"
@@ -312,6 +316,9 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
             caption="Open file in which table is present")));
+    parameter Boolean verboseRead=true
+      "= true, if info message that file is loading is to be printed"
+      annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated"
       annotation (Dialog(group="Table data interpretation"));
@@ -333,8 +340,9 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead "= true: Print info message; = false: No info message";
       output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead)
+      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end readTableData;
 
@@ -376,7 +384,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID);
+      tableOnFileRead := readTableData(tableID, false, verboseRead);
     else
       tableOnFileRead := 1.;
     end if;
@@ -589,7 +597,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
   block CombiTable2D "Table look-up in two dimensions (matrix/file)"
     extends Modelica.Blocks.Interfaces.SI2SO;
     parameter Boolean tableOnFile=false
-      "true, if table is defined on file or in function usertab"
+      "= true, if table is defined on file or in function usertab"
       annotation (Dialog(group="Table data definition"));
     parameter Real table[:, :] = fill(0.0, 0, 2)
       "Table matrix (grid u1 = first column, grid u2 = first row; e.g., table=[0,0;0,1])"
@@ -603,6 +611,9 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
             caption="Open file in which table is present")));
+    parameter Boolean verboseRead=true
+      "= true, if info message that file is loading is to be printed"
+      annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
       annotation (Dialog(group="Table data interpretation"));
@@ -620,8 +631,9 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead "= true: Print info message; = false: No info message";
       output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead)
+      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end readTableData;
 
@@ -664,7 +676,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID);
+      tableOnFileRead := readTableData(tableID, false, verboseRead);
     else
       tableOnFileRead := 1.;
     end if;

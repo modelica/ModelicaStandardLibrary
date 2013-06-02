@@ -2095,6 +2095,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
             caption="Open file in which table is present")));
+    parameter Boolean verboseRead=true
+      "= true, if info message that file is loading is to be printed"
+      annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated"
       annotation (Dialog(group="Table data interpretation"));
@@ -2135,7 +2138,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead)
+      input Boolean verboseRead "= true: Print info message; = false: No info message";
+      external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
     end readTableData;
 
@@ -2218,7 +2222,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID);
+      tableOnFileRead := readTableData(tableID, false, verboseRead);
     else
       tableOnFileRead := 1.;
     end if;

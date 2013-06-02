@@ -93,11 +93,13 @@ extern void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
 extern void ModelicaStandardTables_CombiTimeTable_close(void* tableID);
   /* Close table and free allocated memory */
 
-extern double ModelicaStandardTables_CombiTimeTable_read(void* tableID, int forceRead);
+extern double ModelicaStandardTables_CombiTimeTable_read(void* tableID, int force,
+                                                         int verbose);
   /* Read table from file
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTimeTable_init
-     -> forceRead: Read only if forced or not yet read
+     -> force: Read only if forced or not yet read
+     -> verbose: Print message that file is loading
      <- RETURN: = 1, if table was successfully read from file
   */
 
@@ -176,11 +178,13 @@ extern void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
 extern void ModelicaStandardTables_CombiTable1D_close(void* tableID);
   /* Close table and free allocated memory */
 
-extern double ModelicaStandardTables_CombiTable1D_read(void* tableID, int forceRead);
+extern double ModelicaStandardTables_CombiTable1D_read(void* tableID, int force,
+                                                       int verbose);
   /* Read table from file
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTable1D_init
-     -> forceRead: Read only if forced or not yet read
+     -> force: Read only if forced or not yet read
+     -> verbose: Print message that file is loading
      <- RETURN: = 1, if table was successfully read from file
   */
 
@@ -234,11 +238,13 @@ extern void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
 extern void ModelicaStandardTables_CombiTable2D_close(void* tableID);
   /* Close table and free allocated memory */
 
-extern double ModelicaStandardTables_CombiTable2D_read(void* tableID, int forceRead);
+extern double ModelicaStandardTables_CombiTable2D_read(void* tableID, int force,
+                                                       int verbose);
   /* Read table from file
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTable2D_init
-     -> forceRead: Read only if forced or not yet read
+     -> force: Read only if forced or not yet read
+     -> verbose: Print message that file is loading
      <- RETURN: = 1, if table was successfully read from file
   */
 
