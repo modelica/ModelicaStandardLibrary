@@ -1578,6 +1578,10 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                 tableID->nRow = (size_t)nRow;
                 tableID->nCol = (size_t)nColumn;
                 tableID->table = table;
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
+                    tableID->nRow == 3 && tableID->nCol == 3) {
+                    tableID->smoothness = LINEAR_SEGMENTS;
+                }
                 if (isValidCombiTable2D((const CombiTable2D*)tableID)) {
                     if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                         /* Initialization of the Akima-spline coefficients */
@@ -1638,6 +1642,10 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                             ModelicaError("Memory allocation error\n");
                             break;
                         }
+                    }
+                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
+                        tableID->nRow == 3 && tableID->nCol == 3) {
+                        tableID->smoothness = LINEAR_SEGMENTS;
                     }
                     if (isValidCombiTable2D((const CombiTable2D*)tableID)) {
                         if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
@@ -1707,11 +1715,13 @@ double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int forceRead) {
                 if (!tableID->table) {
                     return 0.; /* Error */
                 }
-
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
+                    tableID->nRow == 3 && tableID->nCol == 3) {
+                    tableID->smoothness = LINEAR_SEGMENTS;
+                }
                 if (!isValidCombiTable2D((const CombiTable2D*)tableID)) {
                     return 0.; /* Error */
                 }
-
                 if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                     /* Reinitialization of the Akima-spline coefficients */
                     spline2DClose(tableID->spline);
@@ -2223,24 +2233,6 @@ static int isValidCombiTable2D(const CombiTable2D* tableID) {
             isValid = 0;
             return isValid;
         }
-        if (tableID->smoothness == CONTINUOUS_DERIVATIVE && nRow < 4) {
-            ModelicaFormatError(
-                "Table matrix \"%s(%lu,%lu)\" does not have appropriate "
-                "dimensions for 2D-interpolation with splines because "
-                "size(%s,1) (=%lu) < 4.\n", tableName, (unsigned long)nRow,
-                (unsigned long)nCol, tableName, (unsigned long)nRow);
-            isValid = 0;
-            return isValid;
-        }
-        if (tableID->smoothness == CONTINUOUS_DERIVATIVE && nCol < 4) {
-            ModelicaFormatError(
-                "Table matrix \"%s(%lu,%lu)\" does not have appropriate "
-                "dimensions for 2D-interpolation with splines because "
-                "size(%s,2) (=%lu) < 4.\n", tableName, (unsigned long)nRow,
-                (unsigned long)nCol, tableName, (unsigned long)nCol);
-            isValid = 0;
-            return isValid;
-        }
 
         /* Check, whether first column values are strictly increasing */
         for (i = 1; i < nRow - 1; i++) {
@@ -2454,7 +2446,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
   */
 
     Akima2D* spline = NULL;
-    if (table) {
+    if (table && nRow > 2 && nCol > 2) {
         size_t i, j;
         double* dz_dx;
         double* dz_dy;
@@ -2475,14 +2467,25 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
             ModelicaError("Memory allocation error\n");
             return NULL;
         }
-        x[0] = 2*TABLE_COL0(1) - TABLE_COL0(3);
-        x[1] = TABLE_COL0(1) + TABLE_COL0(2) - TABLE_COL0(3);
-        for (i = 1; i < nRow; i++) {
-            x[i + 1] = TABLE_COL0(i);
+        if (nRow == 3) {
+            /* Linear extrapolation */
+            x[0] = 3*TABLE_COL0(1) - 2*TABLE_COL0(2);
+            x[1] = 2*TABLE_COL0(1) - TABLE_COL0(2);
+            x[2] = TABLE_COL0(1);
+            x[3] = TABLE_COL0(2);
+            x[4] = 2*TABLE_COL0(2) - TABLE_COL0(1);
+            x[5] = 3*TABLE_COL0(2) - 2*TABLE_COL0(1);
         }
-        x[nRow + 1] = TABLE_COL0(nRow - 1) +
-            TABLE_COL0(nRow - 2) - TABLE_COL0(nRow - 3);
-        x[nRow + 2] = 2*TABLE_COL0(nRow - 1) - TABLE_COL0(nRow - 3);
+        else {
+            x[0] = 2*TABLE_COL0(1) - TABLE_COL0(3);
+            x[1] = TABLE_COL0(1) + TABLE_COL0(2) - TABLE_COL0(3);
+            for (i = 1; i < nRow; i++) {
+                x[i + 1] = TABLE_COL0(i);
+            }
+            x[nRow + 1] = TABLE_COL0(nRow - 1) +
+                TABLE_COL0(nRow - 2) - TABLE_COL0(nRow - 3);
+            x[nRow + 2] = 2*TABLE_COL0(nRow - 1) - TABLE_COL0(nRow - 3);
+        }
 
         /* Copy of y coordinates with extrapolated boundary coordinates */
         y = malloc((nCol + 3)*sizeof(double));
@@ -2491,12 +2494,23 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
             ModelicaError("Memory allocation error\n");
             return NULL;
         }
-        y[0] = 2*TABLE_ROW0(1) - TABLE_ROW0(3);
-        y[1] = TABLE_ROW0(1) + TABLE_ROW0(2) - TABLE_ROW0(3);
-        memcpy(&y[2], &TABLE_ROW0(1), (nCol - 1)*sizeof(double));
-        y[nCol + 1] = TABLE_ROW0(nCol - 1) +
-            TABLE_ROW0(nCol - 2) - TABLE_ROW0(nCol - 3);
-        y[nCol + 2] = 2*TABLE_ROW0(nCol - 1) - TABLE_ROW0(nCol - 3);
+        if (nCol == 3) {
+            /* Linear extrapolation */
+            y[0] = 3*TABLE_ROW0(1) - 2*TABLE_ROW0(2);
+            y[1] = 2*TABLE_ROW0(1) - TABLE_ROW0(2);
+            y[2] = TABLE_ROW0(1);
+            y[3] = TABLE_ROW0(2);
+            y[4] = 2*TABLE_ROW0(2) - TABLE_ROW0(1);
+            y[5] = 3*TABLE_ROW0(2) - 2*TABLE_ROW0(1);
+        }
+        else {
+            y[0] = 2*TABLE_ROW0(1) - TABLE_ROW0(3);
+            y[1] = TABLE_ROW0(1) + TABLE_ROW0(2) - TABLE_ROW0(3);
+            memcpy(&y[2], &TABLE_ROW0(1), (nCol - 1)*sizeof(double));
+            y[nCol + 1] = TABLE_ROW0(nCol - 1) +
+                TABLE_ROW0(nCol - 2) - TABLE_ROW0(nCol - 3);
+            y[nCol + 2] = 2*TABLE_ROW0(nCol - 1) - TABLE_ROW0(nCol - 3);
+        }
 
         /* Copy of table with extrapolated boundary values */
         tableEx = malloc((nRow + 3)*(nCol + 3)*sizeof(double));
@@ -2509,24 +2523,48 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         for (i = 1; i < nRow; i++) {
             /* Copy table row */
             memcpy(&TABLE_EX(i + 1, 2), &TABLE(i, 1), (nCol - 1)*sizeof(double));
-            /* Extrapolate table data in y direction*/
-            spline1DExtrapolateLeft(y[0], y[1], y[2], y[3], y[4],
-                &TABLE_EX(i + 1, 0), &TABLE_EX(i + 1, 1), TABLE(i, 1),
-                TABLE(i, 2), TABLE(i, 3));
-            spline1DExtrapolateRight(y[nCol - 2], y[nCol - 1], y[nCol],
-                y[nCol + 1], y[nCol + 2], TABLE(i, nCol - 3),
-                TABLE(i, nCol - 2), TABLE(i, nCol - 1),
-                &TABLE_EX(i + 1, nCol + 1), &TABLE_EX(i + 1, nCol + 2));
         }
-        for (j = 0; j < nCol + 3; j++) {
-            /* Extrapolate table data in x direction*/
-            spline1DExtrapolateLeft(x[0], x[1], x[2], x[3], x[4],
-                &TABLE_EX(0, j), &TABLE_EX(1, j), TABLE_EX(2, j),
-                TABLE_EX(3, j), TABLE_EX(4, j));
-            spline1DExtrapolateRight(x[nRow - 2], x[nRow - 1], x[nRow],
-                x[nRow + 1], x[nRow + 2], TABLE_EX(nRow - 2, j),
-                TABLE_EX(nRow - 1, j), TABLE_EX(nRow, j),
-                &TABLE_EX(nRow + 1, j), &TABLE_EX(nRow + 2, j));
+        if (nCol == 3) {
+            /* Linear extrapolation in y direction */
+            for (i = 1; i < nRow; i++) {
+                TABLE_EX(i + 1, 0) = 3*TABLE(i, 1) - 2*TABLE(i, 2);
+                TABLE_EX(i + 1, 1) = 2*TABLE(i, 1) - TABLE(i, 2);
+                TABLE_EX(i + 1, 4) = 2*TABLE(i, 2) - TABLE(i, 1);
+                TABLE_EX(i + 1, 5) = 3*TABLE(i, 2) - 2*TABLE(i, 1);
+            }
+        }
+        else {
+            for (i = 1; i < nRow; i++) {
+                /* Extrapolate table data in y direction*/
+                spline1DExtrapolateLeft(y[0], y[1], y[2], y[3], y[4],
+                    &TABLE_EX(i + 1, 0), &TABLE_EX(i + 1, 1), TABLE_EX(i + 1, 2),
+                    TABLE_EX(i + 1, 3), TABLE_EX(i + 1, 4));
+                spline1DExtrapolateRight(y[nCol - 2], y[nCol - 1], y[nCol],
+                    y[nCol + 1], y[nCol + 2], TABLE_EX(i + 1, nCol - 2),
+                    TABLE_EX(i + 1, nCol - 1), TABLE_EX(i + 1, nCol),
+                    &TABLE_EX(i + 1, nCol + 1), &TABLE_EX(i + 1, nCol + 2));
+            }
+        }
+        if (nRow == 3) {
+            /* Linear extrapolation in x direction */
+            for (j = 0; j < nCol + 3; j++) {
+                TABLE_EX(0, j) = 3*TABLE_EX(2, j) - 2*TABLE_EX(3, j);
+                TABLE_EX(1, j) = 2*TABLE_EX(2, j) - TABLE_EX(3, j);
+                TABLE_EX(4, j) = 2*TABLE_EX(3, j) - TABLE_EX(2, j);
+                TABLE_EX(5, j) = 3*TABLE_EX(3, j) - 2*TABLE_EX(2, j);
+            }
+        }
+        else {
+            for (j = 0; j < nCol + 3; j++) {
+                /* Extrapolate table data in x direction*/
+                spline1DExtrapolateLeft(x[0], x[1], x[2], x[3], x[4],
+                    &TABLE_EX(0, j), &TABLE_EX(1, j), TABLE_EX(2, j),
+                    TABLE_EX(3, j), TABLE_EX(4, j));
+                spline1DExtrapolateRight(x[nRow - 2], x[nRow - 1], x[nRow],
+                    x[nRow + 1], x[nRow + 2], TABLE_EX(nRow - 2, j),
+                    TABLE_EX(nRow - 1, j), TABLE_EX(nRow, j),
+                    &TABLE_EX(nRow + 1, j), &TABLE_EX(nRow + 2, j));
+            }
         }
 
         dz_dx = malloc((nRow - 1)*(nCol - 1)*sizeof(double));
