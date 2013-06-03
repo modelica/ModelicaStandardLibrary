@@ -176,12 +176,8 @@ The table matrix can be defined in the following ways:
       preferred as otherwise the table is reallocated and transposed.</li>
 </ol>
 <p>
-Table definition methods (1) and (3) (if row-wise storage) do <b>not</b> allocate
-dynamic memory, and do not access files, whereas method (2) does. Therefore (1)
-and (3) are suited for hardware-in-the-loop simulation (e.g., with dSPACE hardware).
-When the constant \"NO_FILE_SYSTEM\" is defined, all parts of the
-source code of method (2) are removed by the C-preprocessor, such that
-no dynamic memory allocation and no access to files takes place.
+When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
 If tables are read from an ASCII-file, the file needs to have the
@@ -472,12 +468,8 @@ The table matrix can be defined in the following ways:
       preferred as otherwise the table is reallocated and transposed.</li>
 </ol>
 <p>
-Table definition methods (1) and (3) (if row-wise storage) do <b>not</b> allocate
-dynamic memory, and do not access files, whereas method (2) does. Therefore (1)
-and (3) are suited for hardware-in-the-loop simulation (e.g., with dSPACE hardware).
-When the constant \"NO_FILE_SYSTEM\" is defined, all parts of the
-source code of method (2) are removed by the C-preprocessor, such that
-no dynamic memory allocation and no access to files takes place.
+When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
 If tables are read from an ASCII-file, the file needs to have the
@@ -766,12 +758,8 @@ The table matrix can be defined in the following ways:
       preferred as otherwise the table is reallocated and transposed.</li>
 </ol>
 <p>
-Table definition methods (1) and (3) (if row-wise storage) do <b>not</b> allocate
-dynamic memory, and do not access files, whereas method (2) does. Therefore (1)
-and (3) are suited for hardware-in-the-loop simulation (e.g., with dSPACE hardware).
-When the constant \"NO_FILE_SYSTEM\" is defined, all parts of the
-source code of method (2) are removed by the C-preprocessor, such that
-no dynamic memory allocation and no access to files takes place.
+When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
 </p>
 <p>
 If tables are read from an ASCII-file, the file needs to have the
