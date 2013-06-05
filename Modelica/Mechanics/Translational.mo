@@ -2733,7 +2733,6 @@ Additionally, a left and right stop are handled.
                                                       F_prop*v - F_Coulomb - F_Stribeck*exp(-fexp*abs(v)));
       lossPower = f*v_relfric;
     equation
-      // Define events for hard stops and reinitialize the state variables velocity v and position s
       when (initial()) then
         assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
           "Error in initialization of hard stop. (s - L/2) must be >= smin\n"+
@@ -2743,6 +2742,7 @@ Additionally, a left and right stop are handled.
           "(s=" + String(s) + ", L=" + String(L) + ", smax=" + String(smax) + ")");
       end when;
 
+      // Define events for hard stops and reinitialize the state variables velocity v and position s
       stopped := if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
       when stopped <> 0 then
         reinit(s, if stopped < 0 then smin + L/2 else smax - L/2);
