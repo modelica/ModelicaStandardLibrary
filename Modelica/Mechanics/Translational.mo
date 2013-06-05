@@ -2732,10 +2732,41 @@ Additionally, a left and right stop are handled.
                          if pre(mode) == Forward then F_prop*v + F_Coulomb + F_Stribeck*exp(-fexp*abs(v)) else
                                                       F_prop*v - F_Coulomb - F_Stribeck*exp(-fexp*abs(v)));
       lossPower = f*v_relfric;
+    equation
+      // Define events for hard stops and reinitialize the state variables velocity v and position s
+      when (initial()) then
+        assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
+          "Error in initialization of hard stop. (s - L/2) must be >= smin\n"+
+          "(s=" + String(s) + ", L=" + String(L) + ", smin=" + String(smin) + ")");
+        assert(s < smax - L/2 or s <= smax - L/2 and v <= 0,
+          "Error in initialization of hard stop. (s + L/2) must be <= smax\n"+
+          "(s=" + String(s) + ", L=" + String(L) + ", smax=" + String(smax) + ")");
+      end when;
 
-    // Define events for hard stops and reinitialize the state variables velocity v and position s
-    algorithm
       stopped := if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
+      when stopped <> 0 then
+        reinit(s, if stopped < 0 then smin + L/2 else smax - L/2);
+        reinit(v, 0);
+      end when;
+    /*
+Version 1:
+
+  when not (s < smax - L/2) then
+    reinit(s, smax - L/2);
+    if (not initial() or v>0) then
+      reinit(v, 0);
+    end if;
+  end when;
+
+  when not (s > smin + L/2) then
+    reinit(s, smin + L/2);
+    if (not initial() or v<0) then
+      reinit(v, 0);
+    end if;
+  end when;
+
+Version 2:
+        stopped := if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
       when (initial()) then
         assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
           "Error in initialization of hard stop. (s - L/2) must be >= smin\n"+
@@ -2750,20 +2781,6 @@ Additionally, a left and right stop are handled.
            reinit(v, 0);
         end if;
       end when;
-    /*
-  when not (s < smax - L/2) then
-    reinit(s, smax - L/2);
-    if (not initial() or v>0) then
-      reinit(v, 0);
-    end if;
-  end when;
-
-  when not (s > smin + L/2) then
-    reinit(s, smin + L/2);
-    if (not initial() or v<0) then
-      reinit(v, 0);
-    end if;
-  end when;
 */
       annotation (
         Documentation(info="<html>
