@@ -2743,7 +2743,7 @@ Additionally, a left and right stop are handled.
       end when;
 
       // Define events for hard stops and reinitialize the state variables velocity v and position s
-      stopped := if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
+      stopped = if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
       when stopped <> 0 then
         reinit(s, if stopped < 0 then smin + L/2 else smax - L/2);
         reinit(v, 0);
