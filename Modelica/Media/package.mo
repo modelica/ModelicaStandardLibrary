@@ -1097,7 +1097,7 @@ exist:
 </HTML>"));
       end Initialization;
 
-    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+    annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Content:
 </p>
@@ -1938,7 +1938,7 @@ properties. Of course, more tests should be performed.
 
 </html>"));
       end TestOfMedium;
-    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+    annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 If a new medium model shall be introduced, copy package
 <a href=\"modelica://Modelica.Media.Interfaces.TemplateMedium\">
@@ -2078,7 +2078,7 @@ and many have contributed:
 </html>"));
     end Contact;
 
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Modelica.Media</b> is a <b>free</b> Modelica package providing
 a standardized interface to fluid media models and specific

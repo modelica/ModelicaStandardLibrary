@@ -285,7 +285,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
 </p>
 </html>"));
   end Contact;
-    annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+    annotation (DocumentationClass=true, Documentation(info="<html>
 </html>"));
   end UsersGuide;
 
@@ -8004,7 +8004,7 @@ The mass flow rate in dependence of the pressure loss of water is shown for diff
 </html>"));
     end dp_edgedOverall;
 
-      annotation (__Dymola_DocumentationClass=true);
+      annotation (DocumentationClass=true);
     end Bend;
 
     package Channel
@@ -8107,7 +8107,7 @@ The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been 
 </html>"));
     end dp_internalFlowOverall;
 
-      annotation (__Dymola_DocumentationClass=true);
+      annotation (DocumentationClass=true);
     end Channel;
 
     package General
@@ -8608,7 +8608,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 </html>"));
     end dp_volumeFlowRate;
 
-      annotation (__Dymola_DocumentationClass=true);
+      annotation (DocumentationClass=true);
     end General;
 
     package Orifice
@@ -8811,7 +8811,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
 </html>"));
     end dp_thickEdgedOverall;
 
-      annotation (__Dymola_DocumentationClass=true);
+      annotation (DocumentationClass=true);
     end Orifice;
 
     package StraightPipe
@@ -9410,7 +9410,7 @@ The two phase pressure loss for a horizontal pipe calculated by the correlation 
 </html>"));
     end dp_twoPhaseOverall;
 
-      annotation (__Dymola_DocumentationClass=true);
+      annotation (DocumentationClass=true);
     end StraightPipe;
 
     package Valve
@@ -9525,13 +9525,13 @@ The mass flow rate of different valves at a constant opening of 50% in dependenc
 </html>"));
     end dp_severalGeometryOverall;
 
-      annotation (__Dymola_DocumentationClass=true);
+      annotation (DocumentationClass=true);
     end Valve;
 
-      annotation (__Dymola_DocumentationClass=true);
+      annotation (DocumentationClass=true);
     end PressureLoss;
 
-      annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This package contains documentation that is used multiple times
 in several functions. To avoid duplication of the documentation, links

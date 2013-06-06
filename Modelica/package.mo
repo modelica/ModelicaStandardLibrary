@@ -1641,7 +1641,7 @@ This class summarizes contact information of the contributing persons.
 </ol>
 </html>"));
     end UsersGuide;
-    annotation (__Dymola_DocumentationClass=true,Documentation(info="<html>
+    annotation (DocumentationClass=true,Documentation(info="<html>
 <p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
 <li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> </li>
@@ -7668,7 +7668,7 @@ of the Modelica package (many more people have contributed to the design):
 
 end Contact;
 
-annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Package <b>Modelica</b> is a <b>standardized</b> and <b>pre-defined</b> package
 that is developed together with the Modelica language from the

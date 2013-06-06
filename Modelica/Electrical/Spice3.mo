@@ -273,7 +273,7 @@ Zeunerstrasse 38<br />
 </html>"));
   end Contact;
 
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+  annotation (DocumentationClass=true, Documentation(info="<html>
 <p>Package Spice3 is a <b>free</b> Modelica package</p>
 <p>This is a short <b>User's Guide</b> for the overall library.</p>
 </html>",   revisions="<html>

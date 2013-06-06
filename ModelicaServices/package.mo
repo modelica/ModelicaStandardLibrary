@@ -642,7 +642,7 @@ The design of the Animation.Shape component is from Hilding Elmqvist, Dassault S
 </html>"));
 
     end Contact;
-  annotation (__Dymola_DocumentationClass=true);
+  annotation (DocumentationClass=true);
   end UsersGuide;
 
 

@@ -133,7 +133,7 @@ The Electrical.Digital library is based on the following references:
 
       end Contact;
 
-      annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>Electrical.Digital</b> is a <b>free</b> Modelica package providing
 components to model <b>digital</b> electronic

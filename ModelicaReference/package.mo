@@ -6800,7 +6800,7 @@ end Icons;
 
 
 annotation (
-  __Dymola_DocumentationClass=true,
+  DocumentationClass=true,
   version="3.2.1",
   versionBuild=1,
   versionDate="2013-XX-XX",

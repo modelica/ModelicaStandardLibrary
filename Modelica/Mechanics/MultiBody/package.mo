@@ -235,7 +235,7 @@ in the middle of the light blue sphere.
       class Introduction "Introduction"
         extends Modelica.Icons.Information;
 
-        annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+        annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 In principal, now special action is needed, if
 loop structures occur (contrary to the ModelicaAdditions.MultiBody library).
@@ -852,7 +852,7 @@ orientation matrix of the body-fixed coordinate system are used as states.
 </html>"));
     end ConnectionOfLineForces;
 
-    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+    annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 This tutorial provides an introduction into the
 MultiBody library.
@@ -1085,7 +1085,7 @@ dynamical effects is described in:
 </html>"));
   end Contact;
 
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 3-dimensional mechanical components to model in a convenient way

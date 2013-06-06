@@ -8,7 +8,7 @@ package UsersGuide "User's Guide of SIunits Library"
   class HowToUseSIunits "How to use SIunits"
     extends Modelica.Icons.Information;
 
-    annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+    annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 When implementing a Modelica model, every variable needs to
 be declared. Physical variables should be declared with a unit.
@@ -133,7 +133,7 @@ in the declaration as in the example at the beginning.
   class Conventions "Conventions"
     extends Modelica.Icons.Information;
 
-    annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+    annotation (DocumentationClass=true, Documentation(info="<html>
 <p>The following conventions are used in package SIunits:</p>
 <ul>
 <li>Modelica quantity names are defined according to the recommendations
@@ -223,7 +223,7 @@ in the declaration as in the example at the beginning.
 </html>"));
   end Contact;
 
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>SIunits</b> is a <b>free</b> Modelica package providing
 predefined types, such as <i>Mass</i>,

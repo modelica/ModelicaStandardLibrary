@@ -552,6 +552,6 @@ ideal AC DC converter</a>, which is used in the
 </table>
 </html>"));
   end Glossar;
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+  annotation (DocumentationClass=true, Documentation(info="<html>
 </html>"));
 end UsersGuide;

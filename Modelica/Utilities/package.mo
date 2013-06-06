@@ -124,7 +124,7 @@ First version implemented.
 </html>"));
   end Contact;
 
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
 especially suited for <b>scripting</b>. Currently, only a rudimentary

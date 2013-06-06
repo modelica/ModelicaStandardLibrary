@@ -1675,7 +1675,7 @@ and many have contributed.
 
 </html>"));
 end Contact;
-  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for
 <b>1-dimensional thermo-fluid flow</b> in networks of pipes. A unique feature is that the
