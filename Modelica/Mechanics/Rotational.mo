@@ -3363,8 +3363,6 @@ in the User's Guide of the Rotational library.
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
 
-      Modelica.SIunits.AngularAcceleration a_rel(start=0)
-        "Relative angular acceleration (= der(w_rel))";
       extends Rotational.Interfaces.PartialFriction;
       extends
         Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
