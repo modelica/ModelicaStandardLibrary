@@ -50,8 +50,16 @@
 #include "ModelicaStandardTables.h"
 #include "ModelicaUtilities.h"
 #if !defined(NO_FILE_SYSTEM)
+#if defined(linux)
+#define _GNU_SOURCE 1
+#endif
 #include <stdio.h>
 #include "ModelicaMatIO.h"
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+#include <locale.h>
+#elif defined(linux)
+#include <locale.h>
+#endif
 #endif
 #include <float.h>
 #include <math.h>
@@ -270,6 +278,18 @@ static void spline2DClose(Akima2D* spline);
 #if !defined(NO_FILE_SYSTEM)
 static int readLine(char** buf, int* bufLen, FILE* fp);
    /* Read line (of unknown and arbitrary length) from an ASCII text file */
+#endif
+
+#if !defined(NO_FILE_SYSTEM) && defined(linux)
+static locale_t get_C_locale(void) {
+    static int initialized = 0;
+    static locale_t C_locale = NULL;
+    if (!initialized) {
+        C_locale = newlocale(LC_NUMERIC, "C", NULL);
+        initialized = 1;
+    }
+    return C_locale;
+}
 #endif
 
 /* ----- Interface functions ----- */
@@ -2919,6 +2939,11 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         int tableReadError;
         unsigned long nRow, nCol;
         unsigned long lineNo = 1;
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+        _locale_t loc = _create_locale(LC_NUMERIC, "C");
+#elif defined(linux)
+        locale_t loc = get_C_locale();
+#endif
 
         fp = fopen(fileName, "r");
         if (!fp) {
@@ -2981,6 +3006,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         /* Loop over lines of file */
         while (readLine(&buf, &bufLen, fp) == 0) {
             char* token;
+            char* endptr;
 
             lineNo++;
             /* Expected table header format: "double tableName(nRow,nCol)" */
@@ -3002,14 +3028,28 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             if (!token) {
                 continue;
             }
-            if (1 != sscanf(token, "%lu", &nRow)) {
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+            nRow = (unsigned long)_strtol_l(token, &endptr, 10, loc);
+#elif defined(linux)
+            nRow = (unsigned long)strtol_l(token, &endptr, 10, loc);
+#else
+            nRow = (unsigned long)strtol(token, &endptr, 10);
+#endif
+            if (*endptr != 0) {
                 continue;
             }
             token = strtok(NULL, DELIM_TABLE_HEADER);
             if (!token) {
                 continue;
             }
-            if (1 != sscanf(token, "%lu", &nCol)) {
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+            nCol = (unsigned long)_strtol_l(token, &endptr, 10, loc);
+#elif defined(linux)
+            nCol = (unsigned long)strtol_l(token, &endptr, 10, loc);
+#else
+            nCol = (unsigned long)strtol(token, &endptr, 10);
+#endif
+            if (*endptr != 0) {
                 continue;
             }
 
@@ -3050,7 +3090,17 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                             tableReadError = 1;
                             break;
                         }
-                        if (1 == sscanf(token, "%lf", &TABLE(i, j))) {
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+                        TABLE(i, j) = _strtod_l(token, &endptr, loc);
+#elif defined(linux)
+                        TABLE(i, j) = strtod_l(token, &endptr, loc);
+#else
+                        /* Use a locale independent implementation of strtod from
+                           Netlib (http://www.netlib.org/fp/dtoa.c) in case of
+                           unexpected results */
+                        TABLE(i, j) = strtod(token, &endptr);
+#endif
+                        if (*endptr == 0) {
                             token = strtok(NULL, DELIM_TABLE_NUMBER);
                             continue;
                         }
