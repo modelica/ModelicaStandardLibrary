@@ -95,20 +95,10 @@ echo "Modelica Standard Tables may use ZLIB: $ZLIB"
 echo "Modelica Standard Tables may use HDF5: $HDF5"
 echo "Modelica Standard Tables may use MAT7.3: $HDF5"
 
-MODELICA_PLATFORM=``
 if test "$libdir" = '${exec_prefix}/lib'; then
-  # Not all platform names are standardized. If we fail to detect linux32 or linux64, just put the libraries on top...
-  SPEC_PLATFORM=`uname -sm | tr "@<:@:upper:@:>@ " "@<:@:lower:@:>@-"`
-  AC_MSG_CHECKING([for Modelica platform name (used by make install; use --libdir to override)])
-  if test "$SPEC_PLATFORM" = "linux-x86_64" -o "$SPEC_PLATFORM" = "linux-i.86"; then
-    # Good. We can use the platform names linux32 and linux64
-    MODELICA_SPEC_PLATFORM=`echo $SPEC_PLATFORM | sed "s/linux-x86_64/linux64/" | sed "s/linux-i.86/linux32/"`
-    AC_MSG_RESULT([$MODELICA_SPEC_PLATFORM])
-  else
-    MODELICA_SPEC_PLATFORM=""
-    AC_MSG_RESULT([failed])
-  fi
-  libdir=`pwd`/../../Library/$MODELICA_SPEC_PLATFORM
+  # It is hard to detect where to put the libraries if we cross-compile. Let the tool decide where to put it.
+  # Use Resources/Library/ as the default.
+  libdir=`pwd`/../../Library/
 fi
 
 AC_OUTPUT([Makefile])

@@ -6,7 +6,7 @@ less INSTALL
 # To add static libraries (not as compatible)
 ./configure --enable-static
 # For a static library similar to the Windows build
-./configure --disable-hdf5 --enable-static-zlib --enable-static --disable-shared --libdir=../../Modelica/Resources/Library/
+./configure --disable-hdf5 --enable-static-zlib --enable-static --disable-shared --libdir=/path/to/Modelica/Resources/Library/linux64
 make
 sudo make install
 sudo make uninstall
