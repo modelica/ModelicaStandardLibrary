@@ -53,26 +53,22 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
 
   partial class MotorIcon "Icon of an electrical motor."
 
-    annotation (             Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            extent={{-100,50},{30,-50}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={255,0,0}),
+            lineColor={82,0,2}, 
+            fillColor={252,37,57}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            extent={{-100.0,-50.0},{30.0,50.0}}, 
+            radius=10.0),
           Polygon(
-            points={{-100,-90},{-90,-90},{-60,-20},{-10,-20},{20,-90},{30,-90},
-                {30,-100},{-100,-100},{-100,-90}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            fillColor={64,64,64}, 
+            fillPattern=FillPattern.Solid, 
+            points={{-100.0,-90.0},{-90.0,-90.0},{-60.0,-20.0},{-10.0,-20.0},{20.0,-90.0},{30.0,-90.0},{30.0,-100.0},{-100.0,-100.0},{-100.0,-90.0}}),
           Rectangle(
-            extent={{30,10},{90,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192})}),
+            lineColor={64,64,64}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            extent={{30.0,-10.0},{90.0,10.0}})}),
       Documentation(info="<html>
 <p>
 Icon of an <b>electrical motor</b> model.

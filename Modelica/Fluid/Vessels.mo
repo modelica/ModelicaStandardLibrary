@@ -113,7 +113,6 @@ initial equation
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.2), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
@@ -677,7 +676,6 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
                   Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-50,-200},{50,200}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Text(extent={{-75,130},{75,100}}, textString="%name"),
             Rectangle(
@@ -701,7 +699,6 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
            Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-50,-200},{50,200}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
               extent={{-50,200},{50,-200}},
@@ -732,7 +729,6 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
                   Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-50,-200},{50,200}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Text(extent={{-75,130},{75,100}}, textString="%name"),
             Rectangle(
@@ -771,7 +767,6 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
            Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-50,-200},{50,200}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
               extent={{-50,200},{50,-200}},

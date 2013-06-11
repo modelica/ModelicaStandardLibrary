@@ -339,11 +339,12 @@ Modelica.SIunits and in Modelica.Conversions.NonSIunits. The reason is that thes
 definitions have been placed erroneously in Modelica.SIunits although they
 are not SIunits. For backward compatibility, these type definitions are
 still kept in Modelica.SIunits.</p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}), graphics={Text(
-              extent={{-66,-13},{52,-67}},
-              lineColor={0,0,0},
-              textString="[km/h]")}));
+</html>"), Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
+      Text(
+        origin={15.0,51.8518},
+        extent={{-105.0,-86.8518},{75.0,-16.8518}},
+        lineColor={0,0,0},
+        textString="[km/h]")}));
     end NonSIunits;
 
 
@@ -1915,11 +1916,12 @@ Modelica.Magentic.FundamentalWave uses a special record Salient which is only va
     Complex(redeclare ActivePower re,
              redeclare ReactivePower im) "Complex electrical power";
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={Text(
-          extent={{-63,-13},{45,-67}},
-          lineColor={0,0,0},
-          textString="[kg.m2]")}),
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+      Text(
+        origin={15.0,51.8518},
+        extent={{-105.0,-86.8518},{75.0,-16.8518}},
+        lineColor={0,0,0},
+        textString="[kg.m2]")}),
     Documentation(info="<html>
 <p>This package provides predefined types, such as <i>Mass</i>,
 <i>Angle</i>, <i>Time</i>, based on the international standard

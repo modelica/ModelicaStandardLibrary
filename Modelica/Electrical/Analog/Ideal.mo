@@ -67,8 +67,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </ul>
 </html>"),    Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-150,-47},{150,-87}},
             textString="%name",
@@ -91,8 +90,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             pattern=LinePattern.Dot)}),
               Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,0},{80,0}}, color={128,128,128}),
           Polygon(
             points={{70,4},{80,0},{70,-4},{70,4}},
@@ -209,8 +207,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </ul>
 </html>"),    Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,0},
@@ -255,8 +252,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             textString="GTO")}),
               Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,0},{80,0}}, color={128,128,128}),
           Polygon(
             points={{70,4},{80,0},{70,-4},{70,4}},
@@ -373,8 +369,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Text(
             extent={{-80,0},{-60,22}},
@@ -405,8 +400,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -481,8 +475,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
           Text(
             extent={{-80,50},{-60,72}},
@@ -513,8 +506,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-4,29},{4,21}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-40,0}}, color={0,0,255}),
           Line(points={{-96,50},{-40,50}}, color={0,0,255}),
@@ -591,8 +583,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Text(
             extent={{-80,0},{-60,22}},
@@ -623,8 +614,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -703,8 +693,7 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
           Text(
             extent={{-80,50},{-60,72}},
@@ -741,8 +730,7 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-4,29},{4,21}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-40,0}}, color={0,0,255}),
           Line(points={{-96,50},{-40,50}}, color={0,0,255}),
@@ -794,8 +782,7 @@ are possible (norator).
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -814,8 +801,7 @@ are possible (norator).
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -888,8 +874,7 @@ are possible.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -907,8 +892,7 @@ are possible.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -984,8 +968,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -1006,8 +989,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -1103,8 +1085,7 @@ behavior is <b> not </b> modelled.
 </ul>
 </html>"),  Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,0},
@@ -1125,8 +1106,7 @@ behavior is <b> not </b> modelled.
             lineColor={0,0,255})}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,0},{80,0}}, color={128,128,128}),
           Polygon(
             points={{70,4},{80,0},{70,-4},{70,4}},
@@ -1320,8 +1300,7 @@ where the constant <i>G</i> is called the gyration conductance.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-70,-30},{-10,30}}, lineColor={0,0,255}),
           Rectangle(
             extent={{-80,-40},{-41,40}},
@@ -1354,8 +1333,7 @@ where the constant <i>G</i> is called the gyration conductance.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-70,-30},{-10,30}}, lineColor={0,0,255}),
           Rectangle(
             extent={{-80,-40},{-41,40}},
@@ -1395,8 +1373,7 @@ where the constant <i>G</i> is called the gyration conductance.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}},
             fillColor={255,255,255},
@@ -1410,8 +1387,7 @@ where the constant <i>G</i> is called the gyration conductance.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-41,0}}, color={0,0,255}),
           Line(points={{96,0},{40,0}}, color={0,0,255})}));
@@ -1434,8 +1410,7 @@ where the constant <i>G</i> is called the gyration conductance.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}},
             fillColor={255,255,255},
@@ -1448,8 +1423,7 @@ where the constant <i>G</i> is called the gyration conductance.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{96,0},{-96,0}}, color={0,0,255}),
           Text(
@@ -1515,8 +1489,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1535,8 +1508,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1607,8 +1579,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </html>"),
         Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1626,8 +1597,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             lineColor={0,0,255})}),
         Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1704,8 +1674,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1724,8 +1693,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1800,8 +1768,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </html>"),
         Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1819,8 +1786,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             lineColor={0,0,255})}),
         Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -2207,8 +2173,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -2222,8 +2187,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -2343,8 +2307,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </html>"),
         Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -2357,8 +2320,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
           Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0})}),
         Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),

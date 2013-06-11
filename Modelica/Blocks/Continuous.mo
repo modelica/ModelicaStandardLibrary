@@ -49,34 +49,47 @@ This is discussed in the description of package
 </p>
 
 </html>"),   Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
-          Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
-          Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{0,-10},{60,-70}},
-            lineColor={192,192,192},
-            textString="I"),
-          Text(
-            extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
-            textString="k=%k"),
-          Line(points={{-80,-80},{80,80}}, color={0,0,127})}),
+            preserveAspectRatio=true, 
+            extent={{-100.0,-100.0},{100.0,100.0}}, 
+            initialScale=0.1), 
+          graphics={
+            Line(
+              visible=true, 
+              points={{-80.0,78.0},{-80.0,-90.0}}, 
+              color={192,192,192}),
+            Polygon(
+              visible=true, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid, 
+              points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
+            Line(
+              visible=true, 
+              points={{-90.0,-80.0},{82.0,-80.0}}, 
+              color={192,192,192}),
+            Polygon(
+              visible=true, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid, 
+              points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
+            Text(
+              visible=true, 
+              lineColor={192,192,192}, 
+              extent={{0.0,-70.0},{60.0,-10.0}}, 
+              textString="I"),
+            Text(
+              visible=true, 
+              extent={{-150.0,-150.0},{150.0,-110.0}}, 
+              textString="k=%k"),
+            Line(
+              visible=true, 
+              points={{-80.0,-80.0},{80.0,80.0}}, 
+              color={0,0,127})
+      }),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255}),
@@ -156,8 +169,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -186,8 +198,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
             smooth=Smooth.None)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-54,46},{-4,-48}},
@@ -264,38 +275,42 @@ b = {k,0}, a = {T, 1}.
 <p>
 If k=0, the block reduces to y=0.
 </p>
-</html>"),   Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
-          Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
-          Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{-80,60},{-70,17.95},{-60,-11.46},{-50,-32.05},
-                {-40,-46.45},{-30,-56.53},{-20,-63.58},{-10,-68.51},{0,-71.96},
-                {10,-74.37},{20,-76.06},{30,-77.25},{40,-78.07},{50,-78.65},{60,
-                -79.06}}, color={0,0,127}),
-          Text(
-            extent={{-30,14},{86,60}},
-            lineColor={192,192,192},
-            textString="DT1"),
-          Text(
-            extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
-            textString="k=%k")}),
+</html>"),   Icon(
+      coordinateSystem(preserveAspectRatio=true,
+          extent={{-100.0,-100.0},{100.0,100.0}},
+        initialScale=0.1),
+        graphics={
+      Line(visible=true,
+          points={{-80.0,78.0},{-80.0,-90.0}},
+        color={192,192,192}),
+    Polygon(visible=true,
+        lineColor={192,192,192},
+      fillColor={192,192,192},
+      fillPattern=FillPattern.Solid,
+      points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
+    Line(visible=true,
+        points={{-90.0,-80.0},{82.0,-80.0}},
+      color={192,192,192}),
+    Polygon(visible=true,
+        lineColor={192,192,192},
+      fillColor={192,192,192},
+      fillPattern=FillPattern.Solid,
+      points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
+    Line(visible = true,
+      origin = {-24.667,-27.333},
+      points = {{-55.333,87.333},{-19.333,-40.667},{86.667,-52.667}},
+      color = {0,0,127},
+      smooth = Smooth.Bezier),
+    Text(visible=true,
+        lineColor={192,192,192},
+      extent={{-30.0,14.0},{86.0,60.0}},
+      textString="DT1"),
+    Text(visible=true,
+        extent={{-150.0,-150.0},{150.0,-110.0}},
+      textString="k=%k")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-54,52},{50,10}},
             lineColor={0,0,0},
@@ -358,38 +373,42 @@ Example:
           0.4 s + 1.0
 </pre>
 
-</html>"),   Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
-          Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
-          Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{-70,-45.11},{-60,-19.58},{-50,-0.9087},{-40,
-                12.75},{-30,22.75},{-20,30.06},{-10,35.41},{0,39.33},{10,42.19},
-                {20,44.29},{30,45.82},{40,46.94},{50,47.76},{60,48.36},{70,48.8},
-                {80,49.12}}, color={0,0,127}),
-          Text(
-            extent={{0,0},{60,-60}},
-            lineColor={192,192,192},
-            textString="PT1"),
-          Text(
-            extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
-            textString="T=%T")}),
+</html>"),   Icon(
+    coordinateSystem(preserveAspectRatio=true,
+        extent={{-100.0,-100.0},{100.0,100.0}},
+      initialScale=0.1),
+      graphics={
+    Line(visible=true,
+        points={{-80.0,78.0},{-80.0,-90.0}},
+      color={192,192,192}),
+    Polygon(visible=true,
+      lineColor={192,192,192},
+      fillColor={192,192,192},
+      fillPattern=FillPattern.Solid,
+      points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
+    Line(visible=true,
+      points={{-90.0,-80.0},{82.0,-80.0}},
+      color={192,192,192}),
+    Polygon(visible=true,
+      lineColor={192,192,192},
+      fillColor={192,192,192},
+      fillPattern=FillPattern.Solid,
+      points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
+    Line(visible = true,
+        origin = {-26.667,6.667},
+        points = {{106.667,43.333},{-13.333,29.333},{-53.333,-86.667}},
+        color = {0,0,127},
+        smooth = Smooth.Bezier),
+    Text(visible=true,
+      lineColor={192,192,192},
+      extent={{0.0,-60.0},{60.0,0.0}},
+      textString="PT1"),
+    Text(visible=true,
+      extent={{-150.0,-150.0},{150.0,-110.0}},
+      textString="T=%T")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-48,52},{50,8}},
             lineColor={0,0,0},
@@ -461,39 +480,42 @@ Example:
           4.0 s^2 + 1.6 s + 1
 </pre>
 
-</html>"),   Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
-          Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
+</html>"),   Icon(
+        coordinateSystem(preserveAspectRatio=true,
+              extent={{-100.0,-100.0},{100.0,100.0}},
+            initialScale=0.1),
+            graphics={
+        Line(visible=true,
+              points={{-80.0,78.0},{-80.0,-90.0}},
+            color={192,192,192}),
+      Polygon(visible=true,
             lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
-          Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
+      Line(visible=true,
+            points={{-90.0,-80.0},{82.0,-80.0}},
+          color={192,192,192}),
+      Polygon(visible=true,
             lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{-72,-68.53},{-64,-39.5},{-56,-2.522},{-48,
-                32.75},{-40,58.8},{-32,71.51},{-24,70.49},{-16,58.45},{-8,40.06},
-                {0,20.55},{8,4.459},{16,-5.271},{24,-7.629},{32,-3.428},{40,
-                5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}},
-              color={0,0,127}),
-          Text(
-            extent={{0,-10},{60,-70}},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
+      Line(visible = true,
+          origin = {-1.939,-1.816},
+          points = {{81.939,36.056},{65.362,36.056},{14.39,-26.199},{-29.966,113.485},{-65.374,-61.217},{-78.061,-78.184}},
+          color = {0,0,127},
+          smooth = Smooth.Bezier),
+      Text(visible=true,
             lineColor={192,192,192},
-            textString="PT2"),
-          Text(
-            extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
-            textString="w=%w")}),
+          extent={{0.0,-70.0},{60.0,-10.0}},
+          textString="PT2"),
+      Text(visible=true,
+            extent={{-150.0,-150.0},{150.0,-110.0}},
+          textString="w=%w")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-60,60},{60,14}},
@@ -608,11 +630,10 @@ This is discussed in the description of package
 
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
@@ -622,7 +643,7 @@ This is discussed in the description of package
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{-80,-20},{60,80}}, color={0,0,127}),
+          Line(points = {{-80.0,-80.0},{-80.0,-20.0},{60.0,80.0}}, color = {0,0,127}),
           Text(
             extent={{0,6},{60,-56}},
             lineColor={192,192,192},
@@ -633,8 +654,7 @@ This is discussed in the description of package
             textString="T=%T")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-68,24},{-24,-18}},
@@ -728,30 +748,34 @@ This is discussed in the description of package
     connect(Gain.y, y)
       annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
     annotation (defaultComponentName="PID",
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
-          Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+      Icon(
+          coordinateSystem(preserveAspectRatio=true,
+              extent={{-100.0,-100.0},{100.0,100.0}},
+              initialScale=0.1),
+              graphics={
+          Line(visible=true,
+              points={{-80.0,78.0},{-80.0,-90.0}},
+              color={192,192,192}),
+        Polygon(visible=true,
             lineColor={192,192,192},
             fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
-          Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            fillPattern=FillPattern.Solid,
+            points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
+        Line(visible=true,
+            points={{-90.0,-80.0},{82.0,-80.0}},
+            color={192,192,192}),
+        Polygon(visible=true,
             lineColor={192,192,192},
             fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{-80,50},{-80,-20},{60,80}}, color={0,0,127}),
-          Text(
-            extent={{-20,-20},{80,-60}},
+            fillPattern=FillPattern.Solid,
+            points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
+        Line(visible = true, points = {{-80,-80},{-80,-20},{60,80}}, color = {0,0,127}),
+        Text(visible=true,
             lineColor={192,192,192},
+            extent={{-20.0,-60.0},{80.0,-20.0}},
             textString="PID"),
-          Text(
-            extent={{-150,-150},{150,-110}},
-            lineColor={0,0,0},
+        Text(visible=true,
+            extent={{-150.0,-150.0},{150.0,-110.0}},
             textString="Ti=%Ti")}),
       Documentation(info="<HTML>
 <p>
@@ -1013,8 +1037,7 @@ to compute u by an algebraic equation.
     annotation (defaultComponentName="PID",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -1027,8 +1050,7 @@ to compute u by an algebraic equation.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{-80,50},{-80,-20},{30,60},{80,60}}, color={0,
-                0,127}),
+          Line(points={{-80,-80},{-80,-20},{30,60},{80,60}}, color={0,0,127}),
           Text(
             extent={{-20,-20},{80,-60}},
             lineColor={192,192,192},
@@ -1279,23 +1301,25 @@ results in the following transfer function:
          s + 3
 </pre>
 </html>"),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Line(points={{-80,0},{80,0}}, color={0,0,127}),
-          Text(
-            extent={{-90,10},{90,90}},
-            textString="b(s)",
-            lineColor={0,0,127}),
-          Text(
-            extent={{-90,-10},{90,-90}},
-            textString="a(s)",
-            lineColor={0,0,127})}),
+      Icon(
+          coordinateSystem(preserveAspectRatio=true,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            initialScale=0.1),
+            graphics={
+          Line(visible=true,
+            points={{-80.0,0.0},{80.0,0.0}},
+            color={0,0,127}),
+        Text(visible=true,
+          lineColor={0,0,127},
+          extent={{-90.0,10.0},{90.0,90.0}},
+          textString="b(s)"),
+        Text(visible=true,
+          lineColor={0,0,127},
+          extent={{-90.0,-90.0},{90.0,-10.0}},
+          textString="a(s)")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{40,0},{-40,0}}, color={0,0,0}),
           Text(
             extent={{-55,55},{55,5}},
@@ -1386,32 +1410,29 @@ results in the following equations:
        y[1]   = [0.1  2.0] * [    ] + [0  0] * [    ]
                              [x[2]]            [u[2]]
 </pre>
-</html>"),   Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Text(
-            extent={{-90,10},{-10,90}},
-            textString="A",
-            lineColor={0,0,127}),
-          Text(
-            extent={{10,10},{90,90}},
-            textString="B",
-            lineColor={0,0,127}),
-          Text(
-            extent={{-90,-10},{-10,-90}},
-            textString="C",
-            lineColor={0,0,127}),
-          Text(
-            extent={{10,-10},{90,-90}},
-            textString="D",
-            lineColor={0,0,127}),
-          Line(points={{0,-90},{0,90}}, color={192,192,192}),
-          Line(points={{-90,0},{90,0}}, color={192,192,192})}),
+</html>"),   Icon(
+      coordinateSystem(preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}}),
+        graphics={
+      Text(extent={{-90,10},{-10,90}},
+        textString="A",
+        lineColor={0,0,127}),
+      Text(extent={{10,10},{90,90}},
+        textString="B",
+        lineColor={0,0,127}),
+      Text(extent={{-90,-10},{-10,-90}},
+        textString="C",
+        lineColor={0,0,127}),
+      Text(extent={{10,-10},{90,-90}},
+        textString="D",
+        lineColor={0,0,127}),
+      Line(points={{0,-90},{0,90}},
+        color={192,192,192}),
+      Line(points={{-90,0},{90,0}},
+        color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-60,40},{60,0}},
@@ -1435,7 +1456,7 @@ results in the following equations:
           graphics={Text(
             extent={{-96,28},{94,-24}},
             textString="der()",
-            lineColor={0,0,0})}),
+            lineColor={0,0,127})}),
           Documentation(info="<HTML>
 <p>
 Defines that the output y is the <i>derivative</i>
@@ -1552,40 +1573,43 @@ the model.
       y = xr;
     end if;
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
-          Polygon(
-            points={{-79.5584,91.817},{-87.5584,69.817},{-71.5584,69.817},{-79.5584,
-                89.817},{-79.5584,91.817}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{-72,-68.53},{-64,-39.5},{-56,-2.522},{-48,
-                32.75},{-40,58.8},{-32,71.51},{-24,70.49},{-16,58.45},{-8,40.06},
-                {0,20.55},{8,4.459},{16,-5.271},{24,-7.629},{32,-3.428},{40,
-                5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}},
-              color={0,0,127}),
-          Line(points={{-90.9779,-80.7697},{81.0221,-80.7697}}, color={192,192,
-                192}),
-          Polygon(
-            points={{91.3375,-79.8233},{69.3375,-71.8233},{69.3375,-87.8233},{
-                91.3375,-79.8233}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-45.1735,-11.47},{92,-68}},
-            lineColor={192,192,192},
-            textString="LowpassButterworthFilter"),
-          Text(
-            extent={{8,-106},{8,-146}},
-            lineColor={0,0,0},
-            textString="f=%f"),
-          Text(
-            extent={{-2,94},{94,48}},
-            lineColor={192,192,192},
-            textString="%n")}),
+      Icon(
+          coordinateSystem(preserveAspectRatio=true,
+              extent={{-100.0,-100.0},{100.0,100.0}},
+              initialScale=0.1),
+              graphics={
+          Line(visible=true,
+              points={{-80.0,78.0},{-80.0,-90.0}},
+              color={192,192,192}),
+          Polygon(visible=true,
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              points={{-79.5584,91.817},{-87.5584,69.817},{-71.5584,69.817},{-79.5584,91.817}}),
+          Line(visible = true,
+              origin = {-1.939,-1.816},
+              points = {{81.939,36.056},{65.362,36.056},{14.39,-26.199},{-29.966,113.485},{-65.374,-61.217},{-78.061,-78.184}},
+              color = {0,0,127},
+              smooth = Smooth.Bezier),
+          Line(visible=true,
+              points={{-90.9779,-80.7697},{81.0221,-80.7697}},
+              color={192,192,192}),
+          Polygon(visible=true,
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              points={{91.3375,-79.8233},{69.3375,-71.8233},{69.3375,-87.8233},{91.3375,-79.8233}}),
+          Text(visible=true,
+              lineColor={192,192,192},
+              extent={{-45.1735,-68.0},{92.0,-11.47}},
+              textString="LowpassButterworthFilter"),
+          Text(visible=true,
+              extent={{8.0,-146.0},{8.0,-106.0}},
+              textString="f=%f"),
+          Text(visible=true,
+              lineColor={192,192,192},
+              extent={{-2.0,48.0},{94.0,94.0}},
+              textString="%n")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{40,0},{-40,0}}, color={0,0,0}),
@@ -1668,38 +1692,42 @@ initType=Modelica.Blocks.Types.Init.SteadyState).
     end for;
     y = x[n];
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Line(points={{-80.6897,77.6256},{-80.6897,-90.3744}}, color={192,192,
-                192}),
-          Polygon(
-            points={{-79.7044,90.6305},{-87.7044,68.6305},{-71.7044,68.6305},{-79.7044,
-                88.6305},{-79.7044,90.6305}},
+      Icon(
+          coordinateSystem(preserveAspectRatio=true,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            initialScale=0.1),
+            graphics={
+          Line(visible=true,
+            points={{-80.6897,77.6256},{-80.6897,-90.3744}},
+            color={192,192,192}),
+          Polygon(visible=true,
             lineColor={192,192,192},
             fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
-          Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            fillPattern=FillPattern.Solid,
+            points={{-79.7044,90.6305},{-87.7044,68.6305},{-71.7044,68.6305},{-79.7044,90.6305}}),
+          Line(visible=true,
+            points={{-90.0,-80.0},{82.0,-80.0}},
+            color={192,192,192}),
+          Polygon(visible=true,
             lineColor={192,192,192},
             fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{0,0},{60,-60}},
+            fillPattern=FillPattern.Solid,
+            points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
+          Text(visible=true,
             lineColor={192,192,192},
+            extent={{0.0,-60.0},{60.0,0.0}},
             textString="PTn"),
-          Line(points={{-80.7599,-80.5082},{-70.7599,-74.5082},{-56,-60},{-48,-42},
-                {-42,-18},{-36,4},{-26,20},{-10.7599,34.9018},{-0.759907,
-                38.8218},{9.24009,41.6818},{19.2401,43.7818},{29.2401,45.3118},
-                {39.2401,46.4318},{49.2401,47.2518},{59.2401,47.8518},{69.2401,
-                48.2918},{79.2401,48.6118}}, color={0,0,127}),
-          Text(
-            extent={{-70,94},{26,48}},
+          Line(visible = true,
+            origin = {-17.976,-6.521},
+            points = {{96.962,55.158},{16.42,50.489},{-18.988,18.583},{-32.024,-53.479},{-62.024,-73.479}},
+            color = {0,0,127},
+            smooth = Smooth.Bezier),
+          Text(visible=true,
             lineColor={192,192,192},
+            extent={{-70.0,48.0},{26.0,94.0}},
             textString="%n"),
-          Text(
-            extent={{8,-106},{8,-146}},
-            lineColor={0,0,0},
+          Text(visible=true,
+            extent={{8.0,-146.0},{8.0,-106.0}},
             textString="f=%f")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
@@ -1948,39 +1976,41 @@ The critical damping filter is defined as
      y = (gain*u_nominal)*uu[nr+na+1];
 
     annotation (
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Line(points={{-80,80},{-80,-88}}, color={192,192,192}),
-          Polygon(
-            points={{-80,92},{-88,70},{-72,70},{-80,90},{-80,92}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,-78},{82,-78}}, color={192,192,192}),
-          Polygon(
-            points={{90,-78},{68,-70},{68,-86},{90,-78}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-66,90},{88,52}},
-            lineColor={192,192,192},
-            textString="%order"),
-          Text(
-            extent={{-138,-110},{162,-140}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
-            textString="f_cut=%f_cut"),
-          Line(points={{22,10},{14,18},{6,22},{-12,28},{-80,28}}, color={0,0,127}),
-          Rectangle(
-            extent={{-80,-78},{22,10}},
-            lineColor={160,160,164},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Backward),
-          Line(points={{22,10},{30,-2},{36,-20},{40,-32},{44,-58},{46,-78}})}),
+      Icon(
+        coordinateSystem(preserveAspectRatio=true,
+          extent={{-100.0,-100.0},{100.0,100.0}},
+          initialScale=0.1),
+          graphics={
+        Line(visible=true,
+          points={{-80.0,80.0},{-80.0,-88.0}},
+          color={192,192,192}),
+        Polygon(visible=true,
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          points={{-80.0,92.0},{-88.0,70.0},{-72.0,70.0},{-80.0,92.0}}),
+        Line(visible=true,
+          points={{-90.0,-78.0},{82.0,-78.0}},
+          color={192,192,192}),
+        Polygon(visible=true,
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          points={{90.0,-78.0},{68.0,-70.0},{68.0,-86.0},{90.0,-78.0}}),
+        Text(visible=true,
+          lineColor={192,192,192},
+          extent={{-66.0,52.0},{88.0,90.0}},
+          textString="%order"),
+        Text(visible=true,
+          fillPattern=FillPattern.Solid,
+          extent={{-138.0,-140.0},{162.0,-110.0}},
+          textString="f_cut=%f_cut"),
+        Rectangle(visible=true,
+          lineColor={160,160,164},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Backward,
+          extent={{-80.0,-78.0},{22.0,10.0}}),
+        Line(visible = true, origin = {3.333,-6.667}, points = {{-83.333,34.667},{24.667,34.667},{42.667,-71.333}}, color = {0,0,127}, smooth = Smooth.Bezier)}),
       Documentation(info="<html>
 
 <p>

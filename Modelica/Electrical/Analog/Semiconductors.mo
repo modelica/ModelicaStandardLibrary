@@ -40,8 +40,7 @@ package Semiconductors
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,255},
@@ -66,8 +65,7 @@ package Semiconductors
             pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,255},
@@ -119,8 +117,7 @@ package Semiconductors
 </ul>
 </html>"),  Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,255},
@@ -141,8 +138,7 @@ package Semiconductors
             pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,255},
@@ -252,8 +248,7 @@ Some typical parameter sets are:
 </html>"),
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-90,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -279,8 +274,7 @@ Some typical parameter sets are:
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-96,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -402,8 +396,7 @@ Muenchen Wien 1990.</DD>
 </html>"),
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-90,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -429,8 +422,7 @@ Muenchen Wien 1990.</DD>
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-96,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -569,8 +561,7 @@ on page 317 ff.</DD>
 </html>"),
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-90,0}}, color={0,0,255}),
           Line(points={{91,50},{30,50}}, color={0,0,255}),
@@ -594,8 +585,7 @@ on page 317 ff.</DD>
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-100,0}}, color={0,0,255}),
           Line(points={{30,50},{-10,10}}, color={0,0,255}),
@@ -724,8 +714,7 @@ on page 317 ff.</DD>
 </html>"),
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-90,0}}, color={0,0,255}),
           Line(points={{91,50},{30,50}}, color={0,0,255}),
@@ -749,8 +738,7 @@ on page 317 ff.</DD>
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-99,0}}, color={0,0,255}),
           Line(points={{100,50},{30,50}}, color={0,0,255}),
@@ -833,8 +821,7 @@ The thermal power is calculated by <i>i*v</i>.
 </html>"),
     Icon(coordinateSystem(
   preserveAspectRatio=true,
-  extent={{-100,-100},{100,100}},
-  grid={1,1}), graphics={
+  extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,255},
@@ -855,8 +842,7 @@ The thermal power is calculated by <i>i*v</i>.
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
   preserveAspectRatio=true,
-  extent={{-100,-100},{100,100}},
-  grid={1,1}), graphics={
+  extent={{-100,-100},{100,100}}), graphics={
         Polygon(
           points={{30,0},{-30,40},{-30,-40},{30,0}},
           lineColor={0,0,255},
@@ -977,8 +963,7 @@ end HeatingDiode;
 </ul>
 </html>"),  Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-90,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -1004,8 +989,7 @@ end HeatingDiode;
             pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-96,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -1121,8 +1105,7 @@ end HeatingDiode;
 </ul>
 </html>"),  Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-90,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -1148,8 +1131,7 @@ end HeatingDiode;
             pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -1299,8 +1281,7 @@ end HeatingDiode;
 </ul>
 </html>"),  Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-90,0}}, color={0,0,255}),
           Line(points={{91,50},{30,50}}, color={0,0,255}),
@@ -1324,8 +1305,7 @@ end HeatingDiode;
             pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-100,0}}, color={0,0,255}),
           Line(points={{30,50},{-10,10}}, color={0,0,255}),
@@ -1475,8 +1455,7 @@ end HeatingDiode;
 </ul>
 </html>"),  Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-90,0}}, color={0,0,255}),
           Line(points={{91,50},{30,50}}, color={0,0,255}),
@@ -1500,8 +1479,7 @@ end HeatingDiode;
             pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-99,0}}, color={0,0,255}),
           Line(points={{96,50},{30,50}}, color={0,0,255}),
@@ -1620,8 +1598,7 @@ public
 </html>"),
      Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,255},
@@ -1638,8 +1615,7 @@ public
             lineColor={0,0,255})}),
      Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,0},{80,0}}, color={128,128,128}),
           Polygon(
             points={{70,4},{80,0},{70,-4},{70,4}},

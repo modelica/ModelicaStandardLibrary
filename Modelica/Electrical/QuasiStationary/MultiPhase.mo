@@ -1128,14 +1128,20 @@ The inductances <i>L</i> are given as <i>m</i> input signals.
 </p>
 </html>"));
     end VariableInductor;
-    annotation (Icon(graphics={
-        Line(points={{-100,-40},{-80,-40}}),
-        Line(points={{60,-40},{80,-40}}),
+    annotation (Icon(
+      graphics = {
+        Line(
+          origin = {10,40}, 
+          points = {{-100,-40},{-80,-40}}),
+        Line(
+          origin = {10,40}, 
+          points = {{60,-40},{80,-40}}),
         Rectangle(
-          extent={{-80,-10},{60,-70}},
-          lineColor={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+          lineColor = {0,0,255}, 
+          fillColor = {255,255,255}, 
+          fillPattern = FillPattern.Solid, 
+          extent = {{-70,-30},{70,30}})}, 
+      coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1590,12 +1596,12 @@ This switch is only intended to be used for structural changes, not fast switchi
 </p>
 </HTML>"));
     end IdealClosingSwitch;
-  annotation (Icon(graphics={
-        Line(points={{-100,-60},{-54,-60}}),
-        Ellipse(extent={{-54,-56},{-46,-64}}),
-        Line(points={{-47,-58},{30,-10}}),
-        Line(points={{30,-40},{30,-60}}),
-        Line(points={{30,-60},{80,-60}})}), Documentation(info="<html>
+  annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics = {
+                Line(origin = {10,34}, points = {{-100,-60},{-54,-60}}),
+                Ellipse(origin = {10,34}, extent = {{-54,-64},{-46,-56}}),
+                Line(origin = {10,34}, points = {{-47,-58},{30,-10}}),
+                Line(origin = {10,34}, points = {{30,-40},{30,-60}}),
+                Line(origin = {10,34}, points = {{30,-60},{80,-60}})}), Documentation(info="<html>
 <p>This package hosts ideal models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1634,8 +1640,9 @@ Quasi stationary theory can be found in the
           points={{11,0},{110,0}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Icon(graphics={Text(
-              extent={{-29,-11},{30,-70}},
+      annotation (Icon(graphics={
+            Line(points={{70,0},{80,0},{90,0},{100,0}}, color={0,0,127}),
+            Text(extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString="f")}),
       Documentation(info="<html>
@@ -1857,41 +1864,44 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
               -40},{-80,-58}}, color={85,170,255}));
       connect(sum.y, y) annotation (Line(points={{-80,-81},{-80,-110}}, color={85,
               170,255}));
-      annotation (         Icon(graphics={
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,100},{0,70}}, color={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,255}),
-            Line(points={{-100,0},{100,0}}, color={0,0,255}),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
-              textString=
-                   "P"),
-            Line(points={{-80,-100},{-80,0}}, color={85,170,255}),
-            Text(extent={{100,110},{-100,150}},  textString=
-                                                   "%name",
-              lineColor={0,0,255})}),
-      Documentation(info="<html>
+      annotation (
+        Icon(graphics = {
+          Ellipse(fillColor = {192,192,192},
+            fillPattern = FillPattern.Solid,
+            extent = {{-70,-70},{70,70}}),
+          Line(points = {{0,100},{0,70}},
+            color = {0,0,255}),
+          Line(points = {{0,-70},{0,-100}},
+            color = {0,0,255}),
+          Ellipse(fillPattern = FillPattern.Solid,
+            extent = {{-5,-5},{5,5}}),
+          Text(extent = {{-29,-70},{30,-11}},
+            textString = "P"),
+          Line(points = {{-80,-100},{-80,0}},
+            color = {85,170,255}),
+          Text(textColor = {0,0,255},
+            extent = {{-100,110},{100,150}},
+            textString = "%name"),
+          Line(points = {{-100,0},{100,0}},
+            color = {0,0,255}),
+          Line(points = {{0,70},{0,40}}),
+          Line(points = {{22.9,32.8},{40.2,57.3}}),
+          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
+          Line(points = {{37.6,13.7},{65.8,23.9}}),
+          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
+          Ellipse(lineColor = {64,64,64},
+            fillColor = {255,255,255},
+            extent = {{-12,-12},{12,12}}),
+          Polygon(rotation = -17.5,
+            fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
+          Ellipse(fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            extent = {{-7,-7},{7,7}})}),
+        Documentation(info="<html>
 
 <p>
 This sensor can be used to measure <i>m</i> complex apparent power values, using <i>m</i>
@@ -2335,15 +2345,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
     equation
       omega = der(plug_p.reference.gamma);
       annotation (         Icon(graphics={
-            Line(points={{-70,0},{-94,0}}, color={0,0,0}),
-            Text(
-              extent={{-100,100},{100,70}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={170,85,255},
-              fillPattern=FillPattern.Solid,
-              textString=
-                   "%name"),
+            Line(points={{-70,0},{-94,0}}, color={85,170,255}),
             Line(points={{70,0},{80,0},{90,0},{100,0}}, color={85,170,255}),
             Text(
               extent={{100,-100},{-100,-70}},
@@ -2381,14 +2383,6 @@ The absolute sensor partial model relies on the a
       annotation (         Icon(graphics={
             Line(points={{-70,0},{-94,0}}, color={0,0,0}),
             Line(points={{70,0},{94,0}}, color={0,0,0}),
-            Text(
-              extent={{-100,100},{100,70}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={170,85,255},
-              fillPattern=FillPattern.Solid,
-              textString=
-                   "%name"),
             Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255}),
             Text(
               extent={{100,-100},{-100,-70}},
@@ -2454,23 +2448,29 @@ The source partial model relies on the
     end Source;
   end Interfaces;
 
-  annotation (Icon(graphics={
-      Ellipse(extent={{-60,10},{40,-90}}, lineColor={0,0,255}),
+  annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
       Ellipse(
-        extent={{-40,-14},{-20,-34}},
-        lineColor={0,0,255},
-        fillColor={170,213,255},
-        fillPattern=FillPattern.Solid),
+        origin = {14,56},
+        lineColor = {0,0,255},
+        extent = {{-84,-126},{56,14}}),
       Ellipse(
-        extent={{0,-14},{20,-34}},
-        lineColor={0,0,255},
-        fillColor={170,213,255},
-        fillPattern=FillPattern.Solid),
+        origin = {-0,40},
+        lineColor = {0,0,255},
+        fillColor = {170,213,255},
+        fillPattern = FillPattern.Solid,
+        extent = {{-40,-34},{-20,-14}}),
       Ellipse(
-        extent={{-20,-54},{0,-74}},
-        lineColor={0,0,255},
-        fillColor={170,213,255},
-        fillPattern=FillPattern.Solid)}),
+        origin = {20,40},
+        lineColor = {0,0,255},
+        fillColor = {170,213,255},
+        fillPattern = FillPattern.Solid,
+        extent = {{0,-34},{20,-14}}),
+      Ellipse(
+        origin = {10,34},
+        lineColor = {0,0,255},
+        fillColor = {170,213,255},
+        fillPattern = FillPattern.Solid,
+        extent = {{-20,-74},{0,-54}})}),
                                      Documentation(info="<html>
 <p>This package hosts models for quasi stationary multi phase circuits.
 Quasi stationary theory can be found in

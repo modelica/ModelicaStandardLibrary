@@ -214,8 +214,7 @@ package Utilities "Utility models for Examples.Loops"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-150},{100,150}},
-          grid={1,1}), graphics={
+          extent={{-100,-150},{100,150}}), graphics={
           Polygon(
             points={{-60,-50},{-60,100},{60,100},{60,-52},{100,-52},{100,150},{
                 -100,150},{-100,-50},{-60,-50}},
@@ -415,8 +414,7 @@ package Utilities "Utility models for Examples.Loops"
                                 "Most likely, parameter L is not correct.");
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-90,50},{90,-50}},
             lineColor={0,0,0},
@@ -448,8 +446,7 @@ package Utilities "Utility models for Examples.Loops"
             lineColor={0,0,255})}),                         Diagram(
           coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-90,50},{90,-50}},
             lineColor={0,0,0},
@@ -675,8 +672,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-60,-61},{-60,64},{60,64},{60,-61},{100,-61},{100,114},{-100,
                 114},{-100,-61},{-60,-61}},
@@ -890,8 +886,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},

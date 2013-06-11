@@ -2476,8 +2476,7 @@ by this ground element.
 </HTML>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(
               points={{0,100},{0,40}},
               color={0,0,255},
@@ -2515,8 +2514,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
 </HTML>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-70,30},{70,-30}},
               lineColor={0,0,255},
@@ -2553,8 +2551,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(
               points={{-14,28},{-14,-28}},
               color={0,0,255},
@@ -2607,8 +2604,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(extent={{-60,-15},{-30,15}}),
             Ellipse(extent={{-30,-15},{0,15}}),
             Ellipse(extent={{0,-15},{30,15}}),
@@ -2724,8 +2720,7 @@ The corresponding SPICE description
 </pre>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-70,70},{70,-70}},
               lineColor={0,0,255},
@@ -2780,8 +2775,7 @@ The corresponding SPICE description
 </pre>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-71,70},{69,-70}},
               lineColor={0,0,255},
@@ -2832,8 +2826,7 @@ The corresponding SPICE description
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-70,70},{70,-70}},
               lineColor={0,0,255},
@@ -2881,8 +2874,7 @@ The corresponding SPICE description
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-70,70},{70,-70}},
               lineColor={0,0,255},
@@ -3227,8 +3219,7 @@ The corresponding SPICE description
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-90,0},{-10,0}}, color={0,0,0}),
             Line(points={{-10,60},{-10,-60}}, color={0,0,0}),
             Line(points={{0,30},{0,-30}}, color={0,0,0}),
@@ -3309,8 +3300,7 @@ The corresponding SPICE description
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-117,57},{-17,7}},
               lineColor={0,0,255},
@@ -3383,8 +3373,7 @@ The corresponding SPICE description
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-120,49},{-20,-1}},
               lineColor={0,0,255},
@@ -3497,8 +3486,7 @@ The corresponding SPICE description
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-150,-56},{150,-96}},
               textString="%name",
@@ -3561,8 +3549,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-150,-56},{150,-96}},
               textString="%name",
@@ -3604,8 +3591,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(extent={{-94,-106},{106,-66}}, textString="%name=%I"),
             Ellipse(
               extent={{-51,50},{49,-50}},
@@ -3639,8 +3625,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={   Polygon(
+            extent={{-100,-100},{100,100}}), graphics={   Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={0,0,255},
               fillColor={0,0,255},
@@ -3692,8 +3677,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={                              Polygon(
+            extent={{-100,-100},{100,100}}), graphics={                              Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
               lineColor={0,0,255},
               fillColor={0,0,255},
@@ -3874,8 +3858,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
              Ellipse(
                extent={{-51,50},{49,-50}},
                lineColor={0,0,255},
@@ -3939,8 +3922,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-150,-56},{150,-96}},
               textString="%name",

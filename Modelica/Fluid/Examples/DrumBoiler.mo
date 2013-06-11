@@ -177,8 +177,7 @@ package DrumBoiler
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-151,165},{138,102}},
             lineColor={0,0,255},
@@ -332,8 +331,7 @@ package DrumBoiler
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,64},{100,-64}},
               lineColor={0,0,0},

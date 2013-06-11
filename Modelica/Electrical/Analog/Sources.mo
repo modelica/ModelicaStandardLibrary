@@ -24,8 +24,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
             lineColor={0,0,255},
@@ -48,8 +47,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
             textString="-")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
             lineColor={0,0,255},
@@ -101,8 +99,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-90,0},{-10,0}}, color={0,0,255}),
           Line(points={{-10,60},{-10,-60}}, color={0,0,255}),
           Line(points={{0,30},{0,-30}}, color={0,0,255}),
@@ -121,8 +118,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
             textString="-")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-96,0},{-10,0}}, color={0,0,255}),
           Line(points={{-10,60},{-10,-60}}, color={0,0,255}),
           Line(points={{0,30},{0,-30}}, color={0,0,255}),
@@ -145,13 +141,11 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,-70},{0,-70},{0,70},{69,70}},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,-70},{0,-70},{0,70},{69,70}},
               color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -249,8 +243,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -349,8 +342,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
             textString="duration")}),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-80,-60},{-50,-60},{50,60},{80,
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,-60},{-50,-60},{50,60},{80,
                 60}}, color={192,192,192})}),
       Documentation(revisions="<html>
 <ul>
@@ -375,17 +367,15 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-60.2,29.9},{-53.8,46.5},
-                {-48.2,58.1},{-43.3,65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},
-                {-23.6,61},{-18.6,52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{
-                15.1,-44},{20.8,-56.2},{25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,
-                -67.9},{45.4,-62.5},{50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-66,0},{-56.2,29.9},{-49.8,46.5},
+                {-44.2,58.1},{-39.3,65.2},{-34.3,69.2},{-29.4,69.8},{-24.5,67},
+                {-19.6,61},{-14.6,52},{-9,38.6},{-1.98,18.6},{12.79,-26.9},{
+                19.1,-44},{24.8,-56.2},{29.7,-64},{34.6,-68.6},{39.5,-70},{44.5,
+                -67.9},{49.4,-62.5},{54.3,-54.1},{59.9,-41.3},{67,-21.7},{74,0}},
               color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,-90},{-80,84}}, color={192,192,192}),
           Polygon(
             points={{-80,100},{-86,84},{-74,84},{-80,100}},
@@ -482,18 +472,16 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,
                 61},{-53.6,52},{-48,38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},
                 {-14.2,-56.2},{-9.3,-64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,
                 -62.5},{15.3,-54.1},{20.9,-41.3},{28,-21.7},{35,0}},
-              color={192,192,192}),
+              color={192,192,192}, smooth=Smooth.Bezier),
                                  Line(points={{35,0},{44.8,29.9},{51.2,46.5},{56.8,
                 58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,-90},{-80,84}}, color={192,192,192}),
           Polygon(
             points={{-80,100},{-86,84},{-74,84},{-80,100}},
@@ -594,8 +582,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-64,-14},{-59.2,18.3},{-56,36.3},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-64,-14},{-59.2,18.3},{-56,36.3},
                 {-52.7,50.5},{-49.5,60.2},{-46.3,65.3},{-43.1,65.6},{-39.9,61.3},
                 {-36.7,53.1},{-32.6,38.2},{-27,11.8},{-19,-27.9},{-14.2,-47.7},
                 {-10.1,-59.9},{-6.1,-67.2},{-2.1,-69.3},{1.9,-66.5},{5.9,-59.3},
@@ -605,8 +592,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
                 192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,-90},{-80,84}}, color={192,192,192}),
           Polygon(
             points={{-80,100},{-86,84},{-74,84},{-80,100}},
@@ -729,8 +715,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-76,-59},{-73.2,-44.3},{-70.3,-31.1},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-76,-59},{-73.2,-44.3},{-70.3,-31.1},
                 {-66.8,-16.6},{-63.3,-4},{-59.7,6.92},{-55.5,18.18},{-51.3,27.7},
                 {-46.3,37},{-40.6,45.5},{-34.3,53.1},{-27.2,59.6},{-18.7,65.3},
                 {-8.1,70.2},{-6,71},{-3.88,58.5},{-1.05,43.7},{1.78,30.8},{
@@ -739,8 +724,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
                 {64,-54.4}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,-70},{100,-70}},color={192,192,192}),
           Polygon(
             points={{100,-70},{84,-64},{84,-76},{100,-70}},
@@ -861,13 +845,11 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,-70},{-40,-70},{-40,70},{0,
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,-70},{-40,-70},{-40,70},{0,
                 70},{0,-70},{40,-70},{40,70},{80,70}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -1011,13 +993,11 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-85,-70},{-65,-70},{-5,71},{-5,-70},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-85,-70},{-65,-70},{-5,71},{-5,-70},
                 {55,71},{55,-70}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -1151,13 +1131,11 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-81,-70},{-60,-70},{-30,70},{1,
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-81,-70},{-60,-70},{-30,70},{1,
                 70},{30,-70},{51,-70},{80,70}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -1329,14 +1307,12 @@ package Sources "Time-dependent and controlled voltage and current sources"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-58,-36},{-58,84},{42,84},{42,-36},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-58,-36},{-58,84},{42,84},{42,-36},
                 {-58,-36},{-58,-6},{42,-6},{42,24},{-58,24},{-58,54},{42,54},{
                 42,84},{-8,84},{-8,-37}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -1460,8 +1436,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
             lineColor={0,0,255},
@@ -1481,8 +1456,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
             lineColor={0,0,255},
@@ -1510,8 +1484,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
             lineColor={0,0,255},
@@ -1531,8 +1504,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
             lineColor={0,0,255},
@@ -1559,13 +1531,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-86,-70},{-14,-70},{-14,70},{57,
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-86,-70},{-14,-70},{-14,70},{57,
                 70}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -1662,8 +1632,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -1762,8 +1731,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             textString="i")}),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-80,-60},{-50,-60},{50,60},{80,
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,-60},{-50,-60},{50,60},{80,
                 60}}, color={192,192,192})}),
       Documentation(revisions="<html>
 <ul>
@@ -1788,8 +1756,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-60.2,29.9},{-53.8,46.5},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-60.2,29.9},{-53.8,46.5},
                 {-48.2,58.1},{-43.3,65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},
                 {-23.6,61},{-18.6,52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{
                 15.1,-44},{20.8,-56.2},{25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,
@@ -1797,8 +1764,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,-90},{-80,84}}, color={192,192,192}),
           Polygon(
             points={{-80,100},{-86,84},{-74,84},{-80,100}},
@@ -1895,18 +1861,16 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-71,70},{-68.4,69.8},{-63.5,67},{-58.6,
                 61},{-53.6,52},{-48,38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},
                 {-14.2,-56.2},{-9.3,-64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,
                 -62.5},{15.3,-54.1},{20.9,-41.3},{28,-21.7},{35,0}},
-              color={192,192,192}),
+              color={192,192,192}, smooth=Smooth.Bezier),
                                  Line(points={{35,0},{44.8,29.9},{51.2,46.5},{56.8,
                 58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,-90},{-80,84}}, color={192,192,192}),
           Polygon(
             points={{-80,100},{-86,84},{-74,84},{-80,100}},
@@ -2011,8 +1975,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-80,-14},{-75.2,18.3},{-72,36.3},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,-14},{-75.2,18.3},{-72,36.3},
                 {-68.7,50.5},{-65.5,60.2},{-62.3,65.3},{-59.1,65.6},{-55.9,61.3},
                 {-52.7,53.1},{-48.6,38.2},{-43,11.8},{-35,-27.9},{-30.2,-47.7},
                 {-26.1,-59.9},{-22.1,-67.2},{-18.1,-69.3},{-14.1,-66.5},{-10.1,
@@ -2022,8 +1985,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                 192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,-90},{-80,84}}, color={192,192,192}),
           Polygon(
             points={{-80,100},{-86,84},{-74,84},{-80,100}},
@@ -2146,8 +2108,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-76,-59},{-73.2,-44.3},{-70.3,-31.1},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-76,-59},{-73.2,-44.3},{-70.3,-31.1},
                 {-66.8,-16.6},{-63.3,-4},{-59.7,6.92},{-55.5,18.18},{-51.3,27.7},
                 {-46.3,37},{-40.6,45.5},{-34.3,53.1},{-27.2,59.6},{-18.7,65.3},
                 {-8.1,70.2},{-6,71},{-3.88,58.5},{-1.05,43.7},{1.78,30.8},{
@@ -2156,8 +2117,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                 {64,-54.4}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,-70},{100,-70}},color={192,192,192}),
           Polygon(
             points={{100,-70},{84,-64},{84,-76},{100,-70}},
@@ -2261,14 +2221,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-80,-67},{-50,-67},{-50,73},{-10,
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,-67},{-50,-67},{-50,73},{-10,
                 73},{-10,-67},{30,-67},{30,73},{70,73}},
                                                        color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -2412,13 +2370,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,-71},{-50,-71},{10,70},{10,-71},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,-71},{-50,-71},{10,70},{10,-71},
                 {70,70},{70,-71}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -2552,13 +2508,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-81,-66},{-60,-66},{-30,74},{1,
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-81,-66},{-60,-66},{-30,74},{1,
                 74},{30,-66},{51,-66},{80,74}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -2730,14 +2684,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-66,-36},{-66,84},{34,84},{34,-36},
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-66,-36},{-66,84},{34,84},{34,-36},
                 {-66,-36},{-66,-6},{34,-6},{34,24},{-66,24},{-66,54},{34,54},{
                 34,84},{-16,84},{-16,-37}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},

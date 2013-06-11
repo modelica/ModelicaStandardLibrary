@@ -2,33 +2,24 @@ within Modelica;
 package Icons "Library of icons"
   partial class Information "Icon for general information packages"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-80,80},{80,-80}},
-            lineColor={0,0,0},
+            lineColor={75,138,73},
+            fillColor={75,138,73},
             pattern=LinePattern.None,
-            fillColor={0,174,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-14,56},{16,38}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-100.0,-100.0},{100.0,100.0}}),
+          Polygon(origin={-4.167,-15.0},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-24,10},{16,10},{16,-44},{26,-44},{26,-54},{-14,-54},{-14,
-                -2},{-24,-2},{-24,10}},
-            lineColor={0,0,255},
             pattern=LinePattern.None,
-            smooth=Smooth.None,
+            fillPattern=FillPattern.Solid,
+            points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,-50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
+            smooth=Smooth.Bezier),
+          Ellipse(origin={7.5,52.5},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}),
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-12.5,-12.5},{12.5,12.5}})}),
                               Documentation(info="<html>
 <p>This icon indicate classes containing only documentation, intended for general description of, e.g., concepts and features of a package.</p>
 </html>"));
@@ -69,31 +60,44 @@ package Icons "Library of icons"
 
   partial class ReleaseNotes "Icon for release notes in documentation"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Polygon(
-            points={{-80,-100},{-80,100},{0,100},{0,20},{80,20},{80,-100},{-80,
-                -100}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid),
+            origin={3.0,8.0},
+            lineColor={64,64,64},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid,
+            points={{-78.0,92.0},{12.0,92.0},{72.0,32.0},{72.0,-108.0},{-78.0,-108.0}}),
           Polygon(
-            points={{0,100},{80,20},{0,20},{0,100}},
-            lineColor={0,0,0},
-            fillColor={215,215,215},
-            fillPattern=FillPattern.Solid),
-          Line(points={{2,-12},{50,-12}}, color={0,0,0}),
+            origin={35.0,60.0},
+            lineColor={255,255,255},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            points={{-20.0,40.0},{-20.0,-20.0},{40.0,-20.0}}),
           Ellipse(
-            extent={{-56,2},{-28,-26}},
-            lineColor={0,0,0},
-            fillColor={215,215,215},
-            fillPattern=FillPattern.Solid),
-          Line(points={{2,-60},{50,-60}}, color={0,0,0}),
+            origin={-35.0,-10.0},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-10.0,-10.0},{10.0,10.0}}),
           Ellipse(
-            extent={{-56,-46},{-28,-74}},
-            lineColor={0,0,0},
-            fillColor={215,215,215},
-            fillPattern=FillPattern.Solid)}),
+            origin={-35.0,-50.0},
+            fillColor={255,255,255},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-10.0,-10.0},{10.0,10.0}}),
+          Rectangle(
+            origin={20.0,-10.0},
+            fillColor={255,255,255},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-25.0,-5.0},{25.0,5.0}}),
+          Rectangle(
+            origin={20.0,-50.0},
+            fillColor={255,255,255},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-25.0,-5.0},{25.0,5.0}})}),
                               Documentation(info="<html>
 <p>This icon indicates release notes and the revision history of a library.</p>
 </html>"));
@@ -101,26 +105,54 @@ package Icons "Library of icons"
 
   partial class References "Icon for external references"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Polygon(
-            points={{-100,-80},{-100,60},{-80,54},{-80,80},{-40,58},{-40,100},{
-                -10,60},{90,60},{100,40},{100,-100},{-20,-100},{-100,-80}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
+            origin={-41.6667,-45.8333},
+            lineColor={64,64,64},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            points={{26.667,105.833},{-58.3333,90.8333},{-58.333,-54.167},{21.6667,-44.1667},{36.6667,-54.1667},{46.6667,-54.1667}}),
+          Polygon(origin={-52.5,-6.25},
+            lineColor={64,64,64},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            points={{37.5,-78.75},{-37.5,-68.75},{-37.5,81.25},{37.5,66.25}}),
+          Rectangle(
+            origin={32.5,-12.5},
+            lineColor={64,64,64},
+            fillColor={191,191,191},
+            fillPattern=FillPattern.Solid,
+            extent={{-47.5,-72.5},{47.5,72.5}}),
+          Polygon(origin={42.5,-92.5},
+            lineColor={64,64,64},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid,
+            points={{-57.5,7.5},{37.5,7.5},{57.5,-7.5},{-37.5,-7.5}}),
+          Polygon(origin={90.0,-21.25},
+            lineColor={64,64,64},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid,
+            points={{-10.0,81.25},{10.0,61.25},{10.0,-78.75},{-10.0,-63.75}}),
+          Polygon(origin={-42.5,3.75},
+            lineColor={64,64,64},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            points={{27.5,-88.75},{-27.5,-63.75},{-27.5,96.25},{27.5,56.25}}),
+          Rectangle(origin={32.5,25.0},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Polygon(points={{-20,-100},{-10,-80},{90,-80},{100,-100},{-20,-100}},
-              lineColor={0,0,0}),
-          Line(points={{90,-80},{90,60},{100,40},{100,-100}}, color={0,0,0}),
-          Line(points={{90,60},{-10,60},{-10,-80}}, color={0,0,0}),
-          Line(points={{-10,60},{-40,100},{-40,-40},{-10,-80},{-10,60}}, color=
-                {0,0,0}),
-          Line(points={{-20,-88},{-80,-60},{-80,80},{-40,58}}, color={0,0,0}),
-          Line(points={{-20,-100},{-100,-80},{-100,60},{-80,54}}, color={0,0,0}),
-          Line(points={{10,30},{72,30}}, color={0,0,0}),
-          Line(points={{10,-10},{70,-10}}, color={0,0,0}),
-          Line(points={{10,-50},{70,-50}}, color={0,0,0})}),
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-27.5,-5.0},{27.5,5.0}}),
+          Rectangle(origin={32.5,-10.0},
+            fillColor={255,255,255},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-27.5,-5.0},{27.5,5.0}}),
+          Rectangle(origin={32.5,-45.0},
+            fillColor={255,255,255},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-27.5,-5.0},{27.5,5.0}})}),
                               Documentation(info="<html>
 <p>This icon indicates a documentation class containing references external documentation and literature.</p>
 </html>"));
@@ -129,48 +161,54 @@ package Icons "Library of icons"
 
   partial class ExamplesPackage
     "Icon for packages containing runnable examples"
-    extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
+          Rectangle(
+            lineColor={75,138,73},
+            fillColor={113,208,109},
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            radius=25.0),
           Polygon(
-            points={{-58,46},{42,-14},{-58,-74},{-58,46}},
+            origin={8.0,14.0},
             lineColor={0,0,255},
+            fillColor={255,255,255},
             pattern=LinePattern.None,
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+            fillPattern=FillPattern.Solid,
+            points={{-58.0,46.0},{42.0,-14.0},{-58.0,-74.0},{-58.0,46.0}})}), Documentation(info="<html>
 <p>This icon indicates a package that contains executable examples.</p>
 </html>"));
   end ExamplesPackage;
 
   partial model Example "Icon for runnable examples"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{100,-100}},
-              lineColor={95,95,95},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-                                     Polygon(
-            points={{-36,60},{64,0},{-36,-60},{-36,60}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+          Ellipse(lineColor = {75,138,73},
+                  fillColor = {75,138,73},
+                  fillPattern = FillPattern.Solid,
+                  extent = {{-100,-100},{100,100}}),
+          Ellipse(lineColor = {75,138,73},
+                  fillColor = {255,255,255},
+                  fillPattern = FillPattern.Solid,
+                  extent = {{-90,-90},{90,90}}),
+          Polygon(lineColor = {0,0,255},
+                  fillColor = {75,138,73},
+                  pattern = LinePattern.None,
+                  fillPattern = FillPattern.Solid,
+                  points = {{-36,60},{64,0},{-36,-60},{-36,60}})}), Documentation(info="<html>
 <p>This icon indicates an example. The play button suggests that the example can be executed.</p>
 </html>"));
   end Example;
 
   partial package Package "Icon for standard packages"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-80,100},{100,-80}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Rectangle(
-            extent={{-100,80},{80,-100}},
-            lineColor={0,0,0},
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+          Rectangle(
+            lineColor={208,208,208},
             fillColor={240,240,240},
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            radius=25.0)}),
                               Documentation(info="<html>
 <p>Standard package icon.</p>
 </html>"));
@@ -181,8 +219,8 @@ package Icons "Library of icons"
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Ellipse(
-            extent={{-30,10},{10,-30}},
-            lineColor={0,0,0},
+            extent={{-30.0,-30.0},{30.0,30.0}},
+            lineColor={128,128,128},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
@@ -195,25 +233,28 @@ package Icons "Library of icons"
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
               {100,100}}),       graphics={
           Ellipse(
-            extent={{-80,-20},{-20,-80}},
-            lineColor={0,0,0},
-            fillColor={135,135,135},
-            fillPattern=FillPattern.Solid),
+            origin={10.0,10.0},
+            fillColor={76,76,76},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-80.0,-80.0},{-20.0,-20.0}}),
           Ellipse(
-            extent={{0,-20},{60,-80}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            origin={10.0,10.0},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{0.0,-80.0},{60.0,-20.0}}),
           Ellipse(
-            extent={{0,60},{60,0}},
-            lineColor={0,0,0},
-            fillColor={175,175,175},
-            fillPattern=FillPattern.Solid),
+            origin={10.0,10.0},
+            fillColor={128,128,128},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{0.0,0.0},{60.0,60.0}}),
           Ellipse(
-            extent={{-80,60},{-20,0}},
-            lineColor={0,0,0},
+            origin={10.0,10.0},
+            lineColor={128,128,128},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid,
+            extent={{-80.0,0.0},{-20.0,60.0}})}),
                               Documentation(info="<html>
 <p>This icon shall be used for a package/library that contains several variants of one components.</p>
 </html>"));
@@ -223,20 +264,15 @@ package Icons "Library of icons"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
-          Polygon(
-            points={{0,50},{20,50},{50,10},{80,10},{80,-30},{50,-30},{20,-70},{
-                0,-70},{0,50}},
-            lineColor={0,0,0},
-            smooth=Smooth.None,
-            fillColor={215,215,215},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-100,10},{-70,10},{-40,50},{-20,50},{-20,-70},{-40,-70},{
-                -70,-30},{-100,-30},{-100,10}},
-            lineColor={0,0,0},
-            smooth=Smooth.None,
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid)}),
+          Polygon(origin={20.0,0.0},
+            lineColor={64,64,64},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            points={{-10.0,70.0},{10.0,70.0},{40.0,20.0},{80.0,20.0},{80.0,-20.0},{40.0,-20.0},{10.0,-70.0},{-10.0,-70.0}}),
+          Polygon(fillColor={102,102,102},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{-100.0,20.0},{-60.0,20.0},{-30.0,70.0},{-10.0,70.0},{-10.0,-70.0},{-30.0,-70.0},{-60.0,-20.0},{-100.0,-20.0}})}),
                               Documentation(info="<html>
 <p>This icon indicates packages containing interfaces.</p>
 </html>"));
@@ -246,16 +282,16 @@ package Icons "Library of icons"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
-          Polygon(
-            points={{-28,12},{-28,-40},{36,-14},{-28,12}},
-            lineColor={0,0,0},
-            smooth=Smooth.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{-28,-14},{-68,-14}},
-            color={0,0,0},
-            smooth=Smooth.None)}),
+          Polygon(origin={23.3333,0.0},
+            fillColor={128,128,128},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{-23.333,30.0},{46.667,0.0},{-23.333,-30.0}}),
+          Rectangle(
+            fillColor = {128,128,128},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            extent = {{-70,-4.5},{0,4.5}})}),
                               Documentation(info="<html>
 <p>This icon indicates a package which contains sources.</p>
 </html>"));
@@ -265,28 +301,36 @@ package Icons "Library of icons"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
-          Line(
-            points={{-70,20},{50,20}},
-            color={0,0,0},
-            smooth=Smooth.None),
-          Line(points={{-10,-70},{38,54}}, color={0,0,0}),
-          Ellipse(
-            extent={{-15,-65},{-5,-75}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{-70,20},{-70,-8}},
-            color={0,0,0},
-            smooth=Smooth.None),
-          Line(
-            points={{50,20},{50,-8}},
-            color={0,0,0},
-            smooth=Smooth.None),
-          Line(
-            points={{-10,20},{-10,-8}},
-            color={0,0,0},
-            smooth=Smooth.None)}),
+          Ellipse(origin={0.0,-30.0},
+            fillColor={255,255,255},
+            extent={{-90.0,-90.0},{90.0,90.0}},
+            startAngle=20.0,
+            endAngle=160.0),
+          Ellipse(origin={0.0,-30.0},
+            fillColor={128,128,128},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-20.0,-20.0},{20.0,20.0}}),
+          Line(origin={0.0,-30.0},
+            points={{0.0,60.0},{0.0,90.0}}),
+          Line(origin={0.0,-30.0},
+            rotation=70.0,
+            points={{0.0,60.0},{0.0,90.0}}),
+          Line(origin={0.0,-30.0},
+            rotation=-70.0,
+            points={{0.0,60.0},{0.0,90.0}}),
+          Ellipse(origin={-0.0,-30.0},
+            fillColor={64,64,64},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-10.0,-10.0},{10.0,10.0}}),
+          Polygon(
+            origin={-0.0,-30.0},
+            rotation=-35.0,
+            fillColor={64,64,64},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{-7.0,0.0},{-3.0,85.0},{0.0,90.0},{3.0,85.0},{7.0,0.0}})}),
                               Documentation(info="<html>
 <p>This icon indicates a package containing sensors.</p>
 </html>"));
@@ -295,31 +339,32 @@ package Icons "Library of icons"
   partial class RotationalSensor "Icon representing a round measurement device"
 
     annotation (
-      Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-70,70},{70,-70}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,70},{0,40}}, color={0,0,0}),
-          Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-          Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-          Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-          Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-          Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid, 
+            extent={{-70.0,-70.0},{70.0,70.0}}),
+          Line(points={{0.0,70.0},{0.0,40.0}}),
+          Line(points={{22.9,32.8},{40.2,57.3}}),
+          Line(points={{-22.9,32.8},{-40.2,57.3}}),
+          Line(points={{37.6,13.7},{65.8,23.9}}),
+          Line(points={{-37.6,13.7},{-65.8,23.9}}),
+          Ellipse(
+            lineColor={64,64,64}, 
+            fillColor={255,255,255}, 
+            extent={{-12.0,-12.0},{12.0,12.0}}),
           Polygon(
-            points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            origin={0,0},
+            rotation=-17.5, 
+            fillColor={64,64,64}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Solid, 
+            points={{-5.0,0.0},{-2.0,60.0},{0.0,65.0},{2.0,60.0},{5.0,0.0}}),
           Ellipse(
-            extent={{-5,5},{5,-5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
+            fillColor={64,64,64}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Solid, 
+            extent={{-7.0,-7.0},{7.0,7.0}})}),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>rotational sensor</b> model.
@@ -331,28 +376,23 @@ This icon is designed for a <b>rotational sensor</b> model.
     "Icon representing a linear measurement device"
 
     annotation (
-      Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            extent={{-70,-60},{70,20}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid, 
+            extent={{-70.0,-60.0},{70.0,20.0}}),
           Polygon(
-            points={{0,-40},{-10,-16},{10,-16},{0,-40}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,0},{0,-16}}, color={0,0,0}),
-          Line(points={{-70,0},{0,0}}, color={0,0,0}),
-          Line(points={{-50,-40},{-50,-60}}, color={0,0,0}),
-          Line(points={{-30,-40},{-30,-60}}, color={0,0,0}),
-          Line(points={{-10,-40},{-10,-60}}, color={0,0,0}),
-          Line(points={{10,-40},{10,-60}}, color={0,0,0}),
-          Line(points={{30,-40},{30,-60}}, color={0,0,0}),
-          Line(points={{50,-40},{50,-60}}, color={0,0,0})}),
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Solid,
+            points={{0.0,-40.0},{-10.0,-16.0},{10.0,-16.0},{0.0,-40.0}}),
+          Line(points={{0.0,0.0},{0.0,-16.0}}),
+          Line(points={{-70.0,0.0},{0.0,0.0}}),
+          Line(points={{-50.0,-40.0},{-50.0,-60.0}}),
+          Line(points={{-30.0,-40.0},{-30.0,-60.0}}),
+          Line(points={{-10.0,-40.0},{-10.0,-60.0}}),
+          Line(points={{10.0,-40.0},{10.0,-60.0}}),
+          Line(points={{30.0,-40.0},{30.0,-60.0}}),
+          Line(points={{50.0,-40.0},{50.0,-60.0}})}),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>translational sensor</b> model.
@@ -365,10 +405,11 @@ This icon is designed for a <b>translational sensor</b> model.
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Ellipse(
-            extent={{-68,50},{52,-70}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.Sphere,
-            fillColor={215,230,240})}),
+            lineColor={102,102,102}, 
+            fillColor={204,204,204}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Sphere, 
+            extent={{-60.0,-60.0},{60.0,60.0}})}),
                               Documentation(info="<html>
 <p>This icon indicates a package that contains properties</p>
 </html>"));
@@ -376,13 +417,12 @@ This icon is designed for a <b>translational sensor</b> model.
 
   partial class MaterialProperty "Icon for property classes"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}),       graphics={
-          Ellipse(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.Sphere,
-            fillColor={215,230,240})}),
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
+          Ellipse(lineColor={102,102,102}, 
+            fillColor={204,204,204}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Sphere, 
+            extent={{-100.0,-100.0},{100.0,100.0}})}),
                               Documentation(info="<html>
 <p>This icon indicates a property class.</p>
 </html>"));
@@ -390,18 +430,20 @@ This icon is designed for a <b>translational sensor</b> model.
 
   partial function Function "Icon for functions"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
-          Text(extent={{-140,162},{136,102}}, textString=
-                                                 "%name"),
-          Ellipse(
-            extent={{-100,100},{100,-100}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Text(
-            extent={{-100,100},{100,-100}},
-            lineColor={255,127,0},
+            extent={{-140.0,102.0},{136.0,162.0}},
+            textString="%name"),
+          Ellipse(
+            lineColor={108,88,49},
+            fillColor={255,215,136},
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Solid, 
+            lineThickness=4.0,
+            extent={{-100.0,-100.0},{100.0,100.0}}),
+          Text(
+            lineColor={108,88,49},
+            extent={{-90.0,-90.0},{90.0,90.0}},
             textString="f")}),
   Documentation(info="<html>
 <p>This icon indicates Modelica functions.</p>
@@ -410,20 +452,29 @@ This icon is designed for a <b>translational sensor</b> model.
 
   partial record Record "Icon for records"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,50},{100,-100}},
-            fillColor={255,255,127},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Text(
-            extent={{-127,115},{127,55}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{-100,-50},{100,-50}}, color={0,0,0}),
-          Line(points={{-100,0},{100,0}}, color={0,0,0}),
-          Line(points={{0,50},{0,-100}}, color={0,0,0})}),
+            lineColor={0,0,255},
+            extent={{-127.0,55.0},{127.0,115.0}},
+            textString="%name"),
+          Rectangle(
+            origin={0.0,-25.0},
+            lineColor={64,64,64},
+            fillColor={255,215,136},
+            fillPattern=FillPattern.Solid,
+            extent={{-100.0,-75.0},{100.0,75.0}},
+            radius=25.0),
+          Line(
+            points={{-100.0,0.0},{100.0,0.0}},
+            color={64,64,64}),
+          Line(
+            origin={0.0,-50.0},
+            points={{-100.0,0.0},{100.0,0.0}},
+            color={64,64,64}),
+          Line(
+            origin={0.0,-25.0},
+            points={{0.0,75.0},{0.0,-75.0}},
+            color={64,64,64})}),
                                                         Documentation(info="<html>
 <p>
 This icon is indicates a record.
@@ -433,17 +484,17 @@ This icon is indicates a record.
 
   record TypeComplex "Icon for Complex types"
     extends Complex;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Text(
-            extent={{-94,94},{94,-94}},
-            lineColor={0,0,0},
-            fillColor={181,181,181},
-            fillPattern=FillPattern.Solid,
-            textString="C")}),
+      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid,
+              extent={{-100.0,-100.0},{100.0,100.0}},
+              radius=25.0),
+            Text(
+              lineColor={255,255,255},
+              extent={{-90.0,-50.0},{90.0,50.0}},
+              textString="C")}),
                         Documentation(info="<html>
 <p>
 This icon is designed for a <b>Complex</b> type.
@@ -453,18 +504,17 @@ This icon is designed for a <b>Complex</b> type.
 
   type TypeReal "Icon for Real types"
       extends Real;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Text(
-            extent={{-94,94},{94,-94}},
-            lineColor={0,0,0},
-            fillColor={181,181,181},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "R")}),Documentation(info="<html>
+      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              lineColor={160,160,164}, 
+              fillColor={160,160,164}, 
+              fillPattern=FillPattern.Solid, 
+              extent={{-100.0,-100.0},{100.0,100.0}}, 
+              radius=25.0),
+            Text(
+              lineColor={255,255,255}, 
+              extent={{-90.0,-50.0},{90.0,50.0}}, 
+              textString="R")}),Documentation(info="<html>
 <p>
 This icon is designed for a <b>Real</b> type.
 </p>
@@ -473,18 +523,17 @@ This icon is designed for a <b>Real</b> type.
 
   type TypeInteger "Icon for Integer types"
       extends Integer;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Text(
-            extent={{-94,94},{94,-94}},
-            lineColor={0,0,0},
-            fillColor={181,181,181},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "I")}),Documentation(info="<html>
+      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              lineColor={160,160,164}, 
+              fillColor={160,160,164}, 
+              fillPattern=FillPattern.Solid, 
+              extent={{-100.0,-100.0},{100.0,100.0}}, 
+              radius=25.0),
+            Text(
+              lineColor={255,255,255}, 
+              extent={{-90.0,-50.0},{90.0,50.0}}, 
+              textString="I")}),Documentation(info="<html>
 <p>
 This icon is designed for an <b>Integer</b> type.
 </p>
@@ -493,17 +542,17 @@ This icon is designed for an <b>Integer</b> type.
 
   type TypeBoolean "Icon for Boolean types"
       extends Boolean;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Text(
-            extent={{-94,94},{94,-94}},
-            lineColor={0,0,0},
-            fillColor={181,181,181},
-            fillPattern=FillPattern.Solid,
-            textString="B")}),
+      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              lineColor={160,160,164}, 
+              fillColor={160,160,164}, 
+              fillPattern=FillPattern.Solid, 
+              extent={{-100.0,-100.0},{100.0,100.0}}, 
+              radius=25.0),
+            Text(
+              lineColor={255,255,255}, 
+              extent={{-90.0,-50.0},{90.0,50.0}}, 
+              textString="B")}),
    Documentation(info="<html>
 <p>
 This icon is designed for a <b>Boolean</b> type.
@@ -512,18 +561,17 @@ This icon is designed for a <b>Boolean</b> type.
 
   type TypeString "Icon for String types"
       extends String;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Text(
-            extent={{-94,94},{94,-94}},
-            lineColor={0,0,0},
-            fillColor={181,181,181},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "S")}),Documentation(info="<html>
+      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              lineColor={160,160,164}, 
+              fillColor={160,160,164}, 
+              fillPattern=FillPattern.Solid, 
+              extent={{-100.0,-100.0},{100.0,100.0}}, 
+              radius=25.0),
+            Text(
+              lineColor={255,255,255}, 
+              extent={{-90.0,-50.0},{90.0,50.0}}, 
+              textString="S")}),Documentation(info="<html>
 <p>
 This icon is designed for a <b>String</b> type.
 </p>
@@ -533,50 +581,33 @@ This icon is designed for a <b>String</b> type.
   connector SignalBus "Icon for signal bus"
 
     annotation (
-      Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2},
-          initialScale=0.2), graphics={
-          Rectangle(
-            extent={{-20,2},{20,-2}},
-            lineColor={255,204,51},
-            lineThickness=0.5),
-          Polygon(
-            points={{-80,50},{80,50},{100,30},{80,-40},{60,-50},{-60,-50},{-80,
-                -40},{-100,30},{-80,50}},
-            lineColor={0,0,0},
-            fillColor={255,204,51},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-65,25},{-55,15}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-5,25},{5,15}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{55,25},{65,15}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-35,-15},{-25,-25}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{25,-15},{35,-25}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}, initialScale=0.2), graphics={
+            Rectangle(
+              lineColor={255,204,51},
+              lineThickness=0.5,
+              extent={{-20.0,-2.0},{20.0,2.0}}),
+            Polygon(
+              fillColor={255,215,136},
+              fillPattern=FillPattern.Solid,
+              points={{-80.0,50.0},{80.0,50.0},{100.0,30.0},{80.0,-40.0},{60.0,-50.0},{-60.0,-50.0},{-80.0,-40.0},{-100.0,30.0}}),
+            Ellipse(
+              fillPattern=FillPattern.Solid,
+              extent={{-65.0,15.0},{-55.0,25.0}}),
+            Ellipse(
+              fillPattern=FillPattern.Solid,
+              extent={{-5.0,15.0},{5.0,25.0}}),
+            Ellipse(
+              fillPattern=FillPattern.Solid,
+              extent={{55.0,15.0},{65.0,25.0}}),
+            Ellipse(
+              fillPattern=FillPattern.Solid,
+              extent={{-35.0,-25.0},{-25.0,-15.0}}),
+            Ellipse(
+              fillPattern=FillPattern.Solid,
+              extent={{25.0,-25.0},{35.0,-15.0}})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
-          grid={2,2},
           initialScale=0.2), graphics={
           Polygon(
             points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,
@@ -621,48 +652,35 @@ This icon is designed for a <b>signal bus</b> connector.
   connector SignalSubBus "Icon for signal sub-bus"
 
     annotation (
-      Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2},
-          initialScale=0.1), graphics={
-          Line(
-            points={{-16,2},{16,2}},
-            color={255,204,51},
-            thickness=0.5),
-          Rectangle(
-            extent={{-10,8},{8,0}},
-            lineColor={255,204,51},
-            lineThickness=0.5),
-          Polygon(
-            points={{-80,50},{80,50},{100,30},{80,-40},{60,-50},{-60,-50},{-80,
-                -40},{-100,30},{-80,50}},
-            lineColor={0,0,0},
-            fillColor={255,204,51},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-55,25},{-45,15}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,25},{55,15}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-5,-15},{5,-25}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-20,4},{20,0}},
-            lineColor={255,204,51},
-            lineThickness=0.5)}),
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}, initialScale=0.1), graphics={
+            Line(
+              points={{-16.0,2.0},{16.0,2.0}}, 
+              color={255,204,51}, 
+              thickness=0.5),
+            Rectangle(
+              lineColor={255,204,51}, 
+              lineThickness=0.5, 
+              extent={{-10.0,0.0},{8.0,8.0}}),
+            Polygon(
+              fillColor={255,215,136}, 
+              fillPattern=FillPattern.Solid, 
+              points={{-80.0,50.0},{80.0,50.0},{100.0,30.0},{80.0,-40.0},{60.0,-50.0},{-60.0,-50.0},{-80.0,-40.0},{-100.0,30.0}}),
+            Ellipse(
+              fillPattern=FillPattern.Solid, 
+              extent={{-55.0,15.0},{-45.0,25.0}}),
+            Ellipse(
+              fillPattern=FillPattern.Solid, 
+              extent={{45.0,15.0},{55.0,25.0}}),
+            Ellipse(
+              fillPattern=FillPattern.Solid, 
+              extent={{-5.0,-25.0},{5.0,-15.0}}),
+            Rectangle(
+              lineColor={255,215,136}, 
+              lineThickness=0.5, 
+              extent={{-20.0,0.0},{20.0,4.0}})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
-          grid={2,2},
           initialScale=0.1), graphics={
           Polygon(
             points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,
@@ -701,12 +719,10 @@ This icon is designed for a <b>sub-bus</b> in a signal connector.
   partial class UnderConstruction
     "Icon for classes that are still under construction"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={Polygon(
-            points={{-100,-100},{0,80},{100,-100},{-100,-100}},
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+          Polygon(points={{-100,-100},{0,80},{100,-100},{-100,-100}},
             lineColor={255,0,0},
-            lineThickness=0.5,
-            smooth=Smooth.None)}), Documentation(info="<html>
+            lineThickness=0.5)}), Documentation(info="<html>
 <p>Library developers can use this icon to indicate that the respective model is under construction.</p>
 </html>"));
   end UnderConstruction;
@@ -731,16 +747,13 @@ corresponding library in a future release.
   partial package Library
     "This icon will be removed in future Modelica versions, use Package instead"
     extends Modelica.Icons.ObsoleteModel;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-80,100},{100,-80}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Rectangle(
-            extent={{-100,80},{80,-100}},
-            lineColor={0,0,0},
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+          Rectangle(
+            lineColor={208,208,208},
             fillColor={240,240,240},
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            radius=25.0)}),
                               Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
@@ -752,16 +765,13 @@ corresponding library in a future release.
     "This icon will be removed in future Modelica versions, use Package instead"
     extends Modelica.Icons.ObsoleteModel;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-80,100},{100,-80}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Rectangle(
-            extent={{-100,80},{80,-100}},
-            lineColor={0,0,0},
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+          Rectangle(
+            lineColor={208,208,208},
             fillColor={240,240,240},
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            radius=25.0)}),
                               Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
@@ -772,43 +782,35 @@ corresponding library in a future release.
     "This icon will be removed in future Modelica versions"
     extends Modelica.Icons.ObsoleteModel;
 
-    annotation (             Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+    annotation (             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            extent={{-90,10},{-60,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
+            lineColor={64,64,64}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            extent={{-90.0,-10.0},{-60.0,10.0}}),
           Polygon(
-            points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={128,128,128}),
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            points={{-60.0,10.0},{-60.0,20.0},{-40.0,40.0},{-40.0,-40.0},{-60.0,-20.0},{-60.0,10.0}}),
           Rectangle(
-            extent={{-40,60},{40,-60}},
-            lineColor={0,0,0},
-            pattern=LinePattern.Solid,
-            lineThickness=0.25,
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
+            lineColor={64,64,64}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            extent={{-40.0,-60.0},{40.0,60.0}}, 
+            radius=10.0),
           Polygon(
-            points={{60,20},{40,40},{40,-40},{60,-20},{60,20}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            points={{60.0,20.0},{40.0,40.0},{40.0,-40.0},{60.0,-20.0},{60.0,20.0}}),
           Rectangle(
-            extent={{60,10},{90,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
+            lineColor={64,64,64}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            extent={{60.0,-10.0},{90.0,10.0}}),
           Polygon(
-            points={{-60,-90},{-50,-90},{-20,-30},{20,-30},{48,-90},{60,-90},{
-                60,-100},{-60,-100},{-60,-90}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
+            fillColor={64,64,64}, 
+            fillPattern=FillPattern.Solid, 
+            points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}})}),
       Documentation(info="<html>
 <p>
 This icon of a <b>gearbox</b> will be removed in future versions of the library. Please use one of the icons of <a href=\"modelica://Modelica.Mechanics.Rotational.Icons\">Mechanics.Rotational.Icons</a> instead.
@@ -820,26 +822,22 @@ This icon of a <b>gearbox</b> will be removed in future versions of the library.
     "This icon will be removed in future Modelica versions."
     extends Modelica.Icons.ObsoleteModel;
 
-    annotation (             Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+    annotation (             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            extent={{-100,50},{30,-50}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={255,0,0}),
+            lineColor={82,0,2}, 
+            fillColor={252,37,57}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            extent={{-100.0,-50.0},{30.0,50.0}}, 
+            radius=10.0),
           Polygon(
-            points={{-100,-90},{-90,-90},{-60,-20},{-10,-20},{20,-90},{30,-90},
-                {30,-100},{-100,-100},{-100,-90}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            fillColor={64,64,64}, 
+            fillPattern=FillPattern.Solid, 
+            points={{-100.0,-90.0},{-90.0,-90.0},{-60.0,-20.0},{-10.0,-20.0},{20.0,-90.0},{30.0,-90.0},{30.0,-100.0},{-100.0,-100.0},{-100.0,-90.0}}),
           Rectangle(
-            extent={{30,10},{90,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192})}),
+            lineColor={64,64,64}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            extent={{30.0,-10.0},{90.0,10.0}})}),
       Documentation(info="<html>
 <p>
 This icon of an <b>electrical motor</b> model will be removed in future versions of the library. Please use a locally defined icon in your user defined libraries and applications.
@@ -849,39 +847,34 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
 
   partial class Info "This icon will be removed in future Modelica versions."
     extends Modelica.Icons.ObsoleteModel;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-80,80},{80,-80}},
-            lineColor={0,0,0},
+            lineColor={75,138,73},
+            fillColor={75,138,73},
             pattern=LinePattern.None,
-            fillColor={0,174,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-14,56},{16,38}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+            fillPattern=FillPattern.Solid, 
+            extent={{-100.0,-100.0},{100.0,100.0}}),
           Polygon(
-            points={{-24,10},{16,10},{16,-44},{26,-44},{26,-54},{-14,-54},{-14,
-                -2},{-24,-2},{-24,10}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
-            smooth=Smooth.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}),
+            origin={-4.167,-15.0}, 
+            fillColor={255,255,255}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Solid, 
+            points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,-50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
+            smooth=Smooth.Bezier),
+          Ellipse(
+            origin={7.5,52.5}, 
+            fillColor={255,255,255}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Solid, 
+            extent={{-12.5,-12.5},{12.5,12.5}})}),
                               Documentation(info="<html>
 <p>This icon indicate classes containing only documentation, intended for general description of e.g., concepts and features of a package.</p>
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Information\">Information</a> shall be used.</p></html>"));
   end Info;
-  annotation(Documentation(info="<html>
+  annotation(Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}, preserveAspectRatio=false, initialScale=0.1), graphics={
+        Text(extent={{-90.0,-35.0},{90.0,35.0}}, 
+             textString="Icons")}), Documentation(info="<html>
 <p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer. </p>
 
 <h4>Main Authors:</h4>

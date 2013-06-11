@@ -95,8 +95,7 @@ package Sources "Define fixed or prescribed boundary conditions"
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={Ellipse(
+          extent={{-100,-100},{100,100}}), graphics={Ellipse(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
@@ -215,8 +214,7 @@ with exception of boundary pressure, do not have an effect.
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
@@ -375,8 +373,7 @@ with exception of boundary pressure, do not have an effect.
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
@@ -535,8 +532,7 @@ with exception of boundary pressure, do not have an effect.
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{35,45},{100,-45}},
             lineColor={0,0,0},
@@ -698,8 +694,7 @@ with exception of boundary flow rate, do not have an effect.
     annotation (defaultComponentName="boundary",
       Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{36,45},{100,-45}},
             lineColor={0,0,0},

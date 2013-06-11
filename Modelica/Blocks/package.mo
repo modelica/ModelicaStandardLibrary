@@ -81,8 +81,7 @@ package Examples
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-99,48},{-32,8}}, lineColor={255,0,0}),
           Text(
             extent={{-98,59},{-31,51}},
@@ -237,13 +236,6 @@ is forced back to its limit after a transient phase.
         smooth=Smooth.None));
     annotation (
       experiment(StopTime=0.9),
-      Icon(graphics={Text(
-            extent={{-82,54},{86,22}},
-            lineColor={0,0,0},
-            textString="basic"), Text(
-            extent={{-84,2},{84,-30}},
-            lineColor={0,0,0},
-            textString="filters")}),
       Documentation(info="<html>
 
 <p>
@@ -302,13 +294,6 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
         smooth=Smooth.None));
     annotation (
       experiment(StopTime=0.9),
-      Icon(graphics={Text(
-            extent={{-82,54},{86,22}},
-            lineColor={0,0,0},
-            textString="basic"), Text(
-            extent={{-84,2},{84,-30}},
-            lineColor={0,0,0},
-            textString="filters")}),
       Documentation(info="<html>
 
 <p>
@@ -1334,13 +1319,13 @@ This package contains the bus definitions needed for the
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-                    extent={{-100,60},{100,-60}},
-                    fillColor={159,159,223},
-                    fillPattern=FillPattern.Solid,
-                    lineColor={0,0,255}),Text(
-                    extent={{-106,124},{114,68}},
-                    textString="%name",
-                    lineColor={0,0,255})}), Documentation(info="<html>
+              extent={{-100,60},{100,-60}},
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,127}), Text(
+              extent={{-106,124},{114,68}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 This model is used to demonstrate the bus usage in example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
@@ -1364,22 +1349,31 @@ usage of package blocks.
 end Examples;
 
 
-annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-          {100,100}}), graphics={
-      Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
-      Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}),
-      Line(points={{16,-20},{49,-20},{49,-71},{16,-71}}, color={0,0,0}),
-      Line(points={{-32,-72},{-64,-72},{-64,-21},{-32,-21}}, color={0,0,0}),
+annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}, initialScale=0.1), graphics={
+      Rectangle(
+        origin={0.0,35.1488}, 
+        fillColor={255,255,255}, 
+        extent={{-30.0,-20.1488},{30.0,20.1488}}),
+      Rectangle(
+        origin={0.0,-34.8512}, 
+        fillColor={255,255,255}, 
+        extent={{-30.0,-20.1488},{30.0,20.1488}}),
+      Line(
+        origin={-51.25,0.0}, 
+        points={{21.25,-35.0},{-13.75,-35.0},{-13.75,35.0},{6.25,35.0}}),
       Polygon(
-        points={{16,-71},{29,-67},{29,-74},{16,-71}},
-        lineColor={0,0,0},
-        fillColor={0,0,0},
-        fillPattern=FillPattern.Solid),
+        origin={-40.0,35.0}, 
+        pattern=LinePattern.None, 
+        fillPattern=FillPattern.Solid, 
+        points={{10.0,0.0},{-5.0,5.0},{-5.0,-5.0}}),
+      Line(
+        origin={51.25,0.0}, 
+        points={{-21.25,35.0},{13.75,35.0},{13.75,-35.0},{-6.25,-35.0}}),
       Polygon(
-        points={{-32,-21},{-46,-17},{-46,-25},{-32,-21}},
-        lineColor={0,0,0},
-        fillColor={0,0,0},
-        fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+        origin={40.0,-35.0}, 
+        pattern=LinePattern.None, 
+        fillPattern=FillPattern.Solid, 
+        points={{-10.0,0.0},{5.0,5.0},{5.0,-5.0}})}), Documentation(info="<html>
 <p>
 This library contains input/output blocks to build up block diagrams.
 </p>

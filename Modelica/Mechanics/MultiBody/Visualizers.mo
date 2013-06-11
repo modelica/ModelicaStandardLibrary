@@ -151,8 +151,7 @@ definition of the colors used in the MultiBody library
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-100,33},{-100,-61},{-10,-41},{50,-61},{50,33},{-10,11},{-100,
                 33}},
@@ -253,8 +252,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-150,115},{150,75}},
             textString="%name",
@@ -540,8 +538,7 @@ vector <b>r</b>.
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,127,255},
@@ -1943,8 +1940,7 @@ library (will be replaced by a color editor).
         annotation (
          Icon(coordinateSystem(
              preserveAspectRatio=true,
-             extent={{-100,-100},{100,100}},
-             grid={2,2}), graphics={
+             extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,-100},{80,60}},
               lineColor={0,0,255},

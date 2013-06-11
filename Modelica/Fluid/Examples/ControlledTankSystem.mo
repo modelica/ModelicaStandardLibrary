@@ -360,13 +360,11 @@ This example is based on
       annotation (
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
                 lineColor={0,0,0})}),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-100,68},{-12,54}},
               lineColor={0,0,0},

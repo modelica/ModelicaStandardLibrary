@@ -1457,15 +1457,20 @@ This package contains basic analog electrical multiphase components.
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={
-          Rectangle(
-            extent={{-80,-10},{60,-70}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{60,-40},{80,-40}}, color={0,0,255}),
-          Line(points={{-100,-40},{-80,-40}}, color={0,0,255})}));
+</html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+             Rectangle(
+               origin = {11.626,40}, 
+               lineColor = {0,0,255}, 
+               fillColor = {255,255,255}, 
+               fillPattern = FillPattern.Solid, 
+               extent = {{-80,-70},{60,-10}}),
+             Line(
+               origin = {11.626,40}, 
+               points = {{60,-40},{80,-40}}, 
+               color = {0,0,255}),
+             Line(
+               points = {{-88.374,0},{-68.374,0}}, 
+               color = {0,0,255})}));
   end Basic;
 
   package Ideal "Multiphase components with idealized behaviour"
@@ -2203,14 +2208,19 @@ like thyristor, diode, switch, transformer.
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={
-          Line(points={{-100,-40},{80,-40}}, color={0,0,255}),
-          Polygon(
-            points={{20,-40},{-40,0},{-40,-80},{20,-40}},
-            lineColor={0,0,0},
-            fillColor={255,255,255}),
-          Line(points={{20,0},{20,-80}}, color={0,0,255})}));
+</html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+             Line(
+               origin = {10,40}, 
+               points = {{-100,-40},{80,-40}}, 
+               color = {0,0,255}),
+             Polygon(
+               origin = {10,40}, 
+               fillColor = {255,255,255}, 
+               points = {{20,-40},{-40,0},{-40,-80},{20,-40}}),
+             Line(
+               origin = {-10,0}, 
+               points = {{40,40},{40,-40}}, 
+               color = {0,0,255})}));
   end Ideal;
 
   package Blocks "Blocks for multi phase systems"
@@ -2600,6 +2610,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
     end CurrentQuasiRMSSensor;
 
   model PowerSensor "Multiphase instantaneous power sensor"
+    extends Modelica.Icons.RotationalSensor;
     parameter Integer m(min=1) = 3 "Number of phases";
     MultiPhase.Interfaces.PositivePlug pc(final m=m)
         "Positive plug, current path"
@@ -2666,44 +2677,15 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
           color={0,0,127},
           smooth=Smooth.None));
     annotation (
-      Icon(graphics={
-            Line(points={{0,100},{0,70}}, color={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,255}),
-            Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
-            Text(
-              extent={{150,120},{-150,160}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{0,-80},{140,-120}},
-              lineColor={0,0,0},
-              textString="m=%m"),
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
-              textString="P"),
-            Line(points={{-100,0},{100,0}}, color={0,0,255})}),
+      Icon(graphics = {
+        Line(points = {{0,100},{0,70}}, color = {0,0,255}),
+        Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
+        Line(points = {{-80,-100},{-80,0}}, color = {0,0,127}),
+        Text(lineColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name"),
+        Text(extent = {{0,-120},{140,-80}}, textString = "m=%m"),
+        Ellipse(fillPattern = FillPattern.Solid, extent = {{-5,-5},{5,5}}),
+        Text(extent = {{-29,-70},{30,-11}}, textString = "P"),
+        Line(points = {{-100,0},{100,0}}, color = {0,0,255})}),
       Documentation(info="<html><p>
 This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
 </p></html>"),
@@ -2886,7 +2868,7 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
                   52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},
                   {25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},
                   {50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}}, color={192,192,
-                  192}),
+                  192},smooth=Smooth.Bezier),
             Text(
               extent={{-150,-110},{150,-50}},
               textString="%name",
@@ -2964,7 +2946,7 @@ with a default phase shift determined by
                   61},{-53.6,52},{-48,38.6},{-40.98,18.6},{-26.21,-26.9},{-19.9,-44},
                   {-14.2,-56.2},{-9.3,-64},{-4.4,-68.6},{0.5,-70},{5.5,-67.9},{10.4,
                   -62.5},{15.3,-54.1},{20.9,-41.3},{28,-21.7},{35,0}},
-                color={192,192,192}),
+                color={192,192,192},smooth=Smooth.Bezier),
                                    Line(points={{35,0},{44.8,29.9},{51.2,46.5},{56.8,
                   58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={192,192,192})}),
         Documentation(info="<HTML>
@@ -3113,7 +3095,7 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
                   52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},
                   {25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},
                   {50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}}, color={192,192,
-                  192}),
+                  192}, smooth=Smooth.Bezier),
             Text(
               extent={{-150,-110},{150,-50}},
               textString="%name",
@@ -3173,7 +3155,7 @@ with a default phase shift determined by
                   52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},
                   {25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},
                   {50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}}, color={192,192,
-                  192}),
+                  192}, smooth=Smooth.Bezier),
             Text(
               extent={{-150,-110},{150,-50}},
               textString="%name",
@@ -3522,22 +3504,27 @@ Further development:
       added switches with arc as Electrical.Analog</li>
   </ul>
 </html>"),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={
-        Ellipse(extent={{-60,10},{40,-90}}, lineColor={0,0,255}),
-        Ellipse(
-          extent={{-40,-14},{-20,-34}},
-          lineColor={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{0,-14},{20,-34}},
-          lineColor={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{-20,-54},{0,-74}},
-          lineColor={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid)}));
+    Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+      Ellipse(
+        origin = {14,56},
+        lineColor = {0,0,255},
+        extent = {{-84,-126},{56,14}}),
+      Ellipse(
+        origin = {-0,40},
+        lineColor = {0,0,255},
+        fillColor = {0,0,255},
+        fillPattern = FillPattern.Solid,
+        extent = {{-40,-34},{-20,-14}}),
+      Ellipse(
+        origin = {20,40},
+        lineColor = {0,0,255},
+        fillColor = {0,0,255},
+        fillPattern = FillPattern.Solid,
+        extent = {{0,-34},{20,-14}}),
+      Ellipse(
+        origin = {10,34},
+        lineColor = {0,0,255},
+        fillColor = {0,0,255},
+        fillPattern = FillPattern.Solid,
+        extent = {{-20,-74},{0,-54}})}));
 end MultiPhase;

@@ -326,8 +326,7 @@ explained in detail in the
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{0,50},{0,0}}, color={0,0,0}),
           Rectangle(
             extent={{-20,60},{20,50}},
@@ -388,8 +387,7 @@ a simple model of a variable pressure loss is needed.</p>
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{0,50},{0,0}}, color={0,0,0}),
           Rectangle(
             extent={{-20,60},{20,50}},
@@ -524,8 +522,7 @@ y=uMin is passed as output.
 </p>
 </html>"),     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{0,-90},{0,68}}, color={192,192,192}),
         Polygon(
           points={{0,90},{-8,68},{8,68},{0,90}},
@@ -549,8 +546,7 @@ y=uMin is passed as output.
           lineColor={0,0,255})}),
         Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{0,-60},{0,50}}, color={192,192,192}),
         Polygon(
           points={{0,60},{-5,50},{5,50},{0,60}},
@@ -618,8 +614,7 @@ y=uMin is passed as output.
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{0,52},{0,0}}, color={0,0,0}),
             Rectangle(
               extent={{-20,60},{20,52}},

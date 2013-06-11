@@ -858,14 +858,20 @@ The abstraction of a variable inductor at quasi stationary operation assumes:<br
 </p>
 </html>"));
     end VariableInductor;
-    annotation (Icon(graphics={
-        Line(points={{-100,-40},{-80,-40}}),
-        Line(points={{60,-40},{80,-40}}),
+    annotation (Icon(
+      graphics = {
+        Line(
+          origin = {10,40}, 
+          points = {{-100,-40},{-80,-40}}),
+        Line(
+          origin = {10,40}, 
+          points = {{60,-40},{80,-40}}),
         Rectangle(
-          extent={{-80,-10},{60,-70}},
-          lineColor={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+          lineColor = {0,0,255}, 
+          fillColor = {255,255,255}, 
+          fillPattern = FillPattern.Solid, 
+          extent = {{-70,-30},{70,30}})}, 
+      coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1002,8 +1008,7 @@ This switch is only intended to be used for structural changes, not for fast swi
 </HTML>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
             Text(
               extent={{-80,0},{-60,22}},
@@ -1034,8 +1039,7 @@ This switch is only intended to be used for structural changes, not for fast swi
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
             Line(points={{-96,0},{-44,0}}, color={0,0,255}),
             Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1129,8 +1133,7 @@ This switch is only intended to be used for structural changes, not for fast swi
 </HTML>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
             Text(
               extent={{-80,50},{-60,72}},
@@ -1161,8 +1164,7 @@ This switch is only intended to be used for structural changes, not for fast swi
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(extent={{-4,29},{4,21}}, lineColor={0,0,255}),
             Line(points={{-96,0},{-40,0}}, color={0,0,255}),
             Line(points={{-96,50},{-40,50}}, color={0,0,255}),
@@ -1229,8 +1231,7 @@ This switch is only intended to be used for structural changes, not for fast swi
 </HTML>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
             Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1249,8 +1250,7 @@ This switch is only intended to be used for structural changes, not for fast swi
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
             Line(points={{-96,0},{-44,0}}, color={0,0,255}),
             Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1319,8 +1319,7 @@ This switch is only intended to be used for structural changes, not for fast swi
 </p>
 </HTML>"),Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
             Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1338,8 +1337,7 @@ This switch is only intended to be used for structural changes, not for fast swi
               lineColor={0,0,255})}),
           Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
             Line(points={{-96,0},{-44,0}}, color={0,0,255}),
             Line(points={{-37,2},{40,50}}, color={0,0,255}),
@@ -1350,12 +1348,12 @@ This switch is only intended to be used for structural changes, not for fast swi
               lineColor={0,0,255}),
             Line(points={{0,51},{0,26}}, color={0,0,255})}));
     end IdealClosingSwitch;
-    annotation (Icon(graphics={
-        Ellipse(extent={{-54,-56},{-46,-64}}),
-        Line(points={{-100,-60},{-54,-60}}),
-        Line(points={{-47,-58},{30,-10}}),
-        Line(points={{30,-60},{80,-60}}),
-        Line(points={{30,-40},{30,-60}})}), Documentation(info="<html>
+    annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics = {
+                Line(origin = {10,34}, points = {{-100,-60},{-54,-60}}),
+                Ellipse(origin = {10,34}, extent = {{-54,-64},{-46,-56}}),
+                Line(origin = {10,34}, points = {{-47,-58},{30,-10}}),
+                Line(origin = {10,34}, points = {{30,-40},{30,-60}}),
+                Line(origin = {10,34}, points = {{30,-60},{80,-60}})}), Documentation(info="<html>
 <p>This package hosts ideal models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1512,41 +1510,42 @@ This sensor can be used to measure the complex current.
       v = voltageP.v - voltageN.v;
     //P + j*Q = v * conj(i);
       y = v*conj(i);
-      annotation (         Icon(graphics={
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,100},{0,70}}, color={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,255}),
-            Line(points={{-100,0},{100,0}}, color={0,0,255}),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-29,-11},{30,-70}},
-              lineColor={0,0,0},
-              textString=
-                   "P"),
-            Line(points={{-80,-100},{-80,0}}, color={85,170,255}),
-            Text(extent={{100,110},{-100,150}},  textString=
-                                                   "%name",
-              lineColor={0,0,255})}),
-      Documentation(info="<html>
+      annotation (
+        Icon(graphics = {
+          Ellipse(fillColor = {192,192,192},
+            fillPattern = FillPattern.Solid,
+            extent = {{-70,-70},{70,70}}),
+        Line(points = {{0,100},{0,70}},
+            color = {0,0,255}),
+          Line(points = {{0,-70},{0,-100}},
+            color = {0,0,255}),
+          Text(extent = {{-29,-70},{30,-11}},
+            textString = "P"),
+          Line(points = {{-80,-100},{-80,0}},
+            color = {85,170,255}),
+          Text(textColor = {0,0,255},
+            extent = {{-100,110},{100,150}},
+            textString = "%name"),
+          Line(points = {{0,70},{0,40}}),
+          Line(points = {{22.9,32.8},{40.2,57.3}}),
+          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
+          Line(points = {{37.6,13.7},{65.8,23.9}}),
+          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
+          Ellipse(lineColor = {64,64,64},
+            fillColor = {255,255,255},
+            extent = {{-12,-12},{12,12}}),
+          Polygon(rotation = -17.5,
+            fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
+          Ellipse(fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            extent = {{-7,-7},{7,7}}),
+          Line(points = {{-100,0},{100,0}},
+            color = {0,0,255})}),
+        Documentation(info="<html>
 
 <p>
 This sensor can be used to measure the complex apparent power.
@@ -2210,12 +2209,16 @@ Quasi stationary theory for single phase circuits can be found in the
 
 </html>"));
   end Utilities;
-  annotation (Icon(graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor={0,
-            0,255}), Rectangle(
-        extent={{-30,-20},{10,-60}},
-        lineColor={0,0,0},
-        fillPattern=FillPattern.Solid,
-        fillColor={170,213,255})}),  Documentation(info="<html>
+  annotation (Icon(
+      graphics = {
+        Rectangle(
+          lineColor = {0,0,255}, 
+          extent = {{-50,-50},{50,50}}),
+        Rectangle(
+          fillColor = {170,213,255}, 
+          fillPattern = FillPattern.Solid, 
+          extent = {{-20,-20},{20,20}})},
+      coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)),  Documentation(info="<html>
 <p>This package hosts models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.

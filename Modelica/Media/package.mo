@@ -3294,8 +3294,7 @@ transport.
                   medium.h);
         annotation (Icon(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics={Rectangle(
+              extent={{-100,-100},{100,100}}), graphics={Rectangle(
                         extent={{20,60},{100,-60}},
                         lineColor={0,0,0},
                         fillPattern=FillPattern.HorizontalCylinder,
@@ -3390,8 +3389,7 @@ transport.
                   medium.Xi);
         annotation (Icon(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics={Ellipse(
+              extent={{-100,-100},{100,100}}), graphics={Ellipse(
                         extent={{-100,80},{100,-80}},
                         lineColor={0,0,0},
                         fillPattern=FillPattern.Sphere,

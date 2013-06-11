@@ -34,8 +34,7 @@ equation
       if use_pre_as_default then pre(y) else y_default;
   annotation (defaultComponentName="multiSwitch1",             Icon(coordinateSystem(
         preserveAspectRatio=false,
-        extent={{-100,-100},{300,100}},
-        grid={1,1}), graphics={
+        extent={{-100,-100},{300,100}}), graphics={
             Text(
               extent={{310,-25},{410,-45}},
               lineColor={0,0,0},

@@ -1024,31 +1024,84 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
 </p>
 </html>"));
     end ThermalCollector;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Rectangle(
-            extent={{-100,18},{-70,-100}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Backward),
-          Line(points={{-44,16},{-44,-100}}, color={0,127,255}),
-          Line(points={{-4,16},{-4,-100}}, color={0,127,255}),
-          Line(points={{30,18},{30,-100}}, color={0,127,255}),
-          Line(points={{66,18},{66,-100}}, color={0,127,255}),
-          Line(points={{66,-100},{76,-80}}, color={0,127,255}),
-          Line(points={{66,-100},{56,-80}}, color={0,127,255}),
-          Line(points={{30,-100},{40,-80}}, color={0,127,255}),
-          Line(points={{30,-100},{20,-80}}, color={0,127,255}),
-          Line(points={{-4,-100},{6,-80}}, color={0,127,255}),
-          Line(points={{-4,-100},{-14,-80}}, color={0,127,255}),
-          Line(points={{-44,-100},{-34,-80}}, color={0,127,255}),
-          Line(points={{-44,-100},{-54,-80}}, color={0,127,255}),
-          Line(points={{-70,-60},{66,-60}}, color={191,0,0}),
-          Line(points={{46,-70},{66,-60}}, color={191,0,0}),
-          Line(points={{46,-50},{66,-60}}, color={191,0,0}),
-          Line(points={{46,-30},{66,-20}}, color={191,0,0}),
-          Line(points={{46,-10},{66,-20}}, color={191,0,0}),
-          Line(points={{-70,-20},{66,-20}}, color={191,0,0})}), Documentation(
+    annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+      Rectangle(
+        origin = {12,40}, 
+        fillColor = {192,192,192}, 
+        fillPattern = FillPattern.Backward, 
+        extent = {{-100,-100},{-70,18}}),
+      Line(
+        origin = {12,40}, 
+        points = {{-44,16},{-44,-100}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{-4,16},{-4,-100}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{30,18},{30,-100}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{66,18},{66,-100}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{66,-100},{76,-80}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{66,-100},{56,-80}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{30,-100},{40,-80}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{30,-100},{20,-80}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{-4,-100},{6,-80}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{-4,-100},{-14,-80}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{-44,-100},{-34,-80}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{-44,-100},{-54,-80}}, 
+        color = {0,127,255}),
+      Line(
+        origin = {12,40}, 
+        points = {{-70,-60},{66,-60}}, 
+        color = {191,0,0}),
+      Line(
+        origin = {12,40}, 
+        points = {{46,-70},{66,-60}}, 
+        color = {191,0,0}),
+      Line(
+        origin = {12,40}, 
+        points = {{46,-50},{66,-60}}, 
+        color = {191,0,0}),
+      Line(
+        origin = {12,40}, 
+        points = {{46,-30},{66,-20}}, 
+        color = {191,0,0}),
+      Line(
+        origin = {12,40}, 
+        points = {{46,-10},{66,-20}}, 
+        color = {191,0,0}),
+      Line(
+        origin = {12,40}, 
+        points = {{-70,-20},{66,-20}}, 
+        color = {191,0,0})}), Documentation(
           info="<html>
 
 </html>"));
@@ -1223,7 +1276,7 @@ the two ports of this component and is provided as output signal in Kelvin.
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{-70,0},{-95,0}}, color={191,0,0}),
-            Line(points={{0,-70},{0,-90}}, color={0,0,255}),
+            Line(points={{0,-70},{0,-90}}, color={0,0,127}),
             Line(points={{94,0},{69,0}}, color={191,0,0})}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1233,7 +1286,7 @@ the two ports of this component and is provided as output signal in Kelvin.
               textString="Q_flow"),
             Line(points={{-70,0},{-90,0}}, color={191,0,0}),
             Line(points={{69,0},{90,0}}, color={191,0,0}),
-            Line(points={{0,-70},{0,-90}}, color={0,0,255}),
+            Line(points={{0,-70},{0,-90}}, color={0,0,127}),
             Text(
               extent={{-150,125},{150,85}},
               textString="%name",
@@ -1271,7 +1324,7 @@ The output signal is positive, if the heat flows from port_a to port_b.
         "Heat flow from port_a to port_b as output signal" annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={0,-70})));
+            origin={0,-100})));
     equation
       connect(heatFlowSensor.port_b, port_b) annotation (Line(
           points={{10,0},{100,0}},
@@ -1291,38 +1344,43 @@ The output signal is positive, if the heat flows from port_a to port_b.
           smooth=Smooth.None));
       annotation (
         Icon(graphics={
-            Rectangle(
-              extent={{-90,10},{90,-10}},
-              lineColor={255,0,0},
-              fillColor={255,0,0},
-              fillPattern=FillPattern.HorizontalCylinder),
-            Ellipse(
-              extent={{-50,50},{50,-50}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,50},{0,38}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-2.48,21.6},{16,16},{16,47.2},{-2.48,21.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-36,12},{-46,16}},         color={0,0,0}),
-            Line(points={{36,12},{46,16}},         color={0,0,0}),
-            Line(points={{22,30},{28,40}},         color={0,0,0}),
-            Line(points={{-20,30},{-28,40}},         color={0,0,0}),
-            Line(points={{0,-50},{0,-60}},
-                                         color={0,0,0}),
-            Text(
-              extent={{-150,100},{150,60}},
-              textString="%name",
-              lineColor={0,0,255})}),
+          Rectangle(
+            lineColor = {255,0,0},
+            fillColor = {255,0,0},
+            fillPattern = FillPattern.HorizontalCylinder,
+            extent = {{-90,-10},{90,10}}),
+          Text(
+            lineColor = {0,0,255},
+            extent = {{-150,85},{150,125}},
+            textString = "%name"),
+          Line(points = {{0,-70},{0,-90}}, color = {0,0,127}),
+          Ellipse(
+            fillColor = {192,192,192},
+            fillPattern = FillPattern.Solid,
+            extent = {{-70,-70},{70,70}}),
+          Line(points = {{0,70},{0,40}}),
+          Line(points = {{22.9,32.8},{40.2,57.3}}),
+          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
+          Line(points = {{37.6,13.7},{65.8,23.9}}),
+          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
+          Ellipse(
+            lineColor = {64,64,64},
+            fillColor = {255,255,255},
+            extent = {{-12,-12},{12,12}}),
+          Polygon(
+            rotation = -17.5,
+            fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
+          Ellipse(
+            fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            extent = {{-7,-7},{7,7}})},
+            coordinateSystem(extent = {{-100,-100},{100,100}},
+              preserveAspectRatio = true,
+              initialScale = 0.1)),
         Documentation(info="<html>
 <p>
 If useFixedTemperature = false, this sensor acts just as a normal
@@ -2031,11 +2089,7 @@ Example:
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degC(20));
 </pre>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Text(
-            extent={{30,52},{-70,-48}},
-            lineColor={0,0,255},
-            textString="degC")}));
+</html>"));
   end Celsius;
 
   package Fahrenheit "Components with Fahrenheit input and/or output"
@@ -2430,11 +2484,7 @@ Example:
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degF(70));
 </pre>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Text(
-            extent={{40,10},{-60,-90}},
-            lineColor={0,0,0},
-            textString="degF")}));
+</html>"));
   end Fahrenheit;
 
   package Rankine "Components with Rankine input and/or output"
@@ -2808,11 +2858,7 @@ Example:
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degRk(500));
 </pre>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Text(
-            extent={{64,34},{-86,-30}},
-            lineColor={0,0,255},
-            textString="degRk")}));
+</html>"));
   end Rankine;
 
   package Interfaces "Connectors and partial models"
@@ -3042,54 +3088,51 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
 </html>"));
   end Interfaces;
   annotation (
-     Icon(coordinateSystem(preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-        Polygon(
-          points={{-54,-6},{-61,-7},{-75,-15},{-79,-24},{-80,-34},{-78,-42},{-73,
-              -49},{-64,-51},{-57,-51},{-47,-50},{-41,-43},{-38,-35},{-40,-27},
-              {-40,-20},{-42,-13},{-47,-7},{-54,-5},{-54,-6}},
-          lineColor={128,128,128},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-75,-15},{-79,-25},{-80,-34},{-78,-42},{-72,-49},{-64,-51},{
-              -57,-51},{-47,-50},{-57,-47},{-65,-45},{-71,-40},{-74,-33},{-76,-23},
-              {-75,-15},{-75,-15}},
-          lineColor={0,0,0},
-          fillColor={160,160,164},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{39,-6},{32,-7},{18,-15},{14,-24},{13,-34},{15,-42},{20,-49},
-              {29,-51},{36,-51},{46,-50},{52,-43},{55,-35},{53,-27},{53,-20},{
-              51,-13},{46,-7},{39,-5},{39,-6}},
-          lineColor={160,160,164},
-          fillColor={192,192,192},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{18,-15},{14,-25},{13,-34},{15,-42},{21,-49},{29,-51},{36,-51},
-              {46,-50},{36,-47},{28,-45},{22,-40},{19,-33},{17,-23},{18,-15},{
-              18,-15}},
-          lineColor={0,0,0},
-          fillColor={160,160,164},
-          fillPattern=FillPattern.Solid),
-        Polygon(
-          points={{-9,-23},{-9,-10},{18,-17},{-9,-23}},
-          lineColor={191,0,0},
-          fillColor={191,0,0},
-          fillPattern=FillPattern.Solid),
-        Line(
-          points={{-41,-17},{-9,-17}},
-          color={191,0,0},
-          thickness=0.5),
-        Line(
-          points={{-17,-40},{15,-40}},
-          color={191,0,0},
-          thickness=0.5),
-        Polygon(
-          points={{-17,-46},{-17,-34},{-40,-40},{-17,-46}},
-          lineColor={191,0,0},
-          fillColor={191,0,0},
-          fillPattern=FillPattern.Solid)}),
+     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+      Polygon(
+        origin = {13.758,27.517}, 
+        lineColor = {128,128,128}, 
+        fillColor = {192,192,192}, 
+        fillPattern = FillPattern.Solid, 
+        points = {{-54,-6},{-61,-7},{-75,-15},{-79,-24},{-80,-34},{-78,-42},{-73,-49},{-64,-51},{-57,-51},{-47,-50},{-41,-43},{-38,-35},{-40,-27},{-40,-20},{-42,-13},{-47,-7},{-54,-5},{-54,-6}}),
+    Polygon(
+        origin = {13.758,27.517}, 
+        fillColor = {160,160,164}, 
+        fillPattern = FillPattern.Solid, 
+        points = {{-75,-15},{-79,-25},{-80,-34},{-78,-42},{-72,-49},{-64,-51},{-57,-51},{-47,-50},{-57,-47},{-65,-45},{-71,-40},{-74,-33},{-76,-23},{-75,-15},{-75,-15}}),
+      Polygon(
+        origin = {13.758,27.517}, 
+        lineColor = {160,160,164}, 
+        fillColor = {192,192,192}, 
+        fillPattern = FillPattern.Solid, 
+        points = {{39,-6},{32,-7},{18,-15},{14,-24},{13,-34},{15,-42},{20,-49},{29,-51},{36,-51},{46,-50},{52,-43},{55,-35},{53,-27},{53,-20},{51,-13},{46,-7},{39,-5},{39,-6}}),
+      Polygon(
+        origin = {13.758,27.517}, 
+        fillColor = {160,160,164}, 
+        fillPattern = FillPattern.Solid, 
+        points = {{18,-15},{14,-25},{13,-34},{15,-42},{21,-49},{29,-51},{36,-51},{46,-50},{36,-47},{28,-45},{22,-40},{19,-33},{17,-23},{18,-15},{18,-15}}),
+      Polygon(
+        origin = {13.758,27.517}, 
+        lineColor = {191,0,0}, 
+        fillColor = {191,0,0}, 
+        fillPattern = FillPattern.Solid, 
+        points = {{-9,-23},{-9,-10},{18,-17},{-9,-23}}),
+      Line(
+        origin = {13.758,27.517}, 
+        points = {{-41,-17},{-9,-17}}, 
+        color = {191,0,0}, 
+        thickness = 0.5),
+      Line(
+        origin = {13.758,27.517}, 
+        points = {{-17,-40},{15,-40}}, 
+        color = {191,0,0}, 
+        thickness = 0.5),
+      Polygon(
+        origin = {13.758,27.517}, 
+        lineColor = {191,0,0}, 
+        fillColor = {191,0,0}, 
+        fillPattern = FillPattern.Solid, 
+        points = {{-17,-46},{-17,-34},{-40,-40},{-17,-46}})}),
                             Documentation(info="<HTML>
 <p>
 This package contains components to model <b>1-dimensional heat transfer</b>

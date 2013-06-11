@@ -136,8 +136,7 @@ The reason could be that
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-120,3},{-110,0},{-120,-3},{-120,3}},
             lineColor={160,160,164},
@@ -196,8 +195,7 @@ The reason could be that
 </html>"),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-110,20},{-85,20}}, color={160,160,164}),
           Polygon(
             points={{-95,23},{-85,20},{-95,17},{-95,23}},
@@ -251,8 +249,7 @@ The reason could be that
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-120,53},{-110,50},{-120,47},{-120,53}},
             lineColor={160,160,164},
@@ -360,8 +357,7 @@ on the model behaviour.
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-70,0},{-90,0}}, color={0,0,0}),
           Line(points={{70,0},{100,0}}, color={0,0,255}),
           Text(
@@ -370,8 +366,7 @@ on the model behaviour.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
             Line(points={{70,0},{100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
@@ -402,8 +397,7 @@ on the model behaviour.
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-70,0},{-90,0}}, color={0,0,0}),
           Line(points={{70,0},{90,0}}, color={0,0,0}),
           Line(points={{0,-90},{0,-70}}, color={0,0,255}),
@@ -413,8 +407,7 @@ on the model behaviour.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-70,0},{-96,0}}, color={0,0,0}),
           Line(points={{0,-90},{0,-70}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,0})}),
@@ -442,8 +435,7 @@ on the model behaviour.
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
             lineColor={0,0,255},
@@ -485,8 +477,7 @@ on the model behaviour.
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
             lineColor={0,0,255},

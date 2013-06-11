@@ -11237,8 +11237,7 @@ external "builtin" y = sin(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -11256,8 +11255,7 @@ external "builtin" y = sin(u);
           textString="sin")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
           Polygon(
             points={{100,0},{84,6},{84,-6},{100,0}},
             lineColor={95,95,95},
@@ -11309,8 +11307,7 @@ external "builtin" y = cos(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -11328,8 +11325,7 @@ external "builtin" y = cos(u);
           textString="cos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Text(
+        extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-103,72},{-83,88}},
             textString="1",
             lineColor={0,0,255}),Text(
@@ -11378,8 +11374,7 @@ external "builtin" y = tan(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -11396,8 +11391,7 @@ external "builtin" y = tan(u);
           textString="tan")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Text(
+        extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-37,-72},{-17,-88}},
             textString="-5.8",
             lineColor={0,0,255}),Text(
@@ -11449,8 +11443,7 @@ external "builtin" y = asin(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -11466,8 +11459,7 @@ external "builtin" y = asin(u);
           textString="asin")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Text(
+        extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-40,-72},{-15,-88}},
             textString="-pi/2",
             lineColor={0,0,255}),Text(
@@ -11520,8 +11512,7 @@ external "builtin" y = acos(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,-80},{68,-80}}, color={192,192,192}),
         Polygon(
           points={{90,-80},{68,-72},{68,-88},{90,-80}},
@@ -11537,8 +11528,7 @@ external "builtin" y = acos(u);
           textString="acos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,-80},{84,-80}}, color={95,95,
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-80},{84,-80}}, color={95,95,
           95}),Polygon(
             points={{98,-80},{82,-74},{82,-86},{98,-80}},
             lineColor={95,95,95},
@@ -11588,8 +11578,7 @@ external "builtin" y = atan(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -11606,8 +11595,7 @@ external "builtin" y = atan(u);
           textString="atan")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
           Polygon(
             points={{96,0},{80,6},{80,-6},{96,0}},
             lineColor={95,95,95},
@@ -11653,8 +11641,7 @@ external "builtin" y = atan2(u1, u2);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -11674,8 +11661,7 @@ external "builtin" y = atan2(u1, u2);
           textString="atan2")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
           Polygon(
             points={{96,0},{80,6},{80,-6},{96,0}},
             lineColor={95,95,95},
@@ -11761,8 +11747,7 @@ algorithm
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -11782,8 +11767,7 @@ algorithm
           textString="atan3")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,-86},{84,-86}}, color={95,95,
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-86},{84,-86}}, color={95,95,
           95}),Polygon(
             points={{98,-86},{82,-80},{82,-92},{98,-86}},
             lineColor={95,95,95},
@@ -11850,8 +11834,7 @@ external "builtin" y = sinh(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -11868,8 +11851,7 @@ external "builtin" y = sinh(u);
           textString="sinh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
           Polygon(
             points={{98,0},{82,6},{82,-6},{98,0}},
             lineColor={95,95,95},
@@ -11923,8 +11905,7 @@ external "builtin" y = cosh(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,-86.083},{68,-86.083}}, color={192,192,192}),
         Polygon(
           points={{90,-86.083},{68,-78.083},{68,-94.083},{90,-86.083}},
@@ -11943,8 +11924,7 @@ external "builtin" y = cosh(u);
           textString="cosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,-84.083},{84,-84.083}}, color=
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-84.083},{84,-84.083}}, color=
            {95,95,95}),Polygon(
             points={{98,-84.083},{82,-78.083},{82,-90.083},{98,-84.083}},
             lineColor={95,95,95},
@@ -11996,8 +11976,7 @@ external "builtin" y = tanh(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={0.5,0.5}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -12014,8 +11993,7 @@ external "builtin" y = tanh(u);
           textString="tanh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={0.5,0.5}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,
           95}),Polygon(
             points={{96,0},{80,6},{80,-6},{96,0}},
             lineColor={95,95,95},
@@ -12061,8 +12039,7 @@ algorithm
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -12078,8 +12055,7 @@ algorithm
           textString="asinh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
           Polygon(
             points={{98,0},{82,6},{82,-6},{98,0}},
             lineColor={95,95,95},
@@ -12138,8 +12114,7 @@ algorithm
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,-80},{68,-80}}, color={192,192,192}),
         Polygon(
           points={{90,-80},{68,-72},{68,-88},{90,-80}},
@@ -12155,8 +12130,7 @@ algorithm
           textString="arcosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,-70},{84,-70}}, color={95,95,
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-70},{84,-70}}, color={95,95,
           95}),Polygon(
             points={{100,-70},{84,-64},{84,-76},{100,-70}},
             lineColor={95,95,95},
@@ -12221,8 +12195,7 @@ external "builtin" y = exp(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,-80.3976},{68,-80.3976}}, color={192,192,192}),
         Polygon(
           points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
@@ -12238,8 +12211,7 @@ external "builtin" y = exp(u);
           textString="exp")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,-80.3976},{84,-80.3976}},
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,-80.3976},{84,-80.3976}},
           color={95,95,95}),Polygon(
             points={{98,-80.3976},{82,-74.3976},{82,-86.3976},{98,-80.3976}},
             lineColor={95,95,95},
@@ -12292,8 +12264,7 @@ external "builtin" y = log(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -12310,8 +12281,7 @@ external "builtin" y = log(u);
           textString="log")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
           Polygon(
             points={{100,0},{84,6},{84,-6},{100,0}},
             lineColor={95,95,95},
@@ -12365,8 +12335,7 @@ external "builtin" y = log10(u);
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -12383,8 +12352,7 @@ external "builtin" y = log10(u);
           textString="log10")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
+        extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{84,0}}, color={95,95,95}),
           Polygon(
             points={{98,0},{82,6},{82,-6},{98,0}},
             lineColor={95,95,95},
@@ -12635,9 +12603,9 @@ algorithm
 end tempInterpol2;
 
 
-annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-          {100,100}}), graphics={Text(
-        extent={{-59,-9},{42,-56}},
+annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={Text(
+        extent = {{-90,-40},{90,40}},
         lineColor={0,0,0},
         textString="f(x)")}), Documentation(info="<HTML>
 <p>

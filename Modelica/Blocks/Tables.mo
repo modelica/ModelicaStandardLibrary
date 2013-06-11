@@ -211,33 +211,25 @@ Several matrices may be defined one after another.
 MATLAB is a registered trademark of The MathWorks, Inc.
 </p>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
-                -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
-                {60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, color={
-                0,0,0}),
-          Line(points={{0,40},{0,-40}}, color={0,0,0}),
-          Rectangle(
-            extent={{-60,40},{-30,20}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,20},{-30,0}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,0},{-30,-20}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,-20},{-30,-40}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid)}),
+      Icon(
+      coordinateSystem(preserveAspectRatio=true,
+        extent={{-100.0,-100.0},{100.0,100.0}},
+        initialScale=0.1),
+        graphics={
+      Line(points={{-60.0,40.0},{-60.0,-40.0},{60.0,-40.0},{60.0,40.0},{30.0,40.0},{30.0,-40.0},{-30.0,-40.0},{-30.0,40.0},{-60.0,40.0},{-60.0,20.0},{60.0,20.0},{60.0,0.0},{-60.0,0.0},{-60.0,-20.0},{60.0,-20.0},{60.0,-40.0},{-60.0,-40.0},{-60.0,40.0},{60.0,40.0},{60.0,-40.0}}),
+      Line(points={{0.0,40.0},{0.0,-40.0}}),
+      Rectangle(fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-60.0,20.0},{-30.0,40.0}}),
+      Rectangle(fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-60.0,0.0},{-30.0,20.0}}),
+      Rectangle(fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-60.0,-20.0},{-30.0,0.0}}),
+      Rectangle(fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-60.0,-40.0},{-30.0,-20.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(
@@ -503,33 +495,25 @@ Several matrices may be defined one after another.
 MATLAB is a registered trademark of The MathWorks, Inc.
 </p>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
-                -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
-                {60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, color={
-                0,0,0}),
-          Line(points={{0,40},{0,-40}}, color={0,0,0}),
-          Rectangle(
-            extent={{-60,40},{-30,20}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,20},{-30,0}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,0},{-30,-20}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,-20},{-30,-40}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid)}),
+      Icon(
+      coordinateSystem(preserveAspectRatio=true,
+        extent={{-100.0,-100.0},{100.0,100.0}},
+        initialScale=0.1),
+        graphics={
+      Line(points={{-60.0,40.0},{-60.0,-40.0},{60.0,-40.0},{60.0,40.0},{30.0,40.0},{30.0,-40.0},{-30.0,-40.0},{-30.0,40.0},{-60.0,40.0},{-60.0,20.0},{60.0,20.0},{60.0,0.0},{-60.0,0.0},{-60.0,-20.0},{60.0,-20.0},{60.0,-40.0},{-60.0,-40.0},{-60.0,40.0},{60.0,40.0},{60.0,-40.0}}),
+      Line(points={{0.0,40.0},{0.0,-40.0}}),
+      Rectangle(fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-60.0,20.0},{-30.0,40.0}}),
+      Rectangle(fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-60.0,0.0},{-30.0,20.0}}),
+      Rectangle(fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-60.0,-20.0},{-30.0,0.0}}),
+      Rectangle(fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-60.0,-40.0},{-30.0,-20.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(
@@ -791,49 +775,42 @@ as if the matrix is given as a parameter. For example, the first
 column \"table2D_1[2:,1]\" contains the u[1] grid points,
 and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 </p>
+
 <p>
 MATLAB is a registered trademark of The MathWorks, Inc.
 </p>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
-                -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
-                {60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, color={
-                0,0,0}),
-          Line(points={{0,40},{0,-40}}, color={0,0,0}),
-          Rectangle(
-            extent={{-60,20},{-30,0}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,0},{-30,-20}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-60,-20},{-30,-40}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-30,40},{0,20}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{0,40},{30,20}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{30,40},{60,20}},
-            lineColor={0,0,0},
-            fillColor={255,255,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-60,40},{-30,20}}, color={0,0,0}),
-          Line(points={{-30,40},{-60,20}}, color={0,0,0})}),
+      Icon(
+      coordinateSystem(preserveAspectRatio=true,
+        extent={{-100.0,-100.0},{100.0,100.0}},
+        initialScale=0.1),
+        graphics={
+      Line(points={{-60.0,40.0},{-60.0,-40.0},{60.0,-40.0},{60.0,40.0},{30.0,40.0},{30.0,-40.0},{-30.0,-40.0},{-30.0,40.0},{-60.0,40.0},{-60.0,20.0},{60.0,20.0},{60.0,0.0},{-60.0,0.0},{-60.0,-20.0},{60.0,-20.0},{60.0,-40.0},{-60.0,-40.0},{-60.0,40.0},{60.0,40.0},{60.0,-40.0}}),
+      Line(points={{0.0,40.0},{0.0,-40.0}}),
+      Line(points={{-60.0,40.0},{-30.0,20.0}}),
+      Line(points={{-30.0,40.0},{-60.0,20.0}}),
+      Rectangle(origin={2.3077,-0.0},
+        fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-62.3077,0.0},{-32.3077,20.0}}),
+      Rectangle(origin={2.3077,-0.0},
+        fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-62.3077,-20.0},{-32.3077,0.0}}),
+      Rectangle(origin={2.3077,-0.0},
+        fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-62.3077,-40.0},{-32.3077,-20.0}}),
+      Rectangle(fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{-30.0,20.0},{0.0,40.0}}),
+      Rectangle(fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{0.0,20.0},{30.0,40.0}}),
+      Rectangle(origin={-2.3077,-0.0},
+        fillColor={255,215,136},
+        fillPattern=FillPattern.Solid,
+        extent={{32.3077,20.0},{62.3077,40.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(

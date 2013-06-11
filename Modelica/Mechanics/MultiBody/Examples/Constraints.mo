@@ -192,8 +192,7 @@ extends Modelica.Icons.ExamplesPackage;
       experiment(StopTime=10),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          extent={{-100,-100},{100,100}}), graphics),
       Documentation(info="<html>
 <p>This example demonstrates the functionality of <b>constraint</b> representing <b>prismatic joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by two serial coupled prismatic joints or by appropriate constraint. Therefore, the body can only perform translation in two directions specified in the two joints depending on working forces.</p>
 <p><b>Simulation results</b> </p>
@@ -375,8 +374,7 @@ extends Modelica.Icons.ExamplesPackage;
       experiment(StopTime=10),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          extent={{-100,-100},{100,100}}), graphics),
       Documentation(info="<html>
 <p>This example demonstrates the functionality of <b>constraint</b> representing <b>revolute joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by revolute joint or by appropriate constraint. Therefore, the body can only perform rotation about the revolute axis depending on working forces.</p>
 <p><b>Simulation results</b> </p>
@@ -562,8 +560,7 @@ extends Modelica.Icons.ExamplesPackage;
       experiment(StopTime=10),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          extent={{-100,-100},{100,100}}), graphics),
       Documentation(info="<html>
 <p>This example demonstrates the functionality of <b>constraint</b> representing <b>spherical joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by spherical joint or by appropriate constraint. Therefore, the body can only perform spherical movement depending on working forces.</p>
 <p><b>Simulation results</b> </p>
@@ -769,8 +766,7 @@ extends Modelica.Icons.ExamplesPackage;
       experiment(StopTime=10),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          extent={{-100,-100},{100,100}}), graphics),
       Documentation(info="<html>
 <p>This example demonstrates the functionality of <b>constraint</b> representing <b>universal joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by universal joint or by appropriate constraint. Therefore, the body can only perform rotation about two revolute axes depending on working forces.</p>
 <p><b>Simulation results</b> </p>

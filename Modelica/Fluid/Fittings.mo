@@ -373,8 +373,7 @@ equation
   annotation (defaultComponentName="orifice",
     Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-60,-50},{-60,50},{60,-50},{60,50}},
             color={0,0,0},
@@ -443,8 +442,7 @@ model SharpEdgedOrifice
     Documentation(info="<html>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}},
-          grid={1,1}), graphics={
+              100}}), graphics={
           Rectangle(
             extent={{-100,44},{100,-44}},
             lineColor={0,0,0},
@@ -461,8 +459,7 @@ model SharpEdgedOrifice
             fillColor={175,175,175},
             fillPattern=FillPattern.Backward)}),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}},
-          grid={1,1}), graphics={
+              100,100}}), graphics={
           Rectangle(
             extent={{-100,60},{100,-60}},
             lineColor={0,0,0},
@@ -523,8 +520,7 @@ model AbruptAdaptor
 
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}},
-          grid={1,1}), graphics={
+              100,100}}), graphics={
           Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,-100},
                 {100,100},{0,100},{0,40}}, color={0,0,0}),
           Rectangle(
@@ -556,8 +552,7 @@ model AbruptAdaptor
             lineColor={0,0,255},
             textString="diameter_b")}),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}},
-          grid={1,1}), graphics={Rectangle(
+              100}}), graphics={Rectangle(
             extent=DynamicSelect({{-100,22},{0,-22}}, {{-100,max(0.1, min(1,
                 diameter_a/max(diameter_a, diameter_b)))*60},{0,-max(0.1, min(1,
                 diameter_a/max(diameter_a, diameter_b)))*60}}),
@@ -771,8 +766,7 @@ of the modeller.
   This might be useful to examine the non-ideal mixing taking place in a real junction.</html>"),
   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Ellipse(
+          extent={{-100,-100},{100,100}}), graphics={Ellipse(
             extent={{-9,10},{11,-10}},
             lineColor={0,0,0},
             fillColor={0,0,0},
@@ -855,16 +849,14 @@ of the modeller.
          data.c0               := 64*(length/diameter);
          annotation (Icon(coordinateSystem(
                 preserveAspectRatio=false,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={Rectangle(
+                extent={{-100,-100},{100,100}}), graphics={Rectangle(
                   extent={{-100,50},{100,-50}},
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
                                    Diagram(coordinateSystem(
                 preserveAspectRatio=false,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-100,64},{100,-64}},
                   lineColor={0,0,0},
@@ -2146,8 +2138,7 @@ where
 
       annotation(Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,44},{100,-44}},
               lineColor={0,0,0},

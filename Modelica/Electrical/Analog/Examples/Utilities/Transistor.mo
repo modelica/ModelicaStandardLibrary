@@ -47,8 +47,7 @@ equation
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Rectangle(extent={{-80,80},{80,-80}}, lineColor={0,0,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),

@@ -17,8 +17,7 @@ package Sensors
     annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{70,0},{100,0}}, color={0,0,127}),
           Line(points={{0,-70},{0,-100}}, color={0,127,255}),
           Text(
@@ -100,8 +99,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     end if;
   annotation (defaultComponentName="density",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}},
-          grid={1,1}), graphics={
+              100}}), graphics={
           Text(
             extent={{102,124},{6,95}},
             lineColor={0,0,0},
@@ -234,8 +232,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     end if;
   annotation (defaultComponentName="temperature",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}},
-          grid={1,1}), graphics={
+              100}}), graphics={
           Line(points={{0,100},{0,50}}, color={0,0,127}),
           Line(points={{-92,0},{100,0}}, color={0,128,255}),
           Ellipse(

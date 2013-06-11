@@ -128,7 +128,8 @@ equation
       points={{90,86},{90,77},{90.5,77}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=5), Documentation(info="<html>
+  annotation (Diagram(coordinateSystem(extent={{-130.0,-130.0},{130.0,130.0}})),
+    experiment(StopTime=5), Documentation(info="<html>
 <p>
 This is a model of the mechanical part of one cylinder of an engine.
 The combustion is not modelled. The \"inertia\" component at the lower

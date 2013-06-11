@@ -11,17 +11,39 @@ electro-magnetic devices.
 </p>
 
 </html>"),
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-      graphics={
-      Ellipse(extent={{-78,-24},{-86,-16}}, lineColor={0,0,0}),
-      Line(points={{-64,-20},{-78,-20}}, color={0,0,0}),
-      Line(points={{-64,-32},{-32,-40}}, color={0,0,0}),
-      Line(points={{-64,-20},{-32,-28}}, color={0,0,0}),
-      Ellipse(extent={{-78,-60},{-86,-52}}, lineColor={0,0,0}),
-      Line(points={{-64,-56},{-78,-56}}, color={0,0,0}),
-      Line(points={{-64,-44},{-32,-52}}, color={0,0,0}),
-      Line(points={{-64,-56},{-32,-64}}, color={0,0,0}),
-      Line(points={{20,-2},{-60,-2},{-60,-88},{20,-88},{20,-66},{-36,-66},{-36,
-            -24},{20,-24},{20,-2}}, color={0,0,0}),
-      Rectangle(extent={{36,-2},{60,-88}}, lineColor={0,0,0})}));
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
+    Polygon(
+      origin={-3.75,0.0}, 
+      fillColor={160,160,164}, 
+      fillPattern=FillPattern.Solid, 
+      points={{33.75,50.0},{-46.25,50.0},{-46.25,-50.0},{33.75,-50.0},{33.75,-30.0},{-21.25,-30.0},{-21.25,30.0},{33.75,30.0}}),
+    Ellipse(
+      origin={10.4708,41.6771}, 
+      extent={{-86.0,-24.0},{-78.0,-16.0}}),
+    Line(
+      origin={10.4708,41.6771}, 
+      points={{-64.0,-20.0},{-78.0,-20.0}}),
+    Line(
+      origin={10.4708,41.6771}, 
+      points={{-64.1812,-31.6229},{-32.0,-40.0}}),
+    Line(
+      origin={10.4708,41.6771}, 
+      points={{-64.0,-20.0},{-32.0,-28.0}}),
+    Ellipse(
+      origin={10.4708,41.6771}, 
+      extent={{-86.0,-60.0},{-78.0,-52.0}}),
+    Line(
+      origin={10.4708,41.6771}, 
+      points={{-64.0,-56.0},{-78.0,-56.0}}),
+    Line(
+      origin={10.4708,41.6771}, 
+      points={{-64.0,-44.0},{-32.0,-52.0}}),
+    Line(
+      origin={10.4708,41.6771}, 
+      points={{-64.0,-56.0},{-32.0,-64.0}}),
+    Rectangle(
+      origin={62.5,0.0}, 
+      fillColor={160,160,164}, 
+      fillPattern=FillPattern.Solid, 
+      extent={{-12.5,-50.0},{12.5,50.0}})}));
 end Magnetic;

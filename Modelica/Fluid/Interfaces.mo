@@ -85,7 +85,6 @@ package Interfaces
                 Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-50,-200},{50,200}},
-          grid={1,1},
           initialScale=0.2), graphics={
           Text(extent={{-75,130},{75,100}}, textString="%name"),
           Rectangle(
@@ -109,7 +108,6 @@ package Interfaces
          Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-50,-200},{50,200}},
-          grid={1,1},
           initialScale=0.2), graphics={
           Rectangle(
             extent={{50,-200},{-50,200}},
@@ -140,7 +138,6 @@ package Interfaces
                 Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-50,-200},{50,200}},
-          grid={1,1},
           initialScale=0.2), graphics={
           Text(extent={{-75,130},{75,100}}, textString="%name"),
           Rectangle(
@@ -179,7 +176,6 @@ package Interfaces
          Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-50,-200},{50,200}},
-          grid={1,1},
           initialScale=0.2), graphics={
           Rectangle(
             extent={{-50,200},{50,-200}},
@@ -266,8 +262,7 @@ This will be visualized at the port icons, in order to improve the understanding
 </html>"),
       Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{20,-70},{60,-85},{20,-100},{20,-70}},
             lineColor={0,128,255},
@@ -415,7 +410,6 @@ end PartialTwoPortTransport;
          Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-200,-50},{200,50}},
-          grid={1,1},
           initialScale=0.2), graphics={
           Rectangle(
             extent={{-201,50},{200,-50}},
@@ -446,7 +440,6 @@ end PartialTwoPortTransport;
          Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-200,-50},{200,50}},
-          grid={1,1},
           initialScale=0.2), graphics={
           Rectangle(
             extent={{-200,50},{200,-51}},

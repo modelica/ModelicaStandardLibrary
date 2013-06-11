@@ -38,8 +38,7 @@ equation
     defaultComponentName="set1",
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{300,100}},
-        grid={1,1}), graphics={
+        extent={{-100,-100},{300,100}}), graphics={
             Text(
               visible=not use_pre_as_default,
               extent={{-100,-60},{300,-90}},
@@ -57,6 +56,7 @@ equation
             Rectangle(
               extent={{-100,-51},{300,50}},
               lineColor={255,127,0},
+              lineThickness=5.0,
               fillColor={210,210,210},
               fillPattern=FillPattern.Solid,
               borderPattern=BorderPattern.Raised),

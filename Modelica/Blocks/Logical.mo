@@ -298,18 +298,13 @@ the output is <b>false</b>.
     y = u1 > u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false,extent={{-100,
               -100},{100,100}}), graphics={
-          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
-          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}),
+          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
+          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(
             points={{-54,22},{-8,2},{-54,-18}},
             color={0,0,0},
             smooth=Smooth.None,
-            thickness=0.5),
-          Text(
-            extent={{6,92},{94,76}},
-            lineColor={0,0,0},
-            lineThickness=0.5,
-            textString="gt")}), Documentation(info="<html>
+            thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if Real input u1 is greater than
 Real input u2, otherwise the output is <b>false</b>.
@@ -325,8 +320,8 @@ Real input u2, otherwise the output is <b>false</b>.
     y = u1 >= u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false,extent={{-100,
               -100},{100,100}}), graphics={
-          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
-          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}),
+          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
+          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(
             points={{-54,22},{-8,2},{-54,-18}},
             color={0,0,0},
@@ -351,8 +346,8 @@ Real input u2, otherwise the output is <b>false</b>.
     y = u1 < u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false,extent={{-100,
               -100},{100,100}}), graphics={
-          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
-          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}),
+          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
+          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(
             points={{-6,18},{-50,-2},{-6,-20}},
             color={0,0,0},
@@ -372,8 +367,8 @@ Real input u2, otherwise the output is <b>false</b>.
     y = u1 <= u2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false,extent={{-100,
               -100},{100,100}}), graphics={
-          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
-          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}),
+          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
+          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(
             points={{-10,20},{-54,0},{-10,-18}},
             color={0,0,0},
@@ -444,7 +439,7 @@ component <i>ModelicaAdditions.Blocks.Discrete.TriggeredSampler</i>.
                 {-16.1,-55.3},{-12.1,-52.5},{-8.1,-45.3},{-3.23,-32.1},{10.44,
                 13.7},{15.3,26.4},{20.1,34.8},{24.1,38},{28.9,37.2},{33.8,31.8},
                 {40.2,19.4},{53.1,-10.5},{59.5,-21.2},{65.1,-25.9},{70.7,-25.9},
-                {77.2,-20.5},{82,-13.8}}, color={192,192,192}),
+                {77.2,-20.5},{82,-13.8}}, color={192,192,192}, smooth = Smooth.Bezier),
           Polygon(
             points={{92,0},{70,8},{70,-8},{92,0}},
             lineColor={192,192,192},
@@ -471,36 +466,28 @@ u1, else it is set equal to u3.</p>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+            initialScale=0.1),
+            graphics={
           Line(
             points={{12,0},{100,0}},
-            color={255,0,255},
-            pattern=LinePattern.Solid,
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
+            color={255,0,255}),
           Line(
             points={{-100,0},{-40,0}},
-            color={255,0,255},
-            pattern=LinePattern.Solid,
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
+            color={255,0,255}),
           Line(
             points={{-100,-80},{-40,-80},{-40,-80}},
-            color={255,0,255},
-            pattern=LinePattern.Solid,
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
+            color={255,0,255}),
           Line(points={{-40,12},{-40,-10}}, color={255,0,255}),
           Line(points={{-100,80},{-40,80}}, color={255,0,255}),
           Line(
             points={{-40,80},{8,2}},
-            color={255,0,127},
+            color={255,0,255},
             thickness=1),
-          Ellipse(
-            extent={{2,8},{18,-6}},
-            fillColor={0,0,0},
+          Ellipse(visible=true,
+            lineColor={0,0,127},
+            pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}));
+            extent={{2.0,-6.0},{18.0,8.0}})}));
   end LogicalSwitch;
 
   block Switch "Switch between two Real signals"
@@ -533,36 +520,24 @@ u1, else it is set equal to u3.</p>
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Line(
-            points={{12,0},{100,0}},
-            pattern=LinePattern.Solid,
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None},
-            color={0,0,255}),
-          Line(
-            points={{-100,0},{-40,0}},
-            color={255,0,127},
-            pattern=LinePattern.Solid,
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
-          Line(
-            points={{-100,-80},{-40,-80},{-40,-80}},
-            pattern=LinePattern.Solid,
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None},
-            color={0,0,255}),
-          Line(points={{-40,12},{-40,-12}}, color={255,0,127}),
-          Line(points={{-100,80},{-38,80}}, color={0,0,255}),
-          Line(
-            points={{-38,80},{6,2}},
-            thickness=1,
-            color={0,0,255}),
-          Ellipse(
-            extent={{2,8},{18,-6}},
-            fillColor={0,0,0},
+          initialScale=0.1), graphics={
+          Line(points={{12.0,0.0},{100.0,0.0}},
+            color={0,0,127}),
+          Line(points={{-100.0,0.0},{-40.0,0.0}},
+            color={255,0,255}),
+          Line(points={{-100.0,-80.0},{-40.0,-80.0},{-40.0,-80.0}},
+            color={0,0,127}),
+          Line(points={{-40.0,12.0},{-40.0,-12.0}},
+            color={255,0,255}),
+          Line(points={{-100.0,80.0},{-38.0,80.0}},
+            color={0,0,127}),
+          Line(points={{-38.0,80.0},{6.0,2.0}},
+            color={0,0,127},
+            thickness=1.0),
+          Ellipse(lineColor={0,0,255},
+            pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}));
+            extent={{2.0,-8.0},{18.0,8.0}})}));
   end Switch;
 
   block Hysteresis "Transform Real to Boolean signal with Hysteresis"
@@ -712,24 +687,23 @@ The default value of this parameter is <b>false</b>.
   equation
     y = pre(y) and (u < reference + bandwidth/2) or (u < reference - bandwidth/
       2);
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}, initialScale=0.1), graphics={
           Text(
             extent={{-92,74},{44,44}},
-            lineColor={0,0,0},
             lineThickness=0.5,
             textString="reference"),
           Text(
             extent={{-94,-52},{-34,-74}},
-            lineColor={0,0,0},
             textString="u"),
-          Line(points={{-76,-32},{-68,-6},{-50,26},{-24,40},{-2,42},{16,36},{32,
-                28},{48,12},{58,-6},{68,-28}}, color={0,0,255}),
-          Line(points={{-78,-2},{-6,18},{82,-12}}, color={255,0,0}),
-          Line(points={{-78,12},{-6,30},{82,0}}, color={0,0,0}),
-          Line(points={{-78,-16},{-6,4},{82,-26}}, color={0,0,0}),
-          Line(points={{-82,-18},{-56,-18},{-56,-40},{64,-40},{64,-20},{90,-20}},
-              color={255,0,255})}), Documentation(info="<html>
+          Line(points={{-76.0,-32.0},{-68.0,-6.0},{-50.0,26.0},{-24.0,40.0},{-2.0,42.0},{16.0,36.0},{32.0,28.0},{48.0,12.0},{58.0,-6.0},{68.0,-28.0}},
+            color={0,0,127}),
+          Line(points={{-78.0,-2.0},{-6.0,18.0},{82.0,-12.0}},
+            color={255,0,0}),
+          Line(points={{-78.0,12.0},{-6.0,30.0},{82.0,0.0}}),
+          Line(points={{-78.0,-16.0},{-6.0,4.0},{82.0,-26.0}}),
+          Line(points={{-82.0,-18.0},{-56.0,-18.0},{-56.0,-40.0},{64.0,-40.0},{64.0,-20.0},{90.0,-20.0}},
+            color={255,0,255})}), Documentation(info="<html>
 <p>The block OnOffController sets the output signal <b>y</b> to <b>true</b> when
 the input signal <b>u</b> falls below the <b>reference</b> signal minus half of
 the bandwidth and sets the output signal <b>y</b> to <b>false</b> when the input
@@ -773,24 +747,33 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
         rate;
     end when;
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Line(points={{-60,-70},{-60,-70},{-30,40},{8,40},{40,-70},{40,-70}},
-              color={0,0,255}),
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
-          Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-60,-70},{-60,24},{8,24},{8,-70},{60,-70}},
-              color={255,0,255})}),
+      Icon(
+        coordinateSystem(preserveAspectRatio=true,
+          extent={{-100.0,-100.0},{100.0,100.0}},
+          initialScale=0.1),
+          graphics={
+        Line(visible=true,
+          points={{-60.0,-70.0},{-60.0,-70.0},{-30.0,40.0},{8.0,40.0},{40.0,-70.0},{40.0,-70.0}},
+          color={0,0,127}),
+        Line(visible=true,
+          points={{-90.0,-70.0},{82.0,-70.0}},
+          color={192,192,192}),
+        Line(visible=true,
+          points={{-80.0,68.0},{-80.0,-80.0}},
+          color={192,192,192}),
+        Polygon(visible=true,
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          points={{90.0,-70.0},{68.0,-62.0},{68.0,-78.0},{90.0,-70.0}}),
+        Polygon(visible=true,
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
+        Line(visible=true,
+          points={{-80.0,-70.0},{-60.0,-70.0},{-60.0,24.0},{8.0,24.0},{8.0,-70.0},{60.0,-70.0}},
+          color={255,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-80,-20},{-60,-20},{-30,40},{
             8,40},{40,-20},{60,-20}}, color={0,0,255}),Line(points={{-90,-70},{
@@ -915,23 +898,33 @@ handled properly.</p>
     end when;
     y = if u then time - entryTime else 0.0;
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
-          Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-60,-70},{-60,-26},{38,-26},{38,-70},{66,-70}},
-              color={255,0,255}),
-          Line(points={{-80,0},{-62,0},{40,90},{40,0},{68,0}}, color={0,0,255})}),
+      Icon(
+        coordinateSystem(preserveAspectRatio=true,
+          extent={{-100.0,-100.0},{100.0,100.0}},
+          initialScale=0.1),
+          graphics={
+        Line(visible=true,
+          points={{-90.0,-70.0},{82.0,-70.0}},
+          color={192,192,192}),
+        Line(visible=true,
+          points={{-80.0,68.0},{-80.0,-80.0}},
+          color={192,192,192}),
+        Polygon(visible=true,
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          points={{90.0,-70.0},{68.0,-62.0},{68.0,-78.0},{90.0,-70.0}}),
+        Polygon(visible=true,
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid,
+          points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
+        Line(visible=true,
+          points={{-80.0,-70.0},{-60.0,-70.0},{-60.0,-26.0},{38.0,-26.0},{38.0,-70.0},{66.0,-70.0}},
+          color={255,0,255}),
+        Line(visible=true,
+          points={{-80.0,0.0},{-62.0,0.0},{40.0,90.0},{40.0,0.0},{68.0,0.0}},
+          color={0,0,127})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-90,-70},{82,-70}}, color={0,
             0,0}),Line(points={{-80,68},{-80,-80}}, color={0,0,0}),Polygon(
@@ -1066,31 +1059,29 @@ The output <code>Q</code> is set by the input <code>S</code> and reset by the in
     when condition then
       terminate(terminationText);
     end when;
-    annotation (Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-200,-20},{200,20}},
-          grid={2,2},
-          initialScale=0.2), graphics={
-          Rectangle(
-            extent={{-200,20},{200,-20}},
-            lineColor={0,0,0},
-            fillColor={235,235,235},
-            fillPattern=FillPattern.Solid,
-            borderPattern=BorderPattern.Raised),
-          Text(
-            extent={{-166,15},{194,-15}},
-            lineColor={0,0,0},
-            textString="%condition"),
-          Rectangle(
-            extent={{-194,14},{-168,-14}},
-            lineColor={0,0,0},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.Solid,
-            borderPattern=BorderPattern.Raised),
-          Text(
-            extent={{-200,46},{200,22}},
-            lineColor={0,0,255},
-            textString="%name")}), Documentation(info="<html>
+    annotation (Icon(
+        coordinateSystem(preserveAspectRatio=true,
+          extent={{-200.0,-20.0},{200.0,20.0}},
+          initialScale=0.2),
+          graphics={
+        Rectangle(visible=true,
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineThickness=5.0,
+          borderPattern=BorderPattern.Raised,
+          extent={{-200.0,-20.0},{200.0,20.0}}),
+        Text(visible=true,
+          extent={{-166.0,-15.0},{194.0,15.0}},
+          textString="%condition"),
+        Rectangle(visible=true,
+          fillColor={161,35,41},
+          fillPattern=FillPattern.Solid,
+          borderPattern=BorderPattern.Raised,
+          extent={{-194.0,-14.0},{-168.0,14.0}}),
+        Text(visible=true,
+          lineColor={0,0,255},
+          extent={{-200.0,22.0},{200.0,46.0}},
+          textString="%name")}), Documentation(info="<html>
 <p>
 In the parameter menu, a <b>time varying</b> expression can be defined
 via variable <b>condition</b>, for example \"condition = x &lt; 0\",

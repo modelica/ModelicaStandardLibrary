@@ -1406,13 +1406,11 @@ buttons:
       annotation (
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
+              extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
                   lineColor={0,0,0})}),
         Icon(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}), graphics={
               Text(
                 extent={{-100,68},{-32,54}},
                 lineColor={0,0,0},
@@ -1603,15 +1601,9 @@ buttons:
       outflow1.Fo = inflow1.Fi;
       outflow1.open = valveControl;
       annotation (
-        Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={Line(points={{0,-60},{0,0}}, color={255,0,
-                    255})}),
-        Icon(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{0,-60},{0,0}}, color={255,0,255})}),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
               Line(
                 points={{20,20},{20,20}},
                 color={0,0,0},
@@ -1620,7 +1612,9 @@ buttons:
                 extent={{-131,125},{136,67}},
                 lineColor={0,0,255},
                 textString="%name"),
-              Line(points={{0,0},{0,-60}}, color={255,0,255})}));
+              Line(
+                points={{0,0},{0,-60}},
+                color={255,0,255})}));
     end valve;
 
     model Tank
@@ -1651,10 +1645,7 @@ buttons:
       levelSensor = level;
 
       annotation (
-        Icon(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
               Text(
                 extent={{-122,-82},{88,-42}},
                 textString="%name",
@@ -1870,16 +1861,14 @@ package Interfaces "Connectors and partial models"
     annotation (
    Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Polygon(
+            extent={{-100,-100},{100,100}}), graphics={Polygon(
               points={{-100,100},{100,0},{-100,-100},{-100,100}},
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
    Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Polygon(
+            extent={{-100,-100},{100,100}}), graphics={Polygon(
               points={{0,50},{100,0},{0,-50},{0,50}},
               lineColor={0,0,0},
               fillColor={0,0,0},
@@ -1897,16 +1886,14 @@ package Interfaces "Connectors and partial models"
 
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
                               Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,50},{0,-50}},
               lineColor={0,0,0},
               fillColor={255,255,255},
@@ -1926,16 +1913,14 @@ package Interfaces "Connectors and partial models"
 
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Polygon(
+            extent={{-100,-100},{100,100}}), graphics={Polygon(
               points={{-100,100},{100,0},{-100,-100},{-100,100}},
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
                                             Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Polygon(
+            extent={{-100,-100},{100,100}}), graphics={Polygon(
               points={{0,50},{100,0},{0,-50},{0,50}},
               lineColor={0,0,0},
               fillColor={0,0,0},
@@ -1955,16 +1940,14 @@ package Interfaces "Connectors and partial models"
 
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Text(
+            extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-100,100},{146,60}},
               lineColor={0,0,0},
               textString="%name"), Rectangle(
@@ -2236,8 +2219,7 @@ equation
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-200,110},{200,150}},
             textString="%name",
@@ -2251,8 +2233,7 @@ equation
           Rectangle(extent={{-80,80},{80,-80}}, lineColor={0,0,0})}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
+          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
               lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}},
               lineColor={0,0,0})}));
 end InitialStep;
@@ -2308,8 +2289,7 @@ equation
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Text(
+          extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-200,110},{200,150}},
             textString="%name",
             lineColor={0,0,255}), Rectangle(
@@ -2320,8 +2300,7 @@ equation
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
+          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
               lineColor={0,0,0})}));
 end Step;
 
@@ -2372,8 +2351,7 @@ block Transition
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-10,100},{10,-100}},
             fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else
@@ -2397,8 +2375,7 @@ block Transition
             textString="%condition")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}),
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}),
             Rectangle(
             extent={{-10,100},{10,-100}},
             lineColor={0,0,0},
@@ -2421,8 +2398,7 @@ block TransitionWithSignal
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{20,20},{200,45}},
             lineColor=DynamicSelect({0,0,0}, if enableTimer < 0.5 then {255,255,
@@ -2448,8 +2424,7 @@ block TransitionWithSignal
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}),
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}),
             Rectangle(
             extent={{-10,100},{10,-100}},
             lineColor={0,0,0},
@@ -2484,15 +2459,13 @@ connector Step_in_forAlternative
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
               fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}),
                                           Diagram(coordinateSystem(
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
               fillColor={175,175,175},
@@ -2508,15 +2481,13 @@ connector Step_out_forAlternative
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
               fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}),
                             Diagram(coordinateSystem(
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
               fillColor={175,175,175},
@@ -2555,8 +2526,7 @@ equation
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-80,100},{80,100}},
             color={0,0,0},
@@ -2569,8 +2539,7 @@ equation
           Line(points={{80,0},{100,0}}, color={0,0,0})}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
             Line(points={{80,0},{100,0}}, color={0,0,0})}));
 end Alternative;
 
@@ -2602,8 +2571,7 @@ connector Transition_in_forParallel
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2622,8 +2590,7 @@ connector Transition_in_forParallel
               points={{100,100},{100,-100}},
               color={0,0,0},
               thickness=0.5)}),             Diagram(coordinateSystem(
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={255,255,255},
@@ -2650,8 +2617,7 @@ connector Transition_out_forParallel
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2671,8 +2637,7 @@ connector Transition_out_forParallel
               color={0,0,0},
               thickness=0.5)}),
                             Diagram(coordinateSystem(
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={255,255,255},
@@ -2715,8 +2680,7 @@ equation
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,0},{-80,0}}, color={0,0,0}),
           Line(points={{80,0},{100,0}}, color={0,0,0}),
           Line(
@@ -2729,8 +2693,7 @@ equation
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
             Line(points={{80,0},{100,0}}, color={0,0,0})}));
 end Parallel;
 
@@ -2887,8 +2850,7 @@ inside the CompositeStep to the outPort connector.");
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-150,-150},{150,150}},
-          grid={1,1}), graphics={
+          extent={{-150,-150},{150,150}}), graphics={
           Text(
             extent={{-250,160},{250,200}},
             textString="%name",
@@ -2909,8 +2871,7 @@ inside the CompositeStep to the outPort connector.");
             textString="suspend")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-150,-150},{150,150}},
-          grid={1,1}), graphics={Rectangle(extent={{-150,150},{150,-150}},
+          extent={{-150,-150},{150,150}}), graphics={Rectangle(extent={{-150,150},{150,-150}},
               lineColor={0,0,0})}));
 end PartialCompositeStep;
 
@@ -2978,8 +2939,7 @@ type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
   defaultComponentPrefixes="parameter",
   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,40},{100,-40}},
             lineColor={0,0,0},
@@ -3211,21 +3171,26 @@ Copyright &copy; 1998-2013, Modelica Association and DLR
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(extent={{-88,-20},{-50,-54}}, lineColor={0,0,0}),
-        Line(points={{-50,-38},{-24,-38}}, color={0,0,0}),
-        Polygon(
-          points={{-24,-32},{-12,-38},{-24,-44},{-24,-32}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-12,-6},{-12,-76}}, color={0,0,0}),
-        Line(points={{-12,-38},{14,-38}}, color={0,0,0}),
-        Polygon(
-          points={{14,-32},{26,-38},{14,-44},{14,-32}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid),
-        Rectangle(extent={{26,-22},{64,-56}}, lineColor={0,0,0})}));
+</html>"), Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
+      Rectangle(
+        origin={-70.0,-0.0}, 
+        fillColor={255,255,255}, 
+        extent={{-20.0,-20.0},{20.0,20.0}}),
+      Rectangle(
+        origin={70.0,-0.0}, 
+        fillColor={255,255,255}, 
+        extent={{-20.0,-20.0},{20.0,20.0}}),
+      Line(points={{0.0,50.0},{0.0,-50.0}}),
+      Polygon(
+        origin={-16.6667,0.0}, 
+        pattern=LinePattern.None, 
+        fillPattern=FillPattern.Solid, 
+        points={{-3.3333,10.0},{16.667,0.0},{-3.3333,-10.0}}),
+      Line(origin={-35.0,0.0}, points={{15.0,0.0},{-15.0,0.0}}),
+      Polygon(
+        origin={33.3333,0.0}, 
+        pattern=LinePattern.None, 
+        fillPattern=FillPattern.Solid, 
+        points={{-3.3333,10.0},{16.667,0.0},{-3.3333,-10.0}}),
+      Line(origin={15.0,-0.0},  points={{15.0,0.0},{-15.0,-0.0}})}));
 end StateGraph;

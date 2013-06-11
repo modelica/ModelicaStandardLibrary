@@ -71,8 +71,7 @@ equation
     experiment(StopTime=0.5),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-120},{150,120}},
-        grid={1,1}), graphics={Rectangle(
+        extent={{-100,-120},{150,120}}), graphics={Rectangle(
           extent={{3,117},{88,-23}},
           lineColor={255,0,0},
           lineThickness=0.5),Text(

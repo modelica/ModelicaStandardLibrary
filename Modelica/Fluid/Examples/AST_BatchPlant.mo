@@ -680,8 +680,7 @@ package AST_BatchPlant
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={0,0,0},
@@ -1809,7 +1808,6 @@ end for;
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
               extent={{-100,-100},{100,100}},

@@ -27,21 +27,24 @@ package Interaction
          showNumber = number;
       end if;
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
-                  -100},{100,100}}), graphics={
-              Rectangle(
-                extent={{100,40},{-100,-40}},
-                lineColor={0,0,255},
-                fillColor={236,233,216},
-                fillPattern=FillPattern.Solid,
-                borderPattern=BorderPattern.Raised),
-              Text(extent={{-94,-34},{96,34}}, textString=DynamicSelect("0.0",
-                    String(showNumber, significantDigits=significantDigits))),
-              Text(
-                visible=not use_numberPort,
-                extent={{-150,-50},{150,-70}},
-                lineColor={0,0,0},
-                textString="%number")}), Documentation(info="<html>
+      annotation (Icon(
+          coordinateSystem(preserveAspectRatio=false,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            initialScale=0.1),
+            graphics={
+          Rectangle(visible=true,
+            lineColor={0,0,127},
+            fillColor={236,233,216},
+            fillPattern=FillPattern.Solid,
+            lineThickness=5.0,
+            borderPattern=BorderPattern.Raised,
+            extent={{-100.0,-40.0},{100.0,40.0}}),
+          Text(visible=true,
+            extent={{-94.0,-34.0},{96.0,34.0}},
+            textString=DynamicSelect("0.0", String(showNumber, significantDigits=significantDigits))),
+          Text(visible=not use_numberPort,
+            extent={{-150.0,-70.0},{150.0,-50.0}},
+            textString="%number")}), Documentation(info="<html>
 <p>
 This block visualizes a Real number in a diagram animation.
 The number to be visualized can be defined in the following ways:
@@ -88,20 +91,24 @@ The usage is demonstrated, e.g., in example
          showNumber = number;
       end if;
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
-                  -100},{100,100}}), graphics={
-              Rectangle(
-                extent={{100,40},{-100,-40}},
-                lineColor={0,0,255},
-                fillColor={236,233,216},
-                fillPattern=FillPattern.Solid,
-                borderPattern=BorderPattern.Raised),
-              Text(extent={{-94,-34},{96,34}}, textString=DynamicSelect("0", String(showNumber))),
-              Text(
-                visible=not use_numberPort,
-                extent={{-150,-50},{150,-70}},
-                lineColor={0,0,0},
-                textString="%number")}), Documentation(info="<html>
+      annotation (Icon(
+          coordinateSystem(preserveAspectRatio=false,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            initialScale=0.1),
+            graphics={
+          Rectangle(visible=true,
+            lineColor={0,0,127},
+            fillColor={236,233,216},
+            fillPattern=FillPattern.Solid,
+            lineThickness=5.0,
+            borderPattern=BorderPattern.Raised,
+            extent={{-100.0,-40.0},{100.0,40.0}}),
+          Text(visible=true,
+            extent={{-94.0,-34.0},{96.0,34.0}},
+            textString=DynamicSelect("0", String(showNumber))),
+          Text(visible=not use_numberPort,
+            extent={{-150.0,-70.0},{150.0,-50.0}},
+            textString="%number")}), Documentation(info="<html>
 <p>
 This block visualizes an Integer number in a diagram animation.
 The number to be visualized can be defined in the following ways:
@@ -149,18 +156,20 @@ The usage is demonstrated, e.g., in example
          showActive = active;
       end if;
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
-                  -100},{100,100}}), graphics={Text(
-                visible=not use_activePort,
-                extent={{-188,-60},{62,-80}},
-                lineColor={0,0,0},
-                textString="%active"), Ellipse(
-                extent={{-100,-40},{-20,40}},
-                fillColor=DynamicSelect({235,235,235}, if showActive > 0.5 then {0,
-                    255,0} else {235,235,235}),
-                lineColor={0,0,0},
-                pattern=LinePattern.None,
-                fillPattern=FillPattern.Sphere)}), Documentation(info="<html>
+      annotation (Icon(
+          coordinateSystem(preserveAspectRatio=false,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            initialScale=0.1),
+            graphics={
+          Text(visible=not use_activePort,
+            extent={{-188.0,-80.0},{62.0,-60.0}},
+            textString="%active"),
+          Ellipse(visible=true,
+            lineColor={64,64,64},
+            fillColor=DynamicSelect({192,192,192}, if showActive > 0.5 then {0,255,0} else {235,235,235}),
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Sphere,
+            extent={{-100.0,-40.0},{-20.0,40.0}})}), Documentation(info="<html>
 <p>
 This block visualizes a Boolean variable in a diagram animation.
 The Boolean variable to be visualized can be defined in the following ways:

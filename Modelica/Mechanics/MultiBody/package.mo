@@ -1426,8 +1426,7 @@ component with the default gravity field will be used
 drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
           lineColor={0,0,0},

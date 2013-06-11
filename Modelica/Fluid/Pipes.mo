@@ -166,8 +166,7 @@ or other flow models without storage, are directly connected.
 <li><a href=\"modelica://Modelica.Fluid.Examples.IncompressibleFluidNetwork\">Examples.IncompressibleFluidNetwork</a>.</li>
 </ul>
 </html>"),
-  Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+  Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,44},{100,-44}},
             lineColor={0,0,0},
@@ -188,8 +187,7 @@ or other flow models without storage, are directly connected.
             lineColor={0,0,0},
             textString="%nNodes")}),
   Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-              100}},
-          grid={1,1}), graphics={
+              100}}), graphics={
           Rectangle(
             extent={{-100,60},{100,50}},
             lineColor={0,0,0},
@@ -286,8 +284,7 @@ or other flow models without storage, are directly connected.
 
       annotation (defaultComponentName="pipe",Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,40},{100,-40}},
               fillPattern=FillPattern.Solid,
               fillColor={95,95,95},
@@ -706,8 +703,7 @@ This also allows for taking into account friction losses with respect to the act
 </ul>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                100}},
-            grid={1,1}), graphics={Ellipse(
+                100}}), graphics={Ellipse(
               extent={{-72,10},{-52,-10}},
               lineColor={0,0,0},
               fillColor={0,0,0},
@@ -717,8 +713,7 @@ This also allows for taking into account friction losses with respect to the act
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}},
-            grid={1,1}), graphics={
+                100,100}}), graphics={
             Polygon(
               points={{-100,-50},{-100,50},{100,60},{100,-60},{-100,-50}},
               smooth=Smooth.None,
@@ -1391,8 +1386,7 @@ simulation and/or might give a more robust simulation.
 </p>
 </html>"),    Diagram(coordinateSystem(
                   preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
+                  extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-100,64},{100,-64}},
                 lineColor={0,0,0},
@@ -1592,8 +1586,7 @@ b has the same sign of the change of density.</p>
      alt=\"PipeFrictionStaticHead_case-b.png\">
 </html>"),    Diagram(coordinateSystem(
                   preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
+                  extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-100,64},{100,-64}},
                 lineColor={0,0,0},
@@ -3581,8 +3574,7 @@ b has the same sign of the change of density.</p>
 
           annotation (defaultComponentName="pipeFriction",Icon(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-100,60},{100,-60}},
                 lineColor={0,0,0},
@@ -3631,8 +3623,7 @@ simulation and/or might give a more robust simulation.
 </p>
 </html>"),Diagram(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-100,64},{100,-64}},
                 lineColor={0,0,0},

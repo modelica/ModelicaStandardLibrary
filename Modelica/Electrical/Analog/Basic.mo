@@ -24,8 +24,7 @@ package Basic "Basic electrical components"
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-60,50},{60,50}}, color={0,0,255}),
           Line(points={{-40,30},{40,30}}, color={0,0,255}),
           Line(points={{-20,10},{20,10}}, color={0,0,255}),
@@ -36,8 +35,7 @@ package Basic "Basic electrical components"
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-60,50},{60,50}},
             thickness=0.5,
@@ -96,8 +94,7 @@ equation
 </html>"),
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-70,30},{70,-30}},
             lineColor={0,0,255},
@@ -121,8 +118,7 @@ equation
             lineColor={0,0,255})}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255})}));
@@ -251,8 +247,7 @@ equation
 </html>"),
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-70,30},{70,-30}},
             fillColor={255,255,255},
@@ -277,8 +272,7 @@ equation
             textString="G=%G")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255}),
           Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255})}));
@@ -304,8 +298,7 @@ end Conductor;
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-14,28},{-14,-28}},
             thickness=0.5,
@@ -326,8 +319,7 @@ end Conductor;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-20,40},{-20,-40}},
             thickness=0.5,
@@ -360,8 +352,7 @@ end Conductor;
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
           Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
           Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
@@ -383,8 +374,7 @@ end Conductor;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
           Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
           Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
@@ -522,8 +512,7 @@ end Conductor;
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
           Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
           Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
@@ -566,8 +555,7 @@ end Conductor;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
           Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
           Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
@@ -636,19 +624,17 @@ equation
           Ellipse(extent={{0,24},{18,42}}, lineColor={0,0,255}),
           Ellipse(extent={{-18,24},{0,42}}, lineColor={0,0,255}),
           Rectangle(
-            extent={{42,24},{-44,34}},
+            extent={{42,23},{-44,34}},
             lineColor={0,0,255},
             pattern=LinePattern.None,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(
             points={{-36,34},{-62,34}},
-            color={0,0,255},
-            pattern=LinePattern.None),
+            color={0,0,255}),
           Line(
             points={{62,34},{36,34}},
-            color={0,0,255},
-            pattern=LinePattern.None),
+            color={0,0,255}),
           Ellipse(extent={{-36,8},{-18,26}}, lineColor={0,0,255}),
           Ellipse(extent={{18,8},{36,26}}, lineColor={0,0,255}),
           Ellipse(extent={{0,8},{18,26}}, lineColor={0,0,255}),
@@ -661,24 +647,20 @@ equation
             fillPattern=FillPattern.Solid),
           Line(
             points={{-36,18},{-62,18}},
-            color={0,0,255},
-            pattern=LinePattern.None),
+            color={0,0,255}),
           Line(
             points={{62,18},{36,18}},
-            color={0,0,255},
-            pattern=LinePattern.None),
+            color={0,0,255}),
           Line(
             points={{-36,-29},{-62,-29}},
-            color={0,0,255},
-            pattern=LinePattern.None),
+            color={0,0,255}),
           Ellipse(extent={{-36,-40},{-18,-22}}, lineColor={0,0,255}),
           Ellipse(extent={{-18,-40},{0,-22}}, lineColor={0,0,255}),
           Ellipse(extent={{0,-40},{18,-22}}, lineColor={0,0,255}),
           Ellipse(extent={{18,-40},{36,-22}}, lineColor={0,0,255}),
           Line(
             points={{62,-29},{36,-29}},
-            color={0,0,255},
-            pattern=LinePattern.None),
+            color={0,0,255}),
           Rectangle(
             extent={{42,-42},{-44,-30}},
             lineColor={0,0,255},
@@ -765,8 +747,7 @@ end M_Transformer;
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}},
             fillColor={255,255,255},
@@ -805,8 +786,7 @@ end M_Transformer;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-96,50},{-60,50}}, color={0,0,255}),
           Line(points={{-96,-50},{-60,-50}}, color={0,0,255}),
@@ -897,8 +877,7 @@ end M_Transformer;
       Icon(
           coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-85,10},{-36,-10}},
             lineColor={0,0,0},
@@ -946,8 +925,7 @@ end M_Transformer;
             color={0,0,0})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-17,95},{-20,85},{-23,95},{-17,95}},
             lineColor={160,160,164},
@@ -1035,11 +1013,10 @@ end M_Transformer;
     annotation (defaultComponentName="emf",
       Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-90,51},{-40,-50}},
-            lineColor={135,135,135},
+            lineColor={0,0,0},
             fillColor={135,135,135},
             fillPattern=FillPattern.HorizontalCylinder),
           Rectangle(
@@ -1103,8 +1080,7 @@ end M_Transformer;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-17,95},{-20,85},{-23,95},{-17,95}},
             lineColor={160,160,164},
@@ -1166,8 +1142,7 @@ end M_Transformer;
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-70,70},{70,-70}},
             fillColor={255,255,255},
@@ -1189,8 +1164,7 @@ end M_Transformer;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-96,50},{-31,50}}, color={0,0,255}),
           Line(points={{-30,-50},{-96,-50}}, color={0,0,255}),
           Line(points={{96,50},{30,50},{30,-50},{96,-50}}, color={0,0,255}),
@@ -1225,8 +1199,7 @@ end M_Transformer;
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-70,70},{70,-70}},
             fillColor={255,255,255},
@@ -1250,8 +1223,7 @@ end M_Transformer;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-96,50},{-30,50}}, color={0,0,255}),
           Line(points={{-30,-50},{-96,-50}}, color={0,0,255}),
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
@@ -1290,8 +1262,7 @@ end M_Transformer;
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-70,70},{70,-70}},
             fillColor={255,255,255},
@@ -1312,8 +1283,7 @@ end M_Transformer;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Rectangle(extent={{-70,70},{70,-70}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
@@ -1348,8 +1318,7 @@ end M_Transformer;
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-70,70},{70,-70}},
             fillColor={255,255,255},
@@ -1372,8 +1341,7 @@ end M_Transformer;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Rectangle(extent={{-70,70},{70,-70}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
@@ -1433,8 +1401,7 @@ end M_Transformer;
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -1456,8 +1423,7 @@ end M_Transformer;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -1737,8 +1703,7 @@ end M_Transformer;
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -1758,8 +1723,7 @@ end M_Transformer;
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -1836,8 +1800,7 @@ end M_Transformer;
 </ul>
 </html>"),Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-90,0},{-70,0}}, color={0,0,255}),
           Rectangle(
             extent={{-70,30},{70,-30}},
@@ -1852,8 +1815,7 @@ end M_Transformer;
             lineColor={0,0,255})}),
           Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-70,30},{70,-30}},
             lineColor={0,0,255},
@@ -1905,8 +1867,7 @@ end M_Transformer;
 </ul>
 </html>"),Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-90,0},{-70,0}}, color={0,0,255}),
           Rectangle(
             extent={{-70,30},{70,-30}},
@@ -1921,8 +1882,7 @@ end M_Transformer;
             lineColor={0,0,255})}),
           Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
           Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255}),

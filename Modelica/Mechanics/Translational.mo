@@ -327,8 +327,7 @@ problems.
 </p>
 </html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-84,10},{88,2}},
               lineColor={0,0,255},
@@ -724,8 +723,7 @@ to see the difference.
       annotation (
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-100,80},{-80,60}},
               textString="1)",
@@ -890,8 +888,7 @@ to see the difference.
       annotation (
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-92,-72},{90,-80}},
               textString="positive force => spool moves in positive direction ",
@@ -1343,8 +1340,7 @@ simulate them according to the provided description in the models.
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-80,-40},{80,-40}}, color={0,0,0}),
             Line(points={{80,-40},{40,-80}}, color={0,0,0}),
             Line(points={{40,-40},{0,-80}}, color={0,0,0}),
@@ -1396,8 +1392,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-100,0},{-55,0}}, color={0,127,0}),
             Line(points={{55,0},{100,0}}, color={0,127,0}),
             Rectangle(
@@ -1421,8 +1416,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
               textString="m=%m")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-100,0},{-55,0}}, color={0,127,0}),
             Line(points={{55,0},{100,0}}, color={0,127,0}),
             Rectangle(
@@ -1479,8 +1473,7 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-100,0},{-55,0}}, color={0,127,0}),
             Line(points={{53,0},{99,0}}, color={0,127,0}),
             Polygon(
@@ -1504,8 +1497,7 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
               textString="L=%L")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-100,0},{-55,0}}, color={0,127,0}),
             Line(points={{54,0},{100,0}}, color={0,127,0}),
             Polygon(
@@ -1557,8 +1549,7 @@ a coupling of the sliding mass with the housing via a spring.
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Polygon(
               points={{50,-90},{20,-80},{20,-100},{50,-90}},
@@ -1577,8 +1568,7 @@ a coupling of the sliding mass with the housing via a spring.
               textString="c=%c")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-100,0},{-100,65}}, color={128,128,128}),
             Line(points={{100,0},{100,65}}, color={128,128,128}),
             Line(points={{-100,60},{100,60}}, color={128,128,128}),
@@ -1614,8 +1604,7 @@ between two sliding masses.
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-90,0},{-60,0}}, color={0,0,0}),
             Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
             Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
@@ -1647,8 +1636,7 @@ between two sliding masses.
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-90,0},{-60,0}}, color={0,0,0}),
             Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
             Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
@@ -1699,8 +1687,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
 </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-80,40},{-60,40},{-45,10},{-15,70},{15,10},{45,70},{
                   60,40},{80,40}}, color={0,0,0}),
             Line(points={{-80,40},{-80,-70}}, color={0,0,0}),
@@ -1741,8 +1728,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(
               points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},
                   {80,32}},
@@ -1912,8 +1898,7 @@ where the different effects are visualized:
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/ElastoGap1.png\">
 </html>"),        Diagram(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-100,0},{-50,0}}, color={0,127,0}),
             Line(
               points={{-48,34},{-48,-46}},
@@ -1956,8 +1941,7 @@ where the different effects are visualized:
               fillPattern=FillPattern.Solid)}),
         Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-98,0},{-48,0}}, color={0,127,0}),
             Line(
               points={{-48,38},{-48,-38}},
@@ -2877,8 +2861,7 @@ between the stops.</i> </li>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{80,-100},{50,-90},{50,-110},{80,-100}},
               lineColor={128,128,128},
@@ -2927,8 +2910,7 @@ between the stops.</i> </li>
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{50,-75},{20,-65},{20,-85},{50,-75}},
               lineColor={128,128,128},
@@ -3085,8 +3067,7 @@ velocity of model mass1 or of model mass2 as state variables.
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,255,255},
@@ -3110,8 +3091,7 @@ velocity of model mass1 or of model mass2 as state variables.
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,255,255},
@@ -3152,12 +3132,13 @@ velocity of model mass1 or of model mass2 as state variables.
               color={0,0,0},
               pattern=LinePattern.Dash)}));
     end RelativeStates;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-67,-66},{44,-6}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.Sphere,
-            fillColor={255,255,255})}),                     Documentation(info="<html>
+    annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+        Rectangle(
+          origin = {11.5,31.183}, 
+          lineColor = {64,64,64}, 
+          fillColor = {255,255,255}, 
+          fillPattern = FillPattern.Sphere, 
+          extent = {{-67,-66},{44,-6}})}),                     Documentation(info="<html>
 <p>
 This package contains basic components 1D mechanical translational drive trains.
 </p>
@@ -3188,8 +3169,7 @@ Modelica.Blocks library).
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
@@ -3215,8 +3195,7 @@ Modelica.Blocks library).
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
@@ -3245,8 +3224,7 @@ Modelica.Blocks library).
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},
@@ -3274,8 +3252,7 @@ Modelica.Blocks library).
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70.4,0},{100,0}}, color={0,0,127}),
             Text(
@@ -3316,8 +3293,7 @@ Modelica.Blocks library).
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70.4,0},{100,0}}, color={0,0,127}),
             Text(
@@ -3354,8 +3330,7 @@ Modelica.Blocks library).
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70.4,0},{100,0}}, color={0,0,127}),
             Text(
@@ -3386,8 +3361,7 @@ with blocks of the Modelica.Blocks library).
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-40,-70},{40,-120}},
               lineColor={0,0,0},
@@ -3418,8 +3392,7 @@ and provides the result as output signal <b>power</b>
 </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-75,-79},{67,-119}},
               lineColor={0,0,0},
@@ -3463,8 +3436,7 @@ Measures the <b>absolute velocity</b> of a flange_a, the <b>cut-force</b> and <b
 ideal way and provides the results as output signals <b>v</b>, <b>f</b> and <b>power</b>, respectively. </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-146,-70},{-56,-100}},
               lineColor={0,0,0},
@@ -3574,8 +3546,7 @@ blocks of the block library Modelica.Blocks.Sources.
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-56,-36},{-178,-66}},
               lineColor={0,0,0},
@@ -3675,8 +3646,7 @@ blocks of the block library Modelica.Blocks.Sources.
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-54,-36},{-174,-68}},
               lineColor={0,0,0},
@@ -3745,8 +3715,7 @@ blocks of the block library Modelica.Blocks.Source.
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-56,-40},{-166,-68}},
               lineColor={0,0,0},
@@ -3847,8 +3816,7 @@ blocks of the block library Modelica.Blocks.Sources.
 
 </html>"),        Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-192,-38},{-32,-70}},
               lineColor={0,0,0},
@@ -3899,8 +3867,7 @@ blocks of Modelica.Blocks.Source.
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,
                   -10},{-100,10}},
@@ -3956,8 +3923,7 @@ blocks of Modelica.Blocks.Source.
 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-150,-40},{150,-80}},
               textString="%name",
@@ -4024,10 +3990,10 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       else
         f = -f_nominal*smooth(1, if v >= 0 then (v/v_nominal)^2 else -(v/v_nominal)^2);
       end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{-80,-98},
-                  {-60,-92},{-40,-82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},
-                  {80,62},{100,100}}, color={0,0,255})}),Documentation(info="<HTML>
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+              Line(points={{-100,-100},{-80,-98},{-60,-92},{-40,-82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},{80,62},{100,100}},
+                   color={0,0,127},
+                   smooth=Smooth.Bezier)}),Documentation(info="<HTML>
 <p>
 Model of force, quadratic dependent on velocity of flange.<br>
 Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
@@ -4175,18 +4141,15 @@ The following variables are transported through this connector:
      means that the flange is translated along the flange axis.
   f: Cut-force in direction of the flange axis in [N].
 </pre>
-</html>"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
+</html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+          Rectangle(
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Rectangle(
-              extent={{-100,-100},{100,100}},
-              lineColor={0,127,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
+            lineColor={0,127,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-40,-40},{40,40}},
               lineColor={0,127,0},
               fillColor={255,255,255},
@@ -4366,8 +4329,7 @@ and instead the component is internally fixed to ground.
 
 </html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
+            extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-38,-98},{-6,-96}},
               lineColor={95,95,95},
               textString="(if useSupport)"), Text(
@@ -4442,8 +4404,7 @@ and instead the component is internally fixed to ground.
 
 </html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
+            extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-38,-98},{-6,-96}},
               lineColor={95,95,95},
               textString="(if useSupport)"), Text(
@@ -4531,8 +4492,7 @@ flange is the same. It is used to built up springs, dampers etc.
 
 </html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Polygon(
+            extent={{-100,-100},{100,100}}), graphics={Polygon(
               points={{50,-90},{20,-80},{20,-100},{50,-90}},
               lineColor={128,128,128},
               fillColor={128,128,128},
@@ -4653,8 +4613,7 @@ and instead the component is internally fixed to ground.
 
 </html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
+            extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-38,-98},{-6,-96}},
               lineColor={95,95,95},
               textString="(if useSupport)"), Text(
@@ -4987,8 +4946,7 @@ with the Modelica.Blocks blocks.
 </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-100,-90},{-20,-90}}, color={0,0,0}),
             Polygon(
               points={{10,-90},{-20,-80},{-20,-100},{10,-90}},
@@ -5030,8 +4988,7 @@ with the Modelica.Blocks blocks.
 </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-51,34},{29,34}}, color={0,0,0}),
             Polygon(
               points={{59,34},{29,44},{29,24},{59,34}},
@@ -5136,22 +5093,36 @@ only be used as basic building elements for models.
   end Interfaces;
 
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={
-        Line(points={{-84,-73},{66,-73}}, color={0,0,0}),
-        Rectangle(
-          extent={{-81,-22},{-8,-65}},
-          lineColor={0,0,0},
-          fillPattern=FillPattern.Sphere,
-          fillColor={192,192,192}),
-        Line(points={{-8,-43},{-1,-43},{6,-64},{17,-23},{29,-65},{40,-23},{50,-44},
-              {61,-44}}, color={0,0,0}),
-        Line(points={{-59,-73},{-84,-93}}, color={0,0,0}),
-        Line(points={{-11,-73},{-36,-93}}, color={0,0,0}),
-        Line(points={{-34,-73},{-59,-93}}, color={0,0,0}),
-        Line(points={{14,-73},{-11,-93}}, color={0,0,0}),
-        Line(points={{39,-73},{14,-93}}, color={0,0,0}),
-        Line(points={{63,-73},{38,-93}}, color={0,0,0})}),
+    Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+      Line(
+        origin = {14,53}, 
+        points = {{-84,-73},{66,-73}}),
+      Rectangle(
+        origin = {14,53}, 
+        lineColor = {64,64,64}, 
+        fillColor = {192,192,192}, 
+        fillPattern = FillPattern.Sphere, 
+        extent = {{-81,-65},{-8,-22}}),Line(visible = true, 
+        origin = {14,53}, 
+        points = {{-8,-43},{-1,-43},{6,-64},{17,-23},{29,-65},{40,-23},{50,-44},{61,-44}}),
+      Line(
+        origin = {14,53}, 
+        points = {{-59,-73},{-84,-93}}),
+      Line(
+        origin = {14,53}, 
+        points = {{-11,-73},{-36,-93}}),
+      Line(
+        origin = {14,53}, 
+        points = {{-34,-73},{-59,-93}}),
+      Line(
+        origin = {14,53}, 
+        points = {{14,-73},{-11,-93}}),
+      Line(
+        origin = {14,53}, 
+        points = {{39,-73},{14,-93}}),
+      Line(
+        origin = {14,53}, 
+        points = {{63,-73},{38,-93}})}),
                                                         Documentation(info="<html>
 <p>
 This package contains components to model <i>1-dimensional translational

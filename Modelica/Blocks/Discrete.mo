@@ -12,21 +12,30 @@ package Discrete
       y = u;
     end when;
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Ellipse(
-            extent={{-25,-10},{-45,10}},
-            lineColor={0,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,-10},{25,10}},
-            lineColor={0,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-45,0}}, color={0,0,127}),
-          Line(points={{45,0},{100,0}}, color={0,0,127}),
-          Line(points={{-35,0},{30,35}}, color={0,0,127})}),
+      Icon(
+        coordinateSystem(preserveAspectRatio=true,
+          extent={{-100.0,-100.0},{100.0,100.0}},
+          initialScale=0.1),
+          graphics={
+        Ellipse(visible=true,
+          lineColor={0,0,127},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          extent={{25.0,-10.0},{45.0,10.0}}),
+        Line(visible=true,
+          points={{-100.0,0.0},{-45.0,0.0}},
+          color={0,0,127}),
+        Line(visible=true,
+          points={{45.0,0.0},{100.0,0.0}},
+          color={0,0,127}),
+        Line(visible=true,
+          points={{-35.0,0.0},{30.0,35.0}},
+          color={0,0,127}),
+        Ellipse(visible=true,
+          lineColor={0,0,127},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          extent={{-45.0,-10.0},{-25.0,10.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Ellipse(
@@ -64,12 +73,14 @@ via parameter <b>samplePeriod</b>.
     */
     y = pre(ySample);
     annotation (
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={Line(points={{-78,-42},{-52,-42},{-52,0},{-26,
-                0},{-26,24},{-6,24},{-6,64},{18,64},{18,20},{38,20},{38,0},{44,
-                0},{44,0},{62,0}}, color={0,0,127})}),
+      Icon(
+        coordinateSystem(preserveAspectRatio=true,
+          extent={{-100.0,-100.0},{100.0,100.0}},
+          initialScale=0.1),
+          graphics={
+        Line(visible=true,
+          points={{-78.0,-42.0},{-52.0,-42.0},{-52.0,0.0},{-26.0,0.0},{-26.0,24.0},{-6.0,24.0},{-6.0,64.0},{18.0,64.0},{18.0,20.0},{38.0,20.0},{38.0,0.0},{44.0,0.0},{44.0,0.0},{62.0,0.0}},
+          color={0,0,127})}),
       Documentation(info="<HTML>
 <p>
 The output is identical to the sampled input signal at sample
@@ -104,12 +115,17 @@ sample instant during the sample points.
     */
     y = pre_uSample + pre(c)*(time - tSample);
     annotation (
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-79,-41},{-59,-33},{-40,1},{-20,
-                9},{0,63},{21,20},{41,10},{60,20}}, color={0,0,127}), Line(
-              points={{60,19},{81,10}}, color={0,0,255})}),
+      Icon(
+        coordinateSystem(preserveAspectRatio=true,
+          extent={{-100.0,-100.0},{100.0,100.0}},
+          initialScale=0.1),
+          graphics={
+        Line(visible=true,
+          points={{-79.0,-41.0},{-59.0,-33.0},{-40.0,1.0},{-20.0,9.0},{0.0,63.0},{21.0,20.0},{41.0,10.0},{60.0,20.0}},
+          color={0,0,127}),
+        Line(visible=true,
+          points={{60.0,20.0},{81.0,10.0}},
+          color={0,0,127})}),
       Documentation(info="<HTML>
 <p>
 The output signal is the extrapolation through the
@@ -145,23 +161,25 @@ previous sample instant. Before the second sample instant,
 the output y is identical to parameter yStart.
 </p>
 
-</html>"),   Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Line(points={{-30,0},{30,0}}, color={0,0,127}),
-          Text(
-            extent={{-90,10},{90,90}},
-            textString="1",
-            lineColor={0,0,127}),
-          Text(
-            extent={{-90,-10},{90,-90}},
-            textString="z",
-            lineColor={0,0,127})}),
+</html>"),   Icon(
+      coordinateSystem(preserveAspectRatio=true,
+        extent={{-100.0,-100.0},{100.0,100.0}},
+        initialScale=0.1),
+        graphics={
+      Line(visible=true,
+        points={{-30.0,0.0},{30.0,0.0}},
+        color={0,0,127}),
+      Text(visible=true,
+        lineColor={0,0,127},
+        extent={{-90.0,10.0},{90.0,90.0}},
+        textString="1"),
+      Text(visible=true,
+        lineColor={0,0,127},
+        extent={{-90.0,-90.0},{90.0,-10.0}},
+        textString="z")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-160,10},{-140,-10}},
@@ -254,23 +272,25 @@ states can be set as start values of <b>x</b>.</p>
     and Hilding Elmqvist.</li>
 </ul>
 </html>"),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Line(points={{82,0},{-84,0}}, color={0,0,127}),
-          Text(
-            extent={{-92,92},{86,12}},
-            lineColor={0,0,127},
-            textString="b(z)"),
-          Text(
-            extent={{-90,-12},{90,-90}},
-            lineColor={0,0,127},
-            textString="a(z)")}),
+      Icon(
+      coordinateSystem(preserveAspectRatio=true,
+        extent={{-100.0,-100.0},{100.0,100.0}},
+        initialScale=0.1),
+        graphics={
+      Line(visible=true,
+        points={{82.0,0.0},{-84.0,0.0}},
+        color={0,0,127}),
+      Text(visible=true,
+        lineColor={0,0,127},
+        extent={{-92.0,12.0},{86.0,92.0}},
+        textString="b(z)"),
+      Text(visible=true,
+        lineColor={0,0,127},
+        extent={{-90.0,-90.0},{90.0,-12.0}},
+        textString="a(z)")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(
             points={{40,0},{-44,0}},
@@ -346,8 +366,7 @@ results in the following equations:
 </pre>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-90,15},{-15,90}},
             textString="A",
@@ -370,8 +389,7 @@ results in the following equations:
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
             extent={{-54,50},{52,-10}},
@@ -407,22 +425,33 @@ results in the following equations:
   initial equation
     y = y_start;
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Ellipse(
-            extent={{-25,-10},{-45,10}},
-            lineColor={0,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,-10},{25,10}},
-            lineColor={0,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-45,0}}, color={0,0,127}),
-          Line(points={{45,0},{100,0}}, color={0,0,127}),
-          Line(points={{0,-100},{0,-26}}, color={255,0,255}),
-          Line(points={{-35,0},{28,-48}}, color={0,0,127})}),
+      Icon(
+        coordinateSystem(preserveAspectRatio=true,
+          extent={{-100.0,-100.0},{100.0,100.0}},
+          initialScale=0.1),
+          graphics={
+        Ellipse(visible=true,
+          lineColor={0,0,127},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          extent={{25.0,-10.0},{45.0,10.0}}),
+        Line(visible=true,
+          points={{-100.0,0.0},{-45.0,0.0}},
+          color={0,0,127}),
+        Line(visible=true,
+          points={{45.0,0.0},{100.0,0.0}},
+          color={0,0,127}),
+        Line(visible=true,
+          points={{0.0,-100.0},{0.0,-26.0}},
+          color={255,0,255}),
+        Line(visible=true,
+          points={{-35.0,0.0},{28.0,-48.0}},
+          color={0,0,127}),
+        Ellipse(visible=true,
+          lineColor={0,0,127},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          extent={{-45.0,-10.0},{-25.0,10.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Ellipse(
@@ -472,26 +501,37 @@ the initial value defined via parameter <b>y0</b>.
   initial equation
     y = 0;
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Ellipse(
-            extent={{-25,-10},{-45,10}},
-            lineColor={0,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{45,-10},{25,10}},
-            lineColor={0,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-100,0},{-45,0}}, color={0,0,127}),
-          Line(points={{45,0},{100,0}}, color={0,0,127}),
-          Line(points={{0,-100},{0,-26}}, color={255,0,255}),
-          Line(points={{-35,0},{28,-48}}, color={0,0,127}),
-          Text(
-            extent={{-86,82},{82,24}},
-            lineColor={0,0,0},
-            textString="max")}),
+      Icon(
+        coordinateSystem(preserveAspectRatio=true,
+          extent={{-100.0,-100.0},{100.0,100.0}},
+          initialScale=0.1),
+          graphics={
+        Ellipse(visible=true,
+          lineColor={0,0,127},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          extent={{25.0,-10.0},{45.0,10.0}}),
+        Line(visible=true,
+          points={{-100.0,0.0},{-45.0,0.0}},
+          color={0,0,127}),
+        Line(visible=true,
+          points={{45.0,0.0},{100.0,0.0}},
+          color={0,0,127}),
+        Line(visible=true,
+          points={{0.0,-100.0},{0.0,-26.0}},
+          color={255,0,255}),
+        Line(visible=true,
+          points={{-35.0,0.0},{28.0,-48.0}},
+          color={0,0,127}),
+        Text(visible=true,
+          extent={{-86.0,24.0},{82.0,82.0}},
+          color={0,0,127},
+          textString="max"),
+        Ellipse(visible=true,
+          lineColor={0,0,127},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          extent={{-45.0,-10.0},{-25.0,10.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Ellipse(

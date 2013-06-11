@@ -112,8 +112,7 @@ Possible reasons:
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-50},{-30,41}},
             pattern=LinePattern.None,
@@ -349,20 +348,21 @@ Possible reasons:
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-60},{-30,60}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
+            fillColor={255,255,255},
+            radius=10),
           Rectangle(
             extent={{30,-60},{100,60}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(extent={{-100,59},{-30,-60}}, lineColor={0,0,0}),
-          Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
+            fillColor={255,255,255},
+            radius=10),
+          Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
+          Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
           Text(
             extent={{-90,14},{-54,-11}},
             lineColor={128,128,128},
@@ -388,18 +388,18 @@ Possible reasons:
           Polygon(
             visible=useAxisFlange,
             points={{-10,30},{10,30},{30,50},{-30,50},{-10,30}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-30,11},{30,-10}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Polygon(
             visible=useAxisFlange,
             points={{10,30},{30,50},{30,-50},{10,-30},{10,30}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Text(
@@ -602,8 +602,7 @@ definition of the axes vectors n in the revolute joints of the planar loop.
     annotation (defaultComponentName="revolute",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-150,70},{150,100}},
             lineColor={0,0,0},
@@ -614,21 +613,23 @@ definition of the axes vectors n in the revolute joints of the planar loop.
             lineColor={0,0,255}),
           Rectangle(
             extent={{-20,10},{20,-10}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-100,-60},{-20,60}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
+            fillColor={255,255,255},
+            radius=10),
           Rectangle(
             extent={{20,-60},{100,60}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(extent={{-100,59},{-20,-60}}, lineColor={0,0,0}),
-          Rectangle(extent={{20,60},{100,-60}}, lineColor={0,0,0}),
+            fillColor={255,255,255},
+            radius=10),
+          Rectangle(extent={{-100,60},{-20,-60}}, lineColor={64,64,64}, radius=10),
+          Rectangle(extent={{20,60},{100,-60}}, lineColor={64,64,64}, radius=10),
           Text(
             extent={{-90,14},{-54,-11}},
             lineColor={128,128,128},
@@ -644,23 +645,34 @@ definition of the axes vectors n in the revolute joints of the planar loop.
             smooth=Smooth.None)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-60},{-20,60}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
+            fillColor={255,255,255},
+            radius=10),
+          Rectangle(
+            extent={{-100,-60},{-20,60}},
+            lineColor={64,64,64},
+            fillPattern=FillPattern.None,
+            radius=10),
           Rectangle(
             extent={{-20,10},{20,-10}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{20,-60},{100,60}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192})}),
+            fillColor={255,255,255},
+            radius=10),
+          Rectangle(
+            extent={{20,-60},{100,60}},
+            lineColor={64,64,64},
+            fillPattern=FillPattern.None,
+            radius=10)}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a and
@@ -800,19 +812,29 @@ vector \"n\" defining the cylinder axis
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Cylindrical.png\">
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
+          Rectangle(
+            extent={{-30,-30},{100,30}},
+            lineColor={64,64,64},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={255,255,255},
+            radius=10),
+          Rectangle(
+            extent={{-30,-30},{100,30}},
+            lineColor={64,64,64},
+            fillPattern=FillPattern.None,
+            radius=10),
           Rectangle(
             extent={{-100,-50},{0,50}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
+            fillColor={255,255,255},
+            radius=10),
           Rectangle(
-            extent={{0,-30},{100,30}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Line(points={{0,-50},{0,50}}, color={0,0,0}),
+            extent={{-100,-50},{0,50}},
+            lineColor={64,64,64},
+            fillPattern=FillPattern.None,
+            radius=10),
           Text(
             extent={{-150,100},{150,60}},
             textString="%name",
@@ -937,8 +959,7 @@ phi_b.start = 45<sup>o</sup>).
 </HTML>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,15},{-65,-15}},
             lineColor={0,0,0},
@@ -1172,8 +1193,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Planar.png\">
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-30,-60},{-10,60}},
             lineColor={0,0,0},
@@ -1443,8 +1463,7 @@ frame_b of the joint.
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Spherical.png\">
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-70,-70},{70,70}},
             lineColor={0,0,0},
@@ -1481,8 +1500,7 @@ frame_b of the joint.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-70,-70},{70,70}},
             lineColor={0,0,0},
@@ -1796,12 +1814,12 @@ frame_b of the joint.
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png\">
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
             color={160,160,164},
-            thickness=0.5),
+            thickness=0.5,
+            smooth=Smooth.Bezier),
           Polygon(
             points={{90,0},{50,20},{50,-20},{90,0}},
             lineColor={0,0,0},
@@ -1838,12 +1856,12 @@ frame_b of the joint.
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
             color={160,160,164},
-            thickness=0.5),
+            thickness=0.5,
+            smooth=Smooth.Bezier),
           Polygon(
             points={{90,0},{50,20},{50,-20},{90,0}},
             lineColor={0,0,0},
@@ -2149,12 +2167,12 @@ its tip position, is shown in
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
             color={160,160,164},
-            thickness=0.5),
+            thickness=0.5,
+            smooth=Smooth.Bezier),
           Polygon(
             points={{90,0},{50,20},{50,-20},{90,0}},
             lineColor={0,0,0},
@@ -2191,12 +2209,12 @@ its tip position, is shown in
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
             color={160,160,164},
-            thickness=0.5),
+            thickness=0.5,
+            smooth=Smooth.Bezier),
           Polygon(
             points={{90,0},{50,20},{50,-20},{90,0}},
             lineColor={0,0,0},
@@ -2425,8 +2443,7 @@ its tip position, is shown in
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-95,-40},{-15,40}},
             lineColor={0,0,0},
@@ -2477,8 +2494,7 @@ its tip position, is shown in
             textString="%rodLength")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-98,-40},{-18,40}},
             lineColor={0,0,0},
@@ -2980,8 +2996,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
 </pre>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-150,-50},{150,-90}},
             lineColor={0,0,255},
@@ -3074,8 +3089,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             thickness=0.5)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-60,-70},{46,-70}}, color={0,0,255}),
           Polygon(
             points={{60,-70},{45,-64},{45,-76},{60,-70}},
@@ -3276,64 +3290,137 @@ the origin of frame_a to the middle of the rod, this might be defined as:
         color={95,95,95},
         thickness=0.5));
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Rectangle(
-            extent={{-98,98},{98,-98}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-40,20},{-20,-20}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(
-            extent={{-40,140},{-20,20}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(
-            extent={{20,100},{40,60}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(
-            extent={{20,60},{40,-60}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(
-            extent={{40,10},{100,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(
-            extent={{-20,90},{20,70}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(
-            extent={{-100,10},{-40,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Text(
-            extent={{-150,175},{150,135}},
-            lineColor={0,0,255},
-            textString="%name"),
-          Line(points={{-80,20},{-60,20}}, color={0,0,0}),
-          Line(points={{-80,-20},{-60,-20}}, color={0,0,0}),
-          Line(points={{-10,60},{10,60}}, color={0,0,0}),
-          Line(points={{60,20},{80,20}}, color={0,0,0}),
-          Line(points={{60,-20},{80,-20}}, color={0,0,0}),
-          Line(points={{-70,-20},{-70,-70},{70,-70},{70,-20}}, color={0,0,0}),
-          Line(points={{0,60},{0,-70},{0,-100}}, color={0,0,0}),
-          Line(points={{-10,100},{10,100}}, color={0,0,0}),
-          Text(
-            extent={{-150,-64},{150,-94}},
-            lineColor={0,0,0},
-            textString="%ratio")}),
+      Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+        Text(origin = {0,-20},
+          lineColor = {0,0,255},
+          extent = {{-150,135},{150,175}},
+          textString = "%name"),
+        Text(origin = {0,12},
+          extent = {{-150,-94},{150,-64}},
+          textString = "%ratio"),
+        Rectangle(origin = {-35,60},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.HorizontalCylinder,
+          extent = {{-15,-40},{15,40}}),
+        Rectangle(origin = {-35,0},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.HorizontalCylinder,
+          extent = {{-15,-21},{15,21}}),
+        Line(points = {{-80,20},{-60,20}}),
+        Line(points = {{-80,-20},{-60,-20}}),
+        Line(points = {{-70,-20},{-70,-86}}),
+        Line(points = {{0,40},{0,-100}}),
+        Line(points = {{-10,40},{10,40}}),
+        Line(points = {{-10,80},{10,80}}),
+        Line(points = {{60,-20},{80,-20}}),
+        Line(points = {{60,20},{80,20}}),
+        Line(points = {{70,-20},{70,-86}}),
+        Rectangle(origin = {-75,0},
+          lineColor = {64,64,64},
+          fillColor = {191,191,191},
+          fillPattern = FillPattern.HorizontalCylinder,
+          extent = {{-25,-10},{25,10}}),
+        Rectangle(origin = {75,0},
+          lineColor = {64,64,64},
+          fillColor = {191,191,191},
+          fillPattern = FillPattern.HorizontalCylinder,
+          extent = {{-25,-10},{25,10}}),
+        Rectangle(origin = {-35,-19},
+          fillColor = {153,153,153},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-2},{15,2}}),
+        Rectangle(origin = {-35,-8},
+          fillColor = {204,204,204},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-3},{15,3}}),
+        Rectangle(origin = {-35,19},
+          fillColor = {204,204,204},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-2},{15,2}}),
+        Rectangle(origin = {-35,8},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-3},{15,3}}),
+        Rectangle(origin = {0,60},
+          lineColor = {64,64,64},
+          fillColor = {191,191,191},
+          fillPattern = FillPattern.HorizontalCylinder,
+          extent = {{-20,-10},{20,10}}),
+        Rectangle(origin = {-35,98},
+          fillColor = {153,153,153},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-2},{15,2}}),
+        Rectangle(origin = {-35,87},
+          fillColor = {204,204,204},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-3},{15,3}}),
+        Rectangle(origin = {-35,50},
+          fillColor = {204,204,204},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-4},{15,4}}),
+        Rectangle(origin = {-35,22},
+          fillColor = {102,102,102},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-2},{15,2}}),
+        Rectangle(origin = {-35,33},
+          fillColor = {153,153,153},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-3},{15,3}}),
+        Rectangle(origin = {-35,70},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-4},{15,4}}),
+        Rectangle(origin = {35,60},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.HorizontalCylinder,
+          extent = {{-15,-21},{15,21}}),
+        Rectangle(origin = {35,41},
+          fillColor = {153,153,153},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-2},{15,2}}),
+        Rectangle(origin = {35,52},
+          fillColor = {204,204,204},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-3},{15,3}}),
+        Rectangle(origin = {35,79},
+          fillColor = {204,204,204},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-2},{15,2}}),
+        Rectangle(origin = {35,68},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-3},{15,3}}),
+        Rectangle(origin = {35,0},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.HorizontalCylinder,
+          extent = {{-15,-40},{15,40}}),
+        Rectangle(origin = {35,38},
+          fillColor = {153,153,153},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-2},{15,2}}),
+        Rectangle(origin = {35,27},
+          fillColor = {204,204,204},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-3},{15,3}}),
+        Rectangle(origin = {35,-10},
+          fillColor = {204,204,204},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-4},{15,4}}),
+        Rectangle(origin = {35,-27},
+          fillColor = {153,153,153},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-3},{15,3}}),
+        Rectangle(origin = {35,10},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.Solid,
+          extent = {{-15,-4},{15,4}}),
+        Rectangle(origin = {-35,40},
+          fillColor = {255,255,255},
+          extent = {{-15,-61},{15,60}}),
+        Rectangle(origin = {35,21},
+          fillColor = {255,255,255},
+          extent = {{-15,-61},{15,60}}),
+        Line(points = {{70,-86},{-70,-86}})}),
       Documentation(info="<html>
 <p>This ideal massless joint provides a gear constraint between
 frames <code>frame_a</code> and <code>frame_b</code>. The axes of rotation
@@ -4130,7 +4217,6 @@ component).
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Text(
               extent={{-140,-50},{140,-75}},
@@ -4262,7 +4348,6 @@ component).
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Line(points={{-60,-70},{46,-70}}, color={0,0,255}),
             Polygon(
@@ -4813,7 +4898,6 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Text(
               extent={{-140,-41},{140,-66}},
@@ -5324,7 +5408,6 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
               extent={{50,20},{80,-20}},
@@ -5460,7 +5543,6 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Line(
               points={{-78,30},{-50,30}},
@@ -5745,7 +5827,6 @@ component).
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Text(
               extent={{-141,-41},{139,-66}},
@@ -6105,7 +6186,6 @@ component).
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Text(
               extent={{-140,-40},{140,-65}},
@@ -6442,7 +6522,6 @@ are connected by rigid rods.
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
               extent={{-90,90},{90,-90}},
@@ -6781,7 +6860,6 @@ and 1 prismatic joint are connected by rigid rods.
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
               extent={{-90,90},{90,-90}},
@@ -7093,8 +7171,7 @@ pair of joints\" from Woernle and Hiller is described in:
         defaultComponentName="constraint",
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-100,-70},{100,-100}},
               lineColor={95,95,95},
@@ -7167,8 +7244,7 @@ pair of joints\" from Woernle and Hiller is described in:
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            extent={{-100,-100},{100,100}}), graphics),
         Documentation(info="<html>
 <p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
@@ -7294,26 +7370,27 @@ pair of joints\" from Woernle and Hiller is described in:
         annotation ( defaultComponentName="constraint",
           Icon(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics={
+              extent={{-100,-100},{100,100}}), graphics={
             Text(
-    extent={{-63,-63},{53,-93}},
-    lineColor={0,0,0},
-    textString="n=%n",
-    fillColor={0,0,0},
-    fillPattern=FillPattern.Solid),
+              extent={{-63,-63},{53,-93}},
+              lineColor={0,0,0},
+              textString="n=%n",
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{-100,-60},{-30,60}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              fillColor={255,255,255},
+              radius=10),
             Rectangle(
               extent={{30,-60},{100,60}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(extent={{-100,59},{-30,-60}}, lineColor={0,0,0}),
-            Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
+              fillColor={255,255,255},
+              radius=10),
+            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
+            Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
             Text(
               extent={{-90,14},{-54,-11}},
               lineColor={128,128,128},
@@ -7324,7 +7401,7 @@ pair of joints\" from Woernle and Hiller is described in:
               textString="b"),
             Rectangle(
               extent={{-30,11},{30,-10}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Line(
@@ -7340,10 +7417,6 @@ pair of joints\" from Woernle and Hiller is described in:
               extent={{-150,120},{150,80}},
               lineColor={0,0,255},
               textString="%name")}),
-          Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics),
           Documentation(info="<html>
 <p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
@@ -7445,8 +7518,7 @@ pair of joints\" from Woernle and Hiller is described in:
         defaultComponentName="constraint",
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-150,120},{150,80}},
               lineColor={0,0,255},
@@ -7523,8 +7595,7 @@ pair of joints\" from Woernle and Hiller is described in:
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            extent={{-100,-100},{100,100}}), graphics),
         Documentation(info="<html>
 <p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
@@ -7624,8 +7695,7 @@ pair of joints\" from Woernle and Hiller is described in:
         defaultComponentName="constraint",
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-100,-70},{100,-100}},
               lineColor={95,95,95},
@@ -7725,8 +7795,7 @@ pair of joints\" from Woernle and Hiller is described in:
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            extent={{-100,-100},{100,100}}), graphics),
         Documentation(info="<html>
 <p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
@@ -8002,29 +8071,30 @@ position a degree of freedom is lost.
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-30,10},{10,-10}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{-100,-60},{-30,60}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              fillColor={255,255,255},
+              radius=10),
             Rectangle(
               extent={{30,-60},{100,60}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              fillColor={255,255,255},
+              radius=10),
             Text(
               extent={{-139,-168},{137,-111}},
               textString="%name",
               lineColor={0,0,255}),
-            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
-            Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
+            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={64,64,64}, radius=10),
+            Rectangle(extent={{30,60},{100,-60}}, lineColor={64,64,64}, radius=10),
             Text(
               extent={{-142,-108},{147,-69}},
               lineColor={0,0,0},
@@ -8036,38 +8106,49 @@ position a degree of freedom is lost.
             Line(points={{20,70},{41,70}}, color={0,0,0}),
             Polygon(
               points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{-10,90},{10,50}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={192,192,192})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,-60},{-30,60}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              fillColor={255,255,255},
+              radius=10),
+            Rectangle(
+              extent={{-100,-60},{-30,60}},
+              lineColor={64,64,64},
+              fillPattern=FillPattern.None,
+              radius=10),
             Rectangle(
               extent={{-30,10},{10,-10}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{30,-60},{100,60}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              fillColor={255,255,255},
+              radius=10),
+            Rectangle(
+              extent={{30,-60},{100,60}},
+              lineColor={64,64,64},
+              fillPattern=FillPattern.None,
+              radius=10),
             Line(points={{-60,60},{-60,96}}, color={0,0,0}),
             Line(points={{-20,70},{-60,70}}, color={0,0,0}),
             Line(points={{-20,80},{-20,60}}, color={0,0,0}),
@@ -8075,17 +8156,17 @@ position a degree of freedom is lost.
             Line(points={{20,70},{41,70}}, color={0,0,0}),
             Polygon(
               points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Rectangle(
               extent={{-10,50},{10,100}},
-              lineColor={0,0,0},
+              lineColor={64,64,64},
               fillPattern=FillPattern.VerticalCylinder,
               fillColor={192,192,192})}),
         Documentation(info="<html>
@@ -8330,8 +8411,7 @@ degree of freedom is lost.
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-30,-40},{100,30}},
               pattern=LinePattern.None,
@@ -8374,8 +8454,7 @@ degree of freedom is lost.
               textString="n=%n")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-30,-50},{-30,50}}, color={0,0,0}),
             Line(points={{0,-67},{90,-67}}, color={128,128,128}),
             Text(

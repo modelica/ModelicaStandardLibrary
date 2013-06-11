@@ -18,8 +18,7 @@ package Sensors "Potential, voltage, current, and power sensors"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-29,-11},{30,-70}},
             lineColor={0,0,0},
@@ -32,8 +31,7 @@ package Sensors "Potential, voltage, current, and power sensors"
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
             Line(points={{100,0},{70,0}}, color={0,0,127})}),
       Documentation(revisions="<html>
 <ul>
@@ -67,8 +65,7 @@ package Sensors "Potential, voltage, current, and power sensors"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-29,-11},{30,-70}},
             lineColor={0,0,0},
@@ -82,8 +79,7 @@ package Sensors "Potential, voltage, current, and power sensors"
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-70,0},{-96,0}}, color={0,0,0}),
           Line(points={{70,0},{96,0}}, color={0,0,0}),
           Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
@@ -119,8 +115,7 @@ package Sensors "Potential, voltage, current, and power sensors"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-29,-11},{30,-70}},
             lineColor={0,0,0},
@@ -134,8 +129,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           Line(points={{0,-90},{0,-70}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-153,79},{147,119}},
             textString="%name",
@@ -155,7 +149,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   end CurrentSensor;
 
 model PowerSensor "Sensor to measure the power"
-
+  extends Modelica.Icons.RotationalSensor;
   Modelica.Electrical.Analog.Interfaces.PositivePin pc
       "Positive pin, current path"
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}}, rotation=
@@ -204,44 +198,15 @@ equation
             -30},{-24,-38}}, color={0,0,127}));
   connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-80,
             -80},{-80,-110}}, color={0,0,127}));
-  annotation (Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Ellipse(
-            extent={{-70,70},{70,-70}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,100},{0,70}}, color={0,0,255}),
-          Line(points={{0,-70},{0,-100}}, color={0,0,255}),
-          Line(points={{-80,-100},{-80,-80},{-46,-52}},
-                                            color={0,0,127}),
-          Line(points={{-100,0},{100,0}}, color={0,0,255}),
-          Text(
-            extent={{150,120},{-150,160}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{0,70},{0,40}}, color={0,0,0}),
-          Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-          Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-          Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-          Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-          Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-          Polygon(
-            points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Ellipse(
-            extent={{-5,5},{5,-5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-29,-11},{30,-70}},
-            lineColor={0,0,0},
-            textString="P")}),
+  annotation (
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+      Line(points = {{0,100},{0,70}}, color = {0,0,255}),
+      Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
+      Line(points = {{-80,-100},{-80,-80},{-46,-52}}, color = {0,0,127}),
+      Line(points = {{-100,0},{100,0}}, color = {0,0,255}),
+      Text(lineColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name"),
+      Line(points = {{0,70},{0,40}}),
+      Text(extent = {{-29,-70},{30,-11}}, textString = "P")}),
     Documentation(info="<html>
 <p>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>

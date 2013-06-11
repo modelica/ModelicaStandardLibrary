@@ -469,8 +469,7 @@ determined from the connections to this bus.
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -689,8 +688,7 @@ motion on the controlBus of the r3 robot.
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -828,7 +826,6 @@ motion on the controlBus of the r3 robot.
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2},
             initialScale=0.1), graphics={
             Text(
               extent={{-100,98},{-24,68}},
@@ -931,43 +928,35 @@ Otherwise, the spring has an unrealistic deflection at initial time.
 Since relative quantities are used as state variables, this simplifies
 the definition of initial values considerably.
 </p>
-</html>"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+</html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
-              extent={{-100,10},{-60,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              lineColor={64,64,64}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              extent={{-90.0,-10.0},{-60.0,10.0}}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={128,128,128}),
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              points={{-60.0,10.0},{-60.0,20.0},{-40.0,40.0},{-40.0,-40.0},{-60.0,-20.0},{-60.0,10.0}}),
             Rectangle(
-              extent={{-40,60},{40,-60}},
-              lineColor={0,0,0},
-              pattern=LinePattern.Solid,
-              lineThickness=0.25,
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              lineColor={64,64,64}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              extent={{-40.0,-60.0},{40.0,60.0}}, 
+              radius=10.0),
             Polygon(
-              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              points={{60.0,20.0},{40.0,40.0},{40.0,-40.0},{60.0,-20.0},{60.0,20.0}}),
             Rectangle(
-              extent={{60,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              lineColor={64,64,64}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              extent={{60.0,-10.0},{90.0,10.0}}),
             Polygon(
-              points={{-60,-90},{-50,-90},{-20,-30},{20,-30},{48,-90},{60,-90},
-                  {60,-100},{-60,-100},{-60,-90}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              fillColor={64,64,64}, 
+              fillPattern=FillPattern.Solid, 
+              points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}}),
             Text(
               extent={{0,128},{0,68}},
               textString="%name",
@@ -978,8 +967,7 @@ the definition of initial values considerably.
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
+            extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{72,30},{130,22}},
               lineColor={0,0,0},
               textString="flange of joint axis"), Text(
@@ -1032,43 +1020,35 @@ The elasticity and damping in the gearboxes of the outermost
 three joints of the robot is neglected.
 Default values for all parameters are given for joint 4.
 </p>
-</html>"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+</html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
-              extent={{-100,10},{-60,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              lineColor={64,64,64}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              extent={{-90.0,-10.0},{-60.0,10.0}}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={128,128,128}),
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              points={{-60.0,10.0},{-60.0,20.0},{-40.0,40.0},{-40.0,-40.0},{-60.0,-20.0},{-60.0,10.0}}),
             Rectangle(
-              extent={{-40,60},{40,-60}},
-              lineColor={0,0,0},
-              pattern=LinePattern.Solid,
-              lineThickness=0.25,
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              lineColor={64,64,64}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              extent={{-40.0,-60.0},{40.0,60.0}}, 
+              radius=10.0),
             Polygon(
-              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              points={{60.0,20.0},{40.0,40.0},{40.0,-40.0},{60.0,-20.0},{60.0,20.0}}),
             Rectangle(
-              extent={{60,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              lineColor={64,64,64}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              extent={{60.0,-10.0},{90.0,10.0}}),
             Polygon(
-              points={{-60,-90},{-50,-90},{-20,-30},{20,-30},{48,-90},{60,-90},
-                  {60,-100},{-60,-100},{-60,-90}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              fillColor={64,64,64}, 
+              fillPattern=FillPattern.Solid, 
+              points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}}),
             Text(
               extent={{0,128},{0,68}},
               textString="%name",
@@ -1280,8 +1260,7 @@ produced by the motor).
 </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Text(
+            extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{0,120},{0,60}},
               textString="%name",
               lineColor={0,0,255}), Line(
@@ -1347,8 +1326,7 @@ produced by the motor).
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,-100},{100,100}},
               lineColor={0,0,0},
@@ -1545,8 +1523,7 @@ Default values of the parameters are given for the axis of joint 1.
 </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,50},{100,-50}},
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
@@ -1862,8 +1839,7 @@ This model contains the mechanical components of the r3 robot
 </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-200,-200},{200,200}},
-            grid={2,2}), graphics={
+            extent={{-200,-200},{200,200}}), graphics={
             Rectangle(
               extent={{-200,200},{200,-200}},
               lineColor={0,0,0},
@@ -1898,7 +1874,10 @@ This model contains the mechanical components of the r3 robot
               textString="6",
               lineColor={0,0,255}),
             Bitmap(extent={{-130,195},{195,-195}}, fileName=
-                  "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png")}));
+                  "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png")}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-200,-200},{200,200}}), graphics));
     end MechanicalStructure;
 
     annotation (Documentation(info="<html>

@@ -54,7 +54,6 @@ equation
               100}}), graphics={
           Rectangle(
             extent={{-80,32},{80,-30}},
-            pattern=LinePattern.None,
             lineColor={0,0,255}),
           Text(
             extent={{-30,-40},{30,-72}},
@@ -133,7 +132,6 @@ equation
               100}}), graphics={
           Rectangle(
             extent={{-80,30},{80,-32}},
-            pattern=LinePattern.None,
             lineColor={0,0,255}),
           Line(points={{-92,0},{-80,0}}, color={85,85,255}),
           Line(points={{80,0},{92,0}}, color={85,85,255}),

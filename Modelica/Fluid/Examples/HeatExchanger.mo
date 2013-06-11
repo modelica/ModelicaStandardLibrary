@@ -359,8 +359,7 @@ package HeatExchanger "Demo of a heat exchanger model"
           color={127,0,0},
           smooth=Smooth.None));
       annotation (   Icon(coordinateSystem(preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,-26},{100,-30}},
               lineColor={0,0,0},

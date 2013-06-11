@@ -792,8 +792,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
     annotation (   Icon(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
           Line(
             visible=get_r_rel,
             points={{-84,0},{-84,-60},{-100,-60},{-100,-100}},
@@ -1396,8 +1395,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         thickness=0.5,
         smooth=Smooth.None));
     annotation (              Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{70,0},{100,0}},
             color={0,0,127},
@@ -1658,8 +1656,7 @@ computed as:
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
     annotation (              Icon(coordinateSystem(
-            preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+            preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -2789,8 +2786,7 @@ transformed output vector as \"Real r_out[3]\";
        frame_resolve.f = zeros(3);
        frame_resolve.t = zeros(3);
       annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},
               lineColor={95,95,95},
@@ -2940,8 +2936,7 @@ transformed output vector as \"Real r_out[3]\";
           r = zeros(3);
        end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}},
-            grid={1,1}), graphics={Text(
+                -100},{100,100}}), graphics={Text(
               extent={{61,47},{145,17}},
               lineColor={0,0,0},
               textString="r"), Text(
@@ -3020,8 +3015,7 @@ transformed output vector as \"Real r_out[3]\";
           r_rel = zeros(3);
        end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}},
-            grid={1,1}), graphics={Text(
+                -100},{100,100}}), graphics={Text(
               extent={{12,-76},{96,-106}},
               lineColor={0,0,0},
               textString="r_rel"), Text(
@@ -3151,8 +3145,7 @@ transformed output vector as \"Real r_out[3]\";
           end if;
        end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}},
-            grid={1,1}), graphics={
+                -100},{100,100}}), graphics={
             Text(
               extent={{-128,-84},{-2,-112}},
               lineColor={0,0,0},
@@ -3312,8 +3305,7 @@ with the blocks of package Modelica.Blocks.
 </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-70,0},{-101,0}}, color={0,0,0}),
             Line(points={{70,0},{100,0}}, color={0,0,0}),
             Text(
@@ -3389,8 +3381,7 @@ with the blocks of package Modelica.Blocks.
 </p>
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Line(points={{-70,0},{-101,0}}, color={0,0,0}),
             Line(points={{70,0},{100,0}}, color={0,0,0}),
             Text(
@@ -3446,8 +3437,7 @@ with the blocks of package Modelica.Blocks.
        end if;
       annotation (
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}},
-            grid={1,1}), graphics={Text(
+                100,100}}), graphics={Text(
               extent={{-190,-70},{-74,-96}},
               lineColor={0,0,0},
               textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,

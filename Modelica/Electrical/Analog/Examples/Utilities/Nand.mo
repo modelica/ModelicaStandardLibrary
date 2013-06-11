@@ -96,8 +96,7 @@ equation
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
           extent={{-50,70},{50,-70}},
           lineColor={0,0,0},
@@ -156,8 +155,7 @@ Christoph Clau&szlig;
 </html>"),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Text(
+        extent={{-100,-100},{100,100}}), graphics={Text(
           extent={{-94,93},{-44,70}},
           lineColor={0,0,255},
           textString="NAND")}));

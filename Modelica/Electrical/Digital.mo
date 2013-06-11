@@ -532,6 +532,7 @@ The simulation stop time should be 10 seconds.
               points={{110,60},{130,60},{130,-46},{140,-46}},
               color={127,0,127}));
           annotation (
+            Diagram(coordinateSystem(extent = {{-200,-100},{200,100}})),
             Documentation(info="<HTML>
 <p>
 Four FullAdders are combined to built a four bit adder unit.
@@ -739,22 +740,18 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(reset.y, dFFREGL.reset) annotation (Line(
               points={{-66,-60},{-36.88,-60},{-36.88,-18.2}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(clock.y, dFFREGL.clock) annotation (Line(
               points={{-66,-20},{-62,-20},{-62,2.6},{-36.88,2.6}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(data_0.y, dFFREGL.dataIn[1]) annotation (Line(
               points={{-68,20},{-52,20},{-52,31.72},{-36.88,31.72}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(data_1.y, dFFREGL.dataIn[2]) annotation (Line(
               points={{-66,50},{-52,50},{-52,35.88},{-36.88,35.88}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
@@ -890,7 +887,6 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(data_1.y, dLATREG.dataIn[2]) annotation (Line(
               points={{-66,50},{-56,50},{-56,42.88},{-39.84,42.88}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
@@ -931,7 +927,6 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(data_1.y, dLATREGL.dataIn[2]) annotation (Line(
               points={{-66,50},{-56,50},{-56,42.88},{-39.84,42.88}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
@@ -963,27 +958,22 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(reset.y, dLATREGSRH.reset) annotation (Line(
               points={{-66,-60},{-40.44,-60},{-40.44,-19.4}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(enable.y, dLATREGSRH.enable) annotation (Line(
               points={{-66,-22},{-52,-22},{-52,3.2},{-40.44,3.2}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(data_0.y, dLATREGSRH.dataIn[1]) annotation (Line(
               points={{-66,18},{-52,18},{-52,34.84},{-40.44,34.84}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(data_1.y, dLATREGSRH.dataIn[2]) annotation (Line(
               points={{-66,50},{-52,50},{-52,39.36},{-40.44,39.36}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(set.y, dLATREGSRH.set) annotation (Line(
               points={{-66,84},{-40.44,84},{-40.44,59.7}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
 
           annotation (            experiment(StopTime=25),
@@ -1016,27 +1006,22 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(reset.y, dLATREGSRL.reset) annotation (Line(
               points={{-66,-60},{-40.44,-60},{-40.44,-20.2}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(enable.y, dLATREGSRL.enable) annotation (Line(
               points={{-66,-22},{-56,-22},{-56,2.6},{-40.44,2.6}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(data_0.y, dLATREGSRL.dataIn[1]) annotation (Line(
               points={{-66,18},{-56,18},{-56,34.52},{-40.44,34.52}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(data_1.y, dLATREGSRL.dataIn[2]) annotation (Line(
               points={{-66,50},{-56,50},{-56,39.08},{-40.44,39.08}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(set.y, dLATREGSRL.set) annotation (Line(
               points={{-66,84},{-40.44,84},{-40.44,59.6}},
               color={127,0,127},
-              pattern=LinePattern.None,
               smooth=Smooth.None));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
@@ -2245,8 +2230,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 </table>
 </html>"),  Icon(coordinateSystem(
                   preserveAspectRatio=true,
-                  extent={{-100,-100},{100,100}},
-                  grid={2,2}), graphics={
+                  extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
@@ -2344,8 +2328,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 <p>The Adder is a generic n bit adder which is composed as a chain of FullAdder components. n can be chosen by the user, a and b are the n bit input vectors, s is the sum vector, and c_out is the carry bit of the &quot;highes&quot; FullAdder.   All components are built up by Gate components.</p>
 </html>"),  Icon(coordinateSystem(
                   preserveAspectRatio=true,
-                  extent={{-100,-100},{100,100}},
-                  grid={2,2}), graphics={
+                  extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
@@ -7632,6 +7615,7 @@ Wires n input signals in one output signal, without delay.
   end Tristates;
 
   package Memories
+    extends Modelica.Icons.Package;
 
     model DLATRAM "Level sensitive Random Access Memory"
 
@@ -8069,18 +8053,10 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
               lineColor={127,33,107},
               textString="RE")}));
     end DLATROM;
-    annotation (Icon(graphics={            Rectangle(
-            extent={{-80,100},{100,-80}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Rectangle(
-            extent={{-100,80},{80,-100}},
-            lineColor={0,0,0},
-            fillColor={240,240,240},
-            fillPattern=FillPattern.Solid)}));
   end Memories;
 
   package Multiplexers
+    extends Modelica.Icons.Package;
     model MUX2x1 "A two inputs MULTIPLEXER for multiple value logic
 (2 data inputs, 1 select input, 1 output)"
 
@@ -8224,15 +8200,6 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 </dl>
 </html>"));
     end MUX2x1;
-    annotation (Icon(graphics={            Rectangle(
-            extent={{-80,100},{100,-80}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Rectangle(
-            extent={{-100,80},{80,-100}},
-            lineColor={0,0,0},
-            fillColor={240,240,240},
-            fillPattern=FillPattern.Solid)}));
   end Multiplexers;
       annotation (
         Documentation(info="<html>
@@ -8296,45 +8263,59 @@ Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</html>"),        Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-        Rectangle(
-          extent={{-52,4},{-32,-36}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{8,-46},{28,-86}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Rectangle(
-          extent={{8,4},{28,-36}},
-          lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid),
-        Line(points={{-72,-6},{-52,-6}}, color={0,0,0}),
-        Line(points={{-72,-28},{-52,-28}}, color={0,0,0}),
-        Ellipse(extent={{-32,-14},{-28,-18}}, lineColor={0,0,0}),
-        Ellipse(extent={{28,-14},{32,-18}}, lineColor={0,0,0}),
-        Line(points={{-28,-16},{8,-16}}, color={0,0,0}),
-        Line(points={{-28,-16},{-12,-16},{-12,-56},{8,-56}}, color={0,0,0}),
-        Line(points={{8,-76},{-72,-76}}, color={0,0,0}),
-        Line(points={{32,-16},{48,-16}}, color={0,0,0}),
-        Line(points={{28,-66},{48,-66}}, color={0,0,0}),
-        Text(
-          extent={{-32,-8},{-52,0}},
-          lineColor={0,0,0},
-          textString="&"),
-        Text(
-          extent={{28,-10},{8,-2}},
-          lineColor={0,0,0},
-          textString="1"),
-        Text(
-          extent={{28,-58},{8,-50}},
-          lineColor={0,0,0},
-          textString="=")}));
+</html>"),        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+          Rectangle(
+            origin = {12,41}, 
+            fillColor = {255,255,255}, 
+            fillPattern = FillPattern.Solid, 
+            extent = {{-52,-36},{-32,4}}),
+          Rectangle(
+            origin = {12,41}, 
+            fillColor = {255,255,255}, 
+            fillPattern = FillPattern.Solid, 
+            extent = {{8,-86},{28,-46}}),
+          Rectangle(
+            origin = {12,41}, 
+            fillColor = {255,255,255}, 
+            fillPattern = FillPattern.Solid, 
+            extent = {{8,-36},{28,4}}),
+          Line(
+            origin = {12,41}, 
+            points = {{-72,-6},{-52,-6}}),
+          Line(
+            origin = {12,41}, 
+            points = {{-72,-28},{-52,-28}}),
+          Ellipse(
+            origin = {12,41}, 
+            extent = {{-32,-18},{-28,-14}}),
+          Ellipse(
+            origin = {12,41}, 
+            extent = {{28,-18},{32,-14}}),
+          Line(
+            origin = {12,41}, 
+            points = {{-28,-16},{8,-16}}),
+          Line(
+            origin = {12,41}, 
+            points = {{-28,-16},{-12,-16},{-12,-56},{8,-56}}),
+          Line(
+            origin = {12,41}, 
+            points = {{8,-76},{-72,-76}}),
+          Line(
+            origin = {12,41}, 
+            points = {{32,-16},{48,-16}}),
+          Line(
+            origin = {12,41}, 
+            points = {{28,-66},{48,-66}}),
+          Text(
+            origin = {12,41}, 
+            extent = {{-52,-8},{-32,0}}, 
+            textString = "&"),
+          Text(
+            origin = {12,41}, 
+            extent = {{8,-10},{28,-2}}, 
+            textString = "1"),
+          Text(
+            origin = {12,41}, 
+            extent = {{8,-58},{28,-50}}, 
+            textString = "=")}));
 end Digital;
-

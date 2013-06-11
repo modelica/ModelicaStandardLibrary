@@ -9,8 +9,7 @@ package Routing "Library of blocks to combine and extract signals"
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,0},{-6,0}}, color={0,0,127}),
           Line(points={{100,0},{10,0}}, color={0,0,127}),
           Line(points={{0,0},{100,10}}, color={0,0,127}),
@@ -39,8 +38,7 @@ equation
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-90,51},{-50,-49}},
             fillColor={255,255,255},
@@ -127,8 +125,7 @@ equation
             textString="extract=%extract")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-90,50},{-50,-50}},
             lineColor={0,0,255},
@@ -265,8 +262,7 @@ equation
               k*u else outOfRangeValue;
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-80,50},{-40,-50}},
             lineColor={0,0,127},
@@ -365,8 +361,7 @@ explicitly defined via parameters n1 and n2.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
             extent={{-14,16},{16,-14}},
@@ -377,8 +372,7 @@ explicitly defined via parameters n1 and n2.
           Line(points={{-98,-60},{-60,-60},{-4,-4}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-98,60},{-60,60},{-4,6}}, color={0,0,255}),
           Line(points={{-98,-60},{-60,-60},{-4,-4}}, color={0,0,255}),
           Line(points={{8,0},{102,0}}, color={0,0,255}),
@@ -417,8 +411,7 @@ Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Line(points={{-100,70},{-60,70},{-4,6}}, color={0,0,127}),
           Line(points={{-100,0},{-12,0}}, color={0,0,127}),
@@ -430,8 +423,7 @@ explicitly defined via parameters n1, n2 and n3.
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,70},{-60,70},{-4,6}}, color={0,0,255}),
           Line(points={{-100,-70},{-62,-70},{-4,-4}}, color={0,0,255}),
           Line(points={{8,0},{102,0}}, color={0,0,255}),
@@ -476,8 +468,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Line(points={{-100,90},{-60,90},{-3,4}}, color={0,0,127}),
           Line(points={{-100,30},{-60,30},{-9,0}}, color={0,0,127}),
@@ -490,8 +481,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,90},{-60,90},{-3,4}}, color={0,0,255}),
           Line(points={{-100,-90},{-60,-90},{-5,-6}}, color={0,0,255}),
           Line(points={{8,0},{102,0}}, color={0,0,255}),
@@ -541,8 +531,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,255}),
           Line(points={{-100,100},{-60,100},{-4,6}}, color={0,0,127}),
           Line(points={{-99,50},{-60,50},{-8,5}}, color={0,0,127}),
@@ -556,8 +545,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,100},{-60,100},{-4,6}}, color={0,0,255}),
           Line(points={{-100,-100},{-60,-100},{-4,-4}}, color={0,0,255}),
           Line(points={{8,0},{102,0}}, color={0,0,255}),
@@ -613,8 +601,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{8,0},{102,0}}, color={0,0,127}),
           Ellipse(
             extent={{-15,15},{15,-15}},
@@ -629,8 +616,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-99,85},{-61,85},{-3,11}}, color={0,0,255}),
           Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,255}),
           Line(points={{8,0},{102,0}}, color={0,0,255}),
@@ -670,8 +656,8 @@ explicitly defined via parameters n1 and n2.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}),
+        graphics={
           Line(points={{100,60},{60,60},{10,8}}, color={0,0,127}),
           Ellipse(
             extent={{-14,16},{16,-14}},
@@ -682,8 +668,7 @@ explicitly defined via parameters n1 and n2.
           Line(points={{-100,0},{-6,0}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{100,60},{60,60},{10,8}}, color={0,0,255}),
           Line(points={{100,-60},{60,-60},{8,-8}}, color={0,0,255}),
           Line(points={{-100,0},{-6,0}}, color={0,0,255}),
@@ -723,8 +708,7 @@ explicitly defined via parameters n1, n2 and n3.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-14,16},{16,-14}},
             fillColor={0,0,127},
@@ -736,8 +720,7 @@ explicitly defined via parameters n1, n2 and n3.
           Line(points={{100,-70},{61,-70},{5,-5}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{100,70},{60,70},{4,5}}, color={0,0,255}),
           Line(points={{100,-70},{61,-70},{5,-5}}, color={0,0,255}),
           Line(points={{-100,0},{-6,0}}, color={0,0,255}),
@@ -782,8 +765,7 @@ Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-14,16},{16,-14}},
             fillColor={0,0,127},
@@ -796,8 +778,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
           Line(points={{99,-90},{60,-90},{6,-6}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{100,90},{60,90},{6,5}}, color={0,0,255}),
           Line(points={{99,-90},{60,-90},{6,-6}}, color={0,0,255}),
           Line(points={{-100,0},{-6,0}}, color={0,0,255}),
@@ -847,8 +828,7 @@ Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-14,16},{16,-14}},
             fillColor={0,0,127},
@@ -862,8 +842,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
           Line(points={{100,-80},{60,-80},{7,-5}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{99,80},{60,80},{6,5}}, color={0,0,255}),
           Line(points={{100,-80},{60,-80},{7,-5}}, color={0,0,255}),
           Line(points={{-100,0},{-6,0}}, color={0,0,255}),
@@ -917,8 +896,7 @@ Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-14,16},{16,-14}},
             fillColor={0,0,127},
@@ -933,8 +911,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{100,-91},{60,-91},{3,-7}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{99,90},{60,90},{5,10}}, color={0,0,255}),
           Line(points={{100,-91},{60,-91},{3,-7}}, color={0,0,255}),
           Line(points={{-100,0},{-6,0}}, color={0,0,255}),
@@ -1005,9 +982,14 @@ Passes a Real signal through without modification.  Enables signals to be read o
     annotation (                         Documentation(info="<html>
 <p>Passes a Boolean signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Line(points={{-100,0},{100,0}}, color={255,0,
-                255})}));
+      Icon(
+        coordinateSystem(preserveAspectRatio=true,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            initialScale=0.1),
+            graphics={
+        Line(
+          points={{-100.0,0.0},{100.0,0.0}},
+          color={255,0,255})}));
   end BooleanPassThrough;
   annotation (Documentation(info="<html>
 <p>

@@ -6,26 +6,32 @@ package Interfaces
 
   connector RealInput = input Real "'input Real' as connector" annotation (
     defaultComponentName="u",
-    Icon(graphics={Polygon(
-          points={{-100,100},{100,0},{-100,-100},{-100,100}},
-          lineColor={0,0,127},
-          fillColor={0,0,127},
-          fillPattern=FillPattern.Solid)}, coordinateSystem(
-        extent={{-100,-100},{100,100}},
+  
+    Icon(graphics={
+      Polygon(
+        lineColor={0,0,127},
+        fillColor={0,0,127},
+        fillPattern=FillPattern.Solid,
+        points={{-100.0,100.0},{100.0,0.0},{-100.0,-100.0}})},
+
+      coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}},
         preserveAspectRatio=true,
         initialScale=0.2)),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
+
+    Diagram(
+      coordinateSystem(preserveAspectRatio=true,
         initialScale=0.2,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Polygon(
-          points={{0,50},{100,0},{0,-50},{0,50}},
-          lineColor={0,0,127},
-          fillColor={0,0,127},
-          fillPattern=FillPattern.Solid), Text(
-          extent={{-10,85},{-10,60}},
-          lineColor={0,0,127},
-          textString="%name")}),
+        extent={{-100.0,-100.0},{100.0,100.0}}),
+        graphics={
+      Polygon(
+        lineColor={0,0,127},
+        fillColor={0,0,127},
+        fillPattern=FillPattern.Solid,
+        points={{0.0,50.0},{100.0,0.0},{0.0,-50.0},{0.0,50.0}}),
+      Text(
+        lineColor={0,0,127},
+        extent={{-10.0,60.0},{-10.0,85.0}},
+        textString="%name")}),
     Documentation(info="<html>
 <p>
 Connector with one input signal of type Real.
@@ -34,25 +40,32 @@ Connector with one input signal of type Real.
 
   connector RealOutput = output Real "'output Real' as connector" annotation (
     defaultComponentName="y",
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Polygon(
-          points={{-100,100},{100,0},{-100,-100},{-100,100}},
-          lineColor={0,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Polygon(
-          points={{-100,50},{0,0},{-100,-50},{-100,50}},
-          lineColor={0,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid), Text(
-          extent={{30,110},{30,60}},
-          lineColor={0,0,127},
-          textString="%name")}),
+  
+    Icon(
+      coordinateSystem(preserveAspectRatio=true,
+        extent={{-100.0,-100.0},{100.0,100.0}},
+        initialScale=0.1),
+        graphics={
+      Polygon(
+        lineColor={0,0,127},
+        fillColor={255,255,255},
+        fillPattern=FillPattern.Solid,
+        points={{-100.0,100.0},{100.0,0.0},{-100.0,-100.0}})}),
+
+    Diagram(
+      coordinateSystem(preserveAspectRatio=true,
+        extent={{-100.0,-100.0},{100.0,100.0}},
+        initialScale=0.1),
+        graphics={
+      Polygon(
+        lineColor={0,0,127},
+        fillColor={255,255,255},
+        fillPattern=FillPattern.Solid,
+        points={{-100.0,50.0},{0.0,0.0},{-100.0,-50.0}}),
+      Text(
+        lineColor={0,0,127},
+        extent={{30.0,60.0},{30.0,110.0}},
+        textString="%name")}),
     Documentation(info="<html>
 <p>
 Connector with one output signal of type Real.
@@ -73,8 +86,7 @@ Connector with one output signal of type Real.
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         initialScale=0.2,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Polygon(
           points={{0,50},{100,0},{0,-50},{0,50}},
           lineColor={255,0,255},
           fillColor={255,0,255},
@@ -93,16 +105,14 @@ Connector with one input signal of type Boolean.
     defaultComponentName="y",
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Polygon(
           points={{-100,100},{100,0},{-100,-100},{-100,100}},
           lineColor={255,0,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Polygon(
           points={{-100,50},{0,0},{-100,-50},{-100,50}},
           lineColor={255,0,255},
           fillColor={255,255,255},
@@ -130,8 +140,7 @@ Connector with one output signal of type Boolean.
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         initialScale=0.2,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Polygon(
           points={{0,50},{100,0},{0,-50},{0,50}},
           lineColor={255,127,0},
           fillColor={255,127,0},
@@ -150,16 +159,14 @@ Connector with one input signal of type Integer.
     defaultComponentName="y",
     Icon(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Polygon(
           points={{-100,100},{100,0},{-100,-100},{-100,100}},
           lineColor={255,127,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Polygon(
+        extent={{-100,-100},{100,100}}), graphics={Polygon(
           points={{-100,50},{0,0},{-100,-50},{-100,50}},
           lineColor={255,127,0},
           fillColor={255,255,255},
@@ -186,8 +193,7 @@ Connector with one output signal of type Integer.
     Diagram(coordinateSystem(
         preserveAspectRatio=false,
         initialScale=0.2,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Text(
+        extent={{-100,-100},{100,100}}), graphics={Text(
           extent={{-10,85},{-10,60}},
           lineColor={0,0,127},
           textString="%name"), Ellipse(
@@ -217,8 +223,7 @@ and has therefore a different icon as RealInput connector.
     Diagram(coordinateSystem(
         preserveAspectRatio=false,
         initialScale=0.2,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Text(
+        extent={{-100,-100},{100,100}}), graphics={Text(
           extent={{-10,85},{-10,60}},
           lineColor={255,128,0},
           textString="%name"), Ellipse(
@@ -249,8 +254,7 @@ and has therefore a different icon as IntegerInput connector.
     Diagram(coordinateSystem(
         preserveAspectRatio=false,
         initialScale=0.2,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={Text(
+        extent={{-100,-100},{100,100}}), graphics={Text(
           extent={{-10,85},{-10,60}},
           lineColor={255,0,255},
           textString="%name"), Ellipse(
@@ -373,7 +377,6 @@ one continuous Real output signal.
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.06), graphics={
           Text(
             extent={{110,-50},{300,-70}},
@@ -387,6 +390,7 @@ one continuous Real output signal.
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={255,137,0},
+            lineThickness=5.0,
             fillColor={255,255,255},
             borderPattern=BorderPattern.Raised,
             fillPattern=FillPattern.Solid)}));
@@ -476,8 +480,7 @@ generated signal.
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={Text(
+          extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-102,34},{-142,24}},
               textString="(setpoint)",
               lineColor={0,0,255}),Text(
@@ -512,8 +515,7 @@ to be used as base class for a corresponding controller.
         Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={Text(
+          extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-100,36},{-140,26}},
               textString="(setpoint)",
               lineColor={0,0,255}),Text(
@@ -793,8 +795,7 @@ Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -897,7 +898,6 @@ where the signal sizes of the input and output vector are identical.
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.06), graphics={
           Text(
             extent={{110,-50},{250,-70}},
@@ -913,6 +913,7 @@ where the signal sizes of the input and output vector are identical.
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
+            lineThickness=5.0,
             fillColor={255,213,170},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised)}));
@@ -931,7 +932,6 @@ where the signal sizes of the input and output vector are identical.
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.06), graphics={
           Text(
             extent={{110,-50},{250,-70}},
@@ -947,6 +947,7 @@ where the signal sizes of the input and output vector are identical.
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={255,137,0},
+            lineThickness=5.0,
             fillColor={255,213,170},
             borderPattern=BorderPattern.Raised,
             fillPattern=FillPattern.Solid)}));
@@ -999,8 +1000,7 @@ with a 3D icon (e.g., used in Blocks.Logical library).
 
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-71,7},{-85,-7}},
             lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0}
@@ -1048,8 +1048,7 @@ with a 3D icon (e.g., used in Blocks.Logical library).
 
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-71,74},{-85,88}},
             lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0}
@@ -1206,6 +1205,7 @@ and a 3D icon (e.g., used in Blocks.Logical library).
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
+            lineThickness=5.0,
             fillColor={210,210,210},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1246,6 +1246,7 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
+            lineThickness=5.0,
             fillColor={210,210,210},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1256,8 +1257,8 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
             fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
                  else {235,235,235}),
             fillPattern=FillPattern.Solid),
-          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
-          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255})}),
+          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,127}),
+          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127})}),
         Documentation(info="<html>
 <p>
 Block has two continuous Real input and one continuous Boolean output signal
@@ -1278,7 +1279,6 @@ has a 3D icon (e.g., used in Blocks.Logical library).
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.04), graphics={
           Text(
             extent={{-250,170},{250,110}},
@@ -1287,6 +1287,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
+            lineThickness=5.0,
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1314,7 +1315,6 @@ has a 3D icon (e.g., used in Blocks.Logical library).
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.06), graphics={
           Text(
             extent={{-250,170},{250,110}},
@@ -1323,6 +1323,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
+            lineThickness=5.0,
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised),
@@ -1351,14 +1352,14 @@ has a 3D icon (e.g., used in Blocks.Logical library).
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
                   extent={{-100,40},{100,-40}},
-                  lineColor={0,0,255},
+                  lineColor={0,0,127},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-144,96},{144,46}},
                   lineColor={0,0,0},
                   textString="%name"),Text(
                   extent={{-100,30},{100,-30}},
-                  lineColor={0,0,255},
+                  lineColor={0,0,127},
                   textString="send")}), Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Real signal
@@ -1453,11 +1454,11 @@ for signal buses, see example
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
                   extent={{-100,40},{100,-40}},
-                  lineColor={0,0,255},
+                  lineColor={0,0,127},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,30},{100,-30}},
-                  lineColor={0,0,255},
+                  lineColor={0,0,127},
                   textString="receive"),Text(
                   extent={{-144,96},{144,46}},
                   lineColor={0,0,0},
@@ -1564,23 +1565,29 @@ for signal buses, see example
       "Connector of Real output signal containing input signal u in another unit"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={
-          Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{30,0}}, color={191,0,0}),
-          Polygon(
-            points={{90,0},{30,20},{30,-20},{90,0}},
-            lineColor={191,0,0},
-            fillColor={191,0,0},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-115,155},{115,105}},
-            textString="%name",
-            lineColor={0,0,255})}), Documentation(info="<html>
+    annotation (
+      Icon(
+        coordinateSystem(preserveAspectRatio=true,
+          extent={{-100.0,-100.0},{100.0,100.0}},
+          initialScale=0.1),
+          graphics={
+        Rectangle(
+          lineColor={0,0,127},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          extent={{-100.0,-100.0},{100.0,100.0}}),
+        Line(
+          points={{-90.0,0.0},{30.0,0.0}},
+          color={191,0,0}),
+        Polygon(
+          lineColor={191,0,0},
+          fillColor={191,0,0},
+          fillPattern=FillPattern.Solid,
+          points={{90.0,0.0},{30.0,20.0},{30.0,-20.0},{90.0,0.0}}),
+        Text(
+          lineColor={0,0,255},
+          extent={{-115.0,105.0},{115.0,155.0}},
+          textString="%name")}), Documentation(info="<html>
 <p>
 This block defines the interface of a conversion block that
 converts from one unit into another one.
@@ -1640,8 +1647,10 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.BooleanBlock\">Model
               {100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}},
             lineColor={0,0,127},
-            fillColor={223,223,159},
-            fillPattern=FillPattern.Solid), Text(
+            lineThickness=5.0,
+            fillColor={223,211,169},
+            fillPattern=FillPattern.Solid,
+            borderPattern=BorderPattern.Raised), Text(
             extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
@@ -1680,6 +1689,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.IntegerBlock\">Model
               {100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
+            lineThickness=5.0,
             fillColor={210,210,210},
             fillPattern=FillPattern.Solid,
             borderPattern=BorderPattern.Raised), Text(

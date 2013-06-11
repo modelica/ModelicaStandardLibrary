@@ -117,8 +117,7 @@ package Lines
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}},
             fillColor={255,255,255},
@@ -136,8 +135,7 @@ package Lines
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Rectangle(extent={{-60,60},{60,-60}},
+          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
             lineColor={0,0,255}),Line(points={{0,-60},{0,-96}}, color={0,0,255}),
             Line(points={{60,0},{96,0}}, color={0,0,255}),Line(points={{-60,0},
             {-96,0}}, color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,
@@ -607,8 +605,7 @@ The capacitances are calculated with: C=c*length/N.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}},
             fillColor={255,255,255},
@@ -626,8 +623,7 @@ The capacitances are calculated with: C=c*length/N.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={Rectangle(extent={{-60,60},{60,-60}},
+          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
             lineColor={0,0,255}),Line(points={{0,-60},{0,-96}}, color={0,0,255}),
             Line(points={{60,0},{96,0}}, color={0,0,255}),Line(points={{-60,0},
             {-96,0}}, color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,
@@ -669,20 +665,19 @@ The capacitances are calculated with: C=c*length/N.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}),graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={255,255,255}),
-          Line(points={{60,-50},{90,-50}},color={0,0,255}),
-          Line(points={{60,50},{90,50}},color={0,0,255}),
-          Line(points={{-60,50},{-90,50}},color={0,0,255}),
-          Line(points={{-60,-50},{-90,-50}},color={0,0,255}),
-          Line(points={{30,30},{-30,30}},color={0,0,255}),
-          Line(points={{-30,40},{-30,20}},color={0,0,255}),
-          Line(points={{30,40},{30,20}},color={0,0,255}),
+          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
+          Line(points={{60,50},{90,50}}, color={0,0,255}),
+          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
+          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
             extent={{-50,0},{50,-20}},
             textString="TLine1",
@@ -693,8 +688,7 @@ The capacitances are calculated with: C=c*length/N.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}),graphics={Rectangle(extent={{-60,60},{60,-60}}, lineColor=
+          extent={{-100,-100},{100,100}}),graphics={Rectangle(extent={{-60,60},{60,-60}}, lineColor=
              {0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,255}),Line(
             points={{60,50},{96,50}}, color={0,0,255}),Line(points={{-60,50},{-96,
             50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}}, color={0,
@@ -745,8 +739,7 @@ The capacitances are calculated with: C=c*length/N.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}},
             lineColor={0,0,255},
@@ -769,8 +762,7 @@ The capacitances are calculated with: C=c*length/N.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Rectangle(extent={{-60,60},{60,-60}},
+          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
             lineColor={0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,
             255}),Line(points={{60,50},{96,50}}, color={0,0,255}),Line(points={
             {-60,50},{-96,50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}},
@@ -815,8 +807,7 @@ The capacitances are calculated with: C=c*length/N.
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}},
             lineColor={0,0,255},
@@ -839,8 +830,7 @@ The capacitances are calculated with: C=c*length/N.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Rectangle(extent={{-60,60},{60,-60}},
+          extent={{-100,-100},{100,100}}), graphics={Rectangle(extent={{-60,60},{60,-60}},
             lineColor={0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,
             255}),Line(points={{60,50},{96,50}}, color={0,0,255}),Line(points={
             {-60,50},{-96,50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}},

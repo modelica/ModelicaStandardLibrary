@@ -39,7 +39,6 @@ different icons.
      Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.16), graphics={Rectangle(
             extent={{-10,10},{10,-10}},
             lineColor={95,95,95},
@@ -51,7 +50,6 @@ different icons.
      Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.16), graphics={Text(
             extent={{-140,-50},{140,-88}},
             lineColor={0,0,0},
@@ -78,7 +76,6 @@ This component has a filled rectangular icon.
      Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.16), graphics={Rectangle(
             extent={{-10,10},{10,-10}},
             lineColor={95,95,95},
@@ -90,7 +87,6 @@ This component has a filled rectangular icon.
      Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.16), graphics={Text(
             extent={{-140,-50},{140,-88}},
             lineColor={0,0,0},
@@ -116,7 +112,6 @@ coordinate system a vector is resolved (non-filled rectangular icon)"
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.16), graphics={Rectangle(
             extent={{-10,10},{10,-10}},
             lineColor={95,95,95},
@@ -129,7 +124,6 @@ coordinate system a vector is resolved (non-filled rectangular icon)"
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1},
           initialScale=0.16), graphics={Text(
             extent={{-140,-50},{140,-88}},
             lineColor={0,0,0},
@@ -168,8 +162,7 @@ end Frame_resolve;
       defaultComponentName="flange",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-20,1},{20,-1}},
             lineColor={135,135,135},
@@ -180,20 +173,19 @@ end Frame_resolve;
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-100,25},{100,-24}},
-            lineColor={0,0,0},
+            extent={{-100,25},{100,-25}},
+            lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={175,175,175}),
+            fillColor={192,192,192}),
           Line(points={{-80,60},{80,60}}, color={0,0,0}),
           Line(points={{-80,-60},{80,-60}}, color={0,0,0}),
           Line(points={{0,100},{0,60}}, color={0,0,0}),
           Line(points={{0,-60},{0,-100}}, color={0,0,0}),
           Rectangle(extent={{-100,100},{100,-100}}, lineColor={135,135,135}),
-          Rectangle(extent={{-100,25},{100,-24}}, lineColor={0,0,0})}),
+          Rectangle(extent={{-100,25},{100,-25}}, lineColor={64,64,64})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-50,-40},{50,-40}},
             color={0,0,0},
@@ -215,15 +207,15 @@ end Frame_resolve;
             fillPattern=FillPattern.Solid),
           Rectangle(
             extent={{-60,15},{60,-15}},
-            lineColor={0,0,0},
+            lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={175,175,175}),
+            fillColor={192,192,192}),
           Line(points={{0,60},{0,40}}, color={0,0,0}),
           Line(points={{0,-40},{0,-60}}, color={0,0,0}),
           Line(points={{-50,40},{50,40}}, color={0,0,0}),
           Line(points={{-50,-40},{50,-40}}, color={0,0,0}),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={135,135,135}),
-          Rectangle(extent={{-60,15},{60,-15}}, lineColor={0,0,0})}),
+          Rectangle(extent={{-60,15},{60,-15}}, lineColor={64,64,64})}),
       Documentation(info="<html>
 <p>
 This hierarchical connector models a 1-dim. rotational flange
@@ -270,8 +262,7 @@ to the FlangeWithBearing connector.
       defaultComponentName="adaptor",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,30},{20,-100}},
             lineColor={255,255,255},
@@ -317,8 +308,7 @@ connector.
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Text(
+          extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-136,-25},{-100,-50}},
             lineColor={128,128,128},
             textString="a"), Text(
@@ -415,8 +405,7 @@ needed and if this connector should be connected for a correct model.
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Text(
+          extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{94,-20},{130,-45}},
             lineColor={128,128,128},
             textString="b")}),
@@ -678,8 +667,7 @@ with the blocks of package Modelica.Blocks.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-70,0},{-100,0}}, color={0,0,0}),
           Line(points={{70,0},{100,0}}, color={0,0,255}),
           Text(
@@ -723,8 +711,7 @@ with the blocks of package Modelica.Blocks.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-70,0},{-101,0}}, color={0,0,0}),
           Line(points={{70,0},{100,0}}, color={0,0,0}),
           Line(points={{0,-100},{0,-70}}, color={0,0,127}),

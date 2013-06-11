@@ -4238,8 +4238,7 @@ relationship of the voltage and current space phasor.
         defaultComponentName="converter",
         Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-60,60},{58,0}},
               lineColor={0,0,255},
@@ -6429,8 +6428,7 @@ Source of magnetic flux with complex signal input.
       V_m = Complex(0, 0);
       annotation (Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
+            extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{-29,-11},{30,-70}},
                   lineColor={0,0,0},
                   textString="Phi"),Line(points={{-72,0},{-90,0}}, color={0,0,0}),
@@ -6470,8 +6468,7 @@ Source of magnetic flux with complex signal input.
       Phi = Complex(0, 0);
       annotation (Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
+            extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{-52,1},{48,-57}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
@@ -6507,8 +6504,7 @@ Source of magnetic flux with complex signal input.
       V_m = port_p.V_m;
       annotation (Icon(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
+            extent={{-100,-100},{100,100}}), graphics={Text(
                   extent={{-52,1},{48,-57}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},

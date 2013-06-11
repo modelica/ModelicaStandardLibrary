@@ -301,8 +301,7 @@ This leads to the following animation
 
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-61,64},{46,27}},
             lineColor={192,192,192},
@@ -1097,8 +1096,7 @@ clarity this is not shown in the animation):
         smooth=Smooth.None));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}},
-          grid={2,2}), graphics={
+              100}}), graphics={
           Rectangle(
             extent={{-98,99},{99,-98}},
             lineColor={255,255,255},
@@ -1413,8 +1411,7 @@ for this situation:
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-95,-40},{-15,40}},
             lineColor={0,0,0},
@@ -1479,8 +1476,7 @@ for this situation:
             textString="R=0")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-60,80},{46,80}}, color={0,0,255}),
           Polygon(
             points={{60,80},{45,86},{45,74},{60,80}},
@@ -1849,8 +1845,7 @@ for this situation:
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             extent={{-100,-40},{-20,40}},
             lineColor={0,0,0},
@@ -1922,8 +1917,7 @@ for this situation:
             textString="R=0")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-60,80},{46,80}}, color={0,0,255}),
           Polygon(
             points={{60,80},{45,86},{45,74},{60,80}},
@@ -2285,8 +2279,7 @@ where a mass is hanging on a damper.
 </HTML>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-101,0},{-60,0}}, color={0,0,0}),
           Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
           Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
@@ -2312,8 +2305,7 @@ where a mass is hanging on a damper.
             smooth=Smooth.None)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,0},{-60,0}}, color={0,0,0}),
           Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
           Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
@@ -2396,8 +2388,7 @@ and der(s) is the time derivative of s.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-150,-150},{150,-110}},
             textString="%name",
@@ -2432,8 +2423,7 @@ and der(s) is the time derivative of s.
             textString="c=%c")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},{
                 80,32}},
@@ -2512,8 +2502,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,0},{-15,0}}, color={0,0,0}),
           Line(points={{-60,-30},{-15,-30}}, color={0,0,0}),
           Line(points={{-60,30},{-15,30}}, color={0,0,0}),
@@ -2543,8 +2532,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
             textString="d=%d")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,0},{-15,0}}, color={0,0,0}),
           Line(points={{-60,-30},{-15,-30}}, color={0,0,0}),
           Line(points={{-60,30},{-15,30}}, color={0,0,0}),

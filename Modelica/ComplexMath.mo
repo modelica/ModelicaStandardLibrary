@@ -654,8 +654,9 @@ operating on complex numbers (such as sin(..)),
 as well as functions operating on vectors of complex numbers.
 </p>
 
-</html>"), Icon(graphics={Text(
-          extent={{-94,-14},{72,-56}},
-          lineColor={0,0,0},
+</html>"), Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}, preserveAspectRatio=true), graphics={
+        Text(
+          origin={11.9277,66.6667}, 
+          extent={{-101.9277,-106.6667},{78.0723,-26.6667}}, 
           textString="f(x+j*y)")}));
 end ComplexMath;

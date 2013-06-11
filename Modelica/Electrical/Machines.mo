@@ -9261,71 +9261,68 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Polygon(
-              points={{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}},
-              lineColor={0,0,0},
-              smooth=Smooth.None,
-              fillColor={135,135,135},
-              fillPattern=FillPattern.VerticalCylinder),
-            Polygon(
-              points={{60,50},{40,30},{40,-50},{60,-70},{60,50}},
-              lineColor={0,0,0},
-              smooth=Smooth.None,
-              fillColor={135,135,135},
-              fillPattern=FillPattern.VerticalCylinder),
-            Polygon(
-              points={{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,
-                  40}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              smooth=Smooth.None,
-              fillColor={135,135,135}),
-            Polygon(
-              points={{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},
-                  {-80,50}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              smooth=Smooth.None,
-              fillColor={135,135,135}),
-            Polygon(
-              points={{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{
-                  -60,-50},{-80,-70}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.VerticalCylinder,
-              smooth=Smooth.None,
-              fillColor={135,135,135}),
-            Rectangle(
-              extent={{-88,26},{-52,-46}},
-              lineColor={128,0,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={128,0,255}),
-            Rectangle(
-              extent={{-94,18},{-46,-38}},
-              lineColor={0,128,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,128,255}),
-            Rectangle(
-              extent={{-28,26},{8,-46}},
-              lineColor={128,0,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={128,0,255}),
-            Rectangle(
-              extent={{-34,18},{14,-38}},
-              lineColor={0,128,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,128,255}),
-            Rectangle(
-              extent={{32,26},{68,-46}},
-              lineColor={128,0,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={128,0,255}),
-            Rectangle(
-              extent={{26,18},{74,-38}},
-              lineColor={0,128,255},
-              fillPattern=FillPattern.VerticalCylinder,
-              fillColor={0,128,255})}));
+</HTML>"),     Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
+        Polygon(
+          origin = {10,10}, 
+          fillColor = {135,135,135}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          points = {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
+        Polygon(
+          origin = {10,10}, 
+          fillColor = {135,135,135}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          points = {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
+        Polygon(
+          origin = {10,10}, 
+          fillColor = {135,135,135}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          points = {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
+        Polygon(
+          origin = {10,10}, 
+          fillColor = {135,135,135}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          points = {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
+        Polygon(
+          origin = {10,10}, 
+          fillColor = {135,135,135}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          points = {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
+        Rectangle(
+          origin = {10,10}, 
+          lineColor = {128,0,255}, 
+          fillColor = {128,0,255}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          extent = {{-88,-46},{-52,26}}),
+        Rectangle(
+          origin = {10,10}, 
+          lineColor = {0,128,255}, 
+          fillColor = {0,128,255}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          extent = {{-94,-38},{-46,18}}),
+        Rectangle(
+          origin = {10,10}, 
+          lineColor = {128,0,255}, 
+          fillColor = {128,0,255}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          extent = {{-28,-46},{8,26}}),
+        Rectangle(
+          origin = {10,10}, 
+          lineColor = {0,128,255}, 
+          fillColor = {0,128,255}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          extent = {{-34,-38},{14,18}}),
+        Rectangle(
+          origin = {10,10}, 
+          lineColor = {128,0,255}, 
+          fillColor = {128,0,255}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          extent = {{32,-46},{68,26}}),
+        Rectangle(
+          origin = {10,10}, 
+          lineColor = {0,128,255}, 
+          fillColor = {0,128,255}, 
+          fillPattern = FillPattern.VerticalCylinder, 
+          extent = {{26,-38},{74,18}})}));
     end Transformers;
 
     package Components "Machine components like AirGaps"
@@ -9795,8 +9792,7 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
 If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the voltage drop is zero.</p>
 </html>"),Icon(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics={
+              extent={{-100,-100},{100,100}}), graphics={
               Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
               Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
               Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
@@ -9823,8 +9819,7 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
                 fillPattern=FillPattern.Solid)}),
           Diagram(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics={
+              extent={{-100,-100},{100,100}}), graphics={
               Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
               Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
               Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
@@ -10205,34 +10200,32 @@ The induction machine models use package SpacePhasors.
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={
-          Rectangle(
-            extent={{-60,60},{60,-60}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={0,128,255}),
-          Rectangle(
-            extent={{-60,60},{-80,-60}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={128,128,128}),
-          Rectangle(
-            extent={{60,10},{80,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={95,95,95}),
-          Rectangle(
-            extent={{-60,70},{20,50}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{
-                60,-100},{-70,-100},{-70,-90}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}));
+</HTML>"), Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
+        Rectangle(
+          origin = {2.835,10}, 
+          fillColor = {0,128,255}, 
+          fillPattern = FillPattern.HorizontalCylinder, 
+          extent = {{-60,-60},{60,60}}),
+        Rectangle(
+          origin = {2.835,10}, 
+          fillColor = {128,128,128}, 
+          fillPattern = FillPattern.HorizontalCylinder, 
+          extent = {{-80,-60},{-60,60}}),
+        Rectangle(
+          origin = {2.835,10}, 
+          fillColor = {95,95,95}, 
+          fillPattern = FillPattern.HorizontalCylinder, 
+          extent = {{60,-10},{80,10}}),
+        Rectangle(
+          origin = {2.835,10}, 
+          lineColor = {95,95,95}, 
+          fillColor = {95,95,95}, 
+          fillPattern = FillPattern.Solid, 
+          extent = {{-60,50},{20,70}}),
+        Polygon(
+          origin = {2.835,10}, 
+          fillPattern = FillPattern.Solid, 
+          points = {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}));
   end BasicMachines;
 
   package Sensors "Sensors for machine modelling"
@@ -10291,36 +10284,37 @@ The induction machine models use package SpacePhasors.
           points={{0,-81},{0,-110}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
-            Line(points={{70,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,127}),
-            Text(
-              extent={{-40,-20},{40,-60}},
-              lineColor={0,0,255},
-              textString="V RMS")}),
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+          Line(points = {{-90,0},{-70,0}},
+            color = {0,0,255}),
+          Line(points = {{70,0},{90,0}},
+            color = {0,0,255}),
+          Line(points = {{0,-70},{0,-100}},
+            color = {0,0,127}),
+          Ellipse(fillColor = {192,192,192},
+            fillPattern = FillPattern.Solid,
+            extent = {{-70,-70},{70,70}}),
+          Line(points = {{0,70},{0,40}}),
+          Line(points = {{22.9,32.8},{40.2,57.3}}),
+          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
+          Line(points = {{37.6,13.7},{65.8,23.9}}),
+          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
+          Ellipse(lineColor = {64,64,64},
+            fillColor = {255,255,255},
+            extent = {{-12,-12},{12,12}}),
+          Polygon(rotation = -17.5,
+            fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
+          Ellipse(fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            extent = {{-7,-7},{7,7}}),
+          Text(lineColor = {0,0,255},
+            extent = {{-40,-60},{40,-20}},
+            textString = "V RMS")}),
         Documentation(info="<HTML>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
@@ -10382,36 +10376,37 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
           points={{0,-81},{0,-110}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
-            Line(points={{70,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,127}),
-            Text(
-              extent={{-40,-20},{40,-60}},
-              lineColor={0,0,255},
-              textString="A RMS")}),
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+          Line(points = {{-90,0},{-70,0}},
+            color = {0,0,255}),
+          Line(points = {{70,0},{90,0}},
+            color = {0,0,255}),
+          Line(points = {{0,-70},{0,-100}},
+            color = {0,0,127}),
+          Ellipse(fillColor = {192,192,192},
+            fillPattern = FillPattern.Solid,
+            extent = {{-70,-70},{70,70}}),
+          Line(points = {{0,70},{0,40}}),
+          Line(points = {{22.9,32.8},{40.2,57.3}}),
+          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
+          Line(points = {{37.6,13.7},{65.8,23.9}}),
+          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
+          Ellipse(lineColor = {64,64,64},
+            fillColor = {255,255,255},
+            extent = {{-12,-12},{12,12}}),
+          Polygon(rotation = -17.5,
+            fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
+          Ellipse(fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            extent = {{-7,-7},{7,7}}),
+          Text(lineColor = {0,0,255},
+            extent = {{-40,-60},{40,-20}},
+            textString = "A RMS")}),
         Documentation(info="<HTML>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
@@ -10453,38 +10448,41 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       i_ = Machines.SpacePhasors.Functions.ToSpacePhasor(plug_p.pin.i);
       2/3*P = +v_[1]*i_[1]+v_[2]*i_[2];
       2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
-            Line(points={{70,0},{90,0}}, color={0,0,255}),
-            Text(
-              extent={{-40,-20},{40,-60}},
-              lineColor={0,0,255},
-              textString="P Q"),
-            Line(points={{0,-70},{0,-90}}, color={0,0,255}),
-            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,127}),
-            Line(points={{10,70},{10,80},{50,80},{50,100}}, color={0,0,127})}),
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+          Line(points = {{-90,0},{-70,0}},
+            color = {0,0,255}),
+          Line(points = {{70,0},{90,0}},
+            color = {0,0,255}),
+          Line(points = {{0,-70},{0,-90}},
+            color = {0,0,255}),
+          Line(points = {{-10,70},{-10,80},{-50,80},{-50,100}},
+            color = {0,0,127}),
+          Line(points = {{10,70},{10,80},{50,80},{50,100}},
+            color = {0,0,127}),
+          Ellipse(fillColor = {192,192,192},
+            fillPattern = FillPattern.Solid,
+            extent = {{-70,-70},{70,70}}),
+          Line(points = {{0,70},{0,40}}),
+          Line(points = {{22.9,32.8},{40.2,57.3}}),
+          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
+          Line(points = {{37.6,13.7},{65.8,23.9}}),
+          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
+          Ellipse(lineColor = {64,64,64},
+            fillColor = {255,255,255},
+            extent = {{-12,-12},{12,12}}),
+          Polygon(rotation = -17.5,
+            fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
+          Ellipse(fillColor = {64,64,64},
+            pattern = LinePattern.None,
+            fillPattern = FillPattern.Solid,
+            extent = {{-7,-7},{7,7}}),
+          Text(lineColor = {0,0,255},
+            extent = {{-40,-60},{40,-20}},
+            textString = "P Q")}),
         Documentation(info="<HTML>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
 which are used to calculate power quantities:<br>
@@ -10554,66 +10552,51 @@ Q = giving in stationary state reactive power.<br>
           points={{0,41},{0,110}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-            Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{0,70},{0,100}}, color={0,0,127}),
-            Text(
-              extent={{-40,-20},{40,-60}},
-              lineColor={0,0,255},
-              textString="Pmech"),
-            Rectangle(
-              extent={{-20,-80},{20,-120}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(
-              visible=not useSupport,
-              points={{-20,-100},{20,-100}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{-10,-100},{-20,-120}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{0,-100},{-10,-120}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{10,-100},{0,-120}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{20,-100},{10,-120}},
-              color={0,0,0},
-              smooth=Smooth.None)}),
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+        Line(points = {{-70,0},{-90,0}}),
+        Line(points = {{70,0},{90,0}}),
+        Line(points = {{0,70},{0,100}},
+          color = {0,0,127}),
+        Rectangle(
+          visible = useSupport,
+          lineColor = {192,192,192},
+          fillColor = {192,192,192},
+          fillPattern = FillPattern.Solid,
+          extent = {{-20,-120},{20,-80}}),
+        Line(visible = not useSupport,
+          points = {{-20,-100},{20,-100}}),
+        Line(visible = not useSupport,
+          points = {{-10,-100},{-20,-120}}),
+        Line(visible = not useSupport,
+          points = {{0,-100},{-10,-120}}),
+        Line(visible = not useSupport,
+          points = {{10,-100},{0,-120}}),
+        Line(visible = not useSupport,
+          points = {{20,-100},{10,-120}}),
+        Ellipse(fillColor = {192,192,192},
+          fillPattern = FillPattern.Solid,
+          extent = {{-70,-70},{70,70}}),
+        Line(points = {{0,70},{0,40}}),
+        Line(points = {{22.9,32.8},{40.2,57.3}}),
+        Line(points = {{-22.9,32.8},{-40.2,57.3}}),
+        Line(points = {{37.6,13.7},{65.8,23.9}}),
+        Line(points = {{-37.6,13.7},{-65.8,23.9}}),
+        Ellipse(lineColor = {64,64,64},
+          fillColor = {255,255,255},
+          extent = {{-12,-12},{12,12}}),
+        Polygon(rotation = -17.5,
+          fillColor = {64,64,64},
+          pattern = LinePattern.None,
+          fillPattern = FillPattern.Solid,
+          points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
+        Ellipse(fillColor = {64,64,64},
+          pattern = LinePattern.None,
+          fillPattern = FillPattern.Solid,
+          extent = {{-7,-7},{7,7}}),
+        Text(lineColor = {0,0,255},
+          extent = {{-40,-60},{40,-20}},
+          textString = "Pmech")}),
         Documentation(info="<HTML>
 Calculates (mechanical) power from torque times angular speed.
 </HTML>"),
@@ -10888,13 +10871,16 @@ This package contains sensors that are useful when modelling machines.
                     0,255}),
               Line(points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
                     17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
-                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
+                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
-                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}),
+                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
@@ -10959,13 +10945,13 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}),
               Rectangle(
-                extent={{-50,50},{-2,-50}},
+                extent={{-51,51},{-1,-51}},
                 pattern=LinePattern.None,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 lineColor={0,0,255}),
               Rectangle(
-                extent={{50,-2},{-2,-50}},
+                extent={{51,-1},{-1,-51}},
                 pattern=LinePattern.None,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
@@ -11036,13 +11022,16 @@ a ground has to be used where necessary for currents flowing back.
                     0,255}),
               Line(points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
                     17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
-                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
+                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
-                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}),
+                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
               Text(
                 extent={{-12,-74},{64,-86}},
                 lineColor={0,0,0},
@@ -11078,13 +11067,16 @@ Transformation of three-phase values (voltages or currents) to space phasor and 
                   color={0,0,255}),
               Line(points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,17.32},
                     {33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},{
-                    66.67,-17.32},{73.33,-10},{80,0}}, color={0,0,255}),
+                    66.67,-17.32},{73.33,-10},{80,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
               Line(points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,17.32},
                     {23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},{
-                    56.67,-17.32},{63.33,-10},{70,0}}, color={0,0,255}),
+                    56.67,-17.32},{63.33,-10},{70,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
               Line(points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,17.32},
                     {43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},{
-                    76.67,-17.32},{83.33,-10},{90,0}}, color={0,0,255}),
+                    76.67,-17.32},{83.33,-10},{90,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
               Text(
                 extent={{-62,-74},{14,-86}},
                 lineColor={0,0,0},
@@ -11117,13 +11109,13 @@ Transformation of space phasor and zero sequence value to three-phase values (vo
                     255}),
               Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}),
               Rectangle(
-                extent={{-50,50},{-2,-50}},
+                extent={{-51,51},{-1,-51}},
                 pattern=LinePattern.None,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 lineColor={0,0,255}),
               Rectangle(
-                extent={{50,-2},{-2,-50}},
+                extent={{51,-1},{-1,-51}},
                 pattern=LinePattern.None,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
@@ -11167,7 +11159,7 @@ Rotates a space phasor (voltage or current) by the angle provided by the input s
               Polygon(points={{26,26},{14,20},{20,14},{26,26}}, lineColor={0,0,
                     255}),
               Line(points={{-18,-18},{-14,-22},{-10,-28},{-6,-34},{-2,-44},{0,-52},
-                    {0,-60}}, color={0,0,255}),
+                    {0,-60}}, color={0,0,255}, smooth=Smooth.Bezier),
               Polygon(points={{-18,-18},{-14,-26},{-10,-22},{-18,-18}},
                   lineColor={0,0,255}),
               Text(
@@ -11195,7 +11187,7 @@ Converts a space phasor from rectangular coordinates to polar coordinates.
               Polygon(points={{26,26},{14,20},{20,14},{26,26}}, lineColor={0,0,
                     255}),
               Line(points={{-18,-18},{-14,-22},{-10,-28},{-6,-34},{-2,-44},{0,-52},
-                    {0,-60}}, color={0,0,255}),
+                    {0,-60}}, color={0,0,255}, smooth=Smooth.Bezier),
               Polygon(points={{-18,-18},{-14,-26},{-10,-22},{-18,-18}},
                   lineColor={0,0,255}),
               Text(
@@ -12291,7 +12283,30 @@ This package contains loss models and their parameter records used for machine m
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Brass =    1.100e-3 "Brass";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Bronze =  0.800e-3 "Bronze";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Copper =  3.920e-3 "Copper";
-      annotation(Documentation(info="<HTML>
+      annotation(
+        Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
+          Polygon(
+            origin={-9.2597,25.6673}, 
+            fillColor={102,102,102}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Solid, 
+            points={{48.017,11.336},{48.017,11.336},{10.766,11.336},{-25.684,10.95},{-34.944,-15.111},{-34.944,-15.111},{-32.298,-15.244},{-32.298,-15.244},{-22.112,0.168},{11.292,0.234},{48.267,-0.097},{48.267,-0.097}}, 
+            smooth=Smooth.Bezier),
+          Polygon(
+            origin={-19.9923,-8.3993}, 
+            fillColor={102,102,102}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Solid, 
+            points={{3.239,37.343},{3.305,37.343},{-0.399,2.683},{-16.936,-20.071},{-7.808,-28.604},{6.811,-22.519},{9.986,37.145},{9.986,37.145}}, 
+            smooth=Smooth.Bezier),
+          Polygon(
+            origin={23.753,-11.5422}, 
+            fillColor={102,102,102}, 
+            pattern=LinePattern.None, 
+            fillPattern=FillPattern.Solid, 
+            points={{-10.873,41.478},{-10.873,41.478},{-14.048,-4.162},{-9.352,-24.8},{7.912,-24.469},{16.247,0.27},{16.247,0.27},{13.336,0.071},{13.336,0.071},{7.515,-9.983},{-3.134,-7.271},{-2.671,41.214},{-2.671,41.214}}, 
+            smooth=Smooth.Bezier)}),
+        Documentation(info="<HTML>
 Material constants, especially linear temperature coefficients of commonly used conductor materials
 </HTML>"));
     end Constants;
@@ -13160,8 +13175,8 @@ Additionally, all losses = heat flows are recorded.
 </HTML>"));
     end ThermalAmbientTransformer;
 
-    annotation (Icon(graphics={             Ellipse(
-            extent={{-78,50},{52,-76}},
+    annotation (Icon(graphics={Ellipse(
+            extent={{-65,-63},{65,63}},
             lineColor={191,0,0},
             fillColor={191,0,0},
             fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
@@ -15097,7 +15112,10 @@ This icon is designed for a <b>quasistationary transformer</b> model.
 </html>"));
     end QuasiStationaryTransformer;
 
-    annotation(Documentation(info="<html>
+    annotation(
+      Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
+        Text(extent = {{-90,-35},{90,35}}, textString = "Icons")}),
+      Documentation(info = "<html>
 <p>
 This package contains definitions for the graphical layout of machines.
 The icons can be utilized by inheriting them in the desired class using \"extends\" or by directly copying the \"icon\" layer.
@@ -15496,19 +15514,19 @@ The icons can be utilized by inheriting them in the desired class using \"extend
                   52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},
                   {25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},
                   {50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}}, color={192,192,
-                  192}),
+                  192}, smooth=Smooth.Bezier),
             Line(points={{-40,0},{-30.2,29.9},{-23.8,46.5},{-18.2,58.1},{-13.3,
                   65.2},{-8.3,69.2},{-3.4,69.8},{1.5,67},{6.4,61},{11.4,52},{17,
                   38.6},{24.02,18.6},{38.79,-26.9},{45.1,-44},{50.8,-56.2},{
                   55.7,-64},{60.6,-68.6},{65.5,-70},{70.5,-67.9},{75.4,-62.5},{
                   80.3,-54.1},{85.9,-41.3},{93,-21.7},{100,0}}, color={192,192,
-                  192}),
+                  192}, smooth=Smooth.Bezier),
             Line(points={{-100,0},{-90.2,29.9},{-83.8,46.5},{-78.2,58.1},{-73.3,
                   65.2},{-68.3,69.2},{-63.4,69.8},{-58.5,67},{-53.6,61},{-48.6,
                   52},{-43,38.6},{-35.98,18.6},{-21.21,-26.9},{-14.9,-44},{-9.2,
                   -56.2},{-4.3,-64},{0.6,-68.6},{5.5,-70},{10.5,-67.9},{15.4,-62.5},
                   {20.3,-54.1},{25.9,-41.3},{33,-21.7},{40,0}}, color={192,192,
-                  192})}),
+                  192}, smooth=Smooth.Bezier)}),
         Documentation(info="<HTML>
 Simple Voltage-Frequency-Controller.<br>
 Amplitude of voltage is linear dependent (VNominal/fNominal) on frequency (input signal \"u\"), but limited by VNominal (nominal RMS voltage per phase).<br>
@@ -16549,32 +16567,30 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
        corrected turnsRatio bug in asynchronous induction machine with slipring; corrected parameter descriptions</li>
   </ul>
 </HTML>"),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={
+      Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
         Rectangle(
-          extent={{-60,60},{60,-60}},
-          lineColor={0,0,0},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={0,128,255}),
+          origin = {2.835,10}, 
+          fillColor = {0,128,255}, 
+          fillPattern = FillPattern.HorizontalCylinder, 
+          extent = {{-60,-60},{60,60}}),
         Rectangle(
-          extent={{-60,60},{-80,-60}},
-          lineColor={0,0,0},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={128,128,128}),
+          origin = {2.835,10}, 
+          fillColor = {128,128,128}, 
+          fillPattern = FillPattern.HorizontalCylinder, 
+          extent = {{-80,-60},{-60,60}}),
         Rectangle(
-          extent={{60,10},{80,-10}},
-          lineColor={0,0,0},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={95,95,95}),
+          origin = {2.835,10}, 
+          fillColor = {95,95,95}, 
+          fillPattern = FillPattern.HorizontalCylinder, 
+          extent = {{60,-10},{80,10}}),
         Rectangle(
-          extent={{-60,70},{20,50}},
-          lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid),
+          origin = {2.835,10}, 
+          lineColor = {95,95,95}, 
+          fillColor = {95,95,95}, 
+          fillPattern = FillPattern.Solid, 
+          extent = {{-60,50},{20,70}}),
         Polygon(
-          points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,
-              -100},{-70,-100},{-70,-90}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid)}));
+          origin = {2.835,10}, 
+          fillPattern = FillPattern.Solid, 
+          points = {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}));
 end Machines;
