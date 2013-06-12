@@ -3109,6 +3109,11 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                             break;
                         }
                     }
+                    /* Check for trailing non-comment character */
+                    if (token && token[0] != '#') {
+                        tableReadError = 1;
+                        break;
+                    }
                     i++;
                 }
                 break;
