@@ -589,7 +589,8 @@ This icon is designed for a <b>String</b> type.
             Polygon(
               fillColor={255,215,136},
               fillPattern=FillPattern.Solid,
-              points={{-80.0,50.0},{80.0,50.0},{100.0,30.0},{80.0,-40.0},{60.0,-50.0},{-60.0,-50.0},{-80.0,-40.0},{-100.0,30.0}}),
+              points={{-80.0,50.0},{80.0,50.0},{100.0,30.0},{80.0,-40.0},{60.0,-50.0},{-60.0,-50.0},{-80.0,-40.0},{-100.0,30.0}},
+              smooth=Smooth.Bezier),
             Ellipse(
               fillPattern=FillPattern.Solid,
               extent={{-65.0,15.0},{-55.0,25.0}}),
@@ -610,11 +611,11 @@ This icon is designed for a <b>String</b> type.
           extent={{-100,-100},{100,100}},
           initialScale=0.2), graphics={
           Polygon(
-            points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,
-                -20},{-50,15},{-40,25}},
+            points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},{-50,15}},
             lineColor={0,0,0},
             fillColor={255,204,51},
-            fillPattern=FillPattern.Solid),
+            fillPattern=FillPattern.Solid,
+            smooth=Smooth.Bezier),
           Ellipse(
             extent={{-32.5,7.5},{-27.5,12.5}},
             lineColor={0,0,0},
@@ -664,7 +665,8 @@ This icon is designed for a <b>signal bus</b> connector.
             Polygon(
               fillColor={255,215,136}, 
               fillPattern=FillPattern.Solid, 
-              points={{-80.0,50.0},{80.0,50.0},{100.0,30.0},{80.0,-40.0},{60.0,-50.0},{-60.0,-50.0},{-80.0,-40.0},{-100.0,30.0}}),
+              points={{-80.0,50.0},{80.0,50.0},{100.0,30.0},{80.0,-40.0},{60.0,-50.0},{-60.0,-50.0},{-80.0,-40.0},{-100.0,30.0}},
+              smooth=Smooth.Bezier),
             Ellipse(
               fillPattern=FillPattern.Solid, 
               extent={{-55.0,15.0},{-45.0,25.0}}),
@@ -683,11 +685,11 @@ This icon is designed for a <b>signal bus</b> connector.
           extent={{-100,-100},{100,100}},
           initialScale=0.1), graphics={
           Polygon(
-            points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,
-                -20},{-50,15},{-40,25}},
+            points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},{-50,15}},
             lineColor={0,0,0},
             fillColor={255,204,51},
-            fillPattern=FillPattern.Solid),
+            fillPattern=FillPattern.Solid,
+            smooth=Smooth.Bezier),
           Ellipse(
             extent={{-22.5,7.5},{-17.5,12.5}},
             lineColor={0,0,0},
