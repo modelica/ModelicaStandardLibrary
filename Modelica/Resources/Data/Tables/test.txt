@@ -5,7 +5,7 @@ double tab1(6,2)   # comment line
   0   0
   1   0
   		# another comment line with leading white space
-  1   1
+  1   1 # comment in line 8
   2   4
 #	next line is empty
 
