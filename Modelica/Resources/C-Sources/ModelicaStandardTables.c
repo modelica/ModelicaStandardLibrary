@@ -54,12 +54,8 @@
 #define _GNU_SOURCE 1
 #endif
 #include <stdio.h>
+#include <locale.h>
 #include "ModelicaMatIO.h"
-#if defined(_MSC_VER) && _MSC_VER >= 1400
-#include <locale.h>
-#elif defined(linux)
-#include <locale.h>
-#endif
 #endif
 #include <float.h>
 #include <math.h>
@@ -278,18 +274,6 @@ static void spline2DClose(Akima2D* spline);
 #if !defined(NO_FILE_SYSTEM)
 static int readLine(char** buf, int* bufLen, FILE* fp);
    /* Read line (of unknown and arbitrary length) from an ASCII text file */
-#endif
-
-#if !defined(NO_FILE_SYSTEM) && defined(linux)
-static locale_t get_C_locale(void) {
-    static int initialized = 0;
-    static locale_t C_locale = NULL;
-    if (!initialized) {
-        C_locale = newlocale(LC_NUMERIC, "C", NULL);
-        initialized = 1;
-    }
-    return C_locale;
-}
 #endif
 
 /* ----- Interface functions ----- */
@@ -2940,9 +2924,11 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         unsigned long nRow, nCol;
         unsigned long lineNo = 1;
 #if defined(_MSC_VER) && _MSC_VER >= 1400
-        _locale_t loc = _create_locale(LC_NUMERIC, "C");
+        _locale_t loc;
 #elif defined(linux)
-        locale_t loc = get_C_locale();
+        locale_t loc;
+#else
+        char* dec;
 #endif
 
         fp = fopen(fileName, "r");
@@ -3003,6 +2989,14 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             return NULL;
         }
 
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+        loc = _create_locale(LC_NUMERIC, "C");
+#elif defined(linux)
+        loc = newlocale(LC_NUMERIC, "C", NULL);
+#else
+        dec = localeconv()->decimal_point;
+#endif
+
         /* Loop over lines of file */
         while (readLine(&buf, &bufLen, fp) == 0) {
             char* token;
@@ -3060,6 +3054,13 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 if (!table) {
                     *_nRow = 0;
                     *_nCol = 0;
+                    free(buf);
+                    fclose(fp);
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+                    _free_locale(loc);
+#elif defined(linux)
+                    freelocale(loc);
+#endif
                     ModelicaError("Memory allocation error\n");
                     break;
                 }
@@ -3092,20 +3093,50 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         }
 #if defined(_MSC_VER) && _MSC_VER >= 1400
                         TABLE(i, j) = _strtod_l(token, &endptr, loc);
+                        if (*endptr != 0) {
+                            tableReadError = 1;
+                        }
 #elif defined(linux)
                         TABLE(i, j) = strtod_l(token, &endptr, loc);
+                        if (*endptr != 0) {
+                            tableReadError = 1;
+                        }
 #else
-                        /* Use a locale independent implementation of strtod from
-                           Netlib (http://www.netlib.org/fp/dtoa.c) in case of
-                           unexpected results */
-                        TABLE(i, j) = strtod(token, &endptr);
+                        if (*dec == '.') {
+                            TABLE(i, j) = strtod(token, &endptr);
+                        }
+                        else if (NULL == strchr(token, '.')) {
+                            TABLE(i, j) = strtod(token, &endptr);
+                        }
+                        else {
+                            char* token2 = malloc((strlen(token) + 1)*sizeof(char));
+                            if (token2) {
+                                char* p;
+                                strcpy(token2, token);
+                                p = strchr(token2, '.');
+                                *p = *dec;
+                                TABLE(i, j) = strtod(token2, &endptr);
+                                if (*endptr != 0) {
+                                    tableReadError = 1;
+                                }
+                                free(token2);
+                            }
+                            else {
+                                *_nRow = 0;
+                                *_nCol = 0;
+                                free(buf);
+                                fclose(fp);
+                                tableReadError = 1;
+                                ModelicaError("Memory allocation error\n");
+                                break;
+                            }
+                        }
 #endif
-                        if (*endptr == 0) {
+                        if (tableReadError == 0) {
                             token = strtok(NULL, DELIM_TABLE_NUMBER);
                             continue;
                         }
                         else {
-                            tableReadError = 1;
                             break;
                         }
                     }
@@ -3136,7 +3167,11 @@ static double* readTxtTable(const char* tableName, const char* fileName,
 
         free(buf);
         fclose(fp);
-
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+        _free_locale(loc);
+#elif defined(linux)
+        freelocale(loc);
+#endif
         if (!foundTable) {
             ModelicaFormatError(
                 "Table matrix \"%s\" not found on file \"%s\".\n",
