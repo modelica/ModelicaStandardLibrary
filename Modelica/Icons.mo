@@ -161,18 +161,13 @@ package Icons "Library of icons"
 
   partial class ExamplesPackage
     "Icon for packages containing runnable examples"
+    extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
-          Rectangle(
-            lineColor={75,138,73},
-            fillColor={113,208,109},
-            fillPattern=FillPattern.HorizontalCylinder,
-            extent={{-100.0,-100.0},{100.0,100.0}},
-            radius=25.0),
           Polygon(
             origin={8.0,14.0},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
+            lineColor={78,138,73},
+            fillColor={78,138,73},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
             points={{-58.0,46.0},{42.0,-14.0},{-58.0,-74.0},{-58.0,46.0}})}), Documentation(info="<html>
@@ -204,9 +199,14 @@ package Icons "Library of icons"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            lineColor={208,208,208},
-            fillColor={240,240,240},
+            lineColor={200,200,200},
+            fillColor={248,248,248},
             fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            radius=25.0),
+          Rectangle(
+            lineColor={128,128,128},
+            fillPattern=FillPattern.None,
             extent={{-100.0,-100.0},{100.0,100.0}},
             radius=25.0)}),
                               Documentation(info="<html>
@@ -751,9 +751,14 @@ corresponding library in a future release.
     extends Modelica.Icons.ObsoleteModel;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            lineColor={208,208,208},
-            fillColor={240,240,240},
+            lineColor={200,200,200},
+            fillColor={248,248,248},
             fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            radius=25.0),
+          Rectangle(
+            lineColor={128,128,128},
+            fillPattern=FillPattern.None,
             extent={{-100.0,-100.0},{100.0,100.0}},
             radius=25.0)}),
                               Documentation(info="<html>
@@ -769,9 +774,14 @@ corresponding library in a future release.
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            lineColor={208,208,208},
-            fillColor={240,240,240},
+            lineColor={200,200,200},
+            fillColor={248,248,248},
             fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            radius=25.0),
+          Rectangle(
+            lineColor={128,128,128},
+            fillPattern=FillPattern.None,
             extent={{-100.0,-100.0},{100.0,100.0}},
             radius=25.0)}),
                               Documentation(info="<html>
