@@ -185,7 +185,7 @@ package Icons "Library of icons"
           Ellipse(lineColor = {75,138,73},
                   fillColor = {255,255,255},
                   fillPattern = FillPattern.Solid,
-                  extent = {{-90,-90},{90,90}}),
+                  extent = {{-94,-94},{94,94}}),
           Polygon(lineColor = {0,0,255},
                   fillColor = {75,138,73},
                   pattern = LinePattern.None,
