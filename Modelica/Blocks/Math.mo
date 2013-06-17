@@ -992,17 +992,17 @@ Example:
 
 </html>"),       Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}, initialScale = 0.1), graphics = {
             Ellipse(
-              lineColor = {0,0,127}, 
-              fillColor = {235,235,235}, 
-              fillPattern = FillPattern.Solid, 
+              lineColor = {0,0,127},
+              fillColor = {235,235,235},
+              fillPattern = FillPattern.Solid,
               extent = {{-20,-20},{20,20}}),
             Line(points = {{-60,0},{-20,0}}, color = {0,0,127}),
             Line(points = {{20,0},{80,0}}, color = {0,0,127}),
             Line(points = {{0,-20},{0,-60}}, color = {0,0,127}),
             Text(extent = {{-14,-94},{82,0}}, textString = "-"),
             Text(
-              lineColor = {0,0,255}, 
-              extent = {{-150,44},{150,94}}, 
+              lineColor = {0,0,255},
+              extent = {{-150,44},{150,94}},
               textString = "%name")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1054,29 +1054,29 @@ Example:
 
 </html>"),       Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}, initialScale = 0.1), graphics = {
             Text(
-              lineColor = {0,0,255}, 
-              extent = {{-150,110},{150,150}}, 
+              lineColor = {0,0,255},
+              extent = {{-150,110},{150,150}},
               textString = "%name"),
             Line(
-              points = {{-100,60},{-74,24},{-44,24}}, 
+              points = {{-100,60},{-74,24},{-44,24}},
               color = {0,0,127}),
             Line(
-              points = {{-100,-60},{-74,-28},{-42,-28}}, 
+              points = {{-100,-60},{-74,-28},{-42,-28}},
               color = {0,0,127}),
             Ellipse(
-              lineColor = {0,0,127}, 
+              lineColor = {0,0,127},
               extent = {{-50,-50},{50,50}}),
             Line(
-              points = {{50,0},{100,0}}, 
+              points = {{50,0},{100,0}},
               color = {0,0,127}),
             Text(
-              extent = {{-38,-34},{38,34}}, 
+              extent = {{-38,-34},{38,34}},
               textString = "+"),
             Text(
-              extent = {{-100,52},{5,92}}, 
+              extent = {{-100,52},{5,92}},
               textString = "%k1"),
             Text(
-              extent = {{-100,-92},{5,-52}}, 
+              extent = {{-100,-92},{5,-52}},
               textString = "%k2")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1211,13 +1211,13 @@ the two inputs <b>u1</b> and <b>u2</b>:
 
 </html>"),       Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}, initialScale = 0.1), graphics = {
             Line(
-              points = {{-100,60},{-40,60},{-30,40}}, 
+              points = {{-100,60},{-40,60},{-30,40}},
               color = {0,0,127}),
             Line(
-              points = {{-100,-60},{-40,-60},{-30,-40}}, 
+              points = {{-100,-60},{-40,-60},{-30,-40}},
               color = {0,0,127}),
             Line(
-              points = {{50,0},{100,0}}, 
+              points = {{50,0},{100,0}},
               color = {0,0,127}),
             Line(
               points = {{-30,0},{30,0}}),
@@ -1226,7 +1226,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
             Line(
               points = {{-15,-25.99},{15,25.99}}),
             Ellipse(
-              lineColor = {0,0,127}, 
+              lineColor = {0,0,127},
               extent = {{-50,-50},{50,50}})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1262,29 +1262,29 @@ the two inputs <b>u1</b> and <b>u2</b>:
 </pre>
 
 </html>"),       Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}, initialScale = 0.1), graphics = {
-            Line( 
-              points = {{50,0},{100,0}}, 
+            Line(
+              points = {{50,0},{100,0}},
               color = {0,0,127}),
-            Line( 
+            Line(
               points = {{-30,0},{30,0}}),
-            Ellipse( 
-              fillPattern = FillPattern.Solid, 
+            Ellipse(
+              fillPattern = FillPattern.Solid,
               extent = {{-5,20},{5,30}}),
-            Ellipse( 
-              fillPattern = FillPattern.Solid, 
+            Ellipse(
+              fillPattern = FillPattern.Solid,
               extent = {{-5,-30},{5,-20}}),
-            Ellipse( 
-              lineColor = {0,0,127}, 
+            Ellipse(
+              lineColor = {0,0,127},
               extent = {{-50,-50},{50,50}}),
-            Text( 
-              lineColor = {0,0,255}, 
-              extent = {{-150,110},{150,150}}, 
+            Text(
+              lineColor = {0,0,255},
+              extent = {{-150,110},{150,150}},
               textString = "%name"),
-            Line( 
-              points = {{-100,60},{-66,60},{-40,30}}, 
+            Line(
+              points = {{-100,60},{-66,60},{-40,30}},
               color = {0,0,127}),
-            Line( 
-              points = {{-100,-60},{0,-60},{0,-50}}, 
+            Line(
+              points = {{-100,-60},{0,-60},{0,-50}},
               color = {0,0,127})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2782,17 +2782,17 @@ zero or negative.
                          integer(ceil( u - 0.5));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}, initialScale=0.1), graphics={
           Text(
-            lineColor={0,0,127}, 
-            extent={{-100.0,-40.0},{0.0,40.0}}, 
+            lineColor={0,0,127},
+            extent={{-100.0,-40.0},{0.0,40.0}},
             textString="R"),
           Text(
-            lineColor={255,127,0}, 
-            extent={{20.0,-40.0},{120.0,40.0}}, 
+            lineColor={255,127,0},
+            extent={{20.0,-40.0},{120.0,40.0}},
             textString="I"),
           Polygon(
-            lineColor={255,127,0}, 
-            fillColor={255,127,0}, 
-            fillPattern=FillPattern.Solid, 
+            lineColor={255,127,0},
+            fillColor={255,127,0},
+            fillPattern=FillPattern.Solid,
             points={{50.0,0.0},{30.0,20.0},{30.0,10.0},{0.0,10.0},{0.0,-10.0},{30.0,-10.0},{30.0,-20.0},{50.0,0.0}})}),            Documentation(info="<html>
 <p>
 This block computes the output <b>y</b>
@@ -2815,18 +2815,18 @@ as <i>nearest integer value</i> of the input <b>u</b>:
     y = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}, initialScale=0.1), graphics={
         Text(
-          lineColor={255,127,0}, 
-          extent={{-120.0,-40.0},{-20.0,40.0}}, 
+          lineColor={255,127,0},
+          extent={{-120.0,-40.0},{-20.0,40.0}},
           textString="I"),
         Text(
-          lineColor={0,0,127}, 
-          fillPattern=FillPattern.Solid, 
-          extent={{0.0,-40.0},{100.0,40.0}}, 
+          lineColor={0,0,127},
+          fillPattern=FillPattern.Solid,
+          extent={{0.0,-40.0},{100.0,40.0}},
           textString="R"),
         Polygon(
-          lineColor={0,0,127}, 
-          fillColor={0,0,127}, 
-          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,127},
+          fillColor={0,0,127},
+          fillPattern=FillPattern.Solid,
           points={{10.0,0.0},{-10.0,20.0},{-10.0,10.0},{-40.0,10.0},{-40.0,-10.0},{-10.0,-10.0},{-10.0,-20.0},{10.0,0.0}})}),                   Documentation(info="<html>
 <p>
 This block computes the output <b>y</b>
@@ -3124,6 +3124,7 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
     t0 = time;
     x = x0;
     pre(x) = x0;
+    y = 0;
   equation
     der(x) = u;
     when sample(t0+1/f, 1/f) then
