@@ -136,6 +136,44 @@ optionally ignoring case.
 </html>"));
   end isEqual;
 
+  function isEmpty
+    "Return true if a string is empty (has only white space characters)"
+    extends Modelica.Icons.Function;
+    input String string;
+    output Boolean result "True, if string is empty";
+  protected
+    Integer nextIndex;
+    Integer len;
+  algorithm
+    nextIndex := Strings.Advanced.skipWhiteSpace(string);
+    len := Strings.length(string);
+    if len < 1 or nextIndex > len then
+      result := true;
+    else
+      result := false;
+    end if;
+
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Strings.<b>isEmpty</b>(string);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns true if the string has no characters or if the string consits
+only of white space characters. Otherwise, false is returned.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  isEmpty(\"\");       // returns true
+  isEmpty(\"   \");    // returns true
+  isEmpty(\"  abc\");  // returns false
+  isEmpty(\"a\");      // returns false
+</pre></blockquote>
+</html>"));
+  end isEmpty;
+
   function count "Count the number of non-overlapping occurrences of a string"
     extends Modelica.Icons.Function;
     input String string "String that is analyzed";
