@@ -186,6 +186,7 @@ package Blocks "Test models for Modelica.Blocks"
         initType=Modelica.Blocks.Types.Init.InitialOutput,
         y_start=2,
         normalized=false));
+
     annotation (experiment(StopTime=1.1));
   end Continuous_InitialOutput;
 
@@ -681,6 +682,22 @@ package Blocks "Test models for Modelica.Blocks"
           graphics));
   end OnDelay;
 
+  model Mean
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Math.Mean mean(f=2)
+      annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+    Modelica.Blocks.Sources.Sine sine(offset=0.5, freqHz=2)
+      annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+  equation
+    connect(sine.y, mean.u) annotation (Line(
+        points={{-39,50},{-22,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-140},{100,140}}),
+          graphics));
+  end Mean;
+
   package FilterTests "Test of Blocks.Continuous.Filter"
     extends Modelica.Icons.ExamplesPackage;
     model AllOptions
@@ -826,12 +843,12 @@ package Blocks "Test models for Modelica.Blocks"
           color={0,0,127},
           smooth=Smooth.None));
       annotation (experiment(StopTime=0.9), Icon(graphics={Text(
-              extent={{-82,54},{86,22}},
-              lineColor={0,0,0},
-              textString="basic"), Text(
-              extent={{-84,2},{84,-30}},
-              lineColor={0,0,0},
-              textString="filters")}));
+                  extent={{-82,54},{86,22}},
+                  lineColor={0,0,0},
+                  textString="basic"),Text(
+                  extent={{-84,2},{84,-30}},
+                  lineColor={0,0,0},
+                  textString="filters")}));
     end Basic;
 
     block DifferentFilterTypes
