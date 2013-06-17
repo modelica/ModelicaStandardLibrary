@@ -179,13 +179,8 @@ package Icons "Library of icons"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(lineColor = {75,138,73},
-                  fillColor = {75,138,73},
-                  fillPattern = FillPattern.Solid,
+                  fillPattern = FillPattern.None,
                   extent = {{-100,-100},{100,100}}),
-          Ellipse(lineColor = {75,138,73},
-                  fillColor = {255,255,255},
-                  fillPattern = FillPattern.Solid,
-                  extent = {{-94,-94},{94,94}}),
           Polygon(lineColor = {0,0,255},
                   fillColor = {75,138,73},
                   pattern = LinePattern.None,
@@ -435,12 +430,10 @@ This icon is designed for a <b>translational sensor</b> model.
             extent={{-140.0,102.0},{136.0,162.0}},
             textString="%name"),
           Ellipse(
-            lineColor={108,88,49},
-            fillColor={255,215,136},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            lineThickness=4.0,
-            extent={{-100.0,-100.0},{100.0,100.0}}),
+            lineColor = {108,88,49},
+            fillColor = {255,215,136},
+            fillPattern = FillPattern.Solid,
+            extent = {{-100,-100},{100,100}}),
           Text(
             lineColor={108,88,49},
             extent={{-90.0,-90.0},{90.0,90.0}},
