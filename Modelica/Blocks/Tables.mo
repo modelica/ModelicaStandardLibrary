@@ -33,7 +33,7 @@ package Tables
     Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
+          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
           table,
           columns,
           smoothness) "External table object";
@@ -317,7 +317,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
+          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
           table,
           columns,
           smoothness) "External table object";
@@ -597,7 +597,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
+          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
           table,
           smoothness) "External table object";
     parameter Real tableOnFileRead(fixed=false)

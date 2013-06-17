@@ -2280,7 +2280,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
         Modelica.Blocks.Types.ExternalCombiTimeTable(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
+          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
           table,
           startTime,
           columns,
