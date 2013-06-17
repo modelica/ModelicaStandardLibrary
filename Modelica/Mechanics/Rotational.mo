@@ -7417,6 +7417,7 @@ with the blocks of package Modelica.Blocks.
           fillColor={255,255,255},
           extent={{-12.0,-12.0},{12.0,12.0}}),
         Polygon(rotation=-17.5,
+          origin={0,0},
           fillColor={64,64,64},
           pattern=LinePattern.None,
           fillPattern=FillPattern.Solid,
