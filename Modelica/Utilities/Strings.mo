@@ -160,7 +160,7 @@ Strings.<b>isEmpty</b>(string);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Returns true if the string has no characters or if the string consits
+Returns true if the string has no characters or if the string consists
 only of white space characters. Otherwise, false is returned.
 </p>
 
