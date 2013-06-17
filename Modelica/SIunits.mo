@@ -1915,14 +1915,25 @@ Modelica.Magentic.FundamentalWave uses a special record Salient which is only va
   record ComplexPower =
     Complex(redeclare ActivePower re,
              redeclare ReactivePower im) "Complex electrical power";
-  annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
-      Text(
-        origin={15.0,51.8518},
-        extent={{-105.0,-86.8518},{75.0,-16.8518}},
-        lineColor={0,0,0},
-        textString="[kg.m2]")}),
-    Documentation(info="<html>
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}), graphics={
+        Line(
+          points={{-66,78},{-66,-40}},
+          color={64,64,64},
+          smooth=Smooth.None),
+        Line(
+          points={{-66,-4},{-16,46}},
+          color={64,64,64},
+          smooth=Smooth.None),
+        Line(
+          points={{-46,16},{-10,-40}},
+          color={64,64,64},
+          smooth=Smooth.None),
+        Ellipse(extent={{12,36},{68,-38}}, lineColor={64,64,64}),
+        Line(
+          points={{68,0},{68,-72},{18,-72}},
+          color={64,64,64},
+          smooth=Smooth.Bezier)}), Documentation(info="<html>
 <p>This package provides predefined types, such as <i>Mass</i>,
 <i>Angle</i>, <i>Time</i>, based on the international standard
 on units, e.g.,
