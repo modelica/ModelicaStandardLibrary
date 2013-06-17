@@ -2287,7 +2287,7 @@ static enum TableSource getTableSource(const char *tableName,
     int fileNameGiven = isValidName(fileName);
 
     /* Determine in which way the table values are defined */
-    if (tableNameGiven == 0 ) {
+    if (tableNameGiven == 0) {
         /* No table name is given */
         if (fileNameGiven != 0) {
             ModelicaFormatError(
