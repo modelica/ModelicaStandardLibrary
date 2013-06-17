@@ -888,8 +888,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
         extent={{-100,-100},{100,100}},
         preserveAspectRatio=false,
         initialScale=0.1), graphics={Polygon(
-          points={{-6,52},{-54,52},{-56,68},{54,68},{54,52},{6,52},{6,-52},{54,-52},
-              {56,-66},{-54,-66},{-54,-52},{-8,-52},{-6,52}},
+          points = {{-8,46},{-54,52},{-54,68},{54,68},{54,52},{8,46},{8,-46},{54,-52},{54,-68},{-54,-68},{-54,-52},{-8,-46}},
           lineColor={64,64,64},
           smooth=Smooth.Bezier,
           fillColor={175,175,175},

@@ -9133,8 +9133,7 @@ Copyright &copy; 1998-2013, Modelica Association.
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics={
         Line(
-          points={{-76,-80},{-62,-30},{-32,40},{8,60},{48,66},{74,48},{62,-8},{48,
-              -50},{38,-80}},
+          points = {{-76,-80},{-62,-30},{-32,40},{4,66},{48,66},{73,45},{62,-8},{48,-50},{38,-80}},
           color={64,64,64},
           smooth=Smooth.Bezier),
         Line(
