@@ -13,6 +13,11 @@ package CombiTimeTable
         thickness=0.0625));
   end Test0;
 
+  partial model Test0_noDer
+    Modelica.Blocks.Sources.CombiTimeTable t_new
+      annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+  end Test0_noDer;
+
   model Test1 "Periodic, t_min > 0"
     extends Modelica.Icons.Example;
     extends Test0(t_new(table={{0.1,0},{0.3,0},{0.5,-1},{0.51,-2},{0.51,-3},{
@@ -255,7 +260,8 @@ package CombiTimeTable
       width=0,
       falling=1,
       nperiod=1,
-      startTime=0.5)
+      startTime=0.5,
+      period=1)
       annotation (Placement(transformation(extent={{-105,-15},{-85,5}})));
     Modelica.Blocks.Sources.CombiTimeTable t_new(
       table={{0,1},{1,0}},
@@ -466,7 +472,7 @@ package CombiTimeTable
   model Test37
     "Two time events (Ticket #628), constant segments, hold last value"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends Test0_noDer(t_new(
         table=[0, 0; 2.5, 1; 3, 0],
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
         extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint));
@@ -475,7 +481,7 @@ package CombiTimeTable
 
   model Test38 "Two time events (Ticket #628), constant segments, periodic"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends Test0_noDer(t_new(
         table=[0, 0; 2.5, 1; 3, 0],
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic));
@@ -485,7 +491,7 @@ package CombiTimeTable
   model Test39
     "Two time events (Ticket #628), constant segments, periodic, startTime > 0"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends Test0_noDer(t_new(
         table=[0, 0; 2.5, 1; 3, 0],
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
         extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
@@ -682,7 +688,7 @@ package CombiTimeTable
 
   model Test61 "Periodic, startTime = 0, t_min > 0, constant segments"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends Test0_noDer(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
@@ -692,7 +698,7 @@ package CombiTimeTable
 
   model Test62 "Periodic, startTime > 0, t_min > 0, constant segments"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends Test0_noDer(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
@@ -703,7 +709,7 @@ package CombiTimeTable
 
   model Test63 "Periodic, startTime > t_min > 0, constant segments"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends Test0_noDer(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
@@ -714,7 +720,7 @@ package CombiTimeTable
 
   model Test64 "Periodic, startTime > t_max, t_min > 0, constant segments"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(
+    extends Test0_noDer(t_new(
         table={{0.6,-2},{0.6,-20},{0.6,-3},{0.7,-2},{0.7,0},{0.7,-2},{1,-5},{1,
             -6},{1,-4}},
         smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
@@ -725,7 +731,7 @@ package CombiTimeTable
 
   model Test65 "Two columns, constant segments"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0.3, 0; 0.4, 1; 0.5, 0; 0.6, -1; 0.7, 0],
+    extends Test0_noDer(t_new(table=[0.3, 0; 0.4, 1; 0.5, 0; 0.6, -1; 0.7, 0],
           smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test65;

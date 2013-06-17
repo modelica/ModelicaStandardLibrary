@@ -13,6 +13,11 @@ package CombiTable2D
         thickness=0.0625));
   end Test0;
 
+  partial model Test0_noDer
+    Modelica.Blocks.Tables.CombiTable2D t_new
+      annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+  end Test0_noDer;
+
   model Test1 "Akima, u1 extrapolation"
     extends Modelica.Icons.Example;
     extends Test0(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
@@ -191,15 +196,15 @@ package CombiTable2D
 
   model Test7 "Constant segments, u1 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
-            61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40, 27,
-            41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5, 4.7,
-            7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8, 0.6,
-            0.6; 20, 16.8, 14.4, 8.1, 6.9, 6.2, 0.6, 0.1, 0, 0; 25, 12, 8, 5.3,
-            2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0; 35,
-            3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
-            0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
-            Modelica.Blocks.Types.Smoothness.ConstantSegments));
+    extends Test0_noDer(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0,
+            58.2, 61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40,
+            27, 41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5,
+            4.7, 7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8,
+            0.6, 0.6; 20, 16.8, 14.4, 8.1, 6.9, 6.2, 0.6, 0.1, 0, 0; 25, 12, 8,
+            5.3, 2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0;
+            35, 3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0;
+            45, 0, 0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
     Modelica.Blocks.Sources.Clock clock
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Constant const(k=2)
@@ -221,15 +226,15 @@ package CombiTable2D
 
   model Test8 "Constant segments, u2 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
-            61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40, 27,
-            41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5, 4.7,
-            7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8, 0.6,
-            0.6; 20, 16.8, 14.4, 8.1, 6.9, 6.2, 0.6, 0.1, 0, 0; 25, 12, 8, 5.3,
-            2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0; 35,
-            3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
-            0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
-            Modelica.Blocks.Types.Smoothness.ConstantSegments));
+    extends Test0_noDer(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0,
+            58.2, 61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40,
+            27, 41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5,
+            4.7, 7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8,
+            0.6, 0.6; 20, 16.8, 14.4, 8.1, 6.9, 6.2, 0.6, 0.1, 0, 0; 25, 12, 8,
+            5.3, 2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0;
+            35, 3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0;
+            45, 0, 0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
     Modelica.Blocks.Sources.Constant const(k=2)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Clock clock
@@ -251,15 +256,15 @@ package CombiTable2D
 
   model Test9 "Constant segments, u1 and u2 extrapolation"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0, 58.2,
-            61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40, 27,
-            41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5, 4.7,
-            7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8, 0.6,
-            0.6; 20, 16.8, 14.4, 8.1, 6.9, 6.2, 0.6, 0.1, 0, 0; 25, 12, 8, 5.3,
-            2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0; 35,
-            3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0; 45, 0,
-            0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0], smoothness=
-            Modelica.Blocks.Types.Smoothness.ConstantSegments));
+    extends Test0_noDer(t_new(table=[0, 0, 5, 10, 15, 20, 25, 30, 35, 40; 0,
+            58.2, 61.5, 47.9, 62.3, 34.6, 45.5, 38.2, 41.2, 41.7; 5, 37.2, 40,
+            27, 41.3, 14.1, 24.5, 17.3, 20.2, 20.8; 10, 22.4, 22.5, 14.6, 22.5,
+            4.7, 7.2, 1.8, 2.1, 2.1; 15, 21.8, 20.5, 12.8, 17.6, 5.8, 7.6, 0.8,
+            0.6, 0.6; 20, 16.8, 14.4, 8.1, 6.9, 6.2, 0.6, 0.1, 0, 0; 25, 12, 8,
+            5.3, 2.9, 0.6, 0, 0, 0, 0; 30, 7.4, 4.8, 1.4, 0.1, 0, 0, 0, 0, 0;
+            35, 3.2, 0.7, 0, 0, 0, 0, 0, 0, 0; 40, 0, 0, 0, 0, 0, 0, 0, 0, 0;
+            45, 0, 0, 0, 0, 0, 0, 0, 0, 0; 50, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments));
     Modelica.Blocks.Sources.Clock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Clock clock2
