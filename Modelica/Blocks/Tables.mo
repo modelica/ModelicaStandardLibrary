@@ -43,8 +43,10 @@ package Tables
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
-      input Boolean verboseRead "= true: Print info message; = false: No info message";
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead
+        "= true: Print info message; = false: No info message";
       output Real readSuccess "Table read success";
       external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
@@ -55,19 +57,22 @@ package Tables
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
       annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
     end getTableValue;
 
-    function getTableValueNoDer "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
+    function getTableValueNoDer
+      "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
@@ -79,7 +84,8 @@ package Tables
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       input Real der_u;
       output Real der_y;
       external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
@@ -173,7 +179,9 @@ The table matrix can be defined in the following ways:
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
       fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.</li>
+      preferred as otherwise the table is reallocated and transposed. 
+      See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+      documentation for more details.</li>
 </ol>
 <p>
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
@@ -327,8 +335,10 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
-      input Boolean verboseRead "= true: Print info message; = false: No info message";
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead
+        "= true: Print info message; = false: No info message";
       output Real readSuccess "Table read success";
       external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
@@ -339,19 +349,22 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
       annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
     end getTableValue;
 
-    function getTableValueNoDer "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
+    function getTableValueNoDer
+      "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
@@ -363,7 +376,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       input Real der_u;
       output Real der_y;
       external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
@@ -457,7 +471,9 @@ The table matrix can be defined in the following ways:
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
       fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.</li>
+      preferred as otherwise the table is reallocated and transposed.
+      See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+      documentation for more details.</li>
 </ol>
 <p>
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
@@ -606,8 +622,10 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
-      input Boolean verboseRead "= true: Print info message; = false: No info message";
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead
+        "= true: Print info message; = false: No info message";
       output Real readSuccess "Table read success";
       external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
@@ -618,19 +636,22 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Real u1;
       input Real u2;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
       annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
     end getTableValue;
 
-    function getTableValueNoDer "Interpolate 2-dim. table defined by matrix (but do not provide a derivative function)"
+    function getTableValueNoDer
+      "Interpolate 2-dim. table defined by matrix (but do not provide a derivative function)"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Real u1;
       input Real u2;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
         annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
@@ -642,7 +663,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Real u1;
       input Real u2;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       input Real der_u1;
       input Real der_u2;
       output Real der_y;
@@ -739,7 +761,9 @@ The table matrix can be defined in the following ways:
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
       fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.</li>
+      preferred as otherwise the table is reallocated and transposed.
+      See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+      documentation for more details.</li>
 </ol>
 <p>
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
@@ -874,9 +898,48 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             lineColor={0,0,255})}));
   end CombiTable2D;
   annotation (Documentation(info="<html>
-<p>
-This package contains blocks for one- and two-dimensional
-interpolation in tables.
-</p>
+<p>This package contains blocks for one- and two-dimensional interpolation in tables. </p>
+<h4>Special interest topic: Statically stored tables for real-time simulation targets</h4>
+<p>Especially for use on real-time platform targets (e.g., HIL-simulators) with <b>no file system</b>, it is possible to statically
+store tables using a function &quot;usertab&quot; in a file conventionally named &quot;usertab.c&quot;. This can be more efficient than providing the tables as Modelica parameter arrays.</p>
+<p>This is achieved by providing the tables in a specific structure as C-code and compiling that C-code together with the rest of the simulation model into a binary
+that can be executed on the target platform. The &quot;Resources/Data/Tables/&quot; subdirectory of the MSL installation directory contains the files
+<a href=\"modelica://Modelica/Resources/Data/Tables/usertab.c\">&quot;usertab.c&quot;</a> and <a href=\"modelica://Modelica/Resources/Data/Tables/usertab.h\">&quot;usertab.h&quot;</a>
+that can be used as a template for own developments. While &quot;usertab.c&quot; would be typically used unmodified, the 
+&quot;usertab.h&quot; needs to adapted for the own needs.</p>
+<p>In order to work it is necessary that the compiler pulls in the &quot;usertab.c&quot; file. Different Modelica tools might provide different mechanisms to do so. 
+Please consult the respective documentation/support for your Modelica tool.</p>
+<p>A possible (though a bit &quot;hackish&quot;) Modelica standard conformant approach is to pull in the required files by utilizing a &quot;dummy&quot;-function that uses the Modelica external function
+interface to pull in the required &quot;usertab.c&quot;. An example how this can be done is given below.</p>
+<pre>
+model Test25_usertab \"Test utilizing the usertab.c interface\"
+  extends Modelica.Icons.Example;
+public 
+  Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
+    annotation (Placement(transformation(extent={{-40,-34},{-10,-14}})));
+  Modelica.Blocks.Tables.CombiTable1D t_new(tableOnFile=true, tableName=\"TestTable_1D_a\")
+    annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+  Modelica.Blocks.Sources.Clock clock
+    annotation (Placement(transformation(extent={{-80,0},{-60,20}})));  
+protected 
+  encapsulated function getUsertab
+    input Real dummy_u[:];
+    output Real dummy_y;
+    external \"C\" dummy_y=  mydummyfunc(dummy_u);
+    annotation(IncludeDirectory=\"modelica://Modelica/Resources/Data/Tables\",
+           Include = \"#include \"usertab.c\"
+ double mydummyfunc(const double* dummy_in) {
+        return 0;
+}                    
+\");
+  end getUsertab;
+equation 
+  connect(clock.y,t_new. u[1]) annotation (Line(
+      points={{-59,10},{-42,10}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version=\"3.2.1\")));
+end Test25_usertab;
+</pre>
 </html>"));
 end Tables;
