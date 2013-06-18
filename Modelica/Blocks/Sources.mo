@@ -2298,7 +2298,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       output Real readSuccess "Table read success";
       input Boolean verboseRead "= true: Print info message; = false: No info message";
       external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+        annotation (Library={"ModelicaStandardTables"});
     end readTableData;
 
     function getTableValue "Interpolate 1-dim. table where first column is time"
@@ -2311,7 +2311,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
-        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+        annotation (Library={"ModelicaStandardTables"});
       annotation (derivative(
           noDerivative=nextTimeEvent,
           noDerivative=pre_nextTimeEvent,
@@ -2329,7 +2329,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
-        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+        annotation (Library={"ModelicaStandardTables"});
     end getTableValueNoDer;
 
     function getDerTableValue
@@ -2344,7 +2344,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Real der_timeIn;
       output Real der_y;
       external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
-        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+        annotation (Library={"ModelicaStandardTables"});
     end getDerTableValue;
 
     function getTableTimeTmin
@@ -2354,7 +2354,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time timeMin "Minimum time value in table";
       external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+        annotation (Library={"ModelicaStandardTables"});
     end getTableTimeTmin;
 
     function getTableTimeTmax
@@ -2364,7 +2364,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time timeMax "Maximum time value in table";
       external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+        annotation (Library={"ModelicaStandardTables"});
     end getTableTimeTmax;
 
     function getNextTimeEvent
@@ -2375,7 +2375,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time nextTimeEvent "Next time event in table";
       external"C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
-        annotation (Library={"ModelicaStandardTables", "ModelicaExternalC"});
+        annotation (Library={"ModelicaStandardTables"});
     end getNextTimeEvent;
 
   initial algorithm
