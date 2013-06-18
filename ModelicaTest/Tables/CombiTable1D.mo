@@ -235,4 +235,24 @@ package CombiTable1D
     annotation (experiment(StartTime=0, StopTime=100));
   end Test24;
 
+  model Test25_usertab "Test utilizing the usertab.c interface"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(tableOnFile=true, tableName="TestTable_1D_a"));
+  protected
+    encapsulated function getUsertab
+      input Real dummy_u[:];
+      output Real dummy_y;
+      external "C" dummy_y = mydummyfunc(dummy_u);
+      annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
+             Include = "#include \"usertab.c\"
+ double mydummyfunc(const double* dummy_in) {
+        return 0;
+}                    
+");
+    end getUsertab;
+  public
+    Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
+      annotation (Placement(transformation(extent={{-18,-42},{12,-22}})));
+    annotation (experiment(StartTime=0, StopTime=5));
+  end Test25_usertab;
 end CombiTable1D;

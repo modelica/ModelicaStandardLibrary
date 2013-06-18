@@ -736,4 +736,24 @@ package CombiTimeTable
     annotation (experiment(StartTime=0, StopTime=1));
   end Test65;
 
+  model Test66_usertab "Test utilizing the usertab.c interface"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(tableOnFile=true, tableName="TestTable_1D_Time"));
+  protected
+    encapsulated function getUsertab
+      input Real dummy_u[:];
+      output Real dummy_y;
+      external "C" dummy_y = mydummyfunc(dummy_u);
+      annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
+             Include = "#include \"usertab.c\"
+ double mydummyfunc(const double* dummy_in) {
+        return 0;
+}                    
+");
+    end getUsertab;
+  public
+    Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
+      annotation (Placement(transformation(extent={{-20,-40},{10,-20}})));
+    annotation (experiment(StartTime=0, StopTime=4));
+  end Test66_usertab;
 end CombiTimeTable;

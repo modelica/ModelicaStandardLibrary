@@ -458,7 +458,6 @@ package CombiTable2D
 
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
       redeclare function surfaceCharacteristic = tableSurface (tableID=tableID),
-
       nu=101,
       nv=81,
       multiColoredSurface=false,
@@ -532,7 +531,6 @@ package CombiTable2D
 
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
       redeclare function surfaceCharacteristic = tableSurface (tableID=tableID),
-
       nu=101,
       nv=81,
       multiColoredSurface=false,
@@ -631,7 +629,6 @@ package CombiTable2D
 
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
       redeclare function surfaceCharacteristic = tableSurface (tableID=tableID),
-
       nu=51,
       nv=41,
       multiColoredSurface=true,
@@ -644,4 +641,39 @@ package CombiTable2D
     annotation (experiment(StartTime=0, StopTime=1));
   end Test17;
 
+  model Test18_usertab "Test utilizing the usertab.c interface"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(tableOnFile=true, tableName="TestTable_2D"));
+    Modelica.Blocks.Sources.Ramp ramp(height=2, duration=1)
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Ramp ramp1(duration=1, height=6)
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  protected
+    encapsulated function getUsertab
+      input Real dummy_u;
+      output Real dummy_y;
+      external "C" dummy_y = mydummyfunc(dummy_u);
+      annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
+             Include = "#include \"usertab.c\"
+ double mydummyfunc(double dummy_in) {
+        return 0;
+}                    
+");
+    end getUsertab;
+  public
+    Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
+      annotation (Placement(transformation(extent={{-20,-40},{10,-20}})));
+  equation
+    connect(ramp1.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(ramp.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-52,30},{-52,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics),
+      experiment(StartTime=0, StopTime=1.0));
+  end Test18_usertab;
 end CombiTable2D;
