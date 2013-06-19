@@ -7,7 +7,7 @@ extends Modelica.Icons.Package;
 
 
 package Icons "Icons for Math"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.IconsPackage;
 
   partial function AxisLeft
     "Basic icon for mathematical function with y-axis on left side"

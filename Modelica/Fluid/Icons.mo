@@ -1,6 +1,6 @@
 within Modelica.Fluid;
 package Icons
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.IconsPackage;
   partial class VariantLibrary
     "This icon will be removed in future Modelica versions, use Modelica.Icons.VariantsPackage instead."
     extends Modelica.Icons.VariantsPackage;

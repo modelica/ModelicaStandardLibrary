@@ -7527,7 +7527,7 @@ only be used as basic building elements for models.
   end Interfaces;
 
   package Icons "Icons for Rotational package"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.IconsPackage;
     partial class Gear "Rotational gear icon"
 
       annotation (Icon(
@@ -7799,8 +7799,7 @@ This is the icon of a clutch from the rotational package.
 </html>"));
     end Clutch;
     annotation (
-      Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
-        Text(extent={{-90.0,-35.0},{90.0,35.0}}, textString="Icons")}),
+      Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}})),
       Documentation(info="<html>
 <p>
 This package contains icons for the Rotational library

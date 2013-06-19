@@ -10831,7 +10831,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
     end Functions;
 
     package Icons "Icons for Fluid.Dissipation and Fluid.Fittings libraries"
-    extends Modelica.Icons.Package;
+      extends Modelica.Icons.IconsPackage;
 
       package HeatTransfer "Icons for heat transfer calculation"
       extends Modelica.Icons.Package;

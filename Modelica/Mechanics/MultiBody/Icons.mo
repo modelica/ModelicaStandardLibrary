@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody;
 package Icons "Icons for MultiBody package"
-extends Modelica.Icons.Package;
+  extends Modelica.Icons.IconsPackage;
   model Surface "Surface icon"
     annotation (Icon(graphics={Polygon(
             points={{-102,40},{-98,92},{28,-8},{96,146},{104,-118},{-18,-34},{-52,
@@ -55,19 +55,19 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            lineColor={82,0,2}, 
-            fillColor={252,37,57}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            extent={{-100.0,-50.0},{30.0,50.0}}, 
+            lineColor={82,0,2},
+            fillColor={252,37,57},
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100.0,-50.0},{30.0,50.0}},
             radius=10.0),
           Polygon(
-            fillColor={64,64,64}, 
-            fillPattern=FillPattern.Solid, 
+            fillColor={64,64,64},
+            fillPattern=FillPattern.Solid,
             points={{-100.0,-90.0},{-90.0,-90.0},{-60.0,-20.0},{-10.0,-20.0},{20.0,-90.0},{30.0,-90.0},{30.0,-100.0},{-100.0,-100.0},{-100.0,-90.0}}),
           Rectangle(
-            lineColor={64,64,64}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
+            lineColor={64,64,64},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.HorizontalCylinder,
             extent={{30.0,-10.0},{90.0,10.0}})}),
       Documentation(info="<html>
 <p>

@@ -234,7 +234,7 @@ on units.</p>
 end UsersGuide;
 
   package Icons "Icons for SIunits"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.IconsPackage;
 
     partial function Conversion "Base icon for conversion functions"
 

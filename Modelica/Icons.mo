@@ -326,6 +326,17 @@ package Icons "Library of icons"
 </html>"));
   end SensorsPackage;
 
+  partial class IconsPackage "Icon for packages containing icons"
+    extends Modelica.Icons.Package;
+    annotation (Icon(graphics={Polygon(
+          points={{-8,46},{-54,52},{-54,68},{54,68},{54,52},{8,46},{8,-46},{54,-52},
+              {54,-68},{-54,-68},{-54,-52},{-8,-46}},
+          lineColor={64,64,64},
+          smooth=Smooth.Bezier,
+          fillColor={175,175,175},
+          fillPattern=FillPattern.Solid)}));
+  end IconsPackage;
+
   partial class RotationalSensor "Icon representing a round measurement device"
 
     annotation (

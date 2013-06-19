@@ -14790,7 +14790,7 @@ This package contains the space phasor connector and partial models for machine 
   end Interfaces;
 
   package Icons "Icons for electrical machines"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.IconsPackage;
 
     partial model TransientMachine
 
@@ -15040,8 +15040,7 @@ This icon is designed for a <b>quasistationary transformer</b> model.
     end QuasiStationaryTransformer;
 
     annotation(
-      Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
-        Text(extent = {{-90,-35},{90,35}}, textString = "Icons")}),
+      Icon(coordinateSystem(extent = {{-100,-100},{100,100}})),
       Documentation(info = "<html>
 <p>
 This package contains definitions for the graphical layout of machines.
