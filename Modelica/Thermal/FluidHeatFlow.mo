@@ -1563,20 +1563,20 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Inst
   </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
       Polygon(
-        origin = {6,40}, 
-        lineColor = {0,0,255}, 
-        fillColor = {0,128,255}, 
-        fillPattern = FillPattern.Solid, 
+        origin = {6,40},
+        lineColor = {0,0,255},
+        fillColor = {0,128,255},
+        fillPattern = FillPattern.Solid,
         points = {{-56,10},{-56,-90},{-6,-40},{44,10},{44,-90},{-56,10}}),
       Polygon(
-        origin = {6,40}, 
-        lineColor = {0,0,127}, 
-        fillColor = {0,0,127}, 
-        fillPattern = FillPattern.Solid, 
+        origin = {6,40},
+        lineColor = {0,0,127},
+        fillColor = {0,0,127},
+        fillPattern = FillPattern.Solid,
         points = {{-16,10},{4,10},{-6,-10},{-16,10}}),
       Line(
-        origin = {6,40}, 
-        points = {{-6,-10},{-6,-40},{-6,-38}}, 
+        origin = {6,40},
+        points = {{-6,-10},{-6,-40},{-6,-38}},
         color = {0,0,127})}));
   end Components;
 
@@ -2395,6 +2395,7 @@ Partial model of (Infinite) ambient, defines pressure and temperature.
       end Ambient;
 
       partial model AbsoluteSensor "Partial model of absolute sensor"
+        extends Modelica.Icons.RotationalSensor;
 
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
           "Sensor's medium"
@@ -2415,30 +2416,6 @@ Partial model for an absolute sensor (pressure/temperature).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
 </HTML>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
-              Ellipse( 
-                fillColor = {192,192,192}, 
-                fillPattern = FillPattern.Solid, 
-                extent = {{-70,-70},{70,70}}),
-              Line(points = {{0,70},{0,40}}),
-              Line(points = {{22.9,32.8},{40.2,57.3}}),
-              Line(points = {{-22.9,32.8},{-40.2,57.3}}),
-              Line(points = {{37.6,13.7},{65.8,23.9}}),
-              Line(points = {{-37.6,13.7},{-65.8,23.9}}),
-              Ellipse( 
-                lineColor = {64,64,64}, 
-                fillColor = {255,255,255}, 
-                extent = {{-12,-12},{12,12}}),
-              Polygon( 
-                rotation = -17.5, 
-                fillColor = {64,64,64}, 
-                pattern = LinePattern.None, 
-                fillPattern = FillPattern.Solid, 
-                points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
-              Ellipse( 
-                fillColor = {64,64,64}, 
-                pattern = LinePattern.None, 
-                fillPattern = FillPattern.Solid, 
-                extent = {{-7,-7},{7,7}}),
               Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Line(points={{70,0},{100,0}}),
               Text(
@@ -2448,6 +2425,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
       end AbsoluteSensor;
 
       partial model RelativeSensor "Partial model of relative sensor"
+        extends Modelica.Icons.RotationalSensor;
 
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
           "Sensor's medium"
@@ -2475,30 +2453,6 @@ Partial model for a relative sensor (pressure drop/temperature difference).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
 </HTML>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
-              Ellipse(
-                fillColor = {192,192,192},
-                fillPattern = FillPattern.Solid,
-                extent = {{-70,-70},{70,70}}),
-              Line(points = {{0,70},{0,40}}),
-              Line(points = {{22.9,32.8},{40.2,57.3}}),
-              Line(points = {{-22.9,32.8},{-40.2,57.3}}),
-              Line(points = {{37.6,13.7},{65.8,23.9}}),
-              Line(points = {{-37.6,13.7},{-65.8,23.9}}),
-              Ellipse(
-                lineColor = {64,64,64},
-                fillColor = {255,255,255},
-                extent = {{-12,-12},{12,12}}),
-              Polygon(
-                rotation = -17.5,
-                fillColor = {64,64,64},
-                pattern = LinePattern.None,
-                fillPattern = FillPattern.Solid,
-                points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
-              Ellipse(
-                fillColor = {64,64,64},
-                pattern = LinePattern.None,
-                fillPattern = FillPattern.Solid,
-                extent = {{-7,-7},{7,7}}),
               Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Line(points={{70,0},{90,0}}, color={0,0,0}),
               Line(points={{0,-100},{0,-70}}),
@@ -2509,7 +2463,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
       end RelativeSensor;
 
       partial model FlowSensor "Partial model of flow sensor"
-
+        extends Modelica.Icons.RotationalSensor;
         extends TwoPort(final m=0, final T0=0, final tapT=1);
         Modelica.Blocks.Interfaces.RealOutput y
           annotation (Placement(transformation(
@@ -2526,30 +2480,6 @@ Partial model for a flow sensor (mass flow/heat flow).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.
 </HTML>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
-              Ellipse(
-                fillColor = {192,192,192},
-                fillPattern = FillPattern.Solid,
-                extent = {{-70,-70},{70,70}}),
-              Line(points = {{0,70},{0,40}}),
-              Line(points = {{22.9,32.8},{40.2,57.3}}),
-              Line(points = {{-22.9,32.8},{-40.2,57.3}}),
-              Line(points = {{37.6,13.7},{65.8,23.9}}),
-              Line(points = {{-37.6,13.7},{-65.8,23.9}}),
-              Ellipse(
-                lineColor = {64,64,64},
-                fillColor = {255,255,255},
-                extent = {{-12,-12},{12,12}}),
-              Polygon(
-                rotation = -17.5,
-                fillColor = {64,64,64},
-                pattern = LinePattern.None,
-                fillPattern = FillPattern.Solid,
-                points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
-              Ellipse(
-                fillColor = {64,64,64},
-                pattern = LinePattern.None,
-                fillPattern = FillPattern.Solid,
-                extent = {{-7,-7},{7,7}}),
               Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Line(points={{70,0},{90,0}}, color={0,0,0}),
               Line(points={{0,-100},{0,-70}}),
@@ -2766,21 +2696,21 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
   </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
       Polygon(
-        origin = {11.533,37.938}, 
-        lineColor = {0,128,255}, 
-        fillColor = {0,128,255}, 
-        fillPattern = FillPattern.Solid, 
+        origin = {11.533,37.938},
+        lineColor = {0,128,255},
+        fillColor = {0,128,255},
+        fillPattern = FillPattern.Solid,
         points = {{-80,10},{-60,-10},{-80,-30},{-20,-30},{0,-10},{-20,10},{-80,10}}),
       Polygon(
-        origin = {11.533,37.938}, 
-        lineColor = {255,0,0}, 
-        fillColor = {255,0,0}, 
-        fillPattern = FillPattern.Solid, 
+        origin = {11.533,37.938},
+        lineColor = {255,0,0},
+        fillColor = {255,0,0},
+        fillPattern = FillPattern.Solid,
         points = {{-40,-90},{-20,-70},{0,-90},{0,-50},{-20,-30},{-40,-50},{-40,-90}}),
       Polygon(
-        origin = {11.533,37.938}, 
-        lineColor = {255,128,0}, 
-        fillColor = {255,128,0}, 
-        fillPattern = FillPattern.Solid, 
+        origin = {11.533,37.938},
+        lineColor = {255,128,0},
+        fillColor = {255,128,0},
+        fillPattern = FillPattern.Solid,
         points = {{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}})}));
 end FluidHeatFlow;

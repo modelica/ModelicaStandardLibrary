@@ -861,16 +861,16 @@ The abstraction of a variable inductor at quasi stationary operation assumes:<br
     annotation (Icon(
       graphics = {
         Line(
-          origin = {10,40}, 
+          origin = {10,40},
           points = {{-100,-40},{-80,-40}}),
         Line(
-          origin = {10,40}, 
+          origin = {10,40},
           points = {{60,-40},{80,-40}}),
         Rectangle(
-          lineColor = {0,0,255}, 
-          fillColor = {255,255,255}, 
-          fillPattern = FillPattern.Solid, 
-          extent = {{-70,-30},{70,30}})}, 
+          lineColor = {0,0,255},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.Solid,
+          extent = {{-70,-30},{70,30}})},
       coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
@@ -1478,6 +1478,7 @@ This sensor can be used to measure the complex current.
 
     model PowerSensor "Power sensor"
       import Modelica.ComplexMath.conj;
+      extends Modelica.Icons.RotationalSensor;
       Interfaces.PositivePin currentP
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
@@ -1512,9 +1513,6 @@ This sensor can be used to measure the complex current.
       y = v*conj(i);
       annotation (
         Icon(graphics = {
-          Ellipse(fillColor = {192,192,192},
-            fillPattern = FillPattern.Solid,
-            extent = {{-70,-70},{70,70}}),
         Line(points = {{0,100},{0,70}},
             color = {0,0,255}),
           Line(points = {{0,-70},{0,-100}},
@@ -1526,23 +1524,6 @@ This sensor can be used to measure the complex current.
           Text(textColor = {0,0,255},
             extent = {{-100,110},{100,150}},
             textString = "%name"),
-          Line(points = {{0,70},{0,40}}),
-          Line(points = {{22.9,32.8},{40.2,57.3}}),
-          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
-          Line(points = {{37.6,13.7},{65.8,23.9}}),
-          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
-          Ellipse(lineColor = {64,64,64},
-            fillColor = {255,255,255},
-            extent = {{-12,-12},{12,12}}),
-          Polygon(rotation = -17.5,
-            fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
-          Ellipse(fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            extent = {{-7,-7},{7,7}}),
           Line(points = {{-100,0},{100,0}},
             color = {0,0,255})}),
         Documentation(info="<html>
@@ -2212,11 +2193,11 @@ Quasi stationary theory for single phase circuits can be found in the
   annotation (Icon(
       graphics = {
         Rectangle(
-          lineColor = {0,0,255}, 
+          lineColor = {0,0,255},
           extent = {{-50,-50},{50,50}}),
         Rectangle(
-          fillColor = {170,213,255}, 
-          fillPattern = FillPattern.Solid, 
+          fillColor = {170,213,255},
+          fillPattern = FillPattern.Solid,
           extent = {{-20,-20},{20,20}})},
       coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)),  Documentation(info="<html>
 <p>This package hosts models for quasi stationary single phase circuits.

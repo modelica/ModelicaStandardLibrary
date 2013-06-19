@@ -2351,9 +2351,9 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
         Text(extent={{-150.0,-120.0},{150.0,-80.0}},
           textString="J=%J"),
         Rectangle(
-          lineColor = {64,64,64}, 
-          fillColor = {255,255,255}, 
-          extent = {{-50,-50},{50,50}}, 
+          lineColor = {64,64,64},
+          fillColor = {255,255,255},
+          extent = {{-50,-50},{50,50}},
           radius = 10)}));
     end Inertia;
 
@@ -4334,17 +4334,17 @@ in the flanges, are along the axis vector displayed in the icon.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-20.0,-4.0},{20.0,4.0}}),
-        Rectangle(visible = true, 
-          origin = {-30,65}, 
-          fillColor = {192,192,192}, 
+        Rectangle(visible = true,
+          origin = {-30,65},
+          fillColor = {192,192,192},
           extent = {{-20,-19},{20,19}}),
-        Rectangle(visible = true, 
-          origin = {-30,-1}, 
-          fillColor = {255,255,255}, 
+        Rectangle(visible = true,
+          origin = {-30,-1},
+          fillColor = {255,255,255},
           extent = {{-20,-35},{20,35}}),
-        Rectangle(visible = true, 
-          lineColor = {64,64,64}, 
-          fillColor = {255,255,255}, 
+        Rectangle(visible = true,
+          lineColor = {64,64,64},
+          fillColor = {255,255,255},
           extent = {{10,-100},{50,100}})}),
       Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
         Rectangle(lineColor = {64,64,64},
@@ -6254,7 +6254,7 @@ blocks of Modelica.Blocks.Sources.
                   30},{-36,29},{-32,28},{-27,26},{-22,23},{-18,20},{-14,15},{-11,
                   9}},
               color={0,0,0},
-              thickness=0.5, smooth=Smooth.Bezier), 
+              thickness=0.5, smooth=Smooth.Bezier),
             Polygon(
               points={{-79,24},{-70,17},{-90,0},{-79,24}},
               lineColor={0,0,0},
@@ -7379,6 +7379,7 @@ and instead the component is internally fixed to ground.
 
     partial model PartialAbsoluteSensor
       "Partial model to measure a single absolute flange variable"
+      extends Modelica.Icons.RotationalSensor;
 
       Flange_a flange
         "Flange of shaft from which sensor information shall be measured"
@@ -7404,32 +7405,12 @@ with the blocks of package Modelica.Blocks.
           color={0,0,127}),
         Text(lineColor={0,0,255},
           extent={{-150.0,80.0},{150.0,120.0}},
-          textString="%name"),
-        Ellipse(fillColor={192,192,192},
-          fillPattern=FillPattern.Solid,
-          extent={{-70.0,-70.0},{70.0,70.0}}),
-        Line(points={{0.0,70.0},{0.0,40.0}}),
-        Line(points={{22.9,32.8},{40.2,57.3}}),
-        Line(points={{-22.9,32.8},{-40.2,57.3}}),
-        Line(points={{37.6,13.7},{65.8,23.9}}),
-        Line(points={{-37.6,13.7},{-65.8,23.9}}),
-        Ellipse(lineColor={64,64,64},
-          fillColor={255,255,255},
-          extent={{-12.0,-12.0},{12.0,12.0}}),
-        Polygon(rotation=-17.5,
-          origin={0,0},
-          fillColor={64,64,64},
-          pattern=LinePattern.None,
-          fillPattern=FillPattern.Solid,
-          points={{-5.0,0.0},{-2.0,60.0},{0.0,65.0},{2.0,60.0},{5.0,0.0}}),
-        Ellipse(fillColor={64,64,64},
-          pattern=LinePattern.None,
-          fillPattern=FillPattern.Solid,
-          extent={{-7.0,-7.0},{7.0,7.0}})}));
+          textString="%name")}));
     end PartialAbsoluteSensor;
 
     partial model PartialRelativeSensor
       "Partial model to measure a single relative variable between two flanges"
+      extends Modelica.Icons.RotationalSensor;
 
       Flange_a flange_a "Left flange of shaft" annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
@@ -7455,27 +7436,7 @@ with the blocks of package Modelica.Blocks.
         Line(points={{70.0,0.0},{90.0,0.0}}),
         Text(lineColor={0,0,255},
           extent={{-150.0,73.0},{150.0,113.0}},
-          textString="%name"),
-        Ellipse(fillColor={192,192,192},
-          fillPattern=FillPattern.Solid,
-          extent={{-70.0,-70.0},{70.0,70.0}}),
-        Line(points={{0.0,70.0},{0.0,40.0}}),
-        Line(points={{22.9,32.8},{40.2,57.3}}),
-        Line(points={{-22.9,32.8},{-40.2,57.3}}),
-        Line(points={{37.6,13.7},{65.8,23.9}}),
-        Line(points={{-37.6,13.7},{-65.8,23.9}}),
-        Ellipse(lineColor={64,64,64},
-          fillColor={255,255,255},
-          extent={{-12.0,-12.0},{12.0,12.0}}),
-        Polygon(rotation=-17.5,
-          fillColor={64,64,64},
-          pattern=LinePattern.None,
-          fillPattern=FillPattern.Solid,
-          points={{-5.0,0.0},{-2.0,60.0},{0.0,65.0},{2.0,60.0},{5.0,0.0}}),
-        Ellipse(fillColor={64,64,64},
-          pattern=LinePattern.None,
-          fillPattern=FillPattern.Solid,
-          extent={{-7.0,-7.0},{7.0,7.0}})}));
+          textString="%name")}));
     end PartialRelativeSensor;
 
     partial model PartialFriction "Partial model of Coulomb friction elements"
@@ -7733,12 +7694,12 @@ only be used as basic building elements for models.
             fillPattern=FillPattern.Solid,
             extent={{-15.0,-4.0},{15.0,4.0}}),
           Rectangle(
-            origin = {-35,40}, 
-            fillColor = {255,255,255}, 
+            origin = {-35,40},
+            fillColor = {255,255,255},
             extent = {{-15,-61},{15,60}}),
           Rectangle(
-            origin = {35,21}, 
-            fillColor = {255,255,255}, 
+            origin = {35,21},
+            fillColor = {255,255,255},
             extent = {{-15,-61},{15,60}})}), Documentation(
             info="<html>
 <p>

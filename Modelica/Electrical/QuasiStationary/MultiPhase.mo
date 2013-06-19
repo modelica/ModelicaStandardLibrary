@@ -1131,16 +1131,16 @@ The inductances <i>L</i> are given as <i>m</i> input signals.
     annotation (Icon(
       graphics = {
         Line(
-          origin = {10,40}, 
+          origin = {10,40},
           points = {{-100,-40},{-80,-40}}),
         Line(
-          origin = {10,40}, 
+          origin = {10,40},
           points = {{60,-40},{80,-40}}),
         Rectangle(
-          lineColor = {0,0,255}, 
-          fillColor = {255,255,255}, 
-          fillPattern = FillPattern.Solid, 
-          extent = {{-70,-30},{70,30}})}, 
+          lineColor = {0,0,255},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.Solid,
+          extent = {{-70,-30},{70,30}})},
       coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
@@ -1791,6 +1791,7 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
     end CurrentSensor;
 
     model PowerSensor "Power sensor"
+      extends Modelica.Icons.RotationalSensor;
       parameter Integer m(min=1) = 3 "number of phases";
       Modelica.SIunits.AngularVelocity omega = der(currentP.reference.gamma);
       Interfaces.PositivePlug currentP
@@ -1866,15 +1867,10 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
               170,255}));
       annotation (
         Icon(graphics = {
-          Ellipse(fillColor = {192,192,192},
-            fillPattern = FillPattern.Solid,
-            extent = {{-70,-70},{70,70}}),
           Line(points = {{0,100},{0,70}},
             color = {0,0,255}),
           Line(points = {{0,-70},{0,-100}},
             color = {0,0,255}),
-          Ellipse(fillPattern = FillPattern.Solid,
-            extent = {{-5,-5},{5,5}}),
           Text(extent = {{-29,-70},{30,-11}},
             textString = "P"),
           Line(points = {{-80,-100},{-80,0}},
@@ -1883,24 +1879,7 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
             extent = {{-100,110},{100,150}},
             textString = "%name"),
           Line(points = {{-100,0},{100,0}},
-            color = {0,0,255}),
-          Line(points = {{0,70},{0,40}}),
-          Line(points = {{22.9,32.8},{40.2,57.3}}),
-          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
-          Line(points = {{37.6,13.7},{65.8,23.9}}),
-          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
-          Ellipse(lineColor = {64,64,64},
-            fillColor = {255,255,255},
-            extent = {{-12,-12},{12,12}}),
-          Polygon(rotation = -17.5,
-            fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
-          Ellipse(fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            extent = {{-7,-7},{7,7}})}),
+            color = {0,0,255})),
         Documentation(info="<html>
 
 <p>

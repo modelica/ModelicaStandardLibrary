@@ -9263,65 +9263,65 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
   </ul>
 </HTML>"),     Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
         Polygon(
-          origin = {10,10}, 
-          fillColor = {135,135,135}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
           points = {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
         Polygon(
-          origin = {10,10}, 
-          fillColor = {135,135,135}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
           points = {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
         Polygon(
-          origin = {10,10}, 
-          fillColor = {135,135,135}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
           points = {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
         Polygon(
-          origin = {10,10}, 
-          fillColor = {135,135,135}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
           points = {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
         Polygon(
-          origin = {10,10}, 
-          fillColor = {135,135,135}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
           points = {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
         Rectangle(
-          origin = {10,10}, 
-          lineColor = {128,0,255}, 
-          fillColor = {128,0,255}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          lineColor = {128,0,255},
+          fillColor = {128,0,255},
+          fillPattern = FillPattern.VerticalCylinder,
           extent = {{-88,-46},{-52,26}}),
         Rectangle(
-          origin = {10,10}, 
-          lineColor = {0,128,255}, 
-          fillColor = {0,128,255}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          lineColor = {0,128,255},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.VerticalCylinder,
           extent = {{-94,-38},{-46,18}}),
         Rectangle(
-          origin = {10,10}, 
-          lineColor = {128,0,255}, 
-          fillColor = {128,0,255}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          lineColor = {128,0,255},
+          fillColor = {128,0,255},
+          fillPattern = FillPattern.VerticalCylinder,
           extent = {{-28,-46},{8,26}}),
         Rectangle(
-          origin = {10,10}, 
-          lineColor = {0,128,255}, 
-          fillColor = {0,128,255}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          lineColor = {0,128,255},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.VerticalCylinder,
           extent = {{-34,-38},{14,18}}),
         Rectangle(
-          origin = {10,10}, 
-          lineColor = {128,0,255}, 
-          fillColor = {128,0,255}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          lineColor = {128,0,255},
+          fillColor = {128,0,255},
+          fillPattern = FillPattern.VerticalCylinder,
           extent = {{32,-46},{68,26}}),
         Rectangle(
-          origin = {10,10}, 
-          lineColor = {0,128,255}, 
-          fillColor = {0,128,255}, 
-          fillPattern = FillPattern.VerticalCylinder, 
+          origin = {10,10},
+          lineColor = {0,128,255},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.VerticalCylinder,
           extent = {{26,-38},{74,18}})}));
     end Transformers;
 
@@ -10202,29 +10202,29 @@ The induction machine models use package SpacePhasors.
   </ul>
 </HTML>"), Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
         Rectangle(
-          origin = {2.835,10}, 
-          fillColor = {0,128,255}, 
-          fillPattern = FillPattern.HorizontalCylinder, 
+          origin = {2.835,10},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.HorizontalCylinder,
           extent = {{-60,-60},{60,60}}),
         Rectangle(
-          origin = {2.835,10}, 
-          fillColor = {128,128,128}, 
-          fillPattern = FillPattern.HorizontalCylinder, 
+          origin = {2.835,10},
+          fillColor = {128,128,128},
+          fillPattern = FillPattern.HorizontalCylinder,
           extent = {{-80,-60},{-60,60}}),
         Rectangle(
-          origin = {2.835,10}, 
-          fillColor = {95,95,95}, 
-          fillPattern = FillPattern.HorizontalCylinder, 
+          origin = {2.835,10},
+          fillColor = {95,95,95},
+          fillPattern = FillPattern.HorizontalCylinder,
           extent = {{60,-10},{80,10}}),
         Rectangle(
-          origin = {2.835,10}, 
-          lineColor = {95,95,95}, 
-          fillColor = {95,95,95}, 
-          fillPattern = FillPattern.Solid, 
+          origin = {2.835,10},
+          lineColor = {95,95,95},
+          fillColor = {95,95,95},
+          fillPattern = FillPattern.Solid,
           extent = {{-60,50},{20,70}}),
         Polygon(
-          origin = {2.835,10}, 
-          fillPattern = FillPattern.Solid, 
+          origin = {2.835,10},
+          fillPattern = FillPattern.Solid,
           points = {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}));
   end BasicMachines;
 
@@ -10232,6 +10232,8 @@ The induction machine models use package SpacePhasors.
    extends Modelica.Icons.SensorsPackage;
 
     model VoltageQuasiRMSSensor "Length of space phasor -> RMS voltage"
+      extends Modelica.Icons.RotationalSensor;
+
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput V(final quantity="ElectricPotential", final unit=
            "V")
@@ -10292,26 +10294,6 @@ The induction machine models use package SpacePhasors.
             color = {0,0,255}),
           Line(points = {{0,-70},{0,-100}},
             color = {0,0,127}),
-          Ellipse(fillColor = {192,192,192},
-            fillPattern = FillPattern.Solid,
-            extent = {{-70,-70},{70,70}}),
-          Line(points = {{0,70},{0,40}}),
-          Line(points = {{22.9,32.8},{40.2,57.3}}),
-          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
-          Line(points = {{37.6,13.7},{65.8,23.9}}),
-          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
-          Ellipse(lineColor = {64,64,64},
-            fillColor = {255,255,255},
-            extent = {{-12,-12},{12,12}}),
-          Polygon(rotation = -17.5,
-            fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
-          Ellipse(fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            extent = {{-7,-7},{7,7}}),
           Text(lineColor = {0,0,255},
             extent = {{-40,-60},{40,-20}},
             textString = "V RMS")}),
@@ -10324,6 +10306,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
     end VoltageQuasiRMSSensor;
 
     model CurrentQuasiRMSSensor "Length of space phasor -> RMS current"
+      extends Modelica.Icons.RotationalSensor;
+
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput I(final quantity="ElectricCurrent", final unit=
            "A")
@@ -10384,26 +10368,6 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
             color = {0,0,255}),
           Line(points = {{0,-70},{0,-100}},
             color = {0,0,127}),
-          Ellipse(fillColor = {192,192,192},
-            fillPattern = FillPattern.Solid,
-            extent = {{-70,-70},{70,70}}),
-          Line(points = {{0,70},{0,40}}),
-          Line(points = {{22.9,32.8},{40.2,57.3}}),
-          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
-          Line(points = {{37.6,13.7},{65.8,23.9}}),
-          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
-          Ellipse(lineColor = {64,64,64},
-            fillColor = {255,255,255},
-            extent = {{-12,-12},{12,12}}),
-          Polygon(rotation = -17.5,
-            fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
-          Ellipse(fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            extent = {{-7,-7},{7,7}}),
           Text(lineColor = {0,0,255},
             extent = {{-40,-60},{40,-20}},
             textString = "A RMS")}),
@@ -10416,6 +10380,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
     end CurrentQuasiRMSSensor;
 
     model ElectricalPowerSensor "Instantaneous power from space phasors"
+      extends Modelica.Icons.RotationalSensor;
+
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput P(final quantity="Power", final unit="W")
         annotation (Placement(transformation(
@@ -10460,26 +10426,6 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
             color = {0,0,127}),
           Line(points = {{10,70},{10,80},{50,80},{50,100}},
             color = {0,0,127}),
-          Ellipse(fillColor = {192,192,192},
-            fillPattern = FillPattern.Solid,
-            extent = {{-70,-70},{70,70}}),
-          Line(points = {{0,70},{0,40}}),
-          Line(points = {{22.9,32.8},{40.2,57.3}}),
-          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
-          Line(points = {{37.6,13.7},{65.8,23.9}}),
-          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
-          Ellipse(lineColor = {64,64,64},
-            fillColor = {255,255,255},
-            extent = {{-12,-12},{12,12}}),
-          Polygon(rotation = -17.5,
-            fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
-          Ellipse(fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            extent = {{-7,-7},{7,7}}),
           Text(lineColor = {0,0,255},
             extent = {{-40,-60},{40,-20}},
             textString = "P Q")}),
@@ -10492,6 +10438,7 @@ Q = giving in stationary state reactive power.<br>
     end ElectricalPowerSensor;
 
     model MechanicalPowerSensor "Mechanical power = torque x speed"
+      extends Modelica.Icons.RotationalSensor;
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
       parameter Boolean useSupport=false "Use support or fixed housing"
         annotation(Evaluate=true);
@@ -10574,26 +10521,6 @@ Q = giving in stationary state reactive power.<br>
           points = {{10,-100},{0,-120}}),
         Line(visible = not useSupport,
           points = {{20,-100},{10,-120}}),
-        Ellipse(fillColor = {192,192,192},
-          fillPattern = FillPattern.Solid,
-          extent = {{-70,-70},{70,70}}),
-        Line(points = {{0,70},{0,40}}),
-        Line(points = {{22.9,32.8},{40.2,57.3}}),
-        Line(points = {{-22.9,32.8},{-40.2,57.3}}),
-        Line(points = {{37.6,13.7},{65.8,23.9}}),
-        Line(points = {{-37.6,13.7},{-65.8,23.9}}),
-        Ellipse(lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          extent = {{-12,-12},{12,12}}),
-        Polygon(rotation = -17.5,
-          fillColor = {64,64,64},
-          pattern = LinePattern.None,
-          fillPattern = FillPattern.Solid,
-          points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
-        Ellipse(fillColor = {64,64,64},
-          pattern = LinePattern.None,
-          fillPattern = FillPattern.Solid,
-          extent = {{-7,-7},{7,7}}),
         Text(lineColor = {0,0,255},
           extent = {{-40,-60},{40,-20}},
           textString = "Pmech")}),
@@ -12286,25 +12213,25 @@ This package contains loss models and their parameter records used for machine m
       annotation(
         Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
           Polygon(
-            origin={-9.2597,25.6673}, 
-            fillColor={102,102,102}, 
-            pattern=LinePattern.None, 
-            fillPattern=FillPattern.Solid, 
-            points={{48.017,11.336},{48.017,11.336},{10.766,11.336},{-25.684,10.95},{-34.944,-15.111},{-34.944,-15.111},{-32.298,-15.244},{-32.298,-15.244},{-22.112,0.168},{11.292,0.234},{48.267,-0.097},{48.267,-0.097}}, 
+            origin={-9.2597,25.6673},
+            fillColor={102,102,102},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{48.017,11.336},{48.017,11.336},{10.766,11.336},{-25.684,10.95},{-34.944,-15.111},{-34.944,-15.111},{-32.298,-15.244},{-32.298,-15.244},{-22.112,0.168},{11.292,0.234},{48.267,-0.097},{48.267,-0.097}},
             smooth=Smooth.Bezier),
           Polygon(
-            origin={-19.9923,-8.3993}, 
-            fillColor={102,102,102}, 
-            pattern=LinePattern.None, 
-            fillPattern=FillPattern.Solid, 
-            points={{3.239,37.343},{3.305,37.343},{-0.399,2.683},{-16.936,-20.071},{-7.808,-28.604},{6.811,-22.519},{9.986,37.145},{9.986,37.145}}, 
+            origin={-19.9923,-8.3993},
+            fillColor={102,102,102},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{3.239,37.343},{3.305,37.343},{-0.399,2.683},{-16.936,-20.071},{-7.808,-28.604},{6.811,-22.519},{9.986,37.145},{9.986,37.145}},
             smooth=Smooth.Bezier),
           Polygon(
-            origin={23.753,-11.5422}, 
-            fillColor={102,102,102}, 
-            pattern=LinePattern.None, 
-            fillPattern=FillPattern.Solid, 
-            points={{-10.873,41.478},{-10.873,41.478},{-14.048,-4.162},{-9.352,-24.8},{7.912,-24.469},{16.247,0.27},{16.247,0.27},{13.336,0.071},{13.336,0.071},{7.515,-9.983},{-3.134,-7.271},{-2.671,41.214},{-2.671,41.214}}, 
+            origin={23.753,-11.5422},
+            fillColor={102,102,102},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{-10.873,41.478},{-10.873,41.478},{-14.048,-4.162},{-9.352,-24.8},{7.912,-24.469},{16.247,0.27},{16.247,0.27},{13.336,0.071},{13.336,0.071},{7.515,-9.983},{-3.134,-7.271},{-2.671,41.214},{-2.671,41.214}},
             smooth=Smooth.Bezier)}),
         Documentation(info="<HTML>
 Material constants, especially linear temperature coefficients of commonly used conductor materials
@@ -16569,28 +16496,28 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
 </HTML>"),
       Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
         Rectangle(
-          origin = {2.835,10}, 
-          fillColor = {0,128,255}, 
-          fillPattern = FillPattern.HorizontalCylinder, 
+          origin = {2.835,10},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.HorizontalCylinder,
           extent = {{-60,-60},{60,60}}),
         Rectangle(
-          origin = {2.835,10}, 
-          fillColor = {128,128,128}, 
-          fillPattern = FillPattern.HorizontalCylinder, 
+          origin = {2.835,10},
+          fillColor = {128,128,128},
+          fillPattern = FillPattern.HorizontalCylinder,
           extent = {{-80,-60},{-60,60}}),
         Rectangle(
-          origin = {2.835,10}, 
-          fillColor = {95,95,95}, 
-          fillPattern = FillPattern.HorizontalCylinder, 
+          origin = {2.835,10},
+          fillColor = {95,95,95},
+          fillPattern = FillPattern.HorizontalCylinder,
           extent = {{60,-10},{80,10}}),
         Rectangle(
-          origin = {2.835,10}, 
-          lineColor = {95,95,95}, 
-          fillColor = {95,95,95}, 
-          fillPattern = FillPattern.Solid, 
+          origin = {2.835,10},
+          lineColor = {95,95,95},
+          fillColor = {95,95,95},
+          fillPattern = FillPattern.Solid,
           extent = {{-60,50},{20,70}}),
         Polygon(
-          origin = {2.835,10}, 
-          fillPattern = FillPattern.Solid, 
+          origin = {2.835,10},
+          fillPattern = FillPattern.Solid,
           points = {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}));
 end Machines;

@@ -179,6 +179,7 @@ package Icons "Library of icons"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(lineColor = {75,138,73},
+                  fillColor={255,255,255},
                   fillPattern = FillPattern.None,
                   extent = {{-100,-100},{100,100}}),
           Polygon(lineColor = {0,0,255},
@@ -308,12 +309,6 @@ package Icons "Library of icons"
             extent={{-20.0,-20.0},{20.0,20.0}}),
           Line(origin={0.0,-30.0},
             points={{0.0,60.0},{0.0,90.0}}),
-          Line(origin={0.0,-30.0},
-            rotation=70.0,
-            points={{0.0,60.0},{0.0,90.0}}),
-          Line(origin={0.0,-30.0},
-            rotation=-70.0,
-            points={{0.0,60.0},{0.0,90.0}}),
           Ellipse(origin={-0.0,-30.0},
             fillColor={64,64,64},
             pattern=LinePattern.None,
@@ -336,7 +331,7 @@ package Icons "Library of icons"
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
-            fillColor={192,192,192},
+            fillColor={245,245,245},
             fillPattern=FillPattern.Solid,
             extent={{-70.0,-70.0},{70.0,70.0}}),
           Line(points={{0.0,70.0},{0.0,40.0}}),
@@ -373,7 +368,7 @@ This icon is designed for a <b>rotational sensor</b> model.
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
-            fillColor={192,192,192},
+            fillColor={245,245,245},
             fillPattern=FillPattern.Solid,
             extent={{-70.0,-60.0},{70.0,20.0}}),
           Polygon(

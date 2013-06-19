@@ -1305,6 +1305,7 @@ The output signal is positive, if the heat flows from port_a to port_b.
 
     model ConditionalFixedHeatFlowSensor
       "HeatFlowSensor, conditional fixed Temperature"
+      extends Modelica.Icons.RotationalSensor;
       parameter Boolean useFixedTemperature(start=false)
         "Fixed Temperature if true"
         annotation(Evaluate=true);
@@ -1348,36 +1349,17 @@ The output signal is positive, if the heat flows from port_a to port_b.
             lineColor = {255,0,0},
             fillColor = {255,0,0},
             fillPattern = FillPattern.HorizontalCylinder,
-            extent = {{-90,-10},{90,10}}),
+            extent = {{-90,-10},{-70,10}}),
+          Rectangle(
+            lineColor = {255,0,0},
+            fillColor = {255,0,0},
+            fillPattern = FillPattern.HorizontalCylinder,
+            extent={{70,-10},{90,10}}),
           Text(
             lineColor = {0,0,255},
             extent = {{-150,85},{150,125}},
             textString = "%name"),
-          Line(points = {{0,-70},{0,-90}}, color = {0,0,127}),
-          Ellipse(
-            fillColor = {192,192,192},
-            fillPattern = FillPattern.Solid,
-            extent = {{-70,-70},{70,70}}),
-          Line(points = {{0,70},{0,40}}),
-          Line(points = {{22.9,32.8},{40.2,57.3}}),
-          Line(points = {{-22.9,32.8},{-40.2,57.3}}),
-          Line(points = {{37.6,13.7},{65.8,23.9}}),
-          Line(points = {{-37.6,13.7},{-65.8,23.9}}),
-          Ellipse(
-            lineColor = {64,64,64},
-            fillColor = {255,255,255},
-            extent = {{-12,-12},{12,12}}),
-          Polygon(
-            rotation = -17.5,
-            fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            points = {{-5,0},{-2,60},{0,65},{2,60},{5,0}}),
-          Ellipse(
-            fillColor = {64,64,64},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            extent = {{-7,-7},{7,7}})},
+          Line(points = {{0,-70},{0,-90}}, color = {0,0,127})},
             coordinateSystem(extent = {{-100,-100},{100,100}},
               preserveAspectRatio = true,
               initialScale = 0.1)),
