@@ -654,9 +654,25 @@ operating on complex numbers (such as sin(..)),
 as well as functions operating on vectors of complex numbers.
 </p>
 
-</html>"), Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}, preserveAspectRatio=true), graphics={
-        Text(
-          origin={11.9277,66.6667}, 
-          extent={{-101.9277,-106.6667},{78.0723,-26.6667}}, 
-          textString="f(x+j*y)")}));
+</html>"), Icon(coordinateSystem(extent={{-100,-100},{100,100}},
+          preserveAspectRatio=false), graphics={
+        Line(points={{32,-86},{32,88}}, color={175,175,175}),
+        Line(points={{-84,2},{88,2}}, color={175,175,175}),
+        Line(
+          points={{-50,75},{-5,30}},
+          color={0,0,0},
+          smooth=Smooth.None),
+        Line(
+          points={{-50,30},{-5,75}},
+          color={0,0,0},
+          smooth=Smooth.None),
+        Line(
+          points={{-50,-30},{-5,-75}},
+          color={0,0,0},
+          smooth=Smooth.None),
+        Line(
+          points={{-50,-75},{-5,-30}},
+          color={0,0,0},
+          smooth=Smooth.None)}));
+
 end ComplexMath;
