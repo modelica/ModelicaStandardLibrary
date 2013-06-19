@@ -1879,7 +1879,7 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
             extent = {{-100,110},{100,150}},
             textString = "%name"),
           Line(points = {{-100,0},{100,0}},
-            color = {0,0,255})),
+            color = {0,0,255}))},
         Documentation(info="<html>
 
 <p>
