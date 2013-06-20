@@ -671,6 +671,7 @@ The interface of this model is documented at
 
   model Surface
     "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
+    extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface;
 
     annotation (Documentation(info="<html>
 <p>
