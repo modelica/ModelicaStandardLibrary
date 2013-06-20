@@ -1008,7 +1008,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             size_t i, iStart, iEnd;
             if (tableID->extrapolation == PERIODIC) {
                 if (tableID->eventInterval == 0) {
-                    /* Initialization of offset time and event interval*/
+                    /* Initialization of offset time and event interval */
 #ifdef DEBUG_TIME_EVENTS
                     const double tOld = t;
 #endif
@@ -2087,15 +2087,14 @@ static int isValidName(const char* name) {
 
 static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
     int isValid = 1;
-    if (tableID && tableID->table) {
-        const double* table = tableID->table;
+    if (tableID) {
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
         size_t i;
         char* tableName;
-        char tableDummyName[6];
-        strcpy(tableDummyName, "table");
+        char tableDummyName[7];
 
+        strcpy(tableDummyName, "NoName");
         if (tableID->source == TABLESOURCE_MODEL) {
             tableName = tableDummyName;
         }
@@ -2113,53 +2112,56 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
             return isValid;
         }
 
-        /* Check period */
-        if (tableID->extrapolation == PERIODIC) {
-            const double tMin = TABLE_ROW0(0);
-            const double tMax = TABLE_COL0(nRow - 1);
-            const double T = tMax - tMin;
-            if (T <= 0) {
-                ModelicaFormatError(
-                    "Table matrix \"%s\" does not have a positive period/cylce "
-                    "time for time interpolation with periodic "
-                    "extrapolation.\n", tableName);
-                isValid = 0;
-                return isValid;
-            }
-        }
-
-        /* Check, whether first column values are monotonically or strictly
-           increasing */
-        if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
-            for (i = 0; i < nRow - 1; i++) {
-                double t0 = TABLE_COL0(i);
-                double t1 = TABLE_COL0(i + 1);
-                if (t0 >= t1) {
+        if (tableID->table) {
+            const double* table = tableID->table;
+            /* Check period */
+            if (tableID->extrapolation == PERIODIC) {
+                const double tMin = TABLE_ROW0(0);
+                const double tMax = TABLE_COL0(nRow - 1);
+                const double T = tMax - tMin;
+                if (T <= 0) {
                     ModelicaFormatError(
-                        "The values of the first column of table \"%s(%lu,%lu)\" "
-                        "are not strictly increasing because %s(%lu,1) (=%lf) "
-                        ">= %s(%lu,1) (=%lf).\n", tableName, (unsigned long)nRow,
-                        (unsigned long)nCol, tableName, (unsigned long)i + 1, t0,
-                        tableName, (unsigned long)i + 2, t1);
+                        "Table matrix \"%s\" does not have a positive period/cylce "
+                        "time for time interpolation with periodic "
+                        "extrapolation.\n", tableName);
                     isValid = 0;
                     return isValid;
                 }
             }
-        }
-        else {
-            for (i = 0; i < nRow - 1; i++) {
-                double t0 = TABLE_COL0(i);
-                double t1 = TABLE_COL0(i + 1);
-                if (t0 > t1) {
-                    ModelicaFormatError(
-                        "The values of the first column of table \"%s(%lu,%lu)\" "
-                        "are not monotonically increasing because %s(%lu,1) "
-                        "(=%lf) > %s(%lu,1) (=%lf).\n", tableName,
-                        (unsigned long)nRow, (unsigned long)nCol, tableName,
-                        (unsigned long)i + 1, t0, tableName, (unsigned long)i +
-                        2, t1);
-                    isValid = 0;
-                    return isValid;
+
+            /* Check, whether first column values are monotonically or strictly
+               increasing */
+            if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                for (i = 0; i < nRow - 1; i++) {
+                    double t0 = TABLE_COL0(i);
+                    double t1 = TABLE_COL0(i + 1);
+                    if (t0 >= t1) {
+                        ModelicaFormatError(
+                            "The values of the first column of table \"%s(%lu,%lu)\" "
+                            "are not strictly increasing because %s(%lu,1) (=%lf) "
+                            ">= %s(%lu,1) (=%lf).\n", tableName, (unsigned long)nRow,
+                            (unsigned long)nCol, tableName, (unsigned long)i + 1, t0,
+                            tableName, (unsigned long)i + 2, t1);
+                        isValid = 0;
+                        return isValid;
+                    }
+                }
+            }
+            else {
+                for (i = 0; i < nRow - 1; i++) {
+                    double t0 = TABLE_COL0(i);
+                    double t1 = TABLE_COL0(i + 1);
+                    if (t0 > t1) {
+                        ModelicaFormatError(
+                            "The values of the first column of table \"%s(%lu,%lu)\" "
+                            "are not monotonically increasing because %s(%lu,1) "
+                            "(=%lf) > %s(%lu,1) (=%lf).\n", tableName,
+                            (unsigned long)nRow, (unsigned long)nCol, tableName,
+                            (unsigned long)i + 1, t0, tableName, (unsigned long)i +
+                            2, t1);
+                        isValid = 0;
+                        return isValid;
+                    }
                 }
             }
         }
@@ -2170,15 +2172,14 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
 
 static int isValidCombiTable1D(const CombiTable1D* tableID) {
     int isValid = 1;
-    if (tableID && tableID->table) {
-        const double* table = tableID->table;
+    if (tableID) {
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
         size_t i;
         char* tableName;
-        char tableDummyName[6];
+        char tableDummyName[7];
 
-        strcpy(tableDummyName, "table");
+        strcpy(tableDummyName, "NoName");
         if (tableID->source == TABLESOURCE_MODEL) {
             tableName = tableDummyName;
         }
@@ -2196,19 +2197,22 @@ static int isValidCombiTable1D(const CombiTable1D* tableID) {
             return isValid;
         }
 
-        /* Check, whether first column values are strictly increasing */
-        for (i = 0; i < nRow - 1; i++) {
-            double x0 = TABLE_COL0(i);
-            double x1 = TABLE_COL0(i + 1);
-            if (x0 >= x1) {
-                ModelicaFormatError(
-                    "The values of the first column of table \"%s(%lu,%lu)\" are "
-                    "not strictly increasing because %s(%lu,1) (=%lf) >= "
-                    "%s(%lu,1) (=%lf).\n", tableName, (unsigned long)nRow,
-                    (unsigned long)nCol, tableName, (unsigned long)i + 1, x0,
-                    tableName, (unsigned long)i + 2, x1);
-                isValid = 0;
-                return isValid;
+        if (tableID->table) {
+            const double* table = tableID->table;
+            /* Check, whether first column values are strictly increasing */
+            for (i = 0; i < nRow - 1; i++) {
+                double x0 = TABLE_COL0(i);
+                double x1 = TABLE_COL0(i + 1);
+                if (x0 >= x1) {
+                    ModelicaFormatError(
+                        "The values of the first column of table \"%s(%lu,%lu)\" are "
+                        "not strictly increasing because %s(%lu,1) (=%lf) >= "
+                        "%s(%lu,1) (=%lf).\n", tableName, (unsigned long)nRow,
+                        (unsigned long)nCol, tableName, (unsigned long)i + 1, x0,
+                        tableName, (unsigned long)i + 2, x1);
+                    isValid = 0;
+                    return isValid;
+                }
             }
         }
     }
@@ -2218,15 +2222,14 @@ static int isValidCombiTable1D(const CombiTable1D* tableID) {
 
 static int isValidCombiTable2D(const CombiTable2D* tableID) {
     int isValid = 1;
-    if (tableID && tableID->table) {
-        const double* table = tableID->table;
+    if (tableID) {
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
         size_t i;
         char* tableName;
-        char tableDummyName[6];
+        char tableDummyName[7];
 
-        strcpy(tableDummyName, "table");
+        strcpy(tableDummyName, "NoName");
         if (tableID->source == TABLESOURCE_MODEL) {
             tableName = tableDummyName;
         }
@@ -2244,35 +2247,38 @@ static int isValidCombiTable2D(const CombiTable2D* tableID) {
             return isValid;
         }
 
-        /* Check, whether first column values are strictly increasing */
-        for (i = 1; i < nRow - 1; i++) {
-            double x0 = TABLE_COL0(i);
-            double x1 = TABLE_COL0(i + 1);
-            if (x0 >= x1) {
-                ModelicaFormatError(
-                    "The values of the first column of table \"%s(%lu,%lu)\" are "
-                    "not strictly increasing because %s(%lu,1) (=%lf) >= "
-                    "%s(%lu,1) (=%lf).\n", tableName, (unsigned long)nRow,
-                    (unsigned long)nCol, tableName, (unsigned long)i + 1,
-                    x0, tableName, (unsigned long)i + 2, x1);
-                isValid = 0;
-                return isValid;
+        if (tableID->table) {
+            const double* table = tableID->table;
+            /* Check, whether first column values are strictly increasing */
+            for (i = 1; i < nRow - 1; i++) {
+                double x0 = TABLE_COL0(i);
+                double x1 = TABLE_COL0(i + 1);
+                if (x0 >= x1) {
+                    ModelicaFormatError(
+                        "The values of the first column of table \"%s(%lu,%lu)\" are "
+                        "not strictly increasing because %s(%lu,1) (=%lf) >= "
+                        "%s(%lu,1) (=%lf).\n", tableName, (unsigned long)nRow,
+                        (unsigned long)nCol, tableName, (unsigned long)i + 1,
+                        x0, tableName, (unsigned long)i + 2, x1);
+                    isValid = 0;
+                    return isValid;
+                }
             }
-        }
 
-        /* Check, whether first row values are strictly increasing */
-        for (i = 1; i < nCol - 1; i++) {
-            double y0 = TABLE_ROW0(i);
-            double y1 = TABLE_ROW0(i + 1);
-            if (y0 >= y1) {
-                ModelicaFormatError(
-                    "The values of the first row of table \"%s(%lu,%lu)\" are "
-                    "not strictly increasing because %s(1,%lu) (=%lf) >= "
-                    "%s(1,%lu) (=%lf).\n", tableName, (unsigned long)nRow,
-                    (unsigned long)nCol, tableName, (unsigned long)i + 1,
-                    y0, tableName, (unsigned long)i + 2, y1);
-                isValid = 0;
-                return isValid;
+            /* Check, whether first row values are strictly increasing */
+            for (i = 1; i < nCol - 1; i++) {
+                double y0 = TABLE_ROW0(i);
+                double y1 = TABLE_ROW0(i + 1);
+                if (y0 >= y1) {
+                    ModelicaFormatError(
+                        "The values of the first row of table \"%s(%lu,%lu)\" are "
+                        "not strictly increasing because %s(1,%lu) (=%lf) >= "
+                        "%s(1,%lu) (=%lf).\n", tableName, (unsigned long)nRow,
+                        (unsigned long)nCol, tableName, (unsigned long)i + 1,
+                        y0, tableName, (unsigned long)i + 2, y1);
+                    isValid = 0;
+                    return isValid;
+                }
             }
         }
     }
@@ -2545,7 +2551,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         }
         else {
             for (i = 1; i < nRow; i++) {
-                /* Extrapolate table data in y direction*/
+                /* Extrapolate table data in y direction */
                 spline1DExtrapolateLeft(y[0], y[1], y[2], y[3], y[4],
                     &TABLE_EX(i + 1, 0), &TABLE_EX(i + 1, 1), TABLE_EX(i + 1, 2),
                     TABLE_EX(i + 1, 3), TABLE_EX(i + 1, 4));
@@ -2566,7 +2572,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         }
         else {
             for (j = 0; j < nCol + 3; j++) {
-                /* Extrapolate table data in x direction*/
+                /* Extrapolate table data in x direction */
                 spline1DExtrapolateLeft(x[0], x[1], x[2], x[3], x[4],
                     &TABLE_EX(0, j), &TABLE_EX(1, j), TABLE_EX(2, j),
                     TABLE_EX(3, j), TABLE_EX(4, j));
