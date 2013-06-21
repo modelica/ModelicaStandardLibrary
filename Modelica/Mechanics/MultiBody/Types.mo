@@ -137,8 +137,12 @@ visual object as parameter String. Usually, \"shapeType\" is used
 as instance name. The following
 values for shapeType are possible, e.g., shapeType=\"box\":
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
-<p>&nbsp;<br>
+</p>
+
+<p>
 The dark blue arrows in the figure above are directed along
 variable <b>lengthDirection</b>. The light blue arrows are directed
 along variable <b>widthDirection</b>. The <b>coordinate systems</b>

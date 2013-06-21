@@ -151,13 +151,17 @@ An example how to use this model is given in the
 following figure:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce1.png\">
+</p>
 
 <p>
 This leads to the following animation
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce2.png\">
+</p>
 
 </html>"));
   end WorldForce;
@@ -291,13 +295,17 @@ An example how to use this model is given in the
 following figure:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldTorque1.png\">
+</p>
 
 <p>
 This leads to the following animation
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldTorque2.png\">
+</p>
 
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -543,13 +551,17 @@ An example how to use this model is given in the
 following figure:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
+</p>
 
 <p>
 This leads to the following animation
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
+</p>
 
 </html>"));
   end WorldForceAndTorque;
@@ -731,7 +743,9 @@ An example how to use this model is given in the
 following figure:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Force1.png\">
+</p>
 
 <p>
 This leads to the following animation (the yellow cylinder
@@ -741,7 +755,9 @@ also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Force2.png\">
+</p>
 
 </html>"));
   end Force;
@@ -927,7 +943,9 @@ An example how to use this model is given in the
 following figure:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque1.png\">
+</p>
 
 <p>
 This leads to the following animation (the yellow cylinder
@@ -937,7 +955,9 @@ also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque2.png\">
+</p>
 
 </html>"));
   end Torque;
@@ -1200,7 +1220,9 @@ An example how to use this model is given in the
 following figure:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
+</p>
 
 <p>
 This leads to the following animation (the yellow cylinder
@@ -1211,7 +1233,9 @@ also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
+</p>
 
 </html>"));
   end ForceAndTorque;
@@ -2033,7 +2057,9 @@ The composition diagram of this example
 is displayed in the figure below.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses1.png\">
+</p>
 
 <p>
 The animation view at time = 0 is shown in the next figure.
@@ -2044,7 +2070,9 @@ Both implementations yield the same result. However, the implementation
 with the LineForceWithTwoMasses component is simpler.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
+</p>
 
 <p>
 In the translational library there is the implicit assumption that
@@ -2193,8 +2221,10 @@ spring is shown. The blue sphere in the middle of the
 spring characterizes the location of the point mass.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringWithMass.png\"
 ALT=\"model Examples.Elementary.SpringWithMass\">
+</p>
 
 </HTML>"));
   end Spring;
@@ -2274,7 +2304,9 @@ In the following figure a typical animation is shown
 where a mass is hanging on a damper.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Damper.png\">
+</p>
 
 </HTML>"),
       Icon(coordinateSystem(

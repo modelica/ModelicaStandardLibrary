@@ -413,7 +413,9 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
+</p>
 
 <p>
 Velocity, acceleration, angular velocity and angular acceleration are
@@ -910,7 +912,9 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
+</p>
 
 <p>
 Note, derivatives
@@ -2042,7 +2046,9 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png\">
+</p>
 
 <p>
 If the distance is smaller as parameter <b>s_small</b> (in the \"advanced\" menu),
@@ -2180,7 +2186,9 @@ and the green arrow is the cut force acting at frame_b and
 with negative sign at frame_a.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForce.png\">
+</p>
 </HTML>"));
   end CutForce;
 
@@ -2302,7 +2310,9 @@ and the green arrow is the cut torque acting at frame_b and
 with negative sign at frame_a.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
+</p>
 </HTML>"));
   end CutTorque;
 
@@ -2481,7 +2491,9 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
+</p>
 </HTML>"));
   end CutForceAndTorque;
 

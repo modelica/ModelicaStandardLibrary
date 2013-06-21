@@ -127,7 +127,10 @@ Fixed.frame_b on the right side are not part of the
 component animation and that the animation may be switched off via parameter
 animation = <b>false</b>.
 </p>
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Fixed.png\" ALT=\"Parts.Fixed\">
+</p>
+
 </html>"),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -327,7 +330,10 @@ frame_a and frame_b, as shown in the figure below. Note, that the
 two visualized frames are not part of the component animation and that
 the animation may be switched off via parameter animation = <b>false</b>.
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
+</p>
 </HTML>"));
   end FixedTranslation;
 
@@ -537,7 +543,10 @@ frame_b is rotated along the z-axis of frame_a with 60 degree. Note, that the
 two visualized frames are not part of the component animation and that
 the animation may be switched off via parameter animation = <b>false</b>.
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedRotation.png\" ALT=\"Parts.FixedRotation\">
+</p>
 </HTML>", revisions="<HTML><p><b>Release Notes:</b></p>
 <ul>
   <li><i>July 28, 2003</i><br>
@@ -941,7 +950,10 @@ the radius of the sphere, e.g., since frame_a is located at the
 center of mass, the cylinder is not displayed. Note, that
 the animation may be switched off via parameter animation = <b>false</b>.
 </p>
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Body.png\" ALT=\"Parts.Body\">
+</p>
+
 <p>
 <b>States of Body Components</b>
 </p>
@@ -1261,7 +1273,10 @@ its center at the center of mass.
 Note, that
 the animation may be switched off via parameter animation = <b>false</b>.
 </p>
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyShape.png\" ALT=\"Parts.BodyShape\">
+</p>
+
 <p>
 The following shapes can be defined via parameter <b>shapeType</b>,
 e.g., shapeType=\"cone\":
@@ -1524,7 +1539,11 @@ are always parallel to each other. Example of component
 animation (note, that
 the animation may be switched off via parameter animation = <b>false</b>):
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyBox.png\" ALT=\"Parts.BodyBox\">
+</p>
+
 <p>
 A BodyBox component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
@@ -1753,7 +1772,11 @@ are always parallel to each other. Example of component
 animation (note, that
 the animation may be switched off via parameter animation = <b>false</b>):
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/BodyCylinder.png\" ALT=\"Parts.BodyCylinder\">
+</p>
+
 <p>
 A BodyCylinder component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
@@ -2204,7 +2227,11 @@ to the vector of the rotor's axis. The axis of rotation of the rotor is defined 
 the parameter <code>n</code>, which has to be given in the local coordinate system
 of <code>frame_a</code>. The default animation of this component is
 shown in the figure below.</p>
+
+<p>
       <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
+</p>
+
 <p>This component is a replacement for
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
@@ -2334,7 +2361,9 @@ to the vector of the rotor's axis. The axis of rotation of the rotor is defined 
 the parameter <code>n</code>, which has to be given in the local coordinate system
 of <code>frame_a</code>. The default animation of this component is
 shown in the figure below.</p>
+<p>
       <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
+</p>
 <p>This component is a replacement for
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.

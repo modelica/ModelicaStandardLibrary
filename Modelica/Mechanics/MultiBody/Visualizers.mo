@@ -65,8 +65,12 @@ that cannot be changed during simulation.
 The following shapes are currently supported via
 parameter <b>shapeType</b> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape\">
-<p>&nbsp;<br>
+</p>
+
+<p>
 The dark blue arrows in the figure above are directed along
 variable <b>lengthDirection</b>. The light blue arrows are directed
 along variable <b>widthDirection</b>. The <b>coordinate systems</b>
@@ -301,7 +305,11 @@ that cannot be changed during simulation.
 The following shapes are currently supported via
 parameter <b>shapeType</b> (e.g., shapeType=\"box\"):<br>&nbsp;
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Shape.png\" ALT=\"model Visualizers.FixedShape2\">
+</p>
+
 <p>&nbsp;<br>
 The dark blue arrows in the figure above are directed along
 variable <b>lengthDirection</b>. The light blue arrows are directed
@@ -391,7 +399,11 @@ frame_a and frame_b are shown. The origin of frame_b
 with respect to frame_a is specified via parameter
 vector <b>r</b>.
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
+</p>
+
 </html>"));
   end FixedShape2;
 
@@ -591,7 +603,11 @@ its coordinate system <b>frame_a</b> together with appropriate axes
 labels. A typical example is shown in the following figure:
 <br>&nbsp;
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedFrame.png\" ALT=\"model Visualizers.FixedFrame\">
+</p>
+
 <p>
 The sizes of the axes, the axes colors and the specular coefficient
 (= reflection factor for
@@ -686,7 +702,11 @@ Model <b>FixedArrow</b> defines an arrow that is
 shown at the location of its frame_a.
 <br>&nbsp;
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.FixedArrow\">
+</p>
+
 <p>
 The direction of the arrow specified with vector
 <b>n</b> is with respect to frame_a, i.e., the local frame to which the
@@ -765,7 +785,10 @@ position vector from the tail to the head of the arrow,
 resolved in frame_a, is defined via the signal vector of
 the connector <b>r_head</b> (Real r_head[3]):<br>&nbsp;
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.SignalArrow\">
+</p>
 <p>
 The tail of the arrow is defined with parameter <b>r_tail</b>
 with respect to frame_a (vector from the origin of frame_a to the arrow tail).
@@ -1762,7 +1785,11 @@ This definition is also available as type
 Model <b>Arrow</b> defines an arrow that is dynamically
 visualized at the defined location (see variables below).
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.Advanced.Arrow\">
+</p>
+
 <p>
 The variables under heading <b>Parameters</b> below
 are declared as (time varying) <b>input</b> variables.
@@ -1907,7 +1934,11 @@ library (will be replaced by a color editor).
 Model <b>DoubleArrow</b> defines a double arrow that is dynamically
 visualized at the defined location (see variables below).
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
+</p>
+
 <p>
 The variables under heading <b>Parameters</b> below
 are declared as (time varying) <b>input</b> variables.
