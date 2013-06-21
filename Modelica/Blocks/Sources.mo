@@ -2429,7 +2429,8 @@ by interpolation of column 4 of the table matrix.
 The table interpolation has the following properties:
 </p>
 <ul>
-<li>The time points need to be <b>monotonically increasing</b>.</li>
+<li>The time points need to be <b>strictly increasing</b> if smoothness
+    is ContinuousDerivative, otherwise <b>monotonically increasing</b>.</li>
 <li><b>Discontinuities</b> are allowed, by providing the same
     time point twice in the table. </li>
 <li>Values <b>outside</b> of the table range, are computed by
@@ -2437,9 +2438,12 @@ The table interpolation has the following properties:
     <b>extrapolation</b>:
 <pre>
   extrapolation = 1: hold the first or last value of the table,
-                     if outside of the range.
-                = 2: extrapolate through the last or first two
-                     points of the table.
+                     if outside of the table scope.
+                = 2: extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
                 = 3: periodically repeat the table data
                      (periodical function).
                 = 4: no extrapolation, i.e. extrapolation triggers an error
@@ -2448,7 +2452,7 @@ The table interpolation has the following properties:
 <pre>
   smoothness = 1: linear interpolation
              = 2: smooth interpolation with Akima-splines such
-                  that der(y) is continuous.
+                  that der(y) is continuous, also if extrapolated.
              = 3: constant segments
 </pre></li>
 <li>If the table has only <b>one row</b>, no interpolation is performed and
