@@ -121,15 +121,7 @@ are shown for a cylinder:
       choice="beam" "\"beam\"",
       choice="gearwheel" "\"gearwheel\"",
       choice="spring" "\"spring\"",
-      choice="1" "File \"1.dxf\" in current directory",
-      choice="2" "File \"2.dxf\" in current directory",
-      choice="3" "File \"3.dxf\" in current directory",
-      choice="4" "File \"4.dxf\" in current directory",
-      choice="5" "File \"5.dxf\" in current directory",
-      choice="6" "File \"6.dxf\" in current directory",
-      choice="7" "File \"7.dxf\" in current directory",
-      choice="8" "File \"8.dxf\" in current directory",
-      choice="9" "File \"9.dxf\" in current directory"),
+      choice="modelica://<ModelicaPackage>/<RelativeFilename>.dxf"),
     Documentation(info="<html>
 <p>
 Type <b>ShapeType</b> is used to define the shape of the
