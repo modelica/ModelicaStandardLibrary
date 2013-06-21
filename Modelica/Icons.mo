@@ -180,7 +180,7 @@ package Icons "Library of icons"
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(lineColor = {75,138,73},
                   fillColor={255,255,255},
-                  fillPattern = FillPattern.None,
+                  fillPattern = FillPattern.Solid,
                   extent = {{-100,-100},{100,100}}),
           Polygon(lineColor = {0,0,255},
                   fillColor = {75,138,73},
