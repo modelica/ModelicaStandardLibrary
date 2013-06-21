@@ -657,14 +657,34 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                             const size_t last =
                                 (extrapolate == RIGHT) ? nRow - 2 : 0;
                             const double t0 = TABLE_COL0(last);
-                            const double t1 = TABLE_COL0(last + 1);
                             const double y0 = TABLE(last, col);
-                            const double y1 = TABLE(last + 1, col);
-                            if (isNearlyEqual(t0, t1)) {
-                                y = y1;
+
+                            if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                                if (tableID->spline) {
+                                    const double* c = tableID->spline[
+                                        IDX(last, iCol - 1, tableID->nCols)];
+                                    if (extrapolate == RIGHT) {
+                                        const double t1 = TABLE_COL0(last + 1);
+                                        const double y1 = TABLE(last + 1, col);
+                                        /* Calculation of the polynomial */
+                                        y = t1 - t0;
+                                        y = (3*c[0]*y + 2*c[1])*y + c[2]; /* = der_y */
+                                        y = y1 + y*(t - t1);
+                                    }
+                                    else {
+                                        y = y0 + c[2]*(t - t0);
+                                    }
+                                }
                             }
                             else {
-                                y = y0 + (y1 - y0)*(t - t0)/(t1 - t0);
+                                const double t1 = TABLE_COL0(last + 1);
+                                const double y1 = TABLE(last + 1, col);
+                                if (isNearlyEqual(t0, t1)) {
+                                    y = y1;
+                                }
+                                else {
+                                    y = y0 + (y1 - y0)*(t - t0)/(t1 - t0);
+                                }
                             }
                             break;
                         }
@@ -849,18 +869,35 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                         case HOLD_LAST_POINT:
                             break;
 
-                        case LAST_TWO_POINTS: {
-                            double t0, t1;
+                        case LAST_TWO_POINTS:
                             last = (extrapolate == RIGHT) ? nRow - 2 : 0;
-                            t0 = TABLE_COL0(last);
-                            t1 = TABLE_COL0(last + 1);
-                            if (!isNearlyEqual(t0, t1)) {
-                                der_y = (TABLE(last + 1, col) - TABLE(last, col))/
-                                    (t1 - t0);
-                                der_y *= der_t;
+
+                            if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                                if(tableID->spline) {
+                                    const double* c = tableID->spline[
+                                        IDX(last, iCol - 1, tableID->nCols)];
+                                    if (extrapolate == RIGHT) {
+                                        /* Calculation of the polynomial */
+                                        der_y = TABLE_COL0(last + 1) -
+                                            TABLE_COL0(last); /* = (t1 - t0) */
+                                        der_y = (3*c[0]*der_y + 2*c[1])*
+                                            der_y + c[2];
+                                    }
+                                    else {
+                                        der_y = c[2];
+                                    }
+                                }
                             }
+                            else {
+                                const double t0 = TABLE_COL0(last);
+                                const double t1 = TABLE_COL0(last + 1);
+                                if (!isNearlyEqual(t0, t1)) {
+                                    der_y = (TABLE(last + 1, col) - TABLE(last, col))/
+                                        (t1 - t0);
+                                }
+                            }
+                            der_y *= der_t;
                             break;
-                        }
 
                         case PERIODIC:
                             /* Should not be possible to get here */
@@ -1434,10 +1471,30 @@ double ModelicaStandardTables_CombiTable1D_getValue(void* _tableID, int iCol,
                 /* Extrapolation */
                 const size_t last = (extrapolate == RIGHT) ? nRow - 2 : 0;
                 const double u0 = TABLE_COL0(last);
-                const double u1 = TABLE_COL0(last + 1);
                 const double y0 = TABLE(last, col);
-                const double y1 = TABLE(last + 1, col);
-                y = y0 + (y1 - y0)*(u - u0)/(u1 - u0);
+
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[
+                            IDX(last, iCol - 1, tableID->nCols)];
+                        if (extrapolate == RIGHT) {
+                            const double u1 = TABLE_COL0(last + 1);
+                            const double y1 = TABLE(last + 1, col);
+                            /* Calculation of the polynomial */
+                            y = u1 - u0;
+                            y = (3*c[0]*y + 2*c[1])*y + c[2]; /* = der_y */
+                            y = y1 + y*(u - u1);
+                        }
+                        else {
+                            y = y0 + c[2]*(u - u0);
+                        }
+                    }
+                }
+                else {
+                    const double u1 = TABLE_COL0(last + 1);
+                    const double y1 = TABLE(last + 1, col);
+                    y = y0 + (y1 - y0)*(u - u0)/(u1 - u0);
+                }
             }
         }
     }
@@ -1498,8 +1555,26 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
             else {
                 /* Extrapolation */
                 const size_t last = (extrapolate == RIGHT) ? nRow - 2 : 0;
-                der_y = (TABLE(last + 1, col) - TABLE(last, col))/
-                    (TABLE_COL0(last + 1) - TABLE_COL0(last));
+
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[
+                            IDX(last, iCol - 1, tableID->nCols)];
+                        if (extrapolate == RIGHT) {
+                            /* Calculation of the polynomial */
+                            der_y = TABLE_COL0(last + 1) -
+                                TABLE_COL0(last); /* = (u1 - u0) */
+                            der_y = (3*c[0]*der_y + 2*c[1])*der_y + c[2];
+                        }
+                        else {
+                            der_y = c[2];
+                        }
+                    }
+                }
+                else {
+                    der_y = (TABLE(last + 1, col) - TABLE(last, col))/
+                        (TABLE_COL0(last + 1) - TABLE_COL0(last));
+                }
                 der_y *= der_u;
             }
         }
