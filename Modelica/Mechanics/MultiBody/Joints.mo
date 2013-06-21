@@ -8812,5 +8812,23 @@ solved, i.e., robustly and efficiently).
       </td>
   </tr>
 </table>
-</HTML>"));
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}), graphics={
+        Polygon(
+          points={{6,6},{28,-2},{54,80},{32,86},{6,6}},
+          lineColor={95,95,95},
+          fillPattern=FillPattern.Sphere,
+          smooth=Smooth.None,
+          fillColor={255,255,255}),
+        Polygon(
+          points={{-12,-18},{0,-36},{-70,-84},{-82,-66},{-12,-18}},
+          lineColor={95,95,95},
+          fillPattern=FillPattern.Sphere,
+          smooth=Smooth.None,
+          fillColor={255,255,255}),
+        Ellipse(
+          extent={{-12,8},{34,-38}},
+          lineColor={95,95,95},
+          fillPattern=FillPattern.Sphere,
+          fillColor={95,95,95})}));
 end Joints;

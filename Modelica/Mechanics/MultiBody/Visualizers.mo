@@ -2775,5 +2775,23 @@ This is a vector with 3 elements,
 Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
 respectively.
 </p>
-</HTML>"));
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}), graphics={
+        Rectangle(
+          extent={{-80,26},{26,-70}},
+          lineColor={95,95,95},
+          fillPattern=FillPattern.Solid,
+          fillColor={245,245,245}),
+        Polygon(
+          points={{-80,26},{-16,70},{80,70},{26,26},{-80,26}},
+          lineColor={95,95,95},
+          smooth=Smooth.None,
+          fillColor={245,245,245},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{80,70},{26,26},{26,-70},{80,-32},{80,70}},
+          lineColor={95,95,95},
+          smooth=Smooth.None,
+          fillColor={245,245,245},
+          fillPattern=FillPattern.Solid)}));
 end Visualizers;

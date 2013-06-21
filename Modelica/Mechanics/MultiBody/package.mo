@@ -1612,5 +1612,21 @@ Copyright &copy; 1998-2013, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>"));
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}), graphics={
+        Polygon(
+          points={{-58,76},{6,76},{-26,50},{-58,76}},
+          lineColor={95,95,95},
+          smooth=Smooth.None,
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{-26,50},{28,-50}},
+          color={0,0,0},
+          smooth=Smooth.None),
+        Ellipse(
+          extent={{-4,-14},{60,-78}},
+          lineColor={135,135,135},
+          fillPattern=FillPattern.Sphere,
+          fillColor={255,255,255})}));
 end MultiBody;
