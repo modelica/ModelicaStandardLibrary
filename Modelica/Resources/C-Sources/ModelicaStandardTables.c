@@ -1917,14 +1917,153 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                 const size_t last2 = (extrapolate2 == RIGHT) ? nCol - 3 :
                     ((extrapolate2 == LEFT) ? 0 : findColIndex(&TABLE(0, 1),
                     nCol - 1, tableID->last2, u2));
-                const double u10 = TABLE_COL0(last1 + 1);
-                const double u11 = TABLE_COL0(last1 + 2);
-                const double u20 = TABLE_ROW0(last2 + 1);
-                const double u21 = TABLE_ROW0(last2 + 2);
-                const double y00 = TABLE(last1 + 1, last2 + 1);
-                const double y01 = TABLE(last1 + 1, last2 + 2);
-                const double y10 = TABLE(last1 + 2, last2 + 1);
-                const double y11 = TABLE(last1 + 2, last2 + 2);
+                double u10, u11, u20, u21, y00, y01, y10, y11;
+
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[
+                            IDX(last1, last2, nCol - 2)];
+                        if (extrapolate1 == LEFT) {
+                            u11 = TABLE_COL0(1);
+                            u10 = 2*u11 - TABLE_COL0(2);
+                            if (extrapolate2 == LEFT) {
+                                u21 = TABLE_ROW0(1);
+                                u20 = 2*u21 - TABLE_ROW0(2);
+                                y11 = TABLE(1, 1);
+                                y00 = u10 - u11;
+                                y01 = y11 + c[11]*y00;
+                                y10 = y11 + c[14]*(u20 - u21);
+                                y00 = y10 + c[11]*y00;
+                            }
+                            else if (extrapolate2 == RIGHT) {
+                                u20 = TABLE_ROW0(nCol - 1);
+                                u21 = 2*u20 - TABLE_ROW0(nCol - 2);
+                                y10 = TABLE(1, nCol - 1);
+                                y01 = u21 - u20;
+                                y00 = ((c[8]*y01 + c[9])*y01 + c[10])*y01 + c[11]; /* = der_y1 */
+                                y11 =(3*c[12]*y01 + 2*c[13])*y01 + c[14]; /* = der_y2 */
+                                y00 = y10 + y00*(u10 - u11);
+                                y11 *= y01;
+                                y01 = y00 + y11;
+                                y11 = y10 + y11;
+                            }
+                            else {
+                                u20 = TABLE_ROW0(last2 + 1);
+                                u21 = TABLE_ROW0(last2 + 2);
+                                y10 = TABLE(1, last2 + 1);
+                                y11 = TABLE(1, last2 + 2);
+                                y00 = u10 - u11;
+                                y01 = u21 - u20;
+                                y01 = ((c[8]*y01 + c[9])*y01 + c[10])*y01 + c[11]; /* = der_y1 */
+                                y01 = y11 + y01*y00;
+                                y00 = y10 + c[11]*y00;
+                            }
+                        }
+                        else if (extrapolate1 == RIGHT) {
+                            u10 = TABLE_COL0(nRow - 1);
+                            u11 = 2*u10 - TABLE_COL0(nRow - 2);
+                            if (extrapolate2 == LEFT) {
+                                u21 = TABLE_ROW0(1);
+                                u20 = 2*u21 - TABLE_ROW0(2);
+                                y01 = TABLE(nRow - 1, 1);
+                                y00 = u11 - u10;
+                                y11 = (3*c[3]*y00 + 2*c[7])*y00 + c[11]; /* = der_y1 */
+                                y10 = ((c[2]*y00 + c[6])*y00 + c[10])*y00 + c[14]; /* = der_y2 */
+                                y11 = y01 + y11*y00;
+                                y10 *= u20 - u21;
+                                y00 = y01 + y10;
+                                y10 = y11 + y10;
+                            }
+                            else if (extrapolate2 == RIGHT) {
+                                double v1, v2;
+                                double p1, p2, p3;
+                                double dp1_u2, dp2_u2, dp3_u2, dp4_u2;
+                                u20 = TABLE_ROW0(nCol - 1);
+                                u21 = 2*u20 - TABLE_ROW0(nCol - 2);
+                                y00 = TABLE(nRow - 1, nCol - 1);
+                                v1 = u11 - u10;
+                                v2 = u21 - u20;
+                                p1 = ((c[0]*v2 + c[1])*v2 + c[2])*v2 + c[3];
+                                p2 = ((c[4]*v2 + c[5])*v2 + c[6])*v2 + c[7];
+                                p3 = ((c[8]*v2 + c[9])*v2 + c[10])*v2 + c[11];
+                                dp1_u2 = (3*c[0]*v2 + 2*c[1])*v2 + c[2];
+                                dp2_u2 = (3*c[4]*v2 + 2*c[5])*v2 + c[6];
+                                dp3_u2 = (3*c[8]*v2 + 2*c[9])*v2 + c[10];
+                                dp4_u2 = (3*c[12]*v2 + 2*c[13])*v2 + c[14];
+                                y10 = ((3*p1*v1 + 2*p2)*v1 + p3);  /* = der_y1 */
+                                y11 = (((dp1_u2*v1 + dp2_u2)*v1 + dp3_u2)*v1 + dp4_u2);  /* = der_y1 */
+                                y10 = y00 + y10*v1;
+                                y01 = y00 + y11*v2;
+                                y11 = y10 + y11*v2;
+                            }
+                            else {
+                                double v1, p1, p2, p3;
+                                u20 = TABLE_ROW0(last2 + 1);
+                                u21 = TABLE_ROW0(last2 + 2);
+                                y00 = TABLE(nRow - 1, last2 + 1);
+                                y01 = TABLE(nRow - 1, last2 + 2);
+                                v1 = u11 - u10;
+                                y10 = ((3*c[3]*v1 + 2*c[7])*v1 + c[11]); /* = der_y1 */
+                                y10 = y00 + y10*v1;
+                                y11 = u21 - u20;
+                                p1 = ((c[0]*y11 + c[1])*y11 + c[2])*y11 + c[3];
+                                p2 = ((c[4]*y11 + c[5])*y11 + c[6])*y11 + c[7];
+                                p3 = ((c[8]*y11 + c[9])*y11 + c[10])*y11 + c[11];
+                                y11 = (3*p1*v1 + 2*p2)*v1 + p3; /* = der_y1 */
+                                y11 = y01 + y11*v1;
+                            }
+                        }
+                        else {
+                            u10 = TABLE_COL0(last1 + 1);
+                            u11 = TABLE_COL0(last1 + 2);
+                            if (extrapolate2 == LEFT) {
+                                u21 = TABLE_ROW0(1);
+                                u20 = 2*u21 - TABLE_ROW0(2);
+                                y01 = TABLE(last1 + 1, 1);
+                                y11 = TABLE(last1 + 2, 1);
+                                y00 = y01 + c[14]*(u20 - u21);
+                                y10 = u11 - u10;
+                                y10 = ((c[2]*y10 + c[6])*y10 + c[10])*y10 + c[14]; /* = der_y2 */
+                                y10 = y11 + y10*(u20 - u21);
+                            }
+                            else if (extrapolate2 == RIGHT) {
+                                double v2, dp1_u2, dp2_u2, dp3_u2, dp4_u2;
+                                u20 = TABLE_ROW0(nCol - 1);
+                                u21 = 2*u20 - TABLE_ROW0(nCol - 2);
+                                y00 = TABLE(last1 + 1, nCol - 1);
+                                y10 = TABLE(last1 + 2, nCol - 1);
+                                v2 = u21 - u20;
+                                y01 = (3*c[12]*v2 + 2*c[13])*v2 + c[14]; /* = der_y2 */
+                                y01 = y00 + y01*v2;
+                                dp1_u2 = (3*c[0]*v2 + 2*c[1])*v2 + c[2];
+                                dp2_u2 = (3*c[4]*v2 + 2*c[5])*v2 + c[6];
+                                dp3_u2 = (3*c[8]*v2 + 2*c[9])*v2 + c[10];
+                                dp4_u2 = (3*c[12]*v2 + 2*c[13])*v2 + c[14];
+                                y11 = u11 - u10;
+                                y11 = ((dp1_u2*y11 + dp2_u2)*y11 + dp3_u2)*y11 + dp4_u2; /* = der_y2 */
+                                y11 = y10 + y11*v2;
+                            }
+                            else {
+                                /* Should not be possible to get here */
+                                return y;
+                            }
+                        }
+                    }
+                    else {
+                        /* Normally tableID->spline should not be NULL */
+                        return y;
+                    }
+                }
+                else {
+                    u10 = TABLE_COL0(last1 + 1);
+                    u11 = TABLE_COL0(last1 + 2);
+                    u20 = TABLE_ROW0(last2 + 1);
+                    u21 = TABLE_ROW0(last2 + 2);
+                    y00 = TABLE(last1 + 1, last2 + 1);
+                    y01 = TABLE(last1 + 1, last2 + 2);
+                    y10 = TABLE(last1 + 2, last2 + 1);
+                    y11 = TABLE(last1 + 2, last2 + 2);
+                }
                 y = (u2 - u20)/(u20 - u21);
                 y = y00 + y*(y00 - y01) + (u1 - u10)/(u10 - u11)*
                     ((1 + y)*(y00 - y10) + y*(y11 - y01));
@@ -2028,14 +2167,132 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                 const size_t last2 = (extrapolate2 == RIGHT) ? nCol - 3 :
                     ((extrapolate2 == LEFT) ? 0 : findColIndex(&TABLE(0, 1),
                     nCol - 1, tableID->last2, u2));
-                const double u10 = TABLE_COL0(last1 + 1);
-                const double u11 = TABLE_COL0(last1 + 2);
-                const double u20 = TABLE_ROW0(last2 + 1);
-                const double u21 = TABLE_ROW0(last2 + 2);
-                const double y00 = TABLE(last1 + 1, last2 + 1);
-                const double y01 = TABLE(last1 + 1, last2 + 2);
-                const double y10 = TABLE(last1 + 2, last2 + 1);
-                const double y11 = TABLE(last1 + 2, last2 + 2);
+                double u10, u11, u20, u21, y00, y01, y10, y11;
+
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[
+                            IDX(last1, last2, nCol - 2)];
+                        if (extrapolate1 == LEFT) {
+                            if (extrapolate2 == LEFT) {
+                                der_y = c[11]*der_u1 + c[14]*der_u2;
+                                return der_y;
+                            }
+                            else if (extrapolate2 == RIGHT) {
+                                u20 = TABLE_ROW0(nCol - 1);
+                                u21 = 2*u20 - TABLE_ROW0(nCol - 2);
+                                y01 = u21 - u20;
+                                der_y = (((c[8]*y01 + c[9])*y01 + c[10])*y01 + c[11])*der_u1;
+                                der_y += ((3*c[12]*y01 + 2*c[13])*y01 + c[14])*der_u2;
+                                return der_y;
+                            }
+                            else {
+                                u11 = TABLE_COL0(1);
+                                u10 = 2*u11 - TABLE_COL0(2);
+                                u20 = TABLE_ROW0(last2 + 1);
+                                u21 = TABLE_ROW0(last2 + 2);
+                                y10 = TABLE(1, last2 + 1);
+                                y11 = TABLE(1, last2 + 2);
+                                y00 = u10 - u11;
+                                y01 = u21 - u20;
+                                y01 = ((c[8]*y01 + c[9])*y01 + c[10])*y01 + c[11]; /* = der_y1 */
+                                y01 = y11 + y01*y00;
+                                y00 = y10 + c[11]*y00;
+                            }
+                        }
+                        else if (extrapolate1 == RIGHT) {
+                            if (extrapolate2 == LEFT) {
+                                const double v1 = TABLE_COL0(nRow - 1) - TABLE_COL0(nRow - 2);
+                                der_y = ((3*c[3]*v1 + 2*c[7])*v1 + c[11])*der_u1;
+                                der_y += (((c[2]*v1 + c[6])*v1 + c[10])*v1 + c[14])*der_u2;
+                                return der_y;
+                            }
+                            else if (extrapolate2 == RIGHT) {
+                                const double v1 = TABLE_COL0(nRow - 1) - TABLE_COL0(nRow - 2);
+                                const double v2 = TABLE_ROW0(nCol - 1) - TABLE_ROW0(nCol - 2);
+                                double p1, p2, p3;
+                                double dp1_u2, dp2_u2, dp3_u2, dp4_u2;
+                                p1 = ((c[0]*v2 + c[1])*v2 + c[2])*v2 + c[3];
+                                p2 = ((c[4]*v2 + c[5])*v2 + c[6])*v2 + c[7];
+                                p3 = ((c[8]*v2 + c[9])*v2 + c[10])*v2 + c[11];
+                                dp1_u2 = (3*c[0]*v2 + 2*c[1])*v2 + c[2];
+                                dp2_u2 = (3*c[4]*v2 + 2*c[5])*v2 + c[6];
+                                dp3_u2 = (3*c[8]*v2 + 2*c[9])*v2 + c[10];
+                                dp4_u2 = (3*c[12]*v2 + 2*c[13])*v2 + c[14];
+                                der_y = (((3*p1*v1 + 2*p2)*v1 + p3))*der_u1;
+                                der_y += (((dp1_u2*v1 + dp2_u2)*v1 + dp3_u2)*v1 + dp4_u2)*der_u2;
+                                return der_y;
+                            }
+                            else {
+                                double v1, p1, p2, p3;
+                                u10 = TABLE_COL0(nRow - 1);
+                                u11 = 2*u10 - TABLE_COL0(nRow - 2);
+                                u20 = TABLE_ROW0(last2 + 1);
+                                u21 = TABLE_ROW0(last2 + 2);
+                                y00 = TABLE(nRow - 1, last2 + 1);
+                                y01 = TABLE(nRow - 1, last2 + 2);
+                                v1 = u11 - u10;
+                                y10 = ((3*c[3]*v1 + 2*c[7])*v1 + c[11]); /* = der_y1 */
+                                y10 = y00 + y10*v1;
+                                y11 = u21 - u20;
+                                p1 = ((c[0]*y11 + c[1])*y11 + c[2])*y11 + c[3];
+                                p2 = ((c[4]*y11 + c[5])*y11 + c[6])*y11 + c[7];
+                                p3 = ((c[8]*y11 + c[9])*y11 + c[10])*y11 + c[11];
+                                y11 = (3*p1*v1 + 2*p2)*v1 + p3; /* = der_y1 */
+                                y11 = y01 + y11*v1;
+                            }
+                        }
+                        else {
+                            u10 = TABLE_COL0(last1 + 1);
+                            u11 = TABLE_COL0(last1 + 2);
+                            if (extrapolate2 == LEFT) {
+                                u21 = TABLE_ROW0(1);
+                                u20 = 2*u21 - TABLE_ROW0(2);
+                                y01 = TABLE(last1 + 1, 1);
+                                y11 = TABLE(last1 + 2, 1);
+                                y00 = y01 + c[14]*(u20 - u21);
+                                y10 = u11 - u10;
+                                y10 = ((c[2]*y10 + c[6])*y10 + c[10])*y10 + c[14]; /* = der_y2 */
+                                y10 = y11 + y10*(u20 - u21);
+                            }
+                            else if (extrapolate2 == RIGHT) {
+                                double v2, dp1_u2, dp2_u2, dp3_u2, dp4_u2;
+                                u20 = TABLE_ROW0(nCol - 1);
+                                u21 = 2*u20 - TABLE_ROW0(nCol - 2);
+                                y00 = TABLE(last1 + 1, nCol - 1);
+                                y10 = TABLE(last1 + 2, nCol - 1);
+                                v2 = u21 - u20;
+                                y01 = (3*c[12]*v2 + 2*c[13])*v2 + c[14]; /* = der_y2 */
+                                y01 = y00 + y01*v2;
+                                dp1_u2 = (3*c[0]*v2 + 2*c[1])*v2 + c[2];
+                                dp2_u2 = (3*c[4]*v2 + 2*c[5])*v2 + c[6];
+                                dp3_u2 = (3*c[8]*v2 + 2*c[9])*v2 + c[10];
+                                dp4_u2 = (3*c[12]*v2 + 2*c[13])*v2 + c[14];
+                                y11 = u11 - u10;
+                                y11 = ((dp1_u2*y11 + dp2_u2)*y11 + dp3_u2)*y11 + dp4_u2; /* = der_y2 */
+                                y11 = y10 + y11*v2;
+                            }
+                            else {
+                                /* Should not be possible to get here */
+                                return der_y;
+                            }
+                        }
+                    }
+                    else {
+                        /* Normally tableID->spline should not be NULL */
+                        return der_y;
+                    }
+                }
+                else {
+                    u10 = TABLE_COL0(last1 + 1);
+                    u11 = TABLE_COL0(last1 + 2);
+                    u20 = TABLE_ROW0(last2 + 1);
+                    u21 = TABLE_ROW0(last2 + 2);
+                    y00 = TABLE(last1 + 1, last2 + 1);
+                    y01 = TABLE(last1 + 1, last2 + 2);
+                    y10 = TABLE(last1 + 2, last2 + 1);
+                    y11 = TABLE(last1 + 2, last2 + 2);
+                }
                 der_y = (u21*(y10 - y00) + u20*(y01 - y11) +
                     u2*(y00 - y01 - y10 + y11))*der_u1;
                 der_y += (u11*(y01 - y00) + u10*(y10 - y11) +
