@@ -2530,7 +2530,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             fstatus[1] := 0;
           end if;
         else
-          assert(true, "No choice of roughness is selected");
+          assert(false, "No choice of roughness is selected");
         end if;
         fstatus[2] := if Pr < 0.6 or Pr > 1e3 then 1 else 0;
         fstatus[3] := if IN_con.d_hyd/max(MIN, IN_con.L) > 1 then 1 else 0;
@@ -2691,7 +2691,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             fstatus[1] := 0;
           end if;
         else
-          assert(true, "No choice of roughness is selected");
+          assert(false, "No choice of roughness is selected");
         end if;
         fstatus[2] := if Pr <= 0.6 or Pr >= 1e3 then 1 else 0;
         fstatus[3] := if IN_con.d_hyd/max(MIN, IN_con.L) > 1 then 1 else 0;

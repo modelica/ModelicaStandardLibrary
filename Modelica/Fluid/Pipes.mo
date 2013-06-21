@@ -144,7 +144,7 @@ or other flow models without storage, are directly connected.
         Wb_flows[1] = vs[1]*crossAreas[1]*((mediums[2].p - port_a.p)/1.5 + flowModel.dps_fg[1]+flowModel.dps_fg[2]/2 - system.g*dheights[1]*mediums[1].d)*nParallel;
         Wb_flows[n] = vs[n]*crossAreas[n]*((port_b.p - mediums[n-1].p)/1.5 + flowModel.dps_fg[n]/2+flowModel.dps_fg[n+1] - system.g*dheights[n]*mediums[n].d)*nParallel;
       else
-        assert(true, "Unknown model structure");
+        assert(false, "Unknown model structure");
       end if;
     end if;
 
@@ -489,7 +489,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
           dimensionsFM[1:n+2] = cat(1, {dimensions[1]}, dimensions[1:n], {dimensions[n]});
           roughnessesFM[1:n+2] = cat(1, {roughnesses[1]}, roughnesses[1:n], {roughnesses[n]});
         else
-          assert(true, "Unknown model structure");
+          assert(false, "Unknown model structure");
         end if;
       end if;
 
@@ -578,7 +578,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
           vsFM[2] = vs*lengths/sum(lengths);
           vsFM[3] = m_flows[n+1]/Medium.density(state_b)/crossAreas[n]/nParallel;
         else
-          assert(true, "Unknown model structure");
+          assert(false, "Unknown model structure");
         end if;
       else
         if modelStructure == ModelStructure.av_vb then
@@ -614,7 +614,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
           vsFM[2:n+1] = vs;
           vsFM[n+2] = m_flows[n+1]/Medium.density(state_b)/crossAreas[n]/nParallel;
         else
-          assert(true, "Unknown model structure");
+          assert(false, "Unknown model structure");
         end if;
       end if;
 
