@@ -132,7 +132,11 @@ is defined that the tool should display a selection box with
 all loaded packages that inherit from PartialMedium. An example
 is given in the next figure:
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/mediumMenu.png\" ALT=\"medium selection menu\">
+</p>
+
 <p>
 A selected medium model leads, e.g., to the following equation:
 </p>
@@ -1558,7 +1562,9 @@ derived from the partial differential equations along the
 flow direction of a pipe:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/BalanceEquations1.png\">
+</p>
 
 <p>
 Note, F<sub>F</sub> is the fanning friction factor.
@@ -1566,7 +1572,9 @@ The energy balance can be given in different forms.
 Usually, it is given as:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance1.png\">
+</p>
 
 <p>
 This form describes the change of the internal energy, kinetic
@@ -1577,7 +1585,9 @@ balance above, results in the following alternative form
 of the energy balance:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Media/UsersGuide/EnergyBalance2.png\">
+</p>
 
 <p>
 This form has the advantage that the kinetic and potential

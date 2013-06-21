@@ -1388,9 +1388,10 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
 <p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psychrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
 It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0 &deg;C. For better reading and in order to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g., heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0 &deg;C and zero humidity.</p>
 
-<img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\">
-
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Media/Air/PsycroChart.png\">
+</p>
 
 <p>
 <b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
@@ -1693,9 +1694,10 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 <h4>Application</h4>
 <p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href=\"modelica://Modelica.Media.Air.MoistAir.PsychrometricData\">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
 
-<img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\">
-
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
 <img src=\"modelica://Modelica/Resources/Images/Media/Air/PsycroChart.png\">
+</p>
 
 <p>
 <b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>

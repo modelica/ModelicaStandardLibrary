@@ -3136,7 +3136,11 @@ A more realistic example is provided in <b>Examples.Motor</b> where the
 heating of an electrical motor is modelled, see the following screen shot
 of this example:
 </p>
+
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Thermal/HeatTransfer/driveWithHeatTransfer.png\" ALT=\"driveWithHeatTransfer\">
+</p>
+
 <p>
 The <b>filled</b> and <b>non-filled red squares</b> at the left and
 right side of a component represent <b>thermal ports</b> (connector HeatPort).

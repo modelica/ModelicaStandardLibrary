@@ -37,7 +37,9 @@ systems are available in the simulation tool, the simulation of
 <b>efficient</b> and <b>reliable</b>.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive1.png\" ALT=\"drive1\">
+</p>
 
 <p>
 A simple example of the usage of this library is given in the
@@ -67,9 +69,10 @@ possible to connect two springs or two shafts with inertia directly
 together, see figure below.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections1.png\" ALT=\"driveConnections1\">
-
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections2.png\" ALT=\"driveConnections2\">
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections1.png\" ALT=\"driveConnections1\"><br>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections2.png\" ALT=\"driveConnections2\"><br>
+</p>
 
 </HTML>"));
 
@@ -151,7 +154,9 @@ signs of variables shall be interpreted. The basic idea is explained
 at hand of the following figure:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive2.png\" ALT=\"drive2\">
+</p>
 
 <p>
 In the figure, three identical drive trains are shown. The only
@@ -173,8 +178,9 @@ inertias of the figure above are displayed with the positive
 vector direction displayed according to this rule:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive3.png\" ALT=\"drive3\">
-
+</p>
 <p>
 The cut-torques <code>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</code>
 of the right inertias are all identical and are directed into the
@@ -185,7 +191,9 @@ direction of rotation if the values are positive. Some special
 cases are shown in the next figure:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive4.png\" ALT=\"drive4\">
+</p>
 
 <p>
 In the upper part of the figure, two variants of the connection of an
@@ -294,7 +302,9 @@ Examples for such a definition are given in the following figure
 for an inertia component and a planetary gearbox:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveAxis.png\" ALT=\"driveAxis\">
+</p>
 
 <p>
 As can be seen, all vectors are directed into the direction
@@ -310,7 +320,9 @@ coordinate system has an influence on the usage of the
 component. But this is not the case, as shown in the next figure:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/inertias.png\" ALT=\"inertias\">
+</p>
 
 <p>
 In the figure the <b>local</b> axes of rotation of the components

@@ -126,8 +126,10 @@ fulfilled when 2 or more components are connected together at
 one point as shown in the next figure:
 </p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/MixingConnections.png\"
      alt=\"MixingConnections.png\">
+</p>
 
 <p>
 In such a case the balance equations define <b>ideal mixing</b>,
@@ -564,8 +566,10 @@ are present, e.g., for turbulent flow in a pipe:
 A plot of this characteristic is shown in the next figure:
 </p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/sqrt.png\"
      alt=\"sqrt.png\">
+</p>
 
 <p>
 The difficulty with this function is that the derivative at x=0 is infinity.
@@ -676,7 +680,9 @@ The first form with &lambda; is used and presented in textbooks,
 see \"blue\" curve in the next figure:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\" ALT=\"PipeFriction1\">
+</p>
 
 <p>
 This form is not suited for a simulation program since
@@ -689,7 +695,9 @@ The characteristic of &lambda;2 is shown in the next figure and is
 used in Modelica.Fluid:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction2.png\" ALT=\"PipeFriction2\">
+</p>
 
 <p>
 The pressure loss characteristic is divided into three regions:
@@ -1716,8 +1724,10 @@ In the next figure, several features of the library are demonstrated with
 a simple heating system with a closed flow cycle. By just changing one configuration parameter in the system object the equations are changed between steady-state and dynamic simulation with fixed or steady-state initial conditions.
 </p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/HeatingSystem.png\" border=\"1\"
      alt=\"HeatingSystem.png\">
+</p>
 
 <p>
 With respect to previous versions, the design

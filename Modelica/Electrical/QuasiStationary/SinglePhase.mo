@@ -788,7 +788,10 @@ The capacitance <i>C</i> is given as input signal.
 
 <h4>Note</h4>
 <p>
-The abstraction of a variable capacitor at quasi stationary operation assumes:<br>
+The abstraction of a variable capacitor at quasi stationary operation assumes:
+</p>
+
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/dc_dt.png\"
      alt=\"dc_dt.png\">.
 </p>
@@ -841,7 +844,10 @@ branch current <i><u>i</u></i> by <i><u>v</u> = j*&omega;*L*<u>i</u></i>. The in
 
 <h4>Note</h4>
 <p>
-The abstraction of a variable inductor at quasi stationary operation assumes:<br>
+The abstraction of a variable inductor at quasi stationary operation assumes:
+</p>
+
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/dl_dt.png\"
      alt=\"dl_dt.png\">
 </p>
@@ -1109,13 +1115,21 @@ is true, the pin p1 is connected to pin n2, and the pin p2 is
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
 </P>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch1.png\" ALT=\"IdealIntermediateSwitch1\">
+</p>
+
 <P>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
 </P>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch2.png\" ALT=\"IdealIntermediateSwitch2\">
+</p>
+
 <P>
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the

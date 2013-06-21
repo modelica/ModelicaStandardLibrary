@@ -1566,8 +1566,10 @@ between Re = 1500 .. 4000, in order to get explicit equations without
 solving a non-linear equation.
 </p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
+</p>
 
 <p>
 Additionally to wall friction, this component properly implements static
@@ -1575,15 +1577,19 @@ head. With respect to the latter, two cases can be distinguished. In the case
 shown next, the change of elevation with the path from a to b has the opposite
 sign of the change of density.</p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-a.png\"
      alt=\"PipeFrictionStaticHead_case-a.png\">
+</p>
 
 <p>
 In the case illustrated second, the change of elevation with the path from a to
 b has the same sign of the change of density.</p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-b.png\"
      alt=\"PipeFrictionStaticHead_case-b.png\">
+</p>
 </html>"),    Diagram(coordinateSystem(
                   preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={
@@ -3452,8 +3458,10 @@ between Re = 1500 .. 4000, in order to get explicit equations without
 solving a non-linear equation.
 </p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
+</p>
 
 <p>
 Additionally to wall friction, this component properly implements static
@@ -3461,15 +3469,19 @@ head. With respect to the latter, two cases can be distinguished. In the case
 shown next, the change of elevation with the path from a to b has the opposite
 sign of the change of density.</p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-a.png\"
      alt=\"PipeFrictionStaticHead_case-a.png\">
+</p>
 
 <p>
 In the case illustrated second, the change of elevation with the path from a to
 b has the same sign of the change of density.</p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-b.png\"
      alt=\"PipeFrictionStaticHead_case-b.png\">
+</p>
 
 </html>"));
       end Detailed;
@@ -3609,8 +3621,10 @@ are used, where the friction loss factor &lambda; is shown
 in the next figure:
 </p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
+</p>
 
 <p>
 By default, the correlations are computed with media data
@@ -3671,8 +3685,10 @@ are used, where the friction loss factor &lambda; is shown
 in the next figure:
 </p>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\"
      alt=\"PipeFriction1.png\">
+</p>
 
 </html>"));
     end WallFriction;

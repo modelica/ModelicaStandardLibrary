@@ -222,7 +222,10 @@ but they cannot be used as state for pure springs (only for the spring/damper
 combination). In this case the system is not at rest.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/InitialConditions.png\">
+</p>
+
 </html>"),
         experiment(StopTime=5.0, Interval=0.001));
     end InitialConditions;
@@ -912,17 +915,19 @@ the ElastoGap elements this design can be modelled easily.
 Drawing of spool.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad.png\">
-
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad3.png\">
-
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad4.png\">
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad.png\"><br>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad3.png\"><br>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad4.png\"><br>
+</p>
 
 <p>
 Spool position s as a function of working force f.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad2.png\">
+</p>
 </html>"),
         experiment(StopTime=100, Interval=0.1));
     end PreLoad;
@@ -1895,7 +1900,9 @@ where the different effects are visualized:
      pulling/sticking occurs.</li>
 </ol>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/ElastoGap1.png\">
+</p>
 </html>"),        Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
@@ -2779,7 +2786,9 @@ The frictional force f is given for positive velocity v by:
 f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)
 </pre></blockquote>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Stribeck.png\">
+</p>
 
 <p>
 The distance between the left and the right connector is given by parameter L.
@@ -3056,7 +3065,9 @@ in the following way:
 An example is given in the next figure
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/relativeStates2.png\" ALT=\"relativeStates2\">
+</p>
 
 <p>
 Here, the relative position and the relative velocity between
@@ -3134,10 +3145,10 @@ velocity of model mass1 or of model mass2 as state variables.
     end RelativeStates;
     annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
         Rectangle(
-          origin = {11.5,31.183}, 
-          lineColor = {64,64,64}, 
-          fillColor = {255,255,255}, 
-          fillPattern = FillPattern.Sphere, 
+          origin = {11.5,31.183},
+          lineColor = {64,64,64},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.Sphere,
           extent = {{-67,-66},{44,-6}})}),                     Documentation(info="<html>
 <p>
 This package contains basic components 1D mechanical translational drive trains.
@@ -5095,33 +5106,33 @@ only be used as basic building elements for models.
   annotation (
     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
       Line(
-        origin = {14,53}, 
+        origin = {14,53},
         points = {{-84,-73},{66,-73}}),
       Rectangle(
-        origin = {14,53}, 
-        lineColor = {64,64,64}, 
-        fillColor = {192,192,192}, 
-        fillPattern = FillPattern.Sphere, 
-        extent = {{-81,-65},{-8,-22}}),Line(visible = true, 
-        origin = {14,53}, 
+        origin = {14,53},
+        lineColor = {64,64,64},
+        fillColor = {192,192,192},
+        fillPattern = FillPattern.Sphere,
+        extent = {{-81,-65},{-8,-22}}),Line(visible = true,
+        origin = {14,53},
         points = {{-8,-43},{-1,-43},{6,-64},{17,-23},{29,-65},{40,-23},{50,-44},{61,-44}}),
       Line(
-        origin = {14,53}, 
+        origin = {14,53},
         points = {{-59,-73},{-84,-93}}),
       Line(
-        origin = {14,53}, 
+        origin = {14,53},
         points = {{-11,-73},{-36,-93}}),
       Line(
-        origin = {14,53}, 
+        origin = {14,53},
         points = {{-34,-73},{-59,-93}}),
       Line(
-        origin = {14,53}, 
+        origin = {14,53},
         points = {{14,-73},{-11,-93}}),
       Line(
-        origin = {14,53}, 
+        origin = {14,53},
         points = {{39,-73},{14,-93}}),
       Line(
-        origin = {14,53}, 
+        origin = {14,53},
         points = {{63,-73},{38,-93}})}),
                                                         Documentation(info="<html>
 <p>
