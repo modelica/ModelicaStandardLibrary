@@ -8468,7 +8468,7 @@ end BridgmansTablesForWater;
   protected
     DerPressureByTemperature pt "Derivative of pressure w.r.t. temperature";
     DerPressureBySpecificVolume pv
-      "Derivative of pressure w.r.t. specific volume ";
+      "Derivative of pressure w.r.t. specific volume";
     SI.SpecificHeatCapacity cv "Isochoric specific heat capacity";
     algorithm
     p := f.R*f.d*f.T*f.delta*f.fdelta;

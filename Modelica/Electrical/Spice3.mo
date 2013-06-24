@@ -5224,7 +5224,7 @@ on the model behaviour.
       parameter SI.Current IS = 1e-16 "Transport saturation current";
       parameter Real BF = 100.00 "Ideal maximum forward beta F";
       parameter Real NF = 1.0 "Forward current emission coefficientF";
-      parameter Real NE = 1.5 "B-E leakage emission coefficient ";
+      parameter Real NE = 1.5 "B-E leakage emission coefficient";
       parameter SI.Current ISE = -1e40
         "B-E leakage saturation current, default = 0";
       constant Real C2 = -1e40 "Obsolete parameter name, default = 0";
@@ -5232,7 +5232,7 @@ on the model behaviour.
         "B-C leakage saturation current, default = 0";
       constant Real C4 = -1e40 "Obsolete parameter name, default = 0";
       parameter Real BR = 1.0 "Ideal maximum reverse beta";
-      parameter Real NR = 1.0 "Reverse current emission coefficient ";
+      parameter Real NR = 1.0 "Reverse current emission coefficient";
       parameter Real NC = 2.0 "B-C leakage emission coefficient";
       parameter SI.Voltage VAF=0.0 "Forward Early voltage";
       parameter SI.Current IKF=0.0 "Forward beta roll-off corner current";
@@ -5247,7 +5247,7 @@ on the model behaviour.
       parameter SI.Voltage VJE=0.75 "B-E built in potential";
       parameter Real MJE = 0.33 "B-E junction exponential factor";
       parameter SI.Time TF=0.0 "Ideal forward transit time";
-      parameter Real XTF = 0.0 "Coefficient for bias dependence of TF ";
+      parameter Real XTF = 0.0 "Coefficient for bias dependence of TF";
       parameter SI.Current ITF=0.0 "High current dependence of TF,";
       parameter SI.Voltage VTF=0.0 "Voltage giving VBC dependence of TF";
       parameter SI.Frequency PTF=0.0 "Excess phase at freq=1/(TF*2*Pi) Hz";
@@ -5256,15 +5256,15 @@ on the model behaviour.
       parameter Real MJC = 0.33 "B-C junction grading coefficient";
       parameter Real XCJC = 1.0 "Fraction of B-C cap to internal base";
       parameter SI.Time TR=0.0 "Ideal reverse transit time";
-      parameter SI.Capacitance CJS=0.0 "Zero bias C-S capacitance ";
-      parameter SI.Voltage VJS=0.75 "Substrate junction built-in potential ";
-      parameter Real MJS = 0.0 "Substrate junction grading coefficient ";
-      parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent ";
+      parameter SI.Capacitance CJS=0.0 "Zero bias C-S capacitance";
+      parameter SI.Voltage VJS=0.75 "Substrate junction built-in potential";
+      parameter Real MJS = 0.0 "Substrate junction grading coefficient";
+      parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent";
       parameter SI.GapEnergy EG=1.11
-        "Energy gap for IS temperature effect on IS ";
+        "Energy gap for IS temperature effect on IS";
       parameter Real XTI = 3.0 "Temperature exponent for IS";
-      parameter Real KF = 0.0 "Flicker Noise Coefficient ";
-      parameter Real AF = 1.0 "Flicker Noise Exponent ";
+      parameter Real KF = 0.0 "Flicker Noise Coefficient";
+      parameter Real AF = 1.0 "Flicker Noise Exponent";
       parameter Real FC = 0.5 "Forward bias junction fit parameter";
 
       annotation (Documentation(info="<html>
@@ -5431,7 +5431,7 @@ on the model behaviour.
       parameter SI.Current IS = 1e-16 "Transport saturation current";
       parameter Real BF = 100.00 "Ideal maximum forward beta F";
       parameter Real NF = 1.0 "Forward current emission coefficientF";
-      parameter Real NE = 1.5 "B-E leakage emission coefficient ";
+      parameter Real NE = 1.5 "B-E leakage emission coefficient";
       parameter SI.Current ISE = -1e40
         "B-E leakage saturation current, default = 0";
       constant Real C2 =  -1e40 "Obsolete parameter name, default = 0";
@@ -5439,7 +5439,7 @@ on the model behaviour.
         "B-C leakage saturation current, default = 0";
       constant Real C4 =   -1e40 "Obsolete parameter name, default = 0";
       parameter Real BR = 1.0 "Ideal maximum reverse beta";
-      parameter Real NR = 1.0 "Reverse current emission coefficient ";
+      parameter Real NR = 1.0 "Reverse current emission coefficient";
       parameter Real NC = 2.0 "B-C leakage emission coefficient";
       parameter SI.Voltage VAF = 0.0 "Forward Early voltage";
       parameter SI.Current IKF = 0.0 "Forward beta roll-off corner current";
@@ -5455,7 +5455,7 @@ on the model behaviour.
       parameter SI.Voltage VJE = 0.75 "B-E built in potential";
       parameter Real MJE = 0.33 "B-E junction exponential factor";
       parameter SI.Time TF = 0.0 "Ideal forward transit time";
-      parameter Real XTF = 0.0 "Coefficient for bias dependence of TF ";
+      parameter Real XTF = 0.0 "Coefficient for bias dependence of TF";
       parameter SI.Current ITF = 0.0 "High current dependence of TF,";
       parameter SI.Voltage VTF = 0.0 "Voltage giving VBC dependence of TF";
       parameter SI.Temp_C PTF = 0.0 "Excess phase at freq=1/(TF*2*Pi) Hz";
@@ -5464,15 +5464,15 @@ on the model behaviour.
       parameter Real MJC = 0.33 "B-C junction grading coefficient";
       parameter Real XCJC = 1.0 "Fraction of B-C cap to internal base";
       parameter SI.Time TR = 0.0 "Ideal reverse transit time";
-      parameter SI.Capacitance CJS = 0.0 "Zero bias C-S capacitance ";
-      parameter SI.Voltage VJS = 0.75 "Substrate junction built-in potential ";
-      parameter Real MJS = 0.0 "Substrate junction grading coefficient ";
-      parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent ";
+      parameter SI.Capacitance CJS = 0.0 "Zero bias C-S capacitance";
+      parameter SI.Voltage VJS = 0.75 "Substrate junction built-in potential";
+      parameter Real MJS = 0.0 "Substrate junction grading coefficient";
+      parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent";
       parameter SI.GapEnergy EG = 1.11
-        "Energy gap for IS temperature effect on IS ";
+        "Energy gap for IS temperature effect on IS";
       parameter Real XTI = 3.0 "Temperature exponent for IS";
-      parameter Real KF = 0.0 "Flicker Noise Coefficient ";
-      parameter Real AF = 1.0 "Flicker Noise Exponent ";
+      parameter Real KF = 0.0 "Flicker Noise Coefficient";
+      parameter Real AF = 1.0 "Flicker Noise Exponent";
       parameter Real FC = 0.5 "Forward bias junction fit parameter";
 
       annotation (Documentation(info="<html>

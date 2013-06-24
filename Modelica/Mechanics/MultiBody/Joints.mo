@@ -5620,7 +5620,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       parameter Boolean showMass=true
         "= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass > 0)";
       parameter SI.Length rod1Length(min=Modelica.Constants.eps, start = 1)
-        "Distance between the origins of the two spherical joints ";
+        "Distance between the origins of the two spherical joints";
       parameter SI.Mass rod1Mass(min=0)=0
         "Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints)";
       parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1}
@@ -5985,7 +5985,7 @@ component).
       parameter Boolean showMass=true
         "= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass > 0)";
       parameter SI.Length rod1Length(min=Modelica.Constants.eps, start = 1)
-        "Distance between the origins of the two spherical joints ";
+        "Distance between the origins of the two spherical joints";
       parameter SI.Mass rod1Mass(min=0)=0
         "Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints)";
       parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1}

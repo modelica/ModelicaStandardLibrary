@@ -587,8 +587,8 @@ for a smooth transition from y1 to y2.
     Real theta0 "Slope metric";
     Real mu_tilde "Distance of start of linear section and left limit x0";
     Real eta_tilde "Distance of right limit x1 and end of linear section";
-    Real xi1 "Start of linear section ";
-    Real xi2 "End of linear section ";
+    Real xi1 "Start of linear section";
+    Real xi2 "End of linear section";
     Real a1 "Leading coefficient of cubic on the left";
     Real a2 "Leading coefficient of cubic on the right";
     Real const12 "Integration constant of left cubic, linear section";

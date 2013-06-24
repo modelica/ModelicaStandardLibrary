@@ -2098,7 +2098,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
     output Real U[size(A, 1), size(A, 1)]=identity(size(A, 1))
       "Left orthogonal matrix";
     output Real VT[size(A, 2), size(A, 2)]=identity(size(A, 2))
-      "Transposed right orthogonal matrix ";
+      "Transposed right orthogonal matrix";
 
   protected
     Integer info;
@@ -3086,7 +3086,7 @@ This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e
     output Integer nullity "Nullity, i.e., the dimension of the nullspace";
 
   protected
-    Real V[size(A, 2), size(A, 2)] "Right orthogonal matrix ";
+    Real V[size(A, 2), size(A, 2)] "Right orthogonal matrix";
     Real sigma[min(size(A, 1), size(A, 2))] "singular values";
     Integer rank "rank of matrix A";
     Real eps "tolerance for rank determination";

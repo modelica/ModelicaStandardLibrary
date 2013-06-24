@@ -519,7 +519,7 @@ end Vectors;
   function real "Real part of complex number"
     extends Modelica.Icons.Function;
     input Complex c "Complex number";
-    output Real r "= c.re ";
+    output Real r "= c.re";
   algorithm
     r := c.re;
     annotation(Inline=true, Documentation(info="<html>
@@ -530,7 +530,7 @@ end Vectors;
   function imag "Imaginary part of complex number"
     extends Modelica.Icons.Function;
     input Complex c "Complex number";
-    output Real r "= c.im ";
+    output Real r "= c.im";
   algorithm
     r := c.im;
     annotation(Inline=true, Documentation(info="<html>
