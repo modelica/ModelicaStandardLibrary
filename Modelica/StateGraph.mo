@@ -2766,7 +2766,7 @@ partial model PartialCompositeStep
   Integer activeSteps "Number of active steps within the CompositeStep";
 initial equation
   pre(newActive) = false;
-  pre(active) = pre(newActive);
+  // pre(active) = pre(newActive);
 equation
   // connect to outer CompositeStep
 
