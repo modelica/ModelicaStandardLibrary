@@ -179,7 +179,7 @@ The table matrix can be defined in the following ways:
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
       fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed. 
+      preferred as otherwise the table is reallocated and transposed.
       See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
       documentation for more details.</li>
 </ol>
@@ -210,10 +210,17 @@ double tab2(5,2)   # another comment line
 </pre>
 <p>
 Note, that the first two characters in the file need to be
-\"#1\". Afterwards, the corresponding matrix has to be declared
+\"#1\" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
 with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
-Several matrices may be defined one after another.
+A matrix row can span several lines (so the newline character
+is allowed in a matrix row). Numbers have to be given according
+to C syntax (such as 2.3, -2, +2.e4). Number separators are spaces,
+tab (\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Other text, like trailing non comments, is not allowed.
 </p>
 <p>
 MATLAB is a registered trademark of The MathWorks, Inc.
@@ -502,10 +509,17 @@ double tab2(5,2)   # another comment line
 </pre>
 <p>
 Note, that the first two characters in the file need to be
-\"#1\". Afterwards, the corresponding matrix has to be declared
+\"#1\" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
 with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
-Several matrices may be defined one after another.
+A matrix row can span several lines (so the newline character
+is allowed in a matrix row). Numbers have to be given according
+to C syntax (such as 2.3, -2, +2.e4). Number separators are spaces,
+tab (\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Other text, like trailing non comments, is not allowed.
 </p>
 <p>
 MATLAB is a registered trademark of The MathWorks, Inc.
@@ -790,10 +804,17 @@ double table2D_2(4,4)   # comment line
 </pre>
 <p>
 Note, that the first two characters in the file need to be
-\"#1\". Afterwards, the corresponding matrix has to be declared
+\"#1\" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
 with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
-Several matrices may be defined one after another.
+A matrix row can span several lines (so the newline character
+is allowed in a matrix row). Numbers have to be given according
+to C syntax (such as 2.3, -2, +2.e4). Number separators are spaces,
+tab (\t), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Other text, like trailing non comments, is not allowed.
 The matrix elements are interpreted in exactly the same way
 as if the matrix is given as a parameter. For example, the first
 column \"table2D_1[2:,1]\" contains the u[1] grid points,
@@ -905,23 +926,23 @@ store tables using a function &quot;usertab&quot; in a file conventionally named
 <p>This is achieved by providing the tables in a specific structure as C-code and compiling that C-code together with the rest of the simulation model into a binary
 that can be executed on the target platform. The &quot;Resources/Data/Tables/&quot; subdirectory of the MSL installation directory contains the files
 <a href=\"modelica://Modelica/Resources/Data/Tables/usertab.c\">&quot;usertab.c&quot;</a> and <a href=\"modelica://Modelica/Resources/Data/Tables/usertab.h\">&quot;usertab.h&quot;</a>
-that can be used as a template for own developments. While &quot;usertab.c&quot; would be typically used unmodified, the 
+that can be used as a template for own developments. While &quot;usertab.c&quot; would be typically used unmodified, the
 &quot;usertab.h&quot; needs to adapted for the own needs.</p>
-<p>In order to work it is necessary that the compiler pulls in the &quot;usertab.c&quot; file. Different Modelica tools might provide different mechanisms to do so. 
+<p>In order to work it is necessary that the compiler pulls in the &quot;usertab.c&quot; file. Different Modelica tools might provide different mechanisms to do so.
 Please consult the respective documentation/support for your Modelica tool.</p>
 <p>A possible (though a bit &quot;hackish&quot;) Modelica standard conformant approach is to pull in the required files by utilizing a &quot;dummy&quot;-function that uses the Modelica external function
 interface to pull in the required &quot;usertab.c&quot;. An example how this can be done is given below.</p>
 <pre>
 model Test25_usertab \"Test utilizing the usertab.c interface\"
   extends Modelica.Icons.Example;
-public 
+public
   Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
     annotation (Placement(transformation(extent={{-40,-34},{-10,-14}})));
   Modelica.Blocks.Tables.CombiTable1D t_new(tableOnFile=true, tableName=\"TestTable_1D_a\")
     annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
   Modelica.Blocks.Sources.Clock clock
-    annotation (Placement(transformation(extent={{-80,0},{-60,20}})));  
-protected 
+    annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+protected
   encapsulated function getUsertab
     input Real dummy_u[:];
     output Real dummy_y;
@@ -930,10 +951,10 @@ protected
            Include = \"#include \"usertab.c\"
  double mydummyfunc(const double* dummy_in) {
         return 0;
-}                    
+}
 \");
   end getUsertab;
-equation 
+equation
   connect(clock.y,t_new. u[1]) annotation (Line(
       points={{-59,10},{-42,10}},
       color={0,0,127},
