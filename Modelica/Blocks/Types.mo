@@ -1,7 +1,7 @@
 within Modelica.Blocks;
 package Types
   "Library of constants and types with choices, especially to build menus"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.TypesPackage;
 
   type Smoothness = enumeration(
       LinearSegments "Table points are linearly interpolated",
