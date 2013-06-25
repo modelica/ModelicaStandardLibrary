@@ -1031,6 +1031,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
         model NXFER "Functionality test of NXFERGATE"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          extends Modelica.Icons.Example;
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
         x={L.'0',L.'1',L.'Z'},
@@ -1054,22 +1055,16 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               points={{-55,40},{-35.4,40},{-35.4,27.05}},
               color={127,0,127},
               smooth=Smooth.None));
-          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{
-                  100,-100}},
-                    lineColor={95,95,95}), Polygon(
-                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
-                  lineColor={0,0,255},
-                  pattern=LinePattern.None,
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}),            experiment(StopTime=12),
+          annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NXFERGATE component.</p>
 </html>"));
         end NXFER;
 
         model NRXFER "Functionality test of NRXFERGATE"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          extends Modelica.Icons.Example;
+
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
         x={L.'0',L.'1',L.'Z'},
@@ -1092,22 +1087,15 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               points={{-55,40},{-35.1,40},{-35.1,29.3}},
               color={127,0,127},
               smooth=Smooth.None));
-          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{
-                  100,-100}},
-                    lineColor={95,95,95}), Polygon(
-                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
-                  lineColor={0,0,255},
-                  pattern=LinePattern.None,
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}),            experiment(StopTime=12),
+          annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NRXFER component.  After simulation until 12 s plot x, enable, and y of the <code>nRXFERGATE </code>component. To verify the result compare to the truth table <code>NRXferTable</code>.</p>
 </html>"));
         end NRXFER;
 
         model BUF3S "Functionality test of BUF3S"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          extends Modelica.Icons.Example;
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
         x={L.'0',L.'1',L.'Z'},
@@ -1132,15 +1120,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               points={{-55,40},{-35.6,40},{-35.6,24.8}},
               color={127,0,127},
               smooth=Smooth.None));
-          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{
-                  100,-100}},
-                    lineColor={95,95,95}), Polygon(
-                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
-                  lineColor={0,0,255},
-                  pattern=LinePattern.None,
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}),            experiment(StopTime=12),
+          annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the <code>bUF3S</code> component. To verify the result compare to the truth table Buf3sTable.</p>
 </html>"));
@@ -1148,6 +1128,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
         model INV3S "Functionality test of INV3S"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=L.'U',
@@ -1170,15 +1151,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               points={{-55,40},{-30.2,40},{-30.2,20.6}},
               color={127,0,127},
               smooth=Smooth.None));
-          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{
-                  100,-100}},
-                    lineColor={95,95,95}), Polygon(
-                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
-                  lineColor={0,0,255},
-                  pattern=LinePattern.None,
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}),            experiment(StopTime=12),
+          annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the <code>iNV3S</code> component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
 </html>"));
@@ -1186,7 +1159,8 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
         model WiredX "Functionality test of WiredX"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          Modelica.Electrical.Digital.Sources.Table e_table2(
+          extends Modelica.Icons.Example;
+        Modelica.Electrical.Digital.Sources.Table e_table2(
         y0=L.'U',
         x={L.'0',L.'1',L.'0'},
         t={0,3,9})
@@ -1247,15 +1221,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               points={{12.8,27.8},{26,27.8},{26,-0.2},{36.8,-0.2}},
               color={127,0,127},
               smooth=Smooth.None));
-          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{
-                  100,-100}},
-                    lineColor={95,95,95}), Polygon(
-                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
-                  lineColor={0,0,255},
-                  pattern=LinePattern.None,
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}),            experiment(StopTime=12),
+          annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.WiredX component. The input width is set to two. After simulation until 12 s plot x[1], x[2], and y of the WiredX component. To verify the result compare to the truth table  Tables.ResolutionTable.</p>
 </html>"));
@@ -1264,6 +1230,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         model MUX2x1 "Simple Multiplexer test"
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          extends Modelica.Icons.Example;
           D.Multiplexers.MUX2x1 Mux2x1
             annotation (Placement(transformation(extent={{-34,-48},{56,48}})));
           D.Sources.Table Input1(
@@ -1294,14 +1261,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               points={{-70,24},{-29.5,24}},
               color={127,0,127},
               smooth=Smooth.None));
-          annotation (Icon(graphics={            Ellipse(extent={{-100,100},{
-                  100,-100}},
-                    lineColor={95,95,95}), Polygon(
-                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
-                  lineColor={0,0,255},
-                  pattern=LinePattern.None,
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}), experiment(StopTime=15),
+          annotation (experiment(StopTime=15),
             Documentation(info="<html>
 <p>This example is a simple test of a single multiplexer component with 2 inputs prescribed by sources, one select input, and one output. After simulation until 15 s plot Mux2x1.in0, Mux2x1.in1, Mux2x1.sel, and Mux2x1.out. Compare the output signal with the input signals. If the select signal changes, the output switches to the other input.</p>
 </html>"));
@@ -1309,6 +1269,8 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
         model RAM "Simple RAM test example"
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          extends Modelica.Icons.Example;
+
           Modelica.Electrical.Digital.Memories.DLATRAM
                          dLATRAM
             annotation (Placement(transformation(extent={{-11,-41},{103,73}})));
@@ -1374,15 +1336,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               points={{-58,2},{-34,2},{-34,24.55},{-5.3,24.55}},
               color={127,0,127},
               smooth=Smooth.None));
-          annotation ( Icon(
-            graphics={                           Ellipse(extent={{-100,100},{
-                  100,-100}},
-                    lineColor={95,95,95}), Polygon(
-                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
-                  lineColor={0,0,255},
-                  pattern=LinePattern.None,
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}), experiment(StopTime=400),
+          annotation (experiment(StopTime=400),
             Documentation(info="<html>
 <p>This example is a simple and uncomplete test of a single DLATRAM component . After simulation until 400 s plot dLATRAM.addr[1], dLATRAM.addr[2], and dLATRAM.dataOUT[1], dLATRAM.dataOut[2]. The address inputs are  prescribed with all possible combinations of logic values. It can be checked in which cases of address values the output is 'X' or '0'. </p>
 </html>"));
