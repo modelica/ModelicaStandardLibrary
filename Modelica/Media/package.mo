@@ -6931,7 +6931,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
     end Choices;
 
   package Types "Types to be used in fluid models"
-    extends Modelica.Icons.TypesPackage;
+    extends Modelica.Icons.Package;
 
     type AbsolutePressure = SI.AbsolutePressure (
         min=0,
