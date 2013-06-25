@@ -212,7 +212,7 @@ double tab2(5,2)   # another comment line
 Note, that the first two characters in the file need to be
 \"#1\" (a line comment defining the version number of the file format).
 Afterwards, the corresponding matrix has to be declared
-with type (= "double" or "float"), name and actual dimensions.
+with type (= \"double\" or \"float\"), name and actual dimensions.
 Finally, in successive rows of the file, the elements of the matrix
 have to be given. The elements have to be provided as a sequence of
 numbers in row-wise order (therefore a matrix row can span several
@@ -512,7 +512,7 @@ double tab2(5,2)   # another comment line
 Note, that the first two characters in the file need to be
 \"#1\" (a line comment defining the version number of the file format).
 Afterwards, the corresponding matrix has to be declared
-with type (= "double" or "float"), name and actual dimensions.
+with type (= \"double\" or \"float\"), name and actual dimensions.
 Finally, in successive rows of the file, the elements of the matrix
 have to be given. The elements have to be provided as a sequence of
 numbers in row-wise order (therefore a matrix row can span several
@@ -808,7 +808,7 @@ double table2D_2(4,4)   # comment line
 Note, that the first two characters in the file need to be
 \"#1\" (a line comment defining the version number of the file format).
 Afterwards, the corresponding matrix has to be declared
-with type (= "double" or "float"), name and actual dimensions.
+with type (= \"double\" or \"float\"), name and actual dimensions.
 Finally, in successive rows of the file, the elements of the matrix
 have to be given. The elements have to be provided as a sequence of
 numbers in row-wise order (therefore a matrix row can span several
