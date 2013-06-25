@@ -49,42 +49,42 @@ This is discussed in the description of package
 </p>
 
 </html>"),   Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100.0,-100.0},{100.0,100.0}}, 
-            initialScale=0.1), 
+            preserveAspectRatio=true,
+            extent={{-100.0,-100.0},{100.0,100.0}},
+            initialScale=0.1),
           graphics={
             Line(
-              visible=true, 
-              points={{-80.0,78.0},{-80.0,-90.0}}, 
+              visible=true,
+              points={{-80.0,78.0},{-80.0,-90.0}},
               color={192,192,192}),
             Polygon(
-              visible=true, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
+              visible=true,
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
               points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
             Line(
-              visible=true, 
-              points={{-90.0,-80.0},{82.0,-80.0}}, 
+              visible=true,
+              points={{-90.0,-80.0},{82.0,-80.0}},
               color={192,192,192}),
             Polygon(
-              visible=true, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
+              visible=true,
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
               points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
             Text(
-              visible=true, 
-              lineColor={192,192,192}, 
-              extent={{0.0,-70.0},{60.0,-10.0}}, 
+              visible=true,
+              lineColor={192,192,192},
+              extent={{0.0,-70.0},{60.0,-10.0}},
               textString="I"),
             Text(
-              visible=true, 
-              extent={{-150.0,-150.0},{150.0,-110.0}}, 
+              visible=true,
+              extent={{-150.0,-150.0},{150.0,-110.0}},
               textString="k=%k"),
             Line(
-              visible=true, 
-              points={{-80.0,-80.0},{80.0,80.0}}, 
+              visible=true,
+              points={{-80.0,-80.0},{80.0,80.0}},
               color={0,0,127})
       }),
       Diagram(coordinateSystem(
@@ -2169,13 +2169,13 @@ The development of this block was partially funded by BMBF within the
 
   package Internal
     "Internal utility functions and blocks that should not be directly utilized by the user"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.InternalPackage;
     package Filter
       "Internal utility functions for filters that should not be directly used"
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.InternalPackage;
       package base
         "Prototype low pass filters with cut-off frequency of 1 rad/s (other filters are derived by transformation from these base filters)"
-          extends Modelica.Icons.Package;
+          extends Modelica.Icons.InternalPackage;
       function CriticalDamping
           "Return base filter coefficients of CriticalDamping filter (= low pass filter with w_cut = 1 rad/s)"
         extends Modelica.Icons.Function;
@@ -2373,7 +2373,7 @@ The development of this block was partially funded by BMBF within the
       end base;
 
       package coefficients "Filter coefficients"
-          extends Modelica.Icons.Package;
+          extends Modelica.Icons.InternalPackage;
       function lowPass
           "Return low pass filter coefficients at given cut-off frequency"
         extends Modelica.Icons.Function;
@@ -2663,7 +2663,7 @@ The development of this block was partially funded by BMBF within the
       end coefficients;
 
       package roots "Filter roots and gain as needed for block implementations"
-          extends Modelica.Icons.Package;
+          extends Modelica.Icons.InternalPackage;
       function lowPass
           "Return low pass filter roots as needed for block for given cut-off frequency"
         extends Modelica.Icons.Function;
@@ -3075,7 +3075,7 @@ This representation has the following transfer function:
       end roots;
 
       package Utilities "Utility functions for filter computations"
-          extends Modelica.Icons.Package;
+          extends Modelica.Icons.InternalPackage;
         function BesselBaseCoefficients
           "Return coefficients of normalized low pass Bessel filter (= gain at cut-off frequency 1 rad/s is decreased 3dB)"
           extends Modelica.Icons.Function;

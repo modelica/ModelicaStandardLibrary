@@ -4584,7 +4584,8 @@ on the model behaviour.
 </html>"));
   end Interfaces;
 
-  package Types
+  package Types "Additional Spice3 type definitions"
+    extends Modelica.Icons.Package;
     type VoltageSquare = Real (final quantity="ElectricalPotential2", final unit="V2");
     type GapEnergyPerTemperature = Real (final quantity="Energy per Temperature", final unit="eV/K");
     type GapEnergyPerEnergy = Real (final quantity="Energy per Energy", final unit="eV/J");
@@ -4608,7 +4609,7 @@ on the model behaviour.
 
   package Internal
     "Collection of functions and records derived from the C++ Spice library"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.InternalPackage;
 
   model MOS "Metal-Oxide Semiconductor Field-Effect Transistor"
 
@@ -5984,7 +5985,7 @@ on the model behaviour.
     end MaterialParameters;
 
   package Functions "Equations for semiconductor calculation"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.InternalPackage;
 
       function junctionPotDepTemp
         "Temperature dependency of junction potential"
@@ -6720,7 +6721,7 @@ on the model behaviour.
   end Functions;
 
     package SpiceRoot "Basic records and functions"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.InternalPackage;
 
       record SpiceRoot "Data for insertion to matrices"
       extends Modelica.Icons.Record;
@@ -6809,7 +6810,7 @@ on the model behaviour.
     end SpiceRoot;
 
     package Model "Device Temperature"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.InternalPackage;
 
     record Model "Device Temperature"
     extends Modelica.Icons.Record;
@@ -6826,7 +6827,7 @@ on the model behaviour.
     end Model;
 
     package Mosfet "Functions and records for MOSFETs"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.InternalPackage;
 
       record Mosfet "Record for Mosfet parameters"
         extends Spice3.Internal.Model.Model;
@@ -7075,7 +7076,7 @@ on the model behaviour.
     end Mosfet;
 
     package Mos "Records and functions for MOSFETs level 1,2,3,6"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.InternalPackage;
 
       record MosModelLineParams
         "Record for Mosfet model line parameters (for level 1, 2, 3 and 6)"
@@ -8494,7 +8495,7 @@ on the model behaviour.
     end Mos;
 
     package Mos1 "Records and functions for MOSFETs level 1"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.InternalPackage;
 
       record Mos1ModelLineParams
         "Record for Mosfet model line parameters (for level 1)"
@@ -8824,7 +8825,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
     end Mos1;
 
     package Mos2 "Records and functions for MOSFETs level 2"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.InternalPackage;
 
       record Mos2ModelLineParams
         "Record for Mosfet model line parameters (for level 2)"
@@ -10336,7 +10337,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
     end Mos2;
 
     package Diode "Records and functions for diode model"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.InternalPackage;
 
       record DiodeModelLineParams "Record for Diode model line parameters"
       extends Modelica.Icons.Record;
@@ -10716,7 +10717,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
     package Rsemiconductor
       "Records and functions for semiconductor resistor model"
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.InternalPackage;
 
       record ResistorParams "Resistor device parameters"
       extends Modelica.Icons.Record;
@@ -10878,7 +10879,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
     end Rsemiconductor;
 
     package Bjt "Records and functions for bjt model"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.InternalPackage;
 
       record Bjt "Record for bjt device parameters"
         extends Spice3.Internal.Model.Model;
@@ -11702,7 +11703,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
     end Bjt;
 
     package Bjt3 "Records and functions for bjt model, obsolete"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.InternalPackage;
       extends Modelica.Icons.ObsoleteModel;
 
       record BjtModelLineParams
@@ -12603,7 +12604,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
     end Bjt3;
 
     package Fet
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.InternalPackage;
       record Fet "Record for Fet parameters"
         extends Modelica.Electrical.Spice3.Internal.Model.Model;
 
@@ -12736,7 +12737,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
     end Fet;
 
       package Jfet "Records and functions for Jfet"
-          extends Modelica.Icons.Package;
+          extends Modelica.Icons.InternalPackage;
 
         record JfetModelLine "Record for Jfet model line parameters"
           extends Modelica.Electrical.Spice3.Internal.Fet.FetModelLine;
@@ -13090,7 +13091,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       end Jfet;
 
       package Csemiconductor
-          extends Modelica.Icons.Package;
+          extends Modelica.Icons.InternalPackage;
         record Capacitor
           extends Modelica.Electrical.Spice3.Internal.Model.Model;
 

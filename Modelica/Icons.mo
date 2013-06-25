@@ -159,7 +159,7 @@ package Icons "Library of icons"
 
   end References;
 
-  partial class ExamplesPackage
+  partial package ExamplesPackage
     "Icon for packages containing runnable examples"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -210,7 +210,7 @@ package Icons "Library of icons"
 </html>"));
   end Package;
 
-  partial class BasesPackage "Icon for packages containing base classes"
+  partial package BasesPackage "Icon for packages containing base classes"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -224,7 +224,7 @@ package Icons "Library of icons"
 </html>"));
   end BasesPackage;
 
-  partial class VariantsPackage "Icon for package containing variants"
+  partial package VariantsPackage "Icon for package containing variants"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
               {100,100}}),       graphics={
@@ -256,7 +256,7 @@ package Icons "Library of icons"
 </html>"));
   end VariantsPackage;
 
-  partial class InterfacesPackage "Icon for packages containing interfaces"
+  partial package InterfacesPackage "Icon for packages containing interfaces"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -274,7 +274,7 @@ package Icons "Library of icons"
 </html>"));
   end InterfacesPackage;
 
-  partial class SourcesPackage "Icon for packages containing sources"
+  partial package SourcesPackage "Icon for packages containing sources"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -293,7 +293,7 @@ package Icons "Library of icons"
 </html>"));
   end SourcesPackage;
 
-  partial class SensorsPackage "Icon for packages containing sensors"
+  partial package SensorsPackage "Icon for packages containing sensors"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -326,7 +326,32 @@ package Icons "Library of icons"
 </html>"));
   end SensorsPackage;
 
-  partial class IconsPackage "Icon for packages containing icons"
+  partial package InternalPackage
+    "Icon for an internal package (indicating that the package should not be directly utilized by user)"
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Ellipse(
+            extent={{-100,100},{100,-100}},
+            lineColor={235,235,235},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid),
+          Ellipse(
+            extent={{-60,60},{60,-60}},
+            lineColor={235,235,235},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{32,56},{58,36},{-22,-60},{-50,-40},{32,56}},
+            lineColor={235,235,235},
+            smooth=Smooth.None,
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>Standard package icon.</p>
+</html>"));
+  end InternalPackage;
+
+  partial package IconsPackage "Icon for packages containing icons"
     extends Modelica.Icons.Package;
     annotation (Icon(graphics={Polygon(
           points={{-8,46},{-54,52},{-54,68},{54,68},{54,52},{8,46},{8,-46},{54,-52},

@@ -2470,7 +2470,7 @@ since they all have frame connectors).
   package Internal
     "Visualizers that will be replaced by improved versions in the future (do not use them)"
 
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.InternalPackage;
 
     model FixedLines
       "Visualizing a set of lines as cylinders (e.g., used to display characters)"

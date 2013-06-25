@@ -7857,7 +7857,7 @@ of this subpackage.
   package Internal
     "Components used for analytic solution of kinematic loops (use only if you know what you are doing)"
 
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.InternalPackage;
 
     model RevoluteWithLengthConstraint
       "Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)"

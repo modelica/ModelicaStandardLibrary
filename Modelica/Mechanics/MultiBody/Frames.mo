@@ -2124,7 +2124,7 @@ The used variables have the following declaration:
 
   package Internal
     "Internal definitions that may be removed or changed (do not use)"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.InternalPackage;
 
     type TransformationMatrix = Real[3, 3];
     type QuaternionBase = Real[4];

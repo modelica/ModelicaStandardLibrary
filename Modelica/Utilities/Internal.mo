@@ -1,10 +1,10 @@
 within Modelica.Utilities;
 package Internal
   "Internal components that a user should usually not directly utilize"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.InternalPackage;
 partial package PartialModelicaServices
     "Interfaces of components requiring a tool specific implementation"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.InternalPackage;
   package Animation "Models and functions for 3-dim. animation"
     extends Modelica.Icons.Package;
   partial model PartialShape "Interface for 3D animation of elementary shapes"
@@ -94,7 +94,7 @@ This model is documented at
   end Animation;
 
   package ExternalReferences "Functions to access external resources"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.InternalPackage;
     partial function PartialLoadResource
         "Interface for tool specific function to return the absolute path name of a URI or local file name"
       input String uri "URI or local file name";
@@ -125,7 +125,7 @@ end PartialModelicaServices;
 
 package FileSystem
     "Internal package with external functions as interface to the file system"
- extends Modelica.Icons.Package;
+ extends Modelica.Icons.InternalPackage;
 
   function mkdir "Make directory (POSIX: 'mkdir')"
     extends Modelica.Icons.Function;

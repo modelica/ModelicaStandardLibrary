@@ -2738,7 +2738,7 @@ Laminar region:
 
         package Internal
           "Functions to calculate mass flow rate from friction pressure drop and vice versa"
-          extends Modelica.Icons.Package;
+          extends Modelica.Icons.InternalPackage;
           function m_flow_of_dp_fric
             "Calculate mass flow rate as function of pressure drop due to friction"
             extends Modelica.Icons.Function;
@@ -3217,7 +3217,7 @@ identical to laminar wall friction.
 
       package Internal
           "Functions to calculate mass flow rate from friction pressure drop and vice versa"
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.InternalPackage;
         function m_flow_of_dp_fric
             "Calculate mass flow rate as function of pressure drop due to friction"
           extends Modelica.Icons.Function;

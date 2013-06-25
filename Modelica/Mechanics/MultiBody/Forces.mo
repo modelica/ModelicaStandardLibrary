@@ -2601,7 +2601,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
   end SpringDamperSeries;
 
   package Internal "Internal package, should not be used by user"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.InternalPackage;
 
     model BasicForce
       "Force acting between two frames, defined by 3 input signals"

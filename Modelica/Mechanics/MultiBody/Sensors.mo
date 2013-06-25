@@ -2752,7 +2752,7 @@ transformed output vector as \"Real r_out[3]\";
   end TransformRelativeVector;
 
   package Internal "Internal package, should not be used by user"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.InternalPackage;
     partial model PartialAbsoluteSensor
       "Partial absolute sensor model for sensors defined by components"
       extends Modelica.Icons.RotationalSensor;
