@@ -820,6 +820,7 @@ leading white space.
     Integer i;
 
     encapsulated function concatenate "Concatenate strings together"
+       import Modelica;
        extends Modelica.Icons.Function;
        input String strings[:];
        output String string;
