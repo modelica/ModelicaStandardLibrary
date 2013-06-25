@@ -6,7 +6,7 @@ package Interfaces
 
   connector RealInput = input Real "'input Real' as connector" annotation (
     defaultComponentName="u",
-  
+
     Icon(graphics={
       Polygon(
         lineColor={0,0,127},
@@ -40,7 +40,7 @@ Connector with one input signal of type Real.
 
   connector RealOutput = output Real "'output Real' as connector" annotation (
     defaultComponentName="y",
-  
+
     Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}},
@@ -1339,10 +1339,10 @@ has a 3D icon (e.g., used in Blocks.Logical library).
   package Adaptors
     "Obsolete package with components to send signals to a bus or receive signals from a bus (only for backward compatibility)"
     extends Modelica.Icons.Package;
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
 
     block SendReal "Obsolete block to send Real signal to bus"
-      extends Modelica.Icons.ObsoleteModel;
+      // extends Modelica.Icons.ObsoleteModel;
       RealOutput toBus "Output signal to be connected to bus" annotation (
           Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
       RealInput u "Input signal to be send to bus" annotation (Placement(
@@ -1376,7 +1376,7 @@ for signal buses, see example
     end SendReal;
 
     block SendBoolean "Obsolete block to send Boolean signal to bus"
-      extends Modelica.Icons.ObsoleteModel;
+      // extends Modelica.Icons.ObsoleteModel;
       BooleanOutput toBus "Output signal to be connected to bus" annotation (
           Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
       BooleanInput u "Input signal to be send to bus" annotation (Placement(
@@ -1410,7 +1410,7 @@ for signal buses, see example
     end SendBoolean;
 
     block SendInteger "Obsolete block to send Integer signal to bus"
-      extends Modelica.Icons.ObsoleteModel;
+      // extends Modelica.Icons.ObsoleteModel;
       IntegerOutput toBus "Output signal to be connected to bus" annotation (
           Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
       IntegerInput u "Input signal to be send to bus" annotation (Placement(
@@ -1444,7 +1444,7 @@ for signal buses, see example
     end SendInteger;
 
     block ReceiveReal "Obsolete block to receive Real signal from bus"
-      extends Modelica.Icons.ObsoleteModel;
+      // extends Modelica.Icons.ObsoleteModel;
       RealInput fromBus "To be connected with signal on bus" annotation (
           Placement(transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
       RealOutput y "Output signal to be received from bus" annotation (
@@ -1478,7 +1478,7 @@ for signal buses, see example
     end ReceiveReal;
 
     block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
-      extends Modelica.Icons.ObsoleteModel;
+      // extends Modelica.Icons.ObsoleteModel;
       BooleanInput fromBus "To be connected with signal on bus" annotation (
           Placement(transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
       BooleanOutput y "Output signal to be received from bus" annotation (
@@ -1512,7 +1512,7 @@ for signal buses, see example
     end ReceiveBoolean;
 
     block ReceiveInteger "Obsolete block to receive Integer signal from bus"
-      extends Modelica.Icons.ObsoleteModel;
+      // extends Modelica.Icons.ObsoleteModel;
       IntegerInput fromBus "To be connected with signal on bus" annotation (
           Placement(transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
       IntegerOutput y "Output signal to be received from bus" annotation (
@@ -1599,7 +1599,7 @@ converts from one unit into another one.
 
   partial block BlockIcon
     "This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.Block instead."
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Rectangle(
@@ -1620,7 +1620,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.Block\">Modelica.Blo
 
   partial block BooleanBlockIcon
     "This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.BooleanBlock instead."
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Rectangle(
@@ -1641,7 +1641,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.BooleanBlock\">Model
 
   partial block DiscreteBlockIcon
     "This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.DiscreteBlock instead."
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Rectangle(
@@ -1663,7 +1663,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.DiscreteBlock\">Mode
 
   partial block IntegerBlockIcon
     "This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.IntegerBlock instead."
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Rectangle(
@@ -1683,7 +1683,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.IntegerBlock\">Model
 
   partial block partialBooleanBlockIcon
     "This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.PartialBooleanBlock instead."
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Rectangle(

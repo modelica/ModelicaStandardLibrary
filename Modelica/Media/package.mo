@@ -3060,7 +3060,7 @@ is given to compare the approximation.
 
       connector FluidPort
         "Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)"
-        extends Modelica.Icons.ObsoleteModel;
+        // extends Modelica.Icons.ObsoleteModel;
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
 
@@ -3159,7 +3159,7 @@ is given to compare the approximation.
 
       model PortVolume
         "Fixed volume associated with a port by the finite volume method"
-        extends Modelica.Icons.ObsoleteModel;
+        // extends Modelica.Icons.ObsoleteModel;
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
 
@@ -3259,7 +3259,7 @@ transport.
 
       model FixedMassFlowRate
         "Ideal pump that produces a constant mass flow rate from a large reservoir at fixed temperature and mass fraction"
-        extends Modelica.Icons.ObsoleteModel;
+        // extends Modelica.Icons.ObsoleteModel;
         parameter Medium.MassFlowRate m_flow
           "Fixed mass flow rate from an infinite reservoir to the fluid port";
 
@@ -3340,7 +3340,7 @@ transport.
 
       model FixedAmbient
         "Ambient pressure, temperature and mass fraction source"
-        extends Modelica.Icons.ObsoleteModel;
+        // extends Modelica.Icons.ObsoleteModel;
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
 
@@ -3426,7 +3426,7 @@ with exception of ambient pressure, do not have an effect.
         end FixedAmbient;
 
       model ShortPipe "Simple pressure loss in pipe"
-        extends Modelica.Icons.ObsoleteModel;
+        // extends Modelica.Icons.ObsoleteModel;
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (choicesAllMatching=true);
 
@@ -3495,7 +3495,7 @@ no mass or energy is stored in the pipe.
 
       partial model PartialTestModel "Basic test model to test a medium"
         import SI = Modelica.SIunits;
-        extends Modelica.Icons.ObsoleteModel;
+        // extends Modelica.Icons.ObsoleteModel;
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (__Dymola_choicesAllMatching=true);
@@ -3558,7 +3558,7 @@ no mass or energy is stored in the pipe.
       partial model PartialTestModel2
         "Slightly larger test model to test a medium"
         import SI = Modelica.SIunits;
-        extends Modelica.Icons.ObsoleteModel;
+        // extends Modelica.Icons.ObsoleteModel;
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (__Dymola_choicesAllMatching=true);
         parameter SI.AbsolutePressure p_start=1.0e5 "Initial value of pressure";

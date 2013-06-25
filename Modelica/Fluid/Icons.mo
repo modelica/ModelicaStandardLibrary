@@ -4,7 +4,7 @@ package Icons
   partial class VariantLibrary
     "This icon will be removed in future Modelica versions, use Modelica.Icons.VariantsPackage instead."
     extends Modelica.Icons.VariantsPackage;
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
     annotation(Documentation(info="<html>
 <p>
 This icon will be removed in future versions of the Modelica Standard Library.
@@ -16,7 +16,7 @@ Instead the icon <a href=\"modelica://Modelica.Icons.VariantsPackage\">Modelica.
   partial class BaseClassLibrary
     "This icon will be removed in future Modelica versions, use Modelica.Icons.BasePackage instead."
     extends Modelica.Icons.BasesPackage;
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
     annotation(Documentation(info="<html>
 <p>
 This icon will be removed in future versions of the Modelica Standard Library.

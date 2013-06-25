@@ -3503,13 +3503,13 @@ with the blocks of package Modelica.Blocks.
   model TansformAbsoluteVector
     "Obsolete model will be removed in future versions, use TransformAbsoluteVector instead!"
     extends TransformAbsoluteVector;
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
   end TansformAbsoluteVector;
 
   model TansformRelativeVector
     "Obsolete model will be removed in future versions, use TransformRelativeVector instead!"
     extends TransformRelativeVector;
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
   end TansformRelativeVector;
 
   annotation ( Documentation(info="<html>

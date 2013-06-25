@@ -4932,7 +4932,7 @@ The values val... are given by parameters.</P>
 
         block LogicToXO1
       "This model will be removed in future Modelica versions, use 'LogicToX01' instead!"
-          extends Modelica.Icons.ObsoleteModel;
+          // extends Modelica.Icons.ObsoleteModel;
           import D = Modelica.Electrical.Digital;
           import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
@@ -5010,7 +5010,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
 
         block LogicToXO1Z
       "This model will be removed in future Modelica versions, use 'LogicToX01Z' instead!"
-          extends Modelica.Icons.ObsoleteModel;
+          // extends Modelica.Icons.ObsoleteModel;
           import D = Modelica.Electrical.Digital;
           import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
@@ -8265,57 +8265,57 @@ Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.
 </p>
 </html>"),        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
           Rectangle(
-            origin = {12,41}, 
-            fillColor = {255,255,255}, 
-            fillPattern = FillPattern.Solid, 
+            origin = {12,41},
+            fillColor = {255,255,255},
+            fillPattern = FillPattern.Solid,
             extent = {{-52,-36},{-32,4}}),
           Rectangle(
-            origin = {12,41}, 
-            fillColor = {255,255,255}, 
-            fillPattern = FillPattern.Solid, 
+            origin = {12,41},
+            fillColor = {255,255,255},
+            fillPattern = FillPattern.Solid,
             extent = {{8,-86},{28,-46}}),
           Rectangle(
-            origin = {12,41}, 
-            fillColor = {255,255,255}, 
-            fillPattern = FillPattern.Solid, 
+            origin = {12,41},
+            fillColor = {255,255,255},
+            fillPattern = FillPattern.Solid,
             extent = {{8,-36},{28,4}}),
           Line(
-            origin = {12,41}, 
+            origin = {12,41},
             points = {{-72,-6},{-52,-6}}),
           Line(
-            origin = {12,41}, 
+            origin = {12,41},
             points = {{-72,-28},{-52,-28}}),
           Ellipse(
-            origin = {12,41}, 
+            origin = {12,41},
             extent = {{-32,-18},{-28,-14}}),
           Ellipse(
-            origin = {12,41}, 
+            origin = {12,41},
             extent = {{28,-18},{32,-14}}),
           Line(
-            origin = {12,41}, 
+            origin = {12,41},
             points = {{-28,-16},{8,-16}}),
           Line(
-            origin = {12,41}, 
+            origin = {12,41},
             points = {{-28,-16},{-12,-16},{-12,-56},{8,-56}}),
           Line(
-            origin = {12,41}, 
+            origin = {12,41},
             points = {{8,-76},{-72,-76}}),
           Line(
-            origin = {12,41}, 
+            origin = {12,41},
             points = {{32,-16},{48,-16}}),
           Line(
-            origin = {12,41}, 
+            origin = {12,41},
             points = {{28,-66},{48,-66}}),
           Text(
-            origin = {12,41}, 
-            extent = {{-52,-8},{-32,0}}, 
+            origin = {12,41},
+            extent = {{-52,-8},{-32,0}},
             textString = "&"),
           Text(
-            origin = {12,41}, 
-            extent = {{8,-10},{28,-2}}, 
+            origin = {12,41},
+            extent = {{8,-10},{28,-2}},
             textString = "1"),
           Text(
-            origin = {12,41}, 
-            extent = {{8,-58},{28,-50}}, 
+            origin = {12,41},
+            extent = {{8,-58},{28,-50}},
             textString = "=")}));
 end Digital;

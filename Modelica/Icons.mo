@@ -822,7 +822,7 @@ corresponding library in a future release.
 
   partial package Library
     "This icon will be removed in future Modelica versions, use Package instead"
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             lineColor={200,200,200},
@@ -844,7 +844,7 @@ corresponding library in a future release.
 
   partial package Library2
     "This icon will be removed in future Modelica versions, use Package instead"
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
@@ -866,7 +866,7 @@ corresponding library in a future release.
 
   partial class GearIcon
     "This icon will be removed in future Modelica versions"
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
 
     annotation (             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
@@ -906,7 +906,7 @@ This icon of a <b>gearbox</b> will be removed in future versions of the library.
 
   partial class MotorIcon
     "This icon will be removed in future Modelica versions."
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
 
     annotation (             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
@@ -932,7 +932,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
   end MotorIcon;
 
   partial class Info "This icon will be removed in future Modelica versions."
-    extends Modelica.Icons.ObsoleteModel;
+    // extends Modelica.Icons.ObsoleteModel;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             lineColor={75,138,73},

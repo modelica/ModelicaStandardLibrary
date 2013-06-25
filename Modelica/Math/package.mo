@@ -12400,7 +12400,7 @@ end log10;
 partial function baseIcon1
   "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead."
   import Modelica;
-  extends Modelica.Icons.ObsoleteModel;
+  // extends Modelica.Icons.ObsoleteModel;
 
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -12442,7 +12442,7 @@ end baseIcon1;
 partial function baseIcon2
   "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead."
   import Modelica;
-  extends Modelica.Icons.ObsoleteModel;
+  // extends Modelica.Icons.ObsoleteModel;
 
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -12483,7 +12483,7 @@ end baseIcon2;
 function tempInterpol1
   "Temporary function for linear interpolation (will be removed)"
   extends Modelica.Icons.Function;
-  extends Modelica.Icons.ObsoleteModel;
+  // extends Modelica.Icons.ObsoleteModel;
 
   input Real u "input value (first column of table)";
   input Real table[:, :] "table to be interpolated";
@@ -12544,7 +12544,7 @@ end tempInterpol1;
 function tempInterpol2
   "Temporary function for vectorized linear interpolation (will be removed)"
   extends Modelica.Icons.Function;
-  extends Modelica.Icons.ObsoleteModel;
+  // extends Modelica.Icons.ObsoleteModel;
 
   input Real u "input value (first column of table)";
   input Real table[:, :] "table to be interpolated";

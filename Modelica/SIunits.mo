@@ -934,7 +934,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
 
     partial function ConversionIcon
       "This icon will be removed in future Modelica versions."
-      extends Modelica.Icons.ObsoleteModel;
+      // extends Modelica.Icons.ObsoleteModel;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -1892,11 +1892,7 @@ argument):</p>
   record ComplexReluctance =
     Complex(redeclare Modelica.SIunits.Reluctance re,
              redeclare Modelica.SIunits.Reluctance im) "Complex reluctance"
-    annotation (Icon(graphics={            Rectangle(
-            extent={{-102,102},{102,-102}},
-            lineColor={255,0,0},
-            pattern=LinePattern.Dash,
-            lineThickness=0.5)}), Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 Since magnetic material properties like reluctance and permeance often are anisotropic resp. salient,
 a special operator instead of multiplication (compare: tensor vs. vector) is required.
