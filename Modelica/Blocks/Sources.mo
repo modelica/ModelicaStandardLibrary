@@ -2547,15 +2547,16 @@ double tab2(6,2)   # another comment line
 Note, that the first two characters in the file need to be
 \"#1\" (a line comment defining the version number of the file format).
 Afterwards, the corresponding matrix has to be declared
-with type, name and actual dimensions. Finally, in successive
-rows of the file, the elements of the matrix have to be given.
-A matrix row can span several lines (so the newline character
-is allowed in a matrix row). Numbers have to be given according
-to C syntax (such as 2.3, -2, +2.e4). Number separators are spaces,
-tab (\t), comma (,), or semicolon (;).
+with type (= "double" or "float"), name and actual dimensions.
+Finally, in successive rows of the file, the elements of the matrix
+have to be given. The elements have to be provided as a sequence of
+numbers in row-wise order (therefore a matrix row can span several
+lines in the file and need not start at the beginning of a line).
+Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab (\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
-Other text, like trailing non comments, is not allowed.
+Other characters, like trailing non comments, are not allowed in the file.
 </p>
 <p>
 MATLAB is a registered trademark of The MathWorks, Inc.
