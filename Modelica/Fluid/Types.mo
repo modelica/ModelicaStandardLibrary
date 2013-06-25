@@ -1,6 +1,6 @@
 within Modelica.Fluid;
 package Types "Common types for fluid models"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.TypesPackage;
 
   type HydraulicConductance = Modelica.Icons.TypeReal (
       final quantity="HydraulicConductance",

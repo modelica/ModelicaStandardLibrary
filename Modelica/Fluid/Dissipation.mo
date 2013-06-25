@@ -13175,7 +13175,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
     end Records;
 
     package Types "Package for types"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.TypesPackage;
       type DarcyFrictionFactor = Modelica.Icons.TypeReal (
           final quantity=
               "Darcy friction factor | lambda_fri = zeta_fri / (length/diameter)",

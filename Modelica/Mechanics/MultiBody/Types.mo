@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody;
 package Types "Constants and types with choices, especially to build menus"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.TypesPackage;
 
   type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
     "Axis vector with choices for menus"                                      annotation (

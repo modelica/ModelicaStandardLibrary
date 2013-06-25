@@ -7040,7 +7040,7 @@ This package contains interface definitions of the magnetic ports as well as par
   end Interfaces;
 
   package Types "Definition of salient types"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.TypesPackage;
     record Salient "Base record of saliency with d and q component"
       replaceable Real d "Component of d (direct) axis, aligned to real part";
       replaceable Real q

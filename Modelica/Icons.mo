@@ -15,7 +15,7 @@ package Icons "Library of icons"
             fillPattern=FillPattern.Solid,
             points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,-50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
             smooth=Smooth.Bezier),
-          Ellipse(origin={7.5,52.5},
+          Ellipse(origin={7.5,56.5},
             fillColor={255,255,255},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
@@ -326,6 +326,50 @@ package Icons "Library of icons"
 </html>"));
   end SensorsPackage;
 
+  partial package TypesPackage "Icon for packages containing type definitions"
+    extends Modelica.Icons.Package;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Polygon(
+            origin={-12.167,-23},
+            fillColor={128,128,128},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{12.167,65},{14.167,93},{36.167,89},{24.167,20},{4.167,-30},
+                {14.167,-30},{24.167,-30},{24.167,-40},{-5.833,-50},{-15.833,
+                -30},{4.167,20},{12.167,65}},
+            smooth=Smooth.Bezier,
+            lineColor={0,0,0}), Polygon(
+            origin={2.7403,1.6673},
+            fillColor={128,128,128},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{49.2597,22.3327},{31.2597,24.3327},{7.2597,18.3327},{-26.7403,
+              10.3327},{-46.7403,14.3327},{-48.7403,6.3327},{-32.7403,0.3327},{-6.7403,
+              4.3327},{33.2597,14.3327},{49.2597,14.3327},{49.2597,22.3327}},
+            smooth=Smooth.Bezier)}));
+  end TypesPackage;
+
+  partial package IconsPackage "Icon for packages containing icons"
+    extends Modelica.Icons.Package;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Polygon(
+            origin={-8.167,-17},
+            fillColor={128,128,128},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{
+                4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,
+                -50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
+            smooth=Smooth.Bezier,
+            lineColor={0,0,0}), Ellipse(
+            origin={-0.5,56.5},
+            fillColor={128,128,128},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-12.5,-12.5},{12.5,12.5}},
+            lineColor={0,0,0})}));
+  end IconsPackage;
+
   partial package InternalPackage
     "Icon for an internal package (indicating that the package should not be directly utilized by user)"
 
@@ -350,18 +394,6 @@ package Icons "Library of icons"
 <p>Standard package icon.</p>
 </html>"));
   end InternalPackage;
-
-  partial package IconsPackage "Icon for packages containing icons"
-    extends Modelica.Icons.Package;
-    annotation (Icon(graphics={Polygon(
-          points={{-8,46},{-54,52},{-54,68},{54,68},{54,52},{8,46},{8,-46},{54,-52},
-              {54,-68},{-54,-68},{-54,-52},{-8,-46}},
-          lineColor={64,64,64},
-          smooth=Smooth.Bezier,
-          fillColor={175,175,175},
-          fillPattern=FillPattern.Solid)}));
-  end IconsPackage;
-
   partial class RotationalSensor "Icon representing a round measurement device"
 
     annotation (
@@ -898,7 +930,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
             points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,-50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
             smooth=Smooth.Bezier),
           Ellipse(
-            origin={7.5,52.5},
+            origin={7.5,56.5},
             fillColor={255,255,255},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
@@ -908,15 +940,23 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Information\">Information</a> shall be used.</p></html>"));
   end Info;
-  annotation (Icon(coordinateSystem(
-        extent={{-100,-100},{100,100}},
-        preserveAspectRatio=false,
-        initialScale=0.1), graphics={Polygon(
-          points = {{-8,46},{-54,52},{-54,68},{54,68},{54,52},{8,46},{8,-46},{54,-52},{54,-68},{-54,-68},{-54,-52},{-8,-46}},
-          lineColor={64,64,64},
-          smooth=Smooth.Bezier,
-          fillColor={175,175,175},
-          fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Polygon(
+            origin={-8.167,-17},
+            fillColor={128,128,128},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            points={{-15.833,20.0},{-15.833,30.0},{14.167,40.0},{24.167,20.0},{
+                4.167,-30.0},{14.167,-30.0},{24.167,-30.0},{24.167,-40.0},{-5.833,
+                -50.0},{-15.833,-30.0},{4.167,20.0},{-5.833,20.0}},
+            smooth=Smooth.Bezier,
+            lineColor={0,0,0}), Ellipse(
+            origin={-0.5,56.5},
+            fillColor={128,128,128},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Solid,
+            extent={{-12.5,-12.5},{12.5,12.5}},
+            lineColor={0,0,0})}), Documentation(info="<html>
 <p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer. </p>
 
 <h4>Main Authors:</h4>

@@ -4585,7 +4585,7 @@ on the model behaviour.
   end Interfaces;
 
   package Types "Additional Spice3 type definitions"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.TypesPackage;
     type VoltageSquare = Real (final quantity="ElectricalPotential2", final unit="V2");
     type GapEnergyPerTemperature = Real (final quantity="Energy per Temperature", final unit="eV/K");
     type GapEnergyPerEnergy = Real (final quantity="Energy per Energy", final unit="eV/J");
@@ -4594,15 +4594,7 @@ on the model behaviour.
       "Inverse of electric current";
     type ElectricFieldStrength_cm = Real (final quantity="ElectricFieldStrength",
           final unit="V/cm");
-    annotation (Icon(graphics={            Rectangle(
-            extent={{-80,100},{100,-80}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Rectangle(
-            extent={{-100,80},{80,-100}},
-            lineColor={0,0,0},
-            fillColor={240,240,240},
-            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>This package Types contains units that are needed in the models of the Spice3 package.</p>
 </html>"));
   end Types;
