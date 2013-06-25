@@ -1,18 +1,20 @@
 #1
 
+double tab0(2,2)   # dummy table
+0 0 1 1
 double tab1(6,2)   # comment line
   		# comment line with leading white space
-  0   0
-  1   0
+  0   0  1   0 # two rows per line
   		# another comment line with leading white space
-  1   1 # comment in line 8
-  2   4
+  1   1 # comment in line 9
+  2     # first part of row
+      4 # continued part of row
 #	next line is empty
 
   3   9
 #	next line is empty with leading white space
   		
-  4  16
+  4  16 
 	
 double a(100,3)
 0.0000000000000000 4.2349625685105075 104.2349625685105100

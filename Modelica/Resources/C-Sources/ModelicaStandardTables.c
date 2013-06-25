@@ -3341,12 +3341,12 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             char* endptr;
 
             lineNo++;
-            /* Expected table header format: "double tableName(nRow,nCol)" */
+            /* Expected table header format: "dataType tableName(nRow,nCol)" */
             token = strtok(buf, DELIM_TABLE_HEADER);
             if (!token) {
                 continue;
             }
-            if (0 != strcmp(token, "double")) {
+            if ((0 != strcmp(token, "double")) && (0 != strcmp(token, "float"))) {
                 continue;
             }
             token = strtok(NULL, DELIM_TABLE_HEADER);
@@ -3355,6 +3355,9 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             }
             if (0 == strcmp(token, tableName)) {
                 foundTable = 1;
+            }
+            else {
+                continue;
             }
             token = strtok(NULL, DELIM_TABLE_HEADER);
             if (!token) {
@@ -3385,8 +3388,9 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 continue;
             }
 
-            if (foundTable) {
-                size_t i, j;
+            if (foundTable == 1) {
+                size_t i = 0;
+                size_t j = 0;
 
                 table = malloc(nRow*nCol*sizeof(double));
                 if (!table) {
@@ -3404,7 +3408,6 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 }
 
                 /* Loop over rows and store table row-wise */
-                i = 0;
                 while (tableReadError == 0 && i < nRow) {
                     int k = 0;
 
@@ -3423,10 +3426,13 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         /* Skip empty or comment line */
                         continue;
                     }
-                    token = strtok(buf, DELIM_TABLE_NUMBER);
-                    for (j = 0; j < nCol; j++) {
+                    token = strtok(&buf[k], DELIM_TABLE_NUMBER);
+                    while (i < nRow && j < nCol) {
                         if (!token) {
-                            tableReadError = 1;
+                            break;
+                        }
+                        else if (token && token[0] == '#') {
+                            /* Skip trailing comment line */
                             break;
                         }
 #if defined(_MSC_VER) && _MSC_VER >= 1400
@@ -3470,6 +3476,10 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                             }
                         }
 #endif
+                        if (++j == nCol) {
+                            i++; /* Increment row index */
+                            j = 0; /* Reset column index */
+                        }
                         if (tableReadError == 0) {
                             token = strtok(NULL, DELIM_TABLE_NUMBER);
                             continue;
@@ -3483,23 +3493,8 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         tableReadError = 1;
                         break;
                     }
-                    i++;
                 }
                 break;
-            }
-            else {
-                /* Skip next table lines */
-                size_t i;
-                for (i = 0; tableReadError == 0 && i < nRow; i++) {
-                    lineNo++;
-                    if ((tableReadError = readLine(&buf, &bufLen, fp)) != 0) {
-                        break;
-                    }
-                }
-
-                if (tableReadError != 0) {
-                    break;
-                }
             }
         }
 
@@ -3510,7 +3505,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
 #elif defined(linux)
         freelocale(loc);
 #endif
-        if (!foundTable) {
+        if (foundTable == 0) {
             ModelicaFormatError(
                 "Table matrix \"%s\" not found on file \"%s\".\n",
                 tableName, fileName);
@@ -3525,9 +3520,16 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             free(table);
             *_nRow = 0;
             *_nCol = 0;
-            ModelicaFormatError(
-                "Error in line %lu when reading numeric data of matrix \"%s(%lu,%lu)\" "
-                "from file \"%s\"\n", lineNo, tableName, nRow, nCol, fileName);
+            if (tableReadError == EOF) {
+                ModelicaFormatError(
+                    "End-of-file reached when reading numeric data of matrix \"%s(%lu,%lu)\" "
+                    "from file \"%s\"\n", tableName, nRow, nCol, fileName);
+            }
+            else {
+                ModelicaFormatError(
+                    "Error in line %lu when reading numeric data of matrix \"%s(%lu,%lu)\" "
+                    "from file \"%s\"\n", lineNo, tableName, nRow, nCol, fileName);
+            }
             return NULL;
         }
     }
@@ -3545,7 +3547,7 @@ static int readLine(char** buf, int* bufLen, FILE* fp) {
     char* p;
 
     if (fgets(*buf, *bufLen, fp) == NULL) {
-        return -1;
+        return EOF;
     }
 
     if ((p = strchr(*buf, '\n')) != NULL) {
