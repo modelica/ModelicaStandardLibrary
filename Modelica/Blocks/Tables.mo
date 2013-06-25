@@ -965,5 +965,27 @@ equation
   annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version=\"3.2.1\")));
 end Test25_usertab;
 </pre>
-</html>"));
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}), graphics={
+        Rectangle(
+          extent={{-76,-26},{80,-76}},
+          lineColor={95,95,95},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-76,24},{80,-26}},
+          lineColor={95,95,95},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-76,74},{80,24}},
+          lineColor={95,95,95},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{-28,74},{-28,-76}},
+          color={95,95,95}),
+        Line(
+          points={{24,74},{24,-76}},
+          color={95,95,95})}));
 end Tables;

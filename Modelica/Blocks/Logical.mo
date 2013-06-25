@@ -1113,5 +1113,8 @@ in the respective block icon as \"circle\", where \"white\" color means
 value <b>false</b> and \"green\" color means value <b>true</b>. These
 values are visualized in a diagram animation.
 </p>
-</html>"));
+</html>"), Icon(graphics={Line(
+          visible=true,
+          points={{-86,-22},{-50,-22},{-50,22},{48,22},{48,-22},{88,-24}},
+          color={255,0,255})}));
 end Logical;

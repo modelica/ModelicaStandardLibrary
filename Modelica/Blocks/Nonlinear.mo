@@ -757,5 +757,6 @@ This package contains <b>discontinuous</b> and
        of Dieter Moormann and Hilding Elmqvist.
 </li>
 </ul>
-</html>"));
+</html>"), Icon(graphics={Line(points={{-80,-66},{-26,-66},{28,52},{88,52}},
+            color={95,95,95})}));
 end Nonlinear;

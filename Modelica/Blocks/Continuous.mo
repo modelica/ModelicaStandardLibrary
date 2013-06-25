@@ -4720,5 +4720,10 @@ for a 1-dim. rotational inertia controlled by a PI controller are that
 <b>angle</b>, <b>speed</b>, and <b>acceleration</b> of the inertia are zero.
 </p>
 
-</html>"));
+</html>"), Icon(graphics={Line(
+          origin={0.061,4.184},
+          points={{81.939,36.056},{65.362,36.056},{14.39,-26.199},{-29.966,
+              113.485},{-65.374,-61.217},{-78.061,-78.184}},
+          color={95,95,95},
+          smooth=Smooth.Bezier)}));
 end Continuous;

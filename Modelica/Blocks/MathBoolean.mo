@@ -484,5 +484,6 @@ The new features are:
 
 </ul>
 
-</html>"));
+</html>"), Icon(graphics={Line(points={{-80,-16},{-4,-16},{-4,28},{38,28},{38,
+              -16},{66,-16}}, color={255,0,255})}));
 end MathBoolean;
