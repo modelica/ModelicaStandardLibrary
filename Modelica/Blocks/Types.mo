@@ -82,6 +82,7 @@ initialization definition.
     extends ExternalObject;
 
     function constructor "Initialize 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
       input String tableName "Table name";
       input String fileName "File name";
       input Real table[:, :];
@@ -105,6 +106,7 @@ initialization definition.
     end constructor;
 
     function destructor "Terminate 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
       input ExternalCombiTimeTable externalCombiTimeTable;
     external"C" ModelicaStandardTables_CombiTimeTable_close(
         externalCombiTimeTable) annotation (Library={"ModelicaStandardTables"});
@@ -117,6 +119,7 @@ initialization definition.
     extends ExternalObject;
 
     function constructor "Initialize 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
       input String tableName "Table name";
       input String fileName "File name";
       input Real table[:, :];
@@ -135,6 +138,7 @@ initialization definition.
     end constructor;
 
     function destructor "Terminate 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
       input ExternalCombiTable1D externalCombiTable1D;
     external"C" ModelicaStandardTables_CombiTable1D_close(externalCombiTable1D)
         annotation (Library={"ModelicaStandardTables"});
@@ -147,6 +151,7 @@ initialization definition.
     extends ExternalObject;
 
     function constructor "Initialize 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
       input String tableName "Table name";
       input String fileName "File name";
       input Real table[:, :];
@@ -162,6 +167,7 @@ initialization definition.
     end constructor;
 
     function destructor "Terminate 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
       input ExternalCombiTable2D externalCombiTable2D;
     external"C" ModelicaStandardTables_CombiTable2D_close(externalCombiTable2D)
         annotation (Library={"ModelicaStandardTables"});

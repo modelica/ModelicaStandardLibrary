@@ -2004,6 +2004,7 @@ a flange according to a given acceleration.
 
     function getInterpolationCoefficients
       "Determine interpolation coefficients and next time event"
+      extends Modelica.Icons.Function;
       input Real table[:, 2] "Table for interpolation";
       input Real offset "y-offset";
       input Real startTime "time-offset";
@@ -2961,6 +2962,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
 
   protected
     function getFirstIndex "Get first index of table and check table"
+      extends Modelica.Icons.Function;
       input Real table[:] "Vector of time instants";
       input Modelica.SIunits.Time simulationStartTime "Simulation start time";
       input Boolean startValue "Value of y for y < table[1]";
@@ -3310,6 +3312,7 @@ The Integer output y is a step signal:
 
   protected
     function getFirstIndex "Get first index of table and check table"
+      extends Modelica.Icons.Function;
       input Real table[:, 2] "Table matrix";
       input Modelica.SIunits.Time simulationStartTime "Simulation start time";
       output Integer index "First index to be used";

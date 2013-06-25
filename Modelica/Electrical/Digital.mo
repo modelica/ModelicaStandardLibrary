@@ -7649,6 +7649,7 @@ Wires n input signals in one output signal, without delay.
 
     function address
       // compute memory address
+      extends Modelica.Icons.Function;
       input Integer n_addr;
       input L addr[n_addr];
       output Integer int_addr;

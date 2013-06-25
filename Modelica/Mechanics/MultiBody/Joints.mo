@@ -7950,7 +7950,7 @@ of this subpackage.
 
       function selectBranch
         "Determine branch which is closest to initial angle=0"
-
+        extends Modelica.Icons.Function;
         input SI.Length L "Length of length constraint";
         input Real e[3](each final unit="1")
           "Unit vector along axis of rotation, resolved in frame_a (= same in frame_b)";
@@ -8336,7 +8336,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
 
       function selectBranch
         "Determine branch which is closest to initial angle=0"
-
+        extends Modelica.Icons.Function;
         input SI.Length L "Length of length constraint";
         input Real e[3](each final unit="1")
           "Unit vector along axis of translation, resolved in frame_a (= same in frame_b)";

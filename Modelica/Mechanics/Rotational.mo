@@ -5234,6 +5234,7 @@ blocks of the block library Modelica.Blocks.Sources.
                 rotation=0)));
       protected
         function position
+          extends Modelica.Icons.Function;
           input Real q_qd[2] "Required values for position and speed";
           input Real dummy
             "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
@@ -5245,6 +5246,7 @@ blocks of the block library Modelica.Blocks.Sources.
         end position;
 
         function position_der
+          extends Modelica.Icons.Function;
           input Real q_qd[2] "Required values for position and speed";
           input Real dummy
             "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
@@ -6033,6 +6035,7 @@ blocks of the block library Modelica.Blocks.Sources.
               rotation=0)));
     protected
       function position
+        extends Modelica.Icons.Function;
         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
         input Real dummy
@@ -6045,6 +6048,7 @@ blocks of the block library Modelica.Blocks.Sources.
       end position;
 
       function position_der
+        extends Modelica.Icons.Function;
         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
         input Real dummy
@@ -6059,6 +6063,7 @@ blocks of the block library Modelica.Blocks.Sources.
       end position_der;
 
       function position_der2
+        extends Modelica.Icons.Function;
         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
         input Real dummy

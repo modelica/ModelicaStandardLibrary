@@ -11,6 +11,7 @@ function list "List content of file or directory"
   Types.FileType fileType;
 
   function listFile "List content of file"
+     extends Modelica.Icons.Function;
      input String name;
     protected
      String file[Streams.countLines(name)] =  Streams.readFile(name);
@@ -22,6 +23,7 @@ function list "List content of file or directory"
 
   function sortDirectory
       "Sort directory in directories and files with alphabetic order"
+     extends Modelica.Icons.Function;
      input String directory
         "Directory that was read (including a trailing '/')";
      input String names[:]
@@ -139,6 +141,7 @@ function copy "Generate a copy of a file or of a directory"
 //..............................................................
   protected
   function copyDirectory "Copy a directory"
+     extends Modelica.Icons.Function;
      input String oldName
         "Old directory name without trailing '/'; existance is guaranteed";
      input String newName
@@ -151,6 +154,7 @@ function copy "Generate a copy of a file or of a directory"
   end copyDirectory;
 
   function copyDirectoryContents
+    extends Modelica.Icons.Function;
     input String oldNames[:];
     input String oldName;
     input String newName;
@@ -303,6 +307,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
 //..............................................................
   protected
   function removeDirectory "Remove a directory, even if it is not empty"
+     extends Modelica.Icons.Function;
      input String name;
     protected
      Integer lenName = Strings.length(name);
@@ -318,6 +323,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
   end removeDirectory;
 
   function removeDirectoryContents
+      extends Modelica.Icons.Function;
       input String fileNames[:];
       input String name2;
   algorithm
@@ -401,6 +407,7 @@ function createDirectory
   protected
   function existDirectory
       "Inquire whether directory exists; if present and not a directory, trigger an error"
+     extends Modelica.Icons.Function;
      input String directoryName;
      output Boolean exists "true if directory exists";
     protected
@@ -420,6 +427,7 @@ function createDirectory
 
   function assertCorrectIndex
       "Print error, if index to last essential character in directory is wrong"
+     extends Modelica.Icons.Function;
      input Integer index "Index must be > 0";
      input String directoryName "Directory name for error message";
   algorithm

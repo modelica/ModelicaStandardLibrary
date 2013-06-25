@@ -97,6 +97,7 @@ This model is documented at
     extends Modelica.Icons.InternalPackage;
     partial function PartialLoadResource
         "Interface for tool specific function to return the absolute path name of a URI or local file name"
+      extends Modelica.Icons.Function;
       input String uri "URI or local file name";
       output String fileReference "Absolute path name of file";
       annotation (Documentation(info="<html>

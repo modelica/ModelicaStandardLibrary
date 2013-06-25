@@ -4159,6 +4159,7 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
 
           function normalizationResidue
             "Residue of correction factor computation"
+            extends Modelica.Icons.Function;
             input Real c1[:]
               "[p] coefficients of denominator polynomials (c1[i]*p + 1)";
             input Real c2[:,2]
@@ -4191,6 +4192,7 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
           end normalizationResidue;
 
           function findInterval "Find interval for the root"
+            extends Modelica.Icons.Function;
             input Real c1[:]
               "[p] coefficients of denominator polynomials (a*p + 1)";
             input Real c2[:,2]
@@ -4216,6 +4218,7 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
 
         function solveOneNonlinearEquation
             "Solve f(u) = 0; f(u_min) and f(u_max) must have different signs"
+            extends Modelica.Icons.Function;
             import Modelica.Utilities.Streams.error;
 
           input Real c1[:]
@@ -4395,6 +4398,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
           Real z;
 
           function residue "Residue of non-linear equation"
+            extends Modelica.Icons.Function;
             input Real a;
             input Real b;
             input Real w;
@@ -4406,6 +4410,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
 
         function solveOneNonlinearEquation
             "Solve f(u) = 0; f(u_min) and f(u_max) must have different signs"
+            extends Modelica.Icons.Function;
             import Modelica.Utilities.Streams.error;
 
           input Real aa;

@@ -857,7 +857,7 @@ where <b>Q</b> is an orthogonal matrix, i.e.
     encapsulated function roots
       "Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero"
       import Modelica.Math.Matrices;
-
+      extends Modelica.Icons.Function;
       input Real p[:]
         "Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]";
       output Real roots[max(0, size(p, 1) - 1), 2]=fill(
@@ -3223,6 +3223,7 @@ with
     /*diagonal transformation matrix for balancing*/
 
     encapsulated function columnNorm "Returns the column norm of a matrix"
+      extends Modelica.Icons.Function;
       input Real A[:, :] "Input matrix";
       output Real result=0.0 "1-norm of matrix A";
     algorithm
@@ -3366,6 +3367,7 @@ implementation variant used in this function.
     /*diagonal transformation matrix for balancing*/
 
     encapsulated function columnNorm "Returns the column norm of a matrix"
+      extends Modelica.Icons.Function;
       input Real A[:, :] "Input matrix";
       output Real result=0.0 "1-norm of matrix A";
     algorithm

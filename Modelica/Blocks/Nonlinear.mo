@@ -487,6 +487,7 @@ The Input signal is delayed by a given time instant, or more precisely:
 
   protected
     function padeCoefficients
+      extends Modelica.Icons.Function;
       input Real T "delay time";
       input Integer n "order of denominator";
       input Integer m "order of numerator";
