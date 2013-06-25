@@ -3139,9 +3139,9 @@ static double* readTable(const char* tableName, const char* fileName,
         }
 
         if (verbose == 1) {
-            /* Print info message, that file is loading */
-            ModelicaFormatMessage("... \"%s\" loading (tables for interpolation)\n",
-                fileName);
+            /* Print info message, that table / file is loading */
+            ModelicaFormatMessage("... loading \"%s\" from \"%s\"\n",
+                tableName, fileName);
         }
 
         if (isMatExt) {
