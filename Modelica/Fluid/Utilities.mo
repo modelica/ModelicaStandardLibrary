@@ -174,6 +174,7 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
   protected
     encapsulated function regRoot2_utility
       "Interpolating with two 3-order polynomials with a prescribed derivative at x=0"
+      extends Modelica.Icons.Function;
       import Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero;
        input Real x;
        input Real x1 "approximation of function abs(x) < x1";
@@ -365,6 +366,7 @@ k1=1, k2=3 is shown in the next figure:
   protected
     encapsulated function regSquare2_utility
       "Interpolating with two 3-order polynomials with a prescribed derivative at x=0"
+      extends Modelica.Icons.Function;
       import Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero;
        input Real x;
        input Real x1 "approximation of function abs(x) < x1";

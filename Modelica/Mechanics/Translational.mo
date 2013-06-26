@@ -3763,6 +3763,7 @@ blocks of the block library Modelica.Blocks.Source.
               rotation=0)));
     protected
       function position
+         extends Modelica.Icons.Function;
          input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
          input Real dummy
@@ -3775,6 +3776,7 @@ blocks of the block library Modelica.Blocks.Source.
       end position;
 
       function position_der
+         extends Modelica.Icons.Function;
          input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
          input Real dummy
@@ -3788,6 +3790,7 @@ blocks of the block library Modelica.Blocks.Source.
       end position_der;
 
       function position_der2
+         extends Modelica.Icons.Function;
          input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
          input Real dummy

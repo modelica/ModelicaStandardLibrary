@@ -67,6 +67,7 @@ function list "List content of file or directory"
   end sortDirectory;
 
   function listDirectory "List content of directory"
+     extends Modelica.Icons.Function;
      input String directoryName;
      input Integer nEntries;
     protected
