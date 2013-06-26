@@ -2249,7 +2249,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Table name on file or in function usertab (see docu)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter String fileName="NoName" "File where matrix is stored"
-      annotation (Dialog(
+      annotation (Evaluate=true, Dialog(
         group="Table data definition",
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
