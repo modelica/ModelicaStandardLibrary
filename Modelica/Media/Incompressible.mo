@@ -661,13 +661,13 @@ returned as a vector p[n+1] that has the following definition:
 </HTML>"));
       end fitting;
 
-      function evaluate_der "Evaluate polynomial at a given abscissa value"
+      function evaluate_der "Evaluate derivative of polynomial at a given abscissa value"
         extends Modelica.Icons.Function;
         input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
         input Real u "Abscissa value";
-        input Real du "Abscissa value";
-        output Real dy "Value of polynomial at u";
+        input Real du "Delta of abscissa value";
+        output Real dy "Value of derivative of polynomial at u";
       protected
         Integer n=size(p, 1);
       algorithm
