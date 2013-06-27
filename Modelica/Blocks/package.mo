@@ -1230,7 +1230,7 @@ just potential signals. The user might still add different signal names.
 
   package BusUsage_Utilities
     "Utility models and connectors for example Modelica.Blocks.Examples.BusUsage"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.UtilitiesPackage;
     package Interfaces "Interfaces specialised for this example"
       extends Modelica.Icons.InterfacesPackage;
 
@@ -1351,28 +1351,28 @@ end Examples;
 
 annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}, initialScale=0.1), graphics={
       Rectangle(
-        origin={0.0,35.1488}, 
-        fillColor={255,255,255}, 
+        origin={0.0,35.1488},
+        fillColor={255,255,255},
         extent={{-30.0,-20.1488},{30.0,20.1488}}),
       Rectangle(
-        origin={0.0,-34.8512}, 
-        fillColor={255,255,255}, 
+        origin={0.0,-34.8512},
+        fillColor={255,255,255},
         extent={{-30.0,-20.1488},{30.0,20.1488}}),
       Line(
-        origin={-51.25,0.0}, 
+        origin={-51.25,0.0},
         points={{21.25,-35.0},{-13.75,-35.0},{-13.75,35.0},{6.25,35.0}}),
       Polygon(
-        origin={-40.0,35.0}, 
-        pattern=LinePattern.None, 
-        fillPattern=FillPattern.Solid, 
+        origin={-40.0,35.0},
+        pattern=LinePattern.None,
+        fillPattern=FillPattern.Solid,
         points={{10.0,0.0},{-5.0,5.0},{-5.0,-5.0}}),
       Line(
-        origin={51.25,0.0}, 
+        origin={51.25,0.0},
         points={{-21.25,35.0},{13.75,35.0},{13.75,-35.0},{-6.25,-35.0}}),
       Polygon(
-        origin={40.0,-35.0}, 
-        pattern=LinePattern.None, 
-        fillPattern=FillPattern.Solid, 
+        origin={40.0,-35.0},
+        pattern=LinePattern.None,
+        fillPattern=FillPattern.Solid,
         points={{-10.0,0.0},{5.0,5.0},{5.0,-5.0}})}), Documentation(info="<html>
 <p>
 This library contains input/output blocks to build up block diagrams.

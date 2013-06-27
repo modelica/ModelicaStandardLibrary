@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
 package Utilities
   "Utility models and functions used by MultiBody.Examples.Elementary"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.UtilitiesPackage;
   function theoreticalNormalGravityWGS84
     "WGS84 normal gravity over earth ellipsoid in negative y-direction"
      extends Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration;

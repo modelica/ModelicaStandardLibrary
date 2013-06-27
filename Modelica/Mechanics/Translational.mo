@@ -1284,7 +1284,7 @@ is present in variable convection.fluid.
     end HeatLosses;
 
     package Utilities "Utility classes used by the Example models"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.UtilitiesPackage;
       function GenerateStribeckFrictionTable
         "Generate Stribeck friction table for example Friction for the SupportFriction"
          extends Modelica.Icons.Function;

@@ -2261,7 +2261,7 @@ The differences between these two models in static behaviour can be analysed and
     end SolenoidActuator;
 
     package Utilities "Utilities to be used in examples"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.UtilitiesPackage;
 
       model TranslatoryArmatureAndStopper
         "Mass with free travel between two stoppers"

@@ -1,6 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 package Utilities "Utility components used by package Examples"
-extends Modelica.Icons.Package;
+extends Modelica.Icons.UtilitiesPackage;
 
 
 annotation (

@@ -6023,7 +6023,7 @@ Calculation of pressure loss for a valve with different geometries at overall fl
   end PressureLoss;
 
   package Utilities "Package for utilities (should not be used directly)"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.UtilitiesPackage;
     package SharedDocumentation "Shared Documentation"
       extends Modelica.Icons.Information;
 

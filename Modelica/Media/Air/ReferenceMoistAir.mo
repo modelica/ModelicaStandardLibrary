@@ -641,7 +641,7 @@ package ReferenceMoistAir
   end thermalConductivity;
 
   package Utilities "Utilitiy package for moist air"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.UtilitiesPackage;
 
     final constant MoleFraction[4] MMX={18.015257E-003,28.01348E-003,
         31.9988E-003,39.948E-003};

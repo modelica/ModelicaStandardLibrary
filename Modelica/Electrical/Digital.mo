@@ -1343,7 +1343,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         end RAM;
 
       package Utilities "Utility components used by package Examples"
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.Utilities.Package;
 
         model MUX4 "4 to 1 Bit Multiplexer"
         import D = Modelica.Electrical.Digital;

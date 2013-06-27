@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
 package Utilities "Utility models for Examples.Loops"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.UtilitiesPackage;
 
   model Cylinder "Cylinder with rod and crank of a combustion engine"
     parameter Boolean animation=true "= true, if animation shall be enabled";

@@ -711,7 +711,7 @@ at the left and at the right side of the pipe), see next figure:
 
   package Utilities
     "Utility functions that should not be directly utilized by the user"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.UtilitiesPackage;
     function householderVector
       "Calculate a normalized householder vector to reflect vector a onto vector b"
       extends Modelica.Icons.Function;
@@ -10180,7 +10180,7 @@ This package contains a direct interface to the LAPACK subroutines
 
   package Utilities
     "Utility functions that should not be directly utilized by the user"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.UtilitiesPackage;
 
     function continuousRiccatiIterative
       "Newton's method with exact line search for iterative solving continuous algebraic Riccati equation"

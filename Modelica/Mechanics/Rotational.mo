@@ -1846,7 +1846,7 @@ force law in a target system between two inertias.
     end GenerationOfFMUs;
 
     package Utilities "Utility components used by the example models"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.UtilitiesPackage;
       model DirectInertia "Input/output block of a direct inertia model"
         extends Modelica.Blocks.Icons.Block;
         Modelica.Mechanics.Rotational.Components.Inertia inertia(

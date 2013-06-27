@@ -2007,7 +2007,7 @@ The source partial model relies on the
   end Interfaces;
 
   package Utilities "Library with auxiliary models for testing"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.Utilities.Package;
     model IdealACDCConverter "Ideal AC DC converter"
       parameter Real conversionFactor "Ratio of DC voltage / QS rms voltage";
       import Modelica.ComplexMath.real;

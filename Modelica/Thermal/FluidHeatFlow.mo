@@ -1219,7 +1219,7 @@ the time behaviour depending on coolant flow.
     end TwoMass;
 
     package Utilities "Utility models for examples"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.UtilitiesPackage;
 
       model DoubleRamp "Ramp going up and down"
         extends Modelica.Blocks.Interfaces.SO;

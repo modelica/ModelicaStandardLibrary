@@ -1200,7 +1200,7 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
   end thermalConductivity;
 
     package Utilities "Utility functions"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.UtilitiesPackage;
       function spliceFunction "Spline interpolation of two functions"
         extends Modelica.Icons.Function;
         input Real pos "Returned value for x-deltax >= 0";

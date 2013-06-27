@@ -227,7 +227,7 @@ This example is based on
   end ControlledTanks;
 
   package Utilities
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.UtilitiesPackage;
 
     model TankController "Controller for tank system"
           extends Modelica.StateGraph.Interfaces.PartialStateGraphIcon;

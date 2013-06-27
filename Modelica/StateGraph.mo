@@ -1294,7 +1294,7 @@ buttons:
   end ControlledTanks;
 
   package Utilities "Utility components for the examples"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.UtilitiesPackage;
 
     model TankController "Controller for tank system"
       extends StateGraph.Interfaces.PartialStateGraphIcon;
