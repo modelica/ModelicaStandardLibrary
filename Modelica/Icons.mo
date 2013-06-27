@@ -60,100 +60,60 @@ package Icons "Library of icons"
 
   partial class ReleaseNotes "Icon for release notes in documentation"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Polygon(
-            origin={3.0,8.0},
-            lineColor={64,64,64},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
-            points={{-78.0,92.0},{12.0,92.0},{72.0,32.0},{72.0,-108.0},{-78.0,-108.0}}),
+            points={{-80,-100},{-80,100},{0,100},{0,20},{80,20},{80,-100},{-80,
+                -100}},
+            lineColor={0,0,0},
+            fillColor={245,245,245},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            origin={35.0,60.0},
-            lineColor={255,255,255},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid,
-            points={{-20.0,40.0},{-20.0,-20.0},{40.0,-20.0}}),
+            points={{0,100},{80,20},{0,20},{0,100}},
+            lineColor={0,0,0},
+            fillColor={215,215,215},
+            fillPattern=FillPattern.Solid),
+          Line(points={{2,-12},{50,-12}}, color={0,0,0}),
           Ellipse(
-            origin={-35.0,-10.0},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            extent={{-10.0,-10.0},{10.0,10.0}}),
+            extent={{-56,2},{-28,-26}},
+            lineColor={0,0,0},
+            fillColor={215,215,215},
+            fillPattern=FillPattern.Solid),
+          Line(points={{2,-60},{50,-60}}, color={0,0,0}),
           Ellipse(
-            origin={-35.0,-50.0},
-            fillColor={255,255,255},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            extent={{-10.0,-10.0},{10.0,10.0}}),
-          Rectangle(
-            origin={20.0,-10.0},
-            fillColor={255,255,255},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            extent={{-25.0,-5.0},{25.0,5.0}}),
-          Rectangle(
-            origin={20.0,-50.0},
-            fillColor={255,255,255},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            extent={{-25.0,-5.0},{25.0,5.0}})}),
-                              Documentation(info="<html>
+            extent={{-56,-46},{-28,-74}},
+            lineColor={0,0,0},
+            fillColor={215,215,215},
+            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>This icon indicates release notes and the revision history of a library.</p>
 </html>"));
+
   end ReleaseNotes;
 
   partial class References "Icon for external references"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Polygon(
-            origin={-41.6667,-45.8333},
-            lineColor={64,64,64},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid,
-            points={{26.667,105.833},{-58.3333,90.8333},{-58.333,-54.167},{21.6667,-44.1667},{36.6667,-54.1667},{46.6667,-54.1667}}),
-          Polygon(origin={-52.5,-6.25},
-            lineColor={64,64,64},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid,
-            points={{37.5,-78.75},{-37.5,-68.75},{-37.5,81.25},{37.5,66.25}}),
-          Rectangle(
-            origin={32.5,-12.5},
-            lineColor={64,64,64},
-            fillColor={191,191,191},
-            fillPattern=FillPattern.Solid,
-            extent={{-47.5,-72.5},{47.5,72.5}}),
-          Polygon(origin={42.5,-92.5},
-            lineColor={64,64,64},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            points={{-57.5,7.5},{37.5,7.5},{57.5,-7.5},{-37.5,-7.5}}),
-          Polygon(origin={90.0,-21.25},
-            lineColor={64,64,64},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            points={{-10.0,81.25},{10.0,61.25},{10.0,-78.75},{-10.0,-63.75}}),
-          Polygon(origin={-42.5,3.75},
-            lineColor={64,64,64},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid,
-            points={{27.5,-88.75},{-27.5,-63.75},{-27.5,96.25},{27.5,56.25}}),
-          Rectangle(origin={32.5,25.0},
-            fillColor={255,255,255},
+            points={{-100,-80},{-100,60},{-80,54},{-80,80},{-40,58},{-40,100},{
+                -10,60},{90,60},{100,40},{100,-100},{-20,-100},{-100,-80}},
+            lineColor={0,0,255},
             pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            extent={{-27.5,-5.0},{27.5,5.0}}),
-          Rectangle(origin={32.5,-10.0},
-            fillColor={255,255,255},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            extent={{-27.5,-5.0},{27.5,5.0}}),
-          Rectangle(origin={32.5,-45.0},
-            fillColor={255,255,255},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Solid,
-            extent={{-27.5,-5.0},{27.5,5.0}})}),
-                              Documentation(info="<html>
+            fillColor={245,245,245},
+            fillPattern=FillPattern.Solid),
+          Polygon(points={{-20,-100},{-10,-80},{90,-80},{100,-100},{-20,-100}},
+              lineColor={0,0,0}),
+          Line(points={{90,-80},{90,60},{100,40},{100,-100}}, color={0,0,0}),
+          Line(points={{90,60},{-10,60},{-10,-80}}, color={0,0,0}),
+          Line(points={{-10,60},{-40,100},{-40,-40},{-10,-80},{-10,60}}, color=
+                {0,0,0}),
+          Line(points={{-20,-88},{-80,-60},{-80,80},{-40,58}}, color={0,0,0}),
+          Line(points={{-20,-100},{-100,-80},{-100,60},{-80,54}}, color={0,0,0}),
+
+          Line(points={{10,30},{72,30}}, color={0,0,0}),
+          Line(points={{10,-10},{70,-10}}, color={0,0,0}),
+          Line(points={{10,-50},{70,-50}}, color={0,0,0})}), Documentation(info
+          ="<html>
 <p>This icon indicates a documentation class containing references external documentation and literature.</p>
 </html>"));
 

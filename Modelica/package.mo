@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 3.2.1 Beta 2 (Build 0)"
+package Modelica "Modelica Standard Library - Version 3.2.1 Beta 3 (Build 0)"
 extends Modelica.Icons.Package;
 
 
@@ -7738,8 +7738,8 @@ annotation (
 preferredView="info",
 version="3.2.1",
 versionBuild=0,
-versionDate="2013-06-18",
-dateModified = "2013-06-18 11:37:53Z",
+versionDate="2013-06-27",
+dateModified = "2013-06-27 11:37:53Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
 conversion(
@@ -7800,8 +7800,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><b>1340</b> models and blocks, and</li>
-<li><b>1000</b> functions</li>
+<li><b>1360</b> models and blocks, and</li>
+<li><b>1280</b> functions</li>
 </ul>
 <p>
 that are directly usable (= number of public, non-partial classes).
