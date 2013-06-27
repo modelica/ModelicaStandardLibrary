@@ -50,7 +50,7 @@
 #include "ModelicaStandardTables.h"
 #include "ModelicaUtilities.h"
 #if !defined(NO_FILE_SYSTEM)
-#if defined(linux)
+#if defined(__linux__)
 #define _GNU_SOURCE 1
 #endif
 #include <stdio.h>
@@ -3263,7 +3263,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         unsigned long lineNo = 1;
 #if defined(_MSC_VER) && _MSC_VER >= 1400
         _locale_t loc;
-#elif defined(linux)
+#elif defined(__linux__)
         locale_t loc;
 #else
         char* dec;
@@ -3329,7 +3329,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
 
 #if defined(_MSC_VER) && _MSC_VER >= 1400
         loc = _create_locale(LC_NUMERIC, "C");
-#elif defined(linux)
+#elif defined(__linux__)
         loc = newlocale(LC_NUMERIC, "C", NULL);
 #else
         dec = localeconv()->decimal_point;
@@ -3365,7 +3365,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             }
 #if defined(_MSC_VER) && _MSC_VER >= 1400
             nRow = (unsigned long)_strtol_l(token, &endptr, 10, loc);
-#elif defined(linux)
+#elif defined(__linux__)
             nRow = (unsigned long)strtol_l(token, &endptr, 10, loc);
 #else
             nRow = (unsigned long)strtol(token, &endptr, 10);
@@ -3379,7 +3379,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             }
 #if defined(_MSC_VER) && _MSC_VER >= 1400
             nCol = (unsigned long)_strtol_l(token, &endptr, 10, loc);
-#elif defined(linux)
+#elif defined(__linux__)
             nCol = (unsigned long)strtol_l(token, &endptr, 10, loc);
 #else
             nCol = (unsigned long)strtol(token, &endptr, 10);
@@ -3400,7 +3400,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                     fclose(fp);
 #if defined(_MSC_VER) && _MSC_VER >= 1400
                     _free_locale(loc);
-#elif defined(linux)
+#elif defined(__linux__)
                     freelocale(loc);
 #endif
                     ModelicaError("Memory allocation error\n");
@@ -3440,7 +3440,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         if (*endptr != 0) {
                             tableReadError = 1;
                         }
-#elif defined(linux)
+#elif defined(__linux__)
                         TABLE(i, j) = strtod_l(token, &endptr, loc);
                         if (*endptr != 0) {
                             tableReadError = 1;
@@ -3502,7 +3502,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         fclose(fp);
 #if defined(_MSC_VER) && _MSC_VER >= 1400
         _free_locale(loc);
-#elif defined(linux)
+#elif defined(__linux__)
         freelocale(loc);
 #endif
         if (foundTable == 0) {

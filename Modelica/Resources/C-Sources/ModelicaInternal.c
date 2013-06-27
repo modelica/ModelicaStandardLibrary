@@ -116,7 +116,7 @@ static void ModelicaNotExistError(const char* name) {
        ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
-#if defined(linux) && !defined _POSIX_
+#if defined(__linux__) && !defined _POSIX_
 #define _POSIX_ 1
 #endif
 

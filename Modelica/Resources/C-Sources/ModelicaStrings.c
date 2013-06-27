@@ -49,7 +49,7 @@
 #endif
 
 #include "ModelicaUtilities.h"
-#if defined(linux)
+#if defined(__linux__)
 #define _GNU_SOURCE 1
 #endif
 #include <ctype.h>
@@ -261,7 +261,7 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
                                        && string[next] != 'E') ) {
 #if defined(_MSC_VER) && _MSC_VER >= 1400
                 _locale_t loc = _create_locale(LC_NUMERIC, "C");
-#elif defined(linux)
+#elif defined(__linux__)
                 locale_t loc = newlocale(LC_NUMERIC, "C", NULL);
 #endif
                 char buf[MAX_TOKEN_SIZE+1];
@@ -276,7 +276,7 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
 #if defined(_MSC_VER) && _MSC_VER >= 1400
                 x = (int)_strtol_l(buf, &endptr, 10, loc);
                 _free_locale(loc);
-#elif defined(linux)
+#elif defined(__linux__)
                 x = (int)strtol_l(buf, &endptr, 10, loc);
                 freelocale(loc);
 #else
@@ -367,7 +367,7 @@ MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex
     if (total_length > 0 && total_length < MAX_TOKEN_SIZE) {
 #if defined(_MSC_VER) && _MSC_VER >= 1400
         _locale_t loc = _create_locale(LC_NUMERIC, "C");
-#elif defined(linux)
+#elif defined(__linux__)
         locale_t loc = newlocale(LC_NUMERIC, "C", NULL);
 #else
         char* dec = localeconv()->decimal_point;
@@ -384,7 +384,7 @@ MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex
 #if defined(_MSC_VER) && _MSC_VER >= 1400
         x = _strtod_l(buf, &endptr, loc);
         _free_locale(loc);
-#elif defined(linux)
+#elif defined(__linux__)
         x = strtod_l(buf, &endptr, loc);
         freelocale(loc);
 #else
