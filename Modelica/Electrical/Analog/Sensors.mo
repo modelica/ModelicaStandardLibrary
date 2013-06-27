@@ -51,7 +51,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput v(final quantity="PotentialDifference", final unit="V")
+    Modelica.Blocks.Interfaces.RealOutput v(final quantity="ElectricPotential", final unit="V")
       "Voltage between pin p and n (= p.v - n.v) as output signal"
        annotation (Placement(transformation(
           origin={0,-100},

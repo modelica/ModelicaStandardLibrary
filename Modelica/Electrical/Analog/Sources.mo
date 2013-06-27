@@ -10,7 +10,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               -10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{110,
               -10},{90,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput v(final quantity="PotentialDifference", final unit="V")
+    Modelica.Blocks.Interfaces.RealInput v(final quantity="ElectricPotential", final unit="V")
       "Voltage between pin p and n (= p.v - n.v) as input signal"
        annotation (Placement(transformation(
           origin={0,70},
