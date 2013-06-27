@@ -311,4 +311,3 @@ on <b>Integer</b> signals.
           points={{12,66},{70,66}},
           color={255,128,0})}));
 end MathInteger;
-end MathInteger;
