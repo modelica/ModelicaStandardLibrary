@@ -497,7 +497,7 @@ This icon is designed for a <b>translational sensor</b> model.
 </p></html>"));
   end TranslationalSensor;
 
-  partial class MaterialPropertiesPackage
+  partial package MaterialPropertiesPackage
     "Icon for package containing property classes"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -513,7 +513,7 @@ This icon is designed for a <b>translational sensor</b> model.
 </html>"));
   end MaterialPropertiesPackage;
 
-  partial class MaterialProperty "Icon for property classes"
+  partial package MaterialProperty "Icon for property classes"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
           Ellipse(lineColor={102,102,102},

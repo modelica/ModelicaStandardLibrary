@@ -13,7 +13,7 @@ Instead the icon <a href=\"modelica://Modelica.Icons.VariantsPackage\">Modelica.
 </html>"));
   end VariantLibrary;
 
-  partial class BaseClassLibrary
+  partial package BaseClassLibrary
     "This icon will be removed in future Modelica versions, use Modelica.Icons.BasePackage instead."
     extends Modelica.Icons.BasesPackage;
     // extends Modelica.Icons.ObsoleteModel;
