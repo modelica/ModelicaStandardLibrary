@@ -15050,7 +15050,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
   end Icons;
 
   package Utilities "Library with auxiliary models for testing"
-    extends Modelica.Icons.Utilities.Package;
+    extends Modelica.Icons.UtilitiesPackage;
 
     package ParameterRecords "Parameter records"
       extends Modelica.Icons.MaterialPropertiesPackage;

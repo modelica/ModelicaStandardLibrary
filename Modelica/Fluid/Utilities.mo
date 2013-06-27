@@ -1,7 +1,7 @@
 within Modelica.Fluid;
 package Utilities
   "Utility models to construct fluid components (should not be used directly) "
-  extends Modelica.Icons.Utilities.Package;
+  extends Modelica.Icons.UtilitiesPackage;
 
   function checkBoundary "Check whether boundary definition is correct"
     extends Modelica.Icons.Function;
