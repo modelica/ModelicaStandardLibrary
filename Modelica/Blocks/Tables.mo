@@ -15,7 +15,7 @@ package Tables
       "Table name on file or in function usertab (see docu)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter String fileName="NoName" "File where matrix is stored"
-      annotation (Evaluate=true, Dialog(
+      annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
@@ -315,7 +315,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       "Table name on file or in function usertab (see docu)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter String fileName="NoName" "File where matrix is stored"
-      annotation (Evaluate=true, Dialog(
+      annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
@@ -614,7 +614,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       "Table name on file or in function usertab (see docu)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter String fileName="NoName" "File where matrix is stored"
-      annotation (Evaluate=true, Dialog(
+      annotation (Dialog(
         group="Table data definition",
         enable=tableOnFile,
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
