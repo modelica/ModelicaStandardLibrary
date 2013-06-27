@@ -4,7 +4,7 @@
    The data for the user-defined tables are provided via
    include-file "usertab.h".
 
-   USUALLY, THIS FILE (usertab.c) NEED NOT TO BE CHANGED.
+   USUALLY, THIS FILE (usertab.c) NEEDS NOT TO BE CHANGED.
 
    Author : Martin Otter, DLR.
    Version: 1.0, 1997-09-30: implemented.
@@ -12,7 +12,7 @@
 */
 
 #include "usertab.h"
-#include "string.h"
+#include <string.h>
 #include "ModelicaUtilities.h"
 
 
@@ -43,7 +43,7 @@ int usertab(char *tableName, int nipo, int dim[], int *colWise,
       <- table      : Pointer to value vector.
       <- RETURN: = 0: No error.
                  = 1: An error occured. An error message is printed
-                      from "usertab" with function "DymosimError".
+                      from "usertab" with function "ModelicaFormatError".
    */
 
       static int userTabFindName(UsertabTableElement tableDef[], int ntable, char *name);
@@ -57,7 +57,7 @@ int usertab(char *tableName, int nipo, int dim[], int *colWise,
                       "Table \"%s\" is not defined in usertab.\n",
                       tableName);
 
-      	 return 1;
+         return 1;
       }
 
    /* Check interpolation type */
@@ -67,7 +67,7 @@ int usertab(char *tableName, int nipo, int dim[], int *colWise,
                       "Provided interpolation type nipo = %d for table \"%s\"\n"
                       "does not correspond to internal variable tableDef[%d].nipo = %d\n",
                       nipo, tableName, ID, tableDef[ID].nipo);
-         return 2;
+         return 1;
       }
 
    /* Return desired values */
@@ -96,6 +96,5 @@ static int userTabFindName(UsertabTableElement tableDef[], int ntable, char *nam
                           "The table matrix \"%s\" was not found in the\n"
                           "user supplied function \"usertab\".\n",
                           name);
-      return 3;
+      return -1;
 }
-
