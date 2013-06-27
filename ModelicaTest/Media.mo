@@ -496,6 +496,50 @@ is given to compare the approximation.
 
 </html>"),experiment(StopTime=1));
     end IdealGasN2Mix;
+
+    model DryAirNasa
+      "Test dynamic viscosity and thermal conductivity of Dry Air"
+      extends Modelica.Icons.Example;
+      package Medium = Modelica.Media.Air.DryAirNasa "Medium model";
+      parameter Medium.Temperature Tmin=200;
+      parameter Medium.Temperature Tmax=3000;
+      // 373;
+      Medium.ThermodynamicState state;
+      Medium.Temperature T;
+      Medium.DynamicViscosity eta;
+      Medium.ThermalConductivity lambda;
+      Real eta_der(unit="Pa");
+      Real lambda_der(unit="W/(m.K.s)");
+
+      package Medium2 = Modelica.Media.IdealGases.SingleGases.N2 "Medium model";
+      Medium2.ThermodynamicState state2;
+      Medium2.DynamicViscosity eta2;
+      Medium2.ThermalConductivity lambda2;
+      Real eta2_der(unit="Pa");
+      Real lambda2_der(unit="W/(m.K.s)");
+
+    protected
+      constant Real unitConv(unit="1/s") = 1.0;
+    equation
+      T = Tmin + min(time*unitConv, 1)*(Tmax - Tmin);
+      state = Medium.setState_pTX(Medium.reference_p, T);
+      eta = Medium.dynamicViscosity(state);
+      lambda = Medium.thermalConductivity(state);
+      eta_der = der(eta);
+      lambda_der = der(lambda);
+
+      state2 = Medium2.setState_pTX(
+            Medium.reference_p,
+            T,
+            Medium2.reference_X);
+      eta2 = Medium2.dynamicViscosity(state2);
+      lambda2 = Medium2.thermalConductivity(state2);
+      eta2_der = der(eta2);
+      lambda2_der = der(lambda2);
+
+      annotation (experiment(StopTime=1.01));
+    end DryAirNasa;
+
     annotation (Documentation(info="<html>
 
 </html>"));

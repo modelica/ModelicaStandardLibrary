@@ -549,6 +549,36 @@ which is only exactly true for a fluid with constant density d=d0.
         annotation(derivative(zeroDerivative=p)=evaluate_der);
       end evaluate;
 
+      function evaluateWithRange
+        "Evaluate polynomial at a given abscissa value with linear extrapolation outside of the defined range"
+        extends Modelica.Icons.Function;
+        input Real p[:]
+          "Polynomial coefficients (p[1] is coefficient of highest power)";
+        input Real uMin "Polynomial valid in the range uMin .. uMax";
+        input Real uMax "Polynomial valid in the range uMin .. uMax";
+        input Real u "Abscissa value";
+        output Real y
+          "Value of polynomial at u. Outside of uMin,uMax, linear extrapolation is used";
+      algorithm
+        if u < uMin then
+          y := evaluate(p, uMin) - evaluate_der(
+                  p,
+                  uMin,
+                  uMin - u);
+        elseif u > uMax then
+          y := evaluate(p, uMax) + evaluate_der(
+                  p,
+                  uMax,
+                  u - uMax);
+        else
+          y := evaluate(p, u);
+        end if;
+        annotation (derivative(
+            zeroDerivative=p,
+            zeroDerivative=uMin,
+            zeroDerivative=uMax) = evaluateWithRange_der);
+      end evaluateWithRange;
+
       function derivative "Derivative of polynomial"
         extends Modelica.Icons.Function;
         input Real p1[:]
@@ -677,6 +707,35 @@ returned as a vector p[n+1] that has the following definition:
         end for;
         dy := dy*du;
       end evaluate_der;
+
+      function evaluateWithRange_der
+        "Evaluate derivative of polynomial at a given abscissa value with extrapolation outside of the defined range"
+        extends Modelica.Icons.Function;
+        input Real p[:]
+          "Polynomial coefficients (p[1] is coefficient of highest power)";
+        input Real uMin "Polynomial valid in the range uMin .. uMax";
+        input Real uMax "Polynomial valid in the range uMin .. uMax";
+        input Real u "Abscissa value";
+        input Real du "Delta of abscissa value";
+        output Real dy "Value of derivative of polynomial at u";
+      algorithm
+        if u < uMin then
+          dy := evaluate_der(
+                  p,
+                  uMin,
+                  du);
+        elseif u > uMax then
+          dy := evaluate_der(
+                  p,
+                  uMax,
+                  du);
+        else
+          dy := evaluate_der(
+                  p,
+                  u,
+                  du);
+        end if;
+      end evaluateWithRange_der;
 
       function integralValue_der
         "Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibnitz rule)"

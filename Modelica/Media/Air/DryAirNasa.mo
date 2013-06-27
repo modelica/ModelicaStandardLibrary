@@ -6,30 +6,43 @@ package DryAirNasa "Air: Detailed dry air model as ideal gas (200..6000 K)"
     fluidConstants={IdealGases.Common.FluidData.N2});
 
   redeclare function dynamicViscosity
-    "Simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K"
+    "Return dynamic viscosity of dry air (simple polynomial, moisture influence small, valid from 123.15 K to 1273.15 K, outside of this range linear extrapolation is used)"
     extends Modelica.Icons.Function;
     input ThermodynamicState state "Thermodynamic state record";
     output DynamicViscosity eta "Dynamic viscosity";
+    import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
   algorithm
-    eta := Incompressible.TableBased.Polynomials_Temp.evaluate({(-4.96717436974791E-011),
-      5.06626785714286E-008,1.72937731092437E-005}, Cv.to_degC(state.T));
-    annotation (Documentation(info="<html>
-Dynamic viscosity is computed from temperature using a second order polynomial with a range of validity between 73 and 373 K.
+    eta := 1e-6*Polynomials_Temp.evaluateWithRange(
+        {9.7391102886305869E-15,-3.1353724870333906E-11,4.3004876595642225E-08,
+        -3.8228016291758240E-05,5.0427874367180762E-02,1.7239260139242528E+01},
+        Cv.to_degC(123.15),
+        Cv.to_degC(1273.15),
+        Cv.to_degC(state.T));
+    annotation (smoothOrder=2, Documentation(info="<html>
+<p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure is neglected. </p>
+<p>Source: VDI Waermeatlas, 8th edition. </p>
 </html>"));
   end dynamicViscosity;
 
   redeclare function thermalConductivity
-    "Simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K"
+    "Return thermal conductivity of dry air (simple polynomial, moisture influence small, valid from 123.15 K to 1273.15 K, outside of this range linear extrapolation is used)"
     extends Modelica.Icons.Function;
     input ThermodynamicState state "Thermodynamic state record";
     input Integer method=1 "Dummy for compatibility reasons";
     output ThermalConductivity lambda "Thermal conductivity";
+    import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
+    import Cv = Modelica.SIunits.Conversions;
   algorithm
-    lambda := Incompressible.TableBased.Polynomials_Temp.evaluate({(-4.8737307422969E-008),
-      7.67803133753502E-005,0.0241814385504202}, Cv.to_degC(state.T));
+    lambda := 1e-3*Polynomials_Temp.evaluateWithRange(
+        {6.5691470817717812E-15,-3.4025961923050509E-11,5.3279284846303157E-08,
+        -4.5340839289219472E-05,7.6129675309037664E-02,2.4169481088097051E+01},
+        Cv.to_degC(123.15),
+        Cv.to_degC(1273.15),
+        Cv.to_degC(state.T));
 
-    annotation (Documentation(info="<html>
-Thermal conductivity is computed from temperature using a second order polynomial with a range of validity between 73 and 373 K.
+    annotation (smoothOrder=2, Documentation(info="<html>
+<p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure is neglected. </p>
+<p>Source: VDI Waermeatlas, 8th edition. </p>
 </html>"));
   end thermalConductivity;
 
