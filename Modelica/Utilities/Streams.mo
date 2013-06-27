@@ -43,20 +43,17 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
   end print;
 
   function readFile
-    "Read content of a file and return it in a vector of strings (fileName can be an URI)"
+    "Read content of a file and return it in a vector of strings"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read"
                  annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for reading")));
-  protected
-    String absoluteFileName = Modelica.Utilities.Files.loadResource(fileName);
-  public
-    output String stringVector[countLines(absoluteFileName)] "Content of file";
+    output String stringVector[countLines(fileName)] "Content of file";
   algorithm
     for i in  1:size(stringVector, 1) loop
-      stringVector[i] := readLine(absoluteFileName, i);
+      stringVector[i] := readLine(fileName, i);
     end for;
-    Streams.close(absoluteFileName);
+    Streams.close(fileName);
     annotation ( Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -66,6 +63,8 @@ stringVector = Streams.<b>readFile</b>(fileName)
 <p>
 Function <b>readFile</b>(..) opens the given file, reads the complete
 content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators.
+Note, a fileName can be defined as URI by using the helper function
+<a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.
 </p>
 </html>"));
   end readFile;

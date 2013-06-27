@@ -1,5 +1,6 @@
 within ModelicaTest.Tables;
 package CombiTimeTable
+  import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
   partial model Test0
     Modelica.Blocks.Sources.CombiTimeTable t_new
@@ -591,7 +592,7 @@ package CombiTimeTable
     extends Test0(t_new(
         tableOnFile=true,
         tableName="longLine",
-        fileName="modelica://Modelica/Resources/Data/Tables/test.txt",
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt"),
         columns={2,2500}));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test50;
@@ -635,7 +636,7 @@ package CombiTimeTable
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName="modelica://Modelica/Resources/Data/Tables/test_v4.mat"));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v4.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test55;
 
@@ -644,7 +645,7 @@ package CombiTimeTable
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName="modelica://Modelica/Resources/Data/Tables/test_v6.mat"));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test56;
 
@@ -653,7 +654,7 @@ package CombiTimeTable
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName="modelica://Modelica/Resources/Data/Tables/test_v7.mat"));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test57;
 
@@ -663,7 +664,7 @@ package CombiTimeTable
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName="modelica://Modelica/Resources/Data/Tables/test_v7.3.mat"));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test58;
 */
@@ -673,7 +674,7 @@ package CombiTimeTable
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName="modelica://Modelica/Resources/Data/Tables/test.txt"));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test59;
 
@@ -682,7 +683,7 @@ package CombiTimeTable
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a_tab",
-        fileName="modelica://Modelica/Resources/Data/Tables/test.txt"));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test60;
 
@@ -748,7 +749,7 @@ package CombiTimeTable
              Include = "#include \"usertab.c\"
  double mydummyfunc(const double* dummy_in) {
         return 0;
-}                    
+}
 ");
     end getUsertab;
   public

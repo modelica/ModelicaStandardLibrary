@@ -2281,7 +2281,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
         Modelica.Blocks.Types.ExternalCombiTimeTable(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
+          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           startTime,
           columns,
@@ -2511,7 +2511,9 @@ The table matrix can be defined in the following ways:
 <pre>
    savematfile tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be used from the model.</li>
+      when the three tables tab1, tab2, tab3 should be used from the model.<br>
+      Note, a fileName can be defined as URI by using the helper function
+      <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
       fileName = \"NoName\" or has only blanks. Row-wise storage is always to be

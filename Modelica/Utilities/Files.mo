@@ -714,7 +714,7 @@ as well as absolute and relative local file path names are supported.
 <blockquote><pre>
   file1 = loadResource(\"modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt\")
           // file1 is the absolute path name of the file
-  file2 = loadResource(\"C:\\data\\readParameters.txt\")
+  file2 = loadResource(\"C:\\\\data\\\\readParameters.txt\")
           file2 = \"C:/data/readParameters.txt\"
 </pre></blockquote>
 </html>"));

@@ -33,7 +33,7 @@ package Tables
     Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
+          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           columns,
           smoothness) "External table object";
@@ -175,7 +175,9 @@ The table matrix can be defined in the following ways:
 <pre>
    savematfile tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be used from the model.</li>
+      when the three tables tab1, tab2, tab3 should be used from the model.<br>
+      Note, a fileName can be defined as URI by using the helper function
+      <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
       fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
@@ -333,7 +335,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
+          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           columns,
           smoothness) "External table object";
@@ -475,7 +477,9 @@ The table matrix can be defined in the following ways:
 <pre>
    savematfile tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be used from the model.</li>
+      when the three tables tab1, tab2, tab3 should be used from the model.<br>
+      Note, a fileName can be defined as URI by using the helper function
+      <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
       fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
@@ -629,7 +633,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           if tableOnFile then tableName else "NoName",
-          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then Modelica.Utilities.Files.loadResource(fileName) else "NoName",
+          if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           smoothness) "External table object";
     parameter Real tableOnFileRead(fixed=false)
@@ -773,7 +777,9 @@ The table matrix can be defined in the following ways:
 <pre>
    savematfile tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be used from the model.</li>
+      when the three tables tab1, tab2, tab3 should be used from the model.<br>
+      Note, a fileName can be defined as URI by using the helper function
+      <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
       fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
