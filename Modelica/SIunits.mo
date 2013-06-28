@@ -934,7 +934,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
 
     partial function ConversionIcon
       "This icon will be removed in future Modelica versions."
-      // extends Modelica.Icons.ObsoleteModel;
+      extends Modelica.Icons.ObsoleteModel;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={

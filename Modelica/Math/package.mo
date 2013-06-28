@@ -12488,7 +12488,7 @@ end baseIcon2;
 function tempInterpol1
   "Temporary function for linear interpolation (will be removed)"
   extends Modelica.Icons.Function;
-  // extends Modelica.Icons.ObsoleteModel;
+  extends Modelica.Icons.ObsoleteModel;
 
   input Real u "input value (first column of table)";
   input Real table[:, :] "table to be interpolated";
@@ -12549,7 +12549,7 @@ end tempInterpol1;
 function tempInterpol2
   "Temporary function for vectorized linear interpolation (will be removed)"
   extends Modelica.Icons.Function;
-  // extends Modelica.Icons.ObsoleteModel;
+  extends Modelica.Icons.ObsoleteModel;
 
   input Real u "input value (first column of table)";
   input Real table[:, :] "table to be interpolated";
