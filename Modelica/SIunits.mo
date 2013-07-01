@@ -1825,71 +1825,71 @@ argument):</p>
   type PerUnit = Real(unit = "1");
 
  // Complex types for electrical systems (not defined in ISO 31-1992)
-  record ComplexCurrent =
+  operator record ComplexCurrent =
     Complex(redeclare Modelica.SIunits.Current re,
              redeclare Modelica.SIunits.Current im)
     "Complex electrical current";
-  record ComplexCurrentSlope =
+  operator record ComplexCurrentSlope =
     Complex(redeclare Modelica.SIunits.CurrentSlope re,
              redeclare Modelica.SIunits.CurrentSlope im)
     "Complex current slope";
-  record ComplexCurrentDensity =
+  operator record ComplexCurrentDensity =
     Complex(redeclare Modelica.SIunits.CurrentDensity re,
              redeclare Modelica.SIunits.CurrentDensity im)
     "Complex electrical current density";
-  record ComplexElectricPotential =
+  operator record ComplexElectricPotential =
     Complex(redeclare Modelica.SIunits.ElectricPotential re,
              redeclare Modelica.SIunits.ElectricPotential im)
     "Complex electric potential";
-  record ComplexPotentialDifference =
+  operator record ComplexPotentialDifference =
     Complex(redeclare Modelica.SIunits.PotentialDifference re,
              redeclare Modelica.SIunits.PotentialDifference im)
     "Complex electric potential difference";
-  record ComplexVoltage =
+  operator record ComplexVoltage =
     Complex(redeclare Modelica.SIunits.Voltage re,
              redeclare Modelica.SIunits.Voltage im)
     "Complex electrical voltage";
-  record ComplexVoltageSlope =
+  operator record ComplexVoltageSlope =
     Complex(redeclare Modelica.SIunits.VoltageSlope re,
              redeclare Modelica.SIunits.VoltageSlope im)
     "Complex voltage slope";
-  record ComplexElectricFieldStrength =
+  operator record ComplexElectricFieldStrength =
     Complex(redeclare Modelica.SIunits.ElectricFieldStrength re,
              redeclare Modelica.SIunits.ElectricFieldStrength im)
     "Complex electric field strength";
-  record ComplexElectricFluxDensity =
+  operator record ComplexElectricFluxDensity =
     Complex(redeclare Modelica.SIunits.ElectricFluxDensity re,
              redeclare Modelica.SIunits.ElectricFluxDensity im)
     "Complex electric flux density";
-  record ComplexElectricFlux =
+  operator record ComplexElectricFlux =
     Complex(redeclare Modelica.SIunits.ElectricFlux re,
              redeclare Modelica.SIunits.ElectricFlux im)
     "Complex electric flux";
-  record ComplexMagneticFieldStrength =
+  operator record ComplexMagneticFieldStrength =
     Complex(redeclare Modelica.SIunits.MagneticFieldStrength re,
              redeclare Modelica.SIunits.MagneticFieldStrength im)
     "Complex magnetic field strength";
-  record ComplexMagneticPotential =
+  operator record ComplexMagneticPotential =
     Complex(redeclare Modelica.SIunits.MagneticPotential re,
              redeclare Modelica.SIunits.MagneticPotential im)
     "Complex magnetic potential";
-  record ComplexMagneticPotentialDifference =
+  operator record ComplexMagneticPotentialDifference =
     Complex(redeclare Modelica.SIunits.MagneticPotentialDifference re,
              redeclare Modelica.SIunits.MagneticPotentialDifference im)
     "Complex magnetic potential difference";
-  record ComplexMagnetomotiveForce =
+  operator record ComplexMagnetomotiveForce =
     Complex(redeclare Modelica.SIunits.MagnetomotiveForce re,
              redeclare Modelica.SIunits.MagnetomotiveForce im)
     "Complex magneto motive force";
-  record ComplexMagneticFluxDensity =
+  operator record ComplexMagneticFluxDensity =
     Complex(redeclare Modelica.SIunits.MagneticFluxDensity re,
              redeclare Modelica.SIunits.MagneticFluxDensity im)
     "Complex magnetic flux density";
-  record ComplexMagneticFlux =
+  operator record ComplexMagneticFlux =
     Complex(redeclare Modelica.SIunits.MagneticFlux re,
              redeclare Modelica.SIunits.MagneticFlux im)
     "Complex magnetic flux";
-  record ComplexReluctance =
+  operator record ComplexReluctance =
     Complex(redeclare Modelica.SIunits.Reluctance re,
              redeclare Modelica.SIunits.Reluctance im) "Complex reluctance"
     annotation (Documentation(info="<html>
@@ -1902,13 +1902,13 @@ Modelica.Magentic.FundamentalWave uses a special record Salient which is only va
 <b>Note:</b> To avoid confusion, no magnetic material properties should be defined as Complex units.
 </p>
 </html>"));
-  record ComplexImpedance =
+  operator record ComplexImpedance =
     Complex(redeclare Resistance re,
              redeclare Reactance im) "Complex electrical impedance";
-  record ComplexAdmittance =
+  operator record ComplexAdmittance =
     Complex(redeclare Conductance re,
              redeclare Susceptance im) "Complex electrical admittance";
-  record ComplexPower =
+  operator record ComplexPower =
     Complex(redeclare ActivePower re,
              redeclare ReactivePower im) "Complex electrical power";
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
