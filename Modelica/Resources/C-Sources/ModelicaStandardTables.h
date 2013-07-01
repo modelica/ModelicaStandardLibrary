@@ -54,17 +54,22 @@
    may be continuous. In the latter case, Akima-Splines are used.
 */
 
-#ifndef MODELICA_STANDARD_TABLES_H
-#define MODELICA_STANDARD_TABLES_H
+#ifndef _MODELICASTANDARDTABLES_H_
+#define _MODELICASTANDARDTABLES_H_
 
-extern void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
-                                                        const char* fileName,
-                                                        double* table, int nRow,
-                                                        int nColumn,
-                                                        double startTime,
-                                                        int* columns,
-                                                        int nCols, int smoothness,
-                                                        int extrapolation);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
+                                                 const char* fileName,
+                                                 double* table, int nRow,
+                                                 int nColumn,
+                                                 double startTime,
+                                                 int* columns,
+                                                 int nCols, int smoothness,
+                                                 int extrapolation);
   /* Initialize 1-dim. table where first column is time
 
      -> tableName: Name of table
@@ -90,11 +95,21 @@ extern void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
      <- RETURN: Pointer to internal memory of table structure
   */
 
-extern void ModelicaStandardTables_CombiTimeTable_close(void* tableID);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+void ModelicaStandardTables_CombiTimeTable_close(void* tableID);
   /* Close table and free allocated memory */
 
-extern double ModelicaStandardTables_CombiTimeTable_read(void* tableID, int force,
-                                                         int verbose);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTimeTable_read(void* tableID, int force,
+                                                  int verbose);
   /* Read table from file
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTimeTable_init
@@ -103,16 +118,31 @@ extern double ModelicaStandardTables_CombiTimeTable_read(void* tableID, int forc
      <- RETURN: = 1, if table was successfully read from file
   */
 
-extern double ModelicaStandardTables_CombiTimeTable_minimumTime(void* tableID);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTimeTable_minimumTime(void* tableID);
   /* Return minimum time defined in table (= table[1,1]) */
 
-extern double ModelicaStandardTables_CombiTimeTable_maximumTime(void* tableID);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTimeTable_maximumTime(void* tableID);
   /* Return maximum time defined in table (= table[end,1]) */
 
-extern double ModelicaStandardTables_CombiTimeTable_getValue(void* tableID,
-                                                             int icol, double t,
-                                                             double nextTimeEvent,
-                                                             double preNextTimeEvent);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTimeTable_getValue(void* tableID,
+                                                      int icol, double t,
+                                                      double nextTimeEvent,
+                                                      double preNextTimeEvent);
   /* Interpolate in table
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTimeTable_init
@@ -123,12 +153,17 @@ extern double ModelicaStandardTables_CombiTimeTable_getValue(void* tableID,
      <- RETURN : Ordinate value
   */
 
-extern double ModelicaStandardTables_CombiTimeTable_getDerValue(void* tableID,
-                                                                int icol,
-                                                                double t,
-                                                                double nextTimeEvent,
-                                                                double preNextTimeEvent,
-                                                                double der_t);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTimeTable_getDerValue(void* tableID,
+                                                         int icol,
+                                                         double t,
+                                                         double nextTimeEvent,
+                                                         double preNextTimeEvent,
+                                                         double der_t);
   /* Interpolated derivative in table
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTimeTable_init
@@ -140,7 +175,12 @@ extern double ModelicaStandardTables_CombiTimeTable_getDerValue(void* tableID,
      <- RETURN: Derivative of ordinate value
   */
 
-extern double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* tableID, double t);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* tableID, double t);
   /* Return next time event in table
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTimeTable_init
@@ -148,12 +188,17 @@ extern double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* tableID,
      <- RETURN: Next abscissa value > t that triggers a time event
   */
 
-extern void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
-                                                      const char* fileName,
-                                                      double* table, int nRow,
-                                                      int nColumn,
-                                                      int* columns,
-                                                      int nCols, int smoothness);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
+                                               const char* fileName,
+                                               double* table, int nRow,
+                                               int nColumn,
+                                               int* columns,
+                                               int nCols, int smoothness);
   /* Initialize 1-dim. table defined by matrix, where first column
      is x-axis and further columns of matrix are interpolated
 
@@ -175,11 +220,21 @@ extern void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
      <- RETURN: Pointer to internal memory of table structure
   */
 
-extern void ModelicaStandardTables_CombiTable1D_close(void* tableID);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+void ModelicaStandardTables_CombiTable1D_close(void* tableID);
   /* Close table and free allocated memory */
 
-extern double ModelicaStandardTables_CombiTable1D_read(void* tableID, int force,
-                                                       int verbose);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTable1D_read(void* tableID, int force,
+                                                int verbose);
   /* Read table from file
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTable1D_init
@@ -188,8 +243,13 @@ extern double ModelicaStandardTables_CombiTable1D_read(void* tableID, int force,
      <- RETURN: = 1, if table was successfully read from file
   */
 
-extern double ModelicaStandardTables_CombiTable1D_getValue(void* tableID, int icol,
-                                                           double u);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTable1D_getValue(void* tableID, int icol,
+                                                    double u);
   /* Interpolate in table
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTable1D_init
@@ -198,8 +258,13 @@ extern double ModelicaStandardTables_CombiTable1D_getValue(void* tableID, int ic
      <- RETURN : Ordinate value
   */
 
-extern double ModelicaStandardTables_CombiTable1D_getDerValue(void* tableID, int icol,
-                                                              double u, double der_u);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTable1D_getDerValue(void* tableID, int icol,
+                                                       double u, double der_u);
   /* Interpolated derivative in table
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTable1D_init
@@ -209,10 +274,15 @@ extern double ModelicaStandardTables_CombiTable1D_getDerValue(void* tableID, int
      <- RETURN: Derivative of ordinate value
   */
 
-extern void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
-                                                      const char* fileName,
-                                                      double* table, int nRow,
-                                                      int nColumn, int smoothness);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
+                                               const char* fileName,
+                                               double* table, int nRow,
+                                               int nColumn, int smoothness);
   /* Initialize 2-dim. table defined by matrix, where first column
      is x-axis, first row is y-axis and the matrix elements are the
      z-values.
@@ -235,11 +305,21 @@ extern void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
      <- RETURN: Pointer to internal memory of table structure
   */
 
-extern void ModelicaStandardTables_CombiTable2D_close(void* tableID);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+void ModelicaStandardTables_CombiTable2D_close(void* tableID);
   /* Close table and free allocated memory */
 
-extern double ModelicaStandardTables_CombiTable2D_read(void* tableID, int force,
-                                                       int verbose);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTable2D_read(void* tableID, int force,
+                                                int verbose);
   /* Read table from file
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTable2D_init
@@ -248,8 +328,13 @@ extern double ModelicaStandardTables_CombiTable2D_read(void* tableID, int force,
      <- RETURN: = 1, if table was successfully read from file
   */
 
-extern double ModelicaStandardTables_CombiTable2D_getValue(void* tableID, double u1,
-                                                           double u2);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTable2D_getValue(void* tableID, double u1,
+                                                    double u2);
   /* Interpolate in table
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTable2D_init
@@ -258,9 +343,14 @@ extern double ModelicaStandardTables_CombiTable2D_getValue(void* tableID, double
      <- RETURN : Interpolated value
   */
 
-extern double ModelicaStandardTables_CombiTable2D_getDerValue(void* tableID, double u1,
-                                                              double u2, double der_u1,
-                                                              double der_u2);
+#if defined(__cplusplus)
+extern "C"
+#else
+extern
+#endif
+double ModelicaStandardTables_CombiTable2D_getDerValue(void* tableID, double u1,
+                                                       double u2, double der_u1,
+                                                       double der_u2);
   /* Interpolated derivative in table
 
      -> tableID: Pointer to table defined with ModelicaStandardTables_CombiTable2D_init
@@ -271,4 +361,4 @@ extern double ModelicaStandardTables_CombiTable2D_getDerValue(void* tableID, dou
      <- RETURN: Derivative of interpolated value
   */
 
-#endif /* MODELICA_STANDARD_TABLES_H */
+#endif /* _MODELICASTANDARDTABLES_H_ */
