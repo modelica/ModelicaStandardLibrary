@@ -109,11 +109,10 @@ package Icons "Library of icons"
                 {0,0,0}),
           Line(points={{-20,-88},{-80,-60},{-80,80},{-40,58}}, color={0,0,0}),
           Line(points={{-20,-100},{-100,-80},{-100,60},{-80,54}}, color={0,0,0}),
-
           Line(points={{10,30},{72,30}}, color={0,0,0}),
           Line(points={{10,-10},{70,-10}}, color={0,0,0}),
-          Line(points={{10,-50},{70,-50}}, color={0,0,0})}), Documentation(info
-          ="<html>
+          Line(points={{10,-50},{70,-50}}, color={0,0,0})}), Documentation(info=
+           "<html>
 <p>This icon indicates a documentation class containing references external documentation and literature.</p>
 </html>"));
 
@@ -164,8 +163,7 @@ package Icons "Library of icons"
             lineColor={128,128,128},
             fillPattern=FillPattern.None,
             extent={{-100.0,-100.0},{100.0,100.0}},
-            radius=25.0)}),
-                              Documentation(info="<html>
+            radius=25.0)}),   Documentation(info="<html>
 <p>Standard package icon.</p>
 </html>"));
   end Package;
@@ -286,7 +284,6 @@ package Icons "Library of icons"
 </html>"));
   end SensorsPackage;
 
-
   partial package UtilitiesPackage "Icon for utility packages"
     extends Modelica.Icons.Package;
      annotation (Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
@@ -394,6 +391,7 @@ directly utilized by a user.
 </p>
 </html>"));
   end InternalPackage;
+
   partial class RotationalSensor "Icon representing a round measurement device"
 
     annotation (
@@ -530,16 +528,18 @@ This icon is designed for a <b>translational sensor</b> model.
           Line(
             origin={0.0,-25.0},
             points={{0.0,75.0},{0.0,-75.0}},
-            color={64,64,64})}),
-                                                        Documentation(info="<html>
+            color={64,64,64})}),                        Documentation(info="<html>
 <p>
 This icon is indicates a record.
 </p>
 </html>"));
   end Record;
 
-  operator record TypeComplex = Complex "Obsolete class kept only for backwards compatibility (use Complex instead)"
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+  operator record TypeComplex
+    "Obsolete class kept only for backwards compatibility (use Complex instead)"
+    extends Complex;
+    extends Modelica.Icons.ObsoleteModel;
+    annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               lineColor={160,160,164},
               fillColor={160,160,164},
@@ -559,6 +559,7 @@ definition (which is not possible for the built-in classes). Therefore, TypeComp
 to Complex and is therefore superfluous.
 </p>
 </html>"));
+  end TypeComplex;
 
   type TypeReal "Icon for Real types"
       extends Real;
@@ -818,8 +819,7 @@ corresponding library in a future release.
             lineColor={128,128,128},
             fillPattern=FillPattern.None,
             extent={{-100.0,-100.0},{100.0,100.0}},
-            radius=25.0)}),
-                              Documentation(info="<html>
+            radius=25.0)}),   Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p>
@@ -841,8 +841,7 @@ corresponding library in a future release.
             lineColor={128,128,128},
             fillPattern=FillPattern.None,
             extent={{-100.0,-100.0},{100.0,100.0}},
-            radius=25.0)}),
-                              Documentation(info="<html>
+            radius=25.0)}),   Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Package\">Package</a> shall be used.</p></html>"));
