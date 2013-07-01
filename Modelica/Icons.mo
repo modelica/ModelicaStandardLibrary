@@ -538,8 +538,7 @@ This icon is indicates a record.
 </html>"));
   end Record;
 
-  record TypeComplex "Icon for Complex types"
-    extends Complex;
+  operator record TypeComplex = Complex "Obsolet class kept only for backwards compatibility (use Complex instead)"
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               lineColor={160,160,164},
@@ -556,7 +555,6 @@ This icon is indicates a record.
 This icon is designed for a <b>Complex</b> type.
 </p>
 </html>"));
-  end TypeComplex;
 
   type TypeReal "Icon for Real types"
       extends Real;
@@ -634,7 +632,7 @@ This icon is designed for a <b>String</b> type.
 </html>"));
   end TypeString;
 
-  connector SignalBus "Icon for signal bus"
+  expandable connector SignalBus "Icon for signal bus"
 
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}, initialScale=0.2), graphics={
@@ -706,7 +704,7 @@ This icon is designed for a <b>signal bus</b> connector.
 </html>"));
   end SignalBus;
 
-  connector SignalSubBus "Icon for signal sub-bus"
+  expandable connector SignalSubBus "Icon for signal sub-bus"
 
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}, initialScale=0.1), graphics={
