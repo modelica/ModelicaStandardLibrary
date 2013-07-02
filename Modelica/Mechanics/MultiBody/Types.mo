@@ -214,7 +214,7 @@ width = height = 2*radiusOfGearWheel.</td>
       2*coil-width.</td>
 </tr>
 <tr>
-  <td valign=\"top\">external shape/td>
+  <td valign=\"top\">external shape</td>
   <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
                      extra = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
                                 of the shape</td>
