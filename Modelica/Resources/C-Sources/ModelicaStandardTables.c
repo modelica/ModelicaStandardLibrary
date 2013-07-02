@@ -16,6 +16,10 @@
                             This is a potentially unsafe optimization (ticket #1143).
 
 
+   If compiled as C++ and NO_FILE_SYTEM is not defined then common/shared table arrays
+   are stored in a global std::map in order to avoid superfluous file input access and
+   to decrease the utilized memory.
+
    Release Notes:
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
                      Implemented a first version
