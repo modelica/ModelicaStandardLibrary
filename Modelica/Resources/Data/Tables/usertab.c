@@ -15,6 +15,24 @@
 #include <string.h>
 #include "ModelicaUtilities.h"
 
+static int userTabFindName(UsertabTableElement tableDef[], int ntable, char *name) {
+
+   /* Find table element with the given name. Return the index
+      with respect to the found element or -1, in case it is
+      not found
+   */
+      int  i;
+      for (i=0; i<ntable; i++) {
+         if ( strcmp(tableDef[i].name, name) == 0 ) return i;
+      }
+
+   /* Error */
+      ModelicaFormatError("Error in function usertab.c:\n"
+                          "The table matrix \"%s\" was not found in the\n"
+                          "user supplied function \"usertab\".\n",
+                          name);
+      return -1;
+}
 
 int usertab(char *tableName, int nipo, int dim[], int *colWise,
             double **table) {
@@ -46,7 +64,6 @@ int usertab(char *tableName, int nipo, int dim[], int *colWise,
                       from "usertab" with function "ModelicaFormatError".
    */
 
-      static int userTabFindName(UsertabTableElement tableDef[], int ntable, char *name);
       int  ID;
 
    /* Search table in static memory */
@@ -77,24 +94,4 @@ int usertab(char *tableName, int nipo, int dim[], int *colWise,
       dim[1] = tableDef[ID].dim[1];
 
       return 0;
-}
-
-
-static int userTabFindName(UsertabTableElement tableDef[], int ntable, char *name) {
-
-   /* Find table element with the given name. Return the index
-      with respect to the found element or -1, in case it is
-      not found
-   */
-      int  i;
-      for (i=0; i<ntable; i++) {
-         if ( strcmp(tableDef[i].name, name) == 0 ) return i;
-      }
-
-   /* Error */
-      ModelicaFormatError("Error in function usertab.c:\n"
-                          "The table matrix \"%s\" was not found in the\n"
-                          "user supplied function \"usertab\".\n",
-                          name);
-      return -1;
 }
