@@ -33,7 +33,7 @@ package Types "Constants and types with choices, especially to build menus"
       choice={3,2,1} "{3,2,1}"));
 
   type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
-    "RGB representation of color (will be improved with a color editor)"
+    "RGB representation of color"
     annotation (
       Dialog(colorSelector=true),
       choices(
@@ -110,7 +110,7 @@ are shown for a cylinder:
 </p>
 </html>"));
   type ShapeType = Modelica.Icons.TypeString
-    "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, dxf-file)"
+    "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, <external shape>)"
      annotation ( choices(
       choice="box" "\"box\"",
       choice="sphere" "\"sphere\"",
@@ -121,7 +121,7 @@ are shown for a cylinder:
       choice="beam" "\"beam\"",
       choice="gearwheel" "\"gearwheel\"",
       choice="spring" "\"spring\"",
-      choice="modelica://<ModelicaPackage>/<RelativeFilename>.dxf"),
+      choice="modelica://PackageName/PathName.dxf"),
     Documentation(info="<html>
 <p>
 Type <b>ShapeType</b> is used to define the shape of the
@@ -142,26 +142,34 @@ in the figure represent frame_a of the Shape component.
 </p>
 
 <p>
-Additionally, external shapes are specified with an URI name:
+Additionally, external shapes can be specified as (not all options might be supported by all tools):
 </p>
 
 <ul>
+<li> <b>\"1\", \"2\", ...</b><br>
+     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", ...
+     The DXF-files must be found either in the current directory or in the directory where
+     the Shape instance is stored that references the DXF file.
+     This (very limited) option should not be used for new models. Example:<br>
+    shapeType=\"1\".<br></li>
+
 <li> \"<b>modelica:</b>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
      characterizes the file that is stored under the location of the
      &lt;Modelica-name&gt; library path with the given relative file name.
      Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
+
 <li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
      characterizes an absolute file name in the file system. Example:<br>
-     shapeType=\"file://C:/users/myname/shapes/piston.dxf\"</li>
+     shapeType=\"file://C:/users/myname/shapes/piston.dxf\".</li>
 </ul>
 
 <p>
 The supported file formats are tool dependent. Most tools support
-at least DXF-files. Since visualization files
-contain color and other data, the corresponding information in the model
-is currently ignored.
+at least DXF-files (a tool might support 3-dim. Face of the DXF format only),
+but may support other format as well (such as stl, obj, 3ds).
+Since visualization files contain color and other data, the corresponding
+information in the model is usually ignored.
 </p>
-
 </html>"));
   type ShapeExtra = Modelica.Icons.TypeReal
     "Type of the additional data that can be defined for an elementary ShapeType"
@@ -206,10 +214,10 @@ width = height = 2*radiusOfGearWheel.</td>
       2*coil-width.</td>
 </tr>
 <tr>
-  <td valign=\"top\">URI (CAD-file)</td>
-  <td valign=\"top\">= 0: Visualization from file is not scaled.<br>
-                   = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
-                        of the shape</td>
+  <td valign=\"top\">external shape/td>
+  <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
+                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                                of the shape</td>
 </tr>
 
 </table>

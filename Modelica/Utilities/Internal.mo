@@ -14,7 +14,7 @@ partial package PartialModelicaServices
         import Modelica.Mechanics.MultiBody.Types;
 
     parameter Types.ShapeType shapeType="box"
-          "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";
+          "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, <external shape>)";
     input Frames.Orientation R=Frames.nullRotation()
           "Orientation object to rotate the world frame into the object frame"
                                                                             annotation(Dialog);

@@ -78,26 +78,34 @@ in the figure represent frame_a of the FixedShape component.
 </p>
 
 <p>
-Additionally, external shapes are specified with an URI name:
+Additionally, <b>external shapes</b> can be specified as (not all options might be supported by all tools):
 </p>
 
 <ul>
+<li> <b>\"1\", \"2\", ...</b><br>
+     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", ...
+     The DXF-files must be found either in the current directory or in the directory where
+     the Shape instance is stored that references the DXF file.
+     This (very limited) option should not be used for new models. Example:<br>
+    shapeType=\"1\".<br></li>
+
 <li> \"<b>modelica:</b>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
      characterizes the file that is stored under the location of the
      &lt;Modelica-name&gt; library path with the given relative file name.
      Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
+
 <li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
      characterizes an absolute file name in the file system. Example:<br>
-     shapeType=\"file://C:/users/myname/shapes/piston.dxf\"</li>
+     shapeType=\"file://C:/users/myname/shapes/piston.dxf\".</li>
 </ul>
 
 <p>
 The supported file formats are tool dependent. Most tools support
-at least DXF-files. Since visualization files
-contain color and other data, the corresponding information in the model
-is currently ignored.
+at least DXF-files (a tool might support 3-dim. Face of the DXF format only),
+but may support other format as well (such as stl, obj, 3ds).
+Since visualization files contain color and other data, the corresponding
+information in the model is usually ignored.
 </p>
-
 
 <p>
 The sizes of any of the above components are specified by the
@@ -137,10 +145,10 @@ width = height = 2*radiusOfGearWheel.</td>
       2*coil-width.</td>
 </tr>
 <tr>
-  <td valign=\"top\">URI (CAD-file)</td>
-  <td valign=\"top\">= 0: Visualization from file is not scaled.<br>
-                   = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
-                        of the shape</td>
+  <td valign=\"top\">external shape</td>
+  <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
+                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                                of the shape</td>
 </tr>
 </table>
 <p>
@@ -149,9 +157,8 @@ Parameter <b>color</b> is a vector with 3 elements,
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
 respectively. The predefined type
-<b>MultiBody.Types.Color</b> contains a temporary menu
-definition of the colors used in the MultiBody library
-(this will be replaced by a color editor).
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
+definition of the colors used in the MultiBody library together with a color editor.
 </p>
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -318,26 +325,34 @@ in the figure represent frame_a of the FixedShape component.
 </p>
 
 <p>
-Additionally, external shapes are specified with an URI name:
+Additionally, <b>external shapes</b> can be specified as (not all options might be supported by all tools):
 </p>
 
 <ul>
+<li> <b>\"1\", \"2\", ...</b><br>
+     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", ...
+     The DXF-files must be found either in the current directory or in the directory where
+     the Shape instance is stored that references the DXF file.
+     This (very limited) option should not be used for new models. Example:<br>
+    shapeType=\"1\".<br></li>
+
 <li> \"<b>modelica:</b>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
      characterizes the file that is stored under the location of the
      &lt;Modelica-name&gt; library path with the given relative file name.
      Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
+
 <li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
      characterizes an absolute file name in the file system. Example:<br>
-     shapeType=\"file://C:/users/myname/shapes/piston.dxf\"</li>
+     shapeType=\"file://C:/users/myname/shapes/piston.dxf\".</li>
 </ul>
 
 <p>
 The supported file formats are tool dependent. Most tools support
-at least DXF-files. Since visualization files
-contain color and other data, the corresponding information in the model
-is currently ignored.
+at least DXF-files (a tool might support 3-dim. Face of the DXF format only),
+but may support other format as well (such as stl, obj, 3ds).
+Since visualization files contain color and other data, the corresponding
+information in the model is usually ignored.
 </p>
-
 
 <p>
 The sizes of any of the above components are specified by the
@@ -377,10 +392,10 @@ width = height = 2*radiusOfGearWheel.</td>
       2*coil-width.</td>
 </tr>
 <tr>
-  <td valign=\"top\">URI (CAD-file)</td>
-  <td valign=\"top\">= 0: Visualization from file is not scaled.<br>
-                   = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
-                        of the shape</td>
+  <td valign=\"top\">external shape</td>
+  <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
+                     extra = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                                of the shape</td>
 </tr>
 </table>
 <p>
@@ -389,9 +404,8 @@ Parameter <b>color</b> is a vector with 3 elements,
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
 respectively. The predefined type
-<b>MultiBody.Types.Color</b> contains a temporary menu
-definition of the colors used in the MultiBody library
-(this will be replaced by a color editor).
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
+definition of the colors used in the MultiBody library together with a color editor.
 </p>
 <p>
 In the following figure the relationships between
@@ -403,7 +417,6 @@ vector <b>r</b>.
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
 </p>
-
 </html>"));
   end FixedShape2;
 
@@ -2023,33 +2036,42 @@ in the figure represent frame_a of the Shape component.
 </p>
 
 <p>
-Additionally, external shapes are specified with an URI name:
+Additionally, <b>external shapes</b> can be specified as (not all options might be supported by all tools):
 </p>
 
 <ul>
+<li> <b>\"1\", \"2\", ...</b><br>
+     define external shapes specified in DXF format in files \"1.dxf\", \"2.dxf\", ...
+     The DXF-files must be found either in the current directory or in the directory where
+     the Shape instance is stored that references the DXF file.
+     This (very limited) option should not be used for new models. Example:<br>
+    shapeType=\"1\".<br></li>
+
 <li> \"<b>modelica:</b>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
      characterizes the file that is stored under the location of the
      &lt;Modelica-name&gt; library path with the given relative file name.
      Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
+
 <li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
      characterizes an absolute file name in the file system. Example:<br>
-     shapeType=\"file://C:/users/myname/shapes/piston.dxf\"</li>
+     shapeType=\"file://C:/users/myname/shapes/piston.dxf\".</li>
 </ul>
 
 <p>
 The supported file formats are tool dependent. Most tools support
-at least DXF-files. Since visualization files
-contain color and other data, the corresponding information in the model
-is currently ignored.
+at least DXF-files (a tool might support 3-dim. Face of the DXF format only),
+but may support other format as well (such as stl, obj, 3ds).
+Since visualization files contain color and other data, the corresponding
+information in the model is usually ignored.
 </p>
-
 
 <p>
-Via input variable <b>extra</b> additional sizing data is defined
-according to:
+The sizes of any of the above components are specified by the
+<b>length</b>, <b>width</b> and <b>height</b> variables.
+Via variable <b>extra</b> additional data can be defined:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>shapeType</b></th><th>Meaning of variable <b>extra</b></th></tr>
+<tr><th><b>shapeType</b></th><th>Meaning of parameter <b>extra</b></th></tr>
 <tr>
   <td valign=\"top\">\"cylinder\"</td>
   <td valign=\"top\">if extra &gt; 0, a black line is included in the
@@ -2081,21 +2103,20 @@ width = height = 2*radiusOfGearWheel.</td>
       2*coil-width.</td>
 </tr>
 <tr>
-  <td valign=\"top\">URI (CAD-file)</td>
-  <td valign=\"top\">= 0: Visualization from file is not scaled.<br>
-                   = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
-                        of the shape</td>
+  <td valign=\"top\">external shape</td>
+  <td valign=\"top\">extra = 0: Visualization from file is not scaled.<br>
+                   extra = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                              of the shape</td>
 </tr>
 </table>
-
 <p>
-Parameter <b>color</b> is a Real vector with 3 elements,
+Parameter <b>color</b> is a vector with 3 elements,
 {r, g, b}, and specifies the color of the shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given in the range 0 .. 255.
-The predefined type <b>MultiBody.Types.Color</b> contains
-a menu definition of the colors used in the MultiBody
-library.
+Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
+respectively. The predefined type
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a> contains a menu
+definition of the colors used in the MultiBody library together with a color editor.
 </p>
 
 <p>
