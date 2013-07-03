@@ -6849,11 +6849,11 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
 <tr><td valign=\"top\">Change</td>
           <td valign=\"top\">y = change(u): Output y is true, if the input u has a rising or falling edge </td></tr>
 <tr><td valign=\"top\">GreaterEqual</td>
-          <td valign=\"top\">Output y is true, if input u1 is greater or equal as input u2 </td></tr>
+          <td valign=\"top\">Output y is true, if input u1 is greater or equal than input u2 </td></tr>
 <tr><td valign=\"top\">Less</td>
-          <td valign=\"top\">Output y is true, if input u1 is less as input u2 </td></tr>
+          <td valign=\"top\">Output y is true, if input u1 is less than input u2 </td></tr>
 <tr><td valign=\"top\">LessEqual</td>
-          <td valign=\"top\">Output y is true, if input u1 is less or equal as input u2 </td></tr>
+          <td valign=\"top\">Output y is true, if input u1 is less or equal than input u2 </td></tr>
 <tr><td valign=\"top\">Timer</td>
           <td valign=\"top\">Timer measuring the time from the time instant where the <br>
                   Boolean input became true </td></tr>

@@ -192,12 +192,12 @@ animation = <b>false</b>.
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter SI.Distance height=width " Height of shape." annotation (Dialog(
+    parameter SI.Distance height=width " Height of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.ShapeExtra extra=0.0
-      " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
+      " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
@@ -419,12 +419,12 @@ the animation may be switched off via parameter animation = <b>false</b>.
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter SI.Distance height=width " Height of shape." annotation (Dialog(
+    parameter SI.Distance height=width " Height of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Modelica.Mechanics.MultiBody.Types.ShapeExtra extra=0.0
-      "Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
+      "Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
@@ -1144,12 +1144,12 @@ to the setting of parameters \"useQuaternions\" and
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter SI.Distance height=width " Height of shape." annotation (Dialog(
+    parameter SI.Distance height=width " Height of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.ShapeExtra extra=0.0
-      " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
+      " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
@@ -1511,9 +1511,9 @@ states and of the \"Advanced\" menu parameters, see model
     a_0 = der(v_0);
 
     assert(innerWidth <= width,
-      "parameter innerWidth is greater as parameter width");
+      "parameter innerWidth is greater than parameter width");
     assert(innerHeight <= height,
-      "parameter innerHeight is greater as parameter height");
+      "parameter innerHeight is greater than parameter height");
     connect(frameTranslation.frame_a, frame_a) annotation (Line(
         points={{-30,0},{-100,0}},
         color={95,95,95},
@@ -1747,7 +1747,7 @@ states and of the \"Advanced\" menu parameters, see model
     a_0 = der(v_0);
 
     assert(innerDiameter < diameter,
-      "parameter innerDiameter is greater as parameter diameter.");
+      "parameter innerDiameter is greater than parameter diameter");
     connect(frameTranslation.frame_a, frame_a) annotation (Line(
         points={{-30,0},{-100,0}},
         color={95,95,95},

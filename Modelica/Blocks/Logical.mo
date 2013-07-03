@@ -291,7 +291,7 @@ the output is <b>false</b>.
 </html>"));
   end LessEqualThreshold;
 
-  block Greater "Output y is true, if input u1 is greater as input u2"
+  block Greater "Output y is true, if input u1 is greater than input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
   equation
@@ -313,7 +313,7 @@ Real input u2, otherwise the output is <b>false</b>.
   end Greater;
 
   block GreaterEqual
-    "Output y is true, if input u1 is greater or equal as input u2"
+    "Output y is true, if input u1 is greater or equal than input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
   equation
@@ -339,7 +339,7 @@ Real input u2, otherwise the output is <b>false</b>.
 </html>"));
   end GreaterEqual;
 
-  block Less "Output y is true, if input u1 is less as input u2"
+  block Less "Output y is true, if input u1 is less than input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
   equation
@@ -360,7 +360,7 @@ Real input u2, otherwise the output is <b>false</b>.
 </html>"));
   end Less;
 
-  block LessEqual "Output y is true, if input u1 is less or equal as input u2"
+  block LessEqual "Output y is true, if input u1 is less or equal than input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
   equation

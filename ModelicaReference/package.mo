@@ -3692,7 +3692,7 @@ and the approximation must fulfill the following requirements:
 <li> Every solution of the implicit equation system above must fulfill the equation
      system identically [<i>upto the usual numerical accuracy</i>],
      provided the absolute value of every flow variable in the connection set is
-     greater as a small value (|m<sub>1</sub>.c.m_flow| &gt; eps and |m<sub>2</sub>.c.m_flow| &gt; eps
+     greater than a small value (|m<sub>1</sub>.c.m_flow| &gt; eps and |m<sub>2</sub>.c.m_flow| &gt; eps
      and ... and |c<sub>M</sub>.m_flow| &gt; eps).</li>
 </ol>
 
