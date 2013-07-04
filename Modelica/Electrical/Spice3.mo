@@ -2553,15 +2553,15 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
             Line(
-              points={{-14,28},{-14,-28}},
+              points={{-6,28},{-6,-28}},
               color={0,0,255},
               thickness=0.5),
             Line(
-              points={{14,28},{14,-28}},
+              points={{6,28},{6,-28}},
               color={0,0,255},
               thickness=0.5),
-            Line(points={{-90,0},{-14,0}}),
-            Line(points={{14,0},{90,0}}),
+            Line(points={{-90,0},{-6,0}}),
+            Line(points={{6,0},{90,0}}),
             Text(
               extent={{-130,-40},{134,-60}},
               lineColor={0,0,0},

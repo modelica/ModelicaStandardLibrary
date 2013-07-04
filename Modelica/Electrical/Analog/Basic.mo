@@ -300,15 +300,15 @@ end Conductor;
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
           Line(
-            points={{-14,28},{-14,-28}},
+            points={{-6,28},{-6,-28}},
             thickness=0.5,
             color={0,0,255}),
           Line(
-            points={{14,28},{14,-28}},
+            points={{6,28},{6,-28}},
             thickness=0.5,
             color={0,0,255}),
-          Line(points={{-90,0},{-14,0}}, color={0,0,255}),
-          Line(points={{14,0},{90,0}}, color={0,0,255}),
+          Line(points={{-90,0},{-6,0}},  color={0,0,255}),
+          Line(points={{6,0},{90,0}},  color={0,0,255}),
           Text(
             extent={{-136,-60},{136,-92}},
             lineColor={0,0,0},
@@ -1942,15 +1942,15 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
 </ul>
 </html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-          Line(points={{-90,0},{-14,0}}, color={0,0,255}),
-          Line(points={{14,0},{90,0}}, color={0,0,255}),
+          Line(points={{-90,0},{-6,0}},  color={0,0,255}),
+          Line(points={{6,0},{90,0}},  color={0,0,255}),
           Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(
-            points={{-14,28},{-14,-28}},
+            points={{-6,28},{-6,-28}},
             thickness=0.5,
             color={0,0,255}),
           Line(
-            points={{14,28},{14,-28}},
+            points={{6,28},{6,-28}},
             thickness=0.5,
             color={0,0,255}),
           Text(
