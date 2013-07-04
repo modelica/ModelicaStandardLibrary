@@ -1194,7 +1194,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             /* Next time event at start time */
             nextTimeEvent = 0;
         }
-        else {
+        else if (nRow > 1) {
             const double tMin = TABLE_ROW0(0);
             const double tMax = TABLE_COL0(nRow - 1);
             const double T = tMax - tMin;
@@ -1274,32 +1274,28 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     }
                 }
             }
-            else {
-                if (nRow > 1) {
-                    if (t < tMin) {
-                        nextTimeEvent = tMin;
-                    }
-                    else if (t < tMax) {
-                        if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
-                            nextTimeEvent = tMax;
-                        }
-                        else {
-                            iStart = findRowIndex(table, nRow, nCol,
-                                tableID->last, t + _EPSILON*T);
-                            nextTimeEvent = tMax;
-                            for (i = iStart + 1; i < nRow - 1; i++) {
-                                double t0 = TABLE_COL0(i);
-                                if (t0 > t) {
-                                    double t1 = TABLE_COL0(i + 1);
-                                    if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                                        nextTimeEvent = t0;
-                                        break;
-                                    }
-                                    else if (isNearlyEqual(t0, t1)) {
-                                        nextTimeEvent = t0;
-                                        break;
-                                    }
-                                }
+            else if (t < tMin) {
+                nextTimeEvent = tMin;
+            }
+            else if (t < tMax) {
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                    nextTimeEvent = tMax;
+                }
+                else {
+                    iStart = findRowIndex(table, nRow, nCol,
+                        tableID->last, t + _EPSILON*T);
+                    nextTimeEvent = tMax;
+                    for (i = iStart + 1; i < nRow - 1; i++) {
+                        double t0 = TABLE_COL0(i);
+                        if (t0 > t) {
+                            double t1 = TABLE_COL0(i + 1);
+                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                                nextTimeEvent = t0;
+                                break;
+                            }
+                            else if (isNearlyEqual(t0, t1)) {
+                                nextTimeEvent = t0;
+                                break;
                             }
                         }
                     }
@@ -1307,7 +1303,9 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             }
         }
 
-        nextTimeEvent += tableID->startTime;
+        if (nextTimeEvent < DBL_MAX) {
+            nextTimeEvent += tableID->startTime;
+        }
 
         if (nextTimeEvent > tableID->preNextTimeEvent) {
             tableID->preNextTimeEvent = nextTimeEvent;
@@ -2711,7 +2709,7 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
             return isValid;
         }
 
-        if (tableID->table) {
+        if (tableID->table && nRow > 1) {
             const double* table = tableID->table;
             /* Check period */
             if (tableID->extrapolation == PERIODIC) {

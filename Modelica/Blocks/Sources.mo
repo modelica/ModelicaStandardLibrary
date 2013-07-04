@@ -2287,7 +2287,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           columns,
           smoothness,
           extrapolation) "External table object";
-    discrete Modelica.SIunits.Time nextTimeEvent(start=0, fixed=true)
+    discrete Modelica.SIunits.Time nextTimeEvent(start=0)
       "Next time event instant";
     parameter Real tableOnFileRead(fixed=false)
       "= 1, if table was successfully read from file";
