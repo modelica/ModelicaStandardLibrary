@@ -301,11 +301,9 @@ end Conductor;
           extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-6,28},{-6,-28}},
-            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{6,28},{6,-28}},
-            thickness=0.5,
             color={0,0,255}),
           Line(points={{-90,0},{-6,0}},  color={0,0,255}),
           Line(points={{6,0},{90,0}},  color={0,0,255}),
@@ -1947,11 +1945,9 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
           Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(
             points={{-6,28},{-6,-28}},
-            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{6,28},{6,-28}},
-            thickness=0.5,
             color={0,0,255}),
           Text(
             extent={{-144,-43},{156,-83}},
