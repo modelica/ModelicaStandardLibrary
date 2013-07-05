@@ -14,51 +14,51 @@ package Parts
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0}
       "Position vector from world frame to frame_b, resolved in world frame";
-    parameter Types.ShapeType shapeType="cylinder" " Type of shape" annotation
+    parameter Types.ShapeType shapeType="cylinder" "Type of shape" annotation
       (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter SI.Position r_shape[3]={0,0,0}
-      " Vector from world frame to shape origin, resolved in world frame"
+      "Vector from world frame to shape origin, resolved in world frame"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.Axis lengthDirection = to_unit1(r - r_shape)
-      " Vector in length direction of shape, resolved in world frame"
+      "Vector in length direction of shape, resolved in world frame"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.Axis widthDirection={0,1,0}
-      " Vector in width direction of shape, resolved in world frame"
+      "Vector in width direction of shape, resolved in world frame"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(r - r_shape)
-      " Length of shape" annotation (Dialog(
+      "Length of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter SI.Distance width=length/world.defaultWidthFraction
-      " Width of shape" annotation (Dialog(
+      "Width of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter SI.Distance height=width " Height of shape" annotation (Dialog(
+    parameter SI.Distance height=width "Height of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.ShapeExtra extra=0.0
-      " Additional parameter for cone, pipe etc. (see docu of Visualizers.Advanced.Shape)"
+      "Additional parameter for cone, pipe etc. (see docu of Visualizers.Advanced.Shape)"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
-      " Color of shape" annotation (Dialog(
+      "Color of shape" annotation (Dialog(
         colorSelector=true,
         tab="Animation",
         group="if animation = true",
@@ -159,51 +159,51 @@ animation = <b>false</b>.
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3](start={0,0,0})
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter Types.ShapeType shapeType="cylinder" " Type of shape" annotation
+    parameter Types.ShapeType shapeType="cylinder" "Type of shape" annotation
       (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter SI.Position r_shape[3]={0,0,0}
-      " Vector from frame_a to shape origin, resolved in frame_a" annotation (
+      "Vector from frame_a to shape origin, resolved in frame_a" annotation (
         Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.Axis lengthDirection = to_unit1(r - r_shape)
-      " Vector in length direction of shape, resolved in frame_a" annotation (
+      "Vector in length direction of shape, resolved in frame_a" annotation (
         Evaluate=true, Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.Axis widthDirection={0,1,0}
-      " Vector in width direction of shape, resolved in frame_a" annotation (
+      "Vector in width direction of shape, resolved in frame_a" annotation (
         Evaluate=true, Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(r - r_shape)
-      " Length of shape" annotation (Dialog(
+      "Length of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter SI.Distance width=length/world.defaultWidthFraction
-      " Width of shape" annotation (Dialog(
+      "Width of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter SI.Distance height=width " Height of shape" annotation (Dialog(
+    parameter SI.Distance height=width "Height of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.ShapeExtra extra=0.0
-      " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)"
+      "Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
-      " Color of shape" annotation (Dialog(
+      "Color of shape" annotation (Dialog(
         colorSelector=true,
         tab="Animation",
         group="if animation = true",
@@ -378,7 +378,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     parameter Modelica.Mechanics.MultiBody.Types.RotationSequence sequence(
       min={1,1,1},
-      max={3,3,3}) = {1,2,3} " Sequence of rotations" annotation (Evaluate=true,
+      max={3,3,3}) = {1,2,3} "Sequence of rotations" annotation (Evaluate=true,
         Dialog(group="if rotationType = PlanarRotationSequence", enable=
             rotationType == Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence));
     parameter Cv.NonSIunits.Angle_deg angles[3]={0,0,0}
@@ -419,7 +419,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter SI.Distance height=width " Height of shape" annotation (Dialog(
+    parameter SI.Distance height=width "Height of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -436,7 +436,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 */
 
     input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
-      " Color of shape" annotation (Dialog(
+      "Color of shape" annotation (Dialog(
         colorSelector=true,
         tab="Animation",
         group="if animation = true",
@@ -659,23 +659,23 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter SI.Position r_CM[3](start={0,0,0})
       "Vector from frame_a to center of mass, resolved in frame_a";
     parameter SI.Mass m(min=0, start=1) "Mass of rigid body";
-    parameter SI.Inertia I_11(min=0) = 0.001 " (1,1) element of inertia tensor"
+    parameter SI.Inertia I_11(min=0) = 0.001 "(1,1) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_22(min=0) = 0.001 " (2,2) element of inertia tensor"
+    parameter SI.Inertia I_22(min=0) = 0.001 "(2,2) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_33(min=0) = 0.001 " (3,3) element of inertia tensor"
+    parameter SI.Inertia I_33(min=0) = 0.001 "(3,3) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
     parameter SI.Inertia I_21(min=-C.inf) = 0
-      " (2,1) element of inertia tensor" annotation (Dialog(group=
+      "(2,1) element of inertia tensor" annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
     parameter SI.Inertia I_31(min=-C.inf) = 0
-      " (3,1) element of inertia tensor" annotation (Dialog(group=
+      "(3,1) element of inertia tensor" annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
     parameter SI.Inertia I_32(min=-C.inf) = 0
-      " (3,2) element of inertia tensor" annotation (Dialog(group=
+      "(3,2) element of inertia tensor" annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
 
     SI.Position r_0[3](start={0,0,0}, each stateSelect=if enforceStates then
@@ -752,13 +752,13 @@ the animation may be switched off via parameter animation = <b>false</b>.
         group="if animation = true",
         enable=animation));
     parameter Boolean enforceStates=false
-      " = true, if absolute variables of body object shall be used as states (StateSelect.always)"
+      "= true, if absolute variables of body object shall be used as states (StateSelect.always)"
       annotation (Evaluate=true,Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
-      " = true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
+      "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Evaluate=true,Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
-      " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
+      "Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
 
@@ -1047,23 +1047,23 @@ to the setting of parameters \"useQuaternions\" and
     parameter SI.Position r_CM[3](start={0,0,0})
       "Vector from frame_a to center of mass, resolved in frame_a";
     parameter SI.Mass m(min=0, start=1) "Mass of rigid body";
-    parameter SI.Inertia I_11(min=0) = 0.001 " (1,1) element of inertia tensor"
+    parameter SI.Inertia I_11(min=0) = 0.001 "(1,1) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_22(min=0) = 0.001 " (2,2) element of inertia tensor"
+    parameter SI.Inertia I_22(min=0) = 0.001 "(2,2) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_33(min=0) = 0.001 " (3,3) element of inertia tensor"
+    parameter SI.Inertia I_33(min=0) = 0.001 "(3,3) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
     parameter SI.Inertia I_21(min=-C.inf) = 0
-      " (2,1) element of inertia tensor" annotation (Dialog(group=
+      "(2,1) element of inertia tensor" annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
     parameter SI.Inertia I_31(min=-C.inf) = 0
-      " (3,1) element of inertia tensor" annotation (Dialog(group=
+      "(3,1) element of inertia tensor" annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
     parameter SI.Inertia I_32(min=-C.inf) = 0
-      " (3,2) element of inertia tensor" annotation (Dialog(group=
+      "(3,2) element of inertia tensor" annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
 
     SI.Position r_0[3](start={0,0,0}, each stateSelect=if enforceStates then
@@ -1111,61 +1111,61 @@ to the setting of parameters \"useQuaternions\" and
       "Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Dialog(tab="Initialization"));
 
-    parameter Types.ShapeType shapeType="cylinder" " Type of shape" annotation
+    parameter Types.ShapeType shapeType="cylinder" "Type of shape" annotation
       (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter SI.Position r_shape[3]={0,0,0}
-      " Vector from frame_a to shape origin, resolved in frame_a" annotation (
+      "Vector from frame_a to shape origin, resolved in frame_a" annotation (
         Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.Axis lengthDirection = to_unit1(r - r_shape)
-      " Vector in length direction of shape, resolved in frame_a" annotation (
+      "Vector in length direction of shape, resolved in frame_a" annotation (
         Evaluate=true, Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.Axis widthDirection={0,1,0}
-      " Vector in width direction of shape, resolved in frame_a" annotation (
+      "Vector in width direction of shape, resolved in frame_a" annotation (
         Evaluate=true, Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(r - r_shape)
-      " Length of shape" annotation (Dialog(
+      "Length of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter SI.Distance width=length/world.defaultWidthFraction
-      " Width of shape" annotation (Dialog(
+      "Width of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter SI.Distance height=width " Height of shape" annotation (Dialog(
+    parameter SI.Distance height=width "Height of shape" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     parameter Types.ShapeExtra extra=0.0
-      " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)"
+      "Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      " Color of shape" annotation (Dialog(
+      "Color of shape" annotation (Dialog(
         colorSelector=true,
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter SI.Diameter sphereDiameter=2*width " Diameter of sphere"
+    parameter SI.Diameter sphereDiameter=2*width "Diameter of sphere"
       annotation (Dialog(
         tab="Animation",
         group="if animation = true and animateSphere = true",
         enable=animation and animateSphere));
-    input Types.Color sphereColor=color " Color of sphere of mass" annotation (
+    input Types.Color sphereColor=color "Color of sphere of mass" annotation (
         Dialog(
         colorSelector=true,
         tab="Animation",
@@ -1178,13 +1178,13 @@ to the setting of parameters \"useQuaternions\" and
         group="if animation = true",
         enable=animation));
     parameter Boolean enforceStates=false
-      " = true, if absolute variables of body object shall be used as states (StateSelect.always)"
+      "= true, if absolute variables of body object shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
-      " = true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
+      "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
-      " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
+      "Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
 
@@ -1442,13 +1442,13 @@ states and of the \"Advanced\" menu parameters, see model
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean enforceStates=false
-      " = true, if absolute variables of body object shall be used as states (StateSelect.always)"
+      "= true, if absolute variables of body object shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
-      " = true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
+      "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
-      " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
+      "Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
 
@@ -1672,13 +1672,13 @@ states and of the \"Advanced\" menu parameters, see model
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean enforceStates=false
-      " = true, if absolute variables of body object shall be used as states (StateSelect.always)"
+      "= true, if absolute variables of body object shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
-      " = true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
+      "= true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
-      " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
+      "Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
 

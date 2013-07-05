@@ -638,16 +638,16 @@ parameter menu.
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     input SI.Position r_tail[3]={0,0,0}
-      " Vector from frame_a to arrow tail, resolved in frame_a"
+      "Vector from frame_a to arrow tail, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Axis n={1,0,0}
-      " Vector in arrow direction, resolved in frame_a"
+      "Vector in arrow direction, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Length length=0.1 " Length of complete arrow"
+    input SI.Length length=0.1 "Length of complete arrow"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter diameter=world.defaultArrowDiameter
-      " Diameter of arrow line" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color color={0,0,255} " Color of arrow"
+      "Diameter of arrow line" annotation (Dialog(group="if animation = true", enable=animation));
+    input Types.Color color={0,0,255} "Color of arrow"
       annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
@@ -2519,7 +2519,7 @@ since they all have frame connectors).
       input Real n_y[3](each final unit="1")={0,1,0}
         "Vector in direction of y-axis of 'lines' frame, resolved in frame_a."
         annotation (Dialog(group="if animation = true", enable=animation));
-      input MultiBody.Types.Color color={0,128,255} " Color of cylinders"
+      input MultiBody.Types.Color color={0,128,255} "Color of cylinders"
         annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"

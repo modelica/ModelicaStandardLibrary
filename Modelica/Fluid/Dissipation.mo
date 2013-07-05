@@ -13247,7 +13247,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
       type VoidFractionApproach = enumeration(
           Homogeneous "Homogeneous approach",
           Momentum "Analytical momentum flux approach (heterogeneous)",
-          Energy " Kinetic energy flow approach w.r.t. Zivi (heterogeneous)",
+          Energy "Kinetic energy flow approach w.r.t. Zivi (heterogeneous)",
           Chisholm
             "Empirical momentum flux approach w.r.t. Chisholm (heterogeneous)");
 

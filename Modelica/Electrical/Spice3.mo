@@ -5243,7 +5243,7 @@ on the model behaviour.
       parameter SI.Voltage VTF=0.0 "Voltage giving VBC dependence of TF";
       parameter SI.Frequency PTF=0.0 "Excess phase at freq=1/(TF*2*Pi) Hz";
       parameter SI.Capacitance CJC=0.0 "Zero bias B-C depletion capacitance";
-      parameter SI.Voltage VJC=0.75 " B-C built in potential";
+      parameter SI.Voltage VJC=0.75 "B-C built in potential";
       parameter Real MJC = 0.33 "B-C junction grading coefficient";
       parameter Real XCJC = 1.0 "Fraction of B-C cap to internal base";
       parameter SI.Time TR=0.0 "Ideal reverse transit time";
@@ -5451,7 +5451,7 @@ on the model behaviour.
       parameter SI.Voltage VTF = 0.0 "Voltage giving VBC dependence of TF";
       parameter SI.Temp_C PTF = 0.0 "Excess phase at freq=1/(TF*2*Pi) Hz";
       parameter SI.Capacitance CJC = 0.0 "Zero bias B-C depletion capacitance";
-      parameter SI.Voltage VJC = 0.75 " B-C built in potential";
+      parameter SI.Voltage VJC = 0.75 "B-C built in potential";
       parameter Real MJC = 0.33 "B-C junction grading coefficient";
       parameter Real XCJC = 1.0 "Fraction of B-C cap to internal base";
       parameter SI.Time TR = 0.0 "Ideal reverse transit time";
@@ -6885,7 +6885,7 @@ on the model behaviour.
          Real m_gateSourceOverlapCapFactor( start= 0.0)
           "CGS0, Gate-source overlap cap";
          Real m_gateDrainOverlapCapFactor( start= 0.0)
-          " CGD0, Gate-drain overlap cap";
+          "CGD0, Gate-drain overlap cap";
          Real m_gateBulkOverlapCapFactor( start= 0.0)
           "CGB0, Gate-bulk overlap cap";
          Real m_fNcoef(                     start = 0.0)
@@ -8735,7 +8735,7 @@ on the model behaviour.
           intern.m_oxideThickness := if         (ex.TOX > -1e40) then ex.TOX else 0;
 
          intern.m_gateSourceOverlapCapFactor := ex.CGSO
-          " F/m gate-source overlap capacitance per meter channel width (default 0)";
+          "F/m gate-source overlap capacitance per meter channel width (default 0)";
          intern.m_gateDrainOverlapCapFactor := ex.CGDO
           "F/m gate-drain overlap capacitance per meter channel width (default 0)";
          intern.m_gateBulkOverlapCapFactor := ex.CGBO

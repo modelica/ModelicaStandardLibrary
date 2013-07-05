@@ -2081,12 +2081,12 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
 
     input Real N_to_m(unit="N/m") = 1000
-      " Force arrow scaling (length = force/N_to_m)"
+      "Force arrow scaling (length = force/N_to_m)"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-        ForceColor " Color of force arrow"
+        ForceColor "Color of force arrow"
       annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
@@ -2345,7 +2345,7 @@ with negative sign at frame_a.
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter forceDiameter=world.defaultArrowDiameter
       "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow"
+    input SI.Diameter torqueDiameter=forceDiameter "Diameter of torque arrow"
                                   annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       "Color of force arrow"

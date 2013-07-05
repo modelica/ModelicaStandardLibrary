@@ -1225,7 +1225,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
         "GenericPipeFlow: Pipe flow pressure loss and gravity with replaceable WallFriction package"
 
             parameter Boolean from_dp = momentumDynamics >= Types.Dynamics.SteadyStateInitial
-          " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
+          "= true, use m_flow = f(dp), otherwise dp = f(m_flow)"
               annotation (Dialog(group="Advanced"), Evaluate=true);
 
             extends
@@ -3526,7 +3526,7 @@ b has the same sign of the change of density.</p>
           "= true, if Reynolds number is included for plotting"
            annotation (Evaluate=true, Dialog(tab="Advanced"));
         parameter Boolean from_dp=true
-          " = true, use m_flow = f(dp), otherwise dp = f(m_flow)"
+          "= true, use m_flow = f(dp), otherwise dp = f(m_flow)"
           annotation (Evaluate=true, Dialog(tab="Advanced"));
       protected
         parameter Medium.AbsolutePressure dp_fric_nominal=

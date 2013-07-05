@@ -494,38 +494,38 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       "Inclination of cylinder";
     parameter Cv.NonSIunits.Angle_deg crankAngleOffset=0
       "Offset for crank angle";
-    parameter SI.Length pistonLength=0.1 " Length of cylinder"
+    parameter SI.Length pistonLength=0.1 "Length of cylinder"
       annotation (Dialog(group="Piston"));
     parameter SI.Length pistonCenterOfMass=pistonLength/2
-      " Distance from frame_a to center of mass of piston"
+      "Distance from frame_a to center of mass of piston"
       annotation (Dialog(group="Piston"));
-    parameter SI.Mass pistonMass(min=0) = 6 " Mass of piston"
+    parameter SI.Mass pistonMass(min=0) = 6 "Mass of piston"
       annotation (Dialog(group="Piston"));
     parameter SI.Inertia pistonInertia_11(min=0) = 0.0088
-      " Inertia 11 of piston with respect to center of mass frame, parallel to frame_a"
+      "Inertia 11 of piston with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Piston"));
     parameter SI.Inertia pistonInertia_22(min=0) = 0.0076
-      " Inertia 22 of piston with respect to center of mass frame, parallel to frame_a"
+      "Inertia 22 of piston with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Piston"));
     parameter SI.Inertia pistonInertia_33(min=0) = 0.0088
-      " Inertia 33 of piston with respect to center of mass frame, parallel to frame_a"
+      "Inertia 33 of piston with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Piston"));
 
-    parameter SI.Length rodLength=0.175 " Length of rod"
+    parameter SI.Length rodLength=0.175 "Length of rod"
       annotation (Dialog(group="Rod"));
     parameter SI.Length rodCenterOfMass=rodLength/2
-      " Distance from frame_a to center of mass of piston"
+      "Distance from frame_a to center of mass of piston"
       annotation (Dialog(group="Rod"));
-    parameter SI.Mass rodMass(min=0) = 1 " Mass of rod"
+    parameter SI.Mass rodMass(min=0) = 1 "Mass of rod"
       annotation (Dialog(group="Rod"));
     parameter SI.Inertia rodInertia_11(min=0) = 0.006
-      " Inertia 11 of rod with respect to center of mass frame, parallel to frame_a"
+      "Inertia 11 of rod with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Rod"));
     parameter SI.Inertia rodInertia_22(min=0) = 0.0005
-      " Inertia 22 of rod with respect to center of mass frame, parallel to frame_a"
+      "Inertia 22 of rod with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Rod"));
     parameter SI.Inertia rodInertia_33(min=0) = 0.006
-      " Inertia 33 of rod with respect to center of mass frame, parallel to frame_a"
+      "Inertia 33 of rod with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Rod"));
     final parameter SI.Length cylinderLength=cylinderTopPosition - (
         pistonLength + rodLength - crankPinOffset)

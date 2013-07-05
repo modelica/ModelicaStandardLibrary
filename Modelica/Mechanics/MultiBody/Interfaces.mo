@@ -539,7 +539,7 @@ to which this force element is connected.
   partial model PartialLineForce "Base model for line force elements"
 
     parameter SI.Position s_small=1.E-6
-      " Prevent zero-division if relative distance s=0"
+      "Prevent zero-division if relative distance s=0"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean fixedRotationAtFrame_a=false
       "=true, if rotation frame_a.R is fixed (to directly connect line forces)"

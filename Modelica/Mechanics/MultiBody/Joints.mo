@@ -1281,13 +1281,13 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean enforceStates=false
-      " = true, if relative variables of spherical joint shall be used as states (StateSelect.always)"
+      "= true, if relative variables of spherical joint shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
-      " = true, if quaternions shall be used as states otherwise use 3 angles as states (provided enforceStates=true)"
+      "= true, if quaternions shall be used as states otherwise use 3 angles as states (provided enforceStates=true)"
       annotation (Dialog(tab="Advanced", enable=enforceStates));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
-      " Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states"
+      "Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=enforceStates
              and not useQuaternions));
 
@@ -1598,13 +1598,13 @@ frame_b of the joint.
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter Boolean enforceStates=true
-      " = true, if relative variables between frame_a and frame_b shall be used as states"
+      "= true, if relative variables between frame_a and frame_b shall be used as states"
       annotation (Dialog(tab="Advanced"));
     parameter Boolean useQuaternions=true
-      " = true, if quaternions shall be used as states otherwise use 3 angles as states"
+      "= true, if quaternions shall be used as states otherwise use 3 angles as states"
       annotation (Dialog(tab="Advanced"));
     parameter Types.RotationSequence sequence_angleStates={1,2,3}
-      " Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states"
+      "Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
 
@@ -2627,7 +2627,7 @@ that has this property.
           rotation=270)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Boolean showUniversalAxes=true
-      " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
+      "= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
     parameter Boolean computeRodLength=false
       "= true, if distance between frame_a and frame_b shall be computed during initialization (see info)";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
@@ -3883,7 +3883,7 @@ November 3-4, 2003, pp. 149-158</p>
 
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showUniversalAxes=true
-        " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
+        "= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
       parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
         "Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to line from universal to spherical joint)"
         annotation (Evaluate=true);
@@ -4576,7 +4576,7 @@ component).
 
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showUniversalAxes=true
-        " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
+        "= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
       parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
         "Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1)"
         annotation (Evaluate=true);
@@ -5087,7 +5087,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
 
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter Boolean showUniversalAxes=true
-        " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
+        "= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
       parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
         "Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1)"
         annotation (Evaluate=true);
