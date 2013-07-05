@@ -327,7 +327,7 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
         Modelica.Electrical.Analog.Sources.RampCurrent pmRampCurrent(
           I=-6,
           duration=6,
-          offset=3) "Ideal current source " annotation (Placement(
+          offset=3) "Ideal current source" annotation (Placement(
               transformation(
               origin={-60,-60},
               extent={{-10,-10},{10,10}},
@@ -340,7 +340,7 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
         Modelica.Electrical.Analog.Sources.RampCurrent cRampCurrent(
           I=-6,
           duration=6,
-          offset=3) "Ideal current source " annotation (Placement(
+          offset=3) "Ideal current source" annotation (Placement(
               transformation(
               origin={-60,20},
               extent={{-10,-10},{10,10}},
@@ -441,7 +441,7 @@ Simulation of the force-current characteristics of both converter models with th
               0.00543; 0.002, -9.39915, -9.55226, 0.00562; 0.0025, -9.33166, -9.47988,
               0.00581; 0.003, -9.23707, -9.38112, 0.006; 0.0035, -9.09497, -9.23417,
               0.00619; 0.004, -8.91839, -9.05337, 0.00638])
-          "Column 1: position, col.2: force with non-linear stator iron, col.3: force with mu_rFe=const.=1000, col.4: inductance with mu_rFe=const.=1000 "
+          "Column 1: position, col.2: force with non-linear stator iron, col.3: force with mu_rFe=const.=1000, col.4: inductance with mu_rFe=const.=1000"
           annotation (Placement(transformation(extent={{50,40},{70,60}},
                 rotation=0)));
       equation
@@ -3572,7 +3572,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
 </html>"));
       end ElectricSheet;
 
-      package PureIron "Pure iron "
+      package PureIron "Pure iron"
         extends Modelica.Icons.MaterialPropertiesPackage;
 
         record RFe80 "Hyperm 0 (RFe80)"

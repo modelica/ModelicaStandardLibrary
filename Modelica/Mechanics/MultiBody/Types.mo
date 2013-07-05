@@ -62,7 +62,7 @@ Note, r g, b are given in the range 0 .. 255.
 </html>"));
   type RealColor =
                Modelica.Icons.TypeReal[3] (each min=0, each max=255)
-    "RGB representation of color as Real type "
+    "RGB representation of color as Real type"
     annotation (
       Dialog(colorSelector=true),
       choices(

@@ -246,7 +246,7 @@ The following nonlinear equations are solved:
         annotation (Dialog(group="3*u - sin(w*u) - 1"));
       input Real u_max2=5 "Upper limit"
         annotation (Dialog(group="3*u - sin(w*u) - 1"));
-      input Real w=3 "Angular velocity "
+      input Real w=3 "Angular velocity"
         annotation (Dialog(group="3*u - sin(w*u) - 1"));
       input Real u_min3=1 "Lower limit"
         annotation (Dialog(group="p[1] + log(p[2]*u) - m*u"));

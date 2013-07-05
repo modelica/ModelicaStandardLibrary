@@ -4281,7 +4281,7 @@ the support force can always be accessed as internalSupport.f.
     end InternalSupport;
 
     partial model PartialTwoFlanges
-      "Component with two translational 1D flanges "
+      "Component with two translational 1D flanges"
 
       Flange_a flange_a
         "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
@@ -4450,7 +4450,7 @@ and instead the component is internally fixed to ground.
     end PartialTwoFlangesAndSupport;
 
     partial model PartialRigid
-      "Rigid connection of two translational 1D flanges "
+      "Rigid connection of two translational 1D flanges"
       SI.Position s
         "Absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2)";
       parameter SI.Length L(start=0)

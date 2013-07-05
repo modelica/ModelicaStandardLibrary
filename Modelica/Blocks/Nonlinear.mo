@@ -466,7 +466,7 @@ The Input signal is delayed by a given time instant, or more precisely:
             fillPattern=FillPattern.Solid)}));
   end FixedDelay;
 
-  block PadeDelay "Pade approximation of delay block with fixed DelayTime "
+  block PadeDelay "Pade approximation of delay block with fixed DelayTime"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter SI.Time delayTime(start=1)
       "Delay time of output with respect to input signal";

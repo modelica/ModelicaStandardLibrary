@@ -2842,7 +2842,7 @@ points, e.g., when an isentropic reference state is computed.
       end R134a2;
     end R134a;
 
-  package TestOnly "Examples for testing purposes: move for final version "
+  package TestOnly "Examples for testing purposes: move for final version"
     extends Modelica.Icons.ExamplesPackage;
     model MixIdealGasAir "Ideal gas air medium model"
       extends Modelica.Icons.Example;
@@ -6431,7 +6431,7 @@ Note that the (small) influence of the pressure term p/d is neglected.
       gamma := cp_const/cv_const;
       end isentropicExponent;
 
-    redeclare function extends velocityOfSound "Return velocity of sound "
+    redeclare function extends velocityOfSound "Return velocity of sound"
 
       algorithm
       a := a_const;
@@ -6752,7 +6752,7 @@ quantities are assumed to be constant.
       gamma := cp_const/cv_const;
       end isentropicExponent;
 
-    redeclare function extends velocityOfSound "Return velocity of sound "
+    redeclare function extends velocityOfSound "Return velocity of sound"
 
       algorithm
       a := sqrt(cp_const/cv_const*R_gas*state.T);

@@ -853,7 +853,7 @@ motion on the controlBus of the r3 robot.
               textString="moving")}));
     end PathToAxisControlBus;
 
-    model GearType1 "Motor inertia and gearbox model for r3 joints 1,2,3 "
+    model GearType1 "Motor inertia and gearbox model for r3 joints 1,2,3"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
       parameter Real i=-105 "gear ratio";
       parameter Real c(unit="N.m/rad") = 43 "Spring constant";
@@ -976,7 +976,7 @@ the definition of initial values considerably.
               textString="flange of motor axis")}));
     end GearType1;
 
-    model GearType2 "Motor inertia and gearbox model for r3 joints 4,5,6  "
+    model GearType2 "Motor inertia and gearbox model for r3 joints 4,5,6"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
       parameter Real i=-99 "Gear ratio";
       parameter SI.Torque Rv0=21.8 "Viscous friction torque at zero velocity";
@@ -1059,7 +1059,7 @@ Default values for all parameters are given for joint 4.
               lineColor={0,0,255})}));
     end GearType2;
 
-    model Motor "Motor model including current controller of r3 motors "
+    model Motor "Motor model including current controller of r3 motors"
       extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
       parameter SI.Inertia J(min=0)=0.0013 "Moment of inertia of motor";
       parameter Real k=1.1616 "Gain of motor";
@@ -1372,7 +1372,7 @@ reference signals. All signals are communicated via the
 </html>"));
     end Controller;
 
-    model AxisType1 "Axis model of the r3 joints 1,2,3 "
+    model AxisType1 "Axis model of the r3 joints 1,2,3"
       extends AxisType2(redeclare GearType1 gear(c=c, d=cd));
       parameter Real c(unit="N.m/rad") = 43 "Spring constant"
         annotation (Dialog(group="Gear"));
@@ -1380,7 +1380,7 @@ reference signals. All signals are communicated via the
         annotation (Dialog(group="Gear"));
     end AxisType1;
 
-    model AxisType2 "Axis model of the r3 joints 4,5,6 "
+    model AxisType2 "Axis model of the r3 joints 4,5,6"
       parameter Real kp=10 "Gain of position controller"
         annotation (Dialog(group="Controller"));
       parameter Real ks=1 "Gain of speed controller"

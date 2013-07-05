@@ -2702,7 +2702,7 @@ November 3-4, 2003, pp. 149-158</p>
       annotation (Placement(transformation(extent={{20,-10},{40,10}})));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-      "Frame fixed in wheel center point. y-axis: along wheel axis, z-Axis: upwards, "
+      "Frame fixed in wheel center point (y-axis: along wheel axis, z-axis: upwards)"
       annotation (Placement(transformation(extent={{-16,-16},{16,16}})));
     Modelica.Mechanics.MultiBody.Joints.RollingWheel rollingWheel(wheelRadius=
           wheelRadius, stateSelect=StateSelect.avoid)
@@ -2763,7 +2763,7 @@ November 3-4, 2003, pp. 149-158</p>
   model RollingWheelSet
     "Ideal rolling wheel set consisting of two ideal rolling wheels connected together by an axis"
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frameMiddle
-      "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
+      "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-axis: upwards)"
       annotation (Placement(transformation(extent={{-16,16},{16,-16}}),
           iconTransformation(extent={{-16,-16},{16,16}})));
 
@@ -2825,11 +2825,11 @@ November 3-4, 2003, pp. 149-158</p>
         enable=animation));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
-      "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)"
+      "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-axis: upwards)"
       annotation (Placement(transformation(extent={{-96,16},{-64,-16}}),
           iconTransformation(extent={{-96,16},{-64,-16}})));
     Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame2
-      "Frame fixed in center point of right wheel (y-axis: along wheel axis, z-Axis: upwards)"
+      "Frame fixed in center point of right wheel (y-axis: along wheel axis, z-axis: upwards)"
       annotation (Placement(transformation(extent={{64,16},{96,-16}})));
     Modelica.Mechanics.MultiBody.Parts.Body body2(
       final r_CM={0,0,0},

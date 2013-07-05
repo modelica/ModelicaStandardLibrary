@@ -1314,7 +1314,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end saturationPressure;
 
     redeclare function extends specificHeatCapacityCp
-      "Specific heat capacity at constant pressure | turns inifity in two-phase region! | use setState_phX function for input "
+      "Specific heat capacity at constant pressure | turns inifity in two-phase region! | use setState_phX function for input"
 
     protected
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";

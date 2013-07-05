@@ -10892,7 +10892,7 @@ For |x| &gt; 1 both functions return identical results.
           end if;
         end SmoothPower_der;
 
-        function Stepsmoother "Continuous interpolation for x "
+        function Stepsmoother "Continuous interpolation for x"
 
           extends Modelica.Icons.Function;
           input Real func "input value for that result = 100%";

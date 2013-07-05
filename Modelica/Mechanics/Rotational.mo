@@ -3008,7 +3008,7 @@ in the User's Guide of the Rotational library.
               textString="b")}));
     end ElastoBacklash;
 
-    model BearingFriction "Coulomb friction in bearings "
+    model BearingFriction "Coulomb friction in bearings"
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
 
@@ -3195,7 +3195,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
           pattern=LinePattern.Dot)}));
     end BearingFriction;
 
-    model Brake "Brake based on Coulomb friction "
+    model Brake "Brake based on Coulomb friction"
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
 

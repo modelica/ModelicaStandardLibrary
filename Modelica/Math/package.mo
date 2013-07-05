@@ -1040,7 +1040,7 @@ Matrices.leastSquares and Matrices.leastSquares2.
     end solveLinearEquations;
   end Examples;
 
-  function toString "Convert a matrix into its string representation "
+  function toString "Convert a matrix into its string representation"
     extends Modelica.Icons.Function;
     import Modelica.Utilities.Strings;
 
@@ -8332,7 +8332,7 @@ external"FORTRAN 77" dgees(
     end dgeqrf;
 
     function dgeevx
-      "Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx "
+      "Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx"
       extends Modelica.Icons.Function;
 
       input Real A[:, size(A, 1)];

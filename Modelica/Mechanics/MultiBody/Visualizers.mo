@@ -1735,7 +1735,7 @@ This definition is also available as type
       import Modelica.SIunits.Conversions.to_unit1;
 
       input Frames.Orientation R=Frames.nullRotation()
-        "Orientation object to rotate the world frame into the arrow frame." annotation(Dialog);
+        "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
       input SI.Position r[3]={0,0,0}
         "Position vector from origin of world frame to origin of arrow frame, resolved in world frame"
                                                                                                        annotation(Dialog);
@@ -1851,7 +1851,7 @@ library (will be replaced by a color editor).
       import Modelica.SIunits.Conversions.to_unit1;
 
       input Frames.Orientation R=Frames.nullRotation()
-        "Orientation object to rotate the world frame into the arrow frame." annotation(Dialog);
+        "Orientation object to rotate the world frame into the arrow frame" annotation(Dialog);
       input SI.Position r[3]={0,0,0}
         "Position vector from origin of world frame to origin of arrow frame, resolved in world frame"
                                                                                                        annotation(Dialog);
