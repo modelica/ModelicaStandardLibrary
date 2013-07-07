@@ -958,6 +958,14 @@ settings:
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png\">
 </blockquote>
+
+<p>
+In the advanced menu the discretization of the surface visualization can be defined by
+the points of the inner radius of the torus (n_ri) and by the points of the outer radius
+of the torus (n_ro). In case the torus is closed (that is, opening = 0 degree),
+the actual number of points is one less (that is n_ri-1, n_ro-1), because the first and
+the last point of the parametrization coincide in this case.
+</p>
 </html>", revisions="<html>
   <ul>
   <li> July 2010 by Martin Otter<br>
