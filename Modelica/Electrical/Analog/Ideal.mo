@@ -2679,5 +2679,8 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i>
 </dd>
 </dl>
-</html>"));
+</html>"), Icon(graphics={
+         Line(points={{-90,0},{-40,0}}, color={0,0,0}),
+         Line(points={{-40,0},{32,60}}, color={0,0,0}),
+         Line(points={{40,0},{90,0}}, color={0,0,0})}));
 end Ideal;

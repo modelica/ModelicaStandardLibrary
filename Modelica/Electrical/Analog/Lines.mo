@@ -875,5 +875,15 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i>
 </dd>
 </dl>
-</html>"));
+</html>"), Icon(graphics={
+        Line(points={{-60,50},{-90,50}}, color={0,0,0}),
+        Rectangle(
+          extent={{-60,60},{60,-60}},
+          lineColor={0,0,0}),
+        Line(points={{-60,-50},{-90,-50}}, color={0,0,0}),
+        Line(points={{36,20},{-36,20}}, color={0,0,0}),
+        Line(points={{-36,40},{-36,0}},  color={0,0,0}),
+        Line(points={{36,40},{36,0}},  color={0,0,0}),
+        Line(points={{60,50},{90,50}}, color={0,0,0}),
+        Line(points={{60,-50},{90,-50}}, color={0,0,0})}));
 end Lines;

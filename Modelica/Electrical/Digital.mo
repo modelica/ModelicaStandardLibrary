@@ -8218,59 +8218,34 @@ Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</html>"),        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+</html>"),        Icon(coordinateSystem(preserveAspectRatio=false,  extent={{-100,
+            -100},{100,100}},
+        grid={1,1}),                                                                                   graphics={
+          Line(
+            origin={7,47},
+            points={{-84,-6},{-52,-6}}),
           Rectangle(
-            origin = {12,41},
+            origin={59,53},
             fillColor = {255,255,255},
             fillPattern = FillPattern.Solid,
-            extent = {{-52,-36},{-32,4}}),
+            extent={{-104,-63},{-64,7}}),
           Rectangle(
-            origin = {12,41},
+            origin={146,34},
             fillColor = {255,255,255},
             fillPattern = FillPattern.Solid,
-            extent = {{8,-86},{28,-46}}),
-          Rectangle(
-            origin = {12,41},
-            fillColor = {255,255,255},
-            fillPattern = FillPattern.Solid,
-            extent = {{8,-36},{28,4}}),
+            extent={{-104,-63},{-64,7}}),
           Line(
-            origin = {12,41},
-            points = {{-72,-6},{-52,-6}}),
+            origin={7,15},
+            points={{-84,-6},{-52,-6}}),
           Line(
-            origin = {12,41},
-            points = {{-72,-28},{-52,-28}}),
-          Ellipse(
-            origin = {12,41},
-            extent = {{-32,-18},{-28,-14}}),
-          Ellipse(
-            origin = {12,41},
-            extent = {{28,-18},{32,-14}}),
-          Line(
-            origin = {12,41},
-            points = {{-28,-16},{8,-16}}),
-          Line(
-            origin = {12,41},
-            points = {{-28,-16},{-12,-16},{-12,-56},{8,-56}}),
-          Line(
-            origin = {12,41},
-            points = {{8,-76},{-72,-76}}),
-          Line(
-            origin = {12,41},
-            points = {{32,-16},{48,-16}}),
-          Line(
-            origin = {12,41},
-            points = {{28,-66},{48,-66}}),
-          Text(
-            origin = {12,41},
-            extent = {{-52,-8},{-32,0}},
-            textString = "&"),
-          Text(
-            origin = {12,41},
-            extent = {{8,-10},{28,-2}},
-            textString = "1"),
-          Text(
-            origin = {12,41},
-            extent = {{8,-58},{28,-50}},
-            textString = "=")}));
+            origin={79,30},
+            points={{-84,-6},{-37,-6}}),
+        Line(
+          points={{42,-12},{17,-12},{17,-54},{-71,-54}},
+          color={0,0,0},
+          smooth=Smooth.None)}),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={1,1})));
 end Digital;

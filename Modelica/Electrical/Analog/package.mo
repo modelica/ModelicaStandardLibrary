@@ -32,5 +32,13 @@ Christoph Clau&szlig;
     D-01069 Dresden, Germany
 </dd>
 </dl>
-</html>"));
+</html>"), Icon(graphics={
+        Line(
+          points={{12,60},{12,-60}},
+          color={0,0,0}),
+        Line(
+          points={{-12,60},{-12,-60}},
+          color={0,0,0}),
+        Line(points={{-80,0},{-12,0}}, color={0,0,0}),
+        Line(points={{12,0},{80,0}}, color={0,0,0})}));
 end Analog;

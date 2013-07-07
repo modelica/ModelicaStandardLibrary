@@ -1459,17 +1459,17 @@ This package contains basic analog electrical multiphase components.
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
              Rectangle(
-               origin = {11.626,40}, 
-               lineColor = {0,0,255}, 
-               fillColor = {255,255,255}, 
-               fillPattern = FillPattern.Solid, 
+               origin = {11.626,40},
+               lineColor = {0,0,255},
+               fillColor = {255,255,255},
+               fillPattern = FillPattern.Solid,
                extent = {{-80,-70},{60,-10}}),
              Line(
-               origin = {11.626,40}, 
-               points = {{60,-40},{80,-40}}, 
+               origin = {11.626,40},
+               points = {{60,-40},{80,-40}},
                color = {0,0,255}),
              Line(
-               points = {{-88.374,0},{-68.374,0}}, 
+               points = {{-88.374,0},{-68.374,0}},
                color = {0,0,255})}));
   end Basic;
 
@@ -2210,16 +2210,16 @@ like thyristor, diode, switch, transformer.
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
              Line(
-               origin = {10,40}, 
-               points = {{-100,-40},{80,-40}}, 
+               origin = {10,40},
+               points = {{-100,-40},{80,-40}},
                color = {0,0,255}),
              Polygon(
-               origin = {10,40}, 
-               fillColor = {255,255,255}, 
+               origin = {10,40},
+               fillColor = {255,255,255},
                points = {{20,-40},{-40,0},{-40,-80},{20,-40}}),
              Line(
-               origin = {-10,0}, 
-               points = {{40,40},{40,-40}}, 
+               origin = {-10,0},
+               points = {{40,40},{40,-40}},
                color = {0,0,255})}));
   end Ideal;
 
@@ -3504,27 +3504,27 @@ Further development:
       added switches with arc as Electrical.Analog</li>
   </ul>
 </html>"),
-    Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+    Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Ellipse(
         origin = {14,56},
-        lineColor = {0,0,255},
+        lineColor={95,95,95},
         extent = {{-84,-126},{56,14}}),
       Ellipse(
-        origin = {-0,40},
-        lineColor = {0,0,255},
-        fillColor = {0,0,255},
-        fillPattern = FillPattern.Solid,
+        origin={0,42},
+        lineColor={95,95,95},
+        fillColor={95,95,95},
+        fillPattern=FillPattern.Solid,
         extent = {{-40,-34},{-20,-14}}),
       Ellipse(
         origin = {20,40},
-        lineColor = {0,0,255},
-        fillColor = {0,0,255},
-        fillPattern = FillPattern.Solid,
+        lineColor={95,95,95},
+        fillColor={95,95,95},
+        fillPattern=FillPattern.Solid,
         extent = {{0,-34},{20,-14}}),
       Ellipse(
         origin = {10,34},
-        lineColor = {0,0,255},
-        fillColor = {0,0,255},
-        fillPattern = FillPattern.Solid,
+        lineColor={95,95,95},
+        fillColor={95,95,95},
+        fillPattern=FillPattern.Solid,
         extent = {{-20,-74},{0,-54}})}));
 end MultiPhase;

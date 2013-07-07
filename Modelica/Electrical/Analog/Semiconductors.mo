@@ -1866,5 +1866,11 @@ Christoph Clau&szlig;
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden
 </dl>
-</html>"));
+</html>"), Icon(graphics={
+          Line(points={{-20,0},{-90,0}}, color={0,0,0}),
+          Line(points={{-20,60},{-20,-60}}, color={0,0,0}),
+          Line(points={{20,68},{-20,28}}, color={0,0,0}),
+          Line(points={{80,68},{20,68}}, color={0,0,0}),
+          Line(points={{-20,-30},{20,-70}}, color={0,0,0}),
+          Line(points={{20,-70},{80,-70}}, color={0,0,0})}));
 end Semiconductors;

@@ -13174,6 +13174,11 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
     annotation (Documentation(info="<html>
 <p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
-</html>"));
+</html>"), Icon(graphics={
+          Line(points={{-20,40},{-20,-40}}, color={0,0,0}),
+          Line(points={{-90,0},{-20,0}}, color={0,0,0}),
+          Line(points={{0,0},{90,0}},   color={0,0,0}),
+          Line(points={{20,90},{20,40},{0,40},{0,-40},{20,-40},{20,-90}},
+              color={0,0,0})}));
 end Spice3;
 
