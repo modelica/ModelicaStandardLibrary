@@ -2842,7 +2842,7 @@ points, e.g., when an isentropic reference state is computed.
       end R134a2;
     end R134a;
 
-  package TestOnly "Examples for testing purposes: move for final version"
+  package TestOnly "Examples to show the testing of media"
     extends Modelica.Icons.ExamplesPackage;
     model MixIdealGasAir "Ideal gas air medium model"
       extends Modelica.Icons.Example;
