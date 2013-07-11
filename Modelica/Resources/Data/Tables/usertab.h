@@ -31,7 +31,7 @@ typedef struct {
        is the second abscissa (u(2)),
      - the other elements, i.e., table(i,j) with i>=2,j>=2,
        are the corresponding ordinate values.
-/* ------------------------------------------------------------------------ */
+   ------------------------------------------------------------------------ */
 
    /* Definition of all tables (default: test tables) */
       static double TestTable_1D_Time[] = {0.0,  0.0,    /* 1D-table with time as abszissa*/
@@ -72,10 +72,10 @@ typedef struct {
 #define N_TABLEDEF  4
       static UsertabTableElement tableDef[N_TABLEDEF] = {
           /* name                pointer to value    nipo,  dim1, dim2 */
-           {"TestTable_1D_Time", TestTable_1D_Time,     0,     6,   2}
-          ,{"TestTable_1D_a"   , TestTable_1D_a,        1,     4,   2}
-          ,{"TestTable_1D_b"   , TestTable_1D_b,        1,     5,   3}
-          ,{"TestTable_2D"     , TestTable_2D,          2,     5,   4}
+           {"TestTable_1D_Time", TestTable_1D_Time,     0,    {6,  2}}
+          ,{"TestTable_1D_a"   , TestTable_1D_a,        1,    {4,  2}}
+          ,{"TestTable_1D_b"   , TestTable_1D_b,        1,    {5,  3}}
+          ,{"TestTable_2D"     , TestTable_2D,          2,    {5,  4}}
       };
 
 #endif
