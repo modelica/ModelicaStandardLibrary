@@ -75,7 +75,6 @@ extern "C" {
 #endif
 #include <float.h>
 #include <math.h>
-#include <stdlib.h>
 #include <string.h>
 
 #if defined(__cplusplus) && !defined(NO_FILE_SYSTEM)
@@ -378,16 +377,16 @@ extern
 #endif
 void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                                  const char* fileName, double* table,
-                                                 int nRow, int nColumn,
+                                                 size_t nRow, size_t nColumn,
                                                  double startTime, int* cols,
-                                                 int nCols, int smoothness,
+                                                 size_t nCols, int smoothness,
                                                  int extrapolation) {
     CombiTimeTable* tableID;
     tableID = STATIC_CAST(CombiTimeTable*, calloc(1, sizeof(CombiTimeTable)));
     if (tableID) {
         tableID->smoothness = (enum Smoothness)smoothness;
         tableID->extrapolation = (enum Extrapolation)extrapolation;
-        tableID->nCols = (size_t)nCols;
+        tableID->nCols = nCols;
         if (nCols > 0) {
             tableID->cols = STATIC_CAST(int*, malloc(tableID->nCols*sizeof(int)));
             if (tableID->cols) {
@@ -435,8 +434,8 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                 break;
 
             case TABLESOURCE_MODEL:
-                tableID->nRow = (size_t)nRow;
-                tableID->nCol = (size_t)nColumn;
+                tableID->nRow = nRow;
+                tableID->nCol = nColumn;
                 tableID->table = table;
                 if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
                     tableID->nRow == 2) {
@@ -1382,14 +1381,14 @@ extern
 #endif
 void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                                                const char* fileName,
-                                               double* table, int nRow,
-                                               int nColumn, int* cols,
-                                               int nCols, int smoothness) {
+                                               double* table, size_t nRow,
+                                               size_t nColumn, int* cols,
+                                               size_t nCols, int smoothness) {
     CombiTable1D* tableID;
     tableID = STATIC_CAST(CombiTable1D*, calloc(1, sizeof(CombiTable1D)));
     if (tableID) {
         tableID->smoothness = (enum Smoothness)smoothness;
-        tableID->nCols = (size_t)nCols;
+        tableID->nCols = nCols;
         if (nCols > 0) {
             tableID->cols = STATIC_CAST(int*, malloc(tableID->nCols*sizeof(int)));
             if (tableID->cols) {
@@ -1434,8 +1433,8 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                 break;
 
             case TABLESOURCE_MODEL:
-                tableID->nRow = (size_t)nRow;
-                tableID->nCol = (size_t)nColumn;
+                tableID->nRow = nRow;
+                tableID->nCol = nColumn;
                 tableID->table = table;
                 if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
                     tableID->nRow == 2) {
@@ -1840,8 +1839,8 @@ extern
 #endif
 void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                                                const char* fileName,
-                                               double* table, int nRow, int nColumn,
-                                               int smoothness) {
+                                               double* table, size_t nRow,
+                                               size_t nColumn, int smoothness) {
     CombiTable2D* tableID;
     tableID = STATIC_CAST(CombiTable2D*, calloc(1, sizeof(CombiTable2D)));
     if (tableID) {
@@ -1875,8 +1874,8 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                 break;
 
             case TABLESOURCE_MODEL:
-                tableID->nRow = (size_t)nRow;
-                tableID->nCol = (size_t)nColumn;
+                tableID->nRow = nRow;
+                tableID->nCol = nColumn;
                 tableID->table = table;
                 if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
                     tableID->nRow == 3 && tableID->nCol == 3) {

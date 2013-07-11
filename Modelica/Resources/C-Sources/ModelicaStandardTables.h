@@ -57,6 +57,8 @@
 #ifndef _MODELICASTANDARDTABLES_H_
 #define _MODELICASTANDARDTABLES_H_
 
+#include <stdlib.h>
+
 #if defined(__cplusplus)
 extern "C"
 #else
@@ -64,11 +66,11 @@ extern
 #endif
 void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                                  const char* fileName,
-                                                 double* table, int nRow,
-                                                 int nColumn,
+                                                 double* table, size_t nRow,
+                                                 size_t nColumn,
                                                  double startTime,
                                                  int* columns,
-                                                 int nCols, int smoothness,
+                                                 size_t nCols, int smoothness,
                                                  int extrapolation);
   /* Initialize 1-dim. table where first column is time
 
@@ -195,10 +197,10 @@ extern
 #endif
 void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                                                const char* fileName,
-                                               double* table, int nRow,
-                                               int nColumn,
+                                               double* table, size_t nRow,
+                                               size_t nColumn,
                                                int* columns,
-                                               int nCols, int smoothness);
+                                               size_t nCols, int smoothness);
   /* Initialize 1-dim. table defined by matrix, where first column
      is x-axis and further columns of matrix are interpolated
 
@@ -281,8 +283,8 @@ extern
 #endif
 void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                                                const char* fileName,
-                                               double* table, int nRow,
-                                               int nColumn, int smoothness);
+                                               double* table, size_t nRow,
+                                               size_t nColumn, int smoothness);
   /* Initialize 2-dim. table defined by matrix, where first column
      is x-axis, first row is y-axis and the matrix elements are the
      z-values.
