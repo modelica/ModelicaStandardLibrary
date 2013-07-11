@@ -283,6 +283,7 @@ the library and has the following content:
                                 annotation (Placement(transformation(extent={{-40,
                     -40},{40,40}}, rotation=0)));
           Modelica.Electrical.Digital.Converters.LogicToReal s(
+        n=1,
         value_U=0.5,
         value_X=0.5,
         value_0=0,
@@ -294,6 +295,7 @@ the library and has the following content:
         value_m=0.5)               annotation (Placement(transformation(extent={{60,
                     18},{80,38}}, rotation=0)));
           Modelica.Electrical.Digital.Converters.LogicToReal c(
+        n=1,
         value_U=0.5,
         value_X=0.5,
         value_0=0,

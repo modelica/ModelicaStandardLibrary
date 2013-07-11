@@ -4,7 +4,8 @@ model AD_DA_conversion "Conversion circuit"
   parameter Integer N=7 "Digital signal width";
   Modelica.Electrical.Analog.Ideal.AD_Converter aD_Converter(N=N,
     Rin=1000000,
-    VRefLow=0)
+    VRefLow=0,
+    VRefHigh=10)
     annotation (Placement(transformation(extent={{-14,-10},{12,16}})));
   Modelica.Electrical.Digital.Sources.Pulse pulse(
     pulse=Modelica.Electrical.Digital.Interfaces.Logic.'1',

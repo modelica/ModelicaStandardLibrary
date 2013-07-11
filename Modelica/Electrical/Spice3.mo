@@ -1083,21 +1083,21 @@ Zeunerstrasse 38<br />
     model Graetz "Graetz rectifier circuit"
       extends Modelica.Icons.Example;
 
-      Semiconductors.D_DIODE D1(modelcarddiode(CJO=1e-7),pin(start=0, fixed=true))
+      Semiconductors.D_DIODE D1(IC=1e-40, SENS_AREA=false,modelcarddiode(CJO=1e-7),pin(start=0, fixed=true))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={0,14})));
-      Semiconductors.D_DIODE D3(modelcarddiode(CJO=1e-7), n(v(start=0, fixed=true)))
+      Semiconductors.D_DIODE D3(IC=1e-40, SENS_AREA=false,modelcarddiode(CJO=1e-7), n(v(start=0, fixed=true)))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-8})));
-      Semiconductors.D_DIODE D4(modelcarddiode(CJO=1e-7))
+      Semiconductors.D_DIODE D4(IC=1e-40, SENS_AREA=false,modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={1,-30})));
-      Semiconductors.D_DIODE D2(modelcarddiode(CJO=1e-7))
+      Semiconductors.D_DIODE D2(IC=1e-40, SENS_AREA=false,modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-20,-8})));
