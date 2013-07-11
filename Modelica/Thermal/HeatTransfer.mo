@@ -2119,11 +2119,6 @@ Example:
               extent={{130,-42},{38,-94}},
               lineColor={0,0,0},
               textString="K"),
-            Text(
-              extent={{-31,-39},{-111,-119}},
-              lineColor={0,0,0},
-              lineThickness=1,
-              textString="degF"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
             Text(
@@ -2171,10 +2166,6 @@ and provides is as output signal.
               lineColor={0,0,0},
               lineThickness=1,
               textString="K"),
-            Text(
-              extent={{110,-39},{30,-119}},
-              lineColor={0,0,0},
-              textString="degF"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255}),
             Text(
