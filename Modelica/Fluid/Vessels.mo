@@ -287,11 +287,10 @@ end OpenTank;
         // providing portsData_diameter and portsData_height, independent of the use_portsData setting.
         // Note: this moreover serves as work-around if a tool does not support a zero sized portsData record.
         Modelica.Blocks.Interfaces.RealInput[nPorts]
-        portsData_diameter_internal =                                              portsData.diameter if use_portsData and nPorts > 0;
+        portsData_diameter_internal = portsData.diameter if use_portsData and nPorts > 0;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_height_internal = portsData.height if use_portsData and nPorts > 0;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_zeta_in_internal = portsData.zeta_in if use_portsData and nPorts > 0;
-        Modelica.Blocks.Interfaces.RealInput[nPorts]
-        portsData_zeta_out_internal =                                              portsData.zeta_out if use_portsData and nPorts > 0;
+        Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_zeta_out_internal = portsData.zeta_out if use_portsData and nPorts > 0;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_diameter;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_height;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_zeta_in;

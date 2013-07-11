@@ -840,13 +840,12 @@ using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePh
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
-      Modelica.Blocks.Interfaces.RealInput R_ref[m]
+      Modelica.Blocks.Interfaces.RealInput R_ref[m](each unit="Ohm")
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.VariableResistor variableResistor[
-                                                          m](
+      QuasiStationary.SinglePhase.Basic.VariableResistor variableResistor[m](
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         each final useHeatPort=useHeatPort,
@@ -924,7 +923,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
         "Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
-      Modelica.Blocks.Interfaces.RealInput G_ref[m]
+      Modelica.Blocks.Interfaces.RealInput G_ref[m](each unit="S")
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -1002,7 +1001,7 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 
     model VariableCapacitor "Multiphase variable capacitor"
       extends Interfaces.TwoPlug;
-      Modelica.Blocks.Interfaces.RealInput C[m]
+      Modelica.Blocks.Interfaces.RealInput C[m](each unit="F")
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -1066,7 +1065,7 @@ The capacitances <i>C</i> are given as <i>m</i> input signals.
 
     model VariableInductor "Multiphase variable inductor"
       extends Interfaces.TwoPlug;
-      Modelica.Blocks.Interfaces.RealInput L[m]
+      Modelica.Blocks.Interfaces.RealInput L[m](each unit="H")
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},

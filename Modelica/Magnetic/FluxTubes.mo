@@ -4217,7 +4217,7 @@ For modelling of reluctance actuators with this source component it is assumed t
       "Signal-controlled magnetomotive force"
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput V_m "Magnetic potential difference"
+      Modelica.Blocks.Interfaces.RealInput V_m(unit="A") "Magnetic potential difference"
         annotation (Placement(transformation(
             origin={0,90},
             extent={{10,-10},{-10,10}},
@@ -4321,7 +4321,7 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
     model SignalMagneticFlux "Signal-controlled magnetic flux source"
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput Phi "Magnetic flux" annotation (
+      Modelica.Blocks.Interfaces.RealInput Phi(unit="Wb") "Magnetic flux" annotation (
           Placement(transformation(
             origin={0,90},
             extent={{10,-10},{-10,10}},

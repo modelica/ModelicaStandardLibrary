@@ -8,7 +8,7 @@ package Sensors "Potential, voltage, current, and power sensors"
 
     Interfaces.PositivePin p "pin to be measured" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput phi(final quantity="ElectricPotential", final unit="V")
+    Modelica.Blocks.Interfaces.RealOutput phi(unit="V")
       "Absolute voltage potential as output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
@@ -51,7 +51,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput v(final quantity="ElectricPotential", final unit="V")
+    Modelica.Blocks.Interfaces.RealOutput v(unit="V")
       "Voltage between pin p and n (= p.v - n.v) as output signal"
        annotation (Placement(transformation(
           origin={0,-100},
@@ -101,7 +101,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput i(final quantity="ElectricCurrent", final unit="A")
+    Modelica.Blocks.Interfaces.RealOutput i(unit="A")
       "Current in the branch from p to n as output signal"
        annotation (Placement(transformation(
           origin={0,-100},
@@ -164,7 +164,7 @@ model PowerSensor "Sensor to measure the power"
       "Negative pin, voltage path"
     annotation (Placement(transformation(extent={{10,-110},{-10,-90}}, rotation=
              0)));
-  Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power", final unit="W") "Instantaneous power as output signal"
+  Modelica.Blocks.Interfaces.RealOutput power(unit="W") "Instantaneous power as output signal"
     annotation (Placement(transformation(
           origin={-80,-110},
           extent={{-10,10},{10,-10}},

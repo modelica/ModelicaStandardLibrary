@@ -1674,7 +1674,7 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Inst
 
     model PressureSensor "Absolute pressure sensor"
 
-      extends Interfaces.Partials.AbsoluteSensor(y(final quantity="Pressure", final unit="Pa", displayUnit="bar")
+      extends Interfaces.Partials.AbsoluteSensor(y(unit="Pa", displayUnit="bar")
           "Absolute pressure as output signal");
     equation
       y = flowPort.p;
@@ -1691,7 +1691,7 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
 
     model TemperatureSensor "Absolute temperature sensor"
 
-      extends Interfaces.Partials.AbsoluteSensor(y(final quantity="ThermodynamicTemperature", final unit="K")
+      extends Interfaces.Partials.AbsoluteSensor(y(unit="K")
           "Absolute temperature as output signal");
     equation
       medium.cp*y = flowPort.h;
@@ -1707,7 +1707,7 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
 
     model RelPressureSensor "Pressure difference sensor"
 
-      extends Interfaces.Partials.RelativeSensor(y(final quantity="Pressure", final unit="Pa", displayUnit="bar")
+      extends Interfaces.Partials.RelativeSensor(y(unit="Pa", displayUnit="bar")
           "Pressure difference as output signal");
     equation
       y = flowPort_a.p - flowPort_b.p;
@@ -1723,7 +1723,7 @@ Thermodynamic equations are defined by Partials.RelativeSensor.
 
     model RelTemperatureSensor "Temperature difference sensor"
 
-      extends Interfaces.Partials.RelativeSensor(y(final quantity="ThermodynamicTemperature", final unit="K")
+      extends Interfaces.Partials.RelativeSensor(y(unit="K")
           "Temperature difference as output signal");
     equation
       medium.cp*y = flowPort_a.h - flowPort_b.h;
@@ -1742,7 +1742,7 @@ Outlet temperature is defined by variable T of the corresponding component.
 
     model MassFlowSensor "Mass flow sensor"
 
-      extends Interfaces.Partials.FlowSensor(y(final quantity="MassFlowRate", final unit="kg/s")
+      extends Interfaces.Partials.FlowSensor(y(unit="kg/s")
           "Mass flow as output signal");
     equation
       y = V_flow*medium.rho;
@@ -1758,7 +1758,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
 
     model VolumeFlowSensor "Volume flow sensor"
 
-      extends Interfaces.Partials.FlowSensor(y(final quantity="VolumeFlowRate", final unit="m3/s")
+      extends Interfaces.Partials.FlowSensor(y(unit="m3/s")
           "Volume flow as output signal");
     equation
       y = V_flow;
@@ -1774,7 +1774,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
 
     model EnthalpyFlowSensor "Enthalpy flow sensor"
 
-      extends Interfaces.Partials.FlowSensor(y(final quantity="EnthalpyFlowRate", final unit="W")
+      extends Interfaces.Partials.FlowSensor(y(unit="W")
           "Enthalpy flow as output signal");
     equation
       y = flowPort_a.H_flow;

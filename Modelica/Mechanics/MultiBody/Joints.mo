@@ -4591,7 +4591,7 @@ component).
       parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset))";
       parameter Cv.NonSIunits.Angle_deg phi_guess=0
-        "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
+        "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -4865,7 +4865,7 @@ The rest of this joint aggregation is defined by the following parameters:
      vector <b>n_b</b>. It is fixed and resolved in frame_b.</li>
 <li> When specifying this joint aggregation with the definitions above, <b>two</b>
      different <b>configurations</b> are possible. Via parameter <b>phi_guess</b>
-     a guess value for revolute.phi(t0) at the initial time t0 is given. The configuration is selected that is closest to phi_guess (|revolute.phi - phi_guess|is minimal).</li>
+     a guess value for revolute.phi(t0) at the initial time t0 is given. The configuration is selected that is closest to phi_guess (|revolute.phi - phi_guess| is minimal).</li>
 </ul>
 <p>
 An additional <b>frame_ia</b> is present. It is <b>fixed</b> in the rod
@@ -5103,7 +5103,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       parameter SI.Position s_offset=0
         "Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset)";
       parameter SI.Position s_guess=0
-        "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
+        "Select the configuration such that at initial time |s(t0)-s_guess| is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -5376,7 +5376,7 @@ The rest of this joint aggregation is defined by the following parameters:
 <li> When specifying this joint aggregation with the definitions above, <b>two</b>
      different <b>configurations</b> are possible. Via parameter <b>s_guess</b>
      a guess value for prismatic.s(t0) at the initial time t0 is given. The configuration
-     is selected that is closest to s_guess (|prismatic.s - s_guess|is minimal).</li>
+     is selected that is closest to s_guess (|prismatic.s - s_guess| is minimal).</li>
 </ul>
 <p>
 An additional <b>frame_ia</b> is present. It is <b>fixed</b> in the rod
@@ -5630,7 +5630,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset))";
       parameter Cv.NonSIunits.Angle_deg phi_guess=0
-        "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
+        "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the two spherical joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -5995,7 +5995,7 @@ component).
       parameter SI.Position s_offset=0
         "Relative distance offset of prismatic joint (distance between frame_b and frame_ib = s(t) + s_offset)";
       parameter SI.Position s_guess=0
-        "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
+        "Select the configuration such that at initial time |s(t0)-s_guess| is minimal";
 
       parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the two spherical joints"
@@ -6370,7 +6370,7 @@ component).
       parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint at frame_b (angle = phi(t) + from_deg(phi_offset))";
       parameter Cv.NonSIunits.Angle_deg phi_guess=0
-        "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
+        "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal";
       parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the revolute joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -6697,7 +6697,7 @@ are connected by rigid rods.
       parameter SI.Position s_offset=0
         "Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset)";
       parameter SI.Position s_guess=0
-        "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
+        "Select the configuration such that at initial time |s(t0)-s_guess| is minimal";
       parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the revolute joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -7872,13 +7872,11 @@ of this subpackage.
         annotation (Placement(transformation(extent={{-50,90},{-70,110}},
               rotation=0)));
 
-      Modelica.Blocks.Interfaces.RealInput position_a[3](each final quantity="Length", each final
-                unit =                                                                                   "m")
+      Modelica.Blocks.Interfaces.RealInput position_a[3](each final quantity="Length", each final unit="m")
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput position_b[3](each final quantity="Length",
-        each final unit="m")
+      Modelica.Blocks.Interfaces.RealInput position_b[3](each final quantity="Length", each final unit="m")
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
         annotation (Placement(transformation(extent={{140,-80},{100,-40}},
               rotation=0)));
@@ -7892,7 +7890,7 @@ of this subpackage.
       parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset (angle = phi + from_deg(phi_offset))";
       parameter Cv.NonSIunits.Angle_deg phi_guess=0
-        "Select the configuration such that at initial time |phi - from_deg(phi_guess)|is minimal";
+        "Select the configuration such that at initial time |phi - from_deg(phi_guess)| is minimal";
       parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinder representing the joint axis"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -7955,7 +7953,7 @@ of this subpackage.
         input Real e[3](each final unit="1")
           "Unit vector along axis of rotation, resolved in frame_a (= same in frame_b)";
         input SI.Angle angle_guess
-          "Select the configuration such that at initial time |angle-angle_guess|is minimal (angle=0: frame_a and frame_b coincide)";
+          "Select the configuration such that at initial time |angle-angle_guess| is minimal (angle=0: frame_a and frame_b coincide)";
         input SI.Position r_a[3]
           "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
         input SI.Position r_b[3]
@@ -8263,12 +8261,12 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         "1-dim. translational flange of the drive bearing"
         annotation (Placement(transformation(extent={{-30,80},{-50,60}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput position_a[3]
-        "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
+      Modelica.Blocks.Interfaces.RealInput position_a[3](each final quantity="Length", each final unit="m")
+        "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput position_b[3]
-        "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
+      Modelica.Blocks.Interfaces.RealInput position_b[3](each final quantity="Length", each final unit="m")
+        "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint"
         annotation (Placement(transformation(extent={{140,-80},{100,-40}},
               rotation=0)));
 
@@ -8280,7 +8278,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
       parameter SI.Position s_offset=0
         "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
       parameter SI.Position s_guess=0
-        "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
+        "Select the configuration such that at initial time |s(t0)-s_guess| is minimal";
       parameter Types.Axis boxWidthDirection={0,1,0}
         "Vector in width direction of box, resolved in frame_a"
         annotation (Evaluate=true, Dialog(tab="Animation", group=
@@ -8311,9 +8309,9 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
 
     protected
       SI.Position r_a[3]=position_a
-        "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
+        "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint";
       SI.Position r_b[3]=position_b
-        "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
+        "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint";
       Modelica.SIunits.Position rbra[3] "= rb - ra";
       Real B "Coefficient B of equation: s*s + B*s + C = 0";
       Real C "Coefficient C of equation: s*s + B*s + C = 0";
@@ -8341,7 +8339,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         input Real e[3](each final unit="1")
           "Unit vector along axis of translation, resolved in frame_a (= same in frame_b)";
         input SI.Position d_guess
-          "Select the configuration such that at initial time |d-d_guess|is minimal (d: distance between origin of frame_a and origin of frame_b)";
+          "Select the configuration such that at initial time |d-d_guess| is minimal (d: distance between origin of frame_a and origin of frame_b)";
         input SI.Position r_a[3]
           "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint";
         input SI.Position r_b[3]

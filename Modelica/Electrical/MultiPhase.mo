@@ -1206,7 +1206,7 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
         "Temperature coefficients of resistances at reference temperatures";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T = T_ref);
-      Modelica.Blocks.Interfaces.RealInput R[m]
+      Modelica.Blocks.Interfaces.RealInput R[m](each unit="Ohm")
         annotation (Placement(transformation(
             origin={0,100},
             extent={{-10,-10},{10,10}},
@@ -1267,7 +1267,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha[m]=zeros(m)
         "Temperature coefficients of conductances at reference temperatures";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T = T_ref);
-      Modelica.Blocks.Interfaces.RealInput G[m]
+      Modelica.Blocks.Interfaces.RealInput G[m](each unit="S")
         annotation (Placement(transformation(
             origin={0,100},
             extent={{-10,-10},{10,10}},
@@ -1325,7 +1325,7 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Capacitance Cmin[m]=fill(Modelica.Constants.eps,m)
         "minimum Capacitance";
-      Modelica.Blocks.Interfaces.RealInput C[m]
+      Modelica.Blocks.Interfaces.RealInput C[m](each unit="F")
         annotation (Placement(transformation(
             origin={0,100},
             extent={{-10,-10},{10,10}},
@@ -1379,7 +1379,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
       extends Interfaces.TwoPlug;
       parameter Modelica.SIunits.Inductance Lmin[m]=fill(Modelica.Constants.eps,m)
         "minimum Inductance";
-      Modelica.Blocks.Interfaces.RealInput L[m]
+      Modelica.Blocks.Interfaces.RealInput L[m](each unit="H")
         annotation (Placement(transformation(
             origin={0,100},
             extent={{-10,-10},{10,10}},
@@ -2232,7 +2232,7 @@ like thyristor, diode, switch, transformer.
       Modelica.Blocks.Interfaces.RealInput u[m]
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     equation
-      y=Modelica.Electrical.MultiPhase.Functions.quasiRMS(        u);
+      y=Modelica.Electrical.MultiPhase.Functions.quasiRMS(u);
 
       annotation (Documentation(info="<HTML>
 <p>
@@ -2736,7 +2736,7 @@ This package contains multiphase potential, voltage, and current sensors.
             transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput v[m]
+      Modelica.Blocks.Interfaces.RealInput v[m](each unit="V")
         "Voltage between pin p and n (= p.v - n.v) as input signal"
          annotation (Placement(transformation(
             origin={0,70},
@@ -2966,7 +2966,7 @@ with a default phase shift determined by
             transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput i[m]
+      Modelica.Blocks.Interfaces.RealInput i[m](each unit="A")
         "Current flowing from pin p to pin n as input signal"
          annotation (Placement(transformation(
             origin={0,70},

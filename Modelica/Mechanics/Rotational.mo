@@ -1856,7 +1856,7 @@ force law in a target system between two inertias.
         parameter Modelica.SIunits.Inertia J "Moment of inertia";
         Modelica.Mechanics.Rotational.Sources.Torque torque
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
-        Modelica.Blocks.Interfaces.RealInput tauDrive
+        Modelica.Blocks.Interfaces.RealInput tauDrive(unit="N.m")
           "Accelerating torque acting at flange (= -flange.tau)"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
         Components.TorqueToAngleAdaptor torqueToAngle
@@ -4750,14 +4750,14 @@ no rolling resistance. This component defines the kinematic constraint:
       parameter StateSelect stateSelect=StateSelect.default
         "Priority to use flange angle and speed as states";
 
-      Modelica.Blocks.Interfaces.RealInput phi_start if use_phi_start
+      Modelica.Blocks.Interfaces.RealInput phi_start(unit="rad") if use_phi_start
         "Initial angle of flange" annotation (Placement(transformation(extent={
                 {-140,60},{-100,100}}, rotation=0), iconTransformation(extent={
                 {-140,60},{-100,100}})));
-      Modelica.Blocks.Interfaces.RealInput w_start if use_w_start
+      Modelica.Blocks.Interfaces.RealInput w_start(unit="rad/s") if use_w_start
         "Initial speed of flange" annotation (Placement(transformation(extent={
                 {-140,-20},{-100,20}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput a_start if use_a_start
+      Modelica.Blocks.Interfaces.RealInput a_start(unit="rad/s2") if use_a_start
         "Initial angular acceleration of flange" annotation (Placement(
             transformation(extent={{-140,-100},{-100,-60}}, rotation=0),
             iconTransformation(extent={{-140,-100},{-100,-60}})));
@@ -4773,7 +4773,7 @@ no rolling resistance. This component defines the kinematic constraint:
       encapsulated model Set_phi_start "Set phi_start"
         import Modelica;
         extends Modelica.Blocks.Icons.Block;
-        Modelica.Blocks.Interfaces.RealInput phi_start "Start angle"
+        Modelica.Blocks.Interfaces.RealInput phi_start(unit="rad") "Start angle"
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},
                   {-100,20}},rotation=0)));
 
@@ -4789,7 +4789,7 @@ no rolling resistance. This component defines the kinematic constraint:
       encapsulated model Set_w_start "Set w_start"
         import Modelica;
         extends Modelica.Blocks.Icons.Block;
-        Modelica.Blocks.Interfaces.RealInput w_start "Start angular velocity"
+        Modelica.Blocks.Interfaces.RealInput w_start(unit="rad/s") "Start angular velocity"
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},
                   {-100,20}},rotation=0)));
 
@@ -4805,7 +4805,7 @@ no rolling resistance. This component defines the kinematic constraint:
       encapsulated model Set_a_start "Set a_start"
         import Modelica;
         extends Modelica.Blocks.Icons.Block;
-        Modelica.Blocks.Interfaces.RealInput a_start
+        Modelica.Blocks.Interfaces.RealInput a_start(unit="rad/s2")
           "Start angular acceleration" annotation (HideResult=true, Placement(
               transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
 
@@ -5441,10 +5441,8 @@ This package contains basic components 1D mechanical rotational drive trains.
     model AngleSensor "Ideal sensor to measure the absolute flange angle"
 
       extends Rotational.Interfaces.PartialAbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput phi(
-        final quantity="Angle",
-        final unit="rad",
-        displayUnit="deg") "Absolute angle of flange as output signal"
+      Modelica.Blocks.Interfaces.RealOutput phi(unit="rad", displayUnit="deg")
+        "Absolute angle of flange as output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -5467,8 +5465,7 @@ way and provides the result as output signal <b>phi</b>
       "Ideal sensor to measure the absolute flange angular velocity"
 
       extends Rotational.Interfaces.PartialAbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput w(final quantity="AngularVelocity",
-          final unit="rad/s")
+      Modelica.Blocks.Interfaces.RealOutput w(unit="rad/s")
         "Absolute angular velocity of flange as output signal" annotation (
           Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
 
@@ -5493,8 +5490,7 @@ way and provides the result as output signal <b>w</b>
 
       extends Rotational.Interfaces.PartialAbsoluteSensor;
       SI.AngularVelocity w "Absolute angular velocity of flange";
-      Modelica.Blocks.Interfaces.RealOutput a(final quantity=
-            "AngularAcceleration", final unit="rad/s2")
+      Modelica.Blocks.Interfaces.RealOutput a(unit="rad/s2")
         "Absolute angular acceleration of flange as output signal" annotation (
           Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
 
@@ -5519,10 +5515,7 @@ blocks of the Modelica.Blocks library).
       "Ideal sensor to measure the relative angle between two flanges"
 
       extends Rotational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput phi_rel(
-        final quantity="Angle",
-        final unit="rad",
-        displayUnit="deg")
+      Modelica.Blocks.Interfaces.RealOutput phi_rel(unit="rad", displayUnit="deg")
         "Relative angle between two flanges (= flange_b.phi - flange_a.phi) as output signal"
         annotation (Placement(transformation(
             origin={0,-110},
@@ -5556,8 +5549,7 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
 
       SI.Angle phi_rel
         "Relative angle between two flanges (flange_b.phi - flange_a.phi)";
-      Modelica.Blocks.Interfaces.RealOutput w_rel(final quantity=
-            "AngularVelocity", final unit="rad/s")
+      Modelica.Blocks.Interfaces.RealOutput w_rel(unit="rad/s")
         "Relative angular velocity between two flanges (= der(flange_b.phi) - der(flange_a.phi)) as output signal"
         annotation (Placement(transformation(
             origin={0,-110},
@@ -5593,8 +5585,7 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
       SI.Angle phi_rel
         "Relative angle between two flanges (flange_b.phi - flange_a.phi)";
       SI.AngularVelocity w_rel "Relative angular velocity between two flanges";
-      Modelica.Blocks.Interfaces.RealOutput a_rel(final quantity=
-            "AngularAcceleration", final unit="rad/s2")
+      Modelica.Blocks.Interfaces.RealOutput a_rel(unit="rad/s2")
         "Relative angular acceleration between two flanges as output signal"
         annotation (Placement(transformation(
             origin={0,-110},
@@ -5627,8 +5618,7 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
       "Ideal sensor to measure the torque between two flanges (= flange_a.tau)"
 
       extends Rotational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput tau(final quantity="Torque", final
-          unit="N.m")
+      Modelica.Blocks.Interfaces.RealOutput tau(unit="N.m")
         "Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal"
         annotation (Placement(transformation(
             origin={-80,-110},
@@ -5659,8 +5649,7 @@ and provides the result as output signal <b>tau</b>
       "Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))"
 
       extends Rotational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power",
-          final unit="W") "Power in flange flange_a as output signal"
+      Modelica.Blocks.Interfaces.RealOutput power(unit="W") "Power in flange flange_a as output signal"
         annotation (Placement(transformation(
             origin={-80,-110},
             extent={{10,-10},{-10,10}},
@@ -5688,29 +5677,24 @@ and provides the result as output signal <b>power</b>
 
     model MultiSensor
       "Ideal sensor to measure the torque and power between two flanges (= flange_a.tau*der(flange_a.phi)) and the absolute angular velocity"
-
       extends .Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power",
-          final unit="W") "Power in flange flange_a as output signal"
+      Modelica.Blocks.Interfaces.RealOutput power(unit="W") "Power in flange flange_a as output signal"
         annotation (Placement(transformation(
             origin={-60,-110},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Modelica.Blocks.Interfaces.RealOutput w(final quantity="AngularVelocity",
-          final unit="rad/s")
+      Modelica.Blocks.Interfaces.RealOutput w(unit="rad/s")
         "Absolute angular velocity of flange_a as output signal" annotation (
           Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={60,-110})));
-      Modelica.Blocks.Interfaces.RealOutput tau(final quantity="Torque", final
-          unit="N.m")
+      Modelica.Blocks.Interfaces.RealOutput tau(unit="N.m")
         "Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal"
         annotation (Placement(transformation(
             origin={0,-110},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-
     equation
       flange_a.phi = flange_b.phi;
       w = der(flange_a.phi);
@@ -5874,7 +5858,7 @@ blocks of the block library Modelica.Blocks.Sources.
         "Angular velocity of flange with respect to support";
       SI.AngularAcceleration a
         "If exact=false, angular acceleration of flange with respect to support else dummy";
-      Modelica.Blocks.Interfaces.RealInput w_ref
+      Modelica.Blocks.Interfaces.RealInput w_ref(unit="rad/s")
         "Reference angular velocity of flange with respect to support as input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -5973,7 +5957,7 @@ blocks of the block library Modelica.Blocks.Sources.
       SI.AngularAcceleration a
         "Angular acceleration of flange with respect to support";
 
-      Modelica.Blocks.Interfaces.RealInput a_ref
+      Modelica.Blocks.Interfaces.RealInput a_ref(unit="rad/s2")
         "Absolute angular acceleration of flange with respect to support as input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -6130,7 +6114,7 @@ blocks of the block library Modelica.Blocks.Sources.
     model Torque "Input signal acting as external torque on a flange"
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
-      Modelica.Blocks.Interfaces.RealInput tau
+      Modelica.Blocks.Interfaces.RealInput tau(unit="N.m")
         "Accelerating torque acting at flange (= -flange.tau)" annotation (
           Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
 
@@ -6211,7 +6195,7 @@ blocks of Modelica.Blocks.Sources.
     model Torque2 "Input signal acting as torque on two flanges"
       extends Rotational.Interfaces.PartialTwoFlanges;
 
-      Modelica.Blocks.Interfaces.RealInput tau
+      Modelica.Blocks.Interfaces.RealInput tau(unit="N.m")
         "Torque driving the two flanges (a positive value accelerates the flange)"
         annotation (Placement(transformation(
             origin={0,40},

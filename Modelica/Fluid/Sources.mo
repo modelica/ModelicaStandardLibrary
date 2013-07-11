@@ -156,21 +156,19 @@ with exception of boundary pressure, do not have an effect.
       "Fixed values of trace substances"
       annotation (Evaluate=true,
                   Dialog(enable = (not use_C_in) and Medium.nC > 0));
-    Modelica.Blocks.Interfaces.RealInput p_in if              use_p_in
+    Modelica.Blocks.Interfaces.RealInput p_in if use_p_in
       "Prescribed boundary pressure"
       annotation (Placement(transformation(extent={{-140,60},{-100,100}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput T_in if         use_T_in
+    Modelica.Blocks.Interfaces.RealInput T_in if use_T_in
       "Prescribed boundary temperature"
       annotation (Placement(transformation(extent={{-140,20},{-100,60}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if
-                                                          use_X_in
+    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if use_X_in
       "Prescribed boundary composition"
       annotation (Placement(transformation(extent={{-140,-60},{-100,-20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if
-                                                          use_C_in
+    Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if use_C_in
       "Prescribed boundary trace substances"
       annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
             rotation=0)));
@@ -315,21 +313,19 @@ with exception of boundary pressure, do not have an effect.
       "Fixed values of trace substances"
       annotation (Evaluate=true,
                   Dialog(enable = (not use_C_in) and Medium.nC > 0));
-    Modelica.Blocks.Interfaces.RealInput p_in if              use_p_in
+    Modelica.Blocks.Interfaces.RealInput p_in if use_p_in
       "Prescribed boundary pressure"
       annotation (Placement(transformation(extent={{-140,60},{-100,100}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput h_in if              use_h_in
+    Modelica.Blocks.Interfaces.RealInput h_in if use_h_in
       "Prescribed boundary specific enthalpy"
       annotation (Placement(transformation(extent={{-140,20},{-100,60}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if
-                                                          use_X_in
+    Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if use_X_in
       "Prescribed boundary composition"
       annotation (Placement(transformation(extent={{-140,-60},{-100,-20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if
-                                                          use_C_in
+    Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if use_C_in
       "Prescribed boundary trace substances"
       annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
             rotation=0)));

@@ -576,7 +576,7 @@ especially if it shall be allowed that a ThermalResistance is defined to be zero
       "Lumped thermal element for heat convection (Q_flow = Gc*dT)"
       Modelica.SIunits.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
       Modelica.SIunits.TemperatureDifference dT "= solid.T - fluid.T";
-      Modelica.Blocks.Interfaces.RealInput Gc
+      Modelica.Blocks.Interfaces.RealInput Gc(unit="W/K")
         "Signal representing the convective thermal conductance in [W/K]"
         annotation (Placement(transformation(
             origin={0,100},
@@ -730,7 +730,7 @@ McGraw-Hill, 1997, p.270):
       "Lumped thermal element for heat convection (dT = Rc*Q_flow)"
       Modelica.SIunits.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
       Modelica.SIunits.TemperatureDifference dT "= solid.T - fluid.T";
-      Modelica.Blocks.Interfaces.RealInput Rc
+      Modelica.Blocks.Interfaces.RealInput Rc(unit="K/W")
         "Signal representing the convective thermal resistance in [K/W]"
         annotation (Placement(transformation(
             origin={0,100},
@@ -1108,13 +1108,13 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
   end Components;
 
   package Sensors "Thermal sensors"
-  extends Modelica.Icons.SensorsPackage;
+    extends Modelica.Icons.SensorsPackage;
 
     model TemperatureSensor "Absolute temperature sensor in Kelvin"
 
-      Modelica.Blocks.Interfaces.RealOutput T(quantity="ThermodynamicTemperature", unit="K")
-        "Absolute temperature as output signal"                                                                                                  annotation (Placement(
-            transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      Modelica.Blocks.Interfaces.RealOutput T(unit="K")
+        "Absolute temperature as output signal"
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}}, rotation=0)));
     equation
@@ -1213,9 +1213,9 @@ sensor model.
                 -110,-10},{-90,10}}, rotation=0)));
       Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput T_rel(quantity="ThermodynamicTemperature", unit="K", displayUnit="K")
+      Modelica.Blocks.Interfaces.RealOutput T_rel(unit="K", displayUnit="K")
         "Relative temperature as output signal"
-                            annotation (Placement(transformation(
+        annotation (Placement(transformation(
             origin={0,-90},
             extent={{10,-10},{-10,10}},
             rotation=90)));
@@ -1258,7 +1258,7 @@ the two ports of this component and is provided as output signal in Kelvin.
 
     model HeatFlowSensor "Heat flow rate sensor"
       extends Modelica.Icons.RotationalSensor;
-      Modelica.Blocks.Interfaces.RealOutput Q_flow(quantity="Power", unit="W")
+      Modelica.Blocks.Interfaces.RealOutput Q_flow(unit="W")
         "Heat flow from port_a to port_b as output signal" annotation (Placement(
             transformation(
             origin={0,-100},
@@ -1321,7 +1321,7 @@ The output signal is positive, if the heat flows from port_a to port_b.
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-50,-30})));
-      Blocks.Interfaces.RealOutput Q_flow(quantity="Power", unit="W")
+      Modelica.Blocks.Interfaces.RealOutput Q_flow(unit="W")
         "Heat flow from port_a to port_b as output signal" annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -1453,7 +1453,7 @@ i.e., it defines a fixed temperature as a boundary condition.
 
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
                 -10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput T annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput T(unit="K") annotation (Placement(transformation(
               extent={{-140,-20},{-100,20}}, rotation=0)));
     equation
       port.T = T;
@@ -1603,7 +1603,7 @@ in order to simulate temperature dependent losses (which are given with respect 
         "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
         "Temperature coefficient of heat flow rate";
-      Modelica.Blocks.Interfaces.RealInput Q_flow
+      Modelica.Blocks.Interfaces.RealInput Q_flow(unit="W")
             annotation (Placement(transformation(
             origin={-100,0},
             extent={{20,-20},{-20,20}},
@@ -1702,10 +1702,10 @@ in order to simulate temperature dependent losses (which are given with respect 
 
     model ToKelvin "Conversion block from degCelsius to Kelvin"
 
-      Modelica.Blocks.Interfaces.RealInput Celsius
+      Modelica.Blocks.Interfaces.RealInput Celsius(unit="degC")
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Kelvin
+      Modelica.Blocks.Interfaces.RealOutput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -1763,10 +1763,10 @@ and provide is as output signal.
 
     model FromKelvin "Conversion from Kelvin to degCelsius"
 
-      Modelica.Blocks.Interfaces.RealInput Kelvin
+      Modelica.Blocks.Interfaces.RealInput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Celsius
+      Modelica.Blocks.Interfaces.RealOutput Celsius(unit="degC")
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -1893,7 +1893,7 @@ i.e., it defines a fixed temperature as a boundary condition.
 
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput T                       annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput T(unit="degC") annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
     equation
       port.T = Modelica.SIunits.Conversions.from_degC(T);
@@ -1960,8 +1960,9 @@ as required to keep the temperature at the specified value.
 
     model TemperatureSensor "Absolute temperature sensor in degCelsius"
 
-      Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature", final unit="degC")
-        "Absolute temperature in degree Celsius as output signal"                                                                                                     annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput T(unit="degC")
+        "Absolute temperature in degree Celsius as output signal"
+        annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}}, rotation=0)));
@@ -2080,9 +2081,9 @@ Example:
 
     model ToKelvin "Conversion block from degFahrenheit to Kelvin"
 
-      Modelica.Blocks.Interfaces.RealInput Fahrenheit annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput Fahrenheit(unit="degF") annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Kelvin
+      Modelica.Blocks.Interfaces.RealOutput Kelvin(unit="K")
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -2144,10 +2145,10 @@ and provides is as output signal.
 
     model FromKelvin "Conversion from Kelvin to degFahrenheit"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      Modelica.Blocks.Interfaces.RealInput Kelvin
+      Modelica.Blocks.Interfaces.RealInput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Fahrenheit
+      Modelica.Blocks.Interfaces.RealOutput Fahrenheit(unit="degF")
      annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
                0)));
     equation
@@ -2282,7 +2283,7 @@ i.e., it defines a fixed temperature as a boundary condition.
 
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput T
+      Modelica.Blocks.Interfaces.RealInput T(unit="degF")
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
     equation
@@ -2475,10 +2476,10 @@ Example:
 
     model ToKelvin "Conversion block from degRankine to Kelvin"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      Modelica.Blocks.Interfaces.RealInput Rankine
+      Modelica.Blocks.Interfaces.RealInput Rankine(unit="degRk")
        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Kelvin
+      Modelica.Blocks.Interfaces.RealOutput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -2535,10 +2536,10 @@ and provides them as output signals.
 
     model FromKelvin "Conversion from Kelvin to degRankine"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
-      Modelica.Blocks.Interfaces.RealInput Kelvin
+      Modelica.Blocks.Interfaces.RealInput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Rankine
+      Modelica.Blocks.Interfaces.RealOutput Rankine(unit="degRk")
          annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -2664,7 +2665,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
 
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput T
+      Modelica.Blocks.Interfaces.RealInput T(unit="degRk")
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
     equation

@@ -627,7 +627,7 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
       Modelica.SIunits.Resistance R_actual
         "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.Blocks.Interfaces.RealInput R_ref
+      Modelica.Blocks.Interfaces.RealInput R_ref(unit="Ohm")
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -701,7 +701,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
       Modelica.SIunits.Conductance G_actual
         "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.Blocks.Interfaces.RealInput G_ref
+      Modelica.Blocks.Interfaces.RealInput G_ref(unit="S")
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -756,7 +756,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
     model VariableCapacitor "Singlephase variable capacitor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
-      Modelica.Blocks.Interfaces.RealInput C
+      Modelica.Blocks.Interfaces.RealInput C(unit="F")
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -812,7 +812,7 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:
     model VariableInductor "Singlephase variable inductor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
-      Modelica.Blocks.Interfaces.RealInput L
+      Modelica.Blocks.Interfaces.RealInput L(unit="H")
         annotation (Placement(transformation(
             origin={0,108},
             extent={{-20,-20},{20,20}},

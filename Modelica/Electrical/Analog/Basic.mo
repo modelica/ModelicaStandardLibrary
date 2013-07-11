@@ -1769,7 +1769,7 @@ end M_Transformer;
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
-        Modelica.Blocks.Interfaces.RealInput R(final quantity="Resistance", final unit="Ohm")
+        Modelica.Blocks.Interfaces.RealInput R(unit="Ohm")
           annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
@@ -1838,7 +1838,7 @@ end M_Transformer;
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Conductance G_actual
       "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
-        Modelica.Blocks.Interfaces.RealInput G(final quantity="Conductance", final unit="S")
+        Modelica.Blocks.Interfaces.RealInput G(unit="S")
           annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
@@ -1898,7 +1898,7 @@ end M_Transformer;
         model VariableCapacitor
     "Ideal linear electrical capacitor with variable capacitance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput C(final quantity="Capacitance", final unit="F", min=0)
+          Modelica.Blocks.Interfaces.RealInput C(unit="F")
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
@@ -1971,7 +1971,7 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
         model VariableInductor
     "Ideal linear electrical inductor with variable inductance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput L(final quantity="Inductance", final unit="H", min=0)
+          Modelica.Blocks.Interfaces.RealInput L(unit="H")
             annotation (Placement(transformation(
           origin={0,108},
           extent={{-20,-20},{20,20}},
