@@ -1438,12 +1438,12 @@ InflateFieldNames(mat_t *mat,matvar_t *matvar,void *buf,int nfields,
 #include <stdio.h>
 #include <string.h>
 
-#if !defined(HAVE_VA_COPY) && defined(HAVE___VA_COPY)
+#if !defined(HAVE_VA_COPY) && !defined(va_copy) && defined(HAVE___VA_COPY)
 #    define va_copy(d,s) __va_copy(d,s)
-#elif !defined(HAVE_VA_COPY)
+#elif !defined(HAVE_VA_COPY) && !defined(va_copy)
 #    define va_copy(d,s) memcpy(&(d),&(s),sizeof(va_list))
 #endif
-#ifndef HAVE_VSNPRINTF
+#if !defined(HAVE_VSNPRINTF) && !defined(vsnprintf)
 #    define vsnprintf mat_vsnprintf
 #    ifdef  __cplusplus
          extern "C" int vsnprintf(char *,size_t,const char *,va_list);
@@ -1451,7 +1451,7 @@ InflateFieldNames(mat_t *mat,matvar_t *matvar,void *buf,int nfields,
          extern int vsnprintf(char *,size_t,const char *,va_list);
 #    endif
 #endif
-#ifndef HAVE_SNPRINTF
+#if !defined(HAVE_SNPRINTF) && !defined(snprintf)
 #    define snprintf mat_snprintf
 #    ifdef  __cplusplus
          extern "C" int snprintf(char *str,size_t size,const char *format,...);
@@ -1459,10 +1459,10 @@ InflateFieldNames(mat_t *mat,matvar_t *matvar,void *buf,int nfields,
          extern int snprintf(char *str,size_t size,const char *format,...);
 #    endif
 #endif
-#ifndef HAVE_VASPRINTF
+#if !defined(HAVE_VASPRINTF) && !defined(vasprintf)
 #    define vasprintf mat_vasprintf
 #endif
-#ifndef HAVE_ASPRINTF
+#if !defined(HAVE_ASPRINTF) && !defined(asprintf)
 #    define asprintf mat_asprintf
 #endif
 
