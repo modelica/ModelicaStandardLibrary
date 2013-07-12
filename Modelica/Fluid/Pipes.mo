@@ -235,8 +235,6 @@ or other flow models without storage, are directly connected.
             pattern=LinePattern.Dot)}));
   end DynamicPipe;
 
-
-
   package BaseClasses
     "Base classes used in the Pipes package (only of interest to build new component models)"
     extends Modelica.Icons.BasesPackage;
@@ -997,7 +995,6 @@ This also allows for taking into account friction losses with respect to the act
               textString="lengths[n]")}));
     end PartialTwoPortFlow;
 
-
     package FlowModels
       "Flow models for pipes, including wall friction, static head and momentum flow"
       extends Modelica.Icons.Package;
@@ -1253,7 +1250,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
               annotation(Dialog(enable=not from_dp and WallFriction.use_m_flow_small));
 
       protected
-            parameter SI.AbsolutePressure dp_small(start = if system.use_eps_Re then 1 else system.dp_small, fixed = not system.use_eps_Re)
+            parameter SI.AbsolutePressure dp_small(start = 1, fixed = false)
           "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
               annotation(Dialog(enable=from_dp and WallFriction.use_dp_small));
             final parameter Boolean constantPressureLossCoefficient=
@@ -1287,6 +1284,8 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
             // initialize dp_small from flow model
             if system.use_eps_Re then
               dp_small = dp_fric_nominal/m_flow_nominal*m_flow_small;
+            else
+              dp_small = system.dp_small;
             end if;
 
           equation
@@ -1542,7 +1541,7 @@ The turbulent pressure loss correlation might be useful to optimize models that 
           redeclare package WallFriction =
               Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
           pathLengths_internal=pathLengths,
-          dp_nominal(start=if system.use_eps_Re then 1 else 1e3*dp_small, fixed=not system.use_eps_Re),
+          dp_nominal(start=1, fixed=false),
           m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*m_flow_small,
           Res_turbulent_internal = Re_turbulent*ones(n-1));
 
@@ -1550,6 +1549,8 @@ The turbulent pressure loss correlation might be useful to optimize models that 
             // initialize dp_nominal from flow model
             if system.use_eps_Re then
               dp_nominal = dp_fric_nominal + g*sum(dheights)*rho_nominal;
+            else
+              dp_nominal = 1e3*dp_small;
             end if;
 
               annotation (Documentation(info="<html>
