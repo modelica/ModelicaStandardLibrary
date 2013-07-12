@@ -733,8 +733,6 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
     discrete Real rate "Current rising/falling rate";
     discrete Modelica.SIunits.Time T
       "Predicted time of output reaching endValue";
-  initial equation
-    pre(y) = 0.0;
   equation
     y = if time < T then endValue - (T - time)*rate else endValue;
 

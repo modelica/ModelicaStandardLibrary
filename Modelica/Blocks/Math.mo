@@ -3123,7 +3123,6 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
   initial equation
     t0 = time;
     x = x0;
-    pre(x) = x0;
     y = 0;
   equation
     der(x) = u;

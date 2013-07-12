@@ -6,14 +6,14 @@ package Blocks "Test models for Modelica.Blocks"
     Modelica.Blocks.Continuous.Integrator integrator annotation (Placement(
           transformation(extent={{-60,100},{-40,120}}, rotation=0)));
     Modelica.Blocks.Continuous.LimIntegrator limIntegrator(outMax=1)
-      annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation=
+             0)));
     Modelica.Blocks.Continuous.Derivative derivative(x_start=0, initType=
           Modelica.Blocks.Types.Init.InitialState) annotation (Placement(
           transformation(extent={{-60,20},{-40,40}}, rotation=0)));
     Modelica.Blocks.Continuous.FirstOrder firstOrder(T=1, initType=Modelica.Blocks.Types.Init.InitialState)
-      annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, rotation=
+             0)));
     Modelica.Blocks.Continuous.SecondOrder secondOrder(
       w=1,
       D=1,
@@ -154,15 +154,11 @@ package Blocks "Test models for Modelica.Blocks"
   model Continuous_InitialOutput
     extends ModelicaTest.Blocks.Continuous(
       integrator(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
-
       limIntegrator(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=
             0.5),
       derivative(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
-
       firstOrder(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
-
       secondOrder(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
-
       pI(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=2),
       pID(initType=Modelica.Blocks.Types.InitPID.InitialOutput, y_start=2),
       limPID(
@@ -590,6 +586,253 @@ package Blocks "Test models for Modelica.Blocks"
     annotation (experiment(StopTime=1.01));
   end UnitDeduction;
 
+  model Logical
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.BooleanTable
+                         table1(table={2,4,6,8}) annotation (Placement(
+          transformation(extent={{-100,100},{-80,120}},
+                                                     rotation=0)));
+    Modelica.Blocks.Sources.BooleanTable
+                         table2(table={1,3,5,7}) annotation (Placement(
+          transformation(extent={{-100,60},{-80,80}},rotation=0)));
+    Modelica.Blocks.Logical.And and1
+      annotation (Placement(transformation(extent={{-60,100},{-40,120}})));
+    Modelica.Blocks.Logical.Or or1
+      annotation (Placement(transformation(extent={{-20,100},{0,120}})));
+    Modelica.Blocks.Logical.Xor xor
+      annotation (Placement(transformation(extent={{-20,140},{0,160}})));
+    Modelica.Blocks.Logical.Nor nor
+      annotation (Placement(transformation(extent={{20,140},{40,160}})));
+    Modelica.Blocks.Logical.Nand nand
+      annotation (Placement(transformation(extent={{60,140},{80,160}})));
+    Modelica.Blocks.Logical.Not not1
+      annotation (Placement(transformation(extent={{20,100},{40,120}})));
+    Modelica.Blocks.Logical.Pre pre1
+      annotation (Placement(transformation(extent={{60,100},{80,120}})));
+    Modelica.Blocks.Logical.Edge edge1
+      annotation (Placement(transformation(extent={{20,0},{40,20}})));
+    Modelica.Blocks.Logical.FallingEdge fallingEdge
+      annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+    Modelica.Blocks.Logical.Change change1
+      annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
+    Modelica.Blocks.Logical.GreaterThreshold greaterThreshold(threshold=0.1)
+      annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
+    Modelica.Blocks.Sources.Sine sine(amplitude=2, freqHz=0.5)
+      annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
+    Modelica.Blocks.Logical.GreaterEqualThreshold greaterEqualThreshold(
+        threshold=-0.1)
+      annotation (Placement(transformation(extent={{-60,-48},{-40,-28}})));
+    Modelica.Blocks.Logical.LessThreshold lessThreshold(threshold=0.1)
+      annotation (Placement(transformation(extent={{-60,-76},{-40,-56}})));
+    Modelica.Blocks.Logical.LessEqualThreshold lessEqualThreshold(threshold=-0.1)
+      annotation (Placement(transformation(extent={{-60,-104},{-40,-84}})));
+    Modelica.Blocks.Logical.Greater greater
+      annotation (Placement(transformation(extent={{-60,-140},{-40,-120}})));
+    Modelica.Blocks.Sources.Ramp ramp(height=5, duration=8)
+      annotation (Placement(transformation(extent={{-102,-148},{-82,-128}})));
+    Modelica.Blocks.Logical.GreaterEqual greaterEqual
+      annotation (Placement(transformation(extent={{-20,-140},{0,-120}})));
+    Modelica.Blocks.Logical.Less less
+      annotation (Placement(transformation(extent={{20,-140},{40,-120}})));
+    Modelica.Blocks.Logical.LessEqual lessEqual
+      annotation (Placement(transformation(extent={{60,-140},{80,-120}})));
+    Modelica.Blocks.Logical.ZeroCrossing zeroCrossing
+      annotation (Placement(transformation(extent={{-60,12},{-40,32}})));
+    Modelica.Blocks.Logical.LogicalSwitch logicalSwitch
+      annotation (Placement(transformation(extent={{100,120},{120,140}})));
+    Modelica.Blocks.Logical.Switch switch1
+      annotation (Placement(transformation(extent={{80,-80},{100,-60}})));
+    Modelica.Blocks.Logical.Hysteresis hysteresis(uLow=-0.5, uHigh=0.5)
+      annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+    Modelica.Blocks.Logical.OnOffController onOffController(bandwidth=0.5)
+      annotation (Placement(transformation(extent={{80,-40},{100,-20}})));
+    Modelica.Blocks.Logical.TriggeredTrapezoid triggeredTrapezoid(rising=1,
+        falling=0.5)
+      annotation (Placement(transformation(extent={{106,60},{126,80}})));
+    Modelica.Blocks.Logical.Timer timer
+      annotation (Placement(transformation(extent={{100,20},{120,40}})));
+    Modelica.Blocks.Logical.RSFlipFlop rSFlipFlop
+      annotation (Placement(transformation(extent={{140,120},{160,140}})));
+  equation
+    connect(table1.y, and1.u1) annotation (Line(
+        points={{-79,110},{-62,110}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(table2.y, and1.u2) annotation (Line(
+        points={{-79,70},{-72,70},{-72,102},{-62,102}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(and1.y, or1.u1) annotation (Line(
+        points={{-39,110},{-22,110}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(table2.y, or1.u2) annotation (Line(
+        points={{-79,70},{-34,70},{-34,102},{-22,102}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(table1.y, xor.u1) annotation (Line(
+        points={{-79,110},{-72,110},{-72,150},{-22,150}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(and1.y, xor.u2) annotation (Line(
+        points={{-39,110},{-32,110},{-32,142},{-22,142}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(xor.y, nor.u1) annotation (Line(
+        points={{1,150},{18,150}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(or1.y, nor.u2) annotation (Line(
+        points={{1,110},{10,110},{10,142},{18,142}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(nor.y, nand.u1) annotation (Line(
+        points={{41,150},{58,150}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(table2.y, nand.u2) annotation (Line(
+        points={{-79,70},{46,70},{46,142},{58,142}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(or1.y, not1.u) annotation (Line(
+        points={{1,110},{18,110}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(not1.y, pre1.u) annotation (Line(
+        points={{41,110},{58,110}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(or1.y, edge1.u) annotation (Line(
+        points={{1,110},{10,110},{10,10},{18,10}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(or1.y, fallingEdge.u) annotation (Line(
+        points={{1,110},{10,110},{10,-30},{18,-30}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(or1.y, change1.u) annotation (Line(
+        points={{1,110},{10,110},{10,-70},{18,-70}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(sine.y, greaterThreshold.u) annotation (Line(
+        points={{-79,-10},{-62,-10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine.y, greaterEqualThreshold.u) annotation (Line(
+        points={{-79,-10},{-72,-10},{-72,-38},{-62,-38}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine.y, lessThreshold.u) annotation (Line(
+        points={{-79,-10},{-72,-10},{-72,-66},{-62,-66}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine.y, lessEqualThreshold.u) annotation (Line(
+        points={{-79,-10},{-72,-10},{-72,-94},{-62,-94}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(ramp.y, greater.u2) annotation (Line(
+        points={{-81,-138},{-62,-138}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(ramp.y, greaterEqual.u2) annotation (Line(
+        points={{-81,-138},{-74,-138},{-74,-154},{-32,-154},{-32,-138},{-22,
+            -138}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(less.u2, greaterEqual.u2) annotation (Line(
+        points={{18,-138},{10,-138},{10,-154},{-32,-154},{-32,-138},{-22,-138}},
+        color={0,0,127},
+        smooth=Smooth.None));
+
+    connect(lessEqual.u2, greaterEqual.u2) annotation (Line(
+        points={{58,-138},{50,-138},{50,-154},{-32,-154},{-32,-138},{-22,-138}},
+        color={0,0,127},
+        smooth=Smooth.None));
+
+    connect(greater.u1, lessEqualThreshold.u) annotation (Line(
+        points={{-62,-130},{-72,-130},{-72,-94},{-62,-94}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(greaterEqual.u1, lessEqualThreshold.u) annotation (Line(
+        points={{-22,-130},{-30,-130},{-30,-112},{-72,-112},{-72,-94},{-62,-94}},
+        color={0,0,127},
+        smooth=Smooth.None));
+
+    connect(less.u1, lessEqualThreshold.u) annotation (Line(
+        points={{18,-130},{12,-130},{12,-112},{-72,-112},{-72,-94},{-62,-94}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(lessEqual.u1, lessEqualThreshold.u) annotation (Line(
+        points={{58,-130},{52,-130},{52,-112},{-72,-112},{-72,-94},{-62,-94}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(zeroCrossing.u, greaterThreshold.u) annotation (Line(
+        points={{-62,22},{-72,22},{-72,-10},{-62,-10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(greaterThreshold.y, zeroCrossing.enable) annotation (Line(
+        points={{-39,-10},{-22,-10},{-22,4},{-50,4},{-50,10}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(nand.y, logicalSwitch.u1) annotation (Line(
+        points={{81,150},{90,150},{90,138},{98,138}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(pre1.y, logicalSwitch.u2) annotation (Line(
+        points={{81,110},{88,110},{88,130},{98,130}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(table2.y, logicalSwitch.u3) annotation (Line(
+        points={{-79,70},{92,70},{92,122},{98,122}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(change1.y, switch1.u2) annotation (Line(
+        points={{41,-70},{78,-70}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(switch1.u1, lessEqualThreshold.u) annotation (Line(
+        points={{78,-62},{52,-62},{52,-112},{-72,-112},{-72,-94},{-62,-94}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(switch1.u3, greaterEqual.u2) annotation (Line(
+        points={{78,-78},{66,-78},{66,-106},{106,-106},{106,-154},{-32,-154},{
+            -32,-138},{-22,-138}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine.y, hysteresis.u) annotation (Line(
+        points={{-79,-10},{-72,-10},{-72,50},{-62,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(onOffController.reference, lessEqualThreshold.u) annotation (Line(
+        points={{78,-24},{66,-24},{66,-24},{52,-24},{52,-112},{-72,-112},{-72,
+            -94},{-62,-94}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(onOffController.u, greaterEqual.u2) annotation (Line(
+        points={{78,-36},{66,-36},{66,-106},{106,-106},{106,-154},{-32,-154},{
+            -32,-138},{-22,-138}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(table2.y, triggeredTrapezoid.u) annotation (Line(
+        points={{-79,70},{104,70}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(timer.u, logicalSwitch.u3) annotation (Line(
+        points={{98,30},{94,30},{94,30},{92,30},{92,122},{98,122}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(nand.y, rSFlipFlop.S) annotation (Line(
+        points={{81,150},{128,150},{128,136},{138,136}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(pre1.y, rSFlipFlop.R) annotation (Line(
+        points={{81,110},{130,110},{130,124},{138,124}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    annotation (experiment(StopTime=10), Diagram(coordinateSystem(
+            preserveAspectRatio=false,extent={{-100,-180},{180,180}}), graphics));
+  end Logical;
+
   model IntegerTable
     extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.IntegerTable integerTable(table=[0, 1; 1, 4; 1.5, 5;
@@ -655,8 +898,8 @@ package Blocks "Test models for Modelica.Blocks"
       annotation (Placement(transformation(extent={{-14,66},{-6,74}})));
     Modelica.Blocks.Sources.BooleanTable booleanTable(table={1,4,6,8,9,9.5})
       annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
-    Modelica.Blocks.Sources.BooleanStep booleanStep3(startValue=true, startTime
-        =2) annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
+    Modelica.Blocks.Sources.BooleanStep booleanStep3(startValue=true, startTime=
+         2) annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
     Modelica.Blocks.MathBoolean.OnDelay onDelay3(delayTime=1)
       annotation (Placement(transformation(extent={{-14,-14},{-6,-6}})));
     Modelica.Blocks.Sources.BooleanStep booleanStep2(startTime=2, startValue=
