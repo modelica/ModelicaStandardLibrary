@@ -6852,7 +6852,7 @@ This package is a reference to Modelica keywords,
 <a href=\"modelica://ModelicaReference.Operators\">Modelica builtin operators</a>
 , and the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica grammar</a>.
 It is based on the
-<a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf\">Modelica Language Specification version 3.2 Revision 2</a> from XXXth XXXXXX 2013. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
+<a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf\">Modelica Language Specification version 3.2 Revision 2</a> from 30th July 2013. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
 </p>
 
 <p>
