@@ -930,32 +930,32 @@ the definition of initial values considerably.
 </p>
 </html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
-              lineColor={64,64,64}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
+              lineColor={64,64,64},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.HorizontalCylinder,
               extent={{-90.0,-10.0},{-60.0,10.0}}),
             Polygon(
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192},
+              fillPattern=FillPattern.HorizontalCylinder,
               points={{-60.0,10.0},{-60.0,20.0},{-40.0,40.0},{-40.0,-40.0},{-60.0,-20.0},{-60.0,10.0}}),
             Rectangle(
-              lineColor={64,64,64}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              extent={{-40.0,-60.0},{40.0,60.0}}, 
+              lineColor={64,64,64},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-40.0,-60.0},{40.0,60.0}},
               radius=10.0),
             Polygon(
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192},
+              fillPattern=FillPattern.HorizontalCylinder,
               points={{60.0,20.0},{40.0,40.0},{40.0,-40.0},{60.0,-20.0},{60.0,20.0}}),
             Rectangle(
-              lineColor={64,64,64}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
+              lineColor={64,64,64},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.HorizontalCylinder,
               extent={{60.0,-10.0},{90.0,10.0}}),
             Polygon(
-              fillColor={64,64,64}, 
-              fillPattern=FillPattern.Solid, 
+              fillColor={64,64,64},
+              fillPattern=FillPattern.Solid,
               points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}}),
             Text(
               extent={{0,128},{0,68}},
@@ -1022,32 +1022,32 @@ Default values for all parameters are given for joint 4.
 </p>
 </html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
-              lineColor={64,64,64}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
+              lineColor={64,64,64},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.HorizontalCylinder,
               extent={{-90.0,-10.0},{-60.0,10.0}}),
             Polygon(
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192},
+              fillPattern=FillPattern.HorizontalCylinder,
               points={{-60.0,10.0},{-60.0,20.0},{-40.0,40.0},{-40.0,-40.0},{-60.0,-20.0},{-60.0,10.0}}),
             Rectangle(
-              lineColor={64,64,64}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              extent={{-40.0,-60.0},{40.0,60.0}}, 
+              lineColor={64,64,64},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-40.0,-60.0},{40.0,60.0}},
               radius=10.0),
             Polygon(
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192},
+              fillPattern=FillPattern.HorizontalCylinder,
               points={{60.0,20.0},{40.0,40.0},{40.0,-40.0},{60.0,-20.0},{60.0,20.0}}),
             Rectangle(
-              lineColor={64,64,64}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
+              lineColor={64,64,64},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.HorizontalCylinder,
               extent={{60.0,-10.0},{90.0,10.0}}),
             Polygon(
-              fillColor={64,64,64}, 
-              fillPattern=FillPattern.Solid, 
+              fillColor={64,64,64},
+              fillPattern=FillPattern.Solid,
               points={{-60.0,-90.0},{-50.0,-90.0},{-20.0,-30.0},{20.0,-30.0},{48.0,-90.0},{60.0,-90.0},{60.0,-100.0},{-60.0,-100.0},{-60.0,-90.0}}),
             Text(
               extent={{0,128},{0,68}},
@@ -1739,6 +1739,7 @@ Default values of the parameters are given for the axis of joint 1.
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape load(
+        r={0,0,0},
         r_CM=rLoad,
         m=mLoad,
         r_shape={0,0,0},

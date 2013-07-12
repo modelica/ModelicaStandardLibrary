@@ -805,6 +805,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
               -70,-60}}, rotation=0)));
     Parts.BodyShape crank(
       animation=false,
+      r={0,0,0},
       r_CM={6*0.1/2,0,0},
       I_22=1.e-5,
       I_33=1.e-5,
