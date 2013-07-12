@@ -2493,14 +2493,15 @@ and will interpret it in the same way. Short Overview:
 
 <p>
 This release of package Modelica, and the accompanying ModelicaTest, has been tested with the
-following tools (new components have been tested by the respective component developer; the tools
-are listed alphabetically. At the time of the test, some of the tools might not yet supported
-the complete Modelica package):
+following tools (the tools are listed alphabetically. At the time of the test, some of the
+tools might not yet supported the complete Modelica package):
 </p>
 
 <ul>
 <li> CyModelica </li>
-<li> Dymola 2014 (Windows 64 bit, pedantic flag)</li>
+<li> Dymola 2014 (Windows 64 bit, pedantic flag)<br>
+     Regression test results with regards to Modelica 3.2 are available
+     <a href=\"https://trac.modelica.org/Modelica/ticket/1114\">here</a>.</li>
 <li> Maplesim Parser</li>
 <li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)<br>
      Test reports for the daily builds are available
@@ -2508,6 +2509,7 @@ the complete Modelica package):
      Test reports of comparisons with Dymola result files are available
      <a href=\"https://test.openmodelica.org/hudson/job/OpenModelica_TEST_CLANG/lastCompletedBuild/testReport/(root)/simulation_libraries_msl32/\">here</a>.
      </li>
+<li> MWorks 3.2</li>
 </ul>
 
 <p>
