@@ -603,6 +603,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
               rotation=0)));
       FluidHeatFlow.Components.Valve valve(
         medium=medium,
+        m=0,
         T0=TAmb,
         LinearCharacteristic=false,
         y1=1,
