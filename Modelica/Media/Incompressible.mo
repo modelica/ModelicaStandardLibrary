@@ -499,7 +499,7 @@ which is only exactly true for a fluid with constant density d=d0.
       end Internal;
     algorithm
      T := Internal.solve(h, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
-      annotation(Inline=false, LateInline=true, inverse=h_pT(p,T));
+      annotation(Inline=false, LateInline=true, inverse(h=h_pT(p,T)));
     end T_ph;
 
     function T_ps "Compute temperature from pressure and specific enthalpy"
