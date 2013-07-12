@@ -296,13 +296,13 @@ Zeunerstrasse 38<br />
           RD=0,
           RS=0,
           CBD=0,
-          CBS=0), Sinternal(start=0))
+          CBS=0), Sinternal(start=0),IC=-1e40)
         annotation (Placement(transformation(extent={{-14,8},{6,28}})));
       Semiconductors.M_NMOS mn(modelcard(
           RD=0,
           RS=0,
           CBD=0,
-          CBS=0))
+          CBS=0), IC=-1e40)
         annotation (Placement(transformation(extent={{-14,-34},{6,-14}})));
       Basic.Ground ground
         annotation (Placement(transformation(extent={{-14,-60},{6,-40}})));
@@ -386,16 +386,16 @@ Zeunerstrasse 38<br />
       parameter Semiconductors.ModelcardMOS MNmos(GAMMA=0.37, LAMBDA=0.02, CBD=0, CBS=0)
         "Specified modelcardMOS for MNmos";
                                              //instance of record modelcardMOS
-      Semiconductors.M_PMOS mp1(modelcard=MPmos)
+      Semiconductors.M_PMOS mp1(modelcard=MPmos, IC=-1e40)
                 annotation (Placement(transformation(extent={{-38,20},{-18,40}},
               rotation=0)));
-      Semiconductors.M_NMOS mn1(modelcard=MNmos)
+      Semiconductors.M_NMOS mn1(modelcard=MNmos, IC=-1e40)
                 annotation (Placement(transformation(extent={{-38,-30},{-18,-10}},
               rotation=0)));
-      Semiconductors.M_PMOS mp2(modelcard=MPmos)
+      Semiconductors.M_PMOS mp2(modelcard=MPmos, IC=-1e40)
                 annotation (Placement(transformation(extent={{2,20},{22,40}},
               rotation=0)));
-      Semiconductors.M_NMOS mn2(modelcard=MNmos)
+      Semiconductors.M_NMOS mn2(modelcard=MNmos, IC=-1e40)
                 annotation (Placement(transformation(extent={{2,-30},{22,-10}},
               rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
@@ -520,13 +520,13 @@ Zeunerstrasse 38<br />
 </html>"));
       end MNmos;
 
-      MPmos mp1 annotation (Placement(transformation(extent={{-40,20},{-20,40}},
+      MPmos mp1(IC=-1e40) annotation (Placement(transformation(extent={{-40,20},{-20,40}},
               rotation=0)));
-      MNmos mn1 annotation (Placement(transformation(extent={{-40,-30},{-20,-10}},
+      MNmos mn1(IC=-1e40) annotation (Placement(transformation(extent={{-40,-30},{-20,-10}},
               rotation=0)));
-      MPmos mp2 annotation (Placement(transformation(extent={{0,20},{20,40}},
+      MPmos mp2(IC=-1e40) annotation (Placement(transformation(extent={{0,20},{20,40}},
               rotation=0)));
-      MNmos mn2 annotation (Placement(transformation(extent={{0,-30},{20,-10}},
+      MNmos mn2(IC=-1e40) annotation (Placement(transformation(extent={{0,-30},{20,-10}},
               rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
 
@@ -634,28 +634,28 @@ Zeunerstrasse 38<br />
       parameter Semiconductors.ModelcardMOS modn(CBD=0, CBS=0)
         "private NMOS modelcard";
 
-      Semiconductors.M_PMOS mp1(modelcard=modp)
+      Semiconductors.M_PMOS mp1(modelcard=modp, IC=-1e40)
                 annotation (Placement(transformation(extent={{-74,20},{-54,40}},
               rotation=0)));
-      Semiconductors.M_NMOS mn1(modelcard=modn)
+      Semiconductors.M_NMOS mn1(modelcard=modn, IC=-1e40)
                 annotation (Placement(transformation(extent={{-74,-30},{-54,-10}},
               rotation=0)));
-      Semiconductors.M_PMOS mp2(modelcard=modp)
+      Semiconductors.M_PMOS mp2(modelcard=modp, IC=-1e40)
                 annotation (Placement(transformation(extent={{-34,20},{-14,40}},
               rotation=0)));
-      Semiconductors.M_NMOS mn2(modelcard=modn)
+      Semiconductors.M_NMOS mn2(modelcard=modn, IC=-1e40)
                 annotation (Placement(transformation(extent={{-34,-30},{-14,-10}},
               rotation=0)));
-      Semiconductors.M_PMOS mp3(modelcard=modp)
+      Semiconductors.M_PMOS mp3(modelcard=modp, IC=-1e40)
                 annotation (Placement(transformation(extent={{6,20},{26,40}},
               rotation=0)));
-      Semiconductors.M_PMOS mp4(modelcard=modn)
+      Semiconductors.M_PMOS mp4(modelcard=modn, IC=-1e40)
                 annotation (Placement(transformation(extent={{46,20},{66,40}},
               rotation=0)));
-      Semiconductors.M_NMOS mn3(modelcard=modp)
+      Semiconductors.M_NMOS mn3(modelcard=modp, IC=-1e40)
                 annotation (Placement(transformation(extent={{6,-30},{26,-10}},
               rotation=0)));
-      Semiconductors.M_NMOS mn4(modelcard=modn)
+      Semiconductors.M_NMOS mn4(modelcard=modn, IC=-1e40)
                 annotation (Placement(transformation(extent={{46,-30},{66,-10}},
               rotation=0)));
       Basic.C_Capacitor c1(C=10e-6,
@@ -812,14 +812,14 @@ Zeunerstrasse 38<br />
       Semiconductors.M_PMOS mp1(
         L=2e-5,
         W=1e-5,
-        modelcard(PHI=0.7, CBD=0, CBS=0), Sinternal(start=0))               annotation (Placement(transformation(
+        modelcard(PHI=0.7, CBD=0, CBS=0), Sinternal(start=0), IC=-1e40)               annotation (Placement(transformation(
               extent={{-22,24},{-2,44}},  rotation=0)));
-      Semiconductors.M_PMOS mp2(modelcard(PHI=0.7,CBD=0, CBS=0))
+      Semiconductors.M_PMOS mp2(modelcard(PHI=0.7,CBD=0, CBS=0), IC=-1e40)
                                            annotation (Placement(transformation(
               extent={{24,24},{44,44}},rotation=0)));
-      Semiconductors.M_NMOS mn2(Dinternal(start=0), modelcard(CBD=0, CBS=0))           annotation (Placement(transformation(
+      Semiconductors.M_NMOS mn2(Dinternal(start=0), modelcard(CBD=0, CBS=0), IC=-1e40)           annotation (Placement(transformation(
               extent={{-24,-44},{-4,-24}},rotation=0)));
-      Semiconductors.M_NMOS mn1(modelcard(CBD=0, CBS=0))            annotation (Placement(transformation(
+      Semiconductors.M_NMOS mn1(modelcard(CBD=0, CBS=0), IC=-1e40)            annotation (Placement(transformation(
               extent={{-24,-10},{-4,10}}, rotation=0)));
       Sources.V_constant vconstant(V=5)         annotation (Placement(
             transformation(extent={{-10,-10},{10,10}},
@@ -936,7 +936,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true))                     annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40)                     annotation (Placement(transformation(
               extent={{-16,24},{4,44}},   rotation=0)));
       Semiconductors.M_PMOS mp2(modelcard(
           RD=1e-4,
@@ -945,7 +945,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true))                      annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40)                      annotation (Placement(transformation(
               extent={{-16,-6},{4,14}},   rotation=0)));
       Semiconductors.M_NMOS mn1(modelcard(
           RD=1e-4,
@@ -954,7 +954,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true))                     annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40)                     annotation (Placement(transformation(
               extent={{-16,-44},{4,-24}}, rotation=0)));
       Semiconductors.M_NMOS mn2(modelcard(
           RD=1e-4,
@@ -963,7 +963,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true))                      annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true), IC=-1e40)                      annotation (Placement(transformation(
               extent={{32,-44},{52,-24}},
                                        rotation=0)));
       Basic.Ground ground        annotation (Placement(transformation(extent={{28,-100},
@@ -1083,21 +1083,21 @@ Zeunerstrasse 38<br />
     model Graetz "Graetz rectifier circuit"
       extends Modelica.Icons.Example;
 
-      Semiconductors.D_DIODE D1(IC=1e-40, SENS_AREA=false,modelcarddiode(CJO=1e-7),pin(start=0, fixed=true))
+      Semiconductors.D_DIODE D1(IC=-1e40, SENS_AREA=false,modelcarddiode(CJO=1e-7),pin(start=0, fixed=true))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={0,14})));
-      Semiconductors.D_DIODE D3(IC=1e-40, SENS_AREA=false,modelcarddiode(CJO=1e-7), n(v(start=0, fixed=true)))
+      Semiconductors.D_DIODE D3(IC=-1e40, SENS_AREA=false,modelcarddiode(CJO=1e-7), n(v(start=0, fixed=true)))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-8})));
-      Semiconductors.D_DIODE D4(IC=1e-40, SENS_AREA=false,modelcarddiode(CJO=1e-7))
+      Semiconductors.D_DIODE D4(IC=-1e40, SENS_AREA=false,modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={1,-30})));
-      Semiconductors.D_DIODE D2(IC=1e-40, SENS_AREA=false,modelcarddiode(CJO=1e-7))
+      Semiconductors.D_DIODE D2(IC=-1e40, SENS_AREA=false,modelcarddiode(CJO=1e-7))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-20,-8})));
@@ -1466,10 +1466,10 @@ Zeunerstrasse 38<br />
 
       Modelica.Electrical.Spice3.Semiconductors.J_NJFJFET
                                   J1(S(
-                                     v(  start=0)), modelcard(CGS=0, CGD=0))
+                                     v(  start=0)), modelcard(CGS=0, CGD=0), AREA=1)
         annotation (Placement(transformation(extent={{-54,38},{-34,58}})));
       Modelica.Electrical.Spice3.Semiconductors.J_NJFJFET
-                                  J2(modelcard(CGS=0, CGD=0))
+                                  J2(modelcard(CGS=0, CGD=0), AREA=1)
         annotation (Placement(transformation(extent={{-54,4},{-34,24}})));
       Modelica.Electrical.Spice3.Basic.R_Resistor RC(R=200, v(start=0))
         annotation (Placement(transformation(extent={{-44,60},{-24,80}})));
@@ -1633,7 +1633,7 @@ CJC=.5PF.</p>
 
       Sources.V_pulse VDS( V1=0, V2=10, TD=0, TR=1e-008, TF=1e-008, PW=1, PER=1);
       Sources.V_pulse VGS( V1=0, V2=5, TD=4e-008, TR=1e-009, TF=1e-009, PW=1e-008, PER=2e-008);
-      Semiconductors.M_NMOS M1(modelcard=MOD1, L=4e-006, W=6e-006, AD=1e-011, AS=1e-011);
+      Semiconductors.M_NMOS M1(modelcard=MOD1, L=4e-006, W=6e-006, AD=1e-011, AS=1e-011, IC=-1e40);
       // * VIDS MEASURES ID, WE COULD HAVE USED VDS, BUT ID WOULD BE NEGATIVE
       Sources.V_constant VIDS(V=0);
       parameter Semiconductors.ModelcardMOS MOD1(VTO=-2, NSUB=1e+015, UO=550, CBD=0, CBS=0);
@@ -1769,16 +1769,16 @@ RC 3 4 1K<br/>
 
       // *   NODES:  INPUT(2), OUTPUT, VCC
       Semiconductors.Q_NPNBJT Q1(modelcard=QMOD);
-      Semiconductors.D_DIODE D1CLAMP(modelcarddiode=DMOD);
+      Semiconductors.D_DIODE D1CLAMP(modelcarddiode=DMOD, SENS_AREA=false, IC=-1e40);
       Semiconductors.Q_NPNBJT Q2(modelcard=QMOD);
-      Semiconductors.D_DIODE D2CLAMP(modelcarddiode=DMOD);
+      Semiconductors.D_DIODE D2CLAMP(modelcarddiode=DMOD, SENS_AREA=false, IC=-1e40);
       Basic.R_Resistor RB(R=4000);
       Basic.R_Resistor R1(R=1600);
       Semiconductors.Q_NPNBJT Q3(modelcard=QMOD);
       Basic.R_Resistor R2(R=1000);
       Basic.R_Resistor RC(R=130);
       Semiconductors.Q_NPNBJT Q4(modelcard=QMOD);
-      Semiconductors.D_DIODE DVBEDROP(modelcarddiode=DMOD);
+      Semiconductors.D_DIODE DVBEDROP(modelcarddiode=DMOD, SENS_AREA=false, IC=-1e40);
       Semiconductors.Q_NPNBJT Q5(modelcard=QMOD);
       Basic.Ground g;
       Modelica.Electrical.Analog.Interfaces.Pin p1;
