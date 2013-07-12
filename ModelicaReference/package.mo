@@ -6798,7 +6798,7 @@ package Icons
 </html>"));
   end Contact;
 
-  partial package IconsPackage "Icon for packages containing icons"
+  partial class IconsPackage "Icon for packages containing icons"
     extends ModelicaReference.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Polygon(
@@ -6819,7 +6819,7 @@ package Icons
             lineColor={0,0,0})}));
   end IconsPackage;
 
-  partial package Package "Icon for standard packages"
+  partial class Package "Icon for standard packages"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
