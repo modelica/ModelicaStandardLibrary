@@ -3,7 +3,7 @@ especially in Modelica/Resources/* are licensed
 by the Modelica Association under the Modelica License 2
 (with exception of files "Modelica/Resources/C-Sources/win32_dirent.*, ModelicaMatIO.*, ModelicaStandardTables.*").
 Copyright © 1998-2013, ABB, AIT, DLR, Dassault Systemes, Fraunhofer, ITI, Modelon,
-                       TU Hamburg-Harburg, Politecnico di Milano.
+                       TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 
 These files are free software and the use is completely at your own risk;
 they can be redistributed and/or modified under the terms of the
