@@ -2249,17 +2249,16 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           p=2,
           Jr=0.29,
           Js=0.29,
-          frictionParameters(PRef=0),
-          statorCoreParameters(VRef=100, PRef=0),
-          strayLoadParameters(IRef=100, PRef=0),
-          brushParameters(ILinear=0.01, V=0),
           useDamperCage=true,
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
+          statorCoreParameters(VRef=100),
+          strayLoadParameters(IRef=100),
           TrOperational=293.15,
           alpha20r=smeeData.alpha20r,
           alpha20e=smeeData.alpha20e,
-          TeOperational=293.15)
+          TeOperational=293.15,
+          brushParameters(ILinear=0.01))
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p)
@@ -3577,7 +3576,9 @@ Default machine parameters are used.
           offsetTorque=0,
           startTime=0.1)
           annotation (Placement(transformation(extent={{60,-10},{40,10}}, rotation=0)));
-        Machines.Thermal.DCMachines.ThermalAmbientDCPM thermalAmbientDCPM(useTemperatureInputs=true)
+        Machines.Thermal.DCMachines.ThermalAmbientDCPM thermalAmbientDCPM(useTemperatureInputs=true,
+          Ta=293.15,
+          Tpm=293.15)
           annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
         Modelica.Blocks.Sources.Exponentials exponential(
           offset=293.15,
@@ -9261,7 +9262,7 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"),     Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
+</HTML>"),     Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics={
         Polygon(
           origin = {10,10},
           fillColor = {135,135,135},
@@ -10200,7 +10201,7 @@ The induction machine models use package SpacePhasors.
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
+</HTML>"), Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics={
         Rectangle(
           origin = {2.835,10},
           fillColor = {0,128,255},
@@ -10287,7 +10288,7 @@ The induction machine models use package SpacePhasors.
           color={0,0,127},
           smooth=Smooth.None));
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
           Line(points = {{-90,0},{-70,0}},
             color = {0,0,255}),
           Line(points = {{70,0},{90,0}},
@@ -10361,7 +10362,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
           color={0,0,127},
           smooth=Smooth.None));
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
           Line(points = {{-90,0},{-70,0}},
             color = {0,0,255}),
           Line(points = {{70,0},{90,0}},
@@ -10415,7 +10416,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       2/3*P = +v_[1]*i_[1]+v_[2]*i_[2];
       2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
           Line(points = {{-90,0},{-70,0}},
             color = {0,0,255}),
           Line(points = {{70,0},{90,0}},
@@ -10500,7 +10501,7 @@ Q = giving in stationary state reactive power.<br>
           color={0,0,127},
           smooth=Smooth.None));
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+      annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
         Line(points = {{-70,0},{-90,0}}),
         Line(points = {{70,0},{90,0}}),
         Line(points = {{0,70},{0,100}},
@@ -11396,7 +11397,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 
     record FrictionParameters "Parameter record for friction losses"
       extends Modelica.Icons.Record;
-      parameter Modelica.SIunits.Power PRef(min=0, start=0)
+      parameter Modelica.SIunits.Power PRef(min=0)=0
         "Reference friction losses at wRef";
       parameter Modelica.SIunits.AngularVelocity wRef(displayUnit="1/min", min=Modelica.Constants.small)
         "Reference angular velocity that the PRef refer to";
@@ -11420,7 +11421,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.Fr
 
     record BrushParameters "Parameter record for brush losses"
       extends Modelica.Icons.Record;
-      parameter Modelica.SIunits.Voltage V(start=0)
+      parameter Modelica.SIunits.Voltage V=0
         "Total voltage drop of brushes for currents > ILinear";
       parameter Modelica.SIunits.Current ILinear(start=0.01)
         "Current indicating linear voltage region of brush voltage drop";
@@ -11435,7 +11436,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
 
     record StrayLoadParameters "Parameter record for stray load losses"
       extends Modelica.Icons.Record;
-      parameter Modelica.SIunits.Power PRef(min=0, start=0)
+      parameter Modelica.SIunits.Power PRef(min=0)=0
         "Reference stray load losses at IRef and wRef";
       parameter Modelica.SIunits.Current IRef(min=Modelica.Constants.small)
         "Reference RMS current that PRef refers to";
@@ -11458,7 +11459,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
       extends Modelica.Icons.Record;
       parameter Integer m
         "Number of phases (1 for DC, 3 for induction machines)";
-      parameter Modelica.SIunits.Power PRef(min=0, start=0)
+      parameter Modelica.SIunits.Power PRef(min=0)=0
         "Reference core losses at reference inner voltage VRef";
       parameter Modelica.SIunits.Voltage VRef(min=Modelica.Constants.small)
         "Reference inner RMS voltage that reference core losses PRef refer to";
@@ -11482,7 +11483,7 @@ and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Core\">c
     record PermanentMagnetLossParameters
       "Parameter record for permanent magnet losses"
       extends Modelica.Icons.Record;
-      parameter Modelica.SIunits.Power PRef(min=0, start=0)
+      parameter Modelica.SIunits.Power PRef(min=0)=0
         "Reference permanent magnet losses at IRef and wRef";
       parameter Real c(min=0, max=1) = 0
         "Part of permanent magnet losses at current = 0, i.e. independent of current";
@@ -12210,7 +12211,7 @@ This package contains loss models and their parameter records used for machine m
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Brass =    1.100e-3 "Brass";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Bronze =  0.800e-3 "Bronze";
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Copper =  3.920e-3 "Copper";
-      annotation(
+      annotation (
         Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
           Polygon(
             origin={-9.2597,25.6673},
@@ -13444,7 +13445,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         "Stator stray inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       extends PartialBasicMachine(Jr(start=0.29),
-        frictionParameters(wRef(start=2*pi*fsNominal/p)),
+        frictionParameters(wRef=2*pi*fsNominal/p),
         friction(final useHeatPort=true));
       parameter Machines.Losses.CoreParameters statorCoreParameters(
         final m=3,
@@ -13453,7 +13454,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         "Stator core losses; all parameters refer to stator side"
         annotation(Dialog(tab="Losses"));
       parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
-        IRef(start=100), wRef(start=2*pi*fsNominal/p)) "Stray load losses"
+        IRef(start=100), wRef=2*pi*fsNominal/p) "Stray load losses"
         annotation(Dialog(tab="Losses"));
       replaceable output
         Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines
@@ -15039,7 +15040,7 @@ This icon is designed for a <b>quasistationary transformer</b> model.
 </html>"));
     end QuasiStationaryTransformer;
 
-    annotation(
+    annotation (
       Icon(coordinateSystem(extent = {{-100,-100},{100,100}})),
       Documentation(info = "<html>
 <p>
@@ -16493,7 +16494,7 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
        corrected turnsRatio bug in asynchronous induction machine with slipring; corrected parameter descriptions</li>
   </ul>
 </HTML>"),
-      Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics = {
+      Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics={
         Rectangle(
           origin = {2.835,10},
           fillColor = {0,128,255},

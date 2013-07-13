@@ -1941,7 +1941,9 @@ Simulate for 1.5 seconds and plot (versus time):
           rotorCoreParameters=aimsData.rotorCoreParameters,
           m=m3,
           TsOperational=566.3,
-          TrOperational=566.3) annotation (Placement(transformation(extent={{20,
+          TrOperational=566.3,
+          TurnsRatio=aimsData.turnsRatio)
+                               annotation (Placement(transformation(extent={{20,
                   -70},{40,-50}}, rotation=0)));
         Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
           tStart=tRheostat,
@@ -2828,13 +2830,12 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
           TeRef=smeeData.TeRef,
           alpha20e(displayUnit="1/K") = smeeData.alpha20e,
           sigmae=smeeData.sigmae,
+          statorCoreParameters(VRef=100),
+          strayLoadParameters(IRef=100),
           TsOperational=293.15,
-          frictionParameters(PRef=0),
-          statorCoreParameters(PRef=0, VRef=100),
-          strayLoadParameters(PRef=0, IRef=100),
           TrOperational=293.15,
           TeOperational=293.15,
-          brushParameters(V=0, ILinear=0.01)) annotation (Placement(
+          brushParameters(ILinear=0.01))      annotation (Placement(
               transformation(extent={{-10,-30},{10,-10}}, rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smeeE(
@@ -2976,8 +2977,8 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                 -10},{36,0},{-6,0},{-6,-10}}, color={0,0,255}));
         connect(rotorAngleM.plug_p, smeeM.plug_sp) annotation (Line(points={{24,
                 -10},{24,-10},{6,-10}}, color={0,0,255}));
-        connect(rotorAngleM.flange, smeeM.flange) annotation (Line(points={{20,
-                -20},{15,-20},{15,-20},{10,-20}}, color={0,0,0}));
+        connect(rotorAngleM.flange, smeeM.flange) annotation (Line(points={{20,-20},
+                {15,-20},{10,-20}},               color={0,0,0}));
         connect(smeeM.flange, mechanicalPowerSensorM.flange_a)
           annotation (Line(points={{10,-20},{50,-20}}, color={0,0,0}));
         connect(mechanicalPowerSensorM.flange_b, constantSpeedM.flange)
@@ -3132,18 +3133,18 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           TeRef=smeeData.TeRef,
           alpha20e(displayUnit="1/K") = smeeData.alpha20e,
           sigmae=smeeData.sigmae,
-          frictionParameters(PRef=0),
-          statorCoreParameters(PRef=0, VRef=100),
-          strayLoadParameters(PRef=0, IRef=100),
-          brushParameters(V=0, ILinear=0.01),
           m=m,
-          TsOperational=293.15,
           Rs=smeeData.Rs*m/3,
           Lssigma=smeeData.Lssigma*m/3,
           Lmd=smeeData.Lmd*m/3,
           Lmq=smeeData.Lmq*m/3,
+          TsOperational=293.15,
+          statorCoreParameters(VRef=100),
+          strayLoadParameters(IRef=100),
           TrOperational=293.15,
-          TeOperational=293.15) annotation (Placement(transformation(extent={{-10,
+          TeOperational=293.15,
+          brushParameters(ILinear=0.01))
+                                annotation (Placement(transformation(extent={{-10,
                   30},{10,50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smee3(
@@ -4797,7 +4798,8 @@ Resistances and stray inductances of the machine always refer to either stator o
           redeclare final
             Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM
             thermalAmbient(final useDamperCage=useDamperCage, final Tr=
-                TrOperational),
+                TrOperational,
+            final Tpm=TpmOperational),
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortSMPM
             thermalPort(final useDamperCage=useDamperCage),
@@ -6707,17 +6709,17 @@ This model is mainly used to extend from in order build more complex - equation 
             start=1), q(start=1)) "Salient inductance of an unchorded coil"
         annotation (Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.Electrical.Machines.Losses.FrictionParameters
-        frictionParameters(wRef(start=2*pi*fsNominal/p)) "Friction losses"
+        frictionParameters(wRef=2*pi*fsNominal/p) "Friction losses"
         annotation (Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.CoreParameters
         statorCoreParameters(
         final m=3,
-        wRef(start=2*pi*fsNominal/p),
+        wRef=2*pi*fsNominal/p,
         VRef(start=100))
         "Stator core losses; all parameters refer to stator side"
         annotation (Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters
-        strayLoadParameters(IRef(start=100), wRef(start=2*pi*fsNominal/p))
+        strayLoadParameters(IRef(start=100), wRef=2*pi*fsNominal/p)
         "Stray load losses" annotation (Dialog(tab="Losses"));
       // Mechanical quantities
       output Modelica.SIunits.Angle phiMechanical(start=0) = flange.phi -
