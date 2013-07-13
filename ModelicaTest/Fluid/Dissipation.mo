@@ -4550,7 +4550,8 @@ extends Modelica.Icons.ExamplesPackage;
             Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC(
             IN_con_3[i], IN_var_3[i]) for i in 1:m};
           annotation (__Dymola_Commands(file=
-                  "modelica://ModelicaTest/Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_twoPhaseOverall_KC.mos"),
+                  "modelica://ModelicaTest/Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_twoPhaseOverall_KC.mos"
+                "Verification of kc_twoPhaseOverall_KC"),
               Diagram(graphics={Text(
                   extent={{-100,52},{100,77}},
                   lineColor={0,0,255},
