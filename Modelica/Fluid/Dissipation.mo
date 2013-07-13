@@ -3398,20 +3398,35 @@ Generally this function is numerically best used for the <b>incompressible case<
 
         SI.Pressure dp_min=1
           "Linear smoothing of mass flow rate for decreasing pressure loss";
-        SI.Velocity v_lam=Re_lam_leave*IN_var.eta/(IN_var.rho*d_hyd)
+        SI.Velocity v_lam_trans = 0.9*(Re_lam_min)*IN_var.eta/(IN_var.rho*d_hyd)
+          "Minimum mean velocity for transition to turbulent regime";
+        SI.Velocity v_lam_max=Re_lam_leave*IN_var.eta/(IN_var.rho*d_hyd)
           "Maximum mean velocity in laminar regime (Re < Re_lam_leave)";
-        Real dp_lam=A*C1*zeta_LOC*(B/2)*(d_hyd/IN_var.eta)^(-exp)*IN_var.rho^(1 - exp)
-            *v_lam^(pow)
+        SI.Pressure dp_lam_trans=A*C1*zeta_LOC*(B/2)*(d_hyd/IN_var.eta)^(-exp)*IN_var.rho^(1 - exp)
+            *v_lam_trans^(pow)
+          "Minimum pressure loss for transition to turbulent regime";
+        SI.Pressure dp_lam_max=A*C1*zeta_LOC*(B/2)*(d_hyd/IN_var.eta)^(-exp)*IN_var.rho^(1 - exp)
+            *v_lam_max^(pow)
           "Maximum pressure loss in laminar regime (Re < Re_lam_leave)";
 
-        //mean velocity under smooth conditions w.r.t. flow regime
-        SI.Velocity v_smooth=if abs(dp) > dp_lam then (2*abs(dp))^0.5*(A*C1*zeta_LOC*
-            IN_var.rho)^(-0.5) else (2*(d_hyd/IN_var.eta)^exp/(A*C1*zeta_LOC*B*(
-            IN_var.rho)^(1 - exp)))^(1/pow)*
-            Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
+        SI.Velocity v_turb= (2*abs(dp))^0.5*(A*C1*zeta_LOC*IN_var.rho)^(-0.5)
+          "Mean velocity under turbulent conditions";
+        SI.Velocity v_lam= (2*(d_hyd/IN_var.eta)^exp/(A*C1*zeta_LOC*B*(IN_var.rho)^(1 - exp)))^(1/pow)*
+            FluidDissipation.Utilities.Functions.General.SmoothPower(
             abs(dp),
             dp_min,
-            1/pow) "Mean velocity under smooth conditions";
+            1/pow) "Mean velocity under laminar conditions";
+
+        //mean velocity under smooth conditions w.r.t flow regime
+        SI.Velocity v_smooth=if abs(dp) > dp_lam_max then v_turb
+            else if abs(dp) < dp_lam_trans then v_lam
+            else SMOOTH(
+            dp_lam_max,
+            dp_lam_trans,
+            abs(dp))*v_turb + SMOOTH(
+            dp_lam_trans,
+            dp_lam_max,
+            abs(dp))*v_lam "Mean velocity under smooth conditions";
 
         SI.ReynoldsNumber Re_smooth=max(Re_min, IN_var.rho*v_smooth*d_hyd/IN_var.eta)
           "Reynolds number under smooth conditions";
