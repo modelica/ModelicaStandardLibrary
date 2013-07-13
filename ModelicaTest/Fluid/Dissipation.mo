@@ -4579,7 +4579,7 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2
               /4 "Circular cross sectional area of bend";
           parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg delta[3]=
-              {30,45,90} "Angle of turning";
+              {30,45,90}*Modelica.Constants.pi/180 "Angle of turning";
           parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
           parameter Modelica.SIunits.Length K=0
             "Roughness (average height of surface asperities)";
@@ -4624,7 +4624,7 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
             m_flow_IN_con_1[n](
             each d_hyd=d_hyd,
-            each delta=delta[3],
+            each delta=delta[3]*Modelica.Constants.pi,
             R_0=R_0,
             each K=K) annotation (Placement(transformation(
                   extent={{-100,20},{-80,40}})));
@@ -4772,7 +4772,7 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2
               /4 "Circular cross sectional area of bend";
           parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg delta[4]=
-              {30,45,90,180} "Angle of turning";
+              {30,45,90,180}*Modelica.Constants.pi/180 "Angle of turning";
           parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
           parameter Modelica.SIunits.Length K=2e-5
             "Roughness (average height of surface asperities)";
