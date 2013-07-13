@@ -9,11 +9,11 @@
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.General.dp_nominalPressureLossLawDensity");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.General.dp_nominalPressureLossLawDensity");
 
 Advanced.StoreProtectedVariables:=true;
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.General.dp_nominalPressureLossLawDensity",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_nominalPressureLossLawDensity");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.General.dp_nominalPressureLossLawDensity",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_nominalPressureLossLawDensity");
 
 switchToSimulationMode();
 

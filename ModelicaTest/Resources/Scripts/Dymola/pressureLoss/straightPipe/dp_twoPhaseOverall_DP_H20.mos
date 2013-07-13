@@ -9,11 +9,11 @@
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.StraightPipe.dp_twoPhase_overall_DP_H20");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.StraightPipe.dp_twoPhase_overall_DP_H20");
 
 Advanced.StoreProtectedVariables:=true;
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.StraightPipe.dp_twoPhase_overall_DP_H20",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_twoPhase_overall_DP_H20");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.StraightPipe.dp_twoPhase_overall_DP_H20",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_twoPhase_overall_DP_H20");
 
 switchToSimulationMode();
 

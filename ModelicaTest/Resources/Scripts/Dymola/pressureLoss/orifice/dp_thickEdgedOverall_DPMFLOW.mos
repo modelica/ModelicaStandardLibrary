@@ -12,9 +12,9 @@ Advanced.StoreProtectedVariables:=true;
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.Orifice.dp_thickEdgedOverall_DPMFLOW");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Orifice.dp_thickEdgedOverall_DPMFLOW");
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.Orifice.dp_thickEdgedOverall_DPMFLOW",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_thickEdgedOverall_DPMFLOW");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Orifice.dp_thickEdgedOverall_DPMFLOW",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_thickEdgedOverall_DPMFLOW");
 
 switchToSimulationMode();
 

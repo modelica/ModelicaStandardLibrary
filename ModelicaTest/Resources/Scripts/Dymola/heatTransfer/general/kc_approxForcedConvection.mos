@@ -9,11 +9,11 @@
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.HeatTransfer.General.kc_approxForcedConvection");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.General.kc_approxForcedConvection");
 
 Advanced.StoreProtectedVariables:=true;
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.HeatTransfer.General.kc_approxForcedConvection",startTime=0, stopTime=1, numberOfIntervals=50000, method="dassl", tolerance=1e-007, resultFile="kc_approxForcedConvection");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.General.kc_approxForcedConvection",startTime=0, stopTime=1, numberOfIntervals=50000, method="dassl", tolerance=1e-007, resultFile="kc_approxForcedConvection");
 
 switchToSimulationMode();
 

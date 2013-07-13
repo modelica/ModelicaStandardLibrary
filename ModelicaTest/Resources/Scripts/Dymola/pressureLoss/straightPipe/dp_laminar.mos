@@ -9,11 +9,11 @@
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.StraightPipe.dp_laminar");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.StraightPipe.dp_laminar");
 
 Advanced.StoreProtectedVariables:=true;
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.StraightPipe.dp_laminar",startTime=0, stopTime=1, numberOfIntervals=50000, method="dassl", tolerance=1e-005, resultFile="dp_laminar");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.StraightPipe.dp_laminar",startTime=0, stopTime=1, numberOfIntervals=50000, method="dassl", tolerance=1e-005, resultFile="dp_laminar");
 
 switchToSimulationMode();
 

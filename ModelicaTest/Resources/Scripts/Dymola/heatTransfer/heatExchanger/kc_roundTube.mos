@@ -9,11 +9,11 @@
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.HeatTransfer.HeatExchanger.kc_roundTube");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.HeatExchanger.kc_roundTube");
 
 Advanced.StoreProtectedVariables:=true;
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.HeatTransfer.HeatExchanger.kc_roundTube",startTime=0, stopTime=1, numberOfIntervals=50000, method="dassl", tolerance=1e-005, resultFile="kc_roundTube");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.HeatExchanger.kc_roundTube",startTime=0, stopTime=1, numberOfIntervals=50000, method="dassl", tolerance=1e-005, resultFile="kc_roundTube");
 
 switchToSimulationMode();
 

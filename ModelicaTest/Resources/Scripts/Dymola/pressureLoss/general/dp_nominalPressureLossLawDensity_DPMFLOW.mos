@@ -9,11 +9,11 @@
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.General.dp_nominalPressureLossLawDensity_DPMFLOW");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.General.dp_nominalPressureLossLawDensity_DPMFLOW");
 
 Advanced.StoreProtectedVariables:=true;
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.General.dp_nominalPressureLossLawDensity_DPMFLOW",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_nominalPressureLossLawDensity_DPMFLOW");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.General.dp_nominalPressureLossLawDensity_DPMFLOW",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_nominalPressureLossLawDensity_DPMFLOW");
 
 switchToSimulationMode();
 
@@ -65,6 +65,9 @@ createPlot(id = 5,
  online = false,
 filename = "dp_nominalPressureLossLawDensity_DPMFLOW.mat",
  legends = {
+	"K = Km / R_s = 5.95",
+	"23.78",
+	"35.68",
 	"K = Km / R_s = 5.95",
 	"23.78",
 	"35.68"},

@@ -12,10 +12,10 @@ Advanced.StoreProtectedVariables:=true;
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.Orifice.dp_suddenChange");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Orifice.dp_suddenChange");
 
 m_flowoo = 1;	//reversal flow
-simulateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.Orifice.dp_suddenChange",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_suddenChange_expansion");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Orifice.dp_suddenChange",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_suddenChange_expansion");
 
 switchToSimulationMode();
 
@@ -42,7 +42,7 @@ createPlot(id = 1,
 
 
 m_flowoo = -1;	//reversal flow
-simulateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.Orifice.dp_suddenChange",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_suddenChange_contraction");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Orifice.dp_suddenChange",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="dp_suddenChange_contraction");
 
 switchToSimulationMode();
 

@@ -9,11 +9,11 @@
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.HeatTransfer.Plate.kc_turbulent");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.Plate.kc_turbulent");
 
 Advanced.StoreProtectedVariables:=true;
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.HeatTransfer.Plate.kc_turbulent",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="kc_turbulent");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.Plate.kc_turbulent",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-005, resultFile="kc_turbulent");
 
 switchToSimulationMode();
 

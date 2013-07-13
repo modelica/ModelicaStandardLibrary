@@ -9,11 +9,11 @@
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.HeatTransfer.Channel.kc_evenGapOverall");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.Channel.kc_evenGapOverall");
 
 Advanced.StoreProtectedVariables:=true;
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.HeatTransfer.Channel.kc_evenGapOverall",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-007, resultFile="kc_evenGapOverall");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.Channel.kc_evenGapOverall",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-007, resultFile="kc_evenGapOverall");
 
 switchToSimulationMode();
 

@@ -12,13 +12,13 @@ Advanced.StoreProtectedVariables:=true;
 
 cd("./simulations");
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.Orifice.dp_suddenChange_DPMFLOW");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Orifice.dp_suddenChange_DPMFLOW");
 dpoo = 1 ;	//sudden expansion
 
 switchToSimulationMode();
 
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.Orifice.dp_suddenChange_DPMFLOW",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-004, resultFile="dp_expansion");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Orifice.dp_suddenChange_DPMFLOW",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-004, resultFile="dp_expansion");
 
 removePlots();
 createPlot(id = 1,
@@ -43,7 +43,7 @@ createPlot(id = 1,
  bottomTitle = "Ratio of cross sectional areas (A_1/A_2 [-])");
 
 dpoo = -1 ;	//sudden contraction
-simulateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.Orifice.dp_suddenChange_DPMFLOW",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-004, resultFile="dp_contraction");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Orifice.dp_suddenChange_DPMFLOW",startTime=0, stopTime=1, numberOfIntervals=5000, method="dassl", tolerance=1e-004, resultFile="dp_contraction");
 
 
 createPlot(id = 2,

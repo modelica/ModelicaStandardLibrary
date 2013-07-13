@@ -7,11 +7,11 @@
 // last change: 04-09-2009
 // XRG Simulation GmbH
 
-translateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.Channel.dp_internalFlowOverall_DPMFLOW");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Channel.dp_internalFlowOverall_DPMFLOW");
 
 Advanced.StoreProtectedVariables:=true;
 
-simulateModel("ModelicaTest.FluidDissipation.Verifications.PressureLoss.Channel.dp_internalFlowOverall_DPMFLOW",startTime=0, stopTime=1, numberOfIntervals=50000, method="dassl", tolerance=1e-008, resultFile="dp_internalFlowOverall_DPMFLOW");
+simulateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Channel.dp_internalFlowOverall_DPMFLOW",startTime=0, stopTime=1, numberOfIntervals=50000, method="dassl", tolerance=1e-008, resultFile="dp_internalFlowOverall_DPMFLOW");
 
 switchToSimulationMode();
 
