@@ -2499,17 +2499,18 @@ tools might not yet supported the complete Modelica package):
 
 <ul>
 <li> CyModelica </li>
-<li> Dymola 2014 (Windows 64 bit, pedantic flag)<br>
+<li> Dymola 2014 (Windows 64 bit)<br>
      Regression test results with regards to Modelica 3.2 are available
      <a href=\"https://trac.modelica.org/Modelica/ticket/1114\">here</a>.</li>
 <li> Maplesim Parser</li>
+<li> MWorks 3.2</li>
 <li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)<br>
      Test reports for the daily builds are available
      <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.
      Test reports of comparisons with Dymola result files are available
      <a href=\"https://test.openmodelica.org/hudson/job/OpenModelica_TEST_CLANG/lastCompletedBuild/testReport/(root)/simulation_libraries_msl32/\">here</a>.
      </li>
-<li> MWorks 3.2</li>
+<li> SimulationX 3.6</li>
 </ul>
 
 <p>
