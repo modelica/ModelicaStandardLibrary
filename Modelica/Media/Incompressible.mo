@@ -66,11 +66,13 @@ package Incompressible
     Medium.SpecificEntropy s=Medium.specificEntropy(medium.state);
     Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
     Medium.SpecificInternalEnergy u=Medium.specificInternalEnergy(medium.state);
+    Medium.SpecificInternalEnergy h=Medium.specificEnthalpy(medium.state);
+    Medium.SpecificInternalEnergy d=Medium.density(medium.state);
     protected
     constant Modelica.SIunits.Time timeUnit = 1;
     constant Modelica.SIunits.Temperature Ta = 1;
   equation
-    medium.p = 1e5;
+    medium.p = 1.013e5;
     medium.T = Medium.T_min + time/timeUnit*Ta;
       annotation (experiment(StopTime=1.01));
   end TestGlycol;
@@ -128,6 +130,7 @@ density and heat capacity as functions of temperature.</li>
        mediumName="tableMedium",
        redeclare record ThermodynamicState=Common.BaseProps_Tpoly,
        singleState=true,
+       reference_p = 1.013e5,
        Temperature(min = T_min, max = T_max));
     // Constants to be set in actual Medium
     constant Boolean enthalpyOfT=true
@@ -465,8 +468,7 @@ which is only exactly true for a fluid with constant density d=d0.
     redeclare function extends specificInternalEnergy
       "Return specific internal energy as a function of the thermodynamic state record"
     algorithm
-      u := if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T)
-        - (if singleState then  reference_p/density(state) else state.p/density(state));
+      u := (if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T)) - (if singleState then  reference_p else state.p)/density(state);
      annotation(Inline=true,smoothOrder=2);
     end specificInternalEnergy;
 
