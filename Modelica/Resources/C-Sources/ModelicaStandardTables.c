@@ -345,7 +345,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
   */
 
 static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
-                              int* cols, size_t nCols);
+                             const int* cols, size_t nCols);
   /* Calculate the spline coefficients for univariate Akima-spline interpolation
 
      <- RETURN: Pointer to array of coefficients
@@ -370,11 +370,6 @@ static int readLine(char** buf, int* bufLen, FILE* fp);
 
 /* ----- Interface functions ----- */
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                                  const char* fileName, double* table,
                                                  size_t nRow, size_t nColumn,
@@ -445,7 +440,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                     if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                         /* Initialization of the Akima-spline coefficients */
                         tableID->spline = spline1DInit(table, tableID->nRow,
-                            tableID->nCol, cols, tableID->nCols);
+                            tableID->nCol, (const int*)cols, tableID->nCols);
                     }
 #ifndef NO_TABLE_COPY
                     tableID->table = STATIC_CAST(double*, malloc(tableID->nRow*tableID->nCol*
@@ -516,7 +511,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                         if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                             /* Initialization of Akima-spline coefficients */
                             tableID->spline = spline1DInit(tableID->table,
-                                tableID->nRow, tableID->nCol, cols,
+                                tableID->nRow, tableID->nCol, (const int*)cols,
                                 tableID->nCols);
                         }
                     }
@@ -539,11 +534,6 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
     return (void*)tableID;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
     if (tableID) {
@@ -606,11 +596,6 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
     }
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                                       double t, double nextTimeEvent,
                                                       double preNextTimeEvent) {
@@ -839,11 +824,6 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
     return y;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCol,
                                                          double t,
                                                          double nextTimeEvent,
@@ -1054,11 +1034,6 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
     return der_y;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTimeTable_minimumTime(void* _tableID) {
     double tMin = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
@@ -1069,11 +1044,6 @@ double ModelicaStandardTables_CombiTimeTable_minimumTime(void* _tableID) {
     return tMin;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTimeTable_maximumTime(void* _tableID) {
     double tMax = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
@@ -1085,11 +1055,6 @@ double ModelicaStandardTables_CombiTimeTable_maximumTime(void* _tableID) {
     return tMax;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                                                            double t) {
     double nextTimeEvent = DBL_MAX;
@@ -1331,11 +1296,6 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
     return nextTimeEvent;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
                                                   int verbose) {
 #if !defined(NO_FILE_SYSTEM)
@@ -1365,7 +1325,7 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
                     /* Reinitialization of the Akima-spline coefficients */
                     spline1DClose(tableID->spline);
                     tableID->spline = spline1DInit(tableID->table, tableID->nRow,
-                        tableID->nCol, tableID->cols, tableID->nCols);
+                        tableID->nCol, (const int*)tableID->cols, tableID->nCols);
                 }
             }
         }
@@ -1374,11 +1334,6 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
     return 1.; /* Success */
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                                                const char* fileName,
                                                double* table, size_t nRow,
@@ -1444,7 +1399,7 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                     if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                         /* Initialization of Akima-spline coefficients */
                         tableID->spline = spline1DInit(table, tableID->nRow,
-                            tableID->nCol, cols, tableID->nCols);
+                            tableID->nCol, (const int*)cols, tableID->nCols);
                     }
 #ifndef NO_TABLE_COPY
                     tableID->table = STATIC_CAST(double*, malloc(tableID->nRow*tableID->nCol*
@@ -1515,7 +1470,7 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                         if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                             /* Initialization of the Akima-spline coefficients */
                             tableID->spline = spline1DInit(tableID->table,
-                                tableID->nRow, tableID->nCol, cols,
+                                tableID->nRow, tableID->nCol, (const int*)cols,
                                 tableID->nCols);
                         }
                     }
@@ -1538,11 +1493,6 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
     return (void*)tableID;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
     if (tableID) {
@@ -1601,11 +1551,6 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
     }
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTable1D_getValue(void* _tableID, int iCol,
                                                     double u) {
     double y = 0.;
@@ -1702,11 +1647,6 @@ double ModelicaStandardTables_CombiTable1D_getValue(void* _tableID, int iCol,
     return y;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
                                                        double u, double der_u) {
     double der_y = 0.;
@@ -1788,11 +1728,6 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
     return der_y;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
                                                 int verbose) {
 #if !defined(NO_FILE_SYSTEM)
@@ -1823,7 +1758,7 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
                     spline1DClose(tableID->spline);
                     tableID->spline = spline1DInit(
                         (const double*)tableID->table, tableID->nRow,
-                        tableID->nCol, tableID->cols, tableID->nCols);
+                        tableID->nCol, (const int*)tableID->cols, tableID->nCols);
                 }
             }
         }
@@ -1832,11 +1767,6 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
     return 1.; /* Success */
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                                                const char* fileName,
                                                double* table, size_t nRow,
@@ -1972,11 +1902,6 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
     return (void*)tableID;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
     if (tableID) {
@@ -2031,11 +1956,6 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
     }
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int force,
                                                 int verbose) {
 #if !defined(NO_FILE_SYSTEM)
@@ -2074,11 +1994,6 @@ double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int force,
     return 1.; /* Success */
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                                     double u2) {
     double y = 0;
@@ -2332,11 +2247,6 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
     return y;
 }
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1,
                                                        double u2, double der_u1,
                                                        double der_u2) {
@@ -2920,7 +2830,7 @@ static enum TableSource getTableSource(const char *tableName,
 /* ----- Internal univariate spline functions ---- */
 
 static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
-                             int* cols, size_t nCols) {
+                             const int* cols, size_t nCols) {
   /* Reference:
 
      Akima, Hiroshi. A new method of interpolation and smooth
@@ -3707,7 +3617,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 continue;
             }
 
-            if (foundTable == 1) {
+            { /* foundTable == 1 */
                 size_t i = 0;
                 size_t j = 0;
 
@@ -3723,7 +3633,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                     freelocale(loc);
 #endif
                     ModelicaError("Memory allocation error\n");
-                    break;
+                    return table;
                 }
 
                 /* Loop over rows and store table row-wise */
@@ -3750,7 +3660,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         if (!token) {
                             break;
                         }
-                        else if (token && token[0] == '#') {
+                        else if (token[0] == '#') {
                             /* Skip trailing comment line */
                             break;
                         }
@@ -3828,7 +3738,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             ModelicaFormatError(
                 "Table matrix \"%s\" not found on file \"%s\".\n",
                 tableName, fileName);
-            return NULL;
+            return table;
         }
 
         if (tableReadError == 0) {
@@ -3837,6 +3747,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         }
         else {
             free(table);
+            table = NULL;
             *_nRow = 0;
             *_nCol = 0;
             if (tableReadError == EOF) {
@@ -3849,7 +3760,6 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                     "Error in line %lu when reading numeric data of matrix \"%s(%lu,%lu)\" "
                     "from file \"%s\"\n", lineNo, tableName, nRow, nCol, fileName);
             }
-            return NULL;
         }
     }
 #endif
@@ -3899,11 +3809,6 @@ static int readLine(char** buf, int* bufLen, FILE* fp) {
 #endif
 
 #if defined(DUMMY_FUNCTION_USERTAB)
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
 int usertab(char* tableName, int nipo, int dim[], int* colWise,
             double** table) {
     ModelicaError("Function \"usertab\" is not implemented\n");
