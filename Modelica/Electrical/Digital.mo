@@ -365,10 +365,10 @@ The simulation stop time should be 5 seconds.
 
           D.Examples.Utilities.FullAdder Adder1                  annotation (Placement(
                 transformation(extent={{0,-30},{60,30}}, rotation=0)));
-          D.Converters.LogicToReal s(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5)
+          D.Converters.LogicToReal s(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1)
                                    annotation (Placement(transformation(extent={{70,
                     12},{90,32}}, rotation=0)));
-          D.Converters.LogicToReal c_out(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5)
+          D.Converters.LogicToReal c_out(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1)
                                        annotation (Placement(transformation(extent=
                     {{70,-32},{90,-12}}, rotation=0)));
           D.Examples.Utilities.Counter3 Counter
@@ -610,13 +610,13 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           D.Examples.Utilities.Counter Counter(n=4)
             annotation (Placement(transformation(extent={{-30,-40},{50,40}},
                   rotation=0)));
-          D.Converters.LogicToReal Q0(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5) annotation (Placement(transformation(extent={
+          D.Converters.LogicToReal Q0(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1) annotation (Placement(transformation(extent={
                     {66,-40},{86,-20}}, rotation=0)));
-          D.Converters.LogicToReal Q1(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5) annotation (Placement(transformation(extent={
+          D.Converters.LogicToReal Q1(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1) annotation (Placement(transformation(extent={
                     {66,-20},{86,0}}, rotation=0)));
-          D.Converters.LogicToReal Q2(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5) annotation (Placement(transformation(extent={
+          D.Converters.LogicToReal Q2(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1) annotation (Placement(transformation(extent={
                     {66,0},{86,20}}, rotation=0)));
-          D.Converters.LogicToReal Q3(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5) annotation (Placement(transformation(extent={
+          D.Converters.LogicToReal Q3(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1) annotation (Placement(transformation(extent={
                     {66,20},{86,40}}, rotation=0)));
         equation
           connect(Enable.y, Counter.enable) annotation (Line(
