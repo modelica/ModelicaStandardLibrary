@@ -65,6 +65,7 @@ package Incompressible
     Medium.ThermalConductivity lambda=Medium.thermalConductivity(medium.state);
     Medium.SpecificEntropy s=Medium.specificEntropy(medium.state);
     Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
+    Medium.SpecificInternalEnergy u=Medium.specificInternalEnergy(medium.state);
     protected
     constant Modelica.SIunits.Time timeUnit = 1;
     constant Modelica.SIunits.Temperature Ta = 1;
@@ -217,11 +218,7 @@ density and heat capacity as functions of temperature.</li>
       R = Modelica.Constants.R;
       cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);
       h = if enthalpyOfT then h_T(T) else  h_pT(p,T,densityOfT);
-      if singleState then
-        u = h_T(T) - reference_p/d;
-      else
-        u = h - p/d;
-      end if;
+      u = h - (if singleState then  reference_p/d else state.p/d);
       d = Poly.evaluate(poly_rho,if TinK then T else T_degC);
       state.T = T;
       state.p = p;
@@ -691,7 +688,8 @@ returned as a vector p[n+1] that has the following definition:
 </HTML>"));
       end fitting;
 
-      function evaluate_der "Evaluate derivative of polynomial at a given abscissa value"
+      function evaluate_der
+        "Evaluate derivative of polynomial at a given abscissa value"
         extends Modelica.Icons.Function;
         input Real p[:]
           "Polynomial coefficients (p[1] is coefficient of highest power)";
