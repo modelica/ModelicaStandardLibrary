@@ -15,7 +15,7 @@
 #include <string.h>
 #include "ModelicaUtilities.h"
 
-static int userTabFindName(UsertabTableElement tableDef[], int ntable, char *name) {
+static int userTabFindName(const UsertabTableElement _tableDef[], int ntable, char *name) {
 
    /* Find table element with the given name. Return the index
       with respect to the found element or -1, in case it is
@@ -23,7 +23,7 @@ static int userTabFindName(UsertabTableElement tableDef[], int ntable, char *nam
    */
       int  i;
       for (i=0; i<ntable; i++) {
-         if ( strcmp(tableDef[i].name, name) == 0 ) return i;
+         if ( strcmp(_tableDef[i].name, name) == 0 ) return i;
       }
 
    /* Error */
