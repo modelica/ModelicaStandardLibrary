@@ -3412,7 +3412,7 @@ Generally this function is numerically best used for the <b>incompressible case<
         SI.Velocity v_turb= (2*abs(dp))^0.5*(A*C1*zeta_LOC*IN_var.rho)^(-0.5)
           "Mean velocity under turbulent conditions";
         SI.Velocity v_lam= (2*(d_hyd/IN_var.eta)^exp/(A*C1*zeta_LOC*B*(IN_var.rho)^(1 - exp)))^(1/pow)*
-            FluidDissipation.Utilities.Functions.General.SmoothPower(
+            Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
             abs(dp),
             dp_min,
             1/pow) "Mean velocity under laminar conditions";
