@@ -4798,8 +4798,7 @@ Resistances and stray inductances of the machine always refer to either stator o
           redeclare final
             Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM
             thermalAmbient(final useDamperCage=useDamperCage, final Tr=
-                TrOperational,
-            final Tpm=TpmOperational),
+                TrOperational /*, final Tpm=TpmOperational */),
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortSMPM
             thermalPort(final useDamperCage=useDamperCage),
