@@ -4344,8 +4344,8 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         end Pulse;
 
         model Clock "Digital Clock Source"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter Modelica.SIunits.Time startTime(start=0)
         "Output = offset for time < startTime";
           parameter Modelica.SIunits.Time period(
@@ -4360,11 +4360,11 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
           Modelica.SIunits.Time t_i(final start=startTime)
         "Start time of current period";
           Modelica.SIunits.Time t_width=period*width/100;
-        algorithm
+        equation
           when sample(startTime, period) then
-            t_i := time;
+            t_i =  time;
           end when;
-          y := if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
+          y =  if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
           annotation (Documentation(info="<HTML>
 <P>
 The clock source forms pulses between the  <i>'0'</i> value (forcing 0) and the <i>'1'</i> value (forcing 1).
@@ -7671,9 +7671,9 @@ Wires n input signals in one output signal, without delay.
     end address;
 
     algorithm
-    when initial() then
+    if initial() then
       mem := getMemory(fileName, n_addr, n_data);
-    end when;
+    end if;
 
     /* assert: no address change during write
 addr_change := false;
@@ -7904,9 +7904,9 @@ Firstly Write is carried out, then Read.</b></p>
       D.Delay.InertialDelaySensitive inertialDelaySensitive[n_data](each tLH=tLH, each tHL=tHL);
 
     algorithm
-    when initial() then
+    if initial() then
       m := getMemory(fileName, n_addr, n_data);
-    end when;
+    end if;
 
     if RE == L.'0' or RE == L.'L' then
       nextstate := fill(L.'Z',n_data);
