@@ -7,7 +7,8 @@
 // last change: 19-03-2009
 // XRG Simulation GmbH
 
-cd("./simulations");
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
 
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.Channel.kc_evenGapLaminar");
 
@@ -121,3 +122,5 @@ range = {1e0, 2e3, 1e2, 1},
 	"Pr= 1000 (Antifreeze)"},
  leftTitle = "Nusselt number [-]",
 bottomTitle = "Dimensionless length (x = [{L/d_hyd}/{Re*Pr}]^0.5) [-]");
+
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);

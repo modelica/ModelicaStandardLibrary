@@ -7,7 +7,8 @@
 // last change: 20-03-2009
 // XRG Simulation GmbH
 
-cd("./simulations");
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
 
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.Channel.kc_evenGapLaminar_KC");
 
@@ -122,3 +123,4 @@ legends = {
  leftTitle = "Reynolds number Re [-]",
 bottomTitle = "Nusselt number Nu [-]");
 
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);

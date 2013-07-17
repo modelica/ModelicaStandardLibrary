@@ -7,9 +7,10 @@
 // last change: 03-09-2009
 // XRG Simulation GmbH
 
-cd("./simulations");
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
 
-translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.StraightPipe.kc_twoPhaseOverallKC");
+translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC");
 
 Advanced.StoreProtectedVariables:=true;
 
@@ -112,3 +113,5 @@ createPlot(id = 4,
 	"m=75"},
  leftTitle = "Heat transfer coefficient [W/m2K]",
  bottomTitle = "Mass flow rate quality [-]");
+
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);

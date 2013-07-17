@@ -7,7 +7,8 @@
 // last change: 28-08-2009
 // XRG Simulation GmbH
 
-cd("./simulations");
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
 
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.General.kc_approxForcedConvection_KC");
 
@@ -95,3 +96,5 @@ createPlot(id = 3,
 	"Pr= 1000 (Antifreeze)"},
  leftTitle = "Reynolds number Re [-]",
 bottomTitle = "Nusselt number Nu [-]");
+
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);

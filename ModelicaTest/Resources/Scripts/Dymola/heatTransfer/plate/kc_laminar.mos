@@ -7,7 +7,8 @@
 // last change: 23-03-2009
 // XRG Simulation GmbH
 
-cd("./simulations");
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
 
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.Plate.kc_laminar");
 
@@ -46,4 +47,4 @@ createPlot(id = 1,
  leftTitle = "Nusselt number [-]",
 bottomTitle = "Reynolds number [-]");
 
-
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);

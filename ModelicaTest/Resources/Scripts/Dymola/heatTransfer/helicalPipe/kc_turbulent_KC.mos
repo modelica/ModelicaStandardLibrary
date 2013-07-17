@@ -7,7 +7,8 @@
 // last change: 27-03-2009
 // XRG Simulation GmbH
 
-cd("./simulations");
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
 
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.HelicalPipe.kc_turbulent_KC");
 
@@ -125,3 +126,5 @@ range = {1e2, 1e4, 1e6, 1e4},
 },
  leftTitle = "Reynolds number [-]",
  bottomTitle = "Nusselt number [-]");
+
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);

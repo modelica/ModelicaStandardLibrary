@@ -7,7 +7,8 @@
 // last change: 31-08-2009
 // XRG Simulation GmbH
 
-cd("./simulations");
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
 
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.General.kc_approxForcedConvection");
 
@@ -95,3 +96,5 @@ logX = true,
 	"Pr= 1000 (Antifreeze)"},
 leftTitle = "Nusselt number [-]",
 bottomTitle = "Reynolds number [-]");
+
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);

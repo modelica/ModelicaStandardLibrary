@@ -7,7 +7,8 @@
 // last change: 06-01-2010
 // XRG Simulation GmbH
 
-cd("./simulations");
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
 
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.HeatTransfer.HeatExchanger.kc_flatTube_KC");
 
@@ -92,4 +93,4 @@ range = {1e0, 1e2, 1e4, 1e1},
  leftTitle = "Reynolds number [-]",
  bottomTitle = "Nusselt number [-]");
 
-
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);
