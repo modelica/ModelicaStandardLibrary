@@ -2499,6 +2499,9 @@ For manufacturing of a winding, the obtained wire diameter d_wireCalculated must
       end CoilDesign;
     end Utilities;
     annotation (Documentation(info="<html>
+<p>
+This package contains examples to demonstrate the usage of the flux tubes components.
+</p>
 </html>"));
   end Examples;
 
