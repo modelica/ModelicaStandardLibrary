@@ -7,7 +7,8 @@
 // last change: 24-02-2010
 // XRG Simulation GmbH
 
-cd("./simulations");
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
 
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP");
 
@@ -120,3 +121,4 @@ legends = {
  leftTitle = "Pressure loss [bar]",
 bottomTitle = "Mass flow rate quality [-]");
 
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);

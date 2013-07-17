@@ -7,10 +7,11 @@
 // last change: 18-05-2009
 // XRG Simulation GmbH
 
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
+
 Evaluate := false;
 Advanced.StoreProtectedVariables:=true;
-
-cd("./simulations");
 
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Orifice.dp_suddenChange_DPMFLOW");
 dpoo = 1 ;	//sudden expansion
@@ -107,3 +108,5 @@ createPlot(id = 4,
  filename = "dp_contraction.mat",
  leftTitle = "(Output) Mass flow rate [kg/s]",
  bottomTitle = "(Input) Mass flow rate [kg/s]");
+
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);

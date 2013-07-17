@@ -7,7 +7,8 @@
 // last change: 25-05-2009
 // XRG Simulation GmbH
 
-cd("./simulations");
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
 
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.General.dp_pressureLossCoefficient_DPMFLOW");
 
@@ -66,3 +67,5 @@ createPlot(id = 5,
  filename = "dp_idealGas_DPMFLOW.mat",
  leftTitle = "(Output) Mass flow rate [kg/s]",
  bottomTitle = "(Input) Mass flow rate [kg/s]");
+
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);

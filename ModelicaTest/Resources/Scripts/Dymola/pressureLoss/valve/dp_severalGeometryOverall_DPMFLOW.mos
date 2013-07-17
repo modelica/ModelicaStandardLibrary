@@ -7,6 +7,9 @@
 // last change: 11-12-2009
 // XRG Simulation GmbH
 
+currentDirectory = Modelica.Utilities.System.getWorkDirectory();
+cd(Modelica.Utilities.System.getEnvironmentVariable("temp"));
+
 translateModel("ModelicaTest.Fluid.Dissipation.Verifications.PressureLoss.Valve.dp_severalGeometryOverall_DPMFLOW");
 
 Advanced.StoreProtectedVariables:=true;
@@ -206,4 +209,4 @@ createPlot(id = 6,
  leftTitle = "(Input/Output) mass flow rates [kg/s]",
  bottomTitle = "(Input) Mass flow rate [kg/s]");
 
-
+Modelica.Utilities.System.setWorkDirectory(currentDirectory);
