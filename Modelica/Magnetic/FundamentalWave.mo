@@ -4797,8 +4797,10 @@ Resistances and stray inductances of the machine always refer to either stator o
                 effectiveStatorTurns^2),
           redeclare final
             Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM
-            thermalAmbient(final useDamperCage=useDamperCage, final Tr=
-                TrOperational /*, final Tpm=TpmOperational */),
+            thermalAmbient(
+              final useDamperCage=useDamperCage,
+              final Tr=TrOperational,
+              final Tpm=TpmOperational),
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortSMPM
             thermalPort(final useDamperCage=useDamperCage),
@@ -4860,10 +4862,13 @@ Resistances and stray inductances of the machine always refer to either stator o
             enable=useDamperCage));
         parameter Modelica.SIunits.Voltage VsOpenCircuit(start=112.3)
           "Open circuit RMS voltage per phase @ fsNominal";
+        final parameter Modelica.SIunits.Temperature TpmOperational=293.15
+          "Operational temperature of permanent magnet"
+           annotation(Dialog(group="Operational temperatures"));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of (optional) damper cage" annotation (
-            Dialog(group="Operational temperatures", enable=not useThermalPort
-                 and useDamperCage));
+            Dialog(group="Operational temperatures",
+                   enable=not useThermalPort and useDamperCage));
         parameter
           Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters
           permanentMagnetLossParameters(IRef(start=100), wRef(start=2*pi*
