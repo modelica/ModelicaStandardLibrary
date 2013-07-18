@@ -570,14 +570,12 @@ package Media
         Real err_u=abs(medium.u - u)/medium.u;
 
         // check isentropicEnthalpy
-        /*
-  Medium.ThermodynamicState state_h_is=Medium.setState_phX(
-          2*Medium.reference_p,
-          h_is,
-          Medium.reference_X);
-  Medium.SpecificEntropy s_is=Medium.specificEntropy(state_h_is);
-  Real err_h_is=abs(s - s_is)/s;
-  */
+        Medium.ThermodynamicState state_h_is=Medium.setState_phX(
+                2*Medium.reference_p,
+                h_is,
+                Medium.reference_X);
+        Medium.SpecificEntropy s_is=Medium.specificEntropy(state_h_is);
+        Real err_h_is=abs(s - s_is)/s;
       equation
         medium.p = p;
         medium.h = h;
@@ -600,14 +598,12 @@ package Media
             String(err_u) + ", eps = " + String(eps) + ")");
         end when;
 
-      /*
-  when terminal() then
-    assert(err_h_is <= eps_h_is,
-    "Error: entropy not constant for isentropicEnthalpy" + "(err_h_is = |s-s_is|/s = "
-     + String(err_h_is) + ", eps = " + String(eps_h_is) + ", s = " + String(s)
-     + ")");
-  end when;
-*/
+        when terminal() then
+          assert(err_h_is <= eps_h_is,
+          "Error: entropy not constant for isentropicEnthalpy" + "(err_h_is = |s-s_is|/s = "
+           + String(err_h_is) + ", eps = " + String(eps_h_is) + ", s = " + String(s)
+           + ")");
+        end when;
       end PartialMediumFunctionsForRealCondensingGases;
 
       model Glycol47
@@ -666,7 +662,7 @@ package Media
         extends PartialMediumFunctionsForRealCondensingGases(redeclare package
             Medium =
               Modelica.Media.Air.ReferenceMoistAir);
-      //  annotation (experiment(StopTime=0.1));
+        annotation (experiment(StopTime=0.1));
       end ReferenceMoistAir;
     end IncompleteMedia;
   end TestAllProperties;
