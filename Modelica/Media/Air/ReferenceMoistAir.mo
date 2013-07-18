@@ -10,7 +10,6 @@ package ReferenceMoistAir
     final singleState=false,
     reference_X={0.01,0.99},
     fluidConstants={Utilities.Water95_Utilities.waterConstants,Modelica.Media.Air.ReferenceAir.airConstants},
-
     ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pTX);
 
   constant Integer Water=1
@@ -599,14 +598,18 @@ package ReferenceMoistAir
   protected
     MassFraction[nX] X "Complete X-vector";
   algorithm
-    X := if reducedX then cat(
-        1,
-        refState.X,
-        {1 - sum(refState.X)}) else refState.X;
+    /*X := if reducedX then cat(
+      1,
+      refState.X,
+      {1 - sum(refState.X)}) else refState.X;*/
+    X := refState.X;
     h_is := specificEnthalpy(setState_psX(
         p_downstream,
         specificEntropy(refState),
         X));
+    annotation (Documentation(revisions="<html>
+2013-07-18 Stefan Wischhusen: Changed internal calculation of X.
+</html>"));
   end isentropicEnthalpy;
 
   redeclare function extends velocityOfSound "Return velocity of sound"
@@ -773,14 +776,16 @@ package ReferenceMoistAir
                   d=d,
                   T=T,
                   X=Xfull),
-                173.15,
-                2000.0,
+                611.2,
+                1e7,
                 1e-9);
         annotation (inverse(d=
                 Modelica.Media.Air.ReferenceMoistAir.Utilities.rho_pTX(
                       p=p,
                       T=T,
-                      X=X)));
+                      X=X)), Documentation(revisions="<html>
+2013-07-18 Stefan Wischhusen: Corrected inverse intervall of pressure to complete range of medium model.
+</html>"));
       end p_dTX;
     end Inverses;
 
@@ -2425,7 +2430,7 @@ package ReferenceMoistAir
           Modelica.SIunits.AbsolutePressure p0;
         end IceConstants;
 
-protected
+      protected
         record MyComplex "Complex number with function"
           Real re "Real part of complex number" annotation (Dialog);
           Real im "Imaginary part of complex number" annotation (Dialog);
@@ -2520,7 +2525,7 @@ protected
 </html>"));
           end 'log';
         end MyComplexF;
-public
+      public
         constant IceConstants Constants(
           R_bar=8.314472,
           R=461.52364,
@@ -2593,9 +2598,9 @@ public
               *(g.pi - pi0)^(k - 2);
           end for;
           //First derivative of r2 w.r.t. pi
-          r2p := MyComplexF.'+'(MyComplexF.'/'(r_2[2], MyComplex(Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants
-            .pred, 0)), MyComplexF.'*'(MyComplexF.'/'(r_2[3], MyComplex(Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants
-            .pred/2, 0)), MyComplex(g.pi - pi0, 0)));
+          r2p := MyComplexF.'+'(MyComplexF.'/'(r_2[2], MyComplex(Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.
+             pred, 0)), MyComplexF.'*'(MyComplexF.'/'(r_2[3], MyComplex(Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.
+             pred/2, 0)), MyComplex(g.pi - pi0, 0)));
           //Second derivative of g0 w.r.t. pi
           g0pp := g_0[3]*2/Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.pred
             ^2;
@@ -2846,7 +2851,6 @@ public
         rho := rho_props_pT(
                 p,
                 T,
-
             Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT(
             p, T));
 
@@ -2889,7 +2893,6 @@ public
         h := h_props_pT(
                 p,
                 T,
-
             Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT(
             p, T));
 
@@ -2928,7 +2931,6 @@ public
         s := s_props_pT(
                 p,
                 T,
-
             Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT(
             p, T));
 
@@ -2958,7 +2960,6 @@ public
         kappa := kappa_props_pT(
                 p,
                 T,
-
             Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT(
             p, T));
 
@@ -3047,8 +3048,8 @@ public
 
         //v_ws is the molar volume of saturated water
         v_ws := if (T >= 273.16) then Modelica.Media.Air.ReferenceMoistAir.Utilities.IF97_new.molarMass
-          /Modelica.Media.Water.IF97_Utilities.rho_pT(p, T) else Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants
-          .MM/
+          /Modelica.Media.Water.IF97_Utilities.rho_pT(p, T) else Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic.Constants.
+           MM/
           Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT(
           p, T);
 
@@ -3652,8 +3653,8 @@ public
               p,
               T,
               Y);
-        u := (Modelica.Media.Air.ReferenceMoistAir.Utilities.ReactionIndices.U2
-          (   p,
+        u := (Modelica.Media.Air.ReferenceMoistAir.Utilities.ReactionIndices.U2(
+              p,
               T,
               Y)*
           Modelica.Media.Air.ReferenceMoistAir.Utilities.ReactionIndices.V2(T)
@@ -3969,7 +3970,6 @@ public
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der(
                   p,
                   T,
-
                 Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT(
                 p, T),
                   p_der,
@@ -3977,7 +3977,6 @@ public
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der(
                   p,
                   T,
-
                 Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT(
                 p, T),
                   p_der,
@@ -4338,7 +4337,6 @@ public
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT_der(
                   p,
                   T,
-
                 Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT(
                 p, T),
                   p_der,
@@ -4348,7 +4346,6 @@ public
               Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT_der(
                   p,
                   T,
-
                 Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT(
                 p, T),
                   p_der,
