@@ -706,9 +706,7 @@ Note, that
      \"circle\" is \"green\", the signal is <b>true</b>.</li>
 </ul>
 
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+</html>"));
 end RealNetwork1;
 
   model IntegerNetwork1
@@ -1019,9 +1017,7 @@ Note, that
 
 </ul>
 
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics));
+</html>"));
   end BooleanNetwork1;
 
   model Interaction1

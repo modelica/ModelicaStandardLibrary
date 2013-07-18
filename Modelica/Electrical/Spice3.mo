@@ -1456,9 +1456,7 @@ Zeunerstrasse 38<br />
         Documentation(info="<html>
 <p>The coupled inductor circuit demonstrates how different inductors can be coupled using the Component K_CoupledInductors from package Basic</p>
 <p>Simulate until 0.2s, and display the behaviour of the parts that are coupled via <code>K</code>, such as <code>C1.p.v</code>, and <code>C2.p.v</code>.</p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end CoupledInductors;
 
     model CascodeCircuit
@@ -2618,9 +2616,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
               extent={{-142,-40},{142,-60}},
               lineColor={0,0,0},
               textString="L=%L"),
-            Text(extent={{-136,36},{138,56}},  textString="%name")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+            Text(extent={{-136,36},{138,56}},  textString="%name")}));
     end L_Inductor;
 
     model K_CoupledInductors "Inductive coupling via coupling factor K"
@@ -2678,9 +2674,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 <p>
 The usage is demonstrated in the example <a href=\"modelica://Modelica.Electrical.Spice3.Examples.CoupledInductors\">CoupledInductors</a>.
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end K_CoupledInductors;
 
     model E_VCV "Linear voltage-controlled voltage source"

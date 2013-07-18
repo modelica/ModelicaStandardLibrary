@@ -259,9 +259,7 @@ are chosen such way that the magnitudes of the three phase currents (see current
 P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase circuits), Teubner 1973, page 43, example 23
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+        experiment(StopTime=1.0, Interval=0.001));
     end BalancingDelta;
 
     annotation (Documentation(info="<html>
@@ -319,9 +317,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end Star;
 
     model Delta "Delta (polygon) connection"
@@ -376,9 +372,7 @@ Delta (polygon) connection of a multi phase circuit.
 <p>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end Delta;
 
     model PlugToPin_p "Connect one (positive) pin"
@@ -644,9 +638,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end Resistor;
 
     model Conductor "Multiphase linear conductor"
@@ -718,9 +710,7 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end Conductor;
 
     model Capacitor "Multiphase linear capacitor"
@@ -2285,8 +2275,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>,
 </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics));
+</html>"));
     end TwoPlug;
 
     partial model OnePort
@@ -2308,8 +2297,6 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
       v = plug_p.pin.v - plug_n.pin.v;
       i = plug_p.pin.i;
       plug_p.pin.i + plug_n.pin.i = fill(Complex(0),m);
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics));
     end OnePort;
 
     partial model AbsoluteSensor "Partial potential sensor"

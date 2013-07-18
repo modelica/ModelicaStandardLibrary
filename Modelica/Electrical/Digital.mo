@@ -1814,9 +1814,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-100,100},{100,40}},
                 lineColor={0,0,0},
-                textString="D")}),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+                textString="D")}));
         end DFF;
 
         model JKFF "JK FlipFlop"
@@ -8245,9 +8243,5 @@ Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.
         Line(
           points={{42,-12},{17,-12},{17,-54},{-71,-54}},
           color={0,0,0},
-          smooth=Smooth.None)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1})));
+          smooth=Smooth.None)})));
 end Digital;

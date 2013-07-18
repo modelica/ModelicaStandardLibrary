@@ -295,8 +295,7 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end AIMC_YD;
 
       model AIMC_Transformer
@@ -513,8 +512,7 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end AIMC_Transformer;
 
       model AIMS_Start "Test example: AsynchronousInductionMachineSlipRing"
@@ -675,8 +673,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aims.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SlipRing</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                  100}}), graphics));
+</HTML>"));
       end AIMS_Start;
 
       model AIMC_Inverter
@@ -1020,9 +1017,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}),
-                          graphics));
+</HTML>"));
       end AIMC_Steinmetz;
 
       model AIMC_withLosses
@@ -1963,8 +1958,7 @@ whereas the stator voltage is influenced by the d-current.</p>
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</html>"));
       end SMPM_CurrentSource;
 
       model SMPM_VoltageSource
@@ -2210,8 +2204,7 @@ whereas the stator voltage is influenced by the d-current.</p>
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</html>"));
       end SMPM_VoltageSource;
 
       model SMEE_Generator
@@ -2966,7 +2959,8 @@ One could try to optimize the controller parameters.
 <p><b>Test example: Electrical excited synchronous induction machine with voltage controller</b></p><p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled, the set point depends on speed. The generator is loaded with a rectifier.</p>
 <p>Default machine parameters of model <i>SM_ElectricalExcited</i> are used. </p>
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+                  -100},{100,100}}), graphics),
+          __Dymola_experimentSetupOutput);
       end SMEE_Rectifier;
       annotation (Documentation(info="<HTML>
 This package contains test examples of synchronous induction machines.
@@ -4775,8 +4769,7 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end AIMC_Transformer;
       annotation (Documentation(info="<HTML>
 This package contains test examples of DC machines.
@@ -5029,8 +5022,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end AIM_SquirrelCage;
 
       model AIM_SlipRing "Asynchronous induction machine with slipring rotor"
@@ -5346,9 +5338,7 @@ turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
 </p>
 </HTML>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Line(points={{-100,50},{-100,20},{-60,20}}, color={0,0,255}),
-                      Line(points={{-100,-50},{-100,-20},{-60,-20}}, color={0,0,255})}),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+                      Line(points={{-100,-50},{-100,-20},{-60,-20}}, color={0,0,255})}));
       end AIM_SlipRing;
 
       annotation (Documentation(info="<HTML>
@@ -5709,9 +5699,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}),
-                          graphics));
+</HTML>"));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -6118,8 +6106,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor
@@ -6380,8 +6367,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">(Xsq-Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end SM_ReluctanceRotor;
       annotation (Documentation(info="<HTML>
 This package contains models of synchronous induction machines, based on space phasor theory:
@@ -8607,8 +8593,7 @@ This package contains transformers primary D connected / secondary y connected i
 Transformer Dd0
 <br>Typical parameters see:
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics));
+</html>"));
         end Dd00;
 
         model Dd02 "Transformer Dd2"
@@ -9672,8 +9657,7 @@ Temperatures of both axis are the same, both losses are added.
 Material properties alpha can be set differently for both d- and q-axis,
 although reference temperature for both resistances is the same.
 </p>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end DamperCage;
 
       model ElectricalExcitation "Electrical excitation"
@@ -10300,9 +10284,7 @@ The induction machine models use package SpacePhasors.
         Documentation(info="<HTML>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end VoltageQuasiRMSSensor;
 
     model CurrentQuasiRMSSensor "Length of space phasor -> RMS current"
@@ -10374,9 +10356,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
         Documentation(info="<HTML>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end CurrentQuasiRMSSensor;
 
     model ElectricalPowerSensor "Instantaneous power from space phasors"
@@ -10526,9 +10506,7 @@ Q = giving in stationary state reactive power.<br>
           textString = "Pmech")}),
         Documentation(info="<HTML>
 Calculates (mechanical) power from torque times angular speed.
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end MechanicalPowerSensor;
 
     model RotorDisplacementAngle "Rotor lagging angle"
@@ -10712,9 +10690,7 @@ If the machine's stator also implicitly fixed (useSupport=false), the angle at t
 is equal to the angle of the machine's rotor against the stator.<br>
 Otherwise, the sensor's support has to be connected to the machine's support.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end RotorDisplacementAngle;
     annotation (Documentation(info="<HTML>
 This package contains sensors that are useful when modelling machines.
@@ -11786,8 +11762,7 @@ The dependency of the permanent magnet loss torque on the angular velocity is mo
 <p>
 If it is desired to neglect permanent magnet losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                  100}}), graphics));
+</html>"));
       end PermanentMagnetLosses;
 
       model Core "Model of core losses"
@@ -12431,8 +12406,7 @@ Additionally, all losses = heat flows are recorded.
                 textString="AIMS")}),  Documentation(info="<HTML>
 Thermal ambient for asynchronous induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end ThermalAmbientAIMS;
     annotation(Documentation(info="<HTML>
 Thermal parts for asynchronous induction machines
@@ -13612,9 +13586,7 @@ Partial model for induction machine models
 </HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Line(points={{-50,100},{-20,100},{-20,70}}, color={0,0,255}),
-                    Line(points={{50,100},{20,100},{20,70}}, color={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+                    Line(points={{50,100},{20,100},{20,70}}, color={0,0,255})}));
     end PartialBasicInductionMachine;
 
     package InductionMachines
@@ -15040,7 +15012,6 @@ This icon is designed for a <b>quasistationary transformer</b> model.
     end QuasiStationaryTransformer;
 
     annotation (
-      Icon(coordinateSystem(extent = {{-100,-100},{100,100}})),
       Documentation(info = "<html>
 <p>
 This package contains definitions for the graphical layout of machines.
@@ -15546,9 +15517,7 @@ The desired rms values of d- and q-component of the space phasor current in roto
 Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"i[3]\") are calculated.
 They can be used to feed a current source which in turn feeds an induction machine.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end CurrentController;
 
     model VoltageController "Current controller"
@@ -15708,9 +15677,7 @@ They can be used to feed a voltage source which in turn feeds a permanent magnet
 <p>
 Note: No care is taken for current or voltage limiting, as well as for field weakening.
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VoltageController;
 
     block ToDQ
@@ -15757,8 +15724,7 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
           points={{-39,0},{-12,0}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics), Documentation(info="<html>
+      annotation ( Documentation(info="<html>
 <p>
 Threepase values <code>u[3]</code> are transformed to the corresponding spacePhasor which is rotated to the rotor-fixed coordinate system,
 using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q- components <code>y[2]</code>.
@@ -15815,8 +15781,7 @@ using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q-
           points={{-12,0},{-120,0}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics), Documentation(info="<html>
+      annotation ( Documentation(info="<html>
 <p>
 The d- / q- components <code>u[2]</code> are rotated back to the stator-fixed coordinate system,
 using the provided mechanical rotor angle phi. The output is the result of the back-transformation to threephase values <code>y[3]</code>.

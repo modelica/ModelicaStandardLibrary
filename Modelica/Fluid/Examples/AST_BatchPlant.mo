@@ -662,7 +662,7 @@ package AST_BatchPlant
      alt=\"BatchPlant_StandardWater.png\">
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-200,-280},{200,
-              280}}),     graphics),
+              280}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-200,-280},{200,
               280}})));
   end BatchPlant_StandardWater;

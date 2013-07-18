@@ -992,7 +992,6 @@ input becomes false.
         color={255,0,255},
         smooth=Smooth.None));
   annotation (
-    Diagram(graphics),
     Icon(graphics={
         Text(
           extent={{-60,-30},{-20,-90}},

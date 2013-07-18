@@ -49,7 +49,6 @@ package Electrical
     connect(basicTransformer.p2, resistor12.p) annotation (Line(points={{10,47},
             {10,46},{20,46},{40,46},{40,60},{58,60}}, color={0,0,255}));
     annotation (
-      Diagram(graphics),
       Documentation(info="<html>
 <p>
 This model shows a transformer, where the transfomer has not 2 states, but only

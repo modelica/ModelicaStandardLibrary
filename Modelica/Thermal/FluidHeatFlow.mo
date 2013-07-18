@@ -1214,9 +1214,7 @@ the time behaviour depending on coolant flow.
 Two thermal capacities are coupled with two parallel coolant flow.
 Different inital temperatures of thermal capacities and pipe's coolants get ambient's temperature,
 the time behaviour depending on coolant flow.
-</HTML>"),        experiment(StopTime=1.0, Interval=0.001),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+</HTML>"),        experiment(StopTime=1.0, Interval=0.001));
     end TwoMass;
 
     package Utilities "Utility models for examples"

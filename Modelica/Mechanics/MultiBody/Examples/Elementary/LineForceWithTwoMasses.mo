@@ -202,5 +202,5 @@ side in the back is the animation with the JointUPS component.
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
 
-</html>"),    Diagram);
+</html>"));
 end LineForceWithTwoMasses;

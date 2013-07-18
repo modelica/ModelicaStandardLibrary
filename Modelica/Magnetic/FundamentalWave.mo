@@ -833,8 +833,7 @@ The magnetic potential difference of the connector therefore also refers to an e
         annotation (experiment(StopTime=40, Interval=0.01), Documentation(info="<html>
 <p>
 In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters.</p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics));
+</html>"));
       end EddyCurrentLosses;
 
       model SinglePhaseInductance "Single phase inductance"
@@ -942,11 +941,7 @@ In this example the eddy current losses are implemented in two different ways. C
             points={{-20,-20},{-4.44089e-16,-20}},
             color={0,0,255},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}),
-                            graphics), Icon(coordinateSystem(extent={{-100,-100},
-                  {100,100}})),
-          experiment(StopTime=100, Interval=0.01));
+        annotation (          experiment(StopTime=100, Interval=0.01));
       end SinglePhaseInductance;
 
       model MultiPhaseInductance "Multi phase inductance"
@@ -1089,9 +1084,7 @@ In this example the eddy current losses are implemented in two different ways. C
             points={{-60,-70},{-60,-70}},
             color={0,0,255},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}),graphics),
-          experiment(StopTime=100, Interval=0.01));
+        annotation (          experiment(StopTime=100, Interval=0.01));
       end MultiPhaseInductance;
     end Components;
 
@@ -1308,7 +1301,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimcM|E.wMechanical</code>: machine speed</li>
 <li><code>aimcM|E.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end AIMC_DOL;
 
       model AIMC_DOL_MultiPhase
@@ -4434,9 +4427,7 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
 </p>
 </html>"),
-        defaultComponentName="converter",
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+        defaultComponentName="converter");
     end MultiPhaseElectroMagneticConverter;
 
     model Idle "Salient reluctance"
@@ -4608,8 +4599,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end AIM_SquirrelCage;
 
       model AIM_SlipRing "Asynchronous induction machine with slip ring rotor"
@@ -4770,8 +4760,7 @@ Resistances and stray inductances of the machine always refer to either stator o
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end AIM_SlipRing;
       annotation (Documentation(info="<html>
 <p>This package provides squirrel cage and slip ring induction machine models.</p>
@@ -5000,9 +4989,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                  100}}),
-                  graphics));
+</html>"));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -5725,8 +5712,7 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SymmetricMultiPhaseWinding;
 
       model RotorSaliencyAirGap "Air gap model with rotor saliency"
@@ -6985,8 +6971,7 @@ This model is mainly used to extend from in order build more complex - equation 
               visible=not useSupport,
               points={{120,-100},{110,-120}},
               color={0,0,0},
-              smooth=Smooth.None)}),
-        Diagram(graphics));
+              smooth=Smooth.None)}));
     end PartialBasicInductionMachine;
 
     model StateSelector

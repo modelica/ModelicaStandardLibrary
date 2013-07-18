@@ -103,7 +103,7 @@ package Blocks "Test models for Modelica.Blocks"
         color={0,0,127},
         smooth=Smooth.None));
     annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-140},{100,140}}), graphics));
+            preserveAspectRatio=true, extent={{-100,-140},{100,140}})));
   end Continuous;
 
   model Continuous_SteadyState
@@ -425,9 +425,7 @@ package Blocks "Test models for Modelica.Blocks"
         points={{-39,-40},{70,-40},{70,-18}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StopTime=3), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StopTime=3));
   end KinematicPTP;
 
   model UnitDeduction "Test unit deduction"
@@ -830,7 +828,7 @@ package Blocks "Test models for Modelica.Blocks"
         color={255,0,255},
         smooth=Smooth.None));
     annotation (experiment(StopTime=10), Diagram(coordinateSystem(
-            preserveAspectRatio=false,extent={{-100,-180},{180,180}}), graphics));
+            preserveAspectRatio=false,extent={{-100,-180},{180,180}})));
   end Logical;
 
   model IntegerTable
@@ -921,8 +919,7 @@ package Blocks "Test models for Modelica.Blocks"
         color={255,0,255},
         smooth=Smooth.None));
     annotation (experiment(StopTime=11), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-140},{100,140}}),
-          graphics));
+            preserveAspectRatio=false, extent={{-100,-140},{100,140}})));
   end OnDelay;
 
   model Mean
@@ -937,8 +934,7 @@ package Blocks "Test models for Modelica.Blocks"
         color={0,0,127},
         smooth=Smooth.None));
     annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-140},{100,140}}),
-          graphics));
+            preserveAspectRatio=false, extent={{-100,-140},{100,140}})));
   end Mean;
 
   package FilterTests "Test of Blocks.Continuous.Filter"

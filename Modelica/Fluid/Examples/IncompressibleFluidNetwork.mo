@@ -319,7 +319,7 @@ The fluid temperatures in the pipes of interest are exposed through heatPorts.
           "modelica://Modelica/Resources/Scripts/Dymola/Fluid/IncompressibleFluidNetwork/plotResults.mos"
         "plotResults"),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{120,
-            100}}),     graphics),
+            100}})),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{120,
             100}})));
 end IncompressibleFluidNetwork;

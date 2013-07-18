@@ -632,8 +632,7 @@ Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
 to see the difference.
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        Diagram(graphics));
+        experiment(StopTime=1.0, Interval=0.001));
     end Sensors;
 
     model Friction "Use of model Stop"
@@ -1280,7 +1279,7 @@ is present in variable convection.fluid.
 </html>"),
         experiment(StopTime=2.0, Interval=0.001),
         Diagram(coordinateSystem(extent={{-120,-100},{200,100}},
-              preserveAspectRatio=false), graphics));
+              preserveAspectRatio=false)));
     end HeatLosses;
 
     package Utilities "Utility classes used by the Example models"

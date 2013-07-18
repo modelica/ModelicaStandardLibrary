@@ -347,8 +347,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
         Documentation(info="<html>
 <p>Saturation pressure of water above the triple point temperature is computed from temperature. </p>
 <p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1 </p>
-</html>"),
-        Icon(graphics));
+</html>"));
     end saturationPressureLiquid;
 
     function saturationPressureLiquid_der
@@ -382,8 +381,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
         Documentation(info="<html>
 <p>Saturation pressure of water above the triple point temperature is computed from temperature. </p>
 <p>Source: A Saul, W Wagner: &quot;International equations for the saturation properties of ordinary water substance&quot;, equation 2.1 </p>
-</html>"),
-        Icon(graphics));
+</html>"));
     end saturationPressureLiquid_der;
 
     function sublimationPressureIce
@@ -407,8 +405,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
         Documentation(info="<html>
 <p>Sublimation pressure of water below the triple point temperature is computed from temperature.</p>
 <p>Source: W Wagner, A Saul, A Pruss: &quot;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&quot;, equation 3.5</p>
-</html>"),
-        Icon(graphics));
+</html>"));
     end sublimationPressureIce;
 
     function sublimationPressureIce_der
@@ -435,8 +432,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
         Documentation(info="<html>
 <p>Sublimation pressure of water below the triple point temperature is computed from temperature.</p>
 <p>Source: W Wagner, A Saul, A Pruss: &quot;International equations for the pressure along the melting and along the sublimation curve of ordinary water substance&quot;, equation 3.5</p>
-</html>"),
-        Icon(graphics));
+</html>"));
     end sublimationPressureIce_der;
 
     redeclare function extends saturationPressure
@@ -558,8 +554,7 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
         Documentation(info="<html>
 <p>Enthalpy of vaporization of water is computed from temperature in the region of 273.16 to 647.096 K.</p>
 <p>Source: W Wagner, A Pruss: \"International equations for the saturation properties of ordinary water substance. Revised according to the international temperature scale of 1990\" (1993).</p>
-</html>"),
-        Icon(graphics));
+</html>"));
     end enthalpyOfVaporization;
 
     function HeatCapacityOfWater

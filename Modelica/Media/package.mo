@@ -3549,8 +3549,7 @@ no mass or energy is stored in the pipe.
           annotation (Line(points={{-30,10},{-1,10}}, color={0,127,255}));
         connect(shortPipe.port_b, ambient.port)
           annotation (Line(points={{21,10},{39,10}}, color={0,127,255}));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                  {{-100,-100},{100,100}}), graphics), Documentation(info="<html>
+        annotation ( Documentation(info="<html>
 
 </html>"));
         end PartialTestModel;

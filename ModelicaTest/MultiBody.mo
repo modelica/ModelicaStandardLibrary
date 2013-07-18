@@ -1031,9 +1031,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           points={{-59,-60},{-48,-60},{-48,-36},{-36,-36}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics));
+      annotation (experiment(StopTime=1.1));
     end DifferentiationOfForces;
 
     model Force
@@ -1312,8 +1310,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           color={0,0,127},
           smooth=Smooth.None));
       annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-200,-100},{200,100}}),
-            graphics));
+              preserveAspectRatio=true, extent={{-200,-100},{200,100}})));
     end Force2;
 
     model ForcesAndTorques
@@ -1471,9 +1468,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(force.flange_b, damper.flange_b) annotation (Line(points={{-4,-41},
               {-4,-54},{0,-54},{0,-70}}, color={0,191,0}));
       annotation (
-        experiment(StopTime=3),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+        experiment(StopTime=3));
     end ForceWithTwoMasses;
 
     model ForceWithTwoMasses2
@@ -1680,8 +1675,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{-20,-30},{50,-30},{50,0}}));
       connect(Constant1.y, frameForce2.force) annotation (Line(points={{79,50},
               {72,50},{72,10},{62,10}}, color={0,0,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics), experiment(StopTime=1.1));
+      annotation ( experiment(StopTime=1.1));
     end FrameForces;
 
     model FrameForces2
@@ -1795,7 +1789,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       annotation (
         experiment(StopTime=2, Tolerance=1e-006),
         Diagram(coordinateSystem(extent={{-100,-120},{100,100}},
-              preserveAspectRatio=true), graphics),
+              preserveAspectRatio=true)),
         Icon(coordinateSystem(extent={{-100,-120},{100,100}})));
     end FrameForces2;
 
@@ -1897,9 +1891,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics));
+      annotation (experiment(StopTime=1.1));
     end FrameForcesAndTorques;
 
     model FrameForcesAndTorques2
@@ -1997,9 +1989,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      annotation (experiment(StopTime=2, Tolerance=1e-6), Diagram(
-            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics));
+      annotation (experiment(StopTime=2, Tolerance=1e-6));
     end FrameForcesAndTorques2;
 
     model FrameForcesAndTorques3
@@ -2177,8 +2167,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           points={{79,10},{62,10}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics), experiment(StopTime=1.1));
+      annotation ( experiment(StopTime=1.1));
     end FrameTorques;
 
     model FrameTorques2
@@ -2586,10 +2575,7 @@ a linear damper is connected here.
           points={{80,-20},{60,-20}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics), experiment(StopTime=1.1));
+      annotation ( experiment(StopTime=1.1));
     end Torque;
 
     model Torque2
@@ -2776,7 +2762,7 @@ a linear damper is connected here.
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-300},{100,100}},
-            grid={1,1}), graphics), experiment(StopTime=1.1));
+            grid={1,1})), experiment(StopTime=1.1));
     end Torque2;
 
     model Torque3
@@ -2977,7 +2963,7 @@ a linear damper is connected here.
           smooth=Smooth.None));
       annotation (experiment(StopTime=2, Tolerance=1e-6), Diagram(
             coordinateSystem(preserveAspectRatio=true, extent={{-200,-100},{200,
-                100}}), graphics));
+                100}})));
     end Torque3;
 
     model WorldForces
@@ -7117,10 +7103,6 @@ often possible to use the FreeMotion joint such that the singularity
           smooth=Smooth.None));
       annotation (
         experiment(StopTime=10),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
         Documentation(info="<html>
 
 </html>"));
@@ -8490,7 +8472,7 @@ often possible to use the FreeMotion joint such that the singularity
             color={0,0,127},
             smooth=Smooth.None));
         annotation (Diagram(coordinateSystem(extent={{-100,-140},{240,100}},
-                preserveAspectRatio=true), graphics), Icon(coordinateSystem(
+                preserveAspectRatio=true)), Icon(coordinateSystem(
                 extent={{-100,-140},{240,100}})));
       end GearConstraint2;
 

@@ -622,9 +622,7 @@ in the housing on one side via component Fixed.</p>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
 
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+        experiment(StopTime=1.0, Interval=0.001));
     end First;
 
     model FirstGrounded
@@ -1222,8 +1220,7 @@ housing dynamics.</p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <code>housing.w</code>,
 <code>shaft.w</code> and <code>load.w</code>.</p>
 </html>"),
-        experiment(StopTime=10, Interval=0.01),
-        Diagram(graphics));
+        experiment(StopTime=10, Interval=0.01));
     end ElasticBearing;
 
     model Backlash "Example to demonstrate backlash"
@@ -1801,8 +1798,7 @@ is present in variable convection.fluid.
           points={{60,-70},{52,-70}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics), Documentation(info="<html>
+      annotation ( Documentation(info="<html>
 <p>
 This example demonstrates how to generate an input/output block (e.g. in form of an
 FMU - <a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>) from various Rotational components.
@@ -1903,8 +1899,7 @@ force law in a target system between two inertias.
             points={{17,-3},{66,-3},{66,-30},{110,-30}},
             color={0,0,127},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                  {{-100,-100},{100,100}}), graphics), Icon(coordinateSystem(
+        annotation ( Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-84,-58},{24,-90}},
@@ -1989,8 +1984,7 @@ force law in a target system between two inertias.
             points={{-29,-8},{-70,-8},{-70,-80},{-110,-80}},
             color={0,0,127},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                  {{-100,-100},{100,100}}), graphics), Icon(coordinateSystem(
+        annotation ( Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{0,-62},{96,-94}},
@@ -2097,8 +2091,7 @@ force law in a target system between two inertias.
             points={{31,-8},{60,-8},{60,-80},{110,-80}},
             color={0,0,127},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                  {{-100,-100},{100,100}}), graphics), Icon(coordinateSystem(
+        annotation ( Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-48,-36},{48,-68}},
@@ -2199,8 +2192,7 @@ d=%d"),Bitmap(extent={{-72,46},{84,-44}}, fileName=
             points={{31,-8},{60,-8},{60,-80},{110,-80}},
             color={0,0,127},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                  {{-100,-100},{100,100}}), graphics), Icon(coordinateSystem(
+        annotation ( Icon(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
               graphics={Text(
                       extent={{-48,-36},{48,-68}},
@@ -5073,7 +5065,6 @@ in the User's Guide of the Rotational library.
       flange.tau = tau;
 
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Rectangle(
                   extent={{-20,100},{20,-100}},
@@ -5385,8 +5376,6 @@ blocks of the block library Modelica.Blocks.Sources.
                   extent={{-150,150},{150,110}},
                   textString="%name",
                   lineColor={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
         Documentation(info="<html>
 <p>
 Adaptor between a flange connector and a signal representation of the flange.
@@ -7800,7 +7789,6 @@ This is the icon of a clutch from the rotational package.
 </html>"));
     end Clutch;
     annotation (
-      Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}})),
       Documentation(info="<html>
 <p>
 This package contains icons for the Rotational library

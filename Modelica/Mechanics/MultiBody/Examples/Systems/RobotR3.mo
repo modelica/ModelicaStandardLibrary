@@ -1878,7 +1878,7 @@ This model contains the mechanical components of the r3 robot
                   "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
-            extent={{-200,-200},{200,200}}), graphics));
+            extent={{-200,-200},{200,200}})));
     end MechanicalStructure;
 
     annotation (Documentation(info="<html>

@@ -3245,9 +3245,7 @@ Note: The output is updated after each period defined by 1/f.
             textString="RMS"),  Text(
             extent={{-80,-20},{80,-60}},
             lineColor={0,0,0},
-            textString="f=%f")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics));
+            textString="f=%f")}));
   end RootMeanSquare;
 
   block Harmonic "Calculate harmonic over period 1/f"
@@ -3356,9 +3354,7 @@ Note: The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</cod
                             Text(
             extent={{20,-60},{100,-100}},
             lineColor={0,0,0},
-            textString="arg")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics));
+            textString="arg")}));
   end Harmonic;
 
   block Max "Pass through the largest signal"
@@ -3414,10 +3410,6 @@ equation
   yMax = max(u);
   yMin = min(u);
   annotation (
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.1), graphics),
     Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{100,100}},
@@ -3445,7 +3437,6 @@ block LinearDependency
 equation
   y = y0*(1 + k1*u1 + k2*u2);
   annotation (
-    Diagram(graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics={
         Line(

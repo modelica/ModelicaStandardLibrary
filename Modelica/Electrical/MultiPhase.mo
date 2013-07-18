@@ -482,10 +482,7 @@ neglecting initial transient.
 <p>
 Test multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}),
-                graphics));
+</HTML>"));
     end TestSensors;
     annotation (Documentation(info="<HTML>
 <p>
@@ -2356,9 +2353,7 @@ This function determines the orientation of the symmetrical winding with <img sr
 Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor),
 thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end PotentialSensor;
 
     model VoltageSensor "Multiphase voltage sensor"
@@ -2412,9 +2407,7 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
 Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor),
 thus measuring the m potential differences <i>v[m]</i> between the m pins of plug_p and plug_n.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end VoltageSensor;
 
     model VoltageQuasiRMSSensor
@@ -2453,10 +2446,7 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
           points={{0,-61},{0,-100}},
           color={0,0,127},
           smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-                            graphics),
-        Icon(graphics={
+        annotation (        Icon(graphics={
             Line(points={{0,-70},{0,-90}}, color={0,0,255}),
             Line(points={{-90,0},{-70,0}}, color={0,0,255}),
             Line(points={{70,0},{90,0}}, color={0,0,255}),
@@ -2536,9 +2526,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
 Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
 thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to the m pins of plug_n.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end CurrentSensor;
 
     model CurrentQuasiRMSSensor
@@ -2577,10 +2565,7 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
           points={{0,-61},{0,-100}},
           color={0,0,127},
           smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-                            graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        annotation (        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}),
              graphics={                                                 Line(
                 points={{-90,0},{-70,0}},color={0,0,255}),
@@ -2688,9 +2673,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
         Line(points = {{-100,0},{100,0}}, color = {0,0,255})}),
       Documentation(info="<html><p>
 This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
-</p></html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</p></html>"));
   end PowerSensor;
 
     annotation (Documentation(info="<HTML>

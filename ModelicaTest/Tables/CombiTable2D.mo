@@ -43,9 +43,7 @@ package CombiTable2D
         points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test1;
 
   model Test2 "Akima, u2 extrapolation"
@@ -73,9 +71,7 @@ package CombiTable2D
         points={{-59,30},{-50,30},{-50,16},{-42,16}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test2;
 
   model Test3 "Akima, u1 and u2 extrapolation"
@@ -103,9 +99,7 @@ package CombiTable2D
         points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test3;
 
   model Test4 "Bilinear, u1 extrapolation"
@@ -132,9 +126,7 @@ package CombiTable2D
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test4;
 
   model Test5 "Bilinear, u2 extrapolation"
@@ -161,9 +153,7 @@ package CombiTable2D
         points={{-59,-10},{-50.5,-10},{-50.5,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test5;
 
   model Test6 "Bilinear, u1 and u2 extrapolation"
@@ -190,9 +180,7 @@ package CombiTable2D
         points={{-59,30},{-52,30},{-52,16},{-42,16}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test6;
 
   model Test7 "Constant segments, u1 extrapolation"
@@ -220,9 +208,7 @@ package CombiTable2D
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test7;
 
   model Test8 "Constant segments, u2 extrapolation"
@@ -250,9 +236,7 @@ package CombiTable2D
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test8;
 
   model Test9 "Constant segments, u1 and u2 extrapolation"
@@ -280,9 +264,7 @@ package CombiTable2D
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test9;
 
   model Test10 "MAT-File v4"
@@ -305,9 +287,7 @@ package CombiTable2D
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test10;
 
   model Test11 "MAT-File v6"
@@ -330,9 +310,7 @@ package CombiTable2D
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test11;
 
   model Test12 "MAT-File v7"
@@ -355,9 +333,7 @@ package CombiTable2D
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test12;
 
   /*
@@ -393,9 +369,7 @@ package CombiTable2D
         points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=60), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-          graphics));
+    annotation (experiment(StartTime=0, StopTime=60));
   end Test14;
 
   model Test15 "Constant 2D surface"
@@ -673,8 +647,6 @@ package CombiTable2D
         points={{-59,30},{-52,30},{-52,16},{-42,16}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics),
-      experiment(StartTime=0, StopTime=1.0));
+    annotation (      experiment(StartTime=0, StopTime=1.0));
   end Test18_usertab;
 end CombiTable2D;

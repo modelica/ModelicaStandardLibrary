@@ -1434,8 +1434,7 @@ no mass or energy is stored in the pipe.
             smooth=Smooth.None));
         annotation (Documentation(info="<html>
 
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end PartialTestModel;
 
       partial model PartialTestModel2
@@ -1524,8 +1523,7 @@ no mass or energy is stored in the pipe.
             smooth=Smooth.None));
         annotation (Documentation(info="<html>
 
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end PartialTestModel2;
       annotation (Documentation(info="<html>
 
