@@ -666,8 +666,9 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
     fc := fb;
     if fa > 0.0 and fb > 0.0 or fa < 0.0 and fb < 0.0 then
       error(
-        "The arguments u_min and u_max to solveOneNonlinearEquation(..)\n" +
-        "do not bracket the root of the single non-linear equation:\n" +
+        "The arguments u_min and u_max provided in the function call\n"+
+        "    solveOneNonlinearEquation(f,u_min,u_max)\n" +
+        "do not bracket the root of the single non-linear equation 0=f(u):\n" +
         "  u_min  = " + String(u_min) + "\n" + "  u_max  = " + String(u_max)
          + "\n" + "  fa = f(u_min) = " + String(fa) + "\n" +
         "  fb = f(u_max) = " + String(fb) + "\n" +
