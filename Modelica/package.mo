@@ -2451,8 +2451,8 @@ and will interpret it in the same way. Short Overview:
      without relying on tool heuristics).
      </li>
 
-<li> More than <b>300 tickets</b> have been fixed for this release, and
-     especially all compliance issues.
+<li> About <b>400 tickets</b> have been fixed for this release, and
+     especially all compliance issues and nearly all defect issues.
      </li>
 
 <li> An open source implementation of the <b>table blocks</b> has been provided
