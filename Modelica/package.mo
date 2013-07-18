@@ -7653,8 +7653,8 @@ of the Modelica package (many more people have contributed to the design):
    <td valign=\"top\"> Modelica.Math.Matrices</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Manuel Wetter</b> </td>
-   <td valign=\"top\"> Lawrence Berkeley National Laboratory; U.S.A</td>
+<tr><td valign=\"top\"><b>Michael Wetter</b> </td>
+   <td valign=\"top\"> Lawrence Berkeley National Laboratory; U.S.A.</td>
    <td valign=\"top\"> Modelica.Fluid</td>
 </tr>
 
