@@ -418,8 +418,8 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Text(
+            extent={{-100,-100},{100,100}}),
+              graphics={Text(
                   extent={{-28,94},{62,86}},
                   lineColor={0,0,0},
                   textString="(positive) axis of rotation"),Line(points={{-61,

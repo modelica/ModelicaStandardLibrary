@@ -202,8 +202,8 @@ The regularization can be changed for the PressureLoss model.
         smooth=Smooth.None));
     annotation (defaultComponentName="pipe",Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Ellipse(
+          extent={{-100,-100},{100,100}}),
+          graphics={Ellipse(
             extent={{-10,10},{10,-10}},
             lineColor={0,0,0},
             fillColor={0,0,0},

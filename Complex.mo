@@ -113,8 +113,8 @@ operator record Complex "Complex number with overloaded operators"
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          extent={{-100,-100},{100,100}}),
+          graphics={
           Rectangle(
             lineColor={200,200,200},
             fillColor={248,248,248},

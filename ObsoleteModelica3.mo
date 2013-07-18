@@ -261,8 +261,8 @@ defined as outputs (e.g., useful for inverse model generation).
 
 </html>"),           Icon(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics={Text(
+              extent={{-100,-100},{100,100}}),
+                graphics={Text(
                 extent={{-95,50},{95,-50}},
                 lineColor={0,0,127},
                 textString="=")}));
@@ -295,8 +295,8 @@ This block is used to enable calculation of values preliminary defined as inputs
 
 </html>"),           Icon(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics={Text(
+              extent={{-100,-100},{100,100}}),
+                graphics={Text(
                 extent={{-95,50},{95,-50}},
                 lineColor={0,0,127},
                 textString="=")}));
@@ -1076,8 +1076,8 @@ with the blocks of package Modelica.Blocks.
 </p>
 </html>"),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}),
+                graphics={
                 Line(points={{-70,0},{-101,0}}, color={0,0,0}),
                 Line(points={{70,0},{100,0}}, color={0,0,0}),
                 Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
@@ -1103,8 +1103,8 @@ with the blocks of package Modelica.Blocks.
                   pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}),
+                graphics={
                 Line(points={{-70,0},{-100,0}}, color={0,0,0}),
                 Line(points={{70,0},{100,0}}, color={0,0,0}),
                 Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
@@ -1380,8 +1380,8 @@ position a degree of freedom is lost.
               obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
               Icon(coordinateSystem(
                   preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
+                  extent={{-100,-100},{100,100}}),
+                  graphics={
                   Rectangle(
                     extent={{-30,10},{10,-10}},
                     lineColor={0,0,0},
@@ -1426,8 +1426,8 @@ position a degree of freedom is lost.
                     fillColor={192,192,192})}),
               Diagram(coordinateSystem(
                   preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
+                  extent={{-100,-100},{100,100}}),
+                  graphics={
                   Rectangle(
                     extent={{-100,-60},{-30,60}},
                     lineColor={0,0,0},
@@ -1678,7 +1678,7 @@ be dynamically selected in such a way that in no position a
 degree of freedom is lost.
 ");
             k1b = Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent(k1a,
-              1.0e-12);
+            1.0e-12);
             k2 = sqrt(k1b);
             distance = -k1 + (if positiveBranch then k2 else -k2);
             annotation (
@@ -1687,8 +1687,8 @@ degree of freedom is lost.
               obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
               Icon(coordinateSystem(
                   preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
+                  extent={{-100,-100},{100,100}}),
+                  graphics={
                   Rectangle(
                     extent={{-30,-40},{100,30}},
                     lineColor={0,0,255},
@@ -1728,8 +1728,8 @@ degree of freedom is lost.
                     textString="n=%n")}),
               Diagram(coordinateSystem(
                   preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
+                  extent={{-100,-100},{100,100}}),
+                  graphics={
                   Line(points={{-30,-50},{-30,50}}, color={0,0,0}),
                   Line(points={{0,-67},{90,-67}}, color={128,128,128}),
                   Text(
@@ -3057,8 +3057,8 @@ with the blocks of package Modelica.Blocks.
 
 </html>"),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}),
+                graphics={
                 Line(points={{-70,0},{-90,0}}, color={0,0,0}),
                 Line(points={{70,0},{100,0}}, color={0,0,127}),
                 Text(
@@ -3067,8 +3067,8 @@ with the blocks of package Modelica.Blocks.
                   lineColor={0,0,255})}),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,
+                extent={{-100,-100},{100,100}}),
+                graphics={Line(points={{-70,0},{-90,0}}, color={0,
                       0,0}), Line(points={{70,0},{100,0}}, color={0,0,255})}));
         end AbsoluteSensor;
 
@@ -3105,8 +3105,8 @@ with the blocks of package Modelica.Blocks.
 
 </html>"),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}),
+                graphics={
                 Line(points={{-70,0},{-90,0}}, color={0,0,0}),
                 Line(points={{70,0},{90,0}}, color={0,0,0}),
                 Line(points={{0,-100},{0,-70}}, color={0,0,127}),
@@ -3116,8 +3116,8 @@ with the blocks of package Modelica.Blocks.
                   lineColor={0,0,255})}),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}),
+                graphics={
                 Line(points={{-70,0},{-90,0}}, color={0,0,0}),
                 Line(points={{70,0},{90,0}}, color={0,0,0}),
                 Line(points={{0,-100},{0,-70}}, color={0,0,255})}));
@@ -3257,8 +3257,8 @@ user interface when the type is used as parameter in a declaration.
               "This model can get stuck due when the torque direction varies, use Modelica.Mechanics.Rotational.Components.LossyGear instead.",
           Icon(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}),
+              graphics={
               Text(
                 extent={{-150,100},{150,60}},
                 textString="%name",
@@ -3341,8 +3341,8 @@ from tables of the gear manufacturers.
 
 </html>"),       Diagram(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}),
+              graphics={
               Rectangle(
                 extent={{-96,20},{96,-21}},
                 lineColor={0,0,0},

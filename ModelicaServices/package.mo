@@ -655,8 +655,8 @@ package Animation "Models and functions for 3-dim. animation"
 
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={Text(
+          extent={{-100,-100},{100,100}}),
+          graphics={Text(
             extent={{-150,-110},{150,-140}},
             lineColor={0,0,0},
             textString="default")}), Documentation(info="<html>

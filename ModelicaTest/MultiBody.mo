@@ -2761,8 +2761,7 @@ a linear damper is connected here.
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=false,
-            extent={{-100,-300},{100,100}},
-            grid={1,1})), experiment(StopTime=1.1));
+            extent={{-100,-300},{100,100}})), experiment(StopTime=1.1));
     end Torque2;
 
     model Torque3
