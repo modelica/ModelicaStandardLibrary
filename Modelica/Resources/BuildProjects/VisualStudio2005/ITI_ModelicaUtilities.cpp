@@ -96,14 +96,14 @@ void ModelicaVFormatMessage(const char* string, va_list args)
 		size_t count = 128;
 		char* buf = NULL;
 		int charsWritten;
-		
+
 		buf = (char*) malloc((count + 1)*sizeof(char));
 		while ((charsWritten = vsnprintf(buf, count, string, args)) == -1)
 		{
 			count *= 2;
 			buf = (char*) realloc((void*) buf, (count + 1)*sizeof(char));
 		}
-		
+
 		buf[charsWritten] = '\0';
 		count = strlen(buf) + 1;
 		char* buf2 = ModelicaAllocateString(count);
@@ -191,14 +191,14 @@ void ModelicaVFormatError(const char* string, va_list args)
 		size_t count = 128;
 		char* buf = NULL;
 		int charsWritten;
-		
+
 		buf = (char*) malloc((count + 1)*sizeof(char));
 		while ((charsWritten = vsnprintf(buf, count, string, args)) == -1)
 		{
 			count *= 2;
 			buf = (char*) realloc((void*) buf, (count + 1)*sizeof(char));
 		}
-		
+
 		buf[charsWritten] = '\0';
 		count = strlen(buf) + 1;
 		char* buf2 = ModelicaAllocateString(count);

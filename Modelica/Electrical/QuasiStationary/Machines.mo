@@ -2042,65 +2042,65 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
             Polygon(
-              origin = {10,10}, 
-              fillColor = {135,135,135}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              fillColor = {135,135,135},
+              fillPattern = FillPattern.VerticalCylinder,
               points = {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
             Polygon(
-              origin = {10,10}, 
-              fillColor = {135,135,135}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              fillColor = {135,135,135},
+              fillPattern = FillPattern.VerticalCylinder,
               points = {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
             Polygon(
-              origin = {10,10}, 
-              fillColor = {135,135,135}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              fillColor = {135,135,135},
+              fillPattern = FillPattern.VerticalCylinder,
               points = {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
             Polygon(
-              origin = {10,10}, 
-              fillColor = {135,135,135}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              fillColor = {135,135,135},
+              fillPattern = FillPattern.VerticalCylinder,
               points = {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
             Polygon(
-              origin = {10,10}, 
-              fillColor = {135,135,135}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              fillColor = {135,135,135},
+              fillPattern = FillPattern.VerticalCylinder,
               points = {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
             Rectangle(
-              origin = {10,10}, 
-              lineColor = {213,170,255}, 
-              fillColor = {213,170,255}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              lineColor = {213,170,255},
+              fillColor = {213,170,255},
+              fillPattern = FillPattern.VerticalCylinder,
               extent = {{-88,-46},{-52,26}}),
             Rectangle(
-              origin = {10,10}, 
-              lineColor = {170,213,255}, 
-              fillColor = {170,213,255}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              lineColor = {170,213,255},
+              fillColor = {170,213,255},
+              fillPattern = FillPattern.VerticalCylinder,
               extent = {{-94,-38},{-46,18}}),
             Rectangle(
-              origin = {10,10}, 
-              lineColor = {213,170,255}, 
-              fillColor = {213,170,255}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              lineColor = {213,170,255},
+              fillColor = {213,170,255},
+              fillPattern = FillPattern.VerticalCylinder,
               extent = {{-28,-46},{8,26}}),
             Rectangle(
-              origin = {10,10}, 
-              lineColor = {170,213,255}, 
-              fillColor = {170,213,255}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              lineColor = {170,213,255},
+              fillColor = {170,213,255},
+              fillPattern = FillPattern.VerticalCylinder,
               extent = {{-34,-38},{14,18}}),
             Rectangle(
-              origin = {10,10}, 
-              lineColor = {213,170,255}, 
-              fillColor = {213,170,255}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              lineColor = {213,170,255},
+              fillColor = {213,170,255},
+              fillPattern = FillPattern.VerticalCylinder,
               extent = {{32,-46},{68,26}}),
             Rectangle(
-              origin = {10,10}, 
-              lineColor = {170,213,255}, 
-              fillColor = {170,213,255}, 
-              fillPattern = FillPattern.VerticalCylinder, 
+              origin = {10,10},
+              lineColor = {170,213,255},
+              fillColor = {170,213,255},
+              fillPattern = FillPattern.VerticalCylinder,
               extent = {{26,-38},{74,18}})}));
     end Transformers;
 
@@ -2218,29 +2218,29 @@ This package contains components for modeling electrical machines, specially thr
     end Components;
     annotation (Icon(graphics={
       Rectangle(
-        origin = {0,14.817}, 
-        fillColor = {170,213,255}, 
-        fillPattern = FillPattern.HorizontalCylinder, 
+        origin = {0,14.817},
+        fillColor = {170,213,255},
+        fillPattern = FillPattern.HorizontalCylinder,
         extent = {{-54.179,-59.817},{65.821,60.183}}),
       Rectangle(
-        origin = {5.821,15}, 
-        fillColor = {128,128,128}, 
-        fillPattern = FillPattern.HorizontalCylinder, 
+        origin = {5.821,15},
+        fillColor = {128,128,128},
+        fillPattern = FillPattern.HorizontalCylinder,
         extent = {{-80,-60},{-60,60}}),
       Rectangle(
-        origin = {5.821,15}, 
-        fillColor = {95,95,95}, 
-        fillPattern = FillPattern.HorizontalCylinder, 
+        origin = {5.821,15},
+        fillColor = {95,95,95},
+        fillPattern = FillPattern.HorizontalCylinder,
         extent = {{60,-10},{80,10}}),
       Rectangle(
-        origin = {5.821,15}, 
-        lineColor = {95,95,95}, 
-        fillColor = {95,95,95}, 
-        fillPattern = FillPattern.Solid, 
+        origin = {5.821,15},
+        lineColor = {95,95,95},
+        fillColor = {95,95,95},
+        fillPattern = FillPattern.Solid,
         extent = {{-60,50},{20,70}}),
       Polygon(
-        origin = {5.821,15}, 
-        fillPattern = FillPattern.Solid, 
+        origin = {5.821,15},
+        fillPattern = FillPattern.Solid,
         points = {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
 This package contains components for modeling quasi stationary electrical induction machines machines, based on space phasor theory:
 <ul>
@@ -2495,29 +2495,29 @@ This package contains the quasi stationary space phasor connector and partial mo
   end Interfaces;
   annotation (Icon(graphics={
       Rectangle(
-        origin = {0,14.817}, 
-        fillColor = {170,213,255}, 
-        fillPattern = FillPattern.HorizontalCylinder, 
+        origin = {0,14.817},
+        fillColor = {170,213,255},
+        fillPattern = FillPattern.HorizontalCylinder,
         extent = {{-54.179,-59.817},{65.821,60.183}}),
       Rectangle(
-        origin = {5.821,15}, 
-        fillColor = {128,128,128}, 
-        fillPattern = FillPattern.HorizontalCylinder, 
+        origin = {5.821,15},
+        fillColor = {128,128,128},
+        fillPattern = FillPattern.HorizontalCylinder,
         extent = {{-80,-60},{-60,60}}),
       Rectangle(
-        origin = {5.821,15}, 
-        fillColor = {95,95,95}, 
-        fillPattern = FillPattern.HorizontalCylinder, 
+        origin = {5.821,15},
+        fillColor = {95,95,95},
+        fillPattern = FillPattern.HorizontalCylinder,
         extent = {{60,-10},{80,10}}),
       Rectangle(
-        origin = {5.821,15}, 
-        lineColor = {95,95,95}, 
-        fillColor = {95,95,95}, 
-        fillPattern = FillPattern.Solid, 
+        origin = {5.821,15},
+        lineColor = {95,95,95},
+        fillColor = {95,95,95},
+        fillPattern = FillPattern.Solid,
         extent = {{-60,50},{20,70}}),
       Polygon(
-        origin = {5.821,15}, 
-        fillPattern = FillPattern.Solid, 
+        origin = {5.821,15},
+        fillPattern = FillPattern.Solid,
         points = {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
 <p>This package hosts models for quasi stationary induction machines and transformers.
 </p>
