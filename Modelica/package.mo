@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 3.2.1 Beta 3 (Build 0)"
+package Modelica "Modelica Standard Library - Version 3.2.1 Beta 4 (Build 0)"
 extends Modelica.Icons.Package;
 
 
@@ -7741,8 +7741,8 @@ annotation (
 preferredView="info",
 version="3.2.1",
 versionBuild=0,
-versionDate="2013-06-27",
-dateModified = "2013-06-27 11:37:53Z",
+versionDate="2013-07-18",
+dateModified = "2013-07-18 14:44:41Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
 conversion(
