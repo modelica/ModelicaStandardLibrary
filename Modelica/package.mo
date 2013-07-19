@@ -2519,6 +2519,7 @@ The following Modelica packages have been tested that they work together with pa
 </p>
 
 <ul>
+<li> Buildings 1.4 (LBNL) </li>
 <li> FlexibleBodies 2.0.1 (DLR)</li>
 <li> Modelica_Synchronous 0.91 (DLR)</li>
 <li> Optimization 2.2 (DLR)</li>
