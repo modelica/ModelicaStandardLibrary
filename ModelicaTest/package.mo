@@ -42,9 +42,10 @@ end testAllFunctions;
 
 
   annotation (version="3.2.1",
-       versionDate="2012-XX-XX",
        versionBuild=0,
-       dateModified = "2012-11-02 10:00:00Z",
+       versionDate="2013-07-25",
+       dateModified = "2013-07-25 10:00:00Z",
+       revisionId="$Id::                                       $",
        uses(Modelica(version="3.2.1")),
     Documentation(info="<html>
 <p>
@@ -79,5 +80,11 @@ Copyright &copy; 1998-2013, Modelica Association.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</html>"));
+</html>"),
+    Icon(graphics={Polygon(
+          points={{-70,0},{-44,0},{-24,-34},{50,56},{78,56},{-24,-74},{-70,0}},
+          lineColor={75,138,73},
+          smooth=Smooth.None,
+          fillColor={75,138,73},
+          fillPattern=FillPattern.Solid)}));
 end ModelicaTest;

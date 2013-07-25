@@ -7309,18 +7309,19 @@ class Contact "Contact"
 <dd>web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></dd>
 <dd>&nbsp;&nbsp;</dd>
 
-<dt>The development of this Modelica package (after version 3.2) is organized by:</dt>
-<dd>Anton Haumer</dd>
-<dd>xxx</dd>
+<dt>The development of this Modelica package, starting with version 3.2.1, is organized by:</dt>
+<dd><a href=\"http://www.haumer.at/eindex.htm\">Anton Haumer</a></dd>
+<dd>Technical Consulting & Electrical Engineering</dd>
+<dd>A-3423 St.Andrae-Woerdern, Hadersfelderweg 21</dd>
 <dd>Austria</dd>
 <dd>email: <a href=\"mailto:A.Haumer@Haumer.at\">A.Haumer@Haumer.at</a></dd>
-
 <dd>&nbsp;&nbsp;</dd>
-<dt>The development of this Modelica package up to version 3.2 was organized by:</dt>
+
+<dt>The development of this Modelica package up to and including version 3.2.1 was organized by:</dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dd>
-<dd>Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)</dd>
-<dd>Institut f&uuml;r Robotik und Mechatronik</dd>
-<dd>Abteilung f&uuml;r Systemdynamik und Regelungstechnik</dd>
+<dd>German Aerospace Center (DLR)</dd>
+<dd>Robotics and Mechatronics Center (RMC)</dd>
+<dd>Institute of System Dynamics and Control (SR)</dd>
 <dd>Postfach 1116</dd>
 <dd>D-82230 Wessling</dd>
 <dd>Germany</dd>
@@ -7335,7 +7336,7 @@ class Contact "Contact"
 </tr>
 
 <tr><td valign=\"top\"> Complex </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
         (Martin Otter)<br>
         Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, <br>
         Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)
@@ -7345,7 +7346,7 @@ class Contact "Contact"
 
 <tr><td valign=\"top\"> Modelica.Blocks <br>
                       Modelica.Constants </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
         (Martin Otter)</td>
 </tr>
 
@@ -7391,12 +7392,12 @@ class Contact "Contact"
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Math </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)</td>
 </tr>
 
 <tr><td valign=\"top\"> Modelica.ComplexMath </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
       Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
       Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)
@@ -7404,13 +7405,13 @@ class Contact "Contact"
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Mechanics.MultiBody </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter),<br>
        Modelon AB, Lund, Sweden (Johan Andreasson) </td>
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Mechanics.Rotational </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
       Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
       Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral),<br>
@@ -7420,7 +7421,7 @@ class Contact "Contact"
 <tr><td valign=\"top\"> Modelica.Mechanics.Translational </td>
    <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
       Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral), <br>
-      DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+      DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
        Modelon AB, Lund, Sweden (Johan Andreasson)</td>
 </tr>
@@ -7431,7 +7432,7 @@ class Contact "Contact"
 
 <tr><td valign=\"top\"> Modelica.SIunits <br>
       Modelica.StateGraph </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)</td>
 </tr>
 
@@ -7441,7 +7442,7 @@ class Contact "Contact"
       Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)</td>
 
 <tr><td valign=\"top\"> Modelica.Utilities </td>
-   <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+   <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
       Dassault Syst&egrave;mes AB, Lund, Sweden (Hans Olsson)</td>
 </tr>
@@ -7454,7 +7455,7 @@ of the Modelica package (many more people have contributed to the design):
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><b>Marcus Baur</b> </td>
-   <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
+   <td valign=\"top\"> Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center, <br>
      Oberpfaffenhofen, Germany</td>
    <td valign=\"top\"> Complex<br>
@@ -7465,6 +7466,14 @@ of the Modelica package (many more people have contributed to the design):
 <tr><td valign=\"top\"><b>Peter Beater</b> </td>
    <td valign=\"top\"> University of Paderborn, Germany</td>
    <td valign=\"top\"> Modelica.Mechanics.Translational </td>
+</tr>
+
+
+
+<tr><td valign=\"top\"><b>Thomas Beutlich</b> </td>
+   <td valign=\"top\"> ITI GmbH, Germany</td>
+   <td valign=\"top\"> Modelica.Blocks.Sources.CombiTimeTable<br>
+                       Modelica.Blocks.Tables </td>
 </tr>
 
 <tr><td valign=\"top\"><b>Thomas B&ouml;drich</b> </td>
@@ -7534,7 +7543,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Hans-Dieter Joos</b> </td>
-   <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
+   <td valign=\"top\"> Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center, <br>
      Oberpfaffenhofen, Germany</td>
    <td valign=\"top\"> Modelica.Math.Matrices</td>
@@ -7569,7 +7578,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Martin Otter</b> </td>
-   <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
+   <td valign=\"top\"> Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center, <br>
      Oberpfaffenhofen, Germany</td>
    <td valign=\"top\"> Complex<br>
@@ -7615,7 +7624,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 <tr><td valign=\"top\"><b>Christian Schweiger</b> </td>
    <td valign=\"top\"> Until 2006:<br>
-     Institute of Robotics and Mechatronics,<br>
+     Institute of System Dynamics and Control,<br>
      DLR, German Aerospace Center,<br>
      Oberpfaffenhofen, Germany</td>
    <td valign=\"top\"> Modelica.Mechanics.Rotational<br>
@@ -7624,10 +7633,11 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Michael Sielemann</b> </td>
-   <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
+   <td valign=\"top\"> Institute of System Dynamics and Control<br>
      DLR, German Aerospace Center, <br>
      Oberpfaffenhofen, Germany</td>
-   <td valign=\"top\"> Modelica.Fluid</td>
+   <td valign=\"top\"> Modelica.Fluid<br>
+                       Modelica.Media</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Michael Tiller</b> </td>
@@ -7667,7 +7677,8 @@ of the Modelica package (many more people have contributed to the design):
 
 <tr><td valign=\"top\"><b>Stefan Wischhusen</b> </td>
    <td valign=\"top\"> XRG Simulation GmbH, Hamburg, Germany</td>
-   <td valign=\"top\"> Modelica.Fluid.Dissipation</td>
+   <td valign=\"top\"> Modelica.Fluid.Dissipation<br>
+                       Modelica.Media</td>
 </tr>
 </table>
 
