@@ -17,6 +17,7 @@ extends Modelica.Icons.Package;
     constant Real epsilon=1E-14;
   algorithm
     success:=false;
+    Modelica.Utilities.Streams.print("... Test of Complex and of Modelica.ComplexMath");
     Modelica.Utilities.Streams.print("... Test of Complex and of Modelica.ComplexMath", logFile);
 
     c1:=Complex(1,1);

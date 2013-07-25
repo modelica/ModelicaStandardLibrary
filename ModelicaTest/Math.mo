@@ -12,6 +12,7 @@ extends Modelica.Icons.ExamplesPackage;
     constant Real pi = Modelica.Constants.pi;
   algorithm
     ok:=false;
+    Streams.print("... Test of Modelica.Math.<scalar functions>");
     Streams.print("... Test of Modelica.Math.<scalar functions>", logFile);
 
     assert(abs(Math.sin(pi))         <= 1e-15, "sin is wrong");
@@ -55,6 +56,7 @@ extends Modelica.Icons.ExamplesPackage;
     Integer b3Desired2[2]={2,4};
   algorithm
     ok := false;
+    Streams.print("... Test of Modelica.Math.<Boolean functions>");
     Streams.print("... Test of Modelica.Math.<Boolean functions>", logFile);
 
     assert(BooleanVectors.allTrue(b1) == true, "allTrue is wrong at (1)");
@@ -126,6 +128,7 @@ extends Modelica.Icons.ExamplesPackage;
     Real u[7] = {0,1,2,3,4,5,6};
     Real y[7];
   algorithm
+    Streams.print("... Test of Modelica.Media.Incompressible.TableBased.Polynomials_Temp");
     Streams.print("... Test of Modelica.Media.Incompressible.TableBased.Polynomials_Temp", logFile);
 
     r := Poly.evaluate(p1,-3);
@@ -189,6 +192,7 @@ extends Modelica.Icons.ExamplesPackage;
      Real e3[1] = B3*x3 - b3;
     //output Real x4[4] = Modelica.Math.Matrices.equalityLeastSquares(A4,a4,B4,b4);
   algorithm
+    Streams.print("... Test of Modelica.Math.Matrices");
     Streams.print("... Test of Modelica.Math.Matrices", logFile);
     x1 :=Modelica.Math.Matrices.leastSquares(A1, b);
     x2 :=Modelica.Math.Matrices.leastSquares(A2, b);

@@ -18,6 +18,7 @@ package Utilities "Test functions for Modelica.Utilities"
     String svec[2];
     Types.TokenValue token;
   algorithm
+    Streams.print("... Test of Modelica.Utilities.Strings");
     Streams.print("... Test of Modelica.Utilities.Strings", logFile);
 
     i := Strings.length("hello, world");
@@ -223,6 +224,7 @@ package Utilities "Test functions for Modelica.Utilities"
     Integer nLines;
     Boolean eof;
   algorithm
+    Streams.print("... Test of Modelica.Utilities.Streams");
     Streams.print("... Test of Modelica.Utilities.Streams", logFile);
 
     Files.remove(file);
@@ -275,8 +277,8 @@ package Utilities "Test functions for Modelica.Utilities"
     Boolean exist;
     Modelica.Utilities.Types.FileType fileType;
   algorithm
-    Streams.print(
-      "... Test of Modelica.Utilities.Internal.FileSystem and .System", logFile);
+    Streams.print("... Test of Modelica.Utilities.Internal.FileSystem and .System");
+    Streams.print("... Test of Modelica.Utilities.Internal.FileSystem and .System", logFile);
 
     // Check Modelica.Utilites.Internal and Modelica.Utilities.System
     dir1 := System.getWorkDirectory();
@@ -289,23 +291,15 @@ package Utilities "Test functions for Modelica.Utilities"
     fileType := FileSystem.stat(dir2);
     assert(fileType == Types.FileType.Directory, "FileSystem.mkdir/stat failed");
 
-    Streams.print("dir2 = " + dir2);
-
     System.setWorkDirectory(dir2);
 
-    Streams.print(".. 1");
     dir3 := System.getWorkDirectory();
-    Streams.print(".. 2");
     assert(dir2 == dir3, "System.xxxWorkDirectory failed\n" + "set dir = " +
       dir1 + "\n" + "get dir = " + dir3 + "\n");
-    Streams.print(".. 3");
     System.setWorkDirectory("..");
 
-    Streams.print(".. 4");
     dir4 := dir1 + "/#ModelicaTest2";
-    Streams.print(".. 5");
     FileSystem.rename(dir2, dir4);
-    Streams.print(".. 6");
     FileSystem.rmdir(dir4);
 
     System.setEnvironmentVariable(
@@ -333,6 +327,7 @@ package Utilities "Test functions for Modelica.Utilities"
     String name;
     String extension;
   algorithm
+    Streams.print("... Test of Modelica.Utilities.Files");
     Streams.print("... Test of Modelica.Utilities.Files", logFile);
 
     (directory,name,extension) := Files.splitPathName("E:/test1/test2.save.txt");
@@ -357,11 +352,7 @@ package Utilities "Test functions for Modelica.Utilities"
     result := ModelicaTest.Utilities.Strings(logFile);
     result := ModelicaTest.Utilities.Streams(logFile);
     result := ModelicaTest.Utilities.Files(logFile);
-    // only rudimentary tests
-
-    // Next call fails currently in Dymola, must be fixed:
-    // result := ModelicaTest.Utilities.Internal(logFile);
-
+    result := ModelicaTest.Utilities.Internal(logFile);
     ok := true;
   end testAll;
 end Utilities;
