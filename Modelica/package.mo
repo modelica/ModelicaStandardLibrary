@@ -2504,7 +2504,7 @@ tools might not yet supported the complete Modelica package):
      Regression test results with regards to Modelica 3.2 are available
      <a href=\"https://trac.modelica.org/Modelica/ticket/1114\">here</a>.</li>
 <li> Dymola 2014 FD01 development with pedantic flag (Windows 64 bit)<br>
-     ("pedantic flag" means that strict Modelica compliance is checked.
+     (\"pedantic flag\" means that strict Modelica compliance is checked.
      Dymola 2014 fails with pedantic flag, e.g., because the annotation DocumentationClass
      was not standardized when this version of Dymola was released).
 <li> Maplesim Parser</li>
