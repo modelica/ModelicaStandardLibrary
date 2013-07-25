@@ -1,7 +1,7 @@
 within Modelica.Fluid;
 package Dissipation
   "Functions for convective heat transfer and pressure loss characteristics"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.BasesPackage;
   import PI = Modelica.Constants.pi;
   import REC = Modelica.Fluid.Dissipation.Utilities.Records;
   import TYP = Modelica.Fluid.Dissipation.Utilities.Types;

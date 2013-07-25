@@ -1,8 +1,8 @@
 within Modelica.Media;
 package CompressibleLiquids "Compressible liquid models"
-  extends Modelica.Icons.MaterialPropertiesPackage;
+  extends Modelica.Icons.VariantsPackage;
   package Common "Base classes for compressible liquids"
-    extends Icons.Library;
+    extends Modelica.Icons.Package;
     partial package LinearWater_pT
       "Base class for liquid, linear compressibility water models"
       extends Media.Interfaces.PartialLinearFluid(

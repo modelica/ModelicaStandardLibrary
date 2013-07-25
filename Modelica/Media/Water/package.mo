@@ -2,7 +2,7 @@ within Modelica.Media;
 package Water "Medium models for water"
 
 
-extends Modelica.Icons.MaterialPropertiesPackage;
+extends Modelica.Icons.VariantsPackage;
 
 import Modelica.Media.Water.ConstantPropertyLiquidWater.simpleWaterConstants;
 
@@ -62,14 +62,7 @@ package ConstantPropertyLiquidWater
     MM_const=0.018015268,
     fluidConstants=simpleWaterConstants);
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}), graphics={Text(
-          extent={{-90,88},{90,18}},
-          lineColor={0,0,0},
-          textString="liquid"), Text(
-          extent={{-90,-22},{90,-90}},
-          lineColor={0,0,0},
-          textString="water")}), Documentation(info="<html>
+  annotation (Documentation(info="<html>
 
 </html>"));
 end ConstantPropertyLiquidWater;
@@ -786,14 +779,7 @@ partial package WaterIF97_base
           phase=0);
     annotation (Inline=true);
   end setSmoothState;
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}), graphics={Text(
-          extent={{-94,84},{94,40}},
-          lineColor={127,191,255},
-          textString="IF97"), Text(
-          extent={{-94,20},{94,-24}},
-          lineColor={127,191,255},
-          textString="water")}), Documentation(info="<HTML>
+  annotation (Documentation(info="<HTML>
 <p>
 This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
@@ -1587,14 +1573,7 @@ partial package WaterIF97_fixedregion
           phase=0);
     annotation (Inline=true);
   end setSmoothState;
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}), graphics={Text(
-          extent={{-94,84},{94,40}},
-          lineColor={127,191,255},
-          textString="IF97"), Text(
-          extent={{-94,20},{94,-24}},
-          lineColor={127,191,255},
-          textString="water")}), Documentation(info="<HTML>
+  annotation (Documentation(info="<HTML>
 <p>
 This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions

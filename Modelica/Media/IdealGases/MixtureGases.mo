@@ -1,6 +1,6 @@
 within Modelica.Media.IdealGases;
 package MixtureGases "Medium models consisting of mixtures of ideal gases"
-  extends Modelica.Icons.MaterialPropertiesPackage;
+  extends Modelica.Icons.VariantsPackage;
 
   package CombustionAir "Air as mixture of N2 and O2"
     extends Common.MixtureGasNasa(

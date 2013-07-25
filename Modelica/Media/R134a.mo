@@ -1,6 +1,6 @@
 within Modelica.Media;
 package R134a "R134a: Medium model for R134a"
-  extends Modelica.Icons.MaterialPropertiesPackage;
+  extends Modelica.Icons.VariantsPackage;
   package Common
     extends Modelica.Icons.Package;
 

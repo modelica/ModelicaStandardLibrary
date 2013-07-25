@@ -2,7 +2,7 @@ within Modelica.Media.Water;
 package IF97_Utilities
   "Low level and utility computation for high accuracy water properties according to the IAPWS/IF97 standard"
 
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.UtilitiesPackage;
 
   package BaseIF97
     "Modelica Physical Property Model: the new industrial formulation IAPWS-IF97"

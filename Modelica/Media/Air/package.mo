@@ -1,6 +1,6 @@
 within Modelica.Media;
 package Air "Medium models for air"
-    extends Modelica.Icons.MaterialPropertiesPackage;
+    extends Modelica.Icons.VariantsPackage;
 
   annotation (Documentation(info="<html>
   <p>This package contains different medium models for air:</p>

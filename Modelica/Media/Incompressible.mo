@@ -1,12 +1,12 @@
 within Modelica.Media;
 package Incompressible
   "Medium model for T-dependent properties, defined by tables or polynomials"
-  extends Modelica.Icons.MaterialPropertiesPackage;
+  extends Modelica.Icons.VariantsPackage ;
   import Modelica.Constants;
   import Modelica.Math;
 
   package Examples "Examples for incompressible media"
-    extends Modelica.Icons.MaterialPropertiesPackage;
+    extends Modelica.Icons.VariantsPackage;
 
   package Glycol47 "1,2-Propylene glycol, 47% mixture with water"
     extends TableBased(

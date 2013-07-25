@@ -4321,8 +4321,8 @@ Modelica source.
 
   partial package PartialMedium
     "Partial medium properties (base package of all media packages)"
-    extends Modelica.Icons.MaterialPropertiesPackage;
     extends Modelica.Media.Interfaces.Types;
+    extends Modelica.Icons.MaterialPropertiesPackage;
 
     // Constants to be set in Medium
     constant Modelica.Media.Interfaces.Choices.IndependentVariables

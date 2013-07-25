@@ -2514,7 +2514,7 @@ tools might not yet supported the complete Modelica package):
 </ul>
 
 <p>
-The following Modelica packages have been tested that they work together with package Modelica 3.2.1 Beta
+The following Modelica packages have been tested that they work together with this release of package Modelica
 (alphabetical list):
 </p>
 
@@ -2531,7 +2531,8 @@ The new open source tables have been tested by T. Beutlich (ITI):
 </p>
 
 <ul>
-<li> 193 Modelica test models for compatibility check with previous table implementation.
+<li> 193 Modelica test models for compatibility check with previous table implementation
+     (available in ModelicaTest.Tables).
      Performed tests with SimulationX 3.5.707 (32 bit) and
      Dymola 2013 FD01 (32 bit). Furthermore a basic check was performed in OpenModelica
      to make sure it works in general.
@@ -2566,7 +2567,7 @@ summarized in a
 </p>
 
 <p>
-About <b>300</b> trac tickets have been fixed for this release. An overview is given
+About <b>400</b> trac tickets have been fixed for this release. An overview is given
 <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html\">here</a>.
 Clicking on a ticket gives all information about it.
 </p>

@@ -1,7 +1,7 @@
 within Modelica.Media.Air;
   package ReferenceAir
     "ReferenceAir: Detailed dry air model with a large operating range (130 ... 2000 K, 0 ... 2000 MPa) based on Helmholtz equations of state"
-    extends Modelica.Icons.MaterialPropertiesPackage;
+    extends Modelica.Icons.VariantsPackage;
     import SI = Modelica.SIunits;
 
     constant Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants
@@ -46,6 +46,7 @@ within Modelica.Media.Air;
   public
     package Air_ph
       "ReferenceAir.Air_ph: Detailed dry air model (130 ... 2000 K) explicit in p and h"
+      extends Modelica.Icons.MaterialProperty;
       extends Modelica.Media.Air.ReferenceAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
 
@@ -63,6 +64,7 @@ The package Air_ph can be used as any other medium model (see <a href=\"modelica
 
     package Air_pT
       "ReferenceAir.Air_pT: Detailed dry air model (130 ... 2000 K) explicit in p and T"
+      extends Modelica.Icons.MaterialProperty;
       extends Modelica.Media.Air.ReferenceAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
 
@@ -81,6 +83,7 @@ The package Air_pT can be used as any other medium model (see <a href=\"modelica
   public
     package Air_dT
       "ReferenceAir.Air_dT: Detailed dry air model (130 ... 2000 K) explicit in d and T"
+      extends Modelica.Icons.MaterialProperty;
       extends Modelica.Media.Air.ReferenceAir.Air_Base(
         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.dTX,
 
@@ -525,14 +528,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         annotation (Inline=true);
       end molarMass;
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-94,84},{94,40}},
-                  lineColor={127,191,255},
-                  textString="IF97"),Text(
-                  extent={{-94,20},{94,-24}},
-                  lineColor={127,191,255},
-                  textString="water")}), Documentation(info="<HTML>
+      annotation (Documentation(info="<HTML>
 <p>
 This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
@@ -585,7 +581,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 
     package Air_Utilities
       "Low level and utility computation for high accuracy dry air properties"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.UtilitiesPackage;
 
       record iter = Inverses.accuracy;
       package Basic "Fundamental equation of state"

@@ -392,6 +392,35 @@ directly utilized by a user.
 </html>"));
   end InternalPackage;
 
+  partial package MaterialPropertiesPackage
+    "Icon for package containing property classes"
+    extends Modelica.Icons.Package;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Ellipse(
+            lineColor={102,102,102},
+            fillColor={204,204,204},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Sphere,
+            extent={{-60.0,-60.0},{60.0,60.0}})}),
+                              Documentation(info="<html>
+<p>This icon indicates a package that contains properties</p>
+</html>"));
+  end MaterialPropertiesPackage;
+
+  partial class MaterialProperty "Icon for property classes"
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
+          Ellipse(lineColor={102,102,102},
+            fillColor={204,204,204},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.Sphere,
+            extent={{-100.0,-100.0},{100.0,100.0}})}),
+                              Documentation(info="<html>
+<p>This icon indicates a property class.</p>
+</html>"));
+  end MaterialProperty;
+
   partial class RotationalSensor "Icon representing a round measurement device"
 
     annotation (
@@ -454,35 +483,6 @@ This icon is designed for a <b>rotational sensor</b> model.
 This icon is designed for a <b>translational sensor</b> model.
 </p></html>"));
   end TranslationalSensor;
-
-  partial package MaterialPropertiesPackage
-    "Icon for package containing property classes"
-    extends Modelica.Icons.Package;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics={
-          Ellipse(
-            lineColor={102,102,102},
-            fillColor={204,204,204},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Sphere,
-            extent={{-60.0,-60.0},{60.0,60.0}})}),
-                              Documentation(info="<html>
-<p>This icon indicates a package that contains properties</p>
-</html>"));
-  end MaterialPropertiesPackage;
-
-  partial package MaterialProperty "Icon for property classes"
-
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
-          Ellipse(lineColor={102,102,102},
-            fillColor={204,204,204},
-            pattern=LinePattern.None,
-            fillPattern=FillPattern.Sphere,
-            extent={{-100.0,-100.0},{100.0,100.0}})}),
-                              Documentation(info="<html>
-<p>This icon indicates a property class.</p>
-</html>"));
-  end MaterialProperty;
 
   partial function Function "Icon for functions"
 
