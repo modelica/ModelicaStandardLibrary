@@ -2424,7 +2424,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_1 "Version 3.2.1 (July xx, 2013)"
+class Version_3_2_1 "Version 3.2.1 (July 26, 2013)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
@@ -2451,8 +2451,9 @@ and will interpret it in the same way. Short Overview:
      without relying on tool heuristics).
      </li>
 
-<li> About <b>400 tickets</b> have been fixed for this release, and
-     especially all compliance issues and nearly all defect issues.
+<li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets.html\">400 tickets</a>
+     have been fixed for this release, and
+     especially all compliance issues and all relevant defect issues.
      </li>
 
 <li> An open source implementation of the <b>table blocks</b> has been provided
@@ -2667,7 +2668,17 @@ to <b style=\"color:blue\">existing</b> libraries:
                                       MassFractionsTwoPort</td>
     <td valign=\"top\"> Ideal mass fraction sensors </td></tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Media.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">R134a</td>
+    <td valign=\"top\"> R134a (Tetrafluoroethane) medium model in the range (0.0039 bar .. 700 bar,
+    169.85 K .. 455 K)</td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Media.Air.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\"> ReferenceAir</td>
+    <td valign=\"top\"> Detailed dry air model with a large operating range (130 ... 2000 K, 0 ... 2000 MPa)
+                        based on Helmholtz equations of state</td></tr>
+<tr><td valign=\"top\" width=\"150\"> ReferenceMoistAir</td>
+    <td valign=\"top\"> Detailed moist air model (143.15 ... 2000 K)</td></tr>
 <tr><td valign=\"top\" width=\"150\"> MoistAir</td>
     <td valign=\"top\"> Temperature range of functions of MoistAir medium enlarged from
                         240 - 400 K to  190 - 647 K.</td></tr>
@@ -7824,7 +7835,9 @@ This version of the Modelica Standard Library consists of
 <li><b>1280</b> functions</li>
 </ul>
 <p>
-that are directly usable (= number of public, non-partial classes).
+that are directly usable (= number of public, non-partial classes). It is fully compliant
+to <a href=\"https://www.modelica.org/documents/ModelicaSpec32Revision2.pdf\">Modelica Specification Version 3.2 Revision 2</a>
+and it has been tested with Modelica tools from different vendors.
 </p>
 
 <p>
