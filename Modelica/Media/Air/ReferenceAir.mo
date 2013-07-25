@@ -143,7 +143,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
                then StateSelect.prefer else StateSelect.default),
         p(stateSelect=if (pT_explicit or ph_explicit) and preferredMediumStates
                then StateSelect.prefer else StateSelect.default))
-        "Base properties of water"
+        "Base properties of air"
 
       equation
         MM = ReferenceAir.Air_Utilities.Basic.Constants.MM;
@@ -272,7 +272,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end dynamicViscosity;
 
       redeclare function extends thermalConductivity
-        "Thermal conductivity of water"
+        "Thermal conductivity of air"
       algorithm
         lambda := Air_Utilities.Transport.lambda_dT(state.d, state.T);
         annotation (Inline=true);
@@ -323,7 +323,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         annotation (Inline=true);
       end specificHelmholtzEnergy;
 
-      redeclare function extends specificEntropy "Specific entropy of water"
+      redeclare function extends specificEntropy "Specific entropy of air"
       algorithm
         if dT_explicit then
           s := Air_Utilities.s_dT(state.d, state.T);
@@ -335,7 +335,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end specificEntropy;
 
       redeclare function extends specificHeatCapacityCp
-        "Specific heat capacity at constant pressure of water"
+        "Specific heat capacity at constant pressure of air"
 
       algorithm
         if dT_explicit then
@@ -348,7 +348,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end specificHeatCapacityCp;
 
       redeclare function extends specificHeatCapacityCv
-        "Specific heat capacity at constant volume of water"
+        "Specific heat capacity at constant volume of air"
       algorithm
         if dT_explicit then
           cv := Air_Utilities.cv_dT(state.d, state.T);
@@ -372,7 +372,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end isentropicExponent;
 
       redeclare function extends isothermalCompressibility
-        "Isothermal compressibility of water"
+        "Isothermal compressibility of air"
       algorithm
         if dT_explicit then
           kappa := Air_Utilities.kappa_dT(state.d, state.T);
@@ -384,7 +384,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end isothermalCompressibility;
 
       redeclare function extends isobaricExpansionCoefficient
-        "Isobaric expansion coefficient of water"
+        "Isobaric expansion coefficient of air"
       algorithm
         if dT_explicit then
           beta := Air_Utilities.beta_dT(state.d, state.T);
@@ -434,7 +434,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       //   end density_derp_T;
 
       redeclare function extends setState_dTX
-        "Return thermodynamic state of water as function of d and T"
+        "Return thermodynamic state of air as function of d and T"
       algorithm
         state := ThermodynamicState(
                 d=d,
@@ -445,7 +445,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end setState_dTX;
 
       redeclare function extends setState_phX
-        "Return thermodynamic state of water as function of p and h"
+        "Return thermodynamic state of air as function of p and h"
       algorithm
         state := ThermodynamicState(
                 d=density_ph(p, h),
@@ -456,7 +456,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end setState_phX;
 
       redeclare function extends setState_psX
-        "Return thermodynamic state of water as function of p and s"
+        "Return thermodynamic state of air as function of p and s"
       algorithm
         state := ThermodynamicState(
                 d=density_ps(p, s),
@@ -467,7 +467,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       end setState_psX;
 
       redeclare function extends setState_pTX
-        "Return thermodynamic state of water as function of p and T"
+        "Return thermodynamic state of air as function of p and T"
       algorithm
         state := ThermodynamicState(
                 d=density_pT(p, T),
@@ -531,16 +531,12 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
       annotation (Documentation(info="<HTML>
 <p>
 This model calculates medium properties
-for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
-according to the IAPWS/IF97 standard, i.e., the accepted industrial standard
-and best compromise between accuracy and computation time.
-For more details see <a href=\"modelica://Modelica.Media.Water.IF97_Utilities\">
-Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the
-independent variables of the model:
+for air in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions.
+Three variable pairs can be the independent variables of the model:
 </p>
 <ol>
-<li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
-<li>Pressure <b>p</b> and temperature <b>T</b> are the most natural choice for applications where water is always in the same phase, both for liquid water and steam.</li>
+<li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications.</li>
+<li>Pressure <b>p</b> and temperature <b>T</b> are the most natural choice for applications where air is always in the same phase (liquid or gas).</li>
 <li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critial states.</li>
 </ol>
 <p>
