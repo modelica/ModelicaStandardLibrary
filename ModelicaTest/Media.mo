@@ -1,5 +1,5 @@
 within ModelicaTest;
-package Media
+package Media "Test models for Modelica.Media"
   extends Modelica.Icons.ExamplesPackage;
   package TestAllProperties
     extends Modelica.Icons.ExamplesPackage;

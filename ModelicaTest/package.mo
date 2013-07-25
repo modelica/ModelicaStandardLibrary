@@ -1,5 +1,5 @@
 within ;
-package ModelicaTest "Library to test components of library Modelica "
+package ModelicaTest "Library to test components of package Modelica - Version 3.2.1 (Build 1)"
 extends Modelica.Icons.Package;
 
 
@@ -43,10 +43,11 @@ algorithm
 end testAllFunctions;
 
 
-  annotation (version="3.2.1",
-       versionBuild=0,
-       versionDate="2013-07-25",
-       dateModified = "2013-07-25 10:00:00Z",
+  annotation (preferredView="info",
+       version="3.2.1",
+       versionBuild=1,
+       versionDate="2013-07-26",
+       dateModified = "2013-07-26 08:44:41Z",
        revisionId="$Id::                                       $",
        uses(Modelica(version="3.2.1")),
     Documentation(info="<html>

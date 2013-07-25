@@ -1,5 +1,5 @@
 within ModelicaTest;
-package Translational
+package Translational "Test models for Modelica.Mechanics.Translational"
 extends Modelica.Icons.ExamplesPackage;
 
   model AllComponents

@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 3.2.1 Beta 4 (Build 0)"
+package Modelica "Modelica Standard Library - Version 3.2.1 (Build 1)"
 extends Modelica.Icons.Package;
 
 
@@ -2502,6 +2502,10 @@ tools might not yet supported the complete Modelica package):
 <li> Dymola 2014 (Windows 64 bit)<br>
      Regression test results with regards to Modelica 3.2 are available
      <a href=\"https://trac.modelica.org/Modelica/ticket/1114\">here</a>.</li>
+<li> Dymola 2014 FD01 development with pedantic flag (Windows 64 bit)<br>
+     ("pedantic flag" means that strict Modelica compliance is checked.
+     Dymola 2014 fails with pedantic flag, e.g., because the annotation DocumentationClass
+     was not standardized when this version of Dymola was released).
 <li> Maplesim Parser</li>
 <li> MWorks 3.2</li>
 <li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)<br>
@@ -7753,9 +7757,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2.1",
-versionBuild=0,
-versionDate="2013-07-18",
-dateModified = "2013-07-18 14:44:41Z",
+versionBuild=1,
+versionDate="2013-07-26",
+dateModified = "2013-07-26 08:44:41Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
 conversion(

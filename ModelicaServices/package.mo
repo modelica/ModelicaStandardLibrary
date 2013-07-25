@@ -753,8 +753,9 @@ annotation (
   Protection(access=Access.hide),
   preferredView="info",
   version="3.2.1",
-  versionDate="2012-12-05",
-  versionBuild=0,
+  versionBuild=1,
+  versionDate="2013-07-26",
+  dateModified = "2013-07-26 08:44:41Z",
   revisionId="$Id::                                       $",
   uses(Modelica(version="3.2.1")),
   conversion(

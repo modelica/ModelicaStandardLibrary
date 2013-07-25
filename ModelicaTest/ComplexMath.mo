@@ -1,5 +1,5 @@
 within ModelicaTest;
-package ComplexMath
+package ComplexMath "Test functions for Complex and Modelica.ComplexMath"
 extends Modelica.Icons.Package;
   function ComplexFunctions
     extends Modelica.Icons.Function;

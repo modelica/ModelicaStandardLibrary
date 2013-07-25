@@ -768,6 +768,38 @@ Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info
 </html>"));
   end Documentation;
 
+class DocumentationClass "DocumentationClass"
+  extends ModelicaReference.Icons.Information;
+
+  annotation (Documentation(info="<html>
+<p>
+Annotation for defining documentation classes
+</p>
+
+<h4>Syntax</h4>
+
+<pre>documentation class_annotation:
+   <b>annotation</b>\"(\" DocumentationClass \"=\" <b>true</b> \")\"
+</pre>
+
+<h4>Description</h4>
+
+<p>
+Only allowed as class annotation on any kind of class and implies that this class and all
+classes within it are treated as having the annotation preferredView=\"info\".
+If the annotation preferredView is explicitly set for a class, it has precedence over
+a DocumentationClass annotation.
+</p>
+
+<p><i>
+[A tool may display such classes in special ways. For example, the
+description texts of the classes might be  displayed instead of the class
+names, and if no icon is defined, a special information default icon may be
+displayed in the package browser.]
+</i></p>
+</html>"));
+end DocumentationClass;
+
   class DynamicSelect "DynamicSelect"
     extends ModelicaReference.Icons.Information;
 
@@ -3710,15 +3742,20 @@ given, that fulfills the above requirements.
 Returns ordinal number of enumeration
 </p>
 <h4>Syntax</h4>
-<blockquote><pre><b>Integer</b>(E.e1)</pre></blockquote>
+<blockquote><pre><b>Integer</b>(&lt;expression of enumeration type&gt;)</pre></blockquote>
 <h4>Description</h4>
 <p>
-Returns the ordinal number of the enumeration value E.enumvalue, where Integer(E.e1)=1, Integer(E.en)= size(E), for an enumeration type E=enumeration(e1, ...,  en).</p>
+Returns the ordinal number of the enumeration value E.enumvalue, to which the expression
+is evaluated, where Integer(E.e1) =1, Integer(E.en) =size(E), for an enumeration
+type E=enumeration(e1, …,  en).
+</p>
 
 <h4>Examples</h4>
-<pre>  <b>type</b> Size = enumeration(small, medium, large, xlarge);
-  <b>Integer</b>(Size.large) = 3</pre>
-
+<blockquote><pre>
+<b>type</b> Size = <b>enumeration</b>(small, medium, large, xlarge);
+Size tshirt = Size.large;
+Integer tshirtValue = <b>Integer</b>(tshirt);  // = 3
+</pre></blockquote>
 </html>"));
   end 'Integer()';
 
@@ -4164,37 +4201,54 @@ u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 <p>
 Reinitialize state variable
 </p>
-<h4>Examples</h4>
+
 <h4>Syntax</h4>
 <blockquote><pre><b>reinit</b>(x, expr)</pre></blockquote>
 <h4>Description</h4>
-<P>Reinitializes state variable x with expr at an event
-instant. Argument x need to be</p>
-<ul>
-  <li>a subtype of Real and</li>
-  <li>the <B>der</B>-operator need to be applied to it.</li>
-</ul>
-<p>expr need to be an Integer or Real expression. The
-reinit operator can only be applied once for the same
-variable x. It can only be applied in the body of a
-when-clause.</P>
-<p>The <B>reinit</B> operator does not break the single
-assignment rule, because <B>reinit</B>(x, expr) makes
-the previously known state variable x unknown and
-introduces the equation &quot;x = expr&quot;.</p>
-<p><I>[If a higher index system is present, i.e.
-constraints between state variables, some state variables
-need to be redefined to non-state variables. If possible,
-non-state variables should be chosen in such a way that
-states with an applied <B>reinit</B> operator are not
-utilized. If this is not possible, an error occurs,
-because the reinit operator is applied on a non-state variable.]</i></P>
-<PRE>Bouncing ball:
-    <B>der</B>(h) = v;
-    <B>der</B>(v) = -g;
-    <B>when</B> h &lt; 0 <B>then</B>
-      <B>reinit</B>(v, -e*v);
-    <B>end when</B>;</PRE>
+The operator reinitializes x with expr at an event instant. x is a Real variable
+(or an array of Real variables) that must be selected as a state (resp., states), that is
+reinit on x implies stateSelect = StateSelect.always on x.
+expr needs to be type-compatible with x. The reinit operator can for the same variable
+(resp. array of variables) only be applied (either as an individual variable or as part
+of an array of variables) in one equation (having reinit of the same variable in when and
+else-when of the same variable is allowed).
+The reinit operator can only be used in the body of a when-equation. It cannot be used
+in an algorithm section.
+</p>
+
+<p>
+The reinit operator does not break the single assignment rule, because reinit(x,expr)
+in equations evaluates expr to a value (value), then at the end of the current event iteration step
+it assigns this value to x (this copying from values to reinitialized state(s) is done after
+all other evaluations of the model and before copying x to pre(x)).
+</p>
+
+<p>
+<i>
+[If a higher index system is present, that is constraints between state variables,
+some state variables need to be redefined to non-state variables. During simulation,
+non-state variables should be chosen in such a way that variables with an applied reinit
+operator are selected as states at least when the corresponding when-clauses become active.
+If this is not possible, an error occurs, since otherwise the reinit operator would be applied
+on a non-state variable.]
+</i>
+</p>
+
+<h4>Examples</h4>
+<blockquote><pre>
+// Bouncing ball
+   <b<parameter</b> Real e=0.5 \"Coefficient of restitution\"
+   Real h, v;
+   Boolean flying;
+<b>equation</b>
+   <b>der</b>(h) = v;
+   <b>der</b>(v) = <b>if</b> flying <b>then</b> -g <b>else</b> 0;
+   flying = <b>not</b> (h&lt;=0 <b>and</b> v&lt;=0);
+
+   <b>when</b> h &lt; 0 <b>then</b>
+     <b>reinit</b>(v, -e*<b>pre</b>(v));
+   <b>end when</b>;
+</pre></blockquote>
 </html>"));
   end 'reinit()';
 
@@ -6708,9 +6762,9 @@ class Contact "Contact"
      &nbsp;<br>
      and<br>&nbsp;<br>
     <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
-    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br>
-    Abteilung Systemdynamik und Regelungstechnik<br>
+    German Aerospace Center (DLR)<br>
+    Robotics and Mechatronics Center (RMC)<br>
+    Institute of System Dynamics and Control (SR)<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
@@ -6735,7 +6789,7 @@ class Contact "Contact"
 end Contact;
 
 
-package Icons
+package Icons "Library of icons"
   extends ModelicaReference.Icons.IconsPackage;
   partial class Information "Icon for general information packages"
 
@@ -6842,8 +6896,8 @@ annotation (
   DocumentationClass=true,
   version="3.2.1",
   versionBuild=1,
-  versionDate="2013-06-27",
-  dateModified="2013-06-27 10:00:00Z",
+  versionDate="2013-07-26",
+  dateModified = "2013-07-26 08:44:41Z",
   revisionId="$Id::                                       $",
   Documentation(info="<html>
 <p>
