@@ -535,10 +535,8 @@ This icon is indicates a record.
 </html>"));
   end Record;
 
-  operator record TypeComplex
+  operator record TypeComplex = Complex
     "Obsolete class kept only for backwards compatibility (use Complex instead)"
-    extends Complex;
-    extends Modelica.Icons.ObsoleteModel;
     annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
               lineColor={160,160,164},
@@ -559,7 +557,6 @@ definition (which is not possible for the built-in classes). Therefore, TypeComp
 to Complex and is therefore superfluous.
 </p>
 </html>"));
-  end TypeComplex;
 
   type TypeReal "Icon for Real types"
       extends Real;
