@@ -778,7 +778,7 @@ vector y. All vectors have the same number of elements.</p>
         Placement(transformation(extent={{-140,40},{-100,80}}, rotation=0)));
     BooleanInput u2 "Connector 2 of Boolean input signals" annotation (
         Placement(transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
-    output BooleanOutput y "Connector of Boolean output signals" annotation (
+    BooleanOutput y "Connector of Boolean output signals" annotation (
         Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (Documentation(info="<html>
 <p>
