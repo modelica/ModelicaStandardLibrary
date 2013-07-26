@@ -663,8 +663,8 @@ package AST_BatchPlant
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-200,-280},{200,
               280}})),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-200,-280},{200,
-              280}})));
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}})));
   end BatchPlant_StandardWater;
 
   package BaseClasses
