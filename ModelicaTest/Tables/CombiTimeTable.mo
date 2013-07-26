@@ -2,6 +2,7 @@ within ModelicaTest.Tables;
 package CombiTimeTable
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
+
   partial model Test0
     Modelica.Blocks.Sources.CombiTimeTable t_new
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
@@ -742,6 +743,8 @@ package CombiTimeTable
     extends Test0(t_new(tableOnFile=true, tableName="TestTable_1D_Time"));
   protected
     encapsulated function getUsertab
+      import Modelica;
+      extends Modelica.Icons.Function;
       input Real dummy_u[:];
       output Real dummy_y;
       external "C" dummy_y = mydummyfunc(dummy_u);

@@ -2,8 +2,8 @@ within ModelicaTest.Tables;
 package CombiTable1Ds
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
-  partial model Test0
 
+  partial model Test0
     Modelica.Blocks.Tables.CombiTable1Ds t_new
       annotation (Placement(transformation(extent={{-41,0},{-21,20}})));
     Modelica.Blocks.Continuous.Der d_t_new
@@ -232,6 +232,8 @@ package CombiTable1Ds
         columns={2,3}));
   protected
     encapsulated function getUsertab
+      import Modelica;
+      extends Modelica.Icons.Function;
       input Real dummy_u[:];
       output Real dummy_y;
       external "C" dummy_y = mydummyfunc(dummy_u);

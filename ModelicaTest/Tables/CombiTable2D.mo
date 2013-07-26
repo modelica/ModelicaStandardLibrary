@@ -2,6 +2,7 @@ within ModelicaTest.Tables;
 package CombiTable2D
   import Modelica.Utilities.Files.loadResource;
   extends Modelica.Icons.ExamplesPackage;
+
   partial model Test0
     Modelica.Blocks.Tables.CombiTable2D t_new
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
@@ -375,7 +376,7 @@ package CombiTable2D
   model Test15 "Constant 2D surface"
     extends Modelica.Icons.Example;
   protected
-    parameter String fileName=Modelica.Utilities.Files.loadResource(
+    parameter String fileName=loadResource(
         "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
     Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
@@ -448,7 +449,7 @@ package CombiTable2D
   model Test16 "Bilinear surface"
     extends Modelica.Icons.Example;
   protected
-    parameter String fileName=Modelica.Utilities.Files.loadResource(
+    parameter String fileName=loadResource(
         "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
     Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
@@ -521,7 +522,7 @@ package CombiTable2D
   model Test17 "Akima2D surface"
     extends Modelica.Icons.Example;
   protected
-    parameter String fileName=Modelica.Utilities.Files.loadResource(
+    parameter String fileName=loadResource(
         "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
     Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
@@ -556,6 +557,7 @@ package CombiTable2D
     end getTableValue;
 
     function calcColor "Color Calculation"
+      extends Modelica.Icons.Function;
       input Real G "Input Parameter";
       output Real color[3] "RGB Color";
     protected
@@ -625,6 +627,8 @@ package CombiTable2D
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   protected
     encapsulated function getUsertab
+      import Modelica;
+      extends Modelica.Icons.Function;
       input Real dummy_u;
       output Real dummy_y;
       external "C" dummy_y = mydummyfunc(dummy_u);
@@ -647,6 +651,6 @@ package CombiTable2D
         points={{-59,30},{-52,30},{-52,16},{-42,16}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (      experiment(StartTime=0, StopTime=1.0));
+    annotation (experiment(StartTime=0, StopTime=1.0));
   end Test18_usertab;
 end CombiTable2D;
