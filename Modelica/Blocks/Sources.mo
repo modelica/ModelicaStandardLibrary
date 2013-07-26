@@ -2369,7 +2369,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     end getTableTimeTmax;
 
     function getNextTimeEvent
-      "Return maximum time value of 1-dim. table where first column is time"
+      "Return next time event value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Modelica.SIunits.Time timeIn;
