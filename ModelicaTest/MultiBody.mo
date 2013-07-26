@@ -7777,7 +7777,7 @@ often possible to use the FreeMotion joint such that the singularity
     end FreeBodiesEnforceStatesFalse;
 
     package Rotor1D
-      extends Modelica.Icons.VariantsPackage;
+      extends Modelica.Icons.ExamplesPackage;
       model Rotor1D_1
         extends Modelica.Icons.Example;
         parameter Real tol=1e-3;
@@ -8292,7 +8292,7 @@ often possible to use the FreeMotion joint such that the singularity
       end GearConstraint;
 
       model GearConstraint2
-
+        extends Modelica.Icons.Example;
         Modelica.Mechanics.MultiBody.Joints.GearConstraint gc1(
           ratio=5,
           phi_b(fixed=true),
@@ -8470,9 +8470,11 @@ often possible to use the FreeMotion joint such that the singularity
             points={{-73.4,70},{-73.4,-68},{-4,-68},{-4,-66}},
             color={0,0,127},
             smooth=Smooth.None));
+
         annotation (Diagram(coordinateSystem(extent={{-100,-140},{240,100}},
                 preserveAspectRatio=true)), Icon(coordinateSystem(
-                extent={{-100,-140},{240,100}})));
+                extent={{-100,-100},{100,100}}, preserveAspectRatio=false)),
+                experiment(StopTime=5));
       end GearConstraint2;
 
       model Beveal1d
