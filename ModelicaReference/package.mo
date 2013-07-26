@@ -6922,6 +6922,47 @@ It is based on the
       <th>Author</th>
       <th>Comment</th>
     </tr>
+
+     <tr>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">2013-07-26</td>
+      <td valign=\"top\"><a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a>,<br>
+                         <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
+      <td valign=\"top\">
+<ul>
+<li> Update of grammar from Maplesoft which reflects changes from
+     <a href=\"http://trac.modelica.org/Modelica/ticket/1140\">#1140</a></li>
+<li> Introduced the same new icons as in Modelica 3.2.1</li>
+<li> Fixing incorrect links and HTML errors in documentation.</li>
+<li> Fixing trivial typos.</li>
+<li> Moves operators from the top level (array, cat, ..) to subpackage Operators</li>
+<li> Adding homotopy() operator.</li>
+<li> <a href=\"http://trac.modelica.org/Modelica/ticket/1007\">#1007</a>: png figures are compressed.</li>
+<li> <a href=\"http://trac.modelica.org/Modelica/ticket/670\">#670</a>: Adds more function and operator descriptions</li>
+<li> <a href=\"http://trac.modelica.org/Modelica/ticket/644\">#644</a>: Improved description of operator delay</li>
+<li> Updated the documentation to reflect Modelica Specification 3.2 Rev2:
+     <ul>
+     <li> Update of reinit(), Integer(), DocumentationClass</li>
+     <li> <a href=\"http://trac.modelica.org/Modelica/ticket/988\">#988</a>: Adding the annotations:<br>
+          checkBox<br>
+          choicesAllMatching<br>
+          colorSelector<br>
+          loadSelector<br>
+          saveSelector<br>
+          normallyConstant</li>
+     <li> <a href=\"http://trac.modelica.org/Modelica/ticket/802\">#802</a>: Adding the additional connection operators<br>
+          Connections.branch()<br>
+          Connections.root()<br>
+          Connections.potentialRoot()<br>
+          Connections.isRoot()<br>
+          Connections.rooted()<br>
+          rooted() with deprecation notice</li>
+     <li> <a href=\"http://trac.modelica.org/Modelica/ticket/1048\">#1048</a>: GenerateEvents annotation removed in Modelica 3.2 rev2</li>
+     </ul>
+</ul>
+     </td>
+     </tr>
+
      <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4781/Modelica\">r4781</a></td>
       <td valign=\"top\">2011-12-15</td>
