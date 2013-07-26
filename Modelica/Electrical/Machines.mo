@@ -522,7 +522,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
-        parameter Modelica.SIunits.Resistance Rstart=0.16 "Starting resistance";
+        parameter Modelica.SIunits.Resistance Rstart=0.16/aimsData.turnsRatio^2 "Starting resistance";
         parameter Modelica.SIunits.Time tStart2=1.0
           "Start time of shorting starting resistance";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";

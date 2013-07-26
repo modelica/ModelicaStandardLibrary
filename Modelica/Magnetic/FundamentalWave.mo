@@ -1617,7 +1617,8 @@ Simulate for 1.5 seconds and plot (versus time):
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
-        parameter Modelica.SIunits.Resistance RStart=0.16 "Starting resistance";
+        parameter Modelica.SIunits.Resistance RStart=0.16/aimsData.turnsRatio^2
+          "Starting resistance";
         parameter Modelica.SIunits.Time tRheostat=1.0
           "Time of shortening the rheostat";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
@@ -1693,7 +1694,6 @@ Simulate for 1.5 seconds and plot (versus time):
           rotorCoreParameters=aimsData.rotorCoreParameters,
           TurnsRatio=aimsData.turnsRatio,
           TsOperational=293.15,
-          effectiveStatorTurns=5,
           TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -30},{10,-10}}, rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
@@ -1758,7 +1758,7 @@ Simulate for 1.5 seconds and plot (versus time):
                   {80,-70}}, rotation=0)));
         parameter
           Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
-          aimsData(turnsRatio=2)
+          aimsData
           annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
       initial equation
         aimsE.is = zeros(3);
@@ -1859,7 +1859,8 @@ Simulate for 1.5 seconds and plot (versus time):
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
-        parameter Modelica.SIunits.Resistance RStart=0.16 "Starting resistance";
+        parameter Modelica.SIunits.Resistance RStart=0.16/aimsData.turnsRatio^2
+          "Starting resistance";
         parameter Modelica.SIunits.Time tRheostat=1.0
           "Time of shortening the rheostat";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
