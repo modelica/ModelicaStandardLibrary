@@ -2804,7 +2804,7 @@ as <i>nearest integer value</i> of the input <b>u</b>:
 </html>"));
   end RealToInteger;
 
-  block IntegerToReal "Convert integer to real signals"
+  block IntegerToReal "Convert Integer to Real signals"
     extends Modelica.Blocks.Icons.Block;
     Interfaces.IntegerInput u "Connector of Integer input signal"
                                                                annotation (Placement(
