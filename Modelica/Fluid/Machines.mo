@@ -425,32 +425,39 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 
   equation
     // Flow equations
-     V_flow = homotopy(m_flow/rho,
-                       m_flow/rho_nominal);
+     V_flow = Utilities.homotopic(m_flow/rho,
+                       m_flow/rho_nominal,
+                       system.use_homotopy);
      V_flow_single = V_flow/nParallel;
     if not checkValve then
       // Regular flow characteristics without check valve
-      head = homotopy((N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N),
-                       N/N_nominal*(flowCharacteristic(0)+delta_head_init*V_flow_single));
+      head = Utilities.homotopic((N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N),
+                       N/N_nominal*(flowCharacteristic(0)+delta_head_init*V_flow_single),
+                       system.use_homotopy);
       s = 0;
     else
       // Flow characteristics when check valve is open
-      head = homotopy(if s > 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)
+      head = Utilities.homotopic(if s > 0 then (N/N_nominal)^2*flowCharacteristic(V_flow_single*N_nominal/N)
                                else (N/N_nominal)^2*flowCharacteristic(0) - s*unitHead,
-                      N/N_nominal*(flowCharacteristic(0)+delta_head_init*V_flow_single));
-      V_flow_single = homotopy(if s > 0 then s*unitMassFlowRate/rho else 0,
-                               s*unitMassFlowRate/rho_nominal);
+                      N/N_nominal*(flowCharacteristic(0)+delta_head_init*V_flow_single),
+                      system.use_homotopy);
+      V_flow_single = Utilities.homotopic(if s > 0 then s*unitMassFlowRate/rho else 0,
+                               s*unitMassFlowRate/rho_nominal,
+                               system.use_homotopy);
     end if;
     // Power consumption
     if use_powerCharacteristic then
-      W_single = homotopy((N/N_nominal)^3*(rho/rho_nominal)*powerCharacteristic(V_flow_single*N_nominal/N),
-                          N/N_nominal*V_flow_single/V_flow_single_init*powerCharacteristic(V_flow_single_init));
+      W_single = Utilities.homotopic((N/N_nominal)^3*(rho/rho_nominal)*powerCharacteristic(V_flow_single*N_nominal/N),
+                          N/N_nominal*V_flow_single/V_flow_single_init*powerCharacteristic(V_flow_single_init),
+                          system.use_homotopy);
       eta = dp_pump*V_flow_single/W_single;
     else
-      eta = homotopy(efficiencyCharacteristic(V_flow_single*(N_nominal/N)),
-                     efficiencyCharacteristic(V_flow_single_init));
-      W_single = homotopy(dp_pump*V_flow_single/eta,
-                          dp_pump*V_flow_single_init/eta);
+      eta = Utilities.homotopic(efficiencyCharacteristic(V_flow_single*(N_nominal/N)),
+                     efficiencyCharacteristic(V_flow_single_init),
+                     system.use_homotopy);
+      W_single = Utilities.homotopic(dp_pump*V_flow_single/eta,
+                          dp_pump*V_flow_single_init/eta,
+                          system.use_homotopy);
     end if;
 
     // Energy balance

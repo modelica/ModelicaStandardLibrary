@@ -48,6 +48,9 @@ model System
     "Default start value for temperatures"
     annotation(Dialog(tab = "Initialization"));
   // Advanced
+  parameter Boolean use_homotopy = false
+    "= true to use homotopy for initialization"
+    annotation(Evaluate=true, Dialog(tab = "Advanced"));
   parameter Boolean use_eps_Re = false
     "= true to determine turbulent region automatically using Reynolds number"
     annotation(Evaluate=true, Dialog(tab = "Advanced"));

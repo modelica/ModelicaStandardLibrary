@@ -892,6 +892,17 @@ The second graph shows the continuous derivative of this regularization function
 </html>"));
   end cubicHermite_withDerivative;
 
+  function homotopic "Conditional use of homotopy"
+    extends Modelica.Icons.Function;
+    input Real actual;
+    input Real simplified;
+    input Boolean use_homotopy;
+    output Real y;
+  algorithm
+    y := if use_homotopy then homotopy(actual, simplified) else actual;
+    annotation(Inline = true);
+  end homotopic;
+
   annotation (Documentation(info="<html>
 
 </html>"));

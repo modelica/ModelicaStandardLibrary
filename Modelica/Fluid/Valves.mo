@@ -35,21 +35,24 @@ package Valves "Components for the regulation and control of fluid flow"
 
       relativeFlowCoefficient = valveCharacteristic(opening_actual);
       if checkValve then
-        m_flow = homotopy(relativeFlowCoefficient*Av*sqrt(Medium.density(state_a))*
+        m_flow = Utilities.homotopic(relativeFlowCoefficient*Av*sqrt(Medium.density(state_a))*
                                Utilities.regRoot2(dp,dp_turbulent,1.0,0.0,use_yd0=true,yd0=0.0),
-                          relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal);
+                          relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal,
+                          system.use_homotopy);
         /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
     m_flow = valveCharacteristic(opening)*Av*sqrt(Medium.density(state_a))*
                   (if dp>=0 then Utilities.regRoot(dp, dp_turbulent) else 0);
     */
       elseif not allowFlowReversal then
-        m_flow = homotopy(relativeFlowCoefficient*Av*sqrt(Medium.density(state_a))*
+        m_flow = Utilities.homotopic(relativeFlowCoefficient*Av*sqrt(Medium.density(state_a))*
                                Utilities.regRoot(dp, dp_turbulent),
-                          relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal);
+                          relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal,
+                          system.use_homotopy);
       else
-        m_flow = homotopy(relativeFlowCoefficient*Av*
+        m_flow = Utilities.homotopic(relativeFlowCoefficient*Av*
                                Utilities.regRoot2(dp,dp_turbulent,Medium.density(state_a),Medium.density(state_b)),
-                          relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal);
+                          relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal,
+                          system.use_homotopy);
         /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
     m_flow = smooth(0, Utilities.regRoot(dp, dp_turbulent)*(if dp>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
     */
@@ -136,21 +139,24 @@ explained in detail in the
       "Effective pressure drop, accounting for possible choked conditions";
     // m_flow = valveCharacteristic(opening)*Av*sqrt(d)*sqrt(dpEff);
     if checkValve then
-      m_flow = homotopy(valveCharacteristic(opening_actual)*Av*sqrt(Medium.density(state_a))*
+      m_flow = Utilities.homotopic(valveCharacteristic(opening_actual)*Av*sqrt(Medium.density(state_a))*
                              Utilities.regRoot2(dpEff,dp_turbulent,1.0,0.0,use_yd0=true,yd0=0.0),
-                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
+                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal,
+                        system.use_homotopy);
      /* In Modelica 3.1 (Disadvantage: Unnecessary event at dpEff=0, and smooth=0, instead of smooth=2)
     m_flow = valveCharacteristic(opening)*Av*sqrt(Medium.density(state_a))*
                   (if dpEff>=0 then Utilities.regRoot(dpEff, dp_turbulent) else 0);
    */
     elseif not allowFlowReversal then
-      m_flow = homotopy(valveCharacteristic(opening_actual)*Av*sqrt(Medium.density(state_a))*
+      m_flow = Utilities.homotopic(valveCharacteristic(opening_actual)*Av*sqrt(Medium.density(state_a))*
                              Utilities.regRoot(dpEff, dp_turbulent),
-                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
+                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal,
+                        system.use_homotopy);
     else
-      m_flow = homotopy(valveCharacteristic(opening_actual)*Av*
+      m_flow = Utilities.homotopic(valveCharacteristic(opening_actual)*Av*
                              Utilities.regRoot2(dpEff,dp_turbulent,Medium.density(state_a),Medium.density(state_b)),
-                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
+                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal,
+                        system.use_homotopy);
       /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
      m_flow = valveCharacteristic(opening)*Av*
       smooth(0, Utilities.regRoot(dpEff, dp_turbulent)*(if dpEff>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
@@ -246,23 +252,27 @@ explained in detail in the
     Y = 1 - abs(xs)/(3*Fxt);
     // m_flow = valveCharacteristic(opening)*Av*Y*sqrt(d)*sqrt(p*xs);
     if checkValve then
-      m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*sqrt(Medium.density(state_a))*
+      m_flow = Utilities.homotopic(valveCharacteristic(opening_actual)*Av*Y*sqrt(Medium.density(state_a))*
                              (if xs>=0 then Utilities.regRoot(p*xs, dp_turbulent) else 0),
-                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
+                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal,
+                        system.use_homotopy);
     elseif not allowFlowReversal then
-      m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*sqrt(Medium.density(state_a))*
+      m_flow = Utilities.homotopic(valveCharacteristic(opening_actual)*Av*Y*sqrt(Medium.density(state_a))*
                              Utilities.regRoot(p*xs, dp_turbulent),
-                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
+                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal,
+                        system.use_homotopy);
     else
-      m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*
+      m_flow = Utilities.homotopic(valveCharacteristic(opening_actual)*Av*Y*
                              Utilities.regRoot2(p*xs, dp_turbulent, Medium.density(state_a), Medium.density(state_b)),
-                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
+                        valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal,
+                        system.use_homotopy);
   /* alternative formulation using smooth(0, ...) -- should not be used as regRoot2 has continuous derivatives
    -- cf. ModelicaTest.Fluid.TestPipesAndValves.DynamicPipeInitialization --
-    m_flow = homotopy(valveCharacteristic(opening_actual)*Av*Y*
+    m_flow = Utilities.homotopic(valveCharacteristic(opening_actual)*Av*Y*
                         smooth(0, Utilities.regRoot(p*xs, dp_turbulent)*
                         (if xs>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b)))),
-                      valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
+                      valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal,
+                      system.use_homotopy);
 */
     end if;
 

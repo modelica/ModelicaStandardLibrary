@@ -1468,7 +1468,8 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
     Modelica.Fluid.Valves.ValveCompressible valve(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       m_flow_nominal=10,
-      dp_nominal=10000000,
+      dp_nominal=100000,
+      rho_nominal=100,
       p_nominal=10000000)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
