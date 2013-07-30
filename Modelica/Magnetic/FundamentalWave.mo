@@ -142,6 +142,13 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
+<h5>Version 3.2, 2013-07-30</h5>
+
+<ul>
+<li>Bug fix of wrong orientaton of squirrel and damper cage modells, see #1226</li>
+<li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see #1216</li>
+</ul>
+
 <h5>Version 1.7.2, 2011-06-28</h5>
 
 <ul>
@@ -2264,21 +2271,21 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
           final TOperational=TrRef,
           final alpha20=alpha20r)
           "Symmetric rotor cage winding including resistances and stray inductances"
-          annotation (Placement(transformation(extent={{10,-40},{-10,-20}}, rotation=0)));
+          annotation (Placement(transformation(extent={{-10,-40},{10,-20}}, rotation=0)));
 
       equation
-        connect(airGap.port_rn, rotorCage.port_n)        annotation (Line(
-            points={{-10,-10},{-10,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rp, rotorCage.port_p)        annotation (Line(
-            points={{10,-10},{10,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
             points={{0,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
+            points={{10,-10},{10,-30}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rn, rotorCage.port_p) annotation (Line(
+            points={{-10,-10},{-10,-30}},
+            color={255,128,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="aimc",
         Documentation(info="<html>
@@ -2298,7 +2305,8 @@ Resistances and stray inductances of the machine refer to the stator phases. The
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
 </p>
-</html>"));
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end AIM_SquirrelCage;
 
       model AIM_SlipRing "Asynchronous induction machine with slip ring rotor"
@@ -2399,7 +2407,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           "Symmetric rotor winding including resistances, zero and stray inductances and zero core losses"
           annotation (Placement(transformation(
               origin={0,-40},
-              extent={{-10,10},{10,-10}},
+              extent={{-10,-10},{10,10}},
               rotation=90)));
         /* previously used: state selection, now commented
   FundamentalWave.Interfaces.StateSelector stateSelectorR(
@@ -2412,30 +2420,30 @@ Resistances and stray inductances of the machine refer to the stator phases. The
   */
       equation
 
-        connect(rotor.plug_n, plug_rn)        annotation (Line(points={{-10,-50},
-                {-10,-50},{-100,-50},{-100,-60}},
+        connect(rotor.plug_n, plug_rn)        annotation (Line(points={{10,-50},
+                {10,-60},{-100,-60}},
                                   color={0,0,255}));
-        connect(airGap.port_rn, rotor.port_n)        annotation (Line(
-            points={{-10,-10},{-10,-20},{-10,-20},{-10,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rp, rotor.port_p)        annotation (Line(
-            points={{10,-10},{10,-10},{10,-30},{10,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
         connect(rotor.heatPortCore, internalThermalPort.heatPortRotorCore)
           annotation (Line(
-            points={{-10,-36},{-40,-36},{-40,-90}},
+            points={{10,-36},{20,-36},{20,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(rotor.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{-10,-44},{-40,-44},{-40,-90}},
+            points={{10,-44},{20,-44},{20,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(plug_rp, rotor.plug_p) annotation (Line(
-            points={{-100,60},{-80,60},{-80,-60},{10,-60},{10,-50}},
+            points={{-100,60},{-80,60},{-80,-50},{-10,-50},{-10,-50}},
             color={0,0,255},
+            smooth=Smooth.None));
+        connect(airGap.port_rn, rotor.port_p) annotation (Line(
+            points={{-10,-10},{-10,-30},{-10,-30}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rp, rotor.port_n) annotation (Line(
+            points={{10,-10},{10,-30}},
+            color={255,128,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="aims",Icon(graphics={Line(points={{-100,50},{-100,20},{-60,
                     20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
@@ -2457,7 +2465,9 @@ Resistances and stray inductances of the machine always refer to either stator o
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                  graphics));
       end AIM_SlipRing;
     annotation (Documentation(info="<html>
 <p>This package provides squirrel cage and slip ring induction machine models.</p>
@@ -2484,7 +2494,8 @@ Resistances and stray inductances of the machine always refer to either stator o
           final L0(d=2.0*Lmd/3.0/effectiveStatorTurns^2, q=2.0*Lmq/3.0/effectiveStatorTurns^2),
           redeclare final
             Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM
-            thermalAmbient(final useDamperCage = useDamperCage, final Tr=TrOperational),
+            thermalAmbient(final useDamperCage = useDamperCage, final Tr=TrOperational,
+            final Tpm=TpmOperational),
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.ThermalPortSMPM
             thermalPort(final useDamperCage = useDamperCage),
@@ -2532,6 +2543,9 @@ Resistances and stray inductances of the machine always refer to either stator o
         parameter Modelica.SIunits.Voltage VsOpenCircuit(start=112.3)
           "Open circuit RMS voltage per phase @ fsNominal";
 
+        final parameter Modelica.SIunits.Temperature TpmOperational(start=293.15)
+          "Operational temperature of permanent magnet"
+           annotation(Dialog(group="Operational temperatures"));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of (optional) damper cage"
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort and useDamperCage));
@@ -2586,22 +2600,6 @@ Resistances and stray inductances of the machine always refer to either stator o
             color={255,128,0},
             smooth=Smooth.None));
 
-        connect(permanentMagnet.port_n, short.port_n) annotation (Line(
-            points={{-10,-50},{10,-50}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(permanentMagnet.port_n, rotorCage.port_n) annotation (Line(
-            points={{-10,-50},{20,-50}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(short.port_p, airGap.port_rp) annotation (Line(
-            points={{10,-30},{10,-20},{10,-10},{10,-10}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(rotorCage.port_p, airGap.port_rp) annotation (Line(
-            points={{20,-30},{10,-30},{10,-10}},
-            color={255,128,0},
-            smooth=Smooth.None));
         connect(rotorCage.heatPortWinding, heatFlowSensorDamperCage.port_a)
           annotation (Line(
             points={{30,-40},{40,-40}},
@@ -2611,6 +2609,22 @@ Resistances and stray inductances of the machine always refer to either stator o
           annotation (Line(
             points={{40,-60},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rp, short.port_p) annotation (Line(
+            points={{10,-10},{10,-30}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(short.port_n, permanentMagnet.port_n) annotation (Line(
+            points={{10,-50},{0,-50},{0,-50},{-10,-50}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rp, rotorCage.port_p) annotation (Line(
+            points={{10,-10},{10,-30},{20,-30}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(rotorCage.port_n, permanentMagnet.port_n) annotation (Line(
+            points={{20,-50},{-10,-50}},
+            color={255,128,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smpm",Icon(graphics={
               Rectangle(
@@ -2642,7 +2656,9 @@ Resistances and stray inductances of the machine refer to the stator phases. The
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                  100}}),
+                  graphics));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -2749,7 +2765,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           "Magnetic connection in case the damper cage is not present"
           annotation (Placement(transformation(
               origin={10,-40},
-              extent={{-10,10},{10,-10}},
+              extent={{10,10},{-10,-10}},
               rotation=270)));
         Components.SaliencyCageWinding rotorCage(
           final Lsigma(d=Lrsigmad, q=Lrsigmaq),
@@ -2760,7 +2776,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           final RRef(d=Rrd, q=Rrq),
           final alpha20=alpha20r) if useDamperCage
           "Symmetric rotor cage winding including resistances and stray inductances"
-          annotation (Placement(transformation(extent={{10,-10},{-10,10}},   rotation=90,
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},   rotation=90,
               origin={20,-40})));
         Components.SinglePhaseWinding excitation(
           final orientation=0,
@@ -2792,25 +2808,11 @@ Resistances and stray inductances of the machine refer to the stator phases. The
               origin={40,-50})));
       equation
 
-        connect(short.port_n, rotorCage.port_n)
-          annotation (Line(points={{10,-50},{10,-50},{20,-50}}, color={255,128,0}));
-        connect(excitation.port_n, short.port_n)
-          annotation (Line(points={{-10,-50},{-10,-50},{10,-50}}, color={255,128,0}));
-        connect(excitation.port_n, rotorCage.port_n)
-          annotation (Line(points={{-10,-50},{-10,-50},{20,-50}}, color={255,128,0}));
         connect(pin_en, excitation.pin_n)
           annotation (Line(points={{-100,-60},{-100,-60},{-100,-50},{-30,-50}},
                                                                      color={0,0,255}));
         connect(airGap.port_rn, excitation.port_p)        annotation (Line(
             points={{-10,-10},{-10,-20},{-10,-20},{-10,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rp, short.port_p) annotation (Line(
-            points={{10,-10},{10,-10},{10,-30},{10,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rp, rotorCage.port_p) annotation (Line(
-            points={{10,-10},{10,-30},{20,-30}},
             color={255,128,0},
             smooth=Smooth.None));
 
@@ -2840,6 +2842,22 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           annotation (Line(
             points={{40,-60},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rp, short.port_n) annotation (Line(
+            points={{10,-10},{10,-30}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
+            points={{10,-10},{10,-30},{20,-30}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(short.port_p, excitation.port_n) annotation (Line(
+            points={{10,-50},{-10,-50}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(rotorCage.port_p, excitation.port_n) annotation (Line(
+            points={{20,-50},{-10,-50}},
+            color={255,128,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smee",Icon(graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
@@ -2873,7 +2891,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                  graphics));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor "Reluctance machine with optional damper cage"
@@ -2961,22 +2981,6 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
               origin={40,-50})));
       equation
 
-        connect(airGap.port_rn, short.port_n) annotation (Line(
-            points={{-10,-10},{-10,-50},{10,-50}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rn, rotorCage.port_n) annotation (Line(
-            points={{-10,-10},{-10,-50},{20,-50}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rp, short.port_p) annotation (Line(
-            points={{10,-10},{10,-10},{10,-30},{10,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
-        connect(airGap.port_rp, rotorCage.port_p) annotation (Line(
-            points={{10,-10},{10,-30},{20,-30}},
-            color={255,128,0},
-            smooth=Smooth.None));
         connect(rotorCage.heatPortWinding, heatFlowSensorDamperCage.port_a)
           annotation (Line(
             points={{30,-40},{40,-40}},
@@ -2986,6 +2990,22 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           annotation (Line(
             points={{40,-60},{40,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
+            smooth=Smooth.None));
+        connect(airGap.port_rp, short.port_p) annotation (Line(
+            points={{10,-10},{10,-30}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(short.port_n, airGap.port_rn) annotation (Line(
+            points={{10,-50},{-10,-50},{-10,-10}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(rotorCage.port_n, airGap.port_rn) annotation (Line(
+            points={{20,-50},{-10,-50},{-10,-10}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(rotorCage.port_p, airGap.port_rp) annotation (Line(
+            points={{20,-30},{10,-30},{10,-10}},
+            color={255,128,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smr",Icon(graphics={
               Rectangle(extent={{-130,10},{-100,-10}}, lineColor={0,0,0}),
@@ -3009,7 +3029,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                  graphics));
       end SM_ReluctanceRotor;
     annotation (Documentation(info="<html>
 <p>This package contains various synchronous induction machine models.</p>
@@ -4989,6 +5011,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
+<tr><td>3.2</td><td></td>  <td>2013-07-30</td>  <td>C. Kral<br>A. Haumer</td>  <td>Bug #1216 and #1226 fixed</td></tr>
 <tr><td>1.7.3</td><td>6029</td>  <td>2013-02-25</td>  <td>C. Kral</td>  <td>Corrected wrong parameter description</td></tr>
 <tr><td>1.7.2</td><td>4621</td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in prametrization of symmetrical multi phase winding model<br>Necessary adaptions due to conditional heatPorts of loss models (backwards compatibility)</td></tr>
 <tr><td>1.7.1</td><td>4170</td>  <td>2010-09-13</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>

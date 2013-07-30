@@ -2395,6 +2395,10 @@ that can lead to wrong simulation results):
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><b>Modelica.Magnetic.FundamentalWave.</b></td></tr>
+<tr><td valign=\"top\">&lt;machine models&gt;</td>
+    <td valign=\"top\"> Corrected bug of wrong orientation of cage models and rotor winding model of AIMS, see <a href=\"http://trac.modelica.org/Modelica/ticket/1226\">#1226</a></td></tr>
+<tr><td valign=\"top\">BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet</td>
+    <td valign=\"top\"> Ambient temperature of permanent magnet did only have a start value, see <a href=\"http://trac.modelica.org/Modelica/ticket/1216\">#1216</a></td></tr>
 <tr><td valign=\"top\">&lt;core conductance&gt;</td>
     <td valign=\"top\"> Corrected bug in calculation of the winding model core conductance.</td></tr>
 
@@ -7539,12 +7543,26 @@ User's Guides that can be accessed by the following links:
 end UsersGuide;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 annotation (
 preferredView="info",
 version="3.2",
-versionBuild=16,
+versionBuild=17,
 versionDate="2010-10-25",
-dateModified = "2013-04-03 15:30:00Z",
+dateModified = "2013-07-30 13:20:00Z",
 revisionId="$Id:: $",
 uses(Complex(version="1.1"), ModelicaServices(version="1.1")),
 conversion(
