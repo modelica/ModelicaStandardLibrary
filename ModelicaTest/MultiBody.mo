@@ -179,13 +179,13 @@ ALT=\"model Examples.Elementary.DoublePendulum\">
           animation=false) annotation (Placement(transformation(extent={{-32,-80},
                 {-12,-60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Spherical spherical(animation=false)
-        annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation FixedTranslation1(r={
             1,-0.3,-0.1}, animation=false) annotation (Placement(transformation(
               extent={{12,20},{32,40}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Universal Universal1(n_b={0,1,0}, n_a
-          ={0,0,1}) annotation (Placement(transformation(extent={{44,20},{64,40}},
+      Modelica.Mechanics.MultiBody.Joints.Universal Universal1(n_b={0,1,0}, n_a=
+           {0,0,1}) annotation (Placement(transformation(extent={{44,20},{64,40}},
               rotation=0)));
     equation
       j1_phi = j1.phi;
@@ -418,8 +418,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Mechanics.MultiBody.Joints.UniversalSpherical universalSpherical(
           rRod_ia={-1,0.3,0.1}, n1_a={0,1,0.1}) annotation (Placement(
             transformation(extent={{0,20},{-20,40}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(animation=false, r
-          ={1,0,0}) annotation (Placement(transformation(extent={{-32,-80},{-12,
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(animation=false, r=
+           {1,0,0}) annotation (Placement(transformation(extent={{-32,-80},{-12,
                 -60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame4
         annotation (Placement(transformation(
@@ -523,8 +523,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             origin={40,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(animation=false, r
-          ={1.2,0,0}) annotation (Placement(transformation(extent={{-30,-80},{-10,
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(animation=false, r=
+           {1.2,0,0}) annotation (Placement(transformation(extent={{-30,-80},{-10,
                 -60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame
         annotation (Placement(transformation(
@@ -561,8 +561,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-10,70})));
-      Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1) annotation
-        (Placement(transformation(
+      Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1) annotation (
+         Placement(transformation(
             origin={-60,10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
@@ -679,8 +679,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             origin={40,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(animation=false, r
-          ={1.2,0,0}) annotation (Placement(transformation(extent={{-30,-80},{-10,
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(animation=false, r=
+           {1.2,0,0}) annotation (Placement(transformation(extent={{-30,-80},{-10,
                 -60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR jointSSR(
         n_b={1,0,0},
@@ -692,14 +692,14 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame FixedFrame1
         annotation (Placement(transformation(extent={{-30,60},{-50,80}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Parts.Body Body1(r_CM=jointSSR.rRod2_ib/2, m
-          =0.1) annotation (Placement(transformation(extent={{-30,30},{-50,50}},
+      Modelica.Mechanics.MultiBody.Parts.Body Body1(r_CM=jointSSR.rRod2_ib/2, m=
+           0.1) annotation (Placement(transformation(extent={{-30,30},{-50,50}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body Body2(m=0.1, r_CM={0,0,0})
         annotation (Placement(transformation(extent={{0,30},{20,50}}, rotation=
                 0)));
-      Modelica.Mechanics.Rotational.Components.Damper damper(d=0.5) annotation
-        (Placement(transformation(
+      Modelica.Mechanics.Rotational.Components.Damper damper(d=0.5) annotation (
+         Placement(transformation(
             origin={-60,10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
@@ -1063,8 +1063,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           Placement(transformation(extent={{-8,-90},{12,-70}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.Force force1(N_to_m=600,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
-        annotation (Placement(transformation(extent={{60,40},{40,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,40},{40,60}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Forces.Force force2(N_to_m=600,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}},
@@ -1481,8 +1481,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             fixed=true)) annotation (Placement(transformation(extent={{-22,56},
                 {-2,76}},rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(r={0.7,0,0})
-        annotation (Placement(transformation(extent={{18,56},{38,76}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{18,56},{38,76}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(
         r={0,-0.9,0},
         width=0.01,
@@ -1490,8 +1490,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             origin={-42,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia
-          ={0.7,1.2,0}, animation=true) annotation (Placement(transformation(
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia=
+           {0.7,1.2,0}, animation=true) annotation (Placement(transformation(
               extent={{-2,46},{18,26}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body body1(
         r_CM=0.2*jointUPS.eAxis_ia,
@@ -1640,8 +1640,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               extent={{-80,40},{-60,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.WorldForce frameForce1(N_to_m=600,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
-        annotation (Placement(transformation(extent={{60,40},{40,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,40},{40,60}}, rotation=
+               0)));
       Joints.Revolute Revolute2(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
       Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
@@ -1697,8 +1697,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               extent={{-80,40},{-60,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.WorldForce frameForce1(N_to_m=600,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
-        annotation (Placement(transformation(extent={{60,40},{40,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,40},{40,60}}, rotation=
+               0)));
       Joints.Revolute Revolute2(phi(fixed=true), w(fixed=true)) annotation (
           Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
       Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
@@ -1821,8 +1821,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         Nm_to_m=120,
         N_to_m=600,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
-        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque frameTorque2(
         Nm_to_m=120,
         N_to_m=600,
@@ -1922,8 +1922,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         Nm_to_m=120,
         N_to_m=600,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
-        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque frameTorque2(
         Nm_to_m=120,
         N_to_m=600,
@@ -2016,8 +2016,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         Nm_to_m=120,
         N_to_m=600,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world)
-        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque frameTorque2(
         Nm_to_m=120,
         N_to_m=600,
@@ -2322,8 +2322,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             fixed=true)) annotation (Placement(transformation(extent={{-20,80},
                 {0,100}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(r={0.7,0,0})
-        annotation (Placement(transformation(extent={{20,80},{40,100}},rotation
-              =0)));
+        annotation (Placement(transformation(extent={{20,80},{40,100}},rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(
         r={0,-0.9,0},
         width=0.01,
@@ -2331,8 +2331,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             origin={-40,54},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia
-          ={0.7,1.2,0}, animation=true) annotation (Placement(transformation(
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia=
+           {0.7,1.2,0}, animation=true) annotation (Placement(transformation(
               extent={{0,50},{20,30}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body body1(
         r_CM=0.2*jointUPS.eAxis_ia,
@@ -2501,8 +2501,8 @@ a linear damper is connected here.
             rotation=90)));
       Parts.BodyCylinder body1(r={1,0,0}) annotation (Placement(transformation(
               extent={{0,40},{20,60}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant Constant1[3](k={-100,100,0}) annotation
-        (Placement(transformation(
+      Modelica.Blocks.Sources.Constant Constant1[3](k={-100,100,0}) annotation (
+         Placement(transformation(
             origin={50,90},
             extent={{-10,10},{10,-10}},
             rotation=270)));
@@ -2516,8 +2516,8 @@ a linear damper is connected here.
           Placement(transformation(extent={{-8,-90},{12,-70}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.Torque torque1(Nm_to_m=120,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
-        annotation (Placement(transformation(extent={{62,40},{42,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{62,40},{42,60}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Forces.Torque torque2(Nm_to_m=120,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}},
@@ -2529,8 +2529,8 @@ a linear damper is connected here.
             origin={-20,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.Constant Constant2[3](k={-100,100,0}) annotation
-        (Placement(transformation(
+      Modelica.Blocks.Sources.Constant Constant2[3](k={-100,100,0}) annotation (
+         Placement(transformation(
             origin={70,-70},
             extent={{10,-10},{-10,10}},
             rotation=270)));
@@ -2592,8 +2592,8 @@ a linear damper is connected here.
             rotation=90)));
       Parts.BodyCylinder body1(r={1,0,0}) annotation (Placement(transformation(
               extent={{0,40},{20,60}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant Constant1[3](k={-100,100,0}) annotation
-        (Placement(transformation(
+      Modelica.Blocks.Sources.Constant Constant1[3](k={-100,100,0}) annotation (
+         Placement(transformation(
             origin={50,90},
             extent={{-10,10},{10,-10}},
             rotation=270)));
@@ -2607,8 +2607,8 @@ a linear damper is connected here.
           Placement(transformation(extent={{-8,-90},{12,-70}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.Torque torque1(Nm_to_m=120,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
-        annotation (Placement(transformation(extent={{62,40},{42,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{62,40},{42,60}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Forces.Torque torque2(Nm_to_m=120,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}},
@@ -2620,8 +2620,8 @@ a linear damper is connected here.
             origin={-20,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.Constant Constant2[3](k={-100,100,0}) annotation
-        (Placement(transformation(
+      Modelica.Blocks.Sources.Constant Constant2[3](k={-100,100,0}) annotation (
+         Placement(transformation(
             origin={70,-70},
             extent={{10,-10},{-10,10}},
             rotation=270)));
@@ -2779,8 +2779,8 @@ a linear damper is connected here.
             rotation=90)));
       Parts.BodyCylinder body1(r={1,0,0}) annotation (Placement(transformation(
               extent={{-100,40},{-80,60}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant Constant1[3](k={-100,100,0}) annotation
-        (Placement(transformation(
+      Modelica.Blocks.Sources.Constant Constant1[3](k={-100,100,0}) annotation (
+         Placement(transformation(
             origin={-50,90},
             extent={{-10,10},{10,-10}},
             rotation=270)));
@@ -2805,8 +2805,8 @@ a linear damper is connected here.
             origin={-120,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.Constant Constant2[3](k={-100,100,0}) annotation
-        (Placement(transformation(
+      Modelica.Blocks.Sources.Constant Constant2[3](k={-100,100,0}) annotation (
+         Placement(transformation(
             origin={-30,-70},
             extent={{10,-10},{-10,10}},
             rotation=270)));
@@ -2975,8 +2975,8 @@ a linear damper is connected here.
       Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
             transformation(extent={{0,60},{20,80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.WorldForce worldForce(N_to_m=600)
-        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation=
+               0)));
       Modelica.Blocks.Sources.Constant Constant1[3](k={0,500,0}) annotation (
           Placement(transformation(extent={{100,60},{80,80}}, rotation=0)));
       Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
@@ -2991,8 +2991,8 @@ a linear damper is connected here.
       Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
             transformation(extent={{0,20},{20,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.WorldTorque worldTorque1(Nm_to_m=200)
-        annotation (Placement(transformation(extent={{60,20},{40,40}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,20},{40,40}}, rotation=
+               0)));
       Modelica.Blocks.Sources.Constant Constant2[3](k={100,100,100})
         annotation (Placement(transformation(extent={{100,20},{80,40}},
               rotation=0)));
@@ -3077,8 +3077,8 @@ a linear damper is connected here.
       Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
             transformation(extent={{0,60},{20,80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.WorldForce worldForce(N_to_m=600)
-        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation=
+               0)));
       Modelica.Blocks.Sources.Constant Constant1[3](k={0,500,0}) annotation (
           Placement(transformation(extent={{100,60},{80,80}}, rotation=0)));
       Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
@@ -3089,8 +3089,8 @@ a linear damper is connected here.
             transformation(extent={{-2,18},{18,38}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.WorldForce worldForce1(N_to_m=600,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
-        annotation (Placement(transformation(extent={{58,18},{38,38}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{58,18},{38,38}}, rotation=
+               0)));
       Modelica.Blocks.Sources.Constant Constant2[3](k={0,500,0}) annotation (
           Placement(transformation(extent={{98,18},{78,38}}, rotation=0)));
       Parts.Fixed fixed2(r={0,0.5,0}) annotation (Placement(transformation(
@@ -3186,11 +3186,11 @@ a linear damper is connected here.
       Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
             transformation(extent={{-14,40},{6,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.WorldTorque worldTorque1(Nm_to_m=200)
-        annotation (Placement(transformation(extent={{46,40},{26,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{46,40},{26,60}}, rotation=
+               0)));
       Modelica.Blocks.Sources.Constant Constant2[3](k={100,100,100})
-        annotation (Placement(transformation(extent={{86,40},{66,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{86,40},{66,60}}, rotation=
+               0)));
       Parts.Fixed fixed1(r={0,-0.5,0}) annotation (Placement(transformation(
               extent={{-78,-22},{-58,-2}},rotation=0)));
       Joints.Revolute Revolute1(
@@ -3204,8 +3204,8 @@ a linear damper is connected here.
             transformation(extent={{-12,-22},{8,-2}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.WorldTorque worldTorque2(Nm_to_m=200,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
-        annotation (Placement(transformation(extent={{48,-22},{28,-2}},rotation
-              =0)));
+        annotation (Placement(transformation(extent={{48,-22},{28,-2}},rotation=
+               0)));
       Modelica.Blocks.Sources.Constant Constant1[3](k={100,100,100})
         annotation (Placement(transformation(extent={{86,-22},{66,-2}},
               rotation=0)));
@@ -3287,8 +3287,8 @@ a linear damper is connected here.
       Parts.BodyCylinder BodyCylinder3(r={1,0,0}) annotation (Placement(
             transformation(extent={{0,72},{20,92}}, rotation=0)));
       Modelica.Blocks.Sources.Constant Constant4[6](k={0,500,0,100,100,100})
-        annotation (Placement(transformation(extent={{94,72},{74,92}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{94,72},{74,92}}, rotation=
+               0)));
       Parts.Fixed fixed3(r={0,-1,0}) annotation (Placement(transformation(
               extent={{-90,72},{-70,92}}, rotation=0)));
       Joints.Revolute Revolute4(
@@ -3309,8 +3309,8 @@ a linear damper is connected here.
       Parts.BodyCylinder BodyCylinder1(r={1,0,0}) annotation (Placement(
             transformation(extent={{0,30},{20,50}}, rotation=0)));
       Modelica.Blocks.Sources.Constant Constant1[6](k={0,500,0,100,100,100})
-        annotation (Placement(transformation(extent={{94,30},{74,50}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{94,30},{74,50}}, rotation=
+               0)));
       Parts.Fixed fixed1(r={0,-1,0}) annotation (Placement(transformation(
               extent={{-90,30},{-70,50}}, rotation=0)));
       Joints.Revolute Revolute2(
@@ -4363,8 +4363,8 @@ a linear damper is connected here.
             origin={-40,54},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia
-          ={0.7,1.2,0}, animation=true) annotation (Placement(transformation(
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia=
+           {0.7,1.2,0}, animation=true) annotation (Placement(transformation(
               extent={{0,50},{20,30}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
         r={0,0.3,0},
@@ -4398,8 +4398,8 @@ a linear damper is connected here.
       Modelica.Mechanics.Translational.Components.Damper damper2(d=3)
         annotation (Placement(transformation(extent={{4,-80},{24,-100}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Forces.LineForceWithMass lineForceWithMass(m
-          =0) annotation (Placement(transformation(extent={{4,-50},{24,-70}})));
+      Modelica.Mechanics.MultiBody.Forces.LineForceWithMass lineForceWithMass(m=
+           0) annotation (Placement(transformation(extent={{4,-50},{24,-70}})));
     equation
       assert(rod_f_diff[1] < tol and rod_f_diff[2] < tol and rod_f_diff[3] <
         tol, "Difference in rod positions must be less then tolerance");
@@ -4571,8 +4571,8 @@ a linear damper is connected here.
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(extent={{-40,0},{-20,
                 20}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1) annotation
-        (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
+      Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1) annotation (
+         Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape body(
         r={1,0,0},
         r_CM={0.5,0,0},
@@ -4893,7 +4893,6 @@ a linear damper is connected here.
                 -10},{-40,10}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Spherical spherical(
         angles_start={0.7853981633974483,0.7853981633974483,0.7853981633974483},
-
         angles_fixed=true,
         w_rel_a_fixed=true,
         z_rel_a_fixed=false) annotation (Placement(transformation(extent={{-10,
@@ -4942,7 +4941,6 @@ a linear damper is connected here.
                 20},{-40,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion(
         angles_start={0.7853981633974483,0.7853981633974483,0.7853981633974483},
-
         a_rel_a(each fixed=false),
         angles_fixed=true,
         r_rel_a(each fixed=true, start={0.5,0.4,0}),
@@ -5191,7 +5189,7 @@ a linear damper is connected here.
             origin={10,-10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Forces.Spring spring(c=1e4)
+      Modelica.Mechanics.MultiBody.Forces.Spring spring(c=100)
         annotation (Placement(transformation(extent={{-20,48},{0,68}})));
     equation
       connect(world.frame_b, freeMotionScalarInit.frame_a) annotation (Line(
@@ -5224,6 +5222,204 @@ a linear damper is connected here.
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics));
     end FreeMotionScalarInit3;
+
+    model FreeMotionScalarInit4
+      extends Modelica.Icons.Example;
+
+      inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
+          animateGravity=false) annotation (Placement(transformation(extent={{-60,
+                20},{-40,40}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit freeMotionScalarInit(
+        use_angle=true,
+        use_r=true,
+        r_rel_a_1_stateSelect=StateSelect.always,
+        r_rel_a_2_stateSelect=StateSelect.always,
+        r_rel_a_3_stateSelect=StateSelect.always,
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        v_rel_a_1_stateSelect=StateSelect.always,
+        v_rel_a_2_stateSelect=StateSelect.always,
+        v_rel_a_3_stateSelect=StateSelect.always,
+        angle_1_stateSelect=StateSelect.always,
+        angle_2_stateSelect=StateSelect.always,
+        angle_3_stateSelect=StateSelect.always,
+        w_rel_b_1_stateSelect=StateSelect.always,
+        w_rel_b_2_stateSelect=StateSelect.always,
+        w_rel_b_3_stateSelect=StateSelect.always,
+        use_a=true,
+        a_rel_a_1(fixed=true),
+        a_rel_a_2(fixed=true),
+        a_rel_a_3(fixed=true),
+        use_angle_d=true,
+        angle_d_1(fixed=true),
+        angle_d_2(fixed=true),
+        angle_d_3(fixed=true),
+        r_rel_a_1(start=0.5),
+        r_rel_a_2(start=0.4),
+        r_rel_a_3(start=0),
+        use_w=false,
+        angle_1(start=0.78539816339745, fixed=false),
+        angle_2(start=0.78539816339745, fixed=false),
+        angle_3(start=0.78539816339745, fixed=false),
+        use_angle_dd=true,
+        angle_dd_1(fixed=true),
+        angle_dd_2(fixed=true),
+        angle_dd_3(fixed=true))                      annotation (Placement(
+            transformation(extent={{-22,20},{-2,40}}, rotation=0)));
+
+      Modelica.Mechanics.MultiBody.Parts.Body body(
+        animation=false,
+        r_CM={0,0,0},
+        m=1) annotation (Placement(transformation(extent={{20,20},{40,40}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a(color_x={0,
+            128,255}) annotation (Placement(transformation(
+            origin={-30,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a1(color_x={0,0,
+            200}) annotation (Placement(transformation(
+            origin={10,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring(c=100)
+        annotation (Placement(transformation(extent={{-20,48},{0,68}})));
+    equation
+      connect(world.frame_b, freeMotionScalarInit.frame_a) annotation (Line(
+          points={{-40,30},{-22,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(freeMotionScalarInit.frame_b, body.frame_a) annotation (Line(
+          points={{-2,30},{20,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(frame_a.frame_a, freeMotionScalarInit.frame_a) annotation (Line(
+          points={{-30,0},{-30,30},{-22,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(frame_a1.frame_a, freeMotionScalarInit.frame_b) annotation (Line(
+          points={{10,0},{12,0},{12,30},{-2,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(world.frame_b, spring.frame_a) annotation (Line(
+          points={{-40,30},{-30,30},{-30,58},{-20,58}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(spring.frame_b, body.frame_a) annotation (Line(
+          points={{0,58},{12,58},{12,30},{20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics));
+    end FreeMotionScalarInit4;
+
+    model FreeMotionScalarInit5
+      extends Modelica.Icons.Example;
+
+
+      inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
+          animateGravity=false) annotation (Placement(transformation(extent={{-60,20},
+                {-40,40}},     rotation=0)));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit freeMotionScalarInit1(
+        use_r=true,
+        r_rel_a_1(start=0.5, fixed=true),
+        r_rel_a_2(start=0.4, fixed=true),
+        r_rel_a_3(start=0, fixed=true),
+        r_rel_a_1_stateSelect=StateSelect.always,
+        r_rel_a_2_stateSelect=StateSelect.always,
+        r_rel_a_3_stateSelect=StateSelect.always,
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        v_rel_a_1_stateSelect=StateSelect.always,
+        v_rel_a_2_stateSelect=StateSelect.always,
+        v_rel_a_3_stateSelect=StateSelect.always,
+        use_angle=false,
+        angle_1(start=0.78539816339745),
+        angle_2(start=0.78539816339745),
+        angle_3(start=0.78539816339745),
+        use_angle_d=false)                        annotation (Placement(
+            transformation(extent={{-22,20},{-2,40}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.Body body(
+        animation=false,
+        r_CM={0,0,0},
+        m=1) annotation (Placement(transformation(extent={{20,20},{40,40}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a(color_x={0,
+            128,255}) annotation (Placement(transformation(
+            origin={-30,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a1(color_x={0,0,
+            200}) annotation (Placement(transformation(
+            origin={10,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit freeMotionScalarInit2(
+        use_angle=true,
+        angle_1(start=0.78539816339745, fixed=true),
+        angle_2(start=0.78539816339745, fixed=true),
+        angle_3(start=0.78539816339745, fixed=true),
+        angle_1_stateSelect=StateSelect.always,
+        angle_2_stateSelect=StateSelect.always,
+        angle_3_stateSelect=StateSelect.always,
+        use_angle_d=true,
+        angle_d_1(fixed=true),
+        angle_d_2(fixed=true),
+        angle_d_3(fixed=true),
+        angle_d_1_stateSelect=StateSelect.always,
+        angle_d_2_stateSelect=StateSelect.always,
+        angle_d_3_stateSelect=StateSelect.always,
+        use_r=false,
+        r_rel_a_1(start=0.5, fixed=false),
+        r_rel_a_2(start=0.4, fixed=false),
+        r_rel_a_3(start=0, fixed=false),
+        use_v=false,
+        v_rel_a_1(fixed=false),
+        v_rel_a_2(fixed=false),
+        v_rel_a_3(fixed=false))                   annotation (Placement(
+            transformation(extent={{-20,46},{0,66}},  rotation=0)));
+    equation
+      connect(world.frame_b, freeMotionScalarInit1.frame_a)
+                                                           annotation (Line(
+          points={{-40,30},{-22,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(freeMotionScalarInit1.frame_b, body.frame_a)
+                                                          annotation (Line(
+          points={{-2,30},{20,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(frame_a.frame_a, freeMotionScalarInit1.frame_a)
+                                                             annotation (Line(
+          points={{-30,0},{-30,30},{-22,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(frame_a1.frame_a, freeMotionScalarInit1.frame_b)
+                                                              annotation (Line(
+          points={{10,0},{12,0},{12,30},{-2,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(world.frame_b, freeMotionScalarInit2.frame_a) annotation (Line(
+          points={{-40,30},{-30,30},{-30,56},{-20,56}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(freeMotionScalarInit2.frame_b, body.frame_a) annotation (Line(
+          points={{0,56},{12,56},{12,30},{20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics));
+    end FreeMotionScalarInit5;
 
     model SphericalSpherical
       extends Modelica.Icons.Example;
@@ -5264,8 +5460,8 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.Fixed Fixed1(animation=false, r={1.7,
             0.1,0}) annotation (Placement(transformation(extent={{40,20},{20,40}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSP(rRod1_ia
-          =rRod1_ia, rRod2_ib=rRod2_ib) annotation (Placement(transformation(
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSP(rRod1_ia=
+           rRod1_ia, rRod2_ib=rRod2_ib) annotation (Placement(transformation(
               extent={{-20,20},{0,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow n1_a(
         length=0.5,
@@ -5330,8 +5526,8 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.Fixed Fixed1(animation=false, r={1.7,
             0.1,0}) annotation (Placement(transformation(extent={{40,20},{20,40}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia
-          =rRod1_ia) annotation (Placement(transformation(extent={{-20,20},{0,
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia=
+           rRod1_ia) annotation (Placement(transformation(extent={{-20,20},{0,
                 40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow n1_a(
         length=0.5,
@@ -5422,8 +5618,8 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.Fixed Fixed1(animation=false, r={1.5,
             0.1,0}) annotation (Placement(transformation(extent={{40,20},{20,40}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR jointUSR(rRod1_ia
-          =rRod1_ia, rRod2_ib=rRod2_ib) annotation (Placement(transformation(
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR jointUSR(rRod1_ia=
+           rRod1_ia, rRod2_ib=rRod2_ib) annotation (Placement(transformation(
               extent={{-20,20},{0,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow n1_a(
         length=0.5,
@@ -5487,8 +5683,8 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.Fixed Fixed1(animation=false, r={1.5,
             0.1,0}) annotation (Placement(transformation(extent={{40,20},{20,40}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR jointRRR(rRod1_ia
-          =rRod1_ia, rRod2_ib=rRod2_ib) annotation (Placement(transformation(
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR jointRRR(rRod1_ia=
+           rRod1_ia, rRod2_ib=rRod2_ib) annotation (Placement(transformation(
               extent={{-20,20},{0,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow n1_a(
         n={0,0,1},
@@ -5554,8 +5750,8 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Parts.Fixed Fixed1(animation=false, r={1.7,
             0.1,0}) annotation (Placement(transformation(extent={{40,20},{20,40}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP jointRRP(rRod1_ia
-          =rRod1_ia, rRod2_ib=rRod2_ib) annotation (Placement(transformation(
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP jointRRP(rRod1_ia=
+           rRod1_ia, rRod2_ib=rRod2_ib) annotation (Placement(transformation(
               extent={{-20,20},{0,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow n1_a(
         n={0,0,1},
@@ -6662,8 +6858,8 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
 
       Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS
-        annotation (Placement(transformation(extent={{-4,-28},{32,8}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{-4,-28},{32,8}}, rotation=
+               0)));
       inner Modelica.Mechanics.MultiBody.World world1(animateWorld=true,
           animateGravity=true) annotation (Placement(transformation(extent={{-60,
                 -40},{-40,-20}}, rotation=0)));
@@ -7003,7 +7199,6 @@ often possible to use the FreeMotion joint such that the singularity
 </p>
 </html>"));
     end BodyShape;
-
 
     model FreeBodies
       "Test whether enforceStates=true works for all body types (#300)"
@@ -7486,8 +7681,8 @@ often possible to use the FreeMotion joint such that the singularity
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(m=5) annotation (
           Placement(transformation(extent={{40,-10},{60,10}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Revolute rev(phi(fixed=true), w(fixed
-            =true)) annotation (Placement(transformation(extent={{-40,-10},{-20,
+      Modelica.Mechanics.MultiBody.Joints.Revolute rev(phi(fixed=true), w(fixed=
+             true)) annotation (Placement(transformation(extent={{-40,-10},{-20,
                 10}}, rotation=0)));
     equation
       connect(fixedTranslation.frame_b, pointMass.frame_a) annotation (Line(
@@ -7527,7 +7722,6 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation1(
         r={1,1,1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors,
-
         n_x={0,1,0},
         n_y={0,0,1})
         annotation (Placement(transformation(extent={{10,-26},{30,-6}})));
@@ -7539,7 +7733,6 @@ often possible to use the FreeMotion joint such that the singularity
         n_x={0,1,0},
         n_y={0,0,1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
-
         angles={30,20,10},
         r={-1,0,1})
         annotation (Placement(transformation(extent={{10,-60},{30,-40}})));
@@ -7914,8 +8107,8 @@ often possible to use the FreeMotion joint such that the singularity
         Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation2(n={0,1,
               0}, angle=45) annotation (Placement(transformation(extent={{-10,-40},
                   {10,-20}}, rotation=0)));
-        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r
-            ={-0.1,0,0}) annotation (Placement(transformation(extent={{50,-40},
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r=
+             {-0.1,0,0}) annotation (Placement(transformation(extent={{50,-40},
                   {70,-20}}, rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder4(
           diameter=0.1,
@@ -8453,11 +8646,11 @@ often possible to use the FreeMotion joint such that the singularity
           annotation (Placement(transformation(extent={{36,54},{44,62}})));
         Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame3
           annotation (Placement(transformation(extent={{34,-60},{42,-52}})));
-        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r
-            ={0.5,0,0})
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r=
+             {0.5,0,0})
           annotation (Placement(transformation(extent={{82,30},{102,52}})));
-        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation2(r
-            ={0.5,0,0})
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation2(r=
+             {0.5,0,0})
           annotation (Placement(transformation(extent={{78,-94},{98,-72}})));
         Modelica.Mechanics.MultiBody.Forces.Torque torque1
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
@@ -8686,14 +8879,13 @@ often possible to use the FreeMotion joint such that the singularity
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(extent={{-40,0},{-20,
                 20}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1) annotation
-        (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
+      Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1) annotation (
+         Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox box(r={1,0,0}, animation=false)
         annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor sensor_frame_a1(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a,
-
         get_r=true,
         get_v=true,
         get_a=true,
@@ -8704,7 +8896,6 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor sensor_world1(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
-
         get_r=true,
         get_v=true,
         get_a=true,
@@ -8715,7 +8906,6 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor sensor_frame_a2(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve,
-
         get_r=true,
         get_v=true,
         get_a=true,
@@ -8726,7 +8916,6 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor sensor_world2(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve,
-
         get_r=true,
         get_v=true,
         get_a=true,
@@ -8888,7 +9077,6 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
         r={0.5,0.5,0.1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
-
         angles={45,45,45},
         animation=false) annotation (Placement(transformation(extent={{-40,-10},
                 {-20,10}},rotation=0)));
@@ -8970,7 +9158,6 @@ often possible to use the FreeMotion joint such that the singularity
             transformation(extent={{80,-30},{100,-10}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relative_b2(
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve,
-
         get_r_rel=true,
         get_v_rel=true,
         get_a_rel=true,
@@ -8983,7 +9170,6 @@ often possible to use the FreeMotion joint such that the singularity
 
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relative_b1(
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b,
-
         get_r_rel=true,
         get_v_rel=true,
         get_a_rel=true,
@@ -8998,7 +9184,6 @@ often possible to use the FreeMotion joint such that the singularity
             transformation(extent={{-40,-10},{-60,-30}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
-
         get_r_rel=true,
         get_angles=true,
         sequence={3,2,1})
@@ -9199,8 +9384,8 @@ often possible to use the FreeMotion joint such that the singularity
         phi(fixed=true),
         w(fixed=true)) annotation (Placement(transformation(extent={{-20,0},{0,
                 20}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1) annotation
-        (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
+      Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1) annotation (
+         Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Fixed fixed(r={0,-1,0}) annotation (
           Placement(transformation(
             origin={-50,-50},
@@ -9345,16 +9530,16 @@ often possible to use the FreeMotion joint such that the singularity
                 -20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.CutForce cutForce1b(N_to_m=10,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
-        annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate1b(r={0,-1,0})
         annotation (Placement(transformation(
             origin={30,70},
             extent={{10,-10},{-10,10}},
             rotation=180)));
       Modelica.Mechanics.MultiBody.Parts.Body body1b(r_CM={0,0,0}, m=1)
-        annotation (Placement(transformation(extent={{60,60},{80,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,60},{80,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1b(
         n={0,0,1},
         angle=90,
@@ -9490,7 +9675,6 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
         r={0.5,0.5,0.1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
-
         animation=false) annotation (Placement(transformation(extent={{-40,-20},
                 {-20,0}}, rotation=0)));
 
@@ -9570,16 +9754,16 @@ often possible to use the FreeMotion joint such that the singularity
                 -20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.CutTorque cutTorque1b(Nm_to_m=10,
           resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
-        annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate1b(r={0,-1,0})
         annotation (Placement(transformation(
             origin={30,70},
             extent={{10,-10},{-10,10}},
             rotation=180)));
       Modelica.Mechanics.MultiBody.Parts.Body body1b(r_CM={0,0,0}, m=1)
-        annotation (Placement(transformation(extent={{60,60},{80,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,60},{80,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1b(
         n={0,0,1},
         angle=90,
@@ -9715,7 +9899,6 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
         r={0.5,0.5,0.1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
-
         animation=false) annotation (Placement(transformation(extent={{-40,-20},
                 {-20,0}}, rotation=0)));
 
@@ -9767,8 +9950,8 @@ often possible to use the FreeMotion joint such that the singularity
         N_to_m=10,
         Nm_to_m=10,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
-        annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque cutForce2a(
         positiveSign=false,
         N_to_m=10,
@@ -9827,8 +10010,8 @@ often possible to use the FreeMotion joint such that the singularity
         annotation (Placement(transformation(extent={{60,0},{80,20}}, rotation=
                 0)));
       Modelica.Mechanics.MultiBody.Parts.Body body1b(r_CM={0,0,0}, m=1)
-        annotation (Placement(transformation(extent={{60,60},{80,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,60},{80,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.Body body2a(r_CM={0,0,0}, m=1)
         annotation (Placement(transformation(extent={{60,-40},{80,-20}},
               rotation=0)));
@@ -9992,16 +10175,16 @@ often possible to use the FreeMotion joint such that the singularity
         N_to_m=10,
         Nm_to_m=10,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
-        annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate1b(r={0,-1,0})
         annotation (Placement(transformation(
             origin={30,70},
             extent={{10,-10},{-10,10}},
             rotation=180)));
       Modelica.Mechanics.MultiBody.Parts.Body body1b(r_CM={0,0,0}, m=1)
-        annotation (Placement(transformation(extent={{60,60},{80,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{60,60},{80,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1b(
         n={0,0,1},
         angle=90,
@@ -10155,7 +10338,6 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
         r={0.5,0.5,0.1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
-
         animation=false) annotation (Placement(transformation(extent={{-40,-20},
                 {-20,0}}, rotation=0)));
 
@@ -10665,8 +10847,8 @@ often possible to use the FreeMotion joint such that the singularity
         phi(fixed=false),
         w(fixed=true)) annotation (Placement(transformation(extent={{0,0},{20,
                 20}}, rotation=0)));
-      Modelica.Mechanics.Rotational.Components.Spring spring(c=1e4) annotation
-        (Placement(transformation(extent={{-30,0},{-10,20}}, rotation=0)));
+      Modelica.Mechanics.Rotational.Components.Spring spring(c=1e4) annotation (
+         Placement(transformation(extent={{-30,0},{-10,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D7(
         J=1,
         a(start=0.05235987755982989, fixed=true),
@@ -10800,8 +10982,8 @@ they were not deleted yet.")}));
         phi(fixed=true, start=0.7853981633974483),
         w(fixed=true, start=0.174532925199433)) annotation (Placement(
             transformation(extent={{-50,60},{-30,80}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(r={1,0,0}) annotation
-        (Placement(transformation(extent={{-20,60},{0,80}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(r={1,0,0}) annotation (
+         Placement(transformation(extent={{-20,60},{0,80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Revolute actuatedRevolute(
         a(start=-0.174532925199433, fixed=false),
         stateSelect=StateSelect.always,
@@ -10809,8 +10991,8 @@ they were not deleted yet.")}));
         w(fixed=true, start=-0.174532925199433)) annotation (Placement(
             transformation(extent={{10,60},{30,80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(r={1,0,0})
-        annotation (Placement(transformation(extent={{40,60},{60,80}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{40,60},{60,80}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(
         stateSelect=StateSelect.always,
         a(fixed=false, start=1),
@@ -10819,8 +11001,8 @@ they were not deleted yet.")}));
         s_offset=0.1) annotation (Placement(transformation(extent={{-50,20},{-30,
                 40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(r={1,0,0})
-        annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Joints.Prismatic actuatedPrismatic(
         stateSelect=StateSelect.always,
         a(fixed=false, start=0.6),
@@ -10837,11 +11019,11 @@ they were not deleted yet.")}));
         wd(fixed=false, start=0.08726646259971647)) annotation (Placement(
             transformation(extent={{-50,-20},{-30,0}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox3(r={1,0,0})
-        annotation (Placement(transformation(extent={{40,20},{60,40}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{40,20},{60,40}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox4(r={1,0,0})
-        annotation (Placement(transformation(extent={{-20,-20},{0,0}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{-20,-20},{0,0}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Joints.Universal universal(
         a_a(start=0.5235987755982988, fixed=false),
         a_b(start=-0.5235987755982988, fixed=false),
@@ -10852,8 +11034,8 @@ they were not deleted yet.")}));
         w_b(fixed=true, start=-0.3490658503988659)) annotation (Placement(
             transformation(extent={{10,-20},{30,0}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox5(r={1,0,0})
-        annotation (Placement(transformation(extent={{40,-20},{60,0}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{40,-20},{60,0}}, rotation=
+               0)));
       Modelica.Mechanics.MultiBody.Joints.Planar planar(
         stateSelect=StateSelect.always,
         a_x(fixed=false, start=2),
@@ -10872,7 +11054,6 @@ they were not deleted yet.")}));
       Modelica.Mechanics.MultiBody.Joints.Spherical spherical(
         sequence_start={3,1,3},
         angles_start={0.3490658503988659,-0.5235987755982988,0.6981317007977318},
-
         angles_fixed=true,
         w_rel_a_fixed=true,
         z_rel_a_fixed=false,
@@ -10890,7 +11071,6 @@ they were not deleted yet.")}));
               rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion(
         angles_start={0.3490658503988659,0.5235987755982988,0.6981317007977318},
-
         a_rel_a(each fixed=false),
         angles_fixed=true,
         r_rel_a(each fixed=true, start={1,1,1}),
@@ -11007,9 +11187,7 @@ they were not deleted yet.")}));
         w_0_fixed=true,
         z_0_fixed=false,
         w_0_start={0.06981317007977318,0.05235987755982989,0.03490658503988659},
-
         z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989},
-
         r_CM={0,0,0},
         m=1,
         angles_start={0.34906585039887,0.5235987755983,0.69813170079773})
@@ -11031,9 +11209,7 @@ they were not deleted yet.")}));
         w_0_fixed=true,
         z_0_fixed=false,
         w_0_start={0.06981317007977318,0.05235987755982989,0.03490658503988659},
-
         z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989},
-
         r_CM={0,0,0},
         m=1,
         angles_start={0.34906585039887,0.5235987755983,0.69813170079773})
@@ -11049,17 +11225,14 @@ they were not deleted yet.")}));
         w_0_fixed=true,
         z_0_fixed=false,
         w_0_start={0.06981317007977318,0.05235987755982989,0.03490658503988659},
-
         z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989},
-
         angles_start={0.34906585039887,0.5235987755983,0.69813170079773})
-        annotation (Placement(transformation(extent={{40,40},{60,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{40,40},{60,60}}, rotation=
+               0)));
 
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder body3(
         sequence_start={3,2,1},
         angles_start={0.3490658503988659,0.5235987755982988,0.6981317007977318},
-
         a_0(each fixed=false, start={2,2,2}),
         angles_fixed=true,
         r_0(each fixed=true, start={1,2,3}),
@@ -11067,7 +11240,6 @@ they were not deleted yet.")}));
         w_0_fixed=true,
         z_0_fixed=false,
         w_0_start={0.06981317007977318,0.05235987755982989,0.03490658503988659},
-
         z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989})
         annotation (Placement(transformation(extent={{-40,0},{-20,20}},
               rotation=0)));
