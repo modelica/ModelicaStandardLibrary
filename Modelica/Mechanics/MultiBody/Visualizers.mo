@@ -1771,10 +1771,10 @@ This definition is also available as type
       SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)
         "Position vector from world frame to shape frame, resolved in world frame"
           annotation (HideResult=true);
-
+      SI.Length arrowLength = noEvent(max(0, length - diameter*Types.Defaults.ArrowHeadLengthFraction))
+          annotation(HideResult=true);
       Visualizers.Advanced.Shape arrowLine(
-        length=noEvent(max(0, length - diameter*Types.Defaults.
-            ArrowHeadLengthFraction)),
+        length=arrowLength,
         width=diameter,
         height=diameter,
         lengthDirection = to_unit1(r_head),
@@ -1797,7 +1797,7 @@ This definition is also available as type
         shapeType="cone",
         color=color,
         specularCoefficient=specularCoefficient,
-        r=rvisobj + rxvisobj*arrowLine.length,
+        r=rvisobj + rxvisobj*arrowLength,
         R=R) if world.enableAnimation;
 
       annotation (
@@ -1888,13 +1888,11 @@ library (will be replaced by a color editor).
         "Position vector from world frame to shape frame, resolved in world frame"
           annotation (HideResult=true);
 
-      SI.Length headLength=noEvent(max(0, min(length, diameter*MultiBody.Types.
-          Defaults.ArrowHeadLengthFraction)));
-      SI.Length headWidth=noEvent(max(0, diameter*MultiBody.Types.Defaults.
-          ArrowHeadWidthFraction));
+      SI.Length headLength=noEvent(max(0, min(length, diameter*MultiBody.Types.Defaults.ArrowHeadLengthFraction)));
+      SI.Length headWidth=noEvent(max(0, diameter*MultiBody.Types.Defaults.ArrowHeadWidthFraction));
+      SI.Length arrowLength = noEvent(max(0, length - 1.5*diameter*MultiBody.Types.Defaults.ArrowHeadLengthFraction));
       Visualizers.Advanced.Shape arrowLine(
-        length=noEvent(max(0, length - 1.5*diameter*MultiBody.Types.Defaults.
-            ArrowHeadLengthFraction)),
+        length=arrowLength,
         width=diameter,
         height=diameter,
         lengthDirection = to_unit1(r_head),
@@ -1914,7 +1912,7 @@ library (will be replaced by a color editor).
         shapeType="cone",
         color=color,
         specularCoefficient=specularCoefficient,
-        r=rvisobj + rxvisobj*arrowLine.length,
+        r=rvisobj + rxvisobj*arrowLength,
         R=R) if world.enableAnimation;
       Visualizers.Advanced.Shape arrowHead2(
         length=headLength,
@@ -1925,7 +1923,7 @@ library (will be replaced by a color editor).
         shapeType="cone",
         color=color,
         specularCoefficient=specularCoefficient,
-        r=rvisobj + rxvisobj*(arrowLine.length + 0.5*arrowHead1.length),
+        r=rvisobj + rxvisobj*(arrowLength + 0.5*headLength),
         R=R) if world.enableAnimation;
 
       annotation (
