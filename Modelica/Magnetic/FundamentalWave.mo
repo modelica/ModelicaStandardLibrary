@@ -2236,9 +2236,8 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             internalThermalPort,
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMC
-            powerBalance(final lossPowerRotorWinding = -rotorCage.heatPortWinding.Q_flow,
-                         final lossPowerRotorCore = 0));
-
+            powerBalance(final lossPowerRotorWinding=sum(rotorCage.resistor.resistor.LossPower),
+              final lossPowerRotorCore = 0));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi*fsNominal))
           "Stator main field inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
@@ -2327,8 +2326,8 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             internalThermalPort,
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS
-            powerBalance(final lossPowerRotorWinding = -sum(rotor.heatPortWinding.Q_flow),
-                         final lossPowerRotorCore = -rotor.heatPortCore.Q_flow,
+            powerBalance(final lossPowerRotorWinding = sum(rotor.resistor.resistor.LossPower),
+                         final lossPowerRotorCore = rotor.core.lossPower,
                          final lossPowerBrush = 0,
                          final powerRotor = Modelica.Electrical.Machines.SpacePhasors.Functions.activePower(vr, ir)));
         Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=m)
@@ -2682,8 +2681,8 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceSMEE
             powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
                          final powerExcitation = ve*ie,
-                         final lossPowerExcitation = -excitation.heatPortWinding.Q_flow,
-                         final lossPowerBrush = -brush.heatPort.Q_flow,
+                         final lossPowerExcitation = excitation.resistor.LossPower,
+                         final lossPowerBrush = brush.lossPower,
                          final lossPowerRotorCore = 0));
 
         parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
@@ -4582,11 +4581,10 @@ This model is mainly used to extend from in order build more complex - equation 
         final powerMechanical = wMechanical*tauShaft,
         final powerInertiaStator = inertiaStator.J*inertiaStator.a*inertiaStator.w,
         final powerInertiaRotor = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
-        final lossPowerStatorWinding = -sum(stator.heatPortWinding.Q_flow),
-        final lossPowerStatorCore = -stator.heatPortCore.Q_flow,
-        final lossPowerStrayLoad = -strayLoad.heatPort.Q_flow,
-        final lossPowerFriction = -friction.heatPort.Q_flow) "Power balance";
-
+        final lossPowerStatorWinding=sum(stator.resistor.resistor.LossPower),
+        final lossPowerStatorCore=stator.core.lossPower,
+        final lossPowerStrayLoad=strayLoad.lossPower,
+        final lossPowerFriction=friction.lossPower) "Power balance";
       // Stator voltages and currents
       output Modelica.SIunits.Voltage vs[m] = plug_sp.pin.v - plug_sn.pin.v
         "Stator instantaneous voltages";

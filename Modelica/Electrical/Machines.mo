@@ -3644,7 +3644,7 @@ This package contains test examples of electric machines.
             internalThermalPort,
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceAIMC
-            powerBalance(final lossPowerRotorWinding = -squirrelCageR.heatPort.Q_flow,
+            powerBalance(final lossPowerRotorWinding = squirrelCageR.LossPower,
                          final lossPowerRotorCore = 0),
           statorCore(final w=statorCoreParameters.wRef));
         Machines.BasicMachines.Components.AirGapS airGapS(
@@ -3848,8 +3848,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             internalThermalPort,
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceAIMS
-            powerBalance(final lossPowerRotorWinding = -sum(rr.heatPort.Q_flow),
-                         final lossPowerRotorCore = -rotorCore.heatPort.Q_flow,
+            powerBalance(final lossPowerRotorWinding = sum(rr.resistor.LossPower),
+                         final lossPowerRotorCore = rotorCore.lossPower,
                          final lossPowerBrush = 0,
                          final powerRotor = Machines.SpacePhasors.Functions.activePower(vr, ir)),
           statorCore(final w=statorCoreParameters.wRef));
@@ -4514,8 +4514,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             Machines.Interfaces.InductionMachines.PowerBalanceSMEE
             powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
                          final powerExcitation = ve*ie,
-                         final lossPowerExcitation = -re.heatPort.Q_flow,
-                         final lossPowerBrush = -brush.heatPort.Q_flow,
+                         final lossPowerExcitation = re.LossPower,
+                         final lossPowerBrush = brush.lossPower,
                          final lossPowerRotorCore = 0),
           statorCore(final w=statorCoreParameters.wRef));
         Machines.BasicMachines.Components.AirGapR airGapR(
@@ -5411,7 +5411,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCEE
             powerBalance(
               final powerExcitation = ve*ie,
-              final lossPowerExcitation = -re.heatPort.Q_flow),
+              final lossPowerExcitation = re.LossPower),
           core(final w=airGapDC.w));
         parameter Modelica.SIunits.Current IeNominal(start=1)
           "Nominal excitation current"
@@ -5687,7 +5687,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCSE
             powerBalance(
               final powerSeriesExcitation = ve*ie,
-              final lossPowerSeriesExcitation = -re.heatPort.Q_flow),
+              final lossPowerSeriesExcitation = re.LossPower),
           core(final w=airGapDC.w));
         parameter Modelica.SIunits.Resistance Re(start=0.01)
           "Series excitation resistance at TRef"
@@ -12243,10 +12243,10 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         final powerMechanical = wMechanical*tauShaft,
         final powerInertiaStator = inertiaStator.J*inertiaStator.a*inertiaStator.w,
         final powerInertiaRotor = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
-        final lossPowerStatorWinding = -sum(rs.heatPort.Q_flow),
-        final lossPowerStatorCore = -statorCore.heatPort.Q_flow,
-        final lossPowerStrayLoad = -strayLoad.heatPort.Q_flow,
-        final lossPowerFriction = -friction.heatPort.Q_flow) "Power balance";
+        final lossPowerStatorWinding = sum(rs.resistor.LossPower),
+        final lossPowerStatorCore = statorCore.lossPower,
+        final lossPowerStrayLoad = strayLoad.lossPower,
+        final lossPowerFriction = friction.lossPower) "Power balance";
       output Modelica.SIunits.Voltage vs[m] = plug_sp.pin.v - plug_sn.pin.v
         "Stator instantaneous voltages";
       output Modelica.SIunits.Current is[m] = plug_sp.pin.i
@@ -12804,11 +12804,11 @@ Interfaces and partial models for induction machines
         final powerMechanical = wMechanical*tauShaft,
         final powerInertiaStator = inertiaStator.J*inertiaStator.a*inertiaStator.w,
         final powerInertiaRotor = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
-        final lossPowerArmature = -ra.heatPort.Q_flow,
-        final lossPowerCore = -core.heatPort.Q_flow,
-        final lossPowerStrayLoad = -strayLoad.heatPort.Q_flow,
-        final lossPowerFriction = -friction.heatPort.Q_flow,
-        final lossPowerBrush = -brush.heatPort.Q_flow) "Power balance";
+        final lossPowerArmature = ra.LossPower,
+        final lossPowerCore = core.lossPower,
+        final lossPowerStrayLoad = strayLoad.lossPower,
+        final lossPowerFriction = friction.lossPower,
+        final lossPowerBrush = brush.lossPower) "Power balance";
       output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "Armature voltage";
       output Modelica.SIunits.Current ia = pin_ap.i "Armature current";
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
@@ -13277,8 +13277,8 @@ Thermal ports for DC machines
       output Machines.Interfaces.PowerBalanceTransformer powerBalance(
         final power1 = Machines.SpacePhasors.Functions.activePower(v1, +i1),
         final power2 = Machines.SpacePhasors.Functions.activePower(v2, -i2),
-        final lossPower1 = -sum(r1.heatPort.Q_flow),
-        final lossPower2 = -sum(r2.heatPort.Q_flow),
+        final lossPower1 = sum(r1.resistor.LossPower),
+        final lossPower2 = sum(r2.resistor.LossPower),
         final lossPowerCore = 0) "Power balance";
       output Modelica.SIunits.Voltage v1[m]=plug1.pin.v "Primary voltage";
       output Modelica.SIunits.Current i1[m]=plug1.pin.i "Primary current";
