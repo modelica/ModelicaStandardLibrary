@@ -4524,7 +4524,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             internalThermalPort,
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMC
-            powerBalance(final lossPowerRotorWinding=-rotorCage.heatPortWinding.Q_flow,
+            powerBalance(final lossPowerRotorWinding=sum(rotorCage.resistor.resistor.LossPower),
               final lossPowerRotorCore=0));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
               *fsNominal)) "Stator main field inductance"
@@ -4569,7 +4569,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             color={191,0,0},
             smooth=Smooth.None));
         connect(airGap.port_rn, rotorCage.port_p) annotation (Line(
-            points={{-10,-10},{-10,-30},{-10,-30}},
+            points={{-10,-10},{-10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
@@ -4619,13 +4619,10 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
             internalThermalPort(final mr=mr),
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS
-            powerBalance(
-            final lossPowerRotorWinding=-sum(rotor.heatPortWinding.Q_flow),
-            final lossPowerRotorCore=-rotor.heatPortCore.Q_flow,
-            final lossPowerBrush=0,
-            final powerRotor=
-                Modelica.Electrical.MultiPhase.Functions.activePower(
-                vr, ir)));
+            powerBalance(final lossPowerRotorWinding = sum(rotor.resistor.resistor.LossPower),
+              final lossPowerRotorCore = rotor.core.lossPower,
+              final lossPowerBrush=0,
+              final powerRotor=Modelica.Electrical.MultiPhase.Functions.activePower(vr, ir)));
         Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_rn(final m=
               mr) "Negative plug of rotor" annotation (Placement(transformation(
                 extent={{-110,-50},{-90,-70}}, rotation=0)));
@@ -4800,7 +4797,7 @@ Resistances and stray inductances of the machine always refer to either stator o
             powerBalance(
             final lossPowerRotorWinding=heatFlowSensorDamperCage.Q_flow,
             final lossPowerRotorCore=0,
-            final lossPowerPermanentMagnet=-permanentMagnet.heatPort.Q_flow));
+            final lossPowerPermanentMagnet=permanentMagnet.lossPower));
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
           "Stator main field inductance, d-axis"
           annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -5019,8 +5016,8 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
             powerBalance(
             final lossPowerRotorWinding=heatFlowSensorDamperCage.Q_flow,
             final powerExcitation=ve*ie,
-            final lossPowerExcitation=-excitation.heatPortWinding.Q_flow,
-            final lossPowerBrush=-brush.heatPort.Q_flow,
+            final lossPowerExcitation=excitation.resistor.LossPower,
+            final lossPowerBrush=brush.lossPower,
             final lossPowerRotorCore=0));
         parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
           "Stator main field inductance, d-axis"
@@ -5255,8 +5252,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           is(start=zeros(m)),
           Rs(start=0.03),
           Lssigma(start=0.1/(2*pi*fsNominal)),
-          final L0(d=2.0*Lmd/m/effectiveStatorTurns^2, q=2.0*Lmq/m/
-                effectiveStatorTurns^2),
+          final L0(d=2.0*Lmd/m/effectiveStatorTurns^2, q=2.0*Lmq/m/effectiveStatorTurns^2),
           redeclare final
             Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR
             thermalAmbient(final useDamperCage=useDamperCage, final Tr=
@@ -5641,8 +5637,8 @@ The single phase winding consists of a
       equation
         connect(plug_p, resistor.plug_p) annotation (Line(points={{-100,100},{-20,
                 100},{-20,80}}, color={0,0,255}));
-        connect(resistor.plug_n, zeroInductor.plug_p) annotation (Line(points={
-                {-20,60},{-20,55},{-20,55},{-20,50},{-20,40},{-20,40}}, color={
+        connect(resistor.plug_n, zeroInductor.plug_p) annotation (Line(points={{-20,60},
+                {-20,55},{-20,50},{-20,40}},                            color={
                 0,0,255}));
         connect(zeroInductor.plug_n, electroMagneticConverter.plug_p)
           annotation (Line(points={{-20,20},{-20,-20},{-10,-20}}, color={0,0,
@@ -6026,7 +6022,9 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"));
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end SymmetricMultiPhaseCageWinding;
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
@@ -6730,10 +6728,10 @@ This model is mainly used to extend from in order build more complex - equation 
         final powerMechanical=wMechanical*tauShaft,
         final powerInertiaStator=inertiaStator.J*inertiaStator.a*inertiaStator.w,
         final powerInertiaRotor=inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
-        final lossPowerStatorWinding=-sum(stator.heatPortWinding.Q_flow),
-        final lossPowerStatorCore=-stator.heatPortCore.Q_flow,
-        final lossPowerStrayLoad=-strayLoad.heatPort.Q_flow,
-        final lossPowerFriction=-friction.heatPort.Q_flow) "Power balance";
+        final lossPowerStatorWinding=sum(stator.resistor.resistor.LossPower),
+        final lossPowerStatorCore=stator.core.lossPower,
+        final lossPowerStrayLoad=strayLoad.lossPower,
+        final lossPowerFriction=friction.lossPower) "Power balance";
       // Stator voltages and currents
       output Modelica.SIunits.Voltage vs[m]=plug_sp.pin.v - plug_sn.pin.v
         "Stator instantaneous voltages";
@@ -6837,6 +6835,7 @@ This model is mainly used to extend from in order build more complex - equation 
     initial algorithm
       assert(not Modelica.Math.isPowerOf2(m), String(m) +
         " phases are currently not supported in this version of FundametalWave");
+
     equation
       connect(stator.plug_n, plug_sn) annotation (Line(
           points={{-10,50},{-10,70},{-60,70},{-60,100}},

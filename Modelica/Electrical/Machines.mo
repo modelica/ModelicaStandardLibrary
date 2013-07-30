@@ -4788,7 +4788,7 @@ This package contains test examples of electric machines.
             internalThermalPort,
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceAIMC
-            powerBalance(final lossPowerRotorWinding = -squirrelCageR.heatPort.Q_flow,
+            powerBalance(final lossPowerRotorWinding = squirrelCageR.LossPower,
                          final lossPowerRotorCore = 0),
           statorCore(final w=statorCoreParameters.wRef));
         output Modelica.SIunits.Current ir[2] = -squirrelCageR.spacePhasor_r.i_
@@ -4989,8 +4989,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             internalThermalPort(final mr=m),
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceAIMS
-            powerBalance(final lossPowerRotorWinding = -sum(rr.heatPort.Q_flow),
-                         final lossPowerRotorCore = -rotorCore.heatPort.Q_flow,
+            powerBalance(final lossPowerRotorWinding = sum(rr.resistor.LossPower),
+                         final lossPowerRotorCore = rotorCore.lossPower,
                          final lossPowerBrush = 0,
                          final powerRotor = Machines.SpacePhasors.Functions.activePower(vr, ir)),
           statorCore(final w=statorCoreParameters.wRef));
@@ -5355,7 +5355,7 @@ These models use package SpacePhasors.
             Machines.Interfaces.InductionMachines.PowerBalanceSMPM
             powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
                          final lossPowerRotorCore = 0,
-                         final lossPowerPermanentMagnet = -permanentMagnet.heatPort.Q_flow),
+                         final lossPowerPermanentMagnet = permanentMagnet.lossPower),
           statorCore(final w=statorCoreParameters.wRef));
         output Modelica.SIunits.Current ir[2] = -damperCage.spacePhasor_r.i_ if useDamperCage
           "Damper cage currents";
@@ -5668,8 +5668,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             Machines.Interfaces.InductionMachines.PowerBalanceSMEE
             powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
                          final powerExcitation = ve*ie,
-                         final lossPowerExcitation = -re.heatPort.Q_flow,
-                         final lossPowerBrush = -brush.heatPort.Q_flow,
+                         final lossPowerExcitation = re.LossPower,
+                         final lossPowerBrush = brush.lossPower,
                          final lossPowerRotorCore = 0),
           statorCore(final w=statorCoreParameters.wRef));
         output Modelica.SIunits.Current ir[2] = -damperCage.spacePhasor_r.i_ if useDamperCage
@@ -6551,7 +6551,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCEE
             powerBalance(
               final powerExcitation = ve*ie,
-              final lossPowerExcitation = -re.heatPort.Q_flow),
+              final lossPowerExcitation = re.LossPower),
           core(final w=airGapDC.w));
         parameter Modelica.SIunits.Current IeNominal(start=1)
           "Nominal excitation current"
@@ -6822,7 +6822,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCSE
             powerBalance(
               final powerSeriesExcitation = ve*ie,
-              final lossPowerSeriesExcitation = -re.heatPort.Q_flow),
+              final lossPowerSeriesExcitation = re.LossPower),
           core(final w=airGapDC.w));
         parameter Modelica.SIunits.Resistance Re(start=0.01)
           "Series excitation resistance at TRef"
@@ -9147,66 +9147,66 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
   </ul>
 </HTML>"),     Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics={
         Polygon(
-          origin=  {10,10},
-          fillColor=  {135,135,135},
-          fillPattern=  FillPattern.VerticalCylinder,
-          points=  {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
+          points = {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
         Polygon(
-          origin=  {10,10},
-          fillColor=  {135,135,135},
-          fillPattern=  FillPattern.VerticalCylinder,
-          points=  {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
+          points = {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
         Polygon(
-          origin=  {10,10},
-          fillColor=  {135,135,135},
-          fillPattern=  FillPattern.VerticalCylinder,
-          points=  {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
+          points = {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
         Polygon(
-          origin=  {10,10},
-          fillColor=  {135,135,135},
-          fillPattern=  FillPattern.VerticalCylinder,
-          points=  {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
+          points = {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
         Polygon(
-          origin=  {10,10},
-          fillColor=  {135,135,135},
-          fillPattern=  FillPattern.VerticalCylinder,
-          points=  {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
+          points = {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {128,0,255},
-          fillColor=  {128,0,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{-88,-46},{-52,26}}),
+          origin = {10,10},
+          lineColor = {128,0,255},
+          fillColor = {128,0,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{-88,-46},{-52,26}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {0,128,255},
-          fillColor=  {0,128,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{-94,-38},{-46,18}}),
+          origin = {10,10},
+          lineColor = {0,128,255},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{-94,-38},{-46,18}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {128,0,255},
-          fillColor=  {128,0,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{-28,-46},{8,26}}),
+          origin = {10,10},
+          lineColor = {128,0,255},
+          fillColor = {128,0,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{-28,-46},{8,26}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {0,128,255},
-          fillColor=  {0,128,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{-34,-38},{14,18}}),
+          origin = {10,10},
+          lineColor = {0,128,255},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{-34,-38},{14,18}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {128,0,255},
-          fillColor=  {128,0,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{32,-46},{68,26}}),
+          origin = {10,10},
+          lineColor = {128,0,255},
+          fillColor = {128,0,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{32,-46},{68,26}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {0,128,255},
-          fillColor=  {0,128,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{26,-38},{74,18}})}));
+          origin = {10,10},
+          lineColor = {0,128,255},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{26,-38},{74,18}})}));
     end Transformers;
 
     package Components "Machine components like AirGaps"
@@ -13310,10 +13310,10 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         final powerMechanical = wMechanical*tauShaft,
         final powerInertiaStator = inertiaStator.J*inertiaStator.a*inertiaStator.w,
         final powerInertiaRotor = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
-        final lossPowerStatorWinding = -sum(rs.heatPort.Q_flow),
-        final lossPowerStatorCore = -statorCore.heatPort.Q_flow,
-        final lossPowerStrayLoad = -strayLoad.heatPort.Q_flow,
-        final lossPowerFriction = -friction.heatPort.Q_flow) "Power balance";
+        final lossPowerStatorWinding = sum(rs.resistor.LossPower),
+        final lossPowerStatorCore = statorCore.lossPower,
+        final lossPowerStrayLoad = strayLoad.lossPower,
+        final lossPowerFriction = friction.lossPower) "Power balance";
       output Modelica.SIunits.Voltage vs[m] = plug_sp.pin.v - plug_sn.pin.v
         "Stator instantaneous voltages";
       output Modelica.SIunits.Current is[m] = plug_sp.pin.i
@@ -13862,11 +13862,11 @@ Interfaces and partial models for induction machines
         final powerMechanical = wMechanical*tauShaft,
         final powerInertiaStator = inertiaStator.J*inertiaStator.a*inertiaStator.w,
         final powerInertiaRotor = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
-        final lossPowerArmature = -ra.heatPort.Q_flow,
-        final lossPowerCore = -core.heatPort.Q_flow,
-        final lossPowerStrayLoad = -strayLoad.heatPort.Q_flow,
-        final lossPowerFriction = -friction.heatPort.Q_flow,
-        final lossPowerBrush = -brush.heatPort.Q_flow) "Power balance";
+        final lossPowerArmature = ra.LossPower,
+        final lossPowerCore = core.lossPower,
+        final lossPowerStrayLoad = strayLoad.lossPower,
+        final lossPowerFriction = friction.lossPower,
+        final lossPowerBrush = brush.lossPower) "Power balance";
       output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "Armature voltage";
       output Modelica.SIunits.Current ia(start=0) = pin_ap.i "Armature current";
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
@@ -14327,8 +14327,8 @@ Thermal ports for DC machines
       output Machines.Interfaces.PowerBalanceTransformer powerBalance(
         final power1 = Machines.SpacePhasors.Functions.activePower(v1, +i1),
         final power2 = Machines.SpacePhasors.Functions.activePower(v2, -i2),
-        final lossPower1 = -sum(r1.heatPort.Q_flow),
-        final lossPower2 = -sum(r2.heatPort.Q_flow),
+        final lossPower1 = sum(r1.resistor.LossPower),
+        final lossPower2 = sum(r2.resistor.LossPower),
         final lossPowerCore = 0) "Power balance";
       output Modelica.SIunits.Voltage v1[m]=plug1.pin.v "Primary voltage";
       output Modelica.SIunits.Current i1[m]=plug1.pin.i "Primary current";
