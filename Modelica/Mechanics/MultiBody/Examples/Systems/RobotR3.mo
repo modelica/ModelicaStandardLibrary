@@ -1763,8 +1763,7 @@ Default values of the parameters are given for the axis of joint 1.
       q = {r1.phi,r2.phi,r3.phi,r4.phi,r5.phi,r6.phi};
       qd = der(q);
       qdd = der(qd);
-      tau = {r1.axis.tau,r2.axis.tau,r3.axis.tau,r4.axis.tau,r5.axis.tau,r6.
-        axis.tau};
+      tau = {r1.tau, r2.tau, r3.tau, r4.tau, r5.tau, r6.tau};
       connect(load.frame_a, b6.frame_b)
         annotation (Line(
           points={{-60,178},{-60,170}},
