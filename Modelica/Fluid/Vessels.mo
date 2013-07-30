@@ -295,8 +295,8 @@ end OpenTank;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_height;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_zeta_in;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_zeta_out;
-        Modelica.Blocks.Interfaces.BooleanInput[nPorts] regularFlow;
-        Modelica.Blocks.Interfaces.BooleanInput[nPorts] inFlow;
+        Modelica.Blocks.Interfaces.BooleanInput[nPorts] regularFlow(each start=true);
+        Modelica.Blocks.Interfaces.BooleanInput[nPorts] inFlow(each start=false);
 
       equation
         mb_flow = sum(ports.m_flow);
