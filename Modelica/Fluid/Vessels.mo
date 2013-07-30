@@ -295,6 +295,8 @@ end OpenTank;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_height;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_zeta_in;
         Modelica.Blocks.Interfaces.RealInput[nPorts] portsData_zeta_out;
+        Modelica.Blocks.Interfaces.BooleanInput[nPorts] regularFlow;
+        Modelica.Blocks.Interfaces.BooleanInput[nPorts] inFlow;
 
       equation
         mb_flow = sum(ports.m_flow);
@@ -349,35 +351,39 @@ of the modeller. Increase nPorts to add an additional port.
             ports_penetration[i] = 1;
             m_flow_turbulent[i] = Modelica.Constants.inf;
           end if;
+
           // fluid flow through ports
-          if fluidLevel >= portsData_height[i] then
+          regularFlow[i] = fluidLevel >= portsData_height[i];
+          inFlow[i]      = not regularFlow[i] and (s[i] > 0 or portsData_height[i] >= fluidLevel_max);
+          if regularFlow[i] then
             // regular operation: fluidLevel is above ports[i]
             // Note: >= covers default values of zero as well
             if use_portsData then
               /* Without regularization
-        ports[i].p = vessel_ps_static[i] + 0.5*ports[i].m_flow^2/portAreas[i]^2
-                      * noEvent(if ports[i].m_flow>0 then zeta_in[i]/portInDensities[i] else -zeta_out[i]/medium.d);
-        */
+                 ports[i].p = vessel_ps_static[i] + 0.5*ports[i].m_flow^2/portAreas[i]^2
+                              * noEvent(if ports[i].m_flow>0 then zeta_in[i]/portInDensities[i] else -zeta_out[i]/medium.d);
+              */
 
-              ports[i].p = Utilities.homotopic(vessel_ps_static[i] + (0.5/portAreas[i]^2*Utilities.regSquare2(ports[i].m_flow, m_flow_turbulent[i],
+              ports[i].p = homotopy(vessel_ps_static[i] + (0.5/portAreas[i]^2*Utilities.regSquare2(ports[i].m_flow, m_flow_turbulent[i],
                                            (portsData_zeta_in[i] - 1 + portAreas[i]^2/vesselArea^2)/portInDensities[i]*ports_penetration[i],
                                            (portsData_zeta_out[i] + 1 - portAreas[i]^2/vesselArea^2)/medium.d/ports_penetration[i])),
-                                    vessel_ps_static[i],
-                                    system.use_homotopy);
+                                    vessel_ps_static[i]);
               /*
-        // alternative formulation m_flow=f(dp); not allowing the ideal portsData_zeta_in[i]=1 though
-        ports[i].m_flow = smooth(2, portAreas[i]*Utilities.regRoot2(ports[i].p - vessel_ps_static[i], dp_small,
-                                     2*portInDensities[i]/portsData_zeta_in[i],
-                                     2*medium.d/portsData_zeta_out[i]));
-        */
+                // alternative formulation m_flow=f(dp); not allowing the ideal portsData_zeta_in[i]=1 though
+                ports[i].m_flow = smooth(2, portAreas[i]*Utilities.regRoot2(ports[i].p - vessel_ps_static[i], dp_small,
+                                       2*portInDensities[i]/portsData_zeta_in[i],
+                                       2*medium.d/portsData_zeta_out[i]));
+              */
             else
               ports[i].p = vessel_ps_static[i];
             end if;
             s[i] = fluidLevel - portsData_height[i];
-          elseif s[i] > 0 or portsData_height[i] >= fluidLevel_max then
+
+          elseif inFlow[i] then
             // ports[i] is above fluidLevel and has inflow
             ports[i].p = vessel_ps_static[i];
             s[i] = ports[i].m_flow;
+
           else
             // ports[i] is above fluidLevel, preventing outflow
             ports[i].m_flow = 0;

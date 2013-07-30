@@ -1296,7 +1296,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
             if continuousFlowReversal then
               // simple regularization
               if from_dp and not WallFriction.dp_is_zero then
-                m_flows = Utilities.homotopic(
+                m_flows = homotopy(
                   actual=  WallFriction.massFlowRate_dp(
                              dps_fg - {g*dheights[i]*rhos_act[i] for i in 1:n-1},
                              rhos_act,
@@ -1308,10 +1308,9 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              dp_small/(n-1),
                              Res_turbulent_internal)*nParallel,
-                  simplified=  m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal),
-                  use_homotopy= system.use_homotopy);
+                  simplified=  m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal));
               else
-                dps_fg = Utilities.homotopic(
+                dps_fg = homotopy(
                   actual=  WallFriction.pressureLoss_m_flow(
                              m_flows/nParallel,
                              rhos_act,
@@ -1323,13 +1322,12 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              m_flow_small/nParallel,
                              Res_turbulent_internal) + {g*dheights[i]*rhos_act[i] for i in 1:n-1},
-                  simplified=  dp_nominal/m_flow_nominal*m_flows + g*dheights*rho_nominal,
-                  use_homotopy= system.use_homotopy);
+                  simplified=  dp_nominal/m_flow_nominal*m_flows + g*dheights*rho_nominal);
               end if;
             else
               // regularization for discontinuous flow reversal and static head
               if from_dp and not WallFriction.dp_is_zero then
-                m_flows = Utilities.homotopic(
+                m_flows = homotopy(
                   actual=  WallFriction.massFlowRate_dp_staticHead(
                              dps_fg,
                              rhos[1:n-1],
@@ -1342,10 +1340,9 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              dp_small/(n-1),
                              Res_turbulent_internal)*nParallel,
-                  simplified=  m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal),
-                  use_homotopy= system.use_homotopy);
+                  simplified=  m_flow_nominal/dp_nominal*(dps_fg - g*dheights*rho_nominal));
               else
-                dps_fg = Utilities.homotopic(
+                dps_fg = homotopy(
                   actual=  WallFriction.pressureLoss_m_flow_staticHead(
                              m_flows/nParallel,
                              rhos[1:n-1],
@@ -1358,8 +1355,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              m_flow_small/nParallel,
                              Res_turbulent_internal),
-                  simplified=  dp_nominal/m_flow_nominal*m_flows + g*dheights*rho_nominal,
-                  use_homotopy= system.use_homotopy);
+                  simplified=  dp_nominal/m_flow_nominal*m_flows + g*dheights*rho_nominal);
               end if;
             end if;
 
