@@ -5133,6 +5133,98 @@ a linear damper is connected here.
       annotation (experiment(StopTime=1.1));
     end FreeMotionScalarInit2;
 
+    model FreeMotionScalarInit3
+      extends Modelica.Icons.Example;
+
+      inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
+          animateGravity=false) annotation (Placement(transformation(extent={{-60,
+                20},{-40,40}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit freeMotionScalarInit(
+        use_angle=true,
+        use_r=true,
+        r_rel_a_1_stateSelect=StateSelect.always,
+        r_rel_a_2_stateSelect=StateSelect.always,
+        r_rel_a_3_stateSelect=StateSelect.always,
+        use_v=true,
+        v_rel_a_1(fixed=true),
+        v_rel_a_2(fixed=true),
+        v_rel_a_3(fixed=true),
+        v_rel_a_1_stateSelect=StateSelect.always,
+        v_rel_a_2_stateSelect=StateSelect.always,
+        v_rel_a_3_stateSelect=StateSelect.always,
+        angle_1_stateSelect=StateSelect.always,
+        angle_2_stateSelect=StateSelect.always,
+        angle_3_stateSelect=StateSelect.always,
+        w_rel_b_1_stateSelect=StateSelect.always,
+        w_rel_b_2_stateSelect=StateSelect.always,
+        w_rel_b_3_stateSelect=StateSelect.always,
+        use_a=true,
+        a_rel_a_1(fixed=true),
+        a_rel_a_2(fixed=true),
+        a_rel_a_3(fixed=true),
+        use_angle_d=true,
+        angle_d_1(fixed=true),
+        angle_d_2(fixed=true),
+        angle_d_3(fixed=true),
+        r_rel_a_1(start=0.5),
+        r_rel_a_2(start=0.4),
+        r_rel_a_3(start=0),
+        use_w=false,
+        use_angle_dd=false,
+        angle_1(start=0.78539816339745, fixed=true),
+        angle_2(start=0.78539816339745, fixed=true),
+        angle_3(start=0.78539816339745, fixed=true)) annotation (Placement(
+            transformation(extent={{-22,20},{-2,40}}, rotation=0)));
+
+      Modelica.Mechanics.MultiBody.Parts.Body body(
+        animation=false,
+        r_CM={0,0,0},
+        m=1) annotation (Placement(transformation(extent={{20,20},{40,40}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a(color_x={0,
+            128,255}) annotation (Placement(transformation(
+            origin={-30,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a1(color_x={0,0,
+            200}) annotation (Placement(transformation(
+            origin={10,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring(c=1e4)
+        annotation (Placement(transformation(extent={{-20,48},{0,68}})));
+    equation
+      connect(world.frame_b, freeMotionScalarInit.frame_a) annotation (Line(
+          points={{-40,30},{-22,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(freeMotionScalarInit.frame_b, body.frame_a) annotation (Line(
+          points={{-2,30},{20,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(frame_a.frame_a, freeMotionScalarInit.frame_a) annotation (Line(
+          points={{-30,0},{-30,30},{-22,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(frame_a1.frame_a, freeMotionScalarInit.frame_b) annotation (Line(
+          points={{10,0},{12,0},{12,30},{-2,30}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(world.frame_b, spring.frame_a) annotation (Line(
+          points={{-40,30},{-30,30},{-30,58},{-20,58}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(spring.frame_b, body.frame_a) annotation (Line(
+          points={{0,58},{12,58},{12,30},{20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics));
+    end FreeMotionScalarInit3;
+
     model SphericalSpherical
       extends Modelica.Icons.Example;
 
