@@ -30,6 +30,17 @@ operator record Complex "Complex number with overloaded operators"
             radius=25.0)}));
   end 'constructor';
 
+  encapsulated operator function '0'
+    "Zero-element of addition (= Complex(0))"
+    import Complex;
+    output Complex result "Complex(0)";
+  algorithm
+    result := Complex(0);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the zero-element of Complex, that is, Complex(0) = 0 + j*0.</p>
+</html>"));
+  end '0';
+
   encapsulated operator '-' "Unary and binary minus"
     function negate "Unary minus (multiply complex number by -1)"
       import Complex;
