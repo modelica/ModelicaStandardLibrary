@@ -1454,9 +1454,9 @@ This package contains test examples of asynchronous induction machines.
           TrRef=smrData.TrRef,
           TsOperational=293.15,
           alpha20s=smrData.alpha20s,
+          ir(fixed=true),
           TrOperational=293.15,
-          alpha20r=smrData.alpha20r,
-          ir(start=zeros(2), fixed=true))
+          alpha20r=smrData.alpha20r)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
@@ -1608,9 +1608,9 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
           TsOperational=293.15,
           alpha20s=smpmData.alpha20s,
+          ir(fixed=true),
           TrOperational=293.15,
-          alpha20r=smpmData.alpha20r,
-          ir(start=zeros(2), fixed=true))
+          alpha20r=smpmData.alpha20r)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
@@ -1791,7 +1791,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
         Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor annotation (Placement(
               transformation(
-              extent={{-10,-10},{10,10}},
+              extent={{-10,10},{10,-10}},
               rotation=180,
               origin={-30,-10})));
         Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (Placement(transformation(
@@ -2052,7 +2052,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               rotation=270)));
         Modelica.Electrical.Analog.Basic.Ground groundM
           annotation (Placement(transformation(
-              origin={-80,-30},
+              origin={-80,-28},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m)
@@ -2157,7 +2157,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             color={0,0,255},
             smooth=Smooth.None));
         connect(groundM.p, starM.pin_n) annotation (Line(
-            points={{-70,-30},{-70,-10}},
+            points={{-70,-28},{-70,-10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(currentQuasiRMSSensor.plug_n, currentSensor.plug_p) annotation (
@@ -2225,11 +2225,11 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           brushParameters(ILinear=0.01),
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
+          ir(fixed=true),
           TrOperational=293.15,
           alpha20r=smeeData.alpha20r,
           alpha20e=smeeData.alpha20e,
-          TeOperational=293.15,
-          ir(start=zeros(2), fixed=true))
+          TeOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p)
@@ -2425,11 +2425,11 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           brushParameters(ILinear=0.01),
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
+          ir(fixed=true),
           TrOperational=293.15,
           alpha20r=smeeData.alpha20r,
           alpha20e=smeeData.alpha20e,
-          TeOperational=293.15,
-          ir(start=zeros(2), fixed=true))
+          TeOperational=293.15)
           annotation (Placement(transformation(extent={{0,-40},{20,-20}},
                 rotation=0)));
         parameter Machines.Utilities.SynchronousMachineData smeeData(
@@ -2688,11 +2688,11 @@ One could try to optimize the controller parameters.
           brushParameters(ILinear=0.01),
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
+          ir(fixed=true),
           TrOperational=293.15,
           alpha20r=smeeData.alpha20r,
           alpha20e=smeeData.alpha20e,
-          TeOperational=293.15,
-          ir(start=zeros(2), fixed=true))
+          TeOperational=293.15)
           annotation (Placement(transformation(extent={{0,-40},{20,-20}},
                 rotation=0)));
         parameter Machines.Utilities.SynchronousMachineData smeeData(
@@ -5353,12 +5353,18 @@ These models use package SpacePhasors.
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceSMPM
-            powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
+            powerBalance(final lossPowerRotorWinding = damperCageLossPower,
                          final lossPowerRotorCore = 0,
                          final lossPowerPermanentMagnet = permanentMagnet.lossPower),
           statorCore(final w=statorCoreParameters.wRef));
-        output Modelica.SIunits.Current ir[2] = -damperCage.spacePhasor_r.i_ if useDamperCage
-          "Damper cage currents";
+        Modelica.Blocks.Interfaces.RealOutput ir[2](
+          start=zeros(2),
+          each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
+          "Damper cage currents" annotation(Dialog(showStartAttribute=true));
+        Modelica.Blocks.Interfaces.RealOutput idq_dr[2](
+          each stateSelect=StateSelect.prefer,
+          each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
+          "Damper space phasor current / rotor fixed frame";
         Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
@@ -5408,21 +5414,14 @@ These models use package SpacePhasors.
           IRef(start=100), wRef(start=2*pi*fsNominal/p))
           "Permanent magnet loss losses"
           annotation(Dialog(tab="Losses"));
-        output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
-          damperCage.spacePhasor_r.i_ if useDamperCage
-          "Damper space phasor current / rotor fixed frame";
-      protected
-        final parameter Modelica.SIunits.Current Ie=sqrt(2)*VsOpenCircuit/(Lmd*2*pi*fsNominal)
-          "Equivalent excitation current";
-      public
-        Components.PermanentMagnetWithLosses              permanentMagnet(final Ie=Ie,
+        Components.PermanentMagnetWithLosses permanentMagnet(final Ie=Ie,
           final useHeatPort=true,
           final m=m,
           final permanentMagnetLossParameters=permanentMagnetLossParameters,
           final is=is)
           annotation (Placement(transformation(
-              origin={-30,-30},
-              extent={{-10,10},{10,-10}},
+              origin={30,-30},
+              extent={{10,10},{-10,-10}},
               rotation=180)));
         Machines.BasicMachines.Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
@@ -5437,15 +5436,22 @@ These models use package SpacePhasors.
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
-                                                        heatFlowSensorDamperCage(final useFixedTemperature=
-                                not useDamperCage)
-          annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
+      protected
+        final parameter Modelica.SIunits.Current Ie=sqrt(2)*VsOpenCircuit/(Lmd*2*pi*fsNominal)
+          "Equivalent excitation current";
+        Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(
+          final quantity="Power", final unit="W") "Damper losses";
       equation
+        connect(ir, damperCage.i);
+        connect(idq_dr, damperCage.i);
+        connect(damperCageLossPower, damperCage.lossPower);
+        if not useDamperCage then
+          damperCageLossPower=0;
+        end if;
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
               points={{10,-10},{10,-30}}, color={0,0,255}));
         connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r)
-          annotation (Line(points={{10,-10},{10,-10},{10,-20},{-20,-20}},color=
+          annotation (Line(points={{10,-10},{10,-20},{20,-20}},          color=
                 {0,0,255}));
         connect(airGapR.support, internalSupport) annotation (Line(
             points={{-10,0},{-40,0},{-40,-90},{60,-90},{60,-100}},
@@ -5455,31 +5461,26 @@ These models use package SpacePhasors.
             points={{20,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(damperCage.heatPort, heatFlowSensorDamperCage.port_a) annotation (
-            Line(
-            points={{-10,-40},{-10,-60}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(heatFlowSensorDamperCage.port_b, internalThermalPort.heatPortRotorWinding)
-          annotation (Line(
-            points={{10,-60},{10,-80},{0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,0},{70,0}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(permanentMagnet.support, airGapR.support) annotation (Line(
-            points={{-30,-40},{-30,-50},{-40,-50},{-40,0},{-10,0}},
-            color={0,0,0},
-            smooth=Smooth.None));
         connect(permanentMagnet.heatPort, internalThermalPort.heatPortPermanentMagnet)
           annotation (Line(
-            points={{-20,-40},{-20,-70},{10,-70},{10,-80},{0,-80}},
+            points={{20,-40},{20,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(permanentMagnet.flange, inertiaRotor.flange_b) annotation (Line(
-            points={{-30,-20},{-30,36},{90,36},{90,-1.33227e-015}},
+            points={{30,-20},{90,-20},{90,-1.33227e-015}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
+          annotation (Line(
+            points={{-10,-40},{-10,-80},{0,-80},{0,-80}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(internalSupport, permanentMagnet.support) annotation (Line(
+            points={{60,-100},{60,-100},{60,-90},{30,-90},{30,-40},{30,-40}},
             color={0,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smpm",
@@ -5646,7 +5647,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"));
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -5666,14 +5668,20 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final
             Machines.Interfaces.InductionMachines.PowerBalanceSMEE
-            powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
+            powerBalance(final lossPowerRotorWinding = damperCageLossPower,
                          final powerExcitation = ve*ie,
                          final lossPowerExcitation = re.LossPower,
                          final lossPowerBrush = brush.lossPower,
                          final lossPowerRotorCore = 0),
           statorCore(final w=statorCoreParameters.wRef));
-        output Modelica.SIunits.Current ir[2] = -damperCage.spacePhasor_r.i_ if useDamperCage
-          "Damper cage currents";
+        Modelica.Blocks.Interfaces.RealOutput ir[2](
+          start=zeros(2),
+          each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
+          "Damper cage currents" annotation(Dialog(showStartAttribute=true));
+        Modelica.Blocks.Interfaces.RealOutput idq_dr[2](
+          each stateSelect=StateSelect.prefer,
+          each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
+          "Damper space phasor current / rotor fixed frame";
         Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
@@ -5738,17 +5746,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Machines.Losses.BrushParameters brushParameters
           "Brush losses"
           annotation(Dialog(tab="Losses"));
-        output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
-          damperCage.spacePhasor_r.i_ if useDamperCage
-          "Damper space phasor current / rotor fixed frame";
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v
           "Excitation voltage";
         output Modelica.SIunits.Current ie = pin_ep.i "Excitation current";
-      protected
-        final parameter Real turnsRatio = sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*IeOpenCircuit)
-          "Stator current / excitation current";
-        final parameter Modelica.SIunits.Inductance Lesigma = Lmd*turnsRatio^2*3/2 * sigmae/(1-sigmae);
-      public
         Machines.BasicMachines.Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
@@ -5794,11 +5794,19 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
-        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
-                                                        heatFlowSensorDamperCage(final useFixedTemperature=
-                                not useDamperCage)
-          annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
+      protected
+        final parameter Real turnsRatio = sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*IeOpenCircuit)
+          "Stator current / excitation current";
+        final parameter Modelica.SIunits.Inductance Lesigma = Lmd*turnsRatio^2*3/2 * sigmae/(1-sigmae);
+        Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(
+          final quantity="Power", final unit="W") "Damper losses";
       equation
+        connect(ir, damperCage.i);
+        connect(idq_dr, damperCage.i);
+        connect(damperCageLossPower, damperCage.lossPower);
+        if not useDamperCage then
+          damperCageLossPower=0;
+        end if;
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-30}}, color={0,0,255}));
         connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r)
@@ -5837,16 +5845,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{-70,10},{-60,10},{-60,40},{50,40},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(damperCage.heatPort, heatFlowSensorDamperCage.port_a) annotation (
-            Line(
-            points={{-10,-40},{-10,-60}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(heatFlowSensorDamperCage.port_b, internalThermalPort.heatPortRotorWinding)
-          annotation (Line(
-            points={{10,-60},{10,-80},{0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,0},{70,0}},
             color={0,0,0},
@@ -5855,6 +5853,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{-10,1.77636e-015},{-26,0},{-40,0},{-40,-90},{60,-90},{60,
                 -100}},
             color={0,0,0},
+            smooth=Smooth.None));
+        connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
+          annotation (Line(
+            points={{-10,-40},{-10,-80},{0,-80},{0,-80}},
+            color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smee",
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -6054,7 +6057,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"));
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor
@@ -6073,11 +6077,17 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortSMR
             internalThermalPort(final useDamperCage = useDamperCage),
           redeclare final Machines.Interfaces.InductionMachines.PowerBalanceSMR
-            powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
+            powerBalance(final lossPowerRotorWinding = damperCageLossPower,
                          final lossPowerRotorCore = 0),
           statorCore(final w=statorCoreParameters.wRef));
-        output Modelica.SIunits.Current ir[2] = -damperCage.spacePhasor_r.i_ if useDamperCage
-          "Damper cage currents";
+        Modelica.Blocks.Interfaces.RealOutput ir[2](
+          start=zeros(2),
+          each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
+          "Damper cage currents" annotation(Dialog(showStartAttribute=true));
+        Modelica.Blocks.Interfaces.RealOutput idq_dr[2](
+          each stateSelect=StateSelect.prefer,
+          each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
+          "Damper space phasor current / rotor fixed frame";
         Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
           final Lmd=Lmd,
@@ -6131,11 +6141,16 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               origin={0,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
-                                                        heatFlowSensorDamperCage(final useFixedTemperature=
-                                not useDamperCage)
-          annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
+      protected
+        Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(
+          final quantity="Power", final unit="W") "Damper losses";
       equation
+        connect(ir, damperCage.i);
+        connect(idq_dr, damperCage.i);
+        connect(damperCageLossPower, damperCage.lossPower);
+        if not useDamperCage then
+          damperCageLossPower=0;
+        end if;
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-15},{10,-30}},
                                                        color={0,0,255}));
@@ -6147,19 +6162,14 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{20,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(damperCage.heatPort, heatFlowSensorDamperCage.port_a) annotation (
-            Line(
-            points={{-10,-40},{-10,-60}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(heatFlowSensorDamperCage.port_b, internalThermalPort.heatPortRotorWinding)
-          annotation (Line(
-            points={{10,-60},{10,-80},{0,-80}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(airGapR.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,0},{70,0}},
             color={0,0,0},
+            smooth=Smooth.None));
+        connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
+          annotation (Line(
+            points={{-10,-40},{-10,-60},{-10,-60},{-10,-80},{0,-80}},
+            color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smr",
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -6316,7 +6326,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">(Xsq-Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"));
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end SM_ReluctanceRotor;
       annotation (Documentation(info="<HTML>
 This package contains models of synchronous induction machines, based on space phasor theory:
@@ -9147,66 +9158,66 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
   </ul>
 </HTML>"),     Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics={
         Polygon(
-          origin = {10,10},
-          fillColor = {135,135,135},
-          fillPattern = FillPattern.VerticalCylinder,
-          points = {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
+          origin=  {10,10},
+          fillColor=  {135,135,135},
+          fillPattern=  FillPattern.VerticalCylinder,
+          points=  {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
         Polygon(
-          origin = {10,10},
-          fillColor = {135,135,135},
-          fillPattern = FillPattern.VerticalCylinder,
-          points = {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
+          origin=  {10,10},
+          fillColor=  {135,135,135},
+          fillPattern=  FillPattern.VerticalCylinder,
+          points=  {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
         Polygon(
-          origin = {10,10},
-          fillColor = {135,135,135},
-          fillPattern = FillPattern.VerticalCylinder,
-          points = {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
+          origin=  {10,10},
+          fillColor=  {135,135,135},
+          fillPattern=  FillPattern.VerticalCylinder,
+          points=  {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
         Polygon(
-          origin = {10,10},
-          fillColor = {135,135,135},
-          fillPattern = FillPattern.VerticalCylinder,
-          points = {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
+          origin=  {10,10},
+          fillColor=  {135,135,135},
+          fillPattern=  FillPattern.VerticalCylinder,
+          points=  {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
         Polygon(
-          origin = {10,10},
-          fillColor = {135,135,135},
-          fillPattern = FillPattern.VerticalCylinder,
-          points = {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
+          origin=  {10,10},
+          fillColor=  {135,135,135},
+          fillPattern=  FillPattern.VerticalCylinder,
+          points=  {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {128,0,255},
-          fillColor = {128,0,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{-88,-46},{-52,26}}),
+          origin=  {10,10},
+          lineColor=  {128,0,255},
+          fillColor=  {128,0,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{-88,-46},{-52,26}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {0,128,255},
-          fillColor = {0,128,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{-94,-38},{-46,18}}),
+          origin=  {10,10},
+          lineColor=  {0,128,255},
+          fillColor=  {0,128,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{-94,-38},{-46,18}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {128,0,255},
-          fillColor = {128,0,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{-28,-46},{8,26}}),
+          origin=  {10,10},
+          lineColor=  {128,0,255},
+          fillColor=  {128,0,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{-28,-46},{8,26}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {0,128,255},
-          fillColor = {0,128,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{-34,-38},{14,18}}),
+          origin=  {10,10},
+          lineColor=  {0,128,255},
+          fillColor=  {0,128,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{-34,-38},{14,18}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {128,0,255},
-          fillColor = {128,0,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{32,-46},{68,26}}),
+          origin=  {10,10},
+          lineColor=  {128,0,255},
+          fillColor=  {128,0,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{32,-46},{68,26}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {0,128,255},
-          fillColor = {0,128,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{26,-38},{74,18}})}));
+          origin=  {10,10},
+          lineColor=  {0,128,255},
+          fillColor=  {0,128,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{26,-38},{74,18}})}));
     end Transformers;
 
     package Components "Machine components like AirGaps"
@@ -9496,6 +9507,11 @@ Material properties alpha of both axis are the same.
           "Actual resistance = Rrd*(1 + alpha*(T_heatPort - T_ref))";
         Modelica.SIunits.Resistance Rrq_actual
           "Actual resistance = Rrq*(1 + alpha*(T_heatPort - T_ref))";
+        Modelica.Blocks.Interfaces.RealOutput i[2](
+          each final quantity="ElectricCurrent", each final unit="A")=-spacePhasor_r.i_
+          "Currents out from damper";
+        Modelica.Blocks.Interfaces.RealOutput lossPower(
+          final quantity="Power", final unit="W")=LossPower "Damper losses";
         Machines.Interfaces.SpacePhasor spacePhasor_r
           annotation (Placement(transformation(extent={{-110,90},{-90,110}},
                 rotation=0)));
@@ -16186,9 +16202,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 </p>
   <p>
   Dr.Christian Kral<br>
-  Austrian Institute of Technology <a href=\"http://www.ait.ac.at/\">AIT</a><br>
-  Giefinggasse 2<br>
-  A-1210 Vienna, Austria
+  A-1060 Vienna, Austria
 </p>
   </dd>
 </dl>

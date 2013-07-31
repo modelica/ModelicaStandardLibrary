@@ -313,9 +313,7 @@ phase winding parameters -- at the same nominal rotor voltage and frequency.
 
 <p>
 Christian Kral<br>
-<a href=\"http://www.ait.ac.at\">AIT Austrian Institute of Technology GmbH</a><br>
-Mobility Department<br>
-Giefinggasse 2, 1210 Vienna, Austria<br>
+1060 Vienna, Austria<br>
 email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
 </p>
 
@@ -336,6 +334,10 @@ for contributing his source code to this library.
 </p>
 
 <p>
+The main work has been performed 
+</p>
+
+<p>
 The research leading to version 2.0.0 has received funding from the ENIAC Joint Undertaking under grant
 agreement no. 270693-2 and from the &Ouml;sterreichische
 Forschungsf&ouml;rderungsgesellschaft mbH under project
@@ -348,10 +350,10 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.1, 2013-07-30</h5>
+<h5>Version 3.2.1, 2013-07-31</h5>
 
 <ul>
-<li>Bug fix of wrong orientaton of squirrel and damper cage modells, see ticket #1226</li>
+<li>Bug fix of wrong orientaton of squirrel and damper cage modells, see ticket #1226; this also includes the removal of the rotor cage heat sensor which previously has been used</li>
 <li>Bug fix of conditional initialization of examples, see ticket #1223</li>
 <li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket #1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in
@@ -2269,7 +2271,7 @@ Simulate for 1.5 seconds and plot (versus time):
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(start=zeros(2), fixed=true))
+          ir(fixed=true))
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
                 rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
@@ -2300,7 +2302,7 @@ Simulate for 1.5 seconds and plot (versus time):
           alpha20r(displayUnit="1/K") = smpmData.alpha20r,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
           TsOperational=293.15,
-          ir(start=zeros(2), fixed=true),
+          ir(fixed=true),
           TrOperational=293.15)
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}},
                 rotation=0)));
@@ -2503,8 +2505,7 @@ and accelerate the inertias.</p>
           Lmq=smpmData.Lmq*m/3,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(start=zeros(2), fixed=true))
-                                annotation (Placement(transformation(extent={{-10,
+          ir(fixed=true))       annotation (Placement(transformation(extent={{-10,
                   -30},{10,-10}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
           smpm3(
@@ -2536,8 +2537,7 @@ and accelerate the inertias.</p>
           m=m3,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(start=zeros(2), fixed=true))
-                                annotation (Placement(transformation(extent={{-10,
+          ir(fixed=true))       annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}}, rotation=0)));
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(p=smpm3.p)
                                    annotation (Placement(transformation(
@@ -2827,7 +2827,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
           TsOperational=293.15,
           TrOperational=293.15,
           TeOperational=293.15,
-          ir(start=zeros(2), fixed=true))     annotation (Placement(
+          ir(fixed=true))                     annotation (Placement(
               transformation(extent={{-10,-30},{10,-10}}, rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smeeE(
@@ -2860,7 +2860,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
           Lrsigmaq=smeeData.Lrsigmaq,
           TrRef=smeeData.TrRef,
           TsOperational=293.15,
-          ir(start=zeros(2), fixed=true),
+          ir(fixed=true),
           TrOperational=293.15,
           TeOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}}, rotation=0)));
@@ -3135,8 +3135,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           TsOperational=293.15,
           TrOperational=293.15,
           TeOperational=293.15,
-          ir(start=zeros(2), fixed=true))
-                                annotation (Placement(transformation(extent={{-10,
+          ir(fixed=true))       annotation (Placement(transformation(extent={{-10,
                   30},{10,50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smee3(
@@ -3172,8 +3171,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           TsOperational=293.15,
           TrOperational=293.15,
           TeOperational=293.15,
-          ir(start=zeros(2), fixed=true))
-                                annotation (Placement(transformation(extent={{-10,
+          ir(fixed=true))       annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}}, rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground groundRM
                                                         annotation (Placement(
@@ -3516,7 +3514,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
           alpha20r(displayUnit="1/K") = smrData.alpha20r,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(start=zeros(2), fixed=true))                 annotation (Placement(
+          ir(fixed=true))                                 annotation (Placement(
               transformation(extent={{-10,-30},{10,-10}}, rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
           smrE(
@@ -3544,7 +3542,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
           TrRef=smrData.TrRef,
           alpha20r(displayUnit="1/K") = smrData.alpha20r,
           TsOperational=293.15,
-          ir(start=zeros(2), fixed=true),
+          ir(fixed=true),
           TrOperational=293.15)                           annotation (Placement(
               transformation(extent={{-10,-90},{10,-70}}, rotation=0)));
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
@@ -3711,8 +3709,7 @@ Simulate for 1.5 seconds and plot (versus time):
           m=m,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(start=zeros(2), fixed=true))
-                                annotation (Placement(transformation(extent={{-10,
+          ir(fixed=true))       annotation (Placement(transformation(extent={{-10,
                   -30},{10,-10}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
           smr3(
@@ -3742,8 +3739,7 @@ Simulate for 1.5 seconds and plot (versus time):
           m=m3,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(start=zeros(2), fixed=true))
-                                annotation (Placement(transformation(extent={{-10,
+          ir(fixed=true))       annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}}, rotation=0)));
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(p=smr3.p)
                                   annotation (Placement(transformation(
@@ -4795,7 +4791,7 @@ Resistances and stray inductances of the machine always refer to either stator o
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceSMPM
             powerBalance(
-            final lossPowerRotorWinding=heatFlowSensorDamperCage.Q_flow,
+            final lossPowerRotorWinding=damperCageLossPower,
             final lossPowerRotorCore=0,
             final lossPowerPermanentMagnet=permanentMagnet.lossPower));
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
@@ -4859,14 +4855,10 @@ Resistances and stray inductances of the machine always refer to either stator o
           permanentMagnetLossParameters(IRef(start=100), wRef(start=2*pi*
                 fsNominal/p)) "Permanent magnet loss losses"
           annotation (Dialog(tab="Losses"));
-        output Modelica.SIunits.Current ir[2] = rotorCage.winding.plug_p.pin.i if useDamperCage
-          "Damper cage currents";
-      protected
-        final parameter Modelica.SIunits.MagneticPotentialDifference V_mPM=(2/
-            pi)*sqrt(2)*(m/2)*VsOpenCircuit/effectiveStatorTurns/(Lmd/
-            effectiveStatorTurns^2*2*pi*fsNominal)
-          "Equivalent excitation magnetic potential difference";
-      public
+        Modelica.Blocks.Interfaces.RealOutput ir[2](
+          start=zeros(2),
+          each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
+          "Damper cage currents" annotation(Dialog(showStartAttribute=true));
         Modelica.Magnetic.FundamentalWave.Components.Ground groundR
           "Ground of rotor magnetic circuit" annotation (Placement(
               transformation(extent={{-40,-30},{-20,-10}}, rotation=0)));
@@ -4902,26 +4894,22 @@ Resistances and stray inductances of the machine always refer to either stator o
               origin={-10,-40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
-          heatFlowSensorDamperCage(final useFixedTemperature=not useDamperCage)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={40,-50})));
+      protected
+        final parameter Modelica.SIunits.MagneticPotentialDifference V_mPM=
+           (2/pi)*sqrt(2)*(m/2)*VsOpenCircuit/effectiveStatorTurns/
+           (Lmd/effectiveStatorTurns^2*2*pi*fsNominal)
+          "Equivalent excitation magnetic potential difference";
+        Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(
+          final quantity="Power", final unit="W") "Damper losses";
       equation
+        connect(ir, rotorCage.i);
+        connect(damperCageLossPower, rotorCage.lossPower);
+        if not useDamperCage then
+          damperCageLossPower=0;
+        end if;
         connect(permanentMagnet.port_p, airGap.port_rn) annotation (Line(
             points={{-10,-30},{-10,-10}},
             color={255,128,0},
-            smooth=Smooth.None));
-        connect(rotorCage.heatPortWinding, heatFlowSensorDamperCage.port_a)
-          annotation (Line(
-            points={{30,-40},{40,-40}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(heatFlowSensorDamperCage.port_b, internalThermalPort.heatPortRotorWinding)
-          annotation (Line(
-            points={{40,-60},{40,-80},{-40,-80},{-40,-90}},
-            color={191,0,0},
             smooth=Smooth.None));
         connect(permanentMagnet.support, airGap.support) annotation (Line(
             points={{-20,-40},{-50,-40},{-50,0},{-10,0}},
@@ -4952,6 +4940,11 @@ Resistances and stray inductances of the machine always refer to either stator o
         connect(rotorCage.port_p, permanentMagnet.port_n) annotation (Line(
             points={{20,-50},{-10,-50}},
             color={255,128,0},
+            smooth=Smooth.None));
+        connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
+          annotation (Line(
+            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}},
+            color={191,0,0},
             smooth=Smooth.None));
         annotation (
           defaultComponentName="smpm",
@@ -5014,7 +5007,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceSMEE
             powerBalance(
-            final lossPowerRotorWinding=heatFlowSensorDamperCage.Q_flow,
+            final lossPowerRotorWinding=damperCageLossPower,
             final powerExcitation=ve*ie,
             final lossPowerExcitation=excitation.resistor.LossPower,
             final lossPowerBrush=brush.lossPower,
@@ -5099,15 +5092,10 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
         output Modelica.SIunits.Voltage ve=pin_ep.v - pin_en.v
           "Excitation voltage";
         output Modelica.SIunits.Current ie=pin_ep.i "Excitation current";
-        output Modelica.SIunits.Current ir[2] = rotorCage.winding.plug_p.pin.i if useDamperCage
-          "Damper cage currents";
-      protected
-        final parameter Real turnsRatio=sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*
-            IeOpenCircuit) "Stator current / excitation current";
-        final parameter Modelica.SIunits.Inductance Lesigma=Lmd*turnsRatio^2*3/
-            2*sigmae/(1 - sigmae)
-          "Leakage inductance of the excitation winding";
-      public
+        Modelica.Blocks.Interfaces.RealOutput ir[2](
+          start=zeros(2),
+          each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
+          "Damper cage currents" annotation(Dialog(showStartAttribute=true));
         FundamentalWave.Components.Short short if not useDamperCage
           "Magnetic connection in case the damper cage is not present"
           annotation (Placement(transformation(
@@ -5151,13 +5139,19 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
               extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
-        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
-          heatFlowSensorDamperCage(final useFixedTemperature=not useDamperCage)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={40,-50})));
+      protected
+        final parameter Real turnsRatio=sqrt(2)*VsNominal/(2*pi*fsNominal*Lmd*IeOpenCircuit)
+          "Stator current / excitation current";
+        final parameter Modelica.SIunits.Inductance Lesigma=Lmd*turnsRatio^2*3/2*sigmae/(1 - sigmae)
+          "Leakage inductance of the excitation winding";
+        Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(
+          final quantity="Power", final unit="W") "Damper losses";
       equation
+        connect(ir, rotorCage.i);
+        connect(damperCageLossPower, rotorCage.lossPower);
+        if not useDamperCage then
+          damperCageLossPower=0;
+        end if;
         connect(pin_en, excitation.pin_n) annotation (Line(points={{-100,-60},{
                 -100,-60},{-100,-50},{-30,-50}}, color={0,0,255}));
         connect(airGap.port_rn, excitation.port_p) annotation (Line(
@@ -5182,16 +5176,6 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
             points={{-20,-50},{-20,-80},{-40,-80},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(rotorCage.heatPortWinding, heatFlowSensorDamperCage.port_a)
-          annotation (Line(
-            points={{30,-40},{40,-40}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(heatFlowSensorDamperCage.port_b, internalThermalPort.heatPortRotorWinding)
-          annotation (Line(
-            points={{40,-60},{40,-80},{-40,-80},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
             points={{10,-10},{10,-30},{20,-30}},
             color={255,128,0},
@@ -5207,6 +5191,11 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
         connect(short.port_p, excitation.port_n) annotation (Line(
             points={{10,-50},{-10,-50}},
             color={255,128,0},
+            smooth=Smooth.None));
+        connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
+          annotation (Line(
+            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}},
+            color={191,0,0},
             smooth=Smooth.None));
         annotation (
           defaultComponentName="smee",
@@ -5265,7 +5254,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             internalThermalPort(final useDamperCage=useDamperCage),
           redeclare final
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceSMR
-            powerBalance(final lossPowerRotorWinding=heatFlowSensorDamperCage.Q_flow,
+            powerBalance(final lossPowerRotorWinding=damperCageLossPower,
               final lossPowerRotorCore=0));
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of (optional) damper cage" annotation (
@@ -5318,8 +5307,10 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             tab="Nominal resistances and inductances",
             group="DamperCage",
             enable=useDamperCage));
-        output Modelica.SIunits.Current ir[2] = rotorCage.winding.plug_p.pin.i if useDamperCage
-          "Damper cage currents";
+        Modelica.Blocks.Interfaces.RealOutput ir[2](
+          start=zeros(2),
+          each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
+          "Damper cage currents" annotation(Dialog(showStartAttribute=true));
         Modelica.Magnetic.FundamentalWave.Components.Ground groundR
           "Ground of rotor magnetic circuit" annotation (Placement(
               transformation(extent={{-40,-30},{-20,-10}}, rotation=0)));
@@ -5344,23 +5335,15 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={20,-40})));
-        Modelica.Thermal.HeatTransfer.Sensors.ConditionalFixedHeatFlowSensor
-          heatFlowSensorDamperCage(final useFixedTemperature=not useDamperCage)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={40,-50})));
+      protected
+        Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(
+          final quantity="Power", final unit="W") "Damper losses";
       equation
-        connect(rotorCage.heatPortWinding, heatFlowSensorDamperCage.port_a)
-          annotation (Line(
-            points={{30,-40},{40,-40}},
-            color={191,0,0},
-            smooth=Smooth.None));
-        connect(heatFlowSensorDamperCage.port_b, internalThermalPort.heatPortRotorWinding)
-          annotation (Line(
-            points={{40,-60},{40,-80},{-40,-80},{-40,-90}},
-            color={191,0,0},
-            smooth=Smooth.None));
+        connect(ir, rotorCage.i);
+        connect(damperCageLossPower, rotorCage.lossPower);
+        if not useDamperCage then
+          damperCageLossPower=0;
+        end if;
         connect(rotorCage.port_n, airGap.port_rp) annotation (Line(
             points={{20,-30},{20,-30},{10,-30},{10,-30},{10,-30},{10,-10},{10,
                 -10}},
@@ -5377,6 +5360,11 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         connect(short.port_p, airGap.port_rn) annotation (Line(
             points={{10,-50},{-10,-50},{-10,-10}},
             color={255,128,0},
+            smooth=Smooth.None));
+        connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
+          annotation (Line(
+            points={{30,-40},{40,-40},{40,-80},{-40,-80},{-40,-90}},
+            color={191,0,0},
             smooth=Smooth.None));
         annotation (
           defaultComponentName="smr",
@@ -5898,8 +5886,7 @@ according to the following figure.
           annotation (Dialog(enable=not useHeatPort));
         parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
         parameter Real effectiveTurns=1 "Effective number of turns";
-        Modelica.SIunits.Current i[m](each start=0) = strayInductor.i
-          "Cage currents";
+        Modelica.SIunits.Current i[m] = strayInductor.i "Cage currents";
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           winding(
           final m=m,
@@ -6022,8 +6009,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
       end SymmetricMultiPhaseCageWinding;
 
@@ -6050,8 +6036,12 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
         parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance
           Lsigma(d(start=1), q(start=1)) "Salient cage stray inductance";
         parameter Real effectiveTurns=1 "Effective number of turns";
-        Modelica.SIunits.Current i[2](each start=0) = strayInductor.i
-          "Cage currents";
+        Modelica.Blocks.Interfaces.RealOutput i[2](
+          each final quantity="ElectricCurrent", each final unit="A")=-strayInductor.i
+          "Currents out from damper";
+        Modelica.Blocks.Interfaces.RealOutput lossPower(
+          final quantity="Power", final unit="W")=sum(resistor.resistor.LossPower)
+          "Damper losses";
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           winding(
           final m=2,
@@ -6835,7 +6825,6 @@ This model is mainly used to extend from in order build more complex - equation 
     initial algorithm
       assert(not Modelica.Math.isPowerOf2(m), String(m) +
         " phases are currently not supported in this version of FundametalWave");
-
     equation
       connect(stator.plug_n, plug_sn) annotation (Line(
           points={{-10,50},{-10,70},{-60,70},{-60,100}},
@@ -7140,7 +7129,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>3.2.1</td><td></td>  <td>2013-05-13</td>  <td>C. Kral<br>A. Haumer</td>  <td>New component examples, added variables in multi phase converter models, bug fixes #1216, #1223 and #1226</td></tr>
+<tr><td>3.2.1</td><td></td>  <td>2013-07-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>New component examples, added variables in multi phase converter models, bug fixes #1216, #1223 and #1226</td></tr>
 <tr><td>2.0.0</td><td>6083</td>  <td>2013-03-10</td>  <td>C. Kral<br>A. Haumer</td>  <td>Extended machines models for phase numbers greater or equal than three</td></tr>
 <tr><td>1.7.3</td><td>6029</td>  <td>2013-02-25</td>  <td>C. Kral</td>  <td>Corrected wrong parameter description</td></tr>
 <tr><td>1.7.2</td><td>4621</td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in parameterization of symmetrical multi phase winding model<br>Necessary adaptions due to conditional heatPorts of loss models (backwards compatibility)</td></tr>
