@@ -3747,7 +3747,7 @@ Returns ordinal number of enumeration
 <p>
 Returns the ordinal number of the enumeration value E.enumvalue, to which the expression
 is evaluated, where Integer(E.e1) =1, Integer(E.en) =size(E), for an enumeration
-type E=enumeration(e1, …,  en).
+type E=enumeration(e1, ...,  en).
 </p>
 
 <h4>Examples</h4>
