@@ -207,7 +207,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <h4>Example</h4>
 <blockquote><pre>
   Real v1[3] = {1, 2, 3};
-  Real v2[3] = {1, 2, 3, 4};
+  Real v2[4] = {1, 2, 3, 4};
   Real v3[3] = {1, 2, 3.0001};
   Boolean result;
 <b>algorithm</b>
