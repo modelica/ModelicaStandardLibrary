@@ -10761,13 +10761,10 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.
       output Real ev[size(H, 1), 2] "Eigenvalues";
       output Integer info=0;
     protected
-      Integer n=size(H, 1);
       Real alphaReal[size(H, 1)]
         "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
       Real alphaImag[size(H, 1)]
         "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
-      Real Z[size(H, 1), size(H, 1)]=fill(0, n, n);
-
     algorithm
       if size(H, 1) > 0 then
         (alphaReal,alphaImag,info) := LAPACK.dhseqr(H);
