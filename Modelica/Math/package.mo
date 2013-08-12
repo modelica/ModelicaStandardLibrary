@@ -7816,7 +7816,7 @@ external"FORTRAN 77" dgees(
     end dtrsyl;
 
     function dhseqr
-      "Compute eingenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix"
+      "Compute eigenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix"
       extends Modelica.Icons.Function;
 
       input Real H[:, size(H, 1)] "Matrix H with Hessenberg form";
