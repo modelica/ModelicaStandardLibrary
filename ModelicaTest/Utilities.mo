@@ -26,7 +26,7 @@ package Utilities "Test functions for Modelica.Utilities"
     // assert(Strings.length("hello, world") == 12, "Strings.length failed");
     // **** Dymola says "Failed to expand" if you uncomment the line above.
 
-    s := Strings.substring("12345678", 3);
+    s := Strings.substring("12345678", 3, 3);
     assert(s == "3", "Strings.Advanced.substring 1 failed");
 
     s := Strings.substring(
