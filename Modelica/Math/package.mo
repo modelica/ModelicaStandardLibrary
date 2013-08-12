@@ -2371,12 +2371,9 @@ by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b
                      to its partially converged Schur form.\n");
     else
       S := A;
-      QZ := fill(
-            1,
-            size(QZ, 1),
-            size(QZ, 2));
-      alphaReal := fill(1, size(alphaReal, 1));
-      alphaImag := fill(0, size(alphaImag, 1));
+      QZ := fill(1, size(A, 1), size(A, 2));
+      alphaReal := fill(1, size(A, 1));
+      alphaImag := fill(0, size(A, 1));
     end if;
 
     annotation (Documentation(info="<html>
