@@ -10726,7 +10726,7 @@ This transformation is widely used for transforming non-symmetric matrices to a 
 <p>
 Function <b>toUpperHessenberg</b> computes a upper Hessenberg form <b>H</b> of a matrix <b>A</b> by orthogonal similarity transformation:  <b>Q</b>' * <b>A</b> * <b>Q</b> = <b>H</b>.
 With the optional inputs ilo and ihi, also partial transformation is possible. The function calls LAPACK function DGEHRD.
-See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.Lapack.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
+See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
 </p>
 
 <h4>Example</h4>
@@ -10790,7 +10790,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.Lapack.
 <h4>Syntax</h4>
 <blockquote><pre>
            ev = Matrices.Utilities.<b>eigenvaluesHessenberg</b>(H);
-    (X, info) = Matrices.Utilities.<b>eigenvaluesHessenberg</b>(H);
+   (ev, info) = Matrices.Utilities.<b>eigenvaluesHessenberg</b>(H);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -10801,7 +10801,7 @@ This step can be skipped if the matrix has already Hessenberg form.
 <p>
 The function uses the LAPACK-routine dhseqr. Output <code>info</code> is 0 for a successful call of this
 function.<br>
-See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.Lapack.dhseqr</a> for details
+See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.LAPACK.dhseqr</a> for details
 </p>
 
 <h4>Example</h4>
