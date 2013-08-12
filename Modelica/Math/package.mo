@@ -6999,6 +6999,8 @@ For details of the arguments, see documentation of dgbsv.
     Purpose
     =======
 
+    This routine is deprecated and has been replaced by routine DGEQP3.
+
     DGEQPF computes a QR factorization with column pivoting of a
     real M-by-N matrix A: A*P = Q*R.
 
