@@ -10755,7 +10755,6 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.
       "Compute eigenvalues of an upper Hessenberg form matrix"
       extends Modelica.Icons.Function;
 
-      import Modelica.Math.Matrices.Utilities;
       import Modelica.Math.Matrices.LAPACK;
       input Real H[:, size(H, 1)] "Hessenberg matrix H";
 
@@ -10763,16 +10762,11 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.LAPACK.
       output Integer info=0;
     protected
       Integer n=size(H, 1);
-      Integer ilo=1;
-      Integer ihi=n;
       Real alphaReal[size(H, 1)]
         "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
       Real alphaImag[size(H, 1)]
         "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
-      Real Z[size(H, 1), size(H, 1)]=fill(
-                0,
-                n,
-                n);
+      Real Z[size(H, 1), size(H, 1)]=fill(0, n, n);
 
     algorithm
       if size(H, 1) > 0 then
