@@ -31,7 +31,7 @@ extends Modelica.Icons.ExamplesPackage;
 
     assert(Math.isPowerOf2(1), "isPowerOf2(1) is wrong");
     assert(Math.isPowerOf2(4), "isPowerOf2(4) is wrong");
-    assert(not Math.isPowerOf2(9), "isPowerOf(9) is wrong");
+    assert(not Math.isPowerOf2(9), "isPowerOf2(9) is wrong");
     ok:=true;
   end ScalarFunctions;
 
