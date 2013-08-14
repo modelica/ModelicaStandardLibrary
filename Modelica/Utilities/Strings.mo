@@ -637,7 +637,7 @@ the real number shall not have a leading \"+\" or \"-\" sign.
 </p>
 <p>
 If the required Real number with leading white space
-is not present in \"string\",  an assert is triggered.
+is not present in \"string\", an assert is triggered.
 </p>
 </html>"));
   end scanReal;

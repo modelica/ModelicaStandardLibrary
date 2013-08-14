@@ -5133,7 +5133,7 @@ This adaptor has torque as input and angle, angular velocity and angular acceler
               ={{-80,60},{-40,100}}), iconTransformation(extent={{-60,60},{-20,
                 100}})));
       Modelica.Blocks.Interfaces.RealInput w(unit="rad/s") if use_w or use_a
-        "Speed to drive the flange  (w=der(phi) required)" annotation (
+        "Speed to drive the flange (w=der(phi) required)" annotation (
           Placement(transformation(extent={{-80,10},{-40,50}}),
             iconTransformation(extent={{-60,8},{-20,48}})));
       Modelica.Blocks.Interfaces.RealInput a(unit="rad/s2") if use_a

@@ -488,7 +488,8 @@ This icon is designed for a <b>translational sensor</b> model.
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Text(
-            extent={{-140.0,102.0},{136.0,162.0}},
+            lineColor={0,0,255},
+            extent={{-150,105},{150,145}},
             textString="%name"),
           Ellipse(
             lineColor = {108,88,49},
@@ -509,7 +510,7 @@ This icon is designed for a <b>translational sensor</b> model.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Text(
             lineColor={0,0,255},
-            extent={{-127.0,55.0},{127.0,115.0}},
+            extent={{-150,60},{150,100}},
             textString="%name"),
           Rectangle(
             origin={0.0,-25.0},

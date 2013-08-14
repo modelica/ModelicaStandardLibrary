@@ -638,9 +638,9 @@ partial package MixtureGasNasa
     "Base properties (p, d, T, h, u, R, MM, X, and Xi of NASA mixture gas"
   equation
     assert(T >= 200 and T <= 6000, "
-Temperature T (="   + String(T) + " K = 200 K) is not in the allowed range
+Temperature T (=" + String(T) + " K = 200 K) is not in the allowed range
 200 K <= T <= 6000 K
-required from medium model \""   + mediumName + "\".");
+required from medium model \"" + mediumName + "\".");
 
     MM = molarMass(state);
     h = h_TX(T, X);

@@ -2560,9 +2560,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         '0' "0  Forcing 0",
         '1' "1  Forcing 1",
         'Z' "Z  High Impedance",
-        'W' "W  Weak    Unknown",
-        'L' "L  Weak    0",
-        'H' "H  Weak    1",
+        'W' "W  Weak Unknown",
+        'L' "L  Weak 0",
+        'H' "H  Weak 1",
         '-' "-  Do not care")
       "Logic values and their coding according to IEEE 1164 STD_ULOGIC type"
               annotation (Documentation(info="<html>
@@ -4816,7 +4816,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
         "value for digital U (uninitialized)";
           parameter Real value_X(start=0.5)
         "value for digital X (Forcing Unknown)";
-          parameter Real value_0(start=0) "value for digital 0   (Forcing 0)";
+          parameter Real value_0(start=0) "value for digital 0 (Forcing 0)";
           parameter Real value_1(start=1) "value for digital 1 (Forcing 1)";
           parameter Real value_Z(start=0.5)
         "value for digital Z (High Impedance)";

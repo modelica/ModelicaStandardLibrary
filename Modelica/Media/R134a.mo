@@ -578,7 +578,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
     end pressure;
 
     redeclare function extends specificInternalEnergy
-      "Specific internal energy  w.r.t. thermodynamic state"
+      "Specific internal energy w.r.t. thermodynamic state"
     algorithm
       u := specificEnthalpy(state) - pressure(state)/density(state);
 

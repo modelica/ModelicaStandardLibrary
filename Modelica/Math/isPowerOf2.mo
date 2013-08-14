@@ -13,7 +13,7 @@ Math.<b>isPowerOf2</b>(i);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Math.isPwoerOf2(i)</code>\" returns <b>true</b>,
+The function call \"<code>Math.isPowerOf2(i)</code>\" returns <b>true</b>,
 if the Integer input i is a power of 2. Otherwise the function
 returns <b>false</b>. The Integer input has to be &gt;=1.
 </p>

@@ -1767,11 +1767,11 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_IN_con
-          IN_con "Input record for function  kc_turbulent"
+          IN_con "Input record for function kc_turbulent"
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_IN_var
-          IN_var "Input record for function  kc_turbulent"
+          IN_var "Input record for function kc_turbulent"
           annotation (Dialog(group="Variable inputs"));
 
         //output variables

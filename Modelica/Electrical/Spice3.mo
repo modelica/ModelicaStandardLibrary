@@ -6908,7 +6908,7 @@ on the model behaviour.
 
       record MosfetCalc "Mosfet Variables"
       extends Modelica.Icons.Record;
-        Modelica.SIunits.Voltage m_vds "Vds,  Drain-Source voltage";
+        Modelica.SIunits.Voltage m_vds "Vds, Drain-Source voltage";
         Modelica.SIunits.Voltage m_vgs "Vgs, Gate-Source voltage";
         Modelica.SIunits.Voltage m_vbs "Vbs, Bulk-Source voltage";
         Modelica.SIunits.Current m_cbs "Ibs, B-S junction current";

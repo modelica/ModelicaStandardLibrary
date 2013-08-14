@@ -1,0 +1,196 @@
+within ModelicaTest.Fluid;
+package TestOverdeterminedInitial
+  "Contains test cases to test overdetermined systems of initial equations"
+extends Modelica.Icons.ExamplesPackage;
+  model DynamicPipeLumpedPressureInitialization
+    "Steady-state initialization of a dynamic pipe using lumped pressure states"
+    extends Modelica.Icons.Example;
+
+    Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
+      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      use_T=false,
+      h=2.5e6,
+      p=system.p_start)
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    Modelica.Fluid.Pipes.DynamicPipe pipe(
+      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      diameter=0.05,
+      length=200,
+      use_T_start=false,
+      useLumpedPressure=true,
+      nNodes=5,
+      modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb,
+      h_start=2.5e6)
+      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    Modelica.Fluid.Valves.ValveCompressible valve(
+      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      m_flow_nominal=10,
+      rho_nominal=60,
+      CvData=Modelica.Fluid.Types.CvTypes.Av,
+      Av=0.05^2/4*Modelica.Constants.pi,
+      dp_nominal=100000,
+      p_nominal=10000000)
+      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
+        = Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
+                annotation (Placement(transformation(extent={{60,-10},{40,10}})));
+    Modelica.Blocks.Sources.Ramp ramp(
+      offset=1,
+      startTime=2,
+      duration=0,
+      height=-0.8)
+                annotation (Placement(transformation(extent={{46,30},{26,50}})));
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
+      use_eps_Re=true,
+      p_start=10000000)
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    discrete Modelica.SIunits.MassFlowRate m_flow_initial;
+  equation
+    when time > 0.1 then
+      m_flow_initial = valve.port_a.m_flow;
+    end when;
+    if pipe.energyDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial and
+       pipe.massDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial then
+      when time > 1 then
+        assert(abs(valve.port_a.m_flow - m_flow_initial) < 1e-3, "!!!THE SIMULATION DID NOT START IN STEADY-STATE!!!");
+      end when;
+    end if;
+    connect(source.ports[1], pipe.port_a)         annotation (Line(
+        points={{-60,6.66134e-16},{-55,6.66134e-16},{-55,1.27676e-15},{-50,
+            1.27676e-15},{-50,6.10623e-16},{-40,6.10623e-16}},
+        color={0,127,255},
+        smooth=Smooth.None));
+    connect(pipe.port_b, valve.port_a)               annotation (Line(
+        points={{-20,6.10623e-16},{-15,6.10623e-16},{-15,1.22125e-15},{-10,
+            1.22125e-15},{-10,6.10623e-16},{-5.55112e-16,6.10623e-16}},
+        color={0,127,255},
+        smooth=Smooth.None));
+    connect(valve.port_b, sink.ports[1])                          annotation (Line(
+        points={{20,6.10623e-16},{25,6.10623e-16},{25,1.27676e-15},{30,
+            1.27676e-15},{30,6.66134e-16},{40,6.66134e-16}},
+        color={0,127,255},
+        smooth=Smooth.None));
+    connect(ramp.y, valve.opening)               annotation (Line(
+        points={{25,40},{10,40},{10,8}},
+        color={0,0,127},
+        smooth=Smooth.None));
+
+    annotation (Documentation(info="<html>
+All pressure states of the pipe are lumped into one.
+The steady-state initial conditions become overdetermined as they are now specified nNodes times for the same pressure state.
+The initial equations are consistent however and a tool shall reduce them appropriately.
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}}), graphics={Text(
+            extent={{-100,-20},{100,-40}},
+            lineColor={0,0,255},
+            textString=
+                "Problem: pipe.medium.p[1:5] are equal and have initial equations der(medium.p)=zeros(5);"),
+            Text(
+            extent={{-76,-40},{80,-58}},
+            lineColor={0,0,255},
+            textString=
+                "A translator should remove consistently overdetermined initial equations.")}),
+      experiment(StopTime=4));
+  end DynamicPipeLumpedPressureInitialization;
+
+  model DynamicPipeInitialValues
+    "Initialization of a dynamic pipe with fixed initial values and without adaptation of modelStructure to boundaries"
+    extends Modelica.Icons.Example;
+
+    Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
+      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      use_T=false,
+      h=2.5e6,
+      p=system.p_start)
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    Modelica.Fluid.Pipes.DynamicPipe pipe(
+      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      diameter=0.05,
+      length=200,
+      use_T_start=false,
+      nNodes=5,
+      modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb,
+      h_start=2.5e6)
+      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    Modelica.Fluid.Valves.ValveCompressible valve(
+      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      m_flow_nominal=10,
+      rho_nominal=60,
+      CvData=Modelica.Fluid.Types.CvTypes.Av,
+      Av=0.05^2/4*Modelica.Constants.pi,
+      dp_nominal=100000,
+      p_nominal=10000000)
+      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package Medium
+        = Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
+                annotation (Placement(transformation(extent={{60,-10},{40,10}})));
+    Modelica.Blocks.Sources.Ramp ramp(
+      offset=1,
+      startTime=2,
+      duration=0,
+      height=-0.8)
+                annotation (Placement(transformation(extent={{46,30},{26,50}})));
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+      p_start=10000000,
+      use_eps_Re=true)
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    discrete Modelica.SIunits.MassFlowRate m_flow_initial;
+  equation
+    when time > 0.1 then
+      m_flow_initial = valve.port_a.m_flow;
+    end when;
+    if pipe.energyDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial and
+       pipe.massDynamics >= Modelica.Fluid.Types.Dynamics.SteadyStateInitial then
+      when time > 1 then
+        assert(abs(valve.port_a.m_flow - m_flow_initial) < 1e-3, "!!!THE SIMULATION DID NOT START IN STEADY-STATE!!!");
+      end when;
+    end if;
+    connect(source.ports[1], pipe.port_a)         annotation (Line(
+        points={{-60,6.66134e-16},{-55,6.66134e-16},{-55,1.27676e-15},{-50,
+            1.27676e-15},{-50,6.10623e-16},{-40,6.10623e-16}},
+        color={0,127,255},
+        smooth=Smooth.None));
+    connect(pipe.port_b, valve.port_a)               annotation (Line(
+        points={{-20,6.10623e-16},{-15,6.10623e-16},{-15,1.22125e-15},{-10,
+            1.22125e-15},{-10,6.10623e-16},{-5.55112e-16,6.10623e-16}},
+        color={0,127,255},
+        smooth=Smooth.None));
+    connect(valve.port_b, sink.ports[1])                          annotation (Line(
+        points={{20,6.10623e-16},{25,6.10623e-16},{25,1.27676e-15},{30,
+            1.27676e-15},{30,6.66134e-16},{40,6.66134e-16}},
+        color={0,127,255},
+        smooth=Smooth.None));
+    connect(ramp.y, valve.opening)               annotation (Line(
+        points={{25,40},{10,40},{10,8}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (Documentation(info="<html>
+The initial values are overdetermined as the first pipe segment is directly connected to a source with fixed pressure.
+The initial equations are consistent however and a tool shall reduce them appropriately.
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            extent={{-100,-20},{100,-40}},
+            lineColor={0,0,255},
+            textString=
+                "Problem: pipe.medium[1].p is equal to source.p and  has a consistent initial value  of system.p_start = 100 bar;"),
+          Text(
+            extent={{-76,-36},{76,-54}},
+            lineColor={0,0,255},
+            textString=
+                "A translator should remove consistently overdetermined initial equations."),
+          Text(
+            extent={{-100,-64},{90,-84}},
+            lineColor={0,0,255},
+            textString=
+                "Work-around 2: change system.energyDynamics from FixedInitial to DynamicFreeInitial"),
+          Text(
+            extent={{-100,-54},{42,-74}},
+            lineColor={0,0,255},
+            textString=
+                "Work-around 1: change pipe.modelStructure from av_vb to a_vb")}),
+      experiment(StopTime=4));
+  end DynamicPipeInitialValues;
+end TestOverdeterminedInitial;

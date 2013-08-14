@@ -678,7 +678,7 @@ package IF97_Utilities
         d := p/(data.RH2O*T*pi*gpi);
       end d1n;
 
-      function d2n "Density in region 2  as function of p and T"
+      function d2n "Density in region 2 as function of p and T"
         extends Modelica.Icons.Function;
         input SI.Pressure p "Pressure";
         input SI.Temperature T "Temperature (K)";
@@ -1643,7 +1643,7 @@ package IF97_Utilities
         assert(p <= 100.0e6, "IF97 medium function g1: the input pressure (= "
            + String(p) + " Pa) is higher than 100 Mpa");
         assert(T >= 273.15, "IF97 medium function g1: the temperature (= " +
-          String(T) + " K)  is lower than 273.15 K!");
+          String(T) + " K) is lower than 273.15 K!");
         g.p := p;
         g.T := T;
         g.R := data.RH2O;
@@ -4216,7 +4216,7 @@ Ordinary Water Substance<br>
         tau := data.TSTAR1/T;
         pi1 := 7.1 - p/data.PSTAR1;
         assert(p > triple.ptriple,
-          "IF97 medium function hofpT1  called with too low pressure\n" +
+          "IF97 medium function hofpT1 called with too low pressure\n" +
           "p = " + String(p) + " Pa <= " + String(triple.ptriple) +
           " Pa (triple point pressure)");
         tau1 := -1.222 + tau;
@@ -4266,7 +4266,7 @@ Ordinary Water Substance<br>
         Real tau "Dimensionless temperature";
         Real tau1 "Dimensionless temperature";
         Real g "Dimensionless Gibbs energy";
-        Real gtau "Derivative of  dimensionless Gibbs energy w.r.t. tau";
+        Real gtau "Derivative of dimensionless Gibbs energy w.r.t. tau";
       algorithm
         assert(p > triple.ptriple,
           "IF97 medium function handsofpT1 called with too low pressure\n" +
@@ -4429,7 +4429,7 @@ Ordinary Water Substance<br>
         Real tau "Dimensionless temperature";
         Real tau2 "Dimensionless temperature";
         Real g "Dimensionless Gibbs energy";
-        Real gtau "Derivative of  dimensionless Gibbs energy w.r.t. tau";
+        Real gtau "Derivative of dimensionless Gibbs energy w.r.t. tau";
       algorithm
         assert(p > triple.ptriple,
           "IF97 medium function handsofpT2 called with too low pressure\n" +
@@ -4539,9 +4539,9 @@ Ordinary Water Substance<br>
         Real delta;
         Real tau "Dimensionless temperature";
         Real[13] o "Vector of auxiliary variables";
-        Real ftau "Derivative of  dimensionless Helmholtz energy w.r.t. tau";
+        Real ftau "Derivative of dimensionless Helmholtz energy w.r.t. tau";
         Real fdelta
-          "Derivative of  dimensionless Helmholtz energy w.r.t. delta";
+          "Derivative of dimensionless Helmholtz energy w.r.t. delta";
       algorithm
         tau := data.TCRIT/T;
         delta := d/data.DCRIT;
@@ -5247,7 +5247,7 @@ Ordinary Water Substance<br>
           "Dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Boolean found "Flag if iteration has been successful";
         Real dd
-          "Difference between density for  guessed p and the current density";
+          "Difference between density for guessed p and the current density";
         Real delp "Step in p in Newton-iteration";
         Real relerr "Relative error in d";
         SI.Pressure pguess1=1.0e6 "Initial pressure guess in region 1";
@@ -6659,7 +6659,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     annotation (Inline=true);
   end h_ps;
 
-  function phase_ps "Phase as a function of  pressure and specific entropy"
+  function phase_ps "Phase as a function of pressure and specific entropy"
     extends Modelica.Icons.Function;
     input SI.Pressure p "Pressure";
     input SI.SpecificEntropy s "Specific entropy";
@@ -6670,7 +6670,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     annotation (Inline=true);
   end phase_ps;
 
-  function phase_ph "Phase as a function of  pressure and specific enthalpy"
+  function phase_ph "Phase as a function of pressure and specific enthalpy"
     extends Modelica.Icons.Function;
     input SI.Pressure p "Pressure";
     input SI.SpecificEnthalpy h "Specific enthalpy";
@@ -6681,7 +6681,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     annotation (Inline=true);
   end phase_ph;
 
-  function phase_dT "Phase as a function of  pressure and temperature"
+  function phase_dT "Phase as a function of pressure and temperature"
     extends Modelica.Icons.Function;
     input SI.Density rho "Density";
     input SI.Temperature T "Temperature";
