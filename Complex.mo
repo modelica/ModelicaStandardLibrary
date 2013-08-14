@@ -237,9 +237,9 @@ operator record Complex "Complex number with overloaded operators"
 
 annotation (Protection(access=Access.hide),
 version="3.2.1",
-versionBuild=1,
-versionDate="2013-07-31",
-dateModified = "2013-07-31 08:44:41Z",
+versionBuild=2,
+versionDate="2013-08-14",
+dateModified = "2013-08-14 08:44:41Z",
 revisionId="$Id::                                       $",
 conversion(
  noneFromVersion="1.0",
