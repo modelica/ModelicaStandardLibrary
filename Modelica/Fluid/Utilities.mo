@@ -16,7 +16,7 @@ package Utilities
     String X_str;
   algorithm
     assert(not singleState or singleState and define_p, "
-Wrong value of parameter define_p (= false) in model \""   + modelName + "\":
+Wrong value of parameter define_p (= false) in model \"" + modelName + "\":
 The selected medium \"" + mediumName + "\" has Medium.singleState=true.
 Therefore, an boundary density cannot be defined and
 define_p = true is required.

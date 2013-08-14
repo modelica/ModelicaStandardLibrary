@@ -3632,7 +3632,7 @@ is, e.g., described in
 
   public
     output Real X[size(A, 1), size(A, 2)]
-      "Solution X of the Lyapunov equation  X*A + A'*X = C";
+      "Solution X of the Lyapunov equation X*A + A'*X = C";
 
   algorithm
     if n > 1 then
@@ -4350,9 +4350,9 @@ The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
   protected
     Integer n=size(A, 1);
     Integer m=size(B, 1);
-    Real H[size(A, 1), size(A, 1)] "Hessenberg form  of A, i.e., H=U'AU";
+    Real H[size(A, 1), size(A, 1)] "Hessenberg form of A, i.e., H=U'AU";
     Real U[size(A, 1), size(A, 1)] "Transformation matrix U for H=U'AU";
-    Real S[size(B, 1), size(B, 1)] "RSF form  of B, i.e., S=Z'BZ";
+    Real S[size(B, 1), size(B, 1)] "RSF form of B, i.e., S=Z'BZ";
     Real Z[size(B, 1), size(B, 1)] "Transformation matrix Z for S=Z'BZ";
     Real F[size(A, 1), size(B, 1)]
       "Appropriate transformation of the right side C, F=U'*C*Z";
@@ -7153,7 +7153,7 @@ For details of the arguments, see documentation of dgbsv.
     end dorgqr;
 
     function dgees
-      "Computes real Schur form T of  real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues"
+      "Computes real Schur form T of real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues"
       extends Modelica.Icons.Function;
 
       input Real A[:, size(A, 1)] "Square matrix";
@@ -10102,7 +10102,7 @@ external"FORTRAN 77" dgees(
     end dpotrf;
 
     function dtrsm
-      "Solve one of the matrix equations  op( A )*X = alpha*B,   or   X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine"
+      "Solve one of the matrix equations op( A )*X = alpha*B, or X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine"
       extends Modelica.Icons.Function;
 
       input Real A[:, :] "Input matrix A";
@@ -10115,7 +10115,7 @@ external"FORTRAN 77" dgees(
         "True if A is unit triangular, i.e., all diagonal elements of A are equal to 1";
 
       output Real X[size(B, 1), size(B, 2)]=B
-        "Matrix Bout=alpha*op( A )*B,   or   B := alpha*B*op( A )";
+        "Matrix Bout=alpha*op( A )*B, or B := alpha*B*op( A )";
     protected
       String side=if right then "R" else "L";
       String uplo=if upper then "U" else "L";
@@ -10260,7 +10260,7 @@ external"FORTRAN 77" dgees(
       input Integer ilo=1
         "lowest index where the original matrix had been Hessenbergform - ilo must have the same value as in the previous call of DGEHRD";
       input Integer ihi=size(A, 1)
-        "highest index where the original matrix had been Hessenbergform  - ihi must have the same value as in the previous call of DGEHRD";
+        "highest index where the original matrix had been Hessenbergform - ihi must have the same value as in the previous call of DGEHRD";
       input Real tau[max(0, size(A, 1) - 1)]
         "scalar factors of the elementary reflectors";
       output Real Aout[size(A, 1), size(A, 2)]=A
