@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.UsersGuide.Conventions.Documentation.Format.Figures</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.UsersGuide.html">UsersGuide</a>.<a href="Modelica.UsersGuide.Conventions.html">Conventions</a>.<a href="Modelica.UsersGuide.Conventions.Documentation.html">Documentation</a>.<a href="Modelica.UsersGuide.Conventions.Documentation.Format.html">Format</a>.Figures</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Figures should in particular be included to examples to discuss
+the problems and results of the respective model. The library
+developers are yet encouraged to add figures to the documentation
+of other components to support the understanding of the users of
+the library.</p>
+<ol>
+<li>Figures have to be placed <strong>outside</strong> of
+paragraphs to be HTML compliant.</li>
+<li>Figures need to have <strong>at least</strong> a
+<code>src</code> and an <code>alt</code> attribute defined to be
+HTML compliant.</li>
+<li>Technical figures should be placed within a table environment.
+Each technical figure should then also have a caption. The figure
+caption starts with a capital letter.</li>
+<li>Illustration can be embedded without table environment.</li>
+</ol>
+<h4>Location of files</h4>
+The <code>PNG</code> files should be placed in a folder which
+exactly represents the package structure.
+<h5>Example 1</h5>
+<p>This example shows how an illustration should be embedded in the
+Example <a href="Modelica.Blocks.Examples.PID_Controller.html">PID_Controller</a>
+of the <a href="Modelica.Blocks.html">Blocks</a> package.</p>
+<pre>
+&lt;img src="modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png"
+     alt="PID_controller.png"&gt;
+</pre>
+<h5>Example 2</h5>
+<p>This is a simple example of a technical figure with caption.</p>
+<pre>
+&lt;table border="0" cellspacing="0" cellpadding="2"&gt;
+  &lt;caption align="bottom"&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;img src="modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png"
+           alt="PID_controller.png"&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<h5>Example 3</h5>
+<p>To refer to a certain figure, a figure number may be added. In
+such case the figure name (Fig.) including the figure enumeration
+(1,2,...) have to be displayed bold using
+<code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>.</p>
+<p>The figure name and enumeration should look like this:
+<strong>Fig. 1:</strong></p>
+<p>Figures have to be enumerated manually.</p>
+<pre>
+&lt;table border="0" cellspacing="0" cellpadding="2"&gt;
+  &lt;caption align="bottom"&gt;&lt;strong&gt;Fig. 2: &lt;/strong&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+      &lt;img src="modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png"
+           alt="PID_controller.png"&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Machines.Interfaces.PartialBasicMachine</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Machines.html">Machines</a>.<a href="Modelica.Electrical.Machines.Interfaces.html">Interfaces</a>.PartialBasicMachine</h1>
+<h2><a name="info" id="info">Information</a></h2>
+Base partial model DC machines:
+<ul>
+<li>main parts of the icon</li>
+<li>mechanical shaft</li>
+<li>mechanical support</li>
+</ul>
+Besides the mechanical connector <i>flange</i> (i.e., the shaft)
+the machines have a second mechanical connector
+<i>support</i>.<br />
+If <i>useSupport</i> = false, it is assumed that the stator is
+fixed.<br />
+Otherwise reaction torque (i.e., airGap torque, minus acceleration
+torque for stator's moment of inertia) can be measured at
+<i>support</i>.<br />
+One may also fix the the shaft and let rotate the stator; parameter
+Js is only of importance when the stator is rotating.
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

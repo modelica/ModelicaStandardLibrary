@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a href="Modelica.Mechanics.MultiBody.Examples.Loops.html">Loops</a>.Fourbar2</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a second version of the "four-bar" mechanism, see
+figure:</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png" alt="model Examples.Loops.Fourbar2" />
+<p>In this case the three revolute joints on the left top-side and
+the two revolute joints on the right top side have been replaced by
+the joint <b>UniversalSpherical</b> that is a rod connecting a
+spherical and a universal joint. This joint is defined by <b>1
+constraint</b> stating that the distance between the two spherical
+joints is constant. Using this joint in a kinematic loop reduces
+the sizes of non-linear algebraic equations. For this loop, only
+one non-linear algebraic system of equations of order 1
+remains.</p>
+<p>At the UniversalSpherical joint an additional frame_ia fixed to
+the rod is present where components can be attached to the
+connecting rod. In this example just a coordinate system is
+attached to visualize frame_ia (coordinate system on the right in
+blue color).</p>
+<p>Another feature is that the length of the connecting rod can be
+automatically calculated during <b>initialization</b>. In order to
+do this, another initialization condition has to be given. In this
+example, the initial value of the distance of the prismatic joint
+j2 has been fixed (via the "Initialization" menu) and the rod
+length of joint "UniversalSpherical" is computed during
+initialization since parameter <b>computeLength</b> = <b>true</b>
+is set in the joint parameter menu. The main advantage is that
+during initialization no non-linear system of equation is solved
+and therefore initialization always works. To be precise, the
+following trivial non-linear equation is actually solved for
+rodLength:</p>
+<pre>
+   rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

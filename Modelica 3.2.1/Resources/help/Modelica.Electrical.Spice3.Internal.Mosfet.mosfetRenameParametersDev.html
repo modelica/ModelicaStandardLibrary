@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.Internal.Mosfet.mosfetRenameParametersDev</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.Internal.html">Internal</a>.<a href="Modelica.Electrical.Spice3.Internal.Mosfet.html">Mosfet</a>.mosfetRenameParametersDev</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function mosfetRenameParametersDev
+  extends Modelica.Icons.Function;
+  input SI.Length W "Channel Width";
+  input SI.Length L "Channel Length";
+  input SI.Area AD "Area of the drain diffusion";
+  input SI.Area AS "Area of the source diffusion";
+  input SI.Length PD "Perimeter of the drain junction";
+  input SI.Length PS "Perimeter of the source junction";
+  input Real NRD "Number of squares of the drain diffusions";
+  input Real NRS "Number of squares of the source diffusions";
+  input Integer OFF "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
+  input SI.Voltage IC_VDS "Initial condition value VDS, not implemented yet";
+  input SI.Voltage IC_VGS "Initial condition value VGS, not implemented yet";
+  input SI.Voltage IC_VBS "Initial condition value VBS, not implemented yet";
+  input Boolean UIC "Use initial condition, UIC";
+  input SI.Temp_C TEMP "Temperature";
+  output Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet dev "Output record Mosfet";
+end mosfetRenameParametersDev;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

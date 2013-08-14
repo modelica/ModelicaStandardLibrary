@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.Rotational.UsersGuide.Overview</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a href="Modelica.Mechanics.Rotational.UsersGuide.html">UsersGuide</a>.Overview</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains components to model <b>1-dimensional
+rotational mechanical</b> systems, including different types of
+gearboxes, shafts with inertia, external torques, spring/damper
+elements, frictional elements, backlash, elements to measure angle,
+angular velocity, angular acceleration and the cut-torque of a
+flange. In sublibrary <b>Examples</b> several examples are present
+to demonstrate the usage of the elements. Just open the
+corresponding example model and simulate the model according to the
+provided description.</p>
+<p>A unique feature of this library is the
+<b>component-oriented</b> modeling of <b>Coulomb friction</b>
+elements, such as friction in bearings, clutches, brakes, and gear
+efficiency. Even (dynamically) coupled friction elements, e.g., as
+in automatic gearboxes, can be handled <b>without</b> introducing
+stiffness which leads to fast simulations. The underlying theory is
+new and is based on the solution of mixed continuous/discrete
+systems of equations, i.e., equations where the <b>unknowns</b> are
+of type <b>Real</b>, <b>Integer</b> or <b>Boolean</b>. Provided
+appropriate numerical algorithms for the solution of such types of
+systems are available in the simulation tool, the simulation of
+(dynamically) coupled friction elements of this library is
+<b>efficient</b> and <b>reliable</b>.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/Rotational/drive1.png" alt="drive1" /></p>
+<p>A simple example of the usage of this library is given in the
+figure above. This drive consists of a shaft with inertia J1=0.2
+which is connected via an ideal gearbox with gear ratio=5 to a
+second shaft with inertia J2=5. The left shaft is driven via an
+external, sinusoidal torque. The <b>filled</b> and <b>non-filled
+grey squares</b> at the left and right side of a component
+represent <b>mechanical flanges</b>. Drawing a line between such
+squares means that the corresponding flanges are <b>rigidly
+attached</b> to each other. By convention in this library, the
+connector characterized as a <b>filled</b> grey square is called
+<b>flange_a</b> and placed at the left side of the component in the
+"design view" and the connector characterized as a
+<b>non-filled</b> grey square is called <b>flange_b</b> and placed
+at the right side of the component in the "design view". The two
+connectors are completely <b>identical</b>, with the only exception
+that the graphical layout is a little bit different in order to
+distinguish them for easier access of the connector variables. For
+example, <code>J1.flange_a.tau</code> is the cut-torque in the
+connector <code>flange_a</code> of component <code>J1</code>.</p>
+<p>The components of this library can be <b>connected</b> together
+in an <b>arbitrary</b> way. E.g., it is possible to connect two
+springs or two shafts with inertia directly together, see figure
+below.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/Rotational/driveConnections1.png" alt="driveConnections1" /><br />
+<img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/Rotational/driveConnections2.png" alt="driveConnections2" /><br /></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Vessels.OpenTank</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Vessels.html">Vessels</a>.OpenTank</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Model of a tank that is open to the ambient at the fixed
+pressure <code>p_ambient</code>.</p>
+<p>The vector of connectors <b>ports</b> represents fluid ports at
+configurable heights, relative to the bottom of tank. Fluid can
+flow either out of or in to each port.</p>
+The following assumptions are made:
+<ul>
+<li>The tank is filled with a single or multiple-substance medium
+having a density higher than the density of the ambient
+medium.</li>
+<li>The fluid has uniform density, temperature and mass
+fractions</li>
+<li>No liquid is leaving the tank through the open top; the
+simulation breaks with an assertion if the liquid level growths
+over the height.</li>
+</ul>
+<p>The port pressures represent the pressures just after the outlet
+(or just before the inlet) in the attached pipe. The hydraulic
+resistances <code>portsData.zeta_in</code> and
+<code>portsData.zeta_out</code> determine the dissipative pressure
+drop between tank and port depending on the direction of mass flow.
+See <a href="Modelica.Fluid.Vessels.BaseClasses.VesselPortsData.html">VesselPortsData</a>
+and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.</p>
+<p>With the setting <code>use_portsData=false</code>, the port
+pressure represents the static head at the height of the respective
+port. The relationship between pressure drop and mass flow rate at
+the port must then be provided by connected components; Heights of
+ports as well as kinetic and potential energy of fluid entering or
+leaving are not taken into account anymore.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>Dec. 12, 2008</i> by Ruediger Franke: move port definitions
+to BaseClasses.PartialLumpedVessel; also use energy and mass
+balance from common base class</li>
+<li><i>Dec. 8, 2008</i> by Michael Wetter (LBNL):<br />
+Implemented trace substances.</li>
+<li><i>Jan. 6, 2006</i> by Katja Poschlad, Manuel Remelhe (AST Uni
+Dortmund), Martin Otter (DLR):<br />
+Implementation based on former tank model.</li>
+<li><i>Oct. 29, 2007</i> by Carsten Heinrich (ILK Dresden):<br />
+Adapted to the new fluid library interfaces:
+<ul>
+<li>FluidPorts_b is used instead of FluidPort_b (due to it is
+defined as an array of ports)</li>
+<li>Port name changed from port to ports</li>
+</ul>
+Updated documentation.</li>
+<li><i>Apr. 25, 2006</i> by Katrin Prölß (TUHH):<br />
+Limitation to bottom ports only, added inlet and outlet loss
+factors.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

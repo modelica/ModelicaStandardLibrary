@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.LAPACK.dgesdd</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.<a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.dgesdd</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Lapack documentation
+    Purpose
+    =======
+
+    DGESDD computes the singular value decomposition (SVD) of a real
+    M-by-N matrix A, optionally computing the left and right singular
+    vectors.  If singular vectors are desired, it uses a
+    divide-and-conquer algorithm.
+
+    The SVD is written
+
+         A = U * SIGMA * transpose(V)
+
+    where SIGMA is an M-by-N matrix which is zero except for its
+    min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and
+    V is an N-by-N orthogonal matrix.  The diagonal elements of SIGMA
+    are the singular values of A; they are real and non-negative, and
+    are returned in descending order.  The first min(m,n) columns of
+    U and V are the left and right singular vectors of A.
+
+    Note that the routine returns VT = V**T, not V.
+
+    The divide and conquer algorithm makes very mild assumptions about
+    floating point arithmetic. It will work on machines with a guard
+    digit in add/subtract, or on those binary machines without guard
+    digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or
+    Cray-2. It could conceivably fail on hexadecimal or decimal machines
+    without guard digits, but we know of none.
+
+    Arguments
+    =========
+
+    JOBZ    (input) CHARACTER*1
+            Specifies options for computing all or part of the matrix U:
+            = 'A':  all M columns of U and all N rows of V**T are
+                    returned in the arrays U and VT;
+            = 'S':  the first min(M,N) columns of U and the first
+                    min(M,N) rows of V**T are returned in the arrays U
+                    and VT;
+            = 'O':  If M &gt;= N, the first N columns of U are overwritten
+                    on the array A and all rows of V**T are returned in
+                    the array VT;
+                    otherwise, all columns of U are returned in the
+                    array U and the first M rows of V**T are overwritten
+                    in the array A;
+            = 'N':  no columns of U or rows of V**T are computed.
+
+    M       (input) INTEGER
+            The number of rows of the input matrix A.  M &gt;= 0.
+
+    N       (input) INTEGER
+            The number of columns of the input matrix A.  N &gt;= 0.
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit,
+            if JOBZ = 'O',  A is overwritten with the first N columns
+                            of U (the left singular vectors, stored
+                            columnwise) if M &gt;= N;
+                            A is overwritten with the first M rows
+                            of V**T (the right singular vectors, stored
+                            rowwise) otherwise.
+            if JOBZ .ne. 'O', the contents of A are destroyed.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA &gt;= max(1,M).
+
+    S       (output) DOUBLE PRECISION array, dimension (min(M,N))
+            The singular values of A, sorted so that S(i) &gt;= S(i+1).
+
+    U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
+            UCOL = M if JOBZ = 'A' or JOBZ = 'O' and M &lt; N;
+            UCOL = min(M,N) if JOBZ = 'S'.
+            If JOBZ = 'A' or JOBZ = 'O' and M &lt; N, U contains the M-by-M
+            orthogonal matrix U;
+            if JOBZ = 'S', U contains the first min(M,N) columns of U
+            (the left singular vectors, stored columnwise);
+            if JOBZ = 'O' and M &gt;= N, or JOBZ = 'N', U is not referenced.
+
+    LDU     (input) INTEGER
+            The leading dimension of the array U.  LDU &gt;= 1; if
+            JOBZ = 'S' or 'A' or JOBZ = 'O' and M &lt; N, LDU &gt;= M.
+
+    VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
+            If JOBZ = 'A' or JOBZ = 'O' and M &gt;= N, VT contains the
+            N-by-N orthogonal matrix V**T;
+            if JOBZ = 'S', VT contains the first min(M,N) rows of
+            V**T (the right singular vectors, stored rowwise);
+            if JOBZ = 'O' and M &lt; N, or JOBZ = 'N', VT is not referenced.
+
+    LDVT    (input) INTEGER
+            The leading dimension of the array VT.  LDVT &gt;= 1; if
+            JOBZ = 'A' or JOBZ = 'O' and M &gt;= N, LDVT &gt;= N;
+            if JOBZ = 'S', LDVT &gt;= min(M,N).
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
+
+    LWORK   (input) INTEGER
+            The dimension of the array WORK. LWORK &gt;= 1.
+            If JOBZ = 'N',
+              LWORK &gt;= 3*min(M,N) + max(max(M,N),7*min(M,N)).
+            If JOBZ = 'O',
+              LWORK &gt;= 3*min(M,N) +
+                       max(max(M,N),5*min(M,N)*min(M,N)+4*min(M,N)).
+            If JOBZ = 'S' or 'A'
+              LWORK &gt;= 3*min(M,N) +
+                       max(max(M,N),4*min(M,N)*min(M,N)+4*min(M,N)).
+            For good performance, LWORK should generally be larger.
+            If LWORK = -1 but other input arguments are legal, WORK(1)
+            returns the optimal LWORK.
+
+    IWORK   (workspace) INTEGER array, dimension (8*min(M,N))
+
+    INFO    (output) INTEGER
+            = 0:  successful exit.
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  DBDSDC did not converge, updating process failed.
+
+    Further Details
+    ===============
+
+    Based on contributions by
+       Ming Gu and Huan Ren, Computer Science Division, University of
+       California at Berkeley, USA
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function dgesdd
+  extends Modelica.Icons.Function;
+  input Real A[:,:];
+  output Real sigma[min(size(A, 1), size(A, 2))];
+  output Real U[size(A, 1),size(A, 1)] = zeros(size(A, 1), size(A, 1));
+  output Real VT[size(A, 2),size(A, 2)] = zeros(size(A, 2), size(A, 2));
+  output Integer info;
+end dgesdd;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

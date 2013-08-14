@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Spice3.UsersGuide.Spicenetlist</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.UsersGuide.html">UsersGuide</a>.Spicenetlist</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Translation of SPICE3 netlists to Modelica</h4>
+<p>Since SPICE3 netlists are available for nearly every electrical
+circuit a desirable feature would be to translate SPICE3 netlists
+to Modelica. With the help of the example of an inverter circuits a
+possible way of the translation will be explained.</p>
+<table cellspacing="0" cellpadding="0" border="1">
+<caption>Table 1: Translation of the SPICE3 netlist (left side) to
+Modelica (right side)</caption>
+<tr>
+<td valign="top">
+<pre>
+inverter
+
+Mp1 11 1 13 11 MPmos
+Mp2 11 13 2 11 MPmos
+Mn1 13 1 0 0 MNmos
+Mn2 2 13 0 0 MNmos
+Vgate 1 0 PULSE(0 5 2s 1s)
+Vdrain 11 0 PULSE(0 5 0s 1s)
+.model MPmos PMOS (gamma=0.37)
+.model MNmos NMOS (gamma=0.37 lambda=0.02)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tran 0.01 5
+.end
+</pre></td>
+<td valign="top">
+<pre>
+model inverter
+  Spice3.Basic.Ground g;
+  Spice3…M Mp1(mtype=true, M(GAMMA=0.37));
+  Spice3…M Mp2(mtype=true, M(GAMMA=0.37));
+  Spice3…M Mn1(M(LAMBDA=0.02, GAMMA=0.37));
+  Spice3…M Mn2(p(LAMBDA=0.02, GAMMA=0.37));
+  Spice3…V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
+  Spice3…V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
+
+
+  Spice3.Interfaces.Pin p_in, p_out;
+protected
+  Spice3.Interfaces.Pin n0, n1, n2, n11, n13;
+equation
+  connect(p_in, n1);    connect(p_out, n2);
+  connect(g.p, n0);
+  connect(vdrain.n,n0); connect(vdrain.p,n11);
+  connect(Mp1.B,n11);   connect(Mp1.D, n11);
+  connect(Mp1.G, n1);   connect(Mp1.S, n13);
+  connect(Mp2.B,n11);   connect(Mp2.D, n11);
+  connect(Mp2.G, n13);  connect(Mp2.S, n2);
+  connect(Mn1.B,n0);    connect(Mn1.D, n13);
+  connect(Mn1.G, n1);   connect(Mn1.S, n0);
+  connect(Mn2.B,n0);    connect(Mn2.D, n2);
+  connect(Mn2.G, n13);  connect(Mn2.S, n0);
+
+end inverter;
+</pre></td>
+</tr>
+</table>
+<p>Given is a SPICE3 netlist that contains two inverter circuits.
+This netlist should be translated to Modelica in which the input
+voltage of the first inverter (node number 1) and the output
+voltage of the second inverter (node number 2) will later be
+connected with the surrounding circuit.</p>
+<p>The following steps are necessary:</p>
+<ol>
+<li>A name for the Modelica model has to be chosen. It could be
+taken from the first line of the SPICE3 netlist.</li>
+<li>The ground node has to be instantiated (i.e.,
+<code>Spice3.Basic.Ground</code>).</li>
+<li>For each component of the netlist an instant has to be created.
+According to the first letter of the SPICE3 model identifier in the
+netlist, the needed component has to be chosen, instantiated and
+according to the given parameters parametrized, e.g., the SPICE
+lineVdrain 11 0 PULSE(0 5 0 1)becomes the following Modelica line:
+<code>Spice3…V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);</code></li>
+<li>For all node numbers an internal pin has to be created. For
+example the node number 2 from the SPICE3 netlist becomes
+<pre>
+protected Spice3.Interfaces.Pin n2;
+</pre>
+in Modelica. The code letter (here <code>n</code>) is needed
+because a single number is no name in Modelica.</li>
+<li>According to the netlist the internal pins have to be connected
+with the components, e.g., <code>connect(Mp1.D, n11)</code>.</li>
+<li>In the last step the external pins have to be allocated ant
+connected to the according internal pin. In Table&nbsp;1 this is
+done as follows:
+<pre>
+Spice3.Interfaces.Pin p_in, p_out;
+connect(p_in, n1);
+connect(p_out, n2);
+</pre></li>
+</ol>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

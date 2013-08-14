@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.discreteRiccati</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.discreteRiccati</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+                                 X = Matrices.<b>discreteRiccati</b>(A, B, R, Q);
+         (X, alphaReal, alphaImag) = Matrices.<b>discreteRiccati</b>(A, B, R, Q, true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>discreteRiccati</b> computes the solution <b>X</b>
+of the discrete-time algebraic Riccati equation</p>
+<blockquote>
+<pre>
+ <b>A</b>'*<b>X</b>*<b>A</b> - <b>X</b> - <b>A</b>'*<b>X</b>*<b>B</b>*inv(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)*<b>B</b>'*<b>X</b>*<b>A</b> + <b>Q</b> = <b>0</b>
+</pre></blockquote>
+<p>using the Schur vector approach proposed by Laub [1].</p>
+<p>It is assumed that <b>Q</b> is symmetric and positive
+semidefinite and <b>R</b> is symmetric, nonsingular and positive
+definite, (<b>A</b>,<b>B</b>) is stabilizable and
+(<b>A</b>,<b>Q</b>) is detectable. Using this method, <b>A</b> has
+also to be invertible.</p>
+<p><b>These assumptions are not checked in this function
+!!!</b></p>
+<p>The assumptions guarantee that the Hamiltonian matrix.</p>
+<blockquote>
+<pre>
+<b>H</b> = [<b>A</b> + <b>G</b>*<b>T</b>*<b>Q</b>, -<b>G</b>*<b>T</b>; -<b>T</b>*<b>Q</b>, <b>T</b>]
+</pre></blockquote>
+<p>with</p>
+<blockquote>
+<pre>
+     -T
+<b>T</b> = <b>A</b>
+</pre></blockquote>
+<p>and</p>
+<blockquote>
+<pre>
+       -1
+<b>G</b> = <b>B</b>*<b>R</b> *<b>B</b>'
+</pre></blockquote>
+<p>has no eigenvalue on the unit circle and can be put to an
+ordered real Schur form</p>
+<blockquote>
+<pre>
+<b>U</b>'*<b>H</b>*<b>U</b> = <b>S</b> = [<b>S11</b>, <b>S12</b>; <b>0</b>, <b>S22</b>]
+</pre></blockquote>
+<p>with orthogonal similarity transformation <b>U</b>. <b>S</b> is
+ordered in such a way, that <b>S11</b> contains the n stable
+eigenvalues of the closed loop system with system matrix</p>
+<blockquote>
+<pre>
+                  -1
+<b>A</b> - <b>B</b>*(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)  *<b>B</b>'*<b>X</b>*<b>A</b>
+</pre></blockquote>
+<p>If <b>U</b> is partitioned to</p>
+<blockquote>
+<pre>
+<b>U</b> = [<b>U11</b>, <b>U12</b>; <b>U21</b>, <b>U22</b>]
+</pre></blockquote>
+<p>according to <b>S</b>, the solution <b>X</b> can be calculated
+by</p>
+<blockquote>
+<pre>
+<b>X</b>*<b>U11</b> = <b>U21</b>.
+</pre></blockquote>
+<h4>References</h4>
+<pre>
+  [1] Laub, A.J.
+      A Schur Method for Solving Algebraic Riccati equations.
+      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</pre>
+<h4>Example</h4>
+<blockquote>
+<pre>
+ A  = [4.0    3.0]
+      -4.5,  -3.5];
+
+ B  = [ 1.0;
+       -1.0];
+
+ R = [1.0];
+
+ Q = [9.0, 6.0;
+      6.0, 4.0]
+
+X = discreteRiccati(A, B, R, Q);
+
+  results in:
+
+X = [14.5623, 9.7082;
+      9.7082, 6.4721];
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.continuousRiccati.html">Matrices.continuousRiccati</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function discreteRiccati
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Matrices;
+  input Real A[:,size(A, 1)] "Square matrix A in DARE";
+  input Real B[size(A, 1),:] "Matrix B in DARE";
+  input Real R[size(B, 2),size(B, 2)] = identity(size(B, 2)) "Matrix R in DARE";
+  input Real Q[size(A, 1),size(A, 1)] = identity(size(A, 1)) "Matrix Q in DARE";
+  input Boolean refine = false "True for subsequent refinement";
+  output Real X[size(A, 1),size(A, 2)] "orthogonal matrix of the Schur vectors associated to ordered rsf";
+  output Real alphaReal[size(H, 1)] "Real part of eigenvalue=alphaReal+i*alphaImag";
+  output Real alphaImag[size(H, 1)] "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
+end discreteRiccati;
+
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.IdealGases.Common.MixtureGasNasa.mixtureViscosityChung</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.IdealGases.html">IdealGases</a>.<a href="Modelica.Media.IdealGases.Common.html">Common</a>.<a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa</a>.mixtureViscosityChung</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Equation to estimate the viscosity of gas mixtures at low
+pressures.<br />
+It is a simplification of an extension of the rigorous kinetic
+theory of Chapman and Enskog to determine the viscosity of
+multicomponent mixtures, at low pressures and with a factor to
+correct for molecule shape and polarity.</p>
+<p>The input argument Kappa is a special correction for highly
+polar substances such as alcohols and acids.<br />
+Values of kappa for a few such materials:</p>
+<table style="text-align: left; width: 302px; height: 200px;" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+<td style="vertical-align: top;">Compound<br /></td>
+<td style="vertical-align: top; text-align: center;">
+Kappa<br /></td>
+<td style="vertical-align: top;">Compound<br /></td>
+<td style="vertical-align: top;">Kappa<br /></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">Methanol<br /></td>
+<td style="vertical-align: top;">0.215<br /></td>
+<td style="vertical-align: top;">n-Pentanol<br /></td>
+<td style="vertical-align: top;">0.122<br /></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">Ethanol<br /></td>
+<td style="vertical-align: top;">0.175<br /></td>
+<td style="vertical-align: top;">n-Hexanol<br /></td>
+<td style="vertical-align: top;">0.114<br /></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">n-Propanol<br /></td>
+<td style="vertical-align: top;">0.143<br /></td>
+<td style="vertical-align: top;">n-Heptanol<br /></td>
+<td style="vertical-align: top;">0.109<br /></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">i-Propanol<br /></td>
+<td style="vertical-align: top;">0.143<br /></td>
+<td style="vertical-align: top;">Acetic Acid<br /></td>
+<td style="vertical-align: top;">0.0916<br /></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">n-Butanol<br /></td>
+<td style="vertical-align: top;">0.132<br /></td>
+<td style="vertical-align: top;">Water<br /></td>
+<td style="vertical-align: top;">0.076<br /></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">i-Butanol<br /></td>
+<td style="vertical-align: top;">0.132</td>
+<td style="vertical-align: top;"><br /></td>
+<td style="vertical-align: top;"><br /></td>
+</tr>
+</tbody>
+</table>
+<p>Chung, et al. (1984) suggest that for other alcohols not shown
+in the table:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp; kappa = 0.0682 + 4.704*[(number of -OH
+groups)]/[molecular weight]<br />
+<br />
+<span style="font-weight: normal;">S.I. units relation for the
+debyes:&nbsp;</span><br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 1 debye =
+3.162e-25 (J.m^3)^(1/2)<br /></p>
+<h4>References</h4>
+<p>[1] THE PROPERTIES OF GASES AND LIQUIDS, Fifth Edition,<br />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Bruce E. Poling, John
+M. Prausnitz, John P. O'Connell.<br />
+[2] Chung, T.-H., M. Ajlan, L. L. Lee, and K. E. Starling: Ind.
+Eng. Chem. Res., 27: 671 (1988).<br />
+[3] Chung, T.-H., L. L. Lee, and K. E. Starling; Ing. Eng. Chem.
+Fundam., 23: 3 ()1984).<br /></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function mixtureViscosityChung
+  extends Modelica.Icons.Function;
+  input Temperature T "Temperature";
+  input Temperature[:] Tc "Critical temperatures";
+  input MolarVolume[:] Vcrit "Critical volumes (m3/mol)";
+  input Real[:] w "Acentric factors";
+  input Real[:] mu "Dipole moments (debyes)";
+  input MolarMass[:] MolecularWeights "Molecular weights (kg/mol)";
+  input MoleFraction[:] y "Molar Fractions";
+  input Real[:] kappa = zeros(nX) "Association Factors";
+  output DynamicViscosity etaMixture "Mixture viscosity (Pa.s)";
+end mixtureViscosityChung;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

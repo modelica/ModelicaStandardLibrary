@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.Operators</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>In this chapter <b>operators</b> of Modelica are documented.
+Elementary operators, such as "+" or "-" are overloaded and operate
+on scalar and array variables. Other operators have the same syntax
+as a <a href="ModelicaReference.Classes.'function'.html">Modelica
+function</a> call. However, they do not behave as a Modelica
+function, either because the result depends not only on the input
+arguments but also on the status of the simulation (such as
+"pre(..)"), or the function operates on input arguments of
+different types (such as "String(..)"). Neither of these
+"functions" can be defined with a "standard" Modelica function and
+are therefore builtin operators of the Modelica language (with
+exception of the basic mathematical functions, sin, cos, tan, asin,
+acos, atan, atan2, sinh, cosh, tanh, exp, log, log10 that are
+provided for convenience as built-in functions).</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.ElementaryOperators.html">ElementaryOperators</a></td>
+<td>Elementary operators (+, &gt;, or, ..)</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'abs()'.html">'abs()'</a></td>
+<td>abs()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'acos()'.html">'acos()'</a></td>
+<td>acos()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'actualStream()'.html">'actualStream()'</a></td>
+<td>actualStream()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'array()'.html">'array()'</a></td>
+<td>array()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'asin()'.html">'asin()'</a></td>
+<td>asin()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'assert()'.html">'assert()'</a></td>
+<td>assert()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'atan()'.html">'atan()'</a></td>
+<td>atan()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'atan2()'.html">'atan2()'</a></td>
+<td>atan2()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'cardinality()'.html">'cardinality()'</a></td>
+<td>cardinality()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'cat()'.html">'cat()'</a></td>
+<td>cat()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'ceil()'.html">'ceil()'</a></td>
+<td>ceil()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'change()'.html">'change()'</a></td>
+<td>change()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'connect()'.html">'connect()'</a></td>
+<td>connect()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'Connections.branch()'.html">'Connections.branch()'</a></td>
+<td>Connections.branch()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'Connections.root()'.html">'Connections.root()'</a></td>
+<td>Connections.root()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'Connections.potentialRoot()'.html">'Connections.potentialRoot()'</a></td>
+<td>Connection.potentialRoot()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'Connections.isRoot()'.html">'Connections.isRoot()'</a></td>
+<td>Connections.isRoot()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'Connections.rooted()'.html">'Connections.rooted()'</a></td>
+<td>Connections.rooted()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'cos()'.html">'cos()'</a></td>
+<td>cos()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'cosh()'.html">'cosh()'</a></td>
+<td>cosh()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'cross()'.html">'cross()'</a></td>
+<td>cross()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'delay()'.html">'delay()'</a></td>
+<td>delay()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'der()'.html">'der()'</a></td>
+<td>der()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'diagonal()'.html">'diagonal()'</a></td>
+<td>diagonal()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'div()'.html">'div()'</a></td>
+<td>div()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'edge()'.html">'edge()'</a></td>
+<td>edge()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'exp()'.html">'exp()'</a></td>
+<td>exp()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'fill()'.html">'fill()'</a></td>
+<td>fill()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'floor()'.html">'floor()'</a></td>
+<td>floor()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'homotopy()'.html">'homotopy()'</a></td>
+<td>homotopy()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'identity()'.html">'identity()'</a></td>
+<td>identity()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'initial()'.html">'initial()'</a></td>
+<td>initial()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'inStream()'.html">'inStream()'</a></td>
+<td>inStream()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'Integer()'.html">'Integer()'</a></td>
+<td>Integer()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'integer()'.html">'integer()'</a></td>
+<td>integer()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'inverse()'.html">'inverse()'</a></td>
+<td>inverse()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'linspace()'.html">'linspace()'</a></td>
+<td>linspace()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'log()'.html">'log()'</a></td>
+<td>log()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'log10()'.html">'log10()'</a></td>
+<td>log10()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'matrix()'.html">'matrix()'</a></td>
+<td>matrix()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'max()'.html">'max()'</a></td>
+<td>max()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'min()'.html">'min()'</a></td>
+<td>min()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'mod()'.html">'mod()'</a></td>
+<td>mod()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'ndims()'.html">'ndims()'</a></td>
+<td>ndims()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'noEvent()'.html">'noEvent()'</a></td>
+<td>noEvent()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'ones()'.html">'ones()'</a></td>
+<td>ones()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'outerProduct()'.html">'outerProduct()'</a></td>
+<td>outerProduct()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'pre()'.html">'pre()'</a></td>
+<td>pre()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'product()'.html">'product()'</a></td>
+<td>product()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'reinit()'.html">'reinit()'</a></td>
+<td>reinit()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'rem()'.html">'rem()'</a></td>
+<td>rem()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'rooted()'.html">'rooted()'</a></td>
+<td>rooted() - deprecated</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'sample()'.html">'sample()'</a></td>
+<td>sample()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'scalar()'.html">'scalar()'</a></td>
+<td>scalar()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'semiLinear()'.html">'semiLinear()'</a></td>
+<td>semiLinear()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'sign()'.html">'sign()'</a></td>
+<td>sign()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'sin()'.html">'sin()'</a></td>
+<td>sin()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'sinh()'.html">'sinh()'</a></td>
+<td>sinh()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'size()'.html">'size()'</a></td>
+<td>size()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'skew()'.html">'skew()'</a></td>
+<td>skew()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'smooth()'.html">'smooth()'</a></td>
+<td>smooth()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'sqrt()'.html">'sqrt()'</a></td>
+<td>sqrt()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'String()'.html">'String()'</a></td>
+<td>String()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'sum()'.html">'sum()'</a></td>
+<td>sum()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'symmetric()'.html">'symmetric()'</a></td>
+<td>symmetric()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'tan()'.html">'tan()'</a></td>
+<td>tan()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'tanh()'.html">'tanh()'</a></td>
+<td>tanh()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'terminal()'.html">'terminal()'</a></td>
+<td>terminal()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'terminate()'.html">'terminate()'</a></td>
+<td>terminate()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'transpose()'.html">'transpose()'</a></td>
+<td>transpose()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'vector()'.html">'vector()'</a></td>
+<td>vector()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.'zeros()'.html">'zeros()'</a></td>
+<td>zeros()</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

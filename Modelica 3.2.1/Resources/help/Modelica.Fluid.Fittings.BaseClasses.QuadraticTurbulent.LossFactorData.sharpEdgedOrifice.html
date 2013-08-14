@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Fittings.html">Fittings</a>.<a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a>.<a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a>.<a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a>.sharpEdgedOrifice</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Loss factor for mass flow rate from port_a to port_b (Idelchik
+1994, diagram 4-14, p. 221):</p>
+<pre>
+   zeta = [(1-A0/A1) + 0.707*(1-A0/A1)^0.375]^2*(A1/A0)^2
+          for Re(A0) &gt;= 1e5,  independent of alpha
+</pre>
+<p>Loss factor for mass flow rate from port_b to port_a (Idelchik
+1994, diagram 4-13, p. 220, with A2=A1):</p>
+<pre>
+   zeta = k*(1 - A0/A1)^0.75 + (1 - A0/A1)^2 + 2*sqrt(k*(1-A0/A1)^0.375) + (1- A0/A1)
+          k  = 0.13 + 0.34*10^(-(3.4*LD+88.4*LD^2.3))
+               (there is a typing error in the formula in diagram 4-13, the above
+                equation corresponds to table (a) in diagram 4-12)
+          LD = L/D0
+          for Re(A0) &gt;= 1e4, 40 deg ≤ alpha ≤ 60 deg
+                             for other values of alpha, k is given as table
+                             in diagram 3-7 (this is not yet included in the function)
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+encapsulated function sharpEdgedOrifice
+  import NonSI = Modelica.SIunits.Conversions.NonSIunits;
+  import Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+  import SI = Modelica.SIunits;
+  input SI.Diameter diameter "Inner diameter of pipe (= same at port_a and port_b)" annotation(Dialog);
+  input SI.Diameter leastDiameter "Smallest diameter of orifice" annotation(Dialog);
+  input SI.Diameter length "Length of orifice" annotation(Dialog);
+  input NonSI.Angle_deg alpha "Angle of orifice" annotation(Dialog);
+  output LossFactorData data "Pressure loss factors for both flow directions";
+end sharpEdgedOrifice;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Interfaces.PartialLumpedVolume</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Interfaces.html">Interfaces</a>.PartialLumpedVolume</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Interface and base class for an ideally mixed fluid volume with
+the ability to store mass and energy. The following boundary flow
+and source terms are part of the energy balance and must be
+specified in an extending class:</p>
+<ul>
+<li><code><b>Qb_flow</b></code>, e.g., convective or latent heat
+flow rate across segment boundary, and</li>
+<li><code><b>Wb_flow</b></code>, work term, e.g.,
+p*der(fluidVolume) if the volume is not constant.</li>
+</ul>
+<p>The component volume <code><b>fluidVolume</b></code> is an input
+that needs to be set in the extending class to complete the
+model.</p>
+<p>Further source terms must be defined by an extending class for
+fluid flow across the segment boundary:</p>
+<ul>
+<li><code><b>Hb_flow</b></code>, enthalpy flow,</li>
+<li><code><b>mb_flow</b></code>, mass flow,</li>
+<li><code><b>mbXi_flow</b></code>, substance mass flow, and</li>
+<li><code><b>mbC_flow</b></code>, trace substance mass flow.</li>
+</ul>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.Medium.html">Medium</a></td>
+<td>Medium in the component</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

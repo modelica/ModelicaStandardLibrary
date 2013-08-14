@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Strings.scanReal</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Utilities.html">Utilities</a>.<a href="Modelica.Utilities.Strings.html">Strings</a>.scanReal</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+             number = Strings.<b>scanReal</b>(string);
+(number, nextIndex) = Strings.<b>scanReal</b>(string, startIndex=1,
+                                            unsigned=false, message="");
+</pre></blockquote>
+<h4>Description</h4>
+<p>The first form, "scanReal(string)", scans "string" for a Real
+number with leading white space and returns the value.</p>
+<p>The second form, "scanReal(string,startIndex,unsigned)", scans
+the string starting at index "startIndex", checks whether the next
+token is a Real literal and returns its value as a Real number, as
+well as the index directly after the Real number. If the optional
+argument "unsigned" is <b>true</b>, the real number shall not have
+a leading "+" or "-" sign.</p>
+<p>If the required Real number with leading white space is not
+present in "string", an assert is triggered.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function scanReal
+  extends Modelica.Icons.Function;
+  input String string "String to be scanned";
+  input Integer startIndex(min = 1) = 1 "Start scanning of string at character startIndex";
+  input Boolean unsigned = false "= true, if Real token shall not start with a sign";
+  input String message = "" "Message used in error message if scan is not successful";
+  output Real number "Value of real number";
+  output Integer nextIndex "index of character after the found number";
+end scanReal;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

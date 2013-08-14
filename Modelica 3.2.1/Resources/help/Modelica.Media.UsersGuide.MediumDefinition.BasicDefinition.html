@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a href="Modelica.Media.UsersGuide.MediumDefinition.html">MediumDefinition</a>.BasicDefinition</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Let's now walk through the definition of a new medium model.
+Please refer to <a href="Modelica.Media.Interfaces.TemplateMedium.html">Modelica.Media.Interfaces.TemplateMedium</a>
+to obtain a template of the new medium model code. For the moment
+being, consider a single-substance medium model.</p>
+<p>The new medium model is obtained by extending
+Modelica.Media.Interfaces.PartialMedium, and setting the following
+package constants:</p>
+<ul>
+<li>mediumName is a String containing the name of the medium.</li>
+<li>substanceNames is a vector of strings containing the names of
+the substances that make up the medium. In this case, it will
+contain only mediumName.</li>
+<li>singleState can be set to true if u and d in BaseProperties do
+not depend on pressure. In other words, density does not depend on
+pressure (incompressible fluid), and it is assumed that also u does
+not depend on pressure. This setting can be useful for fluids
+having high density and low compressibility (e.g., liquids at
+moderate pressure); fast states resulting from the low
+compressibility effects are automatically avoided.</li>
+<li>reducedX = true for single-substance media, which do not need
+mass fractions at all.</li>
+</ul>
+<p>It is also possible to change the default min, max, nominal, and
+start attributes of Medium-defined types (see TemplateMedium).</p>
+<p>All other package constants, such as nX, nXi, nS, are
+automatically set by the declarations of the base package
+Interfaces.PartialMedium.</p>
+<p>The second step is to provide an implementation to the
+BaseProperties model, partially defined in the base class
+Interfaces.PartialMedium. In the case of single-substance media,
+two independent state variables must be selected among p, T, d, u,
+h, and three equations must be written to provide the values of the
+remaining variables. Two equations must then be added to compute
+the molar mass MM and the gas constant R.</p>
+<p>The third step is to consider the optional functions that are
+going to be implemented, among the partial functions defined by the
+base class PartialMedium. A minimal set of state variables that
+could be provided as an input to <i>all</i> those functions must be
+selected, and included in the redeclaration of the
+ThermodynamicState record. Subsequently, equations must be added to
+BaseProperties in order that the instance of that record inside
+BaseProperties (named "state") is kept updated. For example, assume
+that all additional properties can be computed as a function of p
+and T. Then, ThermodynamicState should be redeclared as
+follows:</p>
+<pre>
+  <b>redeclare replaceable record</b> ThermodynamicState
+    AbsolutePressure p "Absolute pressure of medium";
+    Temperature T "Temperature of medium";
+  <b>end</b> ThermodynamicState;
+</pre>
+<p>and the following equations should be added to
+BaseProperties:</p>
+<pre>
+  state.p = p;
+  state.T = T;
+</pre>
+<p>The additional functions can now be implemented by redeclaring
+the functions defined in the base class and adding their
+algorithms, e.g.:</p>
+<pre>
+    <b>redeclare function extends</b> dynamicViscosity "Return dynamic viscosity"
+    <b>algorithm</b>
+      eta := 10 - state.T*0.3 + state.p*0.2;
+    <b>end</b> dynamicViscosity;
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

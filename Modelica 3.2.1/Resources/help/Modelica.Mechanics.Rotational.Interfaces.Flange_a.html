@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.Rotational.Interfaces.Flange_a</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a href="Modelica.Mechanics.Rotational.Interfaces.html">Interfaces</a>.Flange_a</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a connector for 1-dim. rotational mechanical systems and
+models the mechanical flange of a shaft. The following variables
+are defined in this connector:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>phi</b></td>
+<td valign="top">Absolute rotation angle of the shaft flange in
+[rad]</td>
+</tr>
+<tr>
+<td valign="top"><b>tau</b></td>
+<td valign="top">Cut-torque in the shaft flange in [Nm]</td>
+</tr>
+</table>
+<p>There is a second connector for flanges: Flange_b. The
+connectors Flange_a and Flange_b are completely identical. There is
+only a difference in the icons, in order to easier identify a
+flange variable in a diagram. For a discussion on the actual
+direction of the cut-torque tau and of the rotation angle, see
+section <a href="Modelica.Mechanics.Rotational.UsersGuide.SignConventions.html">
+Sign Conventions</a> in the user's guide of Rotational.</p>
+<p>If needed, the absolute angular velocity w and the absolute
+angular acceleration a of the flange can be determined by
+differentiation of the flange angle phi:</p>
+<pre>
+     w = der(phi);    a = der(w)
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p1_hs</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.Water.html">Water</a>.<a href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a>.<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.html">BaseIF97</a>.<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.html">Basic</a>.p1_hs</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Equation number 1 from:<br />
+The International Association for the Properties of Water and
+Steam<br />
+Gaithersburg, Maryland, USA<br />
+September 2001<br />
+Supplementary Release on&nbsp; Backward Equations for Pressure as a
+Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+Formulation 1997 for the Thermodynamic Properties of Water and
+Steam<br /></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function p1_hs
+  extends Modelica.Icons.Function;
+  input SI.SpecificEnthalpy h "Specific enthalpy";
+  input SI.SpecificEntropy s "Specific entropy";
+  output SI.Pressure p "Pressure";
+  constant Real[:] n = {-0.691997014660582,-18.361254878756,-9.28332409297335,65.9639569909906,-16.2060388912024,450.620017338667,854.68067822417,6075.23214001162,32.6487682621856,-26.9408844582931,-319.9478483343,-928.35430704332,30.3634537455249,-65.0540422444146,-4309.9131651613,-747.512324096068,730.000345529245,1142.84032569021,-436.407041874559};
+  constant Real[:] I = {0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,3,4,4,5};
+  constant Real[:] J = {0,1,2,4,5,6,8,14,0,1,4,6,0,1,10,4,1,4,0};
+  constant SI.SpecificEnthalpy hstar = 3400000.0 "Normalization enthalpy";
+  constant SI.Pressure pstar = 100000000.0 "Normalization pressure";
+  constant SI.SpecificEntropy sstar = 7600.0 "Normalization entropy";
+end p1_hs;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

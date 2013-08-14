@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Sources.CombiTimeTable</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Sources.html">Sources</a>.CombiTimeTable</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This block generates an output signal y[:] by <b>linear
+interpolation</b> in a table. The time points and function values
+are stored in a matrix <b>table[i,j]</b>, where the first column
+table[:,1] contains the time points and the other columns contain
+the data to be interpolated.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/Sources/CombiTimeTable.png" alt="CombiTimeTable.png" /></p>
+<p>Via parameter <b>columns</b> it can be defined which columns of
+the table are interpolated. If, e.g., columns={2,4}, it is assumed
+that 2 output signals are present and that the first output is
+computed by interpolation of column 2 and the second output is
+computed by interpolation of column 4 of the table matrix. The
+table interpolation has the following properties:</p>
+<ul>
+<li>The time points need to be <b>strictly increasing</b> if
+smoothness is ContinuousDerivative, otherwise <b>monotonically
+increasing</b>.</li>
+<li><b>Discontinuities</b> are allowed, by providing the same time
+point twice in the table.</li>
+<li>Values <b>outside</b> of the table range, are computed by
+extrapolation according to the setting of parameter
+<b>extrapolation</b>:
+<pre>
+  extrapolation = 1: hold the first or last value of the table,
+                     if outside of the table scope.
+                = 2: extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
+                = 3: periodically repeat the table data
+                     (periodical function).
+                = 4: no extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>Via parameter <b>smoothness</b> it is defined how the data is
+interpolated:
+<pre>
+  smoothness = 1: linear interpolation
+             = 2: smooth interpolation with Akima-splines such
+                  that der(y) is continuous, also if extrapolated.
+             = 3: constant segments
+</pre></li>
+<li>If the table has only <b>one row</b>, no interpolation is
+performed and the table values of this row are just returned.</li>
+<li>Via parameters <b>startTime</b> and <b>offset</b> the curve
+defined by the table can be shifted both in time and in the
+ordinate value. The time instants stored in the table are therefore
+<b>relative</b> to <b>startTime</b>. If time &lt; startTime, no
+interpolation is performed and the offset is used as ordinate value
+for all outputs.</li>
+<li>The table is implemented in a numerically sound way by
+generating <b>time events</b> at interval boundaries. This
+generates continuously differentiable values for the
+integrator.</li>
+<li>For special applications it is sometimes needed to know the
+minimum and maximum time instant defined in the table as a
+parameter. For this reason parameters <b>t_min</b> and <b>t_max</b>
+are provided and can be accessed from the outside of the table
+object.</li>
+</ul>
+<p>Example:</p>
+<pre>
+   table = [0  0
+            1  0
+            1  1
+            2  4
+            3  9
+            4 16]; extrapolation = 3 (default)
+If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
+    e.g., time = 1.5, the output y =  2.5,
+    e.g., time = 2.0, the output y =  4.0,
+    e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation via last 2 points).
+</pre>
+<p>The table matrix can be defined in the following ways:</p>
+<ol>
+<li>Explicitly supplied as <b>parameter matrix</b> "table", and the
+other parameters have the following values:
+<pre>
+   tableName is "NoName" or has only blanks,
+   fileName  is "NoName" or has only blanks.
+</pre></li>
+<li><b>Read</b> from a <b>file</b> "fileName" where the matrix is
+stored as "tableName". Both ASCII and MAT-file format is possible.
+(The ASCII format is described below). The MAT-file format comes in
+four different versions: v4, v6, v7 and v7.3. The library supports
+at least v4, v6 and v7 whereas v7.3 is optional. It is most
+convenient to generate the MAT-file from FreeMat or MATLAB® by
+command
+<pre>
+   save tables.mat tab1 tab2 tab3
+</pre>
+or Scilab by command
+<pre>
+   savematfile tables.mat tab1 tab2 tab3
+</pre>
+when the three tables tab1, tab2, tab3 should be used from the
+model.<br />
+Note, a fileName can be defined as URI by using the helper function
+<a href="Modelica.Utilities.Files.loadResource.html">loadResource</a>.</li>
+<li>Statically stored in function "usertab" in file "usertab.c".
+The matrix is identified by "tableName". Parameter fileName =
+"NoName" or has only blanks. Row-wise storage is always to be
+preferred as otherwise the table is reallocated and
+transposed.</li>
+</ol>
+<p>When the constant "NO_FILE_SYSTEM" is defined, all file I/O
+related parts of the source code are removed by the C-preprocessor,
+such that no access to files takes place.</p>
+<p>If tables are read from an ASCII-file, the file needs to have
+the following structure ("-----" is not part of the file
+content):</p>
+<pre>
+-----------------------------------------------------
+#1
+double tab1(6,2)   # comment line
+  0   0
+  1   0
+  1   1
+  2   4
+  3   9
+  4  16
+double tab2(6,2)   # another comment line
+  0   0
+  2   0
+  2   2
+  4   8
+  6  18
+  8  32
+-----------------------------------------------------
+</pre>
+<p>Note, that the first two characters in the file need to be "#1"
+(a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared with type
+(= "double" or "float"), name and actual dimensions. Finally, in
+successive rows of the file, the elements of the matrix have to be
+given. The elements have to be provided as a sequence of numbers in
+row-wise order (therefore a matrix row can span several lines in
+the file and need not start at the beginning of a line). Numbers
+have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab ( ), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments
+start with the hash symbol (#) and can appear everywhere. Other
+characters, like trailing non comments, are not allowed in the
+file.</p>
+<p>MATLAB is a registered trademark of The MathWorks, Inc.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>April 09, 2013</i> by Thomas Beutlich:<br />
+Implemented as external object.</li>
+<li><i>March 31, 2001</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Used CombiTableTime as a basis and added the arguments
+<b>extrapolation, columns, startTime</b>. This allows periodic
+function definitions.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

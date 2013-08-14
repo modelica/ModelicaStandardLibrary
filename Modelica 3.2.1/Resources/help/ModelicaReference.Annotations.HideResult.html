@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.HideResult</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Annotations.html">Annotations</a>.HideResult</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Annotation for code generation (hide result)</p>
+<h4>Syntax</h4>
+<pre>
+   <b>annotation</b>"(" HideResult "=" ( <b>false</b> | <b>true</b> ) ")
+</pre>
+<h4>Description</h4>
+<p>HideResult = true defines that the model developer proposes to
+not show the simulator results of the corresponding component
+[e.g., it will not be possible to plot this variable].</p>
+<p>HideResult = false defines that the developer proposes to show
+the corresponding component [if a variable is declared in a
+protected section, a tool might not include it in a simulation
+result. By setting HideResult = false, the modeler would like to
+have the variable in the simulation result, even if in the
+protected section].</p>
+<p>HideResult is for example used in the connectors of the
+Modelica.StateGraph library to not show variables to the modeler
+that are of no interest to him and would confuse him.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

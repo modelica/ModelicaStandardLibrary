@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.UsersGuide.Conventions.Documentation.Format.Equations</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.UsersGuide.html">UsersGuide</a>.<a href="Modelica.UsersGuide.Conventions.html">Conventions</a>.<a href="Modelica.UsersGuide.Conventions.Documentation.html">Documentation</a>.<a href="Modelica.UsersGuide.Conventions.Documentation.Format.html">Format</a>.Equations</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>In the context of <a href="http://www.w3c.org/">HTML</a>
+documentation equations should have a graphical representation in
+PNG format. For that purpose tool specific math typing capabilities
+can be used. Alternatively the LaTeX to HTML translator <a href="http://www.latex2html.org">LaTeX2HTML</a>, or the <a href="http://www.homeschoolmath.net/worksheets/equation_editor.php">Online
+Equation Editor</a> or <a href="http://www.codecogs.com/components/eqneditor/editor.php">codecogs</a>
+can be used.</p>
+<p>A typical equation, e.g., of a Fourier synthesis, could look
+like<br />
+<img src="../../../Modelica%203.2.1/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png" />
+<br />
+or<br />
+<img src="../../../Modelica%203.2.1/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png" alt="y=a_1+a_2" /><br />
+In an <code>alt</code> tag the original equation should be stored,
+e.g.,</p>
+<pre>
+&lt;img
+ src="modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png"
+ alt="y=a_1+a_2"&gt;
+</pre>
+<p>If one wants to refer to particular variables and parameters in
+the documentation text, either a graphical representation (PNG
+file) or italic fonts for regular physical symbols and lower case
+<a href="http://www.w3.org/TR/html4/sgml/entities.html">Greek
+letters</a> should be used. Full word variables and full word
+indices should be spelled within &lt;code&gt; and &lt;/code&gt;.
+Vector and array indices should be typeset as subscripts using the
+&lt;sub&gt; and &lt;/sub&gt; tags.</p>
+<p>Examples for such variables and parameters are: <i>φ</i>,
+<i>φ</i><sub>ref</sub>, <i>v<sub>2</sub></i>,
+<code>useDamperCage</code>.</p>
+<h4>Numbered equations</h4>
+<p>For numbering equations a one row table with two columns should
+be used. The equation number should be placed in the right
+column:</p>
+<pre>
+&lt;table border="0" cellspacing="10" cellpadding="2"&gt;
+  &lt;tr&gt;
+      &lt;td&gt;&lt;img
+      src="modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png"
+      alt="y=a_1+a_2"&gt; &lt;/td&gt;
+      &lt;td&gt;(1)&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<p>appears as:</p>
+<table border="0" cellspacing="10" cellpadding="2">
+<tr>
+<td><img src="../../../Modelica%203.2.1/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png" alt="y=a_1+a_2" /></td>
+<td>(1)</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

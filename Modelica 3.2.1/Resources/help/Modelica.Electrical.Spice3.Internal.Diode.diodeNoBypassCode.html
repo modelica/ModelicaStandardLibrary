@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.Internal.Diode.diodeNoBypassCode</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.Internal.html">Internal</a>.<a href="Modelica.Electrical.Spice3.Internal.Diode.html">Diode</a>.diodeNoBypassCode</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This function NoBypassCode calculates the currents (and the
+capacitances) that are necessary for the currents to be used in the
+top-level model.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function diodeNoBypassCode
+  extends Modelica.Icons.Function;
+  input DiodeModelLineParams in_p "Input record model line parameters for diode";
+  input DiodeParams in_dp "Input record with parameters for diode";
+  input DiodeCalc in_c "Input record DiodeCalc";
+  input Model.Model in_m "Input record model";
+  input Boolean in_m_mbInit;
+  input Modelica.SIunits.Voltage[2] in_m_pVoltageValues;
+  output CurrentsCapacitances out_cc "Output record with calculated currents and capacitances";
+  output Modelica.SIunits.Capacitance m_dCap "Output capacitance";
+end diodeNoBypassCode;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

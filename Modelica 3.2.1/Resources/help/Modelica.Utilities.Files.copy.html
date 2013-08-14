@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Files.copy</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Utilities.html">Utilities</a>.<a href="Modelica.Utilities.Files.html">Files</a>.copy</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Files.<b>copy</b>(oldName, newName);
+Files.<b>copy</b>(oldName, newName, replace = true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>copy</b>(..) copies a file or a directory to a new
+location. Via the optional argument <b>replace</b> it can be
+defined whether an already existing file may be replaced by the
+required copy.</p>
+<p>If oldName/newName are directories, then the newName directory
+may exist. In such a case the content of oldName is copied into
+directory newName. If replace = <b>false</b> it is required that
+the existing files in newName are different from the existing files
+in oldName.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  copy("C:/test1/directory1", "C:/test2/directory2");
+     -&gt; the content of directory1 is copied into directory2
+        if "C:/test2/directory2" does not exist, it is newly
+        created. If "replace=true", files in directory2
+        may be overwritten by their copy
+  copy("test1.txt", "test2.txt")
+     -&gt; make a copy of file "test1.txt" with the name "test2.txt"
+        in the current directory
+</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function copy
+  extends Modelica.Icons.Function;
+  input String oldName "Name of file or directory to be copied";
+  input String newName "Name of copy of the file or of the directory";
+  input Boolean replace = false "= true, if an existing file may be replaced by the required copy";
+end copy;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Types.Dynamics</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Types.html">Types</a>.Dynamics</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Enumeration to define the formulation of balance equations (to
+be selected via choices menu):</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>Dynamics.</b></th>
+<th><b>Meaning</b></th>
+</tr>
+<tr>
+<td>DynamicFreeInitial</td>
+<td>Dynamic balance, Initial guess value</td>
+</tr>
+<tr>
+<td>FixedInitial</td>
+<td>Dynamic balance, Initial value fixed</td>
+</tr>
+<tr>
+<td>SteadyStateInitial</td>
+<td>Dynamic balance, Steady state initial with guess value</td>
+</tr>
+<tr>
+<td>SteadyState</td>
+<td>Steady state balance, Initial guess value</td>
+</tr>
+</table>
+<p>The enumeration "Dynamics" is used for the mass, energy and
+momentum balance equations respectively. The exact meaning for the
+three balance equations is stated in the following tables:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td colspan="3"><b>Mass balance</b></td>
+</tr>
+<tr>
+<td><b>Dynamics.</b></td>
+<td><b>Balance equation</b></td>
+<td><b>Initial condition</b></td>
+</tr>
+<tr>
+<td>DynamicFreeInitial</td>
+<td>no restrictions</td>
+<td>no initial conditions</td>
+</tr>
+<tr>
+<td>FixedInitial</td>
+<td>no restrictions</td>
+<td><b>if</b> Medium.singleState <b>then</b><br />
+&nbsp;&nbsp;no initial condition<br />
+<b>else</b> p=p_start</td>
+</tr>
+<tr>
+<td>SteadyStateInitial</td>
+<td>no restrictions</td>
+<td><b>if</b> Medium.singleState <b>then</b><br />
+&nbsp;&nbsp;no initial condition<br />
+<b>else</b> <b>der</b>(p)=0</td>
+</tr>
+<tr>
+<td>SteadyState</td>
+<td><b>der</b>(m)=0</td>
+<td>no initial conditions</td>
+</tr>
+</table>
+&nbsp;<br />
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td colspan="3"><b>Energy balance</b></td>
+</tr>
+<tr>
+<td><b>Dynamics.</b></td>
+<td><b>Balance equation</b></td>
+<td><b>Initial condition</b></td>
+</tr>
+<tr>
+<td>DynamicFreeInitial</td>
+<td>no restrictions</td>
+<td>no initial conditions</td>
+</tr>
+<tr>
+<td>FixedInitial</td>
+<td>no restrictions</td>
+<td>T=T_start or h=h_start</td>
+</tr>
+<tr>
+<td>SteadyStateInitial</td>
+<td>no restrictions</td>
+<td><b>der</b>(T)=0 or <b>der</b>(h)=0</td>
+</tr>
+<tr>
+<td>SteadyState</td>
+<td><b>der</b>(U)=0</td>
+<td>no initial conditions</td>
+</tr>
+</table>
+&nbsp;<br />
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td colspan="3"><b>Momentum balance</b></td>
+</tr>
+<tr>
+<td><b>Dynamics.</b></td>
+<td><b>Balance equation</b></td>
+<td><b>Initial condition</b></td>
+</tr>
+<tr>
+<td>DynamicFreeInitial</td>
+<td>no restrictions</td>
+<td>no initial conditions</td>
+</tr>
+<tr>
+<td>FixedInitial</td>
+<td>no restrictions</td>
+<td>m_flow = m_flow_start</td>
+</tr>
+<tr>
+<td>SteadyStateInitial</td>
+<td>no restrictions</td>
+<td><b>der</b>(m_flow)=0</td>
+</tr>
+<tr>
+<td>SteadyState</td>
+<td><b>der</b>(m_flow)=0</td>
+<td>no initial conditions</td>
+</tr>
+</table>
+<p>In the tables above, the equations are given for one-substance
+fluids. For multiple-substance fluids and for trace substances,
+equivalent equations hold.</p>
+<p>Medium.singleState is a medium property and defines whether the
+medium is only described by one state (+ the mass fractions in case
+of a multi-substance fluid). In such a case one initial condition
+less must be provided. For example, incompressible media have
+Medium.singleState = <b>true</b>.</p>
+<h4><a name="definition" id="definition">Definition</a></h4>
+<blockquote>
+<pre>
+type Dynamics = enumeration(DynamicFreeInitial "DynamicFreeInitial -- Dynamic balance, Initial guess value", FixedInitial "FixedInitial -- Dynamic balance, Initial value fixed", SteadyStateInitial "SteadyStateInitial -- Dynamic balance, Steady state initial with guess value", SteadyState  "SteadyState -- Steady state balance, Initial guess value");
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

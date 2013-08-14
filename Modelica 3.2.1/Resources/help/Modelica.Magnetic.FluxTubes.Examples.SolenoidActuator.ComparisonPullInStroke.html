@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Magnetic.html">Magnetic</a>.<a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.html">SolenoidActuator</a>.ComparisonPullInStroke</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Have a look at <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.html">SolenoidActuator</a>
+for general comments and at <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid.html">
+SimpleSolenoid</a> and <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid.html">
+AdvancedSolenoid</a> for a detailed description of both magnetic
+network models.</p>
+<p>A voltage step is applied to both solenoid models at time t=0.
+The armatures of both models and therewith connected loads are
+pulled from their rest position at maximum air gap length to their
+minimum position that is due to a stopper. As a reference,
+simulation results obtained with a dynamic model based on
+stationary FEA look-up tables (not part of this library) are
+included. Note that these reference results are valid for the
+default supply voltage v_step=12V DC and the default load mass
+m_load=0.01kg only!</p>
+<p>Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 0.05
+s</b>. Plot actuator current, force and position of the two
+magnetic network models and the FEA-based reference <b>vs. time</b>
+(each quantity in one common plot window):</p>
+<pre>
+Plot window for current:
+    simpleSolenoid.p.i          // rapid current rise indicates low inductance of simple network model
+    advancedSolenoid.p.i        // current rise slower, better match with FEA reference
+    comparisonWithFEA.y[1]      // current obtained from dynamic model based on stationary FEA look-up tables
+
+Plot window for force:
+    simpleSolenoid.armature.flange_a.f       // reluctance force of simple actuator model
+    advancedSolenoid.armature.flange_a.f     // reluctance force of advanced actuator model
+    comparisonWithFEA.y[2]      // force obtained from dynamic model based on stationary FEA look-up tables
+
+Plot window for position:
+    simpleSolenoid.x            // armature position of simple actuator model
+    advancedSolenoid.x          // armature position of advanced actuator model
+    comparisonWithFEA.y[3]      // position obtained from dynamic model based on stationary FEA look-up tables
+</pre>
+<p>The characteristic current drop during pull-in is due to both
+armature motion and increasing inductance with decreasing air gap
+length. Bouncing occurs when armature and load of each model arrive
+at the stopper at minimum position. Although the pull-in times of
+the two magnetic network models are relatively close to the time
+obtained with the reference model, the accuracy of the advanced
+solenoid model is better, as one can tell from a comparison of the
+current rise at the beginning of the stroke.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

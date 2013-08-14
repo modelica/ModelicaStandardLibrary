@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a>.PipeWithScalarField</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Model <b>PipeWithScalarField</b> visualizes a pipe and a scalar
+field along the pipe axis. The latter is shown by mapping scalar
+field to color values with a color map and utilizing this color at
+the perimeter associated with the corresponding axis location.
+Typically the scalar field value is a temperature, but might be
+also another quantity. Predefined color maps are available from
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.html">
+MultiBody.Visualizers.Colors.ColorMaps</a> and can be selected via
+parameter "colorMap". A color map with the corresponding scalar
+field values can be exported as vector-graphics in svg-format with
+function <a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">
+MultiBody.Visualizers.Colors.colorMapToSvg</a>. The position and
+orientation of the center of the circle at the left end of the pipe
+is defined via parameters "r_0" and "R", respectively. The pipe
+axis is oriented along the x-axis of the local coordinate system
+described by "R", see figure below:</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField.png" /></blockquote>
+<p>The color coding is shown in the next figure. It was generated
+with <a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">
+MultiBody.Visualizers.Colors.colorMapToSvg</a> using the following
+call:</p>
+<blockquote>
+<pre>
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMap.jet(),
+              height=50, nScalars=6, T_max=100, caption="Temperature in C");
+</pre></blockquote>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png" /></blockquote>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField.colorMap.html">
+colorMap</a></td>
+<td></td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

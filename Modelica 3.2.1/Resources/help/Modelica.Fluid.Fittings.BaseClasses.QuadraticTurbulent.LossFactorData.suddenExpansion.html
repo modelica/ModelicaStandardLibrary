@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Fittings.html">Fittings</a>.<a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a>.<a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a>.<a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a>.suddenExpansion</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The loss factors are given for mass flow rates from port_a to
+port_b as:</p>
+<pre>
+   A_a &lt; A_b (Idelchik 1994, diagram 4-1, p. 208):
+      zeta = dp/(rho_a*v_a^2/2)
+           = (1 - A_a/A_b)^2 for Re_a ≥ 3.3e3 (turbulent flow)
+      zeta = 30/Re           for Re_a &lt; 10    (laminar flow)
+ 
+   A_a &gt; A_b (Idelchik 1994, diagram 4-9, p. 216 and diagram 4-10, p. 217)
+      zeta = dp/(rho_b*v_b^2/2)
+           = 0.5*(1 - A_b/A_a)^0.75 for Re_b ≥ 1e4 (turbulent flow)
+      zeta = 30/Re                  for Re_a &lt; 10  (laminar flow)
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+encapsulated function suddenExpansion
+  import Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+  import SI = Modelica.SIunits;
+  input SI.Diameter diameter_a "Inner diameter of pipe at port_a" annotation(Dialog);
+  input SI.Diameter diameter_b "Inner diameter of pipe at port_b" annotation(Dialog);
+  output LossFactorData data "Pressure loss factors for both flow directions";
+end suddenExpansion;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

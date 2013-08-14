@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Continuous.Filter</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Continuous.html">Continuous</a>.Filter</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This blocks models various types of filters:</p>
+<blockquote><b>low pass, high pass, band pass, and band stop
+filters</b></blockquote>
+<p>using various filter characteristics:</p>
+<blockquote><b>CriticalDamping, Bessel, Butterworth, Chebyshev Type
+I filters</b></blockquote>
+<p>By default, a filter block is initialized in
+<b>steady-state</b>, in order to avoid unwanted oscillations at the
+beginning. In special cases, it might be useful to select one of
+the other initialization options under tab "Advanced".</p>
+<p>Typical frequency responses for the 4 supported low pass filter
+types are shown in the next figure:</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/LowPassOrder4Filters.png" alt="LowPassOrder4Filters.png" /></blockquote>
+<p>The step responses of the same low pass filters are shown in the
+next figure, starting from a steady state initial filter with
+initial input = 0.2:</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/LowPassOrder4FiltersStepResponse.png" alt="LowPassOrder4FiltersStepResponse.png" /></blockquote>
+<p>Obviously, the frequency responses give a somewhat wrong
+impression of the filter characteristics: Although Butterworth and
+Chebyshev filters have a significantly steeper magnitude as the
+CriticalDamping and Bessel filters, the step responses of the
+latter ones are much better. This means for example, that a
+CriticalDamping or a Bessel filter should be selected, if a filter
+is mainly used to make a non-linear inverse model realizable.</p>
+<p>Typical frequency responses for the 4 supported high pass filter
+types are shown in the next figure:</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/HighPassOrder4Filters.png" alt="HighPassOrder4Filters.png" /></blockquote>
+<p>The corresponding step responses of these high pass filters are
+shown in the next figure:</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/HighPassOrder4FiltersStepResponse.png" alt="HighPassOrder4FiltersStepResponse.png" /></blockquote>
+<p>All filters are available in <b>normalized</b> (default) and
+non-normalized form. In the normalized form, the amplitude of the
+filter transfer function at the cut-off frequency f_cut is -3 dB (=
+10^(-3/20) = 0.70794..). Note, when comparing the filters of this
+function with other software systems, the setting of "normalized"
+has to be selected appropriately. For example, the signal
+processing toolbox of Matlab provides the filters in non-normalized
+form and therefore a comparison makes only sense, if normalized =
+<b>false</b> is set. A normalized filter is usually better suited
+for applications, since filters of different orders are
+"comparable", whereas non-normalized filters usually require to
+adapt the cut-off frequency, when the order of the filter is
+changed. See a comparison of "normalized" and "non-normalized"
+filters at hand of CriticalDamping filters of order 1,2,3:</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/CriticalDampingNormalized.png" alt="CriticalDampingNormalized.png" /></blockquote>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/CriticalDampingNonNormalized.png" alt="CriticalDampingNonNormalized.png" /></blockquote>
+<h4>Implementation</h4>
+<p>The filters are implemented in the following, reliable way:</p>
+<ol>
+<li>A prototype low pass filter with a cut-off angular frequency of
+1 rad/s is constructed from the desired analogFilter and the
+desired normalization.</li>
+<li>This prototype low pass filter is transformed to the desired
+filterType and the desired cut-off frequency f_cut using a
+transformation on the Laplace variable "s".</li>
+<li>The resulting first and second order transfer functions are
+implemented in state space form, using the "eigen value"
+representation of a transfer function:
+<pre>
+
+  // second order block with eigen values: a +/- jb
+  <b>der</b>(x1) = a*x1 - b*x2 + (a^2 + b^2)/b*u;
+  <b>der</b>(x2) = b*x1 + a*x2;
+       y  = x2;
+     
+</pre>
+The dc-gain from the input to the output of this block is one and
+the selected states are in the order of the input (if "u" is in the
+order of "one", then the states are also in the order of "one"). In
+the "Advanced" tab, a "nominal" value for the input "u" can be
+given. If appropriately selected, the states are in the order of
+"one" and then step-size control is always appropriate.</li>
+</ol>
+<h4>References</h4>
+<dl>
+<dt>Tietze U., and Schenk C. (2002):</dt>
+<dd><b>Halbleiter-Schaltungstechnik</b>. Springer Verlag, 12.
+Auflage, pp. 815-852.</dd>
+</dl>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<dl>
+<dt><b>Main Author:</b></dt>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin
+Otter</a>, DLR Oberpfaffenhofen.</dd>
+</dl>
+<h4>Acknowledgement</h4>
+<p>The development of this block was partially funded by BMBF
+within the <a href="http://www.eurosyslib.com/">ITEA2
+EUROSYSLIB</a> project.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

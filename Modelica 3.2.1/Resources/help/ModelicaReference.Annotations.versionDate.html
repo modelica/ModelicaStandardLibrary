@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.versionDate</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Annotations.html">Annotations</a>.versionDate</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>UTC date of first version build (in format:
+<code>YYYY-MM-DD</code>).</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>annotation</b>"(" versionDate "=" STRING ")"
+</pre></blockquote>
+<h4>Description</h4>
+<p>“<code>versionDate</code>” is the date in UTC format (according
+to <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>)
+when the library was released.</p>
+<h4>Examples</h4>
+<pre>
+<b>package</b> Modelica
+  <b>annotation</b>(version      = "3.0.1",
+             <em>versionDate  = "2008-04-10"</em>,
+             versionBuild = 4,
+             dateModified = "2009-02-15 16:33:14Z",
+             revisionId   = "$I​d:: package.mo 2566 2009-02-15 16:33:14Z #$");
+  ...
+  <b>end</b> Modelica;
+</pre>
+<h5>Related annotations:</h5>
+<ul>
+<li><a href="ModelicaReference.Annotations.version.html">version</a></li>
+<li><a href="ModelicaReference.Annotations.versionBuild.html">versionBuild</a></li>
+<li><a href="ModelicaReference.Annotations.dateModified.html">dateModified</a></li>
+<li><a href="ModelicaReference.Annotations.revisionId.html">revisionId</a></li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

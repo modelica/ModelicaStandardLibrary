@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.IdealGases.Common.MixtureGasNasa</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.IdealGases.html">IdealGases</a>.<a href="Modelica.Media.IdealGases.Common.html">Common</a>.MixtureGasNasa</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This model calculates the medium properties for single component
+ideal gases.</p>
+<p><b>Sources for model and literature:</b><br />
+Original Data: Computer program for calculation of complex chemical
+equilibrium compositions and applications. Part 1: Analysis
+Document ID: 19950013764 N (95N20180) File Series: NASA Technical
+Reports Report Number: NASA-RP-1311 E-8017 NAS 1.61:1311 Authors:
+Gordon, Sanford (NASA Lewis Research Center) Mcbride, Bonnie J.
+(NASA Lewis Research Center) Published: Oct 01, 1994.</p>
+<p><b>Known limits of validity:</b><br />
+The data is valid for temperatures between 200 K and 6000 K. A few
+of the data sets for monatomic gases have a discontinuous 1st
+derivative at 1000 K, but this never caused problems so far.</p>
+<p>This model has been copied from the ThermoFluid library. It has
+been developed by Hubertus Tummescheit.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.ThermodynamicState.html">
+ThermodynamicState</a></td>
+<td>Thermodynamic state variables</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.BaseProperties.html">
+BaseProperties</a></td>
+<td>Base properties (p, d, T, h, u, R, MM, X, and Xi of NASA
+mixture gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.setState_pTX.html">
+setState_pTX</a></td>
+<td>Return thermodynamic state as function of p, T and composition
+X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.setState_phX.html">
+setState_phX</a></td>
+<td>Return thermodynamic state as function of p, h and composition
+X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.setState_psX.html">
+setState_psX</a></td>
+<td>Return thermodynamic state as function of p, s and composition
+X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.setState_dTX.html">
+setState_dTX</a></td>
+<td>Return thermodynamic state as function of d, T and composition
+X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.setSmoothState.html">
+setSmoothState</a></td>
+<td>Return thermodynamic state so that it smoothly approximates: if
+x &gt; 0 then state_a else state_b</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.pressure.html">pressure</a></td>
+<td>Return pressure of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.temperature.html">temperature</a></td>
+<td>Return temperature of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.density.html">density</a></td>
+<td>Return density of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.specificEnthalpy.html">
+specificEnthalpy</a></td>
+<td>Return specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.specificInternalEnergy.html">
+specificInternalEnergy</a></td>
+<td>Return specific internal energy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.specificEntropy.html">
+specificEntropy</a></td>
+<td>Return specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.specificGibbsEnergy.html">
+specificGibbsEnergy</a></td>
+<td>Return specific Gibbs energy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.specificHelmholtzEnergy.html">
+specificHelmholtzEnergy</a></td>
+<td>Return specific Helmholtz energy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.h_TX.html">h_TX</a></td>
+<td>Return specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.h_TX_der.html">h_TX_der</a></td>
+<td>Return specific enthalpy derivative</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.gasConstant.html">gasConstant</a></td>
+<td>Return gasConstant</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.specificHeatCapacityCp.html">
+specificHeatCapacityCp</a></td>
+<td>Return specific heat capacity at constant pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.specificHeatCapacityCv.html">
+specificHeatCapacityCv</a></td>
+<td>Return specific heat capacity at constant volume from
+temperature and gas data</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.MixEntropy.html">MixEntropy</a></td>
+<td>Return mixing entropy of ideal gases / R</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.s_TX.html">s_TX</a></td>
+<td>Return temperature dependent part of the entropy, expects full
+entropy vector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.isentropicExponent.html">
+isentropicExponent</a></td>
+<td>Return isentropic exponent</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.velocityOfSound.html">
+velocityOfSound</a></td>
+<td>Return velocity of sound</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.isentropicEnthalpyApproximation.html">
+isentropicEnthalpyApproximation</a></td>
+<td>Approximate method of calculating h_is from upstream properties
+and downstream pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.isentropicEnthalpy.html">
+isentropicEnthalpy</a></td>
+<td>Return isentropic enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.gasMixtureViscosity.html">
+gasMixtureViscosity</a></td>
+<td>Return viscosities of gas mixtures at low pressures (Wilke
+method)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.dynamicViscosity.html">
+dynamicViscosity</a></td>
+<td>Return mixture dynamic viscosity</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.mixtureViscosityChung.html">
+mixtureViscosityChung</a></td>
+<td>Return the viscosity of gas mixtures without access to
+component viscosities (Chung, et. al. rules)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.lowPressureThermalConductivity.html">
+lowPressureThermalConductivity</a></td>
+<td>Return thermal conductivities of low-pressure gas mixtures
+(Mason and Saxena Modification)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.thermalConductivity.html">
+thermalConductivity</a></td>
+<td>Return thermal conductivity for low pressure gas mixtures</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.isobaricExpansionCoefficient.html">
+isobaricExpansionCoefficient</a></td>
+<td>Return isobaric expansion coefficient beta</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.isothermalCompressibility.html">
+isothermalCompressibility</a></td>
+<td>Return isothermal compressibility factor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.density_derp_T.html">
+density_derp_T</a></td>
+<td>Return density derivative by pressure at constant
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.density_derT_p.html">
+density_derT_p</a></td>
+<td>Return density derivative by temperature at constant
+pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.density_derX.html">
+density_derX</a></td>
+<td>Return density derivative by mass fraction</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.molarMass.html">molarMass</a></td>
+<td>Return molar mass of mixture</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.T_hX.html">T_hX</a></td>
+<td>Return temperature from specific enthalpy and mass
+fraction</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.T_psX.html">T_psX</a></td>
+<td>Return temperature from pressure, specific entropy and mass
+fraction</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

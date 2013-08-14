@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.html">StraightPipe</a>.dp_laminar</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of pressure loss in a straight pipe for
+<b>laminar</b> flow regime of single-phase fluid flow only.</p>
+<h4>Restriction</h4>
+<p>This function shall be used inside of the restricted limits
+according to the referenced literature.</p>
+<ul>
+<li><b>circular cross sectional area</b></li>
+<li><b>laminar flow regime (Reynolds number Re ≤ 2000)
+<i>[VDI-Wärmeatlas 2002, p. Lab, eq. 3]</i></b></li>
+</ul>
+<h4>Geometry</h4>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png" alt="pic_straightPipe" /></p>
+<h4>Calculation</h4>
+<p>The pressure loss <b>dp</b> for straight pipes is determined
+by:</p>
+<pre>
+    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>lambda_FRI</b></td>
+<td>as Darcy friction factor [-].</td>
+</tr>
+<tr>
+<td><b>L</b></td>
+<td>as length of straight pipe [m],</td>
+</tr>
+<tr>
+<td><b>d_hyd</b></td>
+<td>as hydraulic diameter of straight pipe [m],</td>
+</tr>
+<tr>
+<td><b>rho</b></td>
+<td>as density of fluid [kg/m3],</td>
+</tr>
+<tr>
+<td><b>velocity</b></td>
+<td>as mean velocity [m/s].</td>
+</tr>
+</table>
+<p>The Darcy friction factor <b>lambda_FRI</b> of straight pipes
+for the laminar flow regime is calculated by
+<b>Hagen-Poiseuilles</b> law according to <i>[Idelchik 2006, p. 77,
+eq. 2-3]</i> as follows:</p>
+<ul>
+<li><b>Laminar flow regime</b> is restricted to a Reynolds number
+<b>Re</b> ≤ 2000</li>
+<li>and calculated through:
+<pre>
+     lambda_FRI = 64/Re
+     
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>lambda_FRI</b></td>
+<td>as Darcy friction factor [-],</td>
+</tr>
+<tr>
+<td><b>Re</b></td>
+<td>as Reynolds number [-].</td>
+</tr>
+</table>
+</li>
+</ul>
+<p>The Darcy friction factor <b>lambda_FRI</b> in the laminar
+regime is independent of the surface roughness <b>K</b> as long as
+the relative roughness <b>k = surface roughness/hydraulic
+diameter</b> is smaller than 0.007. A higher relative roughness
+<b>k</b> than 0.007 leads to an earlier leaving of the laminar
+regime to the transition regime at some value of Reynolds number
+<b>Re_lam_leave</b> . This earlier leaving is not modelled here
+because only laminar fluid flow is considered.</p>
+<h4>Verification</h4>
+<p>The Darcy friction factor <b>lambda_FRI</b> in dependence of
+Reynolds number is shown in the figure below.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_laminar_lambdavsRe_ver.png" alt="fig_straightPipe_laminar_lambdavsRe_ver" /></p>
+<p>The pressure loss <b>dp</b> for the laminar regime in dependence
+of the mass flow rate of water is shown in the figure below.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_laminar_DPvsMFLOW.png" alt="fig_straightPipe_dp_laminar_DPvsMFLOW" /></p>
+<p>Note that this pressure loss function shall not be used for the
+modelling outside of the laminar flow regime at <i><b>Re</b> &gt;
+2000</i> even though it could be used for that.</p>
+<p>If the whole flow regime shall be modelled, the pressure loss
+function <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall.html">
+dp_overall</a> can be used.</p>
+<h4>References</h4>
+<dl>
+<dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
+<dd><b>Inline integration: A new mixed symbolic / numeric approach
+for solving differential-algebraic equation systems.</b>. In
+Proceedings of European Simulation MultiConference, Praque,
+1995.</dd>
+<dt>Idelchik,I.E.:</dt>
+<dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing
+House, Mumbai, 3rd edition, 2006.</dd>
+<dt>VDI:</dt>
+<dd><b>VDI - Wärmeatlas: Berechnungsblätter für den
+Wärmeübergang</b>. Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

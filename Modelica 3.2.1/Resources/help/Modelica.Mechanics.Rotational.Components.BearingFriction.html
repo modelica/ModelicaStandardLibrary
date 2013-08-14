@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Rotational.Components.BearingFriction</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a href="Modelica.Mechanics.Rotational.Components.html">Components</a>.BearingFriction</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This element describes <b>Coulomb friction</b> in
+<b>bearings</b>, i.e., a frictional torque acting between a flange
+and the housing. The positive sliding friction torque "tau" has to
+be defined by table "tau_pos" as function of the absolute angular
+velocity "w". E.g.</p>
+<pre>
+       w | tau
+      ---+-----
+       0 |   0
+       1 |   2
+       2 |   5
+       3 |   8
+</pre>
+<p>gives the following table:</p>
+<pre>
+   tau_pos = [0, 0; 1, 2; 2, 5; 3, 8];
+</pre>
+<p>Currently, only linear interpolation in the table is supported.
+Outside of the table, extrapolation through the last two table
+entries is used. It is assumed that the negative sliding friction
+force has the same characteristic with negative values. Friction is
+modelled in the following way:</p>
+<p>When the absolute angular velocity "w" is not zero, the friction
+torque is a function of w and of a constant normal force. This
+dependency is defined via table tau_pos and can be determined by
+measurements, e.g., by driving the gear with constant velocity and
+measuring the needed motor torque (= friction torque).</p>
+<p>When the absolute angular velocity becomes zero, the elements
+connected by the friction element become stuck, i.e., the absolute
+angle remains constant. In this phase the friction torque is
+calculated from a torque balance due to the requirement, that the
+absolute acceleration shall be zero. The elements begin to slide
+when the friction torque exceeds a threshold value, called the
+maximum static friction torque, computed via:</p>
+<pre>
+   maximum_static_friction = <b>peak</b> * sliding_friction(w=0)  (<b>peak</b> &gt;= 1)
+</pre>
+<p>This procedure is implemented in a "clean" way by state events
+and leads to continuous/discrete systems of equations if friction
+elements are dynamically coupled which have to be solved by
+appropriate numerical methods. The method is described in:</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><b>Hybrid Modeling in Modelica based on the Synchronous Data
+Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+</dl>
+<p>More precise friction models take into account the elasticity of
+the material when the two elements are "stuck", as well as other
+effects, like hysteresis. This has the advantage that the friction
+element can be completely described by a differential equation
+without events. The drawback is that the system becomes stiff
+(about 10-20 times slower simulation) and that more material
+constants have to be supplied which requires more sophisticated
+identification. For more details, see the following references,
+especially (Armstrong and Canudas de Witt 1996):</p>
+<dl>
+<dt>Armstrong B. (1991):</dt>
+<dd><b>Control of Machines with Friction</b>. Kluwer Academic
+Press, Boston MA.<br /></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
+<dd><b>Friction Modeling and Compensation.</b> The Control
+Handbook, edited by W.S.Levine, CRC Press, pp.
+1369-1382.<br /></dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P.
+(1995):</dt>
+<dd><b>A new model for control of systems with friction.</b> IEEE
+Transactions on Automatic Control, Vol. 40, No. 3, pp.
+419-425.</dd>
+</dl>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

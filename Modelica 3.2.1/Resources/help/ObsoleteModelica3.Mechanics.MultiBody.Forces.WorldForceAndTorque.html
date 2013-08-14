@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+ObsoleteModelica3.Mechanics.MultiBody.Forces.WorldForceAndTorque</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ObsoleteModelica3.html">ObsoleteModelica3</a>.<a href="ObsoleteModelica3.Mechanics.html">Mechanics</a>.<a href="ObsoleteModelica3.Mechanics.MultiBody.html">MultiBody</a>.<a href="ObsoleteModelica3.Mechanics.MultiBody.Forces.html">Forces</a>.WorldForceAndTorque</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <b>6</b> signals of the <b>load</b> connector are
+interpreted as the x-, y- and z-coordinates of a <b>force</b> and
+as the x-, y-, and z-coordinates of a <b>torque</b> resolved in the
+<b>world frame</b> and acting at the frame connector to which this
+component is attached. The input signals are mapped to the force
+and torque in the following way:</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>The force and torque are by default visualized as an arrow
+(force) and as a double arrow (torque) acting at the connector to
+which they are connected. The diameters and colors of the arrows
+are fixed and can be defined via parameters <b>forceDiameter</b>,
+<b>torqueDiameter</b>, <b>forceColor</b> and <b>torqueColor</b>.
+The arrows point in the directions defined by the inPort.signal
+signals. The lengths of the arrows are proportional to the length
+of the force and torque vectors, respectively, using parameters
+<b>N_to_m</b> and <b>Nm_to_m</b> as scaling factors. For example,
+if N_to_m = 100 N/m, then a force of 350 N is displayed as an arrow
+of length 3.5 m.</p>
+<p>An example how to use this model is given in the following
+figure:</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png" />
+<p>This leads to the following animation</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png" />
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

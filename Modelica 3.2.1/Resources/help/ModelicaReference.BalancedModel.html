@@ -1,0 +1,443 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.BalancedModel</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.BalancedModel</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The basic concept to count unknowns and equations.</p>
+<p>Restrictions for model and block classes are present, in order
+that missing or too many equations can be detected and localized by
+a Modelica translator before using the respective model or block
+class.</p>
+<h4>Examples</h4>
+<pre>
+   <b>partial model</b> BaseCorrelation
+     <b>input</b> Real x;
+     Real y;
+   <b>end</b> BaseCorrelation;
+
+   <b>model</b> SpecialCorrelation // correct in Modelica 2.2 and 3.0
+      <b>extends</b> BaseCorrelation(x=2);
+   <b>equation</b>
+       y=2/x;
+   <b>end</b> SpecialCorrelation;
+
+   <b>model</b> UseCorrelation // correct according to Modelica 2.2
+                        // not valid according to Modelica 3.0
+      <b>replaceable model</b> Correlation=BaseCorrelation;
+      Correlation correlation;
+   <b>equation</b>
+      correlation.y=time;
+   <b>end</b> UseCorrelation;
+
+   <b>model</b> Broken // after redeclaration, there is 1 equation too much in Modelica 2.2
+      UseCorrelation example(redeclare Correlation=SpecialCorrelation);
+   <b>end</b> Broken;
+</pre>
+<p>In this case one can argue that both UseCorrelation (adding an
+acausal equation) and SpecialCorrelation (adding a default to an
+input) are correct, but still when combined they lead to a model
+with too many equations - and it is not possible to determine which
+model is incorrect without strict rules. In Modelica 2.2, model
+Broken will work with some models. However, by just redeclaring it
+to model SpecialCorrelation, an error will occur and it will be
+very difficult in a larger model to figure out the source of this
+error. In Modelica 3.0, model UseCorrelation is no longer allowed
+and the translator will give an error. In fact, it is guaranteed
+that a redeclaration cannot lead to an unbalanced model any
+more.</p>
+<h4>Description</h4>
+<p>The restrictions below apply after flattening " i.e., inherited
+components are included " possibly modified.</p>
+<p><b>Definition 1: Local Number of Unknowns</b></p>
+<p>The local number of unknowns of a model or block class is the
+sum based on the components:</p>
+<ul>
+<li>For each declared component of specialized class type (Real,
+Integer, String, Boolean, enumeration and arrays of those, etc.) or
+record, not declared as outer, it is the "number of unknown
+variables" inside it (i.e., excluding parameters and constants and
+counting the elements after expanding all records and arrays to a
+set of scalars of primitive types).</li>
+<li>Each declared component of specialized class type or record
+declared as outer is ignored [i.e., all variables inside the
+component are treated as known].</li>
+<li>For each declared component of specialized class connector
+component, it is the "number of unknown variables" inside it (i.e.,
+excluding parameters and constants and counting the elements after
+expanding all records and arrays to a set of scalars of primitive
+types).</li>
+<li>For each declared component of specialized class block or
+model, it is the "sum of the number of inputs and flow variables"
+in the (top level) public connector components of these components
+(and counting the elements after expanding all records and arrays
+to a set of scalars of primitive types).</li>
+</ul>
+<p><b>Definition 2: Local Equation Size</b></p>
+<p>The local equation size of a model or block class is the sum of
+the following numbers:</p>
+<ul>
+<li>The number of equations defined locally (i.e., not in any model
+or block component), including binding equations, and equations
+generated from connect-equations. This includes the proper count
+for when-clauses, and algorithms, and is also used for the flat
+Hybrid DAE formulation.</li>
+<li>The number of input and flow-variables present in each
+(top-level) public connector component. [This represents the number
+of connection equations that will be provided when the class is
+used.]</li>
+<li>The number of (top level) public input variables that neither
+are connectors nor have binding equations [i.e., top-level inputs
+are treated as known variables. This represents the number of
+binding equations that will be provided when the class is used.].
+[To clarify top-level inputs without binding equation (for
+non-inherited inputs binding equation is identical to declaration
+equation, but binding equations also include the case where another
+model extends M and has a modifier on "u" giving the value):
+<pre>
+  model M
+    input Real u;
+    input Real u2=2;
+  end M;
+</pre>
+Here "u" and "u2" are top-level inputs and not connectors. The
+variable u2 has a binding equation, but u does not have a binding
+equation. In the equation count, it is assumed that an equation for
+u is supplied when using the model.]</li>
+</ul>
+<p><b>Definition 3: Locally Balanced</b></p>
+<p>A model or block class is "locally balanced" if the "local
+number of unknowns" is identical to the "local equation size" for
+all legal values of constants and parameters [respecting final
+bindings and min/max-restrictions. A tool shall verify the "locally
+balanced" property for the actual values of parameters and
+constants in the simulation model. It is a quality of
+implementation for a tool to verify this property in general, due
+to arrays of (locally) undefined sizes, conditional declarations,
+for loops, etc.].</p>
+<p><b>Definition 4: Globally Balanced</b></p>
+<p>Similarly as locally balanced, but including all unknowns and
+equations from all components. The global number of unknowns is
+computed by expanding all unknowns (i.e., excluding parameters and
+constants) into a set of scalars of primitive types. This should
+match the global equation size defined as:</p>
+<ul>
+<li>The number of equations defined (included in any model or block
+component), including equations generated from
+connect-equations.</li>
+<li>The number of input and flow-variables present in each
+(top-level) public connector component.</li>
+<li>The number of (top level) public input variables that neither
+are connectors nor have binding equations [i.e., top-level inputs
+are treated as known variables].</li>
+</ul>
+<p>The following restrictions hold:</p>
+<ul>
+<li>In a non-partial model or block, all non-connector inputs of
+model or block components must have binding equations. [E.g., if
+the model contains a component, firstOrder (of specialized class
+model) and firstOrder has "input Real u" then there must be a
+binding equation for firstOrder.u.]</li>
+<li>A component declared with the inner or outer prefix shall not
+be of a class having top-level public connectors containing
+inputs.</li>
+<li>Modifiers for components shall only contain redeclarations of
+replaceable elements and binding equations for parameters,
+constants (that do not yet have binding equations), inputs and
+variables having a default binding equation.</li>
+<li>All non-partial model and block classes must be locally
+balanced [this means that the local number of unknowns equals the
+local equation size].</li>
+</ul>
+<p>Based on these restrictions, the following strong guarantee can
+be given for simulation models and blocks:</p>
+<p><b>Proposition 1: All simulation models and blocks are globally
+balanced.</b><br />
+[Therefore the number of unknowns equal to the number of equations
+of a simulation model or block, provided that every used
+non-partial model or block class is locally balanced.]</p>
+<pre>
+Example 1:
+
+connector Pin
+   Real v;
+   flow Real i;
+end Pin;
+
+model Capacitor
+   parameter Real C;
+   Pin  p, n;
+   Real u;
+equation
+   0 = p.i + n.i;
+   u = p.v - n.v;
+   C*der(u) = p.i;
+end Capacitor;
+</pre>
+<p>Model Capacitor is a locally balanced model according to the
+following analysis:</p>
+<pre>
+Locally unknown variables: p.i, p.v, n.i, n.v, u
+Local equations:  0 = p.i + n.i;
+                  u = p.v - n.v;
+                  C*der(u) = p.i;
+                  and 2 equations corresponding to the
+                  2 flow-variables p.i and n.i.
+</pre>
+<p>These are 5 equations in 5 unknowns (locally balanced model). A
+more detailed analysis would reveal that this is structurally
+non-singular, i.e., that the hybrid DAE will not contain a
+singularity independent of actual values. If the equation "u = p.v
+- n.v" would be missing in the Capacitor model, there would be 4
+equations in 5 unknowns and the model would be locally unbalanced
+and thus simulation models in which this model is used would be
+usually structurally singular and thus not solvable. If the
+equation "u = p.v - n.v" would be replaced by the equation "u = 0"
+and the equation C*der(u) = p.i would be replaced by the equation
+"C*der(u) = 0", there would be 5 equations in 5 unknowns (locally
+balanced), but the equations would be singular, regardless of how
+the equations corresponding to the flow-variables are constructed
+because the information that "u" is constant is given twice in a
+slightly different form.</p>
+<pre>
+Example 2:
+
+connector Pin
+   Real v;
+   flow Real i;
+end Pin;
+
+partial model TwoPin
+   Pin p,n;
+end TwoPin;
+
+model Capacitor
+   parameter Real C;
+   extends TwoPin;
+   Real u;
+equation
+   0 = p.i + n.i;
+   u = p.v " n.v;
+   C*der(u) = p.i;
+end Capacitor;
+
+model Circuit
+   extends TwoPin;
+   replaceable TwoPin t;
+   Capacitor c(C=12);
+equation
+   connect(p, t.p);
+   connect(t.n, c.p);
+   connect(c.n, n);
+end Circuit;
+</pre>
+<p>Since t is partial we cannot check whether this is a globally
+balanced model, but we can check that Circuit is locally balanced.
+Counting on model Circuit results in the following balance
+sheet:</p>
+<pre>
+Locally unknown variables (8): p.i, p.v, n.i, n.v, and 2 flow variables for t (t.p.i, t.n.i)
+                                                   and 2 flow variable for c (c.p.i, c.n.i).
+Local equations:     p.v = t.p.v;
+                       0 = p.i - t.p.i;
+                   c.p.v = load.n.v;
+                       0 = c.p.i+load.n.i;
+                     n.v = c.n.v;
+                       0 = n.i - c.n.i;
+                    and 2 equation corresponding to the
+                    flow variables p.i, n.i
+</pre>
+<p>In total we have 8 scalar unknowns and 8 scalar equations, i.e.,
+a locally balanced model (and this feature holds for any models
+used for the replaceable component "t"). Some more analysis reveals
+that this local set of equations and unknowns is structurally
+non-singular. However, this does not provide any guarantees for the
+global set of equations, and specific combinations of models that
+are "locally non-singular" may lead to a globally non-singular
+model.]</p>
+<pre>
+Example 3:
+
+import SI = Modelica.SIunits;
+partial model BaseProperties
+   "Interface of medium model for all type of media"
+   parameter Boolean preferredMediumStates=false;
+   constant  Integer nXi "Number of independent mass fractions";
+   InputAbsolutePressure     p;
+   InputSpecificEnthalpy     h;
+   InputMassFraction         Xi[nXi];
+   SI.Temperature            T;
+   SI.Density                d;
+   SI.SpecificInternalEnergy u;
+
+   connector InputAbsolutePressure = input SI.AbsolutePressure;
+   connector InputSpecificEnthalpy = input SI.SpecificEnthalpy;
+   connector InputMassFraction = input SI.MassFraction;
+end BaseProperties;
+</pre>
+<p>The use of connector here is a special design pattern. The
+variables p, h, Xi are marked as input to get correct equation
+count. Since they are connectors they should neither be given
+binding equations in derived classes nor when using the model. The
+design pattern is to give textual equations for them (as below);
+using connect-statements for these connectors would be possible
+(and would work) but is not part of the design. This partial model
+defines that T,d,u can be computed from the medium model, provided
+p,h,Xi are given. Every medium with one or multiple substances and
+one or multiple phases, including incompressible media, has the
+property that T,d,u can be computed from p,h,Xi. A particular
+medium may have different "independent variables" from which all
+other intrinsic thermodynamic variables can be recursively
+computed. For example, a simple air model could be defined as:</p>
+<pre>
+model SimpleAir "Medium model of simple air. Independent variables: p,T"
+   extends BaseProperties(nXi = 0,
+        p(stateSelect = if preferredMediumStates then StateSelect.prefer
+                                   else StateSelect.default),
+        T(stateSelect = if preferredMediumStates then StateSelect.prefer
+                                   else StateSelect.default));
+   constant SI.SpecificHeatCapacity R  = 287;
+   constant SI.SpecificHeatCapacity cp = 1005.45;
+   constant SI.Temperature          T0 = 298.15
+equation
+   d = p/(R*T);
+   h = cp*(T-T0);
+   u = h " p/d;
+end SimpleAir;
+</pre>
+<p>The local number of unknowns in model SimpleAir (after
+flattening) is:</p>
+<ul>
+<li>3 (T, d, u: variables defined in BaseProperties and inherited
+in SimpleAir), plus</li>
+<li>2+nXi (p, h, Xi: variables inside connectors defined in
+BaseProperties and inherited in SimpleAir) resulting in 5+nXi
+unknowns.</li>
+</ul>
+<p>The local equation size is:</p>
+<ul>
+<li>3 (equations defined in SimpleAir), plus</li>
+<li>2+nXi (input variables in the connectors inherited from
+BaseProperties)</li>
+</ul>
+<p>Therefore, the model is locally balanced. The generic medium
+model BaseProperties is used as a replaceable model in different
+components, like a dynamic volume or a fixed boundary
+condition:</p>
+<pre>
+import SI = Modelica.SIunits
+connector FluidPort
+  replaceable model Medium = BaseProperties;
+
+  SI.AbsolutePressure  p;
+  flow SI.MassFlowRate m_flow;
+
+  SI.SpecificEnthalpy      h;
+  flow SI.EnthalpyFlowRate H_flow;
+
+  SI.MassFraction       Xi     [Medium.nXi] "Independent mixture mass fractions";
+  flow SI.MassFlowRate mXi_flow[Medium.nXi] "Independent substance mass flow rates";
+end FluidPort;
+
+model DynamicVolume
+   parameter SI.Volume V;
+   replaceable model Medium = BaseProperties;
+   FluidPort port(redeclare model Medium = Medium);
+   Medium    medium(preferredMediumStates=true); // No modifier for p,h,Xi
+   SI.InternalEnergy U;
+   SI.Mass           M;
+   SI.Mass           MXi[medium.nXi];
+equation
+   U   = medium.u*M;
+   M   = medium.d*V;
+   MXi = medium.Xi*M;
+   der(U)   = port.H_flow;   // Energy balance
+   der(M)   = port.m_flow;   // Mass balance
+   der(MXi) = port.mXi_flow; // Substance mass balance
+
+// Equations binding to medium (inputs)
+   medium.p  = port.p;
+   medium.h  = port.h;
+   medium.Xi = port.Xi;
+end DynamicVolume;
+</pre>
+<p>The local number of unknowns of DynamicVolume is:</p>
+<ul>
+<li>4+2*nXi (inside the port connector), plus</li>
+<li>2+nXi (variables U, M and MXi), plus</li>
+<li>2+nXi (the input variables in the connectors of the medium
+model)</li>
+</ul>
+<p>resulting in 8+4*nXi unknowns; the local equation size is</p>
+<ul>
+<li>6+3*nXi from the equation section, plus</li>
+<li>2+nXi flow variables in the port connector.</li>
+</ul>
+<p>Therefore, DynamicVolume is a locally balanced model. Note, when
+the DynamicVolume is used and the Medium model is redeclared to
+"SimpleAir", then a tool will try to select p,T as states, since
+these variables have StateSelect.prefer in the SimpleAir model
+(this means that the default states U,M are derived quantities). If
+this state selection is performed, all intrinsic medium variables
+are computed from medium.p and medium.T, although p and h are the
+input arguments to the medium model. This demonstrates that in
+Modelica input/output does not define the computational causality.
+Instead, it defines that equations have to be provided here for
+p,h,Xi, in order that the equation count is correct. The actual
+computational causality can be different as it is demonstrated with
+the SimpleAir model.</p>
+<pre>
+model FixedBoundary_pTX
+   parameter SI.AbsolutePressure p "Predefined boundary pressure";
+   parameter SI.Temperature      T "Predefined boundary temperature";
+   parameter SI.MassFraction     Xi[medium.nXi]
+                                   "Predefined boundary mass fraction";
+   replaceable model Medium = BaseProperties;
+   FluidPort port(redeclare model Medium = Medium);
+   Medium medium;
+equation
+   port.p        = p;
+   port.H_flow   = semiLinear(port.m_flow, port.h , medium.h);
+   port.MXi_flow = semiLinear(port.m_flow, port.Xi, medium.Xi);
+
+// Equations binding to medium (note: T is not an input).
+   medium.p  = p;
+   medium.T  = T;
+   medium.Xi = Xi;
+end FixedBoundary_pTX;
+</pre>
+<p>The number of local variables in FixedBoundary_pTX is:</p>
+<ul>
+<li>4+2*nXi (inside the port connector), plus</li>
+<li>2+nXi (the input variables in the connectors of the medium
+model)</li>
+</ul>
+<p>resulting in 6+3*nXi unknowns, while the local equation size
+is</p>
+<ul>
+<li>4+2*nXi from the equation section, plus</li>
+<li>2+nXi flow variables in the port connector.</li>
+</ul>
+<p>Therefore, FixedBoundary_pTX is a locally balanced model. The
+predefined boundary variables p and Xi are provided via equations
+to the input arguments medium.p and medium.Xi, in addition there is
+an equation for T in the same way " even though T is not an input.
+Depending on the flow direction, either the specific enthalpy in
+the port (port.h) or h is used to compute the enthalpy flow rate
+H_flow. "h" is provided as binding equation to the medium. With the
+equation "medium.T = T", the specific enthalpy "h" of the reservoir
+is indirectly computed via the medium equations. Again, this
+demonstrates, that an "input" just defines the number of equations
+have to be provided, but that it not necessarily defines the
+computational causality.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

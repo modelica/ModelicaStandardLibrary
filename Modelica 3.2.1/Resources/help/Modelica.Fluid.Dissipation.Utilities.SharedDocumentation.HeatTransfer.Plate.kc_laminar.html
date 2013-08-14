@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.html">HeatTransfer</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.html">Plate</a>.kc_laminar</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of the mean convective heat transfer coefficient
+<b>kc</b> for a laminar fluid flow over an even surface.</p>
+<h4>Functions <b>kc_laminar</b> and <b>kc_laminar_KC</b></h4>
+<p>There are basically three differences:</p>
+<ul>
+<li>The function <b>kc_laminar</b> is using <b>kc_laminar_KC</b>
+but offers additional output variables like e.g. Reynolds number or
+Nusselt number and failure status (an output of <b>1</b> means that
+the function is not valid for the inputs).</li>
+<li>Generally the function <b>kc_laminar_KC</b> is numerically best
+used for the calculation of the mean convective heat transfer
+coefficient <b>kc</b> at known mass flow rate.</li>
+<li>You can perform an inverse calculation from
+<b>kc_laminar_KC</b>, where an unknown mass flow rate is calculated
+out of a given mean convective heat transfer coefficient
+<b>kc</b></li>
+</ul>
+<h4>Restriction</h4>
+<ul>
+<li>laminar regime (Reynolds number ≤ 1e5)</li>
+<li>Prandtl number 0.6 ≤ Pr ≤ 2000</li>
+</ul>
+<h4>Geometry</h4>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png" alt="pic_plate" /></p>
+<h4>Calculation</h4>
+<p>The mean convective heat transfer coefficient <b>kc</b> for flat
+plate is calculated through the corresponding Nusselt number
+<b>Nu_lam</b> according to <i>[VDI 2002, p. Gd 1, eq. 1]</i> :</p>
+<pre>
+    Nu_lam = 0.664 * Re^(0.5) * (Pr)^(1/3)
+</pre>
+<p>and the corresponding mean convective heat transfer coefficient
+<b>kc</b> :</p>
+<pre>
+    kc =  Nu_lam * lambda / L
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>cp</b></td>
+<td>as specific heat capacity at constant pressure [J/(kg.K)],</td>
+</tr>
+<tr>
+<td><b>eta</b></td>
+<td>as dynamic viscosity of fluid [Pa.s],</td>
+</tr>
+<tr>
+<td><b>kc</b></td>
+<td>as mean convective heat transfer coefficient [W/(m2.K)],</td>
+</tr>
+<tr>
+<td><b>lambda</b></td>
+<td>as heat conductivity of fluid [W/(m.K)],</td>
+</tr>
+<tr>
+<td><b>L</b></td>
+<td>as length of plate [m],</td>
+</tr>
+<tr>
+<td><b>Nu_lam</b></td>
+<td>as mean Nusselt number for laminar regime [-],</td>
+</tr>
+<tr>
+<td><b>Pr = eta*cp/lambda</b></td>
+<td>as Prandtl number [-],</td>
+</tr>
+<tr>
+<td><b>rho</b></td>
+<td>as fluid density [kg/m3],</td>
+</tr>
+<tr>
+<td><b>Re = rho*v*L/eta</b></td>
+<td>as Reynolds number [-].</td>
+</tr>
+</table>
+<h4>Verification</h4>
+<p>The mean Nusselt number <b>Nu</b> in the laminar regime
+representing the mean convective heat transfer coefficient
+<b>kc</b> for Prandtl numbers of different fluids is shown in the
+figure below.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_laminar.png" width="600" alt="fig_plate_kc_laminar" /></p>
+<p>Note that this function is best used in the laminar regime up to
+a Reynolds number <b>Re</b> smaller than 2300. There is a deviation
+w.r.t. literature due to the neglect of the turbulence influence in
+the transition regime even though this function is used inside its
+cited restrictions for a higher Reynolds number. The function
+<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall.html">
+kc_overall</a> is recommended for the simulation of a Reynolds
+number higher than 2300.</p>
+<h4>References</h4>
+<dl>
+<dt>VDI:</dt>
+<dd><b>VDI - Wärmeatlas: Berechnungsblätter für den
+Wärmeübergang</b>. Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

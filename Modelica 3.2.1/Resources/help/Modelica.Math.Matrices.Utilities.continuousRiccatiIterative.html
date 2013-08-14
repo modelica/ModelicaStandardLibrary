@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Math.Matrices.Utilities.continuousRiccatiIterative</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.<a href="Modelica.Math.Matrices.Utilities.html">Utilities</a>.continuousRiccatiIterative</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+           X = Matrices.Utilities.<b>continuousRiccatiIterative</b>(A, B, R, Q, X0);
+      (X, r) = Matrices.Utilities.<b>continuousRiccatiIterative</b>(A, B, R, Q, X0, maxSteps, eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function provides a Newton-like method for solving
+continuous algebraic Riccati equations (care). It utilizes Exact
+Line Search to improve the sometimes erratic convergence of
+Newton's method. Exact line search in this case means means, that
+at each iteration <code>i</code> a Newton step
+<code><b>delta</b>_i</code></p>
+<blockquote>
+<pre>
+  <b>X</b>_i+1 = <b>X</b>_i + <b>delta</b>_i
+</pre></blockquote>
+<p>is taken in the direction to minimize the Frobenius norm of the
+residual</p>
+<blockquote>
+<pre>
+    r = || <b>X</b>_i+1*<b>A</b> +<b>A</b>'*<b>X</b>_i+1 - <b>X</b>_i+1*<b>G</b>*<b>X</b>_i+1 + <b>Q</b> ||.
+</pre></blockquote>
+<p>with</p>
+<blockquote>
+<pre>
+        -1
+  G = <b>B</b>*<b>R</b> *<b>B</b>'
+</pre></blockquote>
+<p>The inputs "maxSteps" and "eps" specify the termination of the
+iteration. The iteration is terminated if either maxSteps iteration
+steps have been performed or the relative change
+<b>delta</b>_i/<b>X</b>_i became smaller than eps.</p>
+<p>With an appropriate initial value <b>X</b>0 a sufficiently
+accurate solution might be reach within a few iteration steps.
+Although a Lyapunov equation of order <code>n</code> (n is the
+order of the Riccati equation) is to be solved at each iteration
+step, the algorithm might be faster than a direct method like
+<a href="Modelica.Math.Matrices.continuousRiccati.html">Matrices.continuousRiccati</a>,
+since direct methods have to solve the 2*n-order Hamiltonian system
+equation.<br />
+The algorithm is taken from [1] and [2].</p>
+<h4>References</h4>
+<pre>
+  [1] Benner, P., Byers, R.
+      An Exact Line Search Method for Solving Generalized Continuous-Time Algebraic Riccati Equations
+      IEEE Transactions On Automatic Control, Vol. 43, No. 1, pp. 101-107, 1998.
+  [2] Datta, B.N.
+      Numerical Methods for Linear Control Systems
+      Elsevier Academic Press, 2004.
+</pre>
+<h4>Example</h4>
+<blockquote>
+<pre>
+     A=[0.0,         1.0,         0.0,         0.0;
+        0.0,        -1.890,       3.900e-01,  -5.530;
+        0.0,        -3.400e-02,  -2.980,       2.430;
+        3.400e-02,  -1.100e-03,  -9.900e-01,  -2.100e-01];
+
+     B=[ 0.0,         0.0;
+         3.600e-01,  -1.60;
+        -9.500e-01,  -3.200e-02;
+         3.000e-02,   0.0];
+
+     R=[1, 0; 0, 1];
+
+     Q=[2.313,       2.727,       6.880e-01,   2.300e-02;
+        2.727,       4.271,       1.148,       3.230e-01;
+        6.880e-01,   1.148,       3.130e-01,   1.020e-01;
+        2.300e-02,   3.230e-01,   1.020e-01,   8.300e-02];
+
+    X0=identity(4);
+
+    (X,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0);
+
+  //  X = [1.3239,  0.9015,  0.5466, -1.7672;
+           0.9015,  0.9607,  0.4334, -1.1989;
+           0.5466,  0.4334,  0.4605, -1.3633;
+          -1.7672, -1.1989, -1.3633,  4.4612]
+  // r =  2.48809423389491E-015
+
+    (,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0,4);
+
+   // r =  0.0004;
+
+<br />
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.Utilities.discreteRiccatiIterative.html">Matrices.Utilities.discreteRiccatiIterative</a><br />
+<a href="Modelica.Math.Matrices.continuousRiccati.html">Matrices.continuousRiccati</a>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function continuousRiccatiIterative
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Matrices;
+  input Real A[:,size(A, 1)] "Matrix A of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+  input Real B[size(A, 1),:] "Matrix B in G = B*inv(R)*B'";
+  input Real R[size(B, 2),size(B, 2)] = identity(size(B, 2)) "Matrix R in G = B*inv(R)*B'";
+  input Real Q[size(A, 1),size(A, 2)] = identity(size(A, 1)) "Matrix Q of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+  input Real X0[size(A, 1),size(A, 2)] = identity(size(A, 1)) "Initial approximate solution for X*A + A'*X -X*G*X +Q = 0";
+  input Integer maxSteps = 10 "Maximal number of iteration steps";
+  input Real eps = Matrices.frobeniusNorm(A) * 0.000000001 "Tolerance for stop criterion";
+  output Real X[size(X0, 1),size(X0, 2)] "Solution X of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+  output Real r "Norm of X*A + A'*X - X*G*X + Q, zero for exact solution";
+end continuousRiccatiIterative;
+
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/04/30</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

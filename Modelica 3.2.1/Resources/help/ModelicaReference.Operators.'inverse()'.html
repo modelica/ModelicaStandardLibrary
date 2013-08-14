@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'inverse()'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Operators.html">Operators</a>.'inverse()'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Every function with one output argument may have one or more
+"<code>inverse</code>" annotations to define inverses of this
+function.</p>
+<p><b><font style="color: #008000;">Syntax</font></b></p>
+<blockquote>
+<pre>
+<b>function</b> f1
+  <b>input</b> A1 u1;
+  ...
+  <b>input</b> T1 uk;
+  ...
+  <b>input</b> Am um = am;
+  ...
+  <b>input</b> An un;
+  <b>output</b> T2 y;
+  <b>annotation</b>(<b>inverse</b>(uk = f2(..., y, ....), ui = f3(..., y, ...), ...));
+<b>algorithm</b>
+  ...
+<b>end</b> f1;
+</pre></blockquote>
+<h4>Description</h4>
+<p>The meaning is that function "<code>f2</code>" is one inverse to
+function "<code>f1</code>" where the previous output
+"<code>y</code>" is now an input and the previous input
+"<code>uk</code>" is now an output. More than one inverse can be
+defined within the same inverse annotation. Several inverses are
+separated by commas. <em>(The inverse requires that for all valid
+values of the input arguments of <code>f2(...,y, ...)</code> and
+<code>uk</code> being calculated as <code>uk := f2(..., y,
+...)</code> implies the equality <code>y = f1(..., uk, ...,)</code>
+up to a certain precision.)</em></p>
+<p>Function "<code>f1</code>" can have any number and types of
+arguments with and without default value. The restriction is that
+the number of unknown variables in the output argument of both
+"<code>f1</code>" and "<code>f2</code>" must be the same and that
+"<code>f2</code>" must have exactly the same arguments as
+"<code>f1</code>" (with the same defaults, if an argument um has a
+default), but the order of the arguments may be permuted.</p>
+<h4><font style="color: #008000;">Examples</font></h4>
+<pre>
+<b>function</b> h_pTX
+  <b>input</b> Real p    "pressure";
+  <b>input</b> Real T    "temperature";
+  <b>input</b> Real X[:] "mass fractions";
+  <b>output</b> Real h   "specific enthalpy";
+  <b>annotation</b>(<b>inverse</b>(T = T_phX(p,h,X)));
+<b>algorithm</b>
+  ...
+<b>end</b> h_pTX;
+
+<b>function</b> T_phX
+  <b>input</b> Real  p    "pressure";
+  <b>input</b> Real  h    "specific enthalpy";
+  <b>input</b> Real  X[:] "mass fractions";
+  <b>output</b> Real T    "temperature";
+<b>algorithm</b>
+  ...
+<b>end</b> T_phX;
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

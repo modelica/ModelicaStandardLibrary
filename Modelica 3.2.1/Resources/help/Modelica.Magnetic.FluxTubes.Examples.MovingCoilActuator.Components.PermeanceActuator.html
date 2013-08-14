@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Magnetic.html">Magnetic</a>.<a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.html">MovingCoilActuator</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.html">Components</a>.PermeanceActuator</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>In the <a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator.html">
+ConstantActuator</a> model the force F is strictly proportional to
+the current i as indicated by the converter constant c. However,
+there is an additional non-linear force component in such an
+actuator that is due to the dependency of the coil inductance L on
+the armature position x. The inductance increases as the armature
+moves into the stator. The total force is</p>
+<pre>
+        1  2 dL
+    F = - i  --  + c i
+        2    dx
+</pre>
+<p>Both force components are properly considered with a simple
+permeance model as shown in the figures below. Figure (a)
+illustrates the dimensions of the axisymmetric moving coil actuator
+that are needed in the permeance model. Figure (b) shows
+partitioning into flux tubes and the permanent magnetic field
+without current. G_ma and G_mb both are the permeances resulting
+from a series connection of the permanent magnet and air gap
+sections. The field plot of the coil-imposed mmf is shown in figure
+(c) without the permanent magnetic mmf (H_cB=0). The placement of
+the magnetic network components in figure (d) retains the geometric
+structure of the actuator. In figure (e), the permeance model is
+restructured and thus simplified.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_PermeanceModel.png" alt="Structure, assigned flux tubes and field plots of the moving coil actuator" /></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.ElementaryOperators</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Operators.html">Operators</a>.ElementaryOperators</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Elementary operators are overloaded and operate on variables of
+type Real, Integer, Boolean, and String, as well as on scalars or
+arrays.</p>
+<h4>Syntax</h4>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td colspan="3"><b>Arithmetic Operators (operate on Real, Integer
+scalars or arrays)</b></td>
+</tr>
+<tr>
+<td><i>Operators</i></td>
+<td><i>Example</i></td>
+<td><i>Description</i></td>
+</tr>
+<tr>
+<td>+, -, .+, .-</td>
+<td>a + b<br />
+a .+ b</td>
+<td>addition and subtraction; element-wise on arrays</td>
+</tr>
+<tr>
+<td>*</td>
+<td>a * b</td>
+<td>multiplication;<br />
+scalar*array: element-wise multiplication<br />
+vector*vector: element-wise multiplication (result: scalar)<br />
+matrix*matrix: matrix product<br />
+vector*matrix: row-matrix*matrix (result: vector)<br />
+matrix*vector: matrix*column-matrix (result: vector)</td>
+</tr>
+<tr>
+<td>/</td>
+<td>a / b</td>
+<td>division of two scalars or an array by a scalar;<br />
+division of an array by a scalar is defined element-wise.<br />
+The result is always of real type. In order to get integer<br />
+division with truncation use the function div.</td>
+</tr>
+<tr>
+<td>^</td>
+<td>a^b</td>
+<td>scalar power or integer power of a square matrix</td>
+</tr>
+<tr>
+<td>.*, ./, .^</td>
+<td>a .* b</td>
+<td>element-wise multiplication, division and exponentiation of
+scalars and arrays</td>
+</tr>
+<tr>
+<td>=</td>
+<td>a * b = c + d</td>
+<td>equal operator of an equation; element-wise on arrays</td>
+</tr>
+<tr>
+<td>:=</td>
+<td>a := c + d</td>
+<td>assignment operator; element-wise on arrays</td>
+</tr>
+</table>
+&nbsp;
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td colspan="3"><b>Relational Operators (operate on Real, Integer,
+Boolean, String scalars)</b></td>
+</tr>
+<tr>
+<td><i>Operators</i></td>
+<td><i>Example</i></td>
+<td><i>Description</i></td>
+</tr>
+<tr>
+<td>==</td>
+<td>a == b</td>
+<td>equal; for strings: identical characters</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>a &lt;&gt; b</td>
+<td>not equal; for strings: a is lexicographically less than b</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>a &lt; b</td>
+<td>less than</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>a &lt;= b</td>
+<td>less than or equal</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>a &gt; b</td>
+<td>greater than</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>a &gt;= b</td>
+<td>greater than or equal</td>
+</tr>
+</table>
+&nbsp;
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td colspan="3"><b>Boolean Operators (operate on scalars or
+element-wise on arrays)</b></td>
+</tr>
+<tr>
+<td><i>Operators</i></td>
+<td><i>Example</i></td>
+<td><i>Description</i></td>
+</tr>
+<tr>
+<td><b>and</b></td>
+<td>a <b>and</b> b</td>
+<td>logical and</td>
+</tr>
+<tr>
+<td><b>or</b></td>
+<td>a <b>or</b> b</td>
+<td>logical or</td>
+</tr>
+<tr>
+<td><b>not</b></td>
+<td><b>not</b> a</td>
+<td>logical not</td>
+</tr>
+</table>
+&nbsp;
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td colspan="3"><b>Other Operators</b></td>
+</tr>
+<tr>
+<td><i>Operators</i></td>
+<td><i>Example</i></td>
+<td><i>Description</i></td>
+</tr>
+<tr>
+<td>[..]</td>
+<td>[1,2;3,4]</td>
+<td>Matrix constructor; "," separates rows, ";" separates
+columns</td>
+</tr>
+<tr>
+<td>{..}</td>
+<td>{{1,2}, {3,4}}</td>
+<td>Array constructor; every {..} adds one dimension</td>
+</tr>
+<tr>
+<td>"..."</td>
+<td>"string value"<br />
+"string "value""</td>
+<td>String literal (" is used inside a string for ")</td>
+</tr>
+<tr>
+<td>+</td>
+<td>"abc" + "def"</td>
+<td>Concatenation of string scalars or arrays</td>
+</tr>
+</table>
+<p>Operator precedence determines the order of evaluation of
+operators in an expression. An operator with higher precedence is
+evaluated before an operator with lower precedence in the same
+expression.</p>
+<p>The following table presents all the expression operators in
+order of precedence from highest to lowest. All operators are
+binary except exponentiation, the postfix operators and those shown
+as unary together with <i>expr</i>, the conditional operator, the
+array construction operator {} and concatenation operator [ ], and
+the array range constructor which is either binary or ternary.
+Operators with the same precedence occur at the same line of the
+table:</p>
+<table border="1" cellpadding="1" cellspacing="1">
+<tr>
+<td><i>Operator Group</i></td>
+<td><i>Operator Syntax</i></td>
+<td><i>Examples</i></td>
+</tr>
+<tr>
+<td>postfix array index operator</td>
+<td><code>[]</code></td>
+<td><code>arr[index]</code></td>
+</tr>
+<tr>
+<td>postfix access operator</td>
+<td><code>.</code></td>
+<td><code>a.b</code></td>
+</tr>
+<tr>
+<td>postfix function call</td>
+<td><i>funcName(function-arguments)</i></td>
+<td><code>sin(4.36)</code></td>
+</tr>
+<tr>
+<td>array construct/concat</td>
+<td>{<i>expressions</i>}<br />
+[<i>expressions</i>]<br />
+[<i>expressions</i>; <i>expressions</i>...]</td>
+<td><code>{2,3}<br />
+[5,6]<br />
+[2,3; 7,8]</code></td>
+</tr>
+<tr>
+<td>exponentiation</td>
+<td><code>^</code></td>
+<td><code>2^3</code></td>
+</tr>
+<tr>
+<td>multiplicative and<br />
+array elementwise multiplicative</td>
+<td><code>*&nbsp;&nbsp;/&nbsp;&nbsp;.*&nbsp;&nbsp;./</code></td>
+<td><code>2*3&nbsp;&nbsp; 2/3<br />
+[1,2;3,4].*[2,3;5,6]</code></td>
+</tr>
+<tr>
+<td>additive and<br />
+array elementwise additive</td>
+<td>
+<code>+&nbsp;&nbsp;-&nbsp;&nbsp;+<i>expr</i>&nbsp;&nbsp;-<i>expr</i><br />
+
+.+&nbsp;&nbsp;.-</code></td>
+<td><code>a+b, a-b, +a, -a<br />
+[1,2;3,4].+[2,3;5,6]</code></td>
+</tr>
+<tr>
+<td>relational</td>
+<td>
+<code>&lt;&nbsp;&nbsp;&lt;=&nbsp;&nbsp;&gt;&nbsp;&nbsp;&gt;=&nbsp;&nbsp;==&nbsp;&nbsp;&lt;&gt;</code></td>
+<td><code>a&lt;b,&nbsp;a&lt;=b, a&gt;b, ...</code></td>
+</tr>
+<tr>
+<td><code>...</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>unary negation</td>
+<td><code>not&nbsp;<i>expr</i></code></td>
+<td><code>not b1</code></td>
+</tr>
+<tr>
+<td>logical and</td>
+<td><code>and</code></td>
+<td><code>b1 and b2</code></td>
+</tr>
+<tr>
+<td>logical or&lt;&lt;/td&gt;</td>
+<td><code>or</code></td>
+<td><code>b1 or b2</code></td>
+</tr>
+<tr>
+<td>array range</td>
+<td>
+<i>expr</i>&nbsp;<code>:</code>&nbsp;<i>expr</i>&nbsp;<code>:</code>&nbsp;<i>expr</i></td>
+<td><code>1:5:100</code>, start:step:stop</td>
+</tr>
+<tr>
+<td>conditional</td>
+<td>
+<code>if</code>&nbsp;<i>expr</i>&nbsp;<code>then</code>&nbsp;<i>expr</i>&nbsp;<code>else</code>&nbsp;<i>expr</i></td>
+<td><code>if b then 3 else x</code></td>
+</tr>
+<tr>
+<td>named argument</td>
+<td><i>ident&nbsp;</i><code>=</code>&nbsp;<i>expr</i></td>
+<td><code>x = 2.26</code></td>
+</tr>
+</table>
+<p>The conditional operator may also include
+<code>elseif</code>-clauses. Equality <code>=</code> and assignment
+<code>:=</code> are not expression operators since they are allowed
+only in equations and in assignment statements respectively. All
+binary expression operators are left associative.</p>
+<p>Note, the unary minus and plus in Modelica is slightly different
+than in Mathematica (Mathematica is a registered trademark of
+Wolfram Research Inc.) and in MATLAB (MATLAB is a registered
+trademark of MathWorks Inc.), since the following expressions are
+illegal (whereas in Mathematica and in MATLAB these are valid
+expressions):</p>
+<pre>
+  2*-2   // = -4 in Mathematica/MATLAB; is illegal in Modelica
+  --2    // =  2 in Mathematica/MATLAB; is illegal in Modelica
+  ++2    // =  2 in Mathematica/MATLAB; is illegal in Modelica
+  2--2   // =  4 in Mathematica/MATLAB; is illegal in Modelica
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

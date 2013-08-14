@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Machines.BasicMachines.Transformers</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Machines.html">Machines</a>.<a href="Modelica.Electrical.Machines.BasicMachines.html">BasicMachines</a>.Transformers</h1>
+<h2><a name="info" id="info">Information</a></h2>
+This package contains components to model technical three-phase
+transformers:
+<ul>
+<li>Transformer: transformer model to choose connection / vector
+group</li>
+<li>Yy: Transformers with primary primary Y / secondary y</li>
+<li>Yd: Transformers with primary primary Y / secondary d</li>
+<li>Yz: Transformers with primary primary Y / secondary
+zig-zag</li>
+<li>Dy: Transformers with primary primary D / secondary y</li>
+<li>Dd: Transformers with primary D / secondary d</li>
+<li>Dz: Transformers with primary D / secondary zig-zag</li>
+</ul>
+<p>Transformers are modeled by an ideal transformer, adding primary
+and secondary winding resistances and stray inductances.<br />
+All transformers extend from the base model
+<i>PartialTransformer</i>, adding the primary and secondary
+connection.<br />
+<b>VectorGroup</b> defines the phase shift between primary and
+secondary voltages, expressed by a number phase shift/30 degree
+(i.e., the hour on a clock face). Therefore each transformer is
+identified by two characters and a two-digit number, e.g., Yd11 ...
+primary connection Y (star), secondary connection d (delta), vector
+group 11 (phase shift 330 degree)<br />
+With the "supermodel" <i>Transformer</i>&nbsp; the user may choose
+primary and secondary connection as well as the vector group.<br />
+It calculates winding ratio as well as primary and secondary
+winding resistances and stray inductances, distributing them
+equally to primary and secondary winding, from the following
+parameters:</p>
+<ul>
+<li>nominal frequency</li>
+<li>primary voltage (RMS line-to-line)</li>
+<li>secondary voltage (RMS line-to-line)</li>
+<li>nominal apparent power</li>
+<li>impedance voltage drop</li>
+<li>short-circuit copper losses</li>
+</ul>
+The <b>impedance voltage drop</b> indicates the (absolute value of
+the) voltage drop at nominal load (current) as well as the voltage
+we have to apply to the primary winding to achieve nominal current
+in the short-circuited secondary winding.
+<p><b>Please pay attention</b> to proper grounding of the primary
+and secondary part of the whole circuit.<br />
+The primary and secondary starpoint are available as connectors, if
+the connection is not delta (D or d).<br />
+<b>In some cases (Yy or Yz) it may be necessary to ground one of
+the transformer's starpoints even though the source's and/or load's
+starpoint are grounded; you may use a reasonable high earthing
+resistance.</b></p>
+<b>Limitations and assumptions:</b><br />
+<ul>
+<li>number of phases is limited to 3, therefore definition as a
+constant m=3</li>
+<li>symmetry of the 3 phases resp. limbs</li>
+<li>saturation is neglected, i.e., inductances are constant</li>
+<li>magnetizing current is neglected</li>
+<li>magnetizing losses are neglected</li>
+<li>additional (stray) losses are neglected</li>
+</ul>
+<b>Further development:</b>
+<ul>
+<li>modeling magnetizing current, including saturation</li>
+<li>temperature dependency of winding resistances</li>
+</ul>
+<dl>
+<dt><b>Main Authors:</b></dt>
+<dd><a href="http://www.haumer.at/">Anton Haumer</a><br />
+Technical Consulting &amp; Electrical Engineering<br />
+A-3423 St.Andrae-Woerdern<br />
+Austria<br />
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a></dd>
+</dl>
+<p>Copyright © 1998-2013, Modelica Association and Anton
+Haumer.</p>
+<p><i>This Modelica package is <u>free</u> software and the use is
+completely at <u>your own risk</u>; it can be redistributed and/or
+modified under the terms of the Modelica License 2. For license
+conditions (including the disclaimer of warranty) see <a href="Modelica.UsersGuide.ModelicaLicense2.html">Modelica.UsersGuide.ModelicaLicense2</a>
+or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2">https://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.BasicMachines.Transformers.Yy.html">Yy</a></td>
+<td>Transformers: primary Y / secondary y</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.BasicMachines.Transformers.Yd.html">Yd</a></td>
+<td>Transformers: primary Y / secondary d</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.BasicMachines.Transformers.Yz.html">Yz</a></td>
+<td>Transformers: primary Y / secondary zig-zag</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.BasicMachines.Transformers.Dy.html">Dy</a></td>
+<td>Transformers: primary D / secondary y</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.BasicMachines.Transformers.Dd.html">Dd</a></td>
+<td>Transformers: primary D / secondary d</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.BasicMachines.Transformers.Dz.html">Dz</a></td>
+<td>Transformers: primary D / secondary zig-zag</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li>v1.0.0 2006/11/19 Anton Haumer<br />
+first stable release</li>
+<li>v2.2.0 2011/02/10 Anton Haumer<br />
+conditional ThermalPort for all machines</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Strings.scanToken</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Utilities.html">Utilities</a>.<a href="Modelica.Utilities.Strings.html">Strings</a>.scanToken</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+(token, nextIndex) = Strings.<b>scanToken</b>(string, startIndex, unsigned=false);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>scanToken</b> scans the string starting at index
+"startIndex" and returns the next token, as well as the index
+directly after the token. The returned token is a record that holds
+the type of the token and the value of the token:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top">token.tokenType</td>
+<td valign="top">Type of the token, see below</td>
+</tr>
+<tr>
+<td valign="top">token.real</td>
+<td valign="top">Real value if tokenType ==
+TokenType.RealToken</td>
+</tr>
+<tr>
+<td valign="top">token.integer</td>
+<td valign="top">Integer value if tokenType ==
+TokenType.IntegerToken</td>
+</tr>
+<tr>
+<td valign="top">token.boolean</td>
+<td valign="top">Boolean value if tokenType ==
+TokenType.BooleanToken</td>
+</tr>
+<tr>
+<td valign="top">token.string</td>
+<td valign="top">String value if tokenType ==
+TokenType.StringToken/IdentifierToken/DelimiterToken</td>
+</tr>
+</table>
+<p>Variable token.tokenType is an enumeration (emulated as a
+package with constants) that can have the following values:</p>
+<pre>
+   import T = Modelica.Utilities.Types.TokenType;
+</pre>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top">T.RealToken</td>
+<td valign="top">Modelica Real literal (e.g., 1.23e-4)</td>
+</tr>
+<tr>
+<td valign="top">T.IntegerToken</td>
+<td valign="top">Modelica Integer literal (e.g., 123)</td>
+</tr>
+<tr>
+<td valign="top">T.BooleanToken</td>
+<td valign="top">Modelica Boolean literal (e.g., false)</td>
+</tr>
+<tr>
+<td valign="top">T.StringToken</td>
+<td valign="top">Modelica String literal (e.g., "string 123")</td>
+</tr>
+<tr>
+<td valign="top">T.IdentifierToken</td>
+<td valign="top">Modelica identifier (e.g., "force_a")</td>
+</tr>
+<tr>
+<td valign="top">T.DelimiterToken</td>
+<td valign="top">any character without white space that does not
+appear<br />
+as first character in the tokens above (e.g., "&amp;")</td>
+</tr>
+<tr>
+<td valign="top">T.NoToken</td>
+<td valign="top">White space, line comments and no other
+token<br />
+until the end of the string</td>
+</tr>
+</table>
+<p>Modelica line comments ("// ... end-of-line/end-of-string") as
+well as white space is ignored. If "unsigned=true", a Real or
+Integer literal is not allowed to start with a "+" or "-" sign.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  import Modelica.Utilities.Strings;
+  import T = Modelica.Utilities.Types.TokenType;
+  (token, index) := Strings.scanToken(string);
+  <b>if</b> token.tokenType == T.RealToken <b>then</b>
+     realValue := token.real;
+  <b>elseif</b> token.tokenType == T.IntegerToken <b>then</b>
+     integerValue := token.integer;
+  <b>elseif</b> token.tokenType == T.BooleanToken<b> then</b>
+     booleanValue := token.boolean;
+  <b>elseif</b> token.tokenType == T.Identifier <b>then</b>
+     name := token.string;
+  <b>else</b>
+     Strings.syntaxError(string,index,"Expected Real, Integer, Boolean or identifier token");
+  <b>end if</b>;
+</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function scanToken
+  extends Modelica.Icons.Function;
+  input String string "String to be scanned";
+  input Integer startIndex(min = 1) = 1 "Start scanning of string at character startIndex";
+  input Boolean unsigned = false "= true, if Real and Integer tokens shall not start with a sign";
+  output Types.TokenValue token "Scanned token";
+  output Integer nextIndex "Index of character after the found token; = 0, if NoToken";
+end scanToken;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

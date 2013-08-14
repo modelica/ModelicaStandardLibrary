@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Spice3.Examples.Nand</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.Examples.html">Examples</a>.Nand</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>In nearly every electronic the basic circuit "nand" are used. A
+nand contains two PMOS and two NMOS. The faulty wiring can be seen
+in the graphical mode. If and only if the two input voltages have
+high potential, the output voltage has low potential, otherwise the
+output voltage has high potential.</p>
+<p>Nand truth table (1 means true, it is represented by the 5V
+voltage):</p>
+<table cellspacing="2" cellpadding="0" border="1">
+<tr>
+<td>
+<p>input voltage vin1</p>
+</td>
+<td>
+<p>input voltage vin2</p>
+</td>
+<td>
+<p>output voltage mNMOS1.NS</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>1</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>1</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>1</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>0</p>
+</td>
+</tr>
+</table>
+<p>Simulate until t=2e-7s. Display the two input voltages vin1.p.v
+and vin2.p.v and the output voltage mNMOS1.ND.v, which becomes zero
+only if both input values are high.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>May 2009</i> by Kristin Majetta initially implemented</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

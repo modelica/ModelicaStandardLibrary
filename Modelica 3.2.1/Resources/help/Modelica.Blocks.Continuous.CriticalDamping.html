@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Continuous.CriticalDamping</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Continuous.html">Continuous</a>.CriticalDamping</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This block defines the transfer function between the input u and
+the output y as an n-th order filter with <i>critical damping</i>
+characteristics and cut-off frequency f. It is implemented as a
+series of first order filters. This filter type is especially
+useful to filter the input of an inverse model, since the filter
+does not introduce any transients.</p>
+<p>If parameter <b>normalized</b> = <b>true</b> (default), the
+filter is normalized such that the amplitude of the filter transfer
+function at the cut-off frequency f is 1/sqrt(2) (= 3 dB).
+Otherwise, the filter is not normalized, i.e., it is unmodified. A
+normalized filter is usually much better for applications, since
+filters of different orders are "comparable", whereas
+non-normalized filters usually require to adapt the cut-off
+frequency, when the order of the filter is changed. Figures of the
+filter step responses are shown below. Note, in versions before
+version 3.0 of the Modelica Standard library, the CriticalDamping
+filter was provided only in non-normalized form.</p>
+<p>If transients at the simulation start shall be avoided, the
+filter should be initialized in steady state (e.g., using option
+initType=Modelica.Blocks.Types.Init.SteadyState).</p>
+<p>The critical damping filter is defined as</p>
+<pre>
+    α = <b>if</b> normalized <b>then</b> <b>sqrt</b>(2^(1/n) - 1) <b>else</b> 1 // frequency correction factor
+    ω = 2*π*f/α
+              1
+    y = ------------- * u
+         (s/w + 1)^n
+
+</pre>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/CriticalDampingNormalized.png" alt="CriticalDampingNormalized.png" /></p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/CriticalDampingNonNormalized.png" alt="CriticalDampingNonNormalized.png" /></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

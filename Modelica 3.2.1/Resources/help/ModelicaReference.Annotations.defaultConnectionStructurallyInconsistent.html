@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+ModelicaReference.Annotations.defaultConnectionStructurallyInconsistent</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Annotations.html">Annotations</a>.defaultConnectionStructurallyInconsistent</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>A model or block definition may contain the annotation
+<code>defaultConnectionStructurallyInconsistent</code>.</p>
+<h4>Syntax</h4>
+<pre>
+   <b>annotation</b>"(" defaultConnectionStructurallyInconsistent "=" ( <b>false</b> | <b>true</b> ) ")
+</pre>
+<h4>Description</h4>
+<p>If <code>true</code>, it is stated that a default connection
+will result in a structurally inconsistent <code>model</code> or
+<code>block</code>. A "default connection" is constructed by
+instantiating the respective <code>model</code> or
+<code>block</code> and for every input <code>u</code> providing an
+equation <code>0=f(u)</code>, and for every (potential,flow) pair
+of the form <code>(v,i)</code>, providing an equation of the form
+<code>0=f(v,i)</code>.</p>
+<h4>Example usage</h4>
+<p>It is useful to check all models/blocks of a Modelica package in
+a simple way. One check is to default connect every model/block and
+to check whether the resulting class is structurally consistent (=
+a stronger requirement as "balanced").</p>
+<p>It is rarely needed; but can be used for
+InverseBlockConstraints, in order to prevent a wrong error message.
+Additionally, when a user defined model is structurally
+inconsistent, a tool should try to pinpoint in which class the
+error is present. This annotation avoids then to show a wrong error
+message.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

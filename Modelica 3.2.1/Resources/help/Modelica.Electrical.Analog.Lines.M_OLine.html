@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Analog.Lines.M_OLine</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Analog.html">Analog</a>.<a href="Modelica.Electrical.Analog.Lines.html">Lines</a>.M_OLine</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The M_OLine is a multi line model which consists of several
+segments and several single lines. Each segment consists of
+resistors and inductors that are connected in series in each single
+line, and of capacitors and conductors both between the lines and
+to the ground. The inductors are coupled to each other like in the
+M_Inductor model. The following picture shows the schematic of a
+segment with four single lines (lines=4):</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Electrical/Analog/segment.png" alt="segment.png" /></blockquote>
+<p>The complete multi line consists of N segments and an auxiliary
+segment_last:</p>
+<p align="center"><code>-- segment_1 -- segment_2 -- ... --
+segment_N -- segment_last --</code></p>
+<p>In the picture of the segment can be seen, that a single segment
+is asymmetric. Connecting such asymmetric segments in a series
+forces also an asymmetric multi line. To get a symmetric model
+which is useful for coupling and which guaranties the same pin
+properties, in the segment_1 only half valued resistors and
+inductors are used. The remaining resistors and inductors are at
+the other end of the line within the auxiliary segment_last. For
+the example with 4 lines the schematic of segment_last is like
+this:</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Electrical/Analog/segment_last.png" alt="segment_last.png" /></blockquote>
+<p>The number of the capacitors and conductors depends on the
+number of single lines that are used, because each line is
+connected to every other line by both a capacitor and a conductor.
+One line consists of <b>at least two segments</b>. Inside the model
+M_OLine the model <i>segment</i> is used. This model represents one
+segment which is build as described above. For modelling the
+inductances and their mutual couplings the model M_Transformer is
+used. To fill the resistance vector, resistance values as many as
+lines are needed, e.g., if there are four lines, four resistances
+are needed. For example for a microelectronic line of 0.1m length,
+a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5,
+1.72e5].</p>
+<p>Filling the matrices of the inductances, capacitances and
+conductances is a bit more complicated, because those components
+occur also between two lines and not only (like the resistor) in
+one line. The entries of the matrices are given by the user in form
+of a vector. The vector length dim_vector_lgc is calculated by
+<b>dim_vector_lgc = lines*(lines+1)/2</b>. Inside the model a
+symmetric inductance matrix, a symmetric capacitance matrix and a
+symmetric conductance matrix are built out of the entries of the
+vectors given by the user. The way of building is the same for each
+matrix, so the approach for filling one of the matrices will be
+shown at an example:</p>
+<p>The number of lines is assumed to be four. To build the matrix,
+the model needs the values from the main diagonal and from the
+positions that are below the main diagonal. To get the following
+matrix</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png" alt="Matrix" /></blockquote>
+<p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the
+following way: vector = [<b>1</b>, 0.1, 0.2, 0.4, <b>2</b>, 0.3
+0.5, <b>3</b>, 0.6, <b>4</b>]</p>
+<p>For the example of a microelectronic line of 0.1m length, which
+is used as default example for the M_OLine model, a sensible
+inductance-matrix would be</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png" alt="L" /></blockquote>
+<p>For the example of a microelectronic line of 0.1m length, which
+is used as default example for the M_OLine model, a sensible
+capacitance-matrix would be:</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png" alt="C" /></blockquote>
+<p>For the example of a microelectronic line of 0.1m length, which
+is used as default example for the M_OLine model, a sensible
+conductance-matrix would be:</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png" alt="G" /></blockquote>
+<p>The user has the possibility to enable a conditional heatport.
+If so, the M_OLine can be connected to a thermal network. When the
+parameter alpha is set to an value greater then zero, the M_OLine
+becomes temperature sensitive due to their resistors which
+resistances are calculated by R = R_ref*(1 + alpha*(heatPort.T -
+T_ref)) and conductors calculated by (G_actual = G_ref/(1 +
+alpha*(T_heatPort - T_ref)).</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Analog.Lines.M_OLine.segment.html">segment</a></td>
+<td>Multiple line segment model</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Analog.Lines.M_OLine.segment_last.html">segment_last</a></td>
+<td>Multiple line last segment model</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th>Version</th>
+<th>Revision</th>
+<th>Date</th>
+<th>Author</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">4163</td>
+<td valign="top">2010-09-11</td>
+<td valign="top">Dietmar Winkler</td>
+<td valign="top">Documentation corrected according to documentation
+guidelines.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">2008-11-24</td>
+<td valign="top">Kristin Majetta</td>
+<td valign="top">Documentation added.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">2007-02-26</td>
+<td valign="top">Kristin Majetta</td>
+<td valign="top">Initially implemented</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

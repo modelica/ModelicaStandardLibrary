@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.version</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Annotations.html">Annotations</a>.version</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Define version information of package</p>
+<h4>Examples</h4>
+<pre>
+<b>package</b> Modelica
+  <b>annotation</b>(version="2.1",
+             conversion(noneFromVersion="2.1 Beta 1",
+                        from(version="1.5",
+                             script="convertFromModelica1_5.mos")));
+  ...
+<b>end</b> Modelica;
+
+<b>model</b> A
+  <b>annotation</b>(version="1.0",
+     uses(Modelica(version="1.5")));
+  ...
+<b>end</b> A;
+
+<b>model</b> B
+  <b>annotation</b>(uses(Modelica(version="2.1 Beta 1")));
+  ...
+<b>end</b> B;
+</pre>
+<p>In this example the model A uses an older version of the
+Modelica library and can be upgraded using the given script, and
+model B uses an older version of the Modelica library but no
+changes are required when upgrading.</p>
+<h4>Description</h4>
+<p>Version numbers are of the forms:</p>
+<ul>
+<li>Main release versions:
+<pre>
+""" UNSIGNED_INTEGER { "." UNSIGNED_INTEGER } """
+</pre>
+Example: <code>"2.1"</code><br />
+&nbsp;</li>
+<li>Pre-release versions:
+<pre>
+""" UNSIGNED_INTEGER { "." UNSIGNED_INTEGER } " " {S-CHAR} """
+</pre>
+Example: <code>"2.1 Beta 1"</code><br />
+&nbsp;</li>
+<li>Un-ordered versions:
+<pre>
+ """ NON-DIGIT {S-CHAR} """ 
+</pre>
+Example: <code>"Test 1"</code></li>
+</ul>
+<p>The main release versions are ordered using the hierarchical
+numerical names, and follow the corresponding pre-release versions.
+The pre-release versions of the same main release version are
+internally ordered alphabetically.</p>
+<p>In a top-level class, the version number and the dependency to
+earlier versions of this class are defined using one or more of the
+following annotations:</p>
+<ul>
+<li><code>version = CURRENT-VERSION-NUMBER</code><br />
+Defines the version number of the model or package. All classes
+within this top-level class have this version number.<br />
+&nbsp;</li>
+<li><code>conversion ( noneFromVersion =
+VERSION-NUMBER)</code><br />
+Defines that user models using the VERSION-NUMBER can be upgraded
+to the CURRENT-VERSION-NUMBER of the current class without any
+changes.<br />
+&nbsp;</li>
+<li><code>conversion ( from (version = VERSION-NUMBER, script =
+"?") )</code><br />
+Defines that user models using the VERSION-NUMBER can be upgraded
+to the CURRENT-VERSION-NUMBER of the current class by applying the
+given script. The semantics of the conversion script is not
+defined.<br />
+&nbsp;</li>
+<li><code>uses(IDENT (version = VERSION-NUMBER) )</code><br />
+Defines that classes within this top-level class uses version
+VERSION-NUMBER of classes within the top-level class IDENT. The
+annotations uses and conversion may contain several different
+sub-entries.</li>
+</ul>
+<p>A top-level class, IDENT, with version VERSION-NUMBER can be
+stored in one of the following ways in a directory given in the
+MODELICAPATH:</p>
+<ul>
+<li>The file IDENT ".mo"<br />
+Example: Modelica.mo</li>
+<li>The file IDENT " " VERSION-NUMBER ".mo"<br />
+Example: Modelica 2.1.mo</li>
+<li>The directory IDENT<br />
+Example: Modelica</li>
+<li>The directory IDENT " " VERSION-NUMBER<br />
+Example: Modelica 2.1</li>
+</ul>
+<p>This allows a tool to access multiple versions of the same
+package.</p>
+<h5>Related annotations:</h5>
+<ul>
+<li><a href="ModelicaReference.Annotations.version.html">version</a></li>
+<li><a href="ModelicaReference.Annotations.versionBuild.html">versionBuild</a></li>
+<li><a href="ModelicaReference.Annotations.dateModified.html">dateModified</a></li>
+<li><a href="ModelicaReference.Annotations.revisionId.html">revisionId</a></li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

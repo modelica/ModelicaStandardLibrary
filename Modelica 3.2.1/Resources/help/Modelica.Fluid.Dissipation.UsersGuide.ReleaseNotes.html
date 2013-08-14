@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Dissipation.UsersGuide.ReleaseNotes</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a href="Modelica.Fluid.Dissipation.UsersGuide.html">UsersGuide</a>.ReleaseNotes</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Version 1.0 Beta 4-6, 2010-01-12</h4>
+<p>Fluid.Dissipation was improved for the release as follows:</p>
+<ul>
+<li>Changed structure for input records of all heat transfer and
+pressure loss functions:
+<ul>
+<li>Reduced amount of input records for compressible and
+incompressible functions as well as for their combinational one to
+improve usability of library.</li>
+<li>Splitting input records of one function into one with
+parameters (e.g., for geometry) and one with variables (e.g., fluid
+properties) to ease work of IDE-solver.</li>
+</ul>
+</li>
+<li>Improved Modelica.Fluid application models for available heat
+transfer and pressure loss functions:
+<ul>
+<li>Flattened inheritance with one base flow model for all energy
+devices.</li>
+<li>Implemented smooth state of fluid density and dynamic viscosity
+for reverse flow.</li>
+</ul>
+</li>
+<li>Adaption of complete library due to structure change.</li>
+</ul>
+<h4>Version 1.0 Beta 3, 2009-07-03</h4>
+<p>Fluid.Dissipation was improved for the release as follows:</p>
+<ul>
+<li>Changed flow models structure:<br />
+Now that a future feature for the automatic choice of using either
+a mass flow rate (compressible case) or a pressure loss
+(incompressible case) function for calculation is supported if
+implemented by IDE. Due to that no manual selection of a
+compressible or incompressible calculation in the Modelica.Fluid
+flow models is possible anymore. Therefore nonlinear equations will
+be created from the Modelica.Fluid flow models, if the future
+feature is not supported and the mass flow rate is known at a fluid
+port instead of the pressure loss.</li>
+<li>Changed structure and amount of records used as input for
+function calls due to changed structure of flow model.</li>
+<li>Changed structure of function calls due to changed structure of
+flow model.</li>
+<li>Finished validation of all available heat transfer and pressure
+loss functions.</li>
+<li>Included scripts for verification of all available heat
+transfer and pressure loss functions.</li>
+</ul>
+<h4>Version 1.0 Beta 2, 2009-04-22</h4>
+<p>Fluid.Dissipation was improved for the release as follows:</p>
+<ul>
+<li>Support of analytical Jacobians at inverse calculation of heat
+transfer and pressure loss functions.</li>
+<li>Included Modelica.Fluid application models for available heat
+transfer and pressure loss functions.</li>
+<li>Adaption of complete library to Modelica Standard
+nomenclature.</li>
+</ul>
+<h4>Version 1.0 Beta 1, 2008-10-08</h4>
+Initial release of Fluid.Dissipation.
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

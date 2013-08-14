@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.eigenValues</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.eigenValues</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+                eigenvalues = Matrices.<b>eigenValues</b>(A);
+(eigenvalues, eigenvectors) = Matrices.<b>eigenValues</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function call returns the eigenvalues and optionally the
+(right) eigenvectors of a square matrix <b>A</b>. The first column
+of "eigenvalues" contains the real and the second column contains
+the imaginary part of the eigenvalues. If the i-th eigenvalue has
+no imaginary part, then eigenvectors[:,i] is the corresponding real
+eigenvector. If the i-th eigenvalue has an imaginary part, then
+eigenvalues[i+1,:] is the conjugate complex eigenvalue and
+eigenvectors[:,i] is the real and eigenvectors[:,i+1] is the
+imaginary part of the eigenvector of the i-th eigenvalue. With
+function <a href="Modelica.Math.Matrices.eigenValueMatrix.html">Matrices.eigenValueMatrix</a>,
+a real block diagonal matrix is constructed from the eigenvalues
+such that</p>
+<blockquote>
+<pre>
+A = eigenvectors * eigenValueMatrix(eigenvalues) * inv(eigenvectors)
+</pre></blockquote>
+<p>provided the eigenvector matrix "eigenvectors" can be inverted
+(an inversion is possible, if all eigenvalues are different; in
+some cases, an inversion is also possible if some eigenvalues are
+the same).</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real eval;
+<b>algorithm</b>
+  eval := Matrices.eigenValues(A);  // eval = [-0.618, 0;
+                                    //          8.0  , 0;
+                                    //          1.618, 0];
+</pre></blockquote>
+<p>i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.</p>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.eigenValueMatrix.html">Matrices.eigenValueMatrix</a>,
+<a href="Modelica.Math.Matrices.singularValues.html">Matrices.singularValues</a>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function eigenValues
+  extends Modelica.Icons.Function;
+  input Real A[:,size(A, 1)] "Matrix";
+  output Real eigenvalues[size(A, 1),2] "Eigenvalues of matrix A (Re: first column, Im: second column)";
+  output Real eigenvectors[size(A, 1),size(A, 2)] "Real-valued eigenvector matrix";
+end eigenValues;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

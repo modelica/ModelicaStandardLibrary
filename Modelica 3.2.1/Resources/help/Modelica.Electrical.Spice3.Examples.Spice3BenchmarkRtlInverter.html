@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.Examples.Spice3BenchmarkRtlInverter</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.Examples.html">Examples</a>.Spice3BenchmarkRtlInverter</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This RTL Inverter model is one of the five benchmark circuits
+described in the SPICE3 Version e3 User's Manual (see information
+of package Spice3).</p>
+<p>This simple RTL inverter (resistor transistor logic) circuits
+inverts the input voltage which means the output voltage has high
+potential if the input voltage has low potential and the other way
+round. To comprehend this behaviour the user is recommended to
+simulate from t=0 to t=1e-7s and observe the input voltage
+(VIN.p.v) and the output voltage (Q1.C.v)</p>
+<p>Original SPICE3 netlist of the RTL inverter:</p>
+<pre>
+SIMPLE RTL INVERTER<br />VCC 4 0 5<br />VIN 1 0 PULSE 0 5 2NS 2NS 2NS 30NS<br />RB 1 2 10K<br />Q1 3 2 0 Q1<br />RC 3 4 1K<br />.MODEL Q1 NPN BF 20 RB 100 TF .1NS CJC 2PF<br />.DC VIN 0 5 0.1<br />.TRAN 1NS 100NS<br />.END
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

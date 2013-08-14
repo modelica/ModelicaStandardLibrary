@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.UsersGuide.MediumUsage.ShortPipe</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.ShortPipe</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Fluid libraries have components with two ports that store
+neither mass nor energy and fulfill the momentum equation between
+their two ports, e.g., a short pipe. In most cases this means that
+an equation is present relating the pressure drop between the two
+ports and the mass flow rate from one to the other port. Since no
+mass or energy is stored, no differential equations for
+thermodynamic variables are present. A component model of this type
+has therefore usually the following structure (see also the
+implementation in <a href="Modelica.Media.Examples.Tests.Components.ShortPipe.html">Modelica.Media.Examples.Tests.Components.ShortPipe</a>):</p>
+<pre>
+  <b>model</b> ShortPipe
+    <b>import</b> SI=Modelica.SIunits;
+    <b>import</b> Modelica.Media.Examples.Tests.Components;
+
+    // parameters defining the pressure drop equation
+
+    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
+                           "Medium model" <b>annotation</b> (choicesAllMatching = <b>true</b>);
+
+    Component.FluidPort_a port_a (<b>redeclare package</b> Medium = Medium);
+    Component.FluidPort_b port_b (<b>redeclare package</b> Medium = Medium);
+
+    SI.Pressure dp = port_a.p - port_b.p "Pressure drop";
+    Medium.BaseProperties medium_a "Medium properties in port_a";
+    Medium.BaseProperties medium_b "Medium properties in port_b";
+  <b>equation</b>
+    // define media models of the ports
+    medium_a.p   = port_a.p;
+    medium_a.h   = port_a.h;
+    medium_a.Xi = port_a.Xi;
+
+    medium_b.p   = port_b.p;
+    medium_b.h   = port_b.h;
+    medium_b.Xi = port_b.Xi;
+
+    // Handle reverse and zero flow (semiLinear is a built-in Modelica operator)
+    port_a.H_flow   = <b>semiLinear</b>(port_a.m_flow, port_a.h, port_b.h);
+    port_a.mXi_flow = <b>semiLinear</b>(port_a.m_flow, port_a.Xi, port_b.Xi);
+
+    // Energy, mass and substance mass balance
+    port_a.H_flow + port_b.H_flow = 0;
+    port_a.m_flow + port_b.m_flow = 0;
+    port_a.mXi_flow + port_b.mXi_flow = zeros(Medium.nXi);
+
+    // Provide equation: port_a.m_flow = f(dp)
+  <b>end</b> ShortPipe;
+</pre>
+<p>The <b>semiLinear</b>(..) operator is basically defined as:</p>
+<pre>
+    semiLinear(m_flow, ha, hb) = if m_flow ≥ 0 then m_flow*ha else m_flow*hb;
+</pre>
+<p>that is, it computes the enthalpy flow rate either from the
+port_a or from the port_b properties, depending on flow direction.
+The exact details of this operator are given in <a href="ModelicaReference.Operators.'semiLinear()'.html">ModelicaReference.Operators.'semiLinear()'</a>.
+Especially, rules are defined in the Modelica specification that
+m_flow = 0 can be treated in a "meaningful way". Especially, if n
+fluid components (such as pipes) are connected together and the
+fluid connector from above is used, a linear system of equations
+appear between medium1.h, medium2.h, medium3.h, ..., port1.h,
+port2.h, port3.h, ..., port1.H_flow, port2.H_flow, port3.H_flow,
+.... The rules for the semiLinear(..) operator allow the following
+solution of this linear system of equations:</p>
+<ul>
+<li>n = 2 (two components are connected):<br />
+The linear system of equations can be analytically solved with the
+result
+<pre>
+     medium1.h = medium2.h = port1.h = port2.h
+     0 = port1.H_flow + port2.H_flow
+     
+</pre>
+Therefore, no problems with zero mass flow rate are present.</li>
+<li>n &gt; 2 (more than two components are connected
+together):<br />
+The linear system of equations is solved numerically during
+simulation. For m_flow = 0, the linear system becomes singular and
+has an infinite number of solutions. The simulator could use the
+solution t that is closest to the solution in the previous time
+step ("least squares solution"). Physically, the solution is
+determined by diffusion which is usually neglected. If diffusion is
+included, the linear system is regular.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

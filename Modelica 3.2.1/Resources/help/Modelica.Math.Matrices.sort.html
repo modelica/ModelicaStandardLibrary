@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.sort</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.sort</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+           sorted_M = Matrices.<b>sort</b>(M);
+(sorted_M, indices) = Matrices.<b>sort</b>(M, sortRows=true, ascending=true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>sort</b>(..) sorts the rows of a Real matrix M in
+ascending order and returns the result in sorted_M. If the optional
+argument "sortRows" is <b>false</b>, the columns of the matrix are
+sorted. If the optional argument "ascending" is <b>false</b>, the
+rows or columns are sorted in descending order. In the optional
+second output argument, the indices of the sorted rows or columns
+with respect to the original matrix are given, such that</p>
+<pre>
+   sorted_M = <b>if</b> sortedRow <b>then</b> M[indices,:] <b>else</b> M[:,indices];
+</pre>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  (M2, i2) := Matrices.sort([2, 1,  0;
+                             2, 0, -1]);
+       -&gt; M2 = [2, 0, -1;
+                2, 1, 0 ];
+          i2 = {2,1};
+</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function sort
+  extends Modelica.Icons.Function;
+  input Real M[:,:] "Matrix to be sorted";
+  input Boolean sortRows = true "= true if rows are sorted, otherwise columns";
+  input Boolean ascending = true "= true if ascending order, otherwise descending order";
+  output Real sorted_M[size(M, 1),size(M, 2)] = M "Sorted matrix";
+  output Integer indices[if sortRows then size(M, 1) else size(M, 2)] "sorted_M = if sortRows then M[indices,:] else M[:,indices]";
+end sort;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

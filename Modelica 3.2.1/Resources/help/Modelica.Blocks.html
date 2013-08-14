@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.Blocks</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This library contains input/output blocks to build up block
+diagrams.</p>
+<dl>
+<dt><b>Main Author:</b></dt>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin
+Otter</a><br />
+Deutsches Zentrum für Luft und Raumfahrt e. V. (DLR)<br />
+Oberpfaffenhofen<br />
+Postfach 1116<br />
+D-82230 Wessling<br />
+email: <a href="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</a><br /></dd>
+</dl>
+<p>Copyright © 1998-2013, Modelica Association and DLR.</p>
+<p><i>This Modelica package is <u>free</u> software and the use is
+completely at <u>your own risk</u>; it can be redistributed and/or
+modified under the terms of the Modelica License 2. For license
+conditions (including the disclaimer of warranty) see <a href="Modelica.UsersGuide.ModelicaLicense2.html">Modelica.UsersGuide.ModelicaLicense2</a>
+or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2">https://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Examples.html">Examples</a></td>
+<td>Library of examples to demonstrate the usage of package
+Blocks</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.html">Continuous</a></td>
+<td>Library of continuous control blocks with internal states</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Discrete.html">Discrete</a></td>
+<td>Library of discrete input/output blocks with fixed sample
+period</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interaction.html">Interaction</a></td>
+<td>Library of user interaction blocks to input and to show
+variables in a diagram animation</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.html">Interfaces</a></td>
+<td>Library of connectors and partial models for input/output
+blocks</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.html">Logical</a></td>
+<td>Library of components with Boolean input and output
+signals</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.html">Math</a></td>
+<td>Library of Real mathematical functions as input/output
+blocks</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathInteger.html">MathInteger</a></td>
+<td>Library of Integer mathematical functions as input/output
+blocks</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.html">MathBoolean</a></td>
+<td>Library of Boolean mathematical functions as input/output
+blocks</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Nonlinear.html">Nonlinear</a></td>
+<td>Library of discontinuous or non-differentiable algebraic
+control blocks</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Routing.html">Routing</a></td>
+<td>Library of blocks to combine and extract signals</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Sources.html">Sources</a></td>
+<td>Library of signal source blocks generating Real and Boolean
+signals</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Tables.html">Tables</a></td>
+<td>Library of blocks to interpolate in one and two-dimensional
+tables</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Types.html">Types</a></td>
+<td>Library of constants and types with choices, especially to
+build menus</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Icons.html">Icons</a></td>
+<td>Icons for Blocks</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>June 23, 2004</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Introduced new block connectors and adapted all blocks to the new
+connectors. Included subpackages Continuous, Discrete, Logical,
+Nonlinear from package ModelicaAdditions.Blocks. Included
+subpackage ModelicaAdditions.Table in Modelica.Blocks.Sources and
+in the new package Modelica.Blocks.Tables. Added new blocks to
+Blocks.Sources and Blocks.Logical.</li>
+<li><i>October 21, 2002</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> and
+<a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian
+Schweiger</a>:<br />
+New subpackage Examples, additional components.</li>
+<li><i>June 20, 2000</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> and
+Michael Tiller:<br />
+Introduced a replaceable signal type into
+Blocks.Interfaces.RealInput/RealOutput:
+<pre>
+   replaceable type SignalType = Real
+</pre>
+in order that the type of the signal of an input/output block can
+be changed to a physical type, for example:
+<pre>
+   Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
+</pre></li>
+<li><i>Sept. 18, 1999</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Renamed to Blocks. New subpackages Math, Nonlinear. Additional
+components in subpackages Interfaces, Continuous and Sources.</li>
+<li><i>June 30, 1999</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Realized a first version, based on an existing Dymola library of
+Dieter Moormann and Hilding Elmqvist.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

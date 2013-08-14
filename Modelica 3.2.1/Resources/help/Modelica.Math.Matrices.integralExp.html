@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.integralExp</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.integralExp</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+(phi,gamma) = Matrices.<b>integralExp</b>(A,B);
+(phi,gamma) = Matrices.<b>integralExp</b>(A,B,T=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the exponential phi = e^(<b>A</b>T) of
+matrix <b>A</b> and the integral gamma = integral(phi*dt)*B.</p>
+<p>The function uses a Taylor series expansion with Balancing and
+scaling/squaring to approximate the integral <b>Ψ</b> of the matrix
+exponential <b>Φ</b>=e^(AT):</p>
+<pre>
+                                 AT^2   A^2 * T^3          A^k * T^(k+1)
+        <b>Ψ</b> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
+                                  2!        3!                (k+1)!
+</pre>
+<p><b>Φ</b> is calculated through <b>Φ</b> = I + A*<b>Ψ</b>, so A
+may be singular. <b>Γ</b> is simply <b>Ψ</b>*B.</p>
+<p>The algorithm runs in the following steps:</p>
+<ol>
+<li>Balancing</li>
+<li>Scaling</li>
+<li>Taylor series expansion</li>
+<li>Re-scaling</li>
+<li>Re-Balancing</li>
+</ol>
+<p>Balancing put the bad condition of a square matrix <i>A</i> into
+a diagonal transformation matrix <i>D</i>. This reduce the effort
+of following calculations. Afterwards the result have to be
+re-balanced by transformation D*A<small>transf</small>
+*inv(D).<br />
+Scaling halfen T&nbsp; k-times, until the norm of A*T is less than
+0.5. This guarantees minimum rounding errors in the following
+series expansion. The re-scaling based on the equation&nbsp;
+exp(A*2T) = exp(AT)^2. The needed re-scaling formula for psi thus
+becomes:</p>
+<pre>
+         <b>Φ</b> = <b>Φ</b>'*<b>Φ</b>'
+   I + A*<b>Ψ</b> = I + 2A*<b>Ψ</b>' + A^2*<b>Ψ</b>'^2
+         <b>Ψ</b> = A*<b>Ψ</b>'^2 + 2*<b>Ψ</b>'
+</pre>
+<p>where psi' is the scaled result from the series expansion while
+psi is the re-scaled matrix.</p>
+<p>The function is normally used to discretize a state-space system
+as the zero-order-hold equivalent:</p>
+<pre>
+      x(k+1) = <b>Φ</b>*x(k) + <b>Γ</b>*u(k)
+        y(k) = C*x(k) + D*u(k)
+</pre>
+<p>The zero-order-hold sampling, also known as step-invariant
+method, gives exact values of the state variables, under the
+assumption that the control signal u is constant between the
+sampling instants. Zero-order-hold sampling is described in</p>
+<dl>
+<dt>K. J. Astroem, B. Wittenmark:</dt>
+<dd><b>Computer Controlled Systems - Theory and Design</b><br />
+Third Edition, p. 32</dd>
+</dl>
+<pre>
+<b>Syntax:</b>
+      (phi,gamma) = Matrices.expIntegral(A,B,T)
+                       A,phi: [n,n] square matrices
+                     B,gamma: [n,m] input matrix
+                           T: scalar, e.g., sampling time
+</pre>
+<p>The Algorithm to calculate psi is taken from</p>
+<dl>
+<dt>H. D. Joos, G. Gruebel:</dt>
+<dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br />
+DLR - Control Systems Group 1991</dd>
+</dl>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function integralExp
+  extends Modelica.Icons.Function;
+  input Real A[:,size(A, 1)];
+  input Real B[size(A, 1),:];
+  input Real T = 1;
+  output Real phi[size(A, 1),size(A, 1)] "= exp(A*T)";
+  output Real gamma[size(A, 1),size(B, 2)] "= integral(phi)*B";
+end integralExp;
+
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>July 5, 2002</i> by H. D. Joos and Nico Walther<br />
+Implemented.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

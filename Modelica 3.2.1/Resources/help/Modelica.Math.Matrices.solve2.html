@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.solve2</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.solve2</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Matrices.<b>solve2</b>(A,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function call returns the solution <b>X</b> of the linear
+system of equations</p>
+<blockquote>
+<p><b>A</b>*<b>X</b> = <b>B</b></p>
+</blockquote>
+<p>If a unique solution <b>X</b> does not exist (since <b>A</b> is
+singular), an assertion is triggered. If this is not desired, use
+instead <a href="Modelica.Math.Matrices.leastSquares2.html">Matrices.leastSquares2</a>
+and inquire the singularity of the solution with the return
+argument rank (a unique solution is computed if rank =
+size(A,1)).</p>
+<p>Note, the solution is computed with the LAPACK function "dgesv",
+i.e., by Gaussian elimination with partial pivoting.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real B[3,2] = [10, 20;
+                 22, 44;
+                 12, 24];
+  Real X[3,2];
+<b>algorithm</b>
+  X := Matrices.solve2(A, B);  /* X = [3, 6;
+                                       2, 4;
+                                       1, 2] */
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.LU.html">Matrices.LU</a>,
+<a href="Modelica.Math.Matrices.LU_solve2.html">Matrices.LU_solve2</a>,
+<a href="Modelica.Math.Matrices.leastSquares2.html">Matrices.leastSquares2</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function solve2
+  extends Modelica.Icons.Function;
+  input Real A[:,size(A, 1)] "Matrix A of A*X = B";
+  input Real B[size(A, 1),:] "Matrix B of A*X = B";
+  output Real X[size(B, 1),size(B, 2)] "Matrix X such that A*X = B";
+end solve2;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

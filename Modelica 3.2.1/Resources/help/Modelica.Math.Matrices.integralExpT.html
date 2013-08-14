@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.integralExpT</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.integralExpT</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<blockquote>
+<pre>
+(phi,gamma,gamma1) = Matrices.<b>integralExp</b>(A,B);
+(phi,gamma,gamma1) = Matrices.<b>integralExp</b>(A,B,T=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the exponential phi = e^(<b>A</b>T) of
+matrix <b>A</b> and the integral gamma = integral(phi*dt)*B and the
+integral integral((T-t)*exp(A*t)*dt)*B, where A is a square (n,n)
+matrix and B, gamma, and gamma1 are (n,m) matrices.</p>
+<p>The function calculates the matrices phi,gamma,gamma1 through
+the equation:</p>
+<pre>
+                                 [ A B 0 ]
+[phi gamma gamma1] = [I 0 0]*exp([ 0 0 I ]*T)
+                                 [ 0 0 0 ]
+</pre>
+<p>The matrices define the discretized first-order-hold equivalent
+of a state-space system:</p>
+<pre>
+      x(k+1) = phi*x(k) + gamma*u(k) + gamma1/T*(u(k+1) - u(k))
+</pre>
+<p>The first-order-hold sampling, also known as ramp-invariant
+method, gives more smooth control signals as the ZOH equivalent.
+First-order-hold sampling is, e.g., described in</p>
+<dl>
+<dt>K. J. Astroem, B. Wittenmark:</dt>
+<dd><b>Computer Controlled Systems - Theory and Design</b><br />
+Third Edition, p. 256</dd>
+</dl>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function integralExpT
+  extends Modelica.Icons.Function;
+  input Real A[:,size(A, 1)];
+  input Real B[size(A, 1),:];
+  input Real T = 1;
+  output Real phi[size(A, 1),size(A, 1)] "= exp(A*T)";
+  output Real gamma[size(A, 1),size(B, 2)] "= integral(phi)*B";
+  output Real gamma1[size(A, 1),size(B, 2)] "= integral((T-t)*exp(A*t))*B";
+end integralExpT;
+
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>July 31, 2002</i> by Nico Walther<br />
+Realized.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

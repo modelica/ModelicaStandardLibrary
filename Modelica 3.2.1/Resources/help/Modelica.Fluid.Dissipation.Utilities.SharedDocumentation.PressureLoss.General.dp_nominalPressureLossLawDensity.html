@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalPressureLossLawDensity</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.html">General</a>.dp_nominalPressureLossLawDensity</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of a generic pressure loss in dependence of nominal
+fluid variables (e.g., nominal density) via interpolation from an
+operation point. This generic function considers the pressure loss
+law via a nominal pressure loss (dp_nom), a pressure loss
+coefficient (zeta_TOT) and a pressure loss law exponent (exp) as
+well as the influence of density on pressure loss.</p>
+<h4>Calculation</h4>
+<p>The geometry parameters of energy devices necessary for the
+pressure loss calculations are often not exactly known. Therefore
+the modelling of the detailed pressure loss calculation have to be
+simplified. This function uses nominal variables (e.g., nominal
+pressure loss) at a known operation point of the energy device to
+interpolate the actual pressure loss according to a pressure loss
+law (exponent).</p>
+<p>In the following the pressure loss <b>dp</b> is generally
+determined from a known operation point via a law of
+similarity:</p>
+<pre>
+   dp/dp_nom = (zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)*(v/v_nom)^exp
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>dp</b></td>
+<td>as pressure loss [Pa],</td>
+</tr>
+<tr>
+<td><b>dp_nom</b></td>
+<td>as nominal pressure loss [Pa],</td>
+</tr>
+<tr>
+<td><b>m_flow</b></td>
+<td>as mass flow rate [kg/s],</td>
+</tr>
+<tr>
+<td><b>m_flow_nom</b></td>
+<td>as nominal mass flow rate [kg/s],</td>
+</tr>
+<tr>
+<td><b>exp</b></td>
+<td>as exponent of pressure loss calculation [-],</td>
+</tr>
+<tr>
+<td><b>rho</b></td>
+<td>as fluid density [kg/m3],</td>
+</tr>
+<tr>
+<td><b>rho_nom</b></td>
+<td>as nominal fluid density [kg/m3],</td>
+</tr>
+<tr>
+<td><b>v</b></td>
+<td>as mean flow velocity [m/s],</td>
+</tr>
+<tr>
+<td><b>v_nom</b></td>
+<td>as nominal mean flow velocity [m/s],</td>
+</tr>
+<tr>
+<td><b>zeta_TOT</b></td>
+<td>as pressure loss coefficient [-],</td>
+</tr>
+<tr>
+<td><b>zeta_TOT_nom</b></td>
+<td>as nominal pressure loss coefficient [-].</td>
+</tr>
+</table>
+<p>The fraction of mean flow velocities (v/v_nom) can be calculated
+through its corresponding <b>mass flow rates</b> , densities and
+cross sectional areas:</p>
+<pre>
+   v/v_nom = (m_flow/m_flow_nom)*(A_cross_nom/A_cross)*(rho_nom/rho)
+</pre>
+<p><b>or</b> through its corresponding <b>volume flow rates</b> ,
+densities and cross sectional areas:</p>
+<pre>
+    v/v_nom = (V_flow/V_flow_nom)*(A_cross_nom/A_cross).
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>A_cross</b></td>
+<td>as cross sectional area [m2],</td>
+</tr>
+<tr>
+<td><b>A_cross_nom</b></td>
+<td>as nominal cross sectional area [m2],</td>
+</tr>
+<tr>
+<td><b>rho</b></td>
+<td>as fluid density [kg/m3],</td>
+</tr>
+<tr>
+<td><b>rho_nom</b></td>
+<td>as nominal fluid density [kg/m3],</td>
+</tr>
+<tr>
+<td><b>v</b></td>
+<td>as mean flow velocity [m/s],</td>
+</tr>
+<tr>
+<td><b>v_nom</b></td>
+<td>as nominal mean flow velocity [m/s],</td>
+</tr>
+<tr>
+<td><b>V_flow</b></td>
+<td>as volume flow rate [m3/s],</td>
+</tr>
+<tr>
+<td><b>V_flow_nom</b></td>
+<td>as nominal volume flow rate [m3/s].</td>
+</tr>
+</table>
+<p>Here the <b>compressible case</b> [Mass flow rate = f(dp)]
+determines the unknown mass flow rate out of a given pressure
+loss:</p>
+<pre>
+   m_flow = m_flow_nom*(A_cross/A_cross_nom)*(rho_nom/rho)^(exp_density/exp)*[(dp/dp_nom)*(zeta_TOT_nom/zeta_TOT)]^(1/exp);
+</pre>
+<p>where the exponent for the fraction of densities is determined
+w.r.t. the chosen nominal mass flow rate or nominal volume flow
+rate to:</p>
+<pre>
+  exp_density = if NominalMassFlowRate == Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then 1-exp else 1
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>NominalMassFlowRate</b></td>
+<td>as reference for pressure loss law (mass flow rate of volume
+flow rate),</td>
+</tr>
+<tr>
+<td><b>exp</b></td>
+<td>as exponent of pressure loss calculation [-],</td>
+</tr>
+<tr>
+<td><b>exp_density</b></td>
+<td>as exponent for density [-].</td>
+</tr>
+</table>
+<p>To avoid numerical difficulties this pressure loss function is
+linear smoothed for small pressure losses, with</p>
+<pre>
+   dp ≤ 0.01*dp_nom
+</pre>
+<p>Note that the input and output arguments for functions
+throughout this library always use mass flow rates. Here you can
+choose <b>NominalMassFlowRate ==
+Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate</b>
+for using a nominal mass flow rate or <b>NominalMassFlowRate ==
+Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.VolumeFlowRate</b>
+for using a nominal volume flow rate. The output argument will
+always be a mass flow rate for further use as flow model in a
+thermo-hydraulic framework.</p>
+<p>Note that the pressure loss coefficients (zeta_TOT,zeta_TOT_nom)
+refer to its mean flow velocities (v,v_nom) in the pressure loss
+law to obtain its corresponding pressure loss.</p>
+<h4>Verification</h4>
+<p><b>Compressible case</b> [Mass flow rate = f(dp)]:</p>
+<p>The generic mass flow rate <b>M_FLOW</b> in dependence of the
+pressure loss <b>dp</b> is shown for a turbulent pressure loss
+regime (exp == 2) in the figure below.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP.png" alt="fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP" /></p>
+<p>Note that the verification for <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalPressureLossLawDensity.html">
+dp_nominalPressureLossLawDensity</a> is also valid for this inverse
+calculation due to using the same functions.</p>
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dd><b>Inline integration: A new mixed symbolic / numeric approach
+for solving differential-algebraic equation systems.</b>. In
+Proceedings of European Simulation MultiConference, Praque,
+1995.</dd>
+<dt>Wischhusen, S.:</dt>
+<dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von
+komplexen Energiesystemen.</b>. PhD thesis, Technische Universität
+Hamburg-Harburg, 2005.</dd>
+</dl>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

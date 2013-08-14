@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.derivative</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Annotations.html">Annotations</a>.derivative</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Define derivative of function</p>
+<h4>Examples</h4>
+<pre>
+<b>function</b> foo0 <b>annotation</b>(derivative=foo1); <b>end</b> foo0;
+<b>function</b> foo1 <b>annotation</b>(derivative(order=2)=foo2); <b>end</b> foo1;
+<b>function</b> foo2 <b>end</b> foo2;
+</pre>
+<h4>Description</h4>
+<p>Derivatives of functions can be declared explicitly using the
+derivative annotation, whereas a function can be defined as a
+partial derivative of another function using the der-operator in a
+short function definition.</p>
+<p>A function declaration can have an annotation derivative
+specifying the derivative function. This can influence simulation
+time and accuracy and can be applied to both functions written in
+Modelica and to external functions. A derivative annotation can
+state that it is only valid under certain restrictions on the input
+arguments. These restrictions are defined using the following
+optional attributes: order (only a restriction if order &gt; 1, the
+default for order is 1), noDerivative, and zeroDerivative. The
+given derivative-function can only be used to compute the
+derivative of a function call if these restrictions are satisfied.
+There may be multiple restrictions on the derivative, in which case
+they must all be satisfied. The restrictions also imply that some
+derivatives of some inputs are excluded from the call of the
+derivative (since they are not necessary). A function may supply
+multiple derivative functions subject to different
+restrictions.</p>
+<p>The inputs to the derivative function of order 1 are constructed
+as follows:</p>
+<ul>
+<li>First are all inputs to the original function, and after all
+them we will in order append one derivative for each input
+containing reals.<br />
+&nbsp;</li>
+<li>The outputs are constructed by starting with an empty list and
+then in order appending one derivative for each output containing
+reals.<br />
+&nbsp;</li>
+<li>If the Modelica function call is a nth derivative (n&gt;=1),
+i.e., this function call has been derived from an (n-1)th
+derivative, an annotation(order=n+1)=?, specifies the (n+1)th
+derivative, and the (n+1)th derivative call is constructed as
+follows:<br />
+&nbsp;</li>
+<li>The input arguments are appended with the (n+1)th derivative,
+which are constructed in order from the nth order
+derivatives.<br />
+&nbsp;</li>
+<li>The output arguments are similar to the output argument for the
+nth derivative, but each output is one higher in derivative
+order.</li>
+</ul>
+<p>Example: Given the declarations</p>
+<pre>
+ function foo0
+   ...
+   input Real x;
+   input Boolean linear;
+   input ...;
+   output Real y;
+   ...
+   annotation(derivative=foo1);
+ end foo0;
+
+ function foo1
+   ...
+   input Real x;
+   input Boolean linear;
+   input ...;
+   input Real der_x;
+   ...
+   output Real der_y;
+   ...
+   annotation(derivative(order=2)=foo2);
+ end foo1;
+
+ function foo2
+   ...
+   input Real x;
+   input Boolean linear;
+   input ...;
+   input Real der_x;
+   ...;
+   input Real der_2_x;
+   ...
+   output Real der_2_y;
+   ...
+</pre>
+<p>the equation</p>
+<pre>
+(...,y(t),...)=foo0(...,x(t),b,...);
+</pre>
+<p>implies that:</p>
+<pre>
+(...,d y(t)/dt,...)=foo1(...,x(t),b,..., ...,d x(t)/dt,...);
+(...,d^2 y(t)/dt^2,...)=foo2(...,x(t),b,...,d x(t)/dt,..., ...,d^2 x(t)/dt^2,...);
+</pre>
+<p>An input or output to the function may be any simple type (Real,
+Boolean, Integer, String and enumeration types) or a record,
+provided the record does not contain both reals and non-reals
+predefined types. The function must have at least one input
+containing reals. The output list of the derivative function may
+not be empty.</p>
+<ul>
+<li>zeroDerivative=input_var1<br />
+The derivative function is only valid if input_var1 is independent
+of the variables the function call is differentiated with respect
+to (i.e., that the derivative of input_var1 is "zero"). The
+derivative of input_var1 is excluded from the argument list of the
+derivative-function. Assume that function f takes a matrix and a
+scalar. Since the matrix argument is usually a parameter expression
+it is then useful to define the function as follows (the additional
+derivative = f_general_der is optional and can be used when the
+derivative of the matrix is non-zero).
+<pre>
+function f "Simple table lookup"
+  input Real x;
+  input Real y[:, 2];
+  output Real z;
+  annotation(derivative(zeroDerivative=y) = f_der,
+             derivative=f_general_der);
+algorithm
+  ...
+end f;
+
+function f_der "Derivative of simple table lookup"
+  input Real x;
+  input Real y[:, 2];
+  input Real x_der;
+  output Real z_der;
+algorithm
+  ...
+end f_der;
+
+function f_general_der "Derivative of table lookup taking into account varying tables"
+  input Real x;
+  input Real y[:, 2];
+  input Real x_der;
+  input Real y_der[:, 2];
+  output Real z_der;
+algorithm
+  ...
+end f_general_der;
+
+</pre></li>
+<li>noDerivative(input_var2 = f(input_var1, ...) )<br />
+The derivative function is only valid if the input argument
+input_var2 is computed as f(input_var1, ...). The derivative of
+input_var2 is excluded from the argument list of the
+derivative-function. Assume that function fg is defined as a
+composition f(x, g(x)). When differentiating f it is useful to give
+the derivative under the assumption that the second argument is
+defined in this way:
+<pre>
+function fg
+  input Real x;
+  output Real z;
+algorithm
+   z := f(x, g(x));
+end fg;
+
+function f
+  input Real x;
+  input Real y;
+  output Real z;
+  annotation(derivative(noDerivative(y = g(x))) = f_der);
+algorithm
+  ...
+end f;
+
+function f_der
+  input Real x;
+  input Real x_der;
+  input Real y;
+  output Real z_der;
+algorithm
+  ...
+end f_der;
+</pre>
+This is useful if g represents the major computational effort of
+fg).</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

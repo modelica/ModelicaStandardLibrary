@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Air.MoistAir</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.Air.html">Air</a>.MoistAir</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Thermodynamic Model</h4>
+<p>This package provides a full thermodynamic model of moist air
+including the fog region and temperatures below zero degC. The
+governing assumptions in this model are:</p>
+<ul>
+<li>the perfect gas law applies</li>
+<li>water volume other than that of steam is neglected</li>
+</ul>
+<p>All extensive properties are expressed in terms of the total
+mass in order to comply with other media in this library. However,
+for moist air it is rather common to express the absolute humidity
+in terms of mass of dry air only, which has advantages when working
+with charts. In addition, care must be taken, when working with
+mass fractions with respect to total mass, that all properties
+refer to the same water content when being used in mathematical
+operations (which is always the case if based on dry air only).
+Therefore two absolute humidities are computed in the
+<b>BaseProperties</b> model: <b>X</b> denotes the absolute humidity
+in terms of the total mass while <b>x</b> denotes the absolute
+humidity per unit mass of dry air. In addition, the relative
+humidity <b>phi</b> is also computed.</p>
+<p>At the triple point temperature of water of 0.01 °C or 273.16 K
+and a relative humidity greater than 1 fog may be present as liquid
+and as ice resulting in a specific enthalpy somewhere between those
+of the two isotherms for solid and liquid fog, respectively. For
+numerical reasons a coexisting mixture of 50% solid and 50% liquid
+fog is assumed in the fog region at the triple point in this
+model.</p>
+<h4>Range of validity</h4>
+<p>From the assumptions mentioned above it follows that the
+<b>pressure</b> should be in the region around <b>atmospheric</b>
+conditions or below (a few bars may still be fine though).
+Additionally a very high water content at low temperatures would
+yield incorrect densities, because the volume of the liquid or
+solid phase would not be negligible anymore. The model does not
+provide information on limits for water drop size in the fog region
+or transport information for the actual condensation or evaporation
+process in combination with surfaces. All excess water which is not
+in its vapour state is assumed to be still present in the air
+regarding its energy but not in terms of its spatial extent.<br />
+<br />
+The thermodynamic model may be used for <b>temperatures</b> ranging
+from <b>190 ... 647 K</b>. This holds for all functions unless
+otherwise stated in their description. However, although the model
+works at temperatures above the saturation temperature it is
+questionable to use the term "relative humidity" in this region.
+Please note, that although several functions compute pure water
+properties, they are designed to be used within the moist air
+medium model where properties are dominated by air and steam in
+their vapor states, and not for pure liquid water applications.</p>
+<h4>Transport Properties</h4>
+<p>Several additional functions that are not needed to describe the
+thermodynamic system, but are required to model transport
+processes, like heat and mass transfer, may be called. They usually
+neglect the moisture influence unless otherwise stated.</p>
+<h4>Application</h4>
+<p>The model's main area of application is all processes that
+involve moist air cooling under near atmospheric pressure with
+possible moisture condensation. This is the case in all domestic
+and industrial air conditioning applications. Another large domain
+of moist air applications covers all processes that deal with
+dehydration of bulk material using air as a transport medium.
+Engineering tasks involving moist air are often performed (or at
+least visualized) by using charts that contain all relevant
+thermodynamic data for a moist air system. These so called
+psychrometric charts can be generated from the medium properties in
+this package. The model <a href="Modelica.Media.Air.MoistAir.PsychrometricData.html">PsychrometricData</a>
+may be used for this purpose in order to obtain data for figures
+like those below (the plotting itself is not part of the model
+though).</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Media/Air/Mollier.png" /><br />
+<img src="../../../Modelica%203.2.1/Resources/Images/Media/Air/PsycroChart.png" /></p>
+<p><b>Legend:</b> blue - constant specific enthalpy, red - constant
+temperature, black - constant relative humidity</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.ThermodynamicState.html">ThermodynamicState</a></td>
+<td>ThermodynamicState record for moist air</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.BaseProperties.html">BaseProperties</a></td>
+<td>Moist air base properties record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.setState_pTX.html">setState_pTX</a></td>
+<td>Return thermodynamic state as function of pressure p,
+temperature T and composition X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.setState_phX.html">setState_phX</a></td>
+<td>Return thermodynamic state as function of pressure p, specific
+enthalpy h and composition X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.setState_dTX.html">setState_dTX</a></td>
+<td>Return thermodynamic state as function of density d,
+temperature T and composition X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.setSmoothState.html">setSmoothState</a></td>
+<td>Return thermodynamic state so that it smoothly approximates: if
+x &gt; 0 then state_a else state_b</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.Xsaturation.html">Xsaturation</a></td>
+<td>Return absolute humidity per unit mass of moist air at
+saturation as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.xsaturation.html">xsaturation</a></td>
+<td>Return absolute humidity per unit mass of dry air at saturation
+as a function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.xsaturation_pT.html">xsaturation_pT</a></td>
+<td>Return absolute humidity per unit mass of dry air at saturation
+as a function of pressure p and temperature T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.massFraction_pTphi.html">massFraction_pTphi</a></td>
+<td>Return steam mass fraction as a function of relative humidity
+phi and temperature T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.relativeHumidity_pTX.html">relativeHumidity_pTX</a></td>
+<td>Return relative humidity as a function of pressure p,
+temperature T and composition X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.relativeHumidity.html">relativeHumidity</a></td>
+<td>Return relative humidity as a function of the thermodynamic
+state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.gasConstant.html">gasConstant</a></td>
+<td>Return ideal gas constant as a function from thermodynamic
+state, only valid for phi&lt;1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.gasConstant_X.html">gasConstant_X</a></td>
+<td>Return ideal gas constant as a function from composition X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.saturationPressureLiquid.html">saturationPressureLiquid</a></td>
+<td>Return saturation pressure of water as a function of
+temperature T in the range of 273.16 to 647.096 K</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.saturationPressureLiquid_der.html">saturationPressureLiquid_der</a></td>
+<td>Derivative function for 'saturationPressureLiquid'</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.sublimationPressureIce.html">sublimationPressureIce</a></td>
+<td>Return sublimation pressure of water as a function of
+temperature T between 190 and 273.16 K</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.sublimationPressureIce_der.html">sublimationPressureIce_der</a></td>
+<td>Derivative function for 'sublimationPressureIce'</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.saturationPressure.html">saturationPressure</a></td>
+<td>Return saturation pressure of water as a function of
+temperature T between 190 and 647.096 K</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.saturationPressure_der.html">saturationPressure_der</a></td>
+<td>Derivative function for 'saturationPressure'</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.saturationTemperature.html">saturationTemperature</a></td>
+<td>Return saturation temperature of water as a function of
+(partial) pressure p</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.enthalpyOfVaporization.html">enthalpyOfVaporization</a></td>
+<td>Return enthalpy of vaporization of water as a function of
+temperature T, 273.16 to 647.096 K</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.HeatCapacityOfWater.html">HeatCapacityOfWater</a></td>
+<td>Return specific heat capacity of water (liquid only) as a
+function of temperature T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.enthalpyOfLiquid.html">enthalpyOfLiquid</a></td>
+<td>Return enthalpy of liquid water as a function of temperature
+T(use enthalpyOfWater instead)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.enthalpyOfGas.html">enthalpyOfGas</a></td>
+<td>Return specific enthalpy of gas (air and steam) as a function
+of temperature T and composition X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.enthalpyOfCondensingGas.html">enthalpyOfCondensingGas</a></td>
+<td>Return specific enthalpy of steam as a function of temperature
+T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.enthalpyOfNonCondensingGas.html">enthalpyOfNonCondensingGas</a></td>
+<td>Return specific enthalpy of dry air as a function of
+temperature T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.enthalpyOfWater.html">enthalpyOfWater</a></td>
+<td>Computes specific enthalpy of water (solid/liquid) near
+atmospheric pressure from temperature T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.enthalpyOfWater_der.html">enthalpyOfWater_der</a></td>
+<td>Derivative function of enthalpyOfWater</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.pressure.html">pressure</a></td>
+<td>Returns pressure of ideal gas as a function of the
+thermodynamic state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.temperature.html">temperature</a></td>
+<td>Return temperature of ideal gas as a function of the
+thermodynamic state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.T_phX.html">T_phX</a></td>
+<td>Return temperature as a function of pressure p, specific
+enthalpy h and composition X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.density.html">density</a></td>
+<td>Returns density of ideal gas as a function of the thermodynamic
+state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.specificEnthalpy.html">specificEnthalpy</a></td>
+<td>Return specific enthalpy of moist air as a function of the
+thermodynamic state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.h_pTX.html">h_pTX</a></td>
+<td>Return specific enthalpy of moist air as a function of pressure
+p, temperature T and composition X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.h_pTX_der.html">h_pTX_der</a></td>
+<td>Derivative function of h_pTX</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.isentropicExponent.html">isentropicExponent</a></td>
+<td>Return isentropic exponent (only for gas fraction!)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.isentropicEnthalpyApproximation.html">isentropicEnthalpyApproximation</a></td>
+<td>Approximate calculation of h_is from upstream properties,
+downstream pressure, gas part only</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.specificInternalEnergy.html">specificInternalEnergy</a></td>
+<td>Return specific internal energy of moist air as a function of
+the thermodynamic state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX.html">specificInternalEnergy_pTX</a></td>
+<td>Return specific internal energy of moist air as a function of
+pressure p, temperature T and composition X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.specificInternalEnergy_pTX_der.html">specificInternalEnergy_pTX_der</a></td>
+<td>Derivative function for specificInternalEnergy_pTX</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.specificEntropy.html">specificEntropy</a></td>
+<td>Return specific entropy from thermodynamic state record, only
+valid for phi&lt;1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.specificGibbsEnergy.html">specificGibbsEnergy</a></td>
+<td>Return specific Gibbs energy as a function of the thermodynamic
+state record, only valid for phi&lt;1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.specificHelmholtzEnergy.html">specificHelmholtzEnergy</a></td>
+<td>Return specific Helmholtz energy as a function of the
+thermodynamic state record, only valid for phi&lt;1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.specificHeatCapacityCp.html">specificHeatCapacityCp</a></td>
+<td>Return specific heat capacity at constant pressure as a
+function of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.specificHeatCapacityCv.html">specificHeatCapacityCv</a></td>
+<td>Return specific heat capacity at constant volume as a function
+of the thermodynamic state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.dynamicViscosity.html">dynamicViscosity</a></td>
+<td>Return dynamic viscosity as a function of the thermodynamic
+state record, valid from 123.15 K to 1273.15 K</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.thermalConductivity.html">thermalConductivity</a></td>
+<td>Return thermal conductivity as a function of the thermodynamic
+state record, valid from 123.15 K to 1273.15 K</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.Utilities.html">Utilities</a></td>
+<td>Utility functions</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.PsychrometricData.html">PsychrometricData</a></td>
+<td>Produces plot data for psychrometric charts</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.velocityOfSound.html">velocityOfSound</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.isobaricExpansionCoefficient.html">isobaricExpansionCoefficient</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.isothermalCompressibility.html">isothermalCompressibility</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.density_derp_h.html">density_derp_h</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.density_derh_p.html">density_derh_p</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.density_derp_T.html">density_derp_T</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.density_derT_p.html">density_derT_p</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.density_derX.html">density_derX</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.molarMass.html">molarMass</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.T_psX.html">T_psX</a></td>
+<td>Return temperature as a function of pressure p, specific
+entropy s and composition X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.setState_psX.html">setState_psX</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.s_pTX.html">s_pTX</a></td>
+<td>Return specific entropy of moist air as a function of pressure
+p, temperature T and composition X (only valid for phi&lt;1)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.s_pTX_der.html">s_pTX_der</a></td>
+<td>Return specific entropy of moist air as a function of pressure
+p, temperature T and composition X (only valid for phi&lt;1)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.MoistAir.isentropicEnthalpy.html">isentropicEnthalpy</a></td>
+<td>Isentropic enthalpy (only valid for phi&lt;1)</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.StateGraph.Examples.ControlledTanks</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.StateGraph.html">StateGraph</a>.<a href="Modelica.StateGraph.Examples.html">Examples</a>.ControlledTanks</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>With this example the controller of a tank filling/emptying
+system is demonstrated. This example is from Dressler (2004), see
+<a href="Modelica.StateGraph.UsersGuide.Literature.html">Literature</a>.
+The basic operation is to fill and empty the two tanks:</p>
+<ol>
+<li>Valve 1 is opened and tank 1 is filled.</li>
+<li>When tank 1 reaches its fill level limit, valve 1 is
+closed.</li>
+<li>After a waiting time, valve 2 is opened and the fluid flows
+from tank 1 into tank 2.</li>
+<li>When tank 1 is empty, valve 2 is closed.</li>
+<li>After a waiting time, valve 3 is opened and the fluid flows out
+of tank 2</li>
+<li>When tank 3 is empty, valve 3 is closed</li>
+</ol>
+<p>The above "normal" process can be influenced by three
+buttons:</p>
+<ul>
+<li>Button <b>start</b> starts the above process. When this button
+is pressed after a "stop" or "shut" operation, the process
+operation continues.</li>
+<li>Button <b>stop</b> stops the above process by closing all
+valves. Then, the controller waits for further input (either
+"start" or "shut" operation).</li>
+<li>Button <b>shut</b> is used to shutdown the process, by emptying
+at once both tanks. When this is achieved, the process goes back to
+its start configuration. Clicking on "start", restarts the
+process.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

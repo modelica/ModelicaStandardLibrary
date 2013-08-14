@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.Internal.Functions.junctionCap</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.Internal.html">Internal</a>.<a href="Modelica.Electrical.Spice3.Internal.Functions.html">Functions</a>.junctionCap</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This internal function calculates the charge and the capacitance
+of the junction capacity dependent from the given voltage.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function junctionCap
+  extends Modelica.Icons.Function;
+  extends Modelica.Icons.ObsoleteModel;
+  input Modelica.SIunits.Capacitance capin "Input capacitance";
+  input Modelica.SIunits.Voltage voltage "Input voltage";
+  input Modelica.SIunits.Voltage depcap;
+  input Real mj;
+  input Real phij;
+  input Modelica.SIunits.Voltage f1;
+  input Real f2;
+  input Real f3;
+  output Modelica.SIunits.Capacitance capout "Output capacitance";
+  output Modelica.SIunits.Charge charge "Output charge";
+end junctionCap;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

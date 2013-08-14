@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Examples.HeatingSystem</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Examples.html">Examples</a>.HeatingSystem</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Simple heating system with a closed flow cycle. After 2000s of
+simulation time the valve fully opens. A simple idealized control
+is embedded into the respective components, so that the heating
+system can be regulated with the valve: the pump controls the
+pressure, the burner controls the temperature.</p>
+<p>One can investigate the temperatures and flows for different
+settings of <code>system.energyDynamics</code> (see Assumptions tab
+of the system object).</p>
+<ul>
+<li>With
+<code>system.energyDynamics==Types.Dynamics.FixedInitial</code> the
+states need to find their steady values during the simulation.</li>
+<li>With
+<code>system.energyDynamics==Types.Dynamics.SteadyStateInitial</code>
+(default setting) the simulation starts in steady-state.</li>
+<li>With
+<code>system.energyDynamics==Types.Dynamics.SteadyState</code> all
+but one dynamic states are eliminated. The left state
+<code>tank.m</code> is to account for the closed flow cycle. It is
+constant as outflow and inflow are equal in a steady-state
+simulation.</li>
+</ul>
+<p>Note that a closed flow cycle generally causes circular
+equalities for the mass flow rates and leaves the pressure
+undefined. This is why the tank.massDynamics, i.e., the tank level
+determining the port pressure, is modified locally to
+Types.Dynamics.FixedInitial.</p>
+<p>Also note that the tank is thermally isolated against its
+ambient. This way the temperature of the tank is also well defined
+for zero flow rate in the heating system, e.g., for
+valveOpening.offset=0 at the beginning of a simulation. The pipe
+however is assumed to be perfectly isolated. If steady-state values
+shall be obtained with the valve fully closed, then a thermal
+coupling between the pipe and its ambient should be defined as
+well.</p>
+<p>Moreover it is worth noting that the idealized direct connection
+between the heater and the pipe, resulting in equal port pressures,
+is treated as high-index DAE, as opposed to a nonlinear equation
+system for connected pressure loss correlations. A pressure loss
+correlation could be additionally introduced to model the fitting
+between the heater and the pipe, e.g., to adapt different
+diameters.</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Examples/HeatingSystem.png" border="1" alt="HeatingSystem.png" />
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Examples.HeatingSystem.Medium.html">Medium</a></td>
+<td></td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

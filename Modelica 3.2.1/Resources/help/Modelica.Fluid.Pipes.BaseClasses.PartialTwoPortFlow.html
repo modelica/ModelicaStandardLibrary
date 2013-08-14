@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Pipes.html">Pipes</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.PartialTwoPortFlow</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Base class for distributed flow models. The total volume is
+split into nNodes segments along the flow path. The default value
+is nNodes=2.</p>
+<h4>Mass and Energy balances</h4>
+<p>The mass and energy balances are inherited from <a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.html">Interfaces.PartialDistributedVolume</a>.
+One total mass and one energy balance is formed across each segment
+according to the finite volume approach. Substance mass balances
+are added if the medium contains more than one component.</p>
+<p>An extending model needs to define the geometry and the
+difference in heights between the flow segments (static head).
+Moreover it needs to define two vectors of source terms for the
+distributed energy balance:</p>
+<ul>
+<li><code><b>Qb_flows[nNodes]</b></code>, the heat flow source
+terms, e.g., conductive heat flows across segment boundaries,
+and</li>
+<li><code><b>Wb_flows[nNodes]</b></code>, the work source
+terms.</li>
+</ul>
+<h4>Momentum balance</h4>
+<p>The momentum balance is determined by the
+<b><code>FlowModel</code></b> component, which can be replaced with
+any model extended from <a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel.html">
+BaseClasses.FlowModels.PartialStaggeredFlowModel</a>. The default
+setting is <a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow.html">
+DetailedPipeFlow</a>.</p>
+<p>This considers</p>
+<ul>
+<li>pressure drop due to friction and other dissipative losses,
+and</li>
+<li>gravity effects for non-horizontal devices.</li>
+<li>variation of flow velocity along the flow path, which occur due
+to changes in the cross sectional area or the fluid density,
+provided that <code>flowModel.use_Ib_flows</code> is true.</li>
+</ul>
+<h4>Model Structure</h4>
+<p>The momentum balances are formulated across the segment
+boundaries along the flow path according to the staggered grid
+approach. The configurable <b><code>modelStructure</code></b>
+determines the formulation of the boundary conditions at
+<code>port_a</code> and <code>port_b</code>. The options include
+(default: av_vb):</p>
+<ul>
+<li><code>av_vb</code>: Symmetric setting with nNodes-1 momentum
+balances between nNodes flow segments. The ports
+<code>port_a</code> and <code>port_b</code> expose the first and
+the last thermodynamic state, respectively. Connecting two or more
+flow devices therefore may result in high-index DAEs for the
+pressures of connected flow segments.</li>
+<li><code>a_v_b</code>: Alternative symmetric setting with nNodes+1
+momentum balances across nNodes flow segments. Half momentum
+balances are placed between <code>port_a</code> and the first flow
+segment as well as between the last flow segment and
+<code>port_b</code>. Connecting two or more flow devices therefore
+results in algebraic pressures at the ports. The specification of
+good start values for the port pressures is essential for the
+solution of large nonlinear equation systems.</li>
+<li><code>av_b</code>: Asymmetric setting with nNodes momentum
+balances, one between nth volume and <code>port_b</code>, potential
+pressure state at <code>port_a</code></li>
+<li><code>a_vb</code>: Asymmetric setting with nNodes momentum
+balance, one between first volume and <code>port_a</code>,
+potential pressure state at <code>port_b</code></li>
+</ul>
+<p>When connecting two components, e.g., two pipes, the momentum
+balance across the connection point reduces to</p>
+<pre>
+pipe1.port_b.p = pipe2.port_a.p
+</pre>
+<p>This is only true if the flow velocity remains the same on each
+side of the connection. Consider using a fitting for any
+significant change in diameter or fluid density, if the resulting
+effects, such as change in kinetic energy, cannot be neglected.
+This also allows for taking into account friction losses with
+respect to the actual geometry of the connection point.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow.FlowModel.html">
+FlowModel</a></td>
+<td></td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>5 Dec 2008</i> by Michael Wetter:<br />
+Modified mass balance for trace substances. With the new
+formulation, the trace substances masses <code>mC</code> are stored
+in the same way as the species <code>mXi</code>.</li>
+<li><i>Dec 2008</i> by Rüdiger Franke:<br />
+Derived model from original DistributedPipe models
+<ul>
+<li>moved mass and energy balances to PartialDistributedVolume</li>
+<li>introduced replaceable pressure loss models</li>
+<li>combined all model structures and lumped pressure into one
+model</li>
+<li>new ModelStructure av_vb, replacing former avb</li>
+</ul>
+</li>
+<li><i>04 Mar 2006</i> by Katrin Prölß:<br />
+Model added to the Fluid library</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

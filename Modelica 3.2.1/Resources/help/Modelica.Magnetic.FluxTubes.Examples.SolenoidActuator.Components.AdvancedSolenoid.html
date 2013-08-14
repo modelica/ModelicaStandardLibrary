@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Magnetic.html">Magnetic</a>.<a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.html">SolenoidActuator</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.html">Components</a>.AdvancedSolenoid</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Please have a look at <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid.html">
+SimpleSolenoid</a> for a general description of this actuator.
+Unlike in that simple magnetic network model, the coil is split
+into two lumped elements here. This enables for more realistic
+modelling of the radial leakage flux between armature and yoke
+(leakage permeance G_mLeakRad). Especially for large air gaps, the
+influence of this leakage flux on the actuator's inductance and its
+electromagnetic force is rather strong. Please have a look at
+<a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary.html">
+ComparisonQuasiStationary</a> for a comparison of both models with
+FEA-based results included as reference.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/AdvancedSolenoidModel_fluxTubePartitioning.png" alt="Assigned flux tubes and field plot of the solenoid actuator" /></p>
+<p>The parasitic capacitances c_par1 and c_par2 across both partial
+coils assure that the voltages across these coils are well-defined
+during simulation.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

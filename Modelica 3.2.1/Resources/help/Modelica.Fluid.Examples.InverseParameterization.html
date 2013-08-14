@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Examples.InverseParameterization</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Examples.html">Examples</a>.InverseParameterization</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>A pump, an orifice and two pipes are parameterized with simple
+nominal values. Note that pipe1 and pipe2 use the flowModel
+NominalTurbulentFlow and NominalLaminarFlow, respectively, which do
+not require the specification of geometry data. Instead
+pathLengths_nominal are obtained internally for given nominal
+pressure loss and nominal mass flow rate.</p>
+<p>The pump controls a pressure ramp from 1.9 bar to 2.1 bar. This
+causes an appropriate ramp on the mass flow rate of the orifice,
+which has a boundary pressure of 1 bar. Flow reversal occurs in the
+pipes, which have a boundary pressure of 2 bar. The Command
+plotResults can be used to see the pump speed N, which is
+controlled ideally to obtain the pressure ramp. Moreover the
+internally obtained nominal design values that fulfill the nominal
+operating conditions as well as the Reynolds number,
+m_flows_turbulent, and dps_fg_turbulent are plotted.</p>
+<p>Note that the large value for
+pipe2.flowModel.pathLengths_nominal[1] is only meaningful under the
+made assumption of laminar flow, which is hardly possible for a
+real pipe.</p>
+<p>Once the geometries have been designed, the
+NominalTurbulentPipeFlow correlations can easily be replaced with
+TurbulentPipeFlow or DetailedPipeFlow correlations. Similarly the
+ControlledPump can be replaced with a PrescribedPump to investigate
+a real controller or with a Pump with rotational shaft to
+investigate inertia effects.</p>
+<p>The model has the parameter <b>eps_m_flow_turbulent</b> that can
+be used to change the flow through pipe1 from fully turbulent
+(eps_m_flow_turbulent=0) to fully laminar
+(eps_m_flow_turbulent&gt;actual flow). Invoke plotResults and see
+pipe1.port_a.m_flow. Relating the actual flow to
+pipe1.flowModel.m_flows_turbulent[1], it can be seen that
+eps_m_flow_turbulent=0.1 is an appropriate choice for the given
+pipe diameter.</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Examples/InverseParametrization.png" border="1" alt="InverseParametrization.png" />
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Examples.InverseParameterization.Medium.html">Medium</a></td>
+<td></td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

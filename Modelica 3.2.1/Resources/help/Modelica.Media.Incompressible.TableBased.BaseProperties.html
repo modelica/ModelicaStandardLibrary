@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.Incompressible.TableBased.BaseProperties</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.Incompressible.html">Incompressible</a>.<a href="Modelica.Media.Incompressible.TableBased.html">TableBased</a>.BaseProperties</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Note that the inner energy neglects the pressure dependence,
+which is only true for an incompressible medium with d = constant.
+The neglected term is p-reference_p)/rho*(T/rho)*(partial rho
+/partial T). This is very small for liquids due to proportionality
+to 1/d^2, but can be problematic for gases that are modeled
+incompressible.</p>
+<p>It should be noted that incompressible media only have 1 state
+per control volume (usually T), but have both T and p as inputs for
+fully correct properties. The error of using only T-dependent
+properties is small, therefore a Boolean flag enthalpyOfT exists.
+If it is true, the enumeration Choices.independentVariables is set
+to Choices.independentVariables.T otherwise it is set to
+Choices.independentVariables.pT.</p>
+<p>Enthalpy is never a function of T only (h = h(T) +
+(p-reference_p)/d), but the error is also small and non-linear
+systems can be avoided. In particular, non-linear systems are small
+and local as opposed to large and over all volumes.</p>
+<p>Entropy is calculated as</p>
+<pre>
+  s = s0 + integral(Cp(T)/T,dt)
+</pre>
+<p>which is only exactly true for a fluid with constant density
+d=d0.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

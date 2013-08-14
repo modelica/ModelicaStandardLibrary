@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.eigenValueMatrix</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.eigenValueMatrix</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Matrices.<b>eigenValueMatrix</b>(eigenvalues);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call returns a block diagonal matrix <b>J</b> from
+the the two-column matrix <code>eigenvalues</code> (computed by
+function <a href="Modelica.Math.Matrices.eigenValues.html">Matrices.eigenValues</a>).
+Matrix <code>eigenvalues</code> must have the real part of the
+eigenvalues in the first column and the imaginary part in the
+second column. If an eigenvalue i has a vanishing imaginary part,
+then <b>J</b>[i,i] = eigenvalues[i,1], i.e., the diagonal element
+of <b>J</b> is the real eigenvalue. Otherwise, eigenvalue i and
+conjugate complex eigenvalue i+1 are used to construct a 2 by 2
+diagonal block of <b>J</b>:</p>
+<blockquote>
+<pre>
+  J[i  , i]   := eigenvalues[i,1];
+  J[i  , i+1] := eigenvalues[i,2];
+  J[i+1, i]   := eigenvalues[i+1,2];
+  J[i+1, i+1] := eigenvalues[i+1,1];
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.eigenValues.html">Matrices.eigenValues</a>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function eigenValueMatrix
+  extends Modelica.Icons.Function;
+  input Real eigenValues[:,2] "Eigen values from function eigenValues(..) (Re: first column, Im: second column)";
+  output Real J[size(eigenValues, 1),size(eigenValues, 1)] "Real valued block diagonal matrix with eigen values (Re: 1x1 block, Im: 2x2 block)";
+end eigenValueMatrix;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

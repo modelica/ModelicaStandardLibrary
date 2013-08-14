@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Interfaces</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.Interfaces</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains interface definitions for
+<b>continuous</b> input/output blocks with Real, Integer and
+Boolean signals. Furthermore, it contains partial models for
+continuous and discrete blocks.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.RealInput.html">RealInput</a></td>
+<td>'input Real' as connector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.RealOutput.html">RealOutput</a></td>
+<td>'output Real' as connector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.BooleanInput.html">BooleanInput</a></td>
+<td>'input Boolean' as connector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.BooleanOutput.html">BooleanOutput</a></td>
+<td>'output Boolean' as connector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.IntegerInput.html">IntegerInput</a></td>
+<td>'input Integer' as connector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.IntegerOutput.html">IntegerOutput</a></td>
+<td>'output Integer' as connector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.RealVectorInput.html">RealVectorInput</a></td>
+<td>Real input connector used for vector of connectors</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.IntegerVectorInput.html">IntegerVectorInput</a></td>
+<td>Integer input connector used for vector of connectors</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.BooleanVectorInput.html">BooleanVectorInput</a></td>
+<td>Boolean input connector used for vector of connectors</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.SO.html">SO</a></td>
+<td>Single Output continuous control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.MO.html">MO</a></td>
+<td>Multiple Output continuous control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.SISO.html">SISO</a></td>
+<td>Single Input Single Output continuous control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.SI2SO.html">SI2SO</a></td>
+<td>2 Single Input / 1 Single Output continuous control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.SIMO.html">SIMO</a></td>
+<td>Single Input Multiple Output continuous control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.MISO.html">MISO</a></td>
+<td>Multiple Input Single Output continuous control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.PartialRealMISO.html">PartialRealMISO</a></td>
+<td>Partial block with a RealVectorInput and a RealOutput
+signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.MIMO.html">MIMO</a></td>
+<td>Multiple Input Multiple Output continuous control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.MIMOs.html">MIMOs</a></td>
+<td>Multiple Input Multiple Output continuous control block with
+same number of inputs and outputs</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.MI2MO.html">MI2MO</a></td>
+<td>2 Multiple Input / Multiple Output continuous control
+block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.SignalSource.html">SignalSource</a></td>
+<td>Base class for continuous signal source</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.SVcontrol.html">SVcontrol</a></td>
+<td>Single-Variable continuous controller</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.MVcontrol.html">MVcontrol</a></td>
+<td>Multi-Variable continuous controller</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.DiscreteBlock.html">DiscreteBlock</a></td>
+<td>Base class of discrete control blocks</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.DiscreteSISO.html">DiscreteSISO</a></td>
+<td>Single Input Single Output discrete control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.DiscreteMIMO.html">DiscreteMIMO</a></td>
+<td>Multiple Input Multiple Output discrete control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.DiscreteMIMOs.html">DiscreteMIMOs</a></td>
+<td>Multiple Input Multiple Output discrete control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.SVdiscrete.html">SVdiscrete</a></td>
+<td>Discrete Single-Variable controller</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.MVdiscrete.html">MVdiscrete</a></td>
+<td>Discrete Multi-Variable controller</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.BooleanSISO.html">BooleanSISO</a></td>
+<td>Single Input Single Output control block with signals of type
+Boolean</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.BooleanMIMOs.html">BooleanMIMOs</a></td>
+<td>Multiple Input Multiple Output continuous control block with
+same number of inputs and outputs of Boolean type</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.MI2BooleanMOs.html">MI2BooleanMOs</a></td>
+<td>2 Multiple Input / Boolean Multiple Output block with same
+signal lengths</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.SI2BooleanSO.html">SI2BooleanSO</a></td>
+<td>2 Single Input / Boolean Single Output block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.BooleanSignalSource.html">BooleanSignalSource</a></td>
+<td>Base class for Boolean signal sources</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.IntegerSO.html">IntegerSO</a></td>
+<td>Single Integer Output continuous control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.IntegerMO.html">IntegerMO</a></td>
+<td>Multiple Integer Output continuous control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.IntegerSignalSource.html">IntegerSignalSource</a></td>
+<td>Base class for continuous Integer signal source</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.IntegerSIBooleanSO.html">IntegerSIBooleanSO</a></td>
+<td>Integer Input Boolean Output continuous control block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.IntegerMIBooleanMOs.html">IntegerMIBooleanMOs</a></td>
+<td>Multiple Integer Input Multiple Boolean Output continuous
+control block with same number of inputs and outputs</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.PartialIntegerSISO.html">PartialIntegerSISO</a></td>
+<td>Partial block with a IntegerInput and an IntegerOutput
+signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.PartialIntegerMISO.html">PartialIntegerMISO</a></td>
+<td>Partial block with an IntegerVectorInput and an IntegerOutput
+signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.partialBooleanSISO.html">partialBooleanSISO</a></td>
+<td>Partial block with 1 input and 1 output Boolean signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.partialBooleanSI2SO.html">partialBooleanSI2SO</a></td>
+<td>Partial block with 2 input and 1 output Boolean signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.partialBooleanSI3SO.html">partialBooleanSI3SO</a></td>
+<td>Partial block with 3 input and 1 output Boolean signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.partialBooleanSI.html">partialBooleanSI</a></td>
+<td>Partial block with 1 input Boolean signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.partialBooleanSO.html">partialBooleanSO</a></td>
+<td>Partial block with 1 output Boolean signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.partialBooleanSource.html">partialBooleanSource</a></td>
+<td>Partial source block (has 1 output Boolean signal and an
+appropriate default icon)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.partialBooleanThresholdComparison.html">
+partialBooleanThresholdComparison</a></td>
+<td>Partial block to compare the Real input u with a threshold and
+provide the result as 1 Boolean output signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.partialBooleanComparison.html">partialBooleanComparison</a></td>
+<td>Partial block with 2 Real input and 1 Boolean output signal
+(the result of a comparison of the two Real inputs)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.PartialBooleanSISO_small.html">PartialBooleanSISO_small</a></td>
+<td>Partial block with a BooleanInput and a BooleanOutput signal
+and a small block icon</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.PartialBooleanMISO.html">PartialBooleanMISO</a></td>
+<td>Partial block with a BooleanVectorInput and a BooleanOutput
+signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.Adaptors.html">Adaptors</a></td>
+<td>Obsolete package with components to send signals to a bus or
+receive signals from a bus (only for backward compatibility)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.PartialConversionBlock.html">PartialConversionBlock</a></td>
+<td>Partial block defining the interface for conversion blocks</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.BlockIcon.html">BlockIcon</a></td>
+<td>This icon will be removed in future Modelica versions, use
+Modelica.Blocks.Icons.Block instead.</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.BooleanBlockIcon.html">BooleanBlockIcon</a></td>
+<td>This icon will be removed in future Modelica versions, use
+Modelica.Blocks.Icons.BooleanBlock instead.</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.DiscreteBlockIcon.html">DiscreteBlockIcon</a></td>
+<td>This icon will be removed in future Modelica versions, use
+Modelica.Blocks.Icons.DiscreteBlock instead.</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.IntegerBlockIcon.html">IntegerBlockIcon</a></td>
+<td>This icon will be removed in future Modelica versions, use
+Modelica.Blocks.Icons.IntegerBlock instead.</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Interfaces.partialBooleanBlockIcon.html">partialBooleanBlockIcon</a></td>
+<td>This icon will be removed in future Modelica versions, use
+Modelica.Blocks.Icons.PartialBooleanBlock instead.</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>Oct. 21, 2002</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> and
+<a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian
+Schweiger</a>:<br />
+Added several new interfaces.</li>
+<li><i>Oct. 24, 1999</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+RealInputSignal renamed to RealInput. RealOutputSignal renamed to
+output RealOutput. GraphBlock renamed to BlockIcon. SISOreal
+renamed to SISO. SOreal renamed to SO. I2SOreal renamed to M2SO.
+SignalGenerator renamed to SignalSource. Introduced the following
+new models: MIMO, MIMOs, SVcontrol, MVcontrol, DiscreteBlockIcon,
+DiscreteBlock, DiscreteSISO, DiscreteMIMO, DiscreteMIMOs,
+BooleanBlockIcon, BooleanSISO, BooleanSignalSource,
+MI2BooleanMOs.</li>
+<li><i>June 30, 1999</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Realized a first version, based on an existing Dymola library of
+Dieter Moormann and Hilding Elmqvist.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

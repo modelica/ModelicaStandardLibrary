@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Parts.Mounting1D</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Parts.html">Parts</a>.Mounting1D</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component is used to acquire support torques from a
+1-dim.-rotational mechanical system (e.g., components from
+Modelica.Mechanics.Rotational) and to propagate them to a carrier
+body.</p>
+<p>The 1-dim. support torque at <code>flange_b</code> is
+transformed into 3-dim. space under consideration of the rotation
+axis, parameter <code>n</code>, which has to be given in the local
+coordinate system of <code>frame_a</code>.</p>
+<p>All components of a 1-dim.-rotational mechanical system that are
+connected to <b>a</b> common <b>Mounting1D</b> element need to have
+the same axis of rotation along parameter vector <code>n</code>.
+This means that, e.g., bevel gears where the axis of rotation of
+<code>flange_a</code> and <code>flange_b</code> are different
+cannot be described properly by connecting to the <b>Mounting1D</b>
+component. In this case, a combination of several <b>Mounting1D</b>
+components or the component <b>BevelGear1D</b> should be used.</p>
+<p><b>Reference</b><br />
+<span style="font-variant:small-caps">Schweiger</span>, Christian ;
+<span style="font-variant:small-caps">Otter</span>, Martin:
+<a href="https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">
+Modelling 3D Mechanical Effects of 1-dim. Powertrains</a>. In:
+<i>Proceedings of the 3rd International Modelica Conference</i>.
+Linköping : The Modelica Association and Linköping University,
+November 3-4, 2003, pp. 149-158</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

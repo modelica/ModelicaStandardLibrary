@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.Examples.InvertersApartRecord</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.Examples.html">Examples</a>.InvertersApartRecord</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>An inverter is an electrical circuit that consists of a PMOS and
+a NMOS. Its task is to turn the input voltage from high potential
+to low potential or the other way round. This circuit
+<i>InverterApartModel</i> contains two inverters. The input voltage
+of the first inverter is nearly equal to the output voltage of the
+second inverter. Capacities cause some differences.</p>
+<p>To see the typical behavior of the circuit the input voltages
+and the output voltages should be plotted. Besides that it can be
+interesting to watch the output voltage of the first inverter.
+Simulated until t=5s.</p>
+<p>Input voltages: vin.p.v and v.p.v</p>
+<p>Output voltage of the first inverter: mn1.ND.v</p>
+<p>Output voltage of the second Inverter: mn2.ND.v</p>
+<p>This example shows one possibility to make the record of the
+technology parameters available for more than one transistor. For
+each transistor in the circuit a record with the technology
+parameters is made available as an instance of the record
+modelcardMOS. In this circuit we need two different records for
+technology parameters, one for PMOS (MPmos) and one for NMOS
+(MNmos). This instances of the record for the technology parameters
+were made available for every transistor as one of theirs
+parameters (Spice3.Repository.MOS mn1(mtype=0,
+modelcard=MNmos).</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>April 2009</i> by Kristin Majetta initially implemented</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

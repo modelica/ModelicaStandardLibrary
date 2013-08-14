@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.'output'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.'output'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Define causality and/or block diagram connection semantic
+(depending on context)</p>
+<h4>Examples</h4>
+<pre>
+<b>connector</b> RealInput = <b>input</b> Real;
+<b>connector</b> RealOutput = <b>output</b> Real;
+
+<b>block</b> Integrator
+  RealInput  u;
+  RealOutput y;
+<b>protected</b>
+  Real x;
+<b>equation</b>
+  <b>der</b>(x) = u;
+  y = x;
+<b>end</b> Integrator;
+</pre>
+<h4>Syntax</h4>
+<pre>
+class_definition :
+   [ <b>encapsulated</b> ]
+   [ <b>partial</b> ]
+   ( <b>class</b> | <b>model</b> | <b>record</b> | <b>block</b> | <b>connector</b> | <b>type</b> |
+     <b>package</b> | <b>function</b> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <b>end</b> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <b>enumeration</b> "(" ( [enum_list] | ":" ) ")" comment
+
+base_prefix :
+   type_prefix
+
+composition  :
+   element_list
+   { <b>public</b> element_list |
+     <b>protected</b> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <b>external</b> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <b>final</b> ]
+   [ <b>inner</b> | <b>outer</b> ]
+   ( ( class_definition | component_clause) |
+     <b>replaceable</b> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+component_clause:
+   type_prefix type_specifier [ array_subscripts ] component_list
+
+type_prefix :
+   [ <b>flow</b> ]
+   [ <b>discrete</b> | <b>parameter</b> | <b>constant</b> ] [ <b>input</b> | <b>output</b> ]
+</pre>
+<h4>Description</h4>
+<p>The prefixes <b>input</b> and <b>output</b> have a slightly
+different semantic meaning depending on the context where they are
+used:</p>
+<ul>
+<li>In functions, these prefixes define the computational causality
+of the function body, i.e., given the variables declared as input,
+the variables declared as output are computed in the function
+body.<br />
+&nbsp;</li>
+<li>In simulation models and blocks (i.e., on the top level of a
+model or block that shall be simulated), these prefixes define the
+interaction with the environment where the simulation model or
+block is used. Especially, the input prefix defines that values for
+such a variable have to be provided from the simulation environment
+and the output prefix defines that the values of the corresponding
+variable can be directly utilized in the simulation
+environment.<br />
+&nbsp;</li>
+<li>In component models and blocks, the input prefix defines that a
+binding equation has to be provided for the corresponding variable
+when the component is utilized in order to guarantee a locally
+balanced model (i.e., the number of local equations is identical to
+the local number of unknowns). Example:
+<pre>
+  <b>block</b> FirstOrder
+     <b>input</b> Real u;
+       ...
+  <b>end</b> FirstOrder;
+
+  <b>model</b> UseFirstOrder
+     FirstOrder firstOrder(u=time); // binding equation for u
+      ...
+  <b>end</b> UseFirstOrder;
+</pre>
+The output prefix does not have a particular effect in a model or
+block component and is ignored.<br />
+&nbsp;</li>
+<li>In connectors, prefixes input and output define that the
+corresponding connectors can only be connected according to block
+diagram semantics (e.g., a connector with an output variable can
+only be connected to a connector where the corresponding variable
+is declared as input). There is the restriction that connectors
+which have at least one variable declared as input must be
+externally connected (in order to get a locally balanced model,
+where the number of local unknowns is identical to the number of
+unknown equations). Together with the block diagram semantics rule
+this means, that such connectors must be connected exactly once
+externally.<br />
+&nbsp;</li>
+<li>In records, prefixes input and output are not allowed, since
+otherwise a record could not be, e.g., passed as input argument to
+a function.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Thermal.html">Thermal</a>.<a href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a>.<a href="Modelica.Thermal.FluidHeatFlow.Examples.html">Examples</a>.IndirectCooling</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>3rd test example: IndirectCooling</p>
+A prescribed heat sources dissipates its heat through a thermal
+conductor to the inner coolant cycle. It is necessary to define the
+pressure level of the inner coolant cycle. The inner coolant cycle
+is coupled to the outer coolant flow through a thermal
+conductor.<br />
+Inner coolant's temperature rise near the source is the same as
+temperature drop near the cooler.<br />
+<b>Results</b>:<br />
+<table>
+<tr>
+<td valign="top"><b>output</b></td>
+<td valign="top"><b>explanation</b></td>
+<td valign="top"><b>formula</b></td>
+<td valign="top"><b>actual steady-state value</b></td>
+</tr>
+<tr>
+<td valign="top">dTSource</td>
+<td valign="top">Source over Ambient</td>
+<td valign="top">dtouterCoolant + dtCooler + dTinnerCoolant +
+dtToPipe</td>
+<td valign="top">40 K</td>
+</tr>
+<tr>
+<td valign="top">dTtoPipe</td>
+<td valign="top">Source over inner Coolant</td>
+<td valign="top">Losses / ThermalConductor.G</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTinnerColant</td>
+<td valign="top">inner Coolant's temperature increase</td>
+<td valign="top">Losses * cp * innerMassFlow</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTCooler</td>
+<td valign="top">Cooler's temperature rise between inner and outer
+pipes</td>
+<td valign="top">Losses * (innerGc + outerGc)</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTouterColant</td>
+<td valign="top">outer Coolant's temperature increase</td>
+<td valign="top">Losses * cp * outerMassFlow</td>
+<td valign="top">10 K</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

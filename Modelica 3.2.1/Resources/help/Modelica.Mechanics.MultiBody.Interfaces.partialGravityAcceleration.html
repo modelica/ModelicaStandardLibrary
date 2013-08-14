@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Interfaces.html">Interfaces</a>.partialGravityAcceleration</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This partial function defines the interface to the gravity
+function used in the World object. All gravity field functions must
+inherit from this function. The input to the function is the
+absolute position vector of a point in the gravity field, whereas
+the output is the gravity acceleration at this point, resolved in
+the world frame.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+partial function partialGravityAcceleration
+  extends Modelica.Icons.Function;
+  input Modelica.SIunits.Position r[3] "Position vector from world frame to actual point, resolved in world frame";
+  output Modelica.SIunits.Acceleration gravity[3] "Gravity acceleration at position r, resolved in world frame";
+end partialGravityAcceleration;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Magnetic.html">Magnetic</a>.<a href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a>.<a href="Modelica.Magnetic.FundamentalWave.BasicMachines.html">BasicMachines</a>.<a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.html">Components</a>.RotorSaliencyAirGap</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This salient air gap model can be used for machines with uniform
+airgaps and for machines with rotor saliencies. The air gap model
+is not symmetrical towards stator and rotor since it is assumed the
+saliency always refers to the rotor. The saliency of the air gap is
+represented by a main field inductance in the d- and q-axis.</p>
+<p>For the mechanical interaction of the air gap model with the
+stator and the rotor it is equipped with to <a href="Modelica.Mechanics.Rotational.Interfaces.Flange_a.html">rotational
+connectors</a>. The torques acting on both connectors have the same
+absolute values but different signs. The difference between the
+stator and the rotor angle, <img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/gamma.png" />
+, is required for the transformation of the magnetic stator
+quantities to the rotor side.</p>
+<p>The air gap model has two magnetic stator and two magnetic rotor
+<a href="Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort.html">
+ports</a>. The magnetic potential difference and the magnetic flux
+of the stator (superscript s) are transformed to the rotor fixed
+reference frame (superscript r). The effective reluctances of the
+main field with respect to the d- and q-axis are considered then in
+the balance equations</p>
+<p>&nbsp;&nbsp;<img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/Machines/Components/airgap.png" /></p>
+<p>according to the following figure.</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><b>Fig:</b> Magnetic equivalent circuit of
+the air gap model</caption>
+<tr>
+<td><img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/Machines/Components/airgap_phasors.png" /></td>
+</tr>
+</table>
+<h4>See also</h4>
+<p><a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding.html">
+SinglePhaseWinding</a>, <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding.html">
+SymmetricMultiPhaseWinding</a>, <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding.html">
+SymmetricMultiPhaseCageWinding</a> <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding.html">
+SaliencyCageWinding</a></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

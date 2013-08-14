@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a href="Modelica.Fluid.Dissipation.PressureLoss.html">PressureLoss</a>.<a href="Modelica.Fluid.Dissipation.PressureLoss.Orifice.html">Orifice</a>.dp_thickEdgedOverall_MFLOW</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of pressure loss in thick edged orifices with sharp
+corners at overall flow regime for incompressible and single-phase
+fluid flow through an arbitrary shaped cross sectional area
+(square, circular, etc.) considering constant influence of surface
+roughness.</p>
+<p>Generally this function is numerically best used for the
+<b>compressible case</b> , where the pressure loss (dp) is known
+(out of pressures as state variable) in the used model and the
+corresponding mass flow rate (M_FLOW) has to be calculated. On the
+other hand the function <a href="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP.html">
+dp_thickEdgedOverall_DP</a> is numerically best used for the
+<b>incompressible case</b> if the mass flow rate (m_flow) is known
+(as state variable) and the pressure loss (DP) has to be
+calculated. <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall.html">
+See more information</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function dp_thickEdgedOverall_MFLOW
+  extends Modelica.Icons.Function;
+  import FD = Modelica.Fluid.Dissipation.PressureLoss.Orifice;
+  import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
+  input Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con IN_con "Input record for function dp_thickEdgedOverall_MFLOW" annotation(Dialog(group = "Constant inputs"));
+  input Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var IN_var "Input record for function dp_thickEdgedOverall_MFLOW" annotation(Dialog(group = "Variable inputs"));
+  input SI.Pressure dp "Pressure loss" annotation(Dialog(group = "Input"));
+  output SI.MassFlowRate M_FLOW "Output for function dp_thickEdgedOverall_MFLOW";
+end dp_thickEdgedOverall_MFLOW;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

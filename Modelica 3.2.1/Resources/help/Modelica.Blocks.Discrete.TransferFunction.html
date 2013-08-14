@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Discrete.TransferFunction</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Discrete.html">Discrete</a>.TransferFunction</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <b>discrete transfer function</b> block defines the transfer
+function between the input signal u and the output signal y. The
+numerator has the order nb-1, the denominator has the order
+na-1.</p>
+<pre>
+          b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
+   y(z) = -------------------------------------------- * u(z)
+          a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
+</pre>
+<p>State variables <b>x</b> are defined according to <b>controller
+canonical</b> form. Initial values of the states can be set as
+start values of <b>x</b>.</p>
+<p>Example:</p>
+<pre>
+     Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
+</pre>
+<p>results in the following transfer function:</p>
+<pre>
+        2*z + 4
+   y = --------- * u
+         z + 3
+</pre>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>November 15, 2000</i> by <a href="http://www.dynasim.se">Hans Olsson</a>:<br />
+Converted to when-semantics of Modelica 1.4 with special care to
+avoid unnecessary algebraic loops.</li>
+<li><i>June 18, 2000</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Realized based on a corresponding model of Dieter Moormann and
+Hilding Elmqvist.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

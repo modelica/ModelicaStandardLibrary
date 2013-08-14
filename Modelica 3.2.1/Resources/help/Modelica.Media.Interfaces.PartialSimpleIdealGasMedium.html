@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.Interfaces.PartialSimpleIdealGasMedium</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.Interfaces.html">Interfaces</a>.PartialSimpleIdealGasMedium</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Medium model of Ideal gas with constant cp and cv. All other quantities, e.g., transport properties, are constant.
+</pre>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.ThermodynamicState.html">
+ThermodynamicState</a></td>
+<td>Thermodynamic state of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.BaseProperties.html">
+BaseProperties</a></td>
+<td>Base properties of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.setState_pTX.html">
+setState_pTX</a></td>
+<td>Return thermodynamic state from p, T, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.setState_phX.html">
+setState_phX</a></td>
+<td>Return thermodynamic state from p, h, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.setState_psX.html">
+setState_psX</a></td>
+<td>Return thermodynamic state from p, s, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.setState_dTX.html">
+setState_dTX</a></td>
+<td>Return thermodynamic state from d, T, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.setSmoothState.html">
+setSmoothState</a></td>
+<td>Return thermodynamic state so that it smoothly approximates: if
+x &gt; 0 then state_a else state_b</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.pressure.html">
+pressure</a></td>
+<td>Return pressure of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.temperature.html">
+temperature</a></td>
+<td>Return temperature of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.density.html">
+density</a></td>
+<td>Return density of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.specificEnthalpy.html">
+specificEnthalpy</a></td>
+<td>Return specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.specificInternalEnergy.html">
+specificInternalEnergy</a></td>
+<td>Return specific internal energy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.specificEntropy.html">
+specificEntropy</a></td>
+<td>Return specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.specificGibbsEnergy.html">
+specificGibbsEnergy</a></td>
+<td>Return specific Gibbs energy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.specificHelmholtzEnergy.html">
+specificHelmholtzEnergy</a></td>
+<td>Return specific Helmholtz energy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.dynamicViscosity.html">
+dynamicViscosity</a></td>
+<td>Return dynamic viscosity</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.thermalConductivity.html">
+thermalConductivity</a></td>
+<td>Return thermal conductivity</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.specificHeatCapacityCp.html">
+specificHeatCapacityCp</a></td>
+<td>Return specific heat capacity at constant pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.specificHeatCapacityCv.html">
+specificHeatCapacityCv</a></td>
+<td>Return specific heat capacity at constant volume</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.isentropicExponent.html">
+isentropicExponent</a></td>
+<td>Return isentropic exponent</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.velocityOfSound.html">
+velocityOfSound</a></td>
+<td>Return velocity of sound</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.specificEnthalpy_pTX.html">
+specificEnthalpy_pTX</a></td>
+<td>Return specific enthalpy from p, T, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.temperature_phX.html">
+temperature_phX</a></td>
+<td>Return temperature from p, h, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.density_phX.html">
+density_phX</a></td>
+<td>Return density from p, h, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.isentropicEnthalpy.html">
+isentropicEnthalpy</a></td>
+<td>Return isentropic enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.isobaricExpansionCoefficient.html">
+isobaricExpansionCoefficient</a></td>
+<td>Returns overall the isobaric expansion coefficient beta</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.isothermalCompressibility.html">
+isothermalCompressibility</a></td>
+<td>Returns overall the isothermal compressibility factor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.density_derp_T.html">
+density_derp_T</a></td>
+<td>Returns the partial derivative of density with respect to
+pressure at constant temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.density_derT_p.html">
+density_derT_p</a></td>
+<td>Returns the partial derivative of density with respect to
+temperature at constant pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.density_derX.html">
+density_derX</a></td>
+<td>Returns the partial derivative of density with respect to mass
+fractions at constant pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialSimpleIdealGasMedium.molarMass.html">
+molarMass</a></td>
+<td>Returns the molar mass of the medium</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

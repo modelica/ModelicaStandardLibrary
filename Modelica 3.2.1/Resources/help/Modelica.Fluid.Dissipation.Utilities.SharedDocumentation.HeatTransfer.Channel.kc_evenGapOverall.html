@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.html">HeatTransfer</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.html">Channel</a>.kc_evenGapOverall</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of the mean convective heat transfer coefficient
+<b>kc</b> for an laminar or turbulent fluid flow through an even
+gap at different fluid flow and heat transfer situations.</p>
+<h4>Functions <b>kc_evenGapOverall</b> and
+<b>kc_evenGapOverall_KC</b></h4>
+<p>There are basically three differences:</p>
+<ul>
+<li>The function <b>kc_evenGapOverall</b> is using
+<b>kc_evenGapOverall_KC</b> but offers additional output variables
+like e.g. Reynolds number or Nusselt number and failure status (an
+output of <b>1</b> means that the function is not valid for the
+inputs).</li>
+<li>Generally the function <b>kc_evenGapOverall_KC</b> is
+numerically best used for the calculation of the mean convective
+heat transfer coefficient <b>kc</b> at known mass flow rate.</li>
+<li>You can perform an inverse calculation from
+<b>kc_evenGapOverall_KC</b>, where an unknown mass flow rate is
+calculated out of a given mean convective heat transfer coefficient
+<b>kc</b></li>
+</ul>
+<h4>Restriction</h4>
+<ul>
+<li>developed fluid flow
+<ul>
+<li>heat transfer from one side of the gap
+(target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevOne)</li>
+<li>heat transfer from both sides of the gap
+(target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
+</ul>
+</li>
+<li>undeveloped fluid flow
+<ul>
+<li>heat transfer from one side of the gap
+(target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevOne)
+<ul>
+<li>Prandtl number 0.1 ≤ Pr ≤ 10</li>
+</ul>
+</li>
+<li>heat transfer from both sides of the gap
+(target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.UndevBoth)
+<ul>
+<li>Prandtl number 0.1 ≤ Pr ≤ 1000</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>turbulent regime always calculated for developed fluid flow and
+heat transfer from both sides of the gap
+(target=Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap.DevBoth)</li>
+</ul>
+<h4>Geometry and Calculation</h4>
+<p>This heat transfer function enables a calculation of heat
+transfer coefficient for laminar and turbulent flow regime. The
+geometry, constant and fluid parameters of the function are the
+same as for <a href="Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar.html">
+kc_evenGapLaminar</a> and <a href="Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent.html">
+kc_evenGapTurbulent</a>.</p>
+<p>The calculation conditions for laminar and turbulent flow is
+equal to the calculation in <b>kc_evenGapLaminar</b> and
+<b>kc_evenGapTurbulent</b>. A smooth transition between both
+functions is carried out between 2200 ≤ Re ≤ 30000 (see figure
+below).</p>
+<h4>Verification</h4>
+<p>The mean Nusselt number <b>Nu</b> representing the mean
+convective heat transfer coefficient <b>kc</b> for Prandtl numbers
+of different fluids in dependence of the chosen fluid flow and heat
+transfer situations (targets) is shown in the figures below.</p>
+<ul>
+<li>Target 1: Developed fluid flow and heat transfer from one side
+of the gap</li>
+<li>Target 2: Developed fluid flow and heat transfer from both
+sides of the gap</li>
+<li>Target 3: Undeveloped fluid flow and heat transfer from one
+side of the gap</li>
+<li>Target 4: Undeveloped fluid flow and heat transfer from both
+sides of the gap</li>
+</ul>
+<p>The verification for all targets is shown in the following
+figure w.r.t. the reference:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall.png" alt="fig_channel_kc_evenGapOverall" /></p>
+<h4>References</h4>
+<dl>
+<dt>Bejan,A.:</dt>
+<dd><b>Heat transfer handbook</b>. Wiley, 2003.</dd>
+<dt>VDI:</dt>
+<dd><b>VDI - Wärmeatlas: Berechnungsblätter für den
+Wärmeübergang</b>. Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

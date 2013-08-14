@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.Examples.Spice3BenchmarkDifferentialPair</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.Examples.html">Examples</a>.Spice3BenchmarkDifferentialPair</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This Differential pair model is one of the five benchmark
+circuits described in the SPICE3 Version e3 User's Manual (see
+information of package Spice3).</p>
+<p>The differential pair circuit is operating in the differential
+mode. This means the input voltage VIN that is only applied at one
+transistor is amplified. To comprehend this behavior the user is
+recommended to simulate from t=0 to t=1s and observe "VIN.p.v"
+which is the input voltage and "Outputvoltage" which is the
+amplified output voltage.</p>
+<p>Original SPICE3 netlist of the Differential pair:</p>
+<pre>
+SIMPLE DIFFERENTIAL PAIR<br />VCC 7 0 12<br />VEE 8 0 -12<br />VIN 1 0 AC 1<br />RS1 1 2 1K<br />RS2 6 0 1K<br />Q1 3 2 4 MOD1<br />Q2 5 6 4 MOD1<br />RC1 7 3 10K<br />RC2 7 5 10K<br />RE 4 8 10K<br />.MODEL MOD1 NPN BF=50 VAF=50 IS=1.E-12 RB=100 CJC=.5PF TF=.6NS<br />.TF V(5) VIN<br />.AC DEC 10 1 100MEG<br />.END
+</pre>
+<p>In the Modelica representation the tiny capacity CJC was set to
+1.e-9F to get a higher numerical robustness. In future the
+numerical behavior will be analysed to be able to apply the
+original value CJC=.5PF.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

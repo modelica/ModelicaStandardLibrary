@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Blocks.Continuous.Internal.Filter.base.Bessel</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Continuous.html">Continuous</a>.<a href="Modelica.Blocks.Continuous.Internal.html">Internal</a>.<a href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a>.<a href="Modelica.Blocks.Continuous.Internal.Filter.base.html">base</a>.Bessel</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Return base filter coefficients of Bessel filter (= low pass filter with w_cut = 1 rad/s)
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function Bessel
+  extends Modelica.Icons.Function;
+  input Integer order(min = 1) "Order of filter";
+  input Boolean normalized = true "= true, if amplitude at f_cut = -3db, otherwise unmodified filter";
+  output Real cr[mod(order, 2)] "Coefficient of real pole";
+  output Real c0[integer(order / 2)] "Coefficients of s^0 term if conjugate complex pole";
+  output Real c1[integer(order / 2)] "Coefficients of s^1 term if conjugate complex pole";
+end Bessel;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Translational.Examples.InitialConditions</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.Translational.html">Translational</a>.<a href="Modelica.Mechanics.Translational.Examples.html">Examples</a>.InitialConditions</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>There are several ways to set initial conditions. In the first
+system the position of the mass m3 was defined by using the
+modifier s(start=4.5), the position of m4 by s(start=12.5). These
+positions were chosen such that the system is a rest. To calculate
+these values start at the left (Fixed1) with a value of 1 m. The
+spring has an unstretched length of 2 m and m3 an length of 3 m,
+which leads to</p>
+<pre>
+        1   m (fixed1)
+      + 2   m (spring s2)
+      + 3/2 m (half of the length of mass m3)
+      -------
+        4,5 m = s(start = 4.5) for m3
+      + 3/2 m (half of the length of mass m3)
+      + 4   m (springDamper 2)
+      + 5/2 m (half of length of mass m4)
+      -------
+       12,5 m = s(start = 12.5) for m4
+</pre>
+<p>This selection of initial conditions has the effect that Dymola
+selects those variables (m3.s and m4.s) as state variables. In the
+second example the length of the springs are given as start values
+but they cannot be used as state for pure springs (only for the
+spring/damper combination). In this case the system is not at
+rest.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/Translational/InitialConditions.png" /></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

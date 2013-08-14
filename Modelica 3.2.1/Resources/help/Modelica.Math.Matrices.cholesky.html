@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.cholesky</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.cholesky</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+         H = Matrices.<b>cholesky</b>(A);
+         H = Matrices.<b>cholesky</b>(A, upper=true);
+ 
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>cholesky</b> computes the Cholesky factorization of
+a real symmetric positive definite matrix A. The optional Boolean
+input "upper" specifies whether the upper or the lower triangular
+matrix is returned, i.e.</p>
+<blockquote>
+<pre>
+ A = H'*H   if upper is true (H is upper triangular)
+ A = H*H'   if upper is false (H is lower triangular)
+</pre></blockquote>
+<p>The computation is performed by <a href="Modelica.Math.Matrices.LAPACK.dpotrf.html">LAPACK.dpotrf</a>.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  A  = [1, 0,  0;
+        6, 5,  0;
+        1, -2,  2];
+  S = A*transpose(A);
+
+  H = Matrices.cholesky(S);
+
+  results in:
+
+  H = [1.0,  6.0,  1.0;
+       0.0,  5.0, -2.0;
+       0.0,  0.0,  2.0]
+
+  with
+
+  transpose(H)*H = [1.0,  6.0,   1;
+                    6.0, 61.0,  -4.0;
+                    1.0, -4.0,   9.0] //=S
+
+</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function cholesky
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Matrices.LAPACK;
+  input Real A[:,size(A, 1)] "Symmetric positive definite matrix";
+  input Boolean upper = true "True if the right cholesky factor (upper triangle) should be returned";
+  output Real H[size(A, 1),size(A, 2)] "Cholesky factor U (upper=true) or L (upper=false) for A = U'*U or A = L*L'";
+end cholesky;
+
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

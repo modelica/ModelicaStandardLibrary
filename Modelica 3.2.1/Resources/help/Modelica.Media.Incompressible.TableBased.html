@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Incompressible.TableBased</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.Incompressible.html">Incompressible</a>.TableBased</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is the base package for medium models of incompressible
+fluids based on tables. The minimal data to provide for a useful
+medium description is tables of density and heat capacity as
+functions of temperature.</p>
+<p>It should be noted that incompressible media only have 1 state
+per control volume (usually T), but have both T and p as inputs for
+fully correct properties. The error of using only T-dependent
+properties is small, therefore a Boolean flag enthalpyOfT exists.
+If it is true, the enumeration Choices.independentVariables is set
+to Choices.independentVariables.T otherwise it is set to
+Choices.independentVariables.pT.</p>
+<h4>Using the package TableBased</h4>
+<p>To implement a new medium model, create a package that
+<b>extends</b> TableBased and provides one or more of the constant
+tables:</p>
+<pre>
+tableDensity        = [T, d];
+tableHeatCapacity   = [T, Cp];
+tableConductivity   = [T, lam];
+tableViscosity      = [T, eta];
+tableVaporPressure  = [T, pVap];
+</pre>
+<p>The table data is used to fit constant polynomials of order
+<b>npol</b>, the temperature data points do not need to be same for
+different properties. Properties like enthalpy, inner energy and
+entropy are calculated consistently from integrals and derivatives
+of d(T) and Cp(T). The minimal data for a useful medium model is
+thus density and heat capacity. Transport properties and vapor
+pressure are optional, if the data tables are empty the
+corresponding function calls can not be used.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.invertTemp.html">invertTemp</a></td>
+<td>Function to invert temperatures</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.BaseProperties.html">BaseProperties</a></td>
+<td>Base properties of T dependent medium</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.setState_pTX.html">setState_pTX</a></td>
+<td>Returns state record, given pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.setState_dTX.html">setState_dTX</a></td>
+<td>Returns state record, given pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.setState_pT.html">setState_pT</a></td>
+<td>Returns state record as function of p and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.setState_phX.html">setState_phX</a></td>
+<td>Returns state record, given pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.setState_ph.html">setState_ph</a></td>
+<td>Returns state record as function of p and h</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.setState_psX.html">setState_psX</a></td>
+<td>Returns state record, given pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.setState_ps.html">setState_ps</a></td>
+<td>Returns state record as function of p and s</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.setSmoothState.html">setSmoothState</a></td>
+<td>Return thermodynamic state so that it smoothly approximates: if
+x &gt; 0 then state_a else state_b</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCv.html">
+specificHeatCapacityCv</a></td>
+<td>Specific heat capacity at constant volume (or pressure) of
+medium</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCp.html">
+specificHeatCapacityCp</a></td>
+<td>Specific heat capacity at constant volume (or pressure) of
+medium</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.dynamicViscosity.html">dynamicViscosity</a></td>
+<td>Return dynamic viscosity as a function of the thermodynamic
+state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.thermalConductivity.html">
+thermalConductivity</a></td>
+<td>Return thermal conductivity as a function of the thermodynamic
+state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.s_T.html">s_T</a></td>
+<td>Compute specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.specificEntropy.html">specificEntropy</a></td>
+<td>Return specific entropy as a function of the thermodynamic
+state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.h_T.html">h_T</a></td>
+<td>Compute specific enthalpy from temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.h_T_der.html">h_T_der</a></td>
+<td>Compute specific enthalpy from temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.h_pT.html">h_pT</a></td>
+<td>Compute specific enthalpy from pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.density_T.html">density_T</a></td>
+<td>Return density as function of temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.temperature.html">temperature</a></td>
+<td>Return temperature as a function of the thermodynamic state
+record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.pressure.html">pressure</a></td>
+<td>Return pressure as a function of the thermodynamic state
+record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.density.html">density</a></td>
+<td>Return density as a function of the thermodynamic state
+record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.specificEnthalpy.html">specificEnthalpy</a></td>
+<td>Return specific enthalpy as a function of the thermodynamic
+state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.specificInternalEnergy.html">
+specificInternalEnergy</a></td>
+<td>Return specific internal energy as a function of the
+thermodynamic state record</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.T_ph.html">T_ph</a></td>
+<td>Compute temperature from pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.T_ps.html">T_ps</a></td>
+<td>Compute temperature from pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.Polynomials_Temp.html">Polynomials_Temp</a></td>
+<td>Temporary Functions operating on polynomials (including
+polynomial fitting); only to be used in
+Modelica.Media.Incompressible.TableBased</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

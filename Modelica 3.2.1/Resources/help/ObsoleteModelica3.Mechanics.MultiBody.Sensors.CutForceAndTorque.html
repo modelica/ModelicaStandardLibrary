@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ObsoleteModelica3.html">ObsoleteModelica3</a>.<a href="ObsoleteModelica3.Mechanics.html">Mechanics</a>.<a href="ObsoleteModelica3.Mechanics.MultiBody.html">MultiBody</a>.<a href="ObsoleteModelica3.Mechanics.MultiBody.Sensors.html">Sensors</a>.CutForceAndTorque</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The cut-force and cut-torque acting at the component to which
+frame_b is connected are determined and provided at the output
+signal connector <b>load</b>:</p>
+<pre>
+  load[1:3] = frame_a.f;
+  load[4:6] = frame_a.t;
+</pre>
+<p>If parameter <b>positiveSign</b> = <b>false</b>, the negative
+cut-force and negative cut-torque is provided (= frame_b.f and
+frame_b.t). If <b>frame_resolve</b> is connected to another frame,
+then the cut-force and cut-torque are resolved in frame_resolve. If
+<b>frame_resolve</b> is <b>not</b> connected then the coordinate
+system in which the cut-force and cut-torque is resolved is defined
+by parameter <b>resolveInFrame_a</b>. If this parameter is
+<b>true</b>, then the cut-force and cut-torque is resolved in
+frame_a, otherwise it is resolved in the world frame.</p>
+<p>In the following figure the animation of a CutForceAndTorque
+sensor is shown. The dark blue coordinate system is frame_b, and
+the green arrows are the cut force and the cut torque,
+respectively, acting at frame_b and with negative sign at
+frame_a.</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png" />
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

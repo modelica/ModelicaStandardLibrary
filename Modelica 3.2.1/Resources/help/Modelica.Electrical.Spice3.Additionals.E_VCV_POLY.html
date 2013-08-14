@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Spice3.Additionals.E_VCV_POLY</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.Additionals.html">Additionals</a>.E_VCV_POLY</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The polynomial source is a SPICE2 model, which is also known in
+other SPICE derivates.</p>
+<p>Nonlinear voltage controlled voltage source. The "right" port
+voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the
+"left" port vector of voltages at the pin vector pc[:] via</p>
+<pre>
+    p2.v - n2.v = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)
+</pre>
+<p>The controlling port (left) current vector is zero.</p>
+<p>f is a polynomial in N variables s1...sN of the following form
+with M+1 coefficients a0, a1, a2,...aM.</p>
+<pre>
+f = a0 +
+    a1s1 + a2s2 + ... + aNsN +
+    a(N+1)s1² + a(N+2)s1s2 + ... + a(.)s1sN +
+    a(.)s2² + a(.)s2s3 + ... + a(.)s2sN +
+    a(.)s3² + s3s4 + ... + a(.)s4sN +
+    ... +
+    a(.)sN² +
+    a(.)s1³ + a(.)s1²s2 + a(.)s1²s3 + ... + a(.)s1²sN +
+    a(.)s1s2² + a(.)s1s2s3 + ... + a(.)s1s2sN +
+    ... +
+    a(.)sN³ + ... 
+</pre>
+<p>The Coefficients a(.) are counted in this order. Reaching M, the
+particular sum is canceled.</p>
+<p>In connection with the VCV, s1...sN are the voltages of the
+controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v,
+s3=...</p>
+<p>The corresponding SPICE description of the VCV polynomial source
+is the following:</p>
+<pre>
+    Ename A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...
+</pre>
+<p>where Ename is the name of the instance, A1 and A2 are the nodes
+between them the controlled voltage is gripped,</p>
+<p>N is the number of the controlling voltages, E11 E12 ... E1N E2N
+are pairs of nodes between them the controlling voltages</p>
+<p>are gripped, and P0, P1... are the coefficients that are called
+a0, a1, ... aM in the description of the polynomial f above.</p>
+<p>To describe the SPICE line in Modelica, the following
+explanation would be useful:</p>
+<pre>
+Ename -&gt; E_VCV_POLY name
+A1, A2 -&gt; pins name.p2, name.p1
+N -&gt; parameter N
+E11 -&gt; name.pc[2]
+E12 -&gt; name.pc[1]
+...
+E1N -&gt; name.pc[N]
+E2N -&gt; name.pc[N-1]
+P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
+</pre>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>Sept 2008</i> by Kristin Majetta<br />
+initially implemented</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

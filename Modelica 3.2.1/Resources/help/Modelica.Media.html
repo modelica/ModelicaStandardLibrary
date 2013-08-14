@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.Media</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This library contains <a href="Modelica.Media.Interfaces.html">interface</a> definitions
+for media and the following <b>property</b> models for single and
+multiple substance fluids with one and multiple phases:</p>
+<ul>
+<li><a href="Modelica.Media.IdealGases.html">Ideal
+gases:</a><br />
+1241 high precision gas models based on the NASA Glenn
+coefficients, plus ideal gas mixture models based on the same
+data.</li>
+<li><a href="Modelica.Media.Water.html">Water
+models:</a><br />
+ConstantPropertyLiquidWater, WaterIF97 (high precision water model
+according to the IAPWS/IF97 standard)</li>
+<li><a href="Modelica.Media.Air.html">Air models:</a><br />
+SimpleAir, DryAirNasa, ReferenceAir, MoistAir,
+ReferenceMoistAir.</li>
+<li><a href="Modelica.Media.Incompressible.html">Incompressible
+media:</a><br />
+TableBased incompressible fluid models (properties are defined by
+tables rho(T), HeatCapacity_cp(T), etc.)</li>
+<li><a href="Modelica.Media.CompressibleLiquids.html">Compressible
+liquids:</a><br />
+Simple liquid models with linear compressibility</li>
+<li><a href="Modelica.Media.R134a.html">Refrigerant
+Tetrafluoroethane (R134a)</a>.</li>
+</ul>
+<p>The following parts are useful, when newly starting with this
+library:</p>
+<ul>
+<li><a href="Modelica.Media.UsersGuide.html">Modelica.Media.UsersGuide</a>.</li>
+<li><a href="Modelica.Media.UsersGuide.MediumUsage.html">Modelica.Media.UsersGuide.MediumUsage</a>
+describes how to use a medium model in a component model.</li>
+<li><a href="Modelica.Media.UsersGuide.MediumDefinition.html">Modelica.Media.UsersGuide.MediumDefinition</a>
+describes how a new fluid medium model has to be implemented.</li>
+<li><a href="Modelica.Media.UsersGuide.ReleaseNotes.html">Modelica.Media.UsersGuide.ReleaseNotes</a>
+summarizes the changes of the library releases.</li>
+<li><a href="Modelica.Media.Examples.html">Modelica.Media.Examples</a>
+contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p>Copyright © 1998-2013, Modelica Association.</p>
+<p><i>This Modelica package is <u>free</u> software and the use is
+completely at <u>your own risk</u>; it can be redistributed and/or
+modified under the terms of the Modelica License 2. For license
+conditions (including the disclaimer of warranty) see <a href="Modelica.UsersGuide.ModelicaLicense2.html">Modelica.UsersGuide.ModelicaLicense2</a>
+or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2">https://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.UsersGuide.html">UsersGuide</a></td>
+<td>User's Guide of Media Library</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.html">Examples</a></td>
+<td>Demonstrate usage of property models (currently: simple
+tests)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.html">Interfaces</a></td>
+<td>Interfaces for media models</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Common.html">Common</a></td>
+<td>Data structures and fundamental functions for fluid
+properties</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.html">Air</a></td>
+<td>Medium models for air</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.CompressibleLiquids.html">CompressibleLiquids</a></td>
+<td>Compressible liquid models</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.html">IdealGases</a></td>
+<td>Data and models of ideal gases (single, fixed and dynamic
+mixtures) from NASA source</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.html">Incompressible</a></td>
+<td>Medium model for T-dependent properties, defined by tables or
+polynomials</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.R134a.html">R134a</a></td>
+<td>R134a: Medium model for R134a</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.html">Water</a></td>
+<td>Medium models for water</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>May 16, 2013</i> by Stefan Wischhusen (XRG
+Simulation):<br />
+Added new media models Air.ReferenceMoistAir, Air.ReferenceAir,
+R134a.</li>
+<li><i>May 25, 2011</i> by Francesco Casella:<br />
+Added min/max attributes to Water, TableBased, MixtureGasNasa,
+SimpleAir and MoistAir local types.</li>
+<li><i>May 25, 2011</i> by Stefan Wischhusen:<br />
+Added individual settings for polynomial fittings of
+properties.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

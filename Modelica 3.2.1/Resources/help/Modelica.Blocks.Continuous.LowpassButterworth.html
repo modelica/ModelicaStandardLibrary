@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Continuous.LowpassButterworth</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Continuous.html">Continuous</a>.LowpassButterworth</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This block defines the transfer function between the input u and
+the output y as an n-th order low pass filter with
+<i>Butterworth</i> characteristics and cut-off frequency f. It is
+implemented as a series of second order filters and a first order
+filter. Butterworth filters have the feature that the amplitude at
+the cut-off frequency f is 1/sqrt(2) (= 3 dB), i.e., they are
+always "normalized". Step responses of the Butterworth filter of
+different orders are shown in the next figure:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/Butterworth.png" alt="Butterworth.png" /></p>
+<p>If transients at the simulation start shall be avoided, the
+filter should be initialized in steady state (e.g., using option
+initType=Modelica.Blocks.Types.Init.SteadyState).</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Digital.Delay.InertialDelaySensitive</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Digital.html">Digital</a>.<a href="Modelica.Electrical.Digital.Delay.html">Delay</a>.InertialDelaySensitive</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Provides the input as output delayed by <i>Tdel</i> if the input
+holds its value for a longer time than <i>Tdel</i>. If the time is
+less than <i>Tdel</i> the initial value <i>initout</i> holds.<br />
+The delay <i>Tdel</i> depends on the values of the signal change.
+To calculate <i>Tdel</i>, the delaymap specified in Digital.Tables
+is used. If the corresponding value is 1, then <i>tLH</i> is used,
+if it is -1, then <i>tHL</i> is used, if it is zero, the input is
+not delayed.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>January 24, 2013</i> Initial value for y set to y0 by
+Kristin Majetta and Christoph Clauss<br /></li>
+<li><i>September 8, 2009</i> pre(y) and x are used to select
+<i>tHL</i> or <i>tLH</i> by Ulrich Donath<br /></li>
+<li><i>January 13, 2005</i> improved when-conditions and
+declaration of delayTable by Dynasim<br /></li>
+<li><i>September 15, 2004</i> color changed, names changed by
+Christoph Clauss<br /></li>
+<li><i>May 12, 2004</i> test <i>if Tdel=0</i> replaced by Christoph
+Clauss<br /></li>
+<li><i>February 5, 2004</i> handling of <i>tHL=0</i> or
+<i>tLH=0</i> revised by Christoph Clauss<br /></li>
+<li><i>October 12, 2003</i> by Christoph Clauss<br />
+initially modelled</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

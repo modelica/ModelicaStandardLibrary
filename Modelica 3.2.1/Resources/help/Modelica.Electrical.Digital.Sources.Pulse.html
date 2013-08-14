@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Digital.Sources.Pulse</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Digital.html">Digital</a>.<a href="Modelica.Electrical.Digital.Sources.html">Sources</a>.Pulse</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The pulse source forms pulses between the <i>quiet</i> value and
+the <i>pulse</i> value. The pulse length <i>width</i> is specified
+in percent of the period length <i>period</i>. The number of
+periods is specified by <i>nperiod</i>. If <i>nperiod</i> is less
+than zero, the number of periods is unlimited.</p>
+<p>To specify the logic value parameters, the integer code has to
+be used.</p>
+<p><b>Code Table</b></p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>Logic value</b></td>
+<td valign="top"><b>Integer code</b></td>
+<td valign="top"><b>Meaning</b></td>
+</tr>
+<tr>
+<td valign="top">'U'</td>
+<td valign="top">1</td>
+<td valign="top">Uninitialized</td>
+</tr>
+<tr>
+<td valign="top">'X'</td>
+<td valign="top">2</td>
+<td valign="top">Forcing Unknown</td>
+</tr>
+<tr>
+<td valign="top">'0'</td>
+<td valign="top">3</td>
+<td valign="top">Forcing 0</td>
+</tr>
+<tr>
+<td valign="top">'1'</td>
+<td valign="top">4</td>
+<td valign="top">Forcing 1</td>
+</tr>
+<tr>
+<td valign="top">'Z'</td>
+<td valign="top">5</td>
+<td valign="top">High Impedance</td>
+</tr>
+<tr>
+<td valign="top">'W'</td>
+<td valign="top">6</td>
+<td valign="top">Weak Unknown</td>
+</tr>
+<tr>
+<td valign="top">'L'</td>
+<td valign="top">7</td>
+<td valign="top">Weak 0</td>
+</tr>
+<tr>
+<td valign="top">'H'</td>
+<td valign="top">8</td>
+<td valign="top">Weak 1</td>
+</tr>
+<tr>
+<td valign="top">'-'</td>
+<td valign="top">9</td>
+<td valign="top">Do not care</td>
+</tr>
+</table>
+<p>If the logic values are imported by<br />
+<b>import L = Digital.Interfaces.Logic;</b><br />
+they can be used to specify the parameter, e.g., <b>L.'0'</b> for
+forcing 0.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<dl>
+<dt><i>September 2, 2003</i></dt>
+<dd>by Christoph Clauss initially modelled.</dd>
+</dl>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

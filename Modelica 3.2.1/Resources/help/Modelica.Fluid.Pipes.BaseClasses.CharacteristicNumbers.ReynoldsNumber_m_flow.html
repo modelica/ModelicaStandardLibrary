@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Pipes.html">Pipes</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.html">CharacteristicNumbers</a>.ReynoldsNumber_m_flow</h1>
+<h2><a name="info" id="info">Information</a></h2>
+Simplified calculation of Reynolds Number for flow through pipes or
+orifices; using the mass flow rate <code>m_flow</code> instead of
+the velocity <code>v</code> to express inertial forces.
+<pre>
+  Re = |m_flow|*diameter/A/μ
+with
+  m_flow = v*ρ*A
+</pre>
+See also <a href="Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber.html">
+Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>.
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function ReynoldsNumber_m_flow
+  extends Modelica.Icons.Function;
+  input SI.MassFlowRate m_flow "Mass flow rate";
+  input SI.DynamicViscosity mu "Dynamic viscosity";
+  input SI.Length D "Characteristic dimension (hydraulic diameter of pipes or orifices)";
+  input SI.Area A = Modelica.Constants.pi / 4 * D * D "Cross sectional area of fluid flow";
+  output SI.ReynoldsNumber Re "Reynolds number";
+end ReynoldsNumber_m_flow;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

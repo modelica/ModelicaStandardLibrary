@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Spice3.UsersGuide.Overview</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.UsersGuide.html">UsersGuide</a>.Overview</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Overview of Spice3 library</h4>
+<p>The Spice3 library is a Modelica library that contains some
+models of the Berkeley SPICE3 analog simulator.</p>
+<p><u>General information about the analog simulator SPICE3</u></p>
+<p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a
+simulator for analog electrical circuits. It was developed as one
+of the first analog simulators in the university of Berkeley. SPICE
+netlists, which contain the circuit that shall be simulated, are a
+de-facto-standard up to now. For nearly every electrical circuit a
+SPICE netlist exists. Today the current version of SPICE is
+SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor,
+capacitor), sources and semiconductor devices (diode, bipolar
+transistors, junction field effect transistors, MOS-field effect
+transistors) as well as models of lines. Out of this offered pool
+of elements, the circuits that shall be simulated are build as
+SPICE netlists.</p>
+<p><u>The Spice3-library for Modelica</u></p>
+<p>The Spice3 library was extracted from original SPICE3 C++ code.
+To be sure the Modelica models are correct the simulation results
+were compared to SPICE3. This way was chosen since SPICE3 is the
+only open source Spice simulator.</p>
+<p>The Spice3-library was built in accordance to the model
+structure in SPICE. It contains the following packages:</p>
+<ul>
+<li>Examples</li>
+<li>Basic (R, C, L, controlled sources)</li>
+<li>Semiconductors (MOS (P, N), BJT(NPN PNP), Diode, semiconductor
+resistor)</li>
+<li>Sources (constant, sinusoidal, exponential, pulse, piece wise
+linear, single-frequency FM, respectively for V and I)</li>
+<li>Additionals (useful features from SPICE2)</li>
+<li>Interfaces</li>
+<li>Internal (functions and data needed to model the semiconductor
+devices)<br /></li>
+</ul>
+<p>Since the semiconductor models, especially MOS and BJT, are very
+complex models, many functions, data and parameters were needed for
+their description. Therefore a special Package called Internal was
+created that contains all the functions and records with data and
+parameters that are needed for the semiconductor models. It is not
+necessary that a user of the library works inside this package, so
+it is not for user access. The package Additionals is also a
+special one. It is not part of the original SPICE3. Nevertheless it
+contains useful models or features like the polynomial sources of
+SPICE2 that are often asked for.</p>
+<p>There are many commercial SPICE simulators (PSPICE, NgSPICE,
+HSPICE, ...) which are derived from the Berkeley SPICE or are in
+some relation to it. Netlists of such SPICE derivatives can differ
+from Berkeley SPICE3 netlists. This has to be taken into account if
+netlists (their parameter names) are used with this package.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

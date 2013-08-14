@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Sensors</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.Sensors</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p align="justify">Package <b>Sensors</b> consists of idealized
+sensor components that provide variables of a medium model and/or
+fluid ports as output signals. These signals can be, e.g., further
+processed with components of the Modelica.Blocks library. Also more
+realistic sensor models can be built, by further processing (e.g.,
+by attaching block Modelica.Blocks.FirstOrder to model the time
+constant of the sensor).</p>
+<p align="justify">For the thermodynamic state variables
+temperature, specific enthalpy, specific entropy and density the
+fluid library provides two different types of sensors: <b>regular
+one port</b> and <b>two port</b> sensors.</p>
+<ul>
+<li>The <b>regular one port</b> sensors have the advantage of easy
+introduction and removal from a model, as no connections have to be
+broken. A potential drawback is that the obtained value jumps as
+flow reverts.</li>
+<li>The <b>two port</b> sensors offer the advantages of an
+adjustable regularized step function around zero flow. Moreover the
+obtained result is restricted to the value flowing into port_a if
+allowFlowReversal is false.</li>
+</ul>
+<p><a href="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature.html">
+Modelica.Fluid.Examples.Explanatory.MeasuringTemperature</a>
+demonstrates the differences between one- and two-port sensor at
+hand of a simple example.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.Pressure.html">Pressure</a></td>
+<td>Ideal pressure sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.Density.html">Density</a></td>
+<td>Ideal one port density sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.DensityTwoPort.html">DensityTwoPort</a></td>
+<td>Ideal two port density sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.Temperature.html">Temperature</a></td>
+<td>Ideal one port temperature sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.TemperatureTwoPort.html">TemperatureTwoPort</a></td>
+<td>Ideal two port temperature sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.SpecificEnthalpy.html">SpecificEnthalpy</a></td>
+<td>Ideal one port specific enthalpy sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort.html">SpecificEnthalpyTwoPort</a></td>
+<td>Ideal two port sensor for the specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.SpecificEntropy.html">SpecificEntropy</a></td>
+<td>Ideal one port specific entropy sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.SpecificEntropyTwoPort.html">SpecificEntropyTwoPort</a></td>
+<td>Ideal two port sensor for the specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.MassFractions.html">MassFractions</a></td>
+<td>Ideal one port mass fraction sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.MassFractionsTwoPort.html">MassFractionsTwoPort</a></td>
+<td>Ideal two port sensor for mass fraction</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.TraceSubstances.html">TraceSubstances</a></td>
+<td>Ideal one port trace substances sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.TraceSubstancesTwoPort.html">TraceSubstancesTwoPort</a></td>
+<td>Ideal two port sensor for trace substance</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.MassFlowRate.html">MassFlowRate</a></td>
+<td>Ideal sensor for mass flow rate</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.VolumeFlowRate.html">VolumeFlowRate</a></td>
+<td>Ideal sensor for volume flow rate</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.RelativePressure.html">RelativePressure</a></td>
+<td>Ideal relative pressure sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.RelativeTemperature.html">RelativeTemperature</a></td>
+<td>Ideal relative temperature sensor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.BaseClasses.html">BaseClasses</a></td>
+<td>Base classes used in the Sensors package (only of interest to
+build new component models)</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>22 Dec 2008</i> by R;uumldiger Franke<br />
+<ul>
+<li>flow sensors based on Interfaces.PartialTwoPort</li>
+<li>adapted docu to stream connectors, i.e., less need for two port
+sensors</li>
+</ul>
+</li>
+<li><i>4 Dec 2008</i> by Michael Wetter<br />
+included sensors for trace substance</li>
+<li><i>31 Oct 2007</i> by Carsten Heinrich<br />
+updated sensor models, included one and two port sensors for
+thermodynamic state variables</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Frames.Internal.resolve1_der</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<a href="Modelica.Mechanics.MultiBody.Frames.Internal.html">Internal</a>.resolve1_der</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Derivative of function Frames.resolve1(..)
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function resolve1_der
+  import Modelica.Mechanics.MultiBody.Frames;
+  extends Modelica.Icons.Function;
+  input Orientation R "Orientation object to rotate frame 1 into frame 2";
+  input Real v2[3] "Vector resolved in frame 2";
+  input Real v2_der[3] "= der(v2)";
+  output Real v1_der[3] "Derivative of vector v resolved in frame 1";
+end resolve1_der;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

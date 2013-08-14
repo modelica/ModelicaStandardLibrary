@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Magnetic.html">Magnetic</a>.<a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.html">MovingCoilActuator</a>.ArmatureStroke</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Have a look at <a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator.html">
+ConstantActuator</a> and at <a href="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator.html">
+PermeanceActuator</a> for an explanation of both actuator
+models.</p>
+<p>A voltage step at time t=0 is applied to both actuator models.
+In each model, the armature and an attached load mass perform a
+stroke between the two stoppers included in cActuator.armature and
+pmActuator.armature respectively. <b>Simulate for 0.05 s</b> and
+plot vs. time (same physical quantities together in a common
+diagram for comparison):</p>
+<pre>
+    cActuator.p.i                     // input current to converter constant model
+    pmActuator.p.i                    // input current to permeance model
+    cActuator.armature.flange_a.f     // actuator force of converter constant model
+    pmActuator.armature.flange_a.f    // actuator force of permeance model
+    cActuator.x                       // armature position of converter constant model
+    pmActuator.x                      // armature position of permeance model
+    cActuator.L                       // inductance of converter constant model
+    pmActuator.L                      // inductance of permeance model
+</pre>
+<p>The initial current rise in both actuator models is due to the
+inductance of the actuator coil. After acceleration of the armature
+and the load, the current decreases due to the motion-induced
+back-emf. Bouncing occurs when the armatures of both models arrive
+at the stopper at maximum armature position. The bouncing is rather
+intense due to the absence of any kind of external friction in this
+simple example (apart from the nonlinear damping in the stopper
+elements). After decay of the bouncing, both actuators operate
+under conditions valid for a blocked armature.</p>
+<p>Whereas the steady state current is the same in both models, the
+steady state actuator force is not due to the neglection of the
+non-linear force component in the converter constant model.
+Differences in the current rise of both models are due to the
+neglection of the coil inductance variation in the converter
+constant model.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

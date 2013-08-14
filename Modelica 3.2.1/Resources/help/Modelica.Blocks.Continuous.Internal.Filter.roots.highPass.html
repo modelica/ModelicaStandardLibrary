@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Blocks.Continuous.Internal.Filter.roots.highPass</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Continuous.html">Continuous</a>.<a href="Modelica.Blocks.Continuous.Internal.html">Internal</a>.<a href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a>.<a href="Modelica.Blocks.Continuous.Internal.Filter.roots.html">roots</a>.highPass</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The goal is to implement the filter in the following form:</p>
+<pre>
+  // real pole:
+   der(x) = r*x - r*u
+       y  = -x + u
+
+  // complex conjugate poles:
+  der(x1) = a*x1 - b*x2 + ku*u;
+  der(x2) = b*x1 + a*x2;
+       y  = k1*x1 + k2*x2 + u;
+
+            ku = (a^2 + b^2)/b
+            k1 = 2*a/ku
+            k2 = (a^2 - b^2) / (b*ku)
+               = (a^2 - b^2) / (a^2 + b^2)
+               = (1 - (b/a)^2) / (1 + (b/a)^2)
+
+</pre>
+<p>This representation has the following transfer function:</p>
+<pre>
+// real pole:
+    s*x = r*x - r*u
+  or
+    (s-r)*x = -r*u   -&gt; x = -r/(s-r)*u
+  or
+    y = r/(s-r)*u + (s-r)/(s-r)*u
+      = (r+s-r)/(s-r)*u
+      = s/(s-r)*u
+
+  comparing coefficients with
+    y = s/(s + cr)*u  -&gt;  r = -cr      // r is the real eigenvalue
+
+// complex conjugate poles
+    s*x2 =  a*x2 + b*x1
+    s*x1 = -b*x2 + a*x1 + ku*u
+  or
+    (s-a)*x2               = b*x1  -&gt;  x2 = b/(s-a)*x1
+    (s + b^2/(s-a) - a)*x1 = ku*u  -&gt;  (s(s-a) + b^2 - a*(s-a))*x1  = ku*(s-a)*u
+                                   -&gt;  (s^2 - 2*a*s + a^2 + b^2)*x1 = ku*(s-a)*u
+  or
+    x1 = ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+    x2 = b/(s-a)*ku*(s-a)/(s^2 - 2*a*s + a^2 + b^2)*u
+       = b*ku/(s^2 - 2*a*s + a^2 + b^2)*u
+    y  = k1*x1 + k2*x2 + u
+       = (k1*ku*(s-a) + k2*b*ku +  s^2 - 2*a*s + a^2 + b^2) /
+         (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + (k1*ku - 2*a)*s + k2*b*ku - k1*ku*a + a^2 + b^2) /
+         (s^2 - 2*a*s + a^2 + b^2)*u
+       = (s^2 + (2*a-2*a)*s + a^2 - b^2 - 2*a^2 + a^2 + b^2) /
+         (s^2 - 2*a*s + a^2 + b^2)*u
+       = s^2 / (s^2 - 2*a*s + a^2 + b^2)*u
+
+  comparing coefficients with
+    y = s^2/(s^2 + c1*s + c0)*u  -&gt;  a = -c1/2
+                                     b = sqrt(c0 - a^2)
+
+  comparing with eigenvalue representation:
+    (s - (a+jb))*(s - (a-jb)) = s^2 -2*a*s + a^2 + b^2
+  shows that:
+    a: real part of eigenvalue
+    b: imaginary part of eigenvalue
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function highPass
+  extends Modelica.Icons.Function;
+  input Real cr_in[:] "Coefficients of real poles of base filter";
+  input Real c0_in[:] "Coefficients of s^0 term of base filter if conjugate complex pole";
+  input Real c1_in[size(c0_in, 1)] "Coefficients of s^1 term of base filter if conjugate complex pole";
+  input Modelica.SIunits.Frequency f_cut "Cut-off frequency";
+  output Real r[size(cr_in, 1)] "Real eigenvalues";
+  output Real a[size(c0_in, 1)] "Real parts of complex conjugate eigenvalues";
+  output Real b[size(c0_in, 1)] "Imaginary parts of complex conjugate eigenvalues";
+  output Real ku[size(c0_in, 1)] "Gains of input terms";
+  output Real k1[size(c0_in, 1)] "Gains of y = k1*x1 + k2*x + u";
+  output Real k2[size(c0_in, 1)] "Gains of y = k1*x1 + k2*x + u";
+end highPass;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

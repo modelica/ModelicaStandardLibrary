@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'cardinality()'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Operators.html">Operators</a>.'cardinality()'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Number of connectors in connection. This is a deprecated
+operator. It should no longer be used, since it will be removed in
+one of the next Modelica releases.</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>cardinality</b>(c)
+</pre></blockquote>
+<h4>Description</h4>
+<p>Returns the number of (inside and outside) occurrences of
+connector instance c in a connect statement as an Integer
+number.</p>
+<p><i>[The cardinality operator allows the definition of connection
+dependent equations in a model.]</i></p>
+<p>Instead of the cardinality(..) operator, often conditional
+connectors can be used, that are enabled/disabled via Boolean
+parameters.</p>
+<h4>Examples</h4>
+<pre>
+<b>connector</b> Pin
+  Real      v;
+  <b>flow</b> Real i;
+<b>end</b> Pin;
+<b>model</b> Resistor
+   <b>Pin</b> p, n;
+<b>equation</b>
+   // Handle cases if pins are not connected
+      <b>if cardinality</b>(p) == 0 <b>and cardinality</b>(n) == 0 <b>then</b>
+         p.v = 0;
+         n.v = 0;
+      <b>elseif cardinality</b>(p) == 0 <b>then</b>
+         p.i = 0;
+      <b>elseif cardinality</b>(n) == 0 <b>then</b>
+         n.i = 0;
+      <b>end if</b>;
+   // Equations of resistor
+      ...
+<b>end</b> Resistor;
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

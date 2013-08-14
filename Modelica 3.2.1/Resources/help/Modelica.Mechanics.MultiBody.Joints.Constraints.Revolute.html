@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Joints.Constraints.Revolute</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<a href="Modelica.Mechanics.MultiBody.Joints.Constraints.html">Constraints</a>.Revolute</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This model does not use explicit variables e.g. state variables
+in order describe the relative motion of frame_b with respect to
+frame_a, but defines kinematic constraints between the frame_a and
+frame_b. The forces and torques at both frames are then evaluated
+in such a way that the constraints are satisfied. Sometimes this
+type of formulation is also called an implicit joint in
+literature.</p>
+<p>As a consequence of the formulation the relative kinematics
+between frame_a and frame_b cannot be initialized.</p>
+<p>In particular in complex multibody systems with closed loops
+this may help to simplify the system of non-linear equations.
+Please compare the translation log using the classical joint
+formulation and the alternative formulation used here in order to
+check whether this fact applies to the particular system under
+consideration.</p>
+<p>In systems without closed loops the use of this implicit joint
+does not make sense or may even be disadvantageous.</p>
+<p>See the subpackage <a href="Modelica.Mechanics.MultiBody.Examples.Constraints.html">Examples.Constraints</a>
+for testing the joint.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Utilities.regStep</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Utilities.html">Utilities</a>.regStep</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This function is used to approximate the equation</p>
+<pre>
+    y = <b>if</b> x &gt; 0 <b>then</b> y1 <b>else</b> y2;
+</pre>
+<p>by a smooth characteristic, so that the expression is continuous
+and differentiable:</p>
+<pre>
+   y = <b>smooth</b>(1, <b>if</b> x &gt;  x_small <b>then</b> y1 <b>else</b>
+                 <b>if</b> x &lt; -x_small <b>then</b> y2 <b>else</b> f(y1, y2));
+</pre>
+<p>In the region -x_small &lt; x &lt; x_small a 2nd order
+polynomial is used for a smooth transition from y1 to y2.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function regStep
+  extends Modelica.Icons.Function;
+  input Real x "Abscissa value";
+  input Real y1 "Ordinate value for x &gt; 0";
+  input Real y2 "Ordinate value for x &lt; 0";
+  input Real x_small(min = 0) = 0.00001 "Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt;= 0 required";
+  output Real y "Ordinate value to approximate y = if x &gt; 0 then y1 else y2";
+end regStep;
+
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>April 29, 2008</i> by <a href="mailto:Martin.Otter@DLR.de">Martin Otter</a>:<br />
+Designed and implemented.</li>
+<li><i>August 12, 2008</i> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br />
+Minor modification to cover the limit case <code>x_small -&gt;
+0</code> without division by zero.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

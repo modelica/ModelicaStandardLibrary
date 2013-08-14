@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Air.ReferenceAir.Air_Utilities</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.Air.html">Air</a>.<a href="Modelica.Media.Air.ReferenceAir.html">ReferenceAir</a>.Air_Utilities</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Low level and utility computation for high accuracy dry air properties
+</pre>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.iter.html">iter</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic.html">Basic</a></td>
+<td>Fundamental equation of state</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.Inverses.html">Inverses</a></td>
+<td>Inverse function</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport.html">Transport</a></td>
+<td>Transport properties for air</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_ps.html">
+airBaseProp_ps</a></td>
+<td>Intermediate property record for air</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_ps.html">rho_props_ps</a></td>
+<td>Density as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ps.html">rho_ps</a></td>
+<td>Density as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_props_ps.html">T_props_ps</a></td>
+<td>Temperature as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ps.html">T_ps</a></td>
+<td>Temperature as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_ps.html">h_props_ps</a></td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_ps.html">h_ps</a></td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_ph.html">
+airBaseProp_ph</a></td>
+<td>Intermediate property record for air</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_ph.html">rho_props_ph</a></td>
+<td>Density as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ph.html">rho_ph</a></td>
+<td>Density as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ph_der.html">rho_ph_der</a></td>
+<td>Derivative function of rho_ph</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_props_ph.html">T_props_ph</a></td>
+<td>Temperature as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph.html">T_ph</a></td>
+<td>Temperature as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph_der.html">T_ph_der</a></td>
+<td>Derivative function of T_ph</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_ph.html">s_props_ph</a></td>
+<td>Specific entropy as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_ph.html">s_ph</a></td>
+<td>Specific entropy as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_ph_der.html">s_ph_der</a></td>
+<td>Specific entropy as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_ph.html">cv_props_ph</a></td>
+<td>Specific heat capacity at constant volume as function of
+pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_ph.html">cv_ph</a></td>
+<td>Specific heat capacity at constant volume as function of
+pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_ph.html">cp_props_ph</a></td>
+<td>Specific heat capacity at constant pressure as function of
+pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_ph.html">cp_ph</a></td>
+<td>Specific heat capacity at constant pressure as function of
+pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_ph.html">beta_props_ph</a></td>
+<td>Isobaric expansion coefficient as function of pressure and
+specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_ph.html">beta_ph</a></td>
+<td>Isobaric expansion coefficient as function of pressure and
+specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_ph.html">
+kappa_props_ph</a></td>
+<td>Isothermal compressibility factor as function of pressure and
+specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_ph.html">kappa_ph</a></td>
+<td>Isothermal compressibility factor as function of pressure and
+specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_ph.html">
+velocityOfSound_props_ph</a></td>
+<td>Speed of sound as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_ph.html">
+velocityOfSound_ph</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_ph.html">
+isentropicExponent_props_ph</a></td>
+<td>Isentropic exponent as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_ph.html">
+isentropicExponent_ph</a></td>
+<td>Isentropic exponent as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddph_props.html">ddph_props</a></td>
+<td>Density derivative by pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddph.html">ddph</a></td>
+<td>Density derivative by pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddhp_props.html">ddhp_props</a></td>
+<td>Density derivative by specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddhp.html">ddhp</a></td>
+<td>Density derivative by specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT.html">
+airBaseProp_pT</a></td>
+<td>Intermediate property record for air (p and T prefered
+states)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_pT.html">rho_props_pT</a></td>
+<td>Density as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT.html">rho_pT</a></td>
+<td>Density as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der.html">rho_pT_der</a></td>
+<td>Derivative function of rho_pT</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_pT.html">h_props_pT</a></td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT.html">h_pT</a></td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT_der.html">h_pT_der</a></td>
+<td>Derivative function of h_pT</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_pT.html">s_props_pT</a></td>
+<td>Specific entropy as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_pT.html">s_pT</a></td>
+<td>Temperature as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_pT.html">cv_props_pT</a></td>
+<td>Specific heat capacity at constant volume as function of
+pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT.html">cv_pT</a></td>
+<td>Specific heat capacity at constant volume as function of
+pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_pT.html">cp_props_pT</a></td>
+<td>Specific heat capacity at constant pressure as function of
+pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT.html">cp_pT</a></td>
+<td>Specific heat capacity at constant pressure as function of
+pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_pT.html">beta_props_pT</a></td>
+<td>Isobaric expansion coefficient as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_pT.html">beta_pT</a></td>
+<td>Isobaric expansion coefficient as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_pT.html">
+kappa_props_pT</a></td>
+<td>Isothermal compressibility factor as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_pT.html">kappa_pT</a></td>
+<td>Isothermal compressibility factor as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_pT.html">
+velocityOfSound_props_pT</a></td>
+<td>Speed of sound as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_pT.html">
+velocityOfSound_pT</a></td>
+<td>Speed of sound as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_pT.html">
+isentropicExponent_props_pT</a></td>
+<td>Isentropic exponent as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_pT.html">
+isentropicExponent_pT</a></td>
+<td>Isentropic exponent as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_dT.html">
+airBaseProp_dT</a></td>
+<td>Intermediate property record for air (d and T prefered
+states)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_dT.html">h_props_dT</a></td>
+<td>Specific enthalpy as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_dT.html">h_dT</a></td>
+<td>Specific enthalpy as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_dT_der.html">h_dT_der</a></td>
+<td>Derivative function of h_dT</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_props_dT.html">p_props_dT</a></td>
+<td>Pressure as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_dT.html">p_dT</a></td>
+<td>Pressure as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_dT_der.html">p_dT_der</a></td>
+<td>Derivative function of p_dT</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_dT.html">s_props_dT</a></td>
+<td>Specific entropy as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_dT.html">s_dT</a></td>
+<td>Temperature as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_dT.html">cv_props_dT</a></td>
+<td>Specific heat capacity at constant volume as function of
+density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_dT.html">cv_dT</a></td>
+<td>Specific heat capacity at constant volume as function of
+density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_dT.html">cp_props_dT</a></td>
+<td>Specific heat capacity at constant pressure as function of
+density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_dT.html">cp_dT</a></td>
+<td>Specific heat capacity at constant pressure as function of
+density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_dT.html">beta_props_dT</a></td>
+<td>Isobaric expansion coefficient as function of density and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_dT.html">beta_dT</a></td>
+<td>Isobaric expansion coefficient as function of density and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_dT.html">
+kappa_props_dT</a></td>
+<td>Isothermal compressibility factor as function of density and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_dT.html">kappa_dT</a></td>
+<td>Isothermal compressibility factor as function of density and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_dT.html">
+velocityOfSound_props_dT</a></td>
+<td>Speed of sound as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_dT.html">
+velocityOfSound_dT</a></td>
+<td>Speed of sound as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_dT.html">
+isentropicExponent_props_dT</a></td>
+<td>Isentropic exponent as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_dT.html">
+isentropicExponent_dT</a></td>
+<td>Isentropic exponent as function of density and temperature</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.Fluid</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package
+providing components for <b>1-dimensional thermo-fluid flow</b> in
+networks of vessels, pipes, fluid machines, valves and fittings. A
+unique feature is that the component equations and the media models
+as well as pressure loss and heat transfer correlations are
+decoupled from each other. All components are implemented such that
+they can be used for media from the Modelica.Media library. This
+means especially that an incompressible or compressible medium, a
+single or a multiple substance medium with one or more phases might
+be used.</p>
+<p>In the next figure, several features of the library are
+demonstrated with a simple heating system with a closed flow cycle.
+By just changing one configuration parameter in the system object
+the equations are changed between steady-state and dynamic
+simulation with fixed or steady-state initial conditions.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/UsersGuide/HeatingSystem.png" border="1" alt="HeatingSystem.png" /></p>
+<p>With respect to previous versions, the design of the connectors
+has been changed in a non-backward compatible way, using the
+recently developed concept of stream connectors that results in
+much more reliable simulations (see also <a href="../../../Modelica%203.2.1/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf">
+Stream-Connectors-Overview-Rationale.pdf</a>). This extension was
+included in Modelica 3.1. As of Jan. 2009, the stream concept is
+supported in Dymola 7.1. It is recommended to use Dymola 7.2
+(available since Feb. 2009), or a later Dymola version, since this
+version supports a new annotation to connect very conveniently to
+vectors of connectors. Other tool vendors will support the stream
+concept as well.</p>
+<p>The following parts are useful, when newly starting with this
+library:</p>
+<ul>
+<li><a href="Modelica.Fluid.UsersGuide.html">Modelica.Fluid.UsersGuide</a>.</li>
+<li><a href="Modelica.Fluid.UsersGuide.ReleaseNotes.html">Modelica.Fluid.UsersGuide.ReleaseNotes</a>
+summarizes the changes of the library releases.</li>
+<li><a href="Modelica.Fluid.Examples.html">Modelica.Fluid.Examples</a>
+contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p><b>Licensed by the Modelica Association under the Modelica
+License 2</b><br />
+Copyright © 2002-2013, ABB, DLR, Dassault Systèmes AB, Modelon, TU
+Braunschweig, TU Hamburg-Harburg, Politecnico di Milano.</p>
+<p><i>This Modelica package is <u>free</u> software and the use is
+completely at <u>your own risk</u>; it can be redistributed and/or
+modified under the terms of the Modelica License 2. For license
+conditions (including the disclaimer of warranty) see <a href="Modelica.UsersGuide.ModelicaLicense2.html">Modelica.UsersGuide.ModelicaLicense2</a>
+or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2">https://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.UsersGuide.html">UsersGuide</a></td>
+<td>User's Guide</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Examples.html">Examples</a></td>
+<td>Demonstration of the usage of the library</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.System.html">System</a></td>
+<td>System properties and default values (ambient, flow direction,
+initialization)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Vessels.html">Vessels</a></td>
+<td>Devices for storing fluid</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.html">Pipes</a></td>
+<td>Devices for conveying fluid</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Machines.html">Machines</a></td>
+<td>Devices for converting between energy held in a fluid and
+mechanical energy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Valves.html">Valves</a></td>
+<td>Components for the regulation and control of fluid flow</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.html">Fittings</a></td>
+<td>Adaptors for connections of fluid components and the regulation
+of fluid flow</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sources.html">Sources</a></td>
+<td>Define fixed or prescribed boundary conditions</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Sensors.html">Sensors</a></td>
+<td>Ideal sensor components to extract signals from a fluid
+connector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Interfaces.html">Interfaces</a></td>
+<td>Interfaces for steady state and unsteady, mixed-phase,
+multi-substance, incompressible and compressible flow</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Types.html">Types</a></td>
+<td>Common types for fluid models</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.html">Dissipation</a></td>
+<td>Functions for convective heat transfer and pressure loss
+characteristics</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Utilities.html">Utilities</a></td>
+<td>Utility models to construct fluid components (should not be
+used directly)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Icons.html">Icons</a></td>
+<td></td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Pipes.html">Pipes</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.html">CharacteristicNumbers</a>.ReynoldsNumber</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of Reynolds Number</p>
+<pre>
+   Re = |v|ρD/μ
+</pre>
+<p>a measure of the relationship between inertial forces (vρ) and
+viscous forces (D/μ).</p>
+<p>The following table gives examples for the characteristic
+dimension D and the velocity v for different fluid flow
+devices:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>Device Type</b></th>
+<th><b>Characteristic Dimension D</b></th>
+<th><b>Velocity v</b></th>
+</tr>
+<tr>
+<td>Circular Pipe</td>
+<td>diameter</td>
+<td>m_flow/ρ/crossArea</td>
+</tr>
+<tr>
+<td>Rectangular Duct</td>
+<td>4*crossArea/perimeter</td>
+<td>m_flow/ρ/crossArea</td>
+</tr>
+<tr>
+<td>Wide Duct</td>
+<td>distance between narrow, parallel walls</td>
+<td>m_flow/ρ/crossArea</td>
+</tr>
+<tr>
+<td>Packed Bed</td>
+<td>diameterOfSpericalParticles/(1-fluidFractionOfTotalVolume)</td>
+<td>m_flow/ρ/crossArea (without particles)</td>
+</tr>
+<tr>
+<td>Device with rotating agitator</td>
+<td>diameterOfRotor</td>
+<td>RotationalSpeed*diameterOfRotor</td>
+</tr>
+</table>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function ReynoldsNumber
+  extends Modelica.Icons.Function;
+  input SI.Velocity v "Mean velocity of fluid flow";
+  input SI.Density rho "Fluid density";
+  input SI.DynamicViscosity mu "Dynamic (absolute) viscosity";
+  input SI.Length D "Characteristic dimension (hydraulic diameter of pipes)";
+  output SI.ReynoldsNumber Re "Reynolds number";
+end ReynoldsNumber;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

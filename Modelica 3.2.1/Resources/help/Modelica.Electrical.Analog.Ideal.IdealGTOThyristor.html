@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Analog.Ideal.IdealGTOThyristor</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Analog.html">Analog</a>.<a href="Modelica.Electrical.Analog.Ideal.html">Ideal</a>.IdealGTOThyristor</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is an ideal GTO thyristor model which is<br />
+<br />
+<b>open</b> (off), if the voltage drop is less than 0 or fire is
+false<br />
+<b>closed</b> (not off), if the voltage drop is greater or equal 0
+and fire is true.</p>
+<p>This is the behaviour if all parameters are exactly zero.<br />
+<br />
+Note, there are circuits, where this ideal description with zero
+resistance and zero conductance is not possible. In order to
+prevent singularities during switching, the opened thyristor has a
+small conductance <i>Goff</i> and the closed thyristor has a low
+resistance <i>Ron</i> which is default.</p>
+<p>The parameter <i>Vknee</i> which is the forward threshold
+voltage, allows to displace the knee point<br />
+along the <i>Goff</i>-characteristic until <i>v = Vknee</i>.<br />
+<br />
+<b>Please note:</b> In case of useHeatPort=true the temperature
+dependence of the electrical behavior is <b>not</b> modelled. The
+parameters are not temperature dependent.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>March 11, 2009</i> by Christoph Clauss<br />
+conditional heat port added<br /></li>
+<li><i>Mai 7, 2004</i> by Christoph Clauss and Anton Haumer<br />
+Vknee added<br /></li>
+<li><i>some years ago</i> by Christoph Clauss<br />
+realized<br /></li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

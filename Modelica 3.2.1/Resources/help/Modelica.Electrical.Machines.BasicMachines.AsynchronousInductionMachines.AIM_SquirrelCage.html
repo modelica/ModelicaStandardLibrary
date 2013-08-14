@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Machines.html">Machines</a>.<a href="Modelica.Electrical.Machines.BasicMachines.html">BasicMachines</a>.<a href="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.html">AsynchronousInductionMachines</a>.AIM_SquirrelCage</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p><b>Model of a three phase asynchronous induction machine with
+squirrel cage.</b><br />
+Resistance and stray inductance of stator is modeled directly in
+stator phases, then using space phasor transformation. Resistance
+and stray inductance of rotor's squirrel cage is modeled in two
+axis of the rotor-fixed coordinate system. Both together connected
+via a stator-fixed <i>AirGap</i> model. The machine models take the
+following loss effects into account:</p>
+<ul>
+<li>heat losses in the temperature dependent stator winding
+resistances</li>
+<li>heat losses in the temperature dependent cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis
+losses)</li>
+<li>stray load losses</li>
+</ul>
+<p><b>Default values for machine's parameters (a realistic example)
+are:</b><br /></p>
+<table>
+<tr>
+<td valign="top">number of pole pairs p</td>
+<td valign="top">2</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">stator's moment of inertia</td>
+<td valign="top">0.29</td>
+<td valign="top">kg.m2</td>
+</tr>
+<tr>
+<td valign="top">rotor's moment of inertia</td>
+<td valign="top">0.29</td>
+<td valign="top">kg.m2</td>
+</tr>
+<tr>
+<td valign="top">nominal frequency fNominal</td>
+<td valign="top">50</td>
+<td valign="top">Hz</td>
+</tr>
+<tr>
+<td valign="top">nominal voltage per phase</td>
+<td valign="top">100</td>
+<td valign="top">V RMS</td>
+</tr>
+<tr>
+<td valign="top">nominal current per phase</td>
+<td valign="top">100</td>
+<td valign="top">A RMS</td>
+</tr>
+<tr>
+<td valign="top">nominal torque</td>
+<td valign="top">161.4</td>
+<td valign="top">Nm</td>
+</tr>
+<tr>
+<td valign="top">nominal speed</td>
+<td valign="top">1440.45</td>
+<td valign="top">rpm</td>
+</tr>
+<tr>
+<td valign="top">nominal mechanical output</td>
+<td valign="top">24.346</td>
+<td valign="top">kW</td>
+</tr>
+<tr>
+<td valign="top">efficiency</td>
+<td valign="top">92.7</td>
+<td valign="top">%</td>
+</tr>
+<tr>
+<td valign="top">power factor</td>
+<td valign="top">0.875</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">stator resistance</td>
+<td valign="top">0.03</td>
+<td valign="top">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign="top">reference temperature TsRef</td>
+<td valign="top">20</td>
+<td valign="top">°C</td>
+</tr>
+<tr>
+<td valign="top">temperature coefficient alpha20s</td>
+<td valign="top">0</td>
+<td valign="top">1/K</td>
+</tr>
+<tr>
+<td valign="top">rotor resistance</td>
+<td valign="top">0.04</td>
+<td valign="top">Ohm at reference temperature</td>
+</tr>
+<tr>
+<td valign="top">reference temperature TrRef</td>
+<td valign="top">20</td>
+<td valign="top">°C</td>
+</tr>
+<tr>
+<td valign="top">temperature coefficient alpha20r</td>
+<td valign="top">0</td>
+<td valign="top">1/K</td>
+</tr>
+<tr>
+<td valign="top">stator reactance Xs</td>
+<td valign="top">3</td>
+<td valign="top">Ohm per phase</td>
+</tr>
+<tr>
+<td valign="top">rotor reactance Xr</td>
+<td valign="top">3</td>
+<td valign="top">Ohm</td>
+</tr>
+<tr>
+<td valign="top">total stray coefficient sigma</td>
+<td valign="top">0.0667</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">stator operational temperature TsOperational</td>
+<td valign="top">20</td>
+<td valign="top">°C</td>
+</tr>
+<tr>
+<td valign="top">rotor operational temperature TrOperational</td>
+<td valign="top">20</td>
+<td valign="top">°C</td>
+</tr>
+<tr>
+<td valign="top">These values give the following inductances:</td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">stator stray inductance per phase</td>
+<td valign="top">Xs * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">rotor stray inductance</td>
+<td valign="top">Xr * (1 - sqrt(1-sigma))/(2*pi*fNominal)</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">main field inductance per phase</td>
+<td valign="top">sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td>
+<td valign="top"></td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

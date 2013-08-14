@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.'extends'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.'extends'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Inheritance from base class</p>
+<h4>Examples</h4>
+<pre>
+<b>class</b> A
+  <b>parameter</b> Real a, b;
+<b>end</b> A;
+
+<b>class</b> B
+  <b>extends</b> A(b=2);
+<b>end</b> B;
+
+<b>class</b> C
+  <b>extends</b> B(a=1);
+<b>end</b> C;
+</pre>
+<p>From the example above we get the following instantiated
+class:</p>
+<pre>
+<b>class</b> Cinstance
+  <b>parameter</b> Real a=1;
+  <b>parameter</b> Real b=2;
+<b>end</b> Cinstance;
+</pre>
+<p>The ordering of the merging rules ensures that, given classes A
+and B defined above,</p>
+<pre>
+<b>class</b> C2
+  B bcomp(b=3);
+<b>end</b> C2;
+</pre>
+<p>yields an instance with <code>bcomp.b=3</code>, which overrides
+<code>b=2</code>.</p>
+<h4>Syntax</h4>
+<pre>
+class_definition :
+   [ <b>encapsulated</b> ]
+   [ <b>partial</b> ]
+   ( <b>class</b> | <b>model</b> | <b>record</b> | <b>block</b> | <b>connector</b> | <b>type</b> |
+     <b>package</b> | <b>function</b> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <b>end</b> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <b>enumeration</b> "(" ( [enum_list] | ":" ) ")" comment
+
+composition  :
+   element_list
+   { <b>public</b> element_list |
+     <b>protected</b> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <b>external</b> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <b>final</b> ]
+   [ <b>inner</b> | <b>outer</b> ]
+   ( ( class_definition | component_clause) |
+     <b>replaceable</b> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+extends_clause :
+   <b>extends</b> name [ class_modification ]
+</pre>
+<h4>Description</h4>
+<p>The name of the base class is looked up in the partially
+instantiated parent of the extends clause. The found base class is
+instantiated with a new environment and the partially instantiated
+parent of the extends clause. The new environment is the result of
+merging</p>
+<ol>
+<li>arguments of all parent environments that match names in the
+instantiated base class</li>
+<li>the optional class modification of the extends clause</li>
+</ol>
+<p>in that order.</p>
+<p>The elements of the instantiated base class become elements of
+the instantiated parent class.</p>
+<p>The declaration elements of the instantiated base class shall
+either</p>
+<ul>
+<li>not already exist in the partially instantiated parent class
+<i>[i.e., have different names]</i>.</li>
+<li>be exactly identical to any element of the instantiated parent
+class with the same name and the same level of protection
+(<b>public</b> or <b>protected</b>) and same contents. In this
+case, one of the elements is ignored (since they are identical it
+does not matter which one).</li>
+</ul>
+<p>Otherwise the model is incorrect.</p>
+<p>Equations of the instantiated base class that are syntactically
+equivalent to equations in the instantiated parent class are
+discarded. <i>[Note: equations that are mathematically equivalent
+but not syntactically equivalent are not discarded, hence yield an
+overdetermined system of equations.]</i></p>
+<p>Since specialized classes of different kinds have different
+properties, only specialized classes that are "in some sense
+compatible" to each other can be derived from each other via
+inheritance. The following table shows which kind of specialized
+class can be used in an extends clauses of another kind of
+specialized class:</p>
+<table border="1" cellpadding="1" cellspacing="1">
+<tr>
+<td></td>
+<td colspan="7" align="center"><b>Base Class</b></td>
+</tr>
+<tr>
+<td><b>Derived Class</b></td>
+<td>package</td>
+<td>function</td>
+<td>type</td>
+<td>record</td>
+<td>connector</td>
+<td>block</td>
+<td>model</td>
+</tr>
+<tr>
+<td>package</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>function</td>
+<td></td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>record</td>
+<td></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>connector</td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>block</td>
+<td></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>model</td>
+<td></td>
+<td></td>
+<td></td>
+<td>yes</td>
+<td></td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+</table>
+<p>The specialized classes <code>package</code>,
+<code>function</code>, <code>type</code>, and <code>record</code>
+can only be derived from their own kind <i>(e.g., a package can
+only be base class for packages. All other kinds of classes can use
+the import statement to use the contents of a package)</i>.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

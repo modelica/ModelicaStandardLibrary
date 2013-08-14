@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Discrete</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.Discrete</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains <b>discrete control blocks</b> with
+<b>fixed sample period</b>. Every component of this package is
+structured in the following way:</p>
+<ol>
+<li>A component has <b>continuous real</b> input and output
+signals.</li>
+<li>The <b>input</b> signals are <b>sampled</b> by the given sample
+period defined via parameter <b>samplePeriod</b>. The first sample
+instant is defined by parameter <b>startTime</b>.</li>
+<li>The <b>output</b> signals are computed from the sampled input
+signals.</li>
+</ol>
+<p>A <b>sampled data system</b> may consist of components of
+package <b>Discrete</b> and of every other purely <b>algebraic</b>
+input/output block, such as the components of packages
+<b>Modelica.Blocks.Math</b>, <b>Modelica.Blocks.Nonlinear</b> or
+<b>Modelica.Blocks.Sources</b>.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Discrete.Sampler.html">Sampler</a></td>
+<td>Ideal sampling of continuous signals</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Discrete.ZeroOrderHold.html">ZeroOrderHold</a></td>
+<td>Zero order hold of a sampled-data system</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Discrete.FirstOrderHold.html">FirstOrderHold</a></td>
+<td>First order hold of a sampled-data system</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Discrete.UnitDelay.html">UnitDelay</a></td>
+<td>Unit Delay Block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Discrete.TransferFunction.html">TransferFunction</a></td>
+<td>Discrete Transfer Function block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Discrete.StateSpace.html">StateSpace</a></td>
+<td>Discrete State Space block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Discrete.TriggeredSampler.html">TriggeredSampler</a></td>
+<td>Triggered sampling of continuous signals</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Discrete.TriggeredMax.html">TriggeredMax</a></td>
+<td>Compute maximum, absolute value of continuous signal at trigger
+instants</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>October 21, 2002</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+New components TriggeredSampler and TriggeredMax added.</li>
+<li><i>June 18, 2000</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Realized based on a corresponding library of Dieter Moormann and
+Hilding Elmqvist.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

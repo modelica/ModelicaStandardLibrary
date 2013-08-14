@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Forces.WorldForce</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a>.WorldForce</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <b>3</b> signals of the <b>force</b> connector are
+interpreted as the x-, y- and z-coordinates of a <b>force</b>
+acting at the frame connector to which frame_b of this component is
+attached. Via parameter <b>resolveInFrame</b> it is defined, in
+which frame these coordinates shall be resolved:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>Types.ResolveInFrameB.</b></th>
+<th><b>Meaning</b></th>
+</tr>
+<tr>
+<td valign="top">world</td>
+<td valign="top">Resolve input force in world frame (=
+default)</td>
+</tr>
+<tr>
+<td valign="top">frame_b</td>
+<td valign="top">Resolve input force in frame_b</td>
+</tr>
+<tr>
+<td valign="top">frame_resolve</td>
+<td valign="top">Resolve input force in frame_resolve
+(frame_resolve must be connected)</td>
+</tr>
+</table>
+<p>If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the
+force coordinates are with respect to the frame, that is connected
+to <b>frame_resolve</b>.</p>
+<p>If force={100,0,0}, and for all parameters the default setting
+is used, then the interpretation is that a force of 100 N is acting
+along the positive x-axis of frame_b.</p>
+<p>Note, the cut-torque in frame_b (frame_b.t) is always set to
+zero. Conceptually, a force and torque acts on the world frame in
+such a way that the force and torque balance between world.frame_b
+and frame_b is fulfilled. For efficiency reasons, this reaction
+torque is, however, not computed.</p>
+<p>This force component is by default visualized as an arrow acting
+at the connector to which it is connected. The diameter and color
+of the arrow can be defined via variables <b>diameter</b> and
+<b>color</b>. The arrow points in the direction defined by the
+force signal. The length of the arrow is proportional to the length
+of the force vector using parameter <b>N_to_m</b> as scaling
+factor. For example, if N_to_m = 100 N/m, then a force of 350 N is
+displayed as an arrow of length 3.5 m.</p>
+<p>An example how to use this model is given in the following
+figure:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/WorldForce1.png" /></p>
+<p>This leads to the following animation</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/WorldForce2.png" /></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

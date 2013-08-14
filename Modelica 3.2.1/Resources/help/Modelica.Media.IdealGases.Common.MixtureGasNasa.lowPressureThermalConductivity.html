@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.IdealGases.Common.MixtureGasNasa.lowPressureThermalConductivity</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.IdealGases.html">IdealGases</a>.<a href="Modelica.Media.IdealGases.Common.html">Common</a>.<a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa</a>.lowPressureThermalConductivity</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This function applies the Masson and Saxena modification of the
+Wassiljewa Equation for the thermal conductivity for gas mixtures
+of n elements at low pressure.</p>
+<p>For nonpolar gas mixtures errors will generally be less than 3
+to 4%. For mixtures of nonpolar-polar and polar-polar gases, errors
+greater than 5 to 8% may be expected. For mixtures in which the
+sizes and polarities of the constituent molecules are not greatly
+different, the thermal conductivity can be estimated satisfactorily
+by a mole fraction average of the pure component
+conductivities.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function lowPressureThermalConductivity
+  extends Modelica.Icons.Function;
+  input MoleFraction[:] y "Mole fraction of the components in the gas mixture";
+  input Temperature T "Temperature";
+  input Temperature[:] Tc "Critical temperatures";
+  input AbsolutePressure[:] Pc "Critical pressures";
+  input MolarMass[:] M "Molecular weights";
+  input ThermalConductivity[:] lambda "Thermal conductivities of the pure gases";
+  output ThermalConductivity lambdam "Thermal conductivity of the gas mixture";
+end lowPressureThermalConductivity;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

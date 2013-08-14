@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.UsersGuide.FluxTubeConcept</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Magnetic.html">Magnetic</a>.<a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a href="Modelica.Magnetic.FluxTubes.UsersGuide.html">UsersGuide</a>.FluxTubeConcept</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Overview of the Concept of Magnetic Flux Tubes</h4>
+<p>Following below, the concept of magnetic flux tubes is outlined
+in short. For a detailed description of flux tube elements, please
+have a look at the listed literature. Magnetic flux tubes enable
+for modeling of magnetic fields with lumped networks. The figure
+below and the following equations illustrate the transition from
+the original magnetic field quantities described by
+<i>Maxwell</i>'s equations to network elements with a flow variable
+and an across variable:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/magnetic_flux_tube_schematic.png" alt="Magnetic flux tube" /></p>
+<p>For a region with an approximately homogeneous distribution of
+the magnetic field strength <b>H</b> and the magnetic flux density
+<b>B</b> through cross sectional area <i>A</i> at each length
+coordinate <i>s</i> (<i>A</i> perpendicular to the direction of the
+magnetic field lines), a magnetic reluctance <i>R<sub>m</sub></i>
+can be defined:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_transition_reluctance_flowAcross_IntegralQuantities.png" alt="Transition from field quantities to flow- and across variables" /></p>
+<p>With the definition of the magnetic potential difference
+<i>V<sub>m</sub></i> as an across variable and the magnetic flux
+<i>Φ</i> as flow variable, a reluctance element
+<i>R<sub>m</sub></i> can be defined similar to resistive network
+elements in other physical domains. Using <i>Maxwell</i>'s
+constitutive equation</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_MaxwellConstitutive.png" alt="Maxwell's constitutive equation" /></p>
+<p>the general formula for the calculation of a magnetic reluctance
+<i>R<sub>m</sub></i> from its geometric and material properties
+is:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctance_general.png" alt="General formula for calculation of a magnetic reluctance" /></p>
+<p>For a prismatic or cylindrical volume of length <i>l</i> and
+cross sectional area <i>A</i> with the magnetic flux entering and
+leaving the region through its end planes, the above equation
+simplifies to:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctance_prismatic.png" alt="Magnetic reluctance of a prismatic or cylindrical volume" /></p>
+<p>Similar equations can be derived for other geometries. In cases
+where a direct integration is not possible, the reluctance can be
+calculated on base of average length, average cross sectional area
+and volume <i>V</i> respectively:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/eq_reluctanceFromAverageGeometry.png" alt="Reluctance calculation from average geometric quantities" /></p>
+<p>Network elements for sources of a magnetic potential difference
+or magnetomotive force, i.e., coils or permanent magnets can be
+formulated as well. The resulting magnetic network models of
+actuators reflect the main dimensions of these devices as well as
+the normally nonlinear characteristics of their magnetically active
+materials.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

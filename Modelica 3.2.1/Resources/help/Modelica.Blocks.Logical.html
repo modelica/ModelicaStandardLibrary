@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Logical</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.Logical</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package provides blocks with Boolean input and output
+signals to describe logical networks. A typical example for a
+logical network built with package Logical is shown in the next
+figure:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/LogicalNetwork1.png" alt="LogicalNetwork1.png" /></p>
+<p>The actual value of Boolean input and/or output signals is
+displayed in the respective block icon as "circle", where "white"
+color means value <b>false</b> and "green" color means value
+<b>true</b>. These values are visualized in a diagram
+animation.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.And.html">And</a></td>
+<td>Logical 'and': y = u1 and u2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Or.html">Or</a></td>
+<td>Logical 'or': y = u1 or u2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Xor.html">Xor</a></td>
+<td>Logical 'xor': y = u1 xor u2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Nor.html">Nor</a></td>
+<td>Logical 'nor': y = not (u1 or u2)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Nand.html">Nand</a></td>
+<td>Logical 'nand': y = not (u1 and u2)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Not.html">Not</a></td>
+<td>Logical 'not': y = not u</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Pre.html">Pre</a></td>
+<td>Breaks algebraic loops by an infinitesimal small time delay (y
+= pre(u): event iteration continues until u = pre(u))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Edge.html">Edge</a></td>
+<td>Output y is true, if the input u has a rising edge (y =
+edge(u))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.FallingEdge.html">FallingEdge</a></td>
+<td>Output y is true, if the input u has a falling edge (y =
+edge(not u))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Change.html">Change</a></td>
+<td>Output y is true, if the input u has a rising or falling edge
+(y = change(u))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.GreaterThreshold.html">GreaterThreshold</a></td>
+<td>Output y is true, if input u is greater than threshold</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.GreaterEqualThreshold.html">GreaterEqualThreshold</a></td>
+<td>Output y is true, if input u is greater or equal than
+threshold</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.LessThreshold.html">LessThreshold</a></td>
+<td>Output y is true, if input u is less than threshold</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.LessEqualThreshold.html">LessEqualThreshold</a></td>
+<td>Output y is true, if input u is less or equal than
+threshold</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Greater.html">Greater</a></td>
+<td>Output y is true, if input u1 is greater than input u2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.GreaterEqual.html">GreaterEqual</a></td>
+<td>Output y is true, if input u1 is greater or equal than input
+u2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Less.html">Less</a></td>
+<td>Output y is true, if input u1 is less than input u2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.LessEqual.html">LessEqual</a></td>
+<td>Output y is true, if input u1 is less or equal than input
+u2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.ZeroCrossing.html">ZeroCrossing</a></td>
+<td>Trigger zero crossing of input u</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.LogicalSwitch.html">LogicalSwitch</a></td>
+<td>Logical Switch</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Switch.html">Switch</a></td>
+<td>Switch between two Real signals</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Hysteresis.html">Hysteresis</a></td>
+<td>Transform Real to Boolean signal with Hysteresis</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.OnOffController.html">OnOffController</a></td>
+<td>On-off controller</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.TriggeredTrapezoid.html">TriggeredTrapezoid</a></td>
+<td>Triggered trapezoid generator</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.Timer.html">Timer</a></td>
+<td>Timer measuring the time from the time instant where the
+Boolean input became true</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.RSFlipFlop.html">RSFlipFlop</a></td>
+<td>A basic RS Flip Flop</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Logical.TerminateSimulation.html">TerminateSimulation</a></td>
+<td>Terminate simulation if condition is fulfilled</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

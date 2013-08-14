@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Analog.Ideal.IdealTransformer</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Analog.html">Analog</a>.<a href="Modelica.Electrical.Analog.Ideal.html">Ideal</a>.IdealTransformer</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The ideal transformer is a two-port circuit element; in case of
+Boolean parameter <code>considerMagnetization = false</code> it is
+characterized by the following equations:</p>
+<pre>
+ i2 = -i1*n;
+ v2 =  v1/n;
+</pre>
+<p>where <code>n</code> is a real number called the turns ratio.
+Due to this equations, also DC voltages and currents are
+transformed - which is not the case for technical transformers.</p>
+<p>In case of Boolean parameter <code>considerMagnetization =
+true</code> it is characterized by the following equations:</p>
+<pre>
+ im1  = i1 + i2/n "Magnetizing current w.r.t. primary side";
+ psim1= Lm1*im1   "Magnetic flux w.r.t. primary side";
+ v1 = der(psim1)  "Primary voltage";
+ v2 = v1/n        "Secondary voltage";
+</pre>
+<p>where <code>Lm</code> denotes the magnetizing inductance. Due to
+this equations, the DC offset of secondary voltages and currents
+decrement according to the time constant defined by the connected
+circuit.</p>
+<p>Taking primary <code>L1sigma</code> and secondary
+<code>L2ssigma</code> leakage inductances into account, compared
+with the <a href="Modelica.Electrical.Analog.Basic.Transformer.html">basic
+transformer</a> the following parameter conversion can be applied
+(which leads to identical results):</p>
+<pre>
+ L1 = L1sigma + M*n "Primary inductance at secondary no-load";
+ L2 = L2sigma + M/n "Secondary inductance at primary no-load";
+  M  = Lm1/n         "Mutual inductance";
+</pre>
+<p>For the backward conversion, one has to decide about the
+partitioning of the leakage to primary and secondary side.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>June 3, 2009</i> magnetisation current added by Anton
+Haumer<br /></li>
+<li><i>1998</i> initially implemented by Christoph
+Clauss<br /></li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

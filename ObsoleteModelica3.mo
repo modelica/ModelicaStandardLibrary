@@ -7,7 +7,7 @@ package ObsoleteModelica3
     package Interfaces
       "Library of connectors and partial models for input/output blocks"
     connector RealSignal = Real "Real port (both input/output possible)"
-        annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
+        annotation (obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
     Documentation(info="<html>
 <p>
 Connector with one signal of type Real (no icon, no input/output prefix).
@@ -15,7 +15,7 @@ Connector with one signal of type Real (no icon, no input/output prefix).
 </html>"));
     connector BooleanSignal = Boolean
         "Boolean port (both input/output possible)"
-        annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
+        annotation (obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
     Documentation(info="<html>
 <p>
 Connector with one signal of type Boolean (no icon, no input/output prefix).
@@ -23,10 +23,10 @@ Connector with one signal of type Boolean (no icon, no input/output prefix).
 </html>"));
     connector IntegerSignal = Integer
         "Integer port (both input/output possible)"
-        annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
+        annotation (obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
     Documentation(info="<html>
 <p>
-Connector with one signal of type Icon (no icon, no input/output prefix).
+Connector with one signal of type .
 </p>
 </html>"));
       package Adaptors
@@ -49,8 +49,8 @@ Connector with one signal of type Icon (no icon, no input/output prefix).
         end RealPort;
       equation
         newReal = oldReal.signal[1];
-        annotation(structurallyIncomplete,
-          __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
+        annotation(__Dymola_structurallyIncomplete=true,defaultConnectionStructurallyInconsistent=true,
+          obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
@@ -76,8 +76,7 @@ Completely obsolete adaptor between the Real signal connector
 of version 1.6 and version &ge; 2.1 of the Modelica Standard Library.
 This block is only provided for backward compatibility.
 </p>
-</html>
-"));
+</html>"));
       end AdaptorReal;
 
       model AdaptorBoolean
@@ -101,8 +100,8 @@ This block is only provided for backward compatibility.
 
         newBoolean = oldBoolean.signal[1];
 
-        annotation(structurallyIncomplete,
-          __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
+        annotation(__Dymola_structurallyIncomplete=true,defaultConnectionStructurallyInconsistent=true,
+          obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
@@ -128,8 +127,7 @@ Completely obsolete adaptor between the Real signal connector
 of version 1.6 and version &ge; 2.1 of the Modelica Standard Library.
 This block is only provided for backward compatibility.
 </p>
-</html>
-"));
+</html>"));
       end AdaptorBoolean;
 
       model AdaptorInteger
@@ -153,8 +151,8 @@ This block is only provided for backward compatibility.
 
         newInteger = oldInteger.signal[1];
 
-        annotation(structurallyIncomplete,
-          __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
+        annotation(__Dymola_structurallyIncomplete=true,defaultConnectionStructurallyInconsistent=true,
+          obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
@@ -180,8 +178,7 @@ Completely obsolete adaptor between the Real signal connector
 of version 1.6 and version &ge; 2.1 of the Modelica Standard Library.
 This block is only provided for backward compatibility.
 </p>
-</html>
-"));
+</html>"));
       end AdaptorInteger;
       end Adaptors;
     end Interfaces;
@@ -206,7 +203,7 @@ Internal replaceable block that is used to construct the
           extends ObsoleteModelica3.Icons.ObsoleteBlock;
 
           annotation (
-            __Dymola_obsolete="Model is not according to Modelica Language 3.0 since replaceable base class present. " +
+            obsolete="Model is not according to Modelica Language 3.0 since replaceable base class present. " +
                               "Use instead one of Modelica.Blocks.Math.UnitConversions.XXX",
             defaultComponentName="convert",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -223,9 +220,9 @@ changed to be any of the blocks defined in Modelica.Blocks.Math.UnitConversions,
 blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.
 </p>
 
-<p
+<p>
 The desired conversion can be selected in the parameter menu
-(the selected units are then displayed in the icon):</p>
+(the selected units are then displayed in the icon):
 </p>
 
 <p>
@@ -254,24 +251,18 @@ The desired conversion can be selected in the parameter menu
               rotation=180)));
       equation
             u1 = u2;
-            annotation(structurallyIncomplete,
-              __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
-              Window(
-                x=0.15,
-                y=0.21,
-                width=0.6,
-                height=0.6),
+            annotation(__Dymola_structurallyIncomplete=true,defaultConnectionStructurallyInconsistent=true,
+              obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
               Documentation(info="<HTML>
 <p>
-This block is used to enable asignment of values to variables preliminary
+This block is used to enable assignment of values to variables preliminary
 defined as outputs (e.g., useful for inverse model generation).
 </p>
 
-</HTML>
-"),           Icon(coordinateSystem(
+</html>"),           Icon(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics={Text(
+              extent={{-100,-100},{100,100}}),
+                graphics={Text(
                 extent={{-95,50},{95,-50}},
                 lineColor={0,0,127},
                 textString="=")}));
@@ -294,25 +285,18 @@ defined as outputs (e.g., useful for inverse model generation).
               rotation=180)));
           equation
             y1 = y2;
-            annotation(structurallyIncomplete,
-              __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
-              Window(
-                x=0.21,
-                y=0.28,
-                width=0.6,
-                height=0.6),
-              Documentation(info="
-<HTML>
+            annotation(__Dymola_structurallyIncomplete=true,defaultConnectionStructurallyInconsistent=true,
+              obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
+              Documentation(info="<html>
 <p>
 This block is used to enable calculation of values preliminary defined as inputs.
 (e.g., useful for inverse model generation).
 </p>
 
-</HTML>
-"),           Icon(coordinateSystem(
+</html>"),           Icon(coordinateSystem(
               preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics={Text(
+              extent={{-100,-100},{100,100}}),
+                graphics={Text(
                 extent={{-95,50},{95,-50}},
                 lineColor={0,0,127},
                 textString="=")}));
@@ -360,7 +344,7 @@ This block is used to enable calculation of values preliminary defined as inputs
             heatPort.T = T_ref;
           end if;
           annotation (
-            __Dymola_obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead Modelica.Electrical.Analog.Basic.HeatingResistor",
+            obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead Modelica.Electrical.Analog.Basic.HeatingResistor",
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Line(points={{-110,20},{-85,20}}, color={160,160,164}),
@@ -422,7 +406,7 @@ equation:</p>
 </pre>
 <p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which
 is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually
-defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage)
+defined as <b>X [ppm/K]</b> (parts per million, similarly to percentage)
 meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
 i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
 <p>When connector <b>heatPort</b> is <b>not</b> connected, the temperature
@@ -430,12 +414,9 @@ dependent behaviour is switched off by setting heatPort.T = T_ref.
 Additionally, the equation <code>heatPort.Q_flow = 0</code> is implicitly present
 due to a special rule in Modelica that flow variables of not connected
 connectors are set to zero.</p>
-</HTML>
-",         revisions=
+</html>",         revisions=
                  "<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 2002   </i>
        by Anton Haumer<br> initially implemented<br>
        </li>
@@ -450,7 +431,7 @@ connectors are set to zero.</p>
     partial block ObsoleteBlock
       "Icon for an obsolete block (use only for this case)"
 
-      annotation (__Dymola_obsolete="Only used to mark an obsolete block. Do not use otherwise.",
+      annotation (obsolete="Only used to mark an obsolete block. Do not use otherwise.",
               Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-102,102},{102,-102}},
@@ -461,14 +442,14 @@ connectors are set to zero.</p>
 This partial block is intended to provide a <u>default icon
 for an obsolete block</u> that will be removed from the
 corresponding library in a future release.
-<p>
+</p>
 </html>"));
     end ObsoleteBlock;
 
     partial model ObsoleteModel
       "Icon for an obsolete model (use only for this case)"
 
-      annotation (__Dymola_obsolete="Only used to mark an obsolete model. Do not use otherwise.",
+      annotation (obsolete="Only used to mark an obsolete model. Do not use otherwise.",
               Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-102,102},{102,-102}},
@@ -479,14 +460,14 @@ corresponding library in a future release.
 This partial model is intended to provide a <u>default icon
 for an obsolete model</u> that will be removed from the
 corresponding library in a future release.
-<p>
+</p>
 </html>"));
     end ObsoleteModel;
 
     partial class Enumeration
       "Obsolete class (icon for an enumeration emulated by a package). Use a real enumeration instead"
 
-      annotation (__Dymola_obsolete="Icon for an emulated enumeration. Emulated enumerations are no longer used (only real enumerations)",
+      annotation (obsolete="Icon for an emulated enumeration. Emulated enumerations are no longer used (only real enumerations)",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(extent={{-138,164},{138,104}}, textString="%name"),
@@ -574,8 +555,8 @@ This icon is designed for an <b>enumeration</b>
           frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, load[4
             :6]);
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
-            preferedView="info",
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
+            preferredView="info",
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Polygon(
@@ -650,32 +631,14 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/WorldForceAndTorque1.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/WorldForceAndTorque2.png\">
-</HTML>
-"),         Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Window(
-              x=0.18,
-              y=0.01,
-              width=0.8,
-              height=0.82),
-            Documentation(info="
-An external force element exerts the inport signal
-as negative force on the connector frame (the force vector
-is resolved in the world frame).
-"),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
-                     10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-                    10])),
-            Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-                     -90, -10; -90, 10])));
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
+</html>"));
         end WorldForceAndTorque;
 
         model FrameForceAndTorque
@@ -756,8 +719,8 @@ is resolved in the world frame).
             frame_resolve.t = zeros(3);
           end if;
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
-            preferedView="info",
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
+            preferredView="info",
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Polygon(
@@ -842,32 +805,14 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/FrameForceAndTorque1.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/FrameForceAndTorque2.png\">
-</HTML>
-"),         Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Window(
-              x=0.18,
-              y=0.01,
-              width=0.8,
-              height=0.82),
-            Documentation(info="
-An external force element exerts the inport signal
-as negative force on the connector frame (the force vector
-is resolved in the world frame).
-"),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
-                     10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-                    10])),
-            Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-                     -90, -10; -90, 10])));
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque2.png\">
+</html>"));
         end FrameForceAndTorque;
 
         model ForceAndTorque
@@ -917,8 +862,8 @@ is resolved in the world frame).
             annotation (Dialog(group="if animation = true", enable=animation));
           SI.Position r_0[3]
             "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-          SI.Force f_b_0[3] "frame_b.f resoved in world frame";
-          SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
+          SI.Force f_b_0[3] "frame_b.f resolved in world frame";
+          SI.Torque t_b_0[3] "frame_b.t resolved in world frame";
 
         protected
           SI.Position f_in_m[3]=frame_b.f/N_to_m
@@ -979,11 +924,8 @@ is resolved in the world frame).
           zeros(3) = frame_a.t + Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R,
             t_b_0 + cross(r_0, f_b_0));
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
-            preferedView="info",
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}),
-                                graphics),
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
+            preferredView="info",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
@@ -1059,7 +1001,7 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/ForceAndTorque1.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
 
 <p>
 This leads to the following animation (the yellow cylinder
@@ -1070,26 +1012,8 @@ also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/ForceAndTorque2.png\">
-</HTML>
-"),         Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Window(
-              x=0.18,
-              y=0.01,
-              width=0.8,
-              height=0.82),
-            Documentation(info="
-An external force element exerts the inport signal
-as negative force on the connector frame (the force vector
-is resolved in the world frame).
-"),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
-                     10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-                    10])),
-            Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-                     -90, -10; -90, 10])));
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
+</html>"));
         end ForceAndTorque;
       end Forces;
 
@@ -1141,14 +1065,8 @@ is resolved in the world frame).
             frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
           end if;
           annotation (
-            Window(
-              x=0.37,
-              y=0.02,
-              width=0.6,
-              height=0.65),
-            __Dymola_obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead a model from Modelica.Mechanics.MultiBody.Sensors",
-            Documentation(info="
-<HTML>
+            obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead a model from Modelica.Mechanics.MultiBody.Sensors",
+            Documentation(info="<html>
 <p>
 This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure the cut-force and/or
@@ -1156,11 +1074,10 @@ cut-torque acting between the two frames and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}),
+                graphics={
                 Line(points={{-70,0},{-101,0}}, color={0,0,0}),
                 Line(points={{70,0},{100,0}}, color={0,0,0}),
                 Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
@@ -1186,8 +1103,8 @@ with the blocks of package Modelica.Blocks.
                   pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}),
+                graphics={
                 Line(points={{-70,0},{-100,0}}, color={0,0,0}),
                 Line(points={{70,0},{100,0}}, color={0,0,0}),
                 Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
@@ -1343,7 +1260,7 @@ with the blocks of package Modelica.Blocks.
        the angle of the revolute joint. Since T_rel = T_rel(angle) is a function
        of the unknown angle of the revolute joint, this is a non-linear
        equation in this angle.
-          T_rel = [e]*tranpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle)
+          T_rel = [e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle)
                   - skew(e)*sin(angle);
        with
           r_b*T_rel*r_a
@@ -1458,18 +1375,13 @@ position a degree of freedom is lost.
 
             angle = Modelica.Math.atan2(ksin_angle, kcos_angle);
             annotation (
-              structurallyIncomplete,
-              preferedView="info",
-              __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
-              Window(
-                x=0.05,
-                y=0.09,
-                width=0.65,
-                height=0.69),
+              __Dymola_structurallyIncomplete=true,defaultConnectionStructurallyInconsistent=true,
+              preferredView="info",
+              obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
               Icon(coordinateSystem(
                   preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
+                  extent={{-100,-100},{100,100}}),
+                  graphics={
                   Rectangle(
                     extent={{-30,10},{10,-10}},
                     lineColor={0,0,0},
@@ -1514,8 +1426,8 @@ position a degree of freedom is lost.
                     fillColor={192,192,192})}),
               Diagram(coordinateSystem(
                   preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
+                  extent={{-100,-100},{100,100}}),
+                  graphics={
                   Rectangle(
                     extent={{-100,-60},{-30,60}},
                     lineColor={0,0,0},
@@ -1569,8 +1481,7 @@ length constraint is fulfilled.
 library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
 joints.</b>
 </p>
-</HTML>
-"));
+</html>"));
           end RevoluteWithLengthConstraint;
 
           model PrismaticWithLengthConstraint
@@ -1767,22 +1678,17 @@ be dynamically selected in such a way that in no position a
 degree of freedom is lost.
 ");
             k1b = Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent(k1a,
-              1.0e-12);
+            1.0e-12);
             k2 = sqrt(k1b);
             distance = -k1 + (if positiveBranch then k2 else -k2);
             annotation (
-              structurallyIncomplete,
-              preferedView="info",
-              __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
-              Window(
-                x=0.05,
-                y=0.09,
-                width=0.65,
-                height=0.69),
+              __Dymola_structurallyIncomplete=true,defaultConnectionStructurallyInconsistent=true,
+              preferredView="info",
+              obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
               Icon(coordinateSystem(
                   preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
+                  extent={{-100,-100},{100,100}}),
+                  graphics={
                   Rectangle(
                     extent={{-30,-40},{100,30}},
                     lineColor={0,0,255},
@@ -1822,8 +1728,8 @@ degree of freedom is lost.
                     textString="n=%n")}),
               Diagram(coordinateSystem(
                   preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}},
-                  grid={1,1}), graphics={
+                  extent={{-100,-100},{100,100}}),
+                  graphics={
                   Line(points={{-30,-50},{-30,50}}, color={0,0,0}),
                   Line(points={{0,-67},{90,-67}}, color={128,128,128}),
                   Text(
@@ -1922,8 +1828,7 @@ length constraint is fulfilled.
 library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
 joints.</b>
 </p>
-</HTML>
-"));
+</html>"));
           end PrismaticWithLengthConstraint;
         end Internal;
       end Joints;
@@ -2145,7 +2050,7 @@ joints.</b>
             y[i6:i6 + 2] = z_abs;
           end if;
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Text(
@@ -2173,7 +2078,7 @@ in packed format in the order
 </p>
 <ol>
 <li> absolute position vector (= r_abs)</li>
-<li> absolute velocity vectory (= v_abs)</li>
+<li> absolute velocity vector (= v_abs)</li>
 <li> absolute acceleration vector (= a_abs)</li>
 <li> 3 angles to rotate the world frame into frame_a (= angles)</li>
 <li> absolute angular velocity vector (= w_abs)</li>
@@ -2194,7 +2099,7 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/AbsoluteSensor.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
 
 <p>
 If <b>frame_resolve</b> is connected to another frame, then the
@@ -2292,8 +2197,7 @@ Exact definition of the returned quantities:
       <td valign=\"top\"><b>world frame</b></td>
   </tr>
 </table><br>
-</HTML>
-"));
+</html>"));
         end AbsoluteSensor;
 
         model RelativeSensor
@@ -2534,7 +2438,7 @@ Exact definition of the returned quantities:
             y[i6:i6 + 2] = z_rel;
           end if;
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Line(
                   points={{-60,-94},{-60,-76},{0,-76},{0,-76}},
@@ -2557,7 +2461,7 @@ in packed format in the order
 </p>
 <ol>
 <li> relative position vector (= r_rel)</li>
-<li> relative velocity vectory (= v_rel)</li>
+<li> relative velocity vector (= v_rel)</li>
 <li> relative acceleration vector (= a_rel))</li>
 <li> 3 angles to rotate frame_a into frame_b (= angles)</li>
 <li> relative angular velocity vector (= w_rel)</li>
@@ -2579,7 +2483,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/RelativeSensor.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
 
 <p>
 If parameter <b>resolveInFrame_a</b> = <b>true</b>, then the
@@ -2605,6 +2509,7 @@ get_v = <b>true</b>, then
   y = v_rel
     = <b>der</b>(r_rel)
 </pre>
+<p>
 is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
 the derivative of the relative distance from frame_a to frame_b,
 resolved in frame_b. If frame_resolve is connected, then
@@ -2702,7 +2607,7 @@ and resolved in the following frame
       <td valign=\"top\">false</td>
       <td valign=\"top\"><b>frame_b</b></td>
   </tr>
-</table><br>
+</table>
 </HTML>"));
         end RelativeSensor;
 
@@ -2794,12 +2699,8 @@ and resolved in the following frame
           load[1:3] = force;
           load[4:6] = torque;
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
-            preferedView="info",
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics),
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
+            preferredView="info",
             Documentation(info="<HTML>
 <p>
 The cut-force and cut-torque acting at the component to which frame_b is
@@ -2831,7 +2732,7 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Sensors/CutForceAndTorque.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
 </HTML>"));
         end CutForceAndTorque;
       end Sensors;
@@ -2841,12 +2742,12 @@ with negative sign at frame_a.
         type AngularVelocity_degs = Modelica.Icons.TypeReal(final quantity="AngularVelocity", final unit=
                    "deg/s")
           "Obsolete type. Use Modelica.SIunits.AngularVelocity instead with an appropriate displayUnit"
-              annotation (__Dymola_obsolete="Non SI-units should no longer be used. Use Modelica.SIunits.AngularVelocity instead with an appropriate displayUnit");
+              annotation (obsolete="Non SI-units should no longer be used. Use Modelica.SIunits.AngularVelocity instead with an appropriate displayUnit");
         type AngularAcceleration_degs2 = Modelica.Icons.TypeReal (final
               quantity =                                                         "AngularAcceleration",
               final unit="deg/s2")
           "Obsolete type. Use Modelica.SIunits.AngularAcceleration instead with an appropriate displayUnit"
-              annotation (__Dymola_obsolete="Non SI-units should no longer be used. Use Modelica.SIunits.AngularAcceleration instead with an appropriate displayUnit");
+              annotation (obsolete="Non SI-units should no longer be used. Use Modelica.SIunits.AngularAcceleration instead with an appropriate displayUnit");
         package Init
           "Obsolete type. This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu"
 
@@ -2865,7 +2766,7 @@ with negative sign at frame_a.
 
             extends Modelica.Icons.TypeInteger;
             annotation (
-                __Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
+                obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
                 choices(
                 choice=Modelica.Mechanics.MultiBody.Types.Init.Free
                   "free (no initialization)",
@@ -2911,7 +2812,7 @@ with negative sign at frame_a.
 </html>"));
 
           end Temp;
-          annotation (__Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
+          annotation (obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
         Documentation(info="<html>
 
 </html>"));
@@ -2951,16 +2852,7 @@ i.e., flange_a.phi = flange_b.phi. It is used e.g., to built up components
 with inertia.
 </p>
 
-</HTML>
-"),         Diagram(coordinateSystem(
-                preserveAspectRatio=false,
-                extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
-            Window(
-              x=0.18,
-              y=0.3,
-              width=0.61,
-              height=0.66));
+</html>"));
         end Rigid;
 
         partial model Bearing
@@ -2975,7 +2867,7 @@ with inertia.
                            annotation (Placement(transformation(extent={{-10,-110},
                     {10,-90}}, rotation=0)));
           annotation (
-            __Dymola_obsolete=
+            obsolete=
                 "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}), graphics={Rectangle(
@@ -2994,8 +2886,7 @@ with inertia.
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAndBearingH.</p>
 
-</HTML>
-"));
+</html>"));
 
         end Bearing;
 
@@ -3019,15 +2910,14 @@ It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAnd
           phi_a = flange_a.phi - bearing.phi;
           phi_b = flange_b.phi - bearing.phi;
           annotation (
-            __Dymola_obsolete=
+            obsolete=
                 "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
           Documentation(info="<html>
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is used e.g., to build up equation-based parts of a drive train.</p>
 
-</HTML>
-"));
+</html>"));
         end TwoFlangesAndBearing;
 
         partial model TwoFlangesAndBearingH
@@ -3072,7 +2962,7 @@ It is used e.g., to build up equation-based parts of a drive train.</p>
           tau_support = -adapter.flange_b.tau;
           connect(adapter.flange_a, bearing) annotation (Line(points={{
                   -6.12323e-016,-70},{0,-70},{0,-100}}, color={0,0,0}));
-          annotation (__Dymola_obsolete=
+          annotation (obsolete=
                 "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
         Documentation(info="<html>
 <p>
@@ -3080,8 +2970,7 @@ This is a 1D rotational component with two flanges and an additional bearing fla
 It is used e.g., to build up parts of a drive train consisting
 of several base components.</p>
 
-</HTML>
-"));
+</html>"));
         end TwoFlangesAndBearingH;
 
         partial model PartialSpeedDependentTorque
@@ -3106,8 +2995,6 @@ of several base components.</p>
             bearing.tau = -flange.tau;
           end if;
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics),
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
@@ -3158,12 +3045,7 @@ Partial model of torque dependent on speed that accelerates the flange.
             annotation (Placement(transformation(extent={{100,-10},{120,10}},
                   rotation=0)));
           annotation (
-            Window(
-              x=0.39,
-              y=0.05,
-              width=0.6,
-              height=0.6),
-            __Dymola_obsolete=
+            obsolete=
                 "Use Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor instead and define a meaningful name for the output signal.",
             Documentation(info="<html>
 <p>
@@ -3173,11 +3055,10 @@ and to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}),
+                graphics={
                 Line(points={{-70,0},{-90,0}}, color={0,0,0}),
                 Line(points={{70,0},{100,0}}, color={0,0,127}),
                 Text(
@@ -3186,8 +3067,8 @@ with the blocks of package Modelica.Blocks.
                   lineColor={0,0,255})}),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,
+                extent={{-100,-100},{100,100}}),
+                graphics={Line(points={{-70,0},{-90,0}}, color={0,
                       0,0}), Line(points={{70,0},{100,0}}, color={0,0,255})}));
         end AbsoluteSensor;
 
@@ -3211,12 +3092,7 @@ with the blocks of package Modelica.Blocks.
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
           annotation (
-            Window(
-              x=0.37,
-              y=0.02,
-              width=0.6,
-              height=0.65),
-            __Dymola_obsolete=
+            obsolete=
                 "Use Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor instead and define a meaningful name for the output signal.",
             Documentation(info="<html>
 <p>
@@ -3227,11 +3103,10 @@ to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}),
+                graphics={
                 Line(points={{-70,0},{-90,0}}, color={0,0,0}),
                 Line(points={{70,0},{90,0}}, color={0,0,0}),
                 Line(points={{0,-100},{0,-70}}, color={0,0,127}),
@@ -3241,8 +3116,8 @@ with the blocks of package Modelica.Blocks.
                   lineColor={0,0,255})}),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
-                extent={{-100,-100},{100,100}},
-                grid={1,1}), graphics={
+                extent={{-100,-100},{100,100}}),
+                graphics={
                 Line(points={{-70,0},{-90,0}}, color={0,0,0}),
                 Line(points={{70,0},{90,0}}, color={0,0,0}),
                 Line(points={{0,-100},{0,-70}}, color={0,0,255})}));
@@ -3277,7 +3152,7 @@ with the blocks of package Modelica.Blocks.
             extends Modelica.Icons.TypeInteger(min=1,max=9);
 
             annotation (
-                  __Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
+                  obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
                 Evaluate=true, choices(
                 choice=Modelica.Mechanics.Rotational.Types.Init.NoInit
                   "no initialization (phi_start, w_start are guess values)",
@@ -3325,7 +3200,7 @@ quantities.
             extends Modelica.Icons.TypeInteger(min=1,max=5);
 
             annotation (
-                 __Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
+                 obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
                 Evaluate=true, choices(
                 choice=Modelica.Mechanics.Rotational.Types.Init.NoInit
                   "no initialization (phi_rel_start, w_rel_start are guess values)",
@@ -3347,7 +3222,7 @@ quantities.
 
 </html>"));
         end InitRel;
-        annotation (preferedView="info", Documentation(info="<HTML>
+        annotation (preferredView="info", Documentation(info="<HTML>
 <p>
 In this package <b>types</b> and <b>constants</b> are defined that are used
 in library Modelica.Blocks. The types have additional annotation choices
@@ -3378,17 +3253,12 @@ user interface when the type is used as parameter in a declaration.
         driving_a = power_a >= 0;
         flange_b.tau = -(if driving_a then eta*flange_a.tau else flange_a.tau/eta);
         annotation (
-          __Dymola_obsolete=
+          obsolete=
               "This model can get stuck due when the torque direction varies, use Modelica.Mechanics.Rotational.Components.LossyGear instead.",
-          Window(
-            x=0.23,
-            y=0.06,
-            width=0.69,
-            height=0.62),
           Icon(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}),
+              graphics={
               Text(
                 extent={{-150,100},{150,60}},
                 textString="%name",
@@ -3426,7 +3296,7 @@ gear efficiency in a much more reliable way.
 </p>
 <p>
 This component consists of two rigidly connected flanges flange_a and flange_b without
-inertia where an <b>efficency</b> coefficient <b>eta</b> reduces the driven
+inertia where an <b>efficiency</b> coefficient <b>eta</b> reduces the driven
 torque as function of the driving torque depending on the direction
 of the energy flow, i.e., energy is always lost. This can be seen as a
 simple model of the Coulomb friction acting between the teeth of a
@@ -3457,7 +3327,7 @@ Gearbox manufacturers use the loss-formula
    (2)  loadTorque = eta*motorTorque
 </pre>
 <p>
-Comparing (1) and (2) gives a formulat for the efficiency eta:
+Comparing (1) and (2) gives a formula for the efficiency eta:
 </p>
 <pre>
    eta = (1 - sign(w)*bearingTorque/motorTorque)
@@ -3469,11 +3339,10 @@ be careful to determine the gear <b>efficiency</b> of this element
 from tables of the gear manufacturers.
 </p>
 
-</HTML>
-"),       Diagram(coordinateSystem(
+</html>"),       Diagram(coordinateSystem(
               preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={
+              extent={{-100,-100},{100,100}}),
+              graphics={
               Rectangle(
                 extent={{-96,20},{96,-21}},
                 lineColor={0,0,0},
@@ -3573,7 +3442,7 @@ from tables of the gear manufacturers.
             smooth=Smooth.None));
 
         annotation (
-          __Dymola_obsolete=
+          obsolete=
               "This model can get stuck due when the torque direction varies, use Modelica.Mechanics.Rotational.Components.Gearbox instead.",
           Documentation(info="<html>
 <p>
@@ -3585,8 +3454,7 @@ has to be taken into account by connecting components of model Inertia
 to the left and/or the right flange.
 </p>
 
-</HTML>
-"),       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{-40,60},{40,-60}},
@@ -3644,7 +3512,7 @@ to the left and/or the right flange.
       end Gear;
     end Rotational;
   end Mechanics;
-  annotation (uses(Modelica(version="3.2")),
+  annotation (uses(Modelica(version="3.2.1")),
 Documentation(info="<html>
 <p>
 This package contains models and blocks from the Modelica Standard Library
@@ -3682,10 +3550,10 @@ marked in the icon layer with a red box.
 </p>
 
 <p>
-Copyright &copy; 2007-2010, Modelica Association.
+Copyright &copy; 2007-2013, Modelica Association.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>"));
 end ObsoleteModelica3;

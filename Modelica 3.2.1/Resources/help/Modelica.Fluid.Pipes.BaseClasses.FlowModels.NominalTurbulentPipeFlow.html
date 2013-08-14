@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalTurbulentPipeFlow</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Pipes.html">Pipes</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.html">FlowModels</a>.NominalTurbulentPipeFlow</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This model defines the pressure loss assuming turbulent flow for
+specified <code>dp_nominal</code> and <code>m_flow_nominal</code>.
+It takes into account the fluid density of each flow segment and
+obtains appropriate <code>pathLengths_nominal</code> values for an
+inverse parameterization of the <a href="Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow.html">
+TurbulentPipeFlow</a> model. Per default the upstream and
+downstream densities are averaged with the setting
+<code>useUpstreamScheme = false</code>, in order to avoid
+discontinuous <code>pathLengths_nominal</code> values in the case
+of flow reversal.</p>
+<p>The geometry parameters <code>crossAreas</code>,
+<code>diameters</code> and <code>roughnesses</code> do not effect
+simulation results of this nominal pressure loss model. As the
+geometry is specified however, the optionally calculated Reynolds
+number as well as <code>m_flows_turbulent</code> and
+<code>dps_fg_turbulent</code> become meaningful and can be related
+to <code>m_flow_small</code> and <code>dp_small</code>.</p>
+<p><b>Optional Variables if show_Res</b></p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>Type</b></th>
+<th><b>Name</b></th>
+<th><b>Description</b></th>
+</tr>
+<tr>
+<td>ReynoldsNumber</td>
+<td>Res[n]</td>
+<td>Reynolds numbers of pipe flow per flow segment</td>
+</tr>
+<tr>
+<td>MassFlowRate</td>
+<td>m_flows_turbulent[n-1]</td>
+<td>mass flow rates at start of turbulent region for
+Re_turbulent=4000</td>
+</tr>
+<tr>
+<td>AbsolutePressure</td>
+<td>dps_fg_turbulent[n-1]</td>
+<td>pressure losses due to friction and gravity corresponding to
+m_flows_turbulent</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>6 Dec 2008</i> by Ruediger Franke:<br />
+Model added to the Fluid library</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

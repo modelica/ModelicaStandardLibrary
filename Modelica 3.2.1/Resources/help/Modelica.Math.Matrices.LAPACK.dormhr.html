@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.LAPACK.dormhr</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.<a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.dormhr</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Lapack documentation
+    Purpose
+    =======
+
+    DORMHR overwrites the general real M-by-N matrix C with
+
+                    SIDE = 'L'     SIDE = 'R'
+    TRANS = 'N':      Q * C          C * Q
+    TRANS = 'T':      Q**T * C       C * Q**T
+
+    where Q is a real orthogonal matrix of order nq, with nq = m if
+    SIDE = 'L' and nq = n if SIDE = 'R'. Q is defined as the product of
+    IHI-ILO elementary reflectors, as returned by DGEHRD:
+
+    Q = H(ilo) H(ilo+1) . . . H(ihi-1).
+
+    Arguments
+    =========
+
+    SIDE    (input) CHARACTER*1
+            = 'L': apply Q or Q**T from the Left;
+            = 'R': apply Q or Q**T from the Right.
+
+    TRANS   (input) CHARACTER*1
+            = 'N':  No transpose, apply Q;
+            = 'T':  Transpose, apply Q**T.
+
+    M       (input) INTEGER
+            The number of rows of the matrix C. M &gt;= 0.
+
+    N       (input) INTEGER
+            The number of columns of the matrix C. N &gt;= 0.
+
+    ILO     (input) INTEGER
+    IHI     (input) INTEGER
+            ILO and IHI must have the same values as in the previous call
+            of DGEHRD. Q is equal to the unit matrix except in the
+            submatrix Q(ilo+1:ihi,ilo+1:ihi).
+            If SIDE = 'L', then 1 &lt;= ILO &lt;= IHI &lt;= M, if M &gt; 0, and
+            ILO = 1 and IHI = 0, if M = 0;
+            if SIDE = 'R', then 1 &lt;= ILO &lt;= IHI &lt;= N, if N &gt; 0, and
+            ILO = 1 and IHI = 0, if N = 0.
+
+    A       (input) DOUBLE PRECISION array, dimension
+                                 (LDA,M) if SIDE = 'L'
+                                 (LDA,N) if SIDE = 'R'
+            The vectors which define the elementary reflectors, as
+            returned by DGEHRD.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.
+            LDA &gt;= max(1,M) if SIDE = 'L'; LDA &gt;= max(1,N) if SIDE = 'R'.
+
+    TAU     (input) DOUBLE PRECISION array, dimension
+                                 (M-1) if SIDE = 'L'
+                                 (N-1) if SIDE = 'R'
+            TAU(i) must contain the scalar factor of the elementary
+            reflector H(i), as returned by DGEHRD.
+
+    C       (input/output) DOUBLE PRECISION array, dimension (LDC,N)
+            On entry, the M-by-N matrix C.
+            On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.
+
+    LDC     (input) INTEGER
+            The leading dimension of the array C. LDC &gt;= max(1,M).
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+
+    LWORK   (input) INTEGER
+            The dimension of the array WORK.
+            If SIDE = 'L', LWORK &gt;= max(1,N);
+            if SIDE = 'R', LWORK &gt;= max(1,M).
+            For optimum performance LWORK &gt;= N*NB if SIDE = 'L', and
+            LWORK &gt;= M*NB if SIDE = 'R', where NB is the optimal
+            blocksize.
+
+            If LWORK = -1, then a workspace query is assumed; the routine
+            only calculates the optimal size of the WORK array, returns
+            this value as the first entry of the WORK array, and no error
+            message related to LWORK is issued by XERBLA.
+
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function dormhr
+  extends Modelica.Icons.Function;
+  input Real C[:,:];
+  input Real A[:,:];
+  input Real tau[if side == "L" then size(C, 2) - 1 else size(C, 1) - 1];
+  input String side = "L";
+  input String trans = "N";
+  input Integer ilo = 1 "lowest index where the original matrix had been Hessenbergform";
+  input Integer ihi = if side == "L" then size(C, 1) else size(C, 2) "highest index where the original matrix had been Hessenbergform";
+  output Real Cout[size(C, 1),size(C, 2)] = C "contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
+  output Integer info;
+end dormhr;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

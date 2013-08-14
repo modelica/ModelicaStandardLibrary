@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Dissipation.PressureLoss.General</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a href="Modelica.Fluid.Dissipation.PressureLoss.html">PressureLoss</a>.General</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>General</h4>
+<h5>General pressure loss for ideal gas</h5>
+<p>Calculation of a generic pressure loss for an <b>ideal gas</b>
+using mean density. <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas.html">
+See more information</a>.</p>
+<h5>Generic pressure loss depending on density and viscosity</h5>
+<p>Calculation of a generic pressure loss in dependence of nominal
+fluid variables (e.g., nominal density, nominal dynamic viscosity)
+at an operation point via interpolation. This generic function
+considers the pressure loss law via a pressure loss exponent and
+the influence of density and dynamic viscosity on pressure loss.
+<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalDensityViscosity.html">
+See more information</a>.</p>
+<h5>Generic pressure loss depending on density</h5>
+<p>Calculation of a generic pressure loss in dependence of nominal
+fluid variables (e.g., nominal density) via interpolation from an
+operation point. <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalPressureLossLawDensity.html">
+See more information</a>.</p>
+<h5>Generic pressure loss depending on pressure loss
+coefficient</h5>
+<p>Calculation of a generic pressure loss in dependence of a
+pressure loss coefficient. <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient.html">
+See more information</a>.</p>
+<h5>Generic pressure loss depending on volume flow rate</h5>
+<p>Calculation of a generic pressure loss with linear or quadratic
+dependence on volume flow rate. <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate.html">
+See more information</a>.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP.html">
+dp_idealGas_DP</a></td>
+<td>Generic pressure loss | calculate pressure loss | ideal gas |
+mean density</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW.html">
+dp_idealGas_MFLOW</a></td>
+<td>Generic pressure loss | calculate mass flow rate | ideal gas |
+mean density</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_IN_con.html">
+dp_idealGas_IN_con</a></td>
+<td>Input record for function dp_idealGas_DP and
+dp_idealGas_MFLOW</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_IN_var.html">
+dp_idealGas_IN_var</a></td>
+<td>Input record for function dp_idealGas_DP and
+dp_idealGas_MFLOW</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP.html">
+dp_nominalDensityViscosity_DP</a></td>
+<td>Generic pressure loss | calculate mass flow rate | nominal
+operation point | pressure loss law (exponent) | density and
+dynamic viscosity dependence</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW.html">
+dp_nominalDensityViscosity_MFLOW</a></td>
+<td>Generic pressure loss | calculate M_FLOW (compressible) |
+nominal operation point | pressure loss law (exponent) | density
+and dynamic viscosity dependence</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_IN_con.html">
+dp_nominalDensityViscosity_IN_con</a></td>
+<td>Output record for function dp_nominalDensityViscosity_DP and
+dp_nominalDensityViscosity_MFLOW</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_IN_var.html">
+dp_nominalDensityViscosity_IN_var</a></td>
+<td>Output record for function dp_nominalDensityViscosity_DP and
+dp_nominalDensityViscosity_MFLOW</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP.html">
+dp_nominalPressureLossLawDensity_DP</a></td>
+<td>Generic pressure loss | calculate pressure loss | nominal
+operation point | pressure loss law (coefficient and exponent) |
+density dependence</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW.html">
+dp_nominalPressureLossLawDensity_MFLOW</a></td>
+<td>Generic pressure loss | calculate mass flow rate | nominal
+operation point | pressure loss law (coefficient and exponent) |
+density dependence</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_IN_con.html">
+dp_nominalPressureLossLawDensity_IN_con</a></td>
+<td>Input record for function dp_nominalPressureLossLawDensity_DP
+and dp_nominalPressureLossLawDensity_MFLOW</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_IN_var.html">
+dp_nominalPressureLossLawDensity_IN_var</a></td>
+<td>Input record for function dp_nominalPressureLossLawDensity_DP
+and dp_nominalPressureLossLawDensity_MFLOW</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP.html">
+dp_pressureLossCoefficient_DP</a></td>
+<td>Generic pressure loss | calculate pressure loss | pressure loss
+coefficient (zeta_TOT)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW.html">
+dp_pressureLossCoefficient_MFLOW</a></td>
+<td>Generic pressure loss | calculate mass flow rate | pressure
+loss coefficient (zeta_TOT)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_IN_con.html">
+dp_pressureLossCoefficient_IN_con</a></td>
+<td>Input record for function dp_pressureLossCoefficient_DP and
+dp_pressureLossCoefficient_MFLOW</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_IN_var.html">
+dp_pressureLossCoefficient_IN_var</a></td>
+<td>Input record for function dp_pressureLossCoefficient_DP and
+dp_pressureLossCoefficient_MFLOW</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP.html">
+dp_volumeFlowRate_DP</a></td>
+<td>Generic pressure loss | calculate pressure loss | quadratic
+function (dp=a*V_flow^2 + b*V_flow)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW.html">
+dp_volumeFlowRate_MFLOW</a></td>
+<td>Generic pressure loss | calculate mass flow rate | quadratic
+function (dp=a*V_flow^2 + b*V_flow)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con.html">
+dp_volumeFlowRate_IN_con</a></td>
+<td>Input record for function dp_volumeFlowRate_DP and
+dp_volumeFlowRate_MFLOW</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_var.html">
+dp_volumeFlowRate_IN_var</a></td>
+<td>Input record for function dp_volumeFlowRate_DP and
+dp_volumeFlowRate_MFLOW</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Digital.Examples.HalfAdder</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Digital.html">Digital</a>.<a href="Modelica.Electrical.Digital.Examples.html">Examples</a>.HalfAdder</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This example demonstrates an adding circuit for binary numbers,
+which internally realizes the interconnection to And and to Xor in
+the final sum.</p>
+<br />
+<br />
+1 + 0 = 1<br />
+0 + 1 = 1<br />
+1 + 1 = 10<br />
+0 + 0 = 0<br />
+<br />
+<b>a</b> + <b>b</b> = <b>s</b><br />
+(The carry of this adding is <b>c</b>.)<br />
+<br />
+and<br />
+<br />
+<b>a</b> * <b>b</b> = <b>s</b><br />
+(It is an interconnection to And.)<br />
+<br />
+<b>a</b> * <b>b</b> + <b>a</b> * <b>b</b> = <b>a</b> Xor <b>b</b> =
+<b>c</b><br />
+(It is an interconnection to Xor.)<br />
+<pre>
+   <b>a</b>     <b>b</b>     <b>c</b>      <b>s</b>     <b>t</b>
+
+   1     0     1      0     1
+   0     1     1      0     2
+   1     1     0      1     3
+   0     0     0      0     4
+</pre>
+<p><b>t</b> is the pick-up instant of the next bit(s) in the
+simulation. The simulation stop time should be 5 seconds.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

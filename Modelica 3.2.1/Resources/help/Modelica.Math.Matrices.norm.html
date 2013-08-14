@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.norm</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.norm</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Matrices.<b>norm</b>(A);
+Matrices.<b>norm</b>(A, p=2);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>Matrices.norm(A)</code>" returns the
+2-norm of matrix A, i.e., the largest singular value of A.<br />
+The function call "<code>Matrices.norm(A, p)</code>" returns the
+p-norm of matrix A. The only allowed values for p are</p>
+<ul>
+<li>"p=1": the largest column sum of A</li>
+<li>"p=2": the largest singular value of A</li>
+<li>"p=Modelica.Constants.inf": the largest row sum of A</li>
+</ul>
+<p>Note, for any matrices A1, A2 the following inequality
+holds:</p>
+<blockquote>
+<pre>
+Matrices.<b>norm</b>(A1+A2,p) ≤ Matrices.<b>norm</b>(A1,p) + Matrices.<b>norm</b>(A2,p)
+</pre></blockquote>
+<p>Note, for any matrix A and vector v the following inequality
+holds:</p>
+<blockquote>
+<pre>
+Vectors.<b>norm</b>(A*v,p) ≤ Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,p)
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.frobeniusNorm.html">Matrices.frobeniusNorm</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function norm
+  extends Modelica.Icons.Function;
+  input Real A[:,:] "Input matrix";
+  input Real p(min = 1) = 2 "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
+  output Real result = 0.0 "p-norm of matrix A";
+end norm;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

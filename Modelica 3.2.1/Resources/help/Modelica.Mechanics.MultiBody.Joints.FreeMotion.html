@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Joints.FreeMotion</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.FreeMotion</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Joint which does not constrain the motion between frame_a and
+frame_b. Such a joint is only meaningful if the <b>relative</b>
+distance and orientation between frame_a and frame_b, and their
+derivatives, shall be used as <b>states</b>.</p>
+<p>Note, that <b>bodies</b> such as Parts.Body, Parts.BodyShape,
+have potential states describing the distance and orientation, and
+their derivatives, between the <b>world frame</b> and a <b>body
+fixed frame</b>. Therefore, if these potential state variables are
+suited, a FreeMotion joint is not needed.</p>
+<p>The states of the FreeMotion object are:</p>
+<ul>
+<li>The <b>relative position vector</b> r_rel_a from the origin of
+frame_a to the origin of frame_b, resolved in frame_a and the
+<b>relative velocity</b> v_rel_a of the origin of frame_b with
+respect to the origin of frame_a, resolved in frame_a (=
+der(r_rel_a)).</li>
+<li>If parameter <b>useQuaternions</b> in the "Advanced" menu is
+<b>true</b> (this is the default), then <b>4 quaternions</b> are
+states. Additionally, the coordinates of the relative angular
+velocity vector are 3 potential states.<br />
+If <b>useQuaternions</b> in the "Advanced" menu is <b>false</b>,
+then <b>3 angles</b> and the derivatives of these angles are
+potential states. The orientation of frame_b is computed by
+rotating frame_a along the axes defined in parameter vector
+"sequence_angleStates" (default = {1,2,3}, i.e., the Cardan angle
+sequence) around the angles used as states. For example, the
+default is to rotate the x-axis of frame_a around angles[1], the
+new y-axis around angles[2] and the new z-axis around angles[3],
+arriving at frame_b.</li>
+</ul>
+<p>The quaternions have the slight disadvantage that there is a
+non-linear constraint equation between the 4 quaternions.
+Therefore, at least one non-linear equation has to be solved during
+simulation. A tool might, however, analytically solve this simple
+constraint equation. Using the 3 angles as states has the
+disadvantage that there is a singular configuration in which a
+division by zero will occur. If it is possible to determine in
+advance for an application class that this singular configuration
+is outside of the operating region, the 3 angles might be used as
+states by setting <b>useQuaternions</b> = <b>false</b>.</p>
+<p>In text books about 3-dimensional mechanics often 3 angles and
+the angular velocity are used as states. This is not the case here,
+since 3 angles and their derivatives are used as states (if
+useQuaternions = false). The reason is that for real-time
+simulation the discretization formula of the integrator might be
+"inlined" and solved together with the model equations. By
+appropriate symbolic transformation the performance is drastically
+increased if angles and their derivatives are used as states,
+instead of angles and the angular velocity.</p>
+<p>If parameter <b>enforceStates</b> is set to <b>true</b> (= the
+default) in the "Advanced" menu, then FreeMotion variables are
+forced to be used as states according to the setting of parameters
+"useQuaternions" and "sequence_angleStates".</p>
+<p>In the following figure the animation of a FreeMotion joint is
+shown. The light blue coordinate system is frame_a and the dark
+blue coordinate system is frame_b of the joint. (here:
+r_rel_a_start = {0.5, 0, 0.5}, angles_start = {45, 45,
+45}<sup>o</sup>).</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png" /></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

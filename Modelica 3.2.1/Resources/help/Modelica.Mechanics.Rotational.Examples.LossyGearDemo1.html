@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Rotational.Examples.LossyGearDemo1</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a href="Modelica.Mechanics.Rotational.Examples.html">Examples</a>.LossyGearDemo1</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This model contains two inertias which are connected by an ideal
+gear where the friction between the teeth of the gear is modeled in
+a physical meaningful way (friction may lead to stuck mode which
+locks the motion of the gear). The friction is defined by an
+efficiency factor (= 0.5) for forward and backward driving
+condition leading to a torque dependent friction loss. Simulate for
+about 0.5 seconds. The friction in the gear will take all modes
+(forward and backward rolling, as well as stuck).</p>
+<p>You may plot:</p>
+<pre>
+Inertia1.w,
+Inertia2.w : angular velocities of inertias
+powerLoss  : power lost in the gear
+gear.mode  :  1 = forward rolling
+              0 = stuck (w=0)
+             -1 = backward rolling
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

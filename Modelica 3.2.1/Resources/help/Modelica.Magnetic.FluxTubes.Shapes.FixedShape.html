@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Magnetic.html">Magnetic</a>.<a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a href="Modelica.Magnetic.FluxTubes.Shapes.html">Shapes</a>.FixedShape</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Please have a look at <a href="Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation.html">
+UsersGuide.ReluctanceForceCalculation</a> for an explanation of the
+different flux tube categories and resulting sub-packages.</p>
+<p>Due to the restrictions on reluctance force calculation outlined
+there, flux tube elements with a possibly non-linear material
+characteristic mu_r(B) must have a fixed shape during simulation of
+converter motion. Hence, the dimensions of these flux tubes are
+defined as parameters in the model components that extend the base
+class <a href="Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape.html">
+Interfaces.PartialFixedShape</a>.</p>
+<p>For initial design of magnetic circuits, the relative
+permeability of possibly non-linear flux tube elements can easily
+be set to a constant value mu_rConst (non-linearPermeability set to
+false). In some cases, this can simplify the rough geometric design
+of a device's magnetic circuit. Once an initial geometry is found,
+the magnetic subsystem can be simulated and fine-tuned with more
+realistic non-linear characteristics of ferromagnetic materials.
+Doing so requires setting of the parameter non-linearPermeability
+to true and selection of one of the soft magnetic materials of
+<a href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.html">Material.SoftMagnetic</a>.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux.html">
+HollowCylinderAxialFlux</a></td>
+<td>(Hollow) cylinder with axial flux; fixed shape; linear or
+non-linear material characteristics</td>
+</tr>
+<tr>
+<td><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux.html">
+HollowCylinderRadialFlux</a></td>
+<td>Hollow cylinder with radial flux; fixed shape; linear or
+non-linear material characteristics</td>
+</tr>
+<tr>
+<td><a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid.html">Cuboid</a></td>
+<td>Flux tube with rectangular cross-section; fixed shape; linear
+or non-linear material characteristics</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

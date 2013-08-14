@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Thermal.HeatTransfer</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Thermal.html">Thermal</a>.HeatTransfer</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains components to model <b>1-dimensional heat
+transfer</b> with lumped elements. This allows especially to model
+heat transfer in machines provided the parameters of the lumped
+elements, such as the heat capacity of a part, can be determined by
+measurements (due to the complex geometries and many materials used
+in machines, calculating the lumped element parameters from some
+basic analytic formulas is usually not possible).</p>
+<p>Example models how to use this library are given in subpackage
+<b>Examples</b>.<br />
+For a first simple example, see <b>Examples.TwoMasses</b> where two
+masses with different initial temperatures are getting in contact
+to each other and arriving after some time at a common
+temperature.<br />
+<b>Examples.ControlledTemperature</b> shows how to hold a
+temperature within desired limits by switching on and off an
+electric resistor.<br />
+A more realistic example is provided in <b>Examples.Motor</b> where
+the heating of an electrical motor is modelled, see the following
+screen shot of this example:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Thermal/HeatTransfer/driveWithHeatTransfer.png" alt="driveWithHeatTransfer" /></p>
+<p>The <b>filled</b> and <b>non-filled red squares</b> at the left
+and right side of a component represent <b>thermal ports</b>
+(connector HeatPort). Drawing a line between such squares means
+that they are thermally connected. The variables of a HeatPort
+connector are the temperature <b>T</b> at the port and the heat
+flow rate <b>Q_flow</b> flowing into the component (if Q_flow is
+positive, the heat flows into the element, otherwise it flows out
+of the element):</p>
+<pre>
+   Modelica.SIunits.Temperature  T  "absolute temperature at port in Kelvin";
+   Modelica.SIunits.HeatFlowRate Q_flow  "flow rate at the port in Watt";
+</pre>
+<p>Note, that all temperatures of this package, including initial
+conditions, are given in Kelvin. For convenience, in subpackages
+<b>HeatTransfer.Celsius</b>, <b>HeatTransfer.Fahrenheit</b> and
+<b>HeatTransfer.Rankine</b> components are provided such that
+source and sensor information is available in degree Celsius,
+degree Fahrenheit, or degree Rankine, respectively. Additionally,
+in package <b>SIunits.Conversions</b> conversion functions between
+the units Kelvin and Celsius, Fahrenheit, Rankine are provided.
+These functions may be used in the following way:</p>
+<pre>
+  <b>import</b> SI=Modelica.SIunits;
+  <b>import</b> Modelica.SIunits.Conversions.*;
+     ...
+  <b>parameter</b> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
+</pre>
+<p>There are several other components available, such as
+AxialConduction (discretized PDE in axial direction), which have
+been temporarily removed from this library. The reason is that
+these components reference material properties, such as thermal
+conductivity, and currently the Modelica design group is discussing
+a general scheme to describe material properties.</p>
+<p>For technical details in the design of this library, see the
+following reference:<br />
+<b>Michael Tiller (2001)</b>: <a href="http://www.amazon.de">Introduction to Physical Modeling with
+Modelica</a>. Kluwer Academic Publishers Boston.</p>
+<p><b>Acknowledgements:</b><br />
+Several helpful remarks from the following persons are
+acknowledged: John Batteh, Ford Motors, Dearborn, U.S.A; <a href="http://www.haumer.at/">Anton Haumer</a>, Technical Consulting
+&amp; Electrical Engineering, Austria; Ludwig Marvan, VA TECH ELIN
+EBG Elektronik GmbH, Wien, Austria; Hans Olsson, Dassault Systèmes
+AB, Sweden; Hubertus Tummescheit, Lund Institute of Technology,
+Lund, Sweden.</p>
+<dl>
+<dt><b>Main Authors:</b></dt>
+<dd>
+<p><a href="http://www.haumer.at/">Anton Haumer</a><br />
+Technical Consulting &amp; Electrical Engineering<br />
+A-3423 St.Andrae-Woerdern, Austria<br />
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a></p>
+</dd>
+</dl>
+<p><b>Copyright © 2001-2013, Modelica Association, Michael Tiller
+and DLR.</b></p>
+<p><i>This Modelica package is <u>free</u> software and the use is
+completely at <u>your own risk</u>; it can be redistributed and/or
+modified under the terms of the Modelica License 2. For license
+conditions (including the disclaimer of warranty) see <a href="Modelica.UsersGuide.ModelicaLicense2.html">Modelica.UsersGuide.ModelicaLicense2</a>
+or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2">https://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Thermal.HeatTransfer.Examples.html">Examples</a></td>
+<td>Example models to demonstrate the usage of package
+Modelica.Thermal.HeatTransfer</td>
+</tr>
+<tr>
+<td><a href="Modelica.Thermal.HeatTransfer.Components.html">Components</a></td>
+<td>Lumped thermal components</td>
+</tr>
+<tr>
+<td><a href="Modelica.Thermal.HeatTransfer.Sensors.html">Sensors</a></td>
+<td>Thermal sensors</td>
+</tr>
+<tr>
+<td><a href="Modelica.Thermal.HeatTransfer.Sources.html">Sources</a></td>
+<td>Thermal sources</td>
+</tr>
+<tr>
+<td><a href="Modelica.Thermal.HeatTransfer.Celsius.html">Celsius</a></td>
+<td>Components with Celsius input and/or output</td>
+</tr>
+<tr>
+<td><a href="Modelica.Thermal.HeatTransfer.Fahrenheit.html">Fahrenheit</a></td>
+<td>Components with Fahrenheit input and/or output</td>
+</tr>
+<tr>
+<td><a href="Modelica.Thermal.HeatTransfer.Rankine.html">Rankine</a></td>
+<td>Components with Rankine input and/or output</td>
+</tr>
+<tr>
+<td><a href="Modelica.Thermal.HeatTransfer.Interfaces.html">Interfaces</a></td>
+<td>Connectors and partial models</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>July 15, 2002</i> by Michael Tiller, <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> and
+Nikolaus Schürmann:<br />
+Implemented.</li>
+<li><i>June 13, 2005</i> by <a href="http://www.haumer.at/">Anton
+Haumer</a><br />
+Refined placing of connectors (cosmetic).<br />
+Refined all Examples; removed Examples.FrequencyInverter,
+introducing Examples.Motor<br />
+Introduced temperature dependent correction (1 + alpha*(T - T_ref))
+in Fixed/PrescribedHeatFlow<br /></li>
+<li>v1.1.1 2007/11/13 Anton Haumer<br />
+components moved to sub-packages</li>
+<li>v1.2.0 2009/08/26 Anton Haumer<br />
+added component ThermalCollector</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

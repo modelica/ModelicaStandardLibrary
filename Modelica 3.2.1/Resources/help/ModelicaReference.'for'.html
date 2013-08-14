@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.'for'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.'for'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Repeat equations or statements a specific number of times</p>
+<h4>Examples</h4>
+<p><b>for</b> clauses are mostly used in algorithm sections, such
+as</p>
+<pre>
+    <b>parameter</b> Integer np=10;
+    Real p[np], x, y;
+  <b>algorithm</b>
+     y := p[1];
+     <b>for</b> i <b>in</b> 2:np <b>loop</b>   // i shall not be declared
+        y := y*x + p[i];
+     <b>end for</b>;
+</pre>
+<p>Other forms of the <b>for</b> condition:</p>
+<pre>
+    <b>for</b> i <b>in</b> 1:10 <b>loop</b>            // i takes the values 1,2,3,...,10
+    <b>for</b> r <b>in</b> 1.0 : 1.5 : 5.5 <b>loop</b> // r takes the values 1.0, 2.5, 4.0, 5.5
+    <b>for</b> i <b>in</b> {1,3,6,7} <b>loop</b>       // i takes the values 1, 3, 6, 7
+</pre>
+<p>In equation sections, <b>for</b> clauses are expanded at
+translation time in order that symbolic transformations can be
+applied. Typically, a <b>for</b> clause in an equation section is
+used on component arrays, e.g., to connect elements of an array of
+components together:</p>
+<pre>
+    <b>parameter</b> Integer nR=10 "Number of resistances";
+    Modelica.Electrical.Analog.Basic.Resistor R[nR];
+  <b>equation</b>
+     <b>for</b> i <b>in</b> 1:nR-1 <b>loop</b>
+        <b>connect</b>(R[i].p R[i+1].n);   // 9 connect equations
+     <b>end for</b>;
+</pre>
+<h4>Syntax</h4>
+<p>In equation sections:</p>
+<pre>
+  <b>for</b> for_indices <b>loop</b>
+     { equation ";" }
+  <b>end for</b>;
+  for_indices : for_index {"," for_index}
+  for_index   : IDENT [ in expression ]
+</pre>
+<p>In algorithm sections:</p>
+<pre>
+  <b>for</b> for_indices <b>loop</b>
+     { algorithm ";" }
+  <b>end for</b>;
+  for_indices : for_index {"," for_index}
+  for_index   : IDENT [ in expression ]
+</pre>
+<h4>Description</h4>
+<p>A clause</p>
+<pre>
+    <b>for</b> IDENT <b>in</b> expression <b>loop</b>
+</pre>
+<p>is one example of a for clause.</p>
+<p>The expression of a for clause shall be a vector expression. It
+is evaluated once for each for clause, and is evaluated in the
+scope immediately enclosing the for clause. In an equation section,
+the expression of a for clause shall be a parameter expression (in
+order that the for clause can be expanded into equations during
+translation). The loop-variable is in scope inside the
+loop-construct and shall not be assigned to.</p>
+<p><i>[Example:</i></p>
+<p><i>The loop-variable may hide other variables as in the
+following example. Using another name for the loop-variable is,
+however, strongly recommended.</i></p>
+<pre>
+    <b>constant</b> Integer j=4;
+    Real x[j];
+  <b>equation</b>
+    <b>for</b> j <b>in</b> 1:j <b>loop</b> // The loop-variable j takes the values 1,2,3,4
+      x[j]=j; // Uses the loop-variable j
+    <b>end for</b>;
+</pre>
+<p><i>]</i></p>
+<h4>Several iterators</h4>
+<p>The notation with several iterators is a shorthand notation for
+nested for-clauses (or reduction-expressions). For for-clauses it
+can be expanded into the usual form by replacing each "," by
+<code>'loop for'</code> and adding extra <code>'end for'</code>.
+For reduction-expressions it can be expanded into the usual form by
+replacing each ',' by <code>') for'</code> and prepending the
+reduction-expression with <code>'function-name('</code>.</p>
+<p><i>[Example:</i></p>
+<pre>
+    Real x[4,3];
+  <b>equation</b>
+    <b>for</b> j, i in 1:2 <b>loop</b>
+      // The loop-variable j takes the values 1,2,3,4 (due to use)
+      // The loop-variable i takes the values 1,2 (given range)
+      x[j,i]=j+i;
+    <b>end for</b>;
+</pre>
+<p><i>]</i></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a href="Modelica.Mechanics.Rotational.Interfaces.html">Interfaces</a>.PartialCompliantWithRelativeStates</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a 1-dim. rotational component with a compliant
+connection of two rotational 1-dim. flanges where inertial effects
+between the two flanges are neglected. The basic assumption is that
+the cut-torques of the two flanges sum-up to zero, i.e., they have
+the same absolute value but opposite sign: flange_a.tau +
+flange_b.tau = 0. This base class is used to built up force
+elements such as springs, dampers, friction.</p>
+<p>The relative angle and the relative speed are defined as
+preferred states. The reason is that for some drive trains, such as
+drive trains in vehicles, the absolute angle is quickly increasing
+during operation. Numerically, it is better to use relative angles
+between drive train components because they remain in a limited
+size. For this reason, StateSelect.prefer is set for the relative
+angle of this component.</p>
+<p>In order to improve the numerics, a nominal value for the
+relative angle can be provided via parameter <b>phi_nominal</b> in
+the Advanced menu. The default is 1e-4 rad since relative angles
+are usually in this order and the step size control of an
+integrator would be practically switched off, if a default of 1 rad
+would be used. This nominal value might also be computed from other
+values, such as "phi_nominal = tau_nominal / c" for a rotational
+spring, if tau_nominal and c are more meaningful for the user.</p>
+<p>See also the discussion <a href="Modelica.Mechanics.Rotational.UsersGuide.StateSelection.html">
+State Selection</a> in the User's Guide of the Rotational
+library.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

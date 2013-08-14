@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Continuous</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.Continuous</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains basic <b>continuous</b> input/output
+blocks described by differential equations.</p>
+<p>All blocks of this package can be initialized in different ways
+controlled by parameter <b>initType</b>. The possible values of
+initType are defined in <a href="Modelica.Blocks.Types.Init.html">Modelica.Blocks.Types.Init</a>:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>Name</b></td>
+<td valign="top"><b>Description</b></td>
+</tr>
+<tr>
+<td valign="top"><b>Init.NoInit</b></td>
+<td valign="top">no initialization (start values are used as guess
+values with fixed=false)</td>
+</tr>
+<tr>
+<td valign="top"><b>Init.SteadyState</b></td>
+<td valign="top">steady state initialization (derivatives of states
+are zero)</td>
+</tr>
+<tr>
+<td valign="top"><b>Init.InitialState</b></td>
+<td valign="top">Initialization with initial states</td>
+</tr>
+<tr>
+<td valign="top"><b>Init.InitialOutput</b></td>
+<td valign="top">Initialization with initial outputs (and steady
+state of the states if possible)</td>
+</tr>
+</table>
+<p>For backward compatibility reasons the default of all blocks is
+<b>Init.NoInit</b>, with the exception of Integrator and
+LimIntegrator where the default is <b>Init.InitialState</b> (this
+was the initialization defined in version 2.2 of the Modelica
+standard library).</p>
+<p>In many cases, the most useful initial condition is
+<b>Init.SteadyState</b> because initial transients are then no
+longer present. The drawback is that in combination with a
+non-linear plant, non-linear algebraic equations occur that might
+be difficult to solve if appropriate guess values for the iteration
+variables are not provided (i.e., start values with fixed=false).
+However, it is often already useful to just initialize the linear
+blocks from the Continuous blocks library in SteadyState. This is
+uncritical, because only linear algebraic equations occur. If
+Init.NoInit is set, then the start values for the states are
+interpreted as <b>guess</b> values and are propagated to the states
+with fixed=<b>false</b>.</p>
+<p>Note, initialization with Init.SteadyState is usually difficult
+for a block that contains an integrator (Integrator, LimIntegrator,
+PI, PID, LimPID). This is due to the basic equation of an
+integrator:</p>
+<pre>
+  <b>initial equation</b>
+     <b>der</b>(y) = 0;   // Init.SteadyState
+  <b>equation</b>
+     <b>der</b>(y) = k*u;
+</pre>
+<p>The steady state equation leads to the condition that the input
+to the integrator is zero. If the input u is already (directly or
+indirectly) defined by another initial condition, then the
+initialization problem is <b>singular</b> (has none or infinitely
+many solutions). This situation occurs often for mechanical
+systems, where, e.g., u = desiredSpeed - measuredSpeed and since
+speed is both a state and a derivative, it is always defined by
+Init.InitialState or Init.SteadyState initialization.</p>
+<p>In such a case, <b>Init.NoInit</b> has to be selected for the
+integrator and an additional initial equation has to be added to
+the system to which the integrator is connected. E.g., useful
+initial conditions for a 1-dim. rotational inertia controlled by a
+PI controller are that <b>angle</b>, <b>speed</b>, and
+<b>acceleration</b> of the inertia are zero.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.Integrator.html">Integrator</a></td>
+<td>Output the integral of the input signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.LimIntegrator.html">LimIntegrator</a></td>
+<td>Integrator with limited value of the output</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.Derivative.html">Derivative</a></td>
+<td>Approximated derivative block</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.FirstOrder.html">FirstOrder</a></td>
+<td>First order transfer function block (= 1 pole)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.SecondOrder.html">SecondOrder</a></td>
+<td>Second order transfer function block (= 2 poles)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.PI.html">PI</a></td>
+<td>Proportional-Integral controller</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.PID.html">PID</a></td>
+<td>PID-controller in additive description form</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.LimPID.html">LimPID</a></td>
+<td>P, PI, PD, and PID controller with limited output, anti-windup
+compensation and setpoint weighting</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.TransferFunction.html">TransferFunction</a></td>
+<td>Linear transfer function</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.StateSpace.html">StateSpace</a></td>
+<td>Linear state space system</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.Der.html">Der</a></td>
+<td>Derivative of input (= analytic differentiations)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.LowpassButterworth.html">LowpassButterworth</a></td>
+<td>Output the input signal filtered with a low pass Butterworth
+filter of any order</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.CriticalDamping.html">CriticalDamping</a></td>
+<td>Output the input signal filtered with an n-th order filter with
+critical damping</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.Filter.html">Filter</a></td>
+<td>Continuous low pass, high pass, band pass or band stop
+IIR-filter of type CriticalDamping, Bessel, Butterworth or
+ChebyshevI</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Continuous.Internal.html">Internal</a></td>
+<td>Internal utility functions and blocks that should not be
+directly utilized by the user</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

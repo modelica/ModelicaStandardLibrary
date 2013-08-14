@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Interfaces.PartialDistributedFlow</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Interfaces.html">Interfaces</a>.PartialDistributedFlow</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Interface and base class for <code><b>m</b></code> momentum
+balances, defining the mass flow rates
+<code><b>m_flows[m]</b></code> of a given <code>Medium</code> in
+<code><b>m</b></code> flow segments.</p>
+<p>The following boundary flow and force terms are part of the
+momentum balances and must be specified in an extending model (to
+zero if not considered):</p>
+<ul>
+<li><code><b>Ib_flows[m]</b></code>, the flows of momentum across
+segment boundaries,</li>
+<li><code><b>Fs_p[m]</b></code>, pressure forces, and</li>
+<li><code><b>Fs_fg[m]</b></code>, friction and gravity forces.</li>
+</ul>
+<p>The lengths along the flow path
+<code><b>pathLengths[m]</b></code> are an input that needs to be
+set in an extending class to complete the model.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Interfaces.PartialDistributedFlow.Medium.html">Medium</a></td>
+<td>Medium in the component</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

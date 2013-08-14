@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.html">Colors</a>.scalarToColor</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+//Real T, T_min, T_max, colorMap[:,3];
+Colors.<b>scalarToColor</b>(T, T_min, T_max, colorMap);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function returns an rgb color Real[3] that corresponds to
+the value of "T". The color is selected from the colorMap by
+interpolation so that "T_min" corresponds to "colorMap[1,:]" and
+"T_max" corresponds to "colorMap[end,:]".</p>
+<h4>See also</h4>
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.html">ColorMaps</a>,
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">
+colorMapToSvg</a>, <a href="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField.html">
+PipeWithScalarField</a>.
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function scalarToColor
+  extends Modelica.Icons.Function;
+  input Real T "Scalar value" annotation(Dialog);
+  input Real T_min "T &lt;= T_min is mapped to colorMap[1,:]" annotation(Dialog);
+  input Real T_max "T &gt;= T_max is mapped to colorMap[end,:]" annotation(Dialog);
+  input Real colorMap[:,3] "Color map" annotation(Dialog);
+  output Real color[3] "Color of scalar value T";
+end scalarToColor;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

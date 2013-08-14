@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Utilities.regRoot2</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Utilities.html">Utilities</a>.regRoot2</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Approximates the function</p>
+<pre>
+   y = <b>if</b> x ≥ 0 <b>then</b> <b>sqrt</b>(k1*x) <b>else</b> -<b>sqrt</b>(k2*<b>abs</b>(x)), with k1, k2 ≥ 0
+</pre>
+<p>in such a way that within the region -x_small ≤ x ≤ x_small, the
+function is described by two polynomials of third order (one in the
+region -x_small .. 0 and one within the region 0 .. x_small) such
+that</p>
+<ul>
+<li>The derivative at x=0 is finite.</li>
+<li>The overall function is continuous with a continuous first
+derivative everywhere.</li>
+<li>If parameter use_yd0 = <b>false</b>, the two polynomials are
+constructed such that the second derivatives at x=0 are identical.
+If use_yd0 = <b>true</b>, the derivative at x=0 is explicitly
+provided via the additional argument yd0. If necessary, the
+derivative yd0 is automatically reduced in order that the
+polynomials are strict monotonically increasing <i>[Fritsch and
+Carlson, 1980]</i>.</li>
+</ul>
+<p>Typical screenshots for two different configurations are shown
+below. The first one with k1=k2=1:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Components/regRoot2_a.png" alt="regRoot2_a.png" /></p>
+<p>and the second one with k1=1 and k2=3:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Components/regRoot2_b.png" alt="regRoot2_b.png" /></p>
+<p>The (smooth) derivative of the function with k1=1, k2=3 is shown
+in the next figure:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Components/regRoot2_c.png" alt="regRoot2_c.png" /></p>
+<p><b>Literature</b></p>
+<dl>
+<dt>Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd><b>Monotone piecewise cubic interpolation</b>. SIAM J. Numerc.
+Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function regRoot2
+  extends Modelica.Icons.Function;
+  input Real x "abscissa value";
+  input Real x_small(min = 0) = 0.01 "approximation of function for |x| &lt;= x_small";
+  input Real k1(min = 0) = 1 "y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|)";
+  input Real k2(min = 0) = 1 "y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|)";
+  input Boolean use_yd0 = false "= true, if yd0 shall be used";
+  input Real yd0(min = 0) = 1 "Desired derivative at x=0: dy/dx = yd0";
+  output Real y "ordinate value";
+end regRoot2;
+
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>Sept., 2019</i> by <a href="mailto:Martin.Otter@DLR.de">Martin Otter</a>:<br />
+Improved so that k1=0 and/or k2=0 is also possible.</li>
+<li><i>Nov., 2005</i> by <a href="mailto:Martin.Otter@DLR.de">Martin Otter</a>:<br />
+Designed and implemented.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

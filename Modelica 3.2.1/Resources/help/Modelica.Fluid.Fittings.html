@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Fittings</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.Fittings</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This sublibrary contains models and functions providing pressure
+loss correlations. All models in this library have the property
+that no mass and no energy is stored in the component. Therefore,
+none of the models have a state.</p>
+<p>All functions are continuous and have a finite, non-zero,
+smooth, first derivative. The functions are all guaranteed to be
+strict monotonically increasing. The mentioned properties guarantee
+that a unique inverse of every function exists. Note, the usual
+quadratic pressure loss correlation</p>
+<ul>
+<li>in the form m_flow = f(dp) has an infinite derivative at zero
+mass flow rate and is therefore problematic to use.</li>
+<li>in the form dp = f(m_flow) has a zero derivative at zero mass
+flow rate and is therefore problematic to invert, since the inverse
+function has then an infinite derivative at zero mass flow
+rate.</li>
+</ul>
+<p>The two mentioned problems are solved in this package by
+approximating the characteristics around zero mass flow rates with
+appropriate polynomials. The monotonicity is guaranteed using
+results from:</p>
+<dl>
+<dt>Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd><b>Monotone piecewise cubic interpolation</b>. SIAM J. Numerc.
+Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.Bends.html">Bends</a></td>
+<td>Flow models for bends</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.Orifices.html">Orifices</a></td>
+<td>Flow models for orifices</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.GenericResistances.html">GenericResistances</a></td>
+<td>Flow models for generic resistances</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.SimpleGenericOrifice.html">SimpleGenericOrifice</a></td>
+<td>Simple generic orifice defined by pressure loss coefficient and
+diameter (only for flow from port_a to port_b)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.SharpEdgedOrifice.html">SharpEdgedOrifice</a></td>
+<td>Pressure drop due to sharp edged orifice (for both flow
+directions)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.AbruptAdaptor.html">AbruptAdaptor</a></td>
+<td>Pressure drop in pipe due to suddenly expanding or reducing
+area (for both flow directions)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.MultiPort.html">MultiPort</a></td>
+<td>Multiply a port; useful if multiple connections shall be made
+to a port exposing a state</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.TeeJunctionIdeal.html">TeeJunctionIdeal</a></td>
+<td>Splitting/joining component with static balances for an
+infinitesimal control volume</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.TeeJunctionVolume.html">TeeJunctionVolume</a></td>
+<td>Splitting/joining component with static balances for a dynamic
+control volume</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a></td>
+<td>Base classes used in the Fittings package (only of interest to
+build new component models)</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>Jan. 3, 2006</i> by <a href="mailto:Martin.Otter@DLR.de">Martin Otter</a>:<br />
+New design and implementation based on previous iterations.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

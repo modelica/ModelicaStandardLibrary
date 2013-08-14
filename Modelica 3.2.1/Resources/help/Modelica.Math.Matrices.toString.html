@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.toString</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.toString</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Matrices.<b>toString</b>(A);
+Matrices.<b>toString</b>(A, name="", significantDigits=6);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>Matrices.<b>toString</b>(A)</code>"
+returns the string representation of matrix <b>A</b>. With the
+optional arguments "name" and "significantDigits", a name and the
+number of the digits are defined. The default values of name and
+significantDigits are "" and 6 respectively. If name=="" then the
+prefix "&lt;name&gt; =" is leaved out.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  A = [2.12, -4.34; -2.56, -1.67];
+
+  toString(A);
+  // = "
+  //      2.12   -4.34
+  //     -2.56   -1.67";
+
+  toString(A,"A",1);
+  // = "A =
+  //         2     -4
+  //        -3     -2"
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Vectors.toString.html">Vectors.toString</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function toString
+  extends Modelica.Icons.Function;
+  import Modelica.Utilities.Strings;
+  input Real M[:,:] "Real matrix";
+  input String name = "" "Independent variable name used for printing";
+  input Integer significantDigits = 6 "Number of significant digits that are shown";
+  output String s = "" "String expression of matrix M";
+end toString;
+
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

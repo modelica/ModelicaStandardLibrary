@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'symmetric()'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Operators.html">Operators</a>.'symmetric()'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Returns a symmetric matrix</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>symmetric</b>(A)
+</pre></blockquote>
+<h4>Description</h4>
+<p>Returns a matrix where the diagonal elements and the elements
+above the diagonal are identical to the corresponding elements of
+matrix A and where the elements below the diagonal are set equal to
+the elements above the diagonal of A, i.e.,</p>
+<blockquote>
+<pre>
+B := <b>symmetric</b>(A)
+     -&gt; B[i,j] := A[i,j], <b>if</b> i ≤ j,
+        B[i,j] := A[j,i], <b>if</b> i &gt; j.
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

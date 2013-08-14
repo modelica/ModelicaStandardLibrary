@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.singularValues</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.singularValues</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+         sigma = Matrices.<b>singularValues</b>(A);
+(sigma, U, VT) = Matrices.<b>singularValues</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the singular values and optionally the
+singular vectors of matrix A. Basically the singular value
+decomposition of A is computed, i.e.,</p>
+<blockquote>
+<pre>
+<b>A</b> = <b>U</b> <b><font face="Symbol">S</font></b> <b>V</b><sup>T</sup>
+  = U*Sigma*VT
+</pre></blockquote>
+<p>where <b>U</b> and <b>V</b> are orthogonal matrices
+(<b>UU</b><sup>T</sup>=<b>I,</b> <b>VV</b><sup>T</sup>=<b>I</b>).
+<b><font face="Symbol">S</font></b> = diag(<font face="Symbol">s</font><sub>i</sub>) has the same size as matrix A with
+nonnegative diagonal elements in decreasing order and with all
+other elements zero (<font face="Symbol">s</font><sub>1</sub> is
+the largest element). The function returns the singular values
+<font face="Symbol">s</font><sub>i</sub> in vector
+<code>sigma</code> and the orthogonal matrices in matrices
+<code>U</code> and <code>V</code>.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  A = [1, 2,  3,  4;
+       3, 4,  5, -2;
+      -1, 2, -3,  5];
+  (sigma, U, VT) = singularValues(A);
+  results in:
+     sigma = {8.33, 6.94, 2.31};
+  i.e.
+     Sigma = [8.33,    0,    0, 0;
+                 0, 6.94,    0, 0;
+                 0,    0, 2.31, 0]
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.eigenValues.html">Matrices.eigenValues</a>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function singularValues
+  extends Modelica.Icons.Function;
+  input Real A[:,:] "Matrix";
+  output Real sigma[min(size(A, 1), size(A, 2))] "Singular values";
+  output Real U[size(A, 1),size(A, 1)] = identity(size(A, 1)) "Left orthogonal matrix";
+  output Real VT[size(A, 2),size(A, 2)] = identity(size(A, 2)) "Transposed right orthogonal matrix";
+end singularValues;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

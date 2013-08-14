@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Examples.html">Examples</a>.<a href="Modelica.Fluid.Examples.TraceSubstances.html">TraceSubstances</a>.RoomCO2WithControls</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This example illustrates a room volume with a CO2 source and a
+fresh air supply with feedback control. The CO2 emission rate is
+proportional to the room occupancy, which is defined by a schedule.
+The fresh air flow rate is controlled such that the room CO2
+concentration does not exceed <code>1000 PPM (=1.519E-3
+kg/kg)</code>. The fresh air has a CO2 concentration of <code>300
+PPM</code> which corresponds to a typical CO2 concentration in the
+outside air.</p>
+<p>The CO2 emission from the occupants is implemented as a mass
+flow source. Depending on the activity and size, a person emits
+about <code>8.18E-6 kg/s</code> CO2. In the model, this value is
+multiplied by the number of occupants. Since the mass flow rate
+associate with the CO2 source model contributes to the volume's
+energy balance, this mass flow rate should be kept small. Thus, in
+the source model, we set the CO2 concentration to <code>C={100}
+kg/kg</code>, and scaled the mass flow rate using</p>
+<pre>
+  m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
+</pre>
+<p>where <code>nPeo</code> is the number of people in the room.
+This results in a mass flow rate that is about 5 orders of
+magnitudes smaller than the supply air flow rate, and hence its
+contribution to the volume's energy balance is negligible.</p>
+<p>The nominal value for the trace substance is set to
+<code>C_nominal={1.519E-3}</code>. This scales the residual
+equations that are used by the solver to the right order of
+magnitude.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Examples/RoomCO2WithControls.png" border="1" alt="RoomCO2WithControls.png" /></p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls.Medium.html">
+Medium</a></td>
+<td></td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

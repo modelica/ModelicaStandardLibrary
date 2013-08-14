@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Tables</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.Tables</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains blocks for one- and two-dimensional
+interpolation in tables.</p>
+<h4>Special interest topic: Statically stored tables for real-time
+simulation targets</h4>
+<p>Especially for use on real-time platform targets (e.g.,
+HIL-simulators) with <b>no file system</b>, it is possible to
+statically store tables using a function "usertab" in a file
+conventionally named "usertab.c". This can be more efficient than
+providing the tables as Modelica parameter arrays.</p>
+<p>This is achieved by providing the tables in a specific structure
+as C-code and compiling that C-code together with the rest of the
+simulation model into a binary that can be executed on the target
+platform. The "Resources/Data/Tables/" subdirectory of the MSL
+installation directory contains the files <a href="../../../Modelica%203.2.1/Resources/Data/Tables/usertab.c">"usertab.c"</a>
+and <a href="../../../Modelica%203.2.1/Resources/Data/Tables/usertab.h">"usertab.h"</a>
+that can be used as a template for own developments. While
+"usertab.c" would be typically used unmodified, the "usertab.h"
+needs to adapted for the own needs.</p>
+<p>In order to work it is necessary that the compiler pulls in the
+"usertab.c" file. Different Modelica tools might provide different
+mechanisms to do so. Please consult the respective
+documentation/support for your Modelica tool.</p>
+<p>A possible (though a bit "hackish") Modelica standard conformant
+approach is to pull in the required files by utilizing a
+"dummy"-function that uses the Modelica external function interface
+to pull in the required "usertab.c". An example how this can be
+done is given below.</p>
+<pre>
+model Test25_usertab "Test utilizing the usertab.c interface"
+  extends Modelica.Icons.Example;
+public
+  Modelica.Blocks.Sources.RealExpression realExpression(y=getUsertab(t_new.y))
+    annotation (Placement(transformation(extent={{-40,-34},{-10,-14}})));
+  Modelica.Blocks.Tables.CombiTable1D t_new(tableOnFile=true, tableName="TestTable_1D_a")
+    annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+  Modelica.Blocks.Sources.Clock clock
+    annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+protected
+  encapsulated function getUsertab
+    input Real dummy_u[:];
+    output Real dummy_y;
+    external "C" dummy_y=  mydummyfunc(dummy_u);
+    annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
+           Include = "#include "usertab.c"
+ double mydummyfunc(const double* dummy_in) {
+        return 0;
+}
+");
+  end getUsertab;
+equation
+  connect(clock.y,t_new. u[1]) annotation (Line(
+      points={{-59,10},{-42,10}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version="3.2.1")));
+end Test25_usertab;
+</pre>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Tables.CombiTable1D.html">CombiTable1D</a></td>
+<td>Table look-up in one dimension (matrix/file) with n inputs and
+n outputs</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Tables.CombiTable1Ds.html">CombiTable1Ds</a></td>
+<td>Table look-up in one dimension (matrix/file) with one input and
+n outputs</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Tables.CombiTable2D.html">CombiTable2D</a></td>
+<td>Table look-up in two dimensions (matrix/file)</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

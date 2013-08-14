@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'pre()'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Operators.html">Operators</a>.'pre()'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Refer to left limit</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>pre</b>(y)
+</pre></blockquote>
+<h4>Description</h4>
+<p>Returns the "left limit" y(t<sup>pre</sup>) of variable y(t) at
+a time instant t. At an event instant, y(t<sup>pre</sup>) is the
+value of y after the last event iteration at time instant t. The
+<b>pre</b> operator can be applied if the following three
+conditions are fulfilled simultaneously:</p>
+<ul>
+<li>variable y is a subtype of a simple type</li>
+<li>y is a discrete-time expression</li>
+<li>the operator is <b>not</b> applied in a <b>function</b>
+class</li>
+</ul>
+<p>The first value of <b>pre</b>(y) is determined in the
+initialization phase.</p>
+<p>A new event is triggered if at least for one variable v
+"<b>pre</b>(v) &lt;&gt; v" after the active model equations are
+evaluated at an event instant. In this case the model is at once
+reevaluated. This evaluation sequence is called "<i>event
+iteration</i>". The integration is restarted, if for all v used in
+<b>pre</b>-operators the following condition holds: "<b>pre</b>(v)
+== v".</p>
+<p><i>[If v and <b>pre</b>(v) are only used in when clauses, the
+translator might mask event iteration for variable v since v cannot
+change during event iteration. It is a "quality of implementation"
+to find the minimal loops for event iteration, i.e., not all parts
+of the model need to be reevaluated.</i></p>
+<p><i>The language allows mixed algebraic systems of equations
+where the unknown variables are of type Real, Integer, Boolean, or
+an enumeration. These systems of equations can be solved by a
+global fix point iteration scheme, similarly to the event
+iteration, by fixing the Boolean, Integer, and/or enumeration
+unknowns during one iteration. Again, it is a quality of
+implementation to solve these systems more efficiently, e.g., by
+applying the fix point iteration scheme to a subset of the model
+equations.]</i></p>
+<h4>Examples</h4>
+<pre>
+<b>model</b> Hysteresis
+  Real u;
+  Boolean y;
+<b>equation</b>
+  u = Modelica.Math.sin(<b>time</b>);
+  y = u &gt; 0.5 or <b>pre</b>(y) and u &gt;= -0.5;
+<b>end</b> Hysteresis;
+</pre>
+<img src="../../../ModelicaReference%203.2.1/Resources/Images/pre.png" width="400" height="280" alt="Simulation result" />
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

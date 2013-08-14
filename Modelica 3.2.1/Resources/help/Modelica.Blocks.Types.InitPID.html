@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Types.InitPID</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Types.html">Types</a>.InitPID</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This initialization type is identical to <a href="Modelica.Blocks.Types.Init.html">Types.Init</a> and has just
+one additional option
+<strong><code>DoNotUse_InitialIntegratorState</code></strong>. This
+option is introduced in order that the default initialization for
+the <code>Continuous.PID</code> and <code>Continuous.LimPID</code>
+blocks are backward compatible. In Modelica 2.2, the integrators
+have been initialized with their given states where as the D-part
+has not been initialized. The option
+<strong><code>DoNotUse_InitialIntegratorState</code></strong> leads
+to this initialization definition.</p>
+<p>The following initialization alternatives are available:</p>
+<dl>
+<dt><code><strong>NoInit</strong></code></dt>
+<dd>No initialization (start values are used as guess values with
+<code>fixed=false</code>)</dd>
+<dt><code><strong>SteadyState</strong></code></dt>
+<dd>Steady state initialization (derivatives of states are
+zero)</dd>
+<dt><code><strong>InitialState</strong></code></dt>
+<dd>Initialization with initial states</dd>
+<dt><code><strong>InitialOutput</strong></code></dt>
+<dd>Initialization with initial outputs (and steady state of the
+states if possible)</dd>
+<dt>
+<code><strong>DoNotUse_InitialIntegratorState</strong></code></dt>
+<dd>Don not use, only for backward compatibility (initialize only
+integrator state)</dd>
+</dl>
+<h4><a name="definition" id="definition">Definition</a></h4>
+<blockquote>
+<pre>
+type InitPID = enumeration(NoInit "No initialization (start values are used as guess values with fixed=false)", SteadyState "Steady state initialization (derivatives of states are zero)", InitialState "Initialization with initial states", InitialOutput "Initialization with initial outputs (and steady state of the states if possible)", DoNotUse_InitialIntegratorState  "Don not use, only for backward compatibility (initialize only integrator state)");
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

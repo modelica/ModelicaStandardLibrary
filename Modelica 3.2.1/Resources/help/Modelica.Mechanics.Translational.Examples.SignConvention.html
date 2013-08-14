@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Translational.Examples.SignConvention</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.Translational.html">Translational</a>.<a href="Modelica.Mechanics.Translational.Examples.html">Examples</a>.SignConvention</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>If all arrows point in the same direction a positive force
+results in a positive acceleration a, velocity v and position
+s.</p>
+<p>For a force of 1 N and a mass of 1 Kg this leads to</p>
+<pre>
+        a = 1 m/s2
+        v = 1 m/s after 1 s (SlidingMass1.v)
+        s = 0.5 m after 1 s (SlidingMass1.s)
+</pre>
+<p>The acceleration is not available for plotting.</p>
+<p>System 1) and 2) are equivalent. It doesn't matter whether the
+force pushes at flange_a in system 1 or pulls at flange_b in system
+2.</p>
+<p>It is of course possible to ignore the arrows and connect the
+models in an arbitrary way. But then it is hard see in what
+direction the force acts.</p>
+<p>In the third system the two arrows are opposed which means that
+the force acts in the opposite direction (in the same direction as
+in the two other examples).</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

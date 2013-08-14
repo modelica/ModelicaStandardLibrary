@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Joints.Prismatic</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.Prismatic</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Joint where frame_b is translated along axis n which is fixed in
+frame_a. The two frames coincide when the relative distance "s =
+0".</p>
+<p>Optionally, two additional 1-dimensional mechanical flanges
+(flange "axis" represents the driving flange and flange "support"
+represents the bearing) can be enabled via parameter
+<b>useAxisFlange</b>. The enabled axis flange can be driven with
+elements of the <a href="Modelica.Mechanics.Translational.html">Modelica.Mechanics.Translational</a>
+library.</p>
+<p>In the "Advanced" menu it can be defined via parameter
+<b>stateSelect</b> that the relative distance "s" and its
+derivative shall be definitely used as states by setting
+stateSelect=StateSelect.always. Default is StateSelect.prefer to
+use the relative distance and its derivative as preferred states.
+The states are usually selected automatically. In certain
+situations, especially when closed kinematic loops are present, it
+might be slightly more efficient, when using the StateSelect.always
+setting.</p>
+<p>In the following figure the animation of a prismatic joint is
+shown. The light blue coordinate system is frame_a and the dark
+blue coordinate system is frame_b of the joint. The black arrow is
+parameter vector "n" defining the translation axis (here: n =
+{1,1,0}).</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png" /></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

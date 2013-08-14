@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.SIunits.Conversions</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.SIunits.html">SIunits</a>.Conversions</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package provides conversion functions from the non SI Units
+defined in package Modelica.SIunits.Conversions.NonSIunits to the
+corresponding SI Units defined in package Modelica.SIunits and vice
+versa. It is recommended to use these functions in the following
+way (note, that all functions have one Real input and one Real
+output argument):</p>
+<pre>
+  <b>import</b> SI = Modelica.SIunits;
+  <b>import</b> Modelica.SIunits.Conversions.*;
+     ...
+  <b>parameter</b> SI.Temperature     T   = from_degC(25);   // convert 25 degree Celsius to Kelvin
+  <b>parameter</b> SI.Angle           phi = from_deg(180);   // convert 180 degree to radian
+  <b>parameter</b> SI.AngularVelocity w   = from_rpm(3600);  // convert 3600 revolutions per minutes
+                                                      // to radian per seconds
+</pre>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.NonSIunits.html">NonSIunits</a></td>
+<td>Type definitions of non SI units</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_unit1.html">to_unit1</a></td>
+<td>Change the unit of a Real number to unit="1"</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_degC.html">to_degC</a></td>
+<td>Convert from Kelvin to degCelsius</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_degC.html">from_degC</a></td>
+<td>Convert from degCelsius to Kelvin</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_degF.html">to_degF</a></td>
+<td>Convert from Kelvin to degFahrenheit</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_degF.html">from_degF</a></td>
+<td>Convert from degFahrenheit to Kelvin</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_degRk.html">to_degRk</a></td>
+<td>Convert from Kelvin to degRankine</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_degRk.html">from_degRk</a></td>
+<td>Convert from degRankine to Kelvin</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_deg.html">to_deg</a></td>
+<td>Convert from radian to degree</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_deg.html">from_deg</a></td>
+<td>Convert from degree to radian</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_rpm.html">to_rpm</a></td>
+<td>Convert from radian per second to revolutions per minute</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_rpm.html">from_rpm</a></td>
+<td>Convert from revolutions per minute to radian per second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_kmh.html">to_kmh</a></td>
+<td>Convert from metre per second to kilometre per hour</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_kmh.html">from_kmh</a></td>
+<td>Convert from kilometre per hour to metre per second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_day.html">to_day</a></td>
+<td>Convert from second to day</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_day.html">from_day</a></td>
+<td>Convert from day to second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_hour.html">to_hour</a></td>
+<td>Convert from second to hour</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_hour.html">from_hour</a></td>
+<td>Convert from hour to second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_minute.html">to_minute</a></td>
+<td>Convert from second to minute</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_minute.html">from_minute</a></td>
+<td>Convert from minute to second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_litre.html">to_litre</a></td>
+<td>Convert from cubic metre to litre</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_litre.html">from_litre</a></td>
+<td>Convert from litre to cubic metre</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_Ah.html">from_Ah</a></td>
+<td>Convert from Ampere hours to Coulomb</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_Ah.html">to_Ah</a></td>
+<td>Convert from Coulomb to Ampere hours</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_Wh.html">from_Wh</a></td>
+<td>Convert from Watt hour to Joule</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_Wh.html">to_Wh</a></td>
+<td>Convert from Joule to Watt hour</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_kWh.html">to_kWh</a></td>
+<td>Convert from Joule to kilo Watt hour</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_kWh.html">from_kWh</a></td>
+<td>Convert from kilo Watt hour to Joule</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_bar.html">to_bar</a></td>
+<td>Convert from Pascal to bar</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_bar.html">from_bar</a></td>
+<td>Convert from bar to Pascal</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_gps.html">to_gps</a></td>
+<td>Convert from kilogram per second to gram per second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_gps.html">from_gps</a></td>
+<td>Convert from gram per second to kilogram per second</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_Hz.html">from_Hz</a></td>
+<td>Convert from Hz to rad/s</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_Hz.html">to_Hz</a></td>
+<td>Convert from rad/s to Hz</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.to_cm2.html">to_cm2</a></td>
+<td>Convert from square metre to square centimetre</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.from_cm2.html">from_cm2</a></td>
+<td>Convert from square centimetre to square metre</td>
+</tr>
+<tr>
+<td><a href="Modelica.SIunits.Conversions.ConversionIcon.html">ConversionIcon</a></td>
+<td>This icon will be removed in future Modelica versions.</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

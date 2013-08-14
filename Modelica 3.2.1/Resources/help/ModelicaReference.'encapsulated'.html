@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.'encapsulated'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.'encapsulated'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Break lookup in hierarchy</p>
+<h4>Examples</h4>
+<pre>
+<b>encapsulated model</b> Test
+  <b>import</b> Modelica.Mechanics.Rotational;
+
+  Rotational.Components.Inertia inertia; // lookup successful
+  Modelica.Mechanics.Translational.SlidingMass slidingMass; // lookup fails
+<b>equation</b>
+  ...
+<b>end</b> Test;
+</pre>
+<h4>Syntax</h4>
+<pre>
+class_definition :
+   [ <b>encapsulated</b> ]
+   [ <b>partial</b> ]
+   ( <b>class</b> | <b>model</b> | <b>record</b> | <b>block</b> | <b>connector</b> | <b>type</b> |
+     <b>package</b> | <b>function</b> )
+   IDENT class_specifier
+</pre>
+<h4>Description</h4>
+<p>When an element, equation or algorithm is instantiated, any name
+is looked up sequentially in each member of the ordered set of
+parents until a match is found or a parent is encapsulated. In the
+latter case the lookup stops except for the predefined types,
+functions and operators defined in this specification. For these
+cases the lookup continues in the global scope, where they are
+defined. <i>[E.g., abs is searched upwards in the hierarchy as
+usual. If an encapsulated boundary is reached, abs is searched in
+the global scope instead. The operator abs cannot be redefined in
+the global scope, because an existing class cannot be redefined at
+the same level.]</i></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

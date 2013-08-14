@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors.Utilities.householderVector</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Vectors.html">Vectors</a>.<a href="Modelica.Math.Vectors.Utilities.html">Utilities</a>.householderVector</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Vectors.Utilities.<b>householderVector</b>(a,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>householderVector(a, b)</code>" returns
+the normalized Householder vector <b>u</b> for Householder
+reflection of input vector <b>a</b> onto vector <b>b</b>, i.e.,
+Householder vector <b>u</b> is the normal vector of the reflection
+plane. Algebraically, the reflection is performed by transformation
+matrix <b>Q</b></p>
+<blockquote>
+<p><b>Q</b> = <b>I</b> - 2*<b>u</b>*<b>u</b>',</p>
+</blockquote>
+i.e., vector <b>a</b> is mapped to
+<blockquote>
+<p><b>a</b> -&gt; <b>Q</b>*<b>a</b>=c*<b>b</b></p>
+</blockquote>
+with scalar c, |c| = ||<b>a</b>|| / ||<b>b</b>||. <b>Q</b>*<b>a</b>
+is the reflection of <b>a</b> about the hyperplane orthogonal to
+<b>u</b>. <b>Q</b> is an orthogonal matrix, i.e.
+<blockquote>
+<p><b>Q</b> = inv(<b>Q</b>) = <b>Q</b>'</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  a = {2, -4, -2, -1};
+  b = {1, 0, 0, 0};
+
+  u = <b>householderVector</b>(a,b);    // {0.837, -0.478, -0.239, -0.119}
+                               // Computation (identity(4) - 2*matrix(u)*transpose(matrix(u)))*a results in
+                               // {-5, 0, 0, 0} = -5*b
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Vectors.Utilities.householderReflection.html">Vectors.Utilities.householderReflection</a><br />
+<a href="Modelica.Math.Matrices.Utilities.householderReflection.html">
+Matrices.Utilities.householderReflection</a><br />
+<a href="Modelica.Math.Matrices.Utilities.householderSimilarityTransformation.html">
+Matrices.Utilities.householderSimilarityTransformation</a>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function householderVector
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Vectors.norm;
+  input Real a[:] "Real vector to be reflected";
+  input Real b[size(a, 1)] "Real vector b vector a is mapped onto";
+  output Real u[size(a, 1)] "Householder vector to map a onto b";
+end householderVector;
+
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/04/30</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

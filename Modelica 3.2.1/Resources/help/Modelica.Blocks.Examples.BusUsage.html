@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Examples.BusUsage</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Examples.html">Examples</a>.BusUsage</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p><b>Signal bus concept</b></p>
+<p>In technical systems, such as vehicles, robots or satellites,
+many signals are exchanged between components. In a simulation
+system, these signals are usually modelled by signal connections of
+input/output blocks. Unfortunately, the signal connection structure
+may become very complicated, especially for hierarchical
+models.</p>
+<p>The same is also true for real technical systems. To reduce
+complexity and get higher flexibility, many technical systems use
+data buses to exchange data between components. For the same
+reasons, it is often better to use a "signal bus" concept also in a
+Modelica model. This is demonstrated at hand of this model
+(Modelica.Blocks.Examples.BusUsage):</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Blocks/BusUsage.png" alt="BusUsage.png" />
+<ul>
+<li>Connector instance "controlBus" is a hierarchical connector
+that is used to exchange signals between different components. It
+is defined as "expandable connector" in order that <b>no</b>
+central definition of the connector is needed but is automatically
+constructed by the signals connected to it (see also Modelica
+specification 2.2.1).</li>
+<li>Input/output signals can be directly connected to the
+"controlBus".</li>
+<li>A component, such as "part", can be directly connected to the
+"controlBus", provided it has also a bus connector, or the "part"
+connector is a sub-connector contained in the "controlBus".</li>
+</ul>
+<p>The control and sub-control bus icons are provided within
+Modelica.Icons. In <a href="Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.html">
+Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a> the
+buses for this example are defined. Both the "ControlBus" and the
+"SubControlBus" are <b>expandable</b> connectors that do not define
+any variable. For example, <a href="Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus.html#text">
+Interfaces.ControlBus</a> is defined as:</p>
+<pre>
+  <b>expandable connector</b> ControlBus
+      <b>extends</b> Modelica.Icons.ControlBus;
+      <b>annotation</b> ();
+  <b>end</b> ControlBus;
+</pre>
+<p>Note, the "annotation" in the connector is important since the
+color and thickness of a connector line are taken from the first
+line element in the icon annotation of a connector class. Above, a
+small rectangle in the color of the bus is defined (and therefore
+this rectangle is not visible). As a result, when connecting from
+an instance of this connector to another connector instance, the
+connecting line has the color of the "ControlBus" with double width
+(due to "thickness=0.5").</p>
+<p>An <b>expandable</b> connector is a connector where the content
+of the connector is constructed by the variables connected to
+instances of this connector. For example, if "sine.y" is connected
+to the "controlBus", the following menu pops-up in Dymola:</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Blocks/BusUsage2.png" alt="BusUsage2.png" />
+<p>The "Add variable/New name" field allows the user to define the
+name of the signal on the "controlBus". When typing "realSignal1"
+as "New name", a connection of the form:</p>
+<pre>
+     <b>connect</b>(sine.y, controlBus.realSignal1)
+</pre>
+<p>is generated and the "controlBus" contains the new signal
+"realSignal1". Modelica tools may give more support in order to
+list potential signals for a connection. For example, in Dymola all
+variables are listed in the menu that are contained in connectors
+which are derived by inheritance from "controlBus". Therefore, in
+<a href="Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.html">
+BusUsage_Utilities.Interfaces</a> the expected implementation of
+the "ControlBus" and of the "SubControlBus" are given. For example
+"Internal.ControlBus" is defined as:</p>
+<pre>
+  <b>expandable connector</b> StandardControlBus
+    <b>extends</b> BusUsage_Utilities.Interfaces.ControlBus;
+
+    <b>import</b> SI = Modelica.SIunits;
+    SI.AngularVelocity    realSignal1   "First Real signal";
+    SI.Velocity           realSignal2   "Second Real signal";
+    Integer               integerSignal "Integer signal";
+    Boolean               booleanSignal "Boolean signal";
+    StandardSubControlBus subControlBus "Combined signal";
+  <b>end</b> StandardControlBus;
+</pre>
+<p>Consequently, when connecting now from "sine.y" to "controlBus",
+the menu looks differently:</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Blocks/BusUsage3.png" alt="BusUsage3.png" />
+<p>Note, even if the signals from "Internal.StandardControlBus" are
+listed, these are just potential signals. The user might still add
+different signal names.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

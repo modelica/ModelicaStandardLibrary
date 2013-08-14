@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'matrix()'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Operators.html">Operators</a>.'matrix()'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Returns the first two dimensions of an array as matrix</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>matrix</b>(A)
+</pre></blockquote>
+<h4>Description</h4>
+<p>Returns <b>promote</b>(A,2), if A is a scalar or vector and
+otherwise returns the elements of the first two dimensions as a
+matrix. <b>size</b>(A,i) = 1 is required for 2 &lt; i ≤
+<b>ndims</b>(A).</p>
+<p>Function <b>promote</b>(A,n) fills dimensions of size 1 from the
+right to array A upto dimension n, where "n &gt; <b>ndims</b>(A)"
+is required. Let C = <b>promote</b>(A,n), with nA =
+<b>ndims</b>(A), then</p>
+<blockquote>
+<pre>
+<b>ndims</b>(C) = n,
+<b>size</b>(C,j) = <b>size</b>(A,j) for 1 ≤ j ≤ nA,
+<b>size</b>(C,j) = 1 for nA+1 ≤ j ≤ n,
+C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

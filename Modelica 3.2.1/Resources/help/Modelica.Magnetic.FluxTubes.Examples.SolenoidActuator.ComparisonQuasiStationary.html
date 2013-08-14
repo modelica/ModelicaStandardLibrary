@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Magnetic.html">Magnetic</a>.<a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a>.<a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.html">SolenoidActuator</a>.ComparisonQuasiStationary</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Have a look at <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.html">SolenoidActuator</a>
+for general comments and at <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid.html">
+SimpleSolenoid</a> and <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid.html">
+AdvancedSolenoid</a> for a detailed description of both magnetic
+network models.</p>
+<p>Similar to static force-stroke measurements on real actuators,
+the armatures of both actuator models are forced to move slowly
+here. Hence, the dynamics of the electrical subsystems due to coil
+inductance and armature motion can be neglected and the static
+force-stroke characteristics are obtained. To illustrate the
+accuracy to be expected from the lumped magnetic network models,
+results obtained with stationary FEA are included as reference
+(position-dependent force, armature flux and actuator inductance).
+Note that these reference values are valid for the default supply
+voltage v_step=12V DC only!</p>
+<p>Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 10
+s</b>. Plot in one common window the electromagnetic force of the
+two magnetic network models and the FEA reference <b>vs. armature
+position x_set.y</b>:</p>
+<pre>
+    simpleSolenoid.armature.flange_a.f     // electromagnetic force of simple magnetic network model
+    advancedSolenoid.armature.flange_a.f   // electromagnetic force of advanced magnetic network model
+    comparisonWithFEA.y[1]                 // electromagnetic force obtained with FEA as reference
+</pre>
+<p>Electromagnetic or reluctance forces always act towards a
+decrease of air gap lengths. With the defined armature position
+coordinate x, the forces of the models are negative.</p>
+<p>The magnetic flux through the armature and the actuator's static
+inductance both illustrate the differences between the two magnetic
+network models. Similar to the forces, compare these quantities in
+one common plot window for each variable (plot vs. armature
+position x_set.y):</p>
+<pre>
+    simpleSolenoid.G_mFeArm.Phi            // magnetic flux through armature of simple magnetic network model
+    advancedSolenoid.G_mFeArm.Phi          // magnetic flux through armature of advanced magnetic network model
+    comparisonWithFEA.y[2]                 // magnetic flux obtained with FEA as reference
+
+    simpleSolenoid.coil.L_stat             // static inductance of simple magnetic network model
+    advancedSolenoid.L_statTot             // series connection of both partial coils of advanced network model
+    comparisonWithFEA.y[3]                 // static inductance obtained with FEA as reference
+</pre>
+<p>As mentioned in the description of both magnetic network models,
+one can tell the higher armature flux and inductance of the
+advanced solenoid model at large air gaps compared to that of the
+simple model. The effect of this difference on dynamic model
+behaviour can be analysed in <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke.html">
+ComparisonPullInStroke</a>.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseDensity</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a>.<a href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.html">PressureLoss</a>.<a href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.html">TwoPhase</a>.TwoPhaseDensity</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The gaseous and the liquid part of a fluid in a two phase flow
+are often discontinuously distributed. This complex behaviour is
+simplified for engineering calculations. The two phase flow of
+different fluid flow situations (e.g., bubble or stratified flow)
+is modelled as if the gaseous and the liquid phase are continuously
+distributed.</p>
+<p>A <b>mean density</b> assuming a continuous distribution out of
+a discontinuous two phase fluid flow situation can be calculated
+with a <b>homogeneous or a heterogeneous approach</b> (see <a href="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP.html">
+dp_twoPhaseOverall_DP</a>).</p>
+<p>The following <b>modelling approaches</b> can be used to
+calculate the mean density of two phase flow:</p>
+<ul>
+<li><b>homogeneous density</b> (homogeneous approach)</li>
+<li><b>momentum flux density</b> (heterogeneous approach)</li>
+<li><b>kinetic energy flow density</b> (heterogeneous
+approach)</li>
+</ul>
+<p>The heterogeneous approaches are analytically derived by
+minimising the momentum flux or the kinetic energy flow assuming
+implicitly that the two-phase flow will tend towards the minimum of
+this quantity.</p>
+<h4>References</h4>
+<dl>
+<dt>VDI:</dt>
+<dd><b>VDI - Wärmeatlas: Berechnungsblätter für den
+Wärmeübergang</b>. Springer Verlag, 10th edition, 2006.</dd>
+</dl>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function TwoPhaseDensity
+  extends Modelica.Icons.Function;
+  input Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach voidFractionApproach = Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous "Choice of void fraction approach" annotation(Dialog(group = "Choices"));
+  input Boolean massFlowRateCorrection = false "Consider heterogeneous mass flow rate correction" annotation(Dialog(group = "Choices"));
+  input SI.Density rho_g(min = Modelica.Constants.eps) "Density of gaseous phase" annotation(Dialog);
+  input SI.Density rho_l(min = Modelica.Constants.eps) "Density of liquid phase" annotation(Dialog);
+  input Real epsilon_A(min = 0, max = 1) "Void fraction (cross sectional averaged)" annotation(Dialog(enable = not twoPhaseDensityApproach == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseDensityApproach.Homogeneous));
+  input Real x_flow(min = 0, max = 1) "Mass flow rate quality" annotation(Dialog);
+  output SI.Density rho_2ph "Mean density of two phase flow";
+end TwoPhaseDensity;
+
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2 May 2011</i> by Stefan Wischhusen:<br />
+Corrected a logical error in use of input
+<code>massFlowRateCorrection</code>.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

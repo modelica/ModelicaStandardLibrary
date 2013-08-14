@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.Evaluate</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Annotations.html">Annotations</a>.Evaluate</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Annotation for code generation (evaluate parameter value)</p>
+<h4>Syntax</h4>
+<pre>
+   <b>annotation</b>"(" Evaluate "=" ( <b>false</b> | <b>true</b> ) ")
+</pre>
+<h4>Description</h4>
+<p>The annotation Evaluate can occur in the component declaration,
+its type declaration, or a base-class of the type-declaration. In
+the case of multiple conflicting annotations it is handled
+similarly to modifiers (e.g., an Evaluate-annotation on the
+component declaration takes precedence). The annotation Evaluate
+only has effect for a component declared with the prefix
+<code>parameter</code>.</p>
+<p>If Evaluate = true, the model developer proposes to utilize the
+value for the symbolic processing. In that case, it is not possible
+to change the parameter value after symbolic pre-processing.</p>
+<p>If Evaluate = false, the model developer proposes to not utilize
+the value of the corresponding parameter for the symbolic
+processing.</p>
+<p>Evaluate is for example used for axis of rotation parameters in
+the Modelica.Mechanics.MultiBody library in order to improve the
+efficiency of the generated code</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

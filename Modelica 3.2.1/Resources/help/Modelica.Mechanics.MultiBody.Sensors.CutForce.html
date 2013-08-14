@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Sensors.CutForce</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.CutForce</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The cut-force acting between the two frames to which this model
+is connected, is determined and provided at the output signal
+connector <b>force</b> (= frame_a.f). If parameter
+<b>positiveSign</b> = <b>false</b>, the negative cut-force is
+provided (= frame_b.f).</p>
+<p>Via parameter <b>resolveInFrame</b> it is defined, in which
+frame the force vector is resolved:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>resolveInFrame =<br />
+Types.ResolveInFrameAB.</b></th>
+<th><b>Meaning</b></th>
+</tr>
+<tr>
+<td valign="top">world</td>
+<td valign="top">Resolve vector in world frame</td>
+</tr>
+<tr>
+<td valign="top">frame_a</td>
+<td valign="top">Resolve vector in frame_a</td>
+</tr>
+<tr>
+<td valign="top">frame_b</td>
+<td valign="top">Resolve vector in frame_b</td>
+</tr>
+<tr>
+<td valign="top">frame_resolve</td>
+<td valign="top">Resolve vector in frame_resolve</td>
+</tr>
+</table>
+<p>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the
+conditional connector "frame_resolve" is enabled and output force
+is resolved in the frame, to which frame_resolve is connected.
+Note, if this connector is enabled, it must be connected.</p>
+<p>In the following figure the animation of a CutForce sensor is
+shown. The dark blue coordinate system is frame_b, and the green
+arrow is the cut force acting at frame_b and with negative sign at
+frame_a.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Sensors/CutForce.png" /></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

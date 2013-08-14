@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Spice3.Basic.H_CCV</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.Basic.html">Basic</a>.H_CCV</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The linear current-controlled voltage source is a TwoPort. The
+"right" port voltage at pin 2 (=p2.v) is controlled by the "left"
+port current at pin p1(=p1.i) via</p>
+<pre>
+    p2.v = p1.i * transResistance.
+</pre>
+<p>The controlling port voltage is zero. Any transResistance can be
+chosen.</p>
+<p>The corresponding SPICE description</p>
+<pre>
+    Hname N+ N- VNAM VALUE
+</pre>
+<p>is translated to Modelica:</p>
+<pre>
+    Hname -&gt; Spice3.Basic.H_CCV Hname
+    (Hname is the name of the Modelica instance)
+    N+ -&gt; p2.v
+    N- -&gt; n2.v  
+</pre>
+<p>The voltage source VNAM has the two nodes NV+ and NV-:</p>
+<pre>
+                   VNAM VN+ VN- VALUE_V
+</pre>
+<p>The current through VNAM hast to be led through the CCV.</p>
+<p>Therefore VNAM has to be disconnected and an additional</p>
+<p>node NV_AD has to be added.</p>
+<pre>
+    NV_AD -&gt; p1.i
+    NV- -&gt; n1.i
+</pre>
+<p>On this way the current, that flows through the voltage source
+VNAM, flows through the CCV.</p>
+<pre>
+    VALUE -&gt; transResistance 
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

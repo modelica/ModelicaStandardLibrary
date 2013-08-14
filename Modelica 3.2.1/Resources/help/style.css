@@ -1,0 +1,32 @@
+
+h1
+{
+    font-family: mono;
+    font-size: x-large;
+    color:rgb(153,0,0);
+}
+
+h1 a {font-size:large;}
+
+table
+{
+    border-color: black;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table td,th
+{
+    border-color: black;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    margin: 0;
+    padding: 4px;
+}
+
+pre
+{
+    white-space: pre-wrap; /* CSS 3 */
+}

@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.Rotational</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.Rotational</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Library <b>Rotational</b> is a <b>free</b> Modelica package
+providing 1-dimensional, rotational mechanical components to model
+in a convenient way drive trains with frictional losses. A typical,
+simple example is shown in the next figure:</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/Rotational/driveExample.png" />
+<p>For an introduction, have especially a look at:</p>
+<ul>
+<li><a href="Modelica.Mechanics.Rotational.UsersGuide.html">Rotational.UsersGuide</a>
+discusses the most important aspects how to use this library.</li>
+<li><a href="Modelica.Mechanics.Rotational.Examples.html">Rotational.Examples</a>
+contains examples that demonstrate the usage of this library.</li>
+</ul>
+<p>In version 3.0 of the Modelica Standard Library, the basic
+design of the library has changed: Previously, bearing connectors
+could or could not be connected. In 3.0, the bearing connector is
+renamed to "<b>support</b>" and this connector is enabled via
+parameter "useSupport". If the support connector is enabled, it
+must be connected, and if it is not enabled, it must not be
+connected.</p>
+<p>In version 3.2 of the Modelica Standard Library, all
+<b>dissipative</b> components of the Rotational library got an
+optional <b>heatPort</b> connector to which the dissipated energy
+is transported in form of heat. This connector is enabled via
+parameter "useHeatPort". If the heatPort connector is enabled, it
+must be connected, and if it is not enabled, it must not be
+connected. Independently, whether the heatPort is enabled or not,
+the dissipated power is available from the new variable
+"<b>lossPower</b>" (which is positive if heat is flowing out of the
+heatPort). For an example, see <a href="Modelica.Mechanics.Rotational.Examples.HeatLosses.html">Examples.HeatLosses</a>.</p>
+<p>Copyright © 1998-2013, Modelica Association and DLR.</p>
+<p><i>This Modelica package is <u>free</u> software and the use is
+completely at <u>your own risk</u>; it can be redistributed and/or
+modified under the terms of the Modelica License 2. For license
+conditions (including the disclaimer of warranty) see <a href="Modelica.UsersGuide.ModelicaLicense2.html">Modelica.UsersGuide.ModelicaLicense2</a>
+or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2">https://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.Rotational.UsersGuide.html">UsersGuide</a></td>
+<td>User's Guide of Rotational Library</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.Rotational.Examples.html">Examples</a></td>
+<td>Demonstration examples of the components of this package</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.Rotational.Components.html">Components</a></td>
+<td>Components for 1D rotational mechanical drive trains</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.Rotational.Sensors.html">Sensors</a></td>
+<td>Sensors to measure variables in 1D rotational mechanical
+components</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.Rotational.Sources.html">Sources</a></td>
+<td>Sources to drive 1D rotational mechanical components</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.Rotational.Interfaces.html">Interfaces</a></td>
+<td>Connectors and partial models for 1D rotational mechanical
+components</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.Rotational.Icons.html">Icons</a></td>
+<td>Icons for Rotational package</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

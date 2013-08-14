@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Sources.KinematicPTP2</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Sources.html">Sources</a>.KinematicPTP2</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The goal is to move as <b>fast</b> as possible from start
+position <b>q_begin</b> to end position <b>q_end</b> under given
+<b>kinematical constraints</b>. The positions can be translational
+or rotational definitions (i.e., q_begin/q_end is given). In
+robotics such a movement is called <b>PTP</b> (Point-To-Point).
+This source block generates the <b>position</b> q(t), the
+<b>speed</b> qd(t) = der(q), and the <b>acceleration</b> qdd =
+der(qd) as output. The signals are constructed in such a way that
+it is not possible to move faster, given the <b>maximally</b>
+allowed <b>velocity</b> qd_max and the <b>maximally</b> allowed
+<b>acceleration</b> qdd_max:</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/Sources/KinematicPTP2.png" alt="KinematicPTP2.png" /></p>
+<p>If vectors q_begin/q_end have more than 1 element, the output
+vectors are constructed such that all signals are in the same
+periods in the acceleration, constant velocity and deceleration
+phase. This means that only one of the signals is at its limits
+whereas the others are synchronized in such a way that the end
+point is reached at the same time instant.</p>
+<p>This element is useful to generate a reference signal for a
+controller which controls, e.g., a drive train, or to drive a
+flange according to a given acceleration.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>March 24, 2007</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Non-standard Modelica function "constrain(..)" replaced by standard
+Modelica implementation (via internal function position()).<br />
+New output signal "moving" added.</li>
+<li><i>June 27, 2001</i> by Bernhard Bachmann.<br />
+Bug fixed that element is also correct if startTime is not
+zero.</li>
+<li><i>Nov. 3, 1999</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Vectorized and moved from Rotational to Blocks.Sources.</li>
+<li><i>June 29, 1999</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+realized.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

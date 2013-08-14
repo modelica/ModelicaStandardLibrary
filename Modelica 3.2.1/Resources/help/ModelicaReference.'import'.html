@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.'import'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.'import'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Import classes</p>
+<h4>Examples</h4>
+<pre>
+<b>class</b> Lookup
+  <b>import</b> SI = Modelica.SIunits; // #1
+  <b>import</b> Modelica.Math.*; // #2 (Try to avoid wildcard imports,
+                          //     consider using #1 or #3  instead!)
+  <b>import</b> Modelica.Mechanics.Rotational; // #3
+
+  SI.Torque torque; // due to #1 (Modelica.SIunits.Torque)
+  Rotational.Components.Inertia inertia; // due to #3 (Modelica.Mechanics.Rotational.Components.Inertia)
+<b>equation</b>
+  torque = sin(<b>time</b>); // due to #2 (Modelica.Math.sin)
+  ...
+<b>end</b> Lookup;
+</pre>
+<h4>Syntax</h4>
+<pre>
+class_definition :
+   [ <b>encapsulated</b> ]
+   [ <b>partial</b> ]
+   ( <b>class</b> | <b>model</b> | <b>record</b> | <b>block</b> | <b>connector</b> | <b>type</b> |
+     <b>package</b> | <b>function</b> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <b>end</b> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <b>enumeration</b> "(" ( [enum_list] | ":" ) ")" comment
+
+composition  :
+   element_list
+   { <b>public</b> element_list |
+     <b>protected</b> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <b>external</b> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <b>final</b> ]
+   [ <b>inner</b> | <b>outer</b> ]
+   ( ( class_definition | component_clause) |
+     <b>replaceable</b> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+import_clause :
+   <b>import</b> ( IDENT "=" name | name ["." "*"] ) comment
+</pre>
+<h4>Description</h4>
+<p>Using import statements extends the static name lookup to
+additional import names. The generated import names are:</p>
+<ul>
+<li><code>C</code> for <code><b>import</b> A.B.C;</code></li>
+<li><code>D</code> for <code><b>import</b> D = A.B.C;</code></li>
+<li><code>C</code> and all other classes in B for
+<code><b>import</b> A.B.*;</code></li>
+</ul>
+<h5>Note</h5>
+<p><em>Especially the last wildcard import statement should be
+avoided since it might lead to name-lookup conflicts.</em></p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ObsoleteModelica3</title>
+</head>
+<body>
+<h1><a href="index.html">.</a>ObsoleteModelica3</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains models and blocks from the Modelica
+Standard Library version 2.2.2 that are no longer available in
+version 3.0. The conversion script for version 3.0 changes
+references in existing user models automatically to the models and
+blocks of package ObsoleteModelica3. The user should
+<b>manually</b> replace all references to ObsoleteModelica3 in
+his/her models to the models that are recommended in the
+documentation of the respective model.</p>
+<p>In most cases, this means that a model with the name
+"ObsoleteModelica3.XXX" should be renamed to "Modelica.XXX"
+(version 3.0) and then a manual adaptation is needed. For example,
+a reference to
+ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor should
+be replaced by Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor
+(version 3.0). Since the design of the component has changed (e.g.,
+several optional connectors, and no longer one connector where all
+signals are packed together), this requires some changes at the
+place where the model is used (besides the renaming of the
+underlying class).</p>
+<p>The models in ObsoleteModelica3 are either not according to the
+Modelica Language version 3.0 and higher, or the model was changed
+to get a better design. In all cases, an automatic conversion to
+the new implementation was not feasible, since too complicated.</p>
+<p>In order to easily detect obsolete models and blocks, all of
+them are specially marked in the icon layer with a red box.</p>
+<p>Copyright © 2007-2013, Modelica Association.</p>
+<p><i>This Modelica package is <u>free</u> software and the use is
+completely at <u>your own risk</u>; it can be redistributed and/or
+modified under the terms of the Modelica License 2. For license
+conditions (including the disclaimer of warranty) see <a href="Modelica.UsersGuide.ModelicaLicense2.html">Modelica.UsersGuide.ModelicaLicense2</a>
+or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2">https://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="ObsoleteModelica3.Blocks.html">Blocks</a></td>
+<td>Library of basic input/output control blocks (continuous,
+discrete, logical, table blocks)</td>
+</tr>
+<tr>
+<td><a href="ObsoleteModelica3.Electrical.html">Electrical</a></td>
+<td>Library of electrical models (analog, digital, machines,
+multi-phase)</td>
+</tr>
+<tr>
+<td><a href="ObsoleteModelica3.Icons.html">Icons</a></td>
+<td>Library of icons</td>
+</tr>
+<tr>
+<td><a href="ObsoleteModelica3.Mechanics.html">Mechanics</a></td>
+<td>Library of 1-dim. and 3-dim. mechanical components (multi-body,
+rotational, translational)</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

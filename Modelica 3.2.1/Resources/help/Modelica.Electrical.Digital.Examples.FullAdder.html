@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Digital.Examples.FullAdder</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Digital.html">Digital</a>.<a href="Modelica.Electrical.Digital.Examples.html">Examples</a>.FullAdder</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p><br />
+It is an adding circuit for binary numbers with input carry bit,
+which consists of two HalfAdders.<br />
+<br />
+<b>a</b>.y, <b>b</b>.y and <b>c</b>.y are the inputs of the
+FullAdder.<br />
+<b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the
+FullAdder.<br />
+<br />
+<b>t</b> is the pick-up instant of the next bit(s) in the
+simulation.</p>
+<pre>
+   <b>a</b>.y      <b>b</b>.y      <b>c</b>.y     <b>c</b>out        <b>h</b>.s        <b>t</b> 
+</pre>
+<pre>
+     1        0        0        0          1        1
+     0        1        0        0          1        2
+     0        0        1        0          1        3
+     1        1        0        1          0        4
+     0        1        1        1          0        5
+     1        0        1        1          0        6
+     1        1        1        1          1        7
+     0        0        0        0          0        8
+</pre>
+<p>The simulation stop time should be 10 seconds.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Interfaces</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.Interfaces</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains connectors and partial models (i.e.,
+models that are only used to build other models) of the MultiBody
+library.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.Frame.html">Frame</a></td>
+<td>Coordinate system fixed to the component with one cut-force and
+cut-torque (no icon)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_a.html">Frame_a</a></td>
+<td>Coordinate system fixed to the component with one cut-force and
+cut-torque (filled rectangular icon)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_b.html">Frame_b</a></td>
+<td>Coordinate system fixed to the component with one cut-force and
+cut-torque (non-filled rectangular icon)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve.html">Frame_resolve</a></td>
+<td>Coordinate system fixed to the component used to express in
+which coordinate system a vector is resolved (non-filled
+rectangular icon)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearing.html">FlangeWithBearing</a></td>
+<td>Connector consisting of 1-dim. rotational flange and its
+bearing frame</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.FlangeWithBearingAdaptor.html">
+FlangeWithBearingAdaptor</a></td>
+<td>Adaptor to allow direct connections to the sub-connectors of
+FlangeWithBearing</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames.html">PartialTwoFrames</a></td>
+<td>Base model for components providing two frame connectors +
+outer world + assert to guarantee that the component is
+connected</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize.html">
+PartialTwoFramesDoubleSize</a></td>
+<td>Base model for components providing two frame connectors +
+outer world + assert to guarantee that the component is connected
+(default icon size is factor 2 larger as usual)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialOneFrame_a.html">PartialOneFrame_a</a></td>
+<td>Base model for components providing one frame_a connector +
+outer world + assert to guarantee that the component is
+connected</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialOneFrame_b.html">PartialOneFrame_b</a></td>
+<td>Base model for components providing one frame_b connector +
+outer world + assert to guarantee that the component is
+connected</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint.html">
+PartialElementaryJoint</a></td>
+<td>Base model for elementary joints (has two frames + outer world
++ assert to guarantee that the joint is connected)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialForce.html">PartialForce</a></td>
+<td>Base model for force elements (provide frame_b.f and frame_b.t
+in subclasses)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialLineForce.html">PartialLineForce</a></td>
+<td>Base model for line force elements</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialAbsoluteSensor.html">
+PartialAbsoluteSensor</a></td>
+<td>Base model to measure an absolute frame variable</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialRelativeSensor.html">
+PartialRelativeSensor</a></td>
+<td>Base model to measure a relative variable between two
+frames</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer.html">PartialVisualizer</a></td>
+<td>Base model for visualizers (has a frame_a on the left side +
+outer world + assert to guarantee that the component is
+connected)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition.html">ZeroPosition</a></td>
+<td>Set absolute position vector of frame_resolve to a zero vector
+and the orientation object to a null rotation</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration.html">
+partialGravityAcceleration</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic.html">
+partialSurfaceCharacteristic</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Interfaces.partialColorMap.html">partialColorMap</a></td>
+<td>Interface for a function returning a color map</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

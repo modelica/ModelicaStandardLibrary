@@ -1,8 +1,8 @@
 within ;
 operator record Complex "Complex number with overloaded operators"
 //record Complex "Complex number with overloaded operators"
-  Real re "Real part of complex number" annotation(Dialog);
-  Real im "Imaginary part of complex number" annotation(Dialog);
+  replaceable Real re "Real part of complex number" annotation(Dialog);
+  replaceable Real im "Imaginary part of complex number" annotation(Dialog);
 
   encapsulated operator 'constructor' "Constructor"
     function fromReal "Construct Complex from Real"
@@ -13,21 +13,33 @@ operator record Complex "Complex number with overloaded operators"
     algorithm
 
       annotation(Inline=true, Documentation(info="<html>
-<p>This function returns a Complex number defined by real part <i>re</i> and optional imaginary part <i>im</im> (default=0).</p>
+<p>This function returns a Complex number defined by real part <i>re</i> and optional imaginary part <i>im</i> (default=0).</p>
 </html>"));
     end fromReal;
-    annotation(Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>Here the constructor operator(s) is/are defined.</p>
-</html>"), Icon(graphics={                 Rectangle(
-            extent={{-80,100},{100,-80}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Rectangle(
-            extent={{-100,80},{80,-100}},
-            lineColor={0,0,0},
-            fillColor={240,240,240},
-            fillPattern=FillPattern.Solid)}));
+</html>"), Icon(graphics={Rectangle(
+            lineColor={200,200,200},
+            fillColor={248,248,248},
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100,-100},{100,100}},
+            radius=25.0), Rectangle(
+            lineColor={128,128,128},
+            fillPattern=FillPattern.None,
+            extent={{-100,-100},{100,100}},
+            radius=25.0)}));
   end 'constructor';
+
+  encapsulated operator function '0'
+    "Zero-element of addition (= Complex(0))"
+    import Complex;
+    output Complex result "Complex(0)";
+  algorithm
+    result := Complex(0);
+    annotation(Inline=true, Documentation(info="<html>
+<p>This function returns the zero-element of Complex, that is, Complex(0) = 0 + j*0.</p>
+</html>"));
+  end '0';
 
   encapsulated operator '-' "Unary and binary minus"
     function negate "Unary minus (multiply complex number by -1)"
@@ -52,17 +64,25 @@ operator record Complex "Complex number with overloaded operators"
 <p>This function returns the difference of two given Complex numbers.</p>
 </html>"));
     end subtract;
-    annotation(Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>Here the unary and binary minus operator(s) is/are defined.</p>
-</html>"), Icon(graphics={                 Rectangle(
-            extent={{-80,100},{100,-80}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Rectangle(
-            extent={{-100,80},{80,-100}},
-            lineColor={0,0,0},
-            fillColor={240,240,240},
-            fillPattern=FillPattern.Solid)}));
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={
+          Rectangle(
+            lineColor={200,200,200},
+            fillColor={248,248,248},
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100,-100},{100,100}},
+            radius=25.0),
+          Rectangle(
+            lineColor={128,128,128},
+            fillPattern=FillPattern.None,
+            extent={{-100,-100},{100,100}},
+            radius=25.0),
+          Line(
+            points={{-50,0},{50,0}},
+            color={0,0,0},
+            smooth=Smooth.None)}));
   end '-';
 
   encapsulated operator '*' "Multiplication"
@@ -98,17 +118,41 @@ operator record Complex "Complex number with overloaded operators"
 <p>This function returns the scalar product of two given arrays of Complex numbers.</p>
 </html>"));
     end scalarProduct;
-    annotation(Documentation(info="<html>
+    annotation (
+      Documentation(info="<html>
 <p>Here the multiplication operator(s) is/are defined.</p>
-</html>"), Icon(graphics={                 Rectangle(
-            extent={{-80,100},{100,-80}},
-            lineColor={0,0,0},
-            fillColor={215,230,240},
-            fillPattern=FillPattern.Solid), Rectangle(
-            extent={{-100,80},{80,-100}},
-            lineColor={0,0,0},
-            fillColor={240,240,240},
-            fillPattern=FillPattern.Solid)}));
+</html>"),
+      Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}),
+          graphics={
+          Rectangle(
+            lineColor={200,200,200},
+            fillColor={248,248,248},
+            fillPattern=FillPattern.HorizontalCylinder,
+            extent={{-100,-100},{100,100}},
+            radius=25.0),
+          Rectangle(
+            lineColor={128,128,128},
+            fillPattern=FillPattern.None,
+            extent={{-100,-100},{100,100}},
+            radius=25.0),
+          Line(
+            points={{-42,36},{39,-34}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{-42,-35},{39,37}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{-55,1},{52,1}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{-1.5,55},{-2,-53}},
+            color={0,0,0},
+            smooth=Smooth.None)}));
   end '*';
 
   encapsulated operator function '+' "Add two complex numbers"
@@ -191,13 +235,25 @@ operator record Complex "Complex number with overloaded operators"
 </html>"));
   end 'String';
 
-annotation (__Dymola_Protection(hideFromBrowser=true),
-version="1.0",
-versionBuild=3,
-versionDate="2010-10-16",
-dateModified = "2010-10-16 20:53:07Z",
-revisionId="$Id:: Complex.mo 4321 2010-10-16 21:00:50Z #$",
+annotation (Protection(access=Access.hide),
+version="3.2.1",
+versionBuild=2,
+versionDate="2013-08-14",
+dateModified = "2013-08-14 08:44:41Z",
+revisionId="$Id:: Complex.mo 6931 2013-08-14 11:38:51Z #$",
+conversion(
+ noneFromVersion="1.0",
+ noneFromVersion="1.1"),
 Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
-</html>"));
+</html>"),
+    Icon(graphics={Rectangle(
+          lineColor={160,160,164},
+          fillColor={160,160,164},
+          fillPattern=FillPattern.Solid,
+          extent={{-100,-100},{100,100}},
+          radius=25.0), Text(
+          lineColor={255,255,255},
+          extent={{-90,-50},{90,50}},
+          textString="C")}));
 end Complex;

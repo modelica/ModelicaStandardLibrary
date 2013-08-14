@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_twoPhaseOverall</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.html">HeatTransfer</a>.<a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.html">StraightPipe</a>.kc_twoPhaseOverall</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of local <b>two phase</b> heat transfer coefficient
+<b>kc_2ph</b> for (horizontal/vertical) <b>boiling</b> or
+(horizontal) <b>condensation</b> for an overall flow regime.</p>
+<h4>Restriction</h4>
+<ul>
+<li>circular cross sectional area</li>
+<li>no subcooled boiling</li>
+<li>film condensation</li>
+</ul>
+<h4>Geometry</h4>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png" alt="pic_straightPipe" /></p>
+<h4>Calculation</h4>
+<p><b>Boiling in a horizontal pipe (target =
+Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor):</b></p>
+<p>The local two phase heat transfer coefficient <b>kc_2ph</b>
+during boiling in a <b>horizontal</b> straight pipe for an overall
+regime is calculated according to <i>[Gungor/Winterton 1986, p.354,
+eq. 2]</i> :</p>
+<pre>
+    kc_2ph = E_fc*E_fc_hor*kc_fc+S_nb+S_nb_hor*kc_nb
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>Bo</b>=qdot_A/(mdot_A*dh_lv)</td>
+<td>as boiling number [-],</td>
+</tr>
+<tr>
+<td><b>dh_lv</b></td>
+<td>as evaporation enthalpy [J/kg],</td>
+</tr>
+<tr>
+<td><b>E_fc</b>=f(Bo,Fr_l,X_tt)</td>
+<td>as forced convection enhancement factor [-],</td>
+</tr>
+<tr>
+<td><b>E_fc_hor</b> =f(Fr_l)</td>
+<td>as forced convection enhancement factor for horizontal straight
+pipes [-],</td>
+</tr>
+<tr>
+<td><b>Fr_l</b></td>
+<td>as Froude number assuming total mass flow rate flowing as
+liquid [-],</td>
+</tr>
+<tr>
+<td><b>kc_2ph</b></td>
+<td>as local two phase heat transfer coefficient [W/(m2K)],</td>
+</tr>
+<tr>
+<td><b>kc_fc</b></td>
+<td>as heat transfer coefficient considering forced convection
+[W/(m2K)],</td>
+</tr>
+<tr>
+<td><b>kc_nb</b></td>
+<td>as heat transfer coefficient considering nucleate boiling
+[W/(m2K)],</td>
+</tr>
+<tr>
+<td><b>mdot_A</b></td>
+<td>as total mass flow rate density [kg/(m2s)],</td>
+</tr>
+<tr>
+<td><b>qdot_A</b></td>
+<td>as heat flow rate density [W/m2],</td>
+</tr>
+<tr>
+<td><b>Re_l</b></td>
+<td>as Reynolds number assuming liquid mass flow rate flowing alone
+[-],</td>
+</tr>
+<tr>
+<td><b>S_nb</b> =f(E_fc,Re_l)</td>
+<td>as suppression factor of nucleate boiling [-],</td>
+</tr>
+<tr>
+<td><b>S_nb_hor</b> =f(Fr_l)</td>
+<td>as suppression factor of nucleate boiling for horizontal
+straight pipes [-],</td>
+</tr>
+<tr>
+<td><b>x_flow</b></td>
+<td>as mass flow rate quality [-],</td>
+</tr>
+<tr>
+<td><b>X_tt</b> = f(x_flow)</td>
+<td>as Martinelli parameter [-].</td>
+</tr>
+</table>
+<p><b>Boiling in a vertical pipe (target =
+Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer):</b></p>
+<p>The local two phase heat transfer coefficient <b>kc_2ph</b>
+during boiling in a <b>vertical</b> straight pipe for an overall
+regime is calculated out of the correlations for boiling in a
+horizontal straight pipe, where the horizontal correction factors
+<b>E_fc_hor,S_nb_hor</b> are unity.</p>
+<p>Please note that the correlations named above are not valid for
+subcooled boiling due to a different driving temperature for
+nucleate boiling and forced convection. At subcooled boiling there
+is no enhancement factor (no vapour generation) but the suppression
+factor remains effective.</p>
+<p><b>Condensation in a horizontal pipe (target =
+Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor):</b></p>
+<p>The local two phase heat transfer coefficient <b>kc_2ph</b>
+during condensation in a <b>horizontal</b> straight pipe for an
+overall regime is calculated according to <i>[Shah 1979, p.548, eq.
+8]</i> :</p>
+<pre>
+  kc_2ph = kc_1ph*[(1 - x_flow)^0.8 + 3.8*x_flow^0.76*(1 - x_flow)^0.04/p_red^0.38]
+</pre>
+<p>where the convective heat transfer coefficient <b>kc_1ph</b>
+assuming the total mass flow rate is flowing as liquid according to
+<i>[Shah 1979, p.548, eq. 5]</i> :</p>
+<pre>
+  kc_1ph = 0.023*Re_l^0.8*Pr_l^0.4*lambda_l/d_hyd
+ 
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>d_hyd</b></td>
+<td>as hydraulic diameter [m],</td>
+</tr>
+<tr>
+<td><b>kc_2ph</b></td>
+<td>as local two phase heat transfer coefficient [W/(m2K)],</td>
+</tr>
+<tr>
+<td><b>kc_1ph</b></td>
+<td>as convective heat transfer coefficient assuming total mass
+flow rate is flowing as liquid [W/(m2K)],</td>
+</tr>
+<tr>
+<td><b>lambda_l</b></td>
+<td>as thermal conductivity of fluid [W/(mK)],</td>
+</tr>
+<tr>
+<td><b>pressure</b></td>
+<td>as thermodynamic pressure of fluid [Pa],</td>
+</tr>
+<tr>
+<td><b>p_crit</b></td>
+<td>as critical pressure of fluid [Pa],</td>
+</tr>
+<tr>
+<td><b>p_red</b> = pressure/p_crit</td>
+<td>as reduced pressure [-],</td>
+</tr>
+<tr>
+<td><b>Pr_l</b></td>
+<td>as Prandtl number assuming [-],</td>
+</tr>
+<tr>
+<td><b>Re_l</b></td>
+<td>as Reynolds number assuming <b>total</b> mass flow rate is
+flowing as liquid [-],</td>
+</tr>
+<tr>
+<td><b>x_flow</b></td>
+<td>as mass flow rate quality [-],</td>
+</tr>
+</table>
+<h4>Verification</h4>
+<p>The local two phase heat transfer coefficient <b>kc_2ph</b>
+during for horizontal and vertical boiling as well as for
+horizontal condensation is shown for a straight pipe in the figures
+below.</p>
+<p><b>Boiling in a horizontal pipe (target =
+Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer):</b></p>
+<p>Here the validation of the two phase heat transfer coefficient
+is shown for boiling in a horizontal straight pipe.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_4.png" alt="fig_kc_twoPhaseOverall" /></p>
+<p>The two phase heat transfer coefficient (<b>kc_2ph</b> ) w.r.t.
+<i>Gungor/Winterton</i> is shown in dependence of the mass flow
+rate quality (<b>x_flow</b> ) for different mass flow rate
+densities (<b>mdot_A</b> ). The validation has been done with
+measurement results from <i>Kattan/Thome</i> for R134a as
+medium.</p>
+<p>The two phase heat transfer coefficient increases with
+increasing mass flow rate quality up to a maximum value. After that
+there is a rapid decrease of (<b>kc_2ph</b> ) with increasing
+(<b>x_flow</b> ). This can be explained with a partial dryout of
+the pipe wall for a high mass flow rate quality.</p>
+<p><b>Condensation in a horizontal pipe (target =
+Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor):</b></p>
+<p>Here the validation of the two phase heat transfer coefficient
+is shown for condensation in a horizontal straight pipe.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_2.png" alt="fig_kc_twoPhaseOverall" /></p>
+<p>The two phase heat transfer coefficient (<b>kc_2ph</b> ) w.r.t.
+<i>Shah</i> is shown in dependence of the mass flow rate quality
+(<b>x_flow</b> ) for different mass flow rate densities
+(<b>mdot_A</b> ). The validation has been done with measurement
+results from <i>Dobson/Chato</i> for R134a as medium.</p>
+<h4>References</h4>
+<dl>
+<dt>Bejan,A.:</dt>
+<dd><b>Heat transfer handbook</b>. Wiley, 2003.</dd>
+<dt>M.K. Dobson and J.C. Chato:</dt>
+<dd><b>Condensation in smooth horizontal tubes</b>. Journal of
+HeatTransfer, Vol.120, p.193-213, 1998.</dd>
+<dt>Gungor, K.E. and R.H.S. Winterton:</dt>
+<dd><b>A general correlation for flow boiling in tubes and
+annuli</b>, Int.J. Heat Mass Transfer, Vol.29, p.351-358,
+1986.</dd>
+<dt>N. Kattan and J.R. Thome:</dt>
+<dd><b>Flow boiling in horizontal pipes: Part 2 - new heat transfer
+data for five refrigerants.</b>. Journal of Heat Transfer, Vol.120.
+p.148-155, 1998.</dd>
+<dt>Shah, M.M.:</dt>
+<dd><b>A general correlation for heat transfer during film
+condensation inside pipes</b>. Int. J. Heat Mass Transfer, Vol.22,
+p.547-556, 1979.</dd>
+</dl>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

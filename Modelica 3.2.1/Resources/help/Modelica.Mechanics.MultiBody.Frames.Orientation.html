@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Frames.Orientation</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.Orientation</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This object describes the <b>rotation</b> from a <b>frame 1</b>
+into a <b>frame 2</b>. An instance of this type should never be
+directly accessed but only with the access functions provided in
+package Modelica.Mechanics.MultiBody.Frames. As a consequence, it
+is not necessary to know the internal representation of this object
+as described in the next paragraphs.</p>
+<p>"Orientation" is defined to be a record consisting of two
+elements: "Real T[3,3]", the transformation matrix to rotate frame
+1 into frame 2 and "Real w[3]", the angular velocity of frame 2
+with respect to frame 1, resolved in frame 2. Element "T" has the
+following interpretation:</p>
+<pre>
+   Orientation R;
+   <b>R.T</b> = [<b>e</b><sub>x</sub>, <b>e</b><sub>y</sub>, <b>e</b><sub>z</sub>];
+       e.g., <b>R.T</b> = [1,0,0; 0,1,0; 0,0,1]
+</pre>
+<p>where
+<b>e</b><sub>x</sub>,<b>e</b><sub>y</sub>,<b>e</b><sub>z</sub> are
+unit vectors in the direction of the x-axis, y-axis, and z-axis of
+frame 1, resolved in frame 2, respectively. Therefore, if
+<b>v</b><sub>1</sub> is vector <b>v</b> resolved in frame 1 and
+<b>v</b><sub>2</sub> is vector <b>v</b> resolved in frame 2, the
+following relationship holds:</p>
+<pre>
+    <b>v</b><sub>2</sub> = <b>R.T</b> * <b>v</b><sub>1</sub>
+</pre>
+<p>The <b>inverse</b> orientation <b>R_inv.T</b> =
+<b>R.T</b><sup>T</sup> describes the rotation from frame 2 into
+frame 1.</p>
+<p>Since the orientation is described by 9 variables, there are 6
+constraints between these variables. These constraints are defined
+in function <b>Frames.orientationConstraint</b>.</p>
+<p>R.w is the angular velocity of frame 2 with respect to frame 1,
+resolved in frame 2. Formally, R.w is defined as:<br />
+<b>skew</b>(R.w) = R.T*<b>der</b>(transpose(R.T)) with</p>
+<pre>
+             |   0   -w[3]  w[2] |
+   <b>skew</b>(w) = |  w[3]   0   -w[1] |
+             | -w[2]  w[1]     0 |
+</pre>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Frames.Orientation.equalityConstraint.html">
+equalityConstraint</a></td>
+<td>Return the constraint residues to express that two frames have
+the same orientation</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Examples.html">Examples</a>.<a href="Modelica.Fluid.Examples.AST_BatchPlant.html">AST_BatchPlant</a>.<a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.html">BaseClasses</a>.TankWithTopPorts</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Model of a tank that is open to the environment at the fixed
+pressure <code>p_ambient</code>. The tank is filled with a single
+or multiple-substance liquid, assumed to have uniform temperature
+and mass fractions.</p>
+<p>At the top of the tank over the maximal fill level <b>height</b>
+a vector of FluidPorts, called <b>topPorts</b>, is present. The
+assumption is made that fluid flows always in to the tank via these
+ports (and never back in to the connector).</p>
+<p>The vector of connectors <b>ports</b> are fluid ports at the
+bottom and side of the tank at a definable height. Fluid can flow
+either out of or in to this port. The fluid level of the tank may
+be below one of these ports. This case is approximated by
+introducing a large pressure flow coefficient so that the mass flow
+rate through this port is very small in this case.</p>
+<p>If the tank starts to over flow (i.e., level &gt; height), an
+assertion is triggered.</p>
+<p>When the diagram layer is open in the plot environment, the
+level of the tank is dynamically visualized. Note, the speed of the
+diagram animation in Dymola can be set via command
+<b>animationSpeed</b>(), e.g., animationSpeed(speed = 10)</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts.HeatTransfer.html">
+HeatTransfer</a></td>
+<td></td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>Dec. 12, 2008</i> by Ruediger Franke: replace energy and
+mass balances with common definition in
+BaseClasses.PartialLumpedVolume</li>
+<li><i>Dec. 8, 2008</i> by Michael Wetter (LBNL):<br />
+Implemented trace substances and missing equation for outflow of
+multi substance media at top port.</li>
+<li><i>Jul. 29, 2006</i> by Martin Otter (DLR):<br />
+Improved handling of ports that are above the fluid level and
+simpler implementation.</li>
+<li><i>Jan. 6, 2006</i> by Katja Poschlad, Manuel Remelhe (AST Uni
+Dortmund), Martin Otter (DLR):<br />
+Implementation based on former tank model but with several
+improvements (top, bottom, side ports; correctly treating kinetic
+energy for outlet and total dissipation for inlet; ports can be
+above the fluid level).</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

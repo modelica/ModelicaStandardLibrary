@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.MathBoolean</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.MathBoolean</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains basic <b>mathematical operations</b> on
+<b>Boolean</b> signals.</p>
+<p>Package MathBoolean is a new design that shall replace in the
+future the <a href="Modelica.Blocks.Logical.html">Logical</a>
+package. The new features are:</p>
+<ul>
+<li>If useful, blocks may have an arbitrary number of inputs (e.g.,
+"And" block with 2,3,4,... Boolean inputs). This is based on the
+"connectorSizing" annotation which allows a tool to conveniently
+handle vectors of connectors.</li>
+<li>The blocks are smaller in size, so that the diagram area is
+better utilized for trivial blocks such as "And" or "Or".</li>
+</ul>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.MultiSwitch.html">MultiSwitch</a></td>
+<td>Set Boolean expression that is associated with the first active
+input signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.And.html">And</a></td>
+<td>Logical 'and': y = u[1] and u[2] and ... and u[nu]</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.Or.html">Or</a></td>
+<td>Logical 'or': y = u[1] or u[2] or ... or u[nu]</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.Xor.html">Xor</a></td>
+<td>Logical 'xor': y = oneTrue(u) (y is true, if exactly one
+element of u is true, otherwise it is false)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.Nand.html">Nand</a></td>
+<td>Logical 'nand': y = not ( u[1] and u[2] and ... and u[nu]
+)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.Nor.html">Nor</a></td>
+<td>Logical 'nor': y = not ( u[1] or u[2] or ... or u[nu] )</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.Not.html">Not</a></td>
+<td>Logical 'not': y = not u</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.RisingEdge.html">RisingEdge</a></td>
+<td>Output y is true, if the input u has a rising edge, otherwise
+it is false (y = edge(u))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.FallingEdge.html">FallingEdge</a></td>
+<td>Output y is true, if the input u has a falling edge, otherwise
+it is false (y = edge(not u))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.ChangingEdge.html">ChangingEdge</a></td>
+<td>Output y is true, if the input u has either a rising or a
+falling edge and otherwise it is false (y=change(u))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.MathBoolean.OnDelay.html">OnDelay</a></td>
+<td>Delay a rising edge of the input, but do not delay a falling
+edge.</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

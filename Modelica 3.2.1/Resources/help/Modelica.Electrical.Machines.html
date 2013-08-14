@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Machines</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.Machines</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains electric machine models and components for
+modeling these machines.</p>
+<b>Limitations and assumptions:</b>
+<ul>
+<li>number of phases (of induction machines) is limited to 3,
+therefore definition as a constant m=3</li>
+<li>phase symmetric windings as well as symmetry of the whole
+machine structure</li>
+<li>all values are used in physical units, no scaling to p.u. is
+done</li>
+<li>only basic harmonics (in space) are taken into account</li>
+<li>waveform (with respect to time) of voltages and currents is not
+restricted</li>
+<li>constant parameters, i.e., no saturation, no skin effect</li>
+</ul>
+<p>You may have a look at a short summary of space phasor theory at
+<a href="http://www.haumer.at/refimg/SpacePhasors.pdf">http://www.haumer.at/refimg/SpacePhasors.pdf</a></p>
+<b>Further development:</b>
+<ul>
+<li>generalizing space phasor theory to m phases with arbitrary
+spatial angle of the coils</li>
+<li>generalizing space phasor theory to arbitrary number of
+windings and winding factor of the coils</li>
+<li>MachineModels: other machine types</li>
+<li>effects: saturation, skin-effect, ...</li>
+</ul>
+<p><b>In memoriam Prof. Hans Kleinrath (1928-03-07 -
+2010-04-05)</b></p>
+<dl>
+<dt><b>Main Authors:</b></dt>
+<dd>
+<p><a href="http://www.haumer.at/">Anton Haumer</a><br />
+Technical Consulting &amp; Electrical Engineering<br />
+A-3423 St.Andrae-Woerdern<br />
+Austria<br />
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a></p>
+<p>Dr.Christian Kral<br />
+A-1060 Vienna, Austria</p>
+</dd>
+</dl>
+<p>Copyright © 1998-2013, Modelica Association, Anton Haumer and
+AIT.</p>
+<p><i>This Modelica package is <u>free</u> software and the use is
+completely at <u>your own risk</u>; it can be redistributed and/or
+modified under the terms of the Modelica License 2. For license
+conditions (including the disclaimer of warranty) see <a href="Modelica.UsersGuide.ModelicaLicense2.html">Modelica.UsersGuide.ModelicaLicense2</a>
+or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2">https://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Examples.html">Examples</a></td>
+<td>Test examples</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.BasicMachines.html">BasicMachines</a></td>
+<td>Basic machine models</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Sensors.html">Sensors</a></td>
+<td>Sensors for machine modelling</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.SpacePhasors.html">SpacePhasors</a></td>
+<td>Library with space phasor-models</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Losses.html">Losses</a></td>
+<td>Loss models for electric machines</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Thermal.html">Thermal</a></td>
+<td>Library with models for connecting thermal models</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Interfaces.html">Interfaces</a></td>
+<td>SpacePhasor connector and PartialMachines</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Icons.html">Icons</a></td>
+<td>Icons for electrical machines</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Utilities.html">Utilities</a></td>
+<td>Library with auxiliary models for testing</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li>v1.00 2004/09/16 Anton Haumer<br />
+first stable release</li>
+<li>v1.01 2004/09/18 Anton Haumer<br />
+moved common equations from machine models to PartialMachine<br />
+improved MoveToRotational</li>
+<li>v1.02 2004/09/19 Anton Haumer<br />
+new package structure for machine types<br />
+added DC machine models</li>
+<li>v1.03 2004/09/24 Anton Haumer<br />
+added package Sensors<br />
+added DC machine with series excitation<br />
+debugged and improved MoveToRotational</li>
+<li>v1.1 2004/10/01 Anton Haumer<br />
+changed naming and structure<br />
+issued to Modelica Standard Library 2.1</li>
+<li>v1.2 2004/10/27 Anton Haumer<br />
+fixed a bug with support (formerly bearing)</li>
+<li>v1.3 2004/11/05 Anton Haumer<br />
+several improvements in SpacePhasors.Blocks</li>
+<li>v1.3.1 2004/11/06 Anton Haumer<br />
+small changes in Examples.Utilities.VfController</li>
+<li>v1.3.2 2004/11/10 Anton Haumer<br />
+ReluctanceRotor moved to SynchronousMachines</li>
+<li>v1.4 2004/11/11 Anton Haumer<br />
+removed mechanical flange support<br />
+to ease the implementation of a 3D-frame in a future release</li>
+<li>v1.51 2005/02/01 Anton Haumer<br />
+changed parameter polePairs to Integer</li>
+<li>v1.52 2005/10/12 Anton Haumer<br />
+added
+BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited<br />
+
+using new basicMachines.Components.ElectricalExcitation<br />
+as well as a new exmaple.</li>
+<li>v1.53 2005/10/14 Anton Haumer<br />
+introduced unsymmetrical DamperCage for Synchronous Machines</li>
+<li>v1.60 2005/11/04 Anton Haumer<br />
+added SpacePhasors.Components.Rotator<br />
+corrected consistent naming of parameters and variables</li>
+<li>v1.6.1 2005/11/22 Anton Haumer<br />
+improved Transformation and Rotation in SpacePhasor.<br />
+introduced Examples.Utilities.TerminalBox</li>
+<li>v1.6.2 2005/10/23 Anton Haumer<br />
+selectable DamperCage for Synchronous Machines</li>
+<li>v1.6.3 2005/11/25 Anton Haumer<br />
+easier parameterization of
+AsynchronousInductionMachines.AIM_SlipRing model</li>
+<li>v1.7.0 2005/12/15 Anton Haumer<br />
+back-changed the naming to ensure backward compatibility</li>
+<li>v1.7.1 2006/02/06 Anton Haumer<br />
+changed some naming of synchronous machines, not affecting existing
+models</li>
+<li>v1.8.0 2006/11/26 Anton Haumer<br />
+introduced package Transformers<br />
+moved common parameters and functionality to partial models,<br />
+keeping Interfaces.PartialBasicInductionMachines resp.
+PartialBasicDCMachine for compatibility reasons.<br />
+implemented support showing reaction torque if connected</li>
+<li>v1.8.1 2006/12/01 Anton Haumer<br />
+resolved a compatibility issue with airGap</li>
+<li>v1.8.2 2007/01/15 Anton Haumer<br />
+resolved a bug in electrical excited synchronous induction
+machine</li>
+<li>v1.8.3 2007/06/08 Anton Haumer<br />
+documentation update</li>
+<li>v1.8.4 2007/06/25 Anton Haumer<br />
+corrected some typos in documentation</li>
+<li>v1.8.5 2007/06/26 Anton Haumer<br />
+consistent parameters of DCSE</li>
+<li>v1.8.6 2007/08/12 Anton Haumer<br />
+improved documentation</li>
+<li>v1.8.7 2007/08/20 Anton Haumer<br />
+corrected typo in documentation</li>
+<li>v1.8.8 2007/08/20 Anton Haumer<br />
+improved documentation</li>
+<li>v1.9.0 2007/08/24 Anton Haumer<br />
+removed redeclare type SignalType</li>
+<li>v1.9.1 2007/10/15 Anton Haumer<br />
+solved a bug with replaceable airgap / partial machines</li>
+<li>v1.9.2 2007/10/15 Anton Haumer<br />
+changed some names to be more concise (see conversion script)</li>
+<li>v2.0.0 2007/11/13 Anton Haumer<br />
+removed replaceable from airgaps<br />
+removed cardinality from support, using a Boolean parameter<br />
+removed all nonSIunits</li>
+<li>v2.1.0 2009/08/26 Anton Haumer<br />
+set all useHeatPort=false</li>
+<li>v2.1.1 2010/02/05 Anton Haumer<br />
+included Utilities.rheostats (designed by Christian Kral)</li>
+<li>v2.1.2 2010/02/09 Anton Haumer<br />
+included new Examples (AIMC_Transformer, DC_Comparison)</li>
+<li>v2.1.3 2010/02/10 Anton Haumer<br />
+prepared conditionalHeatPort of SquirrelCage and DamperCage</li>
+<li>v2.2.0 2010/02/10 Anton Haumer<br />
+conditional ThermalPort for all machines</li>
+<li>v2.3.0 2010/02/16 Anton Haumer<br />
+quasistationary DC machine models</li>
+<li>v2.4.0 2010/04/20 Anton Haumer<br />
+loss models</li>
+<li>v2.5.0 2012/xx/xx Anton Haumer<br />
+permanent magnet losses</li>
+<li>v2.6.0 2013/02/25 Anton Haumer<br />
+corrected turnsRatio bug in asynchronous induction machine with
+slipring; corrected parameter descriptions</li>
+<li>v3.2.1 2013/07/30 Anton Haumer, Christian Kral<br />
+corrected bug in wrong orientation of rotor current, see #1226</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

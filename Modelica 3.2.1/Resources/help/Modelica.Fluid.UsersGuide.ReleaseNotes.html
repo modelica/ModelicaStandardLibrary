@@ -1,0 +1,505 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.UsersGuide.ReleaseNotes</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.ReleaseNotes</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Version 1.1, 2009-06-21</h4>
+<p>The Modelica_Fluid library (revisionId = r2625) was included as
+Modelica.Fluid in the Modelica Standard Library 3.1.</p>
+<h4>Version 1.0, 2009-01-28</h4>
+<p>Modelica_Fluid was refactored and finalized for the release:</p>
+<ul>
+<li>Refactoring of the code<br />
+This became necessary as the previous release Modelica.Fluid
+Streams Beta3 still reflected the long development history, while
+the basic concepts had been crystallized. Please consult the
+subversion control (SVN) logs for individual changes.</li>
+<li>Device oriented package names<br />
+The former sub-packages Junctions and PressureLosses have been
+combined into the new subpackage Fittings. The former Pumps and
+Volumes.SweptVolume have become the initial version of fluid
+Machines. The former Volumes package is now called Vessels.</li>
+<li>Complete implementation of one-dimensional fluid flow<br />
+The balance equations as documented in <a href="Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations.html">
+UsersGuide.ComponentDefinition.BalanceEquations</a> are now
+completely implemented. The implementations with generic boundary
+flow and source terms find in:
+<ul>
+<li><a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.html">Interfaces.PartialDistributedVolume</a>,
+<a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.html">Interfaces.PartialLumpedVolume</a>:
+Energy, Mass and Substance balances</li>
+<li><a href="Modelica.Fluid.Interfaces.PartialDistributedFlow.html">Interfaces.PartialDistributedFlow</a>,
+<a href="Modelica.Fluid.Interfaces.PartialLumpedFlow.html">Interfaces.PartialLumpedFlow</a>:
+Momentum balance</li>
+</ul>
+Specific models combine the balances and define the boundary flow
+and source terms as appropriate. For instance
+<ul>
+<li><a href="Modelica.Fluid.Vessels.OpenTank.html">Vessels.OpenTank</a>
+extends from <a href="Modelica.Fluid.Interfaces.PartialLumpedVolume.html">Interfaces.PartialLumpedVolume</a>,</li>
+<li><a href="Modelica.Fluid.Fittings.SimpleGenericOrifice.html">Fittings.SimpleGenericOrifice</a>
+extends from <a href="Modelica.Fluid.Interfaces.PartialLumpedFlow.html">Interfaces.PartialLumpedFlow</a>,
+besides <a href="Modelica.Fluid.Interfaces.PartialTwoPortTransport.html">Interfaces.PartialTwoPortTransport</a>,</li>
+<li><a href="Modelica.Fluid.Pipes.DynamicPipe.html">Pipes.DynamicPipe</a>
+is based on <a href="Modelica.Fluid.Interfaces.PartialDistributedVolume.html">Interfaces.PartialDistributedVolume</a>
+and <a href="Modelica.Fluid.Interfaces.PartialDistributedFlow.html">Interfaces.PartialDistributedFlow</a>,
+besides <a href="Modelica.Fluid.Interfaces.PartialTwoPort.html">Interfaces.PartialTwoPort</a>.</li>
+</ul>
+All non-trivial mass and energy balances of Vessels, Machines and
+Fittings have been replaced with PartialLumpedVolume. The mass and
+energy balances of Pipes are based on
+PartialDistributedVolume.<br />
+See <a href="Modelica.Fluid.Examples.BranchingDynamicPipes.html">Examples.BranchingDynamicPipes</a>
+for an example utilizing the complete balance equations.</li>
+<li>New approach for the connection of distributed flow
+models<br />
+The staggered grid approach offers different choices for the
+connection approach. So far the preferred modeling was to put full
+mass balances into the pipes and expose half momentum balances
+through the ports (ModelStructure a_v_b). This resulted in
+nonlinear equation systems for pressure/flow correlations in
+connection sets. A new default ModelStructure av_vb has been
+introduced putting full momentum balances into the models and
+exposing half mass balances through the ports (av_vb replaces the
+former avb). This way the nonlinear equation systems are avoided.
+High-index DAEs need to be treated instead in connection sets.
+Alternatively a Fitting like SuddenExpansion can be introduced to
+account for different cross flow areas of connected flow
+models.</li>
+<li>New Vessels.BaseClasses.PartialLumpedVessel treating the ports,
+including hydraulic resistances, for ClosedVolume, SimpleTank and
+SweptVolume.</li>
+<li>Clarification of modeling assumptions<br />
+The documentation has been extended to better explain the modeling
+assumptions made. In particular the section <a href="Modelica.Fluid.UsersGuide.ComponentDefinition.FluidConnectors.html">
+UsersGuide.ComponentDefinition.FluidConnectors</a> now makes clear
+that the ports represent the thermodynamic enthalpy, as opposed to
+stagnation enthalpy, and thermodynamic or static pressure, as
+opposed to total pressure. An new package Explanatory has been
+added to the examples to show the difference between static
+pressure and total pressure and possible implications. See <a href="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings.html">
+Examples.Explanatory.MomentumBalanceFittings</a>.</li>
+<li>System (former Ambient)<br />
+The use of the global System object has been extended towards
+common default values for modeling assumptions, initialization, and
+advanced settings that are different for each application of the
+library but should nevertheless provide default values for reasons
+of convenience. In particular steady-state initialization and
+complete steady-state simulation can now be specified system-wide.
+A new Types.Init.Dynamics has been introduced, combining
+steady-state and initial conditions. The former Types.Init has
+become obsolete.<br />
+See <a href="Modelica.Fluid.Examples.HeatingSystem.html">Examples.HeatingSystem</a></li>
+<li>Extension of pumps for better consideration of zero flow and
+heat transfer with environment<br />
+The simplified mass and energy balances have been replaced with a
+rigorous formulation. Moreover an optional heat transfer model can
+be configured for heat exchanged with the environment or the
+housing.<br />
+See <a href="Modelica.Fluid.Machines.BaseClasses.PartialPump.html">Machines.BaseClasses.PartialPump</a></li>
+<li>Refinement of valves for flow reversal<br />
+All valves now use upstream discretization for reverting flow
+conditions.</li>
+<li>Finalization of trace substances<br />
+Modelica.Fluid now provides a sound implementation for trace
+substances, which can easily be added to existing Media models, in
+order to study their evolution in a fluid system.<br />
+See <a href="Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls.html">
+Examples.TraceSubstances.RoomCO2WithControls</a></li>
+<li>Vectorized ports for volumes<br />
+The ports of models that typically have large volumes, like Vessels
+and Sources, have been vectorized. Formerly the connection of
+multiple flow models to the same port of such volume models
+resulted in unintended mixing equations for stream variables in
+connection sets outside the volumes. The mixing takes place inside
+the volumes when using multiple ports. Moreover a <a href="Modelica.Fluid.Fittings.MultiPort.html">Fittings.MultiPort</a>
+has been introduced. It can be attached to components like pipes,
+which do not have vectorized ports on their own.</li>
+<li>Inverse parameterization of flow models with nominal
+operational conditions<br />
+Flow models have been added or extended to support the
+parameterization with nominal values (Machines.ControlledPump,
+Orifices.SimpleGenericOrifice,
+Pipes.BaseClasses.FlowModels.NominalTurbulentFlow). They are
+intended for early phases of system modeling, if geometries and
+flow characteristics are of secondary interest. As these models use
+the same interfaces, base classes and naming conventions, they can
+easily be replaced with more detailed models as more information
+shall be taken into account later on.<br />
+See <a href="Modelica.Fluid.Examples.InverseParameterization.html">Examples.InverseParameterization</a></li>
+<li>Replaceable HeatTransfer models<br />
+The Vessels and the Machines now have replaceable HeatTransfer
+models, besides the Pipes. All HeatTransfer models are optional.
+The heat transfer models are parameterized with the Medium and the
+ThermodynamicState of involved flow segments.<br />
+See <a href="Modelica.Fluid.Interfaces.PartialHeatTransfer.html">Interfaces.PartialHeatTransfer</a>.</li>
+<li>All examples are working now (using Dymola 7.1).<br />
+The number of examples has been extended with the former critical
+test cases HeatingSystem and IncompressibleFluidNetwork. Moreover
+the HeatExchangers have been moved into Examples.</li>
+</ul>
+<h4>Version 1.0 Streams Beta 3, 2008-10-12</h4>
+<p>Modelica.Fluid was further improved:</p>
+<ul>
+<li>Volumes, tanks, junctions<br />
+Added asserts to require that ports are connected at most once. If
+a user would perform more than one connection, ideal mixing takes
+place for the connected components and this is nearly never what
+the user would like to have</li>
+<li>Ambient<br />
+Renamed Ambient to System, including adaptation of models.<br />
+Introduced default values system.flowDirection and as a comment
+system.initType. system.flowDirection is used in two port
+components as default.</li>
+<li>GenericJunction<br />
+Corrected specification of flowDirection.<br />
+Added a HeatPort.</li>
+<li>PartialDistributedFlow models<br />
+Adapted determination of velocities to usage of upstream properties
+at ports.<br />
+Corrected and unified initialization of p_start[*] values.</li>
+<li>DistributedPipe models<br />
+Changed treatment of port densities and viscosities to the
+treatment of the lumped pipe model. This way events are avoided if
+the mass flow rate crosses or approaches zero.<br />
+Correct determination of Reynolds numbers.<br />
+Added test model DistributedPipeClosingValve.</li>
+<li>ControlValves<br />
+Changed flowCharacteristic into valveCharacteristic<br />
+Removed parameter Kv and added dp_nom, m_flow_nom from linear and
+discrete valve interfaces. Added test cases.<br />
+Adapted Examples to new LinearValve and DiscreteValve, using
+nominal values instead of Kv.<br />
+Changed default flow coefficient selection to OpPoint</li>
+<li>Fixed units for Kv and Cv in control valve models.</li>
+<li>Updated tests for valves.</li>
+<li>Bug in Modelica.Fluid.Test.TestComponents.Pumps.TestWaterPump2
+corrected (complicated redeclaration issue).</li>
+<li>Adapted AST_BatchPlant so that "Check" is successful.
+Simulation fails after 600 s.</li>
+<li>Introduced density_pTX(Medium.p_default, Medium.T_default,
+Medium.X_default) as default value for nominal densities
+(previously it was a literal such as 1000).</li>
+<li>Pumps<br />
+Updated energy balance equations for pumps (no division by zero
+anymore, fixed several bugs related to Np).<br />
+Added two more test cases for pumps.<br />
+Fixed pump initialization options.</li>
+<li>PartialPump<br />
+Explanation for the energy balanced added as comment<br />
+"h=0" replaced by "h=Medium.h_default" since otherwise an assert is
+triggered if "h=0" is not in the medium range.<br />
+Fluid ports positioned in the middle line and using the same size
+as for all other components.</li>
+<li>Pumps.Pump<br />
+Resized input connector, so that it has the same size as the
+standard input connectors.<br />
+Changed icon text to input connector to "N_in [rpm]".<br />
+Added unit 1/min to the external and internal input connector.</li>
+<li>PartialValve<br />
+fillcolor=white added to icon<br />
+made line Thickness = Single, since icon does not look nice
+sometimes</li>
+<li>All components<br />
+Changed %name color from black to blue (is a conversion bug, since
+Modelica 2 has blue as default color whereas Modelica 3 has black
+and Dymola is not taking care off this).</li>
+<li>Sources<br />
+Made icon elements invisible, if corresponding input is
+disabled.</li>
+<li>Valves, Pipes, PressureLosses, HeatExchangers, two port
+senors<br />
+Added an arrow in the icon for the "design flow direction" from
+port_a to port_b.</li>
+<li>Moved default initialization in "System" in to a comment, since
+no effect yet</li>
+<li>Added the explanation from Francesco for Kv, Cv for valves in
+the User's Guide and added links in the corresponding valves to
+this description</li>
+</ul>
+<p>"Check" for the library is successful. "Check with Simulation"
+(i.e., simulating all test models in the library) is successful
+with the exceptions:</p>
+<ul>
+<li>Examples.AST_BatchPlant.BatchPlant_StandardWater<br />
+Need to be fixed in a later release (requires quite a lot of
+work).</li>
+<li>Test.TestOverdeterminedSteadyStateInit.Test5<br />
+Test.TestOverdeterminedSteadyStateInit.Test6<br />
+These are test cases where too much initial conditions are given.
+The goal is to work on methods how this can be handled. So, this is
+a principal problem that these models do not simulate.</li>
+</ul>
+<h4>Version 1.0 Streams Beta 2, 2008-10-08</h4>
+<p>Modelica.Fluid was transformed to Modelica 3 and to Modelica
+Standard library 3.0 (by automatic conversion). Further
+changes:</p>
+<ul>
+<li>Emulated enumerations changed to real enumerations.</li>
+<li>Improved ControlValves code</li>
+<li>Introduced stream connectors with stream keyword (was
+previously an annotation)</li>
+<li>Introduced inStream() instead of inflow()</li>
+<li>Introduced m_flow*actualStream(h_outflow) instead of
+streamFlow() or semiLinear(m_flow, inStream(h_outflow),
+medium.h)</li>
+<li>Removed Modelica.Fluid.Media and all references to it (since
+now available in Modelica.Media of MSL3.0).</li>
+<li>Fixed PartialLumpedVolume for media with multiple
+substances</li>
+<li>New function "Utilities.RegFun3" for regularization with static
+head</li>
+<li>Fix density in static head models with the new RegFun3
+functions (ticket 7)</li>
+<li>Minor bug in MixingVolume corrected:<br />
+V_lumped and Wb_flow have been set as modifiers when extending from
+PartialLumpedVolume, although they are not declared as input. This
+is not allowed in Modelica 3. Fixed by replacing the modifiers by
+equations.</li>
+<li>Modelica.Fluid.Sources.FixedBoundary<br />
+Introduced p_default, T_default, h_default as default values, since
+otherwise warnings will always be printed because parameter value
+is missing.</li>
+<li>Modelica.Fluid.Sources.Boundary_pT<br />
+Modelica.Fluid.Sources.Boundary_ph<br />
+Modelica.Fluid.Sources.MassFlowSource_T<br />
+Changed default values of parameters reference_p, reference_T to
+p_default, T_default (some have been xx_default, some reference_xx,
+it seems best to always use the same approach)</li>
+<li>Modelica.Fluid.Pipes.BaseClasses.PartialDistributedFlow<br />
+Added default value for parameter "rho_nominal" =
+Medium.density_pTX(Medium.p_default, Medium.T_default,
+Medium.X_default) in order to avoid unnecessary warning messages.
+Should be replaced by "Medium.rho_default", once available.</li>
+<li>Modelica.Fluid.Pipes.DistributedPipe<br />
+Modelica.Fluid.Pipes.DistributedPipeSb<br />
+Modelica.Fluid.Pipes.DistributedPipeSa<br />
+Added default value for parameter "mu_nominal" (computed with
+default values of p,T,X from dynamicViscosity(..))</li>
+<li>
+Modelica.Fluid.Pipes.BaseClasses.PartialDistributedFlowLumpedPressure<br />
+
+Replaced default value "rho_nominal=0.01" by
+Medium.density_pTX(Medium.p_default, Medium.T_default,
+Medium.X_default)</li>
+<li>Modelica.Fluid.Volumes.OpenTank<br />
+Modelica.Fluid.Volumes.Tank<br />
+Corrected icons of ports (wrongly sized by automatic conversion
+from Modelica 2 to Modelica 3).</li>
+<li>Examples.BranchingDistributedPipes<br />
+Modelica.Fluid.Test.TestComponents.Junctions.TestGenericJunction<br />
+
+Modelica.Fluid.Test.TestComponents.Pipes.TestDistributedPipe01<br />
+
+Parameters dp_nom, m_flow_nom are not defined in junction
+components. Values provided.</li>
+<li>PressureLosses.BaseClasses.QuadraticTurbulent.BaseModel<br />
+No default or start values for "parameter LossFactorData data"
+Changed the model to "partial model" to avoid warning messages</li>
+</ul>
+<h4>Version 1.0 Streams Beta 1, 2008-05-02</h4>
+<p>Changed connectors to stream connectors and adapted the
+following sublibraries:</p>
+<ul>
+<li>Volumes</li>
+<li>PressureLosses</li>
+<li>Sensors</li>
+<li>Sources</li>
+<li>ControlValves</li>
+<li>HeatExchangers</li>
+<li>Junctions</li>
+<li>Pipes</li>
+<li>Pumps</li>
+<li>Test and Examples (most of the examples and tests are
+simulating)</li>
+</ul>
+<p>Other changes:</p>
+<ul>
+<li>Introduced HeatPorts with vectorized icon in
+Modelica.Fluid.Interfaces</li>
+<li>Deleted Modelica.Fluid.WorkInProgress since it seems to be too
+much work to convert it to stream connectors</li>
+<li>Added Modelica.Fluid.Media (contains ConstantLiquidWater medium
+because functions are missing in Modelica.Media)</li>
+<li>Added two additional test cases with LumpedPipes (to identify
+problems with hierarchically connected stream connectors).</li>
+<li>Deleted TestPortVolumes since PortVolumes can no longer be
+implemented with stream connectors</li>
+<li>Leakage flow introduced for valves</li>
+<li>DrumBoiler Example corrected</li>
+<li>Regularization for sensors (T,h,...), in order that no
+discontinuity for bi-directional flow</li>
+<li>Density computation in static head corrected</li>
+<li>New functions Utilities.regUnitStep, regStep</li>
+<li>New components
+(TestComponents.Sensors.TestOnePortSensors1/.TestOnePortSensors2l,
+TestRegStep)</li>
+<li>PartialTwoPortTransport<br />
+<ul>
+<li>Introduced port_a.T, port_b.T (for plotting)</li>
+<li>Removed initialization menu</li>
+<li>Introduced dp_start, m_flow_start</li>
+<li>Removed previous start values of PartialTwoPortTransport in all
+models</li>
+</ul>
+</li>
+<li>PartialPump: Removed p_nom, since no longer needed (only
+dp_nom)</li>
+<li>Made "%name" in the icons of all components unified (and better
+looking)</li>
+<li>Changed default value of leakage flow of valves to zero.</li>
+<li>Fixed Modelica.Fluid.Junctions.MassFlowRatio so that it
+compiles (inflow(..) currently only supported for scalars, not for
+vectors)</li>
+<li>Added script libraryinfo.mos, in order that Modelica.Fluid
+appears in the Dymola library window automatically (provided
+library is in MODELICAPATH)</li>
+<li>Replaced semiLinear(..) by streamFlow(..) (not yet at all
+places)</li>
+<li>Introduced check-boxes in parameter menu of Sources (is more
+convenient to use)</li>
+<li>TwoPortTransport<br />
+Computation of V_flow and optionally port_a_T, port_b_T. Error in
+temperature calculation corrected</li>
+<li>Tank:<br />
+Default of bottom pipe diameter changed from 0 to 0.1, since
+otherwise a division by zero (if not connected and not
+changed).</li>
+<li>Modelica.Fluid.ControlValves.ValveVaporizing:<br />
+Due to changes in PartialTwoPortTransport, port_a_T_inflow does no
+longer exist and the usage to it is removed.</li>
+<li>
+Modelica.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor:<br />
+
+Due to changes in PartialTwoPortTransport, p_start does no longer
+exist and the usage to it is removed.</li>
+<li>VersionBuild introduced, as well as automatic update of
+VersionBuild/VersionDate</li>
+</ul>
+<h4>Version 1.0 Beta 4, 2008-04-26</h4>
+<p>Changes according to the Modelica Design Meetings since the last
+beta version. This version is used to "freeze" the current
+development, in order to change to a version with a new connector
+design using stream variables.</p>
+<h4>Version 1.0 Beta 3, 2007-06-05</h4>
+<p>Changes according to the Modelica Design Meetings since the
+Modelica'2006 conference, especially, improved initialization,
+changed Source components (input connectors must be enabled),
+improved tank component, moved test models from Examples to new
+package Test, many more test models, etc. This version is slightly
+non-backward compatible to version 1.0 Beta 2.</p>
+<h4>Version 1.0 Beta 2, 2006-08-28</h4>
+<p>Package considerably restructured and some new components added.
+New examples (ControlledTankSystem, AST_BatchPlant).</p>
+<h4>Version 0.96, 2006-01-08</h4>
+<ul>
+<li>New package Modelica.Fluid.PressureLosses.</li>
+<li>New package Modelica.Fluid.WorkInProgress.</li>
+<li>New components in Modelica.Fluid.Components:<br />
+ShortPipe, OpenTank, ValveDiscrete, StaticHead.</li>
+<li>New components in Modelica.Fluid.Examples.</li>
+<li>Improved users guide.</li>
+</ul>
+<h4>Version 0.910, 2005-10-25</h4>
+<ul>
+<li>Changes as decided on 41th-45th Modelica Design Meetings
+(details, see minutes).</li>
+</ul>
+<h4>Version 0.900, 2004-10-18</h4>
+<ul>
+<li>Changes as decided on 40th Modelica Design Meeting in Dresden
+(see also minutes)</li>
+</ul>
+<h4>Version 0.794, 2004-05-31</h4>
+<ul>
+<li>Sensors.mo, Examples/DrumBoiler.mo: extend sensors with user
+choice for measurement unit.</li>
+<li>Components.mo, Types.mo: moved components and types to package
+Examples.</li>
+<li>Moved Examples from <b>file</b> Modelica.Fluid/package.mo to
+Modelica.Media/Examples <b>subdirectory</b> and created separate
+file per sub-package. This shall simplify the maintenance of
+examples by different authors</li>
+<li>Moved Interfaces from file Modelica.Fluid/package.mo to
+Modelica.Fluid/Interfaces.mo</li>
+</ul>
+<h4>Version 0.793, 2004-05-18</h4>
+<ul>
+<li>Removed "semiLinear" function since available as Modelica 2.1
+built-in operator in Dymola.</li>
+<li>Minor bug in "Components.ShortPipe" corrected.</li>
+<li>Bug in "Components.Orifice" corrected (dp was previously
+calculated in Interfaces.PartialTwoPortTransport, but this was
+removed and not updated in Orifice).</li>
+</ul>
+<h4>Version 0.792, 2003-11-07</h4>
+<p>This is the first consolidated version made up from several
+changes for Modelica'2003. Modelica.Fluid is still quite far away
+from a library that could be included in the Modelica standard
+library.</p>
+<h4>Previous Releases</h4>
+<ul>
+<li><i>Oct., 2003</i><br />
+by Martin Otter: Adapted to latest design of the Modelica.Media
+library.<br />
+by Ruediger Franke: Included sensor components and
+Modelica.Fluid.Examples.DrumBoiler example.</li>
+<li><i>Sept., 2003</i><br />
+by Martin Otter: Changes according to the decisions of the Modelica
+design meeting in Dearborn, Sept. 2-4, 2003. Fluid library split
+into two packages: Modelica.Media that contains the media models
+and Modelica.Fluid that contains fluid flow components.
+Modelica.Media is independent of Modelica.Fluid and my be used also
+from other packages that may have a different design as
+Modelica.Fluid.</li>
+<li><i>Aug., 2003</i><br />
+by Martin Otter: Improved documentation, PortVicinity (now called
+semiLinear) manually expanded, two different volume types, replaced
+number of massFractions from n to n-1 in order that usage of model
+for single substances is easier and in order that no special cases
+have to be treated in the equations (previously the massFraction
+equations had to be removed for single substance flow; now they are
+removed automatically, since the dimensions are zero, and not one
+as previously), included asserts to check the validity of the
+medium models, included the dynamic viscosity in the medium models,
+adapted the examples and medium models to the changes in
+Interfaces, improved menus according to the new features in Dymola
+5.1. Added "Components.ShortPipe" that contains a detailed model of
+the frictional losses in pipes over a very wide range.</li>
+<li><i>Feb., 2003</i><br />
+by Martin Otter: Included several elementary components and a model
+for moist air. Some elementary components, such as FixedAmbient,
+are adapted versions from the SimpleFlow fluid library of Anton
+Haumer.</li>
+<li><i>Dec., 2002</i><br />
+by Hubertus Tummescheit: Improved version of the high precision
+water model (Copy from ThermoFluid library, code reorganization,
+enhanced documentation, additional functions).</li>
+<li><i>Nov. 30, 2002</i><br />
+by Martin Otter: Improved the design from the design meeting:
+Adapted to Modelica standard library 1.5, added
+"choicesAllMatching=true" annotation, added short documentation to
+"Interfaces", added packages "Examples" and "Media" (previously
+called "Properties") from previous versions and adapted them to the
+updated "Interfaces" package.</li>
+<li><i>Nov. 20-21, 2002</i><br />
+by Hilding Elmqvist, Mike Tiller, Allan Watson, John Batteh, Chuck
+Newman, Jonas Eborn: Improved at the 32nd Modelica Design
+Meeting.</li>
+<li><i>Nov. 11, 2002</i><br />
+by Hilding Elmqvist, Martin Otter: improved version.</li>
+<li><i>Nov. 6, 2002</i><br />
+by Hilding Elmqvist: first version of the basic design.</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

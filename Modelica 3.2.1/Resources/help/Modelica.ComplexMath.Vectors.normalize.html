@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.ComplexMath.Vectors.normalize</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.ComplexMath.html">ComplexMath</a>.<a href="Modelica.ComplexMath.Vectors.html">Vectors</a>.normalize</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Vectors.<b>normalize</b>(v);
+Vectors.<b>normalize</b>(v,eps=100*Modelica.Constants.eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>Vectors.<b>normalize</b>(v)</code>"
+returns the <b>unit vector</b> "<code>v/length(v)</code>" of vector
+v. If length(v) is close to zero (more precisely, if length(v) &lt;
+eps), v is returned in order to avoid a division by zero. For many
+applications this is useful, because often the unit vector <b>e</b>
+= <b>v</b>/length(<b>v</b>) is used to compute a vector x*<b>e</b>,
+where the scalar x is in the order of length(<b>v</b>), i.e.,
+x*<b>e</b> is small, when length(<b>v</b>) is small and then it is
+fine to replace <b>e</b> by <b>v</b> to avoid a division by
+zero.</p>
+<p>Since the function is implemented in one statement, it is
+usually inlined and therefore symbolic processing is possible.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  <b>normalize</b>({1,2,3});  // = {0.267, 0.534, 0.802}
+  <b>normalize</b>({0,0,0});  // = {0,0,0}
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Vectors.length.html">Vectors.length</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function normalize
+  extends Modelica.Icons.Function;
+  input Complex v[:] "Vector";
+  input Real eps = 100 * Modelica.Constants.eps "if |v| &lt; eps then result = v";
+  output Complex result[size(v, 1)] "Input vector v normalized to length=1";
+end normalize;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

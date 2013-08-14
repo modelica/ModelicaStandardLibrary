@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Pipes.html">Pipes</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.html">WallFriction</a>.Laminar</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component defines only the laminar region of wall friction:
+dp = k*m_flow, where "k" depends on density and dynamic viscosity.
+The roughness of the wall does not have an influence on the laminar
+flow and therefore argument roughness is ignored. Since this is a
+linear relationship, the occurring systems of equations are usually
+much simpler (e.g., either linear instead of non-linear). By using
+nominal values for density and dynamic viscosity, the systems of
+equations can still further be reduced.</p>
+<p>In <a href="Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction.html">
+UsersGuide</a> the complete friction regime is illustrated. This
+component describes only the <b>Hagen-Poiseuille</b> equation.</p>
+<br />
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp.html">
+massFlowRate_dp</a></td>
+<td>Return mass flow rate m_flow as function of pressure loss dp,
+i.e., m_flow = f(dp), due to wall friction</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow.html">
+pressureLoss_m_flow</a></td>
+<td>Return pressure loss dp as function of mass flow rate m_flow,
+i.e., dp = f(m_flow), due to wall friction</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.massFlowRate_dp_staticHead.html">
+massFlowRate_dp_staticHead</a></td>
+<td>Return mass flow rate m_flow as function of pressure loss dp,
+i.e., m_flow = f(dp), due to wall friction and static head</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.pressureLoss_m_flow_staticHead.html">
+pressureLoss_m_flow_staticHead</a></td>
+<td>Return pressure loss dp as function of mass flow rate m_flow,
+i.e., dp = f(m_flow), due to wall friction and static head</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

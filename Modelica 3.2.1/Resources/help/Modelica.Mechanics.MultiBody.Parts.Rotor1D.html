@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Parts.Rotor1D</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Parts.html">Parts</a>.Rotor1D</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component is used to model the gyroscopic torques exerted
+by a 1-dim. inertia (so called <i>rotor</i>) on its 3-dim. carrier
+body. Gyroscopic torques appear, if the vector of the carrier
+body's angular velocity is not parallel to the vector of the
+rotor's axis. The axis of rotation of the rotor is defined by the
+parameter <code>n</code>, which has to be given in the local
+coordinate system of <code>frame_a</code>. The default animation of
+this component is shown in the figure below.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png" alt="model Parts.Rotor1D" /></p>
+<p>This component is a replacement for <a href="Modelica.Mechanics.Rotational.Components.Inertia.html">Modelica.Mechanics.Rotational.Components.Inertia</a>
+for the case, that a 1-dim.-rotational mechanical system should be
+attached with a 3-dim. carrier body.</p>
+<p>The Boolean parameter <code>exact</code> was introduced due to
+performance reasons. If <code>exact</code> is set to <b>false</b>,
+the influence of the carrier body motion on the angular velocity of
+the rotor is neglected. This influence is usually negligible if the
+1-dim.-rotational mechanical system accelerates much faster as the
+base body (this is, e.g., the case in vehicle powertrains). The
+essential advantage is that an algebraic loop is removed since then
+there is only an action on acceleration level from the powertrain
+to the base body but not vice versa.</p>
+<p><b>Reference</b><br />
+<span style="font-variant:small-caps">Schweiger</span>, Christian ;
+<span style="font-variant:small-caps">Otter</span>, Martin:
+<a href="https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">
+Modelling 3D Mechanical Effects of 1-dim. Powertrains</a>. In:
+<i>Proceedings of the 3rd International Modelica Conference</i>.
+Linköping : The Modelica Association and Linköping University,
+November 3-4, 2003, pp. 149-158</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.RotorWith3DEffects.html">
+RotorWith3DEffects</a></td>
+<td>1D inertia attachable on 3-dim. bodies (3D dynamic effects are
+taken into account)</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

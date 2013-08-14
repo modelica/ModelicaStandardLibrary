@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Types.Roughness</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Types.html">Types</a>.Roughness</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This Real type defines the absolute roughness of the inner
+surface of a pipe or fitting, i.e., the absolute average height of
+surface asperities. It has usually to be estimated. In <i>[Idelchik
+1994, pp. 105-109, Table 2-5; Miller 1990, p. 190, Table 8-1]</i>
+many examples are given. As a short summary:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td colspan="2" align="center"><b>Type of pipe</b></td>
+<td align="center">Roughness</td>
+</tr>
+<tr>
+<td><b>Smooth pipes</b></td>
+<td>Drawn brass, copper, aluminium, glass, etc.</td>
+<td>0.0025 mm</td>
+</tr>
+<tr>
+<td rowspan="3"><b>Steel pipes</b></td>
+<td>New smooth pipes</td>
+<td>0.025 mm</td>
+</tr>
+<tr>
+<td>Mortar lined, average finish</td>
+<td>0.1 mm</td>
+</tr>
+<tr>
+<td>Heavy rust</td>
+<td>1 mm</td>
+</tr>
+<tr>
+<td rowspan="3"><b>Concrete pipes</b></td>
+<td>Steel forms, first class workmanship</td>
+<td>0.025 mm</td>
+</tr>
+<tr>
+<td>Steel forms, average workmanship</td>
+<td>0.1 mm</td>
+</tr>
+<tr>
+<td>Block linings</td>
+<td>1 mm</td>
+</tr>
+</table>
+<h4>References</h4>
+<dl>
+<dt>Idelchik I.E. (1994):</dt>
+<dd><a href="http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/">
+<b>Handbook of Hydraulic Resistance</b></a>. 3rd edition, Begell
+House, ISBN 0-8493-9908-4</dd>
+<dt>Miller D. S. (1990):</dt>
+<dd><b>Internal flow systems</b>. 2nd edition.
+Cranfield:BHRA(Information Services).</dd>
+</dl>
+<h4><a name="definition" id="definition">Definition</a></h4>
+<blockquote>
+<pre>
+type Roughness = Modelica.Icons.TypeReal(final quantity = "Length", final unit = "m", displayUnit = "mm");
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.FreeMotionScalarInit</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Joint which does not constrain the motion between frame_a and
+frame_b. Such a joint is meaningful if the <b>relative</b> distance
+and orientation between frame_a and frame_b, and their derivatives,
+shall be used as <b>states</b> or shall be used for non-standard
+<b>initialization</b>. This joint allows to <b>initialize</b> every
+<b>scalar</b> element of the relative quantities, as well as to
+define <b>StateSelect</b> attributes for every <b>scalar</b>
+element separately.</p>
+<p>In the following figure the animation of a FreeMotionScalarInit
+joint is shown. The light blue coordinate system is frame_a and the
+dark blue coordinate system is frame_b of the joint. (here:
+r_rel_a_1(start = 0.5), r_rel_a_2(start = 0), r_rel_a_3(start =
+0.5), angle_1(start = 45<sup>o</sup>), angle_2(start =
+45<sup>o</sup>), angle_3(start = 45<sup>o</sup>)).</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png" /></p>
+<p>A example to use this joint for the initialization of a planar
+double pendulum by providing its tip position, is shown in <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip.html">
+Examples.Elementary.DoublePendulumInitTip</a>.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

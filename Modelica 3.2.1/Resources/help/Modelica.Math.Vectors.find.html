@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors.find</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Vectors.html">Vectors</a>.find</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Vectors.<b>find</b>(e, v);
+Vectors.<b>find</b>(e, v, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>Vectors.find(e, v)</code>" returns the
+index of the first occurrence of input e in vector <b>v</b>. The
+test of equality is performed by "abs(e-v[i]) ≤ eps", where "eps"
+can be provided as third argument of the function. Default is "eps
+= 0".</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Real v[3] = {1, 2, 3};
+  Real e1 = 2;
+  Real e2 = 3.01;
+  Boolean result;
+<b>algorithm</b>
+  result := Vectors.find(e1,v);          // = <b>2</b>
+  result := Vectors.find(e2,v);          // = <b>0</b>
+  result := Vectors.find(e2,v,eps=0.1);  // = <b>3</b>
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Vectors.isEqual.html">Vectors.isEqual</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function find
+  extends Modelica.Icons.Function;
+  input Real e "Search for e";
+  input Real v[:] "Integer vector";
+  input Real eps(min = 0) = 0 "Element e is equal to a element v[i] of vector v if abs(e-v[i]) &lt;= eps";
+  output Integer result "v[result] = e (first occurrence of e); result=0, if not found";
+end find;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

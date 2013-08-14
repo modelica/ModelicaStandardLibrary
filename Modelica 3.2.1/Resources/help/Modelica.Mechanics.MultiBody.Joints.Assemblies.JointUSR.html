@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.html">Assemblies</a>.JointUSR</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component consists of a <b>universal</b> joint at frame_a,
+a <b>revolute</b> joint at frame_b and a <b>spherical</b> joint
+which is connected via <b>rod1</b> to the universal and via
+<b>rod2</b> to the revolute joint, see the default animation in the
+following figure (the axes vectors are not part of the default
+animation):</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Joints/JointUSR.png" alt="model Joints.Assemblies.JointUSR" /></p>
+<p>This joint aggregation has no mass and no inertia and introduces
+neither constraints nor potential state variables. It should be
+used in kinematic loops whenever possible since the non-linear
+system of equations introduced by this joint aggregation is solved
+<b>analytically</b> (i.e., a solution is always computed, if a
+unique solution exists).</p>
+<p>The universal joint is defined in the following way:</p>
+<ul>
+<li>The rotation <b>axis</b> of revolute joint <b>1</b> is along
+parameter vector n1_a which is fixed in frame_a.</li>
+<li>The rotation <b>axis</b> of revolute joint <b>2</b> is
+perpendicular to axis 1 and to the line connecting the universal
+and the spherical joint (= rod 1).</li>
+</ul>
+<p>The definition of axis 2 of the universal joint is performed
+according to the most often occurring case. In a future release,
+axis 2 might be explicitly definable via a parameter. However, the
+treatment is much more complicated and the number of operations is
+considerably higher, if axis 2 is not orthogonal to axis 1 and to
+the connecting rod.</p>
+<p>Note, there is a <b>singularity</b> when axis 1 and the
+connecting rod are parallel to each other. Therefore, if possible
+n1_a should be selected in such a way that it is perpendicular to
+rRod1_ia in the initial configuration (i.e., the distance to the
+singularity is as large as possible).</p>
+<p>The rest of this joint aggregation is defined by the following
+parameters:</p>
+<ul>
+<li>The position of the spherical joint with respect to the
+universal joint is defined by vector <b>rRod1_ia</b>. This vector
+is directed from frame_a to the spherical joint and is resolved in
+frame_ia (it is most simple to select frame_ia such that it is
+parallel to frame_a in the reference or initial
+configuration).</li>
+<li>The position of the spherical joint with respect to the
+revolute joint is defined by vector <b>rRod2_ib</b>. This vector is
+directed from the inner frame of the revolute joint (frame_ib or
+revolute.frame_a) to the spherical joint and is resolved in
+frame_ib (note, that frame_ib and frame_b are parallel to each
+other).</li>
+<li>The axis of rotation of the revolute joint is defined by axis
+vector <b>n_b</b>. It is fixed and resolved in frame_b.</li>
+<li>When specifying this joint aggregation with the definitions
+above, <b>two</b> different <b>configurations</b> are possible. Via
+parameter <b>phi_guess</b> a guess value for revolute.phi(t0) at
+the initial time t0 is given. The configuration is selected that is
+closest to phi_guess (|revolute.phi - phi_guess| is minimal).</li>
+</ul>
+<p>An additional <b>frame_ia</b> is present. It is <b>fixed</b> in
+the rod connecting the universal and the spherical joint at the
+origin of <b>frame_a</b>. The placement of frame_ia on the rod is
+implicitly defined by the universal joint (frame_a and frame_ia
+coincide when the angles of the two revolute joints of the
+universal joint are zero) and by parameter vector <b>rRod1_ia</b>,
+the position vector from the origin of frame_a to the spherical
+joint, resolved in frame_<b>ia</b>.</p>
+<p>An additional <b>frame_ib</b> is present. It is <b>fixed</b> in
+the rod connecting the revolute and the spherical joint at the side
+of the revolute joint that is connected to this rod (= rod2.frame_a
+= revolute.frame_a).</p>
+<p>An additional <b>frame_im</b> is present. It is <b>fixed</b> in
+the rod connecting the revolute and the spherical joint at the side
+of the spherical joint that is connected to this rod (=
+rod2.frame_b). It is always parallel to <b>frame_ib</b>.</p>
+<p>The easiest way to define the parameters of this joint is by
+moving the MultiBody system in a <b>reference configuration</b>
+where <b>all frames</b> of all components are <b>parallel</b> to
+each other (alternatively, at least frame_a and frame_ia of the
+JointUSR joint should be parallel to each other when defining an
+instance of this component).</p>
+<p>In the public interface of the JointUSR joint, the following
+(final) <b>parameters</b> are provided:</p>
+<pre>
+  <b>parameter</b> Real rod1Length(unit="m")  "Length of rod 1";
+  <b>parameter</b> Real eRod1_ia[3] "Unit vector along rod 1, resolved in frame_ia";
+  <b>parameter</b> Real e2_ia  [3]  "Unit vector along axis 2, resolved in frame_ia";
+</pre>
+<p>This allows a more convenient definition of data which is
+related to rod 1. For example, if a box shall be connected at
+frame_ia directing from the origin of frame_a to the middle of rod
+1, this might be defined as:</p>
+<pre>
+    Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSR(rRod1_ia={1.2, 1, 0.2});
+    Modelica.Mechanics.MultiBody.Visualizers.FixedShape     shape(shapeType       = "box",
+                                               lengthDirection = jointUSR.eRod1_ia,
+                                               widthDirection  = jointUSR.e2_ia,
+                                               length          = jointUSR.rod1Length/2,
+                                               width           = jointUSR.rod1Length/10);
+  <b>equation</b>
+    <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Parts.FixedRotation</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Parts.html">Parts</a>.FixedRotation</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Component for a <b>fixed translation</b> and <b>fixed
+rotation</b> of frame_b with respect to frame_a, i.e., the
+relationship between connectors frame_a and frame_b remains
+constant. There are several possibilities to define the orientation
+of frame_b with respect to frame_a:</p>
+<ul>
+<li><b>Planar rotation</b> along axis 'n' (that is fixed and
+resolved in frame_a) with a fixed angle 'angle'.</li>
+<li><b>Vectors n_x</b> and <b>n_y</b> that are directed along the
+corresponding axes direction of frame_b and are resolved in frame_a
+(if n_y is not orthogonal to n_x, the y-axis of frame_b is selected
+such that it is orthogonal to n_x and in the plane of n_x and
+n_y).</li>
+<li><b>Sequence</b> of <b>three planar axes rotations</b>. For
+example, "sequence = {1,2,3}" and "angles = {90, 45, -90}" means to
+rotate frame_a around the x axis with 90 degrees, around the new y
+axis with 45 degrees and around the new z axis around -90 degrees
+to arrive at frame_b. Note, that sequence={1,2,3} is the Cardan
+angle sequence and sequence = {3,1,3} is the Euler angle
+sequence.</li>
+</ul>
+<p>By default, this component is visualized by a cylinder
+connecting frame_a and frame_b, as shown in the figure below. In
+this figure frame_b is rotated along the z-axis of frame_a with 60
+degree. Note, that the two visualized frames are not part of the
+component animation and that the animation may be switched off via
+parameter animation = <b>false</b>.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/FixedRotation.png" alt="Parts.FixedRotation" /></p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>July 28, 2003</i><br />
+Bug fixed: if rotationType = PlanarRotationSequence, then 'angles'
+was used with unit [rad] instead of [deg].</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

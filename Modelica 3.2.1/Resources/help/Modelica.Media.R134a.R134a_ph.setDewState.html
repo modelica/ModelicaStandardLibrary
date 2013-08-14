@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.R134a.R134a_ph.setDewState</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.R134a.html">R134a</a>.<a href="Modelica.Media.R134a.R134a_ph.html">R134a_ph</a>.setDewState</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This function shall be used in order to calculate the
+thermodynamic state record for the vapor phase boundary. It
+requires the saturation record as input which can be determined by
+both functions setSat_p and setSat_T:</p>
+<p>Example:</p>
+<pre>
+    Medium.AbsolutePressure p=3e5;
+    // Viscosity on the vapor phase boundary
+    Modelica.SIunits.DynamicViscosity eta_vap;
+
+    equation
+
+    eta_vap = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
+</pre>
+<h3>Restrictions</h3>
+<p>It is only valid in the two-phase region (i.e.,
+p<sub>triple</sub> ≤ p ≤ p<sub>crit</sub> ).</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Pipes.DynamicPipe</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Pipes.html">Pipes</a>.DynamicPipe</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Model of a straight pipe with distributed mass, energy and
+momentum balances. It provides the complete balance equations for
+one-dimensional fluid flow as formulated in <a href="Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations.html">
+UsersGuide.ComponentDefinition.BalanceEquations</a>.</p>
+<p>This generic model offers a large number of combinations of
+possible parameter settings. In order to reduce model complexity,
+consider defining and/or using a tailored model for the application
+at hand, such as <a href="Modelica.Fluid.Examples.HeatExchanger.HeatExchangerSimulation.html">
+HeatExchanger</a>.</p>
+<p>DynamicPipe treats the partial differential equations with the
+finite volume method and a staggered grid scheme for momentum
+balances. The pipe is split into nNodes equally spaced segments
+along the flow path. The default value is nNodes=2. This results in
+two lumped mass and energy balances and one lumped momentum balance
+across the dynamic pipe.</p>
+<p>Note that this generally leads to high-index DAEs for pressure
+states if dynamic pipes are directly connected to each other, or
+generally to models with storage exposing a thermodynamic state
+through the port. This may not be valid if the dynamic pipe is
+connected to a model with non-differentiable pressure, like a
+Sources.Boundary_pT with prescribed jumping pressure. The
+<code><b>modelStructure</b></code> can be configured as appropriate
+in such situations, in order to place a momentum balance between a
+pressure state of the pipe and a non-differentiable boundary
+condition.</p>
+<p>The default <code><b>modelStructure</b></code> is
+<code>av_vb</code> (see Advanced tab). The simplest possible
+alternative symmetric configuration, avoiding potential high-index
+DAEs at the cost of the potential introduction of nonlinear
+equation systems, is obtained with the setting <code>nNodes=1,
+modelStructure=a_v_b</code>. Depending on the configured model
+structure, the first and the last pipe segment, or the flow path
+length of the first and the last momentum balance, are of half
+size. See the documentation of the base class <a href="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow.html">Pipes.BaseClasses.PartialTwoPortFlow</a>,
+also covering asymmetric configurations.</p>
+<p>The <code><b>HeatTransfer</b></code> component specifies the
+source term <code>Qb_flows</code> of the energy balance. The
+default component uses a constant coefficient for the heat transfer
+between the bulk flow and the segment boundaries exposed through
+the <code>heatPorts</code>. The <code>HeatTransfer</code> model is
+replaceable and can be exchanged with any model extended from
+<a href="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer.html">
+BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>.</p>
+<p>The intended use is for complex networks of pipes and other flow
+devices, like valves. See, e.g.,</p>
+<ul>
+<li><a href="Modelica.Fluid.Examples.BranchingDynamicPipes.html">Examples.BranchingDynamicPipes</a>,
+or</li>
+<li><a href="Modelica.Fluid.Examples.IncompressibleFluidNetwork.html">Examples.IncompressibleFluidNetwork</a>.</li>
+</ul>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.DynamicPipe.HeatTransfer.html">HeatTransfer</a></td>
+<td></td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

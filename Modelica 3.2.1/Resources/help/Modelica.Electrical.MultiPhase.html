@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.MultiPhase</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.MultiPhase</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains packages for electrical multiphase
+components, based on Modelica.Electrical.Analog:</p>
+<ul>
+<li>Basic: basic components (resistor, capacitor, inductor,
+...)</li>
+<li>Ideal: ideal elements (switches, diode, transformer, ...)</li>
+<li>Sensors: sensors to measure potentials, voltages, and
+currents</li>
+<li>Sources: time-dependent and controlled voltage and current
+sources</li>
+</ul>
+<p>This package is intended to be used the same way as
+Modelica.Electrical.Analog but to make design of multiphase models
+easier.<br />
+The package is based on the plug: a composite connector containing
+m pins.<br />
+It is possible to connect plugs to plugs or single pins of a plug
+to single pins.<br />
+Potentials may be accessed as <code>plug.pin[].v</code>, currents
+may be accessed as <code>plug.pin[].i</code>.</p>
+<p>Further development:</p>
+<ul>
+<li>temperature-dependent resistor</li>
+<li>lines (m-phase models)</li>
+</ul>
+<dl>
+<dt><b>Main Authors:</b></dt>
+<dd><a href="http://www.haumer.at/">Anton Haumer</a><br />
+Technical Consulting &amp; Electrical Engineering<br />
+A-3423 St.Andrae-Woerdern<br />
+Austria<br />
+email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a></dd>
+<dt><b>Release Notes:</b></dt>
+<dd>
+<ul>
+<li>v1.0 2004/10/01 Anton Haumer</li>
+</ul>
+</dd>
+<dt><b>Copyright:</b></dt>
+<dd>Copyright © 1998-2013, Modelica Association and Anton
+Haumer.<br />
+<i>The Modelica package is <b>free</b> software; it can be
+redistributed and/or modified under the terms of the <b>Modelica
+license</b>, see the license conditions and the accompanying
+<b>disclaimer</b> in the documentation of package Modelica in file
+"Modelica/package.mo".</i></dd>
+</dl>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.MultiPhase.Examples.html">Examples</a></td>
+<td>Multiphase test examples</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.MultiPhase.Basic.html">Basic</a></td>
+<td>Basic components for electrical multiphase models</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.MultiPhase.Ideal.html">Ideal</a></td>
+<td>Multiphase components with idealized behaviour</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.MultiPhase.Blocks.html">Blocks</a></td>
+<td>Blocks for multi phase systems</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.MultiPhase.Functions.html">Functions</a></td>
+<td>Functions for multi phase systems</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.MultiPhase.Sensors.html">Sensors</a></td>
+<td>Multiphase potential, voltage and current Sensors</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.MultiPhase.Sources.html">Sources</a></td>
+<td>Multiphase voltage and current sources</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.MultiPhase.Interfaces.html">Interfaces</a></td>
+<td>Interfaces for electrical multiphase models</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li>v1.0 2004/10/01 Anton Haumer</li>
+<li>v1.1 2006/01/12 Anton Haumer<br />
+added Sensors.PowerSensor</li>
+<li>v1.2 2006/07/05 Anton Haumer<br />
+removed annotation from pin of Interfaces.Plug<br />
+corrected usage of resistance/conductance</li>
+<li>v1.3.0 2007/01/23 Anton Haumer<br />
+improved some icons</li>
+<li>v1.3.1 2007/08/12 Anton Haumer<br />
+improved documentation</li>
+<li>v1.3.2 2007/08/24 Anton Haumer<br />
+removed redeclare type SignalType</li>
+<li>v1.4.0 2009/08/26 Anton Haumer<br />
+added conditional HeatPorts as Electrical.Analog<br />
+added switches with arc as Electrical.Analog</li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

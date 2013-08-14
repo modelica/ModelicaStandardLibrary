@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Parts.BodyShape</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Parts.html">Parts</a>.BodyShape</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p><b>Rigid body</b> with mass and inertia tensor and <b>two frame
+connectors</b>. All parameter vectors have to be resolved in
+frame_a. The <b>inertia tensor</b> has to be defined with respect
+to a coordinate system that is parallel to frame_a with the origin
+at the center of mass of the body. The coordinate system
+<b>frame_b</b> is always parallel to <b>frame_a</b>.</p>
+<p>By default, this component is visualized by any <b>shape</b>
+that can be defined with
+Modelica.Mechanics.MultiBody.Visualizers.FixedShape. This shape is
+placed between frame_a and frame_b (default: length(shape) =
+Frames.length(r)). Additionally a <b>sphere</b> may be visualized
+that has its center at the center of mass. Note, that the animation
+may be switched off via parameter animation = <b>false</b>.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/BodyShape.png" alt="Parts.BodyShape" /></p>
+<p>The following shapes can be defined via parameter
+<b>shapeType</b>, e.g., shapeType="cone":</p>
+<img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/FixedShape.png" alt="Visualizers.FixedShape" />
+<p>A BodyShape component has potential states. For details of these
+states and of the "Advanced" menu parameters, see model <a href="Modelica.Mechanics.MultiBody.Parts.Body.html">MultiBody.Parts.Body</a>.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

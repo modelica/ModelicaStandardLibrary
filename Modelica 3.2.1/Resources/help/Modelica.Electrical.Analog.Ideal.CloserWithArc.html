@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Analog.Ideal.CloserWithArc</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Analog.html">Analog</a>.<a href="Modelica.Electrical.Analog.Ideal.html">Ideal</a>.CloserWithArc</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This model is an extension to the <a href="Modelica.Electrical.Analog.Ideal.IdealClosingSwitch.html">IdealClosingSwitch</a>.</p>
+<p>The basic model interrupts the current through the switch in an
+infinitesimal time span. If an inductive circuit is connected, the
+voltage across the switch is limited only by numerics. In order to
+give a better idea for the voltage across the switch, a simple arc
+model is added:</p>
+<p>When the Boolean input <code>control</code> signals to open the
+switch, a voltage across the opened switch is impressed. This
+voltage starts with <code>V0</code> (simulating the voltage drop of
+the arc roots), then rising with slope <code>dVdt</code>
+(simulating the rising voltage of an extending arc) until a maximum
+voltage <code>Vmax</code> is reached.</p>
+<pre>
+     | voltage
+Vmax |      +-----
+     |     /
+     |    /
+V0   |   +
+     |   |
+     +---+-------- time
+</pre>
+<p>This arc voltage tends to lower the current following through
+the switch; it depends on the connected circuit, when the arc is
+quenched. Once the arc is quenched, i.e., the current flowing
+through the switch gets zero, the equation for the off-state is
+activated <code>i=Goff*v</code>.</p>
+<p>When the Boolean input <code>control</code> signals to close the
+switch again, the switch is closed immediately, i.e., the equation
+for the on-state is activated <code>v=Ron*i</code>.</p>
+<p>Please note: In an AC circuit, at least the arc quenches when
+the next natural zero-crossing of the current occurs. In a DC
+circuit, the arc will not quench if the arc voltage is not
+sufficient that a zero-crossing of the current occurs.<br />
+<br />
+<b>Please note:</b> In case of useHeatPort=true the temperature
+dependence of the electrical behavior is <b>not</b> modelled. The
+parameters are not temperature dependent.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>May, 2009</i> by Anton Haumer<br />
+initially implemented<br /></li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

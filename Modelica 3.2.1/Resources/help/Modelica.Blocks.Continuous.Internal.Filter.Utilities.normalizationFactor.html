@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Blocks.Continuous.Internal.Filter.Utilities.normalizationFactor</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Continuous.html">Continuous</a>.<a href="Modelica.Blocks.Continuous.Internal.html">Internal</a>.<a href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a>.<a href="Modelica.Blocks.Continuous.Internal.Filter.Utilities.html">Utilities</a>.normalizationFactor</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Compute correction factor of low pass filter such that amplitude at cut-off frequency is -3db (=10^(-3/20) = 0.70794...)
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function normalizationFactor
+  extends Modelica.Icons.Function;
+  import Modelica;
+  import Modelica.Utilities.Streams;
+  input Real c1[:] "[p] coefficients of denominator polynomials (c1[i}*p + 1)";
+  input Real c2[:,2] "[p^2, p] coefficients of denominator polynomials (c2[i,1]*p^2 + c2[i,2]*p + 1)";
+  output Real alpha "Correction factor (replace p by alpha*p)";
+end normalizationFactor;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

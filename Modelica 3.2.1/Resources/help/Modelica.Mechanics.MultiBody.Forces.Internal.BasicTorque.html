@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Forces.Internal.BasicTorque</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a>.<a href="Modelica.Mechanics.MultiBody.Forces.Internal.html">Internal</a>.BasicTorque</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <b>3</b> signals of the <b>torque</b> connector are
+interpreted as the x-, y- and z-coordinates of a <b>torque</b>
+acting at the frame connector to which frame_b of this component is
+attached. Via parameter <b>resolveInFrame</b> it is defined, in
+which frame these coordinates shall be resolved:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>Types.ResolveInFrameAB.</b></th>
+<th><b>Meaning</b></th>
+</tr>
+<tr>
+<td valign="top">world</td>
+<td valign="top">Resolve input torque in world frame</td>
+</tr>
+<tr>
+<td valign="top">frame_a</td>
+<td valign="top">Resolve input torque in frame_a</td>
+</tr>
+<tr>
+<td valign="top">frame_b</td>
+<td valign="top">Resolve input torque in frame_b (= default)</td>
+</tr>
+<tr>
+<td valign="top">frame_resolve</td>
+<td valign="top">Resolve input torque in frame_resolve
+(frame_resolve must be connected)</td>
+</tr>
+</table>
+<p>If resolveInFrame = ResolveInFrameAB.frame_resolve, the torque
+coordinates are with respect to the frame, that is connected to
+<b>frame_resolve</b>.</p>
+<p>If resolveInFrame is not ResolveInFrameAB.frame_resolve, then
+the position vector and the orientation object of frame_resolve
+must be set to constant values from the outside in order that the
+model remains balanced (these constant values are ignored).</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

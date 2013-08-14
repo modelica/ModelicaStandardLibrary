@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Analog.Examples.CharacteristicThyristors</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Analog.html">Analog</a>.<a href="Modelica.Electrical.Analog.Examples.html">Examples</a>.CharacteristicThyristors</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This example compares the behavior of the <b>ideal thyristor</b>
+and the <b>ideal GTO thyristor</b> with <i>Vknee=1</i> both. The
+thyristors IdealThyristor1 and IdealGTOThyristor1 are controlled by
+an unregular Boolean fire signal. The aim is to show several cases
+for the fire signal in combination with the state (s&lt;0 or
+s&gt;0)of the thyristors. Please simulate until 6 seconds and
+compare IdealThyristor1.v with IdealGTOThyristor1.v, the same with
+IdealThyristor1.s and IdealGTOThyristor1.s (attention: s is a
+protected variable in each thyristor). Also compare
+IdealThyristor1.off and IdealGTOThyristor1.off and have a look at
+the fire signal (e.g. IdealThyristor1.fire). It can be seen that
+the IdealGTOThyristor1 reacts on switching off the fire signal
+whereas the IdealThyristor1 does not show this behavior.</p>
+<p>The other thyristors IdealThyristor2 and IdealGTOThyristor2 are
+controlled by an periodic Boolean fire signal to show a typical use
+case. Please compare IdealThyristor2.v with
+IdealGTOThyristor2.v</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>Jan 23, 2013</i> by Kristin Majetta and Christoph
+Clauss<br />
+revised<br /></li>
+</ul>
+<ul>
+<li><i>Mai 7, 2004</i> by Christoph Clauss<br />
+realized<br /></li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

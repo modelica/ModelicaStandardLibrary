@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Vessels.BaseClasses.VesselPortsData</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Vessels.html">Vessels</a>.<a href="Modelica.Fluid.Vessels.BaseClasses.html">BaseClasses</a>.VesselPortsData</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Vessel Port Data</h4>
+<p>This record describes the <b>ports</b> of a <b>vessel</b>. The
+variables in it are mostly self-explanatory (see list below); only
+the ζ loss factors are discussed further. All data is quoted from
+Idelchik (1994).</p>
+<h4>Outlet Coefficients</h4>
+<p>If a <b>straight pipe with constant cross section is mounted
+flush with the wall</b>, its outlet pressure loss coefficient will
+be <code>ζ = 0.5</code> (Idelchik, p. 160, Diagram 3-1, paragraph
+2).</p>
+<p>If a <b>straight pipe with constant cross section is mounted
+into a vessel such that the entrance into it is at a distance</b>
+<code>b</code> from the wall (inside) the following table can be
+used. Herein, δ is the tube wall thickness (Idelchik, p. 160,
+Diagram 3-1, paragraph 1).</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<caption align="bottom">Pressure loss coefficients for outlets,
+entrance at a distance from wall</caption>
+<tr>
+<td></td>
+<td></td>
+<th colspan="5" align="center">b / D_hyd</th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<th>0.000</th>
+<th>0.005</th>
+<th>0.020</th>
+<th>0.100</th>
+<th>0.500-∞</th>
+</tr>
+<tr>
+<th rowspan="5" valign="middle">δ / D_hyd</th>
+<th>0.000</th>
+<td>0.50</td>
+<td>0.63</td>
+<td>0.73</td>
+<td>0.86</td>
+<td>1.00</td>
+</tr>
+<tr>
+<th>0.008</th>
+<td>0.50</td>
+<td>0.55</td>
+<td>0.62</td>
+<td>0.74</td>
+<td>0.88</td>
+</tr>
+<tr>
+<th>0.016</th>
+<td>0.50</td>
+<td>0.51</td>
+<td>0.55</td>
+<td>0.64</td>
+<td>0.77</td>
+</tr>
+<tr>
+<th>0.024</th>
+<td>0.50</td>
+<td>0.50</td>
+<td>0.52</td>
+<td>0.58</td>
+<td>0.68</td>
+</tr>
+<tr>
+<th>0.040</th>
+<td>0.50</td>
+<td>0.50</td>
+<td>0.51</td>
+<td>0.51</td>
+<td>0.54</td>
+</tr>
+</table>
+<p>If a <b>straight pipe with a circular bellmouth inlet
+(collector) without baffle is mounted flush with the wall</b> then
+its pressure loss coefficient can be established from the following
+table. Herein, r is the radius of the bellmouth inlet surface
+(Idelchik, p. 164 f., Diagram 3-4, paragraph b)</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<caption align="bottom">Pressure loss coefficients for outlets,
+bellmouth flush with wall</caption>
+<tr>
+<td></td>
+<th colspan="6" align="center">r / D_hyd</th>
+</tr>
+<tr>
+<td></td>
+<th>0.01</th>
+<th>0.03</th>
+<th>0.05</th>
+<th>0.08</th>
+<th>0.16</th>
+<th>≥0.20</th>
+</tr>
+<tr>
+<th>ζ</th>
+<td>0.44</td>
+<td>0.31</td>
+<td>0.22</td>
+<td>0.15</td>
+<td>0.06</td>
+<td>0.03</td>
+</tr>
+</table>
+<p>If a <b>straight pipe with a circular bellmouth inlet
+(collector) without baffle is mounted at a distance from a wall</b>
+then its pressure loss coefficient can be established from the
+following table. Herein, r is the radius of the bellmouth inlet
+surface (Idelchik, p. 164 f., Diagram 3-4, paragraph a)</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<caption align="bottom">Pressure loss coefficients for outlets,
+bellmouth at a distance of wall</caption>
+<tr>
+<td></td>
+<th colspan="6" align="center">r / D_hyd</th>
+</tr>
+<tr>
+<td></td>
+<th>0.01</th>
+<th>0.03</th>
+<th>0.05</th>
+<th>0.08</th>
+<th>0.16</th>
+<th>≥0.20</th>
+</tr>
+<tr>
+<th>ζ</th>
+<td>0.87</td>
+<td>0.61</td>
+<td>0.40</td>
+<td>0.20</td>
+<td>0.06</td>
+<td>0.03</td>
+</tr>
+</table>
+<h4>Inlet Coefficients</h4>
+<p>If a <b>straight pipe with constant circular cross section is
+mounted flush with the wall</b>, its vessel inlet pressure loss
+coefficient will be according to the following table (Idelchik, p.
+209 f., Diagram 4-2 with <code>A_port/A_vessel = 0</code> and
+Idelchik, p. 640, Diagram 11-1, graph a). According to the text,
+<code>m = 9</code> is appropriate for fully developed turbulent
+flow.</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<caption align="bottom">Pressure loss coefficients for inlets,
+circular tube flush with wall</caption>
+<tr>
+<td></td>
+<th colspan="6" align="center">m</th>
+</tr>
+<tr>
+<td></td>
+<th>1.0</th>
+<th>2.0</th>
+<th>3.0</th>
+<th>4.0</th>
+<th>7.0</th>
+<th>9.0</th>
+</tr>
+<tr>
+<th>ζ</th>
+<td>2.70</td>
+<td>1.50</td>
+<td>1.25</td>
+<td>1.15</td>
+<td>1.06</td>
+<td>1.04</td>
+</tr>
+</table>
+<p>For larger port diameters, relative to the area of the vessel,
+the inlet pressure loss coefficient will be according to the
+following table (Idelchik, p. 209 f., Diagram 4-2 with <code>m =
+7</code>).</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<caption align="bottom">Pressure loss coefficients for inlets,
+circular tube flush with wall</caption>
+<tr>
+<td></td>
+<th colspan="6" align="center">A_port / A_vessel</th>
+</tr>
+<tr>
+<td></td>
+<th>0.0</th>
+<th>0.1</th>
+<th>0.2</th>
+<th>0.4</th>
+<th>0.6</th>
+<th>0.8</th>
+</tr>
+<tr>
+<th>ζ</th>
+<td>1.04</td>
+<td>0.84</td>
+<td>0.67</td>
+<td>0.39</td>
+<td>0.18</td>
+<td>0.06</td>
+</tr>
+</table>
+<h4>References</h4>
+<dl>
+<dt>Idelchik I.E. (1994):</dt>
+<dd><a href="http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/">
+<b>Handbook of Hydraulic Resistance</b></a>. 3rd edition, Begell
+House, ISBN 0-8493-9908-4</dd>
+</dl>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

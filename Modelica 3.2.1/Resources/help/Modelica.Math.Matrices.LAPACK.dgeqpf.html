@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.LAPACK.dgeqpf</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.<a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.dgeqpf</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Lapack documentation
+    Purpose
+    =======
+
+    This routine is deprecated and has been replaced by routine DGEQP3.
+
+    DGEQPF computes a QR factorization with column pivoting of a
+    real M-by-N matrix A: A*P = Q*R.
+
+    Arguments
+    =========
+
+    M       (input) INTEGER
+            The number of rows of the matrix A. M &gt;= 0.
+
+    N       (input) INTEGER
+            The number of columns of the matrix A. N &gt;= 0
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit, the upper triangle of the array contains the
+            min(M,N)-by-N upper triangular matrix R; the elements
+            below the diagonal, together with the array TAU,
+            represent the orthogonal matrix Q as a product of
+            min(m,n) elementary reflectors.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A. LDA &gt;= max(1,M).
+
+    JPVT    (input/output) INTEGER array, dimension (N)
+            On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
+            to the front of A*P (a leading column); if JPVT(i) = 0,
+            the i-th column of A is a free column.
+            On exit, if JPVT(i) = k, then the i-th column of A*P
+            was the k-th column of A.
+
+    TAU     (output) DOUBLE PRECISION array, dimension (min(M,N))
+            The scalar factors of the elementary reflectors.
+
+    WORK    (workspace) DOUBLE PRECISION array, dimension (3*N)
+
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+
+    Further Details
+    ===============
+
+    The matrix Q is represented as a product of elementary reflectors
+
+       Q = H(1) H(2) . . . H(n)
+
+    Each H(i) has the form
+
+       H = I - tau * v * v'
+
+    where tau is a real scalar, and v is a real vector with
+    v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i).
+
+    The matrix P is represented in jpvt as follows: If
+       jpvt(j) = i
+    then the jth column of P is the ith canonical unit vector.
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function dgeqpf
+  extends Modelica.Icons.Function;
+  input Real A[:,:] "Square or rectangular matrix";
+  output Real QR[size(A, 1),size(A, 2)] = A "QR factorization in packed format";
+  output Real tau[min(size(A, 1), size(A, 2))] "The scalar factors of the elementary reflectors of Q";
+  output Integer p[size(A, 2)] = zeros(size(A, 2)) "Pivot vector";
+  output Integer info;
+end dgeqpf;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

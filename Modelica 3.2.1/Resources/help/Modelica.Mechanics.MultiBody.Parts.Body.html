@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Parts.Body</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Parts.html">Parts</a>.Body</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p><b>Rigid body</b> with mass and inertia tensor. All parameter
+vectors have to be resolved in frame_a. The <b>inertia tensor</b>
+has to be defined with respect to a coordinate system that is
+parallel to frame_a with the origin at the center of mass of the
+body.</p>
+<p>By default, this component is visualized by a <b>cylinder</b>
+located between frame_a and the center of mass and by a
+<b>sphere</b> that has its center at the center of mass. If the
+cylinder length is smaller as the radius of the sphere, e.g., since
+frame_a is located at the center of mass, the cylinder is not
+displayed. Note, that the animation may be switched off via
+parameter animation = <b>false</b>.</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Body.png" alt="Parts.Body" /></p>
+<p><b>States of Body Components</b></p>
+<p>Every body has potential states. If possible a tool will select
+the states of joints and not the states of bodies because this is
+usually the most efficient choice. In this case the position,
+orientation, velocity and angular velocity of frame_a of the body
+will be computed by the component that is connected to frame_a.
+However, if a body is moving freely in space, variables of the body
+have to be used as states. The potential states of the body
+are:</p>
+<ul>
+<li>The <b>position vector</b> frame_a.r_0 from the origin of the
+world frame to the origin of frame_a of the body, resolved in the
+world frame and the <b>absolute velocity</b> v_0 of the origin of
+frame_a, resolved in the world frame (= der(frame_a.r_0)).</li>
+<li>If parameter <b>useQuaternions</b> in the "Advanced" menu is
+<b>true</b> (this is the default), then <b>4 quaternions</b> are
+potential states. Additionally, the coordinates of the absolute
+angular velocity vector of the body are 3 potential states.<br />
+If <b>useQuaternions</b> in the "Advanced" menu is <b>false</b>,
+then <b>3 angles</b> and the derivatives of these angles are
+potential states. The orientation of frame_a is computed by
+rotating the world frame along the axes defined in parameter vector
+"sequence_angleStates" (default = {1,2,3}, i.e., the Cardan angle
+sequence) around the angles used as potential states. For example,
+the default is to rotate the x-axis of the world frame around
+angles[1], the new y-axis around angles[2] and the new z-axis
+around angles[3], arriving at frame_a.</li>
+</ul>
+<p>The quaternions have the slight disadvantage that there is a
+non-linear constraint equation between the 4 quaternions.
+Therefore, at least one non-linear equation has to be solved during
+simulation. A tool might, however, analytically solve this simple
+constraint equation. Using the 3 angles as states has the
+disadvantage that there is a singular configuration in which a
+division by zero will occur. If it is possible to determine in
+advance for an application class that this singular configuration
+is outside of the operating region, the 3 angles might be used as
+potential states by setting <b>useQuaternions</b> =
+<b>false</b>.</p>
+<p>In text books about 3-dimensional mechanics often 3 angles and
+the angular velocity are used as states. This is not the case here,
+since 3 angles and their derivatives are used as potential states
+(if useQuaternions = false). The reason is that for real-time
+simulation the discretization formula of the integrator might be
+"inlined" and solved together with the body equations. By
+appropriate symbolic transformation the performance is drastically
+increased if angles and their derivatives are used as states,
+instead of angles and the angular velocity.</p>
+<p>Whether or not variables of the body are used as states is
+usually automatically selected by the Modelica translator. If
+parameter <b>enforceStates</b> is set to <b>true</b> in the
+"Advanced" menu, then body variables are forced to be used as
+states according to the setting of parameters "useQuaternions" and
+"sequence_angleStates".</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

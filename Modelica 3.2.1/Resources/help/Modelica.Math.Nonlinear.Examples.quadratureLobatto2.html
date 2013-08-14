@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Nonlinear.Examples.quadratureLobatto2</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Nonlinear.html">Nonlinear</a>.<a href="Modelica.Math.Nonlinear.Examples.html">Examples</a>.quadratureLobatto2</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This example solves the following integrands with function
+<a href="Modelica.Math.Nonlinear.quadratureLobatto.html">quadratureLobatto</a>.
+The user can set the parameters, like "w" or "k", and can
+experiment with different integration intervals. The following
+integrals are computed:</p>
+<ul>
+<li>integral(sin(x)*dx)</li>
+<li>integral(sin(w*x)*dx)</li>
+<li>elliptic integral</li>
+</ul>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function quadratureLobatto2
+  extends Modelica.Icons.Function;
+  import Modelica.Utilities.Streams.print;
+  input Real Tolerance = 0.00001 "Error tolerance of integral value" annotation(Dialog(group = "General"));
+  input Real a1 = 0 "Lower limit" annotation(Dialog(group = "Sine"));
+  input Real b1 = 1 "Upper limit" annotation(Dialog(group = "Sine"));
+  input Real a2 = 0 "Lower limit" annotation(Dialog(group = "Sine w"));
+  input Real b2 = 13 "Upper limit" annotation(Dialog(group = "Sine w"));
+  input Real w = 5 "Angular velocity" annotation(Dialog(group = "Sine w"));
+  input Real a3 = 0 "Lower limit" annotation(Dialog(group = "Elliptic integral"));
+  input Real b3 = Modelica.Constants.pi / 2 "Upper limit" annotation(Dialog(group = "Elliptic integral"));
+  input Real k = 1 / sqrt(2) "Modul" annotation(Dialog(group = "Elliptic integral"));
+end quadratureLobatto2;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

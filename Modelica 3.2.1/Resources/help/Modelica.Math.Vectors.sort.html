@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors.sort</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Vectors.html">Vectors</a>.sort</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+           sorted_v = Vectors.<b>sort</b>(v);
+(sorted_v, indices) = Vectors.<b>sort</b>(v, ascending=true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>sort</b>(..) sorts a Real vector v in ascending
+order and returns the result in sorted_v. If the optional argument
+"ascending" is <b>false</b>, the vector is sorted in descending
+order. In the optional second output argument the indices of the
+sorted vector with respect to the original vector are given, such
+that sorted_v = v[indices].</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  (v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
+       -&gt; v2 = {-1, 2, 3, 6, 8}
+          i2 = {1, 5, 3, 4, 2}
+</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function sort
+  extends Modelica.Icons.Function;
+  input Real v[:] "Vector to be sorted";
+  input Boolean ascending = true "= true if ascending order, otherwise descending order";
+  output Real sorted_v[size(v, 1)] = v "Sorted vector";
+  output Integer indices[size(v, 1)] = 1:size(v, 1) "sorted_v = v[indices]";
+end sort;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

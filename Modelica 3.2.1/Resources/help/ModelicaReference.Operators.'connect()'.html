@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'connect()'</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="ModelicaReference.html">ModelicaReference</a>.<a href="ModelicaReference.Operators.html">Operators</a>.'connect()'</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Connect objects (defines <em>breakable</em> branches)</p>
+<h4>Examples</h4>
+<pre>
+<b>model</b> Integrate
+  Modelica.Blocks.Sources.Step step;
+  Modelica.Blocks.Continuous.Integrator integrator;
+<b>equation</b>
+  connect(step.outPort, integrator.inPort);
+<b>end</b> Integrate;
+</pre>
+<p>Example of array use:</p>
+<pre>
+<b>connector</b> InPort = <b>input</b> Real;
+
+<b>connector</b> OutPort = <b>output</b> Real;
+
+<b>block</b> MatrixGain
+  <b>input</b> InPort u[size(A,1)];
+  <b>output</b> OutPort y[size(A,2)]
+  <b>parameter</b> Real A[:,:]=[1];
+<b>equation</b>
+  y=A*u;
+<b>end</b> MatrixGain;
+
+  sin sinSource[5];
+  MatrixGain gain(A=5*identity(5));
+  MatrixGain gain2(A=ones(5,2));
+  OutPort x[2];
+<b>equation</b>
+  <b>connect</b>(sinSource.y, gain.u); // Legal
+  <b>connect</b>(gain.y, gain2.u);     // Legal
+  <b>connect</b>(gain2.y, x);          // Legal
+</pre>
+<h4>Syntax</h4>
+<pre>
+equation_clause :
+  [ <b>initial</b> ] <b>equation</b> { equation ";" | annotation  ";" }
+
+equation :
+  ( simple_expression "=" expression
+    | conditional_equation_e
+    | for_clause_e
+    | connect_clause
+    | when_clause_e
+    | IDENT function_call )
+  comment
+
+connect_clause :
+  <b>connect</b> "(" component_reference "," component_reference ")"
+</pre>
+<h4>Description</h4>
+<p>Connections between objects are introduced by the <b>connect</b>
+statement in the equation part of a class. The <b>connect</b>
+construct takes two references to connectors, each of which is
+either of the following forms:</p>
+<ul>
+<li>c1.c2. ... .cn, where c1 is a connector of the class, n≥1 and
+ci+1 is a connector element of ci for i=1:(n-1).</li>
+<li>m.c, where m is a non-connector element in the class and c is a
+connector element of m.</li>
+</ul>
+<p>There may optionally be array subscripts on any of the
+components; the array subscripts shall be parameter expressions. If
+the connect construct references array of connectors, the array
+dimensions must match, and each corresponding pair of elements from
+the arrays is connected as a pair of scalar connectors.</p>
+<p>The two main tasks are to:</p>
+<ul>
+<li>Build connection sets from <b>connect</b> statements.</li>
+<li>Generate equations for the complete model.</li>
+</ul>
+<p>Definitions:</p>
+<ul>
+<li>Connection sets<br />
+A connection set is a set of variables connected by means of
+connect clauses. A connection set shall contain either only flow
+variables or only non-flow variables.</li>
+<li>Inside and outside connectors<br />
+In an element instance M, each connector element of M is called an
+outside connector with respect to M. All other connector elements
+that are hierarchically inside M, but not in one of the outside
+connectors of M, is called an inside connector with respect to
+M.<br />
+<i>[Example: in connect(a,b.c) 'a' is an outside connector and
+'b.c' is an inside connector, unless 'b' is a connector.]</i></li>
+</ul>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

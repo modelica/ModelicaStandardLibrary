@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Magnetic.html">Magnetic</a>.<a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a href="Modelica.Magnetic.FluxTubes.Basic.html">Basic</a>.LeakageWithCoefficient</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Differently from the flux tube elements of package <a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.html">Shapes.Leakage</a>
+that are calculated from their geometry, this leakage reluctance is
+calculated with reference to the total reluctance of a useful flux
+path. Please refer to the <b>Parameters</b> section for an
+illustration of the resulting magnetic network. Exploiting
+<i>Kirchhoff</i>'s generalized current law, the leakage reluctance
+is calculated by means of a coupling coefficient c_usefulFlux.</p>
+<h4>Attention:</h4>
+<p>This element must <b>not</b> be used <b>for dynamic simulation
+of</b> electro-magneto-mechanical <b>actuators</b>, where the shape
+of at least one flux tube element with reluctance force generation
+in the useful flux path changes with armature motion (e.g., air
+gap). This change results in a non-zero derivative dG_m/dx of those
+elements permeance G_m with respect to armature position x, which
+in turn will lead to a non-zero derivative of the leakage permeance
+with respect to armature position. This would generate a reluctance
+force in the leakage element that is not accounted for properly.
+<a href="Modelica.Magnetic.FluxTubes.Shapes.Force.LeakageAroundPoles.html">
+Shapes.Force.LeakageAroundPoles</a> provides a simple leakage
+reluctance with force generation.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

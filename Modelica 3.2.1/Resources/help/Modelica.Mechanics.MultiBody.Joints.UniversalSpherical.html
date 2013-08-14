@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Joints.UniversalSpherical</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.UniversalSpherical</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component consists of a <b>universal joint</b> at frame_a
+and a <b>spherical joint</b> at frame_b that are connected together
+with a <b>rigid rod</b>, see default animation figure (the arrows
+are not part of the default animation):</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Joints/UniversalSpherical.png" alt="model Joints.UniversalSpherical" /></p>
+<p>This joint aggregation has no mass and no inertia and introduces
+the constraint that the distance between the origin of frame_a and
+the origin of frame_b is constant (= Frames.length(rRod_ia)). The
+universal joint is defined in the following way:</p>
+<ul>
+<li>The rotation <b>axis</b> of revolute joint <b>1</b> is along
+parameter vector n1_a which is fixed in frame_a.</li>
+<li>The rotation <b>axis</b> of revolute joint <b>2</b> is
+perpendicular to axis 1 and to the line connecting the universal
+and the spherical joint.</li>
+</ul>
+<p>The definition of axis 2 of the universal joint is performed
+according to the most often occurring case. In a future release,
+axis 2 might be explicitly definable via a parameter. However, the
+treatment is much more complicated and the number of operations is
+considerably higher, if axis 2 is not orthogonal to axis 1 and to
+the connecting rod.</p>
+<p>Note, there is a <b>singularity</b> when axis 1 and the
+connecting rod are parallel to other. Therefore, if possible n1_a
+should be selected in such a way that it is perpendicular to
+rRod_ia in the initial configuration (i.e., the distance to the
+singularity is as large as possible).</p>
+<p>An additional <b>frame_ia</b> is present. It is <b>fixed</b> in
+the connecting <b>rod</b> at the origin of <b>frame_a</b>. The
+placement of frame_ia on the rod is implicitly defined by the
+universal joint (frame_a and frame_ia coincide when the angles of
+the two revolute joints of the universal joint are zero) and by
+parameter vector <b>rRod_ia</b>, the position vector from the
+origin of frame_a to the origin of frame_b, resolved in
+frame_<b>ia</b>.</p>
+<p>The easiest way to define the parameters of this joint is by
+moving the MultiBody system in a <b>reference configuration</b>
+where <b>all frames</b> of all components are <b>parallel</b> to
+other (alternatively, at least frame_a and frame_ia of the
+UniversalSpherical joint should be parallel to other when defining
+an instance of this component). Since frame_a and frame_ia are
+parallel to other, vector <b>rRod_ia</b> from frame_a to frame_b
+resolved in frame_<b>ia</b> can be resolved in frame_<b>a</b> (or
+the <b>world frame</b>, if all frames are parallel to other).</p>
+<p>This joint aggregation can be used in cases where in reality a
+rod with spherical joints at end are present. Such a system has an
+additional degree of freedom to rotate the rod along its axis. In
+practice this rotation is usually of no interest and is
+mathematically removed by replacing one of the spherical joints by
+a universal joint. Still, in most cases the
+Joints.SphericalSpherical joint aggregation can be used instead of
+the UniversalSpherical joint since the rod is animated and its mass
+properties are approximated by a point mass in the middle of the
+rod. The SphericalSpherical joint has the advantage that it does
+not have a singular configuration.</p>
+<p>In the public interface of the UniversalSpherical joint, the
+following (final) <b>parameters</b> are provided:</p>
+<pre>
+  <b>parameter</b> Real rodLength(unit="m")  "Length of rod";
+  <b>parameter</b> Real eRod_ia[3] "Unit vector along rod, resolved in frame_ia";
+  <b>parameter</b> Real e2_ia  [3] "Unit vector along axis 2, resolved in frame_ia";
+</pre>
+<p>This allows a more convenient definition of data which is
+related to the rod. For example, if a box shall be connected at
+frame_ia directing from the origin of frame_a to the middle of the
+rod, this might be defined as:</p>
+<pre>
+    Modelica.Mechanics.MultiBody.Joints.UniversalSpherical jointUS(rRod_ia={1.2, 1, 0.2});
+    Modelica.Mechanics.MultiBody.Visualizers.FixedShape    shape(shapeType       = "box",
+                                              lengthDirection = jointUS.eRod_ia,
+                                              widthDirection  = jointUS.e2_ia,
+                                              length          = jointUS.rodLength/2,
+                                              width           = jointUS.rodLength/10);
+  <b>equation</b>
+    <b>connect</b>(jointUS.frame_ia, shape.frame_a);
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

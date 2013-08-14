@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.LAPACK.dtrsyl</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.<a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.dtrsyl</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Lapack documentation
+    Purpose
+    =======
+
+    DTRSYL solves the real Sylvester matrix equation:
+
+       op(A)*X + X*op(B) = scale*C or
+       op(A)*X - X*op(B) = scale*C,
+
+    where op(A) = A or A**T, and  A and B are both upper quasi-
+    triangular. A is M-by-M and B is N-by-N; the right hand side C and
+    the solution X are M-by-N; and scale is an output scale factor, set
+    &lt;= 1 to avoid overflow in X.
+
+    A and B must be in Schur canonical form (as returned by DHSEQR), that
+    is, block upper triangular with 1-by-1 and 2-by-2 diagonal blocks;
+    each 2-by-2 diagonal block has its diagonal elements equal and its
+    off-diagonal elements of opposite sign.
+
+    Arguments
+    =========
+
+    TRANA   (input) CHARACTER*1
+            Specifies the option op(A):
+            = 'N': op(A) = A    (No transpose)
+            = 'T': op(A) = A**T (Transpose)
+            = 'C': op(A) = A**H (Conjugate transpose = Transpose)
+
+    TRANB   (input) CHARACTER*1
+            Specifies the option op(B):
+            = 'N': op(B) = B    (No transpose)
+            = 'T': op(B) = B**T (Transpose)
+            = 'C': op(B) = B**H (Conjugate transpose = Transpose)
+
+    ISGN    (input) INTEGER
+            Specifies the sign in the equation:
+            = +1: solve op(A)*X + X*op(B) = scale*C
+            = -1: solve op(A)*X - X*op(B) = scale*C
+
+    M       (input) INTEGER
+            The order of the matrix A, and the number of rows in the
+            matrices X and C. M &gt;= 0.
+
+    N       (input) INTEGER
+            The order of the matrix B, and the number of columns in the
+            matrices X and C. N &gt;= 0.
+
+    A       (input) DOUBLE PRECISION array, dimension (LDA,M)
+            The upper quasi-triangular matrix A, in Schur canonical form.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A. LDA &gt;= max(1,M).
+
+    B       (input) DOUBLE PRECISION array, dimension (LDB,N)
+            The upper quasi-triangular matrix B, in Schur canonical form.
+
+    LDB     (input) INTEGER
+            The leading dimension of the array B. LDB &gt;= max(1,N).
+
+    C       (input/output) DOUBLE PRECISION array, dimension (LDC,N)
+            On entry, the M-by-N right hand side matrix C.
+            On exit, C is overwritten by the solution matrix X.
+
+    LDC     (input) INTEGER
+            The leading dimension of the array C. LDC &gt;= max(1,M)
+
+    SCALE   (output) DOUBLE PRECISION
+            The scale factor, scale, set &lt;= 1 to avoid overflow in X.
+
+    INFO    (output) INTEGER
+            = 0: successful exit
+            &lt; 0: if INFO = -i, the i-th argument had an illegal value
+            = 1: A and B have common or very close eigenvalues; perturbed
+                 values were used to solve the equation (but the matrices
+                 A and B are unchanged).
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function dtrsyl
+  extends Modelica.Icons.Function;
+  input Real A[:,:] "Upper quais-triangular matrix";
+  input Real B[:,:] "Upper quais-triangular matrix";
+  input Real C[if tranA then size(A, 1) else size(A, 2),if tranB then size(B, 1) else size(B, 2)] "Right side of the Sylvester equation";
+  input Boolean tranA = false "True if op(A)=A'";
+  input Boolean tranB = false "True if op(B)=B'";
+  input Integer isgn = 1 "Specifies the sign in the equation, +1 or -1";
+  output Real X[size(C, 1),size(C, 2)] = C "Solution of the Sylvester equation";
+  output Real scale "Scale factor";
+  output Integer info;
+end dtrsyl;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

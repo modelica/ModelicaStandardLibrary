@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.Interfaces.PartialMedium.BaseProperties</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Media.html">Media</a>.<a href="Modelica.Media.Interfaces.html">Interfaces</a>.<a href="Modelica.Media.Interfaces.PartialMedium.html">PartialMedium</a>.BaseProperties</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Model <b>BaseProperties</b> is a model within package
+<b>PartialMedium</b> and contains the <b>declarations</b> of the
+minimum number of variables that every medium model is supposed to
+support. A specific medium inherits from model
+<b>BaseProperties</b> and provides the equations for the basic
+properties.</p>
+<p>The BaseProperties model contains the following <b>7+nXi
+variables</b> (nXi is the number of independent mass fractions
+defined in package PartialMedium):</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>Variable</b></td>
+<td valign="top"><b>Unit</b></td>
+<td valign="top"><b>Description</b></td>
+</tr>
+<tr>
+<td valign="top">T</td>
+<td valign="top">K</td>
+<td valign="top">temperature</td>
+</tr>
+<tr>
+<td valign="top">p</td>
+<td valign="top">Pa</td>
+<td valign="top">absolute pressure</td>
+</tr>
+<tr>
+<td valign="top">d</td>
+<td valign="top">kg/m3</td>
+<td valign="top">density</td>
+</tr>
+<tr>
+<td valign="top">h</td>
+<td valign="top">J/kg</td>
+<td valign="top">specific enthalpy</td>
+</tr>
+<tr>
+<td valign="top">u</td>
+<td valign="top">J/kg</td>
+<td valign="top">specific internal energy</td>
+</tr>
+<tr>
+<td valign="top">Xi[nXi]</td>
+<td valign="top">kg/kg</td>
+<td valign="top">independent mass fractions m_i/m</td>
+</tr>
+<tr>
+<td valign="top">R</td>
+<td valign="top">J/kg.K</td>
+<td valign="top">gas constant</td>
+</tr>
+<tr>
+<td valign="top">M</td>
+<td valign="top">kg/mol</td>
+<td valign="top">molar mass</td>
+</tr>
+</table>
+<p>In order to implement an actual medium model, one can extend
+from this base model and add <b>5 equations</b> that provide
+relations among these variables. Equations will also have to be
+added in order to set all the variables within the
+ThermodynamicState record state.</p>
+<p>If standardOrderComponents=true, the full composition vector
+X[nX] is determined by the equations contained in this base class,
+depending on the independent mass fraction vector Xi[nXi].</p>
+<p>Additional <b>2 + nXi</b> equations will have to be provided
+when using the BaseProperties model, in order to fully specify the
+thermodynamic conditions. The input connector qualifier applied to
+p, h, and nXi indirectly declares the number of missing equations,
+permitting advanced equation balance checking by Modelica tools.
+Please note that this doesn't mean that the additional equations
+should be connection equations, nor that exactly those variables
+should be supplied, in order to complete the model. For further
+information, see the Modelica.Media User's guide, and Section 4.7
+(Balanced Models) of the Modelica 3.0 specification.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputAbsolutePressure.html">
+InputAbsolutePressure</a></td>
+<td>Pressure as input signal connector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputSpecificEnthalpy.html">
+InputSpecificEnthalpy</a></td>
+<td>Specific enthalpy as input signal connector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialMedium.BaseProperties.InputMassFraction.html">
+InputMassFraction</a></td>
+<td>Mass fraction as input signal connector</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.det</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.det</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+result = Matrices.<b>det</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function returns the determinant "result" of matrix A
+computed by a LU decomposition with row pivoting. For details about
+determinants, see <a href="http://en.wikipedia.org/wiki/Determinant">http://en.wikipedia.org/wiki/Determinant</a>.
+Usually, this function should never be used, because there are
+nearly always better numerical algorithms as by computing the
+determinant. Examples:</p>
+<ul>
+<li>Use <a href="Modelica.Math.Matrices.rank.html">Matrices.rank</a> to
+compute whether det(A) = 0 (i.e., Matrices.rank(A) &lt;
+size(A,1)).</li>
+<li>Use <a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a> to
+solve the linear equation A*x = b, instead of using determinants to
+compute the solution.</li>
+</ul>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.rank.html">Matrices.rank</a>,
+<a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function det
+  extends Modelica.Icons.Function;
+  input Real A[:,size(A, 1)];
+  output Real result "Determinant of matrix A";
+end det;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

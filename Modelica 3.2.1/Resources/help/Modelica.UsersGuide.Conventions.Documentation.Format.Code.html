@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.UsersGuide.Conventions.Documentation.Format.Code</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.UsersGuide.html">UsersGuide</a>.<a href="Modelica.UsersGuide.Conventions.html">Conventions</a>.<a href="Modelica.UsersGuide.Conventions.Documentation.html">Documentation</a>.<a href="Modelica.UsersGuide.Conventions.Documentation.Format.html">Format</a>.Code</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p><a href="Modelica.UsersGuide.Conventions.ModelicaCode.html">Modelica
+code</a> conventions of class and instance names, parameters and
+variables are specified separately. In this section it is
+summarized how to refer to Modelica code in the HTML
+documentation.</p>
+<ol>
+<li>For constants, parameters and variables in code segments
+<code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code> should to
+be used, e.g.,<br />
+<code><b>parameter</b> Modelica.SIunits.Time tStart "Start
+time"</code></li>
+<li>Write multi or single line code segments using
+<code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
+<li>Multi line or single line code shall not be indented.</li>
+<li>Inline code segments may be typeset with
+<code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
+<li>In code segments use bold to emphasize Modelica keywords.</li>
+</ol>
+<h5>Example 1</h5>
+<pre>
+&lt;pre&gt;
+&lt;b&gt;connector&lt;/b&gt; Frame
+   ...
+   &lt;b&gt;flow&lt;/b&gt; SI.Force f[Woehrnschimmel1998] &lt;b&gt;annotation&lt;/b&gt;(unassignedMessage="...");
+&lt;b&gt;end&lt;/b&gt; Frame;
+&lt;/pre&gt;
+</pre>
+<p>appears as</p>
+<pre>
+<b>connector</b> Frame
+   ...
+   <b>flow</b> SI.Force f[Woehrnschimmel1998] <b>annotation</b>(unassignedMessage="...");
+<b>end</b> Frame;
+</pre>
+<h5>Example 2</h5>
+<pre>
+&lt;pre&gt;
+&lt;b&gt;parameter&lt;/b&gt; Modelica.SIunits.Conductance G=1 "Conductance";
+&lt;/pre&gt;
+</pre>
+<p>appears as</p>
+<pre>
+<b>parameter</b> Modelica.SIunits.Conductance G=1 "Conductance";
+</pre>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

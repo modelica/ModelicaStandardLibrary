@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Internal.FileSystem</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Utilities.html">Utilities</a>.<a href="Modelica.Utilities.Internal.html">Internal</a>.FileSystem</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Package <b>Internal.FileSystem</b> is an internal package that
+contains low level functions as interface to the file system. These
+functions should not be called directly in a scripting environment
+since more convenient functions are provided in packages Files and
+Systems.</p>
+<p>Note, the functions in this package are direct interfaces to
+functions of POSIX and of the standard C library. Errors occurring
+in these functions are treated by triggering a Modelica assert.
+Therefore, the functions in this package return only for a
+successful operation. Furthermore, the representation of a string
+is hidden by this interface, especially if the operating system
+supports Unicode characters.</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Internal.FileSystem.mkdir.html">mkdir</a></td>
+<td>Make directory (POSIX: 'mkdir')</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Internal.FileSystem.rmdir.html">rmdir</a></td>
+<td>Remove empty directory (POSIX function 'rmdir')</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Internal.FileSystem.stat.html">stat</a></td>
+<td>Inquire file information (POSIX function 'stat')</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Internal.FileSystem.rename.html">rename</a></td>
+<td>Rename existing file or directory (C function 'rename')</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Internal.FileSystem.removeFile.html">removeFile</a></td>
+<td>Remove existing file (C function 'remove')</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Internal.FileSystem.copyFile.html">copyFile</a></td>
+<td>Copy existing file (C functions 'fopen', 'getc', 'putc',
+'fclose')</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Internal.FileSystem.readDirectory.html">readDirectory</a></td>
+<td>Read names of a directory (POSIX functions opendir, readdir,
+closedir)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Internal.FileSystem.getNumberOfFiles.html">getNumberOfFiles</a></td>
+<td>Get number of files and directories in a directory (POSIX
+functions opendir, readdir, closedir)</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

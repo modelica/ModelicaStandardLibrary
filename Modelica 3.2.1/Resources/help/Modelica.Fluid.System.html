@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.System</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.System</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>A system component is needed in each fluid model to provide
+system-wide settings, such as ambient conditions and overall
+modeling assumptions. The system settings are propagated to the
+fluid models using the inner/outer mechanism.</p>
+<p>A model should never directly use system parameters. Instead a
+local parameter should be declared, which uses the global setting
+as default. The only exceptions are:</p>
+<ul>
+<li>the gravity system.g,</li>
+<li>the global system.eps_m_flow, which is used to define a local
+m_flow_small for the local m_flow_nominal:
+<pre>
+m_flow_small = system.eps_m_flow*m_flow_nominal
+</pre></li>
+</ul>
+<p>The global system.m_flow_small and system.dp_small are classic
+parameters. They do not distinguish between laminar flow and
+regularization of zero flow. Absolute small values are error prone
+for models with local nominal values. Moreover dp_small can
+generally be obtained automatically. Consider using the new
+system.use_eps_Re = true (see Advanced tab).</p>
+<h2>Contents</h2>
+<table summary="Items">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.System.Medium.html">Medium</a></td>
+<td>Medium model for default start values</td>
+</tr>
+</table>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

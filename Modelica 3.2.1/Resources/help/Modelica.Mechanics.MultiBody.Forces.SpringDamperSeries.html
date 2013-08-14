@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a>.SpringDamperSeries</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p><b>Linear spring</b> and <b>linear damper</b> in series
+connection acting as line force between frame_a and frame_b:</p>
+<pre>
+  frame_a --&gt; damper ----&gt; spring --&gt; frame_b
+          |              |
+          |-- s_damper --|  (s_damper is the state variable of this system)
+</pre>
+<p>A <b>force f</b> is exerted on the origin of frame_b and with
+opposite sign on the origin of frame_a along the line from the
+origin of frame_a to the origin of frame_b according to the
+equations:</p>
+<pre>
+   f = c*(s - s_unstretched - s_damper);
+   f = d*der(s_damper);
+</pre>
+<p>where "c", "s_unstretched" and "d" are parameters, "s" is the
+distance between the origin of frame_a and the origin of frame_b.
+"s_damper" is the length of the damper (= an internal state of this
+force element) and der(s_damper) is the time derivative of
+s_damper.</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

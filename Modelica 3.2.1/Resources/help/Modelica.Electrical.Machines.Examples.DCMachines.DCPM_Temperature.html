@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Temperature</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Machines.html">Machines</a>.<a href="Modelica.Electrical.Machines.Examples.html">Examples</a>.<a href="Modelica.Electrical.Machines.Examples.DCMachines.html">DCMachines</a>.DCPM_Temperature</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<b>Test example: Investigate influence of armature temperature on a
+DCPM motor</b><br />
+The motor starts at no-load speed, then a load step is
+applied.<br />
+Beginning with the load step, the armature temperature rises
+exponentially from 20 degC to 80 degC.<br />
+Simulate for 3 seconds and plot (versus time):
+<ul>
+<li>dcpm.ia: armature current</li>
+<li>dcpm.wMechanical: motor's speed</li>
+<li>dcpm.tauElectrical: motor's torque</li>
+<li>thermalAmbientDCPM.Q_flow_a: motor's armature losses</li>
+</ul>
+Default machine parameters are used, but:
+<ul>
+<li>The armature winding material is set to Copper.</li>
+<li>Armature reference temperature is set to 80 degC.</li>
+<li>Nominal armature temperature is set to 80 degC.</li>
+</ul>
+So the machine is at the beginning in cold condition, ending in
+warm condition (with the same armature resistance as the unmodified
+machine).
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

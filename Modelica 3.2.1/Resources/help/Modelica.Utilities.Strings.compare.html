@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Strings.compare</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Utilities.html">Utilities</a>.<a href="Modelica.Utilities.Strings.html">Strings</a>.compare</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+result = Strings.<b>compare</b>(string1, string2);
+result = Strings.<b>compare</b>(string1, string2, caseSensitive=true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Compares two strings. If the optional argument
+caseSensitive=false, upper case letters are treated as if they
+would be lower case letters. The result of the comparison is
+returned as:</p>
+<pre>
+  result = Modelica.Utilities.Types.Compare.Less     // string1 &lt; string2
+         = Modelica.Utilities.Types.Compare.Equal    // string1 = string2
+         = Modelica.Utilities.Types.Compare.Greater  // string1 &gt; string2
+</pre>
+<p>Comparison is with regards to lexicographical order, e.g., "a"
+&lt; "b";</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function compare
+  extends Modelica.Icons.Function;
+  input String string1;
+  input String string2;
+  input Boolean caseSensitive = true "= false, if case of letters is ignored";
+  output Modelica.Utilities.Types.Compare result "Result of comparison";
+end compare;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.html">SurfaceCharacteristics</a>.pipeWithScalarField</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Function <b>pipeWithScalarField</b> computes the X,Y,Z,C arrays
+in order to visualize a pipe and a scalar field along the pipe axis
+with model <a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField.html">
+PipeWithScalarField</a>. The latter is shown by mapping scalar
+field to color values with a color map and utilizing this color at
+the perimeter associated with the corresponding axis location.
+Typically the scalar field value is a temperature, but might be
+also another quantity. Predefined color maps are available from
+<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.html">
+MultiBody.Visualizers.Colors.ColorMaps</a> and can be selected via
+input argument "colorMap". A color map with the corresponding
+scalar field values can be exported as vector-graphics in
+svg-format with function <a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">
+MultiBody.Visualizers.Colors.colorMapToSvg</a>. An example is shown
+in the next figure:</p>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField.png" /></blockquote>
+<p>The color coding is shown in the next figure. It was generated
+with <a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.html">
+Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</a> using the
+following call:</p>
+<blockquote>
+<pre>
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizer.Colors.ColorMap.jet(),
+              height=50, nScalars=6, T_max=100, heading="Temperature in C");
+</pre></blockquote>
+<blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png" /></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function pipeWithScalarField
+  extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(final multiColoredSurface = true);
+  input Modelica.SIunits.Radius rOuter "Outer radius of cylinder" annotation(Dialog);
+  input Modelica.SIunits.Length length "Length of cylinder" annotation(Dialog);
+  input Modelica.SIunits.Position xsi[:] "Relative position along the pipe with x[1] = 0, x[end] = 1" annotation(Dialog);
+  input Real T[size(xsi, 1)] "Scalar field value at position xsi*length" annotation(Dialog);
+  input Real T_min "T &lt;= T_min is mapped to colorMap[1,:]" annotation(Dialog);
+  input Real T_max "T &gt;= T_max is mapped to colorMap[end,:]" annotation(Dialog);
+  input Real colorMap[:,3] "Color map to map scalar T to a corresponding color" annotation(Dialog);
+end pipeWithScalarField;
+
+</pre></blockquote>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>

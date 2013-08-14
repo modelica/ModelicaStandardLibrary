@@ -1,0 +1,48 @@
+Documentation of functions (all can be called in vectorized form):
+
+convertClear: No effect
+
+convertClass("OldClass","NewClass");
+// Convert class OldClass to NewClass
+// Match longer path first, so if converting both A->C and A.B->D then A.B is converted to D and A.B.E to D.E
+// Unusual case:
+// 1. NewClass="prefix NewClass"
+//    Prefix can be inner, outer, parameter, or constant
+// In this case all components of the class will have this additional prefix.
+
+convertClassIf("OldClass","Parameter","ConvertIf","NewClass");
+// If parameter Parameter has value ConvertIf convert OldClass to NewClass AND remove modifier
+// Unusual case:
+//   1. ConvertIf="connect" and parameter is the name of a connector
+//     In this case convert to the given class for a component
+//     if the named connector of the component is connected from the outside.
+
+convertModifiers("OldClass",{"OldModifier1=default1","OldModifier2=default2",...},{"NewModifier1=...%OldModifier1%"}, simplify=false);
+// Normal case; if any modifier among OldModifier exist then replace all of them with the NewModifiers.
+//
+// The defaults (if present) are used if multiple OldModifiers and not all are set in the component instance
+// if simplify then perform obvious simplifications to clean up the new modifier
+//
+// Unusual cases:
+// 1. if NewModifier list is empty then the modifier is just removed
+// 2. if "equation" instead of newmodifer then replace modifer by equation
+// 3. If OldModifer list is empty it is added for all uses of the class
+// 4. If NewModifier is "size=%n%" then create array of component of size [n] if n!=1.
+// Note: simplify is primarily intended for converting enumerations and emulated enumerations
+//        that naturally lead to large nested if-expressions.
+//       The simplifications will also simplify parts of the original expression.
+
+
+convertElement("OldClass","OldElement","NewElement");
+// In OldClass convert element (component or parameter) to NewElement
+//
+// Unusal case:
+// 1. ConvertElement("OldClass","inPort.signal[1]","u");
+//          convert inPort.signal array to scalar u
+// 2. convertElement("OldClass","inPort","{u}");
+//           convert inPort scalar to array u
+// 3. convertElement("OldClass","inPort","");
+//           If: OldClass comp1; comp1.inPort replace by comp1
+// Note:             If conversion for both "inPort.signal" and "inPort" then convert longest match
+//                   It only uses inheritance among the classes that will be converted;
+//                     requiring multiple/vectorized calls for base-class in the old library.

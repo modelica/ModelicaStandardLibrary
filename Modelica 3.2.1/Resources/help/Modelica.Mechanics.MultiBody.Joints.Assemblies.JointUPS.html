@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.html">Assemblies</a>.JointUPS</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component consists of a <b>universal</b> joint at frame_a,
+a <b>spherical</b> joint at frame_b and a <b>prismatic</b> joint
+along the line connecting the origin of frame_a and the origin of
+frame_b, see the default animation in the following figure (the
+axes vectors are not part of the default animation):</p>
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Joints/JointUPS.png" alt="model Joints.Assemblies.JointUPS" /></p>
+<p>This joint aggregation has no mass and no inertia and introduces
+neither constraints nor potential state variables. It is especially
+useful to build up more complicated force elements where the mass
+and/or inertia of the force element shall be taken into
+account.</p>
+<p>The universal joint is defined in the following way:</p>
+<ul>
+<li>The rotation <b>axis</b> of revolute joint <b>1</b> is along
+parameter vector n1_a which is fixed in frame_a.</li>
+<li>The rotation <b>axis</b> of revolute joint <b>2</b> is
+perpendicular to axis 1 and to the line connecting the universal
+and the spherical joint.</li>
+</ul>
+<p>The definition of axis 2 of the universal joint is performed
+according to the most often occurring case. In a future release,
+axis 2 might be explicitly definable via a parameter. However, the
+treatment is much more complicated and the number of operations is
+considerably higher, if axis 2 is not orthogonal to axis 1 and to
+the connecting rod.</p>
+<p>Note, there is a <b>singularity</b> when axis 1 and the
+connecting line are parallel to each other. Therefore, if possible
+n1_a should be selected in such a way that it is perpendicular to
+nAxis_ia in the initial configuration (i.e., the distance to the
+singularity is as large as possible).</p>
+<p>An additional <b>frame_ia</b> is present. It is <b>fixed</b> on
+the line connecting the universal and the spherical joint at the
+origin of <b>frame_a</b>. The placement of frame_ia on this line is
+implicitly defined by the universal joint (frame_a and frame_ia
+coincide when the angles of the two revolute joints of the
+universal joint are zero) and by parameter vector <b>nAxis_ia</b>,
+an axis vector directed along the line from the origin of frame_a
+to the spherical joint, resolved in frame_<b>ia</b>.</p>
+<p>An additional <b>frame_ib</b> is present. It is <b>fixed</b> in
+the line connecting the prismatic and the spherical joint at the
+origin of <b>frame_b</b>. It is always parallel to
+<b>frame_ia</b>.</p>
+<p>Note, this joint aggregation can be used in cases where in
+reality a rod with spherical joints at each end are present. Such a
+system has an additional degree of freedom to rotate the rod along
+its axis. In practice this rotation is usually of no interest and
+is mathematically removed by replacing one of the spherical joints
+by a universal joint.</p>
+<p>The easiest way to define the parameters of this joint is by
+moving the MultiBody system in a <b>reference configuration</b>
+where <b>all frames</b> of all components are <b>parallel</b> to
+each other (alternatively, at least frame_a, frame_ia and frame_ib
+of the JointUSP joint should be parallel to each other when
+defining an instance of this component).</p>
+<hr />
+Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+</body>
+</html>
