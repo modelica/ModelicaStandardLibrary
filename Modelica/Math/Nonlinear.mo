@@ -338,17 +338,15 @@ to a function in a model.
 
     package UtilityFunctions
       "Utility functions that are used as function arguments to the examples"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.UtilitiesPackage;
 
       function fun1 "y = u^2 - 1"
-        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
       algorithm
         y := u^2 - 1;
       end fun1;
 
       function fun2 "y = 3*u - sin(w*u) - 1"
-        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real w "Angular velocity";
       algorithm
@@ -357,7 +355,6 @@ to a function in a model.
       end fun2;
 
       function fun3 "y = p[1] + log(p[2]*u) - m*u"
-        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real p[2];
         input Real m;
@@ -367,14 +364,12 @@ to a function in a model.
       end fun3;
 
       function fun4 "y = sin(u)"
-        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
       algorithm
         y := sin(u);
       end fun4;
 
       function fun5 "y = sin(w*u)"
-        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real w "Angular velocity";
       algorithm
@@ -382,7 +377,6 @@ to a function in a model.
       end fun5;
 
       function fun6 "y = sqrt(1/(1 - k^2*sin(u)^2))"
-        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real k "Modul";
       algorithm
@@ -390,7 +384,6 @@ to a function in a model.
       end fun6;
 
       function fun7 "y = A*sin(w*u)*q(t)"
-        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real A "Amplitude";
         input Real w "Angular frequency";
@@ -411,6 +404,8 @@ arguments to the example functions.
     extends Modelica.Icons.InterfacesPackage;
   encapsulated partial function partialScalarFunction
       "Interface for a function with one input and one output Real signal"
+    import Modelica;
+    extends Modelica.Icons.Function;
     input Real u "Independent variable";
     output Real y "Dependent variable y=f(u)";
       annotation (Documentation(info="<html>
@@ -439,8 +434,7 @@ to a function, see, .e.g.,
   function quadratureLobatto
     "Return the integral of an integrand function using an adaptive Lobatto rule"
     extends Modelica.Icons.Function;
-    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction
-                                                         f "Integrand function";
+    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f "Integrand function";
     input Real a "Lower limit of integration interval";
     input Real b "Upper limit of integration interval";
     input Real tolerance = 100*Modelica.Constants.eps
@@ -470,8 +464,7 @@ to a function, see, .e.g.,
     Integer s;
 
     function quadStep "Recursive function used by quadrature"
-      input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction
-                                                           f;
+      input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f;
       input Real a "Right interval end";
       input Real b "Left interval end";
       input Real fa "Function value at a";
@@ -633,8 +626,7 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
     extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams.error;
 
-    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction
-                                                         f
+    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f
       "Function y = f(u); u is computed so that y=0";
     input Real u_min "Lower bound of search interval";
     input Real u_max "Upper bound of search interval";
