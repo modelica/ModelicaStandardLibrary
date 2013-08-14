@@ -230,18 +230,23 @@ can be provided as third argument of the function. Default is \"eps = 0\".
     input Real v[:] "Vector";
     input Real p(min=1) = 2
       "Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)";
-    output Real result "p-norm of vector v";
-
+    output Real result=0.0 "p-norm of vector v";
+  protected
+    Real eps = 10*Modelica.Constants.eps;
   algorithm
-    if p == 2 then
+   if size(v,1) > 0 then
+    if p >= 2-eps and p <= 2+eps then
       result := sqrt(v*v);
-    elseif p == Modelica.Constants.inf then
+    elseif p >= Modelica.Constants.inf then
       result := max(abs(v));
-    elseif p == 1 then
+    elseif p >= 1-eps and p <= 1+eps then
       result := sum(abs(v));
-    else
+    elseif p >= 1 then
       result := (sum(abs(v[i])^p for i in 1:size(v, 1)))^(1/p);
+    else
+      assert(false, "Optional argument \"p\" (= " + String(p) + ") of function \"norm\" >= 1 required");
     end if;
+   end if;
     annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -2840,15 +2845,16 @@ To be more precise:
     input Real A[:, :] "Input matrix";
     input Real p(min=1) = 2
       "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
-    output Real result=0.0 "p-norm of matrix A";
+    output Real result=0.0 "Condition number of matrix A";
 
   protected
     Real eps=1e-25;
+    Real eps2 = 10*Modelica.Constants.eps;
     Real s[size(A, 1)] "singular values";
 
   algorithm
     if min(size(A)) > 0 then
-      if p == 2 then
+      if p >= 2-eps2 and p <= 2+eps2 then
         s := Modelica.Math.Matrices.singularValues(A);
         if min(s) < eps then
           result := Modelica.Constants.inf;
@@ -2967,25 +2973,28 @@ If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill condit
     input Real p(min=1) = 2
       "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
     output Real result=0.0 "p-norm of matrix A";
-
+  protected
+    Real eps = 10*Modelica.Constants.eps;
   algorithm
-    if p == 1 then
+   if min(size(A)) > 0 then
+    if p >= 1-eps and p <= 1+eps then
       // column sum norm
       for i in 1:size(A, 2) loop
         result := max(result, sum(abs(A[:, i])));
       end for;
-    elseif p == 2 then
+    elseif p >= 2-eps and p <= 2+eps then
       // largest singular value
       result := max(singularValues(A));
-    elseif p == Modelica.Constants.inf then
+    elseif p >= Modelica.Constants.inf then
       // row sum norm
       for i in 1:size(A, 1) loop
         result := max(result, sum(abs(A[i, :])));
       end for;
     else
-      assert(false, "Optional argument \"p\" of function \"norm\" must be
+      assert(false, "Optional argument \"p\" (= " + String(p) + ") of function \"norm\" must be
 1, 2 or Modelica.Constants.inf");
     end if;
+   end if;
     annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -3037,7 +3046,7 @@ Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,
     output Real result "Frobenius norm of matrix A";
 
   algorithm
-    result := if min(size(A)) > 0 then sqrt(sum(A .* A)) else -1e100;
+    result := if min(size(A)) > 0 then sqrt(sum(A .* A)) else 0.0;
 
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
