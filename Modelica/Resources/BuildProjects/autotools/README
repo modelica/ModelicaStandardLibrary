@@ -11,5 +11,9 @@ make
 sudo make install
 sudo make uninstall
 
+Note that special care has to be taken if there is a space in the path (/path/to/Modelica 3.2.1/Resources/Library/linux32).
+GNU tools, libtool in particular, cannot handle paths with spaces in them (which is one of the reasons you should never install MinGW in a path with spaces).
+In this case, you are recommended to temporarily move the directory to one without spaces, and moving it back after make install.
+
 Minimal files needed to compile on Unix (requires autotools installed):
  autogen.sh, configure.ac, Makefile.am, README
