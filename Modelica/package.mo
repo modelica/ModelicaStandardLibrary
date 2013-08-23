@@ -2424,7 +2424,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_1 "Version 3.2.1 (July 26, 2013)"
+class Version_3_2_1 "Version 3.2.1 (August 14, 2013)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
