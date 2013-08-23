@@ -62,12 +62,12 @@ package Types
       Evaluate=true, Documentation(info="<html>
 <p>
 This initialization type is identical to <a href=\"modelica://Modelica.Blocks.Types.Init\">Types.Init</a> and has just one
-additional option <code><strong>DoNotUse_InitialIntegratorState</strong></code>. This option
+additional option <strong><code>DoNotUse_InitialIntegratorState</code></strong>. This option
 is introduced in order that the default initialization for the
 <code>Continuous.PID</code> and <code>Continuous.LimPID</code> blocks are backward
 compatible. In Modelica 2.2, the integrators have been initialized
 with their given states where as the D-part has not been initialized.
-The option <code><strong>DoNotUse_InitialIntegratorState</code></strong> leads to this
+The option <strong><code>DoNotUse_InitialIntegratorState</code></strong> leads to this
 initialization definition.
 </p>
 

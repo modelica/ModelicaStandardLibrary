@@ -2428,7 +2428,6 @@ class Version_3_2_1 "Version 3.2.1 (July 26, 2013)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
-
 <p>
 Version 3.2.1 is backward compatible to version 3.2, that is models developed with
 versions 3.0, 3.0.1, 3.1, or 3.2 will work without any changes also with version 3.2.1.
@@ -2506,7 +2505,7 @@ tools might not yet supported the complete Modelica package):
 <li> Dymola 2014 FD01 development with pedantic flag (Windows 64 bit)<br>
      (\"pedantic flag\" means that strict Modelica compliance is checked.
      Dymola 2014 fails with pedantic flag, e.g., because the annotation DocumentationClass
-     was not standardized when this version of Dymola was released).
+     was not standardized when this version of Dymola was released).</li>
 <li> Maplesim Parser</li>
 <li> MWorks 3.2</li>
 <li> OpenModelica 1.9.0 Beta4+dev (Windows, Linux, Mac)<br>
@@ -2563,7 +2562,6 @@ The new open source tables have been tested by T. Beutlich (ITI):
      &nbsp;&nbsp;&nbsp;Microtec PowerPC Compiler 3.7 (for DS1005)
      </li>
 </ul>
-</li>
 
 <p>
 The exact difference between package Modelica version 3.2 and version 3.2.1 is
@@ -7326,7 +7324,7 @@ class Contact "Contact"
 
 <dt>The development of this Modelica package, starting with version 3.2.1, is organized by:</dt>
 <dd><a href=\"http://www.haumer.at/eindex.htm\">Anton Haumer</a></dd>
-<dd>Technical Consulting & Electrical Engineering</dd>
+<dd>Technical Consulting &amp; Electrical Engineering</dd>
 <dd>A-3423 St.Andrae-Woerdern, Hadersfelderweg 21</dd>
 <dd>Austria</dd>
 <dd>email: <a href=\"mailto:A.Haumer@Haumer.at\">A.Haumer@Haumer.at</a></dd>
