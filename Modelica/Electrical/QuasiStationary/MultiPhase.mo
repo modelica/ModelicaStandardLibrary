@@ -337,9 +337,9 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
     equation
       for j in 1:m loop
         if j<m then
-          connect(plugToPins_p.pin_p[j], plugToPins_n.pin_n[j+1]);
+          connect(plugToPins_n.pin_n[j], plugToPins_p.pin_p[j+1]);
         else
-          connect(plugToPins_p.pin_p[j], plugToPins_n.pin_n[1]);
+          connect(plugToPins_n.pin_n[j], plugToPins_p.pin_p[1]);
         end if;
       end for;
       connect(plug_p, plugToPins_p.plug_p)
@@ -1118,7 +1118,7 @@ The inductances <i>L</i> are given as <i>m</i> input signals.
 </html>"));
     end VariableInductor;
     annotation (Icon(
-      graphics = {
+      graphics={
         Line(
           origin = {10,40},
           points = {{-100,-40},{-80,-40}}),
@@ -1585,7 +1585,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 </p>
 </HTML>"));
     end IdealClosingSwitch;
-  annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics = {
+  annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics={
                 Line(origin = {10,34}, points = {{-100,-60},{-54,-60}}),
                 Ellipse(origin = {10,34}, extent = {{-54,-64},{-46,-56}}),
                 Line(origin = {10,34}, points = {{-47,-58},{30,-10}}),
@@ -1783,14 +1783,14 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(min=1) = 3 "number of phases";
       Modelica.SIunits.AngularVelocity omega = der(currentP.reference.gamma);
-      Interfaces.PositivePlug currentP
+      Interfaces.PositivePlug currentP(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-      Interfaces.NegativePlug currentN
+      Interfaces.NegativePlug currentN(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Interfaces.PositivePlug voltageP
+      Interfaces.PositivePlug voltageP(final m=m)
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
-      Interfaces.NegativePlug voltageN
+      Interfaces.NegativePlug voltageN(final m=m)
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=
                0)));
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y
@@ -1823,15 +1823,13 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
             rotation=270)));
     equation
       connect(plugToPinsCurrentP.plug_p, currentP)
-        annotation (Line(points={{-72,0},{-79,0},{-79,0},{-86,0},
-              {-86,0},{-100,0}},
+        annotation (Line(points={{-72,0},{-79,0},{-86,0},{-100,0}},
                               color={85,170,255}));
       connect(currentN, plugToPinsCurrentN.plug_n)
-        annotation (Line(points={{100,0},{93,0},{93,0},{86,0},
-              {86,0},{72,0}},
+        annotation (Line(points={{100,0},{93,0},{86,0},{72,0}},
             color={85,170,255}));
       connect(voltageP, plugToPinsVoltageP.plug_p) annotation (Line(points={{0,100},
-              {0,100},{0,72},{0,72}},                             color=
+              {0,100},{0,72}},                                    color=
               {85,170,255}));
       connect(plugToPinsVoltageN.plug_n, voltageN) annotation (Line(points={{
               0,-72},{0,-72},{0,-100}},                      color={85,
@@ -1855,7 +1853,7 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
       connect(sum.y, y) annotation (Line(points={{-80,-81},{-80,-110}}, color={85,
               170,255}));
       annotation (
-        Icon(graphics = {
+        Icon(graphics={
           Line(points = {{0,100},{0,70}},
             color = {0,0,255}),
           Line(points = {{0,-70},{0,-100}},
@@ -1885,7 +1883,9 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>
 </p>
 
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end PowerSensor;
     annotation (Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary multiphase circuits.
@@ -2413,7 +2413,7 @@ The source partial model relies on the
     end Source;
   end Interfaces;
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+  annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Ellipse(
         origin = {14,56},
         lineColor = {0,0,255},
