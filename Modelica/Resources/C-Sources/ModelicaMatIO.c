@@ -144,7 +144,7 @@
 #undef HAVE_VASPRINTF
 
 /* Have va_copy */
-#if defined(__GNUC__)
+#if defined(__GNUC__) && __STDC_VERSION__ >= 199901L
 #define HAVE_VA_COPY 1
 #elif defined(__WATCOMC__)
 #define HAVE_VA_COPY 1
@@ -155,7 +155,7 @@
 /* Have vsnprintf */
 #if defined(_MSC_VER) && _MSC_VER >= 1400
 #define HAVE_VSNPRINTF 1
-#if !defined(HAVE_C99_VSNPRINTF)
+#if !defined(HAVE_C99_VSNPRINTF) && __STDC_VERSION__ >= 199901L
 #define HAVE_C99_VSNPRINTF 1
 #endif
 #else
@@ -163,7 +163,7 @@
 #endif
 
 /* Have __va_copy */
-#if defined(__GNUC__)
+#if defined(__GNUC__) && __STDC_VERSION__ >= 199901L
 #define HAVE___VA_COPY 1
 #elif defined(__WATCOMC__)
 #define HAVE___VA_COPY 1
@@ -8874,7 +8874,7 @@ int mat_snprintf(char *str,size_t count,const char *fmt,...)
 #endif
 
 #ifndef HAVE_VASPRINTF
- int mat_vasprintf(char **ptr, const char *format, va_list ap)
+int mat_vasprintf(char **ptr, const char *format, va_list ap)
 {
         int ret;
         va_list ap2;
@@ -8911,6 +8911,13 @@ int mat_asprintf(char **ptr, const char *format, ...)
         va_end(ap);
 
         return ret;
+}
+
+char* mat_strdup(const char *s)
+{
+    size_t len = strlen(s) + 1;
+    char *d = malloc(len);
+    return d ? memcpy(d, s, len) : NULL;
 }
 /* -------------------------------
  * ---------- mat.c
@@ -9015,9 +9022,6 @@ EXTERN int       Mat_VarWrite73(mat_t *mat,matvar_t *matvar,int compress);
 
 #if defined(_WIN32)
 #include <io.h>
-#if defined(_MSC_VER)
-#define strdup _strdup
-#endif
 #endif
 
 static void
@@ -9609,7 +9613,7 @@ Mat_VarCreate(const char *name,enum matio_classes class_type,
                     matvar->internal->fieldnames =
                         calloc(nfields,sizeof(*matvar->internal->fieldnames));
                     for ( i = 0; i < nfields; i++ )
-                        matvar->internal->fieldnames[i] = strdup(fields[i]->name);
+                        matvar->internal->fieldnames[i] = mat_strdup(fields[i]->name);
                     nmemb *= nfields;
                 }
             }
@@ -9806,7 +9810,7 @@ Mat_VarDuplicate(const matvar_t *in, int opt)
     out->data = NULL;
 
     if ( NULL != in->internal->hdf5_name )
-        out->internal->hdf5_name = strdup(in->internal->hdf5_name);
+        out->internal->hdf5_name = mat_strdup(in->internal->hdf5_name);
 
     out->internal->hdf5_ref = in->internal->hdf5_ref;
     out->internal->id       = in->internal->id;
@@ -9822,7 +9826,7 @@ Mat_VarDuplicate(const matvar_t *in, int opt)
         for ( i = 0; i < in->internal->num_fields; i++ ) {
             if ( NULL != in->internal->fieldnames[i] )
                 out->internal->fieldnames[i] =
-                    strdup(in->internal->fieldnames[i]);
+                    mat_strdup(in->internal->fieldnames[i]);
         }
     }
 
@@ -13055,7 +13059,7 @@ ReadNextStructField( mat_t *mat, matvar_t *matvar )
         for ( i = 0; i < nmemb; i++ ) {
             for ( j = 0; j < nfields; j++ ) {
                 fields[i*nfields+j] = Mat_VarCalloc();
-                fields[i*nfields+j]->name = strdup(matvar->internal->fieldnames[j]);
+                fields[i*nfields+j]->name = mat_strdup(matvar->internal->fieldnames[j]);
             }
         }
 
@@ -13196,7 +13200,7 @@ ReadNextStructField( mat_t *mat, matvar_t *matvar )
         for ( i = 0; i < nmemb; i++ ) {
             for ( j = 0; j < nfields; j++ ) {
                 fields[i*nfields+j] = Mat_VarCalloc();
-                fields[i*nfields+j]->name = strdup(matvar->internal->fieldnames[j]);
+                fields[i*nfields+j]->name = mat_strdup(matvar->internal->fieldnames[j]);
             }
         }
 
@@ -18186,7 +18190,7 @@ Mat_H5ReadGroupInfo(mat_t *mat,matvar_t *matvar,hid_t dset_id)
                         hid_t ref_id;
                         fields[l*nfields+k] = Mat_VarCalloc();
                         fields[l*nfields+k]->name =
-                            strdup(matvar->internal->fieldnames[k]);
+                            mat_strdup(matvar->internal->fieldnames[k]);
                         fields[l*nfields+k]->internal->hdf5_ref=ref_ids[l];
                         /* Get the HDF5 name of the variable */
                         name_len = H5Iget_name(field_id,NULL,0);
@@ -18210,7 +18214,7 @@ Mat_H5ReadGroupInfo(mat_t *mat,matvar_t *matvar,hid_t dset_id)
                     fields[k] = Mat_VarCalloc();
                     fields[k]->internal->fp   = mat;
                     fields[k]->name =
-                        strdup(matvar->internal->fieldnames[k]);
+                        mat_strdup(matvar->internal->fieldnames[k]);
                     Mat_H5ReadDatasetInfo(mat,fields[k],field_id);
                 }
                 H5Dclose(field_id);
@@ -18220,7 +18224,7 @@ Mat_H5ReadGroupInfo(mat_t *mat,matvar_t *matvar,hid_t dset_id)
                 if ( -1 < field_id ) {
                     fields[k] = Mat_VarCalloc();
                     fields[k]->internal->fp   = mat;
-                    fields[k]->name = strdup(matvar->internal->fieldnames[k]);
+                    fields[k]->name = mat_strdup(matvar->internal->fieldnames[k]);
                     Mat_H5ReadGroupInfo(mat,fields[k],field_id);
                     H5Gclose(field_id);
                 }
@@ -20390,7 +20394,7 @@ Mat_VarCreateStruct(const char *name,int rank,size_t *dims,const char **fields,
 
     matvar->compression = MAT_COMPRESSION_NONE;
     if ( NULL != name )
-        matvar->name = strdup(name);
+        matvar->name = mat_strdup(name);
     matvar->rank = rank;
     matvar->dims = malloc(matvar->rank*sizeof(*matvar->dims));
     for ( i = 0; i < matvar->rank; i++ ) {
@@ -20416,7 +20420,7 @@ Mat_VarCreateStruct(const char *name,int rank,size_t *dims,const char **fields,
                     matvar = NULL;
                     break;
                 } else {
-                    matvar->internal->fieldnames[i] = strdup(fields[i]);
+                    matvar->internal->fieldnames[i] = mat_strdup(fields[i]);
                 }
             }
         }
@@ -20460,7 +20464,7 @@ Mat_VarAddStructField(matvar_t *matvar,const char *fieldname)
     matvar->internal->fieldnames =
     realloc(matvar->internal->fieldnames,
             nfields*sizeof(*matvar->internal->fieldnames));
-    matvar->internal->fieldnames[nfields-1] = strdup(fieldname);
+    matvar->internal->fieldnames[nfields-1] = mat_strdup(fieldname);
 
     new_data = malloc(nfields*nmemb*sizeof(*new_data));
     if ( new_data == NULL )
@@ -20835,7 +20839,7 @@ Mat_VarSetStructFieldByIndex(matvar_t *matvar,size_t field_index,size_t index,
         if ( NULL != field->name ) {
             free(field->name);
         }
-        field->name = strdup(matvar->internal->fieldnames[field_index]);
+        field->name = mat_strdup(matvar->internal->fieldnames[field_index]);
     }
 
     return old_field;
@@ -20884,7 +20888,7 @@ Mat_VarSetStructFieldByName(matvar_t *matvar,const char *field_name,
         if ( NULL != field->name ) {
             free(field->name);
         }
-        field->name = strdup(matvar->internal->fieldnames[field_index]);
+        field->name = mat_strdup(matvar->internal->fieldnames[field_index]);
     }
 
     return old_field;
