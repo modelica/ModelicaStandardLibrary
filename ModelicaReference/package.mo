@@ -4205,10 +4205,11 @@ Reinitialize state variable
 <h4>Syntax</h4>
 <blockquote><pre><b>reinit</b>(x, expr)</pre></blockquote>
 <h4>Description</h4>
-The operator reinitializes x with expr at an event instant. x is a Real variable
+<p>
+The operator reinitializes <code>x</code> with expr at an event instant. <code>x</code> is a Real variable
 (or an array of Real variables) that must be selected as a state (resp., states), that is
-reinit on x implies stateSelect = StateSelect.always on x.
-expr needs to be type-compatible with x. The reinit operator can for the same variable
+reinit on <code>x</code> implies <code>stateSelect = StateSelect.always</code> on <code>x</code>.
+<code>expr</code> needs to be type-compatible with <code>x</code>. The reinit operator can for the same variable
 (resp. array of variables) only be applied (either as an individual variable or as part
 of an array of variables) in one equation (having reinit of the same variable in when and
 else-when of the same variable is allowed).
@@ -4237,7 +4238,7 @@ on a non-state variable.]
 <h4>Examples</h4>
 <blockquote><pre>
 // Bouncing ball
-   <b<parameter</b> Real e=0.5 \"Coefficient of restitution\"
+   <b>parameter</b> Real e=0.5 \"Coefficient of restitution\"
    Real h, v;
    Boolean flying;
 <b>equation</b>
