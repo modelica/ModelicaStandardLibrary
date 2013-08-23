@@ -332,9 +332,9 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
     equation
       for j in 1:m loop
         if j<m then
-          connect(plugToPins_p.pin_p[j], plugToPins_n.pin_n[j+1]);
+          connect(plugToPins_n.pin_n[j], plugToPins_p.pin_p[j+1]);
         else
-          connect(plugToPins_p.pin_p[j], plugToPins_n.pin_n[1]);
+          connect(plugToPins_n.pin_n[j], plugToPins_p.pin_p[1]);
         end if;
       end for;
       connect(plug_p, plugToPins_p.plug_p)
@@ -1803,14 +1803,14 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
     model PowerSensor "Power sensor"
       parameter Integer m(min=1) = 3 "number of phases";
       Modelica.SIunits.AngularVelocity omega = der(currentP.reference.gamma);
-      Interfaces.PositivePlug currentP
+      Interfaces.PositivePlug currentP(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-      Interfaces.NegativePlug currentN
+      Interfaces.NegativePlug currentN(final m=m)
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Interfaces.PositivePlug voltageP
+      Interfaces.PositivePlug voltageP(final m=m)
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
-      Interfaces.NegativePlug voltageN
+      Interfaces.NegativePlug voltageN(final m=m)
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=
                0)));
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y
@@ -1925,7 +1925,9 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
 </p>
 
 </html>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     end PowerSensor;
     annotation (Icon,               Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary multiphase circuits.
