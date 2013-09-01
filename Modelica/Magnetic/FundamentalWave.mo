@@ -350,6 +350,18 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
+<h5>Version 3.X.X, 2013-09-01</h5>
+
+<ul>
+<li>Updated documentation of 
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>, 
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a> and
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.PermanentMagnet\">PermanentMagnet</a>
+    </li>
+<li>Added new component 
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a></li>
+</ul>
+
 <h5>Version 3.2.1, 2013-07-31</h5>
 
 <ul>
@@ -4422,7 +4434,7 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
         defaultComponentName="converter");
     end MultiPhaseElectroMagneticConverter;
 
-    model Idle "Salient reluctance"
+    model Idle "Idle running branch"
       extends
         Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
     equation
@@ -4448,7 +4460,8 @@ This is a simple idle running branch.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a>
 </p>
 
 </html>"),
@@ -4460,7 +4473,7 @@ This is a simple idle running branch.
               255,128,0})}));
     end Idle;
 
-    model Short "Salient reluctance"
+    model Short "Short cut branch"
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
     equation
       connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
@@ -4484,11 +4497,71 @@ This is a simple short cut branch.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a>
 </p>
 
 </html>"));
     end Short;
+
+    model Crossing "Crossing of two branches"
+
+      Interfaces.PositiveMagneticPort port_p1
+        "Positive port_p1 connected with port_p2"
+        annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
+      Interfaces.PositiveMagneticPort port_p2
+        "Positive port_p2 connected with port_p1"
+        annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
+      Interfaces.NegativeMagneticPort port_n1
+        "Negative port_n1 connected with port_n2"
+        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
+      Interfaces.NegativeMagneticPort port_n2
+        "Negative port_n2 connected with port_n1"
+        annotation (Placement(transformation(extent={{90,90},{110,110}})));
+
+    equation
+      connect(port_p1, port_p2) annotation (Line(
+          points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}},
+          color={255,128,0},
+          smooth=Smooth.None));
+      connect(port_n1, port_n2) annotation (Line(
+          points={{-100,-100},{-100,0},{100,0},{100,100}},
+          color={255,128,0},
+          smooth=Smooth.None));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{0,60},{0,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Rectangle(
+              extent={{-100,40},{100,-40}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+          Line(
+              points={{100,100},{100,40},{-100,-40},{-100,-100}},
+              color={255,128,0},
+              smooth=Smooth.None),
+          Line(
+              points={{-100,100},{-100,40},{100,-40},{100,-100}},
+              color={255,128,0},
+              smooth=Smooth.None)}),                              Documentation(
+            info="<html>
+<p>
+This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>
+</p>
+
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
+    end Crossing;
     annotation (Documentation(info="<html>
 <p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
 located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components\">Machines.Components</a>.</p>
@@ -6168,6 +6241,7 @@ The salient cage model is a two axis model with two phases. The electromagnetic 
       end SaliencyCageWinding;
 
       model PermanentMagnet
+        "Permanent magnet represented by magnetic potential difference"
         extends
           Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference;
         extends
@@ -6180,6 +6254,9 @@ Simple model of a permanent magnet, containing:
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">constant magnetomotive force</a></li>
 <li><a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses\">loss model</a></li>
 </ul>
+<p>
+The permanent magnet is modeled by a magnetic potential difference. The internal reluctance of the permanent magnet is not taken into accout. The internal reluctance needs to be modeled outside the permanent magnet model, e.g., by the total machine reluctance considered in the air gap model.
+</p>
 </html>"));
       end PermanentMagnet;
     end Components;
@@ -7129,6 +7206,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
+<tr><td>3.X.X</td><td></td>  <td>2013-09-01</td>  <td>C. Kral</td>  <td>Updated documentation and added new component Crossing</td></tr>
 <tr><td>3.2.1</td><td></td>  <td>2013-07-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>New component examples, added variables in multi phase converter models, bug fixes #1216, #1223 and #1226</td></tr>
 <tr><td>2.0.0</td><td>6083</td>  <td>2013-03-10</td>  <td>C. Kral<br>A. Haumer</td>  <td>Extended machines models for phase numbers greater or equal than three</td></tr>
 <tr><td>1.7.3</td><td>6029</td>  <td>2013-02-25</td>  <td>C. Kral</td>  <td>Corrected wrong parameter description</td></tr>
