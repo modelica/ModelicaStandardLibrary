@@ -51,6 +51,9 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#if defined(__linux__) && !defined(NO_FILE_SYSTEM)
+#define _GNU_SOURCE 1
+#endif
 #include "ModelicaStandardTables.h"
 #if defined(__cplusplus)
 extern "C" {
@@ -60,9 +63,6 @@ extern "C" {
 }
 #endif
 #if !defined(NO_FILE_SYSTEM)
-#if defined(__linux__)
-#define _GNU_SOURCE 1
-#endif
 #include <stdio.h>
 #include <locale.h>
 #if defined(__cplusplus)
