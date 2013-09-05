@@ -3474,8 +3474,8 @@ static double* readMatTable(const char* tableName, const char* fileName,
     return table;
 }
 
-#define DELIM_TABLE_HEADER " \t(,)"
-#define DELIM_TABLE_NUMBER " \t,;"
+#define DELIM_TABLE_HEADER " \t(,)\r"
+#define DELIM_TABLE_NUMBER " \t,;\r"
 
 static double* readTxtTable(const char* tableName, const char* fileName,
                             size_t* _nRow, size_t* _nCol) {
