@@ -19,7 +19,8 @@ package MultiPhase "Multiphase AC components"
         m=m,
         f=f,
         V=fill(V, m),
-        phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+        phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+        gamma(fixed=true, start=0))
         annotation (Placement(transformation(
             origin={-80,-20},
             extent={{-10,-10},{10,10}},
@@ -76,8 +77,6 @@ package MultiPhase "Multiphase AC components"
             origin={-30,-60},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-    initial equation
-      voltageSource.voltageSource.pin_p.reference.gamma=zeros(m);
     equation
       connect(ground.pin, star.pin_n) annotation (Line(points={{-80,-70},{-80,-60}},
             color={85,170,255}));
@@ -146,7 +145,8 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
         m=m,
         f=f,
         V=fill(V_LL, m),
-        phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+        phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+        gamma(fixed=true, start=0))
         annotation (Placement(transformation(
             origin={-70,-20},
             extent={{-10,-10},{10,10}},
@@ -206,9 +206,6 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
             origin={-20,-20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-    initial equation
-      voltageSource.voltageSource.pin_p.reference.gamma=zeros(m);
-
     equation
       connect(ground.pin, star.pin_n) annotation (Line(points={{-70,-70},{-70,-60}},
             color={85,170,255}));
@@ -353,7 +350,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-150,60},{150,120}},
               lineColor={0,0,255},
-              textString =                        "%name"),
+              textString=                         "%name"),
             Line(
               points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
               color={0,0,255},
@@ -361,7 +358,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString =                           "m=%m"),
+              textString=                            "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),
       Documentation(info="<html>
@@ -1904,24 +1901,16 @@ Quasi stationary theory can be found in the
 
     model VoltageSource "Constant multiphase AC voltage"
       extends Interfaces.Source;
+      import Modelica.ComplexMath.j;
+      import Modelica.ComplexMath.exp;
       parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       parameter Modelica.SIunits.Voltage V[m](start=fill(1,m))
         "RMS voltage of the source";
       parameter Modelica.SIunits.Angle phi[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
         "Phase shift of the source";
-      QuasiStationary.SinglePhase.Sources.VoltageSource voltageSource[
-                                                      m](
-        each final f=f,
-        final V=V,
-        final phi=phi)
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
-      connect(plugToPins_p.pin_p, voltageSource.pin_p)
-        annotation (Line(points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},
-              {-39,0},{-10,0}},                                  color={85,170,255}));
-      connect(voltageSource.pin_n, plugToPins_n.pin_n) annotation (Line(points={{10,0},{
-              39,0},{39,0},{68,0}},
-            color={85,170,255}));
+      omega = 2*Modelica.Constants.pi*f;
+      v = {V[k]*exp(j*phi[k]) for k in 1:m};
       annotation (Icon(graphics={
             Line(points={{50,0},{-50,0}}, color={0,0,0}),
             Text(
@@ -1956,9 +1945,6 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
 
     model VariableVoltageSource "Variable multiphase AC voltage"
       extends Interfaces.Source;
-      QuasiStationary.SinglePhase.Sources.VariableVoltageSource
-        variableVoltageSource[m]
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealInput f
         annotation (Placement(transformation(
             origin={40,100},
@@ -1969,20 +1955,6 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
             origin={-40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-    equation
-      for j in 1:m loop
-        connect(f, variableVoltageSource[j].f)
-          annotation (Line(points={{40,100},{40,60},{4,60},{4,10}}, color={0,0,127}));
-      end for;
-      connect(plugToPins_p.pin_p, variableVoltageSource.pin_p)
-        annotation (Line(points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},
-              {-39,0},{-10,0}},                                  color={85,170,255}));
-      connect(variableVoltageSource.pin_n, plugToPins_n.pin_n)
-        annotation (Line(points={{10,0},{39,0},{39,0},{68,
-              0}},                   color={85,170,255}));
-      connect(V, variableVoltageSource.V)
-        annotation (Line(points={{-40,100},{-40,60},{-4,60},{-4,10}}, color={85,170,
-              255}));
       annotation (Icon(graphics={
             Line(points={{50,0},{-50,0}}, color={0,0,0}),
             Text(
@@ -2013,26 +1985,23 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
 </p>
 </html>"));
+    equation
+      omega = 2*Modelica.Constants.pi*f;
+      v = V;
     end VariableVoltageSource;
 
     model CurrentSource "Constant multiphase AC current"
       extends Interfaces.Source;
+      import Modelica.ComplexMath.j;
+      import Modelica.ComplexMath.exp;
       parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       parameter Modelica.SIunits.Current I[m](start=fill(1,m))
         "RMS current of the source";
       parameter Modelica.SIunits.Angle phi[m]=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
         "Phase shift of the source";
-      QuasiStationary.SinglePhase.Sources.CurrentSource currentSource[
-                                                      m](
-        each final f=f,
-        final phi=phi,
-        final I=I)
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
-      connect(plugToPins_p.pin_p,currentSource. pin_p)
-        annotation (Line(points={{-68,0},{-10,0}}, color={85,170,255}));
-      connect(currentSource.pin_n, plugToPins_n.pin_n) annotation (Line(points={{10,0},{
-              39,0},{39,0},{68,0}},     color={85,170,255}));
+      omega = 2*Modelica.Constants.pi*f;
+      i = {I[k]*exp(j*phi[k]) for k in 1:m};
       annotation (Icon(graphics={
             Line(points={{-60,60},{60,60}}, color={0,0,255}),
             Polygon(
@@ -2063,9 +2032,6 @@ This model describes <i>m</i> constant current sources, specifying the complex c
 
     model VariableCurrentSource "Variable multiphase AC current"
       extends Interfaces.Source;
-      QuasiStationary.SinglePhase.Sources.VariableCurrentSource
-        variableCurrentSource[m]
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealInput f
         annotation (Placement(transformation(
             origin={40,100},
@@ -2076,20 +2042,6 @@ This model describes <i>m</i> constant current sources, specifying the complex c
             origin={-40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-    equation
-      for j in 1:m loop
-        connect(f, variableCurrentSource[j].f)
-          annotation (Line(points={{40,100},{40,60},{4,60},{4,10}}, color={0,0,127}));
-      end for;
-      connect(plugToPins_p.pin_p, variableCurrentSource.pin_p)
-        annotation (Line(points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},
-              {-39,0},{-10,0}},
-            color={85,170,255}));
-      connect(variableCurrentSource.pin_n, plugToPins_n.pin_n)
-        annotation (Line(points={{10,0},{39,0},{39,0},{68,
-              0}},                   color={85,170,255}));
-      connect(I, variableCurrentSource.I) annotation (Line(points={{-40,100},{-40,
-              60},{-4,60},{-4,10}}, color={85,170,255}));
       annotation (Icon(graphics={
             Line(points={{-60,60},{60,60}}, color={85,170,255}),
             Polygon(
@@ -2116,6 +2068,9 @@ Additionally, the frequency of the current source is defined by a real signal in
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
 </p>
 </html>"));
+    equation
+      omega = 2*Modelica.Constants.pi*f;
+      i = I;
     end VariableCurrentSource;
     annotation (Documentation(info="<html>
 <p>This package hosts sources for quasi stationary multiphase circuits.
@@ -2374,8 +2329,11 @@ The relative sensor partial model relies on the
     end RelativeSensor;
 
     partial model Source "Partial voltage / current source"
-      extends TwoPlug;
+      extends OnePort;
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
+      Modelica.SIunits.Angle gamma(start=0)=plug_p.reference.gamma;
+    equation
+      Connections.root(plug_p.reference);
       annotation (Icon(graphics={
             Ellipse(
               extent={{-50,50},{50,-50}},
@@ -2409,7 +2367,9 @@ The source partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Source\">SinglePhase.Interfaces.Source</a>.
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end Source;
   end Interfaces;
 

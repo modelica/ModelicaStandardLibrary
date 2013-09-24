@@ -24,7 +24,8 @@ package SinglePhase "Single phase AC components"
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource
+      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource(gamma(
+            fixed=true, start=0))
         annotation (Placement(transformation(
             origin={-30,-20},
             extent={{-10,10},{10,-10}},
@@ -51,8 +52,6 @@ package SinglePhase "Single phase AC components"
             origin={-10,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-    initial equation
-      voltageSource.pin_p.reference.gamma=0;
     equation
       connect(f.y, voltageSource.f) annotation (Line(points={{-60,-39},{-60,-24},
               {-40,-24}},
@@ -113,7 +112,8 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             origin={-60,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource
+      QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(
+            fixed=true, start=0))
         annotation (Placement(transformation(
             origin={-30,20},
             extent={{10,10},{-10,-10}},
@@ -147,8 +147,6 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             rotation=90)));
       Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar annotation (Placement(transformation(
               extent={{70,10},{90,30}}, rotation=0)));
-    initial equation
-      currentSource.pin_p.reference.gamma=0;
     equation
       connect(currentSource.pin_n, resistor.pin_p) annotation (Line(points={{-30,30},
               {-30,40},{-10,40},{-10,30}}, color={85,170,255}));
@@ -202,7 +200,8 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
         "Ratio of DC voltage / AC rms voltage";
       Sources.VoltageSource voltageQS(f=50, V=VAC,
         phi=0,
-        i(re(start=0), im(start=0)))               annotation (Placement(
+        i(re(start=0), im(start=0)),
+        gamma(fixed=true, start=0))                annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -253,8 +252,6 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
         duration=0.8,
         startTime=0.1)
         annotation (Placement(transformation(extent={{100,-10},{80,10}})));
-    initial equation
-      voltageQS.pin_p.reference.gamma=0;
     equation
       connect(voltageQS.pin_p, resistorQS.pin_p) annotation (Line(
           points={{-80,60},{-72,60}},
@@ -865,7 +862,7 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
 </html>"));
     end VariableInductor;
     annotation (Icon(
-      graphics = {
+      graphics={
         Line(
           origin = {10,40},
           points = {{-100,-40},{-80,-40}}),
@@ -1362,7 +1359,7 @@ This switch is only intended to be used for structural changes, not for fast swi
               lineColor={0,0,255}),
             Line(points={{0,51},{0,26}}, color={0,0,255})}));
     end IdealClosingSwitch;
-    annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics = {
+    annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics={
                 Line(origin = {10,34}, points = {{-100,-60},{-54,-60}}),
                 Ellipse(origin = {10,34}, extent = {{-54,-64},{-46,-56}}),
                 Line(origin = {10,34}, points = {{-47,-58},{30,-10}}),
@@ -1527,19 +1524,19 @@ This sensor can be used to measure the complex current.
       y = v*conj(i);
       annotation (
         Icon(graphics = {
-        Line(points = {{0,100},{0,70}},
-            color = {0,0,255}),
-          Line(points = {{0,-70},{0,-100}},
-            color = {0,0,255}),
-          Text(extent = {{-29,-70},{30,-11}},
-            textString = "P"),
-          Line(points = {{-80,-100},{-80,0}},
-            color = {85,170,255}),
-          Text(textColor = {0,0,255},
-            extent = {{-100,110},{100,150}},
-            textString = "%name"),
-          Line(points = {{-100,0},{100,0}},
-            color = {0,0,255})}),
+        Line(points=  {{0,100},{0,70}},
+            color=  {0,0,255}),
+          Line(points=  {{0,-70},{0,-100}},
+            color=  {0,0,255}),
+          Text(extent=  {{-29,-70},{30,-11}},
+            textString=  "P"),
+          Line(points=  {{-80,-100},{-80,0}},
+            color=  {85,170,255}),
+          Text(textColor=  {0,0,255},
+            extent=  {{-100,110},{100,150}},
+            textString=  "%name"),
+          Line(points=  {{-100,0},{100,0}},
+            color=  {0,0,255})}),
         Documentation(info="<html>
 
 <p>
@@ -1622,7 +1619,9 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = V;
-      annotation (Icon(graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}),
+                       graphics={
             Text(
               extent={{-120,50},{-20,0}},
               lineColor={0,0,255},
@@ -1971,6 +1970,7 @@ The relative sensor partial model relies on the
 
     partial model Source "Partial voltage / current source"
       extends OnePort;
+      Modelica.SIunits.Angle gamma(start=0)=pin_p.reference.gamma;
     equation
       Connections.root(pin_p.reference);
       annotation (Icon(graphics={
@@ -2205,7 +2205,7 @@ Quasi stationary theory for single phase circuits can be found in the
 </html>"));
   end Utilities;
   annotation (Icon(
-      graphics = {
+      graphics={
         Rectangle(
           lineColor = {0,0,255},
           extent = {{-50,-50},{50,50}}),
