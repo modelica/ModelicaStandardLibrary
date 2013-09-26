@@ -7289,7 +7289,7 @@ pair of joints\" from Woernle and Hiller is described in:
               thickness=0.5,
               smooth=Smooth.None)}),
         Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -7461,7 +7461,7 @@ pair of joints\" from Woernle and Hiller is described in:
               lineColor={0,0,255},
               textString="%name")}),
           Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -7637,7 +7637,7 @@ pair of joints\" from Woernle and Hiller is described in:
               thickness=0.5,
               smooth=Smooth.None)}),
         Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -7834,7 +7834,7 @@ pair of joints\" from Woernle and Hiller is described in:
               thickness=0.5,
               smooth=Smooth.None)}),
         Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
