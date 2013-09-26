@@ -166,4 +166,160 @@ extends Modelica.Icons.ExamplesPackage;
         smooth=Smooth.None));
     annotation (      experiment(StopTime=1.1));
   end AllComponents;
+
+  package TestOverdeterminedInitial
+    extends Modelica.Icons.ExamplesPackage;
+    model TwoMassesEquationsReducedInitial
+      "Initial values for state variables after index reduction"
+      extends Modelica.Icons.Example;
+      extends BaseClasses.TwoMassesEquations;
+    initial equation
+      x1 = 0;
+      v1 = 0;
+      annotation(experiment(StopTime=1.0));
+    end TwoMassesEquationsReducedInitial;
+
+    model TwoMassesEquationsFullInitial
+      "Fully specified initial values for dynamic variables, consistent values"
+      extends Modelica.Icons.Example;
+      extends BaseClasses.TwoMassesEquations;
+    initial equation
+      x1 = 0;
+      v1 = 0;
+      x2 = 0;
+      v2 = 0;
+    annotation(experiment(StopTime=1.0));
+    end TwoMassesEquationsFullInitial;
+
+    model TwoMassesEquationsFullInitialInconsistent
+      "Fully specified initial values for dynamic variables, inconsistent values"
+      extends Modelica.Icons.Example;
+      extends BaseClasses.TwoMassesEquations;
+    initial equation
+      x1 = 0;
+      v1 = 0;
+      x2 = 1;
+      v2 = 0;
+      annotation(experiment(StopTime=1.0));
+    end TwoMassesEquationsFullInitialInconsistent;
+
+
+    model TwoMassesEquationsReducedSteadyState
+      "Steady state conditions for states after index reduction"
+      extends Modelica.Icons.Example;
+      extends BaseClasses.TwoMassesEquations;
+    initial equation
+      der(x1) = 0;
+      der(v1) = 0;
+      annotation(experiment(StopTime=1.0));
+    end TwoMassesEquationsReducedSteadyState;
+
+    model TwoMassesEquationsFullSteadyState
+      "Steady state conditions for all dynamic variables"
+      extends Modelica.Icons.Example;
+      extends BaseClasses.TwoMassesEquations;
+    initial equation
+      der(x1) = 0;
+      der(v1) = 0;
+      der(x2) = 0;
+      der(v2) = 0;
+      annotation(experiment(StopTime=1.0));
+    end TwoMassesEquationsFullSteadyState;
+
+    model TwoMassesReducedInitial
+      "Initial values for state variables after index reduction"
+      extends Modelica.Icons.Example;
+      extends BaseClasses.TwoMasses(
+                mass1(s(fixed=true, start=0),
+                      v(fixed=true, start=0)));
+      annotation(experiment(StopTime=1.0));
+    end TwoMassesReducedInitial;
+
+    model TwoMassesFullInitial
+      "Fully specified initial values for dynamic variables, consistent values"
+      extends Modelica.Icons.Example;
+      extends BaseClasses.TwoMasses(
+                mass1(s(fixed=true, start=0),
+                      v(fixed=true, start=0)),
+                mass2(s(fixed=true, start=0),
+                      v(fixed=true, start=0)));
+      annotation(experiment(StopTime=1.0));
+    end TwoMassesFullInitial;
+
+    model TwoMassesFullInitialInconsistent
+      "Fully specified initial values for dynamic variables, inconsistent values"
+      extends Modelica.Icons.Example;
+      extends BaseClasses.TwoMasses(
+                mass1(s(fixed=true, start=0),
+                      v(fixed=true, start=0)),
+                mass2(s(fixed=true, start=1),
+                      v(fixed=true, start=0)));
+      annotation(experiment(StopTime=1.0));
+    end TwoMassesFullInitialInconsistent;
+
+    model TwoMassesReducedSteadyState
+      "Steady state conditions for states after index reduction"
+      extends Modelica.Icons.Example;
+      extends BaseClasses.TwoMasses(
+                mass1(v(fixed=true, start=0), a(fixed=true, start=0)),
+                mass2(v(start=0), a(start=0)));
+      annotation(experiment(StopTime=1.0));
+    end TwoMassesReducedSteadyState;
+
+    model TwoMassesFullSteadyState
+      "Steady state conditions for all dynamic variables"
+      extends Modelica.Icons.Example;
+      extends BaseClasses.TwoMasses(
+                mass1(v(fixed=true, start=0), a(fixed=true, start=0)),
+                mass2(v(fixed=true, start=0), a(fixed=true, start=0)));
+      annotation(experiment(StopTime=1.0));
+    end TwoMassesFullSteadyState;
+  end TestOverdeterminedInitial;
+
+  package BaseClasses "Base classes for test models"
+    extends Modelica.Icons.Package;
+    model TwoMasses
+      "Two rigidly connected masses, connected to ground via a spring, MSL-based"
+      Modelica.Mechanics.Translational.Components.Mass mass1(m=1)
+        annotation (Placement(transformation(extent={{-26,-10},{-6,10}})));
+      Modelica.Mechanics.Translational.Components.Mass mass2(m=1)
+        annotation (Placement(transformation(extent={{8,-10},{28,10}})));
+      Modelica.Mechanics.Translational.Components.Spring spring(c=1)
+        annotation (Placement(transformation(extent={{-58,-10},{-38,10}})));
+      Modelica.Mechanics.Translational.Components.Fixed fixed annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=-90, origin={-64,0})));
+      Modelica.Mechanics.Translational.Sources.ConstantForce constantForce(
+          f_constant=1)
+        annotation (Placement(transformation(extent={{64,-10},{44,10}})));
+    equation
+    connect(mass1.flange_a, spring.flange_b) annotation (Line(points={{-26,0},{
+              -38,0}},                                                                    color={0,127,0}, smooth=Smooth.None));
+    connect(mass1.flange_b, mass2.flange_a) annotation (Line(points={{-6,0},{8,
+              0}},                                                                      color={0,127,0}, smooth=Smooth.None));
+    connect(spring.flange_a, fixed.flange) annotation (Line(points={{-58,0},{
+              -64,0}},                                                                  color={0,127,0}, smooth=Smooth.None));
+
+      connect(constantForce.flange, mass2.flange_b) annotation (Line(
+          points={{44,0},{28,0}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics));
+    end TwoMasses;
+
+    model TwoMassesEquations
+      "Two rigidly connected masses, connected to ground via a spring, equation-based"
+      Real x1, v1, x2, v2, F1, F2;
+      parameter Real M = 1;
+      parameter Real K = 1;
+      parameter Real F0 = 1;
+    equation
+      der(x1) = v1;
+      M*der(v1) = F1+F2;
+      der(x2) = v2;
+      M*der(v2) = -F2;
+      F1 = -K*x1;
+      x1 = x2;
+    end TwoMassesEquations;
+  end BaseClasses;
+
 end Translational;

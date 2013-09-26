@@ -193,4 +193,106 @@ The initial equations are consistent however and a tool shall reduce them approp
                 "Work-around 1: change pipe.modelStructure from av_vb to a_vb")}),
       experiment(StopTime=4));
   end DynamicPipeInitialValues;
+
+  model TwoVolumesEquationsReducedInitial
+    "Initial values only for state variables after index reduction"
+    extends Modelica.Icons.Example;
+    extends BaseClasses.TwoVolumesEquations;
+  initial equation
+    T1 = 300;
+    p2 = 1e5;
+    T2 = 300;
+    annotation(experiment(StopTime=1.0));
+  end TwoVolumesEquationsReducedInitial;
+
+  model TwoVolumesEquationsFullInitial
+    "Fully specified initial values for all dynamic variables, consistent values"
+    extends Modelica.Icons.Example;
+    extends BaseClasses.TwoVolumesEquations;
+  initial equation
+      p1 = 1e5;
+      T1 = 300;
+      p2 = 1e5;
+      T2 = 350;
+    annotation(experiment(StopTime=1.0));
+  end TwoVolumesEquationsFullInitial;
+
+
+  model TwoVolumesEquationsFullInitialInconsistent
+    "Fully specified initial values all for dynamic variables, inconsistent values. An error should be reported"
+    extends Modelica.Icons.Example;
+    extends BaseClasses.TwoVolumesEquations;
+  initial equation
+    p1 = 1e5;
+    T1 = 300;
+    p2 = 2e5;
+    T2 = 350;
+    annotation(experiment(StopTime=1.0));
+  end TwoVolumesEquationsFullInitialInconsistent;
+
+  model TwoVolumesEquationsReducedSteadyStatePressureAndTemperature
+    "Steady-state equations only for state variables after index reduction"
+    extends Modelica.Icons.Example;
+    extends BaseClasses.TwoVolumesEquations;
+  initial equation
+    der(p1) = 0;
+    der(T1) = 0;
+    der(T2) = 0;
+    annotation(experiment(StopTime=1.0));
+  end TwoVolumesEquationsReducedSteadyStatePressureAndTemperature;
+
+  model TwoVolumesEquationsFullSteadyStatePressureAndTemperature
+    "Steady-state equations only for all dynamic variables after state variable change"
+    extends Modelica.Icons.Example;
+    extends BaseClasses.TwoVolumesEquations;
+  initial equation
+    der(p1) = 0;
+    der(T1) = 0;
+    der(p2) = 0;
+    der(T2) = 0;
+    annotation(experiment(StopTime=1.0));
+  end TwoVolumesEquationsFullSteadyStatePressureAndTemperature;
+
+
+  model TwoVolumesEquationsFullSteadyStateMassAndEnergy
+    "Steady-state equations for all original dynamic variables"
+    extends Modelica.Icons.Example;
+    extends BaseClasses.TwoVolumesEquations;
+  initial equation
+    der(M1) = 0;
+    der(E1) = 0;
+    der(M2) = 0;
+    der(E2) = 0;
+    annotation(experiment(StopTime=1.0));
+  end TwoVolumesEquationsFullSteadyStateMassAndEnergy;
+
+  model TwoVolumesFullInitial
+    "Fully specified initial values for all dynamic variables, consistent values"
+    extends Modelica.Icons.Example;
+    extends BaseClasses.TwoVolumes(
+      system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial),
+      V1(p_start=100000, T_start(displayUnit="K") = 300),
+      V2(p_start=100000, T_start=623.15));
+    annotation(experiment(StopTime=1.0));
+  end TwoVolumesFullInitial;
+
+  model TwoVolumesFullInitialInconsistent
+    "Fully specified initial values for all dynamic variables, inconsistent values. An error should be reported"
+    extends Modelica.Icons.Example;
+    extends BaseClasses.TwoVolumes(
+      system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial),
+      V1(p_start=100000, T_start(displayUnit="K") = 300),
+      V2(p_start=100000, T_start=623.15));
+    annotation(experiment(StopTime=1.0));
+  end TwoVolumesFullInitialInconsistent;
+
+  model TwoVolumesFullSteadyState
+    "Fully specified steady-state conditions for all dynamic variables"
+    extends Modelica.Icons.Example;
+    extends BaseClasses.TwoVolumes(
+      system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial),
+      V1(p_start=100000, T_start(displayUnit="K") = 300),
+      V2(p_start=100000, T_start=623.15));
+    annotation(experiment(StopTime=1.0));
+  end TwoVolumesFullSteadyState;
 end TestOverdeterminedInitial;
