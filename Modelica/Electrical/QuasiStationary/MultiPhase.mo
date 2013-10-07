@@ -1955,6 +1955,9 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
             origin={-40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
+    equation
+      omega = 2*Modelica.Constants.pi*f;
+      v = V;
       annotation (Icon(graphics={
             Line(points={{50,0},{-50,0}}, color={0,0,0}),
             Text(
@@ -1985,9 +1988,6 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
 </p>
 </html>"));
-    equation
-      omega = 2*Modelica.Constants.pi*f;
-      v = V;
     end VariableVoltageSource;
 
     model CurrentSource "Constant multiphase AC current"
@@ -2042,6 +2042,9 @@ This model describes <i>m</i> constant current sources, specifying the complex c
             origin={-40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
+    equation
+      omega = 2*Modelica.Constants.pi*f;
+      i = I;
       annotation (Icon(graphics={
             Line(points={{-60,60},{60,60}}, color={85,170,255}),
             Polygon(
@@ -2068,9 +2071,6 @@ Additionally, the frequency of the current source is defined by a real signal in
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
 </p>
 </html>"));
-    equation
-      omega = 2*Modelica.Constants.pi*f;
-      i = I;
     end VariableCurrentSource;
     annotation (Documentation(info="<html>
 <p>This package hosts sources for quasi stationary multiphase circuits.
