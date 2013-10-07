@@ -2931,9 +2931,7 @@ One could try to optimize the controller parameters.
           Documentation(info="<html>
 <p><b>Test example: Electrical excited synchronous induction machine with voltage controller</b></p><p>An electrically excited synchronous generator is driven with constant speed. Voltage is controlled, the set point depends on speed. The generator is loaded with a rectifier.</p>
 <p>Default machine parameters of model <i>SM_ElectricalExcited</i> are used. </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics),
-          __Dymola_experimentSetupOutput);
+</html>"));
       end SMEE_Rectifier;
       annotation (Documentation(info="<HTML>
 This package contains test examples of synchronous induction machines.
