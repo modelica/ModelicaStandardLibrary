@@ -18,7 +18,7 @@
 
    If compiled as C++ and NO_FILE_SYTEM is not defined then common/shared table arrays
    are stored in a global std::map in order to avoid superfluous file input access and
-   to decrease the utilized memory.
+   to decrease the utilized memory (ticket #1110).
 
    Release Notes:
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
@@ -850,7 +850,7 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
 
             if (nRow > 1) {
                 enum PointInterval extrapolate = IN_TABLE;
-                size_t last;
+                size_t last = 0;
                 int haveLast = 0;
 
                 /* Periodic extrapolation */
@@ -2007,7 +2007,137 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
             /* Single row */
             y = TABLE(1, 1);
         }
-        else {
+        else if (nRow == 2 && nCol > 2) {
+            enum PointInterval extrapolate2 = IN_TABLE;
+            size_t last2;
+
+            if (u2 < TABLE_ROW0(1)) {
+                extrapolate2 = LEFT;
+                last2 = 0;
+            }
+            else if (u2 > TABLE_ROW0(nCol - 1)) {
+                extrapolate2 = RIGHT;
+                last2 = nCol - 3;
+            }
+            else {
+                last2 = findColIndex(&TABLE(0, 1), nCol - 1,
+                    tableID->last2, u2);
+            }
+
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate2 == IN_TABLE) {
+                        if (u2 >= TABLE_ROW0(last2 + 2)) {
+                            last2 += 1;
+                        }
+                        y = TABLE(1, last2 + 1);
+                        break;
+                    }
+                    /* Fall trough: linear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    const double u20 = TABLE_ROW0(last2 + 1);
+                    const double u21 = TABLE_ROW0(last2 + 2);
+                    const double y10 = TABLE(1, last2 + 1);
+                    const double y11 = TABLE(1, last2 + 2);
+                    y = y10 + (y11 - y10)*(u2 - u20)/(u21 - u20);
+                    break;
+                }
+
+                case CONTINUOUS_DERIVATIVE:
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[last2];
+                        const double u20 = TABLE_ROW0(last2 + 1);
+                        /* Calculation of the polynomial */
+                        if (extrapolate2 == RIGHT) {
+                            const double u21 = TABLE_ROW0(last2 + 2);
+                            const double y11 = TABLE(1, last2 + 2);
+                            y = u21 - u20;
+                            y = (3*c[0]*y + 2*c[1])*y + c[2]; /* = der_y */
+                            y = y11 + y*(u2 - u21);
+                        }
+                        else if (extrapolate2 == LEFT) {
+                            y = TABLE(1, last2 + 1); /* c[3] = y10 */
+                            y += c[2]*(u2 - u20);
+                        }
+                        else {
+                            u2 -= u20;
+                            y = TABLE(1, last2 + 1); /* c[3] = y10 */
+                            y += ((c[0]*u2 + c[1])*u2 + c[2])*u2;
+                        }
+                    }
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
+            }
+        }
+        else if (nRow > 2 && nCol == 2) {
+            enum PointInterval extrapolate1 = IN_TABLE;
+            size_t last1;
+
+            if (u1 < TABLE_COL0(1)) {
+                extrapolate1 = LEFT;
+                last1 = 0;
+            }
+            else if (u1 > TABLE_COL0(nRow - 1)) {
+                extrapolate1 = RIGHT;
+                last1 = nRow - 3;
+            }
+            else {
+                last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
+                    tableID->last1, u1);
+            }
+
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate1 == IN_TABLE) {
+                        if (u1 >= TABLE_COL0(last1 + 2)) {
+                            last1 += 1;
+                        }
+                        y = TABLE(last1 + 1, 1);
+                        break;
+                    }
+                    /* Fall trough: linear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    const double u10 = TABLE_COL0(last1 + 1);
+                    const double u11 = TABLE_COL0(last1 + 2);
+                    const double y00 = TABLE(last1 + 1, 1);
+                    const double y01 = TABLE(last1 + 2, 1);
+                    y = y00 + (y01 - y00)*(u1 - u10)/(u11 - u10);
+                    break;
+                }
+
+                case CONTINUOUS_DERIVATIVE:
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[last1];
+                        const double u10 = TABLE_COL0(last1 + 1);
+                        /* Calculation of the polynomial */
+                        if (extrapolate1 == RIGHT) {
+                            const double u11 = TABLE_COL0(last1 + 2);
+                            const double y01 = TABLE(last1 + 2, 1);
+                            y = u11 - u10;
+                            y = (3*c[0]*y + 2*c[1])*y + c[2]; /* = der_y */
+                            y = y01 + y*(u1 - u11);
+                        }
+                        else if (extrapolate1 == LEFT) {
+                            y = TABLE(last1 + 1, 1); /* c[3] = y00 */
+                            y += c[2]*(u1 - u10);
+                        }
+                        else {
+                            u1 -= u10;
+                            y = TABLE(last1 + 1, 1); /* c[3] = y00 */
+                            y += ((c[0]*u1 + c[1])*u1 + c[2])*u1;
+                        }
+                    }
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
+            }
+        }
+        else if (nRow > 2 && nCol > 2) {
             enum PointInterval extrapolate1 = IN_TABLE;
             enum PointInterval extrapolate2 = IN_TABLE;
 
@@ -2085,13 +2215,30 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
             }
             else {
                 /* Extrapolation */
-                const size_t last1 = (extrapolate1 == RIGHT) ? nRow - 3 :
-                    ((extrapolate1 == LEFT) ? 0 : findRowIndex(&TABLE(1, 0),
-                    nRow - 1, nCol, tableID->last1, u1));
-                const size_t last2 = (extrapolate2 == RIGHT) ? nCol - 3 :
-                    ((extrapolate2 == LEFT) ? 0 : findColIndex(&TABLE(0, 1),
-                    nCol - 1, tableID->last2, u2));
+                size_t last1, last2;
                 double u10, u11, u20, u21, y00, y01, y10, y11;
+
+                if (extrapolate1 == RIGHT) {
+                    last1 = nRow - 3;
+                }
+                else if (extrapolate1 == LEFT) {
+                    last1 = 0;
+                }
+                else {
+                    last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
+                        tableID->last1, u1);
+                }
+
+                if (extrapolate2 == RIGHT) {
+                    last2 = nCol - 3;
+                }
+                else if (extrapolate2 == LEFT) {
+                    last2 = 0;
+                }
+                else {
+                    last2 = findColIndex(&TABLE(0, 1), nCol - 1,
+                        tableID->last2, u2);
+                }
 
                 if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                     if (tableID->spline) {
@@ -2257,7 +2404,121 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
 
-        if (nRow > 2 || nCol > 2) {
+        if (nRow == 2 && nCol == 2) {
+        }
+        else if (nRow == 2 && nCol > 2) {
+            enum PointInterval extrapolate2 = IN_TABLE;
+            size_t last2;
+
+            if (u2 < TABLE_ROW0(1)) {
+                extrapolate2 = LEFT;
+                last2 = 0;
+            }
+            else if (u2 > TABLE_ROW0(nCol - 1)) {
+                extrapolate2 = RIGHT;
+                last2 = nCol - 3;
+            }
+            else {
+                last2 = findColIndex(&TABLE(0, 1), nCol - 1,
+                    tableID->last2, u2);
+            }
+
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate2 == IN_TABLE) {
+                        break;
+                    }
+                    /* Fall trough: linear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    der_y = (TABLE(1, last2 + 2) - TABLE(1, last2 + 1))/
+                        (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
+                    der_y *= der_u2;
+                    break;
+                }
+
+                case CONTINUOUS_DERIVATIVE:
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[last2];
+                        const double u20 = TABLE_ROW0(last2 + 1);
+                        /* Calculation of the polynomial */
+                        if (extrapolate2 == RIGHT) {
+                            const double u21 = TABLE_ROW0(last2 + 2);
+                            der_y = u21 - u20;
+                            der_y = (3*c[0]*der_y + 2*c[1])*der_y + c[2];
+                        }
+                        else if (extrapolate2 == LEFT) {
+                            der_y = c[2];
+                        }
+                        else {
+                            u2 -= u20;
+                            der_y = (3*c[0]*u2 + 2*c[1])*u2 + c[2];
+                        }
+                        der_y *= der_u2;
+                    }
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
+            }
+        }
+        else if (nRow > 2 && nCol == 2) {
+            enum PointInterval extrapolate1 = IN_TABLE;
+            size_t last1;
+
+            if (u1 < TABLE_COL0(1)) {
+                extrapolate1 = LEFT;
+                last1 = 0;
+            }
+            else if (u1 > TABLE_COL0(nRow - 1)) {
+                extrapolate1 = RIGHT;
+                last1 = nRow - 3;
+            }
+            else {
+                last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
+                    tableID->last1, u1);
+            }
+
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate1 == IN_TABLE) {
+                        break;
+                    }
+                    /* Fall trough: linear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    der_y = (TABLE(last1 + 2, 1) - TABLE(last1 + 1, 1))/
+                        (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
+                    der_y *= der_u1;
+                    break;
+                }
+
+                case CONTINUOUS_DERIVATIVE:
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[last1];
+                        const double u10 = TABLE_COL0(last1 + 1);
+                        /* Calculation of the polynomial */
+                        if (extrapolate1 == RIGHT) {
+                            const double u11 = TABLE_COL0(last1 + 2);
+                            der_y = u11 - u10;
+                            der_y = (3*c[0]*der_y + 2*c[1])*der_y + c[2];
+                        }
+                        else if (extrapolate1 == LEFT) {
+                            der_y = c[2];
+                        }
+                        else {
+                            u1 -= u10;
+                            der_y = (3*c[0]*u1 + 2*c[1])*u1 + c[2];
+                        }
+                        der_y *= der_u1;
+                    }
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
+            }
+        }
+        else if (nRow > 2 && nCol > 2) {
             enum PointInterval extrapolate1 = IN_TABLE;
             enum PointInterval extrapolate2 = IN_TABLE;
 
@@ -2335,13 +2596,30 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
             }
             else {
                 /* Extrapolation */
-                const size_t last1 = (extrapolate1 == RIGHT) ? nRow - 3 :
-                    ((extrapolate1 == LEFT) ? 0 : findRowIndex(&TABLE(1, 0),
-                    nRow - 1, nCol, tableID->last1, u1));
-                const size_t last2 = (extrapolate2 == RIGHT) ? nCol - 3 :
-                    ((extrapolate2 == LEFT) ? 0 : findColIndex(&TABLE(0, 1),
-                    nCol - 1, tableID->last2, u2));
+                size_t last1, last2;
                 double u10, u11, u20, u21, y00, y01, y10, y11;
+
+                if (extrapolate1 == RIGHT) {
+                    last1 = nRow - 3;
+                }
+                else if (extrapolate1 == LEFT) {
+                    last1 = 0;
+                }
+                else {
+                    last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
+                        tableID->last1, u1);
+                }
+
+                if (extrapolate2 == RIGHT) {
+                    last2 = nCol - 3;
+                }
+                else if (extrapolate2 == LEFT) {
+                    last2 = 0;
+                }
+                else {
+                    last2 = findColIndex(&TABLE(0, 1), nCol - 1,
+                        tableID->last2, u2);
+                }
 
                 if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
                     if (tableID->spline) {
@@ -2845,7 +3123,7 @@ static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
         size_t col;
 
         /* Actually there is no need for consecutive memory */
-        spline =STATIC_CAST(Akima1D*, malloc((nRow - 1)*nCols*sizeof(Akima1D)));
+        spline = STATIC_CAST(Akima1D*, malloc((nRow - 1)*nCols*sizeof(Akima1D)));
         if (!spline) {
             ModelicaError("Memory allocation error\n");
             return NULL;
@@ -2968,7 +3246,65 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
   */
 
     Akima2D* spline = NULL;
-    if (table && nRow > 2 && nCol > 2) {
+    if (table && nRow == 2 && nCol > 2) {
+        Akima1D* spline1D;
+        size_t j;
+        int cols = 2;
+
+        /* Need to transpose */
+        double* tableT = STATIC_CAST(double*, malloc(2*(nCol - 1)*sizeof(double)));
+        if (!tableT) {
+            ModelicaError("Memory allocation error\n");
+            return NULL;
+        }
+
+        spline = STATIC_CAST(Akima2D*, malloc((nCol - 1)*sizeof(Akima2D)));
+        if (!spline) {
+            free(tableT);
+            ModelicaError("Memory allocation error\n");
+            return NULL;
+        }
+
+        for (j = 1; j < nCol; j++) {
+            tableT[IDX(j - 1, 0, 2)] = TABLE_ROW0(j);
+            tableT[IDX(j - 1, 1, 2)] = TABLE(1, j);
+        }
+
+        spline1D = spline1DInit(tableT, nCol - 1, 2, &cols, 1);
+        free(tableT);
+        /* Copy coefficients */
+        for (j = 0; j < nCol - 1; j++) {
+            const double* c1 = spline1D[j];
+            double* c2 = spline[j];
+            c2[0] = c1[0];
+            c2[1] = c1[1];
+            c2[2] = c1[2];
+        }
+        spline1DClose(spline1D);
+    }
+    else if (table && nRow > 2 && nCol == 2) {
+        Akima1D* spline1D;
+        size_t i;
+        int cols = 2;
+
+        spline = STATIC_CAST(Akima2D*, malloc((nRow - 1)*sizeof(Akima2D)));
+        if (!spline) {
+            ModelicaError("Memory allocation error\n");
+            return NULL;
+        }
+
+        spline1D = spline1DInit(&table[2], nRow - 1, 2, &cols, 1);
+        /* Copy coefficients */
+        for (i = 0; i < nRow - 1; i++) {
+            const double* c1 = spline1D[i];
+            double* c2 = spline[i];
+            c2[0] = c1[0];
+            c2[1] = c1[1];
+            c2[2] = c1[2];
+        }
+        spline1DClose(spline1D);
+    }
+    else if (table && nRow > 2 && nCol > 2) {
         size_t i, j;
         double* dz_dx;
         double* dz_dy;
