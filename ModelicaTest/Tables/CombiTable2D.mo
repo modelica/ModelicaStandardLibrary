@@ -653,4 +653,223 @@ package CombiTable2D
         smooth=Smooth.None));
     annotation (experiment(StartTime=0, StopTime=1.0));
   end Test18_usertab;
+
+  model Test19 "Ticket #1307, Constant 2D"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D1D(
+      table=[1,1;2,4;3,9;4,16],
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,60},{-75,80}})));
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D1DT(
+      table=transpose([1,1;2,4;3,9;4,16]),
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,30},{-75,50}})));
+    Modelica.Blocks.Sources.Clock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
+    Modelica.Blocks.Tables.CombiTable1Ds combiTable1D(
+      table=[2,4;3,9;4,16],
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,0},{-75,20}})));
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D(
+      table=[1,0,6;2,4,4;3,9,9;4,16,16],
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,-30},{-75,-10}})));
+    Modelica.Blocks.Tables.CombiTable2D combiTable2DT(
+      table=transpose([1,0,6;2,4,4;3,9,9;4,16,16]),
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,-60},{-75,-40}})));
+    equation
+      connect(combiTable1D.u,clock1.y) annotation(Line(
+        points={{-97,10},{-102,10},{-104,10},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1DT.u2,clock1.y) annotation(Line(
+        points={{-97,34},{-102,34},{-104,34},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1DT.u1,clock1.y) annotation(Line(
+        points={{-97,46},{-102,46},{-104,46},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1D.u2,clock1.y) annotation(Line(
+        points={{-97,64},{-102,64},{-104,64},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1D.u1,clock1.y) annotation(Line(
+        points={{-97,76},{-102,76},{-104,76},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D.u2,clock1.y) annotation(Line(
+        points={{-97,-26},{-102,-26},{-104,-26},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D.u1,clock1.y) annotation(Line(
+        points={{-97,-14},{-102,-14},{-104,-14},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2DT.u2,clock1.y) annotation(Line(
+        points={{-97,-56},{-102,-56},{-104,-56},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2DT.u1,clock1.y) annotation(Line(
+        points={{-97,-44},{-102,-44},{-104,-44},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      annotation (experiment(StartTime=0, StopTime=6));
+  end Test19;
+
+  model Test20 "Ticket #1307, Bilinear"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D1D(
+      table=[1,1;2,4;3,9;4,16]) annotation(Placement(transformation(extent={{-95,60},{-75,80}})));
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D1DT(
+      table=transpose([1,1;2,4;3,9;4,16])) annotation(Placement(transformation(extent={{-95,30},{-75,50}})));
+    Modelica.Blocks.Sources.Clock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
+    Modelica.Blocks.Tables.CombiTable1Ds combiTable1D(
+      table=[2,4;3,9;4,16]) annotation(Placement(transformation(extent={{-95,0},{-75,20}})));
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D(
+      table=[1,0,6;2,4,4;3,9,9;4,16,16]) annotation(Placement(transformation(extent={{-95,-30},{-75,-10}})));
+    Modelica.Blocks.Tables.CombiTable2D combiTable2DT(
+      table=transpose([1,0,6;2,4,4;3,9,9;4,16,16])) annotation(Placement(transformation(extent={{-95,-60},{-75,-40}})));
+    Modelica.Blocks.Continuous.Der der1 annotation(Placement(transformation(extent={{-60,60},{-40,80}})));
+    Modelica.Blocks.Continuous.Der der2 annotation(Placement(transformation(extent={{-60,30},{-40,50}})));
+    Modelica.Blocks.Continuous.Der der3 annotation(Placement(transformation(extent={{-60,0},{-40,20}})));
+    Modelica.Blocks.Continuous.Der der4 annotation(Placement(transformation(extent={{-60,-30},{-40,-10}})));
+    Modelica.Blocks.Continuous.Der der5 annotation(Placement(transformation(extent={{-60,-60},{-40,-40}})));
+    equation
+      connect(combiTable1D.u,clock1.y) annotation(Line(
+        points={{-97,10},{-102,10},{-104,10},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der3.u,combiTable1D.y[1]) annotation(Line(
+        points={{-62,10},{-67,10},{-69,10},{-74,10}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der2.u,combiTable2D1DT.y) annotation(Line(
+        points={{-62,40},{-67,40},{-69,40},{-74,40}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1DT.u2,clock1.y) annotation(Line(
+        points={{-97,34},{-102,34},{-104,34},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1DT.u1,clock1.y) annotation(Line(
+        points={{-97,46},{-102,46},{-104,46},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der1.u,combiTable2D1D.y) annotation(Line(
+        points={{-62,70},{-67,70},{-69,70},{-74,70}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1D.u2,clock1.y) annotation(Line(
+        points={{-97,64},{-102,64},{-104,64},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1D.u1,clock1.y) annotation(Line(
+        points={{-97,76},{-102,76},{-104,76},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der4.u,combiTable2D.y) annotation(Line(
+        points={{-62,-20},{-67,-20},{-69,-20},{-74,-20}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D.u2,clock1.y) annotation(Line(
+        points={{-97,-26},{-102,-26},{-104,-26},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D.u1,clock1.y) annotation(Line(
+        points={{-97,-14},{-102,-14},{-104,-14},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der5.u,combiTable2DT.y) annotation(Line(
+        points={{-62,-50},{-67,-50},{-69,-50},{-74,-50}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2DT.u2,clock1.y) annotation(Line(
+        points={{-97,-56},{-102,-56},{-104,-56},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2DT.u1,clock1.y) annotation(Line(
+        points={{-97,-44},{-102,-44},{-104,-44},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      annotation (experiment(StartTime=0, StopTime=6));
+  end Test20;
+
+  model Test21 "Ticket #1307, Akima2D"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D1D(
+      table=[1,1;2,4;3,9;4,16],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,60},{-75,80}})));
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D1DT(
+      table=transpose([1,1;2,4;3,9;4,16]),
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,30},{-75,50}})));
+    Modelica.Blocks.Sources.Clock clock1 annotation(Placement(transformation(extent={{-130,65},{-110,85}})));
+    Modelica.Blocks.Tables.CombiTable1Ds combiTable1D(
+      table=[2,4;3,9;4,16],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,0},{-75,20}})));
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D(
+      table=[1,0,6;2,4,4;3,9,9;4,16,16],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,-30},{-75,-10}})));
+    Modelica.Blocks.Tables.CombiTable2D combiTable2DT(
+      table=transpose([1,0,6;2,4,4;3,9,9;4,16,16]),
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-95,-60},{-75,-40}})));
+    Modelica.Blocks.Continuous.Der der1 annotation(Placement(transformation(extent={{-60,60},{-40,80}})));
+    Modelica.Blocks.Continuous.Der der2 annotation(Placement(transformation(extent={{-60,30},{-40,50}})));
+    Modelica.Blocks.Continuous.Der der3 annotation(Placement(transformation(extent={{-60,0},{-40,20}})));
+    Modelica.Blocks.Continuous.Der der4 annotation(Placement(transformation(extent={{-60,-30},{-40,-10}})));
+    Modelica.Blocks.Continuous.Der der5 annotation(Placement(transformation(extent={{-60,-60},{-40,-40}})));
+    equation
+      connect(combiTable1D.u,clock1.y) annotation(Line(
+        points={{-97,10},{-102,10},{-104,10},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der3.u,combiTable1D.y[1]) annotation(Line(
+        points={{-62,10},{-67,10},{-69,10},{-74,10}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der2.u,combiTable2D1DT.y) annotation(Line(
+        points={{-62,40},{-67,40},{-69,40},{-74,40}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1DT.u2,clock1.y) annotation(Line(
+        points={{-97,34},{-102,34},{-104,34},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1DT.u1,clock1.y) annotation(Line(
+        points={{-97,46},{-102,46},{-104,46},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der1.u,combiTable2D1D.y) annotation(Line(
+        points={{-62,70},{-67,70},{-69,70},{-74,70}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1D.u2,clock1.y) annotation(Line(
+        points={{-97,64},{-102,64},{-104,64},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D1D.u1,clock1.y) annotation(Line(
+        points={{-97,76},{-102,76},{-104,76},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der4.u,combiTable2D.y) annotation(Line(
+        points={{-62,-20},{-67,-20},{-69,-20},{-74,-20}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D.u2,clock1.y) annotation(Line(
+        points={{-97,-26},{-102,-26},{-104,-26},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D.u1,clock1.y) annotation(Line(
+        points={{-97,-14},{-102,-14},{-104,-14},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der5.u,combiTable2DT.y) annotation(Line(
+        points={{-62,-50},{-67,-50},{-69,-50},{-74,-50}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2DT.u2,clock1.y) annotation(Line(
+        points={{-97,-56},{-102,-56},{-104,-56},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2DT.u1,clock1.y) annotation(Line(
+        points={{-97,-44},{-102,-44},{-104,-44},{-104,75},{-109,75}},
+        color={0,0,127},
+        thickness=0.0625));
+      annotation (experiment(StartTime=0, StopTime=6));
+  end Test21;
 end CombiTable2D;
