@@ -6860,7 +6860,7 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS
         annotation (Placement(transformation(extent={{-4,-28},{32,8}}, rotation=
                0)));
-      inner Modelica.Mechanics.MultiBody.World world1(animateWorld=true,
+      inner Modelica.Mechanics.MultiBody.World world(animateWorld=true,
           animateGravity=true) annotation (Placement(transformation(extent={{-60,
                 -40},{-40,-20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body body(m=10, r_CM={0,0,0})
@@ -6889,12 +6889,12 @@ a linear damper is connected here.
         n_a={0,0,1})
         annotation (Placement(transformation(extent={{22,-74},{42,-54}})));
     equation
-      connect(world1.frame_b, fixedTranslation.frame_a) annotation (Line(
+      connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-40,-30},{-30,-30},{-30,-60},{-18,-60}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      connect(world1.frame_b, jointUPS.frame_a) annotation (Line(
+      connect(world.frame_b, jointUPS.frame_a) annotation (Line(
           points={{-40,-30},{-20,-30},{-20,-10},{-4,-10}},
           color={95,95,95},
           thickness=0.5,
