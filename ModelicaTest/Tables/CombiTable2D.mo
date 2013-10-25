@@ -273,7 +273,7 @@ package CombiTable2D
     extends Test0(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v4.mat")));
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_v4.mat")));
     Modelica.Blocks.Sources.Clock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Clock clock2
@@ -296,7 +296,7 @@ package CombiTable2D
     extends Test0(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")));
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_v6.mat")));
     Modelica.Blocks.Sources.Clock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Clock clock2
@@ -319,7 +319,7 @@ package CombiTable2D
     extends Test0(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")));
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_v7.mat")));
     Modelica.Blocks.Sources.Clock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Clock clock2
@@ -343,7 +343,7 @@ package CombiTable2D
     extends Test0(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")));
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_v7.3.mat")));
   equation
     t_new.u1 = time;
     t_new.u2 = time;
@@ -355,7 +355,7 @@ package CombiTable2D
     extends Test0(t_new(
         tableOnFile=true,
         tableName="akima2D",
-        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
+        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test.txt")));
     Modelica.Blocks.Sources.Clock clock1
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Clock clock2
@@ -377,7 +377,7 @@ package CombiTable2D
     extends Modelica.Icons.Example;
   protected
     parameter String fileName=loadResource(
-        "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
+        "modelica://ModelicaTest/Resources/Data/Tables/test_v4.mat");
     Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
@@ -450,7 +450,7 @@ package CombiTable2D
     extends Modelica.Icons.Example;
   protected
     parameter String fileName=loadResource(
-        "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
+        "modelica://ModelicaTest/Resources/Data/Tables/test_v4.mat");
     Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
@@ -523,7 +523,7 @@ package CombiTable2D
     extends Modelica.Icons.Example;
   protected
     parameter String fileName=loadResource(
-        "modelica://Modelica/Resources/Data/Tables/test_v4.mat");
+        "modelica://ModelicaTest/Resources/Data/Tables/test_v4.mat");
     Modelica.Blocks.Types.ExternalCombiTable2D tableID=
         Modelica.Blocks.Types.ExternalCombiTable2D(
           "akima2D",
