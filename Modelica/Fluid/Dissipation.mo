@@ -10918,14 +10918,12 @@ For |x| &gt; 1 both functions return identical results.
         protected
           Real m=Modelica.Constants.pi/(func - nofunc);
           Real b=-Modelica.Constants.pi/2 - m*nofunc;
-          Real r_1=tan(m*x + b);
 
         algorithm
           result := if x >= 0.999999*(func - nofunc) + nofunc and func > nofunc or x
              <= 0.999999*(func - nofunc) + nofunc and nofunc > func then 1 else if x
              <= 0.000001*(func - nofunc) + nofunc and func > nofunc or x >= 0.000001*(
-            func - nofunc) + nofunc and nofunc > func then 0 else ((0.5*(exp(r_1) - exp(
-            -r_1))/(0.5*(exp(r_1) + exp(-r_1))) + 1)/2);
+            func - nofunc) + nofunc and nofunc > func then 0 else (1-Modelica.Math.tanh(Modelica.Math.tan(m*x + b)))/2;
           annotation (
             derivative=Stepsmoother_der,
             Documentation(info="<html>
