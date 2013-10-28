@@ -3,9 +3,9 @@
 double tab0(2,2)   # dummy table
 0 0 1 1
 double tab1(6,2)   # comment line
-		# comment line with leading white space
+  		# comment line with leading white space
   0   0  1   0 # two rows per line
-		# another comment line with leading white space
+  		# another comment line with leading white space
   1   1 # comment in line 9
   2     # first part of row
       4 # continued part of row

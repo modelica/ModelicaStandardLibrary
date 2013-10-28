@@ -157,7 +157,7 @@ package CombiTable1Ds
     extends Test0(t_new(
         tableOnFile=true,
         tableName="longLine",
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test.txt"),
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt"),
         columns={2,2500}));
     Modelica.Blocks.Continuous.Der d_t_new2
       annotation (Placement(transformation(extent={{-60,25},{-40,45}})));
@@ -174,7 +174,7 @@ package CombiTable1Ds
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_v4.mat")));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v4.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test19;
 
@@ -183,7 +183,7 @@ package CombiTable1Ds
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_v6.mat")));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test20;
 
@@ -192,7 +192,7 @@ package CombiTable1Ds
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_v7.mat")));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test21;
 
@@ -202,7 +202,7 @@ package CombiTable1Ds
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test_v7.3.mat")));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test22;
 */
@@ -211,7 +211,7 @@ package CombiTable1Ds
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a",
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test.txt")));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test23;
 
@@ -220,7 +220,7 @@ package CombiTable1Ds
     extends Test0(t_new(
         tableOnFile=true,
         tableName="a_tab",
-        fileName=loadResource("modelica://ModelicaTest/Resources/Data/Tables/test.txt")));
+        fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt")));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test24;
 
