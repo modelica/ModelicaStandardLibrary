@@ -10923,7 +10923,7 @@ For |x| &gt; 1 both functions return identical results.
           result := if x >= 0.999999*(func - nofunc) + nofunc and func > nofunc or x
              <= 0.999999*(func - nofunc) + nofunc and nofunc > func then 1 else if x
              <= 0.000001*(func - nofunc) + nofunc and func > nofunc or x >= 0.000001*(
-            func - nofunc) + nofunc and nofunc > func then 0 else (1-Modelica.Math.tanh(Modelica.Math.tan(m*x + b)))/2;
+            func - nofunc) + nofunc and nofunc > func then 0 else (1+Modelica.Math.tanh(Modelica.Math.tan(m*x + b)))/2;
           annotation (
             derivative=Stepsmoother_der,
             Documentation(info="<html>
