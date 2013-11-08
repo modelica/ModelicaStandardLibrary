@@ -1224,6 +1224,30 @@ just potential signals. The user might still add different signal names.
 </html>"), experiment(StopTime=2));
   end BusUsage;
 
+  model PseudoRandomBinarySignal
+    "Demonstrates the usage of the Sources.PseudoRandomBinarySignal block"
+    extends Modelica.Icons.Example;
+    Sources.PseudoRandomBinarySignal source(period=2, startTime=10)
+      annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
+    annotation (experiment(StopTime=200));
+  end PseudoRandomBinarySignal;
+
+  model WhiteNoise "Demonstrates the usage of the Sources.WhiteNoise block"
+    extends Modelica.Icons.Example;
+    constant Real eps = 1e-9 "Small number to avoid division by zero";
+    Sources.WhiteNoise source(
+      offset=4,
+      sigma=2,
+      f_c=10)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    Real d2_int(start = 0, fixed = true) "Integral of the squared deviation";
+    Real rms "Root mean square deviation";
+  equation
+    der(d2_int) = (source.y - source.offset)^2;
+    rms = sqrt((d2_int+eps)/max(time,eps))
+    annotation (experiment(StopTime=300, NumberOfIntervals = 5000));
+  end WhiteNoise;
+
   package BusUsage_Utilities
     "Utility models and connectors for example Modelica.Blocks.Examples.BusUsage"
     extends Modelica.Icons.UtilitiesPackage;

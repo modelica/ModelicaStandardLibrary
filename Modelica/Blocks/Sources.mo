@@ -914,7 +914,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
     parameter SIunits.Time riseTime(min=0,start=0.5) "Rise time";
     parameter SIunits.Time riseTimeConst(min=Modelica.Constants.small) = 0.1
       "Rise time constant; rising is defined as outMax*(1-exp(-riseTime/riseTimeConst))";
-    parameter SIunits.Time fallTimeConst(min=Modelica.Constants.small) =
+    parameter SIunits.Time fallTimeConst(min=Modelica.Constants.small)=
       riseTimeConst "Fall time constant";
     parameter Real offset=0 "Offset of output signal";
     parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
@@ -1988,6 +1988,125 @@ a flange according to a given acceleration.
 </html>"));
   end KinematicPTP2;
 
+  block WhiteNoise "Band-limited white noise signal generator"
+    extends Interfaces.SignalSource;
+    parameter Real sigma "Standard deviation";
+    parameter Modelica.SIunits.Frequency f_c "Cut-off frequency";
+    parameter Modelica.SIunits.Time startTime = 0
+      "Generator is switched on at this time";
+    parameter Real R(min = 5) = 10
+      "Ratio of PRBS base frequency to filter cut-off frequency";
+    final parameter Integer N = 18 "Number of bits of the PRBS shift register";
+    parameter Boolean seed[N]={false,false,false,true,true,false,true,false,true,
+                               true,true,false,true,false,false,true,false,true}
+      "Seed of the PRBS generator";
+
+    Continuous.SecondOrder secondOrder(
+      final w=Modelica.Constants.pi*f_c,
+      final D=1/sqrt(2),
+      final initType=Modelica.Blocks.Types.Init.InitialState,
+      final y_start=0,
+      final yd_start=0,
+      final k=sigma*sqrt(R)*0.948)
+      annotation (Placement(transformation(extent={{36,-4},{56,16}})));
+    Logical.Switch switch
+      annotation (Placement(transformation(extent={{-46,4},{-26,24}})));
+    RealExpression one(y=1.0)
+      annotation (Placement(transformation(extent={{-94,26},{-74,46}})));
+    RealExpression minus_one(y=-1.0)
+      annotation (Placement(transformation(extent={{-94,-22},{-74,-2}})));
+    Math.Add add annotation (Placement(transformation(extent={{72,-10},{92,10}})));
+    RealExpression mean(y=offset)
+      annotation (Placement(transformation(extent={{28,-36},{48,-16}})));
+    Logical.Switch switch2
+      annotation (Placement(transformation(extent={{6,-4},{26,16}})));
+    RealExpression zero(y=0)
+      annotation (Placement(transformation(extent={{-50,-56},{-30,-36}})));
+    BooleanExpression on(y=time >= startTime)
+      annotation (Placement(transformation(extent={{-60,-32},{-20,-14}})));
+    PseudoRandomBinarySignal prbs(
+      final period=1/(f_c*R),
+      final startTime=startTime,
+      final seed=seed)
+      annotation (Placement(transformation(extent={{-94,4},{-74,24}})));
+  equation
+    connect(prbs.y, switch.u2) annotation (Line(
+        points={{-73,14},{-48,14}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(minus_one.y, switch.u3) annotation (Line(
+        points={{-73,-12},{-58,-12},{-58,6},{-48,6}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(one.y, switch.u1) annotation (Line(
+        points={{-73,36},{-64,36},{-64,22},{-48,22}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(mean.y, add.u2) annotation (Line(
+        points={{49,-26},{62,-26},{62,-6},{70,-6}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(add.y, y) annotation (Line(
+        points={{93,0},{110,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(secondOrder.y, add.u1) annotation (Line(
+        points={{57,6},{70,6}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(switch2.y, secondOrder.u) annotation (Line(
+        points={{27,6},{34,6}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(switch.y, switch2.u1) annotation (Line(
+        points={{-25,14},{4,14}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(zero.y, switch2.u3) annotation (Line(
+        points={{-29,-46},{-4,-46},{-4,-2},{4,-2}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(on.y, switch2.u2) annotation (Line(
+        points={{-18,-23},{-12,-23},{-12,6},{4,6}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    annotation (
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
+            textString="startTime=%startTime"),
+          Line(
+            points={{-80,-2},{-70,2},{-64,8},{-56,10},{-54,-4},{-50,-28},{-46,-38},
+                {-44,-30},{-40,-8},{-38,12},{-34,20},{-30,20},{-30,12},{-26,0},{-24,
+                8},{-20,32},{-16,50},{-14,26},{-14,22},{-12,-12},{-6,-30},{-2,-60},
+                {0,-70},{8,-44},{10,-16},{16,16},{20,32},{20,-6},{22,-36},{28,-46},
+                {30,-24},{40,20},{42,2},{44,-22},{50,-12},{60,-2},{62,8},{66,36},{
+                72,44},{76,0},{84,-54},{88,-44},{92,-28}},
+            color={0,0,0},
+            smooth=Smooth.None)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics),
+      Documentation(info="<html>
+<p>The Real output y is a band-limited white noise signal, with cut-off frequency f_c. This is generated by filtering a pseudo-random binary signal with a second-order low-pass filter. The ratio R of the PRBS base frequency to the filter cut-off frequency determines the quality of the signal: higher values of R result in a signal which is closer to band-limited white noise, but also require larger simulation times, due to the higher number of events of the PRBS generator. </p>
+</html>"));
+  end WhiteNoise;
+
   block TimeTable
     "Generate a (possibly discontinuous) signal by linear interpolation in a table"
 
@@ -2295,21 +2414,25 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
-      input Boolean verboseRead "= true: Print info message; = false: No info message";
+      input Boolean verboseRead
+        "= true: Print info message; = false: No info message";
       external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables"});
     end readTableData;
 
-    function getTableValue "Interpolate 1-dim. table where first column is time"
+    function getTableValue
+      "Interpolate 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Integer icol;
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
         annotation (Library={"ModelicaStandardTables"});
@@ -2327,7 +2450,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
         annotation (Library={"ModelicaStandardTables"});
@@ -2341,7 +2465,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       input Real der_timeIn;
       output Real der_y;
       external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
@@ -2352,7 +2477,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Return minimum time value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time timeMin "Minimum time value in table";
       external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(tableID)
         annotation (Library={"ModelicaStandardTables"});
@@ -2362,7 +2488,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Return maximum time value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time timeMax "Maximum time value in table";
       external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
         annotation (Library={"ModelicaStandardTables"});
@@ -2373,7 +2500,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Modelica.SIunits.Time timeIn;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time nextTimeEvent "Next time event in table";
       external"C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
         annotation (Library={"ModelicaStandardTables"});
@@ -3149,6 +3277,66 @@ This example is also available in
 
 </html>"));
   end RadioButtonSource;
+
+  block PseudoRandomBinarySignal
+    "Generates a pseudo-random binary signal with given base period"
+    extends Modelica.Blocks.Interfaces.partialBooleanSource(y(start = false, fixed=true));
+    parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small)
+      "Time for one period";
+    parameter Modelica.SIunits.Time startTime = 0
+      "Generator is switched on at this time";
+    final parameter Integer N = 18 "Number of bits of the PRBS shift register";
+    parameter Boolean seed[N]={false,false,false,true,true,false,true,false,true,
+                               true,true,false,true,false,false,true,false,true}
+      "Seed of the PRBS generator";
+  protected
+    Boolean s[N](start = seed, fixed = true) "Shift register";
+  algorithm
+    when sample(startTime, period) then
+      // Compute output
+      y:= (not s[18] and s[5]) or (s[18] and (not s[5]));
+      y:= (not s[2] and y) or (s[2] and (not y));
+      y:= (not s[1] and y) or (s[1] and (not y));
+      //  Shift the register and add the new result in the first position
+      for j in N:-1:2 loop
+        s[j]:=s[j-1];
+      end for;
+      s[1]:=y;
+    end when;
+    annotation (
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={Text(
+            extent={{-150,-140},{150,-110}},
+            lineColor={0,0,0},
+            textString="%period"), Line(points={{-80,-70},{-66,-70},{-66,44},{-46,
+                44},{-46,-70},{-8,-70},{-8,44},{79,44}},
+                                                       color={0,0,0})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Text(
+            extent={{-80,-74},{-39,-82}},
+            lineColor={0,0,0},
+            textString="startTime"),
+          Line(
+            points={{-88,-70},{-60,-70},{-60,20},{-40,20},{-40,-70},{0,-70},{0,20},
+                {20,20},{20,-70},{40,-70},{40,20},{68,20}},
+            color={0,0,255},
+            thickness=0.5),
+          Line(points={{-70,20},{-41,20}}, color={95,95,95}),
+          Text(
+            extent={{-95,26},{-66,17}},
+            lineColor={0,0,0},
+            textString="true"),
+          Text(
+            extent={{-96,-60},{-75,-69}},
+            lineColor={0,0,0},
+            textString="false")}),
+        Documentation(info="<html>
+<p>At the end of each period, the Boolean output is changed to a new value, which can be true or false with 50&percnt; probability for each case. The seed of the pseudo-random binary sequence is an array of 18 Boolean values, and the sequence only repeats after 2^18 periods.</p>
+</html>"));
+  end PseudoRandomBinarySignal;
 
   block IntegerConstant "Generate constant signal of type Integer"
     parameter Integer k(start=1) "Constant output value";
