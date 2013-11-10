@@ -1336,7 +1336,7 @@ This package contains test examples:
 </p>
 <p>
   Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
@@ -1538,7 +1538,7 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
 </p>
 <p>
   Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
@@ -1647,7 +1647,7 @@ This package contains definitions of medium properties.<br>
 </p>
 <p>
   Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
@@ -1814,7 +1814,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
 </p>
 <p>
   Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
@@ -2104,7 +2104,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
 </p>
 <p>
   Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
@@ -2558,7 +2558,7 @@ This package contains connectors and partial models:
 </p>
 <p>
   Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>

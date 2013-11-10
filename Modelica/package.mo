@@ -7568,7 +7568,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Christian Kral</b> </td>
-   <td valign=\"top\"> Modeling and simulation of electric machines, drives and mechatronic systems, Vienna, Austria</td>
+   <td valign=\"top\"> Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems, Vienna, Austria</td>
    <td valign=\"top\"> Modelica.ComplexBlocks<br>
      Modelica.Electrical.Machines<br>
      Modelica.Electrical.MultiPhase<br>

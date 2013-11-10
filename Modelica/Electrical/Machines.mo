@@ -16200,7 +16200,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 </p>
 <p>
   Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
