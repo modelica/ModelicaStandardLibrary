@@ -1334,16 +1334,16 @@ This package contains test examples:
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
-  <p>
-  Dr.Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
-  Giefinggasse 2<br>
-  A-1210 Vienna, Austria
+<p>
+  Dr. Christian Kral<br>
+  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 
 <p>
@@ -1536,16 +1536,17 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
-  <p>
+<p>
   Dr. Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
-  Giefinggasse 2<br>
-  A-1210 Vienna, Austria
+  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
+
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -1560,7 +1561,7 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Inst
   <li> v1.30 Beta 2005/06/02 Anton Haumer<br>
        friction losses are fed to medium</li>
   </ul>
-</html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+</html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
         origin = {6,40},
         lineColor = {0,0,255},
@@ -1644,16 +1645,17 @@ This package contains definitions of medium properties.<br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
-  <p>
+<p>
   Dr. Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
-  Giefinggasse 2<br>
-  A-1210 Vienna, Austria
+  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
+
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -1810,16 +1812,17 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
-  <p>
+<p>
   Dr. Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
-  Giefinggasse 2<br>
-  A-1210 Vienna, Austria
+  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
+
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2099,16 +2102,16 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
-  <p>
+<p>
   Dr. Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
-  Giefinggasse 2<br>
-  A-1210 Vienna, Austria
+  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2498,16 +2501,17 @@ This package contains partial models, defining in a very compact way the basic t
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
-  <p>
+<p>
   Dr. Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
-  Giefinggasse 2<br>
-  A-1210 Vienna, Austria
+  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
+
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2552,16 +2556,17 @@ This package contains connectors and partial models:
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
-  <p>
+<p>
   Dr. Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
-  Giefinggasse 2<br>
-  A-1210 Vienna, Austria
+  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
+
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2632,16 +2637,17 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
-  <p>
+<p>
   Dr. Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a><br>
-  Giefinggasse 2<br>
-  A-1210 Vienna, Austria
+  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
+
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2693,7 +2699,7 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
   <li> v1.6.7 2010/06/25 Christian Kral<br>
        changed company name to AIT</li>
   </ul>
-</html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+</html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
         origin = {11.533,37.938},
         lineColor = {0,128,255},

@@ -312,9 +312,10 @@ phase winding parameters -- at the same nominal rotor voltage and frequency.
 <h4>Contact</h4>
 
 <p>
-Christian Kral<br>
-1060 Vienna, Austria<br>
-email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
+  Dr. Christian Kral<br>
+  <a href=\"http://christiankral.net/\">Electric Machines, Drives and Mechatronic Systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
 
 <p>
@@ -334,7 +335,7 @@ for contributing his source code to this library.
 </p>
 
 <p>
-The main work has been performed 
+Copyright &copy; 1998-2013, Modelica Association, Christian Kral, Anton Haumer, and AIT.
 </p>
 
 <p>

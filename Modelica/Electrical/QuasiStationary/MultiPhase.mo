@@ -303,7 +303,7 @@ Examples to demonstrate the usage of quasistationary electric components.
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString =                           "m=%m"),
+              textString=                            "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),
       Documentation(info="<html>
@@ -408,7 +408,7 @@ Delta (polygon) connection of a multi phase circuit.
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString =                        "k = %k")}),
+              textString=                         "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) plug to a single phase (positive) pin.
@@ -458,7 +458,7 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString =                        "k = %k")}),
+              textString=                         "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) plug to a single phase (negative) pin.
@@ -1117,16 +1117,16 @@ The inductances <i>L</i> are given as <i>m</i> input signals.
     annotation (Icon(
       graphics={
         Line(
-          origin = {10,40},
-          points = {{-100,-40},{-80,-40}}),
+          origin=  {10,40},
+          points=  {{-100,-40},{-80,-40}}),
         Line(
-          origin = {10,40},
-          points = {{60,-40},{80,-40}}),
+          origin=  {10,40},
+          points=  {{60,-40},{80,-40}}),
         Rectangle(
-          lineColor = {0,0,255},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-70,-30},{70,30}})},
+          lineColor=  {0,0,255},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-70,-30},{70,30}})},
       coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
@@ -1583,11 +1583,11 @@ This switch is only intended to be used for structural changes, not fast switchi
 </HTML>"));
     end IdealClosingSwitch;
   annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics={
-                Line(origin = {10,34}, points = {{-100,-60},{-54,-60}}),
-                Ellipse(origin = {10,34}, extent = {{-54,-64},{-46,-56}}),
-                Line(origin = {10,34}, points = {{-47,-58},{30,-10}}),
-                Line(origin = {10,34}, points = {{30,-40},{30,-60}}),
-                Line(origin = {10,34}, points = {{30,-60},{80,-60}})}), Documentation(info="<html>
+                Line(origin=  {10,34}, points=  {{-100,-60},{-54,-60}}),
+                Ellipse(origin=  {10,34}, extent=  {{-54,-64},{-46,-56}}),
+                Line(origin=  {10,34}, points=  {{-47,-58},{30,-10}}),
+                Line(origin=  {10,34}, points=  {{30,-40},{30,-60}}),
+                Line(origin=  {10,34}, points=  {{30,-60},{80,-60}})}), Documentation(info="<html>
 <p>This package hosts ideal models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1851,19 +1851,19 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
               170,255}));
       annotation (
         Icon(graphics={
-          Line(points = {{0,100},{0,70}},
-            color = {0,0,255}),
-          Line(points = {{0,-70},{0,-100}},
-            color = {0,0,255}),
-          Text(extent = {{-29,-70},{30,-11}},
-            textString = "P"),
-          Line(points = {{-80,-100},{-80,0}},
-            color = {85,170,255}),
-          Text(textColor = {0,0,255},
-            extent = {{-100,110},{100,150}},
-            textString = "%name"),
-          Line(points = {{-100,0},{100,0}},
-            color = {0,0,255})}),
+          Line(points=  {{0,100},{0,70}},
+            color=  {0,0,255}),
+          Line(points=  {{0,-70},{0,-100}},
+            color=  {0,0,255}),
+          Text(extent=  {{-29,-70},{30,-11}},
+            textString=  "P"),
+          Line(points=  {{-80,-100},{-80,0}},
+            color=  {85,170,255}),
+          Text(textColor=  {0,0,255},
+            extent=  {{-100,110},{100,150}},
+            textString=  "%name"),
+          Line(points=  {{-100,0},{100,0}},
+            color=  {0,0,255})}),
         Documentation(info="<html>
 
 <p>
