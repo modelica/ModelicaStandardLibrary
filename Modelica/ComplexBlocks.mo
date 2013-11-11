@@ -3,6 +3,68 @@ package ComplexBlocks
   "Library of basic input/output control blocks with Complex signals"
 extends Modelica.Icons.Package;
 
+  package UsersGuide "User's Guide"
+    extends Modelica.Icons.Information;
+
+
+
+    class Contact "Contact"
+      extends Modelica.Icons.Contact;
+      annotation (Documentation(info="<html>
+<h4>Contact</h4>
+
+<p>
+Anton Haumer<br>
+<a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+3423 St. Andrae-Woerdern, Austria<br>
+email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+</p>
+
+<p>
+  Dr. Christian Kral<br>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
+<p>
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Christian Kral.
+</p>
+
+</html>"));
+    end Contact;
+
+    class ReleaseNotes "Release Notes"
+      extends Modelica.Icons.ReleaseNotes;
+      annotation (Documentation(info="<html>
+
+<h5>Version 3.2.2</h5>
+
+<ul>
+<li>Added block
+    <a href=\"modelica://Modelica.ComplexBlocks.ComplexMath.Conj\">Conj</a> for conjugate complex signal processing
+    </li>
+<li>Added optional conjugate complex input processing to all partial interfaces and complex blocks</li>
+</ul>
+
+<h5>Version 3.2</h5>
+
+<ul>
+<li>Introduction of first version</li>
+</ul>
+
+</html>"));
+    end ReleaseNotes;
+
+    annotation (Documentation(info="<html>
+<p>
+This library contains blocks for processing complex signals.
+</p>
+</html>"));
+  end UsersGuide;
+
   package Examples
     "Library of examples to demonstrate the usage of package Blocks"
     extends Modelica.Icons.ExamplesPackage;
@@ -125,6 +187,11 @@ Block has one continuous Complex output signal vector.
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
         ComplexOutput y "Connector of Complex output signal"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+        parameter Boolean useConjugateInput = false
+        "If true, input is processed conjugate complex";
+    protected
+        ComplexInput uInternal = (if useConjugateInput then Modelica.ComplexMath.conj(u) else u)
+        "Equals either u or conjugate complex input u if useComplexInput = true";
         annotation (Documentation(info="<html>
 <p>
 Block has one continuous Complex input and one continuous Complex output signal.
@@ -141,6 +208,15 @@ Block has one continuous Complex input and one continuous Complex output signal.
           annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
         ComplexOutput y "Connector of Complex output signal"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+        parameter Boolean useConjugateInput1 = false
+        "If true, input 1 is processed conjugate complex";
+        parameter Boolean useConjugateInput2 = false
+        "If true, input 2 is processed conjugate complex";
+    protected
+        ComplexInput u1Internal = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u2)
+        "Equals either u1 or conjugate complex input u1 if useComplexInput1 = true";
+        ComplexInput u2Internal = (if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
+        "Equals either u2 or conjugate complex input u2 if useComplexInput2 = true";
         annotation (Documentation(info="<html>
 <p>
 Block has two continuous Complex input signals u1 and u2 and one
@@ -153,10 +229,18 @@ continuous Complex output signal y.
       "Single Input Multiple Output continuous control block"
         extends Modelica.Blocks.Icons.Block;
         parameter Integer nout=1 "Number of outputs";
+
         ComplexInput u "Connector of Complex input signal"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
         ComplexOutput y[nout] "Connector of Complex output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+
+        parameter Boolean useConjugateInput = false
+        "If true, input is processed conjugate complex";
+    protected
+        ComplexInput uInternal = (if useConjugateInput then Modelica.ComplexMath.conj(u) else u)
+        "Equals either u or conjugate complex input u if useComplexInput = true";
+
         annotation (Documentation(info="<html>
 <p>
  Block has one continuous Complex input signal and a
@@ -173,6 +257,14 @@ vector of continuous Complex output signals.
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
         ComplexOutput y "Connector of Complex output signal"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+
+        parameter Boolean useConjugateInput[nin] = fill(false,nin)
+        "If true, inputs are processed conjugate complex";
+    protected
+        ComplexInput uInternal[nin]=
+          {if useConjugateInput[k] then Modelica.ComplexMath.conj(u[k]) else u[k] for k in 1:nin}
+        "Equals either u or conjugate complex input u if useComplexInput = true";
+
         annotation (Documentation(info="<html>
 <p>
 Block has a vector of continuous Complex input signals and
@@ -190,6 +282,13 @@ one continuous Complex output signal.
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
         ComplexOutput y[nout] "Connector of Complex output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+        parameter Boolean useConjugateInput[nin] = fill(false,nin)
+        "If true, inputs are processed conjugate complex";
+    protected
+        ComplexInput uInternal[nin]=
+          {if useConjugateInput[k] then Modelica.ComplexMath.conj(u[k]) else u[k] for k in 1:nin}
+        "Equals either u or conjugate complex input u if useComplexInput = true";
+
         annotation (Documentation(info="<html>
 <p>
 Block has a continuous Complex input vector and a continuous Complex output signal vector.
@@ -206,6 +305,14 @@ The signal sizes of the input and output vector may be different.
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
         ComplexOutput y[n] "Connector of Complex output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+
+        parameter Boolean useConjugateInput[n] = fill(false,n)
+        "If true, inputs are processed conjugate complex";
+    protected
+        ComplexInput uInternal[n]=
+          {if useConjugateInput[k] then Modelica.ComplexMath.conj(u[k]) else u[k] for k in 1:n}
+        "Equals either u or conjugate complex input u if useComplexInput = true";
+
         annotation (Documentation(info="<html>
 <p>
 Block has a continuous Complex input vector and a continuous Complex output signal vector
@@ -224,6 +331,19 @@ where the signal sizes of the input and output vector are identical.
           annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
         ComplexOutput y[n] "Connector of Complex output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+
+        parameter Boolean useConjugateInput1[n] = fill(false,n)
+        "If true, inputs 1 are processed conjugate complex";
+        parameter Boolean useConjugateInput2[n] = fill(false,n)
+        "If true, inputs 2 are processed conjugate complex";
+    protected
+        ComplexInput u1Internal[n]=
+          {if useConjugateInput1[k] then Modelica.ComplexMath.conj(u1[k]) else u1[k] for k in 1:n}
+        "Equals either u1 or conjugate complex input u1 if useComplexInput = true";
+        ComplexInput u2Internal[n]=
+          {if useConjugateInput2[k] then Modelica.ComplexMath.conj(u2[k]) else u2[k] for k in 1:n}
+        "Equals either u1 or conjugate complex input u1 if useComplexInput = true";
+
         annotation (Documentation(info="<html>
 <p>
 Block has two continuous Complex input vectors u1 and u2 and one
@@ -257,11 +377,52 @@ generated signal.
     "Library of mathematical functions as input/output blocks"
     extends Modelica.Icons.Package;
 
+        block Conj "Output is equal to the conjugate complex input signal"
+
+          extends Modelica.ComplexBlocks.Interfaces.ComplexSISO(final useConjugateInput=true);
+
+        equation
+          y = uInternal;
+          annotation (
+            Documentation(info="<html>
+<p>
+This block computes output <code>y</code> as
+<i>conjugate complex</i> input <code>u</code>. 
+</p>
+<pre>
+    y = Modelica.ComplexMath.conj(u)
+</pre>
+</html>"),         Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}}),
+            graphics={
+                Line(
+                  points={{-40,0},{40,0}},
+                  color={0,0,255},
+                  smooth=Smooth.None),
+                Line(
+                  points={{-40,0},{40,0}},
+                  color={0,0,255},
+                  smooth=Smooth.None,
+                  origin={0,0},
+                  rotation=60),
+                Line(
+                  points={{-40,0},{40,0}},
+                  color={0,0,255},
+                  smooth=Smooth.None,
+                  origin={0,0},
+                  rotation=120)}),
+            Diagram(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}}), graphics));
+        end Conj;
+
         block Gain "Output the product of a gain value with the input signal"
 
           parameter Complex k(re(start=1), im(start=0))
         "Gain value multiplied with input signal";
-    public
+          parameter Boolean useConjugateInput = false
+        "If true, input is processed conjugate complex";
           Interfaces.ComplexInput u "Input signal connector"
             annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -270,18 +431,18 @@ generated signal.
               rotation=0)));
 
         equation
-          y = k*u;
+          y = k * (if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
           annotation (
             Documentation(info="<html>
 <p>
-This block computes output <i>y</i> as
-<i>product</i> of gain <i>k</i> with the
-input <i>u</i>:
+This block computes output <code>y</code> as
+<i>product</i> of gain <code>k</code> with the
+input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> either the original or the conjugate complex input signal are processed. 
 </p>
 <pre>
-    y = k * u;
+    y = k * (if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
 </pre>
-
+<p><b>Example:</b> If <code>useConjugateInput = true</code> and <code>k = 2</code> the output signal <code>y = 2 * Modelica.ComplexMath.conj(u)</code>.</p>
 </html>"),         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
@@ -316,7 +477,7 @@ input <i>u</i>:
           parameter Complex k[nin]=fill(Complex(1,0), nin)
         "Optional: sum coefficients";
         equation
-          y = k*u;
+          y = k*uInternal;
           annotation (defaultComponentName="sum1",
             Documentation(info="<html>
 <p>
@@ -360,7 +521,8 @@ Example:
               thickness=0.25)}));
         end Sum;
 
-        block Feedback "Output difference between commanded and feedback input"
+        block Feedback
+      "Output difference between commanded input 1 and feedback input 2"
 
           Interfaces.ComplexInput u1 annotation (Placement(transformation(
               extent={{-100,-20},{-60,20}}, rotation=0)));
@@ -372,27 +534,37 @@ Example:
           Interfaces.ComplexOutput y annotation (Placement(transformation(
               extent={{80,-10},{100,10}}, rotation=0)));
 
+          parameter Boolean useConjugateInput1 = false
+        "If true, input 1 is processed conjugate complex";
+          parameter Boolean useConjugateInput2 = false
+        "If true, input 2 is processed conjugate complex";
+
         equation
-          y = u1 - u2;
+          y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+            - (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);
           annotation (
             Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as <i>difference</i> of the
-commanded input <b>u1</b> and the feedback
-input <b>u2</b>:
+This blocks computes output <code>y</code> as <i>difference</i> of the
+commanded input <code>u1</code> and the feedback
+input <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
 </p>
 <pre>
-    <b>y</b> = <b>u1</b> - <b>u2</b>;
+  y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+    - (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);  
 </pre>
 <p>
-Example:
+<b>Example</b> parameters:
+</p>
+<ul>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li> 
+</ul>
+<p>
+result in the following equation:
 </p>
 <pre>
-     parameter:   n = 2
-
-  results in the following equations:
-
-     y = u1 - u2
+     y = Modelica.ComplexMath.conj(u1) - u2
 </pre>
 
 </html>"),         Icon(coordinateSystem(
@@ -436,29 +608,33 @@ Example:
 
         block Add "Output the sum of the two inputs"
           extends Interfaces.ComplexSI2SO;
-          parameter Complex k1=Complex(1,0) "Gain of upper input";
-          parameter Complex k2=Complex(1,0) "Gain of lower input";
-
+          parameter Complex k1=Complex(1,0) "Gain of input 1";
+          parameter Complex k2=Complex(1,0) "Gain of input 2";
         equation
-          y = k1*u1 + k2*u2;
+          y = k1*u1Internal + k2*u2Internal;
           annotation (
             Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as <i>sum</i> of the
-two input signals <b>u1</b> and <b>u2</b>:
+This blocks computes output <code>y</code> as <i>sum</i> of the
+two input signals <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
 </p>
 <pre>
-    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b>;
+  y = k1*u1Internal + k2*u2Internal;
 </pre>
 <p>
-Example:
+<b>Example</b> parameters:
+</p>
+<ul>
+<li><code>k1 = +2</code>,</li> 
+<li><code>k2 = -3</code>,</li>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li> 
+</ul>
+<p>
+result in the following equation:
 </p>
 <pre>
-     parameter:   k1= +2, k2= -3
-
-  results in the following equations:
-
-     y = 2 * u1 - 3 * u2
+     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2
 </pre>
 
 </html>"),         Icon(coordinateSystem(
@@ -551,8 +727,17 @@ Example:
           extends Modelica.Blocks.Icons.Block;
 
           parameter Complex k1=Complex(1,0) "Gain of upper input";
+          parameter Boolean useConjugateInput1 = false
+        "If true, input 1 is processed conjugate complex";
+
           parameter Complex k2=Complex(1,0) "Gain of middle input";
+          parameter Boolean useConjugateInput2 = false
+        "If true, input 2 is processed conjugate complex";
+
           parameter Complex k3=Complex(1,0) "Gain of lower input";
+          parameter Boolean useConjugateInput3 = false
+        "If true, input 3 is processed conjugate complex";
+
           Interfaces.ComplexInput u1 "Connector 1 of Complex input signals"
             annotation (Placement(transformation(extent={{-140,60},{-100,100}},
               rotation=0)));
@@ -567,25 +752,36 @@ Example:
               rotation=0)));
 
         equation
-          y = k1*u1 + k2*u2 + k3*u3;
+          y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+            + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
+            + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);
           annotation (
             Documentation(info="<html>
 <p>
-This blocks computes output <b>y</b> as <i>sum</i> of the
-three input signals <b>u1</b>, <b>u2</b> and <b>u3</b>:
+This blocks computes output <code>y</code> as <i>sum</i> of the
+three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Optionally, inputs <code>u1</code> and <code>u2</code> and <code>u3</code> can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> and <code>useConjugateInput3</code> are <code>true</code>, respectively.
 </p>
 <pre>
-    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b> + k3*<b>u3</b>;
-</pre>
+  y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+    + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
+    + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);</pre>
 <p>
-Example:
+<b>Example</b> parameters:
+</p>
+<ul>
+<li><code>k1 = +2</code>,</li> 
+<li><code>k2 = -3</code>,</li>
+<li><code>k3 = +1</code>,</li>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li> 
+<li><code>useConjugateInput3 = false</code></li> 
+</ul>
+
+<p>
+  result in the following equation:
 </p>
 <pre>
-     parameter:   k1= +2, k2= -3, k3=1;
-
-  results in the following equations:
-
-     y = 2 * u1 - 3 * u2 + u3;
+     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2 + u3;
 </pre>
 
 </html>"),         Icon(coordinateSystem(
@@ -657,19 +853,20 @@ Example:
 
         block Product "Output product of the two inputs"
           extends Interfaces.ComplexSI2SO;
-
         equation
-          y = u1*u2;
+          y = u1Internal * u2Internal;
           annotation (
             Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> (element-wise)
+This blocks computes the output <code>y</code> (element-wise)
 as <i>product</i> of the corresponding elements of
-the two inputs <b>u1</b> and <b>u2</b>:
+the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.  
 </p>
 <pre>
-    y = u1 * u2;
+  y = u1Inernal * u2Internal;
 </pre>
+
+<p><b>Example:</b> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) * u2</code>.</p>
 
 </html>"),         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -701,19 +898,26 @@ the two inputs <b>u1</b> and <b>u2</b>:
 
         block Division "Output first input divided by second input"
           extends Interfaces.ComplexSI2SO;
-
+          parameter Boolean useConjugateInput1 = false
+        "If true, input 1 is processed conjugate complex";
+          parameter Boolean useConjugateInput2 = false
+        "If true, input 2 is processed conjugate complex";
         equation
-          y = u1/u2;
+          y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+            / (if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2);
           annotation (
             Documentation(info="<html>
 <p>
-This block computes the output <b>y</b> (element-wise)
+This block computes the output <code>y</code> (element-wise)
 by <i>dividing</i> the corresponding elements of
-the two inputs <b>u1</b> and <b>u2</b>:
+the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.  
 </p>
 <pre>
-    y = u1 / u2;
+    y = u1Internal / u2Internal;
 </pre>
+
+<p><b>Example:</b> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) / u2</code>.</p>
+
 
 </html>"),         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -766,7 +970,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
         block Sqrt "Output the square root of the input (input >= 0 required)"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.'sqrt'(u);
+          y = Modelica.ComplexMath.'sqrt'(uInternal);
           annotation (defaultComponentName="sqrt1",
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -819,11 +1023,11 @@ the two inputs <b>u1</b> and <b>u2</b>:
               textString="u")}),
             Documentation(info="<HTML>
 <p>
-This blocks computes the output <b>y</b>
-as <i>square root</i> of the input <b>u</b>:
+This blocks computes the output <code>y</code>
+as <i>square root</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>sqrt</b>( u );
+    y = <b>sqrt</b>(uInternal);
 </pre>
 <p>
 All elements of the input vector shall be zero or positive.
@@ -836,7 +1040,7 @@ Otherwise an error occurs.
         block Sin "Output the sine of the input"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.sin(u);
+          y = Modelica.ComplexMath.sin(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -908,10 +1112,10 @@ Otherwise an error occurs.
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b>
-as <b>sine</b> of the input <b>u</b>:
+as <b>sine</b> of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>sin</b>( u );
+    y = <b>sin</b>(uInternal);
 </pre>
 
 <p>
@@ -925,7 +1129,7 @@ as <b>sine</b> of the input <b>u</b>:
         block Cos "Output the cosine of the input"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.cos(u);
+          y = Modelica.ComplexMath.cos(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -997,10 +1201,10 @@ as <b>sine</b> of the input <b>u</b>:
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b>
-as <b>cos</b> of the input <b>u</b>:
+as <b>cos</b> of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>cos</b>( u );
+    y = <b>cos</b>(uInternal);
 </pre>
 
 <p>
@@ -1014,7 +1218,7 @@ as <b>cos</b> of the input <b>u</b>:
         block Tan "Output the tangent of the input"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.tan(u);
+          y = Modelica.ComplexMath.tan(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1084,10 +1288,10 @@ as <b>cos</b> of the input <b>u</b>:
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b>
-as <b>tan</b> of the input <b>u</b>:
+as <b>tan</b> of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>tan</b>( u );
+    y = <b>tan</b>(uInternal);
 </pre>
 
 <p>
@@ -1101,7 +1305,7 @@ as <b>tan</b> of the input <b>u</b>:
         block Asin "Output the arc sine of the input"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.asin(u);
+          y = Modelica.ComplexMath.asin(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1173,10 +1377,10 @@ as <b>tan</b> of the input <b>u</b>:
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b> as the
-<i>sine-inverse</i> of the input <b>u</b>:
+<i>sine-inverse</i> of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>asin</b>( u );
+    y = <b>asin</b>(uInternal);
 </pre>
 <p>
 The absolute values of the elements of the input <b>u</b> need to
@@ -1195,7 +1399,7 @@ Otherwise an error occurs.
         block Acos "Output the arc cosine of the input"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.acos(u);
+          y = Modelica.ComplexMath.acos(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1263,10 +1467,10 @@ Otherwise an error occurs.
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b> as the
-<i>cosine-inverse</i> of the input <b>u</b>:
+<i>cosine-inverse</i> of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>acos</b>( u );
+    y = <b>acos</b>(uInternal);
 </pre>
 <p>
 The absolute values of the elements of the input <b>u</b> need to
@@ -1285,7 +1489,7 @@ Otherwise an error occurs.
         block Atan "Output the arc tangent of the input"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.atan(u);
+          y = Modelica.ComplexMath.atan(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1359,10 +1563,10 @@ Otherwise an error occurs.
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b> as the
-<i>tangent-inverse</i> of the input <b>u</b>:
+<i>tangent-inverse</i> of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y= <b>atan</b>( u );
+    y= <b>atan</b>(uInternal);
 </pre>
 
 <p>
@@ -1376,7 +1580,7 @@ This blocks computes the output <b>y</b> as the
         block Sinh "Output the hyperbolic sine of the input"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.sinh(u);
+          y = Modelica.ComplexMath.sinh(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1450,10 +1654,10 @@ This blocks computes the output <b>y</b> as the
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b> as the
-<i>hyperbolic sine</i> of the input <b>u</b>:
+<i>hyperbolic sine</i> of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>sinh</b>( u );
+    y = <b>sinh</b>(uInternal);
 </pre>
 
 <p>
@@ -1467,7 +1671,7 @@ This blocks computes the output <b>y</b> as the
         block Cosh "Output the hyperbolic cosine of the input"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.cosh(u);
+          y = Modelica.ComplexMath.cosh(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1541,10 +1745,10 @@ This blocks computes the output <b>y</b> as the
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b> as the
-<i>hyperbolic cosine</i> of the input <b>u</b>:
+<i>hyperbolic cosine</i> of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>cosh</b>( u );
+    y = <b>cosh</b>(uInternal);
 </pre>
 
 <p>
@@ -1558,7 +1762,7 @@ This blocks computes the output <b>y</b> as the
         block Tanh "Output the hyperbolic tangent of the input"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.tanh(u);
+          y = Modelica.ComplexMath.tanh(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1632,10 +1836,10 @@ This blocks computes the output <b>y</b> as the
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b> as the
-<i>hyperbolic tangent</i> of the input <b>u</b>:
+<i>hyperbolic tangent</i> of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>tanh</b>( u );
+    y = <b>tanh</b>(uInternal);
 </pre>
 
 <p>
@@ -1649,7 +1853,7 @@ This blocks computes the output <b>y</b> as the
         block Exp "Output the exponential (base e) of the input"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.exp(u);
+          y = Modelica.ComplexMath.exp(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1721,10 +1925,10 @@ This blocks computes the output <b>y</b> as the
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b> as the
-<i>exponential</i> (of base e) of the input <b>u</b>:
+<i>exponential</i> (of base e) of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>exp</b>( u );
+    y = <b>exp</b>(uInternal);
 </pre>
 
 <p>
@@ -1739,7 +1943,7 @@ This blocks computes the output <b>y</b> as the
       "Output the natural (base e) logarithm of the input (input > 0 required)"
           extends Interfaces.ComplexSISO;
         equation
-          y = Modelica.ComplexMath.log(u);
+          y = Modelica.ComplexMath.log(uInternal);
           annotation (
             Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1813,10 +2017,10 @@ This blocks computes the output <b>y</b> as the
             Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b> as the
-<i>natural (base e) logarithm</i> of the input <b>u</b>:
+<i>natural (base e) logarithm</i> of the input <b>u</b>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal. 
 </p>
 <pre>
-    y = <b>log</b>( u );
+    y = <b>log</b>(uInternal);
 </pre>
 <p>
 An error occurs if the elements of the input <b>u</b> are
@@ -1911,9 +2115,11 @@ zero or negative.
                 {140,-40}}),           iconTransformation(extent={{100,-80},{140,-40}})));
       Interfaces.ComplexInput u
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+      parameter Boolean useConjugateInput = false
+        "If true, input is processed conjugate complex";
     equation
       re=u.re;
-      im=u.im;
+      im=(if useConjugateInput then -u.im else u.im);
       annotation ( Icon(graphics={
             Text(
               extent={{20,80},{100,40}},
@@ -1951,9 +2157,12 @@ zero or negative.
                 {140,-40}}),           iconTransformation(extent={{100,-80},{140,-40}})));
       Interfaces.ComplexInput u
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+      parameter Boolean useConjugateInput = false
+        "If true, input is processed conjugate complex";
     equation
       len=(u.re^2 + u.im^2)^0.5;
-      phi=Modelica.Math.atan2(u.im,u.re);
+      phi=(if useConjugateInput then Modelica.Math.atan2(-u.im,u.re) else Modelica.Math.atan2(u.im,u.re));
+
       annotation ( Icon(graphics={
             Text(
               extent={{20,80},{100,40}},
