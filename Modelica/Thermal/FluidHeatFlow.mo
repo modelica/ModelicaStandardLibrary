@@ -5,6 +5,157 @@ package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow models"
   extends Modelica.Icons.Package;
 
+  package UsersGuide "User's Guide"
+    extends Modelica.Icons.Information;
+
+    class Contact "Contact"
+      extends Modelica.Icons.Contact;
+      annotation (Documentation(info="<html>
+<h4>Contact</h4>
+
+<p>
+Anton Haumer<br>
+<a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+3423 St. Andrae-Woerdern, Austria<br>
+email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+</p>
+
+<p>
+  Dr. Christian Kral<br>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
+</p>
+
+<h4>Acknowledgements</h4>
+
+<p>
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
+</p>
+
+</html>"));
+    end Contact;
+
+    class ReleaseNotes "Release Notes"
+      extends Modelica.Icons.ReleaseNotes;
+      annotation (Documentation(info="<html>
+
+  <h5>3.2.2, 2010-06-25</h5>
+  <ul>
+  <li> Added users guide package including contact and relase notes</li>
+  </ul>
+
+  <h5>1.6.7, 2010-06-25 (Christian Kral)</h5>
+  <ul>
+  <li>Changed company name of Arsenal Research to AIT</li>
+  </ul>
+
+  <h5>1.6.6, 2007-11-13 (Anton Haumer)</h5>
+  <ul>
+  <li> Replaced all nonSIunits</li>
+  <li> Some renaming to be more concise</li>
+  </ul>
+
+  <h5>1.6.5, 2007-08-26 (Anton Haumer)</h5>
+  <ul>
+  <li> Fixed unit bug in SimpleFriction</li>
+  </ul>
+
+  <h5>1.6.4, 2007-08-24 (Anton Haumer)</h5>
+  <ul>
+  <li> Removed redeclare type SignalType</li>
+  </ul>
+
+  <h5>1.6.3, 2007-08-21 (Anton Haumer)</h5>
+  <ul>
+  <li> Improved documentation</li>
+  </ul>
+
+  <h5>1.6.2, 2007-08-20 (Anton Haumer)</h5>
+  <ul>
+  <li> Improved documentation</li>
+  </ul>
+
+  <h5>1.6.1, 2007-08-12 (Anton Haumer)</h5>
+  <ul>
+  <li> Improved documentation</li>
+  <li> Removed type TemperatureDifference since this is defined in Modelica.SIunits</li>
+  </ul>
+
+  <h5>1.60, 2007-01-23 (Anton Haumer)</h5>
+  <ul>
+  <li> New parameter tapT defining Temperature of heatPort </li>
+  </ul>
+
+  <h5>1.50 2005-09-07 (Anton Haumer)</h5>
+  <ul>
+  <li> SemiLinear works fine</li>
+  </ul>
+
+  <h5>1.43 Beta 2005-06-20 (Anton Haumer)</h5>
+  <ul>
+  <li> Test of mixing / semiLinear</li>
+  <li>New test example: OneMass</li
+       <li>New test example: TwoMass</li>
+  </ul>
+
+  <h5>1.42 Beta, 2005-06-18 (Anton Haumer)</h5>
+  <ul>
+  <li> New test example: ParallelPumpDropOut</i></li>
+  </ul>
+
+  <h5>1.40, 2005-06-13 (Anton Haumer)</h5>
+  <ul>
+  <li> Stable release</li>
+  </ul>
+
+  <h5>1.33 Beta, 2005-06-07 (Anton Haumer)</h5>
+  <ul>
+  <li> Corrected usage of simpleFlow</li>
+  </ul>
+
+  <h5>1.31 Beta, 2005/06/04 Anton Haumer</h5>
+  <ul>
+  <li>New example: PumpAndValve</li>
+  <li>New example: PumpDropOut</li>
+  </ul>
+
+  <h5>1.30 Beta, 2005-06-02 (Anton Haumer)</h5>
+  <ul>
+  <li> Friction losses are fed to medium</li>
+  </ul>
+
+  <h5>1.20 Beta, 2005-02-18 (Anton Haumer)</h5>
+  <ul>
+  <li>Introduced geodetic height in Components.Pipes</li>
+  <li>New models: Components.Valve, Sources.IdealPump</li>
+  </ul>
+
+  <h5>1.11, 2005-02-18 (Anton Haumer)</h5>
+  <ul>
+  <li>Corrected usage of cv and cp</li>
+  </ul>
+
+  <h5>1.10, 2005-02-15 (Anton Haumer)</h5>
+  <ul>
+  <li>Reorganisation of the package</li>
+  </ul>
+
+  <h5>1.00, 2005-02-01 (Anton Haumer)</h5>
+  <ul>
+  <li>First stable official release</li>
+  </ul>
+
+</html>"));
+    end ReleaseNotes;
+
+    annotation (Documentation(info="<html>
+<p>
+This library provides simple components for 1-dimensional incompressible thermo-fluid flow models.
+</p>
+</html>"));
+  end UsersGuide;
+
   package Examples
     "Examples that demonstrate the usage of the FluidHeatFlow components"
     extends Modelica.Icons.ExamplesPackage;
@@ -1314,41 +1465,19 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Inst
 </HTML>"));
     end Utilities;
   annotation (Documentation(info="<HTML>
-This package contains test examples:
-<ul>
-<li>1.SimpleCooling: heat is dissipated through a media flow</li>
-<li>2.ParallelCooling: two heat sources dissipate through merged media flows</li>
-<li>3.IndirectCooling: heat is dissipated through two cooling cycles</li>
-<li>4.PumpAndValve: demonstrates usage of an IdealPump and a Valve</li>
-<li>5.PumpDropOut: demonstrates shutdown and restart of a pump</li>
-<li>6.ParallelPumpDropOut: demonstrates shutdown and restart of a pump in a parallel circuit</li>
-<li>7.OneMass: cooling of a mass (thermal capacity) by a coolant flow</li>
-<li>8.TwoMass: cooling of two masses (thermal capacities) by two parallel coolant flows</li>
-</ul>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-</p>
-<p>
-  Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
-</p>
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
-</p>
+<p>This package contains test examples:</p>
 
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
+<ol>
+<li>SimpleCooling: heat is dissipated through a media flow</li>
+<li>ParallelCooling: two heat sources dissipate through merged media flows</li>
+<li>IndirectCooling: heat is dissipated through two cooling cycles</li>
+<li>PumpAndValve: demonstrates usage of an IdealPump and a Valve</li>
+<li>PumpDropOut: demonstrates shutdown and restart of a pump</li>
+<li>ParallelPumpDropOut: demonstrates shutdown and restart of a pump in a parallel circuit</li>
+<li>OneMass: cooling of a mass (thermal capacity) by a coolant flow</li>
+<li>TwoMass: cooling of two masses (thermal capacities) by two parallel coolant flows</li>
+</ol>
+
 </HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
@@ -1519,38 +1648,16 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
             Line(points={{0,80},{0,0}}, color={0,0,127})}));
     end Valve;
   annotation (Documentation(info="<HTML>
-This package contains components:
+<p>This package contains components:</p>
 <ul>
 <li>pipe without heat exchange</li>
 <li>pipe with heat exchange</li>
 <li>valve (simple controlled valve)</li>
 </ul>
-Pressure drop is taken from partial model SimpleFriction.<br>
-Thermodynamic equations are defined in partial models (package Partials).<br>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-</p>
 <p>
-  Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
-</p>
+Pressure drop is taken from partial model SimpleFriction. 
+Thermodynamic equations are defined in partial models (package Partials).</p>
 
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
 </HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
@@ -1635,31 +1742,8 @@ Medium: properties of water
 </html>"));
     end Water;
   annotation (Documentation(info="<HTML>
-This package contains definitions of medium properties.<br>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-</p>
-<p>
-  Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
-</p>
+<p>This package contains definitions of medium properties.</p>
 
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
 </HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
@@ -1789,7 +1873,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
               textString="H")}));
     end EnthalpyFlowSensor;
   annotation (Documentation(info="<HTML>
-This package contains sensors:
+<p>This package contains sensors:</p>
 <ul>
 <li>pSensor: absolute pressure</li>
 <li>TSensor: absolute temperature (Kelvin)</li>
@@ -1799,34 +1883,12 @@ This package contains sensors:
 <li>V_flowSensor: measures volume flow rate</li>
 <li>H_flowSensor: measures enthalpy flow rate</li>
 </ul>
-Some of the sensors do not need access to medium properties for measuring,
-but it is necessary to define the medium in the connector (check of connections).<br>
-Thermodynamic equations are defined in partial models (package Interfaces.Partials).<br>
-All sensors are considered massless, they do not change mass flow or enthalpy flow.<br>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-</p>
-<p>
-  Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
-</p>
 
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
+<p>Some of the sensors do not need access to medium properties for measuring,
+but it is necessary to define the medium in the connector (check of connections).
+Thermodynamic equations are defined in partial models (package Interfaces.Partials). 
+All sensors are considered massless, they do not change mass flow or enthalpy flow.</p>
+
 </HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
@@ -2091,31 +2153,9 @@ This package contains different types of sources:
 <li>Constant and prescribed pressure increase</li>
 <li>Simple pump with mechanical flange</li>
 </ul>
-Thermodynamic equations are defined in partial models (package Interfaces.Partials).<br>
-All fans / pumps are considered without losses, they do not change enthalpy flow.<br>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-</p>
-<p>
-  Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
-</p>
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
+<p>Thermodynamic equations are defined in partial models (package Interfaces.Partials).
+All fans / pumps are considered without losses, they do not change enthalpy flow.</p>
+
 </HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
@@ -2541,36 +2581,13 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral a
 </html>"));
     end Partials;
   annotation (Documentation(info="<HTML>
-This package contains connectors and partial models:
+<p>This package contains connectors and partial models:</p>
 <ul>
 <li>FlowPort: basic definition of the connector.</li>
 <li>FlowPort_a &amp; FlowPort_b: same as FlowPort with different icons to differentiate direction of flow</li>
 <li>package Partials (defining basic thermodynamic equations)</li>
 </ul>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-</p>
-<p>
-  Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
-</p>
 
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
 </HTML>", revisions="<HTML>
   <ul>
   <li> v1.00 2005/02/01 Anton Haumer<br>
@@ -2592,7 +2609,7 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral a
   end Interfaces;
   annotation (
     Documentation(info="<HTML>
-This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g., of electric machines:
+<p>This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g., of electric machines:</p>
 <ul>
 <li>Components: components like different types of pipe models</li>
 <li>Examples: some test examples</li>
@@ -2609,7 +2626,7 @@ This package contains very simple-to-use components to model coolant flows as ne
 <li>SpecificEnthalpy h</li>
 <li>flow EnthalpyFlowRate H_flow</li>
 </ul>
-EnthalpyFlowRate means the Enthalpy = cp<sub>constant</sub> * m * T that is carried by the medium's flow.<br><br>
+<p>EnthalpyFlowRate means the Enthalpy = cp<sub>constant</sub> * m * T that is carried by the medium's flow.</p>
 <b>Limitations and assumptions:</b>
 <ul>
 <li>Splitting and mixing of coolant flows (media with the same cp) is possible.</li>
@@ -2628,24 +2645,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
 <ul>
 <li>Additional components like tanks (if needed)</li>
 </ul>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-</p>
-<p>
-  Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and simulation of electric machines, drives and mechatronic systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
-</p>
 
-  </dd>
-</dl>
 <p>
 Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
@@ -2653,52 +2653,7 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral a
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
-  <ul>
-  <li> v1.00 2005/02/01 Anton Haumer<br>
-       first stable official release</li>
-  <li> v1.10 2005/02/15 Anton Haumer<br>
-       reorganisation of the package</li>
-  <li> v1.11 2005/02/18 Anton Haumer<br>
-       corrected usage of cv and cp</li>
-  <li> v1.20 Beta 2005/02/18 Anton Haumer<br>
-       introduced geodetic height in Components.Pipes<br>
-       <i>new models: Components.Valve, Sources.IdealPump</i></li>
-  <li> v1.30 Beta 2005/06/02 Anton Haumer<br>
-       friction losses are fed to medium</li>
-  <li> v1.31 Beta 2005/06/04 Anton Haumer<br>
-       <i>new example: PumpAndValve</i><br>
-       <i>new example: PumpDropOut</i></li>
-  <li> v1.33 Beta 2005/06/07 Anton Haumer<br>
-       corrected usage of simpleFlow</li>
-  <li> v1.40 2005/06/13 Anton Haumer<br>
-       stable release</li>
-  <li> v1.42 Beta 2005/06/18 Anton Haumer<br>
-       <i>new test example: ParallelPumpDropOut</i></li>
-  <li> v1.43 Beta 2005/06/20 Anton Haumer<br>
-       Test of mixing / semiLinear<br>
-       <i>new test example: OneMass</i><br>
-       <i>new test example: TwoMass</i></li>
-  <li> v1.50 2005/09/07 Anton Haumer<br>
-       semiLinear works fine</li>
-  <li> v1.60 2007/01/23 Anton Haumer<br>
-       new parameter tapT defining Temperature of heatPort </li>
-  <li> v1.6.1 2007/08/12 Anton Haumer<br>
-       improved documentation<br>
-       removed type TemperatureDifference since this is defined in Modelica.SIunits</li>
-  <li> v1.6.2 2007/08/20 Anton Haumer<br>
-       improved documentation</li>
-  <li> v1.6.3 2007/08/21 Anton Haumer<br>
-       improved documentation</li>
-  <li> v1.6.4 2007/08/24 Anton Haumer<br>
-       removed redeclare type SignalType</li>
-  <li> v1.6.5 2007/08/26 Anton Haumer<br>
-       fixed unit bug in SimpleFriction</li>
-  <li> v1.6.6 2007/11/13 Anton Haumer<br>
-       replaced all nonSIunits<br>
-       some renaming to be more concise</li>
-  <li> v1.6.7 2010/06/25 Christian Kral<br>
-       changed company name to AIT</li>
-  </ul>
+
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
         origin = {11.533,37.938},
