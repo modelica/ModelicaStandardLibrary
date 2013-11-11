@@ -2201,11 +2201,6 @@ input/output blocks. All blocks of this library can be either
 connected with continuous blocks or with sampled-data blocks.
 </p>
 </html>",   revisions="<html>
-<ul>
-<li><i>January 28, 2010</i>
-       by <a href=\"http://www.haumer.at/\">Anton Haumer</a>
-</li>
-</ul>
 </html>"), Icon(graphics={  Line(
             points={{-80,-2},{-68.7,32.2},{-61.5,51.1},{-55.1,64.4},{-49.4,72.6},
                 {-43.8,77.1},{-38.2,77.8},{-32.6,74.6},{-26.9,67.7},{-21.3,57.4},
