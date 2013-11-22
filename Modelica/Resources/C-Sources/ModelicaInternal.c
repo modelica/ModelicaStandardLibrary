@@ -116,9 +116,16 @@ static void ModelicaNotExistError(const char* name) {
        ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
-#if defined(__linux__) && !defined _POSIX_
-#define _POSIX_ 1
-#endif
+/* The standard way to detect if we have posix is to check _POSIX_VERSION,
+ * which is defined in <unistd.h>
+ */
+#  if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
+#    include <unistd.h>
+#  endif
+
+#  if !defined(_POSIX_) && defined(_POSIX_VERSION)
+#    define _POSIX_ 1
+#  endif
 
 #  include <stdio.h>
 #  include <stdlib.h>
@@ -493,8 +500,8 @@ MODELICA_EXPORT const char* ModelicaInternal_fullPathName(const char* name)
 
     char* fullName=0;
 
-#if defined(_WIN32) || (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED)
-#if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED)
+#if defined(_WIN32) || (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || (_POSIX_VERSION >= 200112L))
+#if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
     /* realpath availability: 4.4BSD, POSIX.1-2001. Using the behaviour of NULL: POSIX.1-2008 */
     char* tempName = realpath(name, buffer);
 #else
