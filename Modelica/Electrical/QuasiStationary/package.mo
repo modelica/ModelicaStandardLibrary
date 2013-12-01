@@ -9,23 +9,22 @@ package QuasiStationary "Library for quasi-stationary electrical singlephase and
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
- <p>
+<p>
   Anton Haumer<br>
   <a href=\"http://www.haumer.at/\">Technical Consulting &amp; Electrical Engineering</a><br>
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
 </p>
-  <p>
+<p>
   Dr. Christian Kral<br>
-  <a href=\"http://www.ait.ac.at/\">AIT Austrian Institute of Technology GmbH</a><br>
-  Mobility Department<br>
-  A-1210 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
 </p>
-  </dd>
+</dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

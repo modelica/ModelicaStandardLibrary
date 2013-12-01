@@ -411,7 +411,7 @@ Every electrical circuit, e.g., a series resonance
 </html>"));
     end Ground;
 
-    model Resistor "Singlephase linear resistor"
+    model Resistor "Single phase linear resistor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
@@ -444,15 +444,15 @@ Every electrical circuit, e.g., a series resonance
                                                   "R=%R_ref")}),
         Documentation(info="<html>
 <p>
-The linear resistor connects the complex voltage <i><u>v</u></i> with the complex
-current <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>.
-The resistance <i>R</i> is allowed to be positive, zero, or negative.
+The linear resistor connects the complex voltage <code><u>v</u></code> with the complex
+current <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>.
+The resistance <code>R</code> is allowed to be positive, zero, or negative.
 </p>
 
 <p>
 The resistor model also has an optional
 <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
-A linear temperature dependency of the resistance for an enabled heat port is also taken into account.
+A linear temperature dependency of the resistance is also taken into account.
 </p>
 
 <h4>See also</h4>
@@ -463,12 +463,14 @@ A linear temperature dependency of the resistance for an enabled heat port is al
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Resistor;
 
-    model Conductor "Singlephase linear conductor"
+    model Conductor "Single phase linear conductor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
@@ -502,15 +504,15 @@ A linear temperature dependency of the resistance for an enabled heat port is al
         Documentation(info="<html>
 
 <p>
-The linear conductor connects the voltage <i><u>v</u></i> with the
-current <i><u>i</u></i> by <i><u>i</u> = <u>v</u>*G</i>.
-The conductance <i>G</i> is allowed to be positive, zero, or negative.
+The linear conductor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = <u>v</u>*G</code>.
+The conductance <code>G</code> is allowed to be positive, zero, or negative.
 </p>
 
 <p>
 The conductor model also has an optional
 <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
-A linear temperature dependency of the resistance for an enabled heat port is also taken into account.
+A linear temperature dependency of the conductance is also taken into account.
 </p>
 
 <h4>See also</h4>
@@ -521,12 +523,14 @@ A linear temperature dependency of the resistance for an enabled heat port is al
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Conductor;
 
-    model Capacitor "Singlephase linear capacitor"
+    model Capacitor "Single phase linear capacitor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
       parameter Modelica.SIunits.Capacitance C(start=1) "Capacitance";
@@ -551,9 +555,9 @@ A linear temperature dependency of the resistance for an enabled heat port is al
         Documentation(info="<html>
 
 <p>
-The linear capacitor connects the voltage <i><u>v</u></i> with the
-current <i><u>i</u></i> by <i><u>i</u> = j*&omega;*C*<u>v</u></i>.
-The capacitance <i>C</i> is allowed to be positive, zero, or negative.
+The linear capacitor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = j*&omega;*C*<u>v</u></code>.
+The capacitance <code>C</code> is allowed to be positive, zero, or negative.
 </p>
 
 <h4>See also</h4>
@@ -564,12 +568,14 @@ The capacitance <i>C</i> is allowed to be positive, zero, or negative.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Capacitor;
 
-    model Inductor "Singlephase linear inductor"
+    model Inductor "Single phase linear inductor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
       parameter Modelica.SIunits.Inductance L(start=1) "Inductance";
@@ -595,9 +601,9 @@ The capacitance <i>C</i> is allowed to be positive, zero, or negative.
         Documentation(info="<html>
 
 <p>
-The linear inductor connects the voltage <i><u>v</u></i> with the
-current <i><u>i</u></i> by  <i><u>v</u> = j*&omega;*L*<u>i</u></i>.
-The Inductance <i>L</i> is allowed to be positive, zero, or negative.
+The linear inductor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>v</u> = j*&omega;*L*<u>i</u></code>.
+The Inductance <code>L</code> is allowed to be positive, zero, or negative.
 </p>
 
 <h4>See also</h4>
@@ -608,12 +614,14 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Inductor;
 
-    model VariableResistor "Singlephase variable resistor"
+    model VariableResistor "Single phase variable resistor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
@@ -625,6 +633,7 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
       Modelica.SIunits.Resistance R_actual
         "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.Blocks.Interfaces.RealInput R_ref(unit="Ohm")
+        "Variable resistance"
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -652,26 +661,20 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
         Documentation(info="<html>
 
 <p>
-The linear resistor connects the voltage <i><u>v</u></i> with the
-current <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>.
-The resistance <i>R</i> is given as input signal.
+The linear resistor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>.
+The resistance <code>R</code> is given as input signal.
 </p>
 
 <p>
 The variable resistor model also has an optional
 <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
-A linear temperature dependency of the resistance for an enabled heat port is also taken into account.
+A linear temperature dependency of the resistance is also taken into account.
 </p>
 
 <h4>Note</h4>
 <p>
 A zero crossing of the R signal could cause singularities due to the actual structure of the connected network.
-</p>
-
-<p>
-The variable resistor model also has an optional
-<a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
-A linear temperature dependency of the resistance for an enabled heat port is also taken into account.
 </p>
 
 <h4>See also</h4>
@@ -682,12 +685,16 @@ A linear temperature dependency of the resistance for an enabled heat port is al
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end VariableResistor;
 
-    model VariableConductor "Singlephase variable conductor"
+    model VariableConductor "Single phase variable conductor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
@@ -699,6 +706,7 @@ A linear temperature dependency of the resistance for an enabled heat port is al
       Modelica.SIunits.Conductance G_actual
         "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.Blocks.Interfaces.RealInput G_ref(unit="S")
+        "Variable conductance"
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -726,15 +734,15 @@ A linear temperature dependency of the resistance for an enabled heat port is al
         Documentation(info="<html>
 
 <p>
-The linear conductor connects the voltage <i><u>v</u></i> with the
-current <i><u>i</u></i> by <i><u>i</u> = G*<u>v</u></i>.
-The conductance <i>G</i> is given as input signal.
+The linear conductor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = G*<u>v</u></code>.
+The conductance <code>G</code> is given as input signal.
 </p>
 
 <p>
 The variable conductor model also has an optional
 <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
-A linear temperature dependency of the resistance for an enabled heat port is also taken into account.
+A linear temperature dependency of the conductance is also taken into account.
 </p>
 
 <h4>See also</h4>
@@ -745,15 +753,19 @@ A linear temperature dependency of the resistance for an enabled heat port is al
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end VariableConductor;
 
-    model VariableCapacitor "Singlephase variable capacitor"
+    model VariableCapacitor "Single phase variable capacitor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
-      Modelica.Blocks.Interfaces.RealInput C(unit="F")
+      Modelica.Blocks.Interfaces.RealInput C(unit="F") "Variable capacitances"
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -778,9 +790,9 @@ A linear temperature dependency of the resistance for an enabled heat port is al
         Documentation(info="<html>
 
 <p>
-The linear capacitor connects the voltage <i><u>v</u></i> with the
-current <i><u>i</u></i> by <i><u>i</u> = j*&omega;*C*<u>v</u></i>.
-The capacitance <i>C</i> is given as input signal.
+The linear capacitor connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by <code><u>i</u> = j*&omega;*C*<u>v</u></code>.
+The capacitance <code>C</code> is given as input signal.
 </p>
 
 <h4>Note</h4>
@@ -801,15 +813,19 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end VariableCapacitor;
 
-    model VariableInductor "Singlephase variable inductor"
+    model VariableInductor "Single phase variable inductor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.j;
-      Modelica.Blocks.Interfaces.RealInput L(unit="H")
+      Modelica.Blocks.Interfaces.RealInput L(unit="H") "Variable inductances"
         annotation (Placement(transformation(
             origin={0,108},
             extent={{-20,-20},{20,20}},
@@ -835,8 +851,8 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:
         Documentation(info="<html>
 
 <p>
-The linear inductor connects the branch voltage <i><u>v</u></i> with the
-branch current <i><u>i</u></i> by <i><u>v</u> = j*&omega;*L*<u>i</u></i>. The inductance <i>L</i> is given as input signal.
+The linear inductor connects the branch voltage <code><u>v</u></code> with the
+branch current <code><u>i</u></code> by <code><u>v</u> = j*&omega;*L*<u>i</u></code>. The inductance <code>L</code> is given as input signal.
 </p>
 
 <h4>Note</h4>
@@ -857,23 +873,191 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>,
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end VariableInductor;
+
+    model VariableImpedance "Single phase variable impedance"
+      extends Interfaces.OnePort;
+      import Modelica.ComplexMath.real;
+      import Modelica.ComplexMath.imag;
+      import Modelica.ComplexMath.conj;
+      parameter Modelica.SIunits.Temperature T_ref=293.15
+        "Reference temperature";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
+        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+      Modelica.SIunits.Resistance R_actual
+        "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.ComplexBlocks.Interfaces.ComplexInput Z_ref
+        "Variable complex inductance"
+        annotation (Placement(transformation(
+            origin={0,110},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Modelica.SIunits.Resistance R_ref=real(Z_ref)
+        "Resistive component of impedance";
+      Modelica.SIunits.Reactance X_ref=imag(Z_ref)
+        "Reactive component of impedance";
+    equation
+      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+      R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
+      v = Complex(R_actual,X_ref)*i;
+      LossPower = real(v*conj(i));
+      annotation (Icon(graphics={
+            Text(extent={{100,-80},{-100,-40}}, textString=
+              "%name",
+              lineColor={0,0,255}),
+            Line(points={{60,0},{90,0}}),
+            Line(points={{-90,0},{-60,0}}),
+            Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{0,90},{0,30}},
+              color={0,0,255},
+              smooth=Smooth.None)}),
+        Documentation(info="<html>
+
+<p>
+The linear impedance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>i</u>*<u>Z</u> = <u>v</u></code>.
+The impedance <code>Z_ref</code> is given as complex input signal, representing the 
+resistive and reactive component of the input impedance. The resistive 
+component is modeled temperature dependent, so the real part <code>R = real(<u>Z</u>)</code> is determined from
+the actual operating temperature and the reference input resistance <code>real(<u>Z</u>_ref)</code>.
+</p>
+
+<p>
+The variable impedance model has a 
+<a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
+A linear temperature dependency of the resistance is taken into account.
+</p>
+
+<h4>Note</h4>
+<p>
+A zero crossing of the either the real or imaginary part of the <code>Z_ref</code> signal could cause 
+singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
+</p>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
+    end VariableImpedance;
+
+    model VariableAdmittance "Single phase variable admittance"
+      extends Interfaces.OnePort;
+      import Modelica.ComplexMath.real;
+      import Modelica.ComplexMath.imag;
+      import Modelica.ComplexMath.conj;
+      parameter Modelica.SIunits.Temperature T_ref=293.15
+        "Reference temperature";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
+        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+      Modelica.SIunits.Conductance G_actual
+        "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.ComplexBlocks.Interfaces.ComplexInput Y_ref
+        "Variable complex admittance"
+        annotation (Placement(transformation(
+            origin={0,110},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Modelica.SIunits.Conductance G_ref=real(Y_ref)
+        "Resistive component of conductance";
+      Modelica.SIunits.Susceptance B_ref=imag(Y_ref)
+        "Reactive component of susceptance";
+    equation
+      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+      G_actual = G_ref/(1 + alpha_ref*(T_heatPort - T_ref));
+      i = Complex(G_actual,B_ref)*v;
+      LossPower = real(v*conj(i));
+      annotation (Icon(graphics={
+            Text(extent={{100,-80},{-100,-40}}, textString=
+              "%name",
+              lineColor={0,0,255}),
+            Line(points={{60,0},{90,0}}),
+            Line(points={{-90,0},{-60,0}}),
+            Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{0,90},{0,30}},
+              color={0,0,255},
+              smooth=Smooth.None)}),
+        Documentation(info="<html>
+
+<p>
+The linear admittance connects the complex voltage <code><u>v</u></code> with the
+complex current <code><u>i</u></code> by <code><u>v</u>*<u>G</u> = <u>i</u></code>.
+The impedance <code>G_ref</code> is given as complex input signal, representing the 
+resistive and reactive component of the input admittance. The resistive 
+component is modeled temperature dependent, so the real part <code>G = real(<u>Y</u>)</code> is detesrmined from
+the actual operating temperature and the reference input conductance <code>real(<u>Y</u>_ref)</code>.
+</p>
+
+<p>
+The variable admittance model has a 
+<a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
+A linear temperature dependency of the conductance is taken into account.
+</p>
+
+<h4>Note</h4>
+<p>
+A zero crossing of the either the real or imaginary part of the <code>Y_ref</code> signal could cause 
+singularities due to the actual structure of the connected network.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>
+</p>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
+    end VariableAdmittance;
     annotation (Icon(
       graphics={
         Line(
-          origin=  {10,40},
-          points=  {{-100,-40},{-80,-40}}),
+          origin = {10,40},
+          points = {{-100,-40},{-80,-40}}),
         Line(
-          origin=  {10,40},
-          points=  {{60,-40},{80,-40}}),
+          origin = {10,40},
+          points = {{60,-40},{80,-40}}),
         Rectangle(
-          lineColor=  {0,0,255},
-          fillColor=  {255,255,255},
-          fillPattern=  FillPattern.Solid,
-          extent=  {{-70,-30},{70,30}})},
+          lineColor = {0,0,255},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.Solid,
+          extent = {{-70,-30},{70,30}})},
       coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
@@ -1360,11 +1544,11 @@ This switch is only intended to be used for structural changes, not for fast swi
             Line(points={{0,51},{0,26}}, color={0,0,255})}));
     end IdealClosingSwitch;
     annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics={
-                Line(origin=  {10,34}, points=  {{-100,-60},{-54,-60}}),
-                Ellipse(origin=  {10,34}, extent=  {{-54,-64},{-46,-56}}),
-                Line(origin=  {10,34}, points=  {{-47,-58},{30,-10}}),
-                Line(origin=  {10,34}, points=  {{30,-40},{30,-60}}),
-                Line(origin=  {10,34}, points=  {{30,-60},{80,-60}})}), Documentation(info="<html>
+                Line(origin = {10,34}, points = {{-100,-60},{-54,-60}}),
+                Ellipse(origin = {10,34}, extent = {{-54,-64},{-46,-56}}),
+                Line(origin = {10,34}, points = {{-47,-58},{30,-10}}),
+                Line(origin = {10,34}, points = {{30,-40},{30,-60}}),
+                Line(origin = {10,34}, points = {{30,-60},{80,-60}})}), Documentation(info="<html>
 <p>This package hosts ideal models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1523,20 +1707,20 @@ This sensor can be used to measure the complex current.
     //P + j*Q = v * conj(i);
       y = v*conj(i);
       annotation (
-        Icon(graphics = {
-        Line(points=  {{0,100},{0,70}},
-            color=  {0,0,255}),
-          Line(points=  {{0,-70},{0,-100}},
-            color=  {0,0,255}),
-          Text(extent=  {{-29,-70},{30,-11}},
-            textString=  "P"),
-          Line(points=  {{-80,-100},{-80,0}},
-            color=  {85,170,255}),
-          Text(textColor=  {0,0,255},
-            extent=  {{-100,110},{100,150}},
-            textString=  "%name"),
-          Line(points=  {{-100,0},{100,0}},
-            color=  {0,0,255})}),
+        Icon(graphics={
+        Line(points = {{0,100},{0,70}},
+            color = {0,0,255}),
+          Line(points = {{0,-70},{0,-100}},
+            color = {0,0,255}),
+          Text(extent = {{-29,-70},{30,-11}},
+            textString = "P"),
+          Line(points = {{-80,-100},{-80,0}},
+            color = {85,170,255}),
+          Text(textColor = {0,0,255},
+            extent = {{-100,110},{100,150}},
+            textString = "%name"),
+          Line(points = {{-100,0},{100,0}},
+            color = {0,0,255})}),
         Documentation(info="<html>
 
 <p>

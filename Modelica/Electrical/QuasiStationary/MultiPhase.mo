@@ -303,7 +303,7 @@ Examples to demonstrate the usage of quasistationary electric components.
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString=                            "m=%m"),
+              textString =                           "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),
       Documentation(info="<html>
@@ -350,7 +350,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-150,60},{150,120}},
               lineColor={0,0,255},
-              textString=                         "%name"),
+              textString =                        "%name"),
             Line(
               points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
               color={0,0,255},
@@ -358,7 +358,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString=                            "m=%m"),
+              textString =                           "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),
       Documentation(info="<html>
@@ -408,10 +408,10 @@ Delta (polygon) connection of a multi phase circuit.
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString=                         "k = %k")}),
+              textString =                        "k = %k")}),
       Documentation(info="<html>
 <p>
-Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) plug to a single phase (positive) pin.
+Connects the single phase (positive) pin <code>k</code> of the multi phase (positive) plug to a single phase (positive) pin.
 </p>
 <h4>See also</h4>
 <p>
@@ -458,10 +458,10 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString=                         "k = %k")}),
+              textString =                        "k = %k")}),
       Documentation(info="<html>
 <p>
-Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) plug to a single phase (negative) pin.
+Connects the single phase (negative) pin <code>k</code> of the multi phase (negative) plug to a single phase (negative) pin.
 </p>
 <h4>See also</h4>
 <p>
@@ -508,7 +508,7 @@ Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) 
               lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
-Connects all <i>m</i> single phase (positive) pins of the multi phase (positive) plug to an array of <i>m</i> single phase (positive) pins.
+Connects all <code>m</code> single phase (positive) pins of the multi phase (positive) plug to an array of <code>m</code> single phase (positive) pins.
 </p>
 <h4>See also</h4>
 <p>
@@ -555,7 +555,7 @@ Connects all <i>m</i> single phase (positive) pins of the multi phase (positive)
               lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
-Connects all <i>m</i> single phase (negative) pins of the multi phase (negative) plug to an array of <i>m</i> single phase (negative) pins.
+Connects all <code>m</code> single phase (negative) pins of the multi phase (negative) plug to an array of <code>m</code> single phase (negative) pins.
 </p>
 <h4>See also</h4>
 <p>
@@ -613,13 +613,13 @@ Connects all <i>m</i> single phase (negative) pins of the multi phase (negative)
                    "m=%m")}),
       Documentation(info="<html>
 <p>
-The linear resistor connects the complex voltages <i><u>v</u></i> with the complex
-currents <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>,
-using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">single phase Resistors</a>.
+The linear resistor connects the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>,
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">single phase Resistors</a>.
 </p>
 
 <p>
-The resistor model also has <i>m</i> optional
+The resistor model also has <code>m</code> optional
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">conditional heat ports</a>.
 A linear temperature dependency of the resistances for enabled heat ports is also taken into account.
 </p>
@@ -633,7 +633,9 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Resistor;
@@ -685,13 +687,13 @@ A linear temperature dependency of the resistances for enabled heat ports is als
                    "m=%m")}),
       Documentation(info="<html>
 <p>
-The linear resistor connects the complex currents <i><u>i</u></i> with the complex
-voltages <i><u>v</u></i> by <i><u>v</u>*G = <u>i</u></i>,
-using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">single phase Conductors</a>.
+The linear resistor connects the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">single phase Conductors</a>.
 </p>
 
 <p>
-The conductor model also has <i>m</i> optional
+The conductor model also has <code>m</code> optional
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">conditional heat ports</a>.
 A linear temperature dependency of the conductances for enabled heat ports is also taken into account.
 </p>
@@ -705,7 +707,9 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Conductor;
@@ -746,9 +750,9 @@ A linear temperature dependency of the conductances for enabled heat ports is al
                    "m=%m")}),
       Documentation(info="<html>
 <p>
-The linear capacitor connects the complex currents <i><u>i</u></i> with the complex
-voltages <i><u>v</u></i> by <i><u>v</u>*j*&omega;*C = <u>i</u></i>,
-using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">single phase Capacitors</a>.
+The linear capacitor connects the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">single phase Capacitors</a>.
 </p>
 
 <h4>See also</h4>
@@ -760,7 +764,9 @@ using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePh
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Capacitor;
@@ -801,9 +807,9 @@ using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePh
                    "m=%m")}),
       Documentation(info="<html>
 <p>
-The linear inductor connects the complex voltages <i><u>v</u></i> with the complex
-currents <i><u>i</u></i> by <i><u>i</u>*j*&omega;*L = <u>v</u></i>,
-using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">single phase Inductors</a>.
+The linear inductor connects the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">single phase Inductors</a>.
 </p>
 
 <h4>See also</h4>
@@ -815,7 +821,9 @@ using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePh
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"));
     end Inductor;
@@ -828,6 +836,7 @@ using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePh
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
       Modelica.Blocks.Interfaces.RealInput R_ref[m](each unit="Ohm")
+        "Variable resistance"
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
@@ -852,7 +861,7 @@ using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePh
           color={191,0,0},
           smooth=Smooth.None));
       connect(R_ref, variableResistor.R_ref) annotation (Line(
-          points={{0,110},{0,62},{0,62},{0,11}},
+          points={{0,110},{0,11}},
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Icon(graphics={
@@ -877,16 +886,16 @@ using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePh
                    "m=%m")}),
       Documentation(info="<html>
 <p>
-The linear resistor connects the complex voltages <i><u>v</u></i> with the complex
-currents <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>,
-using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">single phase variable Resistors</a>.
-The resistances <i>R</i> are given as <i>m</i> input signals.
+The linear resistors connect the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>,
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">single phase variable Resistors</a>.
+The resistances <code>R</code> are given as <code>m</code> input signals.
 </p>
 
 <p>
-The resistor model also has <i>m</i> optional
+The resistor model also has <code>m</code> optional
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">conditional heat ports</a>.
-A linear temperature dependency of the resistances for enabled heat ports is also taken into account.
+A linear temperature dependency of the resistances is also taken into account.
 </p>
 
 <h4>See also</h4>
@@ -898,9 +907,13 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end VariableResistor;
 
     model VariableConductor "Multiphase variable conductor"
@@ -911,12 +924,12 @@ A linear temperature dependency of the resistances for enabled heat ports is als
         "Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
       Modelica.Blocks.Interfaces.RealInput G_ref[m](each unit="S")
+        "Variable conductance"
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.VariableConductor variableResistor[
-                                                           m](
+      QuasiStationary.SinglePhase.Basic.VariableConductor variableResistor[m](
         final T_ref=T_ref,
         final alpha_ref=alpha_ref,
         each final useHeatPort=useHeatPort,
@@ -935,8 +948,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
               -55},{0,-55},{0,-100}},
                                    color={191,0,0}));
       connect(G_ref, variableResistor.G_ref)
-        annotation (Line(points={{0,110},{0,85.25},{0,85.25},{0,
-              60.5},{0,60.5},{0,11}},
+        annotation (Line(points={{0,110},{0,85.25},{0,60.5},{0,11}},
                                  color={0,0,127}));
       annotation (Icon(graphics={
             Text(extent={{100,-80},{-100,-40}}, textString=
@@ -960,16 +972,16 @@ A linear temperature dependency of the resistances for enabled heat ports is als
                    "m=%m")}),
       Documentation(info="<html>
 <p>
-The linear resistor connects the complex currents <i><u>i</u></i> with the complex
-voltages <i><u>v</u></i> by <i><u>v</u>*G = <u>i</u></i>,
-using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">single phase variable Conductors</a>.
-The conductances <i>G</i> are given as <i>m</i> input signals.
+The linear resistors connect the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*G = <u>i</u></code>,
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">single phase variable Conductors</a>.
+The conductances <code>G</code> are given as <code>m</code> input signals.
 </p>
 
 <p>
-The conductor model also has <i>m</i> optional
+The conductor model also has <code>m</code> optional
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">conditional heat ports</a>.
-A linear temperature dependency of the conductances for enabled heat ports is also taken into account.
+A linear temperature dependency of the conductances is also taken into account.
 </p>
 
 <h4>See also</h4>
@@ -982,19 +994,23 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end VariableConductor;
 
     model VariableCapacitor "Multiphase variable capacitor"
       extends Interfaces.TwoPlug;
       Modelica.Blocks.Interfaces.RealInput C[m](each unit="F")
+        "Variable capacitance"
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.VariableCapacitor variableCapacitor[
-                                                            m]
+      QuasiStationary.SinglePhase.Basic.VariableCapacitor variableCapacitor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
       connect(variableCapacitor.pin_p, plugToPins_p.pin_p)
@@ -1005,7 +1021,7 @@ A linear temperature dependency of the conductances for enabled heat ports is al
         annotation (Line(points={{10,0},{39,0},{39,0},{68,
               0}},                   color={85,170,255}));
       connect(C, variableCapacitor.C) annotation (Line(
-          points={{0,110},{0,61},{0,61},{0,11}},
+          points={{0,110},{0,11}},
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Icon(graphics={
@@ -1030,10 +1046,10 @@ A linear temperature dependency of the conductances for enabled heat ports is al
                    "m=%m")}),
       Documentation(info="<html>
 <p>
-The linear capacitor connects the complex currents <i><u>i</u></i> with the complex
-voltages <i><u>v</u></i> by <i><u>v</u>*j*&omega;*C = <u>i</u></i>,
-using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">single phase variable Capacitors</a>.
-The capacitances <i>C</i> are given as <i>m</i> input signals.
+The linear capacitors connect the complex currents <code><u>i</u></code> with the complex
+voltages <code><u>v</u></code> by <code><u>v</u>*j*&omega;*C = <u>i</u></code>,
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">single phase variable Capacitors</a>.
+The capacitances <code>C</code> are given as <code>m</code> input signals.
 </p>
 
 <h4>See also</h4>
@@ -1046,19 +1062,23 @@ The capacitances <i>C</i> are given as <i>m</i> input signals.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end VariableCapacitor;
 
     model VariableInductor "Multiphase variable inductor"
       extends Interfaces.TwoPlug;
       Modelica.Blocks.Interfaces.RealInput L[m](each unit="H")
+        "Variable inductance"
         annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.VariableInductor variableInductor[
-                                                          m]
+      QuasiStationary.SinglePhase.Basic.VariableInductor variableInductor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
       connect(variableInductor.pin_p, plugToPins_p.pin_p)
@@ -1069,8 +1089,7 @@ The capacitances <i>C</i> are given as <i>m</i> input signals.
         annotation (Line(points={{10,0},{39,0},{39,0},{68,
               0}},                   color={85,170,255}));
       connect(variableInductor.L, L)
-        annotation (Line(points={{0,10.8},{0,35.6},{0,35.6},{0,
-              60.4},{0,60.4},{0,110}},
+        annotation (Line(points={{0,10.8},{0,35.6},{0,60.4},{0,110}},
                                   color={0,0,127}));
       annotation (Icon(graphics={
             Text(extent={{100,-80},{-100,-40}}, textString=
@@ -1095,10 +1114,10 @@ The capacitances <i>C</i> are given as <i>m</i> input signals.
                    "m=%m")}),
       Documentation(info="<html>
 <p>
-The linear inductor connects the complex voltages <i><u>v</u></i> with the complex
-currents <i><u>i</u></i> by <i><u>i</u>*j*&omega;*L = <u>v</u></i>,
-using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">single phase variable Inductors</a>.
-The inductances <i>L</i> are given as <i>m</i> input signals.
+The linear inductors connect the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*j*&omega;*L = <u>v</u></code>,
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">single phase variable Inductors</a>.
+The inductances <code>L</code> are given as <code>m</code> input signals.
 </p>
 
 <h4>See also</h4>
@@ -1111,22 +1130,213 @@ The inductances <i>L</i> are given as <i>m</i> input signals.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end VariableInductor;
+
+    model VariableImpedance "Multiphase variable impedance"
+      extends Interfaces.TwoPlug;
+      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15,m)
+        "Reference temperatures";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
+        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
+      ComplexBlocks.Interfaces.ComplexInput Z_ref[m]
+        "Variable complex impedances"
+        annotation (Placement(transformation(
+            origin={0,110},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      SinglePhase.Basic.VariableImpedance variableImpedance[m](
+        final T_ref=T_ref,
+        final alpha_ref=alpha_ref,
+        each final useHeatPort=useHeatPort,
+        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0)));
+    equation
+
+      connect(variableImpedance.pin_p, plugToPins_p.pin_p)
+        annotation (Line(points={{-10,0},{-24.5,0},{-39,0},{-68,0}},
+            color={85,170,255}));
+      connect(variableImpedance.pin_n, plugToPins_n.pin_n)
+        annotation (Line(points={{10,0},{39,0},{68,0}},
+                                     color={85,170,255}));
+      connect(variableImpedance.heatPort, heatPort)
+                                                   annotation (Line(
+          points={{0,-10},{0,-100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(variableImpedance.Z_ref, Z_ref)
+                                             annotation (Line(
+          points={{0,11},{0,110}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation (Icon(graphics={
+            Text(extent={{100,-80},{-100,-40}}, textString=
+                                                   "%name",
+              lineColor={0,0,255}),
+            Line(points={{60,0},{90,0}}),
+            Line(points={{-90,0},{-60,0}}),
+            Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{0,90},{0,30}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Text(
+              extent={{100,40},{-100,80}},
+              lineColor={0,0,0},
+              textString=
+                   "m=%m")}),
+      Documentation(info="<html>
+<p>
+The linear impedances connect the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*Z = <u>v</u></code>,
+using <code>m</code> 
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">
+single phase variable impedance</a>.
+The impedances <code>Z_ref</code> are given as complex input signals, representing the 
+resistive and reactive components of the input impedances. The resistive 
+components are modeled temperature dependent, so the real parts <code>R = real(<u>Z</u>)</code> 
+are determined from
+the actual operating temperature and the reference input resistances <code>real(<u>Z</u>_ref)</code>.
+</p>
+
+<p>
+The impedance model also has <code>m</code> optional
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">conditional heat ports</a>.
+A linear temperature dependency of the resistances is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+</p>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
+    end VariableImpedance;
+
+    model VariableAdmittance "Multiphase variable admittance"
+      extends Interfaces.TwoPlug;
+      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15,m)
+        "Reference temperatures";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=zeros(m)
+        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, T=T_ref);
+      ComplexBlocks.Interfaces.ComplexInput Y_ref[m]
+        "Variable complex admittances"
+        annotation (Placement(transformation(
+            origin={0,110},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      SinglePhase.Basic.VariableAdmittance variableImpedance[m](
+        final T_ref=T_ref,
+        final alpha_ref=alpha_ref,
+        each final useHeatPort=useHeatPort,
+        final T=T) annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0)));
+    equation
+
+      connect(variableImpedance.pin_p, plugToPins_p.pin_p)
+        annotation (Line(points={{-10,0},{-24.5,0},{-39,0},{-68,0}},
+            color={85,170,255}));
+      connect(variableImpedance.pin_n, plugToPins_n.pin_n)
+        annotation (Line(points={{10,0},{39,0},{68,0}},
+                                     color={85,170,255}));
+      connect(variableImpedance.heatPort, heatPort)
+                                                   annotation (Line(
+          points={{0,-10},{0,-100}},
+          color={191,0,0},
+          smooth=Smooth.None));
+      connect(Y_ref, variableImpedance.Y_ref) annotation (Line(
+          points={{1.11022e-15,110},{1.11022e-15,61},{0,61},{0,11}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation (Icon(graphics={
+            Text(extent={{100,-80},{-100,-40}}, textString=
+                                                   "%name",
+              lineColor={0,0,255}),
+            Line(points={{60,0},{90,0}}),
+            Line(points={{-90,0},{-60,0}}),
+            Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{0,90},{0,30}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Text(
+              extent={{100,40},{-100,80}},
+              lineColor={0,0,0},
+              textString=
+                   "m=%m")}),
+      Documentation(info="<html>
+<p>
+The linear admittances connect the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>v</u>*Z = <u>i</u></code>,
+using <code>m</code> 
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">
+single phase variable admittances</a>.
+The admittances <code>Y_ref</code> are given as complex input signals, representing the 
+resistive and reactive components of the input admittance. The resistive 
+components are modeled temperature dependent, so the real parts <code>G = real(<u>Y</u>)</code> 
+are determined from
+the actual operating temperature and the reference input conductances <code>real(<u>Y</u>_ref)</code>.
+</p>
+
+<p>
+The admittance model also has <code>m</code> optional
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort\">conditional heat ports</a>.
+A linear temperature dependency of the conductances is also taken into account.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+</p>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
+    end VariableAdmittance;
     annotation (Icon(
       graphics={
         Line(
-          origin=  {10,40},
-          points=  {{-100,-40},{-80,-40}}),
+          origin = {10,40},
+          points = {{-100,-40},{-80,-40}}),
         Line(
-          origin=  {10,40},
-          points=  {{60,-40},{80,-40}}),
+          origin = {10,40},
+          points = {{60,-40},{80,-40}}),
         Rectangle(
-          lineColor=  {0,0,255},
-          fillColor=  {255,255,255},
-          fillPattern=  FillPattern.Solid,
-          extent=  {{-70,-30},{70,30}})},
+          lineColor = {0,0,255},
+          fillColor = {255,255,255},
+          fillPattern = FillPattern.Solid,
+          extent = {{-70,-30},{70,30}})},
       coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
@@ -1583,11 +1793,11 @@ This switch is only intended to be used for structural changes, not fast switchi
 </HTML>"));
     end IdealClosingSwitch;
   annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics={
-                Line(origin=  {10,34}, points=  {{-100,-60},{-54,-60}}),
-                Ellipse(origin=  {10,34}, extent=  {{-54,-64},{-46,-56}}),
-                Line(origin=  {10,34}, points=  {{-47,-58},{30,-10}}),
-                Line(origin=  {10,34}, points=  {{30,-40},{30,-60}}),
-                Line(origin=  {10,34}, points=  {{30,-60},{80,-60}})}), Documentation(info="<html>
+                Line(origin = {10,34}, points = {{-100,-60},{-54,-60}}),
+                Ellipse(origin = {10,34}, extent = {{-54,-64},{-46,-56}}),
+                Line(origin = {10,34}, points = {{-47,-58},{30,-10}}),
+                Line(origin = {10,34}, points = {{30,-40},{30,-60}}),
+                Line(origin = {10,34}, points = {{30,-60},{80,-60}})}), Documentation(info="<html>
 <p>This package hosts ideal models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.

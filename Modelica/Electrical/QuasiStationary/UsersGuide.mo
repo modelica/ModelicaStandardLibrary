@@ -425,10 +425,18 @@ ideal AC DC converter</a>, which is used in the
     extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
-</html>",   revisions="<html>
-<h4>Version 1.0.0</h4>
+<h5>Version 3.2.2, 2013-12-01</h5>
+<ul>
+<li>Added complex single and multi phase impedance and admittance models (
+    <a href=\"https://trac.modelica.org/Modelica/ticket/1367\">#1367</a>)</li>
+<li>Updated documentation on temperature dependency of resistance and conductance models</li>
+<li>Rewrote source models to simplify initialization (
+    <a href=\"https://trac.modelica.org/Modelica/changeset/7031\">r7031</a>)</li>
+</ul>
 
-<p>First official release</p>
+<h5>Version 1.0.0</h5> 
+<ul><li>First official release</li></ul>
+</html>",   revisions="<html>
 </html>"));
   end ReleaseNotes;
 
