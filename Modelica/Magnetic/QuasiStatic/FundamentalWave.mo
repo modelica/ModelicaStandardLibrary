@@ -7525,10 +7525,12 @@ Source of constant magneto motive force.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
-   SignalMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
+SignalMagneticPotentialDifference</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantFlux\">
+ConstantFlux</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalFlux\">
+SignalFlux</a>
 </p>
 </html>"));
     end ConstantMagneticPotentialDifference;
@@ -7578,9 +7580,12 @@ Source of magneto motive force with complex signal input.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">ConstantMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
+ConstantMagneticPotentialDifference</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantFlux\">
+ConstantFlux</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalFlux\">
+SignalFlux</a>
 </p>
 
 </html>"));
@@ -7629,11 +7634,12 @@ Source of constant magnetic flux.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
-   ConstantMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
-   SignalMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
+ConstantMagneticPotentialDifference</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
+SignalMagneticPotentialDifference</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalFlux\">
+SignalFlux</a>
 </p>
 
 </html>"));
@@ -7682,11 +7688,13 @@ Source of magnetic flux with complex signal input.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
-   ConstantMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
-   SignalMagneticPotentialDifference</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
+ConstantMagneticPotentialDifference</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
+SignalMagneticPotentialDifference</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sources.ConstantFlux\">
+ConstantFlux</a>
+
 </p>
 
 </html>"));
@@ -7789,7 +7797,7 @@ Source of magnetic flux with complex signal input.
             extent={{10,-10},{-10,10}},
             rotation=90)));
       FundamentalWave.Interfaces.PositiveMagneticPort port_p
-        "Magnetic connector of sensor"
+        "Quasi static magnetic port of sensor"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     equation
       // No magnetic flux through sensor
@@ -7844,7 +7852,7 @@ This package provides sensors for the magnetic potential difference and the magn
 </html>"));
     end MagneticPort;
 
-    connector PositiveMagneticPort "Positive magnetic port"
+    connector PositiveMagneticPort "Positive quasi static magnetic port"
       extends FundamentalWave.Interfaces.MagneticPort;
       Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
       annotation (defaultComponentName="port_p",
@@ -7882,7 +7890,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 </html>"));
     end PositiveMagneticPort;
 
-    connector NegativeMagneticPort "Negative magnetic port"
+    connector NegativeMagneticPort "Negative quasi static magnetic port"
       extends FundamentalWave.Interfaces.MagneticPort;
       Modelica.Electrical.QuasiStationary.Types.Reference reference "Reference";
       annotation (defaultComponentName="port_n",
@@ -7921,9 +7929,11 @@ Additionally the reference angle is specified in the connector. The time derivat
     partial model PartialTwoPort "Partial two port for graphical programming"
       Modelica.SIunits.AngularVelocity omega = der(port_p.reference.gamma);
       FundamentalWave.Interfaces.PositiveMagneticPort port_p
+        "Positive quasi static magnetic port"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
           rotation=0)));
       FundamentalWave.Interfaces.NegativeMagneticPort port_n
+        "Negative quasi static magnetic port"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
           rotation=0)));
     equation
@@ -7933,7 +7943,9 @@ Additionally the reference angle is specified in the connector. The time derivat
 <p>
 The partial two port model consists of a positive and a negative magnetic port. The reference angles of the two ports are set equal and connected through <code>Connections.branch</code>.
 </p>
-</html>"),                                             Icon(graphics));
+</html>"),                                             Icon(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end PartialTwoPort;
 
     partial model PartialTwoPortElementary
@@ -7950,7 +7962,9 @@ The partial two port model consists of a positive and a negative magnetic port. 
 <p>
 The partial two port elementary model extends from the partial two port model and adds one equation considering the balance of flow variables, <code>port_p.Phi + port_n.Phi = Complex(0,0)</code>. Additionally, a variable for magnetic potential difference of the two magnetic ports, <code>V_m</code>, and the flux into the positive port, <code>Phi</code>, are defined. 
 </p>
-</html>"),                                             Icon(graphics));
+</html>"),                                             Icon(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end PartialTwoPortElementary;
 
     partial model PartialBasicMachine
