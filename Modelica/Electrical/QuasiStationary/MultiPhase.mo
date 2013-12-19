@@ -312,7 +312,9 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStar\">MultiStar</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
 </p>
 </html>"));
     end Star;
@@ -367,10 +369,158 @@ Delta (polygon) connection of a multi phase circuit.
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStar\">MultiStar</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+</p></html>"));
+    end Delta;
+
+    model MultiStar
+      "Star connection of multi phase systems consisting of multiple base systems"
+      import Modelica;
+      parameter Integer m(final min=1) = 3 "Number of phases";
+      final parameter Integer mSystems=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)
+        "Number of base systems";
+      final parameter Integer mBasic=integer(m/mSystems)
+        "Phase number of base systems";
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
+               0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug starpoints(final m=
+            mSystems)
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p plugToPins_p(final m=m)
+                                annotation (Placement(transformation(extent={{-80,-10},
+                {-60,10}},      rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n
+        plugToPins_n(final m=mSystems)
+        annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+    equation
+      for k in 1:mSystems loop
+        for j in 1:mBasic loop
+          connect(plugToPins_p.pin_p[(k - 1)*mBasic + j], plugToPins_n.pin_n[k]);
+        end for;
+      end for;
+      connect(plug_p, plugToPins_p.plug_p)
+        annotation (Line(points={{-100,0},{-72,0}},              color={85,170,255}));
+      connect(plugToPins_n.plug_n, starpoints) annotation (Line(
+          points={{72,0},{100,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation (Icon(graphics={
+            Text(extent={{-150,60},{150,120}}, textString=
+                                                  "%name",
+              lineColor={0,0,255}),
+            Line(
+              points={{86,4},{6,4}},
+              color={0,0,255},
+              thickness=0.5),
+            Line(
+              points={{6,4},{-33,72}},
+              color={0,0,255},
+              thickness=0.5),
+            Line(
+              points={{6,4},{-32,-65}},
+              color={0,0,255},
+              thickness=0.5),
+            Text(
+              extent={{-100,-110},{100,-70}},
+              lineColor={0,0,0},
+              textString=                            "m=%m"),
+            Line(points={{-90,0},{-40,0}}, color={0,0,255}),
+            Line(points={{80,0},{90,0}}, color={0,0,255}),
+            Line(
+              points={{-6,-4},{-45,64}},
+              color={0,0,255},
+              thickness=0.5),
+            Line(
+              points={{74,-4},{-6,-4}},
+              color={0,0,255},
+              thickness=0.5),
+            Line(
+              points={{-6,-4},{-44,-73}},
+              color={0,0,255},
+              thickness=0.5)}),
+      Documentation(info="<html>
+<p>
+Star (wye) connection of a multi phase circuit consiting of multiple base systems (see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>). The potentials at the star points are all equal.
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+</p></html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
+    end MultiStar;
+
+    model MultiDelta
+      "Delta (polygon) connection of multi phase systems consisting of multiple base systems"
+      import Modelica;
+      parameter Integer m(final min=2) = 3 "Number of phases";
+      final parameter Integer mSystems=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)
+        "Number of base systems";
+      final parameter Integer mBasic=integer(m/mSystems)
+        "Phase number of base systems";
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
+               0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p plugToPins_p(final m=m)
+                                annotation (Placement(transformation(extent={{-80,
+                -10},{-60,10}}, rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n plugToPins_n(final m=m)
+                                annotation (Placement(transformation(extent={{80,
+                -10},{60,10}}, rotation=0)));
+    equation
+      for k in 1:mSystems loop
+        for j in 1:mBasic-1 loop
+          connect(plugToPins_n.pin_n[(k - 1)*mBasic + j], plugToPins_p.pin_p[(k - 1)*mBasic + j + 1]);
+        end for;
+        connect(plugToPins_n.pin_n[k*mBasic], plugToPins_p.pin_p[(k - 1)*mBasic + 1]);
+      end for;
+      connect(plug_p, plugToPins_p.plug_p)
+        annotation (Line(points={{-100,0},{-93,0},{-86,0},{-72,0}},
+            color={85,170,255}));
+      connect(plugToPins_n.plug_n, plug_n)
+        annotation (Line(points={{72,0},{79,0},{79,0},{86,0},
+              {86,0},{100,0}},
+            color={85,170,255}));
+      annotation (Icon(graphics={
+            Text(
+              extent={{-150,60},{150,120}},
+              lineColor={0,0,255},
+              textString=                         "%name"),
+            Line(
+              points={{-44,62},{-44,-76},{75,-6},{-44,62},{-44,61}},
+              color={0,0,255},
+              thickness=0.5),
+            Text(
+              extent={{-100,-110},{100,-70}},
+              lineColor={0,0,0},
+              textString=                            "m=%m"),
+            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+            Line(points={{80,0},{90,0}}, color={0,0,255}),
+            Line(
+              points={{-36,74},{-36,-64},{83,6},{-36,74},{-36,73}},
+              color={0,0,255},
+              thickness=0.5)}),
+      Documentation(info="<html>
+<p>
+Delta (polygon) connection of a multi phase circuit consiting of multiple base systems (see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>). 
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiStar\">MultiStar</a>
 </p>
 </html>"));
-    end Delta;
+    end MultiDelta;
 
     model PlugToPin_p "Connect one (positive) pin"
       parameter Integer m(final min=1) = 3 "Number of phases";
@@ -408,7 +558,7 @@ Delta (polygon) connection of a multi phase circuit.
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString =                        "k = %k")}),
+              textString=                         "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (positive) pin <code>k</code> of the multi phase (positive) plug to a single phase (positive) pin.
@@ -458,7 +608,7 @@ Connects the single phase (positive) pin <code>k</code> of the multi phase (posi
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString =                        "k = %k")}),
+              textString=                         "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (negative) pin <code>k</code> of the multi phase (negative) plug to a single phase (negative) pin.
@@ -1809,8 +1959,178 @@ Quasi stationary theory can be found in the
 </html>"));
   end Ideal;
 
+  package Blocks "Blocks for quasi stationary multi phase systems"
+    extends Modelica.Icons.Package;
+    block SymmetricalComponents
+      "Creates symmetrical components from signals representing quasi static phasors"
+      import Modelica;
+      extends Modelica.ComplexBlocks.Interfaces.ComplexMIMO(final nin=m,final nout=m);
+      parameter Integer m = 3 "Number of phases";
+    equation
+      y =
+        Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix(
+         m)*u;
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics), Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+            Line(
+              points={{-44,0},{-44,0},{-8,-20},{-22,-16},{-18,-10},{-8,-20}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{-44,0},{-44,40},{-40,26},{-48,26},{-44,40}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+              color={0,0,255},
+              smooth=Smooth.None,
+              origin={-54,-18},
+              rotation=-90),
+            Line(
+              points={{42,48},{42,48},{78,28},{64,32},{68,38},{78,28}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{42,48},{42,88},{46,74},{38,74},{42,88}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+              color={0,0,255},
+              smooth=Smooth.None,
+              origin={32,30},
+              rotation=-90),
+            Line(
+              points={{42,-22},{42,-22},{78,-42},{64,-38},{68,-32},{78,-42}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{42,-22},{42,18},{46,4},{38,4},{42,18}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+              color={0,0,255},
+              smooth=Smooth.None,
+              origin={32,-40},
+              rotation=-90),
+            Line(
+              points={{42,-88},{42,-48},{46,-62},{38,-62},{42,-48}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{52,-88},{52,-48},{56,-62},{48,-62},{52,-48}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{32,-88},{32,-48},{36,-62},{28,-62},{32,-48}},
+              color={0,0,255},
+              smooth=Smooth.None)}));
+    end SymmetricalComponents;
+
+    block SingleToMultiPhase
+      "Extends complex phase signal to complex multi phase signals using symmetricOrientation"
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSIMO(final nout=m);
+      parameter Integer m = 3 "Number of phases";
+    equation
+      y = u * Modelica.ComplexMath.fromPolar(fill(1,m),-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(
+              points={{-60,-20},{-60,20},{-56,8},{-64,8},{-60,20}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{40,-20},{40,20},{44,8},{36,8},{40,20}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{40,-20},{40,-20},{76,-40},{64,-38},{68,-30},{76,-40}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{-18,10},{-18,10},{2,-24},{-8,-16},{-2,-10},{2,-24}},
+              color={0,0,255},
+              smooth=Smooth.None,
+              origin={30,-38},
+              rotation=-90)}),                Icon(graphics={
+            Line(
+              points={{-60,-20},{-60,20},{-56,8},{-64,8},{-60,20}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{40,-20},{40,20},{44,6},{36,6},{40,20}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{40,-20},{40,-20},{76,-40},{62,-36},{66,-30},{76,-40}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+              color={0,0,255},
+              smooth=Smooth.None,
+              origin={30,-38},
+              rotation=-90)}));
+    end SingleToMultiPhase;
+  end Blocks;
+
+  package Functions
+    extends Modelica.Icons.Package;
+    function quasiRMS
+      "Overall quasi-RMS value of complex input (current or voltage)"
+      extends Modelica.Icons.Function;
+      import Modelica.ComplexMath.'abs';
+      input Complex u[:];
+      output Real y;
+      import Modelica.Constants.pi;
+    protected
+      Integer m=size(u,1) "Number of phases";
+    algorithm
+      y:= sum({'abs'(u[k]) for k in 1:m})/m;
+    end quasiRMS;
+
+    function activePower
+      "Calculate active power of complex input voltage and current"
+      extends Modelica.Icons.Function;
+      input Modelica.SIunits.ComplexVoltage v[:]
+        "QuasiStationary voltage phasors";
+      input Modelica.SIunits.ComplexCurrent i[size(v, 1)]
+        "QuasiStationary current phasors";
+      output Modelica.SIunits.Power p "Active power";
+    algorithm
+      p := sum(Modelica.ComplexMath.real({v[k]* Modelica.ComplexMath.conj(i[k]) for k in 1:size(v, 1)}));
+      annotation (Inline=true, Documentation(info="<HTML>
+<p>
+Calculates instantaneous power from multiphase voltages and currents.
+In quasistaionary operation, instantaneous power equals active power;
+</p>
+</HTML>"));
+    end activePower;
+  end Functions;
+
   package Sensors "AC multiphase sensors"
     extends Modelica.Icons.SensorsPackage;
+
+    model ReferenceSensor "Sensor of reference angle gamma"
+      extends
+        Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor;
+      Modelica.Blocks.Interfaces.RealOutput y "Reference angle"
+        annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
+                0)));
+    equation
+      y = plug_p.reference.gamma;
+      plug_p.pin.i = fill(Complex(0), m);
+      annotation (Icon(graphics={
+            Text(
+              extent={{60,-60},{-60,-30}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=
+               false, extent={{-100,-100},{100,100}}), graphics));
+    end ReferenceSensor;
 
     model FrequencySensor "Frequency sensor"
       extends Interfaces.AbsoluteSensor;
@@ -1819,7 +2139,7 @@ Quasi stationary theory can be found in the
       Basic.PlugToPin_p plugToPin_p(final m=m, final k=1)
         annotation (Placement(transformation(extent={{-80,-10},{-60,10}}, rotation=
                 0)));
-      Blocks.Interfaces.RealOutput y
+      Modelica.Blocks.Interfaces.RealOutput y
         annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
                 0)));
     equation
@@ -2061,19 +2381,19 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
               170,255}));
       annotation (
         Icon(graphics={
-          Line(points=  {{0,100},{0,70}},
-            color=  {0,0,255}),
-          Line(points=  {{0,-70},{0,-100}},
-            color=  {0,0,255}),
-          Text(extent=  {{-29,-70},{30,-11}},
-            textString=  "P"),
-          Line(points=  {{-80,-100},{-80,0}},
-            color=  {85,170,255}),
-          Text(textColor=  {0,0,255},
-            extent=  {{-100,110},{100,150}},
-            textString=  "%name"),
-          Line(points=  {{-100,0},{100,0}},
-            color=  {0,0,255})}),
+          Line(points = {{0,100},{0,70}},
+            color = {0,0,255}),
+          Line(points = {{0,-70},{0,-100}},
+            color = {0,0,255}),
+          Text(extent = {{-29,-70},{30,-11}},
+            textString = "P"),
+          Line(points = {{-80,-100},{-80,0}},
+            color = {85,170,255}),
+          Text(textColor = {0,0,255},
+            extent = {{-100,110},{100,150}},
+            textString = "%name"),
+          Line(points = {{-100,0},{100,0}},
+            color = {0,0,255})}),
         Documentation(info="<html>
 
 <p>
@@ -2150,7 +2470,9 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
 </p>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end VoltageSource;
 
     model VariableVoltageSource "Variable multiphase AC voltage"
@@ -2282,6 +2604,158 @@ Additionally, the frequency of the current source is defined by a real signal in
 </p>
 </html>"));
     end VariableCurrentSource;
+
+    model ReferenceVoltageSource
+      "Variable multiphase AC voltage with reference angle input"
+      extends Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource;
+      import Modelica.Constants.pi;
+      Modelica.Blocks.Interfaces.RealInput gamma
+        "Reference angle of voltage source"
+        annotation (Placement(transformation(
+            origin={40,100},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Modelica.ComplexBlocks.Interfaces.ComplexInput V[m]
+        annotation (Placement(transformation(
+            origin={-40,100},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+    equation
+      plug_p.reference.gamma=gamma;
+      v = V;
+      annotation (Icon(graphics={
+            Text(
+              extent={{-120,50},{-20,0}},
+              lineColor={0,0,255},
+              textString=
+                      "+"),
+            Text(
+              extent={{20,50},{120,0}},
+              lineColor={0,0,255},
+              textString=
+                      "-"),
+            Line(points={{50,0},{-50,0}}, color={0,0,0})}),
+      Documentation(info="<html>
+
+<p>
+This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
+</p>
+</html>"),        Icon(graphics={
+            Line(points={{-60,60},{60,60}}, color={85,170,255}),
+            Polygon(
+              points={{60,60},{30,70},{30,50},{60,60}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-50},{0,50}}, color={0,0,0})}),
+      Documentation(info="<html>
+
+<p>
+This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
+</p>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                        graphics));
+    end ReferenceVoltageSource;
+
+    model ReferenceCurrentSource
+      "Variable multiphase AC current with reference angle input"
+      extends Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource;
+      import Modelica.Constants.pi;
+      Modelica.Blocks.Interfaces.RealInput gamma
+        "Reference angle of current source"
+        annotation (Placement(transformation(
+            origin={40,100},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Modelica.ComplexBlocks.Interfaces.ComplexInput I[m]
+        annotation (Placement(transformation(
+            origin={-40,100},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+    equation
+      plug_p.reference.gamma=gamma;
+      i = I;
+      annotation (Icon(graphics={
+            Line(points={{-60,60},{60,60}}, color={85,170,255}),
+            Polygon(
+              points={{60,60},{30,70},{30,50},{60,60}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-50},{0,50}}, color={0,0,0})}),
+      Documentation(info="<html>
+
+<p>
+This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
+</p>
+</html>"),        Icon(graphics={
+            Line(points={{-60,60},{60,60}}, color={85,170,255}),
+            Polygon(
+              points={{60,60},{30,70},{30,50},{60,60}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-50},{0,50}}, color={0,0,0})}),
+      Documentation(info="<html>
+
+<p>
+This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
+</p>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                        graphics));
+    end ReferenceCurrentSource;
     annotation (Documentation(info="<html>
 <p>This package hosts sources for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
@@ -2581,6 +3055,48 @@ The source partial model relies on the
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                 100}}), graphics));
     end Source;
+
+    partial model ReferenceSource
+      "Partial of voltage or current source with reference input"
+      extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort;
+      import Modelica.Constants.pi;
+    equation
+      Connections.root(plug_p.reference);
+      annotation (Icon(graphics={
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(extent={{100,-100},{-100,-60}}, textString=
+                                                   "%name",
+              lineColor={0,0,255}),
+            Line(points={{-90,0},{-50,0}}, color={0,0,0}),
+            Line(points={{50,0},{90,0}}, color={0,0,0}),
+            Text(
+              extent={{100,60},{-100,100}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              textString=
+                   "m=%m")}),
+      Documentation(info="<html>
+<p>
+The source partial model relies on the
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Source\">SinglePhase.Interfaces.Source</a>.
+</p>
+</html>"));
+    end ReferenceSource;
   end Interfaces;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={

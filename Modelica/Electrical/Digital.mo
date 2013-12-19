@@ -8225,13 +8225,13 @@ Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.
             points={{-84,-6},{-52,-6}}),
           Rectangle(
             origin={59,53},
-            fillColor = {255,255,255},
-            fillPattern = FillPattern.Solid,
+            fillColor=  {255,255,255},
+            fillPattern=  FillPattern.Solid,
             extent={{-104,-63},{-64,7}}),
           Rectangle(
             origin={146,34},
-            fillColor = {255,255,255},
-            fillPattern = FillPattern.Solid,
+            fillColor=  {255,255,255},
+            fillPattern=  FillPattern.Solid,
             extent={{-104,-63},{-64,7}}),
           Line(
             origin={7,15},

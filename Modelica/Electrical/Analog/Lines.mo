@@ -844,7 +844,6 @@ The capacitances are calculated with: C=c*length/N.
               lineColor={0,0,255})}));
   end TLine3;
 
-
   annotation (Documentation(info="<html>
 <p>This package contains lossy and lossless segmented transmission lines, and LC distributed line models. The line models do not yet possess a conditional heating port.</p>
 </html>", revisions="<html>

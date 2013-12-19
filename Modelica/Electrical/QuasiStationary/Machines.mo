@@ -121,7 +121,7 @@ package Machines "Quasistationary machine models"
         T2Operational=293.15)            annotation (Placement(transformation(
               extent={{-20,-10},{20,30}}, rotation=0)));
     initial equation
-      source.voltageSource.pin_p.reference.gamma=zeros(m);
+      source.plug_p.reference.gamma=0;
 
     equation
       connect(starS.pin_n, groundS.pin) annotation (Line(
@@ -2040,68 +2040,68 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"),     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+</HTML>"),     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
             Polygon(
-              origin=  {10,10},
-              fillColor=  {135,135,135},
-              fillPattern=  FillPattern.VerticalCylinder,
-              points=  {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
+              origin = {10,10},
+              fillColor = {135,135,135},
+              fillPattern = FillPattern.VerticalCylinder,
+              points = {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
             Polygon(
-              origin=  {10,10},
-              fillColor=  {135,135,135},
-              fillPattern=  FillPattern.VerticalCylinder,
-              points=  {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
+              origin = {10,10},
+              fillColor = {135,135,135},
+              fillPattern = FillPattern.VerticalCylinder,
+              points = {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
             Polygon(
-              origin=  {10,10},
-              fillColor=  {135,135,135},
-              fillPattern=  FillPattern.VerticalCylinder,
-              points=  {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
+              origin = {10,10},
+              fillColor = {135,135,135},
+              fillPattern = FillPattern.VerticalCylinder,
+              points = {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
             Polygon(
-              origin=  {10,10},
-              fillColor=  {135,135,135},
-              fillPattern=  FillPattern.VerticalCylinder,
-              points=  {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
+              origin = {10,10},
+              fillColor = {135,135,135},
+              fillPattern = FillPattern.VerticalCylinder,
+              points = {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
             Polygon(
-              origin=  {10,10},
-              fillColor=  {135,135,135},
-              fillPattern=  FillPattern.VerticalCylinder,
-              points=  {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
+              origin = {10,10},
+              fillColor = {135,135,135},
+              fillPattern = FillPattern.VerticalCylinder,
+              points = {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
             Rectangle(
-              origin=  {10,10},
-              lineColor=  {213,170,255},
-              fillColor=  {213,170,255},
-              fillPattern=  FillPattern.VerticalCylinder,
-              extent=  {{-88,-46},{-52,26}}),
+              origin = {10,10},
+              lineColor = {213,170,255},
+              fillColor = {213,170,255},
+              fillPattern = FillPattern.VerticalCylinder,
+              extent = {{-88,-46},{-52,26}}),
             Rectangle(
-              origin=  {10,10},
-              lineColor=  {170,213,255},
-              fillColor=  {170,213,255},
-              fillPattern=  FillPattern.VerticalCylinder,
-              extent=  {{-94,-38},{-46,18}}),
+              origin = {10,10},
+              lineColor = {170,213,255},
+              fillColor = {170,213,255},
+              fillPattern = FillPattern.VerticalCylinder,
+              extent = {{-94,-38},{-46,18}}),
             Rectangle(
-              origin=  {10,10},
-              lineColor=  {213,170,255},
-              fillColor=  {213,170,255},
-              fillPattern=  FillPattern.VerticalCylinder,
-              extent=  {{-28,-46},{8,26}}),
+              origin = {10,10},
+              lineColor = {213,170,255},
+              fillColor = {213,170,255},
+              fillPattern = FillPattern.VerticalCylinder,
+              extent = {{-28,-46},{8,26}}),
             Rectangle(
-              origin=  {10,10},
-              lineColor=  {170,213,255},
-              fillColor=  {170,213,255},
-              fillPattern=  FillPattern.VerticalCylinder,
-              extent=  {{-34,-38},{14,18}}),
+              origin = {10,10},
+              lineColor = {170,213,255},
+              fillColor = {170,213,255},
+              fillPattern = FillPattern.VerticalCylinder,
+              extent = {{-34,-38},{14,18}}),
             Rectangle(
-              origin=  {10,10},
-              lineColor=  {213,170,255},
-              fillColor=  {213,170,255},
-              fillPattern=  FillPattern.VerticalCylinder,
-              extent=  {{32,-46},{68,26}}),
+              origin = {10,10},
+              lineColor = {213,170,255},
+              fillColor = {213,170,255},
+              fillPattern = FillPattern.VerticalCylinder,
+              extent = {{32,-46},{68,26}}),
             Rectangle(
-              origin=  {10,10},
-              lineColor=  {170,213,255},
-              fillColor=  {170,213,255},
-              fillPattern=  FillPattern.VerticalCylinder,
-              extent=  {{26,-38},{74,18}})}));
+              origin = {10,10},
+              lineColor = {170,213,255},
+              fillColor = {170,213,255},
+              fillPattern = FillPattern.VerticalCylinder,
+              extent = {{26,-38},{74,18}})}));
     end Transformers;
 
     package Components "Machine components like AirGaps"
@@ -2218,30 +2218,30 @@ This package contains components for modeling electrical machines, specially thr
     end Components;
     annotation (Icon(graphics={
       Rectangle(
-        origin=  {0,14.817},
-        fillColor=  {170,213,255},
-        fillPattern=  FillPattern.HorizontalCylinder,
-        extent=  {{-54.179,-59.817},{65.821,60.183}}),
+        origin = {0,14.817},
+        fillColor = {170,213,255},
+        fillPattern = FillPattern.HorizontalCylinder,
+        extent = {{-54.179,-59.817},{65.821,60.183}}),
       Rectangle(
-        origin=  {5.821,15},
-        fillColor=  {128,128,128},
-        fillPattern=  FillPattern.HorizontalCylinder,
-        extent=  {{-80,-60},{-60,60}}),
+        origin = {5.821,15},
+        fillColor = {128,128,128},
+        fillPattern = FillPattern.HorizontalCylinder,
+        extent = {{-80,-60},{-60,60}}),
       Rectangle(
-        origin=  {5.821,15},
-        fillColor=  {95,95,95},
-        fillPattern=  FillPattern.HorizontalCylinder,
-        extent=  {{60,-10},{80,10}}),
+        origin = {5.821,15},
+        fillColor = {95,95,95},
+        fillPattern = FillPattern.HorizontalCylinder,
+        extent = {{60,-10},{80,10}}),
       Rectangle(
-        origin=  {5.821,15},
-        lineColor=  {95,95,95},
-        fillColor=  {95,95,95},
-        fillPattern=  FillPattern.Solid,
-        extent=  {{-60,50},{20,70}}),
+        origin = {5.821,15},
+        lineColor = {95,95,95},
+        fillColor = {95,95,95},
+        fillPattern = FillPattern.Solid,
+        extent = {{-60,50},{20,70}}),
       Polygon(
-        origin=  {5.821,15},
-        fillPattern=  FillPattern.Solid,
-        points=  {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
+        origin = {5.821,15},
+        fillPattern = FillPattern.Solid,
+        points = {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
 This package contains components for modeling quasi stationary electrical induction machines machines, based on space phasor theory:
 <ul>
 <li>package AsynchronousInductionMachines: quasi stationary models of three phase asynchronous induction machines</li>
@@ -2493,6 +2493,175 @@ This package contains the quasi stationary space phasor connector and partial mo
 </p>
 </html>"));
   end Interfaces;
+
+  package Utilities "Utilities for quasi stationary electric machines"
+    extends Modelica.Icons.Package;
+    model TerminalBox "Terminal box Y/D-connection"
+      parameter Integer m(min=1) = 3 "Number of phases";
+      final parameter Integer mBasic=integer(m/
+          Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          m));
+      final parameter Integer mSystems=integer(m/mBasic);
+      parameter String terminalConnection(start="Y") "Choose Y=star/D=delta"
+        annotation(choices(choice="Y" "Star connection",choice="D"
+            "Delta connection"));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
+        plug_sp(final m=m) "To positive stator plug"
+        annotation (Placement(transformation(extent={{50,-90},{70,-110}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
+        plug_sn(final m=m) "To negative stator plug"
+        annotation (Placement(transformation(extent={{-70,-90},{-50,-110}},
+              rotation=0)));
+      Electrical.QuasiStationary.MultiPhase.Basic.MultiStar
+                                                 mStar(final m=m) if (
+        terminalConnection <> "D") annotation (Placement(transformation(
+            origin={-70,-80},
+            extent={{-10,10},{10,-10}},
+            rotation=180)));
+      Electrical.QuasiStationary.MultiPhase.Basic.MultiDelta
+                                                  mDelta(final m=m) if (
+        terminalConnection == "D") annotation (Placement(transformation(
+              extent={{-20,-70},{-40,-50}}, rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
+        plugSupply(final m=m) "To grid"
+        annotation (Placement(transformation(extent={{-10,-70},{10,-90}},
+              rotation=0)));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
+        starpoint(final m=mSystems) if (terminalConnection<>"D")
+        annotation (Placement(transformation(extent={{-100,-90},{-80,-70}},
+              rotation=0)));
+    equation
+      connect(mStar.plug_p, plug_sn) annotation (Line(
+          points={{-60,-80},{-60,-100}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(starpoint, mStar.starpoints) annotation (Line(
+          points={{-90,-80},{-80,-80}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(mDelta.plug_n, plug_sn) annotation (Line(
+          points={{-40,-60},{-40,-100},{-60,-100}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(mDelta.plug_p, plug_sp) annotation (Line(
+          points={{-20,-60},{60,-60},{60,-100}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(plugSupply, plug_sp) annotation (Line(
+          points={{0,-80},{0,-100},{60,-100}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false,extent={{-100,
+                -100},{100,100}}),
+              graphics={
+              Text(extent={{-40,-90},{40,-130}},
+              lineColor={0,0,0},
+              textString="%terminalConnection")}),
+        Documentation(info="<html>
+TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
+choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
+                             graphics));
+    end TerminalBox;
+  end Utilities;
+
+  package SpacePhasors
+    "Space phasor components for quasi stationary electric machines"
+    extends Modelica.Icons.Package;
+    package Blocks
+      extends Modelica.Icons.Package;
+      block ToSpacePhasor "Conversion: three phase -> space phasor"
+        extends Modelica.Blocks.Icons.Block;
+        import Modelica.ComplexMath.j;
+        import Modelica.ComplexMath.exp;
+        import Modelica.ComplexMath.'sum';
+        parameter Integer m(min=1)=3 "Number of phases";
+        Modelica.ComplexBlocks.Interfaces.ComplexInput u[m]
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Blocks.Interfaces.RealOutput y[2]
+          annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+      protected
+        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(
+                                                                                             m);
+        Complex c;
+      equation
+        c=sqrt(2)/m*'sum'({u[k]*exp(j*phi[k]) for k in 1:m});
+        y={c.re, c.im};
+        annotation (
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
+              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
+                    255}),
+              Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,
+                    0,255}),
+              Line(points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
+                    17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
+                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
+                    17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
+                    17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
+                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Text(
+                extent={{-12,-74},{64,-86}},
+                lineColor={0,0,0},
+                textString="zero")}),
+          Documentation(info="<HTML>
+Transformation of quasi stationary multi phase values (voltages or currents) to space phasor and zero sequence value.
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
+      end ToSpacePhasor;
+
+      block FromSpacePhasor "Conversion: space phasor -> three phase"
+        extends Modelica.Blocks.Icons.Block;
+        import Modelica.ComplexMath.j;
+        import Modelica.ComplexMath.exp;
+        parameter Integer m(min=1)=3 "Number of phases";
+        Modelica.Blocks.Interfaces.RealInput u[2]
+          annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]
+          annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+      protected
+        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(
+                                                                               m);
+      equation
+        y = {Complex(u[1], u[2])*exp(-j*phi[k])/sqrt(2) for k in 1:m};
+        annotation (
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
+              Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={0,
+                    0,255}),
+              Line(points={{0,0},{-80,-80},{-72,-60},{-60,-72},{-80,-80}},
+                  color={0,0,255}),
+              Line(points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,17.32},
+                    {33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},{
+                    66.67,-17.32},{73.33,-10},{80,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Line(points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,17.32},
+                    {23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},{
+                    56.67,-17.32},{63.33,-10},{70,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Line(points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,17.32},
+                    {43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},{
+                    76.67,-17.32},{83.33,-10},{90,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Text(
+                extent={{-62,-74},{14,-86}},
+                lineColor={0,0,0},
+                textString="zero")}),
+          Documentation(info="<HTML>
+Transformation of space phasor and zero sequence value to quasi stationary multi phase values (voltages or currents).
+</HTML>"));
+      end FromSpacePhasor;
+    end Blocks;
+  end SpacePhasors;
   annotation (Icon(graphics={
       Rectangle(
         origin = {0,14.817},

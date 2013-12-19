@@ -10798,95 +10798,6 @@ a ground has to be used where necessary for currents flowing back.
 
     package Blocks "Blocks for space phasor transformation"
       extends Modelica.Icons.Package;
-      block ToSpacePhasor "Conversion: three phase -> space phasor"
-        extends Modelica.Blocks.Interfaces.MIMO(final nin=m, final nout=2);
-        constant Integer m=3 "Number of phases";
-        constant Real pi=Modelica.Constants.pi;
-      protected
-        parameter Real TransformationMatrix[ 2, m]=2/m*
-          {{cos(+(k - 1)/m*2*pi) for k in 1:m}, {+sin(+(k - 1)/m*2*pi) for k in 1:m}};
-        parameter Real InverseTransformation[m, 2]=
-          {{cos(-(k - 1)/m*2*pi), -sin(-(k - 1)/m*2*pi)} for k in 1:m};
-      public
-        Modelica.Blocks.Interfaces.RealOutput zero
-          annotation (Placement(transformation(extent={{100,-70},{120,-90}},
-                rotation=0)));
-      equation
-        m*zero = sum(u);
-        y = TransformationMatrix *u;
-      //u = fill(zero,m) + InverseTransformation*y;
-        annotation (
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={
-              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
-                    255}),
-              Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,
-                    0,255}),
-              Line(points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
-                    17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
-                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255},
-                    smooth=Smooth.Bezier),
-              Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
-                    17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255},
-                    smooth=Smooth.Bezier),
-              Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
-                    17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
-                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255},
-                    smooth=Smooth.Bezier),
-              Text(
-                extent={{-12,-74},{64,-86}},
-                lineColor={0,0,0},
-                textString="zero")}),
-          Documentation(info="<HTML>
-Transformation of three-phase values (voltages or currents) to space phasor and zero sequence value.
-</HTML>"));
-      end ToSpacePhasor;
-
-      block FromSpacePhasor "Conversion: space phasor -> three phase"
-        extends Modelica.Blocks.Interfaces.MIMO(final nin=2, final nout=m);
-        constant Integer m=3 "Number of phases";
-        constant Real pi=Modelica.Constants.pi;
-      protected
-        parameter Real TransformationMatrix[ 2, m]=2/m*
-          {{cos(+(k - 1)/m*2*pi) for k in 1:m}, {+sin(+(k - 1)/m*2*pi) for k in 1:m}};
-        parameter Real InverseTransformation[m, 2]=
-          {{cos(-(k - 1)/m*2*pi), -sin(-(k - 1)/m*2*pi)} for k in 1:m};
-      public
-        Modelica.Blocks.Interfaces.RealInput zero
-          annotation (Placement(transformation(extent={{-140,-60},{-100,-100}},
-                rotation=0)));
-      equation
-        y = fill(zero,m) + InverseTransformation*u;
-      //m*zero = sum(y);
-      //u = TransformationMatrix *y;
-        annotation (
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={
-              Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={0,
-                    0,255}),
-              Line(points={{0,0},{-80,-80},{-72,-60},{-60,-72},{-80,-80}},
-                  color={0,0,255}),
-              Line(points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,17.32},
-                    {33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},{
-                    66.67,-17.32},{73.33,-10},{80,0}}, color={0,0,255},
-                    smooth=Smooth.Bezier),
-              Line(points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,17.32},
-                    {23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},{
-                    56.67,-17.32},{63.33,-10},{70,0}}, color={0,0,255},
-                    smooth=Smooth.Bezier),
-              Line(points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,17.32},
-                    {43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},{
-                    76.67,-17.32},{83.33,-10},{90,0}}, color={0,0,255},
-                    smooth=Smooth.Bezier),
-              Text(
-                extent={{-62,-74},{14,-86}},
-                lineColor={0,0,0},
-                textString="zero")}),
-          Documentation(info="<HTML>
-Transformation of space phasor and zero sequence value to three-phase values (voltages or currents).
-</HTML>"));
-      end FromSpacePhasor;
 
       block Rotator "Rotates space phasor"
         extends Modelica.Blocks.Interfaces.MIMOs(final n=2);
@@ -10932,9 +10843,109 @@ Transformation of space phasor and zero sequence value to three-phase values (vo
                 lineColor={0,0,0},
                 textString="angle")}),
           Documentation(info="<HTML>
-Rotates a space phasor (voltage or current) by the angle provided by the input signal \"angle\" from one coordinate system into another.
+Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the spave phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><b>Fig. 1:</b> Original and rotated reference frame of a space phasor </caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/Rotator.png\">
+    </td>
+  </tr>
+</table>
+ 
 </HTML>"));
       end Rotator;
+
+      block ToSpacePhasor
+        "Conversion of multi phase instantaneous values to space phasors"
+        extends Modelica.Blocks.Interfaces.MIMO(final nin=m, final nout=2);
+        parameter Integer m(min=1)=3 "Number of phases";
+      protected
+        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(m);
+        parameter Real TransformationMatrix[ 2, m]=2/m*{ +cos(+phi),    +sin(+phi)};
+        parameter Real InverseTransformation[m, 2] =   {{+cos(-phi[k]), -sin(-phi[k])} for k in 1:m};
+      public
+        Modelica.Blocks.Interfaces.RealOutput zero
+          annotation (Placement(transformation(extent={{100,-70},{120,-90}},
+                rotation=0)));
+      equation
+        m*zero = sum(u);
+        y = TransformationMatrix *u;
+      //u = fill(zero,m) + InverseTransformation*y;
+        annotation (
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
+              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
+                    255}),
+              Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,
+                    0,255}),
+              Line(points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
+                    17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
+                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
+                    17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
+                    17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
+                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Text(
+                extent={{-12,-74},{64,-86}},
+                lineColor={0,0,0},
+                textString="zero")}),
+          Documentation(info="<HTML>
+Transformation of multi phase values (voltages or currents) to space phasor and zero sequence value.
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
+      end ToSpacePhasor;
+
+      block FromSpacePhasor
+        "Conversion of space phasors to multi phase instantaneous values"
+        extends Modelica.Blocks.Interfaces.MIMO(final nin=2, final nout=m);
+        parameter Integer m(min=1)=3 "Number of phases";
+      protected
+        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(
+                                                                               m);
+        parameter Real TransformationMatrix[ 2, m]=2/m*{ +cos(+phi),    +sin(+phi)};
+        parameter Real InverseTransformation[m, 2] =   {{+cos(-phi[k]), -sin(-phi[k])} for k in 1:m};
+      public
+        Modelica.Blocks.Interfaces.RealInput zero
+          annotation (Placement(transformation(extent={{-140,-60},{-100,-100}},
+                rotation=0)));
+      equation
+        y = fill(zero,m) + InverseTransformation*u;
+      //m*zero = sum(y);
+      //u = TransformationMatrix *y;
+        annotation (
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
+              Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={0,
+                    0,255}),
+              Line(points={{0,0},{-80,-80},{-72,-60},{-60,-72},{-80,-80}},
+                  color={0,0,255}),
+              Line(points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,17.32},
+                    {33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},{
+                    66.67,-17.32},{73.33,-10},{80,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Line(points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,17.32},
+                    {23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},{
+                    56.67,-17.32},{63.33,-10},{70,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Line(points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,17.32},
+                    {43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},{
+                    76.67,-17.32},{83.33,-10},{90,0}}, color={0,0,255},
+                    smooth=Smooth.Bezier),
+              Text(
+                extent={{-62,-74},{14,-86}},
+                lineColor={0,0,0},
+                textString="zero")}),
+          Documentation(info="<HTML>
+Transformation of space phasor and zero sequence value to mutli phase values (voltages or currents).
+</HTML>"));
+      end FromSpacePhasor;
 
       block ToPolar "Converts a space phasor to polar coordinates"
         extends Modelica.Blocks.Interfaces.MIMOs(final n=2);
@@ -11007,8 +11018,8 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
       annotation (Documentation(info="<HTML>
 This package contains space phasor transformation blocks for use in controllers:
 <ul>
-<li>ToSpacePhasor: transforms a set of three-phase values to space phasor and zero sequence system</li>
-<li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of three-phase values</li>
+<li>ToSpacePhasor: transforms a set of mutli phase values to space phasor and zero sequence system</li>
+<li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of multi phase values</li>
 <li>Rotator: rotates a space phasor (from one coordinate system into another)</li>
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
@@ -14875,6 +14886,42 @@ This icon is designed for a <b>quasistationary transformer</b> model.
 </p>
 </html>"));
     end QuasiStationaryTransformer;
+
+    partial model QuasiStaticFundamentalWaveMachine
+      "Icon of quasi static fundamental wave machine"
+
+      annotation (Icon(graphics={
+            Rectangle(
+            extent={{-40,60},{80,-60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={255,206,120}),
+            Rectangle(
+              extent={{-40,60},{-60,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={128,128,128}),
+            Rectangle(
+              extent={{80,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={95,95,95}),
+            Rectangle(
+              extent={{-40,70},{40,50}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},{80,
+                  -100},{-50,-100},{-50,-90}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>
+This icon is designed for a <b>quasi static fundamental wave machine</b> model.
+</p>
+</html>"));
+    end QuasiStaticFundamentalWaveMachine;
     annotation (
       Documentation(info = "<html>
 <p>
@@ -15292,6 +15339,117 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
 </HTML>"));
     end VfController;
 
+    block ToDQ
+      "Transform instantaneous stator inputs to rotor fixed space phasor"
+      extends Modelica.Blocks.Interfaces.MIMO(final nin=m, final nout=2);
+      parameter Integer m(min=1)=3 "Number of phases";
+      parameter Integer p "Number of pole pairs";
+      Modelica.Blocks.Math.Gain toGamma(final k=p)
+        annotation (Placement(transformation(
+            origin={0,-50},
+            extent={{10,-10},{-10,10}},
+            rotation=270)));
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+      Modelica.Blocks.Interfaces.RealInput phi
+        annotation (Placement(transformation(
+            origin={0,-120},
+            extent={{20,-20},{-20,20}},
+            rotation=270)));
+      EDrives.Blocks.MultiPhase.ToSpacePhasor toSpacePhasor(final m=m)
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
+              rotation=0)));
+    equation
+      connect(phi,toGamma. u) annotation (Line(points={{0,-120},{-2.22045e-015,
+              -120},{-2.22045e-015,-62}},
+                    color={0,0,127}));
+      connect(rotator.angle, toGamma.y) annotation (Line(points={{0,-12},{0,-39},{2.22045e-015,
+              -39}},color={0,0,127}));
+      connect(toSpacePhasor.y, rotator.u)  annotation (Line(
+          points={{-39,0},{-12,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(u, toSpacePhasor.u) annotation (Line(
+          points={{-120,0},{-62,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(rotator.y, y)  annotation (Line(
+          points={{11,0},{110,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation ( Documentation(info="<html>
+<p>
+The multi phase input values <code>u[m]</code> are transformed to the corresponding space phasor which is rotated to the rotor fixed reference system,
+using the provided mechanical rotor angle phi. The ouput are the resulting d and q components of the space phasor arranged in one vector <code>y[2]</code>.
+</p>
+
+<h4>See also></h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.Machines.Utilities.FromDQ\">FromDQ</a>
+</p>
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                             graphics));
+    end ToDQ;
+
+    block FromDQ
+      "Transform rotor fixed space phasor to instantaneous stator quantities"
+      extends Modelica.Blocks.Interfaces.MIMO(final nin=2, final nout=m);
+      parameter Integer m(min=1)=3 "Number of phases";
+      parameter Integer p "Number of pole pairs";
+      Modelica.Blocks.Math.Gain toGamma(final k=-p)
+        annotation (Placement(transformation(
+            origin={0,-50},
+            extent={{10,-10},{-10,10}},
+            rotation=270)));
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotator
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+      Modelica.Blocks.Sources.Constant i0(final k=0)
+        annotation (Placement(transformation(extent={{20,-20},{40,-40}},  rotation=0)));
+      EDrives.Blocks.MultiPhase.FromSpacePhasor fromSpacePhasor(final m=m)
+        annotation (Placement(transformation(extent={{60,-10},{80,10}},
+              rotation=0)));
+      Modelica.Blocks.Interfaces.RealInput phi
+        annotation (Placement(transformation(
+            origin={0,-120},
+            extent={{20,-20},{-20,20}},
+            rotation=270)));
+    equation
+      connect(phi,toGamma. u) annotation (Line(points={{0,-120},{-2.22045e-015,
+              -120},{-2.22045e-015,-62}},
+                    color={0,0,127}));
+      connect(rotator.angle, toGamma.y) annotation (Line(points={{0,-12},{0,-39},{2.22045e-015,
+              -39}},color={0,0,127}));
+      connect(rotator.y, fromSpacePhasor.u) annotation (Line(points={{11,0},{34,0},
+              {58,0}},
+            color={0,0,127}));
+      connect(i0.y,fromSpacePhasor. zero) annotation (Line(
+          points={{41,-30},{50,-30},{50,-8},{58,-8}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(u, rotator.u)  annotation (Line(
+          points={{-120,0},{-12,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(fromSpacePhasor.y, y) annotation (Line(
+          points={{81,0},{110,0}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation ( Documentation(info="<html>
+<p>
+The d and q components of a space phasor <code>u[2]</code> are rotated back to the stator fixed reference system,
+using the provided mechanical rotor angle phi. The output are the instantaneous multi phase values <code>y[m]</code>.
+</p>
+
+<h4>See also></h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.Machines.Utilities.FToDQ\">ToDQ</a>
+</p>
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                             graphics));
+    end FromDQ;
+
     model CurrentController "Current controller"
       constant Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
@@ -15537,115 +15695,6 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
 </p>
 </html>"));
     end VoltageController;
-
-    block ToDQ
-      extends Modelica.Blocks.Icons.Block;
-      parameter Integer p "Number of pole pairs";
-      Modelica.Blocks.Math.Gain toGamma(final k=p)
-        annotation (Placement(transformation(
-            origin={0,-50},
-            extent={{10,-10},{-10,10}},
-            rotation=270)));
-      Machines.SpacePhasors.Blocks.Rotator rotator2
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput
-                 y[2] "Connector of Real output signals"
-        annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput phi
-        annotation (Placement(transformation(
-            origin={0,-120},
-            extent={{20,-20},{-20,20}},
-            rotation=270)));
-      Modelica.Blocks.Interfaces.RealInput u[3]
-        "Connector of Real input signals"
-        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-      Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor
-        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
-                                                                       rotation=0)));
-    equation
-      connect(phi,toGamma. u) annotation (Line(points={{0,-120},{-2.22045e-015,
-              -120},{-2.22045e-015,-62}},
-                    color={0,0,127}));
-      connect(rotator2.angle, toGamma.y)
-                                        annotation (Line(points={{0,-12},{0,-39},{2.22045e-015,
-              -39}},color={0,0,127}));
-      connect(rotator2.y, y) annotation (Line(
-          points={{11,0},{110,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(u, toSpacePhasor.u) annotation (Line(
-          points={{-120,0},{-62,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(toSpacePhasor.y, rotator2.u) annotation (Line(
-          points={{-39,0},{-12,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      annotation ( Documentation(info="<html>
-<p>
-Threepase values <code>u[3]</code> are transformed to the corresponding spacePhasor which is rotated to the rotor-fixed coordinate system,
-using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q- components <code>y[2]</code>.
-</p>
-</html>"));
-    end ToDQ;
-
-    block FromDQ
-      extends Modelica.Blocks.Icons.Block;
-      parameter Integer p "Number of pole pairs";
-      Modelica.Blocks.Math.Gain toGamma(final k=-p)
-        annotation (Placement(transformation(
-            origin={0,-50},
-            extent={{10,-10},{-10,10}},
-            rotation=270)));
-      Machines.SpacePhasors.Blocks.Rotator rotator2
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant i0(final k=0)
-        annotation (Placement(transformation(extent={{20,-20},{40,-40}},  rotation=0)));
-      Machines.SpacePhasors.Blocks.FromSpacePhasor fromSpacePhasor
-        annotation (Placement(transformation(extent={{60,-10},{80,10}},rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput
-                 y[3] "Connector of Real output signals"
-        annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput phi
-        annotation (Placement(transformation(
-            origin={0,-120},
-            extent={{20,-20},{-20,20}},
-            rotation=270)));
-      Modelica.Blocks.Interfaces.RealInput u[2]
-        "Connector of Real input signals"
-        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-    equation
-      connect(phi,toGamma. u) annotation (Line(points={{0,-120},{-2.22045e-015,
-              -120},{-2.22045e-015,-62}},
-                    color={0,0,127}));
-      connect(rotator2.angle, toGamma.y)
-                                        annotation (Line(points={{0,-12},{0,-39},{2.22045e-015,
-              -39}},color={0,0,127}));
-      connect(rotator2.y, fromSpacePhasor.u)
-                                            annotation (Line(points={{11,0},{34,0},
-              {58,0}},
-            color={0,0,127}));
-      connect(i0.y,fromSpacePhasor. zero) annotation (Line(
-          points={{41,-30},{50,-30},{50,-8},{58,-8}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(fromSpacePhasor.y,y)  annotation (Line(
-          points={{81,0},{110,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(rotator2.u, u) annotation (Line(
-          points={{-12,0},{-120,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      annotation ( Documentation(info="<html>
-<p>
-The d- / q- components <code>u[2]</code> are rotated back to the stator-fixed coordinate system,
-using the provided mechanical rotor angle phi. The output is the result of the back-transformation to threephase values <code>y[3]</code>.
-</p>
-</html>"));
-    end FromDQ;
 
     model SwitchYD "Y-D-switch"
       parameter Integer m=3 "Number of phases";

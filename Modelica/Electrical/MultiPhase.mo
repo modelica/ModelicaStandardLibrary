@@ -560,6 +560,14 @@ This package contains test examples of analog electrical multiphase circuits.
 <p>
 Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
 </p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStar\">MultiStar</a>,
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+</p>
+
 </HTML>"));
     end Star;
 
@@ -605,8 +613,144 @@ Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1],
 thus establishing a so-called delta (or polygon) connection
 when used in parallel to another component.
 </p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStar\">MultiStar</a>,
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+</p>
 </HTML>"));
     end Delta;
+
+    model MultiStar
+      "Star connection of multi phase systems consisting of multiple base systems"
+      parameter Integer m(final min=1) = 3 "Number of phases";
+      final parameter Integer mSystems=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)
+        "Number of base systems";
+      final parameter Integer mBasic=integer(m/mSystems)
+        "Phase number of base systems";
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug starpoints(final m=
+            mSystems)
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+    equation
+      for k in 1:mSystems loop
+        for j in 1:mBasic loop
+          connect(plug_p.pin[(k - 1)*mBasic + j], starpoints.pin[k]);
+        end for;
+      end for;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{-150,60},{150,120}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,-110},{100,-70}},
+              lineColor={0,0,0},
+              textString="m=%m"),
+            Line(
+              points={{74,-4},{-6,-4}},
+              thickness=0.5,
+              color={0,0,255}),
+            Line(
+              points={{-6,-4},{-45,64}},
+              thickness=0.5,
+              color={0,0,255}),
+            Line(
+              points={{-6,-4},{-44,-73}},
+              thickness=0.5,
+              color={0,0,255}),
+            Line(points={{-90,0},{-40,0}}, color={0,0,255}),
+            Line(points={{80,0},{90,0}}, color={0,0,255}),
+            Line(
+              points={{6,4},{-33,72}},
+              thickness=0.5,
+              color={0,0,255}),
+            Line(
+              points={{86,4},{6,4}},
+              thickness=0.5,
+              color={0,0,255}),
+            Line(
+              points={{6,4},{-32,-65}},
+              thickness=0.5,
+              color={0,0,255})}),
+          Documentation(
+            info="<html>
+<p>
+Star (wye) connection of a multi phase circuit consiting of multiple base systems (see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>). The potentials at the star points are all equal.
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
+</p></html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                        graphics));
+    end MultiStar;
+
+    model MultiDelta
+      "Delta (polygon) connection of multi phase systems consisting of multiple base systems"
+      parameter Integer m(final min=2) = 3 "Number of phases";
+      final parameter Integer mSystems=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)
+        "Number of base systems";
+      final parameter Integer mBasic=integer(m/mSystems)
+        "Phase number of base systems";
+
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_n(final m=m)
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+    equation
+      for k in 1:mSystems loop
+        for j in 1:mBasic-1 loop
+          connect(plug_n.pin[(k - 1)*mBasic + j], plug_p.pin[(k - 1)*mBasic + j + 1]);
+        end for;
+        connect(plug_n.pin[k*mBasic], plug_p.pin[(k - 1)*mBasic + 1]);
+      end for;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{-150,60},{150,120}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Text(
+              extent={{-100,-110},{100,-70}},
+              lineColor={0,0,0},
+              textString="m=%m"),
+            Line(points={{-90,0},{-46,0}}, color={0,0,255}),
+            Line(
+              points={{-44,62},{-44,-76},{75,-6},{-44,62},{-44,61}},
+              thickness=0.5,
+              color={0,0,255}),
+            Line(points={{80,0},{90,0}}, color={0,0,255}),
+            Line(
+              points={{-36,74},{-36,-64},{83,6},{-36,74},{-36,73}},
+              thickness=0.5,
+              color={0,0,255})}),
+          Documentation(
+            info="<html>
+<p>
+Delta (polygon) connection of a multi phase circuit consiting of multiple base systems (see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>). 
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Star\">Star</a>,
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Delta\">Delta</a>,
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStar\">MultiStar</a>
+</p>
+</html>"));
+    end MultiDelta;
 
     model PlugToPin_p "Connect one (positive) Pin"
       parameter Integer m(final min=1) = 3 "Number of phases";
@@ -1454,20 +1598,20 @@ This package contains basic analog electrical multiphase components.
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+</html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
              Rectangle(
-               origin = {11.626,40},
-               lineColor = {0,0,255},
-               fillColor = {255,255,255},
-               fillPattern = FillPattern.Solid,
-               extent = {{-80,-70},{60,-10}}),
+               origin=  {11.626,40},
+               lineColor=  {0,0,255},
+               fillColor=  {255,255,255},
+               fillPattern=  FillPattern.Solid,
+               extent=  {{-80,-70},{60,-10}}),
              Line(
-               origin = {11.626,40},
-               points = {{60,-40},{80,-40}},
-               color = {0,0,255}),
+               origin=  {11.626,40},
+               points=  {{60,-40},{80,-40}},
+               color=  {0,0,255}),
              Line(
-               points = {{-88.374,0},{-68.374,0}},
-               color = {0,0,255})}));
+               points=  {{-88.374,0},{-68.374,0}},
+               color=  {0,0,255})}));
   end Basic;
 
   package Ideal "Multiphase components with idealized behaviour"
@@ -2205,19 +2349,19 @@ like thyristor, diode, switch, transformer.
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+</html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
              Line(
-               origin = {10,40},
-               points = {{-100,-40},{80,-40}},
-               color = {0,0,255}),
+               origin=  {10,40},
+               points=  {{-100,-40},{80,-40}},
+               color=  {0,0,255}),
              Polygon(
-               origin = {10,40},
-               fillColor = {255,255,255},
-               points = {{20,-40},{-40,0},{-40,-80},{20,-40}}),
+               origin=  {10,40},
+               fillColor=  {255,255,255},
+               points=  {{20,-40},{-40,0},{-40,-80},{20,-40}}),
              Line(
-               origin = {-10,0},
-               points = {{40,40},{40,-40}},
-               color = {0,0,255})}));
+               origin=  {-10,0},
+               points=  {{40,40},{40,-40}},
+               color=  {0,0,255})}));
   end Ideal;
 
   package Blocks "Blocks for multi phase systems"
@@ -2311,6 +2455,144 @@ This function determines the orientation of the symmetrical winding with <img sr
 </p>
 </html>"));
     end symmetricOrientation;
+
+    function symmetricOrientationMatrix
+      "Matrix symmetric orientation angles for creating the symmetric transformation matrix"
+      extends Modelica.Icons.Function;
+      import Modelica.Constants.pi;
+      input Integer m "Number of phases";
+      output Modelica.SIunits.Angle orientation[m,m]
+        "Angles of symmetric transformation matrix";
+    algorithm
+      // Init transformation matrix with zeros
+      orientation :=zeros(m, m);
+      // Insert non zero coefficients
+      if mod(m, 2) == 0 then
+        // Even number of phases
+        if m == 2 then
+          // Special case two phase machine
+          orientation := {{0,pi/2},{0,0}};
+        else
+          orientation[1:integer(m/2), 1:integer(m/2)] :=
+            symmetricOrientationMatrix(integer(m/2));
+          orientation[1 + integer(m/2):m, 1 + integer(m/2):m] :=
+            symmetricOrientationMatrix(integer(m/2)) - fill(
+                pi/m,
+                integer(m/2),
+                integer(m/2));
+        end if;
+      else
+        // Odd number of phases
+        for k in 1:m loop
+          orientation[k,:]:=
+            Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)*k;
+        end for;
+      end if;
+      annotation (Documentation(info="<html>
+<p>
+This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://
+Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups is <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/pi_over_m.png\">.
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide on multi phase winding</a>,
+</p>
+</html>"));
+    end symmetricOrientationMatrix;
+
+    function symmetricTransformationMatrix
+      "Transformation matrix for symmetrical components"
+      extends Modelica.Icons.Function;
+      import Modelica.Constants.pi;
+      input Integer m "Number of phases";
+      output Complex transformation[m,m]
+        "Transformation matrix for m phase symmetrical components";
+    algorithm
+      // Init transformation matrix with zeros
+      transformation := Modelica.ComplexMath.fromPolar(fill(
+            numberOfSymmetricBaseSystems(m)/m,
+            m,
+            m), Electrical.MultiPhase.Functions.symmetricOrientationMatrix(m));
+
+      annotation (Documentation(info="<html>
+<p>
+This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://
+Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups is <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/pi_over_m.png\">.
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide on multi phase winding</a>,
+</p>
+</html>"));
+    end symmetricTransformationMatrix;
+
+    function numberOfSymmetricBaseSystems
+      "Determines the number of symmeric base systems of m phase symmetric system"
+      extends Modelica.Icons.Function;
+      input Integer m = 3 "Number of phases";
+      output Integer n "Number of symmetric base systems";
+    algorithm
+    // Init number of base systmes
+    n := 1;
+    if mod(m, 2) == 0 then
+      // Even number of phases
+      if m == 2 then
+        // Special case two phase machine
+        n :=1;
+      else
+          n := n*2*numberOfSymmetricBaseSystems(integer(m/2));
+      end if;
+    else
+      // Odd number of phases
+      n :=1;
+    end if;
+    end numberOfSymmetricBaseSystems;
+
+    function indexPositiveSequence
+      "Determines the indices of the all positive sequences"
+      extends Modelica.Icons.Function;
+      input Integer m = 3 "Number of phases";
+      output Integer ind[Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+                                                      m)]
+        "Number of symmetric base systems";
+    protected
+      Integer n = Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+                                               m);
+    algorithm
+    if n==1 then
+      ind[1] := 1;
+    else
+      ind := (0:n-1)*integer(m/n) + ones(n);
+    end if;
+    end indexPositiveSequence;
+
+    function indexNonPositiveSequence
+      "Determines the indices of all non positive sequences"
+      extends Modelica.Icons.Function;
+      input Integer m = 3 "Number of phases";
+      output Integer ind[Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+                                                      m)
+                       *(integer(m/Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+                                                                m))-1)]
+        "Indices of non positive sequences";
+    protected
+      Integer n = Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+                                               m) "Number of base systems";
+      Integer mbas = integer(m/n) "Number of phases of base system";
+    algorithm
+    if mbas==1 then
+      ind:=fill(0, 0);
+    elseif mbas==2 then
+      for k in 1:n loop
+        ind[k] := 2+2*(k-1);
+      end for;
+    else
+      for k in 1:n loop
+        ind[(mbas-1)*(k-1)+1:(mbas-1)*k] :=
+          (2:mbas) + mbas*(k - 1)*ones(mbas - 1);
+      end for;
+    end if;
+    end indexNonPositiveSequence;
   end Functions;
 
   package Sensors "Multiphase potential, voltage and current Sensors"
@@ -2662,15 +2944,15 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
           color={0,0,127},
           smooth=Smooth.None));
     annotation (
-      Icon(graphics = {
-        Line(points = {{0,100},{0,70}}, color = {0,0,255}),
-        Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
-        Line(points = {{-80,-100},{-80,0}}, color = {0,0,127}),
-        Text(lineColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name"),
-        Text(extent = {{0,-120},{140,-80}}, textString = "m=%m"),
-        Ellipse(fillPattern = FillPattern.Solid, extent = {{-5,-5},{5,5}}),
-        Text(extent = {{-29,-70},{30,-11}}, textString = "P"),
-        Line(points = {{-100,0},{100,0}}, color = {0,0,255})}),
+      Icon(graphics={
+        Line(points=  {{0,100},{0,70}}, color=  {0,0,255}),
+        Line(points=  {{0,-70},{0,-100}}, color=  {0,0,255}),
+        Line(points=  {{-80,-100},{-80,0}}, color=  {0,0,127}),
+        Text(lineColor=  {0,0,255}, extent=  {{-150,120},{150,160}}, textString=  "%name"),
+        Text(extent=  {{0,-120},{140,-80}}, textString=  "m=%m"),
+        Ellipse(fillPattern=  FillPattern.Solid, extent=  {{-5,-5},{5,5}}),
+        Text(extent=  {{-29,-70},{30,-11}}, textString=  "P"),
+        Line(points=  {{-100,0},{100,0}}, color=  {0,0,255})}),
       Documentation(info="<html><p>
 This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
 </p></html>"));
