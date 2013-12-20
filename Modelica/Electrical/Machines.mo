@@ -1,6 +1,240 @@
 within Modelica.Electrical;
 package Machines "Library for electric machines"
   extends Modelica.Icons.Package;
+  package UsersGuide "User's Guide"
+    extends Modelica.Icons.Information;
+    class Concept "Fundamental wave concept"
+      extends Modelica.Icons.Information;
+      annotation (Documentation(info="<html>
+<p>This package contains electric machine models and components for modeling these machines.</p>
+<b>Limitations and assumptions:</b>
+<ul>
+<li>number of phases (of induction machines) is limited to 3, therefore definition as a constant m=3</li>
+<li>phase symmetric windings as well as symmetry of the whole machine structure</li>
+<li>all values are used in physical units, no scaling to p.u. is done</li>
+<li>only basic harmonics (in space) are taken into account</li>
+<li>waveform (with respect to time) of voltages and currents is not restricted</li>
+<li>constant parameters, i.e., no saturation, no skin effect</li>
+</ul>
+<p>
+You may have a look at a short summary of space phasor theory at <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
+</p>
+<b>Further development:</b>
+<ul>
+<li>generalizing space phasor theory to m phases with arbitrary spatial angle of the coils</li>
+<li>generalizing space phasor theory to arbitrary number of windings and winding factor of the coils</li>
+<li>MachineModels: other machine types</li>
+<li>effects: saturation, skin-effect, ...</li>
+</ul>
+<p>
+<b>In memoriam Prof. Hans Kleinrath (1928-03-07 - 2010-04-05)</b>
+</p>
+
+</html>"));
+    end Concept;
+
+    class Contact "Contact"
+      extends Modelica.Icons.Contact;
+      annotation (Documentation(info="<html>
+<h4>Contact</h4>
+
+<p>
+Anton Haumer<br>
+<a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+3423 St. Andrae-Woerdern, Austria<br>
+email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+</p>
+
+<p>
+  Dr. Christian Kral<br>
+  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
+</p>
+
+
+</html>"));
+    end Contact;
+
+    class ReleaseNotes "Release Notes"
+      extends Modelica.Icons.ReleaseNotes;
+      annotation (Documentation(info="<html>
+
+
+<h5>Version 3.2.2, 2013-12-19 (Anton Haumer, Christian Kral)</h5>
+<ul>
+  <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
+  <li>Added standard blocks and functions</li>
+  <li>Improved documentation</li>
+</ul>
+
+<h5>Version 3.2.1, 2013-07-30 (Anton Haumer, Christian Kral)</h5>
+<ul>
+  <li>Corrected bug in wrong orientation of rotor current, see #1226</li>
+</ul>
+
+<h5>Version 2.6.0, 2013-02-25 (Anton Haumer)</h5>
+<ul>
+  <li>Corrected turnsRatio bug in asynchronous induction machine with slipring</li>
+  <li>Corrected parameter descriptions</li>
+</ul>
+
+<h5>Version 2.5.0, 2012-XX-XX (Anton Haumer)</h5>
+<ul>
+  <li>Included permanent magnet losses</li>
+</ul>
+
+<h5>Version 2.4.0, 2010-04-20 (Anton Haumer)</h5>
+
+<ul>
+  <li>Included core, fricton and stray load models for rotating electric machines</li>
+</ul>
+
+<h5>Version 2.3.0, 2010-02-16 (Anton Haumer)</h5>
+<ul>
+  <li>Included quasi stationary DC machine models</li>
+</ul>
+
+<h5></h5>
+<ul>
+  <li></li>
+</ul>
+
+<h5></h5>
+<ul>
+  <li></li>
+</ul>
+
+------------       
+
+<h5></h5>
+<ul>
+  <li></li>
+</ul>
+
+
+</li>
+
+
+  <li> v1.00  2004/09/16 Anton Haumer<br>
+       first stable release</li>
+  <li> v1.01  2004/09/18 Anton Haumer<br>
+       moved common equations from machine models to PartialMachine<br>
+       improved MoveToRotational</li>
+  <li> v1.02  2004/09/19 Anton Haumer<br>
+       new package structure for machine types<br>
+       added DC machine models</li>
+  <li> v1.03  2004/09/24 Anton Haumer<br>
+       added package Sensors<br>
+       added DC machine with series excitation<br>
+       debugged and improved MoveToRotational</li>
+  <li> v1.1   2004/10/01 Anton Haumer<br>
+       changed naming and structure<br>
+       issued to Modelica Standard Library 2.1</li>
+  <li> v1.2   2004/10/27 Anton Haumer<br>
+       fixed a bug with support (formerly bearing)</li>
+  <li> v1.3   2004/11/05 Anton Haumer<br>
+       several improvements in SpacePhasors.Blocks</li>
+  <li> v1.3.1 2004/11/06 Anton Haumer<br>
+       small changes in Examples.Utilities.VfController</li>
+  <li> v1.3.2 2004/11/10 Anton Haumer<br>
+       ReluctanceRotor moved to SynchronousMachines</li>
+  <li> v1.4   2004/11/11 Anton Haumer<br>
+       removed mechanical flange support<br>
+       to ease the implementation of a 3D-frame in a future release</li>
+  <li> v1.51  2005/02/01 Anton Haumer<br>
+       changed parameter polePairs to Integer</li>
+  <li> v1.52  2005/10/12 Anton Haumer<br>
+       added BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited<br>
+       using new basicMachines.Components.ElectricalExcitation<br>
+       as well as a new exmaple.</li>
+  <li> v1.53  2005/10/14 Anton Haumer<br>
+       introduced unsymmetrical DamperCage for Synchronous Machines</li>
+  <li> v1.60  2005/11/04 Anton Haumer<br>
+       added SpacePhasors.Components.Rotator<br>
+       corrected consistent naming of parameters and variables</li>
+  <li> v1.6.1 2005/11/22 Anton Haumer<br>
+       improved Transformation and Rotation in SpacePhasor.<br>
+       introduced Examples.Utilities.TerminalBox</li>
+  <li> v1.6.2 2005/10/23 Anton Haumer<br>
+       selectable DamperCage for Synchronous Machines</li>
+  <li> v1.6.3 2005/11/25 Anton Haumer<br>
+       easier parameterization of AsynchronousInductionMachines.AIM_SlipRing model</li>
+  <li> v1.7.0 2005/12/15 Anton Haumer<br>
+       back-changed the naming to ensure backward compatibility</li>
+  <li> v1.7.1 2006/02/06 Anton Haumer<br>
+       changed some naming of synchronous machines, not affecting existing models</li>
+  <li> v1.8.0 2006/11/26 Anton Haumer<br>
+       introduced package Transformers<br>
+       moved common parameters and functionality to partial models,<br>
+       keeping Interfaces.PartialBasicInductionMachines resp. PartialBasicDCMachine for compatibility reasons.<br>
+       implemented support showing reaction torque if connected</li>
+  <li> v1.8.1 2006/12/01 Anton Haumer<br>
+       resolved a compatibility issue with airGap</li>
+  <li> v1.8.2 2007/01/15 Anton Haumer<br>
+       resolved a bug in electrical excited synchronous induction machine</li>
+  <li> v1.8.3 2007/06/08 Anton Haumer<br>
+       documentation update</li>
+  <li> v1.8.4 2007/06/25 Anton Haumer<br>
+       corrected some typos in documentation</li>
+  <li> v1.8.5 2007/06/26 Anton Haumer<br>
+       consistent parameters of DCSE</li>
+  <li> v1.8.6 2007/08/12 Anton Haumer<br>
+       improved documentation</li>
+  <li> v1.8.7 2007/08/20 Anton Haumer<br>
+       corrected typo in documentation</li>
+  <li> v1.8.8 2007/08/20 Anton Haumer<br>
+       improved documentation</li>
+  <li> v1.9.0 2007/08/24 Anton Haumer<br>
+       removed redeclare type SignalType</li>
+  <li> v1.9.1 2007/10/15 Anton Haumer<br>
+       solved a bug with replaceable airgap / partial machines</li>
+  <li> v1.9.2 2007/10/15 Anton Haumer<br>
+       changed some names to be more concise (see conversion script)</li>
+  <li> v2.0.0 2007/11/13 Anton Haumer<br>
+       removed replaceable from airgaps<br>
+       removed cardinality from support, using a Boolean parameter<br>
+       removed all nonSIunits</li>
+  <li> v2.1.0 2009/08/26 Anton Haumer<br>
+       set all useHeatPort=false</li>
+  <li> v2.1.1 2010/02/05 Anton Haumer<br>
+       included Utilities.rheostats (designed by Christian Kral)</li>
+  <li> v2.1.2 2010/02/09 Anton Haumer<br>
+       included new Examples (AIMC_Transformer, DC_Comparison)</li>
+  <li> v2.1.3 2010/02/10 Anton Haumer<br>
+       prepared conditionalHeatPort of SquirrelCage and DamperCage</li>
+  <li> v2.2.0 2010/02/10 Anton Haumer<br>
+       conditional ThermalPort for all machines</li>
+  <li> 
+  <li> </li>
+</html>"));
+    end ReleaseNotes;
+
+    class References "References"
+      extends Modelica.Icons.References;
+      annotation (Documentation(info="<html>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td valign=\"top\">[Lang1984]</td>
+      <td valign=\"top\">W. Lang,
+        &quot;&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r 
+        Pulsumrichterspeisung,&quot;
+        Doctoral Thesis,
+        Technical University of Vienna, 1984.</td>
+    </tr>
+</table>
+</html>"));
+    end References;
+    annotation (Documentation(info="<html>
+<p>
+This is the library of quasi static fundamental wave models for multi phase electric machines. This is complementary library with the transient machine models of 
+<a href=\"modelica://\"></a>
+</p>
+
+</html>"));
+  end UsersGuide;
+
   package Examples "Test examples"
     extends Modelica.Icons.ExamplesPackage;
     package AsynchronousInductionMachines
@@ -10180,15 +10414,15 @@ The induction machine models use package SpacePhasors.
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-          Line(points=  {{-90,0},{-70,0}},
-            color=  {0,0,255}),
-          Line(points=  {{70,0},{90,0}},
-            color=  {0,0,255}),
-          Line(points=  {{0,-70},{0,-100}},
-            color=  {0,0,127}),
-          Text(lineColor=  {0,0,255},
-            extent=  {{-40,-60},{40,-20}},
-            textString=  "V RMS")}),
+          Line(points = {{-90,0},{-70,0}},
+            color = {0,0,255}),
+          Line(points = {{70,0},{90,0}},
+            color = {0,0,255}),
+          Line(points = {{0,-70},{0,-100}},
+            color = {0,0,127}),
+          Text(lineColor = {0,0,255},
+            extent = {{-40,-60},{40,-20}},
+            textString = "V RMS")}),
         Documentation(info="<HTML>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
@@ -10251,15 +10485,15 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-          Line(points=  {{-90,0},{-70,0}},
-            color=  {0,0,255}),
-          Line(points=  {{70,0},{90,0}},
-            color=  {0,0,255}),
-          Line(points=  {{0,-70},{0,-100}},
-            color=  {0,0,127}),
-          Text(lineColor=  {0,0,255},
-            extent=  {{-40,-60},{40,-20}},
-            textString=  "A RMS")}),
+          Line(points = {{-90,0},{-70,0}},
+            color = {0,0,255}),
+          Line(points = {{70,0},{90,0}},
+            color = {0,0,255}),
+          Line(points = {{0,-70},{0,-100}},
+            color = {0,0,127}),
+          Text(lineColor = {0,0,255},
+            extent = {{-40,-60},{40,-20}},
+            textString = "A RMS")}),
         Documentation(info="<HTML>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
@@ -10301,19 +10535,19 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
       annotation (
         Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-          Line(points=  {{-90,0},{-70,0}},
-            color=  {0,0,255}),
-          Line(points=  {{70,0},{90,0}},
-            color=  {0,0,255}),
-          Line(points=  {{0,-70},{0,-90}},
-            color=  {0,0,255}),
-          Line(points=  {{-10,70},{-10,80},{-50,80},{-50,100}},
-            color=  {0,0,127}),
-          Line(points=  {{10,70},{10,80},{50,80},{50,100}},
-            color=  {0,0,127}),
-          Text(lineColor=  {0,0,255},
-            extent=  {{-40,-60},{40,-20}},
-            textString=  "P Q")}),
+          Line(points = {{-90,0},{-70,0}},
+            color = {0,0,255}),
+          Line(points = {{70,0},{90,0}},
+            color = {0,0,255}),
+          Line(points = {{0,-70},{0,-90}},
+            color = {0,0,255}),
+          Line(points = {{-10,70},{-10,80},{-50,80},{-50,100}},
+            color = {0,0,127}),
+          Line(points = {{10,70},{10,80},{50,80},{50,100}},
+            color = {0,0,127}),
+          Text(lineColor = {0,0,255},
+            extent = {{-40,-60},{40,-20}},
+            textString = "P Q")}),
         Documentation(info="<HTML>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
 which are used to calculate power quantities:<br>
@@ -10385,29 +10619,29 @@ Q = giving in stationary state reactive power.<br>
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-        Line(points=  {{-70,0},{-90,0}}),
-        Line(points=  {{70,0},{90,0}}),
-        Line(points=  {{0,70},{0,100}},
-          color=  {0,0,127}),
+        Line(points = {{-70,0},{-90,0}}),
+        Line(points = {{70,0},{90,0}}),
+        Line(points = {{0,70},{0,100}},
+          color = {0,0,127}),
         Rectangle(
-          visible=  useSupport,
-          lineColor=  {192,192,192},
-          fillColor=  {192,192,192},
-          fillPattern=  FillPattern.Solid,
-          extent=  {{-20,-120},{20,-80}}),
-        Line(visible=  not useSupport,
-          points=  {{-20,-100},{20,-100}}),
-        Line(visible=  not useSupport,
-          points=  {{-10,-100},{-20,-120}}),
-        Line(visible=  not useSupport,
-          points=  {{0,-100},{-10,-120}}),
-        Line(visible=  not useSupport,
-          points=  {{10,-100},{0,-120}}),
-        Line(visible=  not useSupport,
-          points=  {{20,-100},{10,-120}}),
-        Text(lineColor=  {0,0,255},
-          extent=  {{-40,-60},{40,-20}},
-          textString=  "Pmech")}),
+          visible = useSupport,
+          lineColor = {192,192,192},
+          fillColor = {192,192,192},
+          fillPattern = FillPattern.Solid,
+          extent = {{-20,-120},{20,-80}}),
+        Line(visible = not useSupport,
+          points = {{-20,-100},{20,-100}}),
+        Line(visible = not useSupport,
+          points = {{-10,-100},{-20,-120}}),
+        Line(visible = not useSupport,
+          points = {{0,-100},{-10,-120}}),
+        Line(visible = not useSupport,
+          points = {{10,-100},{0,-120}}),
+        Line(visible = not useSupport,
+          points = {{20,-100},{10,-120}}),
+        Text(lineColor = {0,0,255},
+          extent = {{-40,-60},{40,-20}},
+          textString = "Pmech")}),
         Documentation(info="<HTML>
 Calculates (mechanical) power from torque times angular speed.
 </HTML>"));
@@ -10846,12 +11080,12 @@ a ground has to be used where necessary for currents flowing back.
 Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the spave phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Original and rotated reference frame of a space phasor </caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/Rotator.png\">
     </td>
   </tr>
+  <caption align=\"bottom\"><b>Fig. 1:</b> Original and rotated reference frame of a space phasor </caption>
 </table>
  
 </HTML>"));
@@ -10866,7 +11100,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
         parameter Real TransformationMatrix[ 2, m]=2/m*{ +cos(+phi),    +sin(+phi)};
         parameter Real InverseTransformation[m, 2] =   {{+cos(-phi[k]), -sin(-phi[k])} for k in 1:m};
       public
-        Modelica.Blocks.Interfaces.RealOutput zero
+        Modelica.Blocks.Interfaces.RealOutput zero "Zero sequence component"
           annotation (Placement(transformation(extent={{100,-70},{120,-90}},
                 rotation=0)));
       equation
@@ -10897,7 +11131,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
                 lineColor={0,0,0},
                 textString="zero")}),
           Documentation(info="<HTML>
-Transformation of multi phase values (voltages or currents) to space phasor and zero sequence value.
+Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
 </HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
       end ToSpacePhasor;
@@ -10912,7 +11146,7 @@ Transformation of multi phase values (voltages or currents) to space phasor and 
         parameter Real TransformationMatrix[ 2, m]=2/m*{ +cos(+phi),    +sin(+phi)};
         parameter Real InverseTransformation[m, 2] =   {{+cos(-phi[k]), -sin(-phi[k])} for k in 1:m};
       public
-        Modelica.Blocks.Interfaces.RealInput zero
+        Modelica.Blocks.Interfaces.RealInput zero "Zero seqeuence component"
           annotation (Placement(transformation(extent={{-140,-60},{-100,-100}},
                 rotation=0)));
       equation
@@ -10943,7 +11177,7 @@ Transformation of multi phase values (voltages or currents) to space phasor and 
                 lineColor={0,0,0},
                 textString="zero")}),
           Documentation(info="<HTML>
-Transformation of space phasor and zero sequence value to mutli phase values (voltages or currents).
+Transformation of space phasor and zero sequence value to mutli phase values (of voltages or currents).
 </HTML>"));
       end FromSpacePhasor;
 
@@ -11056,68 +11290,75 @@ the first element representing the real part and the second element representing
 
     package Functions "Functions for space phasor transformation"
       extends Modelica.Icons.Package;
-      function ToSpacePhasor "Conversion: three phase -> space phasor"
+      function ToSpacePhasor
+        "Conversion from multi phase input to space phasor and zero sequence component"
         extends Modelica.Icons.Function;
-        input Real x[3];
-        output Real y[2];
-        output Real y0;
+        input Real x[:] "Multi phase (voltage or current) input";
+        output Real y[2] "Space phasor";
+        output Real y0 "Zero sequence component (of voltage or current)";
       protected
-        constant Integer m=3 "Number of phases";
         constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
+        parameter Integer m = size(x,1) "Number of phases";
+        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(m);
+        parameter Real TransformationMatrix[ 2, m]=2/m*{ +cos(+phi),    +sin(+phi)};
+        parameter Real InverseTransformation[m, 2] =   {{+cos(-phi[k]), -sin(-phi[k])} for k in 1:m};
       algorithm
-        y := zeros(2);
-        for k in 1:m loop
-          y := y + 2/m*{+cos((k - 1)/m*2*pi), +sin(+(k - 1)/m*2*pi)}*x[k];
-        end for;
+        y :=TransformationMatrix*x;
         y0 := 1/m*sum(x);
         annotation (Inline=true, Documentation(info="<HTML>
-Transformation of three phase values (voltages or currents) to space phasor and zero sequence value:<br>
-y[k] = X0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi)}*X[Re,Im]<br>
-were y designates three phase values, X[Re,Im] designates the space phasor and X0 designates the zero sequence system.
+Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
 </HTML>"));
       end ToSpacePhasor;
 
-      function FromSpacePhasor "Conversion: space phasor -> three phase"
+      function FromSpacePhasor
+        "Conversion from space phasor and zero sequence component to multi phase"
         extends Modelica.Icons.Function;
-        input Real x[2];
-        input Real x0;
-        output Real y[3];
+        input Real x[2] "Space phasor";
+        input Real x0 "Zero sequence component";
+        input Integer m "Number of phases";
+        output Real y[m] "Multi phase output";
       protected
-        constant Integer m=3 "Number of phases";
         constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
+        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(m);
+        parameter Real TransformationMatrix[ 2, m]=2/m*{ +cos(+phi),    +sin(+phi)};
+        parameter Real InverseTransformation[m, 2] =   {{+cos(-phi[k]), -sin(-phi[k])} for k in 1:m};
+
       algorithm
-        for k in 1:m loop
-          y[k] := x0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi)}*x;
-        end for;
+        y := fill(x0,m) + InverseTransformation*x;
+
         annotation (Inline=true, Documentation(info="<HTML>
-Transformation of space phasor and zero sequence value to three phase values (voltages or currents):<br>
-Y0 = sum(x[k])/m<br>
-Y[Re,Im] = sum(2/m*{cos((k - 1)/m*2*pi),sin((k - 1)/m*2*pi)}*x[k])<br>
-were x designates three phase values, Y[Re,Im] designates the space phasor and Y0 designates the zero sequence system.
+Transformation of space phasor and zero sequence value to mutli phase values (of voltages or currents).
 </HTML>"));
       end FromSpacePhasor;
 
       function Rotator "Rotates space phasor"
         extends Modelica.Icons.Function;
-        input Real x[2];
-        input Modelica.SIunits.Angle angle;
-        output Real y[2];
+        input Real x[2] "Input space phasor";
+        input Modelica.SIunits.Angle angle "Input angle of rotation";
+        output Real y[2] "Output space phasor";
       protected
         Real RotationMatrix[2,2] = {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}};
       algorithm
         y := RotationMatrix*x;
         annotation (Inline=true, Documentation(info="<HTML>
-Rotates a space phasor (voltage or current) by the angle provided by input argument \"angle\" from one coordinate system into another:<br>
-y[Re,Im] := {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}}*x[Re,Im]<br>
-where y[Re,Im] designates the space phasor in the new coordinate system (twisted by angle against old coordinate system) and y[Re,Im] designates the space phasor in the old coordinate system.
+Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the spave phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/Rotator.png\">
+    </td>
+  </tr>
+  <caption align=\"bottom\"><b>Fig. 1:</b> Original and rotated reference frame of a space phasor </caption>
+</table>
 </HTML>"));
       end Rotator;
 
       function ToPolar "Converts a space phasor to polar coordinates"
         extends Modelica.Icons.Function;
-        input Real x[2];
-        output Real absolute;
-        output Modelica.SIunits.Angle angle;
+        input Real x[2] "Real and imaginary part of space phasor";
+        output Real absolute "Magnitude of space phasor";
+        output Modelica.SIunits.Angle angle "Angle of space phasor";
       protected
         constant Real small=Modelica.Constants.small;
       algorithm
@@ -11141,9 +11382,9 @@ Converts a space phasor from rectangular coordinates to polar coordinates, provi
 
       function FromPolar "Converts a space phasor from polar coordinates"
         extends Modelica.Icons.Function;
-        input Real absolute;
-        input Modelica.SIunits.Angle angle;
-        output Real x[2];
+        input Real absolute "Magnitude of space phasor";
+        input Modelica.SIunits.Angle angle "Angle of space phasor";
+        output Real x[2] "Real and imaginary part of space phasor";
       protected
         constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
         constant Real small=Modelica.Constants.small;
@@ -16215,46 +16456,6 @@ This package contains utility components for testing examples.
   end Utilities;
   annotation (preferredView="info",
    Documentation(info="<HTML>
-<p>This package contains electric machine models and components for modeling these machines.</p>
-<b>Limitations and assumptions:</b>
-<ul>
-<li>number of phases (of induction machines) is limited to 3, therefore definition as a constant m=3</li>
-<li>phase symmetric windings as well as symmetry of the whole machine structure</li>
-<li>all values are used in physical units, no scaling to p.u. is done</li>
-<li>only basic harmonics (in space) are taken into account</li>
-<li>waveform (with respect to time) of voltages and currents is not restricted</li>
-<li>constant parameters, i.e., no saturation, no skin effect</li>
-</ul>
-<p>
-You may have a look at a short summary of space phasor theory at <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
-</p>
-<b>Further development:</b>
-<ul>
-<li>generalizing space phasor theory to m phases with arbitrary spatial angle of the coils</li>
-<li>generalizing space phasor theory to arbitrary number of windings and winding factor of the coils</li>
-<li>MachineModels: other machine types</li>
-<li>effects: saturation, skin-effect, ...</li>
-</ul>
-<p>
-<b>In memoriam Prof. Hans Kleinrath (1928-03-07 - 2010-04-05)</b>
-</p>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-</p>
-<p>
-  Dr. Christian Kral<br>
-  <a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a>
-</p>
-  </dd>
-</dl>
 <p>
 Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
@@ -16262,107 +16463,6 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral a
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </HTML>", revisions="<HTML>
-  <ul>
-  <li> v1.00  2004/09/16 Anton Haumer<br>
-       first stable release</li>
-  <li> v1.01  2004/09/18 Anton Haumer<br>
-       moved common equations from machine models to PartialMachine<br>
-       improved MoveToRotational</li>
-  <li> v1.02  2004/09/19 Anton Haumer<br>
-       new package structure for machine types<br>
-       added DC machine models</li>
-  <li> v1.03  2004/09/24 Anton Haumer<br>
-       added package Sensors<br>
-       added DC machine with series excitation<br>
-       debugged and improved MoveToRotational</li>
-  <li> v1.1   2004/10/01 Anton Haumer<br>
-       changed naming and structure<br>
-       issued to Modelica Standard Library 2.1</li>
-  <li> v1.2   2004/10/27 Anton Haumer<br>
-       fixed a bug with support (formerly bearing)</li>
-  <li> v1.3   2004/11/05 Anton Haumer<br>
-       several improvements in SpacePhasors.Blocks</li>
-  <li> v1.3.1 2004/11/06 Anton Haumer<br>
-       small changes in Examples.Utilities.VfController</li>
-  <li> v1.3.2 2004/11/10 Anton Haumer<br>
-       ReluctanceRotor moved to SynchronousMachines</li>
-  <li> v1.4   2004/11/11 Anton Haumer<br>
-       removed mechanical flange support<br>
-       to ease the implementation of a 3D-frame in a future release</li>
-  <li> v1.51  2005/02/01 Anton Haumer<br>
-       changed parameter polePairs to Integer</li>
-  <li> v1.52  2005/10/12 Anton Haumer<br>
-       added BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited<br>
-       using new basicMachines.Components.ElectricalExcitation<br>
-       as well as a new exmaple.</li>
-  <li> v1.53  2005/10/14 Anton Haumer<br>
-       introduced unsymmetrical DamperCage for Synchronous Machines</li>
-  <li> v1.60  2005/11/04 Anton Haumer<br>
-       added SpacePhasors.Components.Rotator<br>
-       corrected consistent naming of parameters and variables</li>
-  <li> v1.6.1 2005/11/22 Anton Haumer<br>
-       improved Transformation and Rotation in SpacePhasor.<br>
-       introduced Examples.Utilities.TerminalBox</li>
-  <li> v1.6.2 2005/10/23 Anton Haumer<br>
-       selectable DamperCage for Synchronous Machines</li>
-  <li> v1.6.3 2005/11/25 Anton Haumer<br>
-       easier parameterization of AsynchronousInductionMachines.AIM_SlipRing model</li>
-  <li> v1.7.0 2005/12/15 Anton Haumer<br>
-       back-changed the naming to ensure backward compatibility</li>
-  <li> v1.7.1 2006/02/06 Anton Haumer<br>
-       changed some naming of synchronous machines, not affecting existing models</li>
-  <li> v1.8.0 2006/11/26 Anton Haumer<br>
-       introduced package Transformers<br>
-       moved common parameters and functionality to partial models,<br>
-       keeping Interfaces.PartialBasicInductionMachines resp. PartialBasicDCMachine for compatibility reasons.<br>
-       implemented support showing reaction torque if connected</li>
-  <li> v1.8.1 2006/12/01 Anton Haumer<br>
-       resolved a compatibility issue with airGap</li>
-  <li> v1.8.2 2007/01/15 Anton Haumer<br>
-       resolved a bug in electrical excited synchronous induction machine</li>
-  <li> v1.8.3 2007/06/08 Anton Haumer<br>
-       documentation update</li>
-  <li> v1.8.4 2007/06/25 Anton Haumer<br>
-       corrected some typos in documentation</li>
-  <li> v1.8.5 2007/06/26 Anton Haumer<br>
-       consistent parameters of DCSE</li>
-  <li> v1.8.6 2007/08/12 Anton Haumer<br>
-       improved documentation</li>
-  <li> v1.8.7 2007/08/20 Anton Haumer<br>
-       corrected typo in documentation</li>
-  <li> v1.8.8 2007/08/20 Anton Haumer<br>
-       improved documentation</li>
-  <li> v1.9.0 2007/08/24 Anton Haumer<br>
-       removed redeclare type SignalType</li>
-  <li> v1.9.1 2007/10/15 Anton Haumer<br>
-       solved a bug with replaceable airgap / partial machines</li>
-  <li> v1.9.2 2007/10/15 Anton Haumer<br>
-       changed some names to be more concise (see conversion script)</li>
-  <li> v2.0.0 2007/11/13 Anton Haumer<br>
-       removed replaceable from airgaps<br>
-       removed cardinality from support, using a Boolean parameter<br>
-       removed all nonSIunits</li>
-  <li> v2.1.0 2009/08/26 Anton Haumer<br>
-       set all useHeatPort=false</li>
-  <li> v2.1.1 2010/02/05 Anton Haumer<br>
-       included Utilities.rheostats (designed by Christian Kral)</li>
-  <li> v2.1.2 2010/02/09 Anton Haumer<br>
-       included new Examples (AIMC_Transformer, DC_Comparison)</li>
-  <li> v2.1.3 2010/02/10 Anton Haumer<br>
-       prepared conditionalHeatPort of SquirrelCage and DamperCage</li>
-  <li> v2.2.0 2010/02/10 Anton Haumer<br>
-       conditional ThermalPort for all machines</li>
-  <li> v2.3.0 2010/02/16 Anton Haumer<br>
-       quasistationary DC machine models</li>
-  <li> v2.4.0 2010/04/20 Anton Haumer<br>
-       loss models</li>
-  <li> v2.5.0 2012/xx/xx Anton Haumer<br>
-       permanent magnet losses</li>
-  <li> v2.6.0 2013/02/25 Anton Haumer<br>
-       corrected turnsRatio bug in asynchronous induction machine with slipring; corrected parameter descriptions</li>
-  <li> v3.2.1 2013/07/30 Anton Haumer, Christian Kral<br>
-       corrected bug in wrong orientation of rotor current, see #1226</li>
-  </ul>
 </HTML>"),
       Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics={
         Rectangle(
