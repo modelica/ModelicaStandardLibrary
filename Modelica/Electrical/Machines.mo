@@ -60,7 +60,6 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-
 <h5>Version 3.2.2, 2013-12-19 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
@@ -95,118 +94,221 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
   <li>Included quasi stationary DC machine models</li>
 </ul>
 
-<h5></h5>
+<h5>Version 2.2.0, 2010-02-10 (Anton Haumer)</h5>
 <ul>
-  <li></li>
+  <li>Conditional ThermalPort for all machines</li>
 </ul>
 
-<h5></h5>
+<h5>Version 2.1.3, 2010-02-10 (Anton Haumer)</h5>
 <ul>
-  <li></li>
+  <li>Prepared conditionalHeatPort of SquirrelCage and DamperCage</li>
 </ul>
 
-------------       
-
-<h5></h5>
+<h5>Version 2.1.2, 2010-02-09 (Anton Haumer)</h5>
 <ul>
-  <li></li>
+  <li>Included new Examples: 
+<a href=\"modelica://Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer\">
+AIMC_Transformer</a>, 
+DC_Comparison</li>
 </ul>
 
+<h5>Version 2.1.1, 2010-02-05 (Anton Haumer, Christian Kral)</h5>
+<ul>
+  <li>Included 
+<a href=\"modelica://Modelica.Electrical.Machines.Utilities.SwitchedRheostat>
+SwitchedRheostat</a>,
+<a href=\"modelica://Modelica.Electrical.Machines.Utilities.RampedRheostat>
+</a>RampedRheostat</li>
+</ul>
 
-</li>
+<h5>Version 2.1.0, 2009-08-26 (Anton Haumer)</h5>
+<ul>
+  <li>Set all useHeatPort=false</li>
+</ul>
 
+<h5>Version 2.0.0, 2007-11-13 (Anton Haumer)</h5>
+<ul>
+  <li>Removed replaceable from airgaps</li>
+  <li>Removed cardinality from support, using a Boolean parameter</li>
+  <li>Removed all nonSIunits</li>
+</ul>
 
-  <li> v1.00  2004/09/16 Anton Haumer<br>
-       first stable release</li>
-  <li> v1.01  2004/09/18 Anton Haumer<br>
-       moved common equations from machine models to PartialMachine<br>
-       improved MoveToRotational</li>
-  <li> v1.02  2004/09/19 Anton Haumer<br>
-       new package structure for machine types<br>
-       added DC machine models</li>
-  <li> v1.03  2004/09/24 Anton Haumer<br>
-       added package Sensors<br>
-       added DC machine with series excitation<br>
-       debugged and improved MoveToRotational</li>
-  <li> v1.1   2004/10/01 Anton Haumer<br>
-       changed naming and structure<br>
-       issued to Modelica Standard Library 2.1</li>
-  <li> v1.2   2004/10/27 Anton Haumer<br>
-       fixed a bug with support (formerly bearing)</li>
-  <li> v1.3   2004/11/05 Anton Haumer<br>
-       several improvements in SpacePhasors.Blocks</li>
-  <li> v1.3.1 2004/11/06 Anton Haumer<br>
-       small changes in Examples.Utilities.VfController</li>
-  <li> v1.3.2 2004/11/10 Anton Haumer<br>
-       ReluctanceRotor moved to SynchronousMachines</li>
-  <li> v1.4   2004/11/11 Anton Haumer<br>
-       removed mechanical flange support<br>
-       to ease the implementation of a 3D-frame in a future release</li>
-  <li> v1.51  2005/02/01 Anton Haumer<br>
-       changed parameter polePairs to Integer</li>
-  <li> v1.52  2005/10/12 Anton Haumer<br>
-       added BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited<br>
-       using new basicMachines.Components.ElectricalExcitation<br>
-       as well as a new exmaple.</li>
-  <li> v1.53  2005/10/14 Anton Haumer<br>
-       introduced unsymmetrical DamperCage for Synchronous Machines</li>
-  <li> v1.60  2005/11/04 Anton Haumer<br>
-       added SpacePhasors.Components.Rotator<br>
-       corrected consistent naming of parameters and variables</li>
-  <li> v1.6.1 2005/11/22 Anton Haumer<br>
-       improved Transformation and Rotation in SpacePhasor.<br>
-       introduced Examples.Utilities.TerminalBox</li>
-  <li> v1.6.2 2005/10/23 Anton Haumer<br>
-       selectable DamperCage for Synchronous Machines</li>
-  <li> v1.6.3 2005/11/25 Anton Haumer<br>
-       easier parameterization of AsynchronousInductionMachines.AIM_SlipRing model</li>
-  <li> v1.7.0 2005/12/15 Anton Haumer<br>
-       back-changed the naming to ensure backward compatibility</li>
-  <li> v1.7.1 2006/02/06 Anton Haumer<br>
-       changed some naming of synchronous machines, not affecting existing models</li>
-  <li> v1.8.0 2006/11/26 Anton Haumer<br>
-       introduced package Transformers<br>
-       moved common parameters and functionality to partial models,<br>
-       keeping Interfaces.PartialBasicInductionMachines resp. PartialBasicDCMachine for compatibility reasons.<br>
-       implemented support showing reaction torque if connected</li>
-  <li> v1.8.1 2006/12/01 Anton Haumer<br>
-       resolved a compatibility issue with airGap</li>
-  <li> v1.8.2 2007/01/15 Anton Haumer<br>
-       resolved a bug in electrical excited synchronous induction machine</li>
-  <li> v1.8.3 2007/06/08 Anton Haumer<br>
-       documentation update</li>
-  <li> v1.8.4 2007/06/25 Anton Haumer<br>
-       corrected some typos in documentation</li>
-  <li> v1.8.5 2007/06/26 Anton Haumer<br>
-       consistent parameters of DCSE</li>
-  <li> v1.8.6 2007/08/12 Anton Haumer<br>
-       improved documentation</li>
-  <li> v1.8.7 2007/08/20 Anton Haumer<br>
-       corrected typo in documentation</li>
-  <li> v1.8.8 2007/08/20 Anton Haumer<br>
-       improved documentation</li>
-  <li> v1.9.0 2007/08/24 Anton Haumer<br>
-       removed redeclare type SignalType</li>
-  <li> v1.9.1 2007/10/15 Anton Haumer<br>
-       solved a bug with replaceable airgap / partial machines</li>
-  <li> v1.9.2 2007/10/15 Anton Haumer<br>
-       changed some names to be more concise (see conversion script)</li>
-  <li> v2.0.0 2007/11/13 Anton Haumer<br>
-       removed replaceable from airgaps<br>
-       removed cardinality from support, using a Boolean parameter<br>
-       removed all nonSIunits</li>
-  <li> v2.1.0 2009/08/26 Anton Haumer<br>
-       set all useHeatPort=false</li>
-  <li> v2.1.1 2010/02/05 Anton Haumer<br>
-       included Utilities.rheostats (designed by Christian Kral)</li>
-  <li> v2.1.2 2010/02/09 Anton Haumer<br>
-       included new Examples (AIMC_Transformer, DC_Comparison)</li>
-  <li> v2.1.3 2010/02/10 Anton Haumer<br>
-       prepared conditionalHeatPort of SquirrelCage and DamperCage</li>
-  <li> v2.2.0 2010/02/10 Anton Haumer<br>
-       conditional ThermalPort for all machines</li>
-  <li> 
-  <li> </li>
+<h5>Version 1.9.2, 2007-10-15 (Anton Haumer)</h5>
+<ul>
+  <li>Changed some names to be more concise (see conversion script)</li>
+</ul>
+
+<h5>Version 1.9.1, 2007-10-15 (Anton Haumer)</h5>
+<ul>
+  <li>Solved a bug with replaceable airgap / partial machines</li>
+</ul>
+
+<h5>Version 1.9.0, 2007-08-24 (Anton Haumer)</h5>
+       
+<ul>
+  <li>Removed redeclare type SignalType</li>
+</ul>
+
+<h5>Version 1.8.8, 2007-08-20 (Anton Haumer)</h5>
+
+<ul>
+  <li>Improved documentation</li>
+</ul>
+
+<h5>Version 1.8.7, 2007-08-20 (Anton Haumer)</h5>
+<ul>
+  <li>Corrected typo in documentation</li>
+</ul>
+
+<h5>Version 1.8.6, 2007-08-12 (Anton Haumer)</h5>
+       
+<ul>
+  <li>Improved documentation</li>
+</ul>
+
+<h5>Version 1.8.5, 2007-06-26 (Anton Haumer)</h5>
+<ul>
+  <li>Consistent parameters of DCSE</li>
+</ul>
+
+<h5>Version 1.8.4, 2007-06-25 (Anton Haumer)</h5>
+<ul>
+  <li>Corrected some typos in documentation</li>
+</ul>
+
+<h5>Version 1.8.3, 2007-06-08 (Anton Haumer)</h5>
+<ul>
+  <li>Documentation update</li>
+</ul>
+
+<h5>Version 1.8.2, 2007-01-15 (Anton Haumer)</h5>
+<ul>
+  <li>Resolved a bug in electrical excited synchronous induction machine</li>
+</ul>
+
+<h5>Version 1.8.1, 2006-12-01 (Anton Haumer)</h5>
+<ul>
+  <li>Resolved a compatibility issue with airGap</li>
+</ul>
+
+<h5>Version 1.8.0, 2006-11-26 (Anton Haumer)</h5>
+<ul>
+  <li>Introduced package Transformers</li>
+  <li>Moved common parameters and functionality to partial models,
+      keeping Interfaces.PartialBasicInductionMachines and PartialBasicDCMachine, respectively, for compatibility reasons</li>
+  <li>Implemented support showing reaction torque if connected</li>
+</ul>
+
+<h5>Version 1.7.1, 2006-02-06 (Anton Haumer)</h5>
+<ul>
+  <li>Changed some naming of synchronous machines, not affecting existing models</li>
+</ul>
+
+<h5>Version 1.7.0, 2005-12-15 (Anton Haumer)</h5>
+<ul>
+  <li>Back-changed the naming to ensure backward compatibility</li>
+</ul>
+
+<h5>Version 1.6.3, 2005-11-25 (Anton Haumer)</h5>
+
+<ul>
+  <li>Easier parameterization of AsynchronousInductionMachines.AIM_SlipRing model</li>
+</ul>
+
+<h5>Version 1.6.2, 2005-10-23 (Anton Haumer)</h5>
+<ul>
+  <li>Selectable DamperCage for Synchronous Machines</li>
+</ul>
+
+<h5>Version 1.6.1, 2005-11-22 (Anton Haumer)</h5>
+<ul>
+  <li>Improved transformation and rotation in SpacePhasor</li>
+  <li>Introduced Examples.Utilities.TerminalBox</li>
+</ul>
+
+<h5>Version 1.60, 2005-11-04 (Anton Haumer)</h5>
+<ul>
+  <li>Added 
+      <a href=\"modelica://Modelica.Electrical.Machines.SpacePhasors.Components.Rotator\">
+      Rotator</a></li>
+  <li>Corrected consistent naming of parameters and variables</li>
+</ul>
+
+<h5>Version 1.53, 2005-10-14 (Anton Haumer)</h5>
+<ul>
+  <li>Introduced unsymmetrical damper cage for synchronous machines</li>
+</ul>
+
+<h5>Version 1.52, 2005-10-12 (Anton Haumer)</h5>
+<ul>
+  <li>Added 
+      <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
+SM_ElectricalExcited</a>
+      using new 
+      <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation\">
+      ElectricalExcitation</a>
+      as well as a new exmaple</li>
+</ul>
+
+<h5>Version 1.51, 2005-02-01 (Anton Haumer)</h5>
+<ul>
+  <li>Changed parameter polePairs to Integer</li>
+</ul>
+
+<h5>Version 1.4, 2004-11-11 (Anton Haumer)</h5>
+<ul>
+  <li>Removed mechanical flange support to ease the implementation of a 3D-frame in a future release</li>
+</ul>
+
+<h5>Version 1.3.2, 2004-11-10 (Anton Haumer)</h5>
+<ul>
+  <li>ReluctanceRotor moved to SynchronousMachines</li>
+</ul>
+
+<h5>Version 1.3.1, 2004-11-06 (Anton Haumer)</h5>
+<ul>
+  <li>Small changes in Examples.Utilities.VfController</li>
+</ul>
+
+<h5>Version 1.3, 2004-11-05 (Anton Haumer)</h5>
+<ul>
+  <li>Several improvements in SpacePhasors.Blocks</li>
+</ul>
+
+<h5>Version 1.2, 2004-10-27 (Anton Haumer)</h5>
+<ul>
+  <li>Fixed a bug with support (formerly bearing)</li>
+</ul>
+
+<h5>Version 1.1, 2004-10-01 (Anton Haumer)</h5>
+<ul>
+  <li>Changed naming and structure issued to Modelica Standard Library 2.1</li>
+</ul>
+
+<h5>Version 1.03, 2004-09-24 (Anton Haumer)</h5>
+<ul>
+  <li>Added package Sensors</li>
+  <li>Added DC machine with series excitation</li>
+  <li>Debugged and improved MoveToRotational</li>
+</ul>
+
+<h5>Version 1.02, 2004-09-19 (Anton Haumer)</h5>
+<ul>
+  <li>New package structure for machine types added DC machine models</li>
+</ul>
+
+<h5>Version 1.01, 2004-09-18 (Anton Haumer)</h5>
+<ul>
+  <li>Moved common equations from machine models to PartialMachine improved MoveToRotational</li>
+</ul>
+
+<h5>Version 1.00, 2004-09-16 (Anton Haumer)</h5>
+<ul>
+  <li>First stable release</li>
+</ul>
+
+<p></p>
+
 </html>"));
     end ReleaseNotes;
 
@@ -9390,66 +9492,66 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
   </ul>
 </HTML>"),     Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics={
         Polygon(
-          origin=  {10,10},
-          fillColor=  {135,135,135},
-          fillPattern=  FillPattern.VerticalCylinder,
-          points=  {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
+          points = {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
         Polygon(
-          origin=  {10,10},
-          fillColor=  {135,135,135},
-          fillPattern=  FillPattern.VerticalCylinder,
-          points=  {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
+          points = {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
         Polygon(
-          origin=  {10,10},
-          fillColor=  {135,135,135},
-          fillPattern=  FillPattern.VerticalCylinder,
-          points=  {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
+          points = {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
         Polygon(
-          origin=  {10,10},
-          fillColor=  {135,135,135},
-          fillPattern=  FillPattern.VerticalCylinder,
-          points=  {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
+          points = {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
         Polygon(
-          origin=  {10,10},
-          fillColor=  {135,135,135},
-          fillPattern=  FillPattern.VerticalCylinder,
-          points=  {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
+          origin = {10,10},
+          fillColor = {135,135,135},
+          fillPattern = FillPattern.VerticalCylinder,
+          points = {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {128,0,255},
-          fillColor=  {128,0,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{-88,-46},{-52,26}}),
+          origin = {10,10},
+          lineColor = {128,0,255},
+          fillColor = {128,0,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{-88,-46},{-52,26}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {0,128,255},
-          fillColor=  {0,128,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{-94,-38},{-46,18}}),
+          origin = {10,10},
+          lineColor = {0,128,255},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{-94,-38},{-46,18}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {128,0,255},
-          fillColor=  {128,0,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{-28,-46},{8,26}}),
+          origin = {10,10},
+          lineColor = {128,0,255},
+          fillColor = {128,0,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{-28,-46},{8,26}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {0,128,255},
-          fillColor=  {0,128,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{-34,-38},{14,18}}),
+          origin = {10,10},
+          lineColor = {0,128,255},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{-34,-38},{14,18}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {128,0,255},
-          fillColor=  {128,0,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{32,-46},{68,26}}),
+          origin = {10,10},
+          lineColor = {128,0,255},
+          fillColor = {128,0,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{32,-46},{68,26}}),
         Rectangle(
-          origin=  {10,10},
-          lineColor=  {0,128,255},
-          fillColor=  {0,128,255},
-          fillPattern=  FillPattern.VerticalCylinder,
-          extent=  {{26,-38},{74,18}})}));
+          origin = {10,10},
+          lineColor = {0,128,255},
+          fillColor = {0,128,255},
+          fillPattern = FillPattern.VerticalCylinder,
+          extent = {{26,-38},{74,18}})}));
     end Transformers;
 
     package Components "Machine components like AirGaps"
@@ -10414,15 +10516,15 @@ The induction machine models use package SpacePhasors.
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-          Line(points = {{-90,0},{-70,0}},
-            color = {0,0,255}),
-          Line(points = {{70,0},{90,0}},
-            color = {0,0,255}),
-          Line(points = {{0,-70},{0,-100}},
-            color = {0,0,127}),
-          Text(lineColor = {0,0,255},
-            extent = {{-40,-60},{40,-20}},
-            textString = "V RMS")}),
+          Line(points=  {{-90,0},{-70,0}},
+            color=  {0,0,255}),
+          Line(points=  {{70,0},{90,0}},
+            color=  {0,0,255}),
+          Line(points=  {{0,-70},{0,-100}},
+            color=  {0,0,127}),
+          Text(lineColor=  {0,0,255},
+            extent=  {{-40,-60},{40,-20}},
+            textString=  "V RMS")}),
         Documentation(info="<HTML>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
@@ -10535,19 +10637,19 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
       annotation (
         Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-          Line(points = {{-90,0},{-70,0}},
-            color = {0,0,255}),
-          Line(points = {{70,0},{90,0}},
-            color = {0,0,255}),
-          Line(points = {{0,-70},{0,-90}},
-            color = {0,0,255}),
-          Line(points = {{-10,70},{-10,80},{-50,80},{-50,100}},
-            color = {0,0,127}),
-          Line(points = {{10,70},{10,80},{50,80},{50,100}},
-            color = {0,0,127}),
-          Text(lineColor = {0,0,255},
-            extent = {{-40,-60},{40,-20}},
-            textString = "P Q")}),
+          Line(points=  {{-90,0},{-70,0}},
+            color=  {0,0,255}),
+          Line(points=  {{70,0},{90,0}},
+            color=  {0,0,255}),
+          Line(points=  {{0,-70},{0,-90}},
+            color=  {0,0,255}),
+          Line(points=  {{-10,70},{-10,80},{-50,80},{-50,100}},
+            color=  {0,0,127}),
+          Line(points=  {{10,70},{10,80},{50,80},{50,100}},
+            color=  {0,0,127}),
+          Text(lineColor=  {0,0,255},
+            extent=  {{-40,-60},{40,-20}},
+            textString=  "P Q")}),
         Documentation(info="<HTML>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
 which are used to calculate power quantities:<br>
@@ -10619,29 +10721,29 @@ Q = giving in stationary state reactive power.<br>
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-        Line(points = {{-70,0},{-90,0}}),
-        Line(points = {{70,0},{90,0}}),
-        Line(points = {{0,70},{0,100}},
-          color = {0,0,127}),
+        Line(points=  {{-70,0},{-90,0}}),
+        Line(points=  {{70,0},{90,0}}),
+        Line(points=  {{0,70},{0,100}},
+          color=  {0,0,127}),
         Rectangle(
-          visible = useSupport,
-          lineColor = {192,192,192},
-          fillColor = {192,192,192},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-120},{20,-80}}),
-        Line(visible = not useSupport,
-          points = {{-20,-100},{20,-100}}),
-        Line(visible = not useSupport,
-          points = {{-10,-100},{-20,-120}}),
-        Line(visible = not useSupport,
-          points = {{0,-100},{-10,-120}}),
-        Line(visible = not useSupport,
-          points = {{10,-100},{0,-120}}),
-        Line(visible = not useSupport,
-          points = {{20,-100},{10,-120}}),
-        Text(lineColor = {0,0,255},
-          extent = {{-40,-60},{40,-20}},
-          textString = "Pmech")}),
+          visible=  useSupport,
+          lineColor=  {192,192,192},
+          fillColor=  {192,192,192},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-120},{20,-80}}),
+        Line(visible=  not useSupport,
+          points=  {{-20,-100},{20,-100}}),
+        Line(visible=  not useSupport,
+          points=  {{-10,-100},{-20,-120}}),
+        Line(visible=  not useSupport,
+          points=  {{0,-100},{-10,-120}}),
+        Line(visible=  not useSupport,
+          points=  {{10,-100},{0,-120}}),
+        Line(visible=  not useSupport,
+          points=  {{20,-100},{10,-120}}),
+        Text(lineColor=  {0,0,255},
+          extent=  {{-40,-60},{40,-20}},
+          textString=  "Pmech")}),
         Documentation(info="<HTML>
 Calculates (mechanical) power from torque times angular speed.
 </HTML>"));
