@@ -5,7 +5,7 @@ package Machines "Library for electric machines"
     extends Modelica.Icons.Information;
     class Concept "Fundamental wave concept"
       extends Modelica.Icons.Information;
-      annotation (Documentation(info="<html>
+      annotation (preferredView="info",Documentation(info="<html>
 <p>This package contains electric machine models and components for modeling these machines.</p>
 <b>Limitations and assumptions:</b>
 <ul>
@@ -35,7 +35,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 
     class Contact "Contact"
       extends Modelica.Icons.Contact;
-      annotation (Documentation(info="<html>
+      annotation (preferredView="info",Documentation(info="<html>
 <h4>Contact</h4>
 
 <p>
@@ -58,9 +58,9 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
-      annotation (Documentation(info="<html>
+      annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2013-12-19 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2014-01-02 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
   <li>Added standard blocks and functions</li>
@@ -314,7 +314,7 @@ SM_ElectricalExcited</a>
 
     class References "References"
       extends Modelica.Icons.References;
-      annotation (Documentation(info="<html>
+      annotation (preferredView="info",Documentation(info="<html>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
@@ -328,7 +328,7 @@ SM_ElectricalExcited</a>
 </table>
 </html>"));
     end References;
-    annotation (Documentation(info="<html>
+    annotation (preferredView="info",Documentation(info="<html>
 <p>
 This is the library of quasi static fundamental wave models for multi phase electric machines. This is complementary library with the transient machine models of 
 <a href=\"modelica://\"></a>
@@ -9492,66 +9492,66 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
   </ul>
 </HTML>"),     Icon(coordinateSystem(extent = {{-100,-100},{100,100}}), graphics={
         Polygon(
-          origin = {10,10},
-          fillColor = {135,135,135},
-          fillPattern = FillPattern.VerticalCylinder,
-          points = {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
+          origin=  {10,10},
+          fillColor=  {135,135,135},
+          fillPattern=  FillPattern.VerticalCylinder,
+          points=  {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
         Polygon(
-          origin = {10,10},
-          fillColor = {135,135,135},
-          fillPattern = FillPattern.VerticalCylinder,
-          points = {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
+          origin=  {10,10},
+          fillColor=  {135,135,135},
+          fillPattern=  FillPattern.VerticalCylinder,
+          points=  {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
         Polygon(
-          origin = {10,10},
-          fillColor = {135,135,135},
-          fillPattern = FillPattern.VerticalCylinder,
-          points = {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
+          origin=  {10,10},
+          fillColor=  {135,135,135},
+          fillPattern=  FillPattern.VerticalCylinder,
+          points=  {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
         Polygon(
-          origin = {10,10},
-          fillColor = {135,135,135},
-          fillPattern = FillPattern.VerticalCylinder,
-          points = {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
+          origin=  {10,10},
+          fillColor=  {135,135,135},
+          fillPattern=  FillPattern.VerticalCylinder,
+          points=  {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
         Polygon(
-          origin = {10,10},
-          fillColor = {135,135,135},
-          fillPattern = FillPattern.VerticalCylinder,
-          points = {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
+          origin=  {10,10},
+          fillColor=  {135,135,135},
+          fillPattern=  FillPattern.VerticalCylinder,
+          points=  {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {128,0,255},
-          fillColor = {128,0,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{-88,-46},{-52,26}}),
+          origin=  {10,10},
+          lineColor=  {128,0,255},
+          fillColor=  {128,0,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{-88,-46},{-52,26}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {0,128,255},
-          fillColor = {0,128,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{-94,-38},{-46,18}}),
+          origin=  {10,10},
+          lineColor=  {0,128,255},
+          fillColor=  {0,128,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{-94,-38},{-46,18}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {128,0,255},
-          fillColor = {128,0,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{-28,-46},{8,26}}),
+          origin=  {10,10},
+          lineColor=  {128,0,255},
+          fillColor=  {128,0,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{-28,-46},{8,26}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {0,128,255},
-          fillColor = {0,128,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{-34,-38},{14,18}}),
+          origin=  {10,10},
+          lineColor=  {0,128,255},
+          fillColor=  {0,128,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{-34,-38},{14,18}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {128,0,255},
-          fillColor = {128,0,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{32,-46},{68,26}}),
+          origin=  {10,10},
+          lineColor=  {128,0,255},
+          fillColor=  {128,0,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{32,-46},{68,26}}),
         Rectangle(
-          origin = {10,10},
-          lineColor = {0,128,255},
-          fillColor = {0,128,255},
-          fillPattern = FillPattern.VerticalCylinder,
-          extent = {{26,-38},{74,18}})}));
+          origin=  {10,10},
+          lineColor=  {0,128,255},
+          fillColor=  {0,128,255},
+          fillPattern=  FillPattern.VerticalCylinder,
+          extent=  {{26,-38},{74,18}})}));
     end Transformers;
 
     package Components "Machine components like AirGaps"
@@ -10587,15 +10587,15 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-          Line(points = {{-90,0},{-70,0}},
-            color = {0,0,255}),
-          Line(points = {{70,0},{90,0}},
-            color = {0,0,255}),
-          Line(points = {{0,-70},{0,-100}},
-            color = {0,0,127}),
-          Text(lineColor = {0,0,255},
-            extent = {{-40,-60},{40,-20}},
-            textString = "A RMS")}),
+          Line(points=  {{-90,0},{-70,0}},
+            color=  {0,0,255}),
+          Line(points=  {{70,0},{90,0}},
+            color=  {0,0,255}),
+          Line(points=  {{0,-70},{0,-100}},
+            color=  {0,0,127}),
+          Text(lineColor=  {0,0,255},
+            extent=  {{-40,-60},{40,-20}},
+            textString=  "A RMS")}),
         Documentation(info="<HTML>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
@@ -16559,7 +16559,7 @@ This package contains utility components for testing examples.
   annotation (preferredView="info",
    Documentation(info="<HTML>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
+Copyright &copy; 1998-2014, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
