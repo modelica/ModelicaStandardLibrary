@@ -1543,6 +1543,143 @@ This switch is only intended to be used for structural changes, not for fast swi
               lineColor={0,0,255}),
             Line(points={{0,51},{0,26}}, color={0,0,255})}));
     end IdealClosingSwitch;
+
+    model IdealTransformer "Ideal transformer"
+      parameter Real n = 1 "Ratio of primary to secondary voltage";
+      Modelica.SIunits.ComplexVoltage v1 = pin_p1.v - pin_n1.v
+        "Voltage drop of side 1";
+      Modelica.SIunits.ComplexCurrent i1 = pin_p1.i "Current into side 1";
+      Modelica.SIunits.ComplexVoltage v2 = pin_p2.v - pin_n2.v
+        "Voltage drop of side 2";
+      Modelica.SIunits.ComplexCurrent i2 = pin_p2.i "Current into side 2";
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p1
+        "Primary positive pin"                                                      annotation(Placement(transformation(extent={{-110,40},
+                {-90,60}}), iconTransformation(extent={{-110,40},{-90,60}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p2
+        "Secondary positive pin"                                                    annotation(Placement(transformation(extent={{90,40},
+                {110,60}}), iconTransformation(extent={{90,40},{110,60}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n1
+        "Primary negative pin"                                                      annotation(Placement(transformation(extent={{-110,
+                -60},{-90,-40}}), iconTransformation(extent={{-110,-60},{-90,-40}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n2
+        "Secondary negative pin"                                                    annotation(Placement(transformation(extent={{90,-60},
+                {110,-40}}), iconTransformation(extent={{90,-60},{110,-40}})));
+    equation
+      // Current balance
+      pin_p1.i + pin_n1.i = Complex(0, 0);
+      pin_p2.i + pin_n2.i = Complex(0, 0);
+      // Transformation ratios
+      v1 = Complex(+n, 0) * v2;
+      i2 = Complex(-n, 0) * i1;
+      Connections.branch(pin_p1.reference, pin_n1.reference);
+      pin_p1.reference.gamma = pin_n1.reference.gamma;
+      Connections.branch(pin_n1.reference, pin_n2.reference);
+      pin_p2.reference.gamma = pin_n2.reference.gamma;
+      Connections.branch(pin_p1.reference, pin_p2.reference);
+      pin_p1.reference.gamma = pin_p2.reference.gamma;
+      annotation(Diagram(coordinateSystem(preserveAspectRatio=false,   extent={{-100,
+                -100},{100,100}}),                                                                        graphics={
+                          Text(
+              extent={{-100,10},{0,-10}},
+              lineColor={0,0,255},
+              textString="1=primary"), Text(
+              extent={{0,10},{100,-10}},
+              lineColor={0,0,255},
+              textString="2=secondary"),
+            Polygon(
+              points={{-120,53},{-110,50},{-120,47},{-120,53}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-136,50},{-111,50}}, color={160,160,164}),
+            Text(
+              extent={{-136,53},{-119,68}},
+              lineColor={160,160,164},
+              textString="i1"),
+            Line(points={{-136,-49},{-111,-49}}, color={160,160,164}),
+            Polygon(
+              points={{-126,-46},{-136,-49},{-126,-52},{-126,-46}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-127,-46},{-110,-31}},
+              lineColor={160,160,164},
+              textString="i1"),
+            Polygon(
+              points={{127,-47},{137,-50},{127,-53},{127,-47}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Line(points={{111,-50},{136,-50}}, color={160,160,164}),
+            Text(
+              extent={{112,-44},{128,-29}},
+              lineColor={160,160,164},
+              textString="i2"),
+            Text(
+              extent={{118,52},{135,67}},
+              lineColor={0,0,0},
+              textString="i2"),
+            Polygon(
+              points={{120,53},{110,50},{120,47},{120,53}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={160,160,164}),
+            Line(points={{111,50},{136,50}}, color={0,0,0})}),                                                       Icon(coordinateSystem(preserveAspectRatio=false,   extent={{-100,
+                -100},{100,100}}),                                                                                                    graphics={
+            Ellipse(extent={{-45,-50},{-20,-25}}),
+            Ellipse(extent={{-45,-25},{-20,0}}),
+            Ellipse(extent={{-45,0},{-20,25}}),
+            Ellipse(extent={{-45,25},{-20,50}}),
+            Rectangle(
+              extent={{-72,-60},{-33,60}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,50},{-32,50}}),
+            Line(points={{-90,-50},{-32,-50}}),
+            Ellipse(extent={{20,-50},{45,-25}}),
+            Ellipse(extent={{20,-25},{45,0}}),
+            Ellipse(extent={{20,0},{45,25}}),
+            Ellipse(extent={{20,25},{45,50}}),
+            Rectangle(
+              extent={{33,-60},{72,60}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{32,50},{90,50}}),
+            Line(points={{32,-50},{90,-50}}),
+            Text(extent={{-100,-80},{100,-100}}, textString="n=%n"),
+            Text(
+              extent={{-146,115},{154,75}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,10},{-80,-10}},
+              lineColor={0,0,255},
+              textString="1"),
+            Text(
+              extent={{80,10},{100,-10}},
+              lineColor={0,0,255},
+              textString="2")}),
+        Documentation(info="<html>
+<p>
+The ideal transformer is a two-port circuit element without magnetization. Voltages and currents are ideally transformed:
+</p>
+<pre>
+ v1 =  v2*n;
+ i2 = -i1*n;
+</pre>
+<p>
+where <code>n</code> is a real number called the turns ratio.
+</html>", revisions="<html>
+<h5>2014-01-02, Christian Kral</h5>
+<ul>
+<li>Initial implementation of ideal transformer model</li>
+</ul>
+
+</html>"));
+    end IdealTransformer;
     annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics={
                 Line(origin = {10,34}, points = {{-100,-60},{-54,-60}}),
                 Ellipse(origin = {10,34}, extent = {{-54,-64},{-46,-56}}),
