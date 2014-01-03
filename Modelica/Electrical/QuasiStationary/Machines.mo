@@ -2042,66 +2042,66 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
             Polygon(
-              origin = {10,10},
-              fillColor = {135,135,135},
-              fillPattern = FillPattern.VerticalCylinder,
-              points = {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
+              origin=  {10,10},
+              fillColor=  {135,135,135},
+              fillPattern=  FillPattern.VerticalCylinder,
+              points=  {{-80,50},{-60,30},{-60,-50},{-80,-70},{-80,50}}),
             Polygon(
-              origin = {10,10},
-              fillColor = {135,135,135},
-              fillPattern = FillPattern.VerticalCylinder,
-              points = {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
+              origin=  {10,10},
+              fillColor=  {135,135,135},
+              fillPattern=  FillPattern.VerticalCylinder,
+              points=  {{60,50},{40,30},{40,-50},{60,-70},{60,50}}),
             Polygon(
-              origin = {10,10},
-              fillColor = {135,135,135},
-              fillPattern = FillPattern.VerticalCylinder,
-              points = {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
+              origin=  {10,10},
+              fillColor=  {135,135,135},
+              fillPattern=  FillPattern.VerticalCylinder,
+              points=  {{-10,40},{-20,30},{-20,-50},{-10,-60},{0,-50},{0,30},{-10,40}}),
             Polygon(
-              origin = {10,10},
-              fillColor = {135,135,135},
-              fillPattern = FillPattern.VerticalCylinder,
-              points = {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
+              origin=  {10,10},
+              fillColor=  {135,135,135},
+              fillPattern=  FillPattern.VerticalCylinder,
+              points=  {{-80,50},{60,50},{40,30},{0,30},{-10,40},{-20,30},{-60,30},{-80,50}}),
             Polygon(
-              origin = {10,10},
-              fillColor = {135,135,135},
-              fillPattern = FillPattern.VerticalCylinder,
-              points = {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
+              origin=  {10,10},
+              fillColor=  {135,135,135},
+              fillPattern=  FillPattern.VerticalCylinder,
+              points=  {{-80,-70},{60,-70},{40,-50},{0,-50},{-10,-60},{-20,-50},{-60,-50},{-80,-70}}),
             Rectangle(
-              origin = {10,10},
-              lineColor = {213,170,255},
-              fillColor = {213,170,255},
-              fillPattern = FillPattern.VerticalCylinder,
-              extent = {{-88,-46},{-52,26}}),
+              origin=  {10,10},
+              lineColor=  {213,170,255},
+              fillColor=  {213,170,255},
+              fillPattern=  FillPattern.VerticalCylinder,
+              extent=  {{-88,-46},{-52,26}}),
             Rectangle(
-              origin = {10,10},
-              lineColor = {170,213,255},
-              fillColor = {170,213,255},
-              fillPattern = FillPattern.VerticalCylinder,
-              extent = {{-94,-38},{-46,18}}),
+              origin=  {10,10},
+              lineColor=  {170,213,255},
+              fillColor=  {170,213,255},
+              fillPattern=  FillPattern.VerticalCylinder,
+              extent=  {{-94,-38},{-46,18}}),
             Rectangle(
-              origin = {10,10},
-              lineColor = {213,170,255},
-              fillColor = {213,170,255},
-              fillPattern = FillPattern.VerticalCylinder,
-              extent = {{-28,-46},{8,26}}),
+              origin=  {10,10},
+              lineColor=  {213,170,255},
+              fillColor=  {213,170,255},
+              fillPattern=  FillPattern.VerticalCylinder,
+              extent=  {{-28,-46},{8,26}}),
             Rectangle(
-              origin = {10,10},
-              lineColor = {170,213,255},
-              fillColor = {170,213,255},
-              fillPattern = FillPattern.VerticalCylinder,
-              extent = {{-34,-38},{14,18}}),
+              origin=  {10,10},
+              lineColor=  {170,213,255},
+              fillColor=  {170,213,255},
+              fillPattern=  FillPattern.VerticalCylinder,
+              extent=  {{-34,-38},{14,18}}),
             Rectangle(
-              origin = {10,10},
-              lineColor = {213,170,255},
-              fillColor = {213,170,255},
-              fillPattern = FillPattern.VerticalCylinder,
-              extent = {{32,-46},{68,26}}),
+              origin=  {10,10},
+              lineColor=  {213,170,255},
+              fillColor=  {213,170,255},
+              fillPattern=  FillPattern.VerticalCylinder,
+              extent=  {{32,-46},{68,26}}),
             Rectangle(
-              origin = {10,10},
-              lineColor = {170,213,255},
-              fillColor = {170,213,255},
-              fillPattern = FillPattern.VerticalCylinder,
-              extent = {{26,-38},{74,18}})}));
+              origin=  {10,10},
+              lineColor=  {170,213,255},
+              fillColor=  {170,213,255},
+              fillPattern=  FillPattern.VerticalCylinder,
+              extent=  {{26,-38},{74,18}})}));
     end Transformers;
 
     package Components "Machine components like AirGaps"
@@ -2584,7 +2584,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         Modelica.Blocks.Interfaces.RealOutput y[2]
           annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       protected
-        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(
+        parameter Modelica.SIunits.Angle phi[m]=Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
                                                                                              m);
         Complex c;
       equation
@@ -2629,7 +2629,7 @@ Transformation of quasi stationary multi phase values (voltages or currents) to 
         Modelica.ComplexBlocks.Interfaces.ComplexOutput y[m]
           annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       protected
-        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(
+        parameter Modelica.SIunits.Angle phi[m]=Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(
                                                                                m);
       equation
         y = {Complex(u[1], u[2])*exp(-j*phi[k])/sqrt(2) for k in 1:m};
