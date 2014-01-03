@@ -351,7 +351,7 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.X.X, 2013-09-01</h5>
+<h5>Version 3.2.2, 2014-01-03</h5>
 
 <ul>
 <li>Updated documentation of 
@@ -359,8 +359,12 @@ no. 829420.
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a> and
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.PermanentMagnet\">PermanentMagnet</a>
     </li>
-<li>Added new component 
-    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a></li>
+<li>Added new components:</li>
+<ul>
+    <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a></li>
+    <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>
+   
+</ul>
 </ul>
 
 <h5>Version 3.2.1, 2013-07-31</h5>
@@ -4076,6 +4080,47 @@ The salient reluctance models the relationship between the complex magnetic pote
 </html>"));
     end Reluctance;
 
+    model Permeance "Salient Permeance"
+      import Modelica.Constants.pi;
+      extends
+        Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary;
+      parameter Modelica.Magnetic.FundamentalWave.Types.SalientPermeance G_m(d(
+            start=1), q(start=1)) "Magnetic permeance in d=re and q=im axis";
+    equation
+      (pi/2)*G_m.d*V_m.re = Phi.re;
+      (pi/2)*G_m.q*V_m.im = Phi.im;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={255,128,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-96,0},{-70,0}}, color={255,128,0}),
+            Line(points={{70,0},{96,0}}, color={255,128,0}),
+            Text(
+              extent={{0,60},{0,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Text(
+              extent={{0,-70},{0,-110}},
+              lineColor={0,0,0},
+              textString="R_m.d=%R_m.d, R_m.q=%R_m.q")}), Documentation(info="<html>
+<p>
+The salient permeance models the relationship between the complex magnetic potential difference
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/permeance.png\"
+      alt=\"reluctance.png\">
+</blockquote>
+<p></p>
+
+
+</html>"));
+    end Permeance;
+
     model EddyCurrent
       "Constant loss model under sinusoidal magnetic conditions"
       import Modelica.Constants.pi;
@@ -7119,8 +7164,9 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 </html>"));
     end Salient;
 
-    record SalientCurrent = Salient (redeclare Modelica.SIunits.Current d,
-          redeclare Modelica.SIunits.Current q) "Salient current" annotation (
+    record SalientCurrent = Salient (
+      redeclare Modelica.SIunits.Current d,
+      redeclare Modelica.SIunits.Current q) "Salient current" annotation (
         Documentation(info="<html>
 <p>Type representing the d- and q-axis of a current phasor.</p>
 
@@ -7128,14 +7174,16 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientPermeance\">SalientPermeance</a>
 </p>
 
 </html>"));
-    record SalientVoltage = Salient (redeclare Modelica.SIunits.Voltage d,
-          redeclare Modelica.SIunits.Voltage q) "Salient voltage" annotation (
+    record SalientVoltage = Salient (
+      redeclare Modelica.SIunits.Voltage d,
+      redeclare Modelica.SIunits.Voltage q) "Salient voltage" annotation (
         Documentation(info="<html>
 <p>Type representing the d- and q-axis of a voltage phasor.</p>
 
@@ -7143,44 +7191,16 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientPermeance\">SalientPermeance</a>
 </p>
 
 </html>"));
-    record SalientInductance = Salient (redeclare Modelica.SIunits.Inductance d,
-          redeclare Modelica.SIunits.Inductance q) "Salient inductance"
-      annotation (Documentation(info="<html>
-<p>Type representing the d- and q-axis of an inductance with respect to the fundamental wave.</p>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
-</p>
-
-</html>"));
-    record SalientReluctance = Salient (redeclare Modelica.SIunits.Reluctance d,
-          redeclare Modelica.SIunits.Reluctance q) "Salient reluctance"
-      annotation (Documentation(info="<html>
-<p>Type representing the d- and q-axis of an reluctance with respect to the fundamental wave.</p>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>
-</p>
-
-</html>"));
-    record SalientResistance = Salient (redeclare Modelica.SIunits.Resistance d,
-          redeclare Modelica.SIunits.Resistance q) "Salient resistance"
+    record SalientResistance = Salient (
+      redeclare Modelica.SIunits.Resistance d,
+      redeclare Modelica.SIunits.Resistance q) "Salient resistance"
       annotation (Documentation(info="<html>
 <p>Type representing the d- and q-axis of an resistance with respect to the fundamental wave.</p>
 
@@ -7189,6 +7209,58 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientPermeance\">SalientPermeance</a>
+</p>
+
+</html>"));
+    record SalientInductance = Salient (
+      redeclare Modelica.SIunits.Inductance d,
+      redeclare Modelica.SIunits.Inductance q) "Salient inductance"
+      annotation (Documentation(info="<html>
+<p>Type representing the d- and q-axis of an inductance with respect to the fundamental wave.</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientPermeance\">SalientPermeance</a>
+</p>
+
+</html>"));
+    record SalientReluctance = Salient (
+      redeclare Modelica.SIunits.Reluctance d,
+      redeclare Modelica.SIunits.Reluctance q) "Salient reluctance"
+      annotation (Documentation(info="<html>
+<p>Type representing the d- and q-axis of an reluctance with respect to the fundamental wave.</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientPermeance\">SalientPermeance</a>
+</p>
+
+</html>"));
+    record SalientPermeance =  Salient (
+      redeclare Modelica.SIunits.Permeance d,
+      redeclare Modelica.SIunits.Permeance q) "Salient permeance"
+      annotation (Documentation(info="<html>
+<p>Type representing the d- and q-axis of an reluctance with respect to the fundamental wave.</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientCurrent\">SalientCurrent</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientVoltage\">SalientVoltage</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientResistance\">SalientResistance</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientInductance\">SalientInductance</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.SalientReluctance\">SalientReluctance</a>
 </p>
