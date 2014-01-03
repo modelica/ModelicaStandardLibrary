@@ -11198,7 +11198,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
         extends Modelica.Blocks.Interfaces.MIMO(final nin=m, final nout=2);
         parameter Integer m(min=1)=3 "Number of phases";
       protected
-        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(m);
+        parameter Modelica.SIunits.Angle phi[m]=Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
         parameter Real TransformationMatrix[ 2, m]=2/m*{ +cos(+phi),    +sin(+phi)};
         parameter Real InverseTransformation[m, 2] =   {{+cos(-phi[k]), -sin(-phi[k])} for k in 1:m};
       public
@@ -11243,8 +11243,7 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
         extends Modelica.Blocks.Interfaces.MIMO(final nin=2, final nout=m);
         parameter Integer m(min=1)=3 "Number of phases";
       protected
-        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(
-                                                                               m);
+        parameter Modelica.SIunits.Angle phi[m]=Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
         parameter Real TransformationMatrix[ 2, m]=2/m*{ +cos(+phi),    +sin(+phi)};
         parameter Real InverseTransformation[m, 2] =   {{+cos(-phi[k]), -sin(-phi[k])} for k in 1:m};
       public
@@ -11401,7 +11400,7 @@ the first element representing the real part and the second element representing
       protected
         constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
         parameter Integer m = size(x,1) "Number of phases";
-        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(m);
+        parameter Modelica.SIunits.Angle phi[m]=Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
         parameter Real TransformationMatrix[ 2, m]=2/m*{ +cos(+phi),    +sin(+phi)};
         parameter Real InverseTransformation[m, 2] =   {{+cos(-phi[k]), -sin(-phi[k])} for k in 1:m};
       algorithm
@@ -11421,7 +11420,7 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
         output Real y[m] "Multi phase output";
       protected
         constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
-        parameter Modelica.SIunits.Angle phi[m]=EDrives.Blocks.Functions.symmetricOrientation(m);
+        parameter Modelica.SIunits.Angle phi[m]=Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
         parameter Real TransformationMatrix[ 2, m]=2/m*{ +cos(+phi),    +sin(+phi)};
         parameter Real InverseTransformation[m, 2] =   {{+cos(-phi[k]), -sin(-phi[k])} for k in 1:m};
 
@@ -15699,7 +15698,7 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
             origin={0,-120},
             extent={{20,-20},{-20,20}},
             rotation=270)));
-      EDrives.Blocks.MultiPhase.ToSpacePhasor toSpacePhasor(final m=m)
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor toSpacePhasor(final m=m)
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
     equation
@@ -15749,7 +15748,7 @@ using the provided mechanical rotor angle phi. The ouput are the resulting d and
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
       Modelica.Blocks.Sources.Constant i0(final k=0)
         annotation (Placement(transformation(extent={{20,-20},{40,-40}},  rotation=0)));
-      EDrives.Blocks.MultiPhase.FromSpacePhasor fromSpacePhasor(final m=m)
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor fromSpacePhasor(final m=m)
         annotation (Placement(transformation(extent={{60,-10},{80,10}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealInput phi
