@@ -111,10 +111,14 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2013-12-19</h5>
+<h5>Version 3.2.2, 2014-01-03</h5>
 <ul>
-<li>Migration of library to MSL trunk</li>
+<li>Migration of library from to MSL trunk</li>
 <li>Update and improvement of documentation</li>
+<li>Added new component:</li>
+<ul>
+    <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>   
+</ul>
 </ul>
 
 <h5>Version 0.4.1, 2013-12-18</h5>
@@ -576,7 +580,6 @@ In this example the eddy current losses are implemented in two different ways. C
           Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
       end EddyCurrentLosses;
     end Components;
-
 
     package BasicMachines "Examples of basic machines"
     extends Modelica.Icons.ExamplesPackage;
@@ -1624,6 +1627,8 @@ Simulate for 1.5 seconds and plot (versus time):
             Lssigma=smpmData.Lssigma*m/3,
             Lmd=smpmData.Lmd*m/3,
             Lmq=smpmData.Lmq*m/3,
+            useSupport=false,
+            Js=smpmData.Js,
             TsOperational=293.15,
             alpha20s=smpmData.alpha20s,
             alpha20r=smpmData.alpha20r,
@@ -1657,7 +1662,8 @@ Simulate for 1.5 seconds and plot (versus time):
               terminalConnection="Y")                  annotation (Placement(
                 transformation(extent={{-10,50},{10,70}}, rotation=0)));
           Modelica.Electrical.MultiPhase.Sources.CosineVoltage voltageSource(m=m, V=
-                fill(V, m))
+                fill(V, m),
+            freqHz=fill(f, m))
             annotation (Placement(transformation(
                 origin={-60,-50},
                 extent={{-10,-10},{10,10}},
@@ -1698,11 +1704,13 @@ Simulate for 1.5 seconds and plot (versus time):
             Lssigma=smpmData.Lssigma*m/3,
             Lmd=smpmData.Lmd*m/3,
             Lmq=smpmData.Lmq*m/3,
+            useSupport=false,
+            Js=smpmData.Jr,
             TsOperational=293.15,
             alpha20s=smpmData.alpha20s,
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15)
-                 annotation (Placement(transformation(extent={{-10,-72},{10,-52}})));
+                 annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
 
           Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=J_Load)
             annotation (Placement(transformation(extent={{20,-70},{40,-50}},
@@ -1771,15 +1779,15 @@ Simulate for 1.5 seconds and plot (versus time):
           connect(loadInertiaM.flange_b, torqueStepM.flange)
             annotation (Line(points={{40,-60},{50,-60}}, color={0,0,0}));
           connect(smpm.flange, loadInertiaM.flange_a) annotation (Line(
-              points={{10,-62},{16,-62},{16,-60},{20,-60}},
+              points={{10,-60},{20,-60}},
               color={0,0,0},
               smooth=Smooth.None));
           connect(terminalBox.plug_sn, smpm.plug_sn)   annotation (Line(
-              points={{-6,-50},{-6,-52}},
+              points={{-6,-50},{-6,-50}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(terminalBox.plug_sp, smpm.plug_sp)   annotation (Line(
-              points={{6,-50},{6,-52}},
+              points={{6,-50},{6,-50}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(terminalBox.plugSupply, currentSensor.plug_n) annotation (
@@ -2707,7 +2715,6 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
 ")}));
         end SMEE_Generator;
 
-
         model SMR_CurrentSource
           "Test example: Synchronous reluctance machine fed by current source"
           import Modelica.Constants.pi;
@@ -3155,6 +3162,43 @@ The salient reluctance models the relationship between the complex magnetic pote
 </p>
 </html>"));
     end Reluctance;
+
+    model Permeance "Salient Permeance"
+      import Modelica.Constants.pi;
+      extends FundamentalWave.Interfaces.PartialTwoPortElementary;
+      parameter Modelica.Magnetic.FundamentalWave.Types.SalientPermeance G_m(d(
+            start=1), q(start=1)) "Magnetic permeance in d=re and q=im axis";
+    equation
+      (pi/2)*G_m.d*V_m.re = Phi.re;
+      (pi/2)*G_m.q*V_m.im = Phi.im;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{0,60},{0,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={255,170,85},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-96,0},{-70,0}}, color={255,170,85}),
+            Line(points={{70,0},{96,0}}, color={255,170,85})}),
+                                                          Documentation(info="<html>
+<p>
+The salient permeance models the relationship between the complex magnetic potential difference
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/permeance.png\"
+      alt=\"reluctance.png\">
+</blockquote>
+<p></p>
+
+
+</html>"));
+    end Permeance;
 
     model EddyCurrent
       "Constant loss model under sinusoidal magnetic conditions"
