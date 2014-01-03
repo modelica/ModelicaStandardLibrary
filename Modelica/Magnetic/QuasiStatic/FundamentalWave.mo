@@ -119,6 +119,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <ul>
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>   
 </ul>
+<li>Removed parameter text from icon layer for reluctance and permeance model</li>
 </ul>
 
 <h5>Version 0.4.1, 2013-12-18</h5>
@@ -3140,12 +3141,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
             Text(
               extent={{0,60},{0,100}},
               lineColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{0,-70},{0,-110}},
-              lineColor={0,0,0},
-              textString="R_m.d=%R_m.d, R_m.q=%R_m.q")}),
-                                                       Documentation(info="<html>
+              textString="%name")}),                   Documentation(info="<html>
 <p>
 The salient reluctance models the relationship between the complex magnetic potential difference
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">,

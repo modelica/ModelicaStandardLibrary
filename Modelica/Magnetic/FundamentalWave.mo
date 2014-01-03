@@ -365,6 +365,7 @@ no. 829420.
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>
    
 </ul>
+<li>Removed parameter text from icon layer for reluctance and permeance model</li>
 </ul>
 
 <h5>Version 3.2.1, 2013-07-31</h5>
@@ -4055,11 +4056,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
             Text(
               extent={{0,60},{0,100}},
               lineColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{0,-70},{0,-110}},
-              lineColor={0,0,0},
-              textString="R_m.d=%R_m.d, R_m.q=%R_m.q")}), Documentation(info="<html>
+              textString="%name")}),                      Documentation(info="<html>
 <p>
 The salient reluctance models the relationship between the complex magnetic potential difference
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">,
@@ -4101,11 +4098,7 @@ The salient reluctance models the relationship between the complex magnetic pote
             Text(
               extent={{0,60},{0,100}},
               lineColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{0,-70},{0,-110}},
-              lineColor={0,0,0},
-              textString="R_m.d=%R_m.d, R_m.q=%R_m.q")}), Documentation(info="<html>
+              textString="%name")}),                      Documentation(info="<html>
 <p>
 The salient permeance models the relationship between the complex magnetic potential difference
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">:
@@ -7272,37 +7265,11 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
   end Types;
   annotation (preferredView="info", Documentation(revisions="<html>
 
-<p>The table below refers to internal version numbers of the FundamentalWave library. A more detailed list of changes is summarized in the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes\">release notes</a>.</p>
+<p>A detailed list of changes is summarized in the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes\">release notes</a>.</p>
 
-
-<table border=\"1\" rules=\"groups\" cellpadding=\"2\">
-<thead>
-<tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
-</thead>
-<tbody>
-<tr><td>3.X.X</td><td></td>  <td>2013-09-01</td>  <td>C. Kral</td>  <td>Updated documentation and added new component Crossing</td></tr>
-<tr><td>3.2.1</td><td></td>  <td>2013-07-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>New component examples, added variables in multi phase converter models, bug fixes #1216, #1223 and #1226</td></tr>
-<tr><td>2.0.0</td><td>6083</td>  <td>2013-03-10</td>  <td>C. Kral<br>A. Haumer</td>  <td>Extended machines models for phase numbers greater or equal than three</td></tr>
-<tr><td>1.7.3</td><td>6029</td>  <td>2013-02-25</td>  <td>C. Kral</td>  <td>Corrected wrong parameter description</td></tr>
-<tr><td>1.7.2</td><td>4621</td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in parameterization of symmetrical multi phase winding model<br>Necessary adaptions due to conditional heatPorts of loss models (backwards compatibility)</td></tr>
-<tr><td>1.7.1</td><td>4170</td>  <td>2010-09-13</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
-<tr><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
-<tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
-<tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
-<tr><td>1.4.0</td><td>3763</td>  <td>2010-04-22</td>  <td>C. Kral</td>  <td>Added eddy current loss model with thermal heat port</td></tr>
-<tr><td>1.3.0</td><td></td>  <td>2010-02-26</td>  <td>A. Haumer<br>C. Kral</td>  <td>New state selection, icons and copyright included</td></tr>
-<tr><td>1.2.0</td><td>3468</td>   <td>2010-02-17</td>  <td>C. Kral</td>  <td>Renamed Machines to BasicMachines and updated references to Electrical.Machines</td></tr>
-<tr><td>1.1.0</td><td>3424</td>  <td>2010-02-15</td>  <td>C. Kral</td>  <td>Added thermal connectors and temperature dependent resistances</td></tr>
-<tr><td>1.0.0</td><td>3426</td>  <td>2010-02-04</td>  <td>C. Kral</td>  <td>Integrated the library into the MSL</td></tr>
-<tr><td>0.4.0</td> <td></td>  <td>2009-10-29</td>  <td>C. Kral<br>A.&nbsp;Haumer</td>  <td>Corrected bug in magnetic potential calculation</td></tr>
-<tr><td>0.3.0</td> <td></td>  <td>2009-10-28</td>  <td>C. Kral</td>  <td>Renamed number of turns and winding angles</td></tr>
-<tr><td>0.2.0</td> <td></td>  <td>2009-10-20</td>  <td>C. Kral</td>  <td>Added idle model</td></tr>
-<tr><td>0.1.0</td> <td></td>  <td>2009-07-22</td>  <td>C. Kral</td>  <td>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel</td></tr>
-</tbody>
-</table>
 </html>", info="<html>
 <p>
-Copyright &copy; 2009-2013, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
+Copyright &copy; 2009-2014, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>
