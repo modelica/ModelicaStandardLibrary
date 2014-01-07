@@ -137,7 +137,7 @@ Vectors.<b>toString</b>(v,name=\"\",significantDigits=6);
 <p>
 The function call \"<code>Vectors.<b>toString</b>(v)</code>\" returns the string representation of vector <b>v</b>.
 With the optional arguments \"name\" and \"significantDigits\" a name and the number of the digits are defined.
-The default values of \"name\" and \"significantDigits\" are \"\" and 6 respectively. If name==\"\" (empty string) then the prefix \"&lt;name&gt; =\" is leaved out at the output-string.
+The default values of \"name\" and \"significantDigits\" are \"\" and 6 respectively. If name==\"\" (empty string) then the prefix \"&lt;name&gt; =\" is left out at the output-string.
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -1093,7 +1093,7 @@ The function call \"<code>Matrices.<b>toString</b>(A)</code>\" returns the
 string representation of matrix <b>A</b>.
 With the optional arguments \"name\" and \"significantDigits\", a name and the number of the digits are defined.
 The default values of name and significantDigits are \"\" and 6 respectively. If name==\"\" then the
-prefix \"&lt;name&gt; =\" is leaved out.
+prefix \"&lt;name&gt; =\" is left out.
 
 <h4>Example</h4>
 <blockquote><pre>
