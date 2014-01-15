@@ -160,6 +160,76 @@ Magna Physics Publishing and Oxford University Press 1994
 </html>"));
     end Literature;
 
+    class ReleaseNotes "Release Notes"
+      extends Modelica.Icons.ReleaseNotes;
+      annotation (Documentation(info="<html>
+
+<h5>Version 3.2.2, 2014-01-15 (Christian&nbsp;Kral)</h5>
+<ul>
+<li>Added constant 
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ConstantPermeance\">permeance model</a></li>
+<li>Added 
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube\">GenericFluxTube</a></li>
+<li>Added parameter <code>useConductance</code> including alternative parameterization in
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">EddyCurrent</a></li>
+<li>Added 
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Idle\">Idle</a></li>
+<li>Added 
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Short\">Short</a></li>
+<li>Added 
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Crossing\">Crossing</a></li>
+
+</ul>
+
+<h5>Version 1.5, 2013-01-04 (Martin&nbsp;Otter, Thomas&nbsp;B&ouml;drich, Johannes&nbsp;Ziske)</h5>
+<ul>
+<li>Added missing initial conditions</li>
+<li>Fixed initial parameter values</li>
+</ul>
+
+<h5>Verskon 1.4, 2011-08-01 (Thomas&nbsp;B&ouml;drich)</h5>
+<ul>
+<li>MagneticPort declared with MagneticPotential instead of MagneticPotentialDifference</li>
+</ul>
+
+<h5>Version 1.3, 2010-04-22 (Christian&nbsp;Kral)</h5>
+<ul>
+<li>Added conditional heat port to EddyCurrent model</li>
+</ul>
+
+<h5>Version 1.2, 2009-08-11 (Christian&nbsp;Kral, Anton&nbsp;Haumer, Thomas&nbsp;B&ouml;drich, Martin&nbsp;Otter)</h5>
+<ul>
+<li>Update and improvement for inclusion in the
+    Modelica Standard Library</li>
+</ul>
+
+<h5>Version 1.1, 2009-05-19 (Thomas&nbsp;B&ouml;drich)</h5>
+<ul>
+<li>Coupling coefficient in Basic.ElectroMagneticConverter removed</li>
+<li>Basic.EddyCurrent added</li>
+<li>Example MovingCoilActuator, especially PermeanceModel, completely revised</li>
+<li>Leakage coefficient replaced by coupling coefficient in Basic.LeakageWithCoefficient</li>
+<li>Utilities.CoilDesign: parameter U renamed to V_op,CoilDesign moved to Utilities.</li>
+<li>Reference direction for magnetic flux added in all sources</li>
+<li>degC replaced by K for compatibility with Modelica 3.0</li>
+<li>redeclare in Sensors for compatibility with Modelica 3.0 removed</li>
+<li>Partial flux tube components moved to Interfaces and basic elements moved to new package Basic</li>
+</ul>
+
+<h5>Version 1,0, 2007-10-11 (Thomas&nbsp;B&ouml;drich)</h5>
+<ul>
+<li>Release of version 1.0 of the library</li>
+</ul>
+
+<h5>2005 (Thomas&nbsp;B&ouml;drich)</h5>
+<ul>
+<li>First release of a Modelica magnetic library</li>
+</ul>
+
+<p></p>
+</html>"));
+    end ReleaseNotes;
+
     class Contact "Contact"
       extends Modelica.Icons.Contact;
 
@@ -229,16 +299,16 @@ This user's guide gives a short introduction to the underlying concept of <b>mag
             origin={10,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid r_mAirPar(
+      Shapes.FixedShape.Cuboid r_mAirPar(
         a=0.025,
         b=0.025,
         nonLinearPermeability=false,
         mu_rConst=1,
         l=0.0001)
         "Reluctance of small parasitic air gap (ferromagnetic core packeted from single sheets)"
-        annotation (Placement(transformation(extent={{26,10},{46,30}}, rotation=
-               0)));
-      Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid r_mFe(
+        annotation (Placement(transformation(extent={{26,10},{46,30}}, rotation
+              =0)));
+      Shapes.FixedShape.Cuboid r_mFe(
         mu_rConst=1000,
         a=0.025,
         b=0.025,
@@ -246,6 +316,7 @@ This user's guide gives a short introduction to the underlying concept of <b>mag
         l=4*0.065,
         material=
             Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M350_50A(),
+
         B(start=0)) "Reluctance of ferromagnetic inductor core" annotation (
           Placement(transformation(
             origin={60,10},
@@ -2751,10 +2822,45 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
             textString="%name",
             lineColor={0,0,255})}), Documentation(info="<html>
 <p>
-This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as a parameter.
+This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
 </p>
 </html>"));
     end ConstantReluctance;
+
+    model ConstantPermeance "Constant permeance"
+
+      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+
+      parameter SI.Permeance G_m=1 "Magnetic permeance";
+
+    equation
+      G_m * V_m = Phi;
+
+      annotation (Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Rectangle(
+            extent={{-70,30},{70,-30}},
+            lineColor={255,128,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-70,0},{-90,0}}, color={255,128,0}),
+          Line(points={{70,0},{90,0}}, color={255,128,0}),
+          Text(
+            extent={{-100,-100},{100,-62}},
+            textString="%name",
+            lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+This constant permeance is provided for test purposes and simple magnetic network models. The permeance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
+</p>
+</html>", revisions="<html>
+<h5>Version 3.2.2, 2014-01-15 (Christian Kral)</h5>
+<ul>
+<li>Added constant permeance model</li>
+</ul>
+
+</html>"));
+    end ConstantPermeance;
 
     model LeakageWithCoefficient
       "Leakage reluctance with respect to the reluctance of a useful flux path (not for dynamic simulation of actuators)"
@@ -2791,20 +2897,30 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
       "For modelling of eddy current in a conductive magnetic flux tube"
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-           273.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
+        final T=273.15);
 
+      parameter Boolean useConductance = false
+        "Use conductance instead of geometry data and rho"
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+      parameter Modelica.SIunits.Conductance G(min=0) = 1/0.098e-6
+        "Equivalent loss conductance G=A/rho/l"
+        annotation(Dialog(enable=useConductance),Evaluate=true);
       parameter SI.Resistivity rho=0.098e-6
-        "Resistivity of flux tube material (default: Iron at 20degC)";
-      parameter SI.Length l=1 "Average length of eddy current path";
-      parameter SI.Area A=1 "Cross sectional area of eddy current path";
+        "Resistivity of flux tube material (default: Iron at 20degC)"
+        annotation(Dialog(enable=not useConductance));
+      parameter SI.Length l=1 "Average length of eddy current path"
+        annotation(Dialog(enable=not useConductance));
+      parameter SI.Area A=1 "Cross sectional area of eddy current path"
+        annotation(Dialog(enable=not useConductance));
 
       final parameter SI.Resistance R=rho*l/A
-        "Electrical resistance of eddy current path";
+        "Electrical resistance of eddy current path"
+        annotation(Dialog(enable=not useConductance));
 
     equation
       LossPower = V_m*der(Phi);
-      V_m = 1/R*der(Phi);
+      V_m =(if useConductance then G else 1/R) * der(Phi);
       //Magnetic voltage drop in magnetic network due to eddy current
       annotation (Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -2832,9 +2948,150 @@ Eddy currents are induced in a conductive magnetic flux tube when the flux chang
 <p>
 Partitioning of a solid conductive cylinder or prism into several hollow cylinders or separate nested prisms and modelling of each of these flux tubes connected in parallel with a series connection of a reluctance element and an eddy current component can model the delayed buildup of the magnetic field in the complete flux tube from the outer to the inner sections. Please refer to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ka08]</a> for an illustration.
 </p>
-</html>"));
+</html>",     revisions="<html>
+<h5>Version 3.2.2, 2014-01-15 (Christian&nbsp;Kral)</h5>
+<ul>
+<li>Added parameter <code>useConductance</code> including alternative parameterization</li>
+</ul>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end EddyCurrent;
 
+    model Idle "Idle running branch"
+      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+    equation
+      Phi = 0;
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{0,60},{0,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Rectangle(
+              extent={{-100,40},{100,-40}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-100,0},{-40,0}}, color={255,128,0}),
+            Line(points={{40,0},{100,0}}, color={255,128,0})}),
+        Documentation(info="<html>
+<p>
+This is a simple idle running branch.
+</p>
+
+
+</html>", revisions="<html>
+<h5>Version 3.2.2, 2014-01-15 (Christian Kral)</h5>
+<ul>
+<li>Added idle model</li>
+</ul>
+
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={Line(points={{-100,0},{-60,0}}, color={
+              255,128,0}),Line(points={{60,0},{100,0}}, color={255,128,0}),Line(
+              points={{-60,0},{-40,2},{-18,6},{0,14},{12,26}}, color={255,128,0}),
+              Line(points={{60,0},{40,-2},{18,-6},{0,-14},{-12,-26}}, color={
+              255,128,0})}));
+    end Idle;
+
+    model Short "Short cut branch"
+      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+    equation
+      connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
+              100,0}}, color={255,128,0}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{0,60},{0,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Rectangle(
+              extent={{-100,40},{100,-40}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-100,0},{100,0}}, color={255,128,0})}), Documentation(
+            info="<html>
+<p>
+This is a simple short cut branch.
+</p>
+
+</html>",     revisions="<html>
+<h5>Version 3.2.2, 2014-01-15 (Christian Kral)</h5>
+<ul>
+<li>Added short model</li>
+</ul>
+
+</html>"));
+    end Short;
+
+    model Crossing "Crossing of two branches"
+
+      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p1
+        "Positive port_p1 connected with port_p2"
+        annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p2
+        "Positive port_p2 connected with port_p1"
+        annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n1
+        "Negative port_n1 connected with port_n2"
+        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n2
+        "Negative port_n2 connected with port_n1"
+        annotation (Placement(transformation(extent={{90,90},{110,110}})));
+
+    equation
+      connect(port_p1, port_p2) annotation (Line(
+          points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}},
+          color={255,128,0},
+          smooth=Smooth.None));
+      connect(port_n1, port_n2) annotation (Line(
+          points={{-100,-100},{-100,0},{100,0},{100,100}},
+          color={255,128,0},
+          smooth=Smooth.None));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{0,60},{0,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Rectangle(
+              extent={{-100,40},{100,-40}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+          Line(
+              points={{100,100},{100,40},{-100,-40},{-100,-100}},
+              color={255,128,0},
+              smooth=Smooth.None),
+          Line(
+              points={{-100,100},{-100,40},{100,-40},{100,-100}},
+              color={255,128,0},
+              smooth=Smooth.None)}),                              Documentation(
+            info="<html>
+<p>
+This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>
+</p>
+
+</html>", revisions="<html>
+<h5>Version 3.2.2, 2014-01-15 (Christian Kral)</h5>
+<ul>
+<li>Added crossing model</li>
+</ul>
+
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
+    end Crossing;
   end Basic;
 
   package Shapes
@@ -2844,6 +3101,57 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
     package FixedShape
       "Flux tubes with fixed shape during simulation and linear or non-linear material characteristics"
       extends Modelica.Icons.VariantsPackage;
+
+      model GenericFluxTube
+        "Flux tube with fixed cross-section and length; linear or non-linear material characteristics"
+
+        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
+
+        parameter SI.Length l=0.01 "Length in direction of flux"
+          annotation(Dialog(group="Fixed geometry", groupImage=
+            "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/GenericFluxTube.png"));
+        parameter SI.CrossSection area=0.0001 "Area of cross section"
+          annotation (Dialog(group="Fixed geometry"));
+      equation
+        A=area;
+        G_m = (mu_0*mu_r*A)/l;
+
+        annotation (Documentation(info="<html>
+<p>
+Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
+</html>", revisions="<html>
+<h5>Version 3.2.2, 2014-01-15 (Christian&nbsp;Kral)</h5>
+<ul>
+<li>Added GenericFluxTube</li>
+</ul>
+
+</html>"));
+      end GenericFluxTube;
+
+      model Cuboid
+        "Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics"
+
+        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
+
+        parameter SI.Length l=0.01 "Length in direction of flux" annotation (
+            Dialog(group="Fixed geometry", groupImage=
+                "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidParallelFlux.png"));
+        parameter SI.Length a=0.01 "Width of rectangular cross-section"
+          annotation (Dialog(group="Fixed geometry"));
+        parameter SI.Length b=0.01 "Height of rectangular cross-section"
+          annotation (Dialog(group="Fixed geometry"));
+
+      equation
+        A = a*b;
+        G_m = (mu_0*mu_r*A)/l;
+
+        annotation (Documentation(info="<html>
+<p>
+Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
+</html>"));
+      end Cuboid;
 
       model HollowCylinderAxialFlux
         "(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics"
@@ -2908,29 +3216,6 @@ For those flux tube sections of a magnetic device that have a nonlinear material
 </html>"));
       end HollowCylinderRadialFlux;
 
-      model Cuboid
-        "Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics"
-
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
-
-        parameter SI.Length l=0.01 "Length in direction of flux" annotation (
-            Dialog(group="Fixed geometry", groupImage=
-                "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidParallelFlux.png"));
-        parameter SI.Length a=0.01 "Width of rectangular cross-section"
-          annotation (Dialog(group="Fixed geometry"));
-        parameter SI.Length b=0.01 "Height of rectangular cross-section"
-          annotation (Dialog(group="Fixed geometry"));
-
-      equation
-        A = a*b;
-        G_m = (mu_0*mu_r*A)/l;
-
-        annotation (Documentation(info="<html>
-<p>
-Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
-</p>
-</html>"));
-      end Cuboid;
 
       annotation (Documentation(info="<html>
 <p>
@@ -4467,42 +4752,9 @@ Copyright &copy; 2005-2013, Modelica Association and Thomas B&ouml;drich.
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>", revisions="<html>
-<table border=1>
-
-<thead>
-<tr><td>Version</td> <td>Date</td>  <td>Author(s)</td> <td>Comments</td></tr>
-</thead>
-
-<tbody>
-<tr><td>1.5</td>  <td>2013-01-04</td>
-    <td>Martin&nbsp;Otter<br>Thomas&nbsp;B&ouml;drich<br>Johannes&nbsp;Ziske</td> <td>Added missing initial conditions<br>
-        Fixed initial parameter values</td> </tr>
-<tr><td>1.4</td>  <td>2011-08-01</td>
-    <td>Thomas&nbsp;B&ouml;drich</td> <td>MagneticPort declared with MagneticPotential instead of MagneticPotentialDifference</td> </tr>
-<tr><td>1.3</td>  <td>2010-04-22</td>
-    <td>Christian&nbsp;Kral</td> <td>Added conditional heat port to EddyCurrent model</td> </tr>
-<tr><td>1.2</td>  <td>2009-08-11</td>
-    <td>Christian&nbsp;Kral<br>
-        Anton&nbsp;Haumer<br>
-        Thomas&nbsp;B&ouml;drich&nbsp;<br>
-        Martin&nbsp;Otter</td> <td>Update and improvement for inclusion in the
-        Modelica Standard Library.</td> </tr>
-<tr><td>1.1</td>  <td>2009-05-19</td>  <td>Thomas B&ouml;drich </td>
-    <td> Coupling coefficient in Basic.ElectroMagneticConverter Removed.<br>
-         Basic.EddyCurrent added .<br>
-         Example MovingCoilActuator, especially PermeanceModel, completely revised. <br>
-         Leakage coefficient replaced by coupling coefficient in Basic.LeakageWithCoefficient. <br>
-         Utilities.CoilDesign: parameter U renamed to V_op,CoilDesign moved to Utilities.<br>
-         Reference direction for magnetic flux added in all sources.<br>
-         degC replaced by K for compatibility with Modelica 3.0.<br>
-         redeclare in Sensors for compatibility with Modelica 3.0 removed.<br>
-         Partial flux tube components moved to Interfaces and basic elements moved to new package Basic. </td> </tr>
-<tr><td>1.0</td>  <td>2007-10-11</td>  <td>Thomas B&ouml;drich </td> <td>Release of version 1.0 of the library </td> </tr>
-<tr><td></td>     <td>2005</td>        <td>Thomas B&ouml;drich </td> <td>First release of a Modelica magnetic library</td> </tr>
-</tbody>
-
-</table>
-
+<p>
+See <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.ReleaseNotes\">release notes</a>
+</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     Polygon(
       origin={-3.75,0.0},
