@@ -199,6 +199,92 @@ The initial equations are consistent however and a tool shall reduce them approp
         experiment(StopTime=4));
     end DynamicPipeInitialValues;
 
+    model DynamicPipesSeriesSteadyStateInitial
+      "Two series-connected pipes with steady-state initial condition, overedetermined initialization due to pressure states at the ports"
+      extends Modelica.Icons.Example;
+
+      Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
+        redeclare package Medium = Modelica.Media.Water.StandardWater,
+        use_T=false,
+        h=2.5e6,
+        p=system.p_start)
+        annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
+      Modelica.Fluid.Pipes.DynamicPipe pipe1(
+        redeclare package Medium = Modelica.Media.Water.StandardWater,
+        length=200,
+        use_T_start=false,
+        nNodes=5,
+        modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb,
+        h_start=2.5e6,
+        diameter=0.01)
+        annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+      Modelica.Fluid.Valves.ValveCompressible valve(
+        redeclare package Medium = Modelica.Media.Water.StandardWater,
+        m_flow_nominal=10,
+        rho_nominal=60,
+        CvData=Modelica.Fluid.Types.CvTypes.Av,
+        Av=0.05^2/4*Modelica.Constants.pi,
+        dp_nominal=100000,
+        p_nominal=10000000)
+        annotation (Placement(transformation(extent={{26,-10},{46,10}})));
+      Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1,redeclare package
+          Medium =
+            Modelica.Media.Water.StandardWaterOnePhase, p=9500000)
+                  annotation (Placement(transformation(extent={{86,-10},{66,10}})));
+      Modelica.Blocks.Sources.Ramp ramp(
+        offset=1,
+        startTime=2,
+        duration=0,
+        height=-0.8)
+                  annotation (Placement(transformation(extent={{72,30},{52,50}})));
+      inner Modelica.Fluid.System system(
+        use_eps_Re=true,
+        energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
+        p_start=10000000)
+        annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
+      Modelica.Fluid.Pipes.DynamicPipe pipe2(
+        redeclare package Medium = Modelica.Media.Water.StandardWater,
+        length=200,
+        use_T_start=false,
+        nNodes=5,
+        modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb,
+        h_start=2.5e6,
+        diameter=0.01)
+        annotation (Placement(transformation(extent={{-14,-10},{6,10}})));
+    equation
+      connect(source.ports[1], pipe1.port_a) annotation (Line(
+          points={{-70,0},{-50,0}},
+          color={0,127,255},
+          smooth=Smooth.None));
+      connect(valve.port_b,sink. ports[1])                          annotation (Line(
+          points={{46,0},{66,0}},
+          color={0,127,255},
+          smooth=Smooth.None));
+      connect(ramp.y,valve. opening)               annotation (Line(
+          points={{51,40},{36,40},{36,8}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(pipe1.port_b, pipe2.port_a) annotation (Line(
+          points={{-30,0},{-14,0}},
+          color={0,127,255},
+          smooth=Smooth.None));
+      connect(pipe2.port_b, valve.port_a) annotation (Line(
+          points={{6,0},{26,0}},
+          color={0,127,255},
+          smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics));
+    end DynamicPipesSeriesSteadyStateInitial;
+
+    model DynamicPipesSeriesLargeNSteadyStateInitial
+      "Same as DynamicPipesSeriesSteadyStateInitial but with larger number of nodes"
+       extends DynamicPipesSeriesSteadyStateInitial(
+         pipe1(nNodes = 50),
+         pipe2(nNodes = 50));
+    equation
+
+    end DynamicPipesSeriesLargeNSteadyStateInitial;
+
     model TwoVolumesEquationsReducedInitial
       "Initial values only for state variables after index reduction"
       extends Modelica.Icons.Example;
