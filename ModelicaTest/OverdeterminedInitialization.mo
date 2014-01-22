@@ -289,7 +289,7 @@ The initial equations are consistent however and a tool shall reduce them approp
       annotation(experiment(StopTime=1.0));
     end TwoVolumesFullInitialInconsistent;
 
-    model TwoVolumesFullSteadyState
+    model TwoVolumesFullSteadyStatePressureAndTemperature
       "Fully specified steady-state conditions for all dynamic variables"
       extends Modelica.Icons.Example;
       extends BaseClasses.TwoVolumes(
@@ -297,7 +297,7 @@ The initial equations are consistent however and a tool shall reduce them approp
         V1(p_start=100000, T_start(displayUnit="K") = 300),
         V2(p_start=100000, T_start=623.15));
       annotation(experiment(StopTime=1.0));
-    end TwoVolumesFullSteadyState;
+    end TwoVolumesFullSteadyStatePressureAndTemperature;
 
     package BaseClasses "Base classes for test models"
       extends Modelica.Icons.BasesPackage;
