@@ -371,7 +371,7 @@ The initial equations are consistent however and a tool shall reduce them approp
       extends BaseClasses.TwoVolumes(
         system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial),
         V1(p_start=100000, T_start(displayUnit="K") = 300),
-        V2(p_start=100000, T_start=623.15));
+        V2(p_start=200000, T_start=623.15));
       annotation(experiment(StopTime=1.0));
     end TwoVolumesFullInitialInconsistent;
 
@@ -379,7 +379,7 @@ The initial equations are consistent however and a tool shall reduce them approp
       "Fully specified steady-state conditions for all dynamic variables"
       extends Modelica.Icons.Example;
       extends BaseClasses.TwoVolumes(
-        system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial),
+        system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial),
         V1(p_start=100000, T_start(displayUnit="K") = 300),
         V2(p_start=100000, T_start=623.15));
       annotation(experiment(StopTime=1.0));
