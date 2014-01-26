@@ -517,7 +517,7 @@ ideal AC DC converter</a>, which is used in the
     <tr>
       <td valign=\"top\">Library officer</td>
       <td valign=\"top\">
-      <a href=\"mailto:a.haumer@haumer.at\">A. Haumer</a>
+      <a href=\"mailto:a.haumer@haumer.at\">Anton Haumer</a>
       </td>
       <td valign=\"top\">
         <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
@@ -528,11 +528,11 @@ ideal AC DC converter</a>, which is used in the
     <tr>
       <td valign=\"top\">Library officer</td>
       <td valign=\"top\">
-        <a href=\"mailto:dr.christian.kral@gmail.com\">C. Kral</a>
+        <a href=\"mailto:dr.christian.kral@gmail.com\">Christian Kral</a>
       </td>
       <td valign=\"top\">
-        <a href=\"http://www.ait.ac.at\">AIT Austrian Institute of Technology GmbH</a>, Mobility Department<br>
-        1210 Vienna<br>
+        <a href=\"http://christiankral.net\">Electric Machines, Drives and Systems</a><br>
+        1060 Vienna<br>
         Austria
       </td>
     </tr>

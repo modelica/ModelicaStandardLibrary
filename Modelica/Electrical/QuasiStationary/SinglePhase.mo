@@ -1048,16 +1048,16 @@ singularities due to the actual structure of the connected network.
     annotation (Icon(
       graphics={
         Line(
-          origin = {10,40},
-          points = {{-100,-40},{-80,-40}}),
+          origin=  {10,40},
+          points=  {{-100,-40},{-80,-40}}),
         Line(
-          origin = {10,40},
-          points = {{60,-40},{80,-40}}),
+          origin=  {10,40},
+          points=  {{60,-40},{80,-40}}),
         Rectangle(
-          lineColor = {0,0,255},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-70,-30},{70,30}})},
+          lineColor=  {0,0,255},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-70,-30},{70,30}})},
       coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
@@ -1681,11 +1681,11 @@ where <code>n</code> is a real number called the turns ratio.
 </html>"));
     end IdealTransformer;
     annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics={
-                Line(origin = {10,34}, points = {{-100,-60},{-54,-60}}),
-                Ellipse(origin = {10,34}, extent = {{-54,-64},{-46,-56}}),
-                Line(origin = {10,34}, points = {{-47,-58},{30,-10}}),
-                Line(origin = {10,34}, points = {{30,-40},{30,-60}}),
-                Line(origin = {10,34}, points = {{30,-60},{80,-60}})}), Documentation(info="<html>
+                Line(origin=  {10,34}, points=  {{-100,-60},{-54,-60}}),
+                Ellipse(origin=  {10,34}, extent=  {{-54,-64},{-46,-56}}),
+                Line(origin=  {10,34}, points=  {{-47,-58},{30,-10}}),
+                Line(origin=  {10,34}, points=  {{30,-40},{30,-60}}),
+                Line(origin=  {10,34}, points=  {{30,-60},{80,-60}})}), Documentation(info="<html>
 <p>This package hosts ideal models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.

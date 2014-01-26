@@ -968,9 +968,11 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
     <dd>D-82230 Wessling</dd>
     <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 <dt>Christian Kral</dt>
-    <dd><a href=\"http://christiankral.net/\">Modeling and Simulation of Electric Machines, Drives and Mechatronic Systems</a></dd>
+
+    <dd>  <a href=\"http://christiankral.net/\">Electric Machines, Drives and Systems</a><br>
+</dd>
     <dd>1060 Vienna, Austria</dd>
-    <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a> or <a href=\"mailto:mail@christiankral.net\">mail@christiankral.net</a></dd>
+    <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a></dd>
 <dt>Johan Andreasson</dt>
     <dd><a href=\"http://www.modelon.se/\">Modelon AB</a></dd>
     <dd>Ideon Science Park</dd>
