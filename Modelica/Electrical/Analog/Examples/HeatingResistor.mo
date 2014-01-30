@@ -47,8 +47,8 @@ equation
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-94,102},{0,74}},
-          textString="HeatingRectifier",
-          lineColor={0,0,255})}),
+          lineColor={0,0,255},
+          textString="HeatingResistor")}),
                                 Documentation(info="<html>
 <p>This is a very simple circuit consisting of a voltage source and a resistor. The loss power in the resistor is transported to the environment via its heatPort.</p>
 </html>"), experiment(StopTime=5));
