@@ -1833,7 +1833,6 @@ RC 3 4 1K<br/>
       connect(Q5.B, n8);
       connect(Q5.E, n0);
 
-      annotation (experiment(StopTime=0, Interval=0));
     end NAND;
 
     model ONEBIT ".SUBCKT ONEBIT 1 2 3 4 5 6"
@@ -1917,7 +1916,6 @@ RC 3 4 1K<br/>
       connect(X9.p3, n5);
       connect(X9.p4, n6);
 
-      annotation (experiment(StopTime=0, Interval=0));
     end ONEBIT;
 
     model TWOBIT ".SUBCKT TWOBIT 1 2 3 4 5 6 7 8 9"
@@ -1974,7 +1972,6 @@ RC 3 4 1K<br/>
       connect(X2.p5, n8);
       connect(X2.p6, n9);
 
-      annotation (experiment(StopTime=0, Interval=0));
     end TWOBIT;
 
     model FOURBIT ".SUBCKT FOURBIT 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
@@ -2055,7 +2052,6 @@ RC 3 4 1K<br/>
       connect(X2.p8, n14);
       connect(X2.p9, n15);
 
-      annotation (experiment(StopTime=0, Interval=0));
     end FOURBIT;
 
       // *** DEFINE NOMINAL CIRCUIT
@@ -2339,17 +2335,30 @@ RC 3 4 1K<br/>
       annotation (experiment(StopTime=1e-006, Interval=1e-009),
         Documentation(info="<html>
 <p>This Four Bit Binary Adder model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
-<p>The model adds two 4-bit numbers. It has eight inputs where the first one is the lowest-order bit of the first number, the second is the lowest-order bit of the second number, the third one is the second-order bit of
-first number and so on. The Four Bit Binary Adder has four outputs where the first one (node 9) is the lowest-order bit, the second and the third one (node 10 and node 11) are the next two bits and the last one (node 12) is the highest-order bit. The picture illustrates the pin-assignment referring to line 41 and 42 in the SPICE3 source code.</p>
+<p>The model adds two 4-bit numbers (Number A and Number B). It has eight inputs where the first one is the lowest-order bit of the first number (Number A Bit0), the second is the lowest-order bit of the second number (Number B Bit0), the third one is the second-order bit of the first number (Number A Bit1) and so on. The Four Bit Binary Adder has four outputs where the first one (Sum Bit0) is the lowest-order bit, the second and the third one (Sum Bit1 and Sum Bit2) are the next two bits and the last one (Sum Bit3) is the highest-order bit. The picture illustrates the pin-assignment.</p>
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Spice3/FourBitBinaryAdder.jpg\"
      alt=\"segment.png\">
 </blockquote>
 
-
+<p>Inside the model the names of the inputs refer to the names in the picture as follows:</p>
+<p>X1_p1_v --> Number A Bit0</p>
+<p>X1_p2_v --> Number B Bit0</p>
+<p>X1_p3_v --> Number A Bit1</p>
+<p>X1_p4_v --> Number B Bit1</p>
+<p>X1_p5_v --> Number A Bit2</p>
+<p>X1_p6_v --> Number B Bit2</p>
+<p>X1_p7_v --> Number A Bit3</p>
+<p>X1_p8_v --> Number B Bit3</p>
+<p>X1_p9_v --> Sum Bit0</p>
+<p>X1_p10_v --> Sum Bit1</p>
+<p>X1_p11_v --> Sum Bit2</p>
+<p>X1_p12_v --> Sum Bit3</p>
+<p>X1_p14_v --> Cout</p>
 <p>The Four Bit Binary Adder is built out of two two bit adders which respectively are built out of two one bit adders. One one bit adder is build out of nine NAND circuits. </p>
 <p>Please note, that the simulation time of the Four Bit Binary Adder can take several hours due to its immense size (e.g. 11387 equations).</p>
-<p>The user is recommended to simulate from t=0 to t=1e-6s and observe the eight inputs (X1.p1.v, ..., X1.p8.v) and the four outputs (X1.p9.v, ..., X1.p12.v) and the carryout output (X1.p14.v).</p>
+<p>The user is recommended to simulate from t=0 to t=1e-6s and observe the eight inputs (X1_p1_v, ..., X1_p8_v) and the four outputs (X1_p9_v, ..., X1_p12_v) and the carryout output (X1_p14_v).</p>
+<p><b>The timing of the single transistors of the adder causes a delay which makes it hard to recognize the adder behaviour. Since the Four Bit Binary Adder is a SPICE3 benchmark, the circuit is not changed in order to see the adder behaviour in a better way.</b></p>
 <p>Original SPICE3 netlist of the Four Bit Binary Adder:</p>
 <pre>
 ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER
