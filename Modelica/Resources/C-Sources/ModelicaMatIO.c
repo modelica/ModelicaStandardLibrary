@@ -144,7 +144,7 @@
 #undef HAVE_VASPRINTF
 
 /* Have va_copy */
-#if defined(__GNUC__)
+#if defined(__GNUC__) && __STDC_VERSION__ >= 199901L
 #define HAVE_VA_COPY 1
 #elif defined(__WATCOMC__)
 #define HAVE_VA_COPY 1
@@ -155,7 +155,7 @@
 /* Have vsnprintf */
 #if defined(_MSC_VER) && _MSC_VER >= 1400
 #define HAVE_VSNPRINTF 1
-#if !defined(HAVE_C99_VSNPRINTF)
+#if !defined(HAVE_C99_VSNPRINTF) && __STDC_VERSION__ >= 199901L
 #define HAVE_C99_VSNPRINTF 1
 #endif
 #else
@@ -163,7 +163,7 @@
 #endif
 
 /* Have __va_copy */
-#if defined(__GNUC__)
+#if defined(__GNUC__) && __STDC_VERSION__ >= 199901L
 #define HAVE___VA_COPY 1
 #elif defined(__WATCOMC__)
 #define HAVE___VA_COPY 1
@@ -1519,7 +1519,7 @@ strdup_printf(const char* format, ...)
  * @param format format string identical to printf format
  * @param ... arguments to the format string
  */
-void Mat_Critical( const char *format, ... )
+void Mat_Critical(const char *format, ... )
 {
     char* buffer;
     va_list ap;
@@ -1538,7 +1538,7 @@ void Mat_Critical( const char *format, ... )
  * @param ... arguments to the format string
  */
 void
-Mat_Warning( const char *format, ... )
+Mat_Warning(const char *format, ... )
 {
     char* buffer;
     va_list ap;
@@ -5373,7 +5373,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -5460,7 +5460,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -5548,7 +5548,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -5637,7 +5637,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -5725,7 +5725,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -5812,7 +5812,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -5899,7 +5899,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -5986,7 +5986,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -6073,7 +6073,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -6160,7 +6160,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -6289,7 +6289,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -6385,7 +6385,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -6477,7 +6477,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -6570,7 +6570,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -6662,7 +6662,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -6753,7 +6753,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -6844,7 +6844,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -6935,7 +6935,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -7026,7 +7026,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -7117,7 +7117,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             for ( i = 1; i < rank; i++ ) {
                 inc[i]  = stride[i]-1;
                 dimp[i] = dims[i-1];
-                for ( j = i ; j--; ) {
+                for ( j = i; j--; ) {
                     inc[i]  *= dims[j];
                     dimp[i] *= dims[j+1];
                 }
@@ -8230,7 +8230,7 @@ ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
 /* yes this really must be a ||. Don't muck with this (tridge) */
 #if !defined(HAVE_VSNPRINTF) || !defined(HAVE_C99_VSNPRINTF)
 static size_t dopr(char *buffer, size_t maxlen, const char *format,
-                   va_list args_in);
+                    va_list args_in);
 static void fmtstr(char *buffer, size_t *currlen, size_t maxlen,
                     char *value, int flags, int min, int max);
 static void fmtint(char *buffer, size_t *currlen, size_t maxlen,
@@ -8241,301 +8241,301 @@ static void dopr_outch(char *buffer, size_t *currlen, size_t maxlen, char c);
 
 static size_t dopr(char *buffer, size_t maxlen, const char *format, va_list args_in)
 {
-        char ch;
-        LLONG value;
-        LDOUBLE fvalue;
-        char *strvalue;
-        int min;
-        int max;
-        int state;
-        int flags;
-        int cflags;
-        size_t currlen;
-        va_list args;
+    char ch;
+    LLONG value;
+    LDOUBLE fvalue;
+    char *strvalue;
+    int min;
+    int max;
+    int state;
+    int flags;
+    int cflags;
+    size_t currlen;
+    va_list args;
 
-        VA_COPY(args, args_in);
+    VA_COPY(args, args_in);
 
-        state = DP_S_DEFAULT;
-        currlen = flags = cflags = min = 0;
-        max = -1;
-        ch = *format++;
+    state = DP_S_DEFAULT;
+    currlen = flags = cflags = min = 0;
+    max = -1;
+    ch = *format++;
 
-        while (state != DP_S_DONE) {
-                if (ch == '\0')
-                        state = DP_S_DONE;
+    while (state != DP_S_DONE) {
+        if (ch == '\0')
+            state = DP_S_DONE;
 
-                switch(state) {
-                case DP_S_DEFAULT:
-                        if (ch == '%')
-                                state = DP_S_FLAGS;
-                        else
-                                dopr_outch (buffer, &currlen, maxlen, ch);
-                        ch = *format++;
-                        break;
-                case DP_S_FLAGS:
-                        switch (ch) {
-                        case '-':
-                                flags |= DP_F_MINUS;
-                                ch = *format++;
-                                break;
-                        case '+':
-                                flags |= DP_F_PLUS;
-                                ch = *format++;
-                                break;
-                        case ' ':
-                                flags |= DP_F_SPACE;
-                                ch = *format++;
-                                break;
-                        case '#':
-                                flags |= DP_F_NUM;
-                                ch = *format++;
-                                break;
-                        case '0':
-                                flags |= DP_F_ZERO;
-                                ch = *format++;
-                                break;
-                        default:
-                                state = DP_S_MIN;
-                                break;
-                        }
-                        break;
-                case DP_S_MIN:
-                        if (isdigit((unsigned char)ch)) {
-                                min = 10*min + char_to_int (ch);
-                                ch = *format++;
-                        } else if (ch == '*') {
-                                min = va_arg (args, int);
-                                ch = *format++;
-                                state = DP_S_DOT;
-                        } else {
-                                state = DP_S_DOT;
-                        }
-                        break;
-                case DP_S_DOT:
-                        if (ch == '.') {
-                                state = DP_S_MAX;
-                                ch = *format++;
-                        } else {
-                                state = DP_S_MOD;
-                        }
-                        break;
-                case DP_S_MAX:
-                        if (isdigit((unsigned char)ch)) {
-                                if (max < 0)
-                                        max = 0;
-                                max = 10*max + char_to_int (ch);
-                                ch = *format++;
-                        } else if (ch == '*') {
-                                max = va_arg (args, int);
-                                ch = *format++;
-                                state = DP_S_MOD;
-                        } else {
-                                state = DP_S_MOD;
-                        }
-                        break;
-                case DP_S_MOD:
-                        switch (ch) {
-                        case 'h':
-                                cflags = DP_C_SHORT;
-                                ch = *format++;
-                                break;
-                        case 'l':
-                                cflags = DP_C_LONG;
-                                ch = *format++;
-                                if (ch == 'l') {        /* It's a long long */
-                                        cflags = DP_C_LLONG;
-                                        ch = *format++;
-                                }
-                                break;
-                        case 'L':
-                                cflags = DP_C_LDOUBLE;
-                                ch = *format++;
-                                break;
-                        default:
-                                break;
-                        }
-                        state = DP_S_CONV;
-                        break;
-                case DP_S_CONV:
-                        switch (ch) {
-                        case 'd':
-                        case 'i':
-                                if (cflags == DP_C_SHORT)
-                                        value = va_arg (args, int);
-                                else if (cflags == DP_C_LONG)
-                                        value = va_arg (args, long int);
-                                else if (cflags == DP_C_LLONG)
-                                        value = va_arg (args, LLONG);
-                                else
-                                        value = va_arg (args, int);
-                                fmtint (buffer, &currlen, maxlen, value, 10, min, max, flags);
-                                break;
-                        case 'o':
-                                flags |= DP_F_UNSIGNED;
-                                if (cflags == DP_C_SHORT)
-                                        value = va_arg (args, unsigned int);
-                                else if (cflags == DP_C_LONG)
-                                        value = (long)va_arg (args, unsigned long int);
-                                else if (cflags == DP_C_LLONG)
-                                        value = (long)va_arg (args, unsigned LLONG);
-                                else
-                                        value = (long)va_arg (args, unsigned int);
-                                fmtint (buffer, &currlen, maxlen, value, 8, min, max, flags);
-                                break;
-                        case 'u':
-                                flags |= DP_F_UNSIGNED;
-                                if (cflags == DP_C_SHORT)
-                                        value = va_arg (args, unsigned int);
-                                else if (cflags == DP_C_LONG)
-                                        value = (long)va_arg (args, unsigned long int);
-                                else if (cflags == DP_C_LLONG)
-                                        value = (LLONG)va_arg (args, unsigned LLONG);
-                                else
-                                        value = (long)va_arg (args, unsigned int);
-                                fmtint (buffer, &currlen, maxlen, value, 10, min, max, flags);
-                                break;
-                        case 'X':
-                                flags |= DP_F_UP;
-                        case 'x':
-                                flags |= DP_F_UNSIGNED;
-                                if (cflags == DP_C_SHORT)
-                                        value = va_arg (args, unsigned int);
-                                else if (cflags == DP_C_LONG)
-                                        value = (long)va_arg (args, unsigned long int);
-                                else if (cflags == DP_C_LLONG)
-                                        value = (LLONG)va_arg (args, unsigned LLONG);
-                                else
-                                        value = (long)va_arg (args, unsigned int);
-                                fmtint (buffer, &currlen, maxlen, value, 16, min, max, flags);
-                                break;
-                        case 'f':
-                                if (cflags == DP_C_LDOUBLE)
-                                        fvalue = va_arg (args, LDOUBLE);
-                                else
-                                        fvalue = va_arg (args, double);
-                                /* um, floating point? */
-                                fmtfp (buffer, &currlen, maxlen, fvalue, min, max, flags);
-                                break;
-                        case 'E':
-                                flags |= DP_F_UP;
-                        case 'e':
-                                if (cflags == DP_C_LDOUBLE)
-                                        fvalue = va_arg (args, LDOUBLE);
-                                else
-                                        fvalue = va_arg (args, double);
-                                fmtfp (buffer, &currlen, maxlen, fvalue, min, max, flags);
-                                break;
-                        case 'G':
-                                flags |= DP_F_UP;
-                        case 'g':
-                                if (cflags == DP_C_LDOUBLE)
-                                        fvalue = va_arg (args, LDOUBLE);
-                                else
-                                        fvalue = va_arg (args, double);
-                                fmtfp (buffer, &currlen, maxlen, fvalue, min, max, flags);
-                                break;
-                        case 'c':
-                                dopr_outch (buffer, &currlen, maxlen, (char)va_arg (args, int));
-                                break;
-                        case 's':
-                                strvalue = va_arg (args, char *);
-                                if (!strvalue) strvalue = "(NULL)";
-                                if (max == -1) {
-                                        max = strlen(strvalue);
-                                }
-                                if (min > 0 && max >= 0 && min > max) max = min;
-                                fmtstr (buffer, &currlen, maxlen, strvalue, flags, min, max);
-                                break;
-                        case 'p':
-                                strvalue = va_arg (args, void *);
-                                fmtint (buffer, &currlen, maxlen, (long) strvalue, 16, min, max, flags);
-                                break;
-                        case 'n':
-                                if (cflags == DP_C_SHORT) {
-                                        short int *num;
-                                        num = va_arg (args, short int *);
-                                        *num = currlen;
-                                } else if (cflags == DP_C_LONG) {
-                                        long int *num;
-                                        num = va_arg (args, long int *);
-                                        *num = (long int)currlen;
-                                } else if (cflags == DP_C_LLONG) {
-                                        LLONG *num;
-                                        num = va_arg (args, LLONG *);
-                                        *num = (LLONG)currlen;
-                                } else {
-                                        int *num;
-                                        num = va_arg (args, int *);
-                                        *num = currlen;
-                                }
-                                break;
-                        case '%':
-                                dopr_outch (buffer, &currlen, maxlen, ch);
-                                break;
-                        case 'w':
-                                /* not supported yet, treat as next char */
-                                ch = *format++;
-                                break;
-                        default:
-                                /* Unknown, skip */
-                                break;
-                        }
-                        ch = *format++;
-                        state = DP_S_DEFAULT;
-                        flags = cflags = min = 0;
-                        max = -1;
-                        break;
-                case DP_S_DONE:
-                        break;
-                default:
-                        /* hmm? */
-                        break; /* some picky compilers need this */
+        switch(state) {
+        case DP_S_DEFAULT:
+            if (ch == '%')
+                state = DP_S_FLAGS;
+            else
+                dopr_outch (buffer, &currlen, maxlen, ch);
+            ch = *format++;
+            break;
+        case DP_S_FLAGS:
+            switch (ch) {
+            case '-':
+                flags |= DP_F_MINUS;
+                ch = *format++;
+                break;
+            case '+':
+                flags |= DP_F_PLUS;
+                ch = *format++;
+                break;
+            case ' ':
+                flags |= DP_F_SPACE;
+                ch = *format++;
+                break;
+            case '#':
+                flags |= DP_F_NUM;
+                ch = *format++;
+                break;
+            case '0':
+                flags |= DP_F_ZERO;
+                ch = *format++;
+                break;
+            default:
+                state = DP_S_MIN;
+                break;
+            }
+            break;
+        case DP_S_MIN:
+            if (isdigit((unsigned char)ch)) {
+                min = 10*min + char_to_int (ch);
+                ch = *format++;
+            } else if (ch == '*') {
+                min = va_arg (args, int);
+                ch = *format++;
+                state = DP_S_DOT;
+            } else {
+                state = DP_S_DOT;
+            }
+            break;
+        case DP_S_DOT:
+            if (ch == '.') {
+                state = DP_S_MAX;
+                ch = *format++;
+            } else {
+                state = DP_S_MOD;
+            }
+            break;
+        case DP_S_MAX:
+            if (isdigit((unsigned char)ch)) {
+                if (max < 0)
+                    max = 0;
+                max = 10*max + char_to_int (ch);
+                ch = *format++;
+            } else if (ch == '*') {
+                max = va_arg (args, int);
+                ch = *format++;
+                state = DP_S_MOD;
+            } else {
+                state = DP_S_MOD;
+            }
+            break;
+        case DP_S_MOD:
+            switch (ch) {
+            case 'h':
+                cflags = DP_C_SHORT;
+                ch = *format++;
+                break;
+            case 'l':
+                cflags = DP_C_LONG;
+                ch = *format++;
+                if (ch == 'l') {        /* It's a long long */
+                    cflags = DP_C_LLONG;
+                    ch = *format++;
                 }
+                break;
+            case 'L':
+                cflags = DP_C_LDOUBLE;
+                ch = *format++;
+                break;
+            default:
+                break;
+            }
+            state = DP_S_CONV;
+            break;
+        case DP_S_CONV:
+            switch (ch) {
+            case 'd':
+            case 'i':
+                if (cflags == DP_C_SHORT)
+                    value = va_arg (args, int);
+                else if (cflags == DP_C_LONG)
+                    value = va_arg (args, long int);
+                else if (cflags == DP_C_LLONG)
+                    value = va_arg (args, LLONG);
+                else
+                    value = va_arg (args, int);
+                fmtint (buffer, &currlen, maxlen, value, 10, min, max, flags);
+                break;
+            case 'o':
+                flags |= DP_F_UNSIGNED;
+                if (cflags == DP_C_SHORT)
+                    value = va_arg (args, unsigned int);
+                else if (cflags == DP_C_LONG)
+                    value = (long)va_arg (args, unsigned long int);
+                else if (cflags == DP_C_LLONG)
+                    value = (long)va_arg (args, unsigned LLONG);
+                else
+                    value = (long)va_arg (args, unsigned int);
+                fmtint (buffer, &currlen, maxlen, value, 8, min, max, flags);
+                break;
+            case 'u':
+                flags |= DP_F_UNSIGNED;
+                if (cflags == DP_C_SHORT)
+                    value = va_arg (args, unsigned int);
+                else if (cflags == DP_C_LONG)
+                    value = (long)va_arg (args, unsigned long int);
+                else if (cflags == DP_C_LLONG)
+                    value = (LLONG)va_arg (args, unsigned LLONG);
+                else
+                    value = (long)va_arg (args, unsigned int);
+                fmtint (buffer, &currlen, maxlen, value, 10, min, max, flags);
+                break;
+            case 'X':
+                flags |= DP_F_UP;
+            case 'x':
+                flags |= DP_F_UNSIGNED;
+                if (cflags == DP_C_SHORT)
+                    value = va_arg (args, unsigned int);
+                else if (cflags == DP_C_LONG)
+                    value = (long)va_arg (args, unsigned long int);
+                else if (cflags == DP_C_LLONG)
+                    value = (LLONG)va_arg (args, unsigned LLONG);
+                else
+                    value = (long)va_arg (args, unsigned int);
+                fmtint (buffer, &currlen, maxlen, value, 16, min, max, flags);
+                break;
+            case 'f':
+                if (cflags == DP_C_LDOUBLE)
+                    fvalue = va_arg (args, LDOUBLE);
+                else
+                    fvalue = va_arg (args, double);
+                /* um, floating point? */
+                fmtfp (buffer, &currlen, maxlen, fvalue, min, max, flags);
+                break;
+            case 'E':
+                flags |= DP_F_UP;
+            case 'e':
+                if (cflags == DP_C_LDOUBLE)
+                    fvalue = va_arg (args, LDOUBLE);
+                else
+                    fvalue = va_arg (args, double);
+                fmtfp (buffer, &currlen, maxlen, fvalue, min, max, flags);
+                break;
+            case 'G':
+                flags |= DP_F_UP;
+            case 'g':
+                if (cflags == DP_C_LDOUBLE)
+                    fvalue = va_arg (args, LDOUBLE);
+                else
+                    fvalue = va_arg (args, double);
+                fmtfp (buffer, &currlen, maxlen, fvalue, min, max, flags);
+                break;
+            case 'c':
+                dopr_outch (buffer, &currlen, maxlen, (char)va_arg (args, int));
+                break;
+            case 's':
+                strvalue = va_arg (args, char *);
+                if (!strvalue) strvalue = "(NULL)";
+                if (max == -1) {
+                    max = strlen(strvalue);
+                }
+                if (min > 0 && max >= 0 && min > max) max = min;
+                fmtstr (buffer, &currlen, maxlen, strvalue, flags, min, max);
+                break;
+            case 'p':
+                strvalue = va_arg (args, void *);
+                fmtint (buffer, &currlen, maxlen, (long) strvalue, 16, min, max, flags);
+                break;
+            case 'n':
+                if (cflags == DP_C_SHORT) {
+                    short int *num;
+                    num = va_arg (args, short int *);
+                    *num = currlen;
+                } else if (cflags == DP_C_LONG) {
+                    long int *num;
+                    num = va_arg (args, long int *);
+                    *num = (long int)currlen;
+                } else if (cflags == DP_C_LLONG) {
+                    LLONG *num;
+                    num = va_arg (args, LLONG *);
+                    *num = (LLONG)currlen;
+                } else {
+                    int *num;
+                    num = va_arg (args, int *);
+                    *num = currlen;
+                }
+                break;
+            case '%':
+                dopr_outch (buffer, &currlen, maxlen, ch);
+                break;
+            case 'w':
+                /* not supported yet, treat as next char */
+                ch = *format++;
+                break;
+            default:
+                /* Unknown, skip */
+                break;
+            }
+            ch = *format++;
+            state = DP_S_DEFAULT;
+            flags = cflags = min = 0;
+            max = -1;
+            break;
+        case DP_S_DONE:
+            break;
+        default:
+            /* hmm? */
+            break; /* some picky compilers need this */
         }
-        if (maxlen != 0) {
-                if (currlen < maxlen - 1)
-                        buffer[currlen] = '\0';
-                else if (maxlen > 0)
-                        buffer[maxlen - 1] = '\0';
-        }
+    }
+    if (maxlen != 0) {
+        if (currlen < maxlen - 1)
+            buffer[currlen] = '\0';
+        else if (maxlen > 0)
+            buffer[maxlen - 1] = '\0';
+    }
 
-        return currlen;
+    return currlen;
 }
 
 static void fmtstr(char *buffer, size_t *currlen, size_t maxlen,
                     char *value, int flags, int min, int max)
 {
-        int padlen, strln;     /* amount to pad */
-        int cnt = 0;
+    int padlen, strln;     /* amount to pad */
+    int cnt = 0;
 
 #ifdef DEBUG_SNPRINTF
-        printf("fmtstr min=%d max=%d s=[%s]\n", min, max, value);
+    printf("fmtstr min=%d max=%d s=[%s]\n", min, max, value);
 #endif
-        if (value == 0) {
-                value = "<NULL>";
-        }
+    if (value == 0) {
+        value = "<NULL>";
+    }
 
-        for (strln = 0; value[strln]; ++strln); /* strlen */
-        padlen = min - strln;
-        if (padlen < 0)
-                padlen = 0;
-        if (flags & DP_F_MINUS)
-                padlen = -padlen; /* Left Justify */
+    for (strln = 0; value[strln]; ++strln); /* strlen */
+    padlen = min - strln;
+    if (padlen < 0)
+        padlen = 0;
+    if (flags & DP_F_MINUS)
+        padlen = -padlen; /* Left Justify */
 
-        while ((padlen > 0) && (cnt < max)) {
-                dopr_outch (buffer, currlen, maxlen, ' ');
-                --padlen;
-                ++cnt;
-        }
-        while (*value && (cnt < max)) {
-                dopr_outch (buffer, currlen, maxlen, *value++);
-                ++cnt;
-        }
-        while ((padlen < 0) && (cnt < max)) {
-                dopr_outch (buffer, currlen, maxlen, ' ');
-                ++padlen;
-                ++cnt;
-        }
+    while ((padlen > 0) && (cnt < max)) {
+        dopr_outch (buffer, currlen, maxlen, ' ');
+        --padlen;
+        ++cnt;
+    }
+    while (*value && (cnt < max)) {
+        dopr_outch (buffer, currlen, maxlen, *value++);
+        ++cnt;
+    }
+    while ((padlen < 0) && (cnt < max)) {
+        dopr_outch (buffer, currlen, maxlen, ' ');
+        ++padlen;
+        ++cnt;
+    }
 }
 
 /* Have to handle DP_F_NUM (ie 0x and 0 alternates) */
@@ -8543,358 +8543,357 @@ static void fmtstr(char *buffer, size_t *currlen, size_t maxlen,
 static void fmtint(char *buffer, size_t *currlen, size_t maxlen,
                     long value, int base, int min, int max, int flags)
 {
-        int signvalue = 0;
-        unsigned long uvalue;
-        char convert[20];
-        int place = 0;
-        int spadlen = 0; /* amount to space pad */
-        int zpadlen = 0; /* amount to zero pad */
-        int caps = 0;
+    int signvalue = 0;
+    unsigned long uvalue;
+    char convert[20];
+    int place = 0;
+    int spadlen = 0; /* amount to space pad */
+    int zpadlen = 0; /* amount to zero pad */
+    int caps = 0;
 
-        if (max < 0)
-                max = 0;
+    if (max < 0)
+        max = 0;
 
-        uvalue = value;
+    uvalue = value;
 
-        if(!(flags & DP_F_UNSIGNED)) {
-                if( value < 0 ) {
-                        signvalue = '-';
-                        uvalue = -value;
-                } else {
-                        if (flags & DP_F_PLUS)  /* Do a sign (+/i) */
-                                signvalue = '+';
-                        else if (flags & DP_F_SPACE)
-                                signvalue = ' ';
-                }
+    if(!(flags & DP_F_UNSIGNED)) {
+        if( value < 0 ) {
+            signvalue = '-';
+            uvalue = -value;
+        } else {
+            if (flags & DP_F_PLUS)  /* Do a sign (+/i) */
+                signvalue = '+';
+            else if (flags & DP_F_SPACE)
+                signvalue = ' ';
         }
+    }
 
-        if (flags & DP_F_UP) caps = 1; /* Should characters be upper case? */
+    if (flags & DP_F_UP) caps = 1; /* Should characters be upper case? */
 
-        do {
-                convert[place++] =
-                        (caps? "0123456789ABCDEF":"0123456789abcdef")
-                        [uvalue % (unsigned)base  ];
-                uvalue = (uvalue / (unsigned)base );
-        } while(uvalue && (place < 20));
-        if (place == 20) place--;
-        convert[place] = 0;
+    do {
+        convert[place++] =
+            (caps? "0123456789ABCDEF":"0123456789abcdef")
+            [uvalue % (unsigned)base  ];
+        uvalue = (uvalue / (unsigned)base );
+    } while(uvalue && (place < 20));
+    if (place == 20) place--;
+    convert[place] = 0;
 
-        zpadlen = max - place;
-        spadlen = min - MAX (max, place) - (signvalue ? 1 : 0);
-        if (zpadlen < 0) zpadlen = 0;
-        if (spadlen < 0) spadlen = 0;
-        if (flags & DP_F_ZERO) {
-                zpadlen = MAX(zpadlen, spadlen);
-                spadlen = 0;
-        }
-        if (flags & DP_F_MINUS)
-                spadlen = -spadlen; /* Left Justifty */
+    zpadlen = max - place;
+    spadlen = min - MAX (max, place) - (signvalue ? 1 : 0);
+    if (zpadlen < 0) zpadlen = 0;
+    if (spadlen < 0) spadlen = 0;
+    if (flags & DP_F_ZERO) {
+        zpadlen = MAX(zpadlen, spadlen);
+        spadlen = 0;
+    }
+    if (flags & DP_F_MINUS)
+        spadlen = -spadlen; /* Left Justifty */
 
 #ifdef DEBUG_SNPRINTF
-        printf("zpad: %d, spad: %d, min: %d, max: %d, place: %d\n",
-               zpadlen, spadlen, min, max, place);
+    printf("zpad: %d, spad: %d, min: %d, max: %d, place: %d\n",
+           zpadlen, spadlen, min, max, place);
 #endif
 
-        /* Spaces */
-        while (spadlen > 0) {
-                dopr_outch (buffer, currlen, maxlen, ' ');
-                --spadlen;
+    /* Spaces */
+    while (spadlen > 0) {
+        dopr_outch (buffer, currlen, maxlen, ' ');
+        --spadlen;
+    }
+
+    /* Sign */
+    if (signvalue)
+        dopr_outch (buffer, currlen, maxlen, (char)signvalue);
+
+    /* Zeros */
+    if (zpadlen > 0) {
+        while (zpadlen > 0) {
+            dopr_outch (buffer, currlen, maxlen, '0');
+            --zpadlen;
         }
+    }
 
-        /* Sign */
-        if (signvalue)
-                dopr_outch (buffer, currlen, maxlen, (char)signvalue);
+    /* Digits */
+    while (place > 0)
+        dopr_outch (buffer, currlen, maxlen, convert[--place]);
 
-        /* Zeros */
-        if (zpadlen > 0) {
-                while (zpadlen > 0) {
-                        dopr_outch (buffer, currlen, maxlen, '0');
-                        --zpadlen;
-                }
-        }
-
-        /* Digits */
-        while (place > 0)
-                dopr_outch (buffer, currlen, maxlen, convert[--place]);
-
-        /* Left Justified spaces */
-        while (spadlen < 0) {
-                dopr_outch (buffer, currlen, maxlen, ' ');
-                ++spadlen;
-        }
+    /* Left Justified spaces */
+    while (spadlen < 0) {
+        dopr_outch (buffer, currlen, maxlen, ' ');
+        ++spadlen;
+    }
 }
 
 static LDOUBLE abs_val(LDOUBLE value)
 {
-        LDOUBLE result = value;
+    LDOUBLE result = value;
 
-        if (value < 0)
-                result = -value;
+    if (value < 0)
+        result = -value;
 
-        return result;
+    return result;
 }
 
 static LDOUBLE POW10(int exp)
 {
-        LDOUBLE result = 1;
+    LDOUBLE result = 1;
 
-        while (exp) {
-                result *= 10;
-                exp--;
-        }
+    while (exp) {
+        result *= 10;
+        exp--;
+    }
 
-        return result;
+    return result;
 }
 
 static LLONG ROUND(LDOUBLE value)
 {
-        LLONG intpart;
+    LLONG intpart;
 
-        intpart = (LLONG)value;
-        value = value - intpart;
-        if (value >= 0.5) intpart++;
+    intpart = (LLONG)value;
+    value = value - intpart;
+    if (value >= 0.5) intpart++;
 
-        return intpart;
+    return intpart;
 }
 
 /* a replacement for modf that doesn't need the math library. Should
    be portable, but slow */
 static double my_modf(double x0, double *iptr)
 {
-        int i;
-        long l;
-        double x = x0;
-        double f = 1.0;
+    int i;
+    long l;
+    double x = x0;
+    double f = 1.0;
 
-        for (i=0;i<100;i++) {
-                l = (long)x;
-                if (l <= (x+1) && l >= (x-1)) break;
-                x *= 0.1;
-                f *= 10.0;
-        }
+    for (i=0;i<100;i++) {
+        l = (long)x;
+        if (l <= (x+1) && l >= (x-1)) break;
+        x *= 0.1;
+        f *= 10.0;
+    }
 
-        if (i == 100) {
-                /* yikes! the number is beyond what we can handle. What do we do? */
-                (*iptr) = 0;
-                return 0;
-        }
+    if (i == 100) {
+        /* yikes! the number is beyond what we can handle. What do we do? */
+        (*iptr) = 0;
+        return 0;
+    }
 
-        if (i != 0) {
-                double i2;
-                double ret;
+    if (i != 0) {
+        double i2;
+        double ret;
 
-                ret = my_modf(x0-l*f, &i2);
-                (*iptr) = l*f + i2;
-                return ret;
-        }
+        ret = my_modf(x0-l*f, &i2);
+        (*iptr) = l*f + i2;
+        return ret;
+    }
 
-        (*iptr) = l;
-        return x - (*iptr);
+    (*iptr) = l;
+    return x - (*iptr);
 }
 
 
 static void fmtfp (char *buffer, size_t *currlen, size_t maxlen,
                    LDOUBLE fvalue, int min, int max, int flags)
 {
-        int signvalue = 0;
-        double ufvalue;
-        char iconvert[311];
-        char fconvert[311];
-        int iplace = 0;
-        int fplace = 0;
-        int padlen = 0; /* amount to pad */
-        int zpadlen = 0;
-        int caps = 0;
-        int idx;
-        double intpart;
-        double fracpart;
-        double temp;
+    int signvalue = 0;
+    double ufvalue;
+    char iconvert[311];
+    char fconvert[311];
+    int iplace = 0;
+    int fplace = 0;
+    int padlen = 0; /* amount to pad */
+    int zpadlen = 0;
+    int caps = 0;
+    int idx;
+    double intpart;
+    double fracpart;
+    double temp;
 
-        /*
-         * AIX manpage says the default is 0, but Solaris says the default
-         * is 6, and sprintf on AIX defaults to 6
-         */
-        if (max < 0)
-                max = 6;
+    /*
+     * AIX manpage says the default is 0, but Solaris says the default
+     * is 6, and sprintf on AIX defaults to 6
+     */
+    if (max < 0)
+        max = 6;
 
-        ufvalue = abs_val (fvalue);
+    ufvalue = abs_val (fvalue);
 
-        if (fvalue < 0) {
-                signvalue = '-';
+    if (fvalue < 0) {
+        signvalue = '-';
+    } else {
+        if (flags & DP_F_PLUS) { /* Do a sign (+/i) */
+            signvalue = '+';
         } else {
-                if (flags & DP_F_PLUS) { /* Do a sign (+/i) */
-                        signvalue = '+';
-                } else {
-                        if (flags & DP_F_SPACE)
-                                signvalue = ' ';
-                }
+            if (flags & DP_F_SPACE)
+                signvalue = ' ';
         }
+    }
 
 #if 0
-        if (flags & DP_F_UP) caps = 1; /* Should characters be upper case? */
+    if (flags & DP_F_UP) caps = 1; /* Should characters be upper case? */
 #endif
 
 #if 0
-         if (max == 0) ufvalue += 0.5; /* if max = 0 we must round */
+     if (max == 0) ufvalue += 0.5; /* if max = 0 we must round */
 #endif
 
-        /*
-         * Sorry, we only support 16 digits past the decimal because of our
-         * conversion method
-         */
-        if (max > 16)
-                max = 16;
+    /*
+     * Sorry, we only support 16 digits past the decimal because of our
+     * conversion method
+     */
+    if (max > 16)
+        max = 16;
 
-        /* We "cheat" by converting the fractional part to integer by
-         * multiplying by a factor of 10
-         */
+    /* We "cheat" by converting the fractional part to integer by
+     * multiplying by a factor of 10
+     */
 
-        temp = ufvalue;
+    temp = ufvalue;
+    my_modf(temp, &intpart);
+
+    fracpart = ROUND((POW10(max)) * (ufvalue - intpart));
+
+    if (fracpart >= POW10(max)) {
+        intpart++;
+        fracpart -= POW10(max);
+    }
+
+    /* Convert integer part */
+    do {
+        temp = intpart*0.1;
         my_modf(temp, &intpart);
+        idx = (int) ((temp -intpart +0.05)* 10.0);
+        /* idx = (int) (((double)(temp*0.1) -intpart +0.05) *10.0); */
+        /* printf ("%llf, %f, %x\n", temp, intpart, idx); */
+        iconvert[iplace++] =
+            (caps? "0123456789ABCDEF":"0123456789abcdef")[idx];
+    } while (intpart && (iplace < 311));
+    if (iplace == 311) iplace--;
+    iconvert[iplace] = 0;
 
-        fracpart = ROUND((POW10(max)) * (ufvalue - intpart));
-
-        if (fracpart >= POW10(max)) {
-                intpart++;
-                fracpart -= POW10(max);
-        }
-
-
-        /* Convert integer part */
+    /* Convert fractional part */
+    if (fracpart)
+    {
         do {
-                temp = intpart*0.1;
-                my_modf(temp, &intpart);
-                idx = (int) ((temp -intpart +0.05)* 10.0);
-                /* idx = (int) (((double)(temp*0.1) -intpart +0.05) *10.0); */
-                /* printf ("%llf, %f, %x\n", temp, intpart, idx); */
-                iconvert[iplace++] =
-                        (caps? "0123456789ABCDEF":"0123456789abcdef")[idx];
-        } while (intpart && (iplace < 311));
-        if (iplace == 311) iplace--;
-        iconvert[iplace] = 0;
+            temp = fracpart*0.1;
+            my_modf(temp, &fracpart);
+            idx = (int) ((temp -fracpart +0.05)* 10.0);
+            /* idx = (int) ((((temp/10) -fracpart) +0.05) *10); */
+            /* printf ("%lf, %lf, %ld\n", temp, fracpart, idx ); */
+            fconvert[fplace++] =
+            (caps? "0123456789ABCDEF":"0123456789abcdef")[idx];
+        } while(fracpart && (fplace < 311));
+        if (fplace == 311) fplace--;
+    }
+    fconvert[fplace] = 0;
 
-        /* Convert fractional part */
-        if (fracpart)
-        {
-                do {
-                        temp = fracpart*0.1;
-                        my_modf(temp, &fracpart);
-                        idx = (int) ((temp -fracpart +0.05)* 10.0);
-                        /* idx = (int) ((((temp/10) -fracpart) +0.05) *10); */
-                        /* printf ("%lf, %lf, %ld\n", temp, fracpart, idx ); */
-                        fconvert[fplace++] =
-                        (caps? "0123456789ABCDEF":"0123456789abcdef")[idx];
-                } while(fracpart && (fplace < 311));
-                if (fplace == 311) fplace--;
-        }
-        fconvert[fplace] = 0;
+    /* -1 for decimal point, another -1 if we are printing a sign */
+    padlen = min - iplace - max - 1 - ((signvalue) ? 1 : 0);
+    zpadlen = max - fplace;
+    if (zpadlen < 0) zpadlen = 0;
+    if (padlen < 0)
+        padlen = 0;
+    if (flags & DP_F_MINUS)
+        padlen = -padlen; /* Left Justifty */
 
-        /* -1 for decimal point, another -1 if we are printing a sign */
-        padlen = min - iplace - max - 1 - ((signvalue) ? 1 : 0);
-        zpadlen = max - fplace;
-        if (zpadlen < 0) zpadlen = 0;
-        if (padlen < 0)
-                padlen = 0;
-        if (flags & DP_F_MINUS)
-                padlen = -padlen; /* Left Justifty */
-
-        if ((flags & DP_F_ZERO) && (padlen > 0)) {
-                if (signvalue) {
-                        dopr_outch (buffer, currlen, maxlen, (char)signvalue);
-                        --padlen;
-                        signvalue = 0;
-                }
-                while (padlen > 0) {
-                        dopr_outch (buffer, currlen, maxlen, '0');
-                        --padlen;
-                }
+    if ((flags & DP_F_ZERO) && (padlen > 0)) {
+        if (signvalue) {
+            dopr_outch (buffer, currlen, maxlen, (char)signvalue);
+            --padlen;
+            signvalue = 0;
         }
         while (padlen > 0) {
-                dopr_outch (buffer, currlen, maxlen, ' ');
-                --padlen;
+            dopr_outch (buffer, currlen, maxlen, '0');
+            --padlen;
         }
-        if (signvalue)
-                dopr_outch (buffer, currlen, maxlen, (char)signvalue);
+    }
+    while (padlen > 0) {
+        dopr_outch (buffer, currlen, maxlen, ' ');
+        --padlen;
+    }
+    if (signvalue)
+        dopr_outch (buffer, currlen, maxlen, (char)signvalue);
 
-        while (iplace > 0)
-                dopr_outch (buffer, currlen, maxlen, iconvert[--iplace]);
+    while (iplace > 0)
+        dopr_outch (buffer, currlen, maxlen, iconvert[--iplace]);
 
 #ifdef DEBUG_SNPRINTF
-        printf("fmtfp: fplace=%d zpadlen=%d\n", fplace, zpadlen);
+    printf("fmtfp: fplace=%d zpadlen=%d\n", fplace, zpadlen);
 #endif
 
-        /*
-         * Decimal point.  This should probably use locale to find the correct
-         * char to print out.
-         */
-        if (max > 0) {
-                dopr_outch (buffer, currlen, maxlen, '.');
+    /*
+     * Decimal point.  This should probably use locale to find the correct
+     * char to print out.
+     */
+    if (max > 0) {
+        dopr_outch (buffer, currlen, maxlen, '.');
 
-                while (zpadlen > 0) {
-                        dopr_outch (buffer, currlen, maxlen, '0');
-                        --zpadlen;
-                }
-
-                while (fplace > 0)
-                        dopr_outch (buffer, currlen, maxlen, fconvert[--fplace]);
+        while (zpadlen > 0) {
+            dopr_outch (buffer, currlen, maxlen, '0');
+            --zpadlen;
         }
 
-        while (padlen < 0) {
-                dopr_outch (buffer, currlen, maxlen, ' ');
-                ++padlen;
-        }
+        while (fplace > 0)
+            dopr_outch (buffer, currlen, maxlen, fconvert[--fplace]);
+    }
+
+    while (padlen < 0) {
+        dopr_outch (buffer, currlen, maxlen, ' ');
+        ++padlen;
+    }
 }
 
 static void dopr_outch(char *buffer, size_t *currlen, size_t maxlen, char c)
 {
-        if (*currlen < maxlen) {
-                buffer[(*currlen)] = c;
-        }
-        (*currlen)++;
+    if (*currlen < maxlen) {
+        buffer[(*currlen)] = c;
+    }
+    (*currlen)++;
 }
 
-int mat_vsnprintf (char *str, size_t count, const char *fmt, va_list args)
+int mat_vsnprintf(char *str, size_t count, const char *fmt, va_list args)
 {
-        return dopr(str, count, fmt, args);
+    return dopr(str, count, fmt, args);
 }
 #else
-int mat_vsnprintf (char *str, size_t count, const char *fmt, va_list args)
+int mat_vsnprintf(char *str, size_t count, const char *fmt, va_list args)
 {
-        return vsnprintf(str, count, fmt, args);
+    return vsnprintf(str, count, fmt, args);
 }
 #endif
 
 int mat_snprintf(char *str,size_t count,const char *fmt,...)
 {
-        size_t ret;
-        va_list ap;
+    size_t ret;
+    va_list ap;
 
-        va_start(ap, fmt);
-        ret = mat_vsnprintf(str, count, fmt, ap);
-        va_end(ap);
-        return ret;
+    va_start(ap, fmt);
+    ret = mat_vsnprintf(str, count, fmt, ap);
+    va_end(ap);
+    return ret;
 }
 #endif
 
 #ifndef HAVE_VASPRINTF
- int mat_vasprintf(char **ptr, const char *format, va_list ap)
+int mat_vasprintf(char **ptr, const char *format, va_list ap)
 {
-        int ret;
-        va_list ap2;
+    int ret;
+    va_list ap2;
 
-        VA_COPY(ap2, ap);
+    VA_COPY(ap2, ap);
 
-        ret = mat_vsnprintf(NULL, 0, format, ap2);
-        if (ret <= 0) return ret;
+    ret = mat_vsnprintf(NULL, 0, format, ap2);
+    if (ret <= 0) return ret;
 
-        (*ptr) = (char *)malloc(ret+1);
-        if (!*ptr) return -1;
+    (*ptr) = (char *)malloc(ret+1);
+    if (!*ptr) return -1;
 
-        VA_COPY(ap2, ap);
+    VA_COPY(ap2, ap);
 
-        ret = mat_vsnprintf(*ptr, ret+1, format, ap2);
+    ret = mat_vsnprintf(*ptr, ret+1, format, ap2);
 
-        return ret;
+    return ret;
 }
 #else
 int mat_vasprintf(char **ptr, const char *format, va_list ap)
@@ -8905,16 +8904,24 @@ int mat_vasprintf(char **ptr, const char *format, va_list ap)
 
 int mat_asprintf(char **ptr, const char *format, ...)
 {
-        va_list ap;
-        int ret;
+    va_list ap;
+    int ret;
 
-        *ptr = NULL;
-        va_start(ap, format);
-        ret = mat_vasprintf(ptr, format, ap);
-        va_end(ap);
+    *ptr = NULL;
+    va_start(ap, format);
+    ret = mat_vasprintf(ptr, format, ap);
+    va_end(ap);
 
-        return ret;
+    return ret;
 }
+
+char* mat_strdup(const char *s)
+{
+    size_t len = strlen(s) + 1;
+    char *d = malloc(len);
+    return d ? memcpy(d, s, len) : NULL;
+}
+
 /* -------------------------------
  * ---------- mat.c
  * -------------------------------
@@ -9018,9 +9025,6 @@ EXTERN int       Mat_VarWrite73(mat_t *mat,matvar_t *matvar,int compress);
 
 #if defined(_WIN32)
 #include <io.h>
-#if defined(_MSC_VER)
-#define strdup _strdup
-#endif
 #endif
 #if defined(_MSC_VER)
 #define SIZE_T_FMTSTR "Iu"
@@ -9614,7 +9618,7 @@ Mat_VarCreate(const char *name,enum matio_classes class_type,
                     matvar->internal->fieldnames =
                         calloc(nfields,sizeof(*matvar->internal->fieldnames));
                     for ( i = 0; i < nfields; i++ )
-                        matvar->internal->fieldnames[i] = strdup(fields[i]->name);
+                        matvar->internal->fieldnames[i] = mat_strdup(fields[i]->name);
                     nmemb *= nfields;
                 }
             }
@@ -9706,6 +9710,40 @@ Mat_VarCreate(const char *name,enum matio_classes class_type,
     return matvar;
 }
 
+int mat_rename(const char* src, const char* dst)
+{
+    size_t len;
+    char buf[BUFSIZ] = {'\0'};
+    FILE* in;
+    FILE* out;
+
+    in = fopen(src, "rb");
+    if (in == NULL) {
+        Mat_Critical("Cannot open file \"%s\" for reading.", src);
+        return -1;
+    }
+
+    out = fopen(dst, "wb");
+    if (out == NULL) {
+        fclose(in);
+        Mat_Critical("Cannot open file \"%s\" for writing.", dst);
+        return -1;
+    }
+
+    while ((len = fread(buf, sizeof(char), BUFSIZ, in)) > 0) {
+        if (len != fwrite(buf, sizeof(char), len, out)) {
+            fclose(in);
+            fclose(out);
+            Mat_Critical("Error writing to file \"%s\".", dst);
+            return -1;
+        }
+    }
+    fclose(in);
+    fclose(out);
+    remove(src);
+    return 0;
+}
+
 /** @brief Deletes a variable from a file
  *
  * @ingroup MAT
@@ -9737,39 +9775,39 @@ Mat_VarDelete(mat_t *mat, const char *name)
             break;
     }
 
-    temp     = strdup_printf("XXXXXX");
-#if defined(_WIN32)
-    tmp_name = _mktemp(temp);
-#else
-    tmp_name = mktemp(temp);
-#endif
-    tmp      = Mat_CreateVer(tmp_name,mat->header,mat_file_ver);
-    if ( tmp != NULL ) {
-        while ( NULL != (matvar = Mat_VarReadNext(mat)) ) {
-            if ( strcmp(matvar->name,name) )
-                Mat_VarWrite(tmp,matvar,0);
-            else
-                err = 0;
-            Mat_VarFree(matvar);
-        }
-        /* FIXME: Memory leak */
-        new_name = strdup_printf("%s",mat->filename);
-        fclose(mat->fp);
+    temp     = NULL;
+    tmp_name = tmpnam(temp);
+    if (tmp_name) {
+        tmp = Mat_CreateVer(tmp_name,mat->header,mat_file_ver);
+        if ( tmp != NULL ) {
+            while ( NULL != (matvar = Mat_VarReadNext(mat)) ) {
+                if ( strcmp(matvar->name,name) )
+                    Mat_VarWrite(tmp,matvar,0);
+                else
+                    err = 0;
+                Mat_VarFree(matvar);
+            }
+            /* FIXME: Memory leak */
+            new_name = strdup_printf("%s",mat->filename);
+            fclose(mat->fp);
 
-        if ( (err = remove(new_name)) == -1 ) {
-            Mat_Critical("remove of %s failed",new_name);
-        } else if ( !Mat_Close(tmp) && (err=rename(tmp_name,new_name))==-1) {
-            Mat_Critical("rename failed oldname=%s,newname=%s",tmp_name,
-                new_name);
-        } else {
-            tmp = Mat_Open(new_name,mat->mode);
-            if ( NULL != tmp )
-                memcpy(mat,tmp,sizeof(mat_t));
+            if ( (err = remove(new_name)) == -1 ) {
+                Mat_Critical("remove of %s failed",new_name);
+            } else if ( !Mat_Close(tmp) && (err=mat_rename(tmp_name,new_name))==-1) {
+                Mat_Critical("rename failed oldname=%s,newname=%s",tmp_name,
+                    new_name);
+            } else {
+                tmp = Mat_Open(new_name,mat->mode);
+                if ( NULL != tmp )
+                    memcpy(mat,tmp,sizeof(mat_t));
+            }
+            free(tmp);
+            free(new_name);
         }
-        free(tmp);
-        free(new_name);
     }
-    free(temp);
+    else {
+        Mat_Critical("Cannot create a unique file name.");
+    }
     return err;
 }
 
@@ -9811,7 +9849,7 @@ Mat_VarDuplicate(const matvar_t *in, int opt)
     out->data = NULL;
 
     if ( NULL != in->internal->hdf5_name )
-        out->internal->hdf5_name = strdup(in->internal->hdf5_name);
+        out->internal->hdf5_name = mat_strdup(in->internal->hdf5_name);
 
     out->internal->hdf5_ref = in->internal->hdf5_ref;
     out->internal->id       = in->internal->id;
@@ -9827,7 +9865,7 @@ Mat_VarDuplicate(const matvar_t *in, int opt)
         for ( i = 0; i < in->internal->num_fields; i++ ) {
             if ( NULL != in->internal->fieldnames[i] )
                 out->internal->fieldnames[i] =
-                    strdup(in->internal->fieldnames[i]);
+                    mat_strdup(in->internal->fieldnames[i]);
         }
     }
 
@@ -13083,7 +13121,7 @@ ReadNextStructField( mat_t *mat, matvar_t *matvar )
         for ( i = 0; i < nmemb; i++ ) {
             for ( j = 0; j < nfields; j++ ) {
                 fields[i*nfields+j] = Mat_VarCalloc();
-                fields[i*nfields+j]->name = strdup(matvar->internal->fieldnames[j]);
+                fields[i*nfields+j]->name = mat_strdup(matvar->internal->fieldnames[j]);
             }
         }
 
@@ -13224,7 +13262,7 @@ ReadNextStructField( mat_t *mat, matvar_t *matvar )
         for ( i = 0; i < nmemb; i++ ) {
             for ( j = 0; j < nfields; j++ ) {
                 fields[i*nfields+j] = Mat_VarCalloc();
-                fields[i*nfields+j]->name = strdup(matvar->internal->fieldnames[j]);
+                fields[i*nfields+j]->name = mat_strdup(matvar->internal->fieldnames[j]);
             }
         }
 
@@ -13338,7 +13376,7 @@ ReadNextFunctionHandle(mat_t *mat, matvar_t *matvar)
         matvar->data_size = sizeof(matvar_t *);
         matvar->nbytes    = nfunctions*matvar->data_size;
         functions = matvar->data;
-        for ( i = 0 ; i < nfunctions; i++ )
+        for ( i = 0; i < nfunctions; i++ )
             functions[i] = Mat_VarReadNextInfo(mat);
     } else {
         bytesread = 0;
@@ -17245,8 +17283,8 @@ Mat_VarReadNextInfo5( mat_t *mat )
             fseek(mat->fp,nBytes+8+fpos,SEEK_SET);
             break;
 #else
-            Mat_Critical("Compressed variable found in \"%s\", but matio was "
-                         "built without zlib support",mat->filename);
+            Mat_Critical("Compressed variable found in \"%s\", but %s was "
+                         "built without zlib support",mat->filename,__FILE__);
             fseek(mat->fp,nBytes+8+fpos,SEEK_SET);
             return NULL;
 #endif
@@ -18217,7 +18255,7 @@ Mat_H5ReadGroupInfo(mat_t *mat,matvar_t *matvar,hid_t dset_id)
                         hid_t ref_id;
                         fields[l*nfields+k] = Mat_VarCalloc();
                         fields[l*nfields+k]->name =
-                            strdup(matvar->internal->fieldnames[k]);
+                            mat_strdup(matvar->internal->fieldnames[k]);
                         fields[l*nfields+k]->internal->hdf5_ref=ref_ids[l];
                         /* Get the HDF5 name of the variable */
                         name_len = H5Iget_name(field_id,NULL,0);
@@ -18241,7 +18279,7 @@ Mat_H5ReadGroupInfo(mat_t *mat,matvar_t *matvar,hid_t dset_id)
                     fields[k] = Mat_VarCalloc();
                     fields[k]->internal->fp   = mat;
                     fields[k]->name =
-                        strdup(matvar->internal->fieldnames[k]);
+                        mat_strdup(matvar->internal->fieldnames[k]);
                     Mat_H5ReadDatasetInfo(mat,fields[k],field_id);
                 }
                 H5Dclose(field_id);
@@ -18251,7 +18289,7 @@ Mat_H5ReadGroupInfo(mat_t *mat,matvar_t *matvar,hid_t dset_id)
                 if ( -1 < field_id ) {
                     fields[k] = Mat_VarCalloc();
                     fields[k]->internal->fp   = mat;
-                    fields[k]->name = strdup(matvar->internal->fieldnames[k]);
+                    fields[k]->name = mat_strdup(matvar->internal->fieldnames[k]);
                     Mat_H5ReadGroupInfo(mat,fields[k],field_id);
                     H5Gclose(field_id);
                 }
@@ -20421,7 +20459,7 @@ Mat_VarCreateStruct(const char *name,int rank,size_t *dims,const char **fields,
 
     matvar->compression = MAT_COMPRESSION_NONE;
     if ( NULL != name )
-        matvar->name = strdup(name);
+        matvar->name = mat_strdup(name);
     matvar->rank = rank;
     matvar->dims = malloc(matvar->rank*sizeof(*matvar->dims));
     for ( i = 0; i < matvar->rank; i++ ) {
@@ -20447,7 +20485,7 @@ Mat_VarCreateStruct(const char *name,int rank,size_t *dims,const char **fields,
                     matvar = NULL;
                     break;
                 } else {
-                    matvar->internal->fieldnames[i] = strdup(fields[i]);
+                    matvar->internal->fieldnames[i] = mat_strdup(fields[i]);
                 }
             }
         }
@@ -20491,7 +20529,7 @@ Mat_VarAddStructField(matvar_t *matvar,const char *fieldname)
     matvar->internal->fieldnames =
     realloc(matvar->internal->fieldnames,
             nfields*sizeof(*matvar->internal->fieldnames));
-    matvar->internal->fieldnames[nfields-1] = strdup(fieldname);
+    matvar->internal->fieldnames[nfields-1] = mat_strdup(fieldname);
 
     new_data = malloc(nfields*nmemb*sizeof(*new_data));
     if ( new_data == NULL )
@@ -20866,7 +20904,7 @@ Mat_VarSetStructFieldByIndex(matvar_t *matvar,size_t field_index,size_t index,
         if ( NULL != field->name ) {
             free(field->name);
         }
-        field->name = strdup(matvar->internal->fieldnames[field_index]);
+        field->name = mat_strdup(matvar->internal->fieldnames[field_index]);
     }
 
     return old_field;
@@ -20915,7 +20953,7 @@ Mat_VarSetStructFieldByName(matvar_t *matvar,const char *field_name,
         if ( NULL != field->name ) {
             free(field->name);
         }
-        field->name = strdup(matvar->internal->fieldnames[field_index]);
+        field->name = mat_strdup(matvar->internal->fieldnames[field_index]);
     }
 
     return old_field;
