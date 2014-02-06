@@ -163,7 +163,7 @@
 #endif
 
 /* Have __va_copy */
-#if defined(__GNUC__) && __STDC_VERSION__ >= 199901L
+#if defined(__GNUC__)
 #define HAVE___VA_COPY 1
 #elif defined(__WATCOMC__)
 #define HAVE___VA_COPY 1
