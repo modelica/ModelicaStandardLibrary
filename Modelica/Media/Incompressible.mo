@@ -137,8 +137,10 @@ density and heat capacity as functions of temperature.</li>
       "True if enthalpy is approximated as a function of T only, (p-dependence neglected)";
     constant Boolean densityOfT = size(tableDensity,1) > 1
       "True if density is a function of temperature";
-    constant Temperature T_min "Minimum temperature valid for medium model";
-    constant Temperature T_max "Maximum temperature valid for medium model";
+    constant Modelica.SIunits.Temperature T_min
+      "Minimum temperature valid for medium model";
+    constant Modelica.SIunits.Temperature T_max
+      "Maximum temperature valid for medium model";
     constant Temperature T0=273.15 "Reference Temperature";
     constant SpecificEnthalpy h0=0 "Reference enthalpy at T0, reference_p";
     constant SpecificEntropy s0=0 "Reference entropy at T0, reference_p";
