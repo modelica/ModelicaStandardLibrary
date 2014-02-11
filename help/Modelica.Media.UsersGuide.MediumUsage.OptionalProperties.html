@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">OptionalProperties</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>In some cases additional medium properties are needed. A
+component that needs these optional properties has to call one of
+the functions listed in the following table. They are defined as
+partial functions within package <a href="Modelica.Media.Interfaces.PartialMedium.html">PartialMedium</a>,
+and then (optionally) implemented in actual medium packages. If a
+component calls such an optional function and the medium package
+does not provide a new implementation for this function, an error
+message is printed at translation time, since the function is
+"partial", i.e., incomplete. The argument of all functions is the
+<b>state</b> record, automatically defined by the BaseProperties
+model or specifically computed using the setState_XXX functions,
+which contains the minimum number of thermodynamic variables needed
+to compute all the additional properties. In the table it is
+assumed that there is a declaration of the form:</p>
+<pre>
+   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
+   Medium.ThermodynamicState state;
+</pre>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>Function call</b></td>
+<td valign="top"><b>Unit</b></td>
+<td valign="top"><b>Description</b></td>
+</tr>
+<tr>
+<td valign="top">Medium.dynamicViscosity(state)</td>
+<td valign="top">Pa.s</td>
+<td valign="top">dynamic viscosity</td>
+</tr>
+<tr>
+<td valign="top">Medium.thermalConductivity(state)</td>
+<td valign="top">W/(m.K)</td>
+<td valign="top">thermal conductivity</td>
+</tr>
+<tr>
+<td valign="top">Medium.prandtlNumber(state)</td>
+<td valign="top">1</td>
+<td valign="top">Prandtl number</td>
+</tr>
+<tr>
+<td valign="top">Medium.specificEntropy(state)</td>
+<td valign="top">J/(kg.K)</td>
+<td valign="top">specific entropy</td>
+</tr>
+<tr>
+<td valign="top">Medium.specificHeatCapacityCp(state)</td>
+<td valign="top">J/(kg.K)</td>
+<td valign="top">specific heat capacity at constant pressure</td>
+</tr>
+<tr>
+<td valign="top">Medium.specificHeatCapacityCv(state)</td>
+<td valign="top">J/(kg.K)</td>
+<td valign="top">specific heat capacity at constant density</td>
+</tr>
+<tr>
+<td valign="top">Medium.isentropicExponent(state)</td>
+<td valign="top">1</td>
+<td valign="top">isentropic exponent</td>
+</tr>
+<tr>
+<td valign="top">Medium.isentropicEnthatlpy(pressure, state)</td>
+<td valign="top">J/kg</td>
+<td valign="top">isentropic enthalpy</td>
+</tr>
+<tr>
+<td valign="top">Medium.velocityOfSound(state)</td>
+<td valign="top">m/s</td>
+<td valign="top">velocity of sound</td>
+</tr>
+<tr>
+<td valign="top">Medium.isobaricExpansionCoefficient(state)</td>
+<td valign="top">1/K</td>
+<td valign="top">isobaric expansion coefficient</td>
+</tr>
+<tr>
+<td valign="top">Medium.isothermalCompressibility(state)</td>
+<td valign="top">1/Pa</td>
+<td valign="top">isothermal compressibility</td>
+</tr>
+<tr>
+<td valign="top">Medium.density_derp_h(state)</td>
+<td valign="top">kg/(m3.Pa)</td>
+<td valign="top">derivative of density by pressure at constant
+enthalpy</td>
+</tr>
+<tr>
+<td valign="top">Medium.density_derh_p(state)</td>
+<td valign="top">kg2/(m3.J)</td>
+<td valign="top">derivative of density by enthalpy at constant
+pressure</td>
+</tr>
+<tr>
+<td valign="top">Medium.density_derp_T(state)</td>
+<td valign="top">kg/(m3.Pa)</td>
+<td valign="top">derivative of density by pressure at constant
+temperature</td>
+</tr>
+<tr>
+<td valign="top">Medium.density_derT_p(state)</td>
+<td valign="top">kg/(m3.K)</td>
+<td valign="top">derivative of density by temperature at constant
+pressure</td>
+</tr>
+<tr>
+<td valign="top">Medium.density_derX(state)</td>
+<td valign="top">kg/m3</td>
+<td valign="top">derivative of density by mass fraction</td>
+</tr>
+<tr>
+<td valign="top">Medium.molarMass(state)</td>
+<td valign="top">kg/mol</td>
+<td valign="top">molar mass</td>
+</tr>
+</table>
+<p>There are also some short forms provided for user convenience
+that allow the computation of certain thermodynamic state variables
+without using the ThermodynamicState record explicitly. Those short
+forms are for example useful to compute consistent start values in
+the initial equation section. Let's consider the function
+temperature_phX(p,h,X) as an example. This function computes the
+temperature from pressure, specific enthalpy, and composition X (or
+Xi) and is a short form for writing</p>
+<pre>
+  temperature(setState_phX(p,h,X))
+</pre>
+<p>The following functions are predefined in PartialMedium (other
+functions can be added in the actual medium implementation package
+if they are useful)</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top">Medium.specificEnthalpy_pTX(p,T,X)</td>
+<td valign="top">J/kg</td>
+<td valign="top">Specific enthalpy at p, T, X</td>
+</tr>
+<tr>
+<td valign="top">Medium.temperature_phX(p,h,X)</td>
+<td valign="top">K</td>
+<td valign="top">Temperature at p, h, X</td>
+</tr>
+<tr>
+<td valign="top">Medium.density_phX(p,h,X)</td>
+<td valign="top">kg/m3</td>
+<td valign="top">Density at p, h, X</td>
+</tr>
+<tr>
+<td valign="top">Medium.temperature_psX(p,s,X)</td>
+<td valign="top">K</td>
+<td valign="top">Temperature at p, s, X</td>
+</tr>
+<tr>
+<td valign="top">Medium.specificEnthalpy_psX(p,s,X)</td>
+<td valign="top">J/(kg.K)</td>
+<td valign="top">Specific entropy at p, s, X</td>
+</tr>
+</table>
+<p>Assume for example that the dynamic viscosity eta is needed in
+the pressure drop equation of a short pipe. Then, the model of a
+short pipe has to be changed to:</p>
+<pre>
+  <b>model</b> ShortPipe
+      ...
+    Medium.BaseProperties medium_a "Medium properties in port_a";
+    Medium.BaseProperties medium_b "Medium properties in port_b";
+      ...
+    Medium.DynamicViscosity eta;
+      ...
+    eta = <b>if</b> port_a.m_flow &gt; 0 <b>then</b>
+               Medium.dynamicViscosity(medium_a.state)
+          <b>else</b>
+               Medium.dynamicViscosity(medium_b.state);
+    // use eta in the pressure drop equation: port_a.m_flow = f(dp, eta)
+  <b>end</b> ShortPipe;
+</pre>
+<p>Note, "Medium.DynamicViscosity" is a type defined in
+Modelica.Interfaces.PartialMedium as</p>
+<pre>
+  <b>import</b> SI = Modelica.SIunits;
+  <b>type</b> DynamicViscosity = SI.DynamicViscosity (
+                                     min=0,
+                                     max=1.e8,
+                                     nominal=1.e-3,
+                                     start=1.e-3);
+</pre>
+<p>Every medium model may modify the attributes, to provide, e.g.,
+min, max, nominal, and start values adapted to the medium. Also,
+other types, such as AbsolutePressure, Density, MassFlowRate, etc.
+are defined in PartialMedium. Whenever possible, these medium
+specific types should be used in a model in order that medium
+information, e.g., about nominal or start values, are automatically
+utilized.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Power</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.html">QuasiStationary</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.html">Overview</a>.<span class="omc-h1">Power</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>For periodic waveforms, the average value of the instantaneous
+power is <b>real power</b> <i>P</i>. <b>Reactive power</b> <i>Q</i>
+is a term associated with inductors and capacitors. For pure
+inductors and capacitors, real power is equal to zero. Yet, there
+is instantaneous power exchanged with connecting network.</p>
+The <a href="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance.html">
+series resonance circuit</a> which was also addressed in the
+<a href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit.html">
+AC circuit</a> will be investigated.
+<h5>Power of a resistor</h5>
+<p>The instantaneous voltage and current are in phase:</p>
+<p><img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_r.png" alt="v_r.png" /><br />
+<img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_r.png" alt="i_r.png" /></p>
+<p>Therefore, the instantaneous power is</p>
+<p><img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_r.png" alt="power_r.png" /></p>
+<p>A graphical representation of these equations is depicted in
+Fig. 1</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_resistor.png" alt="power_resistor.png" /></td>
+</tr>
+<caption align="bottom">Fig. 1: Instantaneous voltage, current of
+power of a resistor</caption>
+</table>
+<p>Real power of the resistor is the average of instantaneous
+power:</p>
+<p><img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/p_r.png" alt="p_r.png" /></p>
+<h5>Power of an inductor</h5>
+<p>The instantaneous voltage leads the current by a quarter of the
+period:</p>
+<p><img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_l.png" alt="v_l.png" /><br />
+<img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_l.png" alt="i_l.png" /></p>
+<p>Therefore, the instantaneous power is</p>
+<p><img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_l.png" alt="power_l.png" /></p>
+<p>A graphical representation of these equations is depicted in
+Fig. 2</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_inductor.png" alt="power_inductor.png" /></td>
+</tr>
+<caption align="bottom">Fig. 2: Instantaneous voltage, current of
+power of an inductor</caption>
+</table>
+<p>Reactive power of the inductor is:</p>
+<p><img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_l.png" alt="q_l.png" /></p>
+<h5>Power of a capacitor</h5>
+<p>The instantaneous voltage lags the current by a quarter of the
+period:</p>
+<p><img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/v_c.png" alt="v_c.png" /><br />
+<img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/i_c.png" alt="i_c.png" /></p>
+<p>Therefore, the instantaneous power is</p>
+<p><img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_c.png" alt="power_c.png" /></p>
+<p>A graphical representation of these equations is depicted in
+Fig. 3</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/power_capacitor.png" alt="power_capacitor.png" /></td>
+</tr>
+<caption align="bottom">Fig. 3: Instantaneous voltage, current of
+power of a capacitor</caption>
+</table>
+<p>Reactive power of the capacitor is:</p>
+<p><img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_c.png" alt="q_c.png" /></p>
+<h5>Complex apparent power</h5>
+<p>For an arbitrary component with two pins, real and reactive
+power can be determined by the complex phasors:</p>
+<p><img border="0" src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/s.png" alt="s.png" /></p>
+<p>In this equation <sup>*</sup> represents the conjugate complex
+operator</p>
+<h4>See also</h4>
+<a href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction.html">Introduction</a>,
+<a href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit.html">
+AC circuit</a>, <a href="Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ReferenceSystem.html">
+Reference system</a>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

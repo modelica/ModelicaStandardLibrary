@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.UsersGuide.NamingPrinciple</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">NamingPrinciple</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>In SPICE3 we have a predefined model pool. Each model device has
+got a code letter (e.g., resistor - R). In analogy to the SPICE3
+models the models of the Spice3 library also got the according code
+letter in their names. The following examples shows the
+relationship:</p>
+<p>A typical SPICE3 line could be:</p>
+<p><b>C</b>1 3 2 1pF</p>
+<p>The first letter is the code letter (here <b>C</b>). It
+specifies the type of the model component (here capacitance). To
+see the analogy to the SPICE3 models in the Spice3 library the
+transformed capacitance has got the name <b>C</b>_Capacitance.
+According to that naming rule the components of the Spice3 library
+have the following names (the first letter is the code letter that
+has to be used in SPICE3):</p>
+<ul>
+<li>R_Resistor</li>
+<li>C_Capacitance</li>
+<li>L_Inductor</li>
+<li>E_VCV, E_VCV_POLY</li>
+<li>G_VCC, G_VCC_POLY</li>
+<li>H_CCV, H_CCV_POLY</li>
+<li>F_CCC, F_CCC_POLY</li>
+<li>M_PMOS</li>
+<li>M_NMOS</li>
+<li>Q_NPNBJT</li>
+<li>Q_PNPBJT</li>
+<li>D_Diode</li>
+<li>V_constant, I_constant</li>
+<li>V_sin, I_sin</li>
+<li>V_exp, I_exp</li>
+<li>V_pulse, I_pulse</li>
+<li>V_pwl, I_pwl</li>
+<li>V_sffm, I_sffm<br />
+<b><br /></b></li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

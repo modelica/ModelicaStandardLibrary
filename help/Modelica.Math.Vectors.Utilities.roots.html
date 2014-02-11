@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors.Utilities.roots</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Vectors.html">Vectors</a>.<a class="omc-h1-a" href="Modelica.Math.Vectors.Utilities.html">Utilities</a>.<span class="omc-h1">roots</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+  r = Vectors.Utilities.<b>roots</b>(p);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the roots of a polynomial P of x</p>
+<blockquote>
+<pre>
+  P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
+</pre></blockquote>
+<p>with the coefficient vector <b>p</b>. It is assumed that the
+first element of <b>p</b> is not zero, i.e., that the polynomial is
+of order size(p,1)-1.</p>
+<p>To compute the roots, the eigenvalues of the corresponding
+companion matrix <b>C</b></p>
+<blockquote>
+<pre>
+         |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
+         |    1            0                0               0           0     |
+         |    0            1      ...       0               0           0     |
+  <b>C</b> =    |    .            .      ...       .               .           .     |
+         |    .            .      ...       .               .           .     |
+         |    0            0      ...       0               1           0     |
+</pre></blockquote>
+<p>are calculated. These are the roots of the polynomial.<br />
+Since the companion matrix has already Hessenberg form, the
+transformation to Hessenberg form has not to be performed. Function
+<a href="Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg.html">
+eigenvaluesHessenberg</a><br />
+provides efficient eigenvalue computation for those matrices.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  r = <b>roots</b>({1,2,3});
+  // r = [-1.0,  1.41421356237309;
+  //      -1.0, -1.41421356237309]
+  // which corresponds to the roots: -1.0 +/- j*1.41421356237309
+</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+encapsulated function roots
+  import Modelica.Math.Matrices;
+  import Modelica;
+  extends Modelica.Icons.Function;
+  input Real p[:] "Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]";
+  output Real roots[max(0, size(p, 1) - 1),2] = fill(0, max(0, size(p, 1) - 1), 2) "roots[:,1] and roots[:,2] are the real and imaginary parts of the roots of polynomial p";
+end roots;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

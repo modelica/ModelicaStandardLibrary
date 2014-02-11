@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.Documentation</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">Documentation</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Annotations for documentation</p>
+<h4>Syntax</h4>
+<pre>
+documentation_annotation:
+   <b>annotation</b>"(" Documentation "(" "info" "=" STRING
+                            ["," "revisions" "=" STRING ] ")" ")"
+</pre>
+<h4>Description</h4>
+<p>The "Documentation" annotation can contain the "info" annotation
+giving a textual description, the "revisions" annotation giving a
+list of revisions and other annotations defined by a tool [The
+"revisions" documentation may be omitted in printed documentation].
+How the tool interprets the information in "Documentation" is
+unspecified. Within a string of the "Documentation" annotation, the
+tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and
+&lt;/html&gt; define optionally begin and end of content that is
+HTML encoded. Links to Modelica classes may be defined with the
+HTML link command using scheme "Modelica", e.g.,</p>
+<pre>
+    &lt;a href="modelica://MultiBody.Tutorial"&gt;MultiBody.Tutorial&lt;/a&gt;
+</pre>
+<p>Together with scheme "Modelica" the (URI) fragment specifiers
+#diagram, #info, #text, #icon may be used to reference different
+layers. Example:</p>
+<pre>
+   &lt;a href="modelica://MultiBody.Joints.Revolute#info"&gt;Revolute&lt;/a&gt;
+</pre>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

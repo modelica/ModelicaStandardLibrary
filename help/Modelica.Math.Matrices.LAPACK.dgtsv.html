@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.LAPACK.dgtsv</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.<span class="omc-h1">dgtsv</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Lapack documentation
+    Purpose
+    =======
+
+    DGTSV  solves the equation
+
+       A*X = B,
+
+    where A is an n by n tridiagonal matrix, by Gaussian elimination with
+    partial pivoting.
+
+    Note that the equation  A'*X = B  may be solved by interchanging the
+    order of the arguments DU and DL.
+
+    Arguments
+    =========
+
+    N       (input) INTEGER
+            The order of the matrix A.  N &gt;= 0.
+
+    NRHS    (input) INTEGER
+            The number of right hand sides, i.e., the number of columns
+            of the matrix B.  NRHS &gt;= 0.
+
+    DL      (input/output) DOUBLE PRECISION array, dimension (N-1)
+            On entry, DL must contain the (n-1) sub-diagonal elements of
+            A.
+
+            On exit, DL is overwritten by the (n-2) elements of the
+            second super-diagonal of the upper triangular matrix U from
+            the LU factorization of A, in DL(1), ..., DL(n-2).
+
+    D       (input/output) DOUBLE PRECISION array, dimension (N)
+            On entry, D must contain the diagonal elements of A.
+
+            On exit, D is overwritten by the n diagonal elements of U.
+
+    DU      (input/output) DOUBLE PRECISION array, dimension (N-1)
+            On entry, DU must contain the (n-1) super-diagonal elements
+            of A.
+
+            On exit, DU is overwritten by the (n-1) elements of the first
+            super-diagonal of U.
+
+    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+            On entry, the N by NRHS matrix of right hand side matrix B.
+            On exit, if INFO = 0, the N by NRHS solution matrix X.
+
+    LDB     (input) INTEGER
+            The leading dimension of the array B.  LDB &gt;= max(1,N).
+
+    INFO    (output) INTEGER
+            = 0: successful exit
+            &lt; 0: if INFO = -i, the i-th argument had an illegal value
+            &gt; 0: if INFO = i, U(i,i) is exactly zero, and the solution
+                 has not been computed.  The factorization has not been
+                 completed unless i = N.
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function dgtsv
+  extends Modelica.Icons.Function;
+  input Real superdiag[:];
+  input Real diag[size(superdiag, 1) + 1];
+  input Real subdiag[size(superdiag, 1)];
+  input Real B[size(diag, 1),:];
+  output Real X[size(B, 1),size(B, 2)] = B;
+  output Integer info;
+end dgtsv;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

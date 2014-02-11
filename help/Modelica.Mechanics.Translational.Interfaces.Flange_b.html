@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.Translational.Interfaces.Flange_b</title>
+</head>
+<body>
+<h1><a href="Icons/7415eed0d4b9d314c33006cdcda9db34db0590b1.svg"><img class="svgiconhead" src="Icons/7415eed0d4b9d314c33006cdcda9db34db0590b1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.Interfaces.html">Interfaces</a>.<span class="omc-h1">Flange_b</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a flange for 1D translational mechanical systems. In the
+cut plane of the flange a unit vector n, called flange axis, is
+defined which is directed OUT OF the cut plane. All vectors in the
+cut plane are resolved with respect to this unit vector. E.g. force
+f characterizes a vector which is directed in the direction of n
+with value equal to f. When this flange is connected to other 1D
+translational flanges, this means that the axes vectors of the
+connected flanges are identical.</p>
+<p>The following variables are transported through this
+connector:</p>
+<pre>
+  s: Absolute position of the flange in [m]. A positive translation
+     means that the flange is translated along the flange axis.
+  f: Cut-force in direction of the flange axis in [N].
+</pre>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

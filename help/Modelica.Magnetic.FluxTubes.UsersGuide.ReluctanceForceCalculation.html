@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">ReluctanceForceCalculation</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Calculation of reluctance forces from lumped magnetic network
+models</h4>
+<p>Generally, the thrust <i>F</i> developed by a translatory
+electro-magneto-mechanical actuator (similar for the rotational
+case with torque and angular position) is equal to the change of
+magnetic co-energy <i>W<sub>m</sub><sup>*</sup></i> with armature
+position <i>x</i> according to</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_CoEnergy_general.png" alt="Equation for force calculation from change of magnetic co-energy with armature position" /></p>
+<p>(<i>Ψ</i> flux linkage, <i>i</i> actuator current). In lumped
+magnetic network models, the above equation simplifies to</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_forceFromPermeance_network.png" alt="Equation for force calculation in lumped magnetic network models" /></p>
+<p>where <i>n<sub>linear</sub></i> is the number of flux tube
+elements with constant relative permeability that change its
+permeance <i>G<sub>m i</sub></i> with armature position (index
+<i>i</i>), <i>V<sub>m i</sub></i> the magnetic voltage across each
+respective flux tube and <i>dG<sub>m i</sub>/dx</i> the derivative
+of the respective permeances with respect to armature position.
+Transition from the general formula based on magnetic co-energy to
+the latter one is outlined in <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Literature.html">[Ka08]</a>
+for the reciprocal of the permeance, i.e., for the magnetic
+reluctance <i>R<sub>m</sub></i>. Note that</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_transition_forceReluctancePermeance.png" alt="Transition from force calculation based on reluctance to calculation based on permeance" /></p>
+<p>with <i>Φ<sub>i</sub></i> being the magnetic flux through each
+respective flux tube element.</p>
+<p>Flux tube elements with <i>non-linear</i> material
+characteristics <i>μ<sub>r</sub></i>(<i>B</i>) in magnetic network
+models do not restrict the usability of the above equation.
+However, it is required that these nonlinear flux tube elements do
+not change its shape with armature motion (e.g., portion of a
+solenoid plunger where the magnetic flux passes through in axial
+direction). This limitation is not a strong one, since the
+permeance of nonlinear, but highly permeable ferromagnetic flux
+tube elements and its change with armature position compared to
+that of air gap flux tubes can be neglected in most cases. Because
+of this constraint, the dimensions of possibly nonlinear flux tube
+elements in sub-package <a href="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.html">Shapes.FixedShape</a>
+are fixed, whereas the dimension in direction of motion of the
+linear flux tube elements in sub-package <a href="Modelica.Magnetic.FluxTubes.Shapes.Force.html">Shapes.Force</a>
+can vary during simulation. For the flux tubes defined in this
+package with their rather simple shapes, the derivative
+<i>dG<sub>m</sub>/dx</i> is given analytically. For more complex
+shapes and variations of dimensions with armature motion, it must
+be provided analytically during model development, preferably by
+extending the partial model <a href="Modelica.Magnetic.FluxTubes.Interfaces.PartialForce.html">Interfaces.PartialForce</a>.</p>
+<p>The sub-package <a href="Modelica.Magnetic.FluxTubes.Shapes.Leakage.html">Shapes.Leakage</a>
+contains flux tube shapes typical for leakage flux around prismatic
+or cylindrical poles. Since the permeance of these flux tubes does
+not change with armature position, they do not contribute to a
+reluctance actuator's thrust.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

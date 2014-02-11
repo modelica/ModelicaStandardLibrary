@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Nonlinear.VariableDelay</title>
+</head>
+<body>
+<h1><a href="Icons/635e8eb2c7a2caa152212e1c14aaede86abd77aa.svg"><img class="svgiconhead" src="Icons/635e8eb2c7a2caa152212e1c14aaede86abd77aa.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Nonlinear.html">Nonlinear</a>.<span class="omc-h1">VariableDelay</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The Input signal is delayed by a given time instant, or more
+precisely:</p>
+<pre>
+   y = u(time - delayTime) for time &gt; time.start + delayTime
+     = u(time.start)       for time ≤ time.start + delayTime
+</pre>
+<p>where delayTime is an additional input signal which must follow
+the following relationship:</p>
+<pre>
+  0 ≤ delayTime ≤ delayMax
+</pre>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

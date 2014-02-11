@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Interfaces.PartialTwoPhaseMedium</title>
+</head>
+<body>
+<h1><a href="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg"><img class="svgiconhead" src="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Interfaces.html">Interfaces</a>.<span class="omc-h1">PartialTwoPhaseMedium</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Base class for two phase medium of one substance
+</pre>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.ThermodynamicState.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.ThermodynamicState.html">ThermodynamicState</a></td>
+<td>Thermodynamic state of two phase medium</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.BaseProperties.html">BaseProperties</a></td>
+<td>Base properties (p, d, T, h, u, R, MM, sat) of two phase
+medium</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setDewState.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setDewState.html">setDewState</a></td>
+<td>Return the thermodynamic state on the dew line</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setBubbleState.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setBubbleState.html">setBubbleState</a></td>
+<td>Return the thermodynamic state on the bubble line</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_dTX.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_dTX.html">setState_dTX</a></td>
+<td>Return thermodynamic state as function of d, T and composition
+X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_phX.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_phX.html">setState_phX</a></td>
+<td>Return thermodynamic state as function of p, h and composition
+X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_psX.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_psX.html">setState_psX</a></td>
+<td>Return thermodynamic state as function of p, s and composition
+X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_pTX.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_pTX.html">setState_pTX</a></td>
+<td>Return thermodynamic state as function of p, T and composition
+X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setSat_T.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setSat_T.html">setSat_T</a></td>
+<td>Return saturation property record from temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setSat_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setSat_p.html">setSat_p</a></td>
+<td>Return saturation property record from pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.bubbleEnthalpy.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.bubbleEnthalpy.html">bubbleEnthalpy</a></td>
+<td>Return bubble point specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dewEnthalpy.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dewEnthalpy.html">dewEnthalpy</a></td>
+<td>Return dew point specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.bubbleEntropy.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.bubbleEntropy.html">bubbleEntropy</a></td>
+<td>Return bubble point specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dewEntropy.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dewEntropy.html">dewEntropy</a></td>
+<td>Return dew point specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.bubbleDensity.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.bubbleDensity.html">bubbleDensity</a></td>
+<td>Return bubble point density</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dewDensity.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dewDensity.html">dewDensity</a></td>
+<td>Return dew point density</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationPressure.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationPressure.html">saturationPressure</a></td>
+<td>Return saturation pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature.html">saturationTemperature</a></td>
+<td>Return saturation temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationPressure_sat.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationPressure_sat.html">saturationPressure_sat</a></td>
+<td>Return saturation temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_sat.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_sat.html">saturationTemperature_sat</a></td>
+<td>Return saturation temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_derp.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_derp.html">saturationTemperature_derp</a></td>
+<td>Return derivative of saturation temperature w.r.t.
+pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_derp_sat.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.saturationTemperature_derp_sat.html">saturationTemperature_derp_sat</a></td>
+<td>Return derivative of saturation temperature w.r.t.
+pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.surfaceTension.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.surfaceTension.html">surfaceTension</a></td>
+<td>Return surface tension sigma in the two phase region</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.molarMass.html"><img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.molarMass.html">molarMass</a></td>
+<td>Return the molar mass of the medium</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dBubbleDensity_dPressure.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dBubbleDensity_dPressure.html">dBubbleDensity_dPressure</a></td>
+<td>Return bubble point density derivative</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dDewDensity_dPressure.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dDewDensity_dPressure.html">dDewDensity_dPressure</a></td>
+<td>Return dew point density derivative</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dBubbleEnthalpy_dPressure.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dBubbleEnthalpy_dPressure.html">dBubbleEnthalpy_dPressure</a></td>
+<td>Return bubble point specific enthalpy derivative</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dDewEnthalpy_dPressure.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.dDewEnthalpy_dPressure.html">dDewEnthalpy_dPressure</a></td>
+<td>Return dew point specific enthalpy derivative</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_pTX.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_pTX.html">specificEnthalpy_pTX</a></td>
+<td>Return specific enthalpy from pressure, temperature and mass
+fraction</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_phX.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_phX.html">temperature_phX</a></td>
+<td>Return temperature from p, h, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_phX.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_phX.html">density_phX</a></td>
+<td>Return density from p, h, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_psX.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_psX.html">temperature_psX</a></td>
+<td>Return temperature from p, s, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_psX.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_psX.html">density_psX</a></td>
+<td>Return density from p, s, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_psX.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_psX.html">specificEnthalpy_psX</a></td>
+<td>Return specific enthalpy from p, s, and X or Xi</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_pT.html">setState_pT</a></td>
+<td>Return thermodynamic state from p and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_ph.html">setState_ph</a></td>
+<td>Return thermodynamic state from p and h</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_ps.html">setState_ps</a></td>
+<td>Return thermodynamic state from p and s</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_dT.html">setState_dT</a></td>
+<td>Return thermodynamic state from d and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_px.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_px.html">setState_px</a></td>
+<td>Return thermodynamic state from pressure and vapour
+quality</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_Tx.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_Tx.html">setState_Tx</a></td>
+<td>Return thermodynamic state from temperature and vapour
+quality</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.vapourQuality.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.vapourQuality.html">vapourQuality</a></td>
+<td>Return vapour quality</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_ph.html">density_ph</a></td>
+<td>Return density from p and h</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_ph.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_ph.html">temperature_ph</a></td>
+<td>Return temperature from p and h</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.pressure_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.pressure_dT.html">pressure_dT</a></td>
+<td>Return pressure from d and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_dT.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_dT.html">specificEnthalpy_dT</a></td>
+<td>Return specific enthalpy from d and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_ps.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_ps.html">specificEnthalpy_ps</a></td>
+<td>Return specific enthalpy from p and s</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_ps.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.temperature_ps.html">temperature_ps</a></td>
+<td>Return temperature from p and s</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_ps.html">density_ps</a></td>
+<td>Return density from p and s</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_pT.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.specificEnthalpy_pT.html">specificEnthalpy_pT</a></td>
+<td>Return specific enthalpy from p and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Interfaces.PartialTwoPhaseMedium.density_pT.html">density_pT</a></td>
+<td>Return density from p and T</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

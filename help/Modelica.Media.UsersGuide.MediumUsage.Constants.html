@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.UsersGuide.MediumUsage.Constants</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">Constants</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Every medium model provides the following <b>constants</b>. For
+example, if a medium is declared as:</p>
+<pre>
+   <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
+</pre>
+<p>then constants "Medium.mediumName", "Medium.nX", etc. are
+defined:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>Type</b></td>
+<td valign="top"><b>Name</b></td>
+<td valign="top"><b>Description</b></td>
+</tr>
+<tr>
+<td valign="top">String</td>
+<td valign="top">mediumName</td>
+<td valign="top">Unique name of the medium (is usually used to
+check whether the media in different components connected together
+are the same, by providing Medium.mediumName as quantity attribute
+of the mass flow rate in the connector)</td>
+</tr>
+<tr>
+<td valign="top">String</td>
+<td valign="top">substanceNames[nS]</td>
+<td valign="top">Names of the substances that make up the medium.
+If only one substance is present, substanceNames =
+{mediumName}.</td>
+</tr>
+<tr>
+<td valign="top">String</td>
+<td valign="top">extraPropertiesNames[nC]</td>
+<td valign="top">Names of the extra transported substances, outside
+of mass and energy balances.</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">singleState</td>
+<td valign="top">= <b>true</b>, if u and d are not a function of
+pressure, and thus only a function of a single thermal variable
+(temperature or enthalpy) and of Xi for a multiple substance
+medium. Usually, this flag is <b>true</b> for incompressible media.
+It is used in a model to determine whether 1+nXi
+(singleState=<b>true</b>) or 2+nXi (singleState=<b>false</b>)
+initial conditions have to be provided for a volume element that
+contains mass and energy balance.</td>
+</tr>
+<tr>
+<td valign="top">AbsolutePressure</td>
+<td valign="top">reference_p</td>
+<td valign="top">Reference pressure for the medium</td>
+</tr>
+<tr>
+<td valign="top">MassFraction</td>
+<td valign="top">reference_X[nX]</td>
+<td valign="top">Reference composition for the medium</td>
+</tr>
+<tr>
+<td valign="top">AbsolutePressure</td>
+<td valign="top">p_default</td>
+<td valign="top">Default value for pressure of medium (for
+initialization)</td>
+</tr>
+<tr>
+<td valign="top">Temperature</td>
+<td valign="top">T_default</td>
+<td valign="top">Default value for temperature of medium (for
+initialization)</td>
+</tr>
+<tr>
+<td valign="top">SpecificEnthalpy</td>
+<td valign="top">h_default</td>
+<td valign="top">Default value for specific enthalpy of medium (for
+initialization)</td>
+</tr>
+<tr>
+<td valign="top">MassFraction</td>
+<td valign="top">X_default[nX]</td>
+<td valign="top">Default value for mass fractions of medium (for
+initialization)</td>
+</tr>
+<tr>
+<td valign="top">Integer</td>
+<td valign="top">nS</td>
+<td valign="top">number of substances contained in the medium.</td>
+</tr>
+<tr>
+<td valign="top">Integer</td>
+<td valign="top">nX</td>
+<td valign="top">Size of the full mass fraction vector X
+nX=nS.</td>
+</tr>
+<tr>
+<td valign="top">Integer</td>
+<td valign="top">nXi</td>
+<td valign="top">Number of independent mass fractions. If there is
+a single substance, then nXi = 0.</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">reducedX</td>
+<td valign="top">= <b>true</b>, if the medium has a single
+substance, or if the medium model has multiple substances and
+contains the equation sum(X) = 1. In both cases, nXi = nS - 1
+(unless fixedX = true).<br />
+= <b>false</b>, if the medium has multiple substances and does not
+contain the equation sum(X)=1, i.e., nXi = nX = nS (unless fixedX =
+true).</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">fixedX</td>
+<td valign="top">= <b>false</b>: the composition of the medium can
+vary, and is determined by nXi independent mass fractions (see
+reducedX above).<br />
+= <b>true</b>: the composition of the medium is always reference_X,
+and nXi = 0.</td>
+</tr>
+<tr>
+<td valign="top">FluidConstants</td>
+<td valign="top">fluidConstants[nS]</td>
+<td valign="top">Critical, triple, molecular and other standard
+data that are provided for every substance of a medium.</td>
+</tr>
+</table>
+<p>The record FluidConstants that is defined in PartialMedium
+contains the following elements</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>Type</b></td>
+<td valign="top"><b>Name</b></td>
+<td valign="top"><b>Description</b></td>
+</tr>
+<tr>
+<td valign="top">String</td>
+<td valign="top">iupacName</td>
+<td valign="top">complete IUPAC name</td>
+</tr>
+<tr>
+<td valign="top">String</td>
+<td valign="top">casRegistryNumber</td>
+<td valign="top">chemical abstracts sequencing number</td>
+</tr>
+<tr>
+<td valign="top">String</td>
+<td valign="top">chemicalFormula</td>
+<td valign="top">Chemical formula, (brutto, nomenclature according
+to Hill)</td>
+</tr>
+<tr>
+<td valign="top">String</td>
+<td valign="top">structureFormula</td>
+<td valign="top">Chemical structure formula</td>
+</tr>
+<tr>
+<td valign="top">MolarMass</td>
+<td valign="top">molarMass</td>
+<td valign="top">molar mass</td>
+</tr>
+</table>
+<p>This record is extended in the partial packages further down the
+hierarchy (such as PartialTwoPhaseMedium or PartialMixtureMedium)
+and may contain some or all of the following elements</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top">Temperature</td>
+<td valign="top">criticalTemperature</td>
+<td valign="top">critical temperature</td>
+</tr>
+<tr>
+<td valign="top">AbsolutePressure</td>
+<td valign="top">criticalPressure</td>
+<td valign="top">critical pressure</td>
+</tr>
+<tr>
+<td valign="top">MolarVolume</td>
+<td valign="top">criticalMolarVolume</td>
+<td valign="top">critical molar Volume</td>
+</tr>
+<tr>
+<td valign="top">Real</td>
+<td valign="top">acentricFactor</td>
+<td valign="top">Pitzer acentric factor</td>
+</tr>
+<tr>
+<td valign="top">Temperature</td>
+<td valign="top">triplePointTemperature</td>
+<td valign="top">triple point temperature</td>
+</tr>
+<tr>
+<td valign="top">AbsolutePressure</td>
+<td valign="top">triplePointPressure</td>
+<td valign="top">triple point pressure</td>
+</tr>
+<tr>
+<td valign="top">Temperature</td>
+<td valign="top">meltingPoint</td>
+<td valign="top">melting point at 101325 Pa</td>
+</tr>
+<tr>
+<td valign="top">Temperature</td>
+<td valign="top">normalBoilingPoint</td>
+<td valign="top">normal boiling point (at 101325 Pa)</td>
+</tr>
+<tr>
+<td valign="top">DipoleMoment</td>
+<td valign="top">dipoleMoment</td>
+<td valign="top">dipole moment of molecule in Debye (1 debye =
+3.33564e10-30 C.m)</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">hasIdealGasHeatCapacity</td>
+<td valign="top">true if ideal gas heat capacity is available</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">hasCriticalData</td>
+<td valign="top">true if critical data are known</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">hasDipoleMoment</td>
+<td valign="top">true if a dipole moment known</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">hasFundamentalEquation</td>
+<td valign="top">true if a fundamental equation</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">hasLiquidHeatCapacity</td>
+<td valign="top">true if liquid heat capacity is available</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">hasSolidHeatCapacity</td>
+<td valign="top">true if solid heat capacity is available</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">hasAccurateViscosityData</td>
+<td valign="top">true if accurate data for a viscosity function is
+available</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">hasAccurateConductivityData</td>
+<td valign="top">true if accurate data for thermal conductivity is
+available</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">hasVapourPressureCurve</td>
+<td valign="top">true if vapour pressure data, e.g., Antoine
+coefficients are known</td>
+</tr>
+<tr>
+<td valign="top">Boolean</td>
+<td valign="top">hasAcentricFactor</td>
+<td valign="top">true if Pitzer accentric factor is known</td>
+</tr>
+<tr>
+<td valign="top">SpecificEnthalpy</td>
+<td valign="top">HCRIT0</td>
+<td valign="top">Critical specific enthalpy of the fundamental
+equation</td>
+</tr>
+<tr>
+<td valign="top">SpecificEntropy</td>
+<td valign="top">SCRIT0</td>
+<td valign="top">Critical specific entropy of the fundamental
+equation</td>
+</tr>
+<tr>
+<td valign="top">SpecificEnthalpy</td>
+<td valign="top">deltah</td>
+<td valign="top">Difference between specific enthalpy model (h_m)
+and f.eq. (h_f) (h_m - h_f)</td>
+</tr>
+<tr>
+<td valign="top">SpecificEntropy</td>
+<td valign="top">deltas</td>
+<td valign="top">Difference between specific enthalpy model (s_m)
+and f.eq. (s_f) (s_m - s_f)</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.equalityLeastSquares</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">equalityLeastSquares</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+x = Matrices.<b>equalityLeastSquares</b>(A,a,B,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function returns the solution <b>x</b> of the linear
+equality-constrained least squares problem:</p>
+<blockquote>
+<p>min|<b>A</b>*<b>x</b> - <b>a</b>|^2 over <b>x</b>, subject to
+<b>B</b>*<b>x</b> = <b>b</b></p>
+</blockquote>
+<p>It is required that the dimensions of A and B fulfill the
+following relationship:</p>
+<blockquote>size(B,1) ≤ size(A,2) ≤ size(A,1) +
+size(B,1)</blockquote>
+<p>Note, the solution is computed with the LAPACK function "dgglse"
+using the generalized RQ factorization under the assumptions that B
+has full row rank (= size(B,1)) and the matrix [A;B] has full
+column rank (= size(A,2)). In this case, the problem has a unique
+solution.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function equalityLeastSquares
+  extends Modelica.Icons.Function;
+  input Real A[:,:] "Minimize |A*x - a|^2";
+  input Real a[size(A, 1)];
+  input Real B[:,size(A, 2)] "subject to B*x=b";
+  input Real b[size(B, 1)];
+  output Real x[size(A, 2)] "solution vector";
+end equalityLeastSquares;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

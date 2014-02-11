@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.Incompressible.TableBased.Polynomials_Temp.fitting</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Incompressible.html">Incompressible</a>.<a class="omc-h1-a" href="Modelica.Media.Incompressible.TableBased.html">TableBased</a>.<a class="omc-h1-a" href="Modelica.Media.Incompressible.TableBased.Polynomials_Temp.html">Polynomials_Temp</a>.<span class="omc-h1">fitting</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Polynomials.fitting(u,y,n) computes the coefficients of a
+polynomial p(u) of degree "n" that fits the data "p(u[i]) - y[i]"
+in a least squares sense. The polynomial is returned as a vector
+p[n+1] that has the following definition:</p>
+<pre>
+  p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function fitting
+  extends Modelica.Icons.Function;
+  input Real u[:] "Abscissa data values";
+  input Real y[size(u, 1)] "Ordinate data values";
+  input Integer n(min = 1) "Order of desired polynomial that fits the data points (u,y)";
+  output Real p[n + 1] "Polynomial coefficients of polynomial that fits the date points";
+end fitting;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

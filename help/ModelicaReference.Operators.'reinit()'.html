@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'reinit()'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'reinit()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Reinitialize state variable</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>reinit</b>(x, expr)
+</pre></blockquote>
+<h4>Description</h4>
+<p>The operator reinitializes <code>x</code> with expr at an event
+instant. <code>x</code> is a Real variable (or an array of Real
+variables) that must be selected as a state (resp., states), that
+is reinit on <code>x</code> implies <code>stateSelect =
+StateSelect.always</code> on <code>x</code>. <code>expr</code>
+needs to be type-compatible with <code>x</code>. The reinit
+operator can for the same variable (resp. array of variables) only
+be applied (either as an individual variable or as part of an array
+of variables) in one equation (having reinit of the same variable
+in when and else-when of the same variable is allowed). The reinit
+operator can only be used in the body of a when-equation. It cannot
+be used in an algorithm section.</p>
+<p>The reinit operator does not break the single assignment rule,
+because reinit(x,expr) in equations evaluates expr to a value
+(value), then at the end of the current event iteration step it
+assigns this value to x (this copying from values to reinitialized
+state(s) is done after all other evaluations of the model and
+before copying x to pre(x)).</p>
+<p><i>[If a higher index system is present, that is constraints
+between state variables, some state variables need to be redefined
+to non-state variables. During simulation, non-state variables
+should be chosen in such a way that variables with an applied
+reinit operator are selected as states at least when the
+corresponding when-clauses become active. If this is not possible,
+an error occurs, since otherwise the reinit operator would be
+applied on a non-state variable.]</i></p>
+<h4>Examples</h4>
+<blockquote>
+<pre>
+// Bouncing ball
+   <b>parameter</b> Real e=0.5 "Coefficient of restitution"
+   Real h, v;
+   Boolean flying;
+<b>equation</b>
+   <b>der</b>(h) = v;
+   <b>der</b>(v) = <b>if</b> flying <b>then</b> -g <b>else</b> 0;
+   flying = <b>not</b> (h&lt;=0 <b>and</b> v&lt;=0);
+
+   <b>when</b> h &lt; 0 <b>then</b>
+     <b>reinit</b>(v, -e*<b>pre</b>(v));
+   <b>end when</b>;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

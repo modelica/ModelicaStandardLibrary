@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'assert()'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'assert()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Trigger error and print error message if assertion condition is
+not fulfilled</p>
+<h4>Syntax</h4>
+<blockquote><code><b>assert</b>(condition, message, level =
+AssertionLevel.error)</code></blockquote>
+<h4>Description</h4>
+<p>The Boolean expression <i>condition</i> shall be true for
+successful model evaluations. Otherwise, an error occurs using the
+string expression <i>message</i> as error message.</p>
+<p>If the condition of an assert statement is true, message is not
+evaluated and the procedure call is ignored. If the condition
+evaluates to false different actions are taken depending on the
+level input:</p>
+<ul>
+<li>level = AssertionLevel.error:<br />
+The current evaluation is aborted. The simulation may continue with
+another evaluation [e.g., with a shorter step-size, or by changing
+the values of iteration variables]. If the simulation is aborted,
+message indicates the cause of the error. Failed assertions takes
+precedence over successful termination, such that if the model
+first triggers the end of successful analysis by reaching the
+stop-time or explicitly with terminate(), but the evaluation with
+terminal()=true triggers an assert, the analysis failed.</li>
+<li>level = AssertionLevel.warning:<br />
+The current evaluation is not aborted. message indicates the cause
+of the warning [It is recommended to report the warning only once
+when the condition becomes false, and it is reported that the
+condition is no longer violated when the condition returns to true.
+The assert(..) statement shall have no influence on the behavior of
+the model. For example, by evaluating the condition and reporting
+the message only after accepted integrator steps. condition needs
+to be implicitly treated with noEvent(..) since otherwise events
+might be triggered that can lead to slightly changed simulation
+results].</li>
+</ul>
+<p>The AssertionLevel.error case can be used to avoid evaluating a
+model outside its limits of validity; for instance, a function to
+compute the saturated liquid temperature cannot be called with a
+pressure lower than the triple point value. The
+AssertionLevel.warning case can be used when the boundary of
+validity is not hard: for instance, a fluid property model based on
+a polynomial interpolation curve might give accurate results
+between temperatures of 250 K and 400 K, but still give reasonable
+results in the range 200 K and 500 K. When the temperature gets out
+of the smaller interval, but still stays in the largest one, the
+user should be warned, but the simulation should continue without
+any further action. The corresponding code would be</p>
+<pre>
+  <b>assert</b>(T &gt; 250 and T &lt; 400, "Medium model outside full accuracy range",
+         AssertionLevel.warning);
+  <b>assert</b>(T &gt; 200 and T &lt; 500, "Medium model outside feasible region");
+</pre>
+<h4>Examples</h4>
+<pre>
+  <b>parameter</b> Real upperLimit=2;
+  <b>parameter</b> Real lowerLimit=-2;
+<b>equation</b>
+  <b>assert</b>(upperLimit &gt; lowerLimit, "upperLimit must be greater than lowerLimit.");
+</pre>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

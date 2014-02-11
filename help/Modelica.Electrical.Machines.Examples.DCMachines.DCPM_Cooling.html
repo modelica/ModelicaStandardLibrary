@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Machines.Examples.DCMachines.DCPM_Cooling</title>
+</head>
+<body>
+<h1><a href="Icons/93b712f087307ec39b21e05cea07f4b650197dc6.svg"><img class="svgiconhead" src="Icons/93b712f087307ec39b21e05cea07f4b650197dc6.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.DCMachines.html">DCMachines</a>.<span class="omc-h1">DCPM_Cooling</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<b>Test example: Demonstrate cooling of a DCPM motor</b><br />
+The motor starts at no-load speed, then load pulses are
+applied.<br />
+The cooling circuit consists of armature's thermal capacitance, a
+thermal conductance between armature and core, core's thermal
+capacitance and a thermal conductance between core and coolant. The
+coolant flow circuit consists of inlet, volume flow, a pipe
+connected to the core and the outlet.<br />
+<b>Please note:</b>
+<ul>
+<li>All unused heat ports of the thermal port (i.e., without loss
+sources in the machine: brush, stray, friction, permanent magnet)
+have to be connected to a constant temperature source.</li>
+<li>The thermal capacitances (i.e., time constants) are unusual
+small to provide short simulation time!</li>
+<li>The coolant is a theoretical coolant with specific mass = 1
+kg/m3 and cp = 1 J/kg.K.</li>
+<li>The thermal conductances as well as the coolant flow are
+parametrized such way, that:</li>
+</ul>
+<ol>
+<li>the total coolant's temperature rise is 10 K (over coolant
+inlet)</li>
+<li>the core's temperature rise is 27.5 K (over coolant's average
+temperature between inlet and outlet)</li>
+<li>the armature's temperature rise is 55 K (over coolant's average
+temperature between inlet and outlet)</li>
+</ol>
+Simulate for 25 seconds and plot (versus time):
+<ul>
+<li>armature.T: armature temperature</li>
+<li>core.T: core temperature</li>
+<li>cooling.T: coolant temperature at outlet</li>
+</ul>
+Therefore the armature temperature would reach nominal armature
+temperature at constant nominal load.<br />
+Default machine parameters are used, but:
+<ul>
+<li>The armature winding material is set to Copper.</li>
+<li>Armature reference temperature is set to 80 degC.</li>
+<li>Nominal armature temperature is set to 80 degC.</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

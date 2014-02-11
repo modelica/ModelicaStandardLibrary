@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'edge()'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'edge()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Indicate rising edge</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>edge</b>(b)
+</pre></blockquote>
+<h4>Description</h4>
+<p>Is expanded into "(b <b>and not pre</b>(b))" for Boolean
+variable b. The same restrictions as for the <b>pre</b> operator
+apply (e.g., not to be used in function classes).</p>
+<h4>Examples</h4>
+<pre>
+<b>model</b> RisingEdge
+  Boolean u;
+  Integer i;
+<b>equation</b>
+  u = Modelica.Math.sin(<b>time</b>) &gt; 0.5;
+  <b>when</b> <b>edge</b>(u) <b>then</b>
+    i = <b>pre</b>(i) + 1;
+  <b>end when</b>;
+<b>end</b> RisingEdge;
+</pre>
+<img src="../ModelicaReference%203.2.1/Resources/Images/edge.png" width="400" height="280" alt="Simulation result" />
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Spice3.Additionals.F_CCC_POLY</title>
+</head>
+<body>
+<h1><a href="Icons/ec93c66a806794318c6e6248e7469eaea564caab.svg"><img class="svgiconhead" src="Icons/ec93c66a806794318c6e6248e7469eaea564caab.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.Additionals.html">Additionals</a>.<span class="omc-h1">F_CCC_POLY</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The polynomial source is a SPICE2 model, which is also known in
+other SPICE derivates.</p>
+<p>Nonlinear current controlled current source. The "right" port
+current at pin p2 (=p2.i) is controlled by the "left" port vector
+of currents at pin pc[:] via</p>
+<pre>
+    p2.i = f(pc[2].i, pc[4].i,...)
+</pre>
+<p>The controlling port (left) voltage is zero for each pair:
+pc[2].v - pc[1].v = 0, ...</p>
+<p>Furthermore the currents of each pair are pc[2].i + pc[1].i = 0,
+...</p>
+<p>f is a polynomial in N variables s1...sN of the following form
+with M+1 coefficients a0, a1, a2,...aM.</p>
+<pre>
+f = a0 +
+    a1s1 + a2s2 + ... + aNsN +
+    a(N+1)s1² + a(N+2)s1s2 + ... + a(.)s1sN +
+    a(.)s2² + a(.)s2s3 + ... + a(.)s2sN +
+    a(.)s3² + s3s4 + ... + a(.)s4sN +
+    ... +
+    a(.)sN² +
+    a(.)s1³ + a(.)s1²s2 + a(.)s1²s3 + ... + a(.)s1²sN +
+    a(.)s1s2² + a(.)s1s2s3 + ... + a(.)s1s2sN +
+    ... +
+    a(.)sN³ + ... 
+</pre>
+<p>The Coefficients a(.) are counted in this order. Reaching M, the
+particular sum is canceled.</p>
+<p>In Modelica the controlling pins have to be connected to the CCC
+in that way, that the required currents flow through the according
+pins of the CCC:</p>
+<p>s1=pc[2].i, s2=pc[4].i, s3=pc[6].i,...</p>
+<p>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports
+with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p>
+<p>The corresponding SPICE description of the CCC polynomial source
+is the following:</p>
+<pre>
+    Fname A1 A2 POLY(N) V1...VN P0 P1...
+</pre>
+<p>where Fname is the name of the instance, A1 and A2 are the nodes
+between them the current source is arranged, whose current is
+calculated.</p>
+<p>N is the number of the controlling currents, V1...VN are the
+voltage sources, that are necessary in SPICE to supply the
+controlling currents,</p>
+<p>and P0, P1... are the coefficients that are called a0, a1, ...
+aM in the description of the polynomial f above.</p>
+<p>To describe the SPICE line in Modelica, the following
+explanation would be useful:</p>
+<pre>
+Fname -&gt; F_CCC_POLY name
+A1, A2 -&gt; pins name.p2, name.p1
+N -&gt; parameter N
+</pre>
+<p>V1 (...VN) is declared in SPICE:</p>
+<pre>
+   V1 V1+ V1- type of voltage source (constant, pulse, sin...)
+</pre>
+<p>In Modelica the currents through V1...VN has to be led through
+the CCC. Therefore V1...VN have to be disconnected and additional
+nodes</p>
+<pre>
+   V1_AD...VN_AD
+</pre>
+<p>have to be added. In the case, that the SPICE source is</p>
+<pre>
+   V1 n+ n- 0,
+</pre>
+<p>this source can be eliminated.</p>
+<pre>
+V1_AD -&gt; name.pc[2]
+V1- -&gt; name.pc[1]
+...
+VN_AD -&gt; name.pc[N]
+VN- -&gt; name.pc[N-1]
+P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
+</pre>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>Sept 2008</i> by Kristin Majetta<br />
+initially implemented</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

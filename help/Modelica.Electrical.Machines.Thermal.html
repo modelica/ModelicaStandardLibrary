@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Machines.Thermal</title>
+</head>
+<body>
+<h1><a href="Icons/dce4701d1474e1c9fb3d968d85f09f6dc19b9654.svg"><img class="svgiconhead" src="Icons/dce4701d1474e1c9fb3d968d85f09f6dc19b9654.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<span class="omc-h1">Thermal</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Thermal concept</h4>
+<p>Each machine model is equipped with a machine-specific
+conditional <code>thermalPort</code>. If <code>useThermalPort ==
+false</code>, a machine-specific thermal ambient prescribing
+constant temperatures is used inside the machine. If
+<code>useThermalPort == true</code>, a thermal model or
+machine-specific thermal ambient prescribing the temperatures has
+to be connected from outside. On the other hand, all losses are
+dissipated to this internal or external thermal ambient.</p>
+<p>The machine specific thermal connector contains <a href="Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a.html">heatPort</a>s
+for all relevant loss sources of the machine type, although some of
+the loss sources are not yet implemented; these heatPorts are left
+unconnected inside the machine, i.e., the HeatFlowRate is zero, but
+they have to be connected to a constant temperature source in the
+internal or external thermal ambient. Simple machine-specific
+thermal ambients for constant temperatures
+(<code>useTemperatureInputs == false</code>) or temperatures
+prescribed via signal inputs (<code>useTemperatureInputs ==
+true</code>) are provided in this package.</p>
+<h4>Loss sources</h4>
+<p>Up to now, only Ohmic losses in stator and rotor windings are
+implemented. They are modeled as <a href="Modelica.Electrical.Analog.Basic.Resistor.html">linearly
+temperature dependent resistors</a>:</p>
+<pre>
+   ROperational = RRef * (1 + alphaRef * (TOperational - TRef))
+</pre>
+<h5>Parameters:</h5>
+<ul>
+<li>Resistance <code>RRef</code> at reference temperature</li>
+<li>Reference temperature <code>TRef</code></li>
+<li>Linear temperature coefficient <code>alpha20</code> at
+20°C</li>
+<li>Operational temperature <code>TOperational</code> (if
+<code>useThermalPort == false</code>; otherwise, the operational
+temperature is provided via the heatPort)</li>
+<li>Nominal temperature <code>TNominal</code> (required for DC
+machines to calculate the turns ratio)</li>
+</ul>
+<p>The linear temperature coefficient <code>alpha20</code> at 20°C
+= 293.15 K has to be converted to reference temperature
+<code>TRef</code>:</p>
+<pre>
+                        alpha20
+  alphaRef = -------------------------------
+              1 + alpha20 * (TRef - 293.15)
+</pre>
+<p>For this reason, the function <a href="Modelica.Electrical.Machines.Thermal.convertAlpha.html">convertAlpha</a>
+is provided. In sub-package <a href="Modelica.Electrical.Machines.Thermal.Constants.html">Constants</a>
+linear temperature coefficients at 20°C for commonly used materials
+are defined.</p>
+<h4>Backwards compatibility</h4>
+<ul>
+<li>The default / start values of all resistances are left
+unchanged.</li>
+<li>The default / start values of all reference temperatures are
+set to 20°C.</li>
+<li>The default / start values of all linear temperature
+coefficients are set to 0.</li>
+<li>The default / start values of all operational temperatures are
+set to 20°C.</li>
+<li>The default / start values of all nominal temperatures are set
+to 20°C.</li>
+</ul>
+<h4>Machine specific thermalPorts</h4>
+<h5><a href="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage.html">
+Asynchronous induction machine with squirrel cage</a></h5>
+<ul>
+<li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the
+m=3 stator phases</li>
+<li><code>heatPortRotorWinding</code>: heatPort for the rotor
+cage</li>
+<li><code>heatPortStatorCore</code>: stator core losses (not yet
+fully implemented)</li>
+<li><code>heatPortRotorCore</code>: rotor core losses (not yet
+connected/implemented)</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing.html">
+Asynchronous induction machine with slipring rotor</a></h5>
+<ul>
+<li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the
+m=3 stator phases</li>
+<li><code>heatPortRotorWinding[m]</code>: m=3 heatPorts for the m=3
+rotor phases</li>
+<li><code>heatPortBrush</code>: brush losses (not yet
+connected/implemented)</li>
+<li><code>heatPortStatorCore</code>: stator core losses (not yet
+fully implemented)</li>
+<li><code>heatPortRotorCore</code>: rotor core losses (not yet
+fully implemented)</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet.html">
+Synchronous induction machine with permanent magnets</a></h5>
+<ul>
+<li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the
+m=3 stator phases</li>
+<li><code>heatPortRotorWinding</code>: conditional
+(<code>useDamperCage=true/false</code>) heatPort for the damper
+cage</li>
+<li><code>heatPortPermanentMagnet</code>: permanent magnet losses
+(not yet connected/implemented)</li>
+<li><code>heatPortStatorCore</code>: stator core losses (not yet
+fully implemented)</li>
+<li><code>heatPortRotorCore</code>: rotor core losses (not yet
+connected/implemented)</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited.html">
+Synchronous induction machine with electrical excitation</a></h5>
+<ul>
+<li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the
+m=3 stator phases</li>
+<li><code>heatPortRotorWinding</code>: conditional
+(<code>useDamperCage=true/false</code>) heatPort for the damper
+cage</li>
+<li><code>heatPortExcitation</code>: electrical excitation</li>
+<li><code>heatPortBrush</code>: brush losses</li>
+<li><code>heatPortStatorCore</code>: stator core losses (not yet
+fully implemented)</li>
+<li><code>heatPortRotorCore</code>: rotor core losses (not yet
+connected/implemented)</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor.html">
+Synchronous induction machine with reluctance rotor</a></h5>
+<ul>
+<li><code>heatPortStatorWinding[m]</code>: m=3 heatPorts for the
+m=3 stator phases</li>
+<li><code>heatPortRotorWinding</code>: conditional
+(<code>useDamperCage=true/false</code>) heatPort for the damper
+cage</li>
+<li><code>heatPortStatorCore</code>: stator core losses (not yet
+fully implemented)</li>
+<li><code>heatPortRotorCore</code>: rotor core losses (not yet
+connected/implemented)</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet.html">
+DC machine with permanent magnets</a></h5>
+<ul>
+<li><code>heatPortArmature</code>: armature losses</li>
+<li><code>heatPortPermanentMagnet</code>: permanent magnet losses
+(not yet connected/implemented)</li>
+<li><code>heatPortBrush</code>: brush losses</li>
+<li><code>heatPortCore</code>: armature core losses</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited.html">
+DC machine with electrical (shunt) excitation</a></h5>
+<ul>
+<li><code>heatPortArmature</code>: armature losses</li>
+<li><code>heatPortExcitation</code>: electrical (shunt)
+excitation</li>
+<li><code>heatPortBrush</code>: brush losses</li>
+<li><code>heatPortCore</code>: armature core losses</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited.html">
+DC machine with serial excitation</a></h5>
+<ul>
+<li><code>heatPortArmature</code>: armature losses</li>
+<li><code>heatPortSeriesExcitation</code>: electrical series
+excitation</li>
+<li><code>heatPortBrush</code>: brush losses</li>
+<li><code>heatPortCore</code>: armature core losses</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5>
+<!--&lt;a href="modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_Compound"&gt;-->DC
+machine with compound excitation (not yet implemented)
+<!--&lt;/a&gt;--></h5>
+<ul>
+<li><code>heatPortArmature</code>: armature losses</li>
+<li><code>heatPortShuntExcitation</code>: electrical (shunt)
+excitation</li>
+<li><code>heatPortSeriesExcitation</code>: electrical series
+excitation</li>
+<li><code>heatPortBrush</code>: brush losses</li>
+<li><code>heatPortCore</code>: armature core losses</li>
+<li><code>heatPortStrayLoad</code>: stray load losses</li>
+<li><code>heatPortFriction</code>: friction losses</li>
+</ul>
+<h5><a href="Modelica.Electrical.Machines.BasicMachines.Transformers.html">
+Transformers</a></h5>
+<ul>
+<li><code>heatPort1[m]</code>: m=3 heatPorts for the m=3 primary
+phases</li>
+<li><code>heatPort2[m]</code>: m=3 heatPorts for the m=3 secondary
+phases</li>
+<li><code>heatPortCore</code>: iron core losses (not yet
+connected/implemented)</li>
+</ul>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20.html">LinearTemperatureCoefficient20</a></td>
+<td>Linear temperature coefficient with choices</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Thermal.Constants.html"><img class="svgiconsmall" src="Icons/5d6ce5ce9466af3e299b013e25e9d9b82795b86f.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.Thermal.Constants.html">Constants</a></td>
+<td>Material Constants</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Thermal.convertAlpha.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.Thermal.convertAlpha.html">convertAlpha</a></td>
+<td>Converts alpha from temperature 1 (default 20 degC) to
+temperature 2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Thermal.convertResistance.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.Thermal.convertResistance.html">convertResistance</a></td>
+<td>Converts resistance from reference temperature to an actual
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.html">
+<img class="svgiconsmall" src="Icons/08e35a6617ee86c550a5591f66396a32a714e4d7.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.Thermal.AsynchronousInductionMachines.html">AsynchronousInductionMachines</a></td>
+<td>Thermal parts of asynchronous induction machines</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.html">
+<img class="svgiconsmall" src="Icons/08e35a6617ee86c550a5591f66396a32a714e4d7.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.html">SynchronousInductionMachines</a></td>
+<td>Thermal parts of synchronous induction machines</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Thermal.DCMachines.html"><img class="svgiconsmall" src="Icons/08e35a6617ee86c550a5591f66396a32a714e4d7.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.Thermal.DCMachines.html">DCMachines</a></td>
+<td>Thermal parts of DC machines</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.Thermal.ThermalAmbientTransformer.html">
+<img class="svgiconsmall" src="Icons/d0a49a3fb9e4f2355eda150bb36f689a59896076.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.Thermal.ThermalAmbientTransformer.html">ThermalAmbientTransformer</a></td>
+<td>Thermal ambient for transformers</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li>v2.2.0 2011/02/10 Anton Haumer<br />
+first stable release of this subpackage:<br />
+conditional ThermalPort for all machines</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

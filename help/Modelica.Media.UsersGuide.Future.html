@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.UsersGuide.Future</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Future</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Planned changes for version 3.1</h4>
+<p>Several changes are planned for version 3.1 of Modelica.Media.
+In order to have an easy transition, the current version is moved
+to the ObsoleteModelica-package and current users can continue to
+use it for many years. The goal for the new version is to cover
+many more fluids, be easier to use for users and less for
+implementers that want to include their own models. A beta-version
+of the new media library will be available in the first quarter of
+2009.</p>
+<p>The main user-visible changes are:</p>
+<ul>
+<li>No distinction between pure fluids and mixtures on the
+interface level: pure fluids are mixtures with 1 component</li>
+<li>Compressibility will in the future be a flag that can be set
+for those media where it makes sense. It will thus be possible to
+treat an ideal gas as incompressible, which is adequate for certain
+applications, and also use the same medium model for thermal-only
+applications, and thermal-hydraulic ones.</li>
+<li>All functions will have derivatives to enable analytic
+Jacobians.</li>
+<li>Mole-fraction based media for process applications</li>
+</ul>
+<p>For further information on the upcoming version, please contact
+the <a href="Modelica.Media.UsersGuide.Contact.html">Author</a></p>
+<h4>Forward compatibility</h4>
+<p>In order to simplify transition to the upcoming version of
+Modelica.Media for Modelica 3.1, a new enumeration has been
+introduced: <a href="Modelica.Media.Interfaces.Choices.IndependentVariables.html">
+IndependentVariables</a> with the entries ph, pT, pTX, phX and dTX.
+Users are advised to use this enumeration to determine the
+independent variables of a medium. If they are going to use the
+function based interface of the current Modelica.Media (and not use
+the BaseProperties from Modelica.Media), they should not have any
+trouble using the next version without any need for changes in
+their code.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

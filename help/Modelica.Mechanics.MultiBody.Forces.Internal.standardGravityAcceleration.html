@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Forces.Internal.html">Internal</a>.<span class="omc-h1">standardGravityAcceleration</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This function defines the standard gravity fields for the World
+object.</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td><b><i>gravityType</i></b></td>
+<td><b><i>gravity [m/s2]</i></b></td>
+<td><b><i>description</i></b></td>
+</tr>
+<tr>
+<td>Types.GravityType.NoGravity</td>
+<td>= {0,0,0}</td>
+<td>No gravity</td>
+</tr>
+<tr>
+<td>Types.GravityType.UniformGravity</td>
+<td>= g</td>
+<td>Constant parallel gravity field</td>
+</tr>
+<tr>
+<td>Types.GravityType.PointGravity</td>
+<td>= -(mue/(r*r))*r/|r|</td>
+<td>Point gravity field with spherical mass</td>
+</tr>
+</table>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function standardGravityAcceleration
+  extends Modelica.Icons.Function;
+  extends Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration;
+  import Modelica.Mechanics.MultiBody.Types.GravityTypes;
+  input GravityTypes gravityType "Type of gravity field" annotation(Dialog);
+  input Modelica.SIunits.Acceleration g[3] "Constant gravity acceleration, resolved in world frame, if gravityType=UniformGravity" annotation(Dialog);
+  input Real mue(unit = "m3/s2") "Field constant of point gravity field, if gravityType=PointGravity" annotation(Dialog);
+end standardGravityAcceleration;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

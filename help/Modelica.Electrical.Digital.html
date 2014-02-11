@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Digital</title>
+</head>
+<body>
+<h1><a href="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg"><img class="svgiconhead" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<span class="omc-h1">Digital</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This library contains packages for digital electrical
+components. Both, type system and models are based on the VHDL
+standard (IEEE Std 1076-1987 VHDL, IEEE Std 1076-1993 VHDL, IEEE
+Std 1164 Multivalue Logic System):</p>
+<ul>
+<li>Interfaces: Definition of signals and interfaces</li>
+<li>Tables: All truth tables needed</li>
+<li>Delay: Transport and inertial delay</li>
+<li>Basic: Basic logic without delay</li>
+<li>Gates: Basic gates composed by basic components and inertial
+delay</li>
+<li>Tristate: (not yet available)</li>
+<li>FlipFlops: D-Flip-Flops</li>
+<li>Latches: D-Latches</li>
+<li>TransferGates: (not yet available)</li>
+<li>Multiplexers (not yet available)</li>
+<li>Memory: Ram, Rom, (not yet available)</li>
+<li>Sources: Time-dependent signal sources</li>
+<li>Converters</li>
+<li>Examples</li>
+</ul>
+<p>The logic values are coded by integer values. The following code
+table is necessary for both setting of input and interpreting the
+output values.</p>
+<p><b>Code Table:</b></p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>Logic value</b></td>
+<td valign="top"><b>Integer code</b></td>
+<td valign="top"><b>Meaning</b></td>
+</tr>
+<tr>
+<td valign="top">'U'</td>
+<td valign="top">1</td>
+<td valign="top">Uninitialized</td>
+</tr>
+<tr>
+<td valign="top">'X'</td>
+<td valign="top">2</td>
+<td valign="top">Forcing Unknown</td>
+</tr>
+<tr>
+<td valign="top">'0'</td>
+<td valign="top">3</td>
+<td valign="top">Forcing 0</td>
+</tr>
+<tr>
+<td valign="top">'1'</td>
+<td valign="top">4</td>
+<td valign="top">Forcing 1</td>
+</tr>
+<tr>
+<td valign="top">'Z'</td>
+<td valign="top">5</td>
+<td valign="top">High Impedance</td>
+</tr>
+<tr>
+<td valign="top">'W'</td>
+<td valign="top">6</td>
+<td valign="top">Weak Unknown</td>
+</tr>
+<tr>
+<td valign="top">'L'</td>
+<td valign="top">7</td>
+<td valign="top">Weak 0</td>
+</tr>
+<tr>
+<td valign="top">'H'</td>
+<td valign="top">8</td>
+<td valign="top">Weak 1</td>
+</tr>
+<tr>
+<td valign="top">'-'</td>
+<td valign="top">9</td>
+<td valign="top">Do not care</td>
+</tr>
+</table>
+<p>The library will be developed in two main steps. The first step
+contains the basic components and the gates. In the next step the
+more complicated devices will be added. Currently the first step of
+the library is implemented and released for public use.</p>
+<p>Copyright © 1998-2013, Modelica Association and
+Fraunhofer-Gesellschaft.</p>
+<p><i>This Modelica package is <u>free</u> software and the use is
+completely at <u>your own risk</u>; it can be redistributed and/or
+modified under the terms of the Modelica License 2. For license
+conditions (including the disclaimer of warranty) see <a href="Modelica.UsersGuide.ModelicaLicense2.html">Modelica.UsersGuide.ModelicaLicense2</a>
+or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2">https://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.UsersGuide.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.UsersGuide.html">UsersGuide</a></td>
+<td>User's Guide</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Examples.html"><img class="svgiconsmall" src="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Examples.html">Examples</a></td>
+<td>Examples that demonstrate the usage of the Digital electrical
+components</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Interfaces.html"><img class="svgiconsmall" src="Icons/cee7c3c4de1bfa98474b9db3b70a263e56c30a5c.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Interfaces.html">Interfaces</a></td>
+<td>Basic definitions</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Tables.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Tables.html">Tables</a></td>
+<td>Truth tables for all components of package Digital</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Delay.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Delay.html">Delay</a></td>
+<td>Delay blocks</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Basic.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Basic.html">Basic</a></td>
+<td>Basic logic blocks without delays</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Gates.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Gates.html">Gates</a></td>
+<td>Logic gates including delays</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Sources.html"><img class="svgiconsmall" src="Icons/0e872da7f486258b5edba506f802b4857f87b48a.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Sources.html">Sources</a></td>
+<td>Time-dependent digital signal sources</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Converters.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Converters.html">Converters</a></td>
+<td>Converters between 2-,3-,4- and 9-valued logic</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Registers.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Registers.html">Registers</a></td>
+<td>Registers with N-bit input data and output data</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Tristates.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Tristates.html">Tristates</a></td>
+<td>Transfergates, Buffers, Inverters, and WiredX</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Memories.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Memories.html">Memories</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Digital.Multiplexers.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Electrical.Digital.Multiplexers.html">Multiplexers</a></td>
+<td></td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

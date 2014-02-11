@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'homotopy()'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'homotopy()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>During the initialization phase of a dynamic simulation problem,
+it often happens that large nonlinear systems of equations must be
+solved by means of an iterative solver. The convergence of such
+solvers critically depends on the choice of initial guesses for the
+unknown variables. The process can be made more robust by providing
+an alternative, simplified version of the model, such that
+convergence is possible even without accurate initial guess values,
+and then by continuously transforming the simplified model into the
+actual model. This transformation can be formulated using
+expressions of this kind:</p>
+<blockquote>
+<pre>
+lambda*actual + (1-lambda)*simplified
+</pre></blockquote>
+<p>in the formulation of the system equations, and is usually
+called a homotopy transformation. If the simplified expression is
+chosen carefully, the solution of the problem changes continuously
+with lambda, so by taking small enough steps it is possible to
+eventually obtain the solution of the actual problem.</p>
+<p>It is recommended to perform (conceptually) one homotopy
+iteration over the whole model, and not several homotopy iterations
+over the respective non-linear algebraic equation systems. The
+reason is that the following structure can be present:</p>
+<blockquote>
+<pre>
+<strong>w = f<sub>1</sub>(x)</strong> // has homotopy operator
+<strong>0 = f<sub>2</sub>(der(x), x, z, w)</strong>
+</pre></blockquote>
+<p>Here, a non-linear equation system
+<strong><code>f<sub>2</sub></code></strong> is present. The
+homotopy operator is, however used on a variable that is an 'input'
+to the non-linear algebraic equation system, and modifies the
+characteristics of the non-linear algebraic equation system. The
+only useful way is to perform the homotopy iteration over
+<strong><code>f<sub>1</sub></code></strong> and
+<strong><code>f<sub>2</sub></code></strong> together.</p>
+<p>The suggested approach is 'conceptual', because more efficient
+implementations are possible, e.g., by determining the smallest
+iteration loop, that contains the equations of the first BLT block
+in which a homotopy operator is present and all equations up to the
+last BLT block that describes a non-linear algebraic equation
+system.</p>
+<p>A trivial implementation of the homotopy operator is obtained by
+defining the following function in the globalscope:</p>
+<blockquote>
+<pre>
+<strong>function</strong> homotopy
+  <strong>input</strong> Real actual;
+  <strong>input</strong> Real simplified;
+  <strong>output</strong> Real y;
+<strong>algorithm</strong>
+  y := actual;
+  <strong>annotation</strong>(Inline = true);
+<strong>end</strong> homotopy;
+</pre></blockquote>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<strong>homotopy</strong>(actual=actual, simplified=simplified)
+</pre></blockquote>
+<h4>Description</h4>
+<p>The scalar expressions 'actual' and 'simplified' are subtypes of
+Real. A Modelica translator should map this operator into either of
+the two forms:</p>
+<ol>
+<li>Returns 'actual' <em>[a trivial implementation]</em>.</li>
+<li>
+<p>In order to solve algebraic systems of equations, the operator
+might during the solution process return a combination of the two
+arguments, ending at actual, <em>e.g.,</em></p>
+<blockquote>
+<pre>
+<em>
+actual*lambda + simplified*(1-lambda),
+</em>
+</pre></blockquote>
+<p>where <code>lambda</code> is a homotopy parameter going from 0
+to 1.</p>
+<p>The solution must fulfill the equations for homotopy returning
+'actual'.</p>
+</li>
+</ol>
+<h4>Examples</h4>
+<h5>Example 1</h5>
+<p>In electrical systems it is often difficult to solve non-linear
+algebraic equations if switches are part of the algebraic loop. An
+idealized diode model might be implemented in the following way, by
+starting with a 'flat' diode characteristic and then move with the
+homotopy operator to the desired 'steep' characteristic:</p>
+<blockquote>
+<pre>
+<strong>model</strong> IdealDiode
+  ...
+  <strong>parameter</strong> Real Goff = 1e-5;
+<strong>protected</strong>
+  <strong>Real</strong> Goff_flat = max(0.01, Goff);
+  <strong>Real</strong> Goff2;
+<strong>equation</strong>
+  off = s &lt; 0;
+  Goff2 = <strong>homotopy</strong>(actual=Goff, simplified=Goff_flat);
+  u = s*(<strong>if</strong> off <strong>then</strong> 1     <strong>else</strong> Ron2) + Vknee;
+  i = s*(<strong>if</strong> off <strong>then</strong> Goff2 <strong>else</strong> 1   ) + Goff2*Vknee;
+  ...
+<strong>end</strong> IdealDiode;
+</pre></blockquote>
+<h5>Example 2</h5>
+<p>In electrical systems it is often useful that all voltage
+sources start with zero voltage and all current sources with zero
+current, since steady state initialization with zero sources can be
+easily obtained. A typical voltage source would then be defined
+as:</p>
+<blockquote>
+<pre>
+<strong>model</strong> ConstantVoltageSource
+  <strong>extends</strong> Modelica.Electrical.Analog.Interfaces.OnePort;
+  <strong>parameter</strong> Modelica.SIunits.Voltage V;
+<strong>equation</strong>
+  v = <strong>homotopy</strong>(actual=V, simplified=0.0);
+<strong>end</strong> ConstantVoltageSource;
+</pre></blockquote>
+<h5>Example 3</h5>
+<p>In fluid system modelling, the pressure/flowrate relationships
+are highly nonlinear due to the quadratic terms and due to the
+dependency on fluid properties. A simplified linear model, tuned on
+the nominal operating point, can be used to make the overall model
+less nonlinear and thus easier to solve without accurate start
+values. Named arguments are used here in order to further improve
+the readability.</p>
+<blockquote>
+<pre>
+<strong>model</strong> PressureLoss
+  <strong>import</strong> SI = Modelica.SIunits;
+  ...
+  <strong>parameter</strong> SI.MassFlowRate m_flow_nominal "Nominal mass flow rate";
+  <strong>parameter</strong> SI.Pressure     dp_nominal     "Nominal pressure drop";
+  SI.Density                rho            "Upstream density";
+  SI.DynamicViscosity       lambda         "Upstream viscosity";
+<strong>equation</strong>
+  ...
+  m_flow = <strong>homotopy</strong>(actual     = turbulentFlow_dp(dp, rho, lambda),
+                    simplified = dp/dp_nominal*m_flow_nominal);
+  ...
+<strong>end</strong> PressureLoss;
+</pre></blockquote>
+<h5>Example 4</h5>
+<p>Note that the homotopy operator <strong>shall not</strong> be
+used to combine unrelated expressions, since this can generate
+singular systems from combining two well-defined systems.</p>
+<blockquote>
+<pre>
+<strong>model</strong> DoNotUse
+  Real x;
+  <strong>parameter</strong> Real x0 = 0;
+<strong>equation</strong>
+  der(x) = 1-x;
+<strong>initial equation</strong>
+  0 = <strong>homotopy</strong>(der(x), x - x0);
+<strong>end</strong> DoNotUse;
+</pre></blockquote>
+<p>The initial equation is expanded into</p>
+<blockquote>
+<pre>
+0 = lambda*der(x) + (1-lambda)*(x-x0)
+</pre></blockquote>
+<p>and you can solve the two equations to give</p>
+<blockquote>
+<pre>
+x = (lambda+(lambda-1)*x0)/(2*lambda - 1)
+</pre></blockquote>
+<p>which has the correct value of <code>x0</code> at <code>lambda =
+0</code> and of <code>1</code> at <code>lambda = 1</code>, but
+unfortunately has a singularity at <code>lambda = 0.5</code>.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

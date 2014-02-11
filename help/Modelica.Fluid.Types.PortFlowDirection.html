@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Types.PortFlowDirection</title>
+</head>
+<body>
+<h1><a href="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg"><img class="svgiconhead" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Types.html">Types</a>.<span class="omc-h1">PortFlowDirection</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Enumeration to define the assumptions on the model for the
+direction of fluid flow at a port (to be selected via choices
+menu):</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>PortFlowDirection.</b></th>
+<th><b>Meaning</b></th>
+</tr>
+<tr>
+<td>Entering</td>
+<td>Fluid flow is only entering the port from the outside</td>
+</tr>
+<tr>
+<td>Leaving</td>
+<td>Fluid flow is only leaving the port to the outside</td>
+</tr>
+<tr>
+<td>Bidirectional</td>
+<td>No restrictions on fluid flow (flow reversal possible)</td>
+</tr>
+</table>
+<p>The default is "PortFlowDirection.Bidirectional". If you are
+completely sure that the flow is only in one direction, then the
+other settings may make the simulation of your model faster.</p>
+<h4><a name="definition" id="definition">Definition</a></h4>
+<blockquote>
+<pre>
+type PortFlowDirection = enumeration(Entering "Fluid flow is only entering", Leaving "Fluid flow is only leaving", Bidirectional  "No restrictions on fluid flow (flow reversal possible)");
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

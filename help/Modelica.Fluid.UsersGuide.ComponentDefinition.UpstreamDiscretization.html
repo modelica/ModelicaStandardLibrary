@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.UsersGuide.ComponentDefinition.UpstreamDiscretization</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.ComponentDefinition.html">ComponentDefinition</a>.<span class="omc-h1">UpstreamDiscretization</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>When implementing a Fluid component, the difficult arises that
+the value of intensive quantities (such as p, T, ρ) shall be
+accessed from the <b>upstream</b> volume. For example, if the fluid
+flows from volume A to volume B, then the intensive quantities of
+volume B have no influence on the fluid between the two volumes. On
+the other hand, if the flow direction is reversed, the intensive
+quantities of volume A have no influence on the fluid between the
+two volumes.</p>
+<p>In the Modelica.Fluid library, such a situation is handled with
+the following code fragment (from
+Interfaces.PartialTwoPortTransport):</p>
+<pre>
+    <b>replaceable package</b> Medium =
+                   Modelica.Media.Interfaces.PartialMedium
+                   <b>annotation</b>(choicesAllMatching = <b>true</b>);
+
+    Interfaces.FluidPort_a port_a(<b>redeclare package</b> Medium = Medium);
+    Interfaces.FluidPort_b port_b(<b>redeclare package</b> Medium = Medium);
+
+    Medium.ThermodynamicState port_a_state_inflow
+                    "Medium state close to port_a for inflowing mass flow";
+    Medium.ThermodynamicState port_b_state_inflow
+                    "Medium state close to port_b for inflowing mass flow";
+
+  <b>equation</b>
+    // Isenthalpic state transformation (no storage and no loss of energy)
+    port_a.h_outflow  = <b>inStream</b>(port_b.h_outflow);
+    port_b.h_outflow  = <b>inStream</b>(port_a.h_outflow);
+
+    port_a.Xi_outflow = <b>inStream</b>(port_b.Xi_outflow);
+    port_b.Xi_outflow = <b>inStream</b>(port_a.Xi_outflow);
+
+    // Mass balance
+    port_a.m_flow + port_b.m_flow = 0;
+
+    // Medium states for inflowing medium
+    port_a_state_inflow = Medium.setState_phX(port_a.p, port_b.h_outflow, port_b.Xi_outflow);
+    port_b_state_inflow = Medium.setState_phX(port_b.p, port_a.h_outflow, port_a.Xi_outflow);
+
+    // Densities close to the parts when mass flows in to the respective port
+    port_a_rho_inflow = Medium.density(port_a_state_inflow);
+    port_b_rho_inflow = Medium.density(port_b_state_inflow);
+
+    // Pressure drop correlation (k_ab, k_ba are the loss factors for the two flow
+    // directions; e.g., for a circular device: k = 8*zeta/(pi*diameter)^2)^2)
+    m_flow = Utilities.regRoot2(port_a.p - port_b.p, dp_small,
+                                port_a_rho_inflow/k1, port_b_rho_inflow/k2);
+</pre>
+<p>The medium states for inflowing media can be used to compute
+density and dynamic viscosity which in turn can be use to formulate
+the pressure drop equation. The standard pressure drop equation</p>
+<pre>
+   dp = port_a - port_b;
+   m_flow = sqrt(2/(zeta*diameter))*if dp &gt;= 0 then  sqrt(dp)
+                                               else -sqrt(-dp)
+</pre>
+<p>cannot be used, since the function has an infinite derivative at
+dp=0. Instead the region around zero mass flow rate must be
+regularized using one of the regularization functions of
+Modelica.Fluid.Utilities. This requires to have density and/or
+other medium properties for both flow directions at the same time.
+These media properties can be computed from the medium states of
+the inflowing fluid at the two ports.</p>
+<p>If the above component is connected between two volumes, i.e.,
+the independent medium variables in port_a and port_b are usually
+states, then port_a.h and port_b.h are either states (i.e., known
+quantities in the model) or are computed from states. In either
+case they are "known". In such a situation, all equations can be
+directly evaluated without any problems. Zero or reversed mass flow
+rate does not pose any problems because the medium properties are
+always computed for both flow directions and are then used in the
+regularization function.</p>
+<p>If 3 or more components are connected together, it can be shown
+that a system of non-linear algebraic equations appear. The
+equations are written by purpose in such a form, that a tool can
+select mass flow rates and pressures as iteration variables of this
+system. The advantage is that these iteration variables are
+continuous and even often differentiable. The alternative to use
+the medium states as iteration variables is not good, because T,h,d
+are discontinuous for reversing flow direction.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

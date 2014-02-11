@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Analog.Semiconductors.PMOS</title>
+</head>
+<body>
+<h1><a href="Icons/f92aff312d24279bb5fb47a1c3cd7c816e1d3efc.svg"><img class="svgiconhead" src="Icons/f92aff312d24279bb5fb47a1c3cd7c816e1d3efc.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Semiconductors.html">Semiconductors</a>.<span class="omc-h1">PMOS</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The PMOS model is a simple model of a p-channel metal-oxide
+semiconductor FET. It differs slightly from the device used in the
+SPICE simulator. For more details please care for H. Spiro.</p>
+<p>The model does not consider capacitances. A high drain-source
+resistance RDS is included to avoid numerical difficulties.<br />
+<br />
+<b>Please note:</b> In case of useHeatPort=true the temperature
+dependence of the electrical behavior is <b>not</b> modelled yet.
+The parameters are not temperature dependent.</p>
+<dl>
+<dt><b>References:</b></dt>
+<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg
+Verlag Muenchen Wien 1990.</dd>
+</dl>
+<p>Some typical parameter sets are:</p>
+<pre>
+  W       L      Beta        Vt    K2     K5      DW       DL
+  m       m      A/V^2       V     -      -       m        m
+  50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
+  20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
+  30.e-6  5.e-6  0.0059e-3  -0.3   0.98   1.01    0       -3.9e-6
+  30.e-6  5.e-6  0.0152e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+  30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+  30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
+  20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
+</pre>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>March 11, 2009</i> by Christoph Clauss<br />
+conditional heat port added<br /></li>
+<li><i>December 7, 2005</i> by Christoph Clauss<br />
+error in RDS calculation deleted</li>
+<li><i>1998</i> by Christoph Clauss<br />
+initially implemented<br /></li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.hessenberg</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">hessenberg</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+         H = Matrices.<b>hessenberg</b>(A);
+    (H, U) = Matrices.<b>hessenberg</b>(A);
+ 
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>hessenberg</b> computes the Hessenberg matrix
+<b>H</b> of matrix <b>A</b> as well as the orthogonal
+transformation matrix <b>U</b> that holds <b>H</b> =
+<b>U</b>'*<b>A</b>*<b>U</b>. The Hessenberg form of a matrix is
+computed by repeated Householder similarity transformation. The
+elementary reflectors and the corresponding scalar factors are
+provided by function "Utilities.toUpperHessenberg()". The
+transformation matrix <b>U</b> is then computed by <a href="Modelica.Math.Matrices.LAPACK.dorghr.html">LAPACK.dorghr</a>.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+ A  = [1, 2,  3;
+       6, 5,  4;
+       1, 0,  0];
+
+ (H, U) = hessenberg(A);
+
+  results in:
+
+ H = [1.0,  -2.466,  2.630;
+     -6.083, 5.514, -3.081;
+      0.0,   0.919, -0.514]
+
+ U = [1.0,    0.0,      0.0;
+      0.0,   -0.9864,  -0.1644;
+      0.0,   -0.1644,   0.9864]
+
+  and therefore,
+
+ U*H*transpose(U) = [1.0, 2.0, 3.0;
+                     6.0, 5.0, 4.0;
+                     1.0, 0.0, 0.0]
+
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.Utilities.toUpperHessenberg.html">Matrices.Utilities.toUpperHessenberg</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function hessenberg
+  extends Modelica.Icons.Function;
+  import Modelica;
+  import Modelica.Math.Matrices;
+  input Real A[:,size(A, 1)] "Square matrix A";
+  output Real H[size(A, 1),size(A, 2)] "Hessenberg form of A";
+  output Real U[size(A, 1),size(A, 2)] "Transformation matrix";
+end hessenberg;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

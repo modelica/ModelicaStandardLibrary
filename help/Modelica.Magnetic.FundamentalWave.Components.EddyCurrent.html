@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FundamentalWave.Components.EddyCurrent</title>
+</head>
+<body>
+<h1><a href="Icons/c085ba080a3bdccdd379b403180f7dfd7b525da0.svg"><img class="svgiconhead" src="Icons/c085ba080a3bdccdd379b403180f7dfd7b525da0.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.Components.html">Components</a>.<span class="omc-h1">EddyCurrent</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The eddy current loss model with respect to fundamental wave
+effects is designed in accordance to <a href="Modelica.Magnetic.FluxTubes.Basic.EddyCurrent.html">FluxTubes.Basic.EddyCurrent</a>.</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/Components/eddycurrent.png" alt="eddycurrent.png" /></blockquote>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom">Fig. 1: equivalent models of eddy current
+losses</caption>
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/Components/eddycurrent_electric.png" alt="eddycurrent_electric.png" /></td>
+</tr>
+</table>
+<p>Due to the nature of eddy current losses, which can be
+represented by symmetric conductors in an equivalent electric
+circuit (Fig. 1), the respective number of phases <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/m.png" alt="m" /> has to be taken into account. Assume that the <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/m.png" alt="m" /> conductances of the equivalent circuit are <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/Components/Gc.png" alt="G_c" />, the conductance for the eddy current loss model is
+determined by</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/Components/GGc.png" alt="GGc" /></blockquote>
+<p>where <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/N.png" alt="N" /> is the number of turns of the symmetric electro magnetic
+coupling.</p>
+<p>For such an <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/m.png" alt="m" /> phase system the relationship between the voltage and
+current <a href="http://www.haumer.at/refimg/SpacePhasors.pdf">space phasors</a>
+and the magnetic flux and magnetic potential difference phasor
+is</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/Components/vPhi.png" alt="vPhi" />,<br />
+<img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/Components/iV_m.png" alt="iV_m" />,</blockquote>
+<p>where <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/v_k.png" alt="v_k" /> and <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/i_k.png" alt="i_k" /> are the phase voltages and currents, respectively.</p>
+<p>The dissipated loss power</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/Components/lossPower.png" alt="lossPower" /></blockquote>
+<p>can be determined for the <a href="http://www.haumer.at/refimg/SpacePhasors.pdf">space phasor</a>
+relationship of the voltage and current space phasor.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Magnetic.FluxTubes.Basic.EddyCurrent.html">FluxTubes.Basic.EddyCurrent</a></p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

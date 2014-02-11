@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</title>
+</head>
+<body>
+<h1><a href="Icons/f3dd2075e218f49cf080aa53e2bbe0b7057fe9de.svg"><img class="svgiconhead" src="Icons/f3dd2075e218f49cf080aa53e2bbe0b7057fe9de.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a>.<span class="omc-h1">Surface</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Model <b>Surface</b> defines a moveable, parametrized surface in
+3-dim. space that is used for animation. This object is specified
+by:</p>
+<ul>
+<li>The surface frame (orientation object "R" and origin "r_0") in
+which the data is specified.</li>
+<li>A set of two parameters, one in u- and one in v-direction, that
+defines the control points.</li>
+<li>A time-varying position of each control point with respect to
+the surface frame.</li>
+</ul>
+<p>The parameter values (u,v) are given by the ordinal numbers of
+the corresponding control point in u- or in v-direction,
+respectively. The surface is then defined by the replaceable
+function "surfaceCharacteristic" with the interface <a href="Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic.html">
+partialSurfaceCharacteristic</a> that returns the x-, y-, z-
+coordinate of every control point in form of 3 arrays X, Y, Z, and
+an optional color array C, if every control point shall have a
+different color:</p>
+<pre>
+  Real X[nu,nv], Y[nu,nv], Z[nu,nv], C[nu,nv,3];
+</pre>
+<p>An example of a parameterized surface with color coding is shown
+in the next figure:</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Visualizers/Surface.png" /></blockquote>
+<p>Models <a href="Modelica.Mechanics.MultiBody.Visualizers.Torus.html">Torus</a>,
+<a href="Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel.html">
+VoluminousWheel</a>, <a href="Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField.html">
+PipeWithScalarField</a>, demonstrate how new visualizer objects can
+be constructed with the Surface model.<br />
+The direct usage of the Surface model, as well as of the Torus and
+the VoluminousWheel models, are demonstrated with example <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces.html">
+Examples.Elementary.Surfaces</a>.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.discreteLyapunov</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">discreteLyapunov</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+         X = Matrices.<b>discreteLyapunov</b>(A, C);
+         X = Matrices.<b>discreteLyapunov</b>(A, C, ATisSchur, sgn, eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the solution <b>X</b> of the
+discrete-time Lyapunov equation</p>
+<blockquote>
+<pre>
+ <b>A</b>'*<b>X</b>*<b>A</b> + sgn*<b>X</b> = <b>C</b>
+</pre></blockquote>
+<p>where sgn=1 or sgn =-1. For sgn = -1, the discrete Lyapunov
+equation is a special case of the Stein equation:</p>
+<blockquote>
+<pre>
+ <b>A</b>*<b>X</b>*<b>B</b> - <b>X</b> + <b>Q</b> = <b>0</b>.
+</pre></blockquote>
+<p>The algorithm uses the Schur method for Lyapunov equations
+proposed by Bartels and Stewart [1].</p>
+<p>In a nutshell, the problem is reduced to the corresponding
+problem</p>
+<blockquote>
+<pre>
+ <b>R</b>*<b>Y</b>*<b>R</b>' + sgn*<b>Y</b> = <b>D</b>.
+</pre></blockquote>
+<p>with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the the real Schur
+form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and
+<b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b> are the corresponding
+transformations of <b>C</b> and <b>X</b>. This problem is solved
+sequentially by exploiting the block triangular form of <b>R</b>.
+Finally the solution of the original problem is recovered as
+<b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br />
+The Boolean input "ATisSchur" indicates to omit the transformation
+to Schur in the case that <b>A</b>' has already Schur form.</p>
+<h4>References</h4>
+<pre>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</pre>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  A = [1, 2,  3,  4;
+       3, 4,  5, -2;
+      -1, 2, -3, -5;
+       0, 2,  0,  6];
+
+  C =  [-2,  3, 1, 0;
+        -6,  8, 0, 1;
+         2,  3, 4, 5;
+         0, -2, 0, 0];
+
+  X = discreteLyapunov(A, C, sgn=-1);
+
+  results in:
+
+  X  = [7.5735,   -3.1426,  2.7205, -2.5958;
+       -2.6105,    1.2384, -0.9232,  0.9632;
+        6.6090,   -2.6775,  2.6415, -2.6928;
+       -0.3572,    0.2298,  0.0533, -0.27410];
+
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.discreteSylvester.html">Matrices.discreteSylvester</a>,
+<a href="Modelica.Math.Matrices.continuousLyapunov.html">Matrices.continuousLyapunov</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function discreteLyapunov
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Matrices;
+  input Real A[:,size(A, 1)] "Square matrix A in A'*X*A + sgn*X = C";
+  input Real C[size(A, 1),size(A, 2)] "Square matrix C in A'*X*A + sgn*X = C";
+  input Boolean ATisSchur = false "True if transpose(A) has already real Schur form";
+  input Integer sgn = 1 "Specifies the sign in A'*X*A + sgn*X = C";
+  input Real eps = Matrices.norm(A, 1) * 10 * Modelica.Constants.eps "Tolerance eps";
+  output Real X[size(A, 1),size(A, 2)] "Solution X of the Lyapunov equation A'*X*A + sgn*X = C";
+end discreteLyapunov;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

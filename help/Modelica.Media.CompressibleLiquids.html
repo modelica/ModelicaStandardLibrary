@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.CompressibleLiquids</title>
+</head>
+<body>
+<h1><a href="Icons/08e35a6617ee86c550a5591f66396a32a714e4d7.svg"><img class="svgiconhead" src="Icons/08e35a6617ee86c550a5591f66396a32a714e4d7.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<span class="omc-h1">CompressibleLiquids</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Fluid models with linear compressibility, using
+PartialLinearFluid as base class.</h4>
+<p>The linear compressibility fluid models contained in this
+package are based on the assumptions that:</p>
+<ul>
+<li>The specific heat capacity at constant pressure (cp) is
+constant</li>
+<li>The isobaric expansion coefficient (beta) is constant</li>
+<li>The isothermal compressibility (kappa) is constant</li>
+<li>Pressure and temperature are used as states</li>
+</ul>
+<p>This results in models that are only valid for small temperature
+ranges, but sufficient to model compressibility and e.g., the
+"water hammer" effect. Another advantage id that only 3 values need
+to be measured to have an initial model. Hydraulic fluids can often
+be approximated by this type of model.</p>
+<p>That means that the density is a linear function in temperature
+and in pressure. In order to define the complete model, a number of
+constant reference values are needed which are computed at the
+reference values of the states pressure p and temperature T. The
+model can be interpreted as a linearization of a full non-linear
+fluid model (but it is not linear in all thermodynamic
+coordinates). Reference values are needed for</p>
+<ol>
+<li>the density (reference_d),</li>
+<li>the specific enthalpy (reference_h),</li>
+<li>the specific entropy (reference_s).</li>
+</ol>
+<p>Apart from that, a user needs to define the molar mass,
+MM_const. Note that it is possible to define a fluid by computing
+the reference values from a full non-linear fluid model by
+computing the package constants using the standard functions
+defined in a fluid package (see example in Common,
+LinearWater_pT).</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.CompressibleLiquids.Common.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Media.CompressibleLiquids.Common.html">Common</a></td>
+<td>Base classes for compressible liquids</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.CompressibleLiquids.LinearColdWater.html"><img class="svgiconsmall" src="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg" /></a>&nbsp;<a href="Modelica.Media.CompressibleLiquids.LinearColdWater.html">LinearColdWater</a></td>
+<td>Cold water model with linear compressibility</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient.html"><img class="svgiconsmall" src="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg" /></a>&nbsp;<a href="Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient.html">LinearWater_pT_Ambient</a></td>
+<td>Liquid, linear compressibility water model at 1.01325 bar and
+25 degree Celsius</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

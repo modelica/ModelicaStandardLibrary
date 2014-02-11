@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor</title>
+</head>
+<body>
+<h1><a href="Icons/81391767fc8d14a40da0434affb3a848a8084ee9.svg"><img class="svgiconhead" src="Icons/81391767fc8d14a40da0434affb3a848a8084ee9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<span class="omc-h1">AbsoluteSensor</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Absolute kinematic quantities of frame_a are determined and
+provided at the conditional output signal connectors. For example,
+if parameter "get_r = <b>true</b>", the connector "r" is enabled
+and contains the absolute vector from the world frame to the origin
+of frame_a. The following quantities can be provided as output
+signals:</p>
+<ol>
+<li>Absolute position vector (= r)</li>
+<li>Absolute velocity vector (= v)</li>
+<li>Absolute acceleration vector (= a)</li>
+<li>Three angles to rotate world frame into frame_a (= angles)</li>
+<li>Absolute angular velocity vector (= w)</li>
+<li>Absolute angular acceleration vector (= z)</li>
+</ol>
+<p>Via parameter <b>resolveInFrame</b> it is defined, in which
+frame a vector is resolved:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>resolveInFrame =<br />
+Types.ResolveInFrameA.</b></th>
+<th><b>Meaning</b></th>
+</tr>
+<tr>
+<td valign="top">world</td>
+<td valign="top">Resolve vectors in world frame</td>
+</tr>
+<tr>
+<td valign="top">frame_a</td>
+<td valign="top">Resolve vectors in frame_a</td>
+</tr>
+<tr>
+<td valign="top">frame_resolve</td>
+<td valign="top">Resolve vectors in frame_resolve</td>
+</tr>
+</table>
+<p>If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the
+conditional connector "frame_resolve" is enabled and the vectors
+are resolved in the frame, to which frame_resolve is connected.
+Note, if this connector is enabled, it must be connected.</p>
+<p>In the following figure the animation of an AbsoluteSensor
+component is shown. The light blue coordinate system is frame_a and
+the yellow arrow is the animated sensor.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png" /></p>
+<p>Velocity, acceleration, angular velocity and angular
+acceleration are determined by differentiating them in the world
+frame and then transforming them in to the frame defined by
+<b>resolveInFrame</b>.</p>
+<p>For example, if resolveInFrame =
+<b>Types.ResolveInFrameA.frame_a</b>, then</p>
+<pre>
+   v0 = <b>der</b>(frame_a.r0);
+   v  = resolve2(frame_a.R, v0);
+</pre>
+<p>is returned, i.e., the derivative of the absolute distance from
+the world frame to the origin of frame_a, resolved in frame_a.</p>
+<p>The cut-force and the cut-torque in frame_resolve are always
+zero, whether frame_resolve is connected or not.</p>
+<p>If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate the
+world frame into frame_a along the axes defined by parameter
+<b>sequence</b> are returned. For example, if sequence = {3,1,2}
+then the world frame is rotated around angles[1] along the z-axis,
+afterwards it is rotated around angles[2] along the x-axis, and
+finally it is rotated around angles[3] along the y-axis and is then
+identical to frame_a. The 3 angles are returned in the range</p>
+<pre>
+    -<font face="Symbol">p</font> &lt;= angles[i] &lt;= <font face="Symbol">p</font>
+</pre>
+<p>There are <b>two solutions</b> for "angles[1]" in this range.
+Via parameter <b>guessAngle1</b> (default = 0) the returned
+solution is selected such that |angles[1] - guessAngle1| is
+minimal. The absolute transformation matrix of frame_a may be in a
+singular configuration with respect to "sequence", i.e., there is
+an infinite number of angle values leading to the same absolute
+transformation matrix. In this case, the returned solution is
+selected by setting angles[1] = guessAngle1. Then angles[2] and
+angles[3] can be uniquely determined in the above range.</p>
+<p>The parameter <b>sequence</b> has the restriction that only
+values 1,2,3 can be used and that sequence[1] ≠ sequence[2] and
+sequence[2] ≠ sequence[3]. Often used values are:</p>
+<pre>
+  sequence = <b>{1,2,3}</b>  // Cardan or Tait-Bryan angle sequence
+           = <b>{3,1,3}</b>  // Euler angle sequence
+           = <b>{3,2,1}</b>
+</pre>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

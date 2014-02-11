@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Fittings.SimpleGenericOrifice</title>
+</head>
+<body>
+<h1><a href="Icons/3eea78ddad758033a3a7d106d55f9a815a988bc9.svg"><img class="svgiconhead" src="Icons/3eea78ddad758033a3a7d106d55f9a815a988bc9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.html">Fittings</a>.<span class="omc-h1">SimpleGenericOrifice</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This pressure drop component defines a simple, generic orifice,
+where the loss factor ζ is provided for one flow direction (e.g.,
+from loss table of a book):</p>
+<pre>
+   Δp = 0.5*ζ*ρ*v*|v|
+      = 8*ζ/(π^2*D^4*ρ) * m_flow*|m_flow|
+</pre>
+<p>where</p>
+<ul>
+<li>Δp is the pressure drop: Δp = port_a.p - port_b.p</li>
+<li>D is the diameter of the orifice at the position where ζ is
+defined (either at port_a or port_b). If the orifice has not a
+circular cross section, D = 4*A/P, where A is the cross section
+area and P is the wetted perimeter.</li>
+<li>ζ is the loss factor with respect to D that depends on the
+geometry of the orifice. In the turbulent flow regime, it is
+assumed that ζ is constant.<br />
+For small mass flow rates, the flow is laminar and is approximated
+by a polynomial that has a finite derivative for m_flow=0.</li>
+<li>v is the mean velocity.</li>
+<li>ρ is the upstream density.</li>
+</ul>
+<p>Since the pressure loss factor zeta is provided only for a mass
+flow from port_a to port_b, the pressure loss is not correct when
+the flow is reversing. If reversing flow only occurs in a short
+time interval, this is most likely uncritical. If significant
+reversing flow can appear, this component should not be used.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

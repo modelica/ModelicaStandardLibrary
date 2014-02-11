@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors</title>
+</head>
+<body>
+<h1><a href="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg"><img class="svgiconhead" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<span class="omc-h1">Vectors</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Library content</h4>
+<p>This library provides functions operating on vectors:</p>
+<ul>
+<li><a href="Modelica.Math.Vectors.toString.html">toString</a>(v) -
+returns the string representation of vector v.</li>
+<li><a href="Modelica.Math.Vectors.isEqual.html">isEqual</a>(v1, v2) -
+returns true if vectors v1 and v2 have the same size and the same
+elements.</li>
+<li><a href="Modelica.Math.Vectors.norm.html">norm</a>(v,p) -
+returns the p-norm of vector v.</li>
+<li><a href="Modelica.Math.Vectors.length.html">length</a>(v)
+- returns the length of vector v (= norm(v,2), but inlined and
+therefore usable in symbolic manipulations)</li>
+<li><a href="Modelica.Math.Vectors.normalize.html">normalize</a>(v) -
+returns vector in direction of v with lenght = 1 and prevents
+zero-division for zero vector.</li>
+<li><a href="Modelica.Math.Vectors.reverse.html">reverse</a>(v) -
+reverses the vector elements of v.</li>
+<li><a href="Modelica.Math.Vectors.sort.html">sort</a>(v) -
+sorts the elements of vector v in ascending or descending
+order.</li>
+<li><a href="Modelica.Math.Vectors.find.html">find</a>(e, v)
+- returns the index of the first occurrence of scalar e in vector
+v.</li>
+<li><a href="Modelica.Math.Vectors.interpolate.html">interpolate</a>(x,
+y, xi) - returns the interpolated value in (x,y) that corresponds
+to xi.</li>
+<li><a href="Modelica.Math.Vectors.relNodePositions.html">relNodePositions</a>(nNodes)
+- returns a vector of relative node positions (0..1).</li>
+</ul>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.html">Matrices</a>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.toString.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.toString.html">toString</a></td>
+<td>Convert a real vector in to a string representation</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.isEqual.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.isEqual.html">isEqual</a></td>
+<td>Determine if two Real vectors are numerically identical</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.norm.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.norm.html">norm</a></td>
+<td>Return the p-norm of a vector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.length.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.length.html">length</a></td>
+<td>Return length of a vector (better as norm(), if further
+symbolic processing is performed)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.normalize.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.normalize.html">normalize</a></td>
+<td>Return normalized vector such that length = 1 and prevent
+zero-division for zero vector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.normalizeWithAssert.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.normalizeWithAssert.html">normalizeWithAssert</a></td>
+<td>Return normalized vector such that length = 1 (trigger an
+assert for zero vector)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.reverse.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.reverse.html">reverse</a></td>
+<td>Reverse vector elements (e.g., v[1] becomes last element)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.sort.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.sort.html">sort</a></td>
+<td>Sort elements of vector in ascending or descending order</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.find.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.find.html">find</a></td>
+<td>Find element in a vector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.interpolate.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.interpolate.html">interpolate</a></td>
+<td>Interpolate in a vector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.relNodePositions.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.relNodePositions.html">relNodePositions</a></td>
+<td>Return vector of relative node positions (0..1)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Vectors.Utilities.html"><img class="svgiconsmall" src="Icons/ffc4fbc4397f6f05878f16f78d75ad48b3a4d554.svg" /></a>&nbsp;<a href="Modelica.Math.Vectors.Utilities.html">Utilities</a></td>
+<td>Utility functions that should not be directly utilized by the
+user</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

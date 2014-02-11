@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Blocks.Continuous.Internal.Filter.Utilities.bandPassAlpha</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.html">Continuous</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.Internal.html">Internal</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.Internal.Filter.Utilities.html">Utilities</a>.<span class="omc-h1">bandPassAlpha</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>A band pass with bandwidth "w" is determined from a low pass</p>
+<pre>
+  1/(p^2 + a*p + b)
+</pre>
+<p>with the transformation</p>
+<pre>
+  new(p) = (p + 1/p)/w
+</pre>
+<p>This results in the following derivation:</p>
+<pre>
+  1/(p^2 + a*p + b) -&gt; 1/( (p+1/p)^2/w^2 + a*(p + 1/p)/w + b )
+                     = 1 /( ( p^2 + 1/p^2 + 2)/w^2 + (p + 1/p)*a/w + b )
+                     = w^2*p^2 / (p^4 + 2*p^2 + 1 + (p^3 + p)a*w + b*w^2*p^2)
+                     = w^2*p^2 / (p^4 + a*w*p^3 + (2+b*w^2)*p^2 + a*w*p + 1)
+</pre>
+<p>This 4th order transfer function shall be split in to two
+transfer functions of order 2 each for numerical reasons. With the
+following formulation, the fourth order polynomial can be
+represented (with the unknowns "c" and "alpha"):</p>
+<pre>
+  g(p) = w^2*p^2 / ( (p*alpha)^2 + c*(p*alpha) + 1) * ( (p/alpha)^2 + c*(p/alpha) + 1)
+       = w^2*p^2 / ( p^4 + c*(alpha + 1/alpha)*p^3 + (alpha^2 + 1/alpha^2 + c^2)*p^2
+                                                   + c*(alpha + 1/alpha)*p + 1 )
+</pre>
+<p>Comparison of coefficients:</p>
+<pre>
+  c*(alpha + 1/alpha) = a*w           -&gt; c = a*w / (alpha + 1/alpha)
+  alpha^2 + 1/alpha^2 + c^2 = 2+b*w^2 -&gt; equation to determine alpha
+
+  alpha^4 + 1 + a^2*w^2*alpha^4/(1+alpha^2)^2 = (2+b*w^2)*alpha^2
+    or z = alpha^2
+  z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1 = 0
+</pre>
+<p>Therefore the last equation has to be solved for "z" (basically,
+this means to compute a real zero of a fourth order
+polynomial):</p>
+<pre>
+   solve: 0 = f(z)  = z^2 + a^2*w^2*z^2/(1+z)^2 - (2+b*w^2)*z + 1  for "z"
+              f(0)  = 1  &gt; 0
+              f(1)  = 1 + a^2*w^2/4 - (2+b*w^2) + 1
+                    = (a^2/4 - b)*w^2  &lt; 0
+                    // since b - a^2/4 &gt; 0 requirement for complex conjugate poles
+   -&gt; 0 &lt; z &lt; 1
+</pre>
+<p>This function computes the solution of this equation and returns
+"alpha = sqrt(z)";</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+encapsulated function bandPassAlpha
+  extends Modelica.Icons.Function;
+  import Modelica;
+  input Real a "Coefficient of s^1";
+  input Real b "Coefficient of s^0";
+  input Modelica.SIunits.AngularVelocity w "Bandwidth angular frequency";
+  output Real alpha "Alpha factor to build up band pass";
+end bandPassAlpha;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

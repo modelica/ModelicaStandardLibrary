@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Thermal.FluidHeatFlow.Components.Valve</title>
+</head>
+<body>
+<h1><a href="Icons/84883d520261cef1349aac130ed48c71d4be7efd.svg"><img class="svgiconhead" src="Icons/84883d520261cef1349aac130ed48c71d4be7efd.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Thermal.html">Thermal</a>.<a class="omc-h1-a" href="Modelica.Thermal.FluidHeatFlow.html">FluidHeatFlow</a>.<a class="omc-h1-a" href="Modelica.Thermal.FluidHeatFlow.Components.html">Components</a>.<span class="omc-h1">Valve</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Simple controlled valve.</p>
+<p>Standard characteristic Kv=<i>f</i> (y) is given at standard
+conditions (dp0, rho0),</p>
+<ul>
+<li>either linear : <code>Kv/Kv1 = Kv0/Kv1 + (1-Kv0/Kv1) *
+y/Y1</code></li>
+<li>or exponential: <code>Kv/Kv1 = Kv0/Kv1 * exp[log(Kv1/Kv0) *
+y/Y1]</code></li>
+</ul>
+<p>where:</p>
+<ul>
+<li><code>Kv0 ... min. flow @ y = 0</code></li>
+<li><code>Y1 .... max. valve opening</code></li>
+<li><code>Kv1 ... max. flow @ y = Y1</code></li>
+</ul>
+<p>Flow resistance under real conditions is calculated by</p>
+<blockquote>
+<pre>
+V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

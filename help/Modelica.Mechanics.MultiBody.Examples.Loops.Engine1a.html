@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Loops.html">Loops</a>.<span class="omc-h1">Engine1a</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a model of the mechanical part of one cylinder of an
+engine. The combustion is not modelled. The "inertia" component at
+the lower left part is the output inertia of the engine driving the
+gearbox. The angular velocity of the output inertia has a start
+value of 10 rad/s in order to demonstrate the movement of the
+engine.</p>
+<p>The engine is modeled solely by revolute and prismatic joints.
+Since this results in a <b>planar</b> loop there is the well known
+difficulty that the cut-forces perpendicular to the loop cannot be
+uniquely computed, as well as the cut-torques within the plane.
+This ambiguity is resolved by using the option
+<b>planarCutJoint</b> in the <b>Advanced</b> menu of one revolute
+joint in every planar loop (here: joint B1). This option sets the
+cut-force in direction of the axis of rotation, as well as the
+cut-torques perpendicular to the axis of rotation at this joint to
+zero and makes the problem mathematically well-formed.</p>
+<p>An animation of this example is shown in the figure below.</p>
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png" alt="model Examples.Loops.Engine" />
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

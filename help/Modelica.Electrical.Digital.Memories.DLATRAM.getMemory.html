@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Digital.Memories.DLATRAM.getMemory</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.html">Digital</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.Memories.html">Memories</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.Memories.DLATRAM.html">DLATRAM</a>.<span class="omc-h1">getMemory</span></h1>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function getMemory
+  extends Modelica.Icons.Function;
+  input String filename;
+  input Integer n_addr "addr width";
+  input Integer n_data "data width";
+  output D.Interfaces.Logic m[integer(2 ^ n_addr),n_data] "memory with data, lowest bit on left side";
+  output String data;
+  output Integer bit;
+end getMemory;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

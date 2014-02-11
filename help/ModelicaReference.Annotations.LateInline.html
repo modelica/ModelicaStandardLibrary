@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.LateInline</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">LateInline</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Annotation for code generation (inline function body after
+symbolic processing)</p>
+<h4>Syntax</h4>
+<pre>
+   <b>annotation</b>"(" LateInline "=" ( <b>false</b> | <b>true</b> ) ")
+</pre>
+<h4>Description</h4>
+<p>Has only an effect within a function declaration.</p>
+<p>If "LateInline = true", the model developer proposes to inline
+the function after all symbolic transformations have been
+performed, but before common subexpression elimination takes
+place.</p>
+<p>If "LateInline = false", the model developer proposes to not
+inline the function after symbolic transformations have been
+performed.</p>
+<h4>Example usage</h4>
+<p>This annotation is for example used in <a href="Modelica.Media.Water.IF97_Utilities.T_props_ph.html">Modelica.Media.Water.IF97_Utilities.T_props_ph</a>
+to provide in combination with common subexpression elimination the
+automatic caching of function calls. Furthermore, it is used in
+order that a tool is able to propagate specific enthalpy over
+connectors in the <a href="Modelica.Fluid.html">Modelica.Fluid</a> library.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

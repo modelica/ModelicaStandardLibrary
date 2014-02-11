@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch</title>
+</head>
+<body>
+<h1><a href="Icons/2fb0903dfe4f7a831b2aeb13a56092be5a84e62a.svg"><img class="svgiconhead" src="Icons/2fb0903dfe4f7a831b2aeb13a56092be5a84e62a.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Ideal.html">Ideal</a>.<span class="omc-h1">ControlledIdealClosingSwitch</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The closing ideal switch has a positive pin p and a negative pin
+n. The switching behaviour is controlled by the control pin. If its
+voltage exceeds the voltage of the parameter level, pin p is
+connected with negative pin n. Otherwise, pin p is not connected
+with negative pin n.<br />
+<br />
+In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff and the closed switch has
+a (very low) resistance Ron. The limiting case is also allowed,
+i.e., the resistance Ron of the closed switch could be exactly zero
+and the conductance Goff of the open switch could be also exactly
+zero. Note, there are circuits, where a description with zero Ron
+or zero Goff is not possible.<br />
+<br />
+<b>Please note:</b> In case of useHeatPort=true the temperature
+dependence of the electrical behavior is <b>not</b> modelled. The
+parameters are not temperature dependent.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>March 11, 2009</i> by Christoph Clauss<br />
+conditional heat port added<br /></li>
+<li><i>1998</i> by Christoph Clauss<br />
+initially implemented<br /></li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

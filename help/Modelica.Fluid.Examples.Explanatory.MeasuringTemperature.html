@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Examples.Explanatory.MeasuringTemperature</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Fluid.Examples.Explanatory.html">Explanatory</a>.<span class="omc-h1">MeasuringTemperature</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This model demonstrates the differences that occur when using
+one- and two-port temperature sensors with and without explicit
+junction models. As shown in the next figure, the same system is
+shown in 3 different variations. In all cases exactly the same
+fluid system is defined. The only difference is how the temperature
+is measured:</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Fluid/Examples/MeasuringTemperature1.png" alt="MeasuringTemperature1.png" /></blockquote>
+<p>A pre-defined mass flow rate is present so that fluid flows from
+the reservoir to the tanks and after 0.5 s the mass flows from the
+tanks to the reservoir. The reservoir has a temperature of
+50<sup>0</sup>C whereas the tanks have an initial temperature of
+20<sup>0</sup>C and of 80<sup>0</sup>C. The initial height of the
+tanks is made in such a form that fluid always flows out of the
+cold tank. When the fluid flows from the reservoir to the tanks,
+then it mixes with the cold tank and enters the hot tank. When the
+fluid flow from the tanks to the reservoir, then the cold and hot
+water from the two tanks first mixes and the flows to the
+reservoir.</p>
+<p>A one-port sensor measures the <em>mixing</em> temperature at a
+connection point. Therefore T_onePort.T (the blue curve in the
+figure below) is the temperature of the mixing point. A two-port
+sensor measures the temperature at the <em>upstream</em> side.
+Therefore T_twoPort.T (the red curve in the figure below which is
+identical to the green curve) shows first the temperature of the
+reservoir and then the mixing temperature when fluid flows from the
+tanks to the reservoir. The same is measured with T_junction.T (the
+green curve below), because the one-port sensor is connected
+between the mass flow source and the junction and since the mixing
+takes place in the junction, the same situation is present as for
+T_twoPort.T.</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Fluid/Examples/MeasuringTemperature2.png" alt="MeasuringTemperature2.png" /></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

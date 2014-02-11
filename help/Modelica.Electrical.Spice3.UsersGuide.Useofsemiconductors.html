@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.UsersGuide.Useofsemiconductors</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Useofsemiconductors</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Within the semiconductor devices SPICE3 differentiates between
+technology parameters and device parameters. Device parameters can
+be chosen for every single model instance, e.g., the channel length
+of a transistor. Technology parameters which are specified in a
+model card (.model) are adjustable for more than one element
+simultaneously, e.g. the type of transistors. As usually done in
+Modelica the parameters of the modelcard can be set in a parameter
+list.</p>
+<p>To parametrize more than one model two ways are possible:</p>
+<ol>
+<li>Apart record:<br />
+For each transistor in the circuit a record with the
+technologieparameters is made available as an instance of the
+record modelcardMOS. In the example<br />
+"inverterApartRecord" this way is explained more in detail.</li>
+<li>Extended model:<br />
+For each set of technologyparameters a apart model has to be
+defined. In the example "inverterExtendedModel" this way is
+explained more in detail.</li>
+</ol>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

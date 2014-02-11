@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">MultiPhase</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Symmetrical three phase system</h4>
+<p>Symmetrical three phases systems of currents (or voltages)
+consists of three sinusoidal sine waves with with an angular
+displacement of <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png" />
+.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/i123.png" />,</p>
+<p>Electrical three phase machines have (usually) symmetrical three
+phase windings which excite spatial magnetic potential with a
+spacial displacement of <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png" />
+ - with respect to the fundamental wave, see [<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.References.html">Laughton02</a>].
+Such a symmetrical three phase system of currents (or voltages) can
+be represented by <a href="http://en.wikipedia.org/wiki/Phasor">phasors</a>, as depicted in
+Fig. 1(a). The associated three phase winding is depicted in Fig.
+2(a). The winding axis are displaced by <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png" />
+:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_3.png" /></p>
+<p>So there is is a strong coherence between angular displacement
+in the time and spatial domain which also applies to multi phase
+systems.</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><strong>Fig. 1:</strong> Symmetrical (a)
+three phase and (b) five phase current system</caption>
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png" alt="phase35.png" /></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><strong>Fig. 2:</strong> Symmetrical (a)
+three phase and (b) five phase winding</caption>
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding35.png" alt="winding35.png" /></td>
+</tr>
+</table>
+<h4>Symmetrical multi phase system</h4>
+<p>In symmetrical multi phase systems odd and even phase numbers
+have to be distinguished.</p>
+<h5>Odd number of phases</h5>
+<p>For a symmetrical multi phase system with <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png" />
+ phases the displacement in the time and spatial domain is
+<img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_m.png" />
+, as depicted in Fig. 1 and 2.</p>
+<p>Mathematically, this symmetry is expressd in terms of phase
+currents by:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/ik_odd.png" /></p>
+<p>The orientation of the winding axis of such winding is given
+by:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/orientationk_m.png" /></p>
+<h5>Even number of phases</h5>
+<p>In the current implementation of the FundamentalWave library,
+phase numbers equal to the power of two are not supported. However,
+any other multi phase system with even an phase number, <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/m.png" />
+, can be recursively split into various symmetrical systems with
+odd phase numbers, as depicted in Fig. 3 and 4. The displacement
+between the two symmetrical systems is <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/pi_m.png" />
+. A function for calculating the <a href="Modelica.Electrical.MultiPhase.Functions.symmetricOrientation.html">
+symmetricOrientation</a> is available.</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><strong>Fig. 3:</strong> Symmetrical (a)
+six and (b) ten phase current system</caption>
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase610.png" alt="phase610.png" /></td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><strong>Fig. 4:</strong> Symmetrical (a)
+six and (b) ten phase winding</caption>
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/winding610.png" alt="winding610.png" /></td>
+</tr>
+</table>
+<h4>Note</h4>
+<p>In a fully symmetrical machine, the orientation of the winding
+axes and the symmetrical currents (or voltages) <a href="http://en.wikipedia.org/wiki/Phasor">phasors</a> have different
+signs; see Fig. 1 and 2 for odd phase numbers and Fig. 3 and 4 for
+even phase numbes.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

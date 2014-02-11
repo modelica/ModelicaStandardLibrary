@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Blocks.Continuous.Internal.Filter.coefficients.bandPass</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.html">Continuous</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.Internal.html">Internal</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.Internal.Filter.html">Filter</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.Internal.Filter.coefficients.html">coefficients</a>.<span class="omc-h1">bandPass</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Return band pass filter coefficients at given cut-off frequency
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function bandPass
+  extends Modelica.Icons.Function;
+  input Real cr_in[:] "Coefficients of real poles";
+  input Real c0_in[:] "Coefficients of s^0 term if conjugate complex pole";
+  input Real c1_in[size(c0_in, 1)] "Coefficients of s^1 term if conjugate complex pole";
+  input Modelica.SIunits.Frequency f_min "Band of band pass filter is f_min (A=-3db) .. f_max (A=-3db)";
+  input Modelica.SIunits.Frequency f_max "Upper band frequency";
+  output Real cr[0] "Coefficient of real pole";
+  output Real c0[size(cr_in, 1) + 2 * size(c0_in, 1)] "Coefficients of s^0 term if conjugate complex pole";
+  output Real c1[size(cr_in, 1) + 2 * size(c0_in, 1)] "Coefficients of s^1 term if conjugate complex pole";
+  output Real cn "Numerator coefficient of the PT2 terms";
+end bandPass;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

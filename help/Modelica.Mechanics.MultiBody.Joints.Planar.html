@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Joints.Planar</title>
+</head>
+<body>
+<h1><a href="Icons/50b054e62a6b3d5179ab16734778caa4b2ee89e8.svg"><img class="svgiconhead" src="Icons/50b054e62a6b3d5179ab16734778caa4b2ee89e8.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<span class="omc-h1">Planar</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Joint where frame_b can move in a plane and can rotate around an
+axis orthogonal to the plane. The plane is defined by vector n
+which is perpendicular to the plane and by vector n_x, which points
+in the direction of the x-axis of the plane. frame_a and frame_b
+coincide when s_x=prismatic_x.s=0, s_y=prismatic_y.s=0 and
+phi=revolute.phi=0. This joint has the following potential
+states:</p>
+<ul>
+<li>the relative distance s_x = prismatic_x.s [m] along axis
+n_x,</li>
+<li>the relative distance s_y = prismatic_y.s [m] along axis n_y =
+cross(n,n_x),</li>
+<li>the relative angle phi = revolute.phi [rad] around axis n,</li>
+<li>the relative velocity v_x (= der(s_x)).</li>
+<li>the relative velocity v_y (= der(s_y)).</li>
+<li>the relative angular velocity w (= der(phi))</li>
+</ul>
+<p>They are used as candidates for automatic selection of states
+from the tool. This may be enforced by setting
+"stateSelect=StateSelect.<b>always</b>" in the <b>Advanced</b>
+menu. The states are usually selected automatically. In certain
+situations, especially when closed kinematic loops are present, it
+might be slightly more efficient, when using the
+"StateSelect.always" setting.</p>
+<p>In the following figure the animation of a planar joint is
+shown. The light blue coordinate system is frame_a and the dark
+blue coordinate system is frame_b of the joint. The black arrows
+are parameter vectors "n" and "n_x" (here: n = {0,1,0}, n_x =
+{0,0,1}, s_x.start = 0.5, s_y.start = 0.5, phi.start =
+45<sup>o</sup>).</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Joints/Planar.png" /></p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

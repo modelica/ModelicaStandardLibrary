@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.html">Fittings</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.Bends.html">Bends</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.html">EdgedBend</a>.<span class="omc-h1">pressureLoss</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This function returns the pressure loss dp as function of mass
+flow rate m_flow for an edged bend. The details of the function are
+described <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall.html">
+here</a>.</p>
+<p>The bend characteristic is valid for constant density and
+constant dynamic viscosity. It can be approximately also used for
+compressible media. This is performed by providing the upstream
+density and upstream dynamic viscosity. In order to be able to
+regularize density and dynamic viscosity around zero mass flow
+rate, the two quantities have to be given if fluid flows from
+port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
+port_a (d_b, eta_b).</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function pressureLoss
+  extends Modelica.Icons.Function;
+  input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
+  input Geometry geometry "Geometry of bend";
+  input SI.Density d_a "Density at port_a when fluid is flowing from port_a to port_b";
+  input SI.Density d_b "Density at port_b when fluid is flowing from port_b to port_a";
+  input SI.DynamicViscosity eta_a "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
+  input SI.DynamicViscosity eta_b "Dynamic viscosity at port_b when fluid is flowing from port_b to port_a";
+  input SI.AbsolutePressure dp_small "Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp)";
+  input SI.MassFlowRate m_flow_small "Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow)";
+  output SI.Pressure dp "Pressure loss";
+end pressureLoss;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

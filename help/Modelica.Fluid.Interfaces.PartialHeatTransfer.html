@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Interfaces.PartialHeatTransfer</title>
+</head>
+<body>
+<h1><a href="Icons/06dcfc57522520e2a80f25bfd0951339e863d4f9.svg"><img class="svgiconhead" src="Icons/06dcfc57522520e2a80f25bfd0951339e863d4f9.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Interfaces.html">Interfaces</a>.<span class="omc-h1">PartialHeatTransfer</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component is a common interface for heat transfer models.
+The heat flow rates <code>Q_flows[n]</code> through the boundaries
+of n flow segments are obtained as function of the thermodynamic
+<code>states</code> of the flow segments for a given fluid
+<code>Medium</code>, the <code>surfaceAreas[n]</code> and the
+boundary temperatures <code>heatPorts[n].T</code>.</p>
+<p>The heat loss coefficient <code>k</code> can be used to model a
+thermal isolation between <code>heatPorts.T</code> and
+<code>T_ambient</code>.</p>
+<p>An extending model implementing this interface needs to define
+one equation: the relation between the predefined fluid
+temperatures <code>Ts[n]</code>, the boundary temperatures
+<code>heatPorts[n].T</code>, and the heat flow rates
+<code>Q_flows[n]</code>.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Interfaces.PartialHeatTransfer.Medium.html"><img class="svgiconsmall" src="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg" /></a>&nbsp;<a href="Modelica.Fluid.Interfaces.PartialHeatTransfer.Medium.html">Medium</a></td>
+<td>Medium in the component</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

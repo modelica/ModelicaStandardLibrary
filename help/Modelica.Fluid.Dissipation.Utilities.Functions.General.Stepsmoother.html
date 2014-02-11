@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.General.html">General</a>.<span class="omc-h1">Stepsmoother</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The function is used for continuous fading of variable inputs
+within a defined range. It allows a differentiable and smooth
+transition between function outputs, e.g., laminar and turbulent
+pressure drop or correlations for certain ranges.</p>
+<h4>Function</h4>
+<p>The tanh-function is used, since it provides an existing
+derivative and the derivative is zero at the borders
+[<b>nofunc</b>, <b>func</b>] of the interpolation domain (smooth
+derivative for transitions).<br />
+<br />
+In order to work correctly, the internal interpolation range in
+terms of the external arbitrary input <b>x</b> needs to be scaled
+such that:</p>
+<pre>
+f(func)   = 0.5 π
+f(nofunc) = -0.5 π
+</pre>
+<h4>Example</h4>
+<p>In the picture below the input x is increased from 0 to 1. The
+range of interpolation is defined by:</p>
+<ul>
+<li>func = 0.75</li>
+<li>nofunc = 0.25</li>
+</ul>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/utilities/Stepsmoother.png" alt="Stepsmoother" /></p>
+<h4>References</h4>
+<dl>
+<dt>Wischhusen, St.</dt>
+<dd><b>Simulation von Kältemaschinen-Prozessen mit MODELICA /
+DYMOLA</b>. Diploma thesis, Hamburg University of Technology,
+Institute of Thermofluiddynamics, 2000.</dd>
+</dl>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function Stepsmoother
+  extends Modelica.Icons.Function;
+  input Real func "input value for that result = 100%";
+  input Real nofunc "input value for that result = 0%";
+  input Real x "input variable for continuous interpolation";
+  output Real result "output value";
+end Stepsmoother;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

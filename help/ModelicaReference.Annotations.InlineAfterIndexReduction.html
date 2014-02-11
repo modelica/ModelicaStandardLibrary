@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+ModelicaReference.Annotations.InlineAfterIndexReduction</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">InlineAfterIndexReduction</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Annotation for code generation</p>
+<h4>Syntax</h4>
+<pre>
+   <b>annotation</b>"(" InlineAfterIndexReduction "=" ( <b>false</b> | <b>true</b> ) ")
+</pre>
+<h4>Description</h4>
+<p>Has only an effect within a function declaration. If true, the
+model developer proposes to inline the function after the function
+is differentiated for index reduction, and before any other
+symbolic transformations are performed.</p>
+<p><em>This annotation cannot be combined with annotations <a href="ModelicaReference.Annotations.Inline.html">Inline</a> and
+<a href="ModelicaReference.Annotations.LateInline.html">LateInline</a>!</em></p>
+<h4>Example usage</h4>
+<p><code>InlineAfterIndexReduction = true</code> is for example
+used in <a href="Modelica.Mechanics.Rotational.Sources.Move.html">Modelica.Mechanics.Rotational.Sources.Move</a>
+to define that an input signal is the derivative of another input
+signal.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

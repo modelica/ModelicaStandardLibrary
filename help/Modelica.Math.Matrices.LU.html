@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.LU</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">LU</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+(LU, pivots)       = Matrices.<b>LU</b>(A);
+(LU, pivots, info) = Matrices.<b>LU</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function call returns the LU decomposition of a "Real[m,n]"
+matrix A, i.e.,</p>
+<blockquote>
+<p><b>P</b>*<b>L</b>*<b>U</b> = <b>A</b></p>
+</blockquote>
+<p>where <b>P</b> is a permutation matrix (implicitly defined by
+vector <code>pivots</code>), <b>L</b> is a lower triangular matrix
+with unit diagonal elements (lower trapezoidal if m &gt; n), and
+<b>U</b> is an upper triangular matrix (upper trapezoidal if m &lt;
+n). Matrices <b>L</b> and <b>U</b> are stored in the returned
+matrix <code>LU</code> (the diagonal of <b>L</b> is not stored).
+With the companion function <a href="Modelica.Math.Matrices.LU_solve.html">Matrices.LU_solve</a>,
+this decomposition can be used to solve linear systems
+(<b>P</b>*<b>L</b>*<b>U</b>)*<b>x</b> = <b>b</b> with different
+right hand side vectors <b>b</b>. If a linear system of equations
+with just one right hand side vector <b>b</b> shall be solved, it
+is more convenient to just use the function <a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a>.</p>
+<p>The optional third (Integer) output argument has the following
+meaning:</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top">info = 0:</td>
+<td valign="top">successful exit</td>
+</tr>
+<tr>
+<td valign="top">info &gt; 0:</td>
+<td valign="top">if info = i, U[i,i] is exactly zero. The
+factorization has been completed,<br />
+but the factor U is exactly singular, and division by zero will
+occur<br />
+if it is used to solve a system of equations.</td>
+</tr>
+</table>
+<p>The LU factorization is computed with the LAPACK function
+"dgetrf", i.e., by Gaussian elimination using partial pivoting with
+row interchanges. Vector "pivots" are the pivot indices, i.e., for
+1 ≤ i ≤ min(m,n), row i of matrix A was interchanged with row
+pivots[i].</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real b1[3] = {10,22,12};
+  Real b2[3] = { 7,13,10};
+  Real    LU[3,3];
+  Integer pivots[3];
+  Real    x1[3];
+  Real    x2[3];
+<b>algorithm</b>
+  (LU, pivots) := Matrices.LU(A);
+  x1 := Matrices.LU_solve(LU, pivots, b1);  // x1 = {3,2,1}
+  x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.LU_solve.html">Matrices.LU_solve</a>,
+<a href="Modelica.Math.Matrices.solve.html">Matrices.solve</a>,</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function LU
+  extends Modelica.Icons.Function;
+  input Real A[:,:] "Square or rectangular matrix";
+  output Real LU[size(A, 1),size(A, 2)] = A "L,U factors (used with LU_solve(..))";
+  output Integer pivots[min(size(A, 1), size(A, 2))] "pivot indices (used with LU_solve(..))";
+  output Integer info "Information";
+end LU;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

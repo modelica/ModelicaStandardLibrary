@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.UsersGuide.ReleaseNotes.VersionManagement</title>
+</head>
+<body>
+<h1><a href="Icons/8bfe4619ca645a8548493ba231f3522f119849d2.svg"><img class="svgiconhead" src="Icons/8bfe4619ca645a8548493ba231f3522f119849d2.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.<span class="omc-h1">VersionManagement</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Maintenance of the Modelica Standard Library is performed with
+three branches on the subversion server of the Modelica Association
+(<a href="https://svn.modelica.org/projects/Modelica">https://svn.modelica.org/projects/Modelica</a>):</p>
+<h4>Released branch</h4>
+<p>Example: "/tags/v3.0.1/Modelica"</p>
+<p>This branch contains the released Modelica versions (e.g.,
+version 3.0.1), where all available test cases and compatibility
+checks with other Modelica libraries have been performed on the
+respective release. This version is usually shipped with a Modelica
+modeling and simulation environment and utilized by a Modelica
+user.</p>
+<h4>Development branch</h4>
+<p>Example: "/trunk/Modelica"</p>
+<p>This branch contains the actual development version, i.e., all
+bug fixes and new features based on the last Modelica release. New
+features should have been tested before including them. However,
+the exhaustive tests for a new version are (usually) not performed.
+This version is usually only be used by the developers of the
+Modelica Standard Library and is not utilized by Modelica
+users.</p>
+<h4>Maintenance branch</h4>
+<p>Example: "/branches/maintenance/3.0.1/Modelica"</p>
+<p>This branch contains the released Modelica version (e.g.,
+version 3.0.1) where all bug fixes since this release date are
+included (up to a new release, when becoming available; i.e., after
+a new release, the previous maintenance versions are no longer
+changed). These bug fixes might be not yet tested with all test
+cases or with other Modelica libraries. The goal is that a vendor
+may take this version at any time for a new release of its
+software, in order to incorporate the latest bug fixes, without
+changing the version number of the Modelica Standard Library.</p>
+<p>Incorporation of bug fixes (subversion "commit") shall be
+performed in the following way:</p>
+<ul>
+<li>One person is fixing the bug and another person is checking
+whether the fix is fine.</li>
+<li>It is up to the library developer, whether he opens a new
+branch for testing and then merges it with the "head" maintenance
+branch or not.</li>
+<li>Every change to the maintenance branch has to be done at the
+development branch (see above) as well. One exception are pure
+changes to the "versionBuild" annotation as these have no meaning
+in the development trunk.</li>
+<li>Every change to the maintenance branch requires introducing a
+description of the bug fix under
+Modelica.UsersGuide.ReleaseNotes.Version_&lt;release-number&gt;_BugFixes.</li>
+<li>Annotations "version" and "versionDate" must <u>not</u> be
+changed in a maintenance release.</li>
+<li>Every change to the maintenance branch requires changing the
+"versionBuild" number (incrementing it by one), as well as the
+"dateModified" field.<br />
+Example:
+<pre>
+  annotation(version      = "3.1",
+             versionDate  = "2009-06-22",
+             versionBuild = 3,
+             dateModified = "2009-08-28 07:40:19Z",
+             revisionId   = "$I​d::                                       $")
+</pre>
+The "revisionId" field is a bit special though. If written like in
+the example above it will be automatically expanded to:
+<pre>
+             revisionId   = "$I​d:: package.mo 2879 2009-08-28 07:40:19Z #$"
+</pre>
+by the subversion checkout procedure.</li>
+<li>If time does not permit, a vendor makes the bug fix in its
+local version and then has to include it in the maintenance
+version. It would be best to make these changes at a new branch in
+order to get a unique release number.</li>
+</ul>
+<p>A valid "commit" to the maintenance branch may contain one or
+more of the following changes.</p>
+<ul>
+<li>Correcting an equation.</li>
+<li>Correcting attributes quantity/unit/defaultUnit in a
+declaration.</li>
+<li>Improving/fixing the documentation.</li>
+<li>Introducing a new name in the public section of a class (model,
+package, ...) or in any section of a partial class is <b>not</b>
+allowed. Since otherwise, a user might use this new name and when
+storing its model and loading it with an older build-version, an
+error would occur.</li>
+<li>Introducing a new name in the protected section of a
+non-partial class should only be done if absolutely necessary to
+fix a bug. The problem is that this might be non-backward
+compatible, because a user might already extend from this class and
+already using the same name.</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

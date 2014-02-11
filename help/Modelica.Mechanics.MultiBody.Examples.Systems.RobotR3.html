@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3</title>
+</head>
+<body>
+<h1><a href="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg"><img class="svgiconhead" src="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Systems.html">Systems</a>.<span class="omc-h1">RobotR3</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains models of the robot r3 of the company
+Manutec. These models are used to demonstrate in which way complex
+robot models might be built up by testing first the component
+models individually before composing them together. Furthermore, it
+is shown how CAD data can be used for animation.</p>
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png" alt="model Examples.Systems.RobotR3" />
+<p>The following models are available:</p>
+<pre>
+   <b>oneAxis</b>   Test one axis (controller, motor, gearbox).
+   <b>fullRobot</b> Test complete robot model.
+</pre>
+<p>The r3 robot is no longer manufactured. In fact the company
+Manutec does no longer exist. The parameters of this robot have
+been determined by measurements in the laboratory of DLR. The
+measurement procedure is described in:</p>
+<pre>
+   Tuerk S. (1990): Zur Modellierung der Dynamik von Robotern mit
+       rotatorischen Gelenken. Fortschrittberichte VDI, Reihe 8, Nr. 211,
+       VDI-Verlag 1990.
+</pre>
+<p>The robot model is described in detail in</p>
+<pre>
+   Otter M. (1995): Objektorientierte Modellierung mechatronischer
+       Systeme am Beispiel geregelter Roboter. Dissertation,
+       Fortschrittberichte VDI, Reihe 20, Nr. 147, VDI-Verlag 1995.
+       This report can be downloaded as compressed postscript file
+       from: <a href="http://www.robotic.dlr.de/Martin.Otter">http://www.robotic.dlr.de/Martin.Otter</a>.
+</pre>
+<p>The path planning is performed in a simple way by using
+essentially the Modelica.Mechanics.Rotational.KinematicPTP block. A
+user defines a path by start and end angle of every axis. A path is
+planned such that all axes are moving as fast as possible under the
+given restrictions of maximum joint speeds and maximum joint
+accelerations. The actual r3 robot from Manutec had a different
+path planning strategy. Todays path planning algorithms from robot
+companies are much more involved.</p>
+<p>In order to get a nice animation, CAD data from a KUKA robot is
+used, since CAD data of the original r3 robot was not available.
+The KUKA CAD data was derived from public data of KUKA available
+at: <a href="http://www.kuka-roboter.de/english/produkte/cad/low_payloads.html">
+http://www.kuka-roboter.de/english/produkte/cad/low_payloads.html</a>.
+Since dimensions of the corresponding KUKA robot are similar but
+not identical to the r3 robot, the data of the r3 robot (such as
+arm lengths) have been modified, such that it matches the CAD
+data.</p>
+<p>In this model, a simplified P-PI cascade controller for every
+axes is used. The parameters have been manually adjusted by
+simulations. The original r3 controllers are more complicated. The
+reason to use simplified controllers is to have a simpler demo.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.oneAxis.html">
+<img class="svgiconsmall" src="Icons/e39a308e7d4076637dc85be7e5835e727d124519.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.oneAxis.html">oneAxis</a></td>
+<td>Model of one axis of robot (controller, motor, gearbox) with
+simple load</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot.html">
+<img class="svgiconsmall" src="Icons/bc2fc5a803de2f43665e02a15f7c0e3a5f912325.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot.html">fullRobot</a></td>
+<td>6 degree of freedom robot with path planning, controllers,
+motors, brakes, gears and mechanics</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.html">
+<img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.html">Components</a></td>
+<td>Library of components of the robot</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

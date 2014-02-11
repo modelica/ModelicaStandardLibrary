@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors.isEqual</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Vectors.html">Vectors</a>.<span class="omc-h1">isEqual</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Vectors.<b>isEqual</b>(v1, v2);
+Vectors.<b>isEqual</b>(v1, v2, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>Vectors.isEqual(v1, v2)</code>" returns
+<b>true</b>, if the two Real vectors v1 and v2 have the same
+dimensions and the same elements. Otherwise the function returns
+<b>false</b>. Two elements e1 and e2 of the two vectors are checked
+on equality by the test "abs(e1-e2) ≤ eps", where "eps" can be
+provided as third argument of the function. Default is "eps =
+0".</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Real v1[3] = {1, 2, 3};
+  Real v2[4] = {1, 2, 3, 4};
+  Real v3[3] = {1, 2, 3.0001};
+  Boolean result;
+<b>algorithm</b>
+  result := Vectors.isEqual(v1,v2);     // = <b>false</b>
+  result := Vectors.isEqual(v1,v3);     // = <b>false</b>
+  result := Vectors.isEqual(v1,v1);     // = <b>true</b>
+  result := Vectors.isEqual(v1,v3,0.1); // = <b>true</b>
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Vectors.find.html">Vectors.find</a>, <a href="Modelica.Math.Matrices.isEqual.html">Matrices.isEqual</a>,
+<a href="Modelica.Utilities.Strings.isEqual.html">Strings.isEqual</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function isEqual
+  extends Modelica.Icons.Function;
+  input Real v1[:] "First vector";
+  input Real v2[:] "Second vector (may have different length as v1)";
+  input Real eps(min = 0) = 0 "Two elements e1 and e2 of the two vectors are identical if abs(e1-e2) &lt;= eps";
+  output Boolean result "= true, if vectors have the same length and the same elements";
+end isEqual;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

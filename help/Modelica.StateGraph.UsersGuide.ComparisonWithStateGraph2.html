@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.StateGraph.html">StateGraph</a>.<a class="omc-h1-a" href="Modelica.StateGraph.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">ComparisonWithStateGraph2</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>There is a much improved library available called
+"Modelica_StateGraph2". If this library is not yet distributed with
+your Modelica tool, you can download it from <a href="https://www.modelica.org/libraries/Modelica_StateGraph2">https://www.modelica.org/libraries/Modelica_StateGraph2</a>.
+Find below a comparison with respect to Modelica.StateGraph. It is
+not yet clear whether Modelica_StateGraph2 will be included in a
+future version of the Modelica package. Another option is to
+provide built-in support for state machines in a future Modelica
+language version which would allow an even more powerful treatment
+of state machines in Modelica.</p>
+<p>The Modelica_StateGraph2 library (called <u>StateGraph2</u>
+below) is based on the experience with the current
+Modelica.StateGraph library (called <u>StateGraph1</u> below) and
+is a significantly further development of StateGraph1. Furthermore,
+it is heavily based on the article (Malmheden et. al. 2008), see
+Literature below, but uses a different implementation technique as
+described in this article. The StateGraph2 library has the
+following improvements with respect to the StateGraph1 library:</p>
+<ul>
+<li><b>3 Basic Components (Step, Transition, Parallel)</b><br />
+All multiple versions of a component are combined in only one
+version (e.g., one step and not 4 step components). This is easier
+to understand and more convenient to use. The "Parallel" component
+is both used as "composite step" (so only one branch), as well as
+"parallel step" (so several execution branches).<br />
+&nbsp;</li>
+<li><b>Conveniently connecting components</b><br />
+Connecting components of a state machine in Modelica means to
+provide new vector dimensions and to provide a vector index to
+connect to. In StateGraph2, the new "connectorSizing" annotation is
+used and therefore all this is now performed automatically (from a
+users point of view, these actions are hidden; this is not the case
+in StateGraph1 and makes the usage of the StateGraph1 library
+clumsy).<br />
+&nbsp;</li>
+<li><b>Safer state machines</b><br />
+It is no longer possible to construct a wrong state machine in the
+sense that properties of the graph are violated (e.g., two initial
+steps, or branching wrongly out of a parallel component). Contrary
+to StateGraph2, in StateGraph1 such wrong graphs do not lead to an
+error but to unexpected simulation results. Still, other desirable
+properties of a state machine, such as "no deadlock" or
+"lifeliness" or "every step reachable", are not (yet) guaranteed
+with the current StateGraph2.<br />
+&nbsp;</li>
+<li><b>Composite, autonomous, synchronized, preempted
+subgraphs</b><br />
+Composite steps and parallel steps are described in a much better
+and more powerful way as in StateGraph1: Either by component
+"Parallel" or by inheriting from "PartialParallel". The first
+alternative has the advantage that it is simple to use (not
+necessary to construct a new class and instantiating this class,
+and easy variable access since no new hierarchy is constructed),
+the second alternative has the advantage that it introduces a
+Modelica hierarchy (useful for large subgraphs). In both cases,
+various options are possible, such as
+<ol>
+<li>autonomous subgraphs (branches are executed in parallel
+autonomously),</li>
+<li>synchronized subgraphs (branches are executed in parallel and
+are synchronized before leaving the subgraph via the outPort),</li>
+<li>subgraphs with preemption and exception (a parallel step can be
+interrupted via the suspend ports and can continue execution via
+the resume ports).</li>
+</ol>
+This is achieved by enabling/disabling the different ports.<br />
+&nbsp;</li>
+<li><b>No infinite looping</b>:<br />
+As in StateGraph1, there are two types of transitions: immediate
+transitions (during event iteration all immediate transitions fire
+until no transition condition is true anymore) and delayed
+transitions (a transition fires only after a delay). Contrary to
+StateGraph1, in StateGraph2 every loop must have at least one
+delayed transition. If this is not the case a translation error
+occurs which states that the model contains an algebraic loop
+between Booleans with the name
+"checkOneDelayedTransitionPerLoop".<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This property guarantees that an
+event iteration over a StateGraph2 converges after a finite number
+of iterations, provided the modeller does not introduce an unsafe
+construct in the actions associated with a StateGraph2 (e.g., "i =
+pre(i) + 1" in the equation section outside of a when-clause will
+give an event iteration that never stops).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is possible to switch off this
+feature, by setting parameter "loopCheck = <b>false</b>" in one
+transition of a loop, instead of using a "delayed transition" at
+this place (in cases where immediate transitions are important and
+the transition conditions are in a form that they cannot fire at
+the same time instant).</li>
+</ul>
+<h4>Literature</h4>
+<p>The Modelica_StateGraph2 library is described in detail in
+(Otter et. al. 2009, see below) and is additionally based on the
+following references:</p>
+<dl>
+<dt>André, C. (2003):</dt>
+<dd><a href="http://www.i3s.unice.fr/~map/WEBSPORTS/Documents/2003a2005/SSMsemantics.pdf">
+Semantics of S.S.M (Safe State Machine).</a>. I3S Laboratory, UMR
+6070 University of Nice-Sophia Antipolis / CNRS.<br />
+&nbsp;</dd>
+<dt>Arzen K.-E. (2004):</dt>
+<dd><b>JGrafchart User Manual. Version 1.5</b>. Department of
+Automatic Control, Lund Institute of Technology, Lund, Sweden, Feb.
+13, 2004.<br />
+&nbsp;</dd>
+<dt>Dressler I. (2004):</dt>
+<dd><a href="http://www.control.lth.se/documents/2004/5726.pdf">Code Generation
+From JGrafchart to Modelica.</a>. Master thesis, supervisor:
+Karl-Erik Arzen, Department of Automatic Control, Lund Institute of
+Technology, Lund, Sweden, March 30, 2004.<br />
+&nbsp;</dd>
+<dt>Elmqvist H., Mattsson S.E., Otter M. (2001):</dt>
+<dd><b>Object-Oriented and Hybrid Modeling in Modelica</b>. Journal
+Europeen des systemes automatises (JESA), Volume 35 - n. 1,
+2001.<br />
+&nbsp;</dd>
+<dt>Harel, D. (1987):</dt>
+<dd><a href="http://www.inf.ed.ac.uk/teaching/courses/seoc1/2005_2006/resources/statecharts.pdf">
+A Visual Formalism for Complex Systems</a>. Science of Computer
+Programming 8, 231-274. Department of Applied Mathematics, The
+Weizmann Institute of Science, Rehovot, Israel.<br />
+&nbsp;</dd>
+<dt>Malmheden M. (2007):</dt>
+<dd><a href="http://www.control.lth.se/documents/2007/5808.pdf">ModeGraph - A
+Mode-Automata-Based Modelica Library for Embedded Control</a>.
+Master thesis, Department of Automatic Control, Lund University,
+Sweden.<br />
+&nbsp;</dd>
+<dt>Malmheden M., Elmqvist H., Mattsson S.E., Henrisson D., Otter
+M. (2008):</dt>
+<dd><a href="https://www.modelica.org/events/modelica2008/Proceedings/sessions/session3a3.pdf">
+ModeGraph - A Modelica Library for Embedded Control based on
+Mode-Automata</a>. Modelica'2008 Conference, March 3-4, 2008.<br />
+&nbsp;</dd>
+<dt>Maraninchi F., Rémond, Y. (2002):</dt>
+<dd><a href="http://dx.doi.org/10.1016/S0167-6423(02)00093-X">Mode-Automata: A
+New Domain-Specific Construct for the Development of Safe Critical
+Systems</a>.<br />
+&nbsp;</dd>
+<dt>Mosterman P., Otter M., Elmqvist H. (1998):</dt>
+<dd><a href="https://www.modelica.org/publications/papers/scsc98fp.pdf">Modeling
+Petri Nets as Local Constraint Equations for Hybrid Systems using
+Modelica</a>. SCSC'98, Reno, Nevada, USA, Society for Computer
+Simulation International, pp. 314-319, 1998.<br />
+&nbsp;</dd>
+<dt>Otter M., Malmheden M., Elmqvist H., Mattsson S.E., Johnsson C.
+(2009):</dt>
+<dd><a href="https://www.modelica.org/events/modelica2009">A New
+Formalism for Modeling of Reactive and Hybrid Systems</a>.
+Modelica'2009 Conference, Como, Italy, Sept. 20-22, 2009.</dd>
+</dl>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

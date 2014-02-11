@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</title>
+</head>
+<body>
+<h1><a href="Icons/0fbdd72d8ddbe87add10880264842f49db1ca142.svg"><img class="svgiconhead" src="Icons/0fbdd72d8ddbe87add10880264842f49db1ca142.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Thermal.html">Thermal</a>.<a class="omc-h1-a" href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Thermal.HeatTransfer.Interfaces.html">Interfaces</a>.<span class="omc-h1">PartialElementaryConditionalHeatPort</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This partial model provides a conditional heat port for
+dissipating losses.</p>
+<ul>
+<li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat
+port is available, and the thermal loss power is dissipated
+internally. In this case, the parameter <b>T</b> specifies the
+fixed device temperature (the default for T = 20°C)</li>
+<li>If <b>useHeatPort</b> is set to <b>true</b>, the heat port is
+available.</li>
+</ul>
+<p>If this model is used, the loss power has to be provided by an
+equation in the model which inherits from
+PartialElementaryConditionalHeatPort model (<b>lossPower =
+...</b>). The device temperature <b>TheatPort</b> can be used to
+describe the influence of the device temperature on the model
+behaviour.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.choices</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">choices</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Define graphical layout of choices in a parameter menu</p>
+<h4>Description</h4>
+<p>A declaration can have an annotation <code>choices</code>
+containing modifiers on choice, where each of them indicates a
+suitable redeclaration or modifications of the element. This is a
+hint for users of the model, and can also be used by the user
+interface to suggest reasonable redeclaration, where the string
+comments on the choice declaration can be used as textual
+explanations of the choices. The annotation is not restricted to
+replaceable elements but can also be applied to non-replaceable
+elements, enumeration types, and simple variables.</p>
+<p>For a Boolean variable, a <code>choices</code> annotation may
+contain the definition <code>checkbox = true</code>, meaning to
+display a checkbox to input the values <code>false</code> or
+<code>true</code> in the graphical user interface.</p>
+<h4>Examples</h4>
+<pre>
+<b>replaceable model</b> MyResistor=Resistor
+  <b>annotation</b>(choices(
+              choice(redeclare MyResistor=lib2.Resistor(a={2}) "..."),
+              choice(redeclare MyResistor=lib2.Resistor2 "...")));
+
+<b>replaceable</b> Resistor Load(R=2) constrainedby TwoPin
+  <b>annotation</b>(choices(
+              choice(redeclare lib2.Resistor Load(a={2}) "..."),
+              choice(redeclare Capacitor Load(L=3) "...")));
+
+<b>replaceable</b> FrictionFunction a(func=exp) constrainedby Friction
+  <b>annotation</b>(choices(
+             choice(redeclare ConstantFriction a(c=1) "..."),
+             choice(redeclare TableFriction a(table="...") "..."),
+             choice(redeclare FunctionFriction a(func=exp) "..."))));
+
+<b>type</b> KindOfController=Integer(min=1,max=3)
+   <b>annotation</b>(choices(
+                choice=1 "P",
+                choice=2 "PI",
+                choice=3 "PID"));
+
+<b>model</b> A
+  KindOfController x;
+<b>end</b> A;
+A a(x=3 "PID");
+</pre>
+<p>It can also be applied to Boolean variables to define a check
+box:</p>
+<pre>
+  <b>parameter</b> Boolean useHeatPort=false <b>annotation</b>(choices(checkBox=true));
+</pre>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

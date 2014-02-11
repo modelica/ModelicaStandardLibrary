@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint</title>
+</head>
+<body>
+<h1><a href="Icons/fbf47a671d14a9917f3d382d523f61e01f27c1db.svg"><img class="svgiconhead" src="Icons/fbf47a671d14a9917f3d382d523f61e01f27c1db.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<span class="omc-h1">RevolutePlanarLoopConstraint</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Joint where frame_b rotates around axis n which is fixed in
+frame_a and where this joint is used in a planar loop providing 2
+constraint equations on position level.</p>
+<p>If a <b>planar loop</b> is present, e.g., consisting of 4
+revolute joints where the joint axes are all parallel to each
+other, then there is no unique mathematical solution if all
+revolute joints are modelled with Joints.Revolute and the symbolic
+algorithms will fail. The reason is that, e.g., the cut-forces in
+the revolute joints perpendicular to the planar loop are not
+uniquely defined when 3-dim. descriptions of revolute joints are
+used. Usually, an error message will be printed pointing out this
+situation. In this case, <b>one</b> revolute joint in the loop has
+to be replaced by model Joints.RevolutePlanarLoopCutJoint. The
+effect is that from the 5 constraints of a 3-dim. revolute joint, 3
+constraints are removed and replaced by appropriate known variables
+(e.g., the force in the direction of the axis of rotation is
+treated as known with value equal to zero; for standard revolute
+joints, this force is an unknown quantity).</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

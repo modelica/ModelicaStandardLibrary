@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Types.RotationTypes</title>
+</head>
+<body>
+<h1><a href="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg"><img class="svgiconhead" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Types.html">Types</a>.<span class="omc-h1">RotationTypes</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>Types.RotationTypes.</b></th>
+<th><b>Meaning</b></th>
+</tr>
+<tr>
+<td valign="top">RotationAxis</td>
+<td valign="top">frame_b is defined by rotating the coordinate
+system along an axis fixed in frame_a and with a fixed angle.</td>
+</tr>
+<tr>
+<td valign="top">TwoAxesVectors</td>
+<td valign="top">frame_b is defined by resolving two vectors of
+frame_b in frame_a.</td>
+</tr>
+<tr>
+<td valign="top">PlanarRotationSequence</td>
+<td valign="top">frame_b is defined by rotating the coordinate
+system along 3 consecutive axes vectors with fixed rotation angles
+(e.g., Cardan or Euler angle sequence rotation).</td>
+</tr>
+</table>
+<h4><a name="definition" id="definition">Definition</a></h4>
+<blockquote>
+<pre>
+type RotationTypes = enumeration(RotationAxis "Rotating frame_a around an angle with a fixed axis", TwoAxesVectors "Resolve two vectors of frame_b in frame_a", PlanarRotationSequence  "Planar rotation sequence");
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines</title>
+</head>
+<body>
+<h1><a href="Icons/ef3c3795dcb9c6caf28ef91b7edd676f26286b06.svg"><img class="svgiconhead" src="Icons/ef3c3795dcb9c6caf28ef91b7edd676f26286b06.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Internal.html">Internal</a>.<span class="omc-h1">Lines</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>With model <b>Lines</b> a set of dynamic lines is defined that
+are located relatively to frame_a. Every line is represented by a
+cylinder. This allows, e.g., to define simple shaped 3-dimensional
+characters. Note, if the lines are fixed relatively to frame_a, it
+is more convenient to use model <b>Visualizers.FixedLines</b>. An
+example for dynamic lines is shown in the following figure:<br />
+&nbsp;</p>
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/FixedLines.png" alt="model Visualizers.FixedLines" />
+<p>&nbsp;<br />
+The two letters "x" and "y" are constructed with 4 lines by
+providing the following data for input variable <b>lines</b></p>
+<pre>
+   lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+</pre>
+<p>Via vectors <b>n_x</b> and <b>n_y</b> a two-dimensional
+coordinate system is defined. The points defined with variable
+<b>lines</b> are with respect to this coordinate system. For
+example "[0, 0; 1, 1]" defines a line that starts at {0,0} and ends
+at {1,1}. The diameter and color of all line cylinders are
+identical and are defined by parameters.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

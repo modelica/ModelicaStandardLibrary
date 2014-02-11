@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Math.Vectors.Utilities.householderReflection</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Vectors.html">Vectors</a>.<a class="omc-h1-a" href="Modelica.Math.Vectors.Utilities.html">Utilities</a>.<span class="omc-h1">householderReflection</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Vectors.Utilities.<b>householderReflection</b>(a,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function "<code>householderReflection(a, u)</code>" performs the
+reflection of vector <b>a</b> about a plane orthogonal to vector
+<b>u</b> (Householder vector). Algebraically the operation is
+defined by</p>
+<blockquote>
+<p><b>b</b>=<b>Q</b>*<b>a</b></p>
+</blockquote>
+with
+<blockquote>
+<p><b>Q</b> = <b>I</b> - 2*<b>u</b>*<b>u</b>',</p>
+</blockquote>
+where <b>Q</b> is an orthogonal matrix, i.e.
+<blockquote>
+<p><b>Q</b> = inv(<b>Q</b>) = <b>Q</b>'</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  a = {2, -4, -2, -1};
+  u = {0.837, -0.478, -0.239, -0.119};
+
+  <b>householderReflection</b>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Vectors.Utilities.householderVector.html">Utilities.householderVector</a><br />
+<a href="Modelica.Math.Matrices.Utilities.householderReflection.html">
+Matrices.Utilities.householderReflection</a><br />
+<a href="Modelica.Math.Matrices.Utilities.householderSimilarityTransformation.html">
+Matrices.Utilities.householderSimilarityTransformation</a>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function householderReflection
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Vectors;
+  input Real a[:] "Real vector a to be reflected";
+  input Real u[size(a, 1)] "householder vector";
+  output Real ra[size(u, 1)] "reflexion of a";
+end householderReflection;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/04/30</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

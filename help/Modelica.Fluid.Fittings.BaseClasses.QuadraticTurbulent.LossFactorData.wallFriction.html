@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction</title>
+</head>
+<body>
+<h1><a href="Icons/4f77090c0425036db4fddfa50908b176a71f40a5.svg"><img class="svgiconhead" src="Icons/4f77090c0425036db4fddfa50908b176a71f40a5.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.html">Fittings</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a>.<span class="omc-h1">wallFriction</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Friction in straight pipe with walls of nonuniform roughness
+(commercial pipes) in the region that does not depend on the
+Reynolds-number</p>
+<p>The loss factors are given for mass flow rates from port_a to
+port_b as:</p>
+<pre>
+  turbulent flow (Idelchik 1994, diagram 2-5, p. 117)
+     zeta = (L/D)/(2*lg(3.7 / Δ))^2, for Re &gt;= 560/Δ
+ 
+     for Re ≥ 560/Δ the loss factor does not depend on the
+     Reynolds number. For Re ≥ 4000, the flow is turbulent,
+     but depends both on Δ and slightly on Re.
+ 
+  laminar flow (Idelchick 1994, diagram 2-1, p. 110):
+     zeta = 64*(L/D)/Re
+</pre>
+<p>where</p>
+<ul>
+<li>D is the inner pipe diameter</li>
+<li>L is the lenght of the pipe</li>
+<li>Δ = δ/D is the relative roughness where δ is the absolute
+"roughness", i.e., the averaged height of asperities in the pipe.
+(δ may change over time due to growth of surface asperities during
+service, see [Idelchick 1994, p. 85, Tables 2-1, 2-2]).</li>
+</ul>
+<p>Since the LossFactorData record can only describe loss factors
+that depend on geometry (but, e.g., not on the Reynolds number),
+only the region with Re ≥ 560/Δ is described by this data. Still,
+the turbulent region with the above zeta is defined to start at
+Re=4000, since otherwise the approximation for Re &lt; 560/Δ is too
+bad.</p>
+<p>The absolute roughness <font face="Symbol">d</font> has usually
+to be estimated. In <i>[Idelchik 1994, pp. 105-109, Table 2-5;
+Miller 1990, p. 190, Table 8-1]</i> many examples are given. As a
+short summary:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td><b>Smooth pipes</b></td>
+<td>Drawn brass, copper, aluminium, glass, etc.</td>
+<td><font face="Symbol">d</font> = 0.0025 mm</td>
+</tr>
+<tr>
+<td rowspan="3"><b>Steel pipes</b></td>
+<td>New smooth pipes</td>
+<td><font face="Symbol">d</font> = 0.025 mm</td>
+</tr>
+<tr>
+<td>Mortar lined, average finish</td>
+<td><font face="Symbol">d</font> = 0.1 mm</td>
+</tr>
+<tr>
+<td>Heavy rust</td>
+<td><font face="Symbol">d</font> = 1 mm</td>
+</tr>
+<tr>
+<td rowspan="3"><b>Concrete pipes</b></td>
+<td>Steel forms, first class workmanship</td>
+<td><font face="Symbol">d</font> = 0.025 mm</td>
+</tr>
+<tr>
+<td>Steel forms, average workmanship</td>
+<td><font face="Symbol">d</font> = 0.1 mm</td>
+</tr>
+<tr>
+<td>Block linings</td>
+<td><font face="Symbol">d</font> = 1 mm</td>
+</tr>
+</table>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+encapsulated function wallFriction
+  import Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+  import lg = Modelica.Math.log10;
+  import SI = Modelica.SIunits;
+  input SI.Length length "Length of pipe" annotation(Dialog);
+  input SI.Diameter diameter "Inner diameter of pipe" annotation(Dialog);
+  input SI.Length roughness(min = 1e-10) "Absolute roughness of pipe (&gt; 0 required, details see info layer)" annotation(Dialog);
+  output LossFactorData data "Pressure loss factors for both flow directions";
+end wallFriction;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

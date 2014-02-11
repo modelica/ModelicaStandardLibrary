@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Translational.Components.MassWithStopAndFriction</title>
+</head>
+<body>
+<h1><a href="Icons/de70a581786e8cabd49d6ee05266d8bed82b0570.svg"><img class="svgiconhead" src="Icons/de70a581786e8cabd49d6ee05266d8bed82b0570.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.Components.html">Components</a>.<span class="omc-h1">MassWithStopAndFriction</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This element describes the <i>Stribeck friction
+characteristics</i> of a sliding mass, i. e. the frictional force
+acting between the sliding mass and the support. Included is a
+<i>hard stop</i> for the position.</p>
+<p>The surface is fixed and there is friction between sliding mass
+and surface. The frictional force f is given for positive velocity
+v by:</p>
+<blockquote>
+<pre>
+f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)
+</pre></blockquote>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/Translational/Stribeck.png" /></p>
+<p>The distance between the left and the right connector is given
+by parameter L. The position of the center of gravity, coordinate
+s, is in the middle between the two flanges.</p>
+<p>There are hard stops at smax and smin, i. e. if
+<i><code>flange_a.s &gt;= smin</code></i> and <i><code>flange_b.s
+&lt;= xmax</code></i> the sliding mass can move freely.</p>
+<p>When the absolute velocity becomes zero, the sliding mass
+becomes stuck, i.e., the absolute position remains constant. In
+this phase the friction force is calculated from a force balance
+due to the requirement that the absolute acceleration shall be
+zero. The elements begin to slide when the friction force exceeds a
+threshold value, called the maximum static friction force, computed
+via:</p>
+<blockquote>
+<pre>
+   maximum_static_friction =  F_Coulomb + F_Stribeck
+</pre></blockquote>
+<p><font color="#FF0000"><b>This requires the states Stop.s and
+Stop.v</b></font> . If these states are eliminated during the index
+reduction the model will not work. To avoid this any inertias
+should be connected via springs to the Stop element, other sliding
+masses, dampers or hydraulic chambers must be avoided.</p>
+<p>For more details of the used friction model see the following
+reference:</p>
+<dl>
+<dt>Beater P. (1999):</dt>
+<dd><a href="http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-65444-5">Entwurf
+hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New
+York.</dd>
+</dl>
+<p>The friction model is implemented in a "clean" way by state
+events and leads to continuous/discrete systems of equations which
+have to be solved by appropriate numerical methods. The method is
+described in:</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><i>Hybrid Modeling in Modelica based on the Synchronous Data
+Flow Principle</i>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+</dl>
+<p>More precise friction models take into account the elasticity of
+the material when the two elements are "stuck", as well as other
+effects, like hysteresis. This has the advantage that the friction
+element can be completely described by a differential equation
+without events. The drawback is that the system becomes stiff
+(about 10-20 times slower simulation) and that more material
+constants have to be supplied which requires more sophisticated
+identification. For more details, see the following references,
+especially (Armstrong and Canudas de Witt 1996):</p>
+<dl>
+<dt>Armstrong B. (1991):</dt>
+<dd><i>Control of Machines with Friction</i>. Kluwer Academic
+Press, Boston MA.<br /></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
+<dd><i>Friction Modeling and Compensation.</i> The Control
+Handbook, edited by W.S.Levine, CRC Press, pp.
+1369-1382.<br /></dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P.
+(1995):</dt>
+<dd>A <i>new model for control of systems with friction.</i> IEEE
+Transactions on Automatic Control, Vol. 40, No. 3, pp.
+419-425.<br /></dd>
+</dl>
+<h4>Optional heatPort</h4>
+<p>The dissipated energy is transported in form of heat to the
+optional heatPort connector that can be enabled via parameter
+"useHeatPort". Independently whether the heatPort is or is not
+enabled, the dissipated power is defined with variable "lossPower".
+If contact occurs at the hard stops, the lossPower is not correctly
+modelled at this time instant, because the hard stop would
+introduce a Dirac impulse in the lossPower due to the
+discontinuously changing kinetic energy of the mass (lossPower is
+the derivative of the kinetic energy at the time instant of the
+impact).</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.PartialFrictionWithStop.html">
+<img class="svgiconsmall" src="Icons/7a532166ecf84eae76e3f98482835cc384fb9112.svg" /></a>&nbsp;<a href="Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.PartialFrictionWithStop.html">PartialFrictionWithStop</a></td>
+<td>Base model of Coulomb friction elements with stop</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<h4>Release Notes:</h4>
+<ul>
+<li><i>First Version from December 7, 1999 by P. Beater (based on
+Rotational.BearingFriction)</i></li>
+<li><i>July 14, 2001 by P. Beater, assert on initialization added,
+diagram modified</i></li>
+<li><i>October 11, 2001, by Hans Olsson, Dassault Systèmes AB,
+modified assert to handle start at stops, modified event logic such
+if you have friction parameters equal to zero you do not get events
+between the stops.</i></li>
+<li><i>June 10, 2002 by P. Beater, StateSelect.always for variables
+s and v (instead of fixed=true).</i></li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

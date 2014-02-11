@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Material.html">Material</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.html">SoftMagnetic</a>.<span class="omc-h1">mu_rApprox</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The relative permeability mu_r as a function of flux density B
+for all soft magnetic materials currently included in this library
+is approximated with the following function <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Literature.html">[Ro00]</a>:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/eq_mu_rApprox.png" alt="Equation for approximation mu_r(B)" /></p>
+<p>Two of the five parameters of this equation have a physical
+meaning, namely the initial relative permeability mu_i at B=0 and
+the magnetic flux density at maximum permeability B_myMax. B_N is
+the flux density normalized to latter parameter.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function mu_rApprox
+  extends Modelica.Icons.Function;
+  input Modelica.SIunits.MagneticFluxDensity B "Flux density in ferromagnetic flux tube element";
+  input Modelica.SIunits.RelativePermeability mu_i "Initial relative permeability at B=0";
+  input Modelica.SIunits.MagneticFluxDensity B_myMax "Flux density at maximum relative permeability";
+  input Real c_a "Coefficient of approximation function";
+  input Real c_b "Coefficient of approximation function";
+  input Real n "Exponent of approximation function";
+  output Modelica.SIunits.RelativePermeability mu_r "Relative magnetic permeability of ferromagnetic flux tube element";
+end mu_rApprox;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

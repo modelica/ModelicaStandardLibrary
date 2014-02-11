@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Math</title>
+</head>
+<body>
+<h1><a href="Icons/da1a5989d6ab8e166f262f40abb9e89bb3c854fc.svg"><img class="svgiconhead" src="Icons/da1a5989d6ab8e166f262f40abb9e89bb3c854fc.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<span class="omc-h1">Math</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains basic <b>mathematical operations</b>, such
+as summation and multiplication, and basic <b>mathematical
+functions</b>, such as <b>sqrt</b> and <b>sin</b>, as input/output
+blocks. All blocks of this library can be either connected with
+continuous blocks or with sampled-data blocks.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.UnitConversions.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.UnitConversions.html">UnitConversions</a></td>
+<td>Conversion blocks to convert between SI and non-SI unit
+signals</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.InverseBlockConstraints.html"><img class="svgiconsmall" src="Icons/efca49beabb754a6ffd901fcb59c450321e1568e.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.InverseBlockConstraints.html">InverseBlockConstraints</a></td>
+<td>Construct inverse model by requiring that two inputs and two
+outputs are identical (replaces the previously, unbalanced,
+TwoInputs and TwoOutputs blocks)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Gain.html"><img class="svgiconsmall" src="Icons/81d7f403e185e132b6f2cff6235385690096bb23.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Gain.html">Gain</a></td>
+<td>Output the product of a gain value with the input signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.MatrixGain.html"><img class="svgiconsmall" src="Icons/553c2d473feb41662a4c4ff872db21e92b4c4f56.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.MatrixGain.html">MatrixGain</a></td>
+<td>Output the product of a gain matrix with the input signal
+vector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.MultiSum.html"><img class="svgiconsmall" src="Icons/3fbe6fa243cbe9bfda1601f51f0cae33d3080a2d.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.MultiSum.html">MultiSum</a></td>
+<td>Sum of Reals: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.MultiProduct.html"><img class="svgiconsmall" src="Icons/60566ef4bf8eb9c20679c1771b298bbb3b2a36bc.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.MultiProduct.html">MultiProduct</a></td>
+<td>Product of Reals: y = u[1]*u[2]* ... *u[n]</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.MultiSwitch.html"><img class="svgiconsmall" src="Icons/8987bae14238bbbc3de48c049678f84af83e3014.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.MultiSwitch.html">MultiSwitch</a></td>
+<td>Set Real expression that is associated with the first active
+input signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Sum.html"><img class="svgiconsmall" src="Icons/f2a3e3b5cb4f6f2367f4a55dae8bcd21bcbd43ab.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Sum.html">Sum</a></td>
+<td>Output the sum of the elements of the input vector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Feedback.html"><img class="svgiconsmall" src="Icons/0b3dd8bf201f9f19303f6ef7532effed5c732858.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Feedback.html">Feedback</a></td>
+<td>Output difference between commanded and feedback input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Add.html"><img class="svgiconsmall" src="Icons/3f0b10d9661a65477c8d40a65270947016330acd.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Add.html">Add</a></td>
+<td>Output the sum of the two inputs</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Add3.html"><img class="svgiconsmall" src="Icons/31bb29e7314ae81804b8419de7a41546715513c3.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Add3.html">Add3</a></td>
+<td>Output the sum of the three inputs</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Product.html"><img class="svgiconsmall" src="Icons/e1b9ecabd055748163f40bf878fcd71e61e28fee.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Product.html">Product</a></td>
+<td>Output product of the two inputs</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Division.html"><img class="svgiconsmall" src="Icons/fa80fecb92db8192f724aa365663287c58137f81.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Division.html">Division</a></td>
+<td>Output first input divided by second input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Abs.html"><img class="svgiconsmall" src="Icons/5ed3aee35b52e9ca1c6e744075c46c3d949f93ba.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Abs.html">Abs</a></td>
+<td>Output the absolute value of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Sign.html"><img class="svgiconsmall" src="Icons/de728e17d8786897bc49167d137ccf35b73988ef.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Sign.html">Sign</a></td>
+<td>Output the sign of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Sqrt.html"><img class="svgiconsmall" src="Icons/1139c9513f48637c26dc23943cbcfb5168fcd360.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Sqrt.html">Sqrt</a></td>
+<td>Output the square root of the input (input &gt;= 0
+required)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Sin.html"><img class="svgiconsmall" src="Icons/a6a790802afdbed9a6692e9ed5db620826fa549d.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Sin.html">Sin</a></td>
+<td>Output the sine of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Cos.html"><img class="svgiconsmall" src="Icons/4af8c7f522854a95a38498ed88209328c6898dd3.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Cos.html">Cos</a></td>
+<td>Output the cosine of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Tan.html"><img class="svgiconsmall" src="Icons/0f912abc1c48afa99c66e25f9275e88dda66cb23.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Tan.html">Tan</a></td>
+<td>Output the tangent of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Asin.html"><img class="svgiconsmall" src="Icons/e4954b7b91f813835b83dc462a06d0ce32b1ed9f.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Asin.html">Asin</a></td>
+<td>Output the arc sine of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Acos.html"><img class="svgiconsmall" src="Icons/68a76be69361e18436379c9994928e5188a4ab59.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Acos.html">Acos</a></td>
+<td>Output the arc cosine of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Atan.html"><img class="svgiconsmall" src="Icons/37b51df95e15a17e37de6382068b1bc6b4d90cb0.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Atan.html">Atan</a></td>
+<td>Output the arc tangent of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Atan2.html"><img class="svgiconsmall" src="Icons/5e6c3996870b23056ab8b5bf3b5c71ed6e31200f.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Atan2.html">Atan2</a></td>
+<td>Output atan(u1/u2) of the inputs u1 and u2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Sinh.html"><img class="svgiconsmall" src="Icons/2f505f96a8446750ff139424108440ff657ec6ce.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Sinh.html">Sinh</a></td>
+<td>Output the hyperbolic sine of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Cosh.html"><img class="svgiconsmall" src="Icons/e0db9e01039d94bd8d15c6bf4e90ba6a6c40c82b.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Cosh.html">Cosh</a></td>
+<td>Output the hyperbolic cosine of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Tanh.html"><img class="svgiconsmall" src="Icons/e2b0377a55473477024100870a8066db5fdef4be.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Tanh.html">Tanh</a></td>
+<td>Output the hyperbolic tangent of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Exp.html"><img class="svgiconsmall" src="Icons/2376c405ff6d9c83e89adc75173f199e7fa5d7ad.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Exp.html">Exp</a></td>
+<td>Output the exponential (base e) of the input</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Log.html"><img class="svgiconsmall" src="Icons/a42f72e1e4a5a6e6e7a068814e25c8dc36d3199e.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Log.html">Log</a></td>
+<td>Output the natural (base e) logarithm of the input (input &gt;
+0 required)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Log10.html"><img class="svgiconsmall" src="Icons/1fabaaaf008003cacc3c4912ab8e82cc392d8858.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Log10.html">Log10</a></td>
+<td>Output the base 10 logarithm of the input (input &gt; 0
+required)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.RealToInteger.html"><img class="svgiconsmall" src="Icons/7954976e5b616f73bf1fed7c18603efd4c4d1119.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.RealToInteger.html">RealToInteger</a></td>
+<td>Convert Real to Integer signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.IntegerToReal.html"><img class="svgiconsmall" src="Icons/afd39784d24e6da98d6fc6b1bb413f6ce6ad468a.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.IntegerToReal.html">IntegerToReal</a></td>
+<td>Convert Integer to Real signals</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.BooleanToReal.html"><img class="svgiconsmall" src="Icons/c4f20734715052eba301962a1f4f18e6b061dd10.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.BooleanToReal.html">BooleanToReal</a></td>
+<td>Convert Boolean to Real signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.BooleanToInteger.html"><img class="svgiconsmall" src="Icons/38b622a6b479d9dbab9bbc82b2c7ed4a84b6b4ff.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.BooleanToInteger.html">BooleanToInteger</a></td>
+<td>Convert Boolean to Integer signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.RealToBoolean.html"><img class="svgiconsmall" src="Icons/c456814c3e691d51aaf20d20621ebc562cebe64b.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.RealToBoolean.html">RealToBoolean</a></td>
+<td>Convert Real to Boolean signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.IntegerToBoolean.html"><img class="svgiconsmall" src="Icons/b75ca70415dcc8ce553d4ae67c81fc5e5b89eecc.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.IntegerToBoolean.html">IntegerToBoolean</a></td>
+<td>Convert Integer to Boolean signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.RectangularToPolar.html"><img class="svgiconsmall" src="Icons/890d251757c54b40a96fb4be3e9f12040eec233a.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.RectangularToPolar.html">RectangularToPolar</a></td>
+<td>Convert rectangular coordinates to polar coordinates</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.PolarToRectangular.html"><img class="svgiconsmall" src="Icons/54aeca27e04daa199524795118a982ce3a08cdd2.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.PolarToRectangular.html">PolarToRectangular</a></td>
+<td>Convert polar coordinates to rectangular coordinates</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Mean.html"><img class="svgiconsmall" src="Icons/1e42df341a660cae63bdd17b0ff122687091790a.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Mean.html">Mean</a></td>
+<td>Calculate mean over period 1/f</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.RectifiedMean.html"><img class="svgiconsmall" src="Icons/df40f42d2e3d9202fed4369c0cff0cf4b9c6f02e.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.RectifiedMean.html">RectifiedMean</a></td>
+<td>Calculate rectified mean over period 1/f</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.RootMeanSquare.html"><img class="svgiconsmall" src="Icons/eca58c630024eadcf9aac076d00c0f89e2db631b.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.RootMeanSquare.html">RootMeanSquare</a></td>
+<td>Calculate root mean square over period 1/f</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Harmonic.html"><img class="svgiconsmall" src="Icons/a0b6b5ad114bc5d2005b80608bf0a604b3adfe1d.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Harmonic.html">Harmonic</a></td>
+<td>Calculate harmonic over period 1/f</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Max.html"><img class="svgiconsmall" src="Icons/6e943933441cf7535237d73106965afc2024bcae.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Max.html">Max</a></td>
+<td>Pass through the largest signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Min.html"><img class="svgiconsmall" src="Icons/2493ba0510cbdcfb58bd05a0fe1b34e87262be6d.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Min.html">Min</a></td>
+<td>Pass through the smallest signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.MinMax.html"><img class="svgiconsmall" src="Icons/ce9ad7c1c097df57c38baf8e4220c15c9f26778b.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.MinMax.html">MinMax</a></td>
+<td>Output the minimum and the maximum element of the input
+vector</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.LinearDependency.html"><img class="svgiconsmall" src="Icons/312a85800d06efddb911e4a974b01f3db0c5ec64.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.LinearDependency.html">LinearDependency</a></td>
+<td>Output a linear combination of the two inputs</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.Edge.html"><img class="svgiconsmall" src="Icons/39688c2da29c612e3e083ecbbe0edc7b250b270c.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.Edge.html">Edge</a></td>
+<td>Indicates rising edge of Boolean signal</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.BooleanChange.html"><img class="svgiconsmall" src="Icons/26f678782c552f1def56f98d39ec40de04626077.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.BooleanChange.html">BooleanChange</a></td>
+<td>Indicates Boolean signal changing</td>
+</tr>
+<tr>
+<td><a href="Modelica.Blocks.Math.IntegerChange.html"><img class="svgiconsmall" src="Icons/a39d51bf4d1b123694a5396d84193dba58f3acb5.svg" /></a>&nbsp;<a href="Modelica.Blocks.Math.IntegerChange.html">IntegerChange</a></td>
+<td>Indicates integer signal changing</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>October 21, 2002</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> and
+<a href="http://www.robotic.dlr.de/Christian.Schweiger/">Christian
+Schweiger</a>:<br />
+New blocks added: RealToInteger, IntegerToReal, Max, Min, Edge,
+BooleanChange, IntegerChange.</li>
+<li><i>August 7, 1999</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Realized (partly based on an existing Dymola library of Dieter
+Moormann and Hilding Elmqvist).</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

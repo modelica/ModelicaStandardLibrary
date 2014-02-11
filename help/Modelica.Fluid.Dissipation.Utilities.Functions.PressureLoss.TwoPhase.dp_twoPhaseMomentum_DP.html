@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseMomentum_DP</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.html">TwoPhase</a>.<span class="omc-h1">dp_twoPhaseMomentum_DP</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Momentum pressure loss of straight pipe for two phase flow | calculate pressure loss
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function dp_twoPhaseMomentum_DP
+  extends Modelica.Icons.Function;
+  import PI = Modelica.Constants.pi;
+  import MIN = Modelica.Constants.eps;
+  import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
+  input Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach voidFractionApproach = Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous "Choice of void fraction approach" annotation(Dialog(group = "Choices"));
+  input Boolean massFlowRateCorrection = false "Consider heterogeneous mass flow rate correction" annotation(Dialog(group = "Choices"));
+  input SI.Area A_cross(min = Modelica.Constants.eps) = PI * 0.1 ^ 2 / 4 "Cross sectional area" annotation(Dialog(group = "Geometry"));
+  input SI.Length perimeter(min = Modelica.Constants.eps) = PI * 0.1 "Perimeter" annotation(Dialog(group = "Geometry"));
+  input SI.Density rho_g(min = Modelica.Constants.eps) "Density of gas" annotation(Dialog(group = "Fluid properties"));
+  input SI.Density rho_l(min = Modelica.Constants.eps) "Density of liquid" annotation(Dialog(group = "Fluid properties"));
+  input Real x_flow_end(min = 0, max = 1) = 0 "Mass flow rate quality at end of length" annotation(Dialog(group = "Fluid properties"));
+  input Real x_flow_sta(min = 0, max = 1) = 0 "Mass flow rate quality at start of length" annotation(Dialog(group = "Fluid properties"));
+  input SI.MassFlowRate m_flow "Mass flow rate" annotation(Dialog(group = "Input"));
+  output SI.Pressure DP_mom "Momentum pressure loss";
+end dp_twoPhaseMomentum_DP;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+2012-11-28 Corrected an error in momentum pressure loss
+calculation. Stefan Wischhusen.
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

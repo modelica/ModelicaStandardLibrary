@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.html">Bend</a>.<span class="omc-h1">dp_curvedOverall</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of pressure loss in curved bends at overall flow
+regime for incompressible and single-phase fluid flow through
+circular cross sectional area considering surface roughness.</p>
+<h4>Restriction</h4>
+<p>This function shall be used inside of the restricted limits
+according to the referenced literature.</p>
+<ul>
+<li><b>circular cross sectional area</b></li>
+<li><b>0.5 ≤ curvature radius / diameter ≤ 3</b> <i>[Idelchik 2006,
+p. 357, diag. 6-1]</i></li>
+<li><b>length of bend along curved axis / diameter ≥ 10</b>
+<i>[Idelchik 2006, p. 357, diag. 6-1]</i></li>
+<li><b>angle of curvature smaller than 180° (delta ≤ 180)</b>
+<i>[Idelchik 2006, p. 357, diag. 6-1]</i></li>
+</ul>
+<h4>Geometry</h4>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_circularBend.png" alt="pic_circularBend" /></p>
+<h4>Calculation</h4>
+<p>The pressure loss <b>dp</b> for curved bends is determined
+by:</p>
+<pre>
+    dp = zeta_TOT * (rho/2) * velocity^2
+</pre>
+<p>with</p>
+<table cellspacing="2" cellpadding="0" border="0">
+<tr>
+<td>
+<p><b>rho</b></p>
+</td>
+<td>
+<p>as density of fluid [kg/m3],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>velocity</b></p>
+</td>
+<td>
+<p>as mean velocity [m/s],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>zeta_TOT</b></p>
+</td>
+<td>
+<p>as pressure loss coefficient [-].</p>
+</td>
+</tr>
+</table>
+<p><b>Curved bends with relative curvature radius R_0/d_hyd ≤ 3</b>
+according to <i>[Idelchik 2006, p. 357, diag. 6-1]</i></p>
+<p>The pressure loss of curved bends is similar to its calculation
+in straight pipes. There are three different flow regimes observed
+(laminar,transition,turbulent). The turbulent regime is further
+separated into sections with a dependence or independence of the
+local resistance coefficient (<b>zeta_LOC</b> ) on Reynolds number.
+The local resistance coefficient (<b>zeta_LOC</b>) of a curved bend
+is calculated in dependence of the flow regime as follows:</p>
+<ul>
+<li>
+<p><b>Laminar regime (Re ≤ Re_lam_leave)</b>:</p>
+<pre>
+      zeta_LOC = A2/Re + A1*B1*C1
+</pre></li>
+<li>
+<p><b>Transition regime (Re_lam_leave ≤ 4e4)</b></p>
+<p>This calculation is done using a smoothing function
+interpolating between the laminar and the first turbulent flow
+regime.</p>
+</li>
+<li>
+<p><b>Turbulent regime (4e4 ≤ 3e5) with dependence</b> of local
+resistance coefficient on Reynolds number:</p>
+<pre>
+      zeta_LOC = k_Re * (A1*B1*C1)
+</pre>
+<p>where <b>k_Re</b> depends on the relative curvature radius
+<b>R_0/d_hyd</b></p>
+<pre>
+      k_Re = 1 + 4400/Re              for 0.50 &lt; r/d_hyd &lt; 0.55
+      k_Re = 5.45/Re^(0.118)          for 0.55 ≤ r/d_hyd &lt; 0.70
+      k_Re = 11.5/Re^(0.19)           for 0.70 ≤ r/d_hyd &lt; 3.00
+</pre></li>
+<li>
+<p><b>Turbulent regime (Re ≥ 3e5) with independence</b> of local
+resistance coefficient on Reynolds number</p>
+<pre>
+      zeta_LOC = A1*B1*C1
+</pre></li>
+</ul>
+<p>with</p>
+<table cellspacing="2" cellpadding="0" border="0">
+<tr>
+<td>
+<p><b>A1</b></p>
+</td>
+<td>
+<p>as coefficient considering effect of angle of turning (delta)
+[-],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>A2</b></p>
+</td>
+<td>
+<p>as coefficient considering effect for laminar regime [-],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>B1</b></p>
+</td>
+<td>
+<p>as coefficient considering effect of relative curvature radius
+(R_0/d_hyd) [-],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>C1=1</b></p>
+</td>
+<td>
+<p>as coefficient considering relative elongation of cross
+sectional area (here: circular cross sectional area) [-],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>k_Re</b></p>
+</td>
+<td>
+<p>as coefficient considering influence of laminar regime in
+transition regime [-],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Re</b></p>
+</td>
+<td>
+<p>as Reynolds number [-].</p>
+</td>
+</tr>
+</table>
+<p><br />
+<br />
+The pressure loss coefficient <b>zeta_TOT</b> of a curved bend
+including pressure loss due to friction is determined by its local
+resistance coefficient <b>zeta_LOC</b> multiplied with a correction
+factor <b>CF</b> for surface roughness according to <i>[Miller, p.
+209, eq. 9.4]:</i></p>
+<pre>
+    zeta_TOT = CF*zeta_LOC 
+</pre>
+<p>where the correction factor <b>CF</b> is determined from the
+Darcy friction factor of a straight pipe having the bend flow path
+length</p>
+<pre>
+    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC
+</pre>
+<p>and the Darcy friction factors <b>lambda_FRI_rough</b> is
+calculated with an approximated Colebrook-White law according to
+<i>[Miller, p. 191, eq. 8.4]:</i></p>
+<pre>
+    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
+</pre>
+<p>with</p>
+<table cellspacing="2" cellpadding="0" border="0">
+<tr>
+<td>
+<p><b>delta</b></p>
+</td>
+<td>
+<p>as curvature radiant [rad],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>d_hyd</b></p>
+</td>
+<td>
+<p>as hydraulic diameter [m],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>K</b></p>
+</td>
+<td>
+<p>as absolute roughness (average height of surface asperities)
+[m],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>lambda_FRI_rough</b></p>
+</td>
+<td>
+<p>as Darcy friction factor[-],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Re</b></p>
+</td>
+<td>
+<p>as Reynolds number [m],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>zeta_LOC</b></p>
+</td>
+<td>
+<p>as local resistance coefficient [-],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>zeta_TOT</b></p>
+</td>
+<td>
+<p>as pressure loss coefficient [-].</p>
+</td>
+</tr>
+</table>
+<p><br />
+The correction for surface roughness through <b>CF</b> is used only
+in the turbulent regime, where the fluid flow is influenced by
+surface asperities not covered by a laminar boundary layer. The
+turbulent regime starts at <b>Re ≥ 4e4</b> according to
+<i>[Idelchik 2006, p. 336, sec. 15]</i>. There is no correction due
+to roughness in the laminar regime up to <b>Re ≤ 6.5e3</b>
+according to <i>[Idelchik 2006, p. 336, sec. 15]</i>.</p>
+<p>Nevertheless the transition point from the laminar to the
+transition regime is shifted to smaller Reynolds numbers for an
+increasing absolute roughness. This effect is considered according
+to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:</p>
+<pre>
+    Re_lam_leave = 754*exp(if k ≤ 0.007 then 0.0065/0.007 else 0.0065/k)
+</pre>
+<p>with</p>
+<table cellspacing="2" cellpadding="0" border="0">
+<tr>
+<td>
+<p><b>k = K /d_hyd</b></p>
+</td>
+<td>
+<p>as relative roughness [-],</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Re_lam_leave</b></p>
+</td>
+<td>
+<p>as Reynolds number for leaving laminar regime [-].</p>
+</td>
+</tr>
+</table>
+<p>Note that the beginning of the laminar regime cannot be beneath
+<b>Re ≤ 1e2</b> .</p>
+<h4>Verification</h4>
+<p>The pressure loss coefficient <b>zeta_TOT</b> of a curved bend
+in dependence of the Reynolds number <b>Re</b> for different
+relative curvature radii <b>R_0/d_hyd</b> and different angles of
+turning <b>delta</b> is shown in the figures below.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png" alt="fig_bend_dp_curvedOverall_DPvsMFLOW" /></p>
+<p>There are deviations of the pressure loss coefficient
+<b>zeta_TOT</b> comparing different references. Usually these
+deviations in the transition regime have to be accepted due to an
+uncertainty for the determination of comparable boundary conditions
+in the different references. Nevertheless these calculations cover
+the usual range of pressure loss coefficients for a curved bend.
+The pressure loss coefficient <b>zeta_TOT</b> for the same geometry
+can be adjusted via varying the average height of surface
+asperities <b>K</b> for calibration.</p>
+<p>The pressure loss in dependence of the mass flow rate of water
+is shown for different relative curvature radii:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png" alt="fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD" /></p>
+<p>The pressure loss in dependence of the mass flow rate of water
+is shown for different angles of turning:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png" alt="fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD" /></p>
+<p>Note that there is a small deviation between the compressible
+and incompressible calculation due to the lack of a direct
+analytical invertibility.</p>
+<h4>References</h4>
+<dl>
+<dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
+<dd><b>Inline integration: A new mixed symbolic / numeric approach
+for solving differential-algebraic equation systems.</b>. In
+Proceedings of European Simulation MultiConference, Praque,
+1995.</dd>
+<dt>Idelchik,I.E.:</dt>
+<dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing
+House, Mumbai, 3rd edition, 2006.</dd>
+<dt>Miller,D.S.:</dt>
+<dd><b>Internal flow systems</b>. volume 5th of BHRA Fluid
+Engineering Series.BHRA Fluid Engineering, 1984.</dd>
+<dt>Samoilenko,L.A.:</dt>
+<dd><b>Investigation of the hydraulic resistance of pipelines in
+the zone of transition from laminar into turbulent motion</b>. PhD
+thesis, Leningrad State University, 1968.</dd>
+<dt>VDI:</dt>
+<dd><b>VDI - Wärmeatlas: Berechnungsblätter für den
+Wärmeübergang</b>. Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

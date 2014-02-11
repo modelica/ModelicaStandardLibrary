@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">RequirementsForSimulationTool</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This library is designed in a fully object oriented way in order
+that components can be connected together in every meaningful
+combination (e.g., direct connection of two springs or two
+inertias). As a consequence, most models lead to a system of
+differential-algebraic equations of <b>index 3</b> (= constraint
+equations have to be differentiated twice in order to arrive at a
+state space representation) and the Modelica translator or the
+simulator has to cope with this system representation. According to
+our present knowledge, this requires that the Modelica translator
+is able to symbolically differentiate equations (otherwise it is
+e.g., not possible to provide consistent initial conditions; even
+if consistent initial conditions are present, most numerical DAE
+integrators can cope at most with index 2 DAEs).</p>
+<p>The elements of this library can be connected together in an
+arbitrary way. However, difficulties may occur, if the elements
+which can <b>lock</b> the <b>relative motion</b> between two
+flanges are connected <b>rigidly</b> together such that essentially
+the <b>same relative motion</b> can be locked. The reason is that
+the cut-torque in the locked phase is not uniquely defined if the
+elements are locked at the same time instant (i.e., there does not
+exist a unique solution) and some simulation systems may not be
+able to handle this situation, since this leads to a singularity
+during simulation. Currently, this type of problem can occur with
+the Coulomb friction elements <b>BearingFriction, Clutch, Brake,
+LossyGear</b> when the elements become stuck:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/Rotational/driveConnections3.png" alt="driveConnections3" /></p>
+<p>In the figure above two typical situations are shown: In the
+upper part of the figure, the series connection of rigidly attached
+BearingFriction and Clutch components are shown. This does not
+hurt, because the BearingFriction element can lock the relative
+motion between the element and the housing, whereas the clutch
+element can lock the relative motion between the two connected
+flanges. Contrary, the drive train in the lower part of the figure
+may give rise to simulation problems, because the BearingFriction
+element and the Brake element can lock the relative motion between
+a flange and the housing and these flanges are rigidly connected
+together, i.e., essentially the same relative motion can be locked.
+These difficulties may be solved by either introducing a compliance
+between these flanges or by combining the BearingFriction and Brake
+element into one component and resolving the ambiguity of the
+frictional torque in the stuck mode. A tool may handle this
+situation also <b>automatically</b>, by picking one solution of the
+infinitely many, e.g., the one where the difference to the value of
+the previous time instant is as small as possible.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

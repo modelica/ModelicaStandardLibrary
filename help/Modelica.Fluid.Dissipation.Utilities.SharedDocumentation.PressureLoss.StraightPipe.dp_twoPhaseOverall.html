@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.html">StraightPipe</a>.<span class="omc-h1">dp_twoPhaseOverall</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of pressure loss for <b>two phase flow</b> in a
+horizontal <b>or</b> vertical straight pipe for an overall flow
+regime considering frictional, momentum and geodetic pressure
+loss.</p>
+<h4>Restriction</h4>
+<p>This function shall be used within the restricted limits
+according to the referenced literature.</p>
+<ul>
+<li><b>circular cross sectional area</b></li>
+<li><b>neglecting of surface roughness</b></li>
+<li><b>horizontal flow or vertical upflow</b></li>
+<li><b>usage of mass flow rate quality (see Calculation)</b></li>
+<li><b>two phase pressure loss for mean constant mass flow rate
+quality (x_flow) over (increment) length</b></li>
+<li><b>usage of two phase pressure loss function for discretization
+at boiling or condensation considering variable mass flow rate
+quality</b></li>
+</ul>
+<h4>Geometry</h4>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png" alt="pic_straightPipe" /></p>
+<h4>Calculation</h4>
+<p>The two phase pressure loss <b>dp_2ph</b> of straight pipes is
+determined by:</p>
+<pre>
+    dp_2ph = dp_fri + dp_mom + dp_geo
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>dp_fri</b></td>
+<td>as frictional pressure loss [Pa],</td>
+</tr>
+<tr>
+<td><b>dp_mom</b></td>
+<td>as momentum pressure loss [Pa],</td>
+</tr>
+<tr>
+<td><b>dp_geo</b></td>
+<td>as geodetic pressure loss [Pa].</td>
+</tr>
+</table>
+<p><b>Definition of quality for two phase flow</b>:</p>
+<p>Different definitions of the quality exist for two phase flow.
+Static quality, mass flow rate quality and thermodynamic quality
+can be used to describe the fraction of gas and liquid in two phase
+flow. Here the mass flow rate quality <b>(x_flow)</b> is used to
+describe two phase flow as follows:</p>
+<pre>
+    x_flow = mdot_g/(mdot_g+mdot_l)
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>x_flow</b></td>
+<td>as mass flow rate quality [-],</td>
+</tr>
+<tr>
+<td><b>mdot_g</b></td>
+<td>as gaseous mass flow rate [kg/s],</td>
+</tr>
+<tr>
+<td><b>mdot_l</b></td>
+<td>as liquid mass flow rate [kg/s].</td>
+</tr>
+</table>
+<p>Note that mass flow rate quality <b>(x_flow)</b> is only equal
+to the static quality, if a difference between the velocity of gas
+and liquid phase is neglected (homogeneous approach). Additionally
+the thermodynamic quality is only equal to the mass flow rate
+quality <b>(x_flow)</b> in the two phase regime for thermodynamic
+equilibrium of the phases.</p>
+<p><b>Frictional pressure loss</b>:</p>
+<p>The frictional pressure loss <b>dp_fri</b> of a straight pipe is
+calculated either by the correlation of <b>Friedel</b>
+(frictionalPressureLoss==Friedel) or by the correlation of
+<b>Chisholm</b> (frictionalPressureLoss==Chisholm). Both
+correlations can be used for the above named two phase flow
+regimes. The two phase frictional pressure loss results from a
+frictional pressure loss assuming one phase liquid fluid flow and a
+two phase multiplier taking into account the effects of two phase
+flow:</p>
+<pre>
+    dp_fri = dp_1ph*phi_i
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>dp_1ph</b></td>
+<td>as frictional pressure loss assuming one phase liquid fluid
+flow [Pa],</td>
+</tr>
+<tr>
+<td><b>phi_i</b></td>
+<td>as two phase multiplier [-].</td>
+</tr>
+</table>
+<p>The liquid frictional pressure loss is calculated with the
+<b>total mass flow rate</b> assumed to flow as liquid.</p>
+<p>The correlations of Friedel and Chisholm differ in their
+calculation of the two phase multiplier:</p>
+<pre>
+    phi_friedel = (1 - x_flow)^2 + x_flow^2*(rho_l/rho_g)*(lambda_g/lambda_l)
+                + 3.43*x_flow^0.685*(1 - x_flow)^0.24*(rho_l/rho_g)^0.8*(eta_g/eta_l)^0.22*(1 - eta_g/eta_l)^0.89*(1/Fr_l^(0.048))*(1/We_l^(0.0334))
+</pre>
+<pre>
+    phi_chisholm = 1 + (gamma^2 - 1)*(B*x_flow^((2 - n_exp)/2)*(1 - x_flow)^((2 -n_exp)/2) + x_flow^(2 - n_exp))
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>B</b></td>
+<td>as Lockhart-Martinelli coefficient [-],</td>
+</tr>
+<tr>
+<td><b>eta_l</b></td>
+<td>as dynamic viscosity of the liquid phase [Pas],</td>
+</tr>
+<tr>
+<td><b>eta_g</b></td>
+<td>as dynamic viscosity of the gaseous phase [Pas],</td>
+</tr>
+<tr>
+<td><b>gamma</b></td>
+<td>as physical property coefficient [-],</td>
+</tr>
+<tr>
+<td><b>n_exp</b> =0.2</td>
+<td>as exponent in Chisholm correlation [-],</td>
+</tr>
+<tr>
+<td><b>phi_i</b></td>
+<td>as two phase multiplier [-],</td>
+</tr>
+<tr>
+<td><b>rho_l</b></td>
+<td>as density of the liquid phase [kg/m3],</td>
+</tr>
+<tr>
+<td><b>rho_g</b></td>
+<td>as density of the gaseous phase [kg/m3],</td>
+</tr>
+<tr>
+<td><b>Re_l</b></td>
+<td>as Reynolds number of the liquid phase [-],</td>
+</tr>
+<tr>
+<td><b>Re_g</b></td>
+<td>as Reynolds number of the gaseous phase [-],</td>
+</tr>
+<tr>
+<td><b>Fr_l</b></td>
+<td>as Froude number of the liquid phase [-],</td>
+</tr>
+<tr>
+<td><b>We_l</b></td>
+<td>as Weber number of the liquid phase [-],</td>
+</tr>
+<tr>
+<td><b>x_flow</b></td>
+<td>as mass flow rate quality [-].</td>
+</tr>
+</table>
+<p>Note that the (mean constant) mass flow rate quality
+<b>(x_flow)</b> used for frictional pressure loss is calculated as
+arithmetic mean value out of the mass flow rate quality at the end
+and at the start of the straight pipe length.</p>
+<p><b>Momentum pressure loss</b>:</p>
+<p>The momentum pressure loss <b>dp_mom</b> can be considered
+(momentumPressureLoss = true) for a homogeneous or heterogeneous
+two phase flow depending on the approach used for the void fraction
+<b>(epsilon)</b>. At evaporation the liquid phase having a slow
+velocity has to be accelerated to the higher velocity of the gas.
+The difference in static pressure at the outlet and the inlet
+causes a positive momentum pressure loss at evaporation (assumed
+vice versa for condensation). The momentum pressure loss occurs for
+a changing mass flow rate quality due to condensation or
+evaporation according to <i>[VDI 2006, p.Lba 4, eq. 22]</i> :</p>
+<pre>
+    dp_mom = mdot_A^2*[[((1-x_flow)^2/(rho_l*(1-epsilon)) + x_flow^2/(rho_g*epsilon))]_out - [((1-x_flow)^2/(rho_l*(1-epsilon)) + x_flow^2/(rho_g*epsilon))]_in]
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>mdot_A</b></td>
+<td>as total mass flow rate density [kg/(m2s)],</td>
+</tr>
+<tr>
+<td><b>epsilon</b></td>
+<td>as void fraction [-],</td>
+</tr>
+<tr>
+<td><b>rho_l</b></td>
+<td>as density of the liquid phase [kg/m3],</td>
+</tr>
+<tr>
+<td><b>rho_g</b></td>
+<td>as density of the gaseous phase [kg/m3],</td>
+</tr>
+<tr>
+<td><b>x_flow</b></td>
+<td>as mass flow rate quality [-].</td>
+</tr>
+</table>
+<p>Note that a momentum pressure loss is only considered for a
+variable mass flow rate quality <b>(x_flow)</b> during evaporation
+or condensation. Momentum pressure loss does not occur under
+adiabatic conditions for a corresponding constant mass flow rate
+quality (evaporation due to pressure loss is not considered).</p>
+<p><b>Void fraction approach</b>:</p>
+<p>The void fraction is one of the most important parameter used to
+characterize two phase flow. There are several analytical and
+empirical approaches according to <i>[Thome, J.R]</i> :</p>
+<ul>
+<li><b>homogeneous approach</b></li>
+<li><b>momentum flux approach (heterogeneous model)</b></li>
+<li><b>Kinetic energy flow approach by Zivi (heterogeneous
+model)</b></li>
+<li><b>Empirical momentum flux approach by Chisholm (heterogeneous
+model)</b></li>
+</ul>
+<p>These approaches for the void fraction <b>epsilon</b> imply a
+correlation for the slip ratio. The slip ratio is defined as ratio
+of the velocity from the gaseous phase to the liquid phase at two
+phase flow. The effects of different fluid flow velocities of the
+phases on two phase pressure loss can be considered with the slip
+ratio in the heterogeneous approaches. The slip ratio for the
+homogeneous approach is unity, so that there is no difference in
+the velocities of the two phases (e.g., usable for bubble
+flow).</p>
+<p><b>Geodetic pressure loss</b>:</p>
+<p>The geodetic pressure loss <b>dp_geo</b> can be considered
+(geodeticPressureLoss=true) for two phase flow according to <i>[VDI
+2006, p.Lbb 1, eq. 4]</i> :</p>
+<pre>
+    dp_geo = (epsilon*rho_g +(1-epsilon)*rho_l)*g*L*sin(phi)
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>epsilon</b></td>
+<td>as void fraction [-],</td>
+</tr>
+<tr>
+<td><b>rho_l</b></td>
+<td>as density of the liquid phase [kg/m3],</td>
+</tr>
+<tr>
+<td><b>rho_g</b></td>
+<td>as density of the gaseous phase [kg/m3],</td>
+</tr>
+<tr>
+<td><b>g</b></td>
+<td>as acceleration of gravity [m/s2],</td>
+</tr>
+<tr>
+<td><b>L</b></td>
+<td>as length of straight pipe [m],</td>
+</tr>
+<tr>
+<td><b>phi</b></td>
+<td>as angle to horizontal [rad].</td>
+</tr>
+</table>
+<h4>Verification</h4>
+<p>The two phase pressure loss for a horizontal pipe calculated by
+the correlation of <i>Friedel</i> neglecting momentum and geodetic
+pressure loss is shown in the figure below.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_1.png" alt="fig_dp_twoPhaseOverall_1" /></p>
+<p>The two phase pressure loss for a horizontal pipe calculated by
+the correlation of <i>Chisholm</i> neglecting momentum and geodetic
+pressure loss is shown in the figure below.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_4.png" alt="fig_dp_twoPhaseOverall_4" /></p>
+<h4>References</h4>
+<dl>
+<dt>Chisholm,D.:</dt>
+<dd><b>Pressure gradients due to friction during the flow of
+evaporating two-phase mixtures in smooth tubes and channels</b>.
+Volume 16th of International Journal of Heat and Mass Transfer,
+1973.</dd>
+<dt>Friedel,L.:</dt>
+<dd><b>IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL
+AND VERTICAL TWO PHASE PIPE FLOW</b>.3R International, Vol. 18,
+Issue 7, pp. 485-491, 1979.</dd>
+<dt>VDI:</dt>
+<dd><b>VDI - Wärmeatlas: Berechnungsblätter für den
+Wärmeübergang</b>. Springer Verlag, 10th edition, 2006.</dd>
+<dt>J.M. Jensen and H. Tummescheit:</dt>
+<dd><b>Moving boundary models for dynamic simulations of two-phase
+flows</b>. In Proceedings of the 2nd International Modelica
+Conference, pages 235-244, Oberpfaffenhofen, Germany, 2002. The
+Modelica Association.</dd>
+<dt>Thome, J.R.:</dt>
+<dd><b>Engineering Data Book 3</b>.Swiss Federal Institute of
+Technology Lausanne (EPFL), 2009.</dd>
+</dl>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

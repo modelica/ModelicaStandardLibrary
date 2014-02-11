@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates</title>
+</head>
+<body>
+<h1><a href="Icons/95e63dcdd9e8cacc44db00f2baf065012571e6df.svg"><img class="svgiconhead" src="Icons/95e63dcdd9e8cacc44db00f2baf065012571e6df.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.Interfaces.html">Interfaces</a>.<span class="omc-h1">PartialCompliantWithRelativeStates</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a 1-dim. translational component with a compliant
+connection of two translational 1-dim. flanges where inertial
+effects between the two flanges are neglected. The basic assumption
+is that the cut-forces of the two flanges sum-up to zero, i.e.,
+they have the same absolute value but opposite sign: flange_a.f +
+flange_b.f = 0. This base class is used to built up force elements
+such as springs, dampers, friction.</p>
+<p>The difference to base class "PartialCompliant" is that the
+relative distance and the relative velocity are defined as
+preferred states. The reason is that for a large class of drive
+trains, the absolute position is quickly increasing during
+operation. Numerically, it is better to use relative distances
+between drive train components because they remain in a limited
+size. For this reason, StateSelect.prefer is set for the relative
+distance of this component.</p>
+<p>In order to improve the numerics, a nominal value for the
+relative distance should be set, since drive train distances are in
+a small order and then step size control of the integrator is
+practically switched off for such a variable. A default nominal
+value of s_nominal = 1e-4 is defined. This nominal value might also
+be computed from other values, such as "s_nominal = f_nominal / c"
+for a spring, if f_nominal and c have more meaningful values for
+the user.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

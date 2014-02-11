@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.'flow'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<span class="omc-h1">'flow'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Declare flow (through) variable, which have to sum up to zero in
+connections</p>
+<h4>Examples</h4>
+<pre>
+<b>connector</b> Pin
+  Modelica.SIunits.Voltage v;
+  <b>flow</b> Modelica.SIunits.Current i;
+<b>end</b> Pin;
+
+<b>model</b> A
+  Pin p;
+<b>end</b> A;
+
+<b>model</b> Composition
+  A a;
+  A b;
+  A c;
+<b>equation
+  connect</b>(a.p, b.p);
+  <b>connect</b>(a.p, c.p);
+<b>end</b> Composition;
+</pre>
+<p>From the connect statements in model Composition, the following
+connect equations are derived:</p>
+<pre>
+a.p.v = b.p.v;
+a.p.v = c.p.v;
+a.p.i + b.p.i + c.p.i = 0;
+</pre>
+<h4>Syntax</h4>
+<pre>
+class_definition :
+   [ <b>encapsulated</b> ]
+   [ <b>partial</b> ]
+   ( <b>class</b> | <b>model</b> | <b>record</b> | <b>block</b> | <b>connector</b> | <b>type</b> |
+     <b>package</b> | <b>function</b> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <b>end</b> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <b>enumeration</b> "(" ( [enum_list] | ":" ) ")" comment
+
+base_prefix :
+   type_prefix
+
+composition  :
+   element_list
+   { <b>public</b> element_list |
+     <b>protected</b> element_list |
+     equation_clause |
+     algorithm_clause
+   }
+   [ <b>external</b> [ language_specification ]
+              [ external_function_call ] [ annotation ";" ]
+              [ annotation  ";" ] ]
+
+element_list :
+   { element ";" | annotation  ";" }
+
+element :
+   import_clause |
+   extends_clause |
+   [ <b>final</b> ]
+   [ <b>inner</b> | <b>outer</b> ]
+   ( ( class_definition | component_clause) |
+     <b>replaceable</b> ( class_definition | component_clause)
+        [constraining_clause comment])
+
+component_clause:
+   type_prefix type_specifier [ array_subscripts ] component_list
+
+type_prefix :
+   [ <b>flow</b> | <b>stream</b> ]
+   [ <b>discrete</b> | <b>parameter</b> | <b>constant</b> ] [ <b>input</b> | <b>output</b> ]
+</pre>
+<h4>Description</h4>
+<p>The flow prefix is used in order to generate equations for
+through variables, which sum up to zero in connections, whereas
+variables without the flow prefix are identical in a
+connection.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

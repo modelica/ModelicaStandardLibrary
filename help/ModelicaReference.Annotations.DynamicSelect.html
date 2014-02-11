@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.DynamicSelect</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">DynamicSelect</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Define schematic animation of diagram layer</p>
+<h4>Examples</h4>
+<blockquote>
+<p>The level of a tank is animated by a rectangle expanding in
+vertical direction and its color depending on a variable
+overflow:</p>
+<pre>
+<b>annotation</b>(
+  Icon(graphics={Rectangle(
+    extent=<b>DynamicSelect</b>({{0,0},{20,20}},{{0,0},{20,level}}),
+    fillColor=<b>DynamicSelect</b>({0,0,255},
+                            <b>if</b> overflow <b>then</b> {255,0,0} <b>else</b> {0,0,255}))}
+);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Any value (coordinates, color, text, etc.) in graphical
+annotations can be dependent on class variables using the
+DynamicSelect expression. DynamicSelect has the syntax of a
+function call with two arguments, where the first argument
+specifies the value of the editing state and the second argument
+the value of the non-editing state. The first argument must be a
+literal expression and this value is used for the annotation when
+editing and/or browsing the diagram layer. The second argument may
+contain references to variables to enable a dynamic behavior and
+the actual value is used for the annotation for schematic animation
+of the diagram layer, e.g., after a simulation.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

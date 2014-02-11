@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Joints.Universal</title>
+</head>
+<body>
+<h1><a href="Icons/6f2760fbb0a253924a5239b934c9de660bb01638.svg"><img class="svgiconhead" src="Icons/6f2760fbb0a253924a5239b934c9de660bb01638.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<span class="omc-h1">Universal</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Joint where frame_a rotates around axis n_a which is fixed in
+frame_a and frame_b rotates around axis n_b which is fixed in
+frame_b. The two frames coincide when "revolute_a.phi=0" and
+"revolute_b.phi=0". This joint has the following potential
+states;</p>
+<ul>
+<li>The relative angle phi_a = revolute_a.phi [rad] around axis
+n_a,</li>
+<li>the relative angle phi_b = revolute_b.phi [rad] around axis
+n_b,</li>
+<li>the relative angular velocity w_a (= der(phi_a)) and</li>
+<li>the relative angular velocity w_b (= der(phi_b)).</li>
+</ul>
+<p>They are used as candidates for automatic selection of states
+from the tool. This may be enforced by setting
+"stateSelect=StateSelect.<b>always</b>" in the <b>Advanced</b>
+menu. The states are usually selected automatically. In certain
+situations, especially when closed kinematic loops are present, it
+might be slightly more efficient, when using the
+"StateSelect.always" setting.</p>
+<p>In the following figure the animation of a universal joint is
+shown. The light blue coordinate system is frame_a and the dark
+blue coordinate system is frame_b of the joint (here: n_a =
+{0,0,1}, n_b = {0,1,0}, phi_a.start = 90<sup>o</sup>, phi_b.start =
+45<sup>o</sup>).</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Joints/Universal.png" /></p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

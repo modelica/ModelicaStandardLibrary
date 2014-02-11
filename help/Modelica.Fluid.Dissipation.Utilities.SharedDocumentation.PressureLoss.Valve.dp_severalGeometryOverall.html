@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.dp_severalGeometryOverall</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.html">Valve</a>.<span class="omc-h1">dp_severalGeometryOverall</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of pressure loss for a valve with different
+geometries at overall flow regime for incompressible and
+single-phase fluid flow in dependence of its opening.</p>
+<h4>Restriction</h4>
+<p>This function shall be used inside of the restricted limits
+according to the referenced literature.</p>
+<ul>
+<li><b>developed fluid flow</b></li>
+<li><b>ball valve</b></li>
+<li><b>diaphragm valve</b></li>
+<li><b>butterfly valve</b></li>
+<li><b>gate valve</b></li>
+<li><b>sluice valve</b></li>
+</ul>
+<h4>Geometry</h4>
+<p>Wide variations in valve geometry are possible and a
+manufacturer will not necessarily maintain geometric similarity
+between valves of the same type but of different size. Here
+pressure loss can be estimated for the following types of a
+valve:</p>
+<ul>
+<li><b>ball valve</b></li>
+<li><b>diaphragm valve</b></li>
+<li><b>butterfly valve</b></li>
+<li><b>gate valve</b></li>
+<li><b>sluice valve</b></li>
+</ul>
+<h4>Calculation</h4>
+<p>The mass flow rate <b>m_flow</b> for valves out of pressure loss
+is determined by:</p>
+<pre>
+    m_flow = [rho * dp * Av^2 / (zeta_TOT/2]^0.5
+    m_flow = (2/zeta_TOT)^0.5 * Av * (rho * dp)^0.5
+    m_flow = valveCharacteristic * Av * (rho * dp)^0.5
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>rho</b></td>
+<td>as density of fluid [kg/m3],</td>
+</tr>
+<tr>
+<td><b>Av</b></td>
+<td>as (metric) flow coefficient (cross sectional area) [m^2],</td>
+</tr>
+<tr>
+<td><b>m_flow</b></td>
+<td>as mass flow rate [kg/s],</td>
+</tr>
+<tr>
+<td><b>valveCharacteristic</b></td>
+<td>as coefficient of a valve in dependence of its opening
+[-],</td>
+</tr>
+<tr>
+<td><b>velocity</b></td>
+<td>as mean velocity [m/s],</td>
+</tr>
+<tr>
+<td><b>zeta_TOT</b></td>
+<td>as pressure loss coefficient [-].</td>
+</tr>
+</table>
+<p>The <b>valveCharacteristic</b> is determined out of a
+correlation for the pressure loss coefficient (<b>zeta_TOT</b>) in
+dependence of its opening. The reason for introducing an additional
+variable <b>valveCharacteristic</b> is a different definition of
+the following pressure loss correlations of valves.</p>
+<h4>Verification</h4>
+<p>The pressure loss coefficient (<b>zeta_TOT</b>) of a valve with
+different geometries are shown in dependence of the <b>opening</b>
+in the figure below.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png" alt="fig_valve_dp_severalGeometryOverall_zetaVsOpening" /></p>
+<p>Note that the pressure loss coefficients (<b>zeta_TOT</b>) are
+numerically optimized for very small openings (opening ≤ 5%). At
+openings smaller than 5% the pressure loss coefficient is smoothly
+set to a maximum value (<b>zeta_TOT_max</b>) to be adjusted as
+parameter. Therefore a very small leakage mass flow rate can be
+adjusted for a given pressure difference at almost closed valves. A
+very small leakage mass flow rate can often be neglected in system
+simulation with valves, whereas the numerical behaviour of the
+simulation is improved.</p>
+<p>The mass flow rate of different valves at a constant opening of
+50% in dependence of pressure loss is shown in the figure
+below.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_MFLOWvsDP.png" alt="fig_valve_dp_severalGeometryOverall_MFLOWvsDP" /></p>
+<h4>References</h4>
+<dl>
+<dt>Miller,D.S.:</dt>
+<dd><b>Internal flow systems</b>. Volume 5th of BHRA Fluid
+Engineering Series. BHRA Fluid Engineering, 1978.</dd>
+</dl>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Classes.'package'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Classes.html">Classes</a>.<span class="omc-h1">'package'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Define specialized class <i>package</i></p>
+<h4>Examples</h4>
+<pre>
+<b>package</b> Library
+  <b>constant</b> Real k = 0.1;
+
+  <b>type</b> X = Real(min=0);
+
+  <b>model</b> A
+    ...
+  <b>end</b> A;
+
+  <b>model</b> B
+    ...
+  <b>end</b> B;
+<b>end</b> Library;
+</pre>
+<h4>Syntax</h4>
+<pre>
+   [ <b>encapsulated</b> ][ <b>partial </b>] <b>package</b>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <b>end</b> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <b>enumeration</b> "(" ( [enum_list] | ":" ) ")" comment
+</pre>
+<p>See Modelica Language Specification for further details.</p>
+<h4>Description</h4>
+<p>May only contain declarations of classes and constants. Enhanced
+to allow import of elements of packages.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Files</title>
+</head>
+<body>
+<h1><a href="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg"><img class="svgiconhead" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<span class="omc-h1">Files</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains functions to work with files and
+directories. As a general convention of this package, '/' is used
+as directory separator both for input and output arguments of all
+functions. For example:</p>
+<pre>
+   exist("Modelica/Mechanics/Rotational.mo");
+</pre>
+<p>The functions provide the mapping to the directory separator of
+the underlying operating system. Note, that on Windows system the
+usage of '\' as directory separator would be inconvenient, because
+this character is also the escape character in Modelica and C
+Strings.</p>
+<p>In the table below an example call to every function is
+given:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b><i>Function/type</i></b></th>
+<th><b><i>Description</i></b></th>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Utilities.Files.list.html">list</a>(name)</td>
+<td valign="top">List content of file or of directory.</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Utilities.Files.copy.html">copy</a>(oldName,
+newName)<br />
+<a href="Modelica.Utilities.Files.copy.html">copy</a>(oldName,
+newName, replace=false)</td>
+<td valign="top">Generate a copy of a file or of a directory.</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Utilities.Files.move.html">move</a>(oldName,
+newName)<br />
+<a href="Modelica.Utilities.Files.move.html">move</a>(oldName,
+newName, replace=false)</td>
+<td valign="top">Move a file or a directory to another place.</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Utilities.Files.remove.html">remove</a>(name)</td>
+<td valign="top">Remove file or directory (ignore call, if it does
+not exist).</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Utilities.Files.removeFile.html">removeFile</a>(name)</td>
+<td valign="top">Remove file (ignore call, if it does not
+exist)</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Utilities.Files.createDirectory.html">createDirectory</a>(name)</td>
+<td valign="top">Create directory (if directory already exists,
+ignore call).</td>
+</tr>
+<tr>
+<td valign="top">result = <a href="Modelica.Utilities.Files.exist.html">exist</a>(name)</td>
+<td valign="top">Inquire whether file or directory exists.</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Utilities.Files.assertNew.html">assertNew</a>(name,message)</td>
+<td valign="top">Trigger an assert, if a file or directory
+exists.</td>
+</tr>
+<tr>
+<td valign="top">fullName = <a href="Modelica.Utilities.Files.fullPathName.html">fullPathName</a>(name)</td>
+<td valign="top">Get full path name of file or directory name.</td>
+</tr>
+<tr>
+<td valign="top">(directory, name, extension) = <a href="Modelica.Utilities.Files.splitPathName.html">splitPathName</a>(name)</td>
+<td valign="top">Split path name in directory, file name kernel,
+file name extension.</td>
+</tr>
+<tr>
+<td valign="top">fileName = <a href="Modelica.Utilities.Files.temporaryFileName.html">temporaryFileName</a>()</td>
+<td valign="top">Return arbitrary name of a file that does not
+exist<br />
+and is in a directory where access rights allow to<br />
+write to this file (useful for temporary output of files).</td>
+</tr>
+</table>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.list.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.list.html">list</a></td>
+<td>List content of file or directory</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.copy.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.copy.html">copy</a></td>
+<td>Generate a copy of a file or of a directory</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.move.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.move.html">move</a></td>
+<td>Move a file or a directory to another place</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.remove.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.remove.html">remove</a></td>
+<td>Remove file or directory (ignore call, if it does not
+exist)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.removeFile.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.removeFile.html">removeFile</a></td>
+<td>Remove file (ignore call, if it does not exist)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.createDirectory.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.createDirectory.html">createDirectory</a></td>
+<td>Create directory (if directory already exists, ignore
+call)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.exist.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.exist.html">exist</a></td>
+<td>Inquire whether file or directory exists</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.assertNew.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.assertNew.html">assertNew</a></td>
+<td>Trigger an assert, if a file or directory exists</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.fullPathName.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.fullPathName.html">fullPathName</a></td>
+<td>Get full path name of file or directory name</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.splitPathName.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.splitPathName.html">splitPathName</a></td>
+<td>Split path name in directory, file name kernel, file name
+extension</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.temporaryFileName.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.temporaryFileName.html">temporaryFileName</a></td>
+<td>Return arbitrary name of a file that does not exist and is in a
+directory where access rights allow to write to this file (useful
+for temporary output of files)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Files.loadResource.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Files.loadResource.html">loadResource</a></td>
+<td>Return the absolute path name of a URI or local file name</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

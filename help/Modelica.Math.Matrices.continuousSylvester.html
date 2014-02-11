@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.continuousSylvester</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">continuousSylvester</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+         X = Matrices.<b>continuousSylvester</b>(A, B, C);
+         X = Matrices.<b>continuousSylvester</b>(A, B, C, AisSchur, BisSchur);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>continuousSylvester</b> computes the solution
+<b>X</b> of the continuous-time Sylvester equation</p>
+<blockquote>
+<pre>
+ <b>A</b>*<b>X</b> + <b>X</b>*<b>B</b> = <b>C</b>.
+</pre></blockquote>
+<p>using the Schur method for Sylvester equations proposed by
+Bartels and Stewart [1].</p>
+<p>In a nutshell, the problem is reduced to the corresponding
+problem</p>
+<blockquote>
+<pre>
+ <b>S</b>*<b>Y</b> + <b>Y</b>*<b>T</b> = <b>D</b>.
+</pre></blockquote>
+<p>with <b>S</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the real Schur of
+<b>A</b>, <b>T</b>=<b>V</b>'*<b>T</b>*<b>V</b> is the real Schur
+form of <b>B</b> and <b>D</b>=<b>U</b>'*<b>C</b>*<b>V</b> and
+<b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>' are the corresponding
+transformations of <b>C</b> and <b>X</b>. This problem is solved
+sequentially by exploiting the block triangular form of <b>S</b>
+and <b>T</b>. Finally the solution of the original problem is
+recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br />
+The Boolean inputs "AisSchur" and "BisSchur" indicate to omit one
+or both of the transformation to Schur in the case that <b>A</b>
+and/or <b>B</b> have already Schur form.</p>
+<p>The function applies LAPACK-routine DTRSYL. See <a href="Modelica.Math.Matrices.LAPACK.dtrsyl.html">LAPACK.dtrsyl</a>
+for more information.</p>
+<h4>References</h4>
+<pre>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</pre>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  A = [17.0,   24.0,   1.0,   8.0,   15.0 ;
+       23.0,    5.0,   7.0,  14.0,   16.0 ;
+        0.0,    6.0,  13.0,  20.0,   22.0;
+        0.0,    0.0,  19.0,  21.0,    3.0 ;
+        0.0,    0.0,   0.0,   2.0,    9.0];
+
+  B =  [8.0, 1.0, 6.0;
+        0.0, 5.0, 7.0;
+        0.0, 9.0, 2.0];
+
+  C = [62.0,  -12.0, 26.0;
+       59.0,  -10.0, 31.0;
+       70.0,  -6.0,   9.0;
+       35.0,  31.0,  -7.0;
+       36.0, -15.0,   7.0];
+
+  X = continuousSylvester(A, B, C);
+
+  results in:
+
+  X = [0.0,  0.0,  1.0;
+       1.0,  0.0,  0.0;
+       0.0,  1.0,  0.0;
+       1.0,  1.0, -1.0;
+       2.0, -2.0,  1.0];
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.discreteSylvester.html">Matrices.discreteSylvester</a>,
+<a href="Modelica.Math.Matrices.continuousLyapunov.html">Matrices.continuousLyapunov</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function continuousSylvester
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Matrices;
+  input Real A[:,:] "Square matrix A";
+  input Real B[:,:] "Square matrix B";
+  input Real C[size(A, 1),size(B, 2)] "Matrix C";
+  input Boolean AisSchur = false "True if A has already real Schur form";
+  input Boolean BisSchur = false "True if B has already real Schur form";
+  output Real X[size(A, 1),size(B, 2)] "Solution of the continuous Sylvester equation";
+end continuousSylvester;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

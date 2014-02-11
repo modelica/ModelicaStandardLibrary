@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Elementary.html">Elementary</a>.<span class="omc-h1">PointGravityWithPointMasses2</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This model demonstrates the usage of model Parts.PointMass in a
+point gravity field. 6 point masses are connected rigidly together.
+Translating such a model results in an error, because point masses
+do not define an orientation object. The example demonstrates that
+in such a case (when the orientation object is not defined by an
+object that is connected to a point mass), a
+"MultiBody.Joints.FreeMotion" joint has to be used, to define the
+the degrees of freedom of this structure.</p>
+<p>In order to demonstrate that this approach is correct, in model
+"referenceSystem", the same system is again provided, but this time
+modeled with a generic body (Parts.Body) where the inertia tensor
+is set to zero. In this case, no FreeMotion object is needed
+because every body provides its absolute translational and
+rotational position and velocity as potential states.</p>
+<p>The two systems should move exactly in the same way. The system
+with the PointMasses object visualizes the point masses in "red",
+whereas the "referenceSystem" shows its bodies in "blue". <img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png" />
+</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass.html">
+<img class="svgiconsmall" src="Icons/915dbdf639d43be6f45cebe7171afb72de0f3106.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.PointMass.html">PointMass</a></td>
+<td>Point mass used at all places of this example</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.SystemWithStandardBodies.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Examples.Elementary.PointGravityWithPointMasses2.SystemWithStandardBodies.html">SystemWithStandardBodies</a></td>
+<td>For comparison purposes, an equivalent model with Bodies
+instead of PointMasses</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</title>
+</head>
+<body>
+<h1><a href="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg"><img class="svgiconhead" src="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a>.<span class="omc-h1">SolenoidActuator</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>In electromagnetic or reluctance actuators, a thrust or
+reluctance force is generated due to a non-zero gradient of the
+relative magnetic permeability mu_r at surfaces between regions of
+different permeability (non-saturated ferromagnetic material:
+mu_r&gt;&gt;1, adjacent air: mu_r=1). In lumped magnetic network
+models, this force can be calculated as shortly outlined in
+<a href="Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation.html">
+Reluctance Forces</a> of the User's Guide.</p>
+<p>As an example of a reluctance actuator, a simple axisymmetric
+lifting magnet with planar end planes of armature and pole is
+shown. Often, a <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid.html">
+SimpleSolenoid</a> model is sufficient for initial rough design of
+such an actuator's magnetic subsystem. Higher accuracy can be
+gained from an <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid.html">
+AdvancedSolenoid</a> model where the coil-imposed magnetomotive
+force is split and the leakage flux between armature and yoke is
+accounted for more precisely.</p>
+<p>The differences between these two models in static behaviour can
+be analysed and compared to results obtained with a more accurate
+finite element analysis (FEA) in <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary.html">
+ComparisonQuasiStationary</a>. The resulting differences in dynamic
+behaviour can be analysed and compared to FEA results with
+simulation of a pull-in stroke in <a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke.html">
+ComparisonPullInStroke</a>.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary.html">
+<img class="svgiconsmall" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary.html">ComparisonQuasiStationary</a></td>
+<td>Slow forced armature motion of both solenoid models so that
+electromagnetic field and current are quasi-stationary</td>
+</tr>
+<tr>
+<td><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke.html">
+<img class="svgiconsmall" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke.html">ComparisonPullInStroke</a></td>
+<td>Pull-in stroke of both solenoid models after a voltage step at
+time t=0</td>
+</tr>
+<tr>
+<td><a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.html">
+<img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.html">Components</a></td>
+<td>Components to be used in examples</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

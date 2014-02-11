@@ -1,0 +1,578 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Water.IF97_Utilities</title>
+</head>
+<body>
+<h1><a href="Icons/ffc4fbc4397f6f05878f16f78d75ad48b3a4d554.svg"><img class="svgiconhead" src="Icons/ffc4fbc4397f6f05878f16f78d75ad48b3a4d554.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Water.html">Water</a>.<span class="omc-h1">IF97_Utilities</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Package description:</h4>
+<p>This package provides high accuracy physical properties for
+water according to the IAPWS/IF97 standard. It has been part of the
+ThermoFluid Modelica library and been extended, reorganized and
+documented to become part of the Modelica Standard library.</p>
+<p>An important feature that distinguishes this implementation of
+the IF97 steam property standard is that this implementation has
+been explicitly designed to work well in dynamic simulations.
+Computational performance has been of high importance. This means
+that there often exist several ways to get the same result from
+different functions if one of the functions is called often but can
+be optimized for that purpose.</p>
+<p>The original documentation of the IAPWS/IF97 steam properties
+can freely be distributed with computer implementations, so for
+curious minds the complete standard documentation is provided with
+the Modelica properties library. The following documents are
+included (in directory
+Modelica/Resources/Documentation/Media/Water/IF97documentation):</p>
+<ul>
+<li><a href="../Modelica%203.2.1/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">
+IF97.pdf</a> The standards document for the main part of the
+IF97.</li>
+<li><a href="../Modelica%203.2.1/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf">
+Back3.pdf</a> The backwards equations for region 3.</li>
+<li><a href="../Modelica%203.2.1/Resources/Documentation/Media/Water/IF97documentation/crits.pdf">
+crits.pdf</a> The critical point data.</li>
+<li><a href="../Modelica%203.2.1/Resources/Documentation/Media/Water/IF97documentation/meltsub.pdf">
+meltsub.pdf</a> The melting- and sublimation line formulation (in
+IF97_Utilities.BaseIF97.IceBoundaries)</li>
+<li><a href="../Modelica%203.2.1/Resources/Documentation/Media/Water/IF97documentation/surf.pdf">
+surf.pdf</a> The surface tension standard definition</li>
+<li><a href="../Modelica%203.2.1/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf">
+thcond.pdf</a> The thermal conductivity standard definition</li>
+<li><a href="../Modelica%203.2.1/Resources/Documentation/Media/Water/IF97documentation/visc.pdf">
+visc.pdf</a> The viscosity standard definition</li>
+</ul>
+<h4>Package contents</h4>
+<ul>
+<li>Package <b>BaseIF97</b> contains the implementation of the
+IAPWS-IF97 as described in <a href="../Modelica%203.2.1/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">
+IF97.pdf</a>. The explicit backwards equations for region 3 from
+<a href="../Modelica%203.2.1/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf">
+Back3.pdf</a> are implemented as initial values for an inverse
+iteration of the exact function in IF97 for the input pairs (p,h)
+and (p,s). The low-level functions in BaseIF97 are not needed for
+standard simulation usage, but can be useful for experts and some
+special purposes.</li>
+<li>Function <b>water_ph</b> returns all properties needed for a
+dynamic control volume model and properties of general interest
+using pressure p and specific entropy enthalpy h as dynamic states
+in the record ThermoProperties_ph.</li>
+<li>Function <b>water_ps</b> returns all properties needed for a
+dynamic control volume model and properties of general interest
+using pressure p and specific entropy s as dynamic states in the
+record ThermoProperties_ps.</li>
+<li>Function <b>water_dT</b> returns all properties needed for a
+dynamic control volume model and properties of general interest
+using density d and temperature T as dynamic states in the record
+ThermoProperties_dT.</li>
+<li>Function <b>water_pT</b> returns all properties needed for a
+dynamic control volume model and properties of general interest
+using pressure p and temperature T as dynamic states in the record
+ThermoProperties_pT. Due to the coupling of pressure and
+temperature in the two-phase region, this model can obviously only
+be used for one-phase models or models treating both phases
+independently.</li>
+<li>Function <b>hl_p</b> computes the liquid specific enthalpy as a
+function of pressure. For overcritical pressures, the critical
+specific enthalpy is returned</li>
+<li>Function <b>hv_p</b> computes the vapour specific enthalpy as a
+function of pressure. For overcritical pressures, the critical
+specific enthalpy is returned</li>
+<li>Function <b>sl_p</b> computes the liquid specific entropy as a
+function of pressure. For overcritical pressures, the critical
+specific entropy is returned</li>
+<li>Function <b>sv_p</b> computes the vapour specific entropy as a
+function of pressure. For overcritical pressures, the critical
+specific entropy is returned</li>
+<li>Function <b>rhol_T</b> computes the liquid density as a
+function of temperature. For overcritical temperatures, the
+critical density is returned</li>
+<li>Function <b>rhol_T</b> computes the vapour density as a
+function of temperature. For overcritical temperatures, the
+critical density is returned</li>
+<li>Function <b>dynamicViscosity</b> computes the dynamic viscosity
+as a function of density and temperature.</li>
+<li>Function <b>thermalConductivity</b> computes the thermal
+conductivity as a function of density, temperature and pressure.
+<b>Important note</b>: Obviously only two of the three inputs are
+really needed, but using three inputs speeds up the computation and
+the three variables are known in most models anyways. The inputs
+d,T and p have to be consistent.</li>
+<li>Function <b>surfaceTension</b> computes the surface tension
+between vapour and liquid water as a function of temperature.</li>
+<li>Function <b>isentropicEnthalpy</b> computes the specific
+enthalpy h(p,s,phase) in all regions. The phase input is needed due
+to discontinuous derivatives at the phase boundary.</li>
+<li>Function <b>dynamicIsentropicEnthalpy</b> computes the specific
+enthalpy h(p,s,,dguess,Tguess,phase) in all regions. The phase
+input is needed due to discontinuous derivatives at the phase
+boundary. Tguess and dguess are initial guess values for the
+density and temperature consistent with p and s. This function
+should be preferred in dynamic simulations where good guesses are
+often available.</li>
+</ul>
+<h4>Version Info and Revision history</h4>
+<ul>
+<li>First implemented: <i>July, 2000</i> by Hubertus Tummescheit
+for the ThermoFluid Library with help from Jonas Eborn and Falko
+Jens Wagner</li>
+<li>Code reorganization, enhanced documentation, additional
+functions: <i>December, 2002</i> by <a href="mailto:Hubertus.Tummescheit@modelon.se">Hubertus Tummescheit</a>
+and moved to Modelica properties library.</li>
+</ul>
+<address>Author: Hubertus Tummescheit,<br />
+Modelon AB<br />
+Ideon Science Park<br />
+SE-22370 Lund, Sweden<br />
+email: hubertus@modelon.se</address>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.html">BaseIF97</a></td>
+<td>Modelica Physical Property Model: the new industrial
+formulation IAPWS-IF97</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.iter.html"><img class="svgiconsmall" src="Icons/58b2517be1def3ebfad084bc44d157ad7cb7cb0c.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.iter.html">iter</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.waterBaseProp_ph.html">waterBaseProp_ph</a></td>
+<td>Intermediate property record for water</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.waterBaseProp_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.waterBaseProp_ps.html">waterBaseProp_ps</a></td>
+<td>Intermediate property record for water</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rho_props_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rho_props_ps.html">rho_props_ps</a></td>
+<td>Density as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rho_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rho_ps.html">rho_ps</a></td>
+<td>Density as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.T_props_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.T_props_ps.html">T_props_ps</a></td>
+<td>Temperature as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.T_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.T_ps.html">T_ps</a></td>
+<td>Temperature as function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.h_props_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.h_props_ps.html">h_props_ps</a></td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.h_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.h_ps.html">h_ps</a></td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.phase_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.phase_ps.html">phase_ps</a></td>
+<td>Phase as a function of pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.phase_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.phase_ph.html">phase_ph</a></td>
+<td>Phase as a function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.phase_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.phase_dT.html">phase_dT</a></td>
+<td>Phase as a function of pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rho_props_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rho_props_ph.html">rho_props_ph</a></td>
+<td>Density as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rho_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rho_ph.html">rho_ph</a></td>
+<td>Density as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rho_ph_der.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rho_ph_der.html">rho_ph_der</a></td>
+<td>Derivative function of rho_ph</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.T_props_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.T_props_ph.html">T_props_ph</a></td>
+<td>Temperature as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.T_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.T_ph.html">T_ph</a></td>
+<td>Temperature as function of pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.T_ph_der.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.T_ph_der.html">T_ph_der</a></td>
+<td>Derivative function of T_ph</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.s_props_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.s_props_ph.html">s_props_ph</a></td>
+<td>Specific entropy as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.s_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.s_ph.html">s_ph</a></td>
+<td>Specific entropy as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.s_ph_der.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.s_ph_der.html">s_ph_der</a></td>
+<td>Specific entropy as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cv_props_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cv_props_ph.html">cv_props_ph</a></td>
+<td>Specific heat capacity at constant volume as function of
+pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cv_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cv_ph.html">cv_ph</a></td>
+<td>Specific heat capacity at constant volume as function of
+pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.regionAssertReal.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.regionAssertReal.html">regionAssertReal</a></td>
+<td>Assert function for inlining</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cp_props_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cp_props_ph.html">cp_props_ph</a></td>
+<td>Specific heat capacity at constant pressure as function of
+pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cp_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cp_ph.html">cp_ph</a></td>
+<td>Specific heat capacity at constant pressure as function of
+pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.beta_props_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.beta_props_ph.html">beta_props_ph</a></td>
+<td>Isobaric expansion coefficient as function of pressure and
+specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.beta_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.beta_ph.html">beta_ph</a></td>
+<td>Isobaric expansion coefficient as function of pressure and
+specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.kappa_props_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.kappa_props_ph.html">kappa_props_ph</a></td>
+<td>Isothermal compressibility factor as function of pressure and
+specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.kappa_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.kappa_ph.html">kappa_ph</a></td>
+<td>Isothermal compressibility factor as function of pressure and
+specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_ph.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_ph.html">velocityOfSound_props_ph</a></td>
+<td>Speed of sound as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_ph.html">velocityOfSound_ph</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_ph.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_ph.html">isentropicExponent_props_ph</a></td>
+<td>Isentropic exponent as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_ph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_ph.html">isentropicExponent_ph</a></td>
+<td>Isentropic exponent as function of pressure and specific
+enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.ddph_props.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.ddph_props.html">ddph_props</a></td>
+<td>Density derivative by pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.ddph.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.ddph.html">ddph</a></td>
+<td>Density derivative by pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.ddhp_props.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.ddhp_props.html">ddhp_props</a></td>
+<td>Density derivative by specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.ddhp.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.ddhp.html">ddhp</a></td>
+<td>Density derivative by specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.waterBaseProp_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.waterBaseProp_pT.html">waterBaseProp_pT</a></td>
+<td>Intermediate property record for water (p and T preferred
+states)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rho_props_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rho_props_pT.html">rho_props_pT</a></td>
+<td>Density as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rho_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rho_pT.html">rho_pT</a></td>
+<td>Density as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.h_props_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.h_props_pT.html">h_props_pT</a></td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.h_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.h_pT.html">h_pT</a></td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.h_pT_der.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.h_pT_der.html">h_pT_der</a></td>
+<td>Derivative function of h_pT</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rho_pT_der.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rho_pT_der.html">rho_pT_der</a></td>
+<td>Derivative function of rho_pT</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.s_props_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.s_props_pT.html">s_props_pT</a></td>
+<td>Specific entropy as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.s_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.s_pT.html">s_pT</a></td>
+<td>Temperature as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cv_props_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cv_props_pT.html">cv_props_pT</a></td>
+<td>Specific heat capacity at constant volume as function of
+pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cv_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cv_pT.html">cv_pT</a></td>
+<td>Specific heat capacity at constant volume as function of
+pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cp_props_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cp_props_pT.html">cp_props_pT</a></td>
+<td>Specific heat capacity at constant pressure as function of
+pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cp_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cp_pT.html">cp_pT</a></td>
+<td>Specific heat capacity at constant pressure as function of
+pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.beta_props_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.beta_props_pT.html">beta_props_pT</a></td>
+<td>Isobaric expansion coefficient as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.beta_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.beta_pT.html">beta_pT</a></td>
+<td>Isobaric expansion coefficient as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.kappa_props_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.kappa_props_pT.html">kappa_props_pT</a></td>
+<td>Isothermal compressibility factor as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.kappa_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.kappa_pT.html">kappa_pT</a></td>
+<td>Isothermal compressibility factor as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_pT.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_pT.html">velocityOfSound_props_pT</a></td>
+<td>Speed of sound as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_pT.html">velocityOfSound_pT</a></td>
+<td>Speed of sound as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_pT.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_pT.html">isentropicExponent_props_pT</a></td>
+<td>Isentropic exponent as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_pT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_pT.html">isentropicExponent_pT</a></td>
+<td>Isentropic exponent as function of pressure and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.waterBaseProp_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.waterBaseProp_dT.html">waterBaseProp_dT</a></td>
+<td>Intermediate property record for water (d and T preferred
+states)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.h_props_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.h_props_dT.html">h_props_dT</a></td>
+<td>Specific enthalpy as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.h_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.h_dT.html">h_dT</a></td>
+<td>Specific enthalpy as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.h_dT_der.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.h_dT_der.html">h_dT_der</a></td>
+<td>Derivative function of h_dT</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.p_props_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.p_props_dT.html">p_props_dT</a></td>
+<td>Pressure as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.p_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.p_dT.html">p_dT</a></td>
+<td>Pressure as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.p_dT_der.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.p_dT_der.html">p_dT_der</a></td>
+<td>Derivative function of p_dT</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.s_props_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.s_props_dT.html">s_props_dT</a></td>
+<td>Specific entropy as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.s_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.s_dT.html">s_dT</a></td>
+<td>Temperature as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cv_props_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cv_props_dT.html">cv_props_dT</a></td>
+<td>Specific heat capacity at constant volume as function of
+density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cv_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cv_dT.html">cv_dT</a></td>
+<td>Specific heat capacity at constant volume as function of
+density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cp_props_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cp_props_dT.html">cp_props_dT</a></td>
+<td>Specific heat capacity at constant pressure as function of
+density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.cp_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.cp_dT.html">cp_dT</a></td>
+<td>Specific heat capacity at constant pressure as function of
+density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.beta_props_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.beta_props_dT.html">beta_props_dT</a></td>
+<td>Isobaric expansion coefficient as function of density and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.beta_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.beta_dT.html">beta_dT</a></td>
+<td>Isobaric expansion coefficient as function of density and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.kappa_props_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.kappa_props_dT.html">kappa_props_dT</a></td>
+<td>Isothermal compressibility factor as function of density and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.kappa_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.kappa_dT.html">kappa_dT</a></td>
+<td>Isothermal compressibility factor as function of density and
+temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_dT.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_props_dT.html">velocityOfSound_props_dT</a></td>
+<td>Speed of sound as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.velocityOfSound_dT.html">velocityOfSound_dT</a></td>
+<td>Speed of sound as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_dT.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_props_dT.html">isentropicExponent_props_dT</a></td>
+<td>Isentropic exponent as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_dT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.isentropicExponent_dT.html">isentropicExponent_dT</a></td>
+<td>Isentropic exponent as function of density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.hl_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.hl_p.html">hl_p</a></td>
+<td>Compute the saturated liquid specific h(p)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.hv_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.hv_p.html">hv_p</a></td>
+<td>Compute the saturated vapour specific h(p)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.sl_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.sl_p.html">sl_p</a></td>
+<td>Compute the saturated liquid specific s(p)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.sv_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.sv_p.html">sv_p</a></td>
+<td>Compute the saturated vapour specific s(p)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rhol_T.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rhol_T.html">rhol_T</a></td>
+<td>Compute the saturated liquid d(T)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rhov_T.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rhov_T.html">rhov_T</a></td>
+<td>Compute the saturated vapour d(T)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rhol_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rhol_p.html">rhol_p</a></td>
+<td>Compute the saturated liquid d(p)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.rhov_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.rhov_p.html">rhov_p</a></td>
+<td>Compute the saturated vapour d(p)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.dynamicViscosity.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.dynamicViscosity.html">dynamicViscosity</a></td>
+<td>Compute eta(d,T) in the one-phase region</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.thermalConductivity.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.thermalConductivity.html">thermalConductivity</a></td>
+<td>Compute lambda(d,T,p) in the one-phase region</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.surfaceTension.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.surfaceTension.html">surfaceTension</a></td>
+<td>Compute sigma(T) at saturation T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy.html">isentropicEnthalpy</a></td>
+<td>Isentropic specific enthalpy from p,s (preferably use
+dynamicIsentropicEnthalpy in dynamic simulation!)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_props.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_props.html">isentropicEnthalpy_props</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_der.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.isentropicEnthalpy_der.html">isentropicEnthalpy_der</a></td>
+<td>Derivative of isentropic specific enthalpy from p,s</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.dynamicIsentropicEnthalpy.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.dynamicIsentropicEnthalpy.html">dynamicIsentropicEnthalpy</a></td>
+<td>Isentropic specific enthalpy from p,s and good guesses of d and
+T</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<h4>Intermediate release notes during development</h4>
+<p>Currently the Events/noEvents switch is only implemented for p-h
+states. Only after testing that implementation, it will be extended
+to dT.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

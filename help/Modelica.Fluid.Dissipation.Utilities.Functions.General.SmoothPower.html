@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.General.html">General</a>.<span class="omc-h1">SmoothPower</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The function is used to limit the derivative of the following
+function at x=0:</p>
+<pre>
+   y = <b>if</b> x ≥ 0 <b>then</b> x<sup><b>pow</b></sup> <b>else</b> -(-x)<sup><b>pow</b></sup>;  // pow &gt; 0
+</pre>
+<p>by approximating the function in the range -<b>deltax</b>&lt; x
+&lt; <b>deltax</b> with a third order polynomial that has the same
+derivative at <b>abs</b>(x)=deltax, as the function above.</p>
+<h4>Example</h4>
+<p>In the picture below the input x is increased from -1 to 1. The
+range of interpolation is defined by the same range. Displayed is
+the output of the function SmoothPower compared to</p>
+<pre>
+y=x*|x|
+</pre>
+<p>For |x| &gt; 1 both functions return identical results.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/utilities/SmoothPower.png" alt="SmoothPower" /></p>
+<h4>References</h4>
+<dl>
+<dt>ThermoFluid Library</dt>
+<dd><b><a href="http://sourceforge.net/projects/thermofluid/">http://sourceforge.net/projects/thermofluid/</a></b></dd>
+</dl>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function SmoothPower
+  extends Modelica.Icons.Function;
+  input Real x "input variable";
+  input Real deltax "range for interpolation";
+  input Real pow "exponent for x";
+  output Real y "output variable";
+end SmoothPower;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

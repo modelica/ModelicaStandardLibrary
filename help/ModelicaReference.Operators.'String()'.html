@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'String()'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'String()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Convert a scalar Real, Integer or Boolean expression to a String
+representation</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>String</b>(b_expr, minimumLength=0, leftJustified=true)
+<b>String</b>(i_expr, minimumLength=0, leftJustified=true)
+<b>String</b>(r_expr, significantDigits=6, minimumLength=0, leftJustified=true)
+<b>String</b>(r_expr, format)
+<b>String</b>(e_expr, minimumLength=0, leftJustified=true)
+</pre></blockquote>
+<h4>Description</h4>
+<p>The arguments have the following meaning (the default values of
+the optional arguments are shown in the left column):</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td>Boolean b_expr</td>
+<td>Boolean expression</td>
+</tr>
+<tr>
+<td>Integer i_expr</td>
+<td>Integer expression</td>
+</tr>
+<tr>
+<td>Real r_expr</td>
+<td>Real expression</td>
+</tr>
+<tr>
+<td>type e_expr = enumeration(..)</td>
+<td>Enumeration expression</td>
+</tr>
+<tr>
+<td>Integer minimumLength = 0</td>
+<td>Minimum length of the resulting string. If necessary,<br />
+the blank character is used to fill up unused space.</td>
+</tr>
+<tr>
+<td>Boolean leftJustified = <b>true</b></td>
+<td>if <b>true</b>, the converted result is left justified;<br />
+if <b>false</b>, it is right justified in the string.</td>
+</tr>
+<tr>
+<td>Integer significantDigits = 6</td>
+<td>defines the number of significant digits in the result
+string<br />
+(e.g., "12.3456", "0.0123456", "12345600", "1.23456E-10")</td>
+</tr>
+<tr>
+<td>String format</td>
+<td>defines the string formatting according to ANSI-C without "%"
+and "*" character<br />
+(e.g., ".6g", "14.5e", "+6f"). In particular:<br />
+&nbsp;&nbsp;&nbsp;&nbsp; format = "[&lt;flags&gt;] [&lt;width&gt;]
+[.&lt;precision&gt;] &lt;conversion&gt;"<br />
+with
+<table>
+<tr>
+<td>&lt;flags&gt;</td>
+<td>zero, one or more of<br />
+"-": left adjustment of the converted number<br />
+"+": number will always be printed with a sign<br />
+"0": padding to the field width with leading zeros</td>
+</tr>
+<tr>
+<td>&lt;width&gt;</td>
+<td>Minimum field width. The converted number will be printed in a
+field at<br />
+least this wide and wider if necessary. If the converted number
+has<br />
+fewer characters it will be padded on the left (or the right
+depending<br />
+on &lt;flags&gt;) with blanks or 0 (depending on
+&lt;flags&gt;).</td>
+</tr>
+<tr>
+<td>&lt;precision&gt;</td>
+<td>The number of digits to be printed after the decimal point
+for<br />
+e, E, or f conversions, or the number of significant digits
+for<br />
+g or G conversions.</td>
+</tr>
+<tr>
+<td>&lt;conversion&gt;</td>
+<td>= "e": Exponential notation using a lower case e<br />
+= "E": Exponential notation using an upper case E<br />
+= "f": Fixed point notation<br />
+= "g": Either "e" or "f"<br />
+= "G": Same as "g", but with upper case E</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<h4>Examples</h4>
+<blockquote>
+<pre>
+String(2.0)   // = "2.0"
+String(true)  // = "true"
+String(123, minimumLength=6, leftJustified=false)  // = "   123"
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

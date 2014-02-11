@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.UsersGuide.MediumUsage.BasicUsage</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">BasicUsage</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Basic usage of medium model</h4>
+<p>Media models in Modelica.Media are provided by packages,
+inheriting from the partial package
+Modelica.Media.Interfaces.PartialMedium. Every package defines:</p>
+<ul>
+<li>Medium <b>constants</b> (such as the number of chemical
+substances, molecular data, critical properties, etc.).</li>
+<li>A BaseProperties <b>model</b>, to compute the basic
+thermodynamic properties of the fluid;</li>
+<li><b>setState_XXX</b> functions to compute the thermodynamic
+state record from different input arguments (such as density,
+temperature, and composition which would be setState_dTX);</li>
+<li><b>Functions</b> to compute additional properties (such as
+saturation properties, viscosity, thermal conductivity, etc.).</li>
+</ul>
+<p>There are - as stated above - two different basic ways of using
+the Media library which will be described in more details in the
+following section. One way is to use the model BaseProperties.
+Every instance of BaseProperties for any medium model provides
+<b>3+nXi equations</b> for the following <b>5+nXi variables</b>
+that are declared in the medium model (nXi is the number of
+independent mass fractions, see explanation below):</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>Variable</b></td>
+<td valign="top"><b>Unit</b></td>
+<td valign="top"><b>Description</b></td>
+</tr>
+<tr>
+<td valign="top">T</td>
+<td valign="top">K</td>
+<td valign="top">temperature</td>
+</tr>
+<tr>
+<td valign="top">p</td>
+<td valign="top">Pa</td>
+<td valign="top">absolute pressure</td>
+</tr>
+<tr>
+<td valign="top">d</td>
+<td valign="top">kg/m3</td>
+<td valign="top">density</td>
+</tr>
+<tr>
+<td valign="top">u</td>
+<td valign="top">J/kg</td>
+<td valign="top">specific internal energy</td>
+</tr>
+<tr>
+<td valign="top">h</td>
+<td valign="top">J/kg</td>
+<td valign="top">specific enthalpy (h = u + p/d)</td>
+</tr>
+<tr>
+<td valign="top">Xi[nXi]</td>
+<td valign="top">kg/kg</td>
+<td valign="top">independent mass fractions m_i/m</td>
+</tr>
+<tr>
+<td valign="top">X[nX]</td>
+<td valign="top">kg/kg</td>
+<td valign="top">All mass fractions m_i/m. X is defined in
+BaseProperties by:<br />
+X = <b>if</b> reducedX <b>then</b> vector([Xi; 1-<b>sum</b>(Xi)])
+<b>else</b> Xi</td>
+</tr>
+</table>
+<p><b>Two</b> variables out of p, d, h, or u, as well as the
+<b>mass fractions</b> Xi are the <b>independent</b> variables and
+the medium model basically provides equations to compute the
+remaining variables, including the full mass fraction vector X
+(more details to Xi and X are given further below).</p>
+<p>In a component, the most basic usage of a medium model is as
+follows</p>
+<pre>
+  <b>model</b> Pump
+    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
+                         "Medium model" <b>annotation</b> (choicesAllMatching = <b>true</b>);
+    Medium.BaseProperties medium_a "Medium properties at location a (e.g., port_a)";
+    // Use medium variables (medium_a.p, medium_a.T, medium_a.h, ...)
+     ...
+  <b>end</b> Pump;
+</pre>
+<p>The second way is to use the setState_XXX functions to compute
+the thermodynamic state record from which all other thermodynamic
+state variables can be computed (see <a href="Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition.html">
+Basic definition of medium</a> for further details on
+ThermodynamicState). The setState_XXX functions accept either X or
+Xi (see explanation below) and will decide internally which of
+these two compositions is provided by the user. The four
+fundamental setState_XXX functions are provided in
+PartialMedium</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>Function</b></td>
+<td valign="top"><b>Description</b></td>
+<td valign="top"><b>Short-form for<br />
+single component medium</b></td>
+</tr>
+<tr>
+<td valign="top">setState_dTX</td>
+<td valign="top">computes ThermodynamicState from density,
+temperature, and composition X or Xi</td>
+<td valign="top">setState_dT</td>
+</tr>
+<tr>
+<td valign="top">setState_phX</td>
+<td valign="top">computes ThermodynamicState from pressure,
+specific enthalpy, and composition X or Xi</td>
+<td valign="top">setState_ph</td>
+</tr>
+<tr>
+<td valign="top">setState_psX</td>
+<td valign="top">computes ThermodynamicState from pressure,
+specific entropy, and composition X or Xi</td>
+<td valign="top">setState_ps</td>
+</tr>
+<tr>
+<td valign="top">setState_pTX</td>
+<td valign="top">computes ThermodynamicState from pressure,
+temperature, and composition X or Xi</td>
+<td valign="top">setState_pT</td>
+</tr>
+</table>
+<p>The simple example that explained the basic usage of
+BaseProperties would then become</p>
+<pre>
+  <b>model</b> Pump
+    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
+                         "Medium model" <b>annotation</b> (choicesAllMatching = <b>true</b>);
+    Medium.ThermodynamicState state_a "Thermodynamic state record at location a (e.g., port_a)";
+    // Compute medium variables from thermodynamic state record (pressure(state_a), temperature(state_a),
+    // specificEnthalpy(state_a), ...)
+    ...
+  <b>end</b> Pump;
+</pre>
+<p>All media models are directly or indirectly a subpackage of
+package Modelica.Media.Interfaces.PartialMedium. Therefore, a
+medium model in a component should inherit from this partial
+package. Via the annotation "choicesAllMatching = true" it is
+defined that the tool should display a selection box with all
+loaded packages that inherit from PartialMedium. An example is
+given in the next figure:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Media/UsersGuide/mediumMenu.png" alt="medium selection menu" /></p>
+<p>A selected medium model leads, e.g., to the following
+equation:</p>
+<pre>
+  Pump pump(<b>redeclare package</b> Medium = Modelica.Media.Water.SimpleLiquidWater);
+</pre>
+<p>Usually, a medium model is associated with the variables of a
+fluid connector. Therefore, equations have to be defined in a model
+that relate the variables in the connector with the variables in
+the medium model:</p>
+<pre>
+  <b>model</b> Pump
+    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
+                         "Medium model" <b>annotation</b> (choicesAllMatching = <b>true</b>);
+    Medium.BaseProperties medium_a "Medium properties of port_a";
+    // definition of the fluid port port_a
+     ...
+  <b>equation</b>
+    medium.p = port_a.p;
+    medium.h = port_a.h;
+    medium.Xi = port_a.Xi;
+     ...
+  <b>end</b> Pump;
+</pre>
+in the case of using BaseProperties or
+<pre>
+  <b>model</b> Pump
+    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
+                         "Medium model" <b>annotation</b> (choicesAllMatching = <b>true</b>);
+    Medium.ThermodynamicState state_a "Thermodynamic state record of medium at port_a";
+    // definition of the fluid port port_a
+     ...
+  <b>equation</b>
+    state_a = Medium.setState_phX(port_a.p, port_a.h, port_a.Xi) // if port_a contains the variables
+                                                                 // p, h, and Xi
+     ...
+  <b>end</b> Pump;
+</pre>
+<p>in the case of using ThermodynamicState.</p>
+<p>If a component model shall treat both single and multiple
+substance fluids, equations for the mass fractions have to be
+present (above: medium.Xi = port_a.Xi) in the model. According to
+the Modelica semantics, the equations of the mass fractions are
+ignored, if the dimension of Xi is zero, i.e., for a
+single-component medium. Note, by specific techniques sketched in
+section "Medium definition", the independent variables in the
+medium model need not to be the same as the variables in the
+connector and still get the same efficiency, as if the same
+variables would be used.</p>
+<p>If a fluid consists of a single substance, <b>nXi = 0</b> and
+the vector of mass fractions Xi is not present. If a fluid consists
+of nS substances, the medium model may define the number of
+independent mass fractions <b>nXi</b> to be <b>nS</b>, <b>nS-1</b>,
+or zero. In all cases, balance equations for nXi substances have to
+be given in the corresponding component (see discussion below).
+Note, that if nXi = nS, the constraint "sum(Xi)=1" between the mass
+fractions is <b>not</b> present in the model; in that case, it is
+necessary to provide consistent start values for Xi such that
+sum(Xi) = 1.</p>
+<p>The reason for this definition of Xi is that a fluid component
+library can be implemented by using only the independent mass
+fractions Xi and then via the medium it is defined how Xi is
+interpreted:</p>
+<ul>
+<li>If Xi = nS, then the constraint equation sum(X) = 1 is
+neglected during simulation. By making sure that the initial
+conditions of X fulfill this constraint, it can usually be
+guaranteed that small errors in sum(X) = 1 remain small although
+this constraint equation is not explicitly used during the
+simulation. This approach is usually useful if components of the
+mixture can become very small. If such a small quantity is computed
+via the equation 1 - sum(X[1:nX-1]), there might be large numerical
+errors and it is better to compute it via the corresponding balance
+equation.</li>
+<li>If Xi = nS-1, then the true independent mass fractions are used
+in the fluid component and the last component of X is computed via
+X[nX] = 1 - sum(Xi). This is useful for, e.g., MoistAir, where the
+number of states should be as small as possible without introducing
+numerical problems.</li>
+<li>If Xi = 0, then the reference value of composition reference_X
+is assumed. This case is useful to avoid composition states in all
+the cases when the composition will always be constant, e.g., with
+circuits having fixed composition sources.</li>
+</ul>
+<p>The full vector of mass fractions <b>X[nX]</b> is computed in
+PartialMedium.BaseProperties based on Xi, reference_X, and the
+information whether Xi = nS or nS-1. For single-substance media, nX
+= 0, so there's also no X vector. For multiple-substance media, nX
+= nS, and X always contains the full vector of mass fractions. In
+order to reduce confusion for the user of a fluid component
+library, "Xi" has the annotation "HideResult=true", meaning, that
+this variable is not shown in the plot window. Only X is shown in
+the plot window and this vector always contains all mass
+fractions.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

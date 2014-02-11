@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.PressureLoss.Bend.html">Bend</a>.<span class="omc-h1">dp_edgedOverall_MFLOW</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of pressure loss in edged bends with sharp corners
+at overall flow regime for incompressible and single-phase fluid
+flow through circular cross sectional area considering surface
+roughness.</p>
+<p>There are larger pressure losses in an edged bend compared to a
+curved bend under the same conditions. The effect of a sharp corner
+in an edged bend on the pressure loss is much larger than the
+influence of surface roughness.</p>
+<p>Generally this function is numerically best used for the
+<b>compressible case</b> if the pressure loss (dp) is known (out of
+pressures as state variable) and the mass flow rate (M_FLOW) has to
+be calculated. On the other hand the function <a href="Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP.html">
+dp_edgedOverall_DP</a> is numerically best used for the
+<b>incompressible case</b> , where the mass flow rate (m_flow) is
+known (as state variable) in the used model and the corresponding
+pressure loss (DP) has to be calculated. <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall.html">
+See more information</a> .</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function dp_edgedOverall_MFLOW
+  extends Modelica.Icons.Function;
+  import FD = Modelica.Fluid.Dissipation.PressureLoss.Bend;
+  import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
+  input Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_con IN_con "Input record for function dp_edgedOverall_MFLOW" annotation(Dialog(group = "Constant inputs"));
+  input Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var IN_var "Input record for function dp_edgedOverall_MFLOW" annotation(Dialog(group = "Variable inputs"));
+  input SI.Pressure dp "Pressure loss" annotation(Dialog(group = "Input"));
+  output SI.MassFlowRate M_FLOW "Output for function dp_edgedOverall_MFLOW";
+end dp_edgedOverall_MFLOW;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

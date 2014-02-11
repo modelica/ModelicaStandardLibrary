@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Strings.replace</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Strings.html">Strings</a>.<span class="omc-h1">replace</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Strings.<b>replace</b>(string, searchString, replaceString);
+Strings.<b>replace</b>(string, searchString, replaceString,
+                startIndex=1, replaceAll=true, caseSensitive=true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Search in "string" for "searchString" and replace the found
+substring by "replaceString".</p>
+<ul>
+<li>The search starts at the first character of "string", or at
+character position "startIndex", if this optional argument is
+provided.</li>
+<li>If the optional argument "replaceAll" is <b>true</b> (default),
+all occurrences of "searchString" are replaced. If the argument is
+<b>false</b>, only the first occurrence is replaced.</li>
+<li>The search for "searchString" distinguishes upper and lower
+case letters. If the optional argument "caseSensitive" is
+<b>false</b>, the search ignores whether letters are upper or lower
+case.</li>
+</ul>
+<p>The function returns the "string" with the performed
+replacements.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function replace
+  extends Modelica.Icons.Function;
+  input String string "String to be modified";
+  input String searchString "Replace non-overlapping occurrences of 'searchString' in 'string' with 'replaceString'";
+  input String replaceString "String that replaces 'searchString' in 'string'";
+  input Integer startIndex = 1 "Start search at index startIndex";
+  input Boolean replaceAll = true "if false, replace only the first occurrence, otherwise all occurrences";
+  input Boolean caseSensitive = true "= false, if lower and upper case are ignored when searching for searchString";
+  output String result "Resultant string of replacement operation";
+end replace;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.UsersGuide.ComponentDefinition.RegularizingCharacteristics</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.ComponentDefinition.html">ComponentDefinition</a>.<span class="omc-h1">RegularizingCharacteristics</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Pressure drop equations and other fluid characteristics are
+usually computed by <b>semi-empirical</b> equations. Unfortunately,
+the developers of semi-empirical equations nearly never take into
+account that the equation might be used in a simulation program. As
+a consequence, these semi-empirical equations can nearly never be
+used blindly but must be slightly modified or adapted in order that
+obvious simulation problems are avoided. Below, examples are given
+to demonstrate what problems occur and how to regularize the
+characteristics:</p>
+<h4>Square root function</h4>
+<p>In several empirical formulae, expressions of the following form
+are present, e.g., for turbulent flow in a pipe:</p>
+<pre>
+   y = <b>if</b> x &lt; 0 <b>then</b> -<b>sqrt</b>( <b>abs</b>(x) ) <b>else</b> <b>sqrt</b>(x)
+</pre>
+<p>A plot of this characteristic is shown in the next figure:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/UsersGuide/sqrt.png" alt="sqrt.png" /></p>
+<p>The difficulty with this function is that the derivative at x=0
+is infinity. In reality, such a function does not exist. E.g., for
+pipe flow, the flow becomes laminar for small velocities and
+therefore around zero the sqrt() function is replaced by a linear
+function. Since the laminar region is usually of not much practical
+interest, the above approximation is used.</p>
+<p>The direct implementation above does not work in Modelica,
+because an event is generated when x &lt; 0 changes sign. In order
+to detect this event, an event iteration takes place. During the
+event iteration, the active if-branch is not changed. For example,
+assume that x is positive (= "else" branch) and shall become
+negative. During the event iteration x is slightly negative and the
+else branch, i.e., sqrt(x), is evaluated. Since this results in an
+imaginary number, an error occurs. It would be possible to fix
+this, by using the <b>noEvent</b>() operator to explicitly switch
+of an event:</p>
+<pre>
+   y = <b>if</b> <b>noEvent</b>(x &lt; 0) <b>then</b> -<b>sqrt</b>( <b>abs</b>(x) ) <b>else</b> <b>sqrt</b>(x)
+</pre>
+<p>Still, it is highly likely that good integrators will not work
+well around x=0, because they will recognize that the derivative
+changes very sharply and will reduce the step size drastically.</p>
+<p>There are several solutions around this problem: Around x=0, the
+sqrt() function can be replaced by a polynomial of 3rd order which
+is determined in such a way that it smoothly touches the sqrt()
+function, i.e., the whole function is continuous and continuously
+differentiable. In the Modelica.Fluid library, implementations of
+such critical functions are provided in sublibrary
+Modelica.Fluid.Utilities. The above sqrt() type function is
+computed by function <b>Utilities.regRoot</b>(). This function is
+defined as:</p>
+<pre>
+     y := x/(x*x+delta*delta)^0.25;
+</pre>
+<p>where "delta" is the size of the small region around zero where
+the sqrt() function is approximated by another function. The plot
+of the function above is practically identical to the one of the
+original function. However, it has a finite derivative at x=0 and
+is differentiable upto any order. With the default value of
+delta=0.01, the difference between the function above and
+regRoot(x) is 16% around x=0.01, 0.25% around x=0.1 and 0.0025%
+around x=1.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

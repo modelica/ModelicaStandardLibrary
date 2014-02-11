@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Incompressible</title>
+</head>
+<body>
+<h1><a href="Icons/08e35a6617ee86c550a5591f66396a32a714e4d7.svg"><img class="svgiconhead" src="Icons/08e35a6617ee86c550a5591f66396a32a714e4d7.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<span class="omc-h1">Incompressible</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Incompressible media package</h4>
+<p>This package provides a structure and examples of how to create
+simple medium models of incompressible fluids, meaning fluids with
+very little pressure influence on density. The medium properties is
+typically described in terms of tables, functions or polynomial
+coefficients.</p>
+<h4>Definitions</h4>
+<p>The common meaning of <em>incompressible</em> is that properties
+like density and enthalpy are independent of pressure. Thus
+properties are conveniently described as functions of temperature,
+e.g., as polynomials density(T) and cp(T). However, enthalpy can
+not be independent of pressure since h = u - p/d. For liquids it is
+anyway common to neglect this dependence since for constant density
+the neglected term is (p - p0)/d, which in comparison with cp is
+very small for most liquids. For water, the equivalent change of
+temperature to increasing pressure 1 bar is 0.025 Kelvin.</p>
+<p>Two Boolean flags are used to choose how enthalpy and inner
+energy is calculated:</p>
+<ul>
+<li><b>enthalpyOfT</b>=true, means assuming that enthalpy is only a
+function of temperature, neglecting the pressure dependent
+term.</li>
+<li><b>singleState</b>=true, means also neglect the pressure
+influence on inner energy, which makes all medium properties pure
+functions of temperature.</li>
+</ul>
+<p>The default setting for both these flags is true, which enables
+the simulation tool to choose temperature as the only medium state
+and avoids non-linear equation systems, see the section about
+<a href="Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection.html">
+Static state selection</a> in the Modelica.Media User's Guide.</p>
+<h4>Contents</h4>
+<p>Currently, the package contains the following parts:</p>
+<ol>
+<li><a href="Modelica.Media.Incompressible.TableBased.html">Table based
+medium models</a></li>
+<li><a href="Modelica.Media.Incompressible.Examples.html">Example medium
+models</a></li>
+</ol>
+<p>A few examples are given in the Examples package. The model
+<a href="Modelica.Media.Incompressible.Examples.Glycol47.html">Examples.Glycol47</a>
+shows how the medium models can be used. For more realistic
+examples of how to implement volume models with medium properties
+look in the <a href="Modelica.Media.UsersGuide.MediumUsage.html">Medium usage
+section</a> of the User's Guide.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.Examples.html"><img class="svgiconsmall" src="Icons/08e35a6617ee86c550a5591f66396a32a714e4d7.svg" /></a>&nbsp;<a href="Modelica.Media.Incompressible.Examples.html">Examples</a></td>
+<td>Examples for incompressible media</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.Common.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Media.Incompressible.Common.html">Common</a></td>
+<td>Common data structures</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Incompressible.TableBased.html"><img class="svgiconsmall" src="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg" /></a>&nbsp;<a href="Modelica.Media.Incompressible.TableBased.html">TableBased</a></td>
+<td>Incompressible medium properties based on tables</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

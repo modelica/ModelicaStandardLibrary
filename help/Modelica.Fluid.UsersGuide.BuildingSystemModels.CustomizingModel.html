@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.BuildingSystemModels.html">BuildingSystemModels</a>.<span class="omc-h1">CustomizingModel</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Once a system model has been built, it is possible to obtain
+different approximations by appropriately setting the defaults in
+the System component (and/or the settings of specific
+components.</p>
+<p>The Assumptions | allowFlowReversal parameter determines whether
+reversing flow conditions (i.e., flow direction opposite to design
+direction) are modelled or not. By default, reversing flow
+conditions are considered by the models, but this causes a
+significant increase of complexity in the equations, due to the
+conditional equations depending on the flow direction. If you know
+in advance that the flow in a certain component (or in the whole
+system) will always be in the design direction, then setting this
+parameter to false will produce a much faster and possibly more
+robust simulation code.</p>
+<p>The flags in the Assumptions | Dynamics tab allow different
+degrees of approximation on the mass, energy, and momentum
+equations of the components.</p>
+<ul>
+<li>DynamicFreeInitial: dynamic equations are considered (nonzero
+storage), no initial equations are provided, and the start values
+are used as guess values.</li>
+<li>FixedInitial: dynamic equations are considered (nonzero
+storage) and initial equations are included, fixing the states to
+the start values provided by the component parameters.</li>
+<li>SteadyStateInitial: dynamic equations are considered (nonzero
+storage), initial equations are included, declaring that the state
+derivatives are zero (steady-state initialization) and the start
+values are used as guess values for the nonlinear solver.</li>
+<li>SteadyState: algebraic (or static) balance equations are
+considered (no storage) and the start values are used as guess
+values for the nonlinear solver.</li>
+</ul>
+<p>It is then possible to neglect the storage of mass, momentum,
+and energy in the whole system (or just in parts of it) just by a
+few mouse clicks in a GUI, and also to change the type of
+initialization when considering dynamic models. Please note that
+some combinations of the options might be contradictory, and will
+therefore trigger compilation errors.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Nonlinear.solveOneNonlinearEquation</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Nonlinear.html">Nonlinear</a>.<span class="omc-h1">solveOneNonlinearEquation</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>solveOneNonlinearEquation</b>(function f(), u_min, u_max);
+<b>solveOneNonlinearEquation</b>(function f(), u_min, u_max, tolerance=100*Modelica.Constants.eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function determines the solution of <b>one non-linear
+algebraic equation</b> "y=f(u)" in <b>one unknown</b> "u" in a
+reliable way. It is one of the best numerical algorithms for this
+purpose. As input, the nonlinear function f(u) has to be given, as
+well as an interval u_min, u_max that contains the solution, i.e.,
+"f(u_min)" and "f(u_max)" must have a different sign. The function
+computes a smaller interval in which a sign change is present using
+the relative tolerance "tolerance" that can be given as 4th input
+argument.</p>
+<p>The interval reduction is performed using inverse quadratic
+interpolation (interpolating with a quadratic polynomial through
+the last 3 points and computing the zero). If this fails, bisection
+is used, which always reduces the interval by a factor of 2. The
+inverse quadratic interpolation method has superlinear convergence.
+This is roughly the same convergence rate as a globally convergent
+Newton method, but without the need to compute derivatives of the
+non-linear function. The solver function is a direct mapping of the
+Algol 60 procedure "zero" to Modelica, from:</p>
+<blockquote>
+<dl>
+<dt>Brent R.P.:</dt>
+<dd><b>Algorithms for Minimization without derivatives</b>.
+Prentice Hall, 1973, pp. 58-59.<br />
+Download: <a href="http://wwwmaths.anu.edu.au/~brent/pd/rpb011i.pdf">http://wwwmaths.anu.edu.au/~brent/pd/rpb011i.pdf</a><br />
+
+Errata and new print: <a href="http://wwwmaths.anu.edu.au/~brent/pub/pub011.html">http://wwwmaths.anu.edu.au/~brent/pub/pub011.html</a></dd>
+</dl>
+</blockquote>
+<h4>Example</h4>
+<p>See the examples in <a href="Modelica.Math.Nonlinear.Examples.html">Modelica.Math.Nonlinear.Examples</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function solveOneNonlinearEquation
+  extends Modelica.Icons.Function;
+  import Modelica.Utilities.Streams.error;
+  input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f "Function y = f(u); u is computed so that y=0";
+  input Real u_min "Lower bound of search interval";
+  input Real u_max "Upper bound of search interval";
+  input Real tolerance = 100 * Modelica.Constants.eps "Relative tolerance of solution u";
+  output Real u "Value of independent variable u so that f(u) = 0";
+end solveOneNonlinearEquation;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

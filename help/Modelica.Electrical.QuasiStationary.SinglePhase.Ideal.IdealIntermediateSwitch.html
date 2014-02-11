@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch</title>
+</head>
+<body>
+<h1><a href="Icons/d56d1a4975d0c4c4edaf3060afe7edf24543c2ce.svg"><img class="svgiconhead" src="Icons/d56d1a4975d0c4c4edaf3060afe7edf24543c2ce.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.html">QuasiStationary</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.SinglePhase.html">SinglePhase</a>.<a class="omc-h1-a" href="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.html">Ideal</a>.<span class="omc-h1">IdealIntermediateSwitch</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The intermediate switch has four switching contact pins p1, p2,
+n1, and n2. The switching behaviour is controlled by the input
+signal control. If control is true, the pin p1 is connected to pin
+n2, and the pin p2 is connected to the pin n2. Otherwise, the pin
+p1 is connected to n1, and p2 is connected to n2.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch1.png" alt="IdealIntermediateSwitch1" /></p>
+<p>In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff and the closed switch has
+a (very low) resistance Ron.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Electrical/QuasiStationary/SinglePhase/Ideal/IdealIntermediateSwitch2.png" alt="IdealIntermediateSwitch2" /></p>
+<p>The limiting case is also allowed, i.e., the resistance Ron of
+the closed switch could be exactly zero and the conductance Goff of
+the open switch could be also exactly zero. Note, there are
+circuits, where a description with zero Ron or zero Goff is not
+possible.<br />
+<br />
+<b>Please note:</b> In case of useHeatPort=true the temperature
+dependence of the electrical behavior is <b>not</b> modelled. The
+parameters are not temperature dependent.</p>
+<p><b>Use with care:</b> This switch is only intended to be used
+for structural changes, not for fast switching sequences, due to
+the quasistationary formulation.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

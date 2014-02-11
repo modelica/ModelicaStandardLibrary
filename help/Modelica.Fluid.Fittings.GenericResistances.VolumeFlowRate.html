@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Fittings.GenericResistances.VolumeFlowRate</title>
+</head>
+<body>
+<h1><a href="Icons/f937956d7e54827c53fcefed4bf6a1b892c11b87.svg"><img class="svgiconhead" src="Icons/f937956d7e54827c53fcefed4bf6a1b892c11b87.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.html">Fittings</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.GenericResistances.html">GenericResistances</a>.<span class="omc-h1">VolumeFlowRate</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component models a generic resistance parameterized with
+the volume flow rate:</p>
+<pre>
+    dp     = a*V_flow^2 + b*V_flow
+    m_flow = rho*V_flow
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>a</b></td>
+<td>as quadratic coefficient [Pa*s^2/m^6],</td>
+</tr>
+<tr>
+<td><b>b</b></td>
+<td>as linear coefficient [Pa*s/m3],</td>
+</tr>
+<tr>
+<td><b>dp</b></td>
+<td>as pressure loss [Pa],</td>
+</tr>
+<tr>
+<td><b>m_flow</b></td>
+<td>as mass flow rate [kg/s],</td>
+</tr>
+<tr>
+<td><b>rho</b></td>
+<td>as density of fluid [kg/m3],</td>
+</tr>
+<tr>
+<td><b>V_flow</b></td>
+<td>as volume flow rate [m3/s].</td>
+</tr>
+</table>
+<p>The geometry parameters of energy devices necessary for the
+pressure loss calculations are often not exactly known. Therefore
+the modelling of the detailed pressure loss calculation has to be
+simplified. This components use a linear and a quadratic dependence
+of the pressure loss on the volume flow rate. It is assumed that
+neither mass nor energy is stored in this component. In the model
+basically a function is called to compute the mass flow rate as a
+function of pressure loss. Also the inverse of this function is
+defined, and a tool might use this inverse function instead, in
+order to avoid the solution of a nonlinear equation.</p>
+<p>The details of the model are described in the <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate.html">
+documentation of the underlying function</a>.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

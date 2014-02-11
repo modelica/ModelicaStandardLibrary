@@ -1,0 +1,371 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices</title>
+</head>
+<body>
+<h1><a href="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg"><img class="svgiconhead" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<span class="omc-h1">Matrices</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Library content</h4>
+<p>This library provides functions operating on matrices. Below,
+the functions are ordered according to categories and a typical
+call of the respective function is shown. Most functions are solely
+an interface to the external <a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a> library.</p>
+<p>Note: A' is a short hand notation of transpose(A):</p>
+<p><b>Basic Information</b></p>
+<ul>
+<li><a href="Modelica.Math.Matrices.toString.html">toString</a>(A) -
+returns the string representation of matrix A.</li>
+<li><a href="Modelica.Math.Matrices.isEqual.html">isEqual</a>(M1, M2) -
+returns true if matrices M1 and M2 have the same size and the same
+elements.</li>
+</ul>
+<p><b>Linear Equations</b></p>
+<ul>
+<li><a href="Modelica.Math.Matrices.solve.html">solve</a>(A,b) - returns
+solution x of the linear equation A*x=b (where b is a vector, and A
+is a square matrix that must be regular).</li>
+<li><a href="Modelica.Math.Matrices.solve2.html">solve2</a>(A,B) -
+returns solution X of the linear equation A*X=B (where B is a
+matrix, and A is a square matrix that must be regular)</li>
+<li><a href="Modelica.Math.Matrices.leastSquares.html">leastSquares</a>(A,b)
+- returns solution x of the linear equation A*x=b in a least
+squares sense (where b is a vector and A may be non-square and may
+be rank deficient)</li>
+<li><a href="Modelica.Math.Matrices.leastSquares2.html">leastSquares2</a>(A,B)
+- returns solution X of the linear equation A*X=B in a least
+squares sense (where B is a matrix and A may be non-square and may
+be rank deficient)</li>
+<li><a href="Modelica.Math.Matrices.equalityLeastSquares.html">equalityLeastSquares</a>(A,a,B,b)
+- returns solution x of a linear equality constrained least squares
+problem: min|A*x-a|^2 subject to B*x=b&lt;/&lt;li&gt;</li>
+<li>(LU,p,info) = <a href="Modelica.Math.Matrices.LU.html">LU</a>(A) - returns the LU
+decomposition with row pivoting of a rectangular matrix A.</li>
+<li><a href="Modelica.Math.Matrices.LU_solve.html">LU_solve</a>(LU,p,b) -
+returns solution x of the linear equation L*U*x[p]=b with a b
+vector and an LU decomposition from "LU(..)".</li>
+<li><a href="Modelica.Math.Matrices.LU_solve2.html">LU_solve2</a>(LU,p,B)
+- returns solution X of the linear equation L*U*X[p,:]=B with a B
+matrix and an LU decomposition from "LU(..)".</li>
+</ul>
+<p><b>Matrix Factorizations</b></p>
+<ul>
+<li>(eval,evec) = <a href="Modelica.Math.Matrices.eigenValues.html">eigenValues</a>(A)
+- returns eigen values "eval" and eigen vectors "evec" for a real,
+nonsymmetric matrix A in a Real representation.</li>
+<li><a href="Modelica.Math.Matrices.eigenValueMatrix.html">eigenValueMatrix</a>(eval)
+- returns real valued block diagonal matrix of the eigenvalues
+"eval" of matrix A.</li>
+<li>(sigma,U,VT) = <a href="Modelica.Math.Matrices.singularValues.html">singularValues</a>(A)
+- returns singular values "sigma" and left and right singular
+vectors U and VT of a rectangular matrix A.</li>
+<li>(Q,R,p) = <a href="Modelica.Math.Matrices.QR.html">QR</a>(A) - returns the QR
+decomposition with column pivoting of a rectangular matrix A such
+that Q*R = A[:,p].</li>
+<li>(H,U) = <a href="Modelica.Math.Matrices.hessenberg.html">hessenberg</a>(A) -
+returns the upper Hessenberg form H and the orthogonal
+transformation matrix U of a square matrix A such that H =
+U'*A*U.</li>
+<li><a href="Modelica.Math.Matrices.realSchur.html">realSchur</a>(A) -
+returns the real Schur form of a square matrix A.</li>
+<li><a href="Modelica.Math.Matrices.cholesky.html">cholesky</a>(A) -
+returns the cholesky factor H of a real symmetric positive definite
+matrix A so that A = H'*H.</li>
+<li>(D,Aimproved) = <a href="Modelica.Math.Matrices.balance.html">balance</a>(A) -
+returns an improved form Aimproved of a square matrix A that has a
+smaller condition as A, with Aimproved =
+inv(diagonal(D))*A*diagonal(D).</li>
+</ul>
+<p><b>Matrix Properties</b></p>
+<ul>
+<li><a href="Modelica.Math.Matrices.trace.html">trace</a>(A)
+- returns the trace of square matrix A, i.e., the sum of the
+diagonal elements.</li>
+<li><a href="Modelica.Math.Matrices.det.html">det</a>(A) -
+returns the determinant of square matrix A (using LU decomposition;
+try to avoid det(..))</li>
+<li><a href="Modelica.Math.Matrices.inv.html">inv</a>(A) -
+returns the inverse of square matrix A (try to avoid, use instead
+"solve2(..) with B=identity(..))</li>
+<li><a href="Modelica.Math.Matrices.rank.html">rank</a>(A) -
+returns the rank of square matrix A (computed with singular value
+decomposition)</li>
+<li><a href="Modelica.Math.Matrices.conditionNumber.html">conditionNumber</a>(A)
+- returns the condition number norm(A)*norm(inv(A)) of a square
+matrix A in the range 1..∞.</li>
+<li><a href="Modelica.Math.Matrices.rcond.html">rcond</a>(A)
+- returns the reciprocal condition number 1/conditionNumber(A) of a
+square matrix A in the range 0..1.</li>
+<li><a href="Modelica.Math.Matrices.norm.html">norm</a>(A) -
+returns the 1-, 2-, or infinity-norm of matrix A.</li>
+<li><a href="Modelica.Math.Matrices.frobeniusNorm.html">frobeniusNorm</a>(A)
+- returns the Frobenius norm of matrix A.</li>
+<li><a href="Modelica.Math.Matrices.nullSpace.html">nullSpace</a>(A) -
+returns the null space of matrix A.</li>
+</ul>
+<p><b>Matrix Exponentials</b></p>
+<ul>
+<li><a href="Modelica.Math.Matrices.exp.html">exp</a>(A) -
+returns the exponential e^A of a matrix A by adaptive Taylor series
+expansion with scaling and balancing</li>
+<li>(phi, gamma) = <a href="Modelica.Math.Matrices.integralExp.html">integralExp</a>(A,B)
+- returns the exponential phi=e^A and the integral
+gamma=integral(exp(A*t)*dt)*B as needed for a discretized system
+with zero order hold.</li>
+<li>(phi, gamma, gamma1) = <a href="Modelica.Math.Matrices.integralExpT.html">integralExpT</a>(A,B)
+- returns the exponential phi=e^A, the integral
+gamma=integral(exp(A*t)*dt)*B, and the time-weighted integral
+gamma1 = integral((T-t)*exp(A*t)*dt)*B as needed for a discretized
+system with first order hold.</li>
+</ul>
+<p><b>Matrix Equations</b></p>
+<ul>
+<li><a href="Modelica.Math.Matrices.continuousLyapunov.html">continuousLyapunov</a>(A,C)
+- returns solution X of the continuous-time Lyapunov equation X*A +
+A'*X = C</li>
+<li><a href="Modelica.Math.Matrices.continuousSylvester.html">continuousSylvester</a>(A,B,C)
+- returns solution X of the continuous-time Sylvester equation A*X
++ X*B = C</li>
+<li><a href="Modelica.Math.Matrices.continuousRiccati.html">continuousRiccati</a>(A,B,R,Q)
+- returns solution X of the continuous-time algebraic Riccati
+equation A'*X + X*A - X*B*inv(R)*B'*X + Q = 0</li>
+<li><a href="Modelica.Math.Matrices.discreteLyapunov.html">discreteLyapunov</a>(A,C)
+- returns solution X of the discrete-time Lyapunov equation A'*X*A
++ sgn*X = C</li>
+<li><a href="Modelica.Math.Matrices.discreteSylvester.html">discreteSylvester</a>(A,B,C)
+- returns solution X of the discrete-time Sylvester equation A*X*B
++ sgn*X = C</li>
+<li><a href="Modelica.Math.Matrices.discreteRiccati.html">discreteRiccati</a>(A,B,R,Q)
+- returns solution X of the discrete-time algebraic Riccati
+equation A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0</li>
+</ul>
+<p><b>Matrix Manipulation</b></p>
+<ul>
+<li><a href="Modelica.Math.Matrices.sort.html">sort</a>(M) -
+returns the sorted rows or columns of matrix M in ascending or
+descending order.</li>
+<li><a href="Modelica.Math.Matrices.flipLeftRight.html">flipLeftRight</a>(M)
+- returns matrix M so that the columns of M are flipped in
+left/right direction.</li>
+<li><a href="Modelica.Math.Matrices.flipUpDown.html">flipUpDown</a>(M) -
+returns matrix M so that the rows of M are flipped in up/down
+direction.</li>
+</ul>
+<h4>See also</h4>
+<a href="Modelica.Math.Vectors.html">Vectors</a>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.Examples.html"><img class="svgiconsmall" src="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.Examples.html">Examples</a></td>
+<td>Examples demonstrating the usage of the Math.Matrices
+functions</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.toString.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.toString.html">toString</a></td>
+<td>Convert a matrix into its string representation</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.isEqual.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.isEqual.html">isEqual</a></td>
+<td>Compare whether two Real matrices are identical</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.solve.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.solve.html">solve</a></td>
+<td>Solve real system of linear equations A*x=b with a b vector
+(Gaussian elimination with partial pivoting)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.solve2.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.solve2.html">solve2</a></td>
+<td>Solve real system of linear equations A*X=B with a B matrix
+(Gaussian elimination with partial pivoting)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.leastSquares.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.leastSquares.html">leastSquares</a></td>
+<td>Solve linear equation A*x = b (exactly if possible, or
+otherwise in a least square sense; A may be non-square and may be
+rank deficient)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.leastSquares2.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.leastSquares2.html">leastSquares2</a></td>
+<td>Solve linear equation A*X = B (exactly if possible, or
+otherwise in a least square sense; A may be non-square and may be
+rank deficient)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.equalityLeastSquares.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.equalityLeastSquares.html">equalityLeastSquares</a></td>
+<td>Solve a linear equality constrained least squares problem</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.LU.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.LU.html">LU</a></td>
+<td>LU decomposition of square or rectangular matrix</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.LU_solve.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.LU_solve.html">LU_solve</a></td>
+<td>Solve real system of linear equations P*L*U*x=b with a b vector
+and an LU decomposition (from LU(..))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.LU_solve2.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.LU_solve2.html">LU_solve2</a></td>
+<td>Solve real system of linear equations P*L*U*X=B with a B matrix
+and an LU decomposition (from LU(..))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.eigenValues.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.eigenValues.html">eigenValues</a></td>
+<td>Return eigenvalues and eigenvectors for a real, nonsymmetric
+matrix in a Real representation</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.eigenValueMatrix.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.eigenValueMatrix.html">eigenValueMatrix</a></td>
+<td>Return real valued block diagonal matrix J of eigenvalues of
+matrix A (A=V*J*Vinv)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.singularValues.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.singularValues.html">singularValues</a></td>
+<td>Return singular values and left and right singular vectors</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.QR.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.QR.html">QR</a></td>
+<td>Return the QR decomposition of a square matrix with optional
+column pivoting (A(:,p) = Q*R)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.hessenberg.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.hessenberg.html">hessenberg</a></td>
+<td>Return upper Hessenberg form of a matrix</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.realSchur.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.realSchur.html">realSchur</a></td>
+<td>Return the real Schur form (rsf) S of a square matrix A,
+A=QZ*S*QZ'</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.cholesky.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.cholesky.html">cholesky</a></td>
+<td>Return the Cholesky factorization of a symmetric positive
+definite matrix</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.balance.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.balance.html">balance</a></td>
+<td>Return a balanced form of matrix A to improve the condition of
+A</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.trace.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.trace.html">trace</a></td>
+<td>Return the trace of matrix A, i.e., the sum of the diagonal
+elements</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.det.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.det.html">det</a></td>
+<td>Return determinant of a matrix (computed by LU decomposition;
+try to avoid det(..))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.inv.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.inv.html">inv</a></td>
+<td>Return inverse of a matrix (try to avoid inv(..))</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.rank.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.rank.html">rank</a></td>
+<td>Return rank of a rectangular matrix (computed with singular
+values)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.conditionNumber.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.conditionNumber.html">conditionNumber</a></td>
+<td>Return the condition number norm(A)*norm(inv(A)) of a matrix
+A</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.rcond.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.rcond.html">rcond</a></td>
+<td>Return the reciprocal condition number of a matrix</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.norm.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.norm.html">norm</a></td>
+<td>Return the p-norm of a matrix</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.frobeniusNorm.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.frobeniusNorm.html">frobeniusNorm</a></td>
+<td>Return the Frobenius norm of a matrix</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.nullSpace.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.nullSpace.html">nullSpace</a></td>
+<td>Return the orthonormal nullspace of a matrix</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.exp.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.exp.html">exp</a></td>
+<td>Return the exponential of a matrix by adaptive Taylor series
+expansion with scaling and balancing</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.integralExp.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.integralExp.html">integralExp</a></td>
+<td>Return the exponential and the integral of the exponential of a
+matrix</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.integralExpT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.integralExpT.html">integralExpT</a></td>
+<td>Return the exponential, the integral of the exponential, and
+time-weighted integral of the exponential of a matrix</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.continuousLyapunov.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.continuousLyapunov.html">continuousLyapunov</a></td>
+<td>Return solution X of the continuous-time Lyapunov equation X*A
++ A'*X = C</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.continuousSylvester.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.continuousSylvester.html">continuousSylvester</a></td>
+<td>Return solution X of the continuous-time Sylvester equation A*X
++ X*B = C</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.continuousRiccati.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.continuousRiccati.html">continuousRiccati</a></td>
+<td>Return solution X of the continuous-time algebraic Riccati
+equation A'*X + X*A - X*B*inv(R)*B'*X + Q = 0 (care)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.discreteLyapunov.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.discreteLyapunov.html">discreteLyapunov</a></td>
+<td>Return solution X of the discrete-time Lyapunov equation A'*X*A
++ sgn*X = C</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.discreteSylvester.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.discreteSylvester.html">discreteSylvester</a></td>
+<td>Return solution of the discrete-time Sylvester equation A*X*B +
+sgn*X = C</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.discreteRiccati.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.discreteRiccati.html">discreteRiccati</a></td>
+<td>Return solution of discrete-time algebraic Riccati equation
+A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0 (dare)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.sort.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.sort.html">sort</a></td>
+<td>Sort the rows or columns of a matrix in ascending or descending
+order</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.flipLeftRight.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.flipLeftRight.html">flipLeftRight</a></td>
+<td>Flip the columns of a matrix in left/right direction</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.flipUpDown.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.flipUpDown.html">flipUpDown</a></td>
+<td>Flip the rows of a matrix in up/down direction</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.LAPACK.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a></td>
+<td>Interface to LAPACK library (should usually not directly be
+used but only indirectly via Modelica.Math.Matrices)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Math.Matrices.Utilities.html"><img class="svgiconsmall" src="Icons/ffc4fbc4397f6f05878f16f78d75ad48b3a4d554.svg" /></a>&nbsp;<a href="Modelica.Math.Matrices.Utilities.html">Utilities</a></td>
+<td>Utility functions that should not be directly utilized by the
+user</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

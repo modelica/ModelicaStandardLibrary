@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'der()'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'der()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Time derivative of expression or<br />
+partial derivative of function</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>der</b>(expr) or
+IDENT "=" <b>der</b> "(" name "," IDENT { "," IDENT } ")" comment
+</pre></blockquote>
+<h4>Description</h4>
+<p>The first form is the time derivative of expression expr. If the
+expression expr is a scalar it needs to be a subtype of Real. The
+expression and all its subexpressions must be differentiable. If
+expr is an array, the operator is applied to all elements of the
+array. For Real parameters and constants the result is a zero
+scalar or array of the same size as the variable.</p>
+<p>The second form is the partial derivative of a function and may
+only be used as declarations of functions. The semantics is that a
+function [and only a function] can be specified in this form,
+defining that it is the partial derivative of the function to the
+right of the equal sign (looked up in the same way as a short class
+definition - the looked up name must be a function), and partially
+differentiated with respect to each IDENT in order (starting from
+the first one). The IDENT must be Real inputs to the function. The
+comment allows a user to comment the function (in the info-layer
+and as one-line description, and as icon).</p>
+<h4>Examples</h4>
+<blockquote>
+<pre>
+  Real x, xdot1, xdot2;
+<b>equation</b>
+  xdot1 = <b>der</b>(x);
+  xdot2 = <b>der</b>(x*sin(x));
+</pre></blockquote>
+<p>The specific enthalpy can be computed from a Gibbs-function as
+follows:</p>
+<blockquote>
+<pre>
+<b>function</b> Gibbs
+  <b>input</b> Real p,T;
+  <b>output</b> Real g;
+<b>algorithm</b>
+  ...
+<b>end</b> Gibbs;
+
+<b>function</b> Gibbs_T=<b>der</b>(Gibbs, T);
+
+<b>function</b> specificEnthalpy
+  <b>input</b> Real p,T;
+  <b>output</b> Real h;
+<b>algorithm</b>
+  h:=Gibbs(p,T)-T*Gibbs_T(p,T);
+<b>end</b> specificEnthalpy;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

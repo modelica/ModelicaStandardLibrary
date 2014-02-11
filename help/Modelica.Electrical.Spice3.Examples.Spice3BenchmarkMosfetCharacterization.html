@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.Examples.Spice3BenchmarkMosfetCharacterization</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.Examples.html">Examples</a>.<span class="omc-h1">Spice3BenchmarkMosfetCharacterization</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This Mosfet Characterization model is one of the five benchmark
+circuits described in the SPICE3 Version e3 User's Manual (see
+information of package Spice3).</p>
+<p>This circuit is a very simple one than consists of an NMOS
+transistor level 1 that is connected to voltage sources at gate and
+drain node whereas the drain voltage source supplies the operating
+voltage. The user is recommended to simulate from t=0 to t=1e-7s
+and observe the gate node voltage ("VGS.p.v") and the transistor
+current ("M1.D.i"). It can be seen that the current is increasing
+with increasing gate voltage which means the conductivity of the
+transistor is increasing. The opposite case occurs for decreasing
+gate voltage.</p>
+<p>Original SPICE3 netlist of the MOSFET characterization
+circuit:</p>
+<pre>
+MOS OUTPUT CHARACTERISTICS<br />.OPTIONS NODE NOPAGE<br />VDS 3 0<br />VGS 2 0<br />M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br />*VIDS MEASURES ID, WE COULD HAVE USED VDS, BUT IT WOULD BE NEGATIVE VIDS 3 1
+.MODEL MOD1 NMOS VTO=-2 NSUB=1.0E15 UO=550<br />.DC VDS 0 10 .5 VGS 0 5 1<br />.END
+</pre>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkMosfetCharacterization.SpiceConstants.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkMosfetCharacterization.SpiceConstants.html">SpiceConstants</a></td>
+<td></td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

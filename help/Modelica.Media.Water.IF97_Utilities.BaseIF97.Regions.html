@@ -1,0 +1,419 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</title>
+</head>
+<body>
+<h1><a href="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg"><img class="svgiconhead" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Water.html">Water</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.BaseIF97.html">BaseIF97</a>.<span class="omc-h1">Regions</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Package description</h4>
+<p>Package <b>Regions</b> contains a large number of auxiliary
+functions which are needed to compute the current region of the
+IAPWS/IF97 for a given pair of input variables as quickly as
+possible. The focus of this implementation was on computational
+efficiency, not on compact code. Many of the function values
+calculated in these functions could be obtained using the
+fundamental functions of IAPWS/IF97, but with considerable
+overhead. If the region of IAPWS/IF97 is known in advance, the
+input variable mode can be set to the region, then the somewhat
+costly region checks are omitted. The checking for the phase has to
+be done outside the region functions because many properties are
+not differentiable at the region boundary. If the input phase is 2,
+the output region will be set to 4 immediately.</p>
+<h4>Package contents</h4>
+<p>The main 4 functions in this package are the functions returning
+the appropriate region for two input variables.</p>
+<ul>
+<li>Function <b>region_ph</b> compute the region of IAPWS/IF97 for
+input pair pressure and specific enthalpy.</li>
+<li>Function <b>region_ps</b> compute the region of IAPWS/IF97 for
+input pair pressure and specific entropy</li>
+<li>Function <b>region_dT</b> compute the region of IAPWS/IF97 for
+input pair density and temperature.</li>
+<li>Function <b>region_pT</b> compute the region of IAPWS/IF97 for
+input pair pressure and temperature (only in phase region).</li>
+</ul>
+<p>In addition, functions of the boiling and condensation curves
+compute the specific enthalpy, specific entropy, or density on
+these curves. The functions for the saturation pressure and
+temperature are included in the package <b>Basic</b> because they
+are part of the original <a href="../Modelica%203.2.1/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf">
+IAPWS/IF97 standards document</a>. These functions are also aliased
+to be used directly from package <b>Water</b>.</p>
+<ul>
+<li>Function <b>hl_p</b> computes the liquid specific enthalpy as a
+function of pressure. For overcritical pressures, the critical
+specific enthalpy is returned. An approximation is used for
+temperatures &gt; 623.15 K.</li>
+<li>Function <b>hv_p</b> computes the vapour specific enthalpy as a
+function of pressure. For overcritical pressures, the critical
+specific enthalpy is returned. An approximation is used for
+temperatures &gt; 623.15 K.</li>
+<li>Function <b>sl_p</b> computes the liquid specific entropy as a
+function of pressure. For overcritical pressures, the critical
+specific entropy is returned. An approximation is used for
+temperatures &gt; 623.15 K.</li>
+<li>Function <b>sv_p</b> computes the vapour specific entropy as a
+function of pressure. For overcritical pressures, the critical
+specific entropy is returned. An approximation is used for
+temperatures &gt; 623.15 K.</li>
+<li>Function <b>rhol_T</b> computes the liquid density as a
+function of temperature. For overcritical temperatures, the
+critical density is returned. An approximation is used for
+temperatures &gt; 623.15 K.</li>
+<li>Function <b>rhol_T</b> computes the vapour density as a
+function of temperature. For overcritical temperatures, the
+critical density is returned. An approximation is used for
+temperatures &gt; 623.15 K.</li>
+</ul>
+<p>All other functions are auxiliary functions called from the
+region functions to check a specific boundary.</p>
+<ul>
+<li>Function <b>boundary23ofT</b> computes the boundary pressure
+between regions 2 and 3 (input temperature)</li>
+<li>Function <b>boundary23ofp</b> computes the boundary temperature
+between regions 2 and 3 (input pressure)</li>
+<li>Function <b>hlowerofp5</b> computes the lower specific enthalpy
+limit of region 5 (input p, T=1073.15 K)</li>
+<li>Function <b>hupperofp5</b> computes the upper specific enthalpy
+limit of region 5 (input p, T=2273.15 K)</li>
+<li>Function <b>slowerofp5</b> computes the lower specific entropy
+limit of region 5 (input p, T=1073.15 K)</li>
+<li>Function <b>supperofp5</b> computes the upper specific entropy
+limit of region 5 (input p, T=2273.15 K)</li>
+<li>Function <b>hlowerofp1</b> computes the lower specific enthalpy
+limit of region 1 (input p, T=273.15 K)</li>
+<li>Function <b>hupperofp1</b> computes the upper specific enthalpy
+limit of region 1 (input p, T=623.15 K)</li>
+<li>Function <b>slowerofp1</b> computes the lower specific entropy
+limit of region 1 (input p, T=273.15 K)</li>
+<li>Function <b>supperofp1</b> computes the upper specific entropy
+limit of region 1 (input p, T=623.15 K)</li>
+<li>Function <b>hlowerofp2</b> computes the lower specific enthalpy
+limit of region 2 (input p, T=623.15 K)</li>
+<li>Function <b>hupperofp2</b> computes the upper specific enthalpy
+limit of region 2 (input p, T=1073.15 K)</li>
+<li>Function <b>slowerofp2</b> computes the lower specific entropy
+limit of region 2 (input p, T=623.15 K)</li>
+<li>Function <b>supperofp2</b> computes the upper specific entropy
+limit of region 2 (input p, T=1073.15 K)</li>
+<li>Function <b>d1n</b> computes the density in region 1 as
+function of pressure and temperature</li>
+<li>Function <b>d2n</b> computes the density in region 2 as
+function of pressure and temperature</li>
+<li>Function <b>dhot1ofp</b> computes the hot density limit of
+region 1 (input p, T=623.15 K)</li>
+<li>Function <b>dupper1ofT</b>computes the high pressure density
+limit of region 1 (input T, p=100MPa)</li>
+<li>Function <b>hl_p_R4b</b> computes a high accuracy approximation
+to the liquid enthalpy for temperatures &gt; 623.15 K (input
+p)</li>
+<li>Function <b>hv_p_R4b</b> computes a high accuracy approximation
+to the vapour enthalpy for temperatures &gt; 623.15 K (input
+p)</li>
+<li>Function <b>sl_p_R4b</b> computes a high accuracy approximation
+to the liquid entropy for temperatures &gt; 623.15 K (input p)</li>
+<li>Function <b>sv_p_R4b</b> computes a high accuracy approximation
+to the vapour entropy for temperatures &gt; 623.15 K (input p)</li>
+<li>Function <b>rhol_p_R4b</b> computes a high accuracy
+approximation to the liquid density for temperatures &gt; 623.15 K
+(input p)</li>
+<li>Function <b>rhov_p_R4b</b> computes a high accuracy
+approximation to the vapour density for temperatures &gt; 623.15 K
+(input p)</li>
+</ul>
+<h4>Version Info and Revision history</h4>
+<ul>
+<li>First implemented: <i>July, 2000</i> by <a href="http://www.control.lth.se/~hubertus/">Hubertus
+Tummescheit</a></li>
+</ul>
+<address>Authors: Hubertus Tummescheit, Jonas Eborn and Falko Jens
+Wagner<br />
+Modelon AB<br />
+Ideon Science Park<br />
+SE-22370 Lund, Sweden<br />
+email: hubertus@modelon.se</address>
+<ul>
+<li>Initial version: July 2000</li>
+<li>Revised and extended for inclusion in Modelica.Thermal:
+December 2002</li>
+</ul>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT.html">boundary23ofT</a></td>
+<td>Boundary function for region boundary between regions 2 and 3
+(input temperature)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp.html">boundary23ofp</a></td>
+<td>Boundary function for region boundary between regions 2 and 3
+(input pressure)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5.html">hlowerofp5</a></td>
+<td>Explicit lower specific enthalpy limit of region 5 as function
+of pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5.html">hupperofp5</a></td>
+<td>Explicit upper specific enthalpy limit of region 5 as function
+of pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5.html">slowerofp5</a></td>
+<td>Explicit lower specific entropy limit of region 5 as function
+of pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5.html">supperofp5</a></td>
+<td>Explicit upper specific entropy limit of region 5 as function
+of pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1.html">hlowerofp1</a></td>
+<td>Explicit lower specific enthalpy limit of region 1 as function
+of pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1.html">hupperofp1</a></td>
+<td>Explicit upper specific enthalpy limit of region 1 as function
+of pressure (meets region 4 saturation pressure curve at 623.15
+K)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1.html">slowerofp1</a></td>
+<td>Explicit lower specific entropy limit of region 1 as function
+of pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1.html">supperofp1</a></td>
+<td>Explicit upper specific entropy limit of region 1 as function
+of pressure (meets region 4 saturation pressure curve at 623.15
+K)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2.html">hlowerofp2</a></td>
+<td>Explicit lower specific enthalpy limit of region 2 as function
+of pressure (meets region 4 saturation pressure curve at 623.15
+K)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2.html">hupperofp2</a></td>
+<td>Explicit upper specific enthalpy limit of region 2 as function
+of pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2.html">slowerofp2</a></td>
+<td>Explicit lower specific entropy limit of region 2 as function
+of pressure (meets region 4 saturation pressure curve at 623.15
+K)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2.html">supperofp2</a></td>
+<td>Explicit upper specific entropy limit of region 2 as function
+of pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n.html">d1n</a></td>
+<td>Density in region 1 as function of p and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n.html">d2n</a></td>
+<td>Density in region 2 as function of p and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp.html">dhot1ofp</a></td>
+<td>Density at upper temperature limit of region 1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT.html">dupper1ofT</a></td>
+<td>Density at upper pressure limit of region 1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b.html">hl_p_R4b</a></td>
+<td>Explicit approximation of liquid specific enthalpy on the
+boundary between regions 4 and 3</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b.html">hv_p_R4b</a></td>
+<td>Explicit approximation of vapour specific enthalpy on the
+boundary between regions 4 and 3</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b.html">sl_p_R4b</a></td>
+<td>Explicit approximation of liquid specific entropy on the
+boundary between regions 4 and 3</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b.html">sv_p_R4b</a></td>
+<td>Explicit approximation of vapour specific entropy on the
+boundary between regions 4 and 3</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b.html">rhol_p_R4b</a></td>
+<td>Explicit approximation of liquid density on the boundary
+between regions 4 and 3</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b.html">rhov_p_R4b</a></td>
+<td>Explicit approximation of vapour density on the boundary
+between regions 4 and 2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p.html">boilingcurve_p</a></td>
+<td>Properties on the boiling curve</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p.html">dewcurve_p</a></td>
+<td>Properties on the dew curve</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p.html">hvl_p</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p.html">hl_p</a></td>
+<td>Liquid specific enthalpy on the boundary between regions 4 and
+3 or 1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p.html">hv_p</a></td>
+<td>Vapour specific enthalpy on the boundary between regions 4 and
+3 or 2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der.html">hvl_p_der</a></td>
+<td>Derivative function for the specific enthalpy along the phase
+boundary</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p.html">rhovl_p</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p.html">rhol_p</a></td>
+<td>Density of saturated water</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p.html">rhov_p</a></td>
+<td>Density of saturated vapour</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der.html">rhovl_p_der</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p.html">sl_p</a></td>
+<td>Liquid specific entropy on the boundary between regions 4 and 3
+or 1</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p.html">sv_p</a></td>
+<td>Vapour specific entropy on the boundary between regions 4 and 3
+or 2</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T.html">rhol_T</a></td>
+<td>Density of saturated water</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T.html">rhov_T</a></td>
+<td>Density of saturated vapour</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph.html">region_ph</a></td>
+<td>Return the current region (valid values: 1,2,3,4,5) in IF97 for
+given pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps.html">region_ps</a></td>
+<td>Return the current region (valid values: 1,2,3,4,5) in IF97 for
+given pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT.html">region_pT</a></td>
+<td>Return the current region (valid values: 1,2,3,5) in IF97,
+given pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT.html">region_dT</a></td>
+<td>Return the current region (valid values: 1,2,3,4,5) in IF97,
+given density and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp.html">hvl_dp</a></td>
+<td>Derivative function for the specific enthalpy along the phase
+boundary</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp.html">dhl_dp</a></td>
+<td>Derivative of liquid specific enthalpy on the boundary between
+regions 4 and 3 or 1 w.r.t. pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp.html">dhv_dp</a></td>
+<td>Derivative of vapour specific enthalpy on the boundary between
+regions 4 and 3 or 1 w.r.t. pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp.html">drhovl_dp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp.html">drhol_dp</a></td>
+<td>Derivative of density of saturated water w.r.t. pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp.html">drhov_dp</a></td>
+<td>Derivative of density of saturated steam w.r.t. pressure</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

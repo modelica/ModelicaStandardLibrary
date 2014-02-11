@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.StateGraph.UsersGuide.ApplicationExample</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.StateGraph.html">StateGraph</a>.<a class="omc-h1-a" href="Modelica.StateGraph.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">ApplicationExample</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>In this section a more realistic, still simple, application
+example is given, to demonstrate various features of the StateGraph
+library. This example shows the control of a two tank system from
+the master thesis of Isolde Dressler (<a href="Modelica.StateGraph.UsersGuide.Literature.html">see
+literature</a>).</p>
+<p>In the following figure the top level of the model is shown.
+This model is available as StateGraph.Examples.ControlledTanks.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/StateGraph/Examples/ControlledTanks1.png" /></p>
+<p>In the right part of the figure, two tanks are shown. At the top
+part, a large fluid source is present from which fluid can be
+filled in <b>tank1</b> when <b>valve1</b> is open. Tank1 can be
+emptied via <b>valve2</b> that is located in the bottom of tank2
+and fills a second <b>tank2</b> which in turn is emptied via
+<b>valve3</b>. The actual levels of the tanks are measured and are
+provided as signals <b>level1</b> and <b>level2</b> to the
+<b>tankController</b>.</p>
+<p>The <b>tankController</b> is controlled by three buttons,
+<b>start</b>, <b>stop</b> and <b>shut</b> (for shutdown) that are
+mutually exclusive. This means that whenever one button is pressed
+(i.e., its state is <b>true</b>) then the other two buttons are not
+pressed (i.e., their states are <b>false</b>). When button
+<b>start</b> is pressed, the "normal" operation to fill and to
+empty the two tanks is processed:</p>
+<ol>
+<li>Valve 1 is opened and tank 1 is filled.</li>
+<li>When tank 1 reaches its fill level limit, valve 1 is
+closed.</li>
+<li>After a waiting time, valve 2 is opened and the fluid flows
+from tank 1 into tank 2.</li>
+<li>When tank 1 is empty, valve 2 is closed.</li>
+<li>After a waiting time, valve 3 is opened and the fluid flows out
+of tank 2</li>
+<li>When tank 2 is empty, valve 3 is closed</li>
+</ol>
+<p>The above "normal" process can be influenced by the following
+buttons:</p>
+<ul>
+<li>Button <b>start</b> starts the above process. When this button
+is pressed after a "stop" or "shut" operation, the process
+operation continues.</li>
+<li>Button <b>stop</b> stops the above process by closing all
+valves. Then, the controller waits for further input (either
+"start" or "shut" operation).</li>
+<li>Button <b>shut</b> is used to shutdown the process, by emptying
+at once both tanks. When this is achieved, the process goes back to
+its start configuration. Clicking on "start", restarts the
+process.</li>
+</ul>
+<p>The implementation of the <b>tankController</b> is shown in the
+next figure:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/StateGraph/Examples/ControlledTanks2.png" /></p>
+<p>When the "<b>start</b>" button is pressed, the stateGraph is
+within the CompositeStep "<b>makeProduct</b>". During normal
+operation this CompositeStep is only left, once tank2 is empty.
+Afterwards, the CompositeStep is at once re-entered.</p>
+<p>When the "<b>stop</b>" button is pressed, the "makeProduct"
+CompositeStep is at once terminated via the "<b>suspend</b>" port
+and the stateGraph waits in step "<b>s2</b>" for further commands.
+When the "<b>start</b>" button is pressed, the CompositeStep is
+re-entered via its <b>resume</b> port and the "normal" operation
+continues at the state where it was aborted by the suspend
+transition. If the "<b>shut</b>" button is pressed, the stateGraph
+waits in the "<b>emptyTanks</b>" step, until both tanks are empty
+and then waits at the initial step "<b>s1</b>" for further
+input.</p>
+<p>The opening and closing of valves is <b>not</b> directly defined
+in the stateGraph. Instead via the "<b>setValveX</b>" components,
+the Boolean state of the valves are computed. For example, the
+output y of "setValve2" is computed as:</p>
+<pre>
+  y = makeProduct.fillTank2.active or emptyTanks.active
+</pre>
+<p>i.e., valve2 is open, when step "makeProduct.fillTank2 or when
+step "emptyTanks" is active. Otherwise, valve2 is closed.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

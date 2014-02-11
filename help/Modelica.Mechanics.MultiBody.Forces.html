@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Forces</title>
+</head>
+<body>
+<h1><a href="Icons/0e872da7f486258b5edba506f802b4857f87b48a.svg"><img class="svgiconhead" src="Icons/0e872da7f486258b5edba506f802b4857f87b48a.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<span class="omc-h1">Forces</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package contains components that exert forces and torques
+between two frame connectors, e.g., between two parts.</p>
+<h4>Content</h4>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b><i>Model</i></b></th>
+<th><b><i>Description</i></b></th>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.WorldForce.html">WorldForce</a></td>
+<td valign="top">External force acting at the frame to which this
+component is connected and defined by 3 input signals, that are
+interpreted as one vector resolved in frame world, frame_b or
+frame_resolve.<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce.png" />
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.WorldTorque.html">WorldTorque</a></td>
+<td valign="top">External torque acting at the frame to which this
+component is connected and defined by 3 input signals, that are
+interpreted as one vector resolved in frame world, frame_b or
+frame_resolve.<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque.png" />
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque.html">
+WorldForceAndTorque</a></td>
+<td valign="top">External force and external torque acting at the
+frame to which this component is connected and defined by 3+3 input
+signals, that are interpreted as a force and as a torque vector
+resolved in frame world, frame_b or frame_resolve.<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce.png" />
+<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque.png" />
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.Force.html">Force</a></td>
+<td valign="top">Force acting between two frames defined by 3 input
+signals resolved in frame world, frame_a, frame_b or in
+frame_resolve.<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce2.png" />
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.Torque.html">Torque</a></td>
+<td valign="top">Torque acting between two frames defined by 3
+input signals resolved in frame world, frame_a, frame_b or in
+frame_resolve.<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque2.png" />
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.ForceAndTorque.html">ForceAndTorque</a></td>
+<td valign="top">Force and torque acting between two frames defined
+by 3+3 input signals resolved in frame world, frame_a, frame_b or
+in frame_resolve.<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/ArrowForce2.png" />
+<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/ArrowTorque2.png" />
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithMass.html">LineForceWithMass</a></td>
+<td valign="top">General line force component with an optional
+point mass on the connection line. The force law can be defined by
+a component of Modelica.Mechanics.Translational<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/LineForceWithMass.png" />
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses.html">
+LineForceWithTwoMasses</a></td>
+<td valign="top">General line force component with two optional
+point masses on the connection line. The force law can be defined
+by a component of Modelica.Mechanics.Translational<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/LineForceWithTwoMasses.png" />
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.Spring.html">Spring</a></td>
+<td valign="top">Linear translational spring with optional
+mass<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/Spring2.png" />
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.Damper.html">Damper</a></td>
+<td valign="top">Linear (velocity dependent) damper<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/Damper2.png" />
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel.html">
+SpringDamperParallel</a></td>
+<td valign="top">Linear spring and damper in parallel
+connection</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries.html">
+SpringDamperSeries</a></td>
+<td valign="top">Linear spring and damper in series connection</td>
+</tr>
+</table>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.WorldForce.html"><img class="svgiconsmall" src="Icons/664bc1e962a4c1cea179c2f2e097839c96ee44ea.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.WorldForce.html">WorldForce</a></td>
+<td>External force acting at frame_b, defined by 3 input signals
+and resolved in frame world, frame_b or frame_resolve</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.WorldTorque.html"><img class="svgiconsmall" src="Icons/c5a3acb025e75787f3313dbeb21b4c5280ed300b.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.WorldTorque.html">WorldTorque</a></td>
+<td>External torque acting at frame_b, defined by 3 input signals
+and resolved in frame world, frame_b or frame_resolve</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque.html"><img class="svgiconsmall" src="Icons/673a2581a9bbbe4f04ee889b7bd093b6d9ea0965.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque.html">WorldForceAndTorque</a></td>
+<td>External force and torque acting at frame_b, defined by 3+3
+input signals and resolved in frame world, frame_b or in
+frame_resolve</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.Force.html"><img class="svgiconsmall" src="Icons/bdec95640e9a7826188367e21b1d49baff47f4af.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.Force.html">Force</a></td>
+<td>Force acting between two frames, defined by 3 input signals and
+resolved in frame world, frame_a, frame_b or frame_resolve</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.Torque.html"><img class="svgiconsmall" src="Icons/50be2ed7420a44fbecbbc98556ff48779c64e182.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.Torque.html">Torque</a></td>
+<td>Torque acting between two frames, defined by 3 input signals
+and resolved in frame world, frame_a, frame_b or frame_resolve</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.ForceAndTorque.html"><img class="svgiconsmall" src="Icons/778d51103d80b7b67c45e17ed6a6fd0eb29d42d1.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.ForceAndTorque.html">ForceAndTorque</a></td>
+<td>Force and torque acting between two frames, defined by 3+3
+input signals and resolved in frame world, frame_a, frame_b or
+frame_resolve</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithMass.html"><img class="svgiconsmall" src="Icons/4da847c0458c188dd232dd1a4663219b70283816.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithMass.html">LineForceWithMass</a></td>
+<td>General line force component with an optional point mass on the
+connection line</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses.html"><img class="svgiconsmall" src="Icons/e2a5767458b88d570628d5eb813f256190ef8a83.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses.html">LineForceWithTwoMasses</a></td>
+<td>General line force component with two optional point masses on
+the connection line</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.Spring.html"><img class="svgiconsmall" src="Icons/a6b385c43e0fdd0de7b0430efcd598d601fa8210.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.Spring.html">Spring</a></td>
+<td>Linear translational spring with optional mass</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.Damper.html"><img class="svgiconsmall" src="Icons/cc658271f4d6974445cc4cd4c5c86677ec10f3e4.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.Damper.html">Damper</a></td>
+<td>Linear (velocity dependent) damper</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel.html"><img class="svgiconsmall" src="Icons/9ecbcda92657b95300ff78cc9eee42a55f83db00.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel.html">SpringDamperParallel</a></td>
+<td>Linear spring and linear damper in parallel</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries.html"><img class="svgiconsmall" src="Icons/0c54e0cb7043a0fadac5fea827ef5b911cdbae1d.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries.html">SpringDamperSeries</a></td>
+<td>Linear spring and linear damper in series connection</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Forces.Internal.html"><img class="svgiconsmall" src="Icons/f7f3520c2e8b1a66434a34eaa5b46da5f20e718d.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Forces.Internal.html">Internal</a></td>
+<td>Internal package, should not be used by user</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

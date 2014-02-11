@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Forces.Torque</title>
+</head>
+<body>
+<h1><a href="Icons/50be2ed7420a44fbecbbc98556ff48779c64e182.svg"><img class="svgiconhead" src="Icons/50be2ed7420a44fbecbbc98556ff48779c64e182.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Forces.html">Forces</a>.<span class="omc-h1">Torque</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <b>3</b> signals of the <b>torque</b> connector are
+interpreted as the x-, y- and z-coordinates of a <b>torque</b>
+acting at the frame connector to which frame_b of this component is
+attached. Via parameter <b>resolveInFrame</b> it is defined, in
+which frame these coordinates shall be resolved:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>Types.ResolveInFrameAB.</b></th>
+<th><b>Meaning</b></th>
+</tr>
+<tr>
+<td valign="top">world</td>
+<td valign="top">Resolve input torque in world frame</td>
+</tr>
+<tr>
+<td valign="top">frame_a</td>
+<td valign="top">Resolve input torque in frame_a</td>
+</tr>
+<tr>
+<td valign="top">frame_b</td>
+<td valign="top">Resolve input torque in frame_b (= default)</td>
+</tr>
+<tr>
+<td valign="top">frame_resolve</td>
+<td valign="top">Resolve input torque in frame_resolve
+(frame_resolve must be connected)</td>
+</tr>
+</table>
+<p>If resolveInFrame = ResolveInFrameAB.frame_resolve, the torque
+coordinates are with respect to the frame, that is connected to
+<b>frame_resolve</b>.</p>
+<p>If torque={100,0,0}, and for all parameters the default setting
+is used, then the interpretation is that a torque of 100 N.m is
+acting along the positive x-axis of frame_b.</p>
+<p>Note, the cut-forces in frame_a and frame_b (frame_a.f,
+frame_b.f) are always set to zero and the cut-torque at frame_a
+(frame_a.t) is the same as the cut-torque at frame_b (frame_b.t)
+but with opposite sign.</p>
+<p>An example how to use this model is given in the following
+figure:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/Torque1.png" /></p>
+<p>This leads to the following animation (the yellow cylinder
+characterizes the line between frame_a and frame_b of the Torque
+component, i.e., the torque acts with negative sign also on the
+opposite side of this cylinder, but for clarity this is not shown
+in the animation):</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Forces/Torque2.png" /></p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

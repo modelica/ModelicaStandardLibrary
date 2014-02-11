@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Joints.SphericalSpherical</title>
+</head>
+<body>
+<h1><a href="Icons/ec55f7692750ebfbe0680680ef55767a3e632c0e.svg"><img class="svgiconhead" src="Icons/ec55f7692750ebfbe0680680ef55767a3e632c0e.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<span class="omc-h1">SphericalSpherical</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Joint that has a spherical joint on each of its two ends. The
+rod connecting the two spherical joints is approximated by a point
+mass that is located in the middle of the rod. When the mass is set
+to zero (default), special code for a massless body is generated.
+In the following default animation figure, the two spherical joints
+are represented by two red spheres, the connecting rod by a grey
+cylinder and the point mass in the middle of the rod by a light
+blue sphere:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Joints/SphericalSpherical.png" alt="model Joints.SphericalSpherical" /></p>
+<p>This joint introduces <b>one constraint</b> defining that the
+distance between the origin of frame_a and the origin of frame_b is
+constant (= rodLength). It is highly recommended to use this joint
+in loops whenever possible, because this enhances the efficiency
+considerably due to smaller systems of non-linear algebraic
+equations.</p>
+<p>It is sometimes desirable to <b>compute</b> the <b>rodLength</b>
+of the connecting rod during initialization. For this, parameter
+<b>computeLength</b> has to be set to <b>true</b> and instead
+<b>one</b> other, easier to determine, position variable in the
+same loop needs to have a fixed attribute of <b>true</b>. For
+example, if a loop consists of one Revolute joint, one Prismatic
+joint and a SphericalSpherical joint, one may fix the start values
+of the revolute joint angle and of the relative distance of the
+prismatic joint in order to compute the rodLength of the rod.</p>
+<p>It is not possible to connect other components, such as a body
+with mass properties or a special visual shape object to the rod
+connecting the two spherical joints. If this is needed, use instead
+joint Joints.<b>UniversalSpherical</b> that has this property.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

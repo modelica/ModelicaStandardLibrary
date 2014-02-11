@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Frames.planarRotationAngle</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<span class="omc-h1">planarRotationAngle</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>A call to this function of the form</p>
+<pre>
+    Real[3]                e, v1, v2;
+    Modelica.SIunits.Angle angle;
+  <b>equation</b>
+    angle = <b>planarRotationAngle</b>(e, v1, v2);
+</pre>
+<p>computes the rotation angle "<b>angle</b>" of a planar rotation
+along unit vector <b>e</b>, rotating frame 1 into frame 2, given
+the coordinate representations of a vector "v" in frame 1
+(<b>v1</b>) and in frame 2 (<b>v2</b>). Therefore, the result of
+this function fulfills the following equation:</p>
+<pre>
+    v2 = <b>resolve2</b>(<b>planarRotation</b>(e,angle), v1)
+</pre>
+<p>The rotation angle is returned in the range</p>
+<pre>
+    -<font face="Symbol">p</font> &lt;= angle &lt;= <font face="Symbol">p</font>
+</pre>
+<p>This function makes the following assumptions on the input
+arguments</p>
+<ul>
+<li>Vector <b>e</b> has length 1, i.e., length(e) = 1</li>
+<li>Vector "v" is not parallel to <b>e</b>, i.e.,
+length(cross(e,v1)) ≠ 0</li>
+</ul>
+<p>The function does not check the above assumptions. If these
+assumptions are violated, a wrong result will be returned and/or a
+division by zero will occur.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function planarRotationAngle
+  extends Modelica.Icons.Function;
+  input Real e[3](each final unit = "1") "Normalized axis of rotation to rotate frame 1 around e into frame 2 (must have length=1)";
+  input Real v1[3] "A vector v resolved in frame 1 (shall not be parallel to e)";
+  input Real v2[3] "Vector v resolved in frame 2, i.e., v2 = resolve2(planarRotation(e,angle),v1)";
+  output Modelica.SIunits.Angle angle "Rotation angle to rotate frame 1 into frame 2 along axis e in the range: -pi &lt;= angle &lt;= pi";
+end planarRotationAngle;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

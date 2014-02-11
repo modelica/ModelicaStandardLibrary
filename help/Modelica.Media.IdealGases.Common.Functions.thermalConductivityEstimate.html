@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.IdealGases.Common.Functions.thermalConductivityEstimate</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.html">IdealGases</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.html">Common</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.Functions.html">Functions</a>.<span class="omc-h1">thermalConductivityEstimate</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This function provides two similar methods for estimating the
+thermal conductivity of polyatomic gases. The Eucken method (input
+method == 1) gives good results for low temperatures, but it tends
+to give an underestimated value of the thermal conductivity
+(lambda) at higher temperatures.<br />
+The Modified Eucken method (input method == 2) gives good results
+for high-temperatures, but it tends to give an overestimated value
+of the thermal conductivity (lambda) at low temperatures.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function thermalConductivityEstimate
+  extends Modelica.Icons.Function;
+  input Interfaces.PartialMedium.SpecificHeatCapacity Cp "Constant pressure heat capacity";
+  input Interfaces.PartialMedium.DynamicViscosity eta "Dynamic viscosity";
+  input Integer method(min = 1, max = 2) = 1 "1: Eucken Method, 2: Modified Eucken Method";
+  input IdealGases.Common.DataRecord data "Ideal gas data";
+  output Interfaces.PartialMedium.ThermalConductivity lambda "Thermal conductivity [W/(m.k)]";
+end thermalConductivityEstimate;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

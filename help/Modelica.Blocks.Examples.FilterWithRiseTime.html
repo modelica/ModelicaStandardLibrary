@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Examples.FilterWithRiseTime</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Examples.html">Examples</a>.<span class="omc-h1">FilterWithRiseTime</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Filters are usually parameterized with the cut-off frequency.
+Sometimes, it is more meaningful to parameterize a filter with its
+rise time, i.e., the time it needs until the output reaches the end
+value of a step input. This is performed with the formula:</p>
+<blockquote>
+<pre>
+f_cut = fac/(2*pi*riseTime);
+</pre></blockquote>
+<p>where "fac" is typically 3, 4, or 5. The following image shows
+the results of a simulation of this example model (riseTime = 2 s,
+fac=3, 4, and 5):</p>
+<img src="../Modelica%203.2.1/Resources/Images/Blocks/FilterWithRiseTime.png" alt="FilterWithRiseTime.png" />
+<p>Since the step starts at 1 s, and the rise time is 2 s, the
+filter output y shall reach the value of 1 after 1+2=3 s. Depending
+on the factor "fac" this is reached with different precisions. This
+is summarized in the following table:</p>
+<blockquote>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td>Filter order</td>
+<td>Factor fac</td>
+<td>Percentage of step value reached after rise time</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">95.1 %</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">4</td>
+<td align="center">98.2 %</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">5</td>
+<td align="center">99.3 %</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">94.7 %</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">98.6 %</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">5</td>
+<td align="center">99.6 %</td>
+</tr>
+</table>
+</blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

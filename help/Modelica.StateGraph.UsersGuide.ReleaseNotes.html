@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.StateGraph.UsersGuide.ReleaseNotes</title>
+</head>
+<body>
+<h1><a href="Icons/8bfe4619ca645a8548493ba231f3522f119849d2.svg"><img class="svgiconhead" src="Icons/8bfe4619ca645a8548493ba231f3522f119849d2.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.StateGraph.html">StateGraph</a>.<a class="omc-h1-a" href="Modelica.StateGraph.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">ReleaseNotes</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Version 0.87, 2004-06-23</h4>
+<ul>
+<li>Included in Modelica standard library 2.0 Beta 1 with the new
+block connectors. Changed all the references to the block
+connectors and the Logical library correspondingly.</li>
+</ul>
+<h4>Version 0.86, 2004-06-20</h4>
+<ul>
+<li>New components "Alternative" and "Parallel" for alternative and
+parallel execution paths.</li>
+<li>A step has now a vector of input and output connectors in order
+that multiple connections to and from a step are possible</li>
+<li>Removed components "AlternativeSplit", "AlternativeJoin",
+"ParallelSplit" and "ParallelJoin" since the newly introduced
+components ("Alternative", "Parallel", vector connectors of steps)
+have the same modeling power but are safer and more
+convenient.</li>
+<li>Removed the timer in a step (attach instead Logical.Timer to
+the "active" port of a "StepWithSignal" component). Note, that in
+most cases it is more convenient and more efficient to use the
+built-in timer of a transition.</li>
+<li>Component "StepInitial" renamed to "InitialStep".</li>
+<li>New component "Timer" within sublibrary Logical.</li>
+<li>Updated and improved documentation of the library.</li>
+</ul>
+<h4>Version 0.85, 2004-06-17</h4>
+<ul>
+<li>Renamed "MacroStep" to "CompositeStep" and the ports of the
+MacroStep from "abort" to "suspend" and "history" to "resume".</li>
+<li>Nested "CompositeStep" components are supported, based on the
+experimental feature of nested inner/outer components introduced by
+Dymola. This means that CompositeSteps can be suspended and resumed
+at every level.</li>
+<li>New example "Examples.ShowExceptions" to demonstrate the new
+feature of nested CompositeSteps.</li>
+<li>New package "Logical". It contains all components of
+ModelicaAdditions.Blocks.Logical, but with new block connectors and
+nicer icons. Additionally, logical blocks are also added.</li>
+<li>Improved icons for several components of the StateGraph
+library.</li>
+</ul>
+<h4>Version 0.83, 2004-05-21</h4>
+<ul>
+<li>The "abort" and "history" connectors are no longer visible in
+the diagram layer of a CompositeStep since it is not allowed to
+connect to them in a CompositeStep.</li>
+<li>Made the diagram/icon size of a CompositeStep smaller (from
+200/-200 to 150/-150).</li>
+<li>Improved icons for "SetBoolean/SetInteger/SetReal"
+components.</li>
+<li>Renamed "ParameterReal" to "SetRealParameter".</li>
+</ul>
+<h4>Version 0.82, 2004-05-18</h4>
+<p>Implemented a first version that is provided to other
+people.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

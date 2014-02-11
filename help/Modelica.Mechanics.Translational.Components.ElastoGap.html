@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Translational.Components.ElastoGap</title>
+</head>
+<body>
+<h1><a href="Icons/7acdf394e122cd8ab71aed0845567e55df968876.svg"><img class="svgiconhead" src="Icons/7acdf394e122cd8ab71aed0845567e55df968876.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.Components.html">Components</a>.<span class="omc-h1">ElastoGap</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component models a spring damper combination that can lift
+off. It can be connected between a sliding mass and the housing
+(model <a href="Modelica.Mechanics.Translational.Components.Fixed.html">Fixed</a>),
+to describe the contact of a sliding mass with the housing.</p>
+<p>As long as s_rel &gt; s_rel0, no force is exerted (s_rel =
+flange_b.s - flange_a.s). If s_rel ≤ s_rel0, the contact force is
+basically computed with a linear spring/damper characteristic. With
+parameter n≥1 (exponent of spring force), a nonlinear spring force
+can be modeled:</p>
+<pre>
+   desiredContactForce = c*|s_rel - s_rel0|^n + d*<b>der</b>(s_rel)
+</pre>
+<p>Note, Hertzian contact is described by:</p>
+<ul>
+<li>Contact between two metallic spheres: n=1.5</li>
+<li>Contact between two metallic plates: n=1</li>
+</ul>
+<p>The above force law leads to the following difficulties:</p>
+<ol>
+<li>If the damper force becomes larger as the spring force and with
+opposite sign, the contact force would be "pulling/sticking" which
+is unphysical, since during contact only pushing forces can
+occur.</li>
+<li>When contact occurs with a non-zero relative speed (which is
+the usual situation), the damping force has a non-zero value and
+therefore the contact force changes discontinuously at s_rel =
+s_rel0. Again, this is not physical because the force can only
+change continuously. (Note, this component is not an idealized
+model where a steep characteristic is approximated by a
+discontinuity, but it shall model the steep characteristic.)</li>
+</ol>
+<p>In the literature there are several proposals to fix problem
+(2). Especially, often the following model is used (see, e.g.,
+Lankarani, Nikravesh: Continuous Contact Force Models for Impact
+Analysis in Multibody Systems, Nonlinear Dynamics 5, pp. 193-207,
+1994, <a href="http://www.springerlink.com/content/h50x61270q06p65n/fulltext.pdf">
+pdf-download</a>):</p>
+<pre>
+   f = c*s_rel^n + (d*s_rel^n)*<b>der</b>(s_rel)
+</pre>
+<p>However, this and other models proposed in literature violate
+issue (1), i.e., unphysical pulling forces can occur (if
+d*<b>der</b>(s_rel) becomes large enough). Note, if the force law
+is of the form "f = f_c + f_d", then a necessary condition is that
+|f_d| ≤ |f_c|, otherwise (1) and (2) are violated. For this reason,
+the most simplest approach is used in the ElastoGap model to fix
+both problems by using this necessary condition in the force law
+directly. If s_rel0 = 0, the equations are:</p>
+<pre>
+    <b>if</b> s_rel ≥ 0 <b>then</b>
+       f = 0;    // contact force
+    <b>else</b>
+       f_c  = -c*|s_rel|^n;          // contact spring force (Hertzian contact force)
+       f_d2 = d*<b>der</b>(s_rel);         // linear contact damper force
+       f_d  = <b>if</b> f_d2 &lt;  f_c <b>then</b>  f_c <b>else</b>
+              <b>if</b> f_d2 &gt; -f_c <b>then</b> -f_c <b>else</b> f_d2;  // bounded damper force
+       f    = f_c + f_d;            // contact force
+    <b>end if</b>;
+</pre>
+<p>Note, since |f_d| ≤ |f_c|, pulling forces cannot occur and the
+contact force is always continuous, especially around the start of
+the penetration at s_rel = s_rel0.</p>
+<p>In the next figure, a typical simulation with the ElastoGap
+model is shown (<a href="Modelica.Mechanics.Translational.Examples.ElastoGap.html">Examples.ElastoGap</a>)
+where the different effects are visualized:</p>
+<ol>
+<li>Curve 1 (elastoGap1.f) is the unmodified contact force, i.e.,
+the linear spring/damper characteristic. A pulling/sticking force
+is present at the end of the contact.</li>
+<li>Curve 2 (elastoGap2.f) is the contact force, where the force is
+explicitly set to zero when pulling/sticking occurs. The contact
+force is discontinuous when contact starts.</li>
+<li>Curve 3 (elastoGap3.f) is the ElastoGap model of this library.
+No discontinuity and no pulling/sticking occurs.</li>
+</ol>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/Translational/ElastoGap1.png" /></p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

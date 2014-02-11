@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Machines.Losses.Friction</title>
+</head>
+<body>
+<h1><a href="Icons/1a899d127983810a53906724d950d51f0cb55d1e.svg"><img class="svgiconhead" src="Icons/1a899d127983810a53906724d950d51f0cb55d1e.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.html">Losses</a>.<span class="omc-h1">Friction</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The friction losses are considered by the equations</p>
+<pre>
+   tau / tauRef = (+w / wRef) ^ power_w    for w &gt; +wLinear
+ - tau / tauRef = (-w / wRef) ^ power_w    for w &lt; -wLinear
+</pre>
+<p>with</p>
+<pre>
+  tauRef * wRef = PRef
+</pre>
+<p>being the friction torque at the reference angular velocity
+<code>wRef</code>. The exponent <code>power_w</code> is
+approximately 1.5 for axial ventilation and approximately 2.0 for
+radial ventilation.</p>
+<p>For stability reasons the friction torque <code>tau</code> is
+approximated by a linear curve</p>
+<pre>
+  tau / tauLinear = w / wLinear
+</pre>
+<p>with</p>
+<pre>
+  tauLinear = tauRef*(wLinear/wRef) ^ power_w
+</pre>
+<p>in the range <code>-wLinear ≤ w ≤ wLinear</code> with
+<code>wLinear = 0.001 * wRef</code>. The relationship of torque and
+angular velocity is depicted in Fig. 1</p>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Electrical/Machines/frictiontorque.png" alt="frictiontorque.png" /></td>
+</tr>
+<tr>
+<td><b>Fig. 1:</b> Friction loss torque versus angular velocity for
+<code>power_w = 2</code></td>
+</tr>
+</table>
+<h4>See also</h4>
+<p><a href="Modelica.Electrical.Machines.Losses.FrictionParameters.html">
+FrictionParameters</a></p>
+<p>If it is desired to neglect friction losses, set
+<code>frictionParameters.PRef = 0</code> (this is the default).</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

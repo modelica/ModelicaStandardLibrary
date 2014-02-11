@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.html">HelicalPipe</a>.<span class="omc-h1">kc_turbulent</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of the mean convective heat transfer coefficient
+<b>kc</b> of a helical pipe for turbulent flow regime.</p>
+<h4>Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></h4>
+<p>There are basically three differences:</p>
+<ul>
+<li>The function <b>kc_turbulent</b> is using
+<b>kc_turbulent_KC</b> but offers additional output variables like
+e.g. Reynolds number or Nusselt number and failure status (an
+output of <b>1</b> means that the function is not valid for the
+inputs).</li>
+<li>Generally the function <b>kc_turbulent_KC</b> is numerically
+best used for the calculation of the mean convective heat transfer
+coefficient <b>kc</b> at known mass flow rate.</li>
+<li>You can perform an inverse calculation from
+<b>kc_turbulent_KC</b>, where an unknown mass flow rate is
+calculated out of a given mean convective heat transfer coefficient
+<b>kc</b></li>
+</ul>
+<p>The critical Reynolds number <b>Re_crit</b> in a helical pipe
+depends on its mean curvature diameter. The smaller the mean
+curvature diameter of the helical pipe <b>d_mean</b> , the earlier
+the turbulent regime will start due to vortexes out of higher
+centrifugal forces.</p>
+<h4>Geometry</h4>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png" alt="pic_helicalPipe" /></p>
+<h4>Calculation</h4>
+<p>The mean convective heat transfer coefficient <b>kc</b> for
+helical pipes is calculated through the corresponding Nusselt
+number <b>Nu</b> according to <i>[VDI 2002, p. Ga 2, eq.
+6]</i>:</p>
+<pre>
+    Nu = (zeta_TOT/8)*Re*Pr/{1 + 12.7*(zeta_TOT/8)^0.5*[Pr^(2/3)-1]},
+</pre>
+<p>where the influence of the pressure loss on the heat transfer
+calculation is considered through</p>
+<pre>
+    zeta_TOT = 0.3164*Re^(-0.25) + 0.03*(d_hyd/d_coil)^(0.5) and
+</pre>
+<p>and the resulting mean convective heat transfer coefficient
+<b>kc</b></p>
+<pre>
+    kc =  Nu * lambda / d_hyd
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>d_mean</b></td>
+<td>as mean diameter of helical pipe [m],</td>
+</tr>
+<tr>
+<td><b>d_coil = f(geometry)</b></td>
+<td>as mean curvature diameter of helical pipe [m],</td>
+</tr>
+<tr>
+<td><b>d_hyd</b></td>
+<td>as hydraulic diameter of the helical pipe [m],</td>
+</tr>
+<tr>
+<td><b>h</b></td>
+<td>as slope of helical pipe [m],</td>
+</tr>
+<tr>
+<td><b>kc</b></td>
+<td>as mean convective heat transfer coefficient [W/(m2K)],</td>
+</tr>
+<tr>
+<td><b>lambda</b></td>
+<td>as heat conductivity of fluid [W/(mK)],</td>
+</tr>
+<tr>
+<td><b>L</b></td>
+<td>as total length of helical pipe [m],</td>
+</tr>
+<tr>
+<td><b>Nu = kc*d_hyd/lambda</b></td>
+<td>as mean Nusselt number [-],</td>
+</tr>
+<tr>
+<td><b>Pr = eta*cp/lambda</b></td>
+<td>as Prandtl number [-],</td>
+</tr>
+<tr>
+<td><b>Re = rho*v*d_hyd/eta</b></td>
+<td>as Reynolds number [-],</td>
+</tr>
+<tr>
+<td><b>Re_crit = f(geometry)</b></td>
+<td>as critical Reynolds number [-].</td>
+</tr>
+</table>
+<h4>Verification</h4>
+<p>The mean Nusselt number <b>Nu</b> representing the mean
+convective heat transfer coefficient <b>kc</b> is shown below for
+different numbers of turns <b>n_nt</b> at constant total length of
+the helical pipe.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_turbulent.png" alt="fig_helicalPipe_kc_turbulent" /></p>
+<p>The convective heat transfer of a helical pipe is enhanced
+compared to a straight pipe due to occurring turbulences resulting
+out of centrifugal forces. The higher the number of turns, the
+better is the convective heat transfer for the same length of a
+pipe.</p>
+<p>Note that the ratio of hydraulic diameter to total length of
+helical pipe <b>d_hyd/L</b> has no remarkable influence on the
+coefficient of heat transfer <b>kc</b> .</p>
+<h4>References</h4>
+<dl>
+<dt>GNIELINSKI, V.:</dt>
+<dd><b>Heat transfer and pressure drop in helically coiled
+tubes.</b>. In 8th International Heat Transfer Conference, volume
+6, pages 2847?2854, Washington,1986. Hemisphere.</dd>
+</dl>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

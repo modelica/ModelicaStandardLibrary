@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.UsersGuide.MediumDefinition.BasicStructure</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumDefinition.html">MediumDefinition</a>.<span class="omc-h1">BasicStructure</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>A medium model of Modelica.Media is essentially a <b>package</b>
+that contains the following definitions:</p>
+<ul>
+<li>Definition of <b>constants</b>, such as the medium name.</li>
+<li>A <b>model</b> in the package that contains the 3 basic
+thermodynamic equations that relate the 5+nXi primary medium
+variables.</li>
+<li><b>Optional functions</b> to compute medium properties that are
+only needed in certain circumstances, such as dynamic viscosity.
+These optional functions need not be provided by every medium
+model.</li>
+<li><b>Type</b> definitions, which are adapted to the particular
+medium. For example, a type <b>Temperature</b> is defined where the
+attributes <b>min</b> and <b>max</b> define the validity region of
+the medium, and a suitable default start value is given. In a
+device model, it is advisable to use these type definitions, e.g.,
+for parameters, in order that medium limits are checked as early as
+possible, and that iteration variables of non-linear systems of
+equations get reasonable start values.</li>
+</ul>
+<p>Note, although we use the term <b>medium model</b>, it is
+actually a Modelica <b>package</b> that contains all the constants
+and definitions required for a complete <b>medium model</b>. The
+basic interface to a medium is defined by
+Modelica.Media.Interfaces.PartialMedium that has the following
+structure:</p>
+<pre>
+<b>partial package</b> PartialMedium
+  <b>import</b> SI = Modelica.SIunits;
+  <b>constant</b> String           mediumName = "";
+  <b>constant</b> String           substanceNames[:] = {mediumName};
+  <b>constant</b> String           extraPropertiesNames[:] = fill("",0);
+  <b>constant</b> Boolean          singleState = <b>false</b>;
+  <b>constant</b> Boolean          reducedX = <b>true</b>;
+  <b>constant</b> Boolean          fixedX = <b>false</b>;
+  <b>constant</b> AbsolutePressure reference_p = 101325;
+  <b>constant</b> MassFraction     reference_X[nX]=fill(1/nX,nX);
+  <b>constant</b> AbsolutePressure p_default = 101325;
+  <b>constant</b> Temperature      T_default = Modelica.SIunits.Conversions.from_degC(20);
+  <b>constant</b> SpecificEnthalpy h_default =
+                            specificEnthalpy_pTX(p_default, T_default, X_default);
+  <b>constant</b> MassFraction     X_default[nX]=reference_X;
+  <b>final constant</b> Integer    nS  = size(substanceNames,1);
+  <b>final constant</b> Integer    nX  = nS;
+  <b>final constant</b> Integer    nXi = <b>if</b> fixedX <b>then</b> 0
+                                  <b>else if</b> reducedX <b>or</b> nS == 1
+                                  <b>then</b> nS-1 <b>else</b> nS;
+  <b>final constant</b> Integer    nC  = size(extraPropertiesNames,1);
+  <b>constant</b> FluidConstants[nS] fluidConstants;
+
+  <b>replaceable record</b> BasePropertiesRecord
+    AbsolutePressure p;
+    Density d;
+    Temperature T;
+    SpecificEnthalpy h;
+    SpecificInternalEnergy u;
+    MassFraction[nX] X;
+    MassFraction[nXi] Xi;
+    SpecificHeatCapacity R;
+    MolarMass MM;
+  <b>end</b> BasePropertiesRecord;
+
+  <b>replaceable partial model</b> BaseProperties
+    <b>extends</b> BasePropertiesRecord;
+    ThermodynamicState state;
+    <b>parameter</b> Boolean preferredMediumStates=false;
+    SI.Conversions.NonSIunits.Temperature_degC T_degC =
+       Modelica.SIunits.Conversions.to_degC(T)
+    SI.Conversions.NonSIunits.Pressure_bar p_bar =
+       Modelica.SIunits.Conversions.to_bar(p)
+  <b>equation</b>
+    Xi = X[1:nXi];
+    <b>if</b> nX &gt; 1 <b>then</b>
+       <b>if</b> fixedX <b>then</b>
+          X = reference_X;
+       <b>elseif</b> reducedX <b>then</b>
+          X[nX] = 1 - sum(Xi);
+       <b>end if</b>;
+    <b>end if</b>;
+    // equations such as
+    //    d = d(p,T);
+    //    u = u(p,T);
+    //    h = u + p/d;
+    //    state.p = p;
+    //    state.T = T;
+    // will go here in actual media implementations, but are not present
+    // in the base class since the ThermodynamicState record is still empty
+   <b>end</b> BaseProperties
+
+  <b>replaceable record</b> ThermodynamicState
+     // there are no "standard" thermodynamic variables in the base class
+     // but they will be defined here in actual media extending PartialMedium
+     // Example:
+     //    AbsolutePressure p "Absolute pressure of medium";
+     //    Temperature      T "Temperature of medium";
+  <b>end</b> ThermodynamicState;
+
+  // optional medium properties
+  <b>replaceable partial function</b> dynamicViscosity
+    <b>input</b>  ThermodynamicState state;
+    <b>output</b> DynamicViscosity eta;
+  <b>end</b> dynamicViscosity;
+
+  // other optional functions
+
+  // medium specific types
+  <b>type</b> AbsolutePressure = SI.AbsolutePressure (
+                               min     = 0,
+                               max     = 1.e8,
+                               nominal = 1.e5,
+                               start   = 1.e5);
+  <b>type</b> DynamicViscosity = ...;
+  // other type definitions
+<b>end</b> PartialMedium;
+</pre>
+<p>We will discuss all parts of this package in the following
+paragraphs. An actual medium model should extend from PartialMedium
+and has to provide implementations of the various parts.</p>
+<p>Some of the constants at the beginning of the package do not
+have a value yet (this is valid in Modelica), but a value has to be
+provided when extending from package PartialMedium. A given value
+can be modified until the model is translated or the <b>final</b>
+prefix is set. The reason to use constants instead of parameters in
+the model BaseProperties is that some of these constants are used
+in a context where parameters are not allowed. For example, in
+connector definitions the number of independent mass fractions nXi
+is used as dimension of a vector Xi. When defining the connector,
+only <i>constants</i> in packages can be accessed, but not
+<i>parameters</i> in a model, because a connector cannot contain an
+instance of BaseProperties.</p>
+<p>The record BasePropertiesRecord contains the variables primarily
+used in balance equations. Three equations for these variables have
+to be provided by every medium in model BaseProperties, plus two
+equations for the gas constant and the molar mass.</p>
+<p>Optional medium properties are defined by functions, such as the
+function dynamicViscosity (see code Section above) to compute the
+dynamic viscosity. The argument of those functions is the
+ThermodynamicState record, defined in BaseProperties, which
+contains the minimum number of thermodynamic variables needed as an
+input to compute all the optional properties. This construction
+simplifies the usage considerably as demonstrated in the following
+code fragment:</p>
+<pre>
+  <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
+  Medium.BaseProperties   medium;
+  Medium.DynamicViscosity eta;
+  ...
+  U   = m*medium.u; //Internal energy
+  eta = Medium.dynamicViscosity(medium.state);
+</pre>
+<p>Medium is the medium package that satisfies the requirements of
+a PartialMedium (when using the model above, a value for Medium has
+to be provided by a redeclaration). The medium component is an
+instance of the model Medium.BaseProperties and contains the core
+medium equations. Variables in this model can be accessed just by
+dot-notation, such as medium.u or medium.T. If an optional medium
+variable has to be computed, the corresponding function from the
+actual Medium package is called, such as Medium.dynamicViscosity.
+The medium.state vector can be given as input argument to this
+function, and its fields are kept consistent to those of
+BaseProperties by suitable equations, contained in BaseProperties
+itself (see above).</p>
+<p>If a medium model does not provide implementations of all
+optional functions and one of these functions is called in a model,
+an error occurs during translation since the optional functions
+which have not been redeclared have the <i>partial</i> attribute.
+For example, if function dynamicViscosity is not provided in the
+medium model when it is used, only simple pressure drop loss models
+without a reference to the viscosity can be used and not the
+sophisticated ones.</p>
+<p>At the bottom of the PartialMedium package type declarations are
+present, that are used in all other parts of the PartialMedium
+package and that should be used in all models and connectors where
+a medium model is accessed. The reason is that minimum, maximum,
+nominal, and start values are defined and these values can be
+adapted to the particular medium at hand. For example, the nominal
+value of AbsolutePressure is 10<sup>5</sup> Pa. If a simple model
+of water steam is used that is only valid above 100 °C, then the
+minimum value in the Temperature type should be set to this value.
+The minimum and maximum values are also important for parameters in
+order to get an early message if data outside of the validity
+region is given. The nominal attribute is important as a scaling
+value if the variable is used as a state in a differential equation
+or as an iteration variable in a non-linear system of equations.
+The start attribute can be very useful to provide a meaningful
+default start or guess value if the variable is used, e.g., as
+iteration variable in a non-linear system of equations. Note, that
+all these attributes can be set specifically for a medium in the
+following way:</p>
+<pre>
+<b>package</b> MyMedium
+  <b>extends</b> Modelica.Media.Interfaces.PartialMedium(
+     ...
+     Temperature(min=373));
+<b>end</b> MyMedium;
+</pre>
+<p>The type PartialMedium.MassFlowRate is defined as</p>
+<pre>
+<b>type</b> MassFlowRate = Modelica.SIunits.MassFlowRate
+     (quantity = "MassFlowRate." + mediumName);
+</pre>
+<p>Note that the constant mediumName, that has to be defined in
+every medium model, is used in the quantity attribute. For example,
+if mediumName = SimpleLiquidWater, then the quantity attribute has
+the value MassFlowRate.SimpleLiquidWater. This type should be used
+in a connector definition of a fluid library:</p>
+<pre>
+<b>connector</b> FluidPort
+  <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
+  <b>flow</b> Medium.MassFlowRate m_flow;
+  ...
+<b>end</b> FluidPort;
+</pre>
+<p>In the model where this connector is used, the actual Medium has
+to be defined. Connectors can only be connected together, if the
+corresponding attributes are either not defined or have identical
+values. Since mediumName is part of the quantity attribute of
+MassFlowRate, it is not possible to connect connectors with
+different media models together. In Dymola this is already checked
+when models are connected together in the diagram layer of the
+graphical user interface.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.SIunits.UsersGuide.Conventions</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.SIunits.html">SIunits</a>.<a class="omc-h1-a" href="Modelica.SIunits.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Conventions</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The following conventions are used in package SIunits:</p>
+<ul>
+<li>Modelica quantity names are defined according to the
+recommendations of ISO 31. Some of these name are rather long, such
+as "ThermodynamicTemperature". Shorter alias names are defined,
+e.g., "type Temp_K = ThermodynamicTemperature;".</li>
+<li>Modelica units are defined according to the SI base units
+without multiples (only exception "kg").</li>
+<li>For some quantities, more convenient units for an engineer are
+defined as "displayUnit", i.e., the default unit for display
+purposes (e.g., displayUnit="deg" for quantity="Angle").</li>
+<li>The type name is identical to the quantity name, following the
+convention of type names.</li>
+<li>All quantity and unit attributes are defined as final in order
+that they cannot be redefined to another value.</li>
+<li>Similar quantities, such as "Length, Breadth, Height,
+Thickness, Radius" are defined as the same quantity (here:
+"Length").</li>
+<li>The ordering of the type declarations in this package follows
+ISO 31:
+<pre>
+  Chapter  1: <b>Space and Time</b>
+  Chapter  2: <b>Periodic and Related Phenomena</b>
+  Chapter  3: <b>Mechanics</b>
+  Chapter  4: <b>Heat</b>
+  Chapter  5: <b>Electricity and Magnetism</b>
+  Chapter  6: <b>Light and Related Electro-Magnetic Radiations</b>
+  Chapter  7: <b>Acoustics</b>
+  Chapter  8: <b>Physical Chemistry</b>
+  Chapter  9: <b>Atomic and Nuclear Physics</b>
+  Chapter 10: <b>Nuclear Reactions and Ionizing Radiations</b>
+  Chapter 11: (not defined in ISO 31-1992)
+  Chapter 12: <b>Characteristic Numbers</b>
+  Chapter 13: <b>Solid State Physics</b>
+</pre></li>
+<li>Conversion functions between SI and non-SI units are available
+in subpackage <b>Conversions</b>.</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

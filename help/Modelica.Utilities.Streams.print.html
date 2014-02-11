@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Streams.print</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Streams.html">Streams</a>.<span class="omc-h1">print</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Streams.<b>print</b>(string);
+Streams.<b>print</b>(string,fileName);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>print</b>(..) opens automatically the given file, if
+it is not yet open. If the file does not exist, it is created. If
+the file does exist, the given string is appended to the file. If
+this is not desired, call "Files.remove(fileName)" before calling
+print ("remove(..)" is silent, if the file does not exist). The
+Modelica environment may close the file whenever appropriate. This
+can be enforced by calling <b>Streams.close</b>(fileName). After
+every call of "print(..)" a "new line" is printed
+automatically.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Streams.print("x = " + String(x));
+  Streams.print("y = " + String(y));
+  Streams.print("x = " + String(y), "mytestfile.txt");
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Utilities.Streams.html">Streams</a>,
+<a href="Modelica.Utilities.Streams.error.html">Streams.error</a>,
+<a href="ModelicaReference.Operators.%27String()%27.html">ModelicaReference.Operators.'String()'</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function print
+  extends Modelica.Icons.Function;
+  input String string = "" "String to be printed";
+  input String fileName = "" "File where to print (empty string is the terminal)" annotation(Dialog(saveSelector(filter = "Text files (*.txt)", caption = "Text file to store the output of print(..)")));
+end print;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

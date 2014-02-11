@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors.normalizeWithAssert</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Vectors.html">Vectors</a>.<span class="omc-h1">normalizeWithAssert</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Vectors.<b>normalizeWithAssert</b>(v);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call
+"<code>Vectors.<b>normalizeWithAssert</b>(v)</code>" returns the
+<b>unit vector</b> "<code>v/sqrt(v*v)</code>" of vector v. If
+vector v is a zero vector, an assert is triggered.</p>
+<p>Since the function has the "Inline" annotation, it is usually
+inlined and symbolic processing is applied.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  <b>normalizeWithAssert</b>({1,2,3});  // = {0.267, 0.534, 0.802}
+  <b>normalizeWithAssert</b>({0,0,0});  // error (an assert is triggered)
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Vectors.length.html">Vectors.length</a>,
+<a href="Modelica.Math.Vectors.normalize.html">Vectors.normalize</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function normalizeWithAssert
+  import Modelica.Math.Vectors.length;
+  extends Modelica.Icons.Function;
+  input Real v[:] "Vector";
+  output Real result[size(v, 1)] "Input vector v normalized to length=1";
+end normalizeWithAssert;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

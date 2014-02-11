@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Examples.Tanks.TanksWithOverflow</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Fluid.Examples.Tanks.html">Tanks</a>.<span class="omc-h1">TanksWithOverflow</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p align="justify">The mass flow rate to the upper tank is
+controlled by the static pressure at its bottom. The fluid flows
+through a pipe and forced by different heights from the upper tank
+to the lower tank.</p>
+<p>Additional fluid flows through an overflow pipe if the level of
+the upper tank exceeds 10m. Initially the overflow enters the lower
+tank above its fluid level; later on the fluid level exceeds the
+overflow port.</p>
+<p>Note that the number of solver intervals has been increased,
+accounting for the long simulation time horizon. Otherwise the
+simulation may fail due to too large steps subject to events.
+Alternatively the simulation accuracy could be increased in order
+to avoid errors.</p>
+<img src="../Modelica%203.2.1/Resources/Images/Fluid/Examples/TanksWithOverflow.png" border="1" alt="TanksWithOverflow.png" />
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

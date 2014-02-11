@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors.interpolate</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Vectors.html">Vectors</a>.<span class="omc-h1">interpolate</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+// Real    x[:], y[:], xi, yi;
+// Integer iLast, iNew;
+        yi = Vectors.<b>interpolate</b>(x,y,xi);
+(yi, iNew) = Vectors.<b>interpolate</b>(x,y,xi,iLast=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>Vectors.interpolate(x,y,xi)</code>"
+interpolates in vectors (x,y) and returns the value yi that
+corresponds to xi. Vector x[:] must consist of strictly
+monotonically increasing values. If xi &lt; x[1] or &gt; x[end],
+then extrapolation takes places through the first or last two x[:]
+values, respectively. The search for the interval x[iNew] ≤ xi &lt;
+x[iNew+1] starts at the optional input argument "iLast". The index
+"iNew" is returned as output argument. The usage of "iLast" and
+"iNew" is useful to increase the efficiency of the call, if many
+interpolations take place.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Real x[:] = { 0,  2,  4,  6,  8, 10};
+  Real y[:] = {10, 20, 30, 40, 50, 60};
+<b>algorithm</b>
+  (yi, iNew) := Vectors.interpolate(x,y,5);  // yi = 35, iNew=3
+</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function interpolate
+  extends Modelica.Icons.Function;
+  input Real x[:] "Abscissa table vector (strict monotonically increasing values required)";
+  input Real y[size(x, 1)] "Ordinate table vector";
+  input Real xi "Desired abscissa value";
+  input Integer iLast = 1 "Index used in last search";
+  output Real yi "Ordinate value corresponding to xi";
+  output Integer iNew = 1 "xi is in the interval x[iNew] &lt;= xi &lt; x[iNew+1]";
+end interpolate;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

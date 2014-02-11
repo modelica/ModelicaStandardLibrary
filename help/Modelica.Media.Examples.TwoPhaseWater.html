@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Examples.TwoPhaseWater</title>
+</head>
+<body>
+<h1><a href="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg"><img class="svgiconhead" src="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Examples.html">Examples</a>.<span class="omc-h1">TwoPhaseWater</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Example: TwoPhaseWater</h4>
+The TwoPhaseWater package demonstrates how to extend the
+parsimonious BaseProperties with a minimal set of properties from
+the standard water package with most properties that are needed in
+two-phase situations. The model also demonstrates how to compute
+additional&nbsp; properties for the medium model. In this scenario,
+that builds a new medium model with many more properties than the
+default, the standard BaseProperties is used as a basis. For
+additional properties, a user has to:<br />
+<ol>
+<li>Declare a new variable of the wanted type, e.g., "<span style="color: rgb(51, 51, 255);">DynamicViscosity eta</span>".</li>
+<li>Compute that variable by calling the function form the package,
+e.g., <span style="color: rgb(51, 51, 255);">eta =
+dynamicViscosity(state)</span>. Note that the instance of
+ThermodynamicState is used as an input to the function. This
+instance "state" is declared in PartialMedium and thus available in
+every medium model. A user does not have to know what actual
+variables are required to compute the dynamic viscosity, because
+the state instance is guaranteed to contain what is needed.</li>
+<li><span style="color: rgb(255, 0, 0);">Attention</span>: Many
+properties are not well defined in the two phase region and the
+functions might return undesired values if called there. It is the
+user's responsibility&nbsp; to take care of such situations. The
+example uses one of several possible models to compute an averaged
+viscosity for two-phase flows.</li>
+</ol>
+In two phase models, properties are often needed on the phase
+boundary just outside the two phase dome, right on the border.. To
+compute the thermodynamic state there, two auxiliary functions are
+provided: <b>setDewState(sat)</b> and <b>setBubbleState(sat)</b>.
+They take an instance of SaturationProperties as input. By default
+they are in one-phase, but with the optional phase argument set to
+2, the output is forced to be just inside the phase boundary. This
+is only needed when derivatives like cv are computed with are
+different on both sides of the boundaries. The usual steps to
+compute properties on the phase boundary are:<br />
+<ol>
+<li>Declare an instance of ThermodynamicState, e.g.,
+"ThermodynamicState&nbsp; dew".</li>
+<li>Compute the state, using an instance of SaturationProperties,
+e.g., dew = setDewState(sat)</li>
+<li>Compute properties on the phase boundary to your full desire,
+e.g., "cp_d = specificHeatCapacityCp(dew)".<br /></li>
+</ol>
+<p>The sample model TestTwoPhaseStates test the extended
+properties</p>
+<p>The same procedure can be used to compute properties at other
+state points, e.g., when an isentropic reference state is
+computed.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.TwoPhaseWater.BaseProperties.html"><img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.TwoPhaseWater.BaseProperties.html">BaseProperties</a></td>
+<td>Make StandardWater.BaseProperties non replaceable in order that
+inheritance is possible in model ExtendedProperties</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.TwoPhaseWater.ExtendedProperties.html"><img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.TwoPhaseWater.ExtendedProperties.html">ExtendedProperties</a></td>
+<td>Plenty of two-phase properties</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.TwoPhaseWater.TestTwoPhaseStates.html"><img class="svgiconsmall" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.TwoPhaseWater.TestTwoPhaseStates.html">TestTwoPhaseStates</a></td>
+<td>Test the above model</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

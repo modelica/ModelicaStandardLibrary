@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp_and_Re</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.html">Fittings</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a>.<span class="omc-h1">massFlowRate_dp_and_Re</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Compute mass flow rate from constant loss factor and pressure
+drop (m_flow = f(dp)). If the Reynolds-number Re ≥
+data.Re_turbulent, the flow is treated as a turbulent flow with
+constant loss factor zeta. If the Reynolds-number Re &lt;
+data.Re_turbulent, the flow is laminar and/or in a transition
+region between laminar and turbulent. This region is approximated
+by two polynomials of third order, one polynomial for m_flow ≥ 0
+and one for m_flow &lt; 0. The common derivative of the two
+polynomials at Re = 0 is computed from the equation
+"data.c0/Re".</p>
+<p>If no data for c0 is available, the derivative at Re = 0 is
+computed in such a way, that the second derivatives of the two
+polynomials are identical at Re = 0. The polynomials are
+constructed, such that they smoothly touch the characteristic
+curves in the turbulent regions. The whole characteristic is
+therefore <b>continuous</b> and has a <b>finite</b>, <b>continuous
+first derivative everywhere</b>. In some cases, the constructed
+polynomials would "vibrate". This is avoided by reducing the
+derivative at Re=0 in such a way that the polynomials are
+guaranteed to be monotonically increasing. The used sufficient
+criteria for monotonicity follows from:</p>
+<dl>
+<dt>Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd><b>Monotone piecewise cubic interpolation</b>. SIAM J. Numerc.
+Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function massFlowRate_dp_and_Re
+  extends Modelica.Icons.Function;
+  input SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
+  input SI.Density rho_a "Density at port_a";
+  input SI.Density rho_b "Density at port_b";
+  input SI.DynamicViscosity mu_a "Dynamic viscosity at port_a";
+  input SI.DynamicViscosity mu_b "Dynamic viscosity at port_b";
+  input LossFactorData data "Constant loss factors for both flow directions" annotation(choices(choice = BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.wallFriction(), choice = BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.suddenExpansion(), choice = BaseClasses.PressureLosses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+  output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
+end massFlowRate_dp_and_Re;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

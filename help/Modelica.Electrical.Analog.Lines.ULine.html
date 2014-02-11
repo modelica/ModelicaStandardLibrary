@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Analog.Lines.ULine</title>
+</head>
+<body>
+<h1><a href="Icons/58dbd3e4736179a410f29721947b91597faf5d76.svg"><img class="svgiconhead" src="Icons/58dbd3e4736179a410f29721947b91597faf5d76.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Lines.html">Lines</a>.<span class="omc-h1">ULine</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>As can be seen in the picture below, the lossy RC line ULine is
+a single conductor lossy transmission line which consists of
+segments of lumped series resistors and capacitors that are
+connected with the reference pin p3. The precision of the model
+depends on the number N of lumped segments.<br />
+To get a symmetric line model, the first resistor is cut into two
+parts (R1 and R_Nplus1). These two new resistors have the half of
+the resistance of the original resistor.</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Electrical/Analog/ULine.png" alt="ULine.png" /></blockquote>
+<p>The capacitances are calculated with: C=c*length/N.<br />
+The resistances are calculated with: R=r*length/(N+1).<br />
+For all capacitors and resistors the values of each segment are the
+same except for the first and last resistor, that only has the half
+of the above calculated value.</p>
+<p>The user has the possibility to enable a conditional heatport.
+If so, the ULine can be connected to a thermal network. When the
+parameter alpha is set to an value greater then zero, the ULine
+becomes temperature sensitive</p>
+<p>due to their resistors which resistances are calculated by
+<code>R = R_ref*(1 + alpha*(heatPort.T - T_ref)).</code></p>
+<p>Note, this is different compared with the lumped line model of
+SPICE.</p>
+<p><b>References</b></p>
+<dl>
+<dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.;
+Sangiovanni-Vincentelli, A.</dt>
+<dd>SPICE3 Version 3e User';s Manual (April 1, 1991). Department of
+Electrical Engineering and Computer Sciences, University of
+California, Berkley p. 22, p. 124</dd>
+</dl>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<dl>
+<dt><i>1998</i></dt>
+<dd>by Christoph Clauss initially implemented</dd>
+</dl>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

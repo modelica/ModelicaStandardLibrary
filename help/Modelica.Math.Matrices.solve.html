@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.solve</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">solve</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Matrices.<b>solve</b>(A,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function call returns the solution <b>x</b> of the linear
+system of equations</p>
+<blockquote>
+<p><b>A</b>*<b>x</b> = <b>b</b></p>
+</blockquote>
+<p>If a unique solution <b>x</b> does not exist (since <b>A</b> is
+singular), an assertion is triggered. If this is not desired, use
+instead <a href="Modelica.Math.Matrices.leastSquares.html">Matrices.leastSquares</a>
+and inquire the singularity of the solution with the return
+argument rank (a unique solution is computed if rank =
+size(A,1)).</p>
+<p>Note, the solution is computed with the LAPACK function "dgesv",
+i.e., by Gaussian elimination with partial pivoting.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real b[3] = {10,22,12};
+  Real x[3];
+<b>algorithm</b>
+  x := Matrices.solve(A,b);  // x = {3,2,1}
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.LU.html">Matrices.LU</a>,
+<a href="Modelica.Math.Matrices.LU_solve.html">Matrices.LU_solve</a>,
+<a href="Modelica.Math.Matrices.leastSquares.html">Matrices.leastSquares</a>.
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function solve
+  extends Modelica.Icons.Function;
+  input Real A[:,size(A, 1)] "Matrix A of A*x = b";
+  input Real b[size(A, 1)] "Vector b of A*x = b";
+  output Real x[size(b, 1)] "Vector x such that A*x = b";
+end solve;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

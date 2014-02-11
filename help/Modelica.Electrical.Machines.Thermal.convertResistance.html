@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Machines.Thermal.convertResistance</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Thermal.html">Thermal</a>.<span class="omc-h1">convertResistance</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>From the temperature coefficient <code>alpha20</code> at 20 degC
+(equals to 293.15 K) the parameter <code>alphaRef</code> at
+<code>TRef</code></p>
+<pre>
+                        alpha20
+  alphaRef = -------------------------------
+              1 + alpha20 * (TRef - 293.15)
+</pre>
+<p>is determined; using this value, actual resistance
+<code>R</code> with respect to the actual temperature
+<code>T</code> is calculated by</p>
+<pre>
+   R
+  ------ = 1 + alphaRef * (T - TRef)
+   RRef
+</pre>
+<p>where <code>RRef</code> is the resistance at the reference
+temperature <code>TRef</code>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function convertResistance
+  extends Modelica.Icons.Function;
+  input Modelica.SIunits.Resistance RRef "Resistance at TRef";
+  input Modelica.SIunits.Temperature TRef "Reference temperature";
+  input Modelica.SIunits.LinearTemperatureCoefficient alpha20 "Temperature coefficient at 20 degC";
+  input Modelica.SIunits.Temperature T "Actual temperature";
+  output Modelica.SIunits.Resistance R "Actual resistance at T";
+end convertResistance;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

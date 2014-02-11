@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.BooleanVectors.firstTrueIndex</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.BooleanVectors.html">BooleanVectors</a>.<span class="omc-h1">firstTrueIndex</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>firstTrueIndex</b>(b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Returns the index of the first <b>true</b> element of the
+Boolean vector b. If no element is <b>true</b> or b is an empty
+vector (i.e., size(b,1)=0) the function returns 0.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean b3[4] = {false, true, false, true};
+  Integer r1, r2, r3;
+<b>algorithm</b>
+  r1 = firstTrueIndex(b1);  // r1 = 0
+  r2 = firstTrueIndex(b2);  // r2 = 2
+  r3 = firstTrueIndex(b3);  // r3 = 2
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.BooleanVectors.allTrue.html">allTrue</a>,
+<a href="Modelica.Math.BooleanVectors.anyTrue.html">anyTrue</a>,
+<a href="Modelica.Math.BooleanVectors.countTrue.html">countTrue</a>,
+<a href="Modelica.Math.BooleanVectors.enumerate.html">enumerate</a>,
+<a href="Modelica.Math.BooleanVectors.index.html">index</a>,
+and <a href="Modelica.Math.BooleanVectors.oneTrue.html">oneTrue</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function firstTrueIndex
+  extends Modelica.Icons.Function;
+  input Boolean b[:];
+  output Integer index;
+end firstTrueIndex;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.html">HeatExchanger</a>.<span class="omc-h1">kc_roundTube</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of the mean convective heat transfer coefficient
+<b>kc</b> for the air-side heat transfer of heat exchangers with
+round tubes and several fin geometries.</p>
+<h4>Functions <b>kc_roundTube</b> and <b>kc_roundTube_KC</b></h4>
+<p>There are basically three differences:</p>
+<ul>
+<li>The function <b>kc_roundTube</b> is using
+<b>kc_roundTube_KC</b> but offers additional output variables like
+e.g. Reynolds number or Nusselt number and failure status (an
+output of <b>1</b> means that the function is not valid for the
+inputs).</li>
+<li>Generally the function <b>kc_roundTube_KC</b> is numerically
+best used for the calculation of the mean convective heat transfer
+coefficient <b>kc</b> at known mass flow rate.</li>
+<li>You can perform an inverse calculation from
+<b>kc_roundTube_KC</b>, where an unknown mass flow rate is
+calculated out of a given mean convective heat transfer coefficient
+<b>kc</b></li>
+</ul>
+<h4>Restriction</h4>
+<ul>
+<li>According to the kind of fin geometry the calculation is valid
+in a range of <b>Re</b> from 300 to 8000.</li>
+<li>medium = air</li>
+</ul>
+<h4>Geometry</h4>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/pic_roundTube.png" width="850" alt="pic_roundTube" /></p>
+<h4>Calculation</h4>
+<p>The mean convective heat transfer coefficient <b>kc</b> for heat
+exchanger is calculated through the corresponding Coulburn factor
+<b>j</b> :</p>
+<pre>
+    j = f(geometry, Re)
+</pre>
+<p>with the resulting mean convective heat transfer coefficient
+<b>kc</b></p>
+<pre>
+    kc =  j * Re * Pr^(1/3) * lambda / D_c
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>D_c</b></td>
+<td>as fin collar diameter [m],</td>
+</tr>
+<tr>
+<td><b>kc</b></td>
+<td>as mean convective heat transfer coefficient [W/(m2K)],</td>
+</tr>
+<tr>
+<td><b>lambda</b></td>
+<td>as heat conductivity of fluid [W/(mK)],</td>
+</tr>
+<tr>
+<td><b>Nu = kc*D_c/lambda</b></td>
+<td>as mean Nusselt number [-],</td>
+</tr>
+<tr>
+<td><b>Pr = eta*cp/lambda</b></td>
+<td>as Prandtl number [-],</td>
+</tr>
+<tr>
+<td><b>Re = rho*v*D_c/eta</b></td>
+<td>as Reynolds number [-],</td>
+</tr>
+</table>
+<h4>Verification</h4>
+<p>The mean Nusselt number <b>Nu</b> representing the mean
+convective heat transfer coefficient <b>kc</b> is shown below for
+different fin geometries at similar dimensions.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/fig_roundTube_kc.png" alt="fig_roundTube_kc" /></p>
+<h4>References</h4>
+<dl>
+<dt>C.-C. Wang, C.-T. Chang:</dt>
+<dd><b>Heat and mass transfer for plate fin-and-tube heat
+exchangers, with and without hydrophilic coating</b>. In
+International Journal of Heat and Mass Transfer, volume 41, pages
+3109-3120, 1998.</dd>
+<dt>C.-C. Wang, C.-J. Lee, C.-T. Chang, S.-P. Lina:</dt>
+<dd><b>Heat transfer and friction correlation for compact louvered
+fin-and-tube heat exchangers</b>. In International Journal of Heat
+and Mass Transfer, volume 42, pages 1945-1956, 1999.</dd>
+<dt>C.-C. Wang, W.-H. Tao, C.-J. Chang:</dt>
+<dd><b>An investigation of the airside performance of the slit
+fin-and-tube heat exchangers</b>. In International Journal of
+Refrigeration, volume 22, pages 595-603, 1999.</dd>
+<dt>C.-C. Wang, W.-L. Fu, C.-T. Chang:</dt>
+<dd><b>Heat Transfer and Friction Characteristics of Typical Wavy
+Fin-and-Tube Heat Exchangers</b>. In Experimental Thermal and Fluid
+Science, volume 14, pages 174-186, 1997.</dd>
+</dl>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

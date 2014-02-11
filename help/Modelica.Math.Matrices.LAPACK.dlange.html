@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.LAPACK.dlange</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.<span class="omc-h1">dlange</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Lapack documentation
+    Purpose
+    =======
+
+    DLANGE  returns the value of the one norm,  or the Frobenius norm, or
+    the  infinity norm,  or the  element of  largest absolute value  of a
+    real matrix A.
+
+    Description
+    ===========
+
+    DLANGE returns the value
+
+       DLANGE = ( max(abs(A(i,j))), NORM = 'M' or 'm'
+                (
+                ( norm1(A),         NORM = '1', 'O' or 'o'
+                (
+                ( normI(A),         NORM = 'I' or 'i'
+                (
+                ( normF(A),         NORM = 'F', 'f', 'E' or 'e'
+
+    where  norm1  denotes the  one norm of a matrix (maximum column sum),
+    normI  denotes the  infinity norm  of a matrix  (maximum row sum) and
+    normF  denotes the  Frobenius norm of a matrix (square root of sum of
+    squares).  Note that  max(abs(A(i,j)))  is not a consistent matrix norm.
+
+    Arguments
+    =========
+
+    NORM    (input) CHARACTER*1
+            Specifies the value to be returned in DLANGE as described
+            above.
+
+    M       (input) INTEGER
+            The number of rows of the matrix A.  M &gt;= 0.  When M = 0,
+            DLANGE is set to zero.
+
+    N       (input) INTEGER
+            The number of columns of the matrix A.  N &gt;= 0.  When N = 0,
+            DLANGE is set to zero.
+
+    A       (input) DOUBLE PRECISION array, dimension (LDA,N)
+            The m by n matrix A.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA &gt;= max(M,1).
+
+    WORK    (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
+            where LWORK &gt;= M when NORM = 'I'; otherwise, WORK is not
+            referenced.
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function dlange
+  extends Modelica.Icons.Function;
+  input Real A[:,:] "Real matrix A";
+  input String norm = "1" "specifies the norm, i.e., 1, I, F, M";
+  output Real anorm "norm of A";
+end dlange;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

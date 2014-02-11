@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Utilities.cubicHermite_withDerivative</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Utilities.html">Utilities</a>.<span class="omc-h1">cubicHermite_withDerivative</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<pre>
+Evaluate a cubic Hermite spline, return value and derivative
+</pre>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function cubicHermite_withDerivative
+  extends Modelica.Icons.Function;
+  input Real x "Abscissa value";
+  input Real x1 "Lower abscissa value";
+  input Real x2 "Upper abscissa value";
+  input Real y1 "Lower ordinate value";
+  input Real y2 "Upper ordinate value";
+  input Real y1d "Lower gradient";
+  input Real y2d "Upper gradient";
+  output Real y "Interpolated ordinate value";
+  output Real dy_dx "Derivative dy/dx at abscissa value x";
+end cubicHermite_withDerivative;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>May 2008</i> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br />
+Designed and implemented.</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

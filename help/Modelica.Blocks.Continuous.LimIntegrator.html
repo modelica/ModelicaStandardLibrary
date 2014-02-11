@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Continuous.LimIntegrator</title>
+</head>
+<body>
+<h1><a href="Icons/332f92e8797eb2056b6d7073abd758eb9a37a34e.svg"><img class="svgiconhead" src="Icons/332f92e8797eb2056b6d7073abd758eb9a37a34e.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Continuous.html">Continuous</a>.<span class="omc-h1">LimIntegrator</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This blocks computes <b>y</b> (element-wise) as <i>integral</i>
+of the input <b>u</b> multiplied with the gain <i>k</i>. If the
+integral reaches a given upper or lower <i>limit</i> and the input
+will drive the integral outside of this bound, the integration is
+halted and only restarted if the input drives the integral away
+from the bounds.</p>
+<p>It might be difficult to initialize the integrator in steady
+state. This is discussed in the description of package <a href="Modelica.Blocks.Continuous.html#info">Continuous</a>.</p>
+<p>If parameter <b>limitAtInit</b> = <b>false</b>, the limits of
+the integrator are removed from the initialization problem which
+leads to a much simpler equation system. After initialization has
+been performed, it is checked via an assert whether the output is
+in the defined limits. For backward compatibility reasons
+<b>limitAtInit</b> = <b>true</b>. In most cases it is best to use
+<b>limitAtInit</b> = <b>false</b>.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.html">SurfaceCharacteristics</a>.<span class="omc-h1">torus</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Function <b>torus</b> computes the X,Y,Z arrays to visualize a
+torus with model <a href="Modelica.Mechanics.MultiBody.Visualizers.Torus.html">Torus</a>.
+The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
+The right images below shows the torus with the additional
+parameter settings:</p>
+<pre>
+  opening    =   45 degree
+  startAngle = -135 degree
+  stopAngle  =  135 degree
+</pre>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png" /></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function torus
+  extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(final multiColoredSurface = false);
+  input Modelica.SIunits.Radius ri = 1 "Inner radius of torus" annotation(Dialog);
+  input Modelica.SIunits.Radius ro = 0.2 "Outer radius of torus (=width/2)" annotation(Dialog);
+  input Modelica.SIunits.Angle opening = 0 "Opening angle of torus" annotation(Dialog);
+  input Modelica.SIunits.Angle startAngle = -Modelica.Constants.pi "Start angle of torus slice" annotation(Dialog);
+  input Modelica.SIunits.Angle stopAngle = Modelica.Constants.pi "End angle of torus slice" annotation(Dialog);
+end torus;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

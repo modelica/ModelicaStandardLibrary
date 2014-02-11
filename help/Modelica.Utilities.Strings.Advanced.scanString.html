@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Strings.Advanced.scanString</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.Strings.html">Strings</a>.<a class="omc-h1-a" href="Modelica.Utilities.Strings.Advanced.html">Advanced</a>.<span class="omc-h1">scanString</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+(nextIndex, string2) = <b>scanString</b>(string, startIndex=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Starts scanning of "string" at position "startIndex". First
+skips white space and scans afterwards a string according to the
+Modelica grammar, i.e., a string enclosed in double quotes.</p>
+<p>If successful, the function returns nextIndex = index of
+character directly after the found string, as well as the string
+value in the second output argument.</p>
+<p>If not successful, on return nextIndex = startIndex and the
+second output argument is an empty string.</p>
+<h4>See also</h4>
+<a href="Modelica.Utilities.Strings.Advanced.html">Strings.Advanced</a>.
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function scanString
+  extends Modelica.Icons.Function;
+  input String string;
+  input Integer startIndex(min = 1) = 1 "Index where scanning starts";
+  output Integer nextIndex "Index after the found token (success=true) or index at which scanning failed (success=false)";
+  output String string2 "Value of String token";
+end scanString;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

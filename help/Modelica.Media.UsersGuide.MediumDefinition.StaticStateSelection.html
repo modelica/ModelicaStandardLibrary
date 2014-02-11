@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumDefinition.html">MediumDefinition</a>.<span class="omc-h1">StaticStateSelection</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Without pre-caution when implementing a medium model, it is very
+easy that non-linear algebraic systems of equations occur when
+using the medium model. In this section it is explained how to
+avoid non-linear systems of equations that result from unnecessary
+dynamic state selections.</p>
+<p>A medium model should be implemented in such a way that a tool
+is able to select states of a medium in a balance volume statically
+(during translation). This is only possible if the medium equations
+are written in a specific way. Otherwise, a tool has to dynamically
+select states during simulation. Since medium equations are usually
+non-linear, this means that non-linear algebraic systems of
+equations would occur in every balance volume.</p>
+<p>It is assumed that medium equations in a balance volume are
+defined in the following way:</p>
+<pre>
+    <b>package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
+    Medium.BaseProperties medium;
+  <b>equation</b>
+     // mass balance
+       <b>der</b>(M)  = port_a.m_flow + port_b.m_flow;
+       <b>der</b>(MX) = port_a_mX_flow + port_b_mX_flow;
+             M = V*medium.d;
+            MX = M*medium.X;
+
+     // Energy balance
+     U = M*medium.u;
+     <b>der</b>(U) = port_a.H_flow+port_b.H_flow;
+</pre>
+<p><b>Single Substance Media</b></p>
+<p>A medium consisting of a single substance has to define two of
+"p,T,d,u,h" with stateSelect=StateSelect.prefer if
+BaseProperties.preferredMediumstates = <b>true</b> and has to
+provide the other three variables as function of these states. This
+results in:</p>
+<ul>
+<li>static state selection (no dynamic choices).</li>
+<li>a linear system of equations in the two state derivatives.</li>
+</ul>
+<p><b>Example for a single substance medium</b></p>
+<p>p, T are preferred states (i.e., StateSelect.prefer is set) and
+there are three equations written in the form:</p>
+<pre>
+   d = fd(p,T)
+   u = fu(p,T)
+   h = fh(p,T)
+</pre>
+<p>Index reduction leads to the equations:</p>
+<pre>
+   <b>der</b>(M) = V*<b>der</b>(d)
+   <b>der</b>(U) = <b>der</b>(M)*u + M*<b>der</b>(u)
+   <b>der</b>(d) = <b>der</b>(fd,p)*<b>der</b>(p) + <b>der</b>(fd,T)*<b>der</b>(T)
+   <b>der</b>(u) = <b>der</b>(fu,p)*<b>der</b>(p) + <b>der</b>(fu,T)*<b>der</b>(T)
+</pre>
+<p>Note, that <b>der</b>(y,x) is the partial derivative of y with
+respect to x and that this operator will be introduced in a future
+version of the Modelica language. The above equations imply, that
+if p,T are provided from the integrator as states, all functions,
+such as fd(p,T) or <b>der</b>(fd,p) can be evaluated as function of
+the states. The overall system results in a linear system of
+equations in <b>der</b>(p) and <b>der</b>(T) after eliminating
+<b>der</b>(M), <b>der</b>(U), <b>der</b>(d), <b>der</b>(u) via
+tearing.</p>
+<p><b>Counter Example for a single substance medium</b></p>
+<p>An ideal gas with one substance is written in the form</p>
+<pre>
+  <b>redeclare model extends</b> BaseProperties(
+     T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
+     p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)
+  <b>equation</b>
+     h = h(T);
+     u = h - R*T;
+     p = d*R*T;
+      ...
+  <b>end</b> BaseProperties;
+</pre>
+<p>If p, T are preferred states, these equations are <b>not</b>
+written in the recommended form, because d is not a function of p
+and T. If p,T would be states, it would be necessary to solve for
+the density:</p>
+<pre>
+   d = p/(R*T)
+</pre>
+<p>If T or R are zero, this results in a division by zero. A tool
+does not know that R or T cannot become zero. Therefore, a tool
+must assume that p, T <b>cannot</b> always be selected as states
+and has to either use another static state selection or use dynamic
+state selection. The only other choice for static state selection
+is d,T, because h,u,p are given as functions of d,T. However, as
+potential states only variables appearing differentiated and
+variables declared with StateSelect.prefer or StateSelect.always
+are used. Since "d" does not appear differentiated and has
+StateSelect.default, it cannot be selected as a state. As a result,
+the tool has to select states dynamically during simulation. Since
+the equations above are non-linear and they are utilized in the
+dynamic state selection, a non-linear system of equations is
+present in every balance volume.</p>
+<p>To summarize, for single substance ideal gas media there are the
+following two possibilities to get static state selection and
+linear systems of equations:</p>
+<ol>
+<li>Use p,T as preferred states and write the equation for d in the
+form: d = p/(T*R)</li>
+<li>Use d,T as preferred states and write the equation for p in the
+form: p = d*T*R</li>
+</ol>
+<p>All other settings (other/no preferred states etc.) lead to
+dynamic state selection and non-linear systems of equations for a
+balance volume.</p>
+<p><b>Multiple Substance Media</b></p>
+<p>A medium consisting of multiple substance has to define two of
+"p,T,d,u,h" as well as the mass fractions Xi with
+stateSelect=StateSelect.prefer (if
+BaseProperties.preferredMediumStates = <b>true</b>) and has to
+provide the other three variables as functions of these states.
+Only then, static selection is possible for a tool.</p>
+<p><b>Example for a multiple substance medium:</b></p>
+<p>p, T and Xi are defined as preferred states and the equations
+are written in the form:</p>
+<pre>
+   d = fp(p,T,Xi);
+   u = fu(p,T,Xi);
+   h = fh(p,T,Xi);
+</pre>
+<p>Since the balance equations are written in the form:</p>
+<pre>
+              M = V*medium.d;
+            MXi = M*medium.Xi;
+</pre>
+<p>The variables M and MXi appearing differentiated in the balance
+equations are provided as functions of d and Xi and since d is
+given as a function of p, T and Xi, it is possible to compute M and
+MXi directly from the desired states. This means that static state
+selection is possible.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

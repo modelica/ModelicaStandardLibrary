@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.ComponentDefinition.html">ComponentDefinition</a>.<span class="omc-h1">WallFriction</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>One important special case for a pressure loss is the friction
+at the wall of a pipe under the assumption of quasi steady state
+flow (i.e., the mass flow rate varies only slowly). In this section
+it is explained how this case is handled in the Modelica.Fluid
+library for pipes with <b>nonuniform roughness</b>, including the
+smooth pipe as a special case (see <a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.html">Pipes.BaseClasses.WallFriction</a>).
+The treatment is non-standard in order to get a numerically
+well-posed description.</p>
+<p>For pipes with circular cross section the pressure drop is
+computed as:</p>
+<pre>
+   dp = λ(Re,<font face="Symbol">D</font>)*(L/D)*ρ*v*|v|/2
+      = λ(Re,<font face="Symbol">D</font>)*8*L/(π^2*D^5*ρ)*m_flow*|m_flow|
+      = λ2(Re,<font face="Symbol">D</font>)*k2*sign(m_flow);
+
+with
+   Re     = |v|*D*ρ/μ
+          = |m_flow|*4/(π*D*μ)
+   m_flow = A*v*ρ
+   A      = π*(D/2)^2
+   λ2     = λ*Re^2
+   k2     = L*μ^2/(2*D^3*ρ)
+</pre>
+<p>where</p>
+<ul>
+<li>L is the length of the pipe.</li>
+<li>D is the diameter of the pipe. If the pipe has not a circular
+cross section, D = 4*A/P, where A is the cross section area and P
+is the wetted perimeter.</li>
+<li>λ = λ(Re,<font face="Symbol">D</font>) is the "usual" wall
+friction coefficient.</li>
+<li>λ2 = λ*Re^2 is the used friction coefficient to get a
+numerically well-posed formulation.</li>
+<li>Re = |v|*D*ρ/μ is the Reynolds number.</li>
+<li><font face="Symbol">D</font> = <font face="Symbol">d</font>/D
+is the relative roughness where "<font face="Symbol">d</font>" is
+the absolute "roughness", i.e., the averaged height of asperities
+in the pipe (<font face="Symbol">d</font> may change over time due
+to growth of surface asperities during service, see <i>[Idelchick
+1994, p. 85, Tables 2-1, 2-2])</i>.</li>
+<li>ρ is the upstream density.</li>
+<li>μ is the upstream dynamic viscosity.</li>
+<li>v is the mean velocity.</li>
+</ul>
+<p>The first form with λ is used and presented in textbooks, see
+"blue" curve in the next figure:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Components/PipeFriction1.png" alt="PipeFriction1" /></p>
+<p>This form is not suited for a simulation program since λ = 64/Re
+if Re &lt; 2000, i.e., a division by zero occurs for zero mass flow
+rate because Re = 0 in this case. More useful for a simulation
+model is the friction coefficient λ2 = λ*Re^2, because λ2 = 64*Re
+if Re &lt; 2000 and therefore no problems for zero mass flow rate
+occur. The characteristic of λ2 is shown in the next figure and is
+used in Modelica.Fluid:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Components/PipeFriction2.png" alt="PipeFriction2" /></p>
+<p>The pressure loss characteristic is divided into three
+regions:</p>
+<ul>
+<li><b>Region 1</b>: For <b>Re ≤ 2000</b>, the flow is
+<b>laminar</b> and the exact solution of the 3-dim. Navier-Stokes
+equations (momentum and mass balance) is used under the assumptions
+of steady flow, constant pressure gradient and constant density and
+viscosity (= Hagen-Poiseuille flow) leading to λ2 = 64*Re.
+Therefore:
+<pre>
+ dp = 128*μ*L/(π*D^4*ρ)*m_flow 
+</pre>
+<br />
+&nbsp;</li>
+<li><b>Region 3</b>: For <b>Re ≥ 4000</b>, the flow is
+<b>turbulent</b>. Depending on the calculation direction (see
+"inverse formulation" below) either of two explicit equations are
+used. If the pressure drop dp is assumed to be known, λ2 = |dp|/k2.
+The Colebrook-White equation <i>[Colebrook 1939; Idelchik 1994, p.
+83, eq. (2-9)]</i>:
+<pre>
+1/sqrt(λ) = -2*lg( 2.51/(Re*sqrt(λ)) + 0.27*<font face="Symbol">D</font>) 
+</pre>
+gives an implicit relationship between Re and λ. Inserting λ2 =
+λ*Re^2 allows to solve this equation analytically for Re:
+<pre>
+Re = -2*sqrt(λ2)*lg(2.51/sqrt(λ2) + 0.27*<font face="Symbol">D</font>)
+</pre>
+Finally, the mass flow rate m_flow is computed from Re via m_flow =
+Re*π*D*μ/4*sign(dp). These are the <b>red</b> curves in the
+diagrams above.<br />
+If the mass flow rate is assumed known (and therefore implicitly
+also the Reynolds number), then λ2 is computed by an approximation
+of the inverse of the Colebrook-White equation <i>[Swamee and Jain
+1976; Miller 1990, p. 191, eq.(8.4)]</i> adapted to λ2:
+<pre>
+ λ2 = 0.25*(Re/lg(<font face="Symbol">D</font>/3.7 + 5.74/Re^0.9))^2 
+</pre>
+The pressure drop is then computed as dp = k2*λ2*sign(m_flow).
+These are the <b>blue</b> curves in the diagrams above.<br />
+&nbsp;</li>
+<li><b>Region 2</b>: For <b>2000 ≤ Re ≤ 4000</b> there is a
+transition region between laminar and turbulent flow. The value of
+λ2 depends on more factors as just the Reynolds number and the
+relative roughness, therefore only crude approximations are
+possible in this area.<br />
+The deviation from the laminar region depends on the relative
+roughness. A laminar flow at Re=2000 is only reached for smooth
+pipes. The deviation Reynolds number Re1 is computed according to
+<i>[Samoilenko 1968; Idelchik 1994, p. 81, sect. 2.1.21]</i> as:
+<pre>
+Re1 = 745*e^(if <font face="Symbol">D</font> ≤ 0.0065 then 1 else 0.0065/<font face="Symbol">D</font>)
+</pre>
+These are the <b>blue</b> curves in the diagrams above.<br />
+Between Re1=Re1(<font face="Symbol">d</font>/D) and Re2=4000, λ2 is
+approximated by a cubic polynomial in the "lg(λ2) - lg(Re)" chart
+(see figures above) such that the first derivative is continuous at
+these two points. In order to avoid the solution of non-linear
+equations, two different cubic polynomials are used for the direct
+and the inverse formulation. This leads to some discrepancies in λ2
+(= differences between the red and the blue curves). This is
+acceptable, because the transition region is anyway not precisely
+known since the actual friction coefficient depends on additional
+factors and since the operating points are usually not in this
+region.</li>
+</ul>
+<p>The absolute roughness <font face="Symbol">d</font> has usually
+to be estimated. In <i>[Idelchik 1994, pp. 105-109, Table 2-5;
+Miller 1990, p. 190, Table 8-1]</i> many examples are given. As a
+short summary:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td><b>Smooth pipes</b></td>
+<td>Drawn brass, copper, aluminium, glass, etc.</td>
+<td><font face="Symbol">d</font> = 0.0025 mm</td>
+</tr>
+<tr>
+<td rowspan="3"><b>Steel pipes</b></td>
+<td>New smooth pipes</td>
+<td><font face="Symbol">d</font> = 0.025 mm</td>
+</tr>
+<tr>
+<td>Mortar lined, average finish</td>
+<td><font face="Symbol">d</font> = 0.1 mm</td>
+</tr>
+<tr>
+<td>Heavy rust</td>
+<td><font face="Symbol">d</font> = 1 mm</td>
+</tr>
+<tr>
+<td rowspan="3"><b>Concrete pipes</b></td>
+<td>Steel forms, first class workmanship</td>
+<td><font face="Symbol">d</font> = 0.025 mm</td>
+</tr>
+<tr>
+<td>Steel forms, average workmanship</td>
+<td><font face="Symbol">d</font> = 0.1 mm</td>
+</tr>
+<tr>
+<td>Block linings</td>
+<td><font face="Symbol">d</font> = 1 mm</td>
+</tr>
+</table>
+<p>The equations above are valid for incompressible flow. They can
+also be applied for <b>compressible</b> flow up to about <b>Ma =
+0.6</b> (Ma is the Mach number) with a maximum error in λ of about
+3 %. The effect of gas compressibility in a wide region can be
+taken into account by the following formula derived by Voronin
+<i>[Voronin 1959; Idelchick 1994, p. 97, sect. 2.1.81]</i>:</p>
+<pre>
+  λ_comp = λ*(1 + (κ-1)/2 * Ma^2)^(-0.47)
+</pre>
+<p>where κ is the isentropic coefficient (for ideal gases, κ is the
+ratio of specific heat capacities cp/cv). An appreciable decrease
+in the coefficient "λ_comp" is observed only in a narrow transonic
+region and also at supersonic flow velocities by about 15%
+<i>[Idelchick 1994, p. 97, sect. 2.1.81]</i>. This effect is not
+yet included in Modelica.Fluid. Another restriction is that the
+pressure drop model is valid only for steady state or slowly
+changing mass flow rate. For large fluid acceleration, the pressure
+drop depends additionally on the frequency of the changing mass
+flow rate.</p>
+<h4>Inverse formulation</h4>
+<p>In the "Advanced menu" it is possible via parameter "from_dp" to
+define in which form the pressure drop equation is actually
+evaluated (<b>default</b> is from_dp = <b>true</b>):</p>
+<pre>
+   from_dp = <b>true</b>:   m_flow = f1(dp)
+           = <b>false</b>:  dp     = f2(m_flow)
+</pre>
+<p>"from_dp" can be useful to avoid nonlinear systems of equations
+in cases where the inverse pressure loss function is needed.</p>
+<h4>Summary</h4>
+<p>A detailed pressure drop model for pipe wall friction is
+provided in the form m_flow = f1(dp, <font face="Symbol">D</font>)
+or dp = f2(m_flow, <font face="Symbol">D</font>). These functions
+are continuous and differentiable, are provided in an explicit form
+without solving non-linear equations, and do behave well also at
+small mass flow rates. This pressure drop model can be used
+stand-alone in a static momentum balance and in a dynamic momentum
+balance as the friction pressure drop term. It is valid for
+incompressible and compressible flow up to a Mach number of
+0.6.</p>
+<h4>References</h4>
+<dl>
+<dt>Colebrook F. (1939):</dt>
+<dd><b>Turbulent flow in pipes with particular reference to the
+transition region between the smooth and rough pipe laws</b>. J.
+Inst. Civ. Eng. no. 4, 14-25.</dd>
+<dt>Idelchik I.E. (1994):</dt>
+<dd><a href="http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/">
+<b>Handbook of Hydraulic Resistance</b></a>. 3rd edition, Begell
+House, ISBN 0-8493-9908-4</dd>
+<dt>Miller D. S. (1990):</dt>
+<dd><b>Internal flow systems</b>. 2nd edition.
+Cranfield:BHRA(Information Services).</dd>
+<dt>Samoilenko L.A. (1968):</dt>
+<dd><b>Investigation of the Hydraulic Resistance of Pipelines in
+the Zone of Transition from Laminar into Turbulent Motion</b>.
+Thesis (Cand. of Technical Science), Leningrad.</dd>
+<dt>Swamee P.K. and Jain A.K. (1976):</dt>
+<dd><b>Explicit equations for pipe-flow problems</b>. Proc. ASCE,
+J.Hydraul. Div., 102 (HY5), pp. 657-664.</dd>
+<dt>Voronin F.S. (1959):</dt>
+<dd><b>Effect of contraction on the friction coefficient in a
+turbulent gas flow</b>. Inzh. Fiz. Zh., vol. 2, no. 11, pp.
+81-85.</dd>
+</dl>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

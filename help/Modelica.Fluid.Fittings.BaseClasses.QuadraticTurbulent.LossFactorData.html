@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData</title>
+</head>
+<body>
+<h1><a href="Icons/58b2517be1def3ebfad084bc44d157ad7cb7cb0c.svg"><img class="svgiconhead" src="Icons/58b2517be1def3ebfad084bc44d157ad7cb7cb0c.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.html">Fittings</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a>.<span class="omc-h1">LossFactorData</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This record defines the pressure loss factors of a pipe segment
+(orifice, bending etc.) with a minimum amount of data. If
+available, data should be provided for <b>both flow directions</b>,
+i.e., flow from port_a to port_b and from port_b to port_a, as well
+as for the <b>laminar</b> and the <b>turbulent</b> region. It is
+also an option to provide the loss factor <b>only</b> for the
+<b>turbulent</b> region for a flow from port_a to port_b.</p>
+<p>The following equations are used:</p>
+<pre>
+   Δp = 0.5*ζ*ρ*v*|v|
+      = 0.5*ζ/A^2 * (1/ρ) * m_flow*|m_flow|
+      = 8*ζ/(π^2*D^4*ρ) * m_flow*|m_flow|
+        Re = |v|*D*ρ/μ
+</pre>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td><b>flow type</b></td>
+<td><b>ζ</b> =</td>
+<td><b>flow region</b></td>
+</tr>
+<tr>
+<td>turbulent</td>
+<td><b>zeta1</b> = const.</td>
+<td>Re ≥ Re_turbulent, v ≥ 0</td>
+</tr>
+<tr>
+<td></td>
+<td><b>zeta2</b> = const.</td>
+<td>Re ≥ Re_turbulent, v &lt; 0</td>
+</tr>
+<tr>
+<td>laminar</td>
+<td><b>c0</b>/Re</td>
+<td>both flow directions, Re small; c0 = const.</td>
+</tr>
+</table>
+<p>where</p>
+<ul>
+<li>Δp is the pressure drop: Δp = port_a.p - port_b.p</li>
+<li>v is the mean velocity.</li>
+<li>ρ is the density.</li>
+<li>ζ is the loss factor that depends on the geometry of the pipe.
+In the turbulent flow regime, it is assumed that ζ is constant and
+is given by "zeta1" and "zeta2" depending on the flow
+direction.<br />
+When the Reynolds number Re is below "Re_turbulent", the flow is
+laminar for small flow velocities. For higher velocities there is a
+transition region from laminar to turbulent flow. The loss factor
+for laminar flow at small velocities is defined by the often
+occurring approximation c0/Re. If c0 is different for the two flow
+directions, the mean value has to be used (c0 = (c0_ab +
+c0_ba)/2).</li>
+<li>The equation "Δp = 0.5*ζ*ρ*v*|v|" is either with respect to
+port_a or to port_b, depending on the definition of the particular
+loss factor ζ (in some references loss factors are defined with
+respect to port_a, in other references with respect to
+port_b).</li>
+<li>Re = |v|*D_Re*ρ/μ = |m_flow|*D_Re/(A_Re*μ) is the Reynolds
+number at the smallest cross section area. This is often at port_a
+or at port_b, but can also be between the two ports. In the record,
+the diameter D_Re of this smallest cross section area has to be
+provided, as well, as Re_turbulent, the absolute value of the
+Reynolds number at which the turbulent flow starts. If Re_turbulent
+is different for the two flow directions, use the smaller value as
+Re_turbulent.</li>
+<li>D is the diameter of the pipe. If the pipe has not a circular
+cross section, D = 4*A/P, where A is the cross section area and P
+is the wetted perimeter.</li>
+<li>A is the cross section area with A = π(D/2)^2.</li>
+<li>μ is the dynamic viscosity.</li>
+</ul>
+<p>The laminar and the transition region is usually of not much
+technical interest because the operating point is mostly in the
+turbulent regime. For simplification and for numerical reasons,
+this whole region is described by two polynomials of third order,
+one polynomial for m_flow ≥ 0 and one for m_flow &lt; 0. The
+polynomials start at Re = |m_flow|*4/(π*D_Re*μ), where D_Re is the
+smallest diameter between port_a and port_b. The common derivative
+of the two polynomials at Re = 0 is computed from the equation
+"c0/Re". Note, the pressure drop equation above in the laminar
+region is always defined with respect to the smallest diameter
+D_Re.</p>
+<p>If no data for c0 is available, the derivative at Re = 0 is
+computed in such a way, that the second derivatives of the two
+polynomials are identical at Re = 0. The polynomials are
+constructed, such that they smoothly touch the characteristic
+curves in the turbulent regions. The whole characteristic is
+therefore <b>continuous</b> and has a <b>finite</b>, <b>continuous
+first derivative everywhere</b>. In some cases, the constructed
+polynomials would "vibrate". This is avoided by reducing the
+derivative at Re=0 in such a way that the polynomials are
+guaranteed to be monotonically increasing. The used sufficient
+criteria for monotonicity follows from:</p>
+<dl>
+<dt>Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd><b>Monotone piecewise cubic interpolation</b>. SIAM J. Numerc.
+Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction.html">
+<img class="svgiconsmall" src="Icons/4f77090c0425036db4fddfa50908b176a71f40a5.svg" /></a>&nbsp;<a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction.html">wallFriction</a></td>
+<td>Return pressure loss data due to friction in a straight pipe
+with walls of nonuniform roughness (not useful for smooth pipes,
+since zeta is no function of Re)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion.html">
+<img class="svgiconsmall" src="Icons/cf149b9ebcff77b0766ea1ca2ee12ddca7baa90b.svg" /></a>&nbsp;<a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion.html">suddenExpansion</a></td>
+<td>Return pressure loss data for sudden expansion or contraction
+in a pipe (for both flow directions)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice.html">
+<img class="svgiconsmall" src="Icons/bebd3f2b306dc3d5a1847cd822f88930379e9192.svg" /></a>&nbsp;<a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice.html">sharpEdgedOrifice</a></td>
+<td>Return pressure loss data for sharp edged orifice (for both
+flow directions)</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

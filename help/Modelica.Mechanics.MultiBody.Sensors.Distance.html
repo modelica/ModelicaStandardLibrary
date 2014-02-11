@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Sensors.Distance</title>
+</head>
+<body>
+<h1><a href="Icons/20069065d8e94e6c370f5c906d79da9bb47665e8.svg"><img class="svgiconhead" src="Icons/20069065d8e94e6c370f5c906d79da9bb47665e8.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Sensors.html">Sensors</a>.<span class="omc-h1">Distance</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <b>distance</b> between the origins of frame_a and of
+frame_b are determined and provided at the output signal connector
+<b>distance</b>. This distance is always positive.
+<b>Derivatives</b> of this signal can be easily obtained by
+connecting the block <a href="Modelica.Blocks.Continuous.Der.html">Modelica.Blocks.Continuous.Der</a>
+to "distance" (this block performs analytic differentiation of the
+input signal using the der(..) operator).</p>
+<p>In the following figure the animation of a Distance sensor is
+shown. The light blue coordinate system is frame_a, the dark blue
+coordinate system is frame_b, and the yellow arrow is the animated
+sensor.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png" /></p>
+<p>If the distance is smaller as parameter <b>s_small</b> (in the
+"advanced" menu), it is approximated such that its derivative is
+finite for zero distance. Without such an approximation, the
+derivative would be infinite and a division by zero would occur.
+The approximation is performed in the following way: If distance
+&gt; s_small, it is computed as sqrt(r*r) where r is the position
+vector from the origin of frame_a to the origin of frame_b. If the
+distance becomes smaller as s_small, the "sqrt()" function is
+approximated by a second order polynomial, such that the function
+value and its first derivative are identical for sqrt() and the
+polynomial at s_small. Furthermore, the polynomial passes through
+zero. The effect is, that the distance function is continuous and
+differentiable everywhere. The derivative at zero distance is
+3/(2*s_small).</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

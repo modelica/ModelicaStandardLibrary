@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Math.MultiSum</title>
+</head>
+<body>
+<h1><a href="Icons/3fbe6fa243cbe9bfda1601f51f0cae33d3080a2d.svg"><img class="svgiconhead" src="Icons/3fbe6fa243cbe9bfda1601f51f0cae33d3080a2d.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Math.html">Math</a>.<span class="omc-h1">MultiSum</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This blocks computes the scalar Real output "y" as sum of the
+elements of the Real input signal vector u:</p>
+<blockquote>
+<pre>
+y = k[1]*u[1] + k[2]*u[2] + ... k[N]*u[N];
+</pre></blockquote>
+<p>The input connector is a vector of Real input signals. When a
+connection line is drawn, the dimension of the input vector is
+enlarged by one and the connection is automatically connected to
+this new free index (thanks to the connectorSizing annotation).</p>
+<p>The usage is demonstrated, e.g., in example <a href="Modelica.Blocks.Examples.RealNetwork1.html">Modelica.Blocks.Examples.RealNetwork1</a>.</p>
+<p>If no connection to the input connector "u" is present, the
+output is set to zero: y=0.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

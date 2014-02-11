@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR</title>
+</head>
+<body>
+<h1><a href="Icons/0098ce2ff56f140f9835822d338d302fcb71da9c.svg"><img class="svgiconhead" src="Icons/0098ce2ff56f140f9835822d338d302fcb71da9c.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.html">Joints</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Joints.Assemblies.html">Assemblies</a>.<span class="omc-h1">JointSSR</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component consists of a <b>spherical</b> joint 1 at
+frame_a, a <b>revolute</b> joint at frame_b and a <b>spherical</b>
+joint 2 which is connected via rod 1 to the spherical joint 1 and
+via rod 2 to the revolute joint, see the default animation in the
+following figure (the axes vectors are not part of the default
+animation):</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Joints/JointSSR.png" alt="model Joints.Assemblies.JointSSR" /></p>
+<p>Besides an optional point mass in the middle of rod 1, this
+joint aggregation has no mass and no inertia, and introduces
+neither constraints nor potential state variables. It should be
+used in kinematic loops whenever possible since the non-linear
+system of equations introduced by this joint aggregation is solved
+<b>analytically</b> (i.e., a solution is always computed, if a
+unique solution exists).</p>
+<p>An additional <b>frame_ib</b> is present. It is <b>fixed</b> in
+rod 2 connecting the revolute and the spherical joint at the side
+of the revolute joint that is connected to this rod (= rod2.frame_a
+= revolute.frame_a).</p>
+<p>An additional <b>frame_im</b> is present. It is <b>fixed</b> in
+rod 2 connecting the revolute and the spherical joint at the side
+of spherical joint 2 that is connected to this rod (=
+rod2.frame_b). It is always parallel to <b>frame_ib</b>.</p>
+<p>The easiest way to define the parameters of this joint is by
+moving the MultiBody system in a <b>reference configuration</b>
+where <b>all frames</b> of all components are <b>parallel</b> to
+each other (alternatively, at least frame_b and frame_ib of the
+JointSSR joint should be parallel to each other when defining an
+instance of this component).</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

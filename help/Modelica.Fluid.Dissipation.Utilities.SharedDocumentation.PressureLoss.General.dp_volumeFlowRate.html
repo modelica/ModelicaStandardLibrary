@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.html">General</a>.<span class="omc-h1">dp_volumeFlowRate</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of a generic pressure loss with linear or quadratic
+dependence on volume flow rate.</p>
+<h4>Calculation</h4>
+<p>The geometry parameters of energy devices necessary for the
+pressure loss calculations are often not exactly known. Therefore
+the modelling of the detailed pressure loss calculation has to be
+simplified. This function uses as quadratic dependence of the
+pressure loss on the volume flow rate.</p>
+<p>The mass flow rate <b>m_flow</b> for the compressible case [Mass
+flow rate = f(dp)] is determined to <i>[see Wischhusen]</i> :</p>
+<pre>
+ m_flow = rho*[-b/(2a) + {[b/(2a)]^2 + dp/a}^0.5]
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>a</b></td>
+<td>as quadratic coefficient [Pa*s^2/m^6],</td>
+</tr>
+<tr>
+<td><b>b</b></td>
+<td>as linear coefficient [Pa*s/m3],</td>
+</tr>
+<tr>
+<td><b>dp</b></td>
+<td>as pressure loss [Pa],</td>
+</tr>
+<tr>
+<td><b>m_flow</b></td>
+<td>as mass flow rate [kg/s],</td>
+</tr>
+<tr>
+<td><b>rho</b></td>
+<td>as density of fluid [kg/m3].</td>
+</tr>
+</table>
+<p>Note that the coefficients <b>a,b</b> have to be positive values
+so that there will be a positive (linear or quadratic) pressure
+loss at positive volume flow rate and vice versa.</p>
+<h4>Verification</h4>
+<p><b>Compressible case</b> [Mass flow rate = f(dp)]:</p>
+<p>The generic pressure loss <b>dp</b> for different coefficients
+<b>a</b> as parameter is shown in dependence of the volume flow
+rate <b>V_flow</b> in the figure below.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png" alt="fig_general_dp_volumeFlowRate_MFLOWvsDP" /></p>
+<p>Note that the verification for <a href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate.html">
+dp_volumeFlowRate</a> is also valid for this inverse calculation
+due to using the same functions.</p>
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dd><b>Inline integration: A new mixed symbolic / numeric approach
+for solving differential-algebraic equation systems.</b>. In
+Proceedings of European Simulation MultiConference, Praque,
+1995.</dd>
+<dt>Wischhusen, S.:</dt>
+<dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von
+komplexen Energiesystemen.</b>. PhD thesis, Technische Universität
+Hamburg-Harburg, 2005.</dd>
+</dl>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

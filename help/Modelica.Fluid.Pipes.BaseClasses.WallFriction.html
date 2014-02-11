@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Pipes.BaseClasses.WallFriction</title>
+</head>
+<body>
+<h1><a href="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg"><img class="svgiconhead" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.html">Pipes</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<span class="omc-h1">WallFriction</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This package provides functions to compute pressure losses due
+to <b>wall friction</b> in a pipe. Every correlation is defined by
+a package that is derived by inheritance from the package
+WallFriction.PartialWallFriction. The details of the underlying
+pipe wall friction model are described in the <a href="Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction.html">
+UsersGuide</a>. Basically, different variants of the equation</p>
+<pre>
+   dp = λ(Re,<font face="Symbol">D</font>)*(L/D)*ρ*v*|v|/2
+</pre>
+<p>are used, where the friction loss factor λ is shown in the next
+figure:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Components/PipeFriction1.png" alt="PipeFriction1.png" /></p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.html">
+<img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.html">PartialWallFriction</a></td>
+<td>Partial wall friction characteristic (base package of all wall
+friction characteristics)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.NoFriction.html"><img class="svgiconsmall" src="Icons/c226cba0454453fc0434b7369a3592129664f933.svg" /></a>&nbsp;<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.NoFriction.html">NoFriction</a></td>
+<td>No pipe wall friction, no static head</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar.html">Laminar</a></td>
+<td>Pipe wall friction in the laminar regime (linear
+correlation)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent.html">
+<img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent.html">QuadraticTurbulent</a></td>
+<td>Pipe wall friction in the quadratic turbulent regime (simple
+characteristic, mu not used)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.html">
+<img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.html">LaminarAndQuadraticTurbulent</a></td>
+<td>Pipe wall friction in the laminar and quadratic turbulent
+regime (simple characteristic)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed.html">Detailed</a></td>
+<td>Pipe wall friction in the whole regime (detailed
+characteristic)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity.html">
+<img class="svgiconsmall" src="Icons/a9c6029535cad41538ecf196b832269e30cf6c0f.svg" /></a>&nbsp;<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity.html">TestWallFrictionAndGravity</a></td>
+<td>Pressure loss in pipe due to wall friction and gravity (only
+for test purposes; if needed use Pipes.StaticPipe instead)</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

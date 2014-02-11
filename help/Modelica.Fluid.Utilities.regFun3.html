@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Utilities.regFun3</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Utilities.html">Utilities</a>.<span class="omc-h1">regFun3</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Approximates a function in a region between <code>x0</code> and
+<code>x1</code> such that</p>
+<ul>
+<li>The overall function is continuous with a continuous first
+derivative everywhere.</li>
+<li>The function is co-monotone with the given data points.</li>
+</ul>
+<p>In this region, a continuation is constructed from the given
+points <code>(x0, y0)</code>, <code>(x1, y1)</code> and the
+respective derivatives. For this purpose, a single polynomial of
+third order or two cubic polynomials with a linear section in
+between are used <i>[Gasparo and Morandi, 1991]</i>. This algorithm
+was extended with two additional conditions to avoid saddle points
+with zero/infinite derivative that lead to integrator step size
+reduction to zero.</p>
+<p>This function was developed for pressure loss correlations
+properly addressing the static head on top of the established
+requirements for monotonicity and smoothness. In this case, the
+present function allows to implement the exact solution in the
+limit of <code>x1-x0 -&gt; 0</code> or <code>y1-y0 -&gt;
+0</code>.</p>
+<p>Typical screenshots for two different configurations are shown
+below. The first one illustrates five different settings of
+<code>xi</code> and <code>yid</code>:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Components/regFun3_a.png" alt="regFun3_a.png" /></p>
+<p>The second graph shows the continuous derivative of this
+regularization function:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Components/regFun3_b.png" alt="regFun3_a.png" /></p>
+<p><b>Literature</b></p>
+<dl>
+<dt>Gasparo M. G. and Morandi R. (1991):</dt>
+<dd><b>Piecewise cubic monotone interpolation with assigned
+slopes</b>. Computing, Vol. 46, Issue 4, December 1991, pp. 355 -
+365.</dd>
+</dl>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function regFun3
+  extends Modelica.Icons.Function;
+  input Real x "Abscissa value";
+  input Real x0 "Lower abscissa value";
+  input Real x1 "Upper abscissa value";
+  input Real y0 "Ordinate value at lower abscissa value";
+  input Real y1 "Ordinate value at upper abscissa value";
+  input Real y0d "Derivative at lower abscissa value";
+  input Real y1d "Derivative at upper abscissa value";
+  output Real y "Ordinate value";
+  output Real c "Slope of linear section between two cubic polynomials or dummy linear section slope if single cubic is used";
+end regFun3;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>May 2008</i> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br />
+Designed and implemented.</li>
+<li><i>February 2011</i> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br />
+If the inflection point of the cubic S0 was at +/- infinity, the
+test criteria of <i>[Gasparo and Morandi, 1991]</i> result in
+division by zero. This case is handled properly now.</li>
+<li><i>March 2013</i> by <a href="mailto:Michael.Sielemann@dlr.de">Michael Sielemann</a>:<br />
+If the arguments prescribed a degenerate case with points
+<code>(x0,y0)</code> and <code>(x1,y1)</code> on horizontal line,
+then return value <code>c</code> was undefined. This was corrected.
+Furthermore, an additional term was included for the computation of
+<code>y</code> in this case to assist automatic
+differentiation.</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

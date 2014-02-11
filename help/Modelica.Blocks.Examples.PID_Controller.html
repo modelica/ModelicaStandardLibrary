@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Examples.PID_Controller</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Examples.html">Examples</a>.<span class="omc-h1">PID_Controller</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is a simple drive train controlled by a PID controller:</p>
+<ul>
+<li>The two blocks "kinematic_PTP" and "integrator" are used to
+generate the reference speed (= constant acceleration phase,
+constant speed phase, constant deceleration phase until inertia is
+at rest). To check whether the system starts in steady state, the
+reference speed is zero until time = 0.5 s and then follows the
+sketched trajectory.</li>
+<li>The block "PI" is an instance of "Blocks.Continuous.LimPID"
+which is a PID controller where several practical important
+aspects, such as anti-windup-compensation has been added. In this
+case, the control block is used as PI controller.</li>
+<li>The output of the controller is a torque that drives a motor
+inertia "inertia1". Via a compliant spring/damper component, the
+load inertia "inertia2" is attached. A constant external torque of
+10 Nm is acting on the load inertia.</li>
+</ul>
+<p>The PI controller settings included "limitAtInit=false", in
+order that the controller output limits of 12 Nm are removed from
+the initialization problem.</p>
+<p>The PI controller is initialized in steady state
+(initType=SteadyState) and the drive shall also be initialized in
+steady state. However, it is not possible to initialize "inertia1"
+in SteadyState, because "der(inertia1.phi)=inertia1.w=0" is an
+input to the PI controller that defines that the derivative of the
+integrator state is zero (= the same condition that was already
+defined by option SteadyState of the PI controller). Furthermore,
+one initial condition is missing, because the absolute position of
+inertia1 or inertia2 is not defined. The solution shown in this
+examples is to initialize the angle and the angular acceleration of
+"inertia1".</p>
+<p>In the following figure, results of a typical simulation are
+shown:</p>
+<img src="../Modelica%203.2.1/Resources/Images/Blocks/PID_controller.png" alt="PID_controller.png" /><br />
+<img src="../Modelica%203.2.1/Resources/Images/Blocks/PID_controller2.png" alt="PID_controller2.png" />
+<p>In the upper figure the reference speed (= integrator.y) and the
+actual speed (= inertia1.w) are shown. As can be seen, the system
+initializes in steady state, since no transients are present. The
+inertia follows the reference speed quite good until the end of the
+constant speed phase. Then there is a deviation. In the lower
+figure the reason can be seen: The output of the controller (PI.y)
+is in its limits. The anti-windup compensation works reasonably,
+since the input to the limiter (PI.limiter.u) is forced back to its
+limit after a transient phase.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

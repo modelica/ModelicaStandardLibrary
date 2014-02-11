@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Math.Nonlinear.Examples.solveNonlinearEquations1</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Nonlinear.html">Nonlinear</a>.<a class="omc-h1-a" href="Modelica.Math.Nonlinear.Examples.html">Examples</a>.<span class="omc-h1">solveNonlinearEquations1</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This example solves the following nonlinear equations with
+function <a href="Modelica.Math.Nonlinear.solveOneNonlinearEquation.html">solveOneNonlinearEquation</a>
+and compares the result with the available analytical solution. The
+examples also demonstrate how additional input arguments to the
+nonlinear equation function can be passes as additional arguments.
+The following nonlinear equations are solved:</p>
+<ul>
+<li>0 = u^2 - 1</li>
+<li>0 = 3*u - sin(3*u) - 1</li>
+<li>0 = 5 + log(u) - u</li>
+</ul>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function solveNonlinearEquations1
+  extends Modelica.Icons.Function;
+  import Modelica.Utilities.Streams.print;
+  input Real tolerance = 100 * Modelica.Constants.eps "Relative tolerance of solution u";
+end solveNonlinearEquations1;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

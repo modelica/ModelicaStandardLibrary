@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Parts.PointMass</title>
+</head>
+<body>
+<h1><a href="Icons/bf081e616d3f658b50bb80ced6f1d2783b3a080f.svg"><img class="svgiconhead" src="Icons/bf081e616d3f658b50bb80ced6f1d2783b3a080f.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Parts.html">Parts</a>.<span class="omc-h1">PointMass</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p><b>Rigid body</b> where the inertia tensor is neglected. This
+body is solely defined by its mass. By default, this component is
+visualized by a <b>sphere</b> that has its center at frame_a. Note,
+that the animation may be switched off via parameter animation =
+<b>false</b>.</p>
+<p>Every PointMass has potential states. If possible a tool will
+select the states of joints and not the states of PointMass because
+this is usually the most efficient choice. In this case the
+position and velocity of frame_a of the body will be computed by
+the component that is connected to frame_a. However, if a PointMass
+is moving freely in space, variables of the PointMass have to be
+used as states. The potential states are: The <b>position
+vector</b> frame_a.r_0 from the origin of the world frame to the
+origin of frame_a of the body, resolved in the world frame and the
+<b>absolute velocity</b> v_0 of the origin of frame_a, resolved in
+the world frame (= der(frame_a.r_0)).</p>
+<p>Whether or not variables of the body are used as states is
+usually automatically selected by the Modelica translator. If
+parameter <b>enforceStates</b> is set to <b>true</b> in the
+"Advanced" menu, then PointMass variables frame_a.r_0 and
+der(frame_a.r_0) are forced to be used as states.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

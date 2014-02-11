@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Classes.'class'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Classes.html">Classes</a>.<span class="omc-h1">'class'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Define class</p>
+<h4>Examples</h4>
+<pre>
+<b>class</b> MyTable
+  <b>extends</b> ExternalObject;
+  <b>function</b> constructor
+     ...
+  <b>end</b> constructor;
+
+  <b>function</b> destructor
+     ...
+  <b>end</b> destructor;
+<b>end</b> MyTable;
+</pre>
+<h4>Syntax</h4>
+<pre>
+   [ <b>encapsulated</b> ][ <b>partial </b>] <b>class</b>
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <b>end</b> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <b>enumeration</b> "(" ( [enum_list] | ":" ) ")" comment
+</pre>
+<p>See Modelica Language Specification for further details.</p>
+<h4>Description</h4>
+<p>The keyword class is used to define general classes (without any
+restrictions). It is identical to the keyword model. In most cases,
+it is recommended to use specialized classes as <a href="ModelicaReference.Classes.%27connector%27.html">connector</a>,
+<a href="ModelicaReference.Classes.%27model%27.html">model</a>,
+<a href="ModelicaReference.Classes.%27block%27.html">block</a>,
+<a href="ModelicaReference.Classes.%27package%27.html">package</a>,
+<a href="ModelicaReference.Classes.%27record%27.html">record</a>,
+<a href="ModelicaReference.Classes.%27function%27.html">function</a>,
+<a href="ModelicaReference.Classes.%27type%27.html">type</a>.
+"class" should only be used to define <a href="ModelicaReference.Classes.ExternalObject.html">ExternalObject</a>s.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

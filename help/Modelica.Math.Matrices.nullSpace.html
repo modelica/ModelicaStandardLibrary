@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.nullSpace</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">nullSpace</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+           Z = Matrices.<b>nullspace</b>(A);
+(Z, nullity) = Matrices.<b>nullspace</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function calculates an orthonormal basis
+<b>Z</b>=[<b>z</b>_1, <b>z</b>_2, ...] of the nullspace of a matrix
+<b>A</b>, i.e., <b>A</b>*<b>z</b>_i=<b>0</b>.</p>
+<p>The nullspace is obtained by SVD method. That is, matrix
+<b>A</b> is decomposed into the matrices <b>S</b>, <b>U</b>,
+<b>V</b>:</p>
+<blockquote>
+<pre>
+ <b>A</b> = <b>U</b>*<b>S</b>*transpose(<b>V</b>)
+</pre></blockquote>
+<p>with the orthonormal matrices <b>U</b> and <b>V</b> and the
+matrix <b>S</b> with</p>
+<blockquote>
+<pre>
+ <b>S</b> = [<b>S</b>1, <b>0</b>]
+ <b>S</b>1 = [diag(s); <b>0</b>]
+</pre></blockquote>
+<p>and the singular values <b>s</b>={s1, s2, ..., sr} of <b>A</b>
+and r=rank(<b>A</b>). Note, that <b>S</b> has the same size as
+<b>A</b>. Since <b>U</b> and <b>V</b> are orthonormal we may
+write</p>
+<blockquote>
+<pre>
+ transpose(<b>U</b>)*<b>A</b>*<b>V</b> = [<b>S</b>1, <b>0</b>].
+</pre></blockquote>
+<p>Matrix <b>S</b>1 obviously has full column rank and therefore,
+the left n-r rows (n is the number of columns of <b>A</b> or
+<b>S</b>) of matrix <b>V</b> span a nullspace of <b>A</b>.</p>
+<p>The nullity of matrix <b>A</b> is the dimension of the nullspace
+of <b>A</b>. In view of the above, it becomes clear that nullity
+holds</p>
+<blockquote>
+<pre>
+ nullity = n - r
+</pre></blockquote>
+<p>with</p>
+<blockquote>
+<pre>
+ n = number of columns of matrix <b>A</b>
+ r = rank(<b>A</b>)
+</pre></blockquote>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  A = [1, 2,  3, 1;
+       3, 4,  5, 2;
+      -1, 2, -3, 3];
+  (Z, nullity) = nullspace(A);
+
+  results in:
+
+  Z=[0.1715;
+    -0.686;
+     0.1715;
+     0.686]
+
+  nullity = 1
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.singularValues.html">Matrices.singularValues</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function nullSpace
+  extends Modelica.Icons.Function;
+  input Real A[:,:] "Input matrix";
+  output Real Z[size(A, 2),:] "Orthonormal nullspace of matrix A";
+  output Integer nullity "Nullity, i.e., the dimension of the nullspace";
+end nullSpace;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

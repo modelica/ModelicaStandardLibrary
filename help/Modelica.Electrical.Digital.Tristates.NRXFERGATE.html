@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Digital.Tristates.NRXFERGATE</title>
+</head>
+<body>
+<h1><a href="Icons/8b03fce8d1c2200cdf41839460bd537a312aef73.svg"><img class="svgiconhead" src="Icons/8b03fce8d1c2200cdf41839460bd537a312aef73.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.html">Digital</a>.<a class="omc-h1-a" href="Modelica.Electrical.Digital.Tristates.html">Tristates</a>.<span class="omc-h1">NRXFERGATE</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Description in VHDL is given by
+http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><b>Truth Table</b></p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>DataIn</b></td>
+<td valign="top"><b>Enable</b></td>
+<td valign="top"><b>DataOut</b></td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">U</td>
+<td valign="top">U</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">X</td>
+<td valign="top">UW</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">0</td>
+<td valign="top">Z</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">1</td>
+<td valign="top">DataIn, Strength Reduced</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">Z</td>
+<td valign="top">UW</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">W</td>
+<td valign="top">UW</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">L</td>
+<td valign="top">Z</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">H</td>
+<td valign="top">DataIn, Strength Reduced</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">-</td>
+<td valign="top">UW</td>
+</tr>
+</table>
+<pre>
+  UW: if dataIn == U then U else W
+  Strength Reduced: 0 -&gt; L, 1 -&gt; H, X -&gt; W
+</pre>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>January 15, 2010</i> created by Ulrich Donath<br /></li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

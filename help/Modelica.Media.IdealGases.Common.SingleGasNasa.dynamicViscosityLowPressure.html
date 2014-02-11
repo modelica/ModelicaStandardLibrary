@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.IdealGases.Common.SingleGasNasa.dynamicViscosityLowPressure</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.html">IdealGases</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.html">Common</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.SingleGasNasa.html">SingleGasNasa</a>.<span class="omc-h1">dynamicViscosityLowPressure</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The used formula are based on the method of Chung et al (1984,
+1988) referred to in ref [1] chapter 9. The formula 9-4.10 is the
+one being used. The Formula is given in non-SI units, the following
+conversion constants were used to transform the formula to SI
+units:</p>
+<ul>
+<li><b>Const1_SI:</b> The factor 10^(-9.5) =10^(-2.5)*1e-7 where
+the factor 10^(-2.5) originates from the conversion of
+g/mol-&gt;kg/mol + cm^3/mol-&gt;m^3/mol and the factor 1e-7 is due
+to conversion from microPoise-&gt;Pa.s.</li>
+<li><b>Const2_SI:</b> The factor 1/3.335641e-27 = 1e-3/3.335641e-30
+where the factor 3.335641e-30 comes from debye-&gt;C.m and 1e-3 is
+due to conversion from cm^3/mol-&gt;m^3/mol</li>
+</ul>
+<h4>References:</h4>
+<p>[1] Bruce E. Poling, John E. Prausnitz, John P. O'Connell, "The
+Properties of Gases and Liquids" 5th Ed. Mc Graw Hill.</p>
+<h4>Author</h4>
+<p>T. Skoglund, Lund, Sweden, 2004-08-31</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function dynamicViscosityLowPressure
+  extends Modelica.Icons.Function;
+  input SI.Temp_K T "Gas temperature";
+  input SI.Temp_K Tc "Critical temperature of gas";
+  input SI.MolarMass M "Molar mass of gas";
+  input SI.MolarVolume Vc "Critical molar volume of gas";
+  input Real w "Acentric factor of gas";
+  input DipoleMoment mu "Dipole moment of gas molecule";
+  input Real k = 0.0 "Special correction for highly polar substances";
+  output SI.DynamicViscosity eta "Dynamic viscosity of gas";
+end dynamicViscosityLowPressure;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

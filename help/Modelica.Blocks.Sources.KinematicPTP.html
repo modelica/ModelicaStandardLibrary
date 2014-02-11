@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Sources.KinematicPTP</title>
+</head>
+<body>
+<h1><a href="Icons/488efbd1abfe890f6bb8b8607cc0f7c5453ac7dc.svg"><img class="svgiconhead" src="Icons/488efbd1abfe890f6bb8b8607cc0f7c5453ac7dc.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Sources.html">Sources</a>.<span class="omc-h1">KinematicPTP</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The goal is to move as <b>fast</b> as possible along a distance
+<b>deltaq</b> under given <b>kinematical constraints</b>. The
+distance can be a positional or angular range. In robotics such a
+movement is called <b>PTP</b> (Point-To-Point). This source block
+generates the <b>acceleration</b> qdd of this signal as output:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Blocks/Sources/KinematicPTP.png" alt="KinematicPTP.png" /></p>
+<p>After integrating the output two times, the position q is
+obtained. The signal is constructed in such a way that it is not
+possible to move faster, given the <b>maximally</b> allowed
+<b>velocity</b> qd_max and the <b>maximally</b> allowed
+<b>acceleration</b> qdd_max.</p>
+<p>If several distances are given (vector deltaq has more than 1
+element), an acceleration output vector is constructed such that
+all signals are in the same periods in the acceleration, constant
+velocity and deceleration phase. This means that only one of the
+signals is at its limits whereas the others are synchronized in
+such a way that the end point is reached at the same time
+instant.</p>
+<p>This element is useful to generate a reference signal for a
+controller which controls a drive train or in combination with
+model Modelica.Mechanics.Rotational.<b>Accelerate</b> to drive a
+flange according to a given acceleration.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>June 27, 2001</i> by Bernhard Bachmann.<br />
+Bug fixed that element is also correct if startTime is not
+zero.</li>
+<li><i>Nov. 3, 1999</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+Vectorized and moved from Rotational to Blocks.Sources.</li>
+<li><i>June 29, 1999</i> by <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a>:<br />
+realized.</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

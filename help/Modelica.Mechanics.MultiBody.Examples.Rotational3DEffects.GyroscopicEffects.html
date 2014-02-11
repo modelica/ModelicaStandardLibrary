@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.html">Rotational3DEffects</a>.<span class="omc-h1">GyroscopicEffects</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This example consists of a body that is attached to the world
+system with a spherical joint. On this body, a "rotor", i.e., a
+body with rotational symmetry is present. Two kinds of models are
+shown:</p>
+<ul>
+<li>In the upper part of the diagram layer, only multi-body
+components are used.</li>
+<li>In the lower part of the diagram layer, the same model is
+implemented, but by a different modeling of the cylindrical body:
+The cylindrical body is included, but it is rigidly attached to its
+mount. This part takes into account the movement of the center of
+mass and of the inertia tensor of the cylindrical body. Note, since
+the cylindrical body has rotational symmetry, its center of mass
+and its inertia tensor is independent of the angle of the inertia
+and can therefore be rigidly attached to its mount. Additionally,
+with a "MultiBody.Parts.Rotor1D" model, a primarily 1-dim. inertia
+is included that takes into account the additional effects when the
+cylindrical body is moving relatively to its mounts</li>
+</ul>
+<p>The simulation reveals that both the kinematic movement and the
+reaction forces on the environment (object "world" and "fixed"
+respectively) are identical for both models.</p>
+<p>A typical usage scenario is to model a complete drive train of a
+vehicle, including the automatic gearbox, with elements of the
+"Mechanics.Rotational" library, but using the "Rotor1D" model
+instead of the "Rotational.Components.Inertia" component. This
+drive train model can be mounted on a 3-dim. multi-body model of
+the vehicle. Additionally, one rigid body has to be fixed to the
+vehicle that has the mass, center of mass and inertia tensor of the
+complete drive train. Both models together, give exactly the same
+effect, as if every part of the drive train would have been
+modelled solely with mult-body components. One benefit of this
+modeling is that the simulation is much faster.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

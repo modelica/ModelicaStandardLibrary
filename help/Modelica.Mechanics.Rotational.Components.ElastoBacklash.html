@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Rotational.Components.ElastoBacklash</title>
+</head>
+<body>
+<h1><a href="Icons/e7dda08966c94c0e596a7fedc84725b6d6a8858a.svg"><img class="svgiconhead" src="Icons/e7dda08966c94c0e596a7fedc84725b6d6a8858a.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Components.html">Components</a>.<span class="omc-h1">ElastoBacklash</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This element consists of a <b>backlash</b> element <b>connected
+in series</b> to a <b>spring</b> and <b>damper</b> element which
+are <b>connected in parallel</b>. The spring constant shall be
+non-zero, otherwise the component cannot be used.</p>
+<p>In combination with components IdealGear, the ElastoBacklash
+model can be used to model a gear box with backlash, elasticity and
+damping.</p>
+<p>During initialization, the backlash characteristic is replaced
+by a continuous approximation in the backlash region, in order to
+reduce problems during initialization, especially for inverse
+models.</p>
+<p>If the backlash b is smaller as 1e-10 rad (especially, if b=0),
+then the backlash is ignored and the component reduces to a
+spring/damper element in parallel.</p>
+<p>In the backlash region (-b/2 ≤ flange_b.phi - flange_a.phi -
+phi_rel0 ≤ b/2) no torque is exerted (flange_b.tau = 0). Outside of
+this region, contact is present and the contact torque is basically
+computed with a linear spring/damper characteristic:</p>
+<pre>
+   desiredContactTorque = c*phi_contact + d*<b>der</b>(phi_contact)
+
+            phi_contact = phi_rel - phi_rel0 - b/2 <b>if</b> phi_rel - phi_rel0 &gt;  b/2
+                        = phi_rel - phi_rel0 + b/2 <b>if</b> phi_rel - phi_rel0 &lt; -b/2
+
+            phi_rel     = flange_b.phi - flange_a.phi;
+</pre>
+<p>This torque characteristic leads to the following
+difficulties:</p>
+<ol>
+<li>If the damper torque becomes larger as the spring torque and
+with opposite sign, the contact torque would be "pulling/sticking"
+which is unphysical, since during contact only pushing torques can
+occur.</li>
+<li>When contact occurs with a non-zero relative speed (which is
+the usual situation), the damping torque has a non-zero value and
+therefore the contact torque changes discontinuously at phi_rel =
+phi_rel0. Again, this is not physical because the torque can only
+change continuously. (Note, this component is not an idealized
+model where a steep characteristic is approximated by a
+discontinuity, but it shall model the steep characteristic.)</li>
+</ol>
+<p>In the literature there are several proposals to fix problem
+(2). However, there seems to be no proposal to avoid sticking. For
+this reason, the most simple approach is used in the ElastoBacklash
+model, to fix both problems by slight changes to the linear
+spring/damper characteristic:</p>
+<pre>
+    // Torque characteristic when phi_rel &gt; phi_rel0
+    <b>if</b> phi_rel - phi_rel0 &lt; b/2 <b>then</b>
+       tau_c = 0;          // spring torque
+       tau_d = 0;          // damper torque
+       flange_b.tau = 0;
+    <b>else</b>
+       tau_c = c*(phi_rel - phi_rel0);    // spring torque
+       tau_d = d*<b>der</b>(phi_rel);            // damper torque
+       flange_b.tau = <b>if</b> tau_c + tau_d ≤ 0 <b>then</b> 0 <b>else</b> tau_c + <b>min</b>( tau_c, tau_d );
+    <b>end if</b>;
+</pre>
+<p>Note, when sticking would occur (tau_c + tau_d ≤ 0), then the
+contact torque is explicitly set to zero. The "min(tau_c, tau_d)"
+part in the if-expression, limits the damping torque when it is
+pushing. This means that at the start of the contact (phi_rel -
+phi_rel0 = b/2), the damping torque is zero and is continuous. The
+effect of both modifications is that the absolute value of the
+damping torque is always limited by the absolute value of the
+spring torque: |tau_d| ≤ |tau_c|.</p>
+<p>In the next figure, a typical simulation with the ElastoBacklash
+model is shown (<a href="Modelica.Mechanics.Rotational.Examples.Backlash.html">Examples.Backlash</a>)
+where the different effects are visualized:</p>
+<ol>
+<li>Curve 1 (elastoBacklash1.tau) is the unmodified contact torque,
+i.e., the linear spring/damper characteristic. A pulling/sticking
+torque is present at the end of the contact.</li>
+<li>Curve 2 (elastoBacklash2.tau) is the contact torque, where the
+torque is explicitly set to zero when pulling/sticking occurs. The
+contact torque is discontinuous at begin of contact.</li>
+<li>Curve 3 (elastoBacklash3.tau) is the ElastoBacklash model of
+this library. No discontinuity and no pulling/sticking occurs.</li>
+</ol>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/Rotational/elastoBacklash1.png" /></p>
+<p>See also the discussion <a href="Modelica.Mechanics.Rotational.UsersGuide.StateSelection.html">
+State Selection</a> in the User's Guide of the Rotational
+library.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

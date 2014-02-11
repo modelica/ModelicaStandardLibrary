@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Machines.Examples.DCMachines.DCPM_withLosses</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Examples.DCMachines.html">DCMachines</a>.<span class="omc-h1">DCPM_withLosses</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<b>Test example: Investigate influence of losses on DCPM motor
+performance</b><br />
+Both motors are started with a voltage ramp applied to the
+armature, causing the DC machines to start, and accelerating
+inertias. Both machines are loading with a quadratic speed
+dependent load torque.<br />
+The first machine <code>dcpm1</code> uses default machine
+parameters of model <i>DC_PermanentMagnet</i>, the second machine
+<code>dcpm2</code> is parametrized with additional losses:<br />
+<table>
+<tr>
+<td></td>
+<td>dcpm1</td>
+<td>dcpm2</td>
+<td></td>
+</tr>
+<tr>
+<td>Armature voltage</td>
+<td>100</td>
+<td>100</td>
+<td>V</td>
+</tr>
+<tr>
+<td>Armature current</td>
+<td>100</td>
+<td>100</td>
+<td>A</td>
+</tr>
+<tr>
+<td>Inner voltage</td>
+<td>95.0</td>
+<td>94.5</td>
+<td>V</td>
+</tr>
+<tr>
+<td>Nominal speed</td>
+<td>1425.0</td>
+<td>1417.5</td>
+<td>rpm</td>
+</tr>
+<tr>
+<td>Armature resistance</td>
+<td>0.05000</td>
+<td>0.03864</td>
+<td>Ohm</td>
+</tr>
+<tr>
+<td>Temperature coefficient</td>
+<td>n/a</td>
+<td>0.00392</td>
+<td>1/K</td>
+</tr>
+<tr>
+<td>Reference temperature</td>
+<td>n/a</td>
+<td>20</td>
+<td>degC</td>
+</tr>
+<tr>
+<td>Operation temperature</td>
+<td>n/a</td>
+<td>95</td>
+<td>degC</td>
+</tr>
+<tr>
+<td>Brush voltage drop</td>
+<td>n/a</td>
+<td>0.5</td>
+<td>V</td>
+</tr>
+<tr>
+<td>Electrical input</td>
+<td>10,000</td>
+<td>10,000</td>
+<td>W</td>
+</tr>
+<tr>
+<td>Armature copper losses</td>
+<td>500</td>
+<td>500</td>
+<td>W</td>
+</tr>
+<tr>
+<td>Core losses</td>
+<td>n/a</td>
+<td>200</td>
+<td>W</td>
+</tr>
+<tr>
+<td>Stray load losses</td>
+<td>n/a</td>
+<td>50</td>
+<td>W</td>
+</tr>
+<tr>
+<td>Friction losses</td>
+<td>n/a</td>
+<td>100</td>
+<td>W</td>
+</tr>
+<tr>
+<td>Brush losses</td>
+<td>n/a</td>
+<td>50</td>
+<td>W</td>
+</tr>
+<tr>
+<td>Mechanical output</td>
+<td>9,500</td>
+<td>9,100</td>
+<td>W</td>
+</tr>
+<tr>
+<td>Nominal torque</td>
+<td>63,66</td>
+<td>61,30</td>
+<td>Nm</td>
+</tr>
+</table>
+<br />
+Note: The reference values (voltage, current, speed) are already
+propagated to the loss records, using the nominal operation
+point.<br />
+See:<br />
+Anton Haumer, Christian Kral, Hansjörg Kapeller, Thomas Bäuml,
+Johannes V. Gragger<br />
+<a href="https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf">
+The AdvancedMachines Library: Loss Models for Electric
+Machines</a><br />
+Modelica 2009, 7<sup>th</sup> International Modelica Conference
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Analog.Ideal.IdealDiode</title>
+</head>
+<body>
+<h1><a href="Icons/112680d351e8ea8de583a3c698c09264e9797d5e.svg"><img class="svgiconhead" src="Icons/112680d351e8ea8de583a3c698c09264e9797d5e.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Ideal.html">Ideal</a>.<span class="omc-h1">IdealDiode</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is an ideal switch which is<br />
+<br />
+<b>open</b> (off), if it is reversed biased (voltage drop less than
+0)<br />
+<b>closed</b> (on), if it is conducting (current &gt; 0).<br />
+<br />
+This is the behaviour if all parameters are exactly zero.<br />
+<br />
+Note, there are circuits, where this ideal description with zero
+resistance and zero conductance is not possible. In order to
+prevent singularities during switching, the opened diode has a
+small conductance <i>Gon</i> and the closed diode has a low
+resistance <i>Roff</i> which is default.</p>
+<p>The parameter <i>Vknee</i> which is the forward threshold
+voltage, allows to displace the knee point<br />
+along the <i>Gon</i>-characteristic until <i>v = Vknee</i>.<br />
+<br />
+<b>Please note:</b> In case of useHeatPort=true the temperature
+dependence of the electrical behavior is <b>not</b> modelled.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>March 11, 2009</i> by Christoph Clauss<br />
+conditional heat port added<br /></li>
+<li><i>Mai 7, 2004</i> by Christoph Clauss and Anton Haumer<br />
+Vknee added<br /></li>
+<li><i>some years ago</i> by Christoph Clauss<br />
+realized<br /></li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

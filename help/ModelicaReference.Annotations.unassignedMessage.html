@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.unassignedMessage</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">unassignedMessage</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Error message, if variable is not assigned</p>
+<h4>Examples</h4>
+<pre>
+<b>connector</b> Frame "Frame of a mechanical system"
+    ...
+  <b>flow</b> Modelica.SIunits.Force f[3] <b>annotation</b>(unassignedMessage =
+"All Forces cannot be uniquely calculated. The reason could be that the
+mechanism contains a planar loop or that joints constrain the same motion.
+For planar loops, use in one revolute joint per loop the option
+PlanarCutJoint=true in the Advanced menu.
+");
+<b>end</b> Frame;
+</pre>
+<h4>Syntax</h4>
+<pre>
+   <b>annotation</b>"(" unassignedMessage "=" STRING ")"
+</pre>
+<h4>Description</h4>
+<p>When the variable to which this annotation is attached in the
+declaration cannot be computed due to the structure of the
+equations, the string message can be used as a diagnostic message.
+When using BLT partitioning, this means if a variable "a" or one of
+its aliases "b = a", "b = -a", cannot be assigned, the message is
+displayed. This annotation is used to provide library specific
+error messages.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

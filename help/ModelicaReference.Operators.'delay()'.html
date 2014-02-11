@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'delay()'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'delay()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Delay expression</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>delay</b>(expr, delayTime, delayMax)
+<b>delay</b>(expr, delayTime)
+</pre></blockquote>
+<h4>Description</h4>
+<p>Returns <code>"expr(time - delayTime)"</code> for <code>time
+&gt; time.start + delayTime</code> and
+<code>"expr(time.start)"</code> for <code>time ≤ time.start +
+delayTime</code>. The arguments, i.e., <code>expr</code>,
+<code>delayTime</code> and <code>delayMax</code>, need to be
+subtypes of Real. <code>delayMax</code> needs to be additionally a
+parameter expression. The following relation shall hold: <code>0 ≤
+delayTime ≤ delayMax</code>, otherwise an error occurs. If
+<code>delayMax</code> is not supplied in the argument list,
+<code>delayTime</code> need to be a parameter expression.</p>
+<p><i>[The <b>delay</b> operator allows a numerical sound
+implementation by interpolating in the (internal) integrator
+polynomials, as well as a more simple realization by interpolating
+linearly in a buffer containing past values of expression expr.
+Without further information, the complete time history of the
+delayed signals need to be stored, because the delay time may
+change during simulation. To avoid excessive storage requirements
+and to enhance efficiency, the maximum allowed delay time has to be
+given via delayMax, or delayTime must be a parameter expression (so
+that the constant delay is known before simulation starts). This
+gives an upper bound on the values of the delayed signals which
+have to be stored. For realtime simulation where fixed step size
+integrators are used, this information is sufficient to allocate
+the necessary storage for the internal buffer before the simulation
+starts. For variable step size integrators, the buffer size is
+dynamic during integration. In principal, a delay operator could
+break algebraic loops. For simplicity, this is not supported
+because the minimum delay time has to be give as additional
+argument to be fixed at compile time. Furthermore, the maximum step
+size of the integrator is limited by this minimum delay time in
+order to avoid extrapolation in the delay buffer.]</i></p>
+<h4>Examples</h4>
+<pre>
+<b>model</b> Delay
+  Real x;
+  Real y;
+<b>equation
+  der</b>(x) = 2;
+  y = <b>delay</b>(x, 1);
+<b>end</b> Delay;
+</pre>
+<img src="../ModelicaReference%203.2.1/Resources/Images/delay.png" width="400" height="280" alt="Simulation result" />
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

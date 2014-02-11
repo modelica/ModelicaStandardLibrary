@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Fluid.UsersGuide.BuildingSystemModels.html">BuildingSystemModels</a>.<span class="omc-h1">SystemComponent</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The Modelica.Fluid library is designed so that each model of a
+system must include an instance <code>system</code> of the
+<code>System</code> component at the top level, in the same way as
+the <code>World</code> model of the MultiBody Library. The System
+component contains the parameters that describe the environment
+surrounding the components (ambient pressure and temperature,
+gravity acceleration), and also provides default settings for many
+parameters which are used consistently by the models in the
+library. These parameters are then propagated to the individual
+components using the inner/outer variable mechanism. In case the
+system model is structured hierarchically, it is possible to either
+put a single System component at the top level, or possibly to put
+many of them at different levels, which will only influence the
+system components from that level down.</p>
+<p>All the parameters defined in the System model are used as
+default values for the parameters of the individual components of
+the system model. Note that it is always possible to override these
+defaults locally by changing the value of the parameters in the
+specific component instance.</p>
+<ul>
+<li>The <i>General</i> tab of the System model allows to set the
+default environment variables (pressure, temperature and gravity)
+used by all the components.</li>
+<li>The <i>Assumptions</i> tab allows to change the default
+modelling assumptions used by all the components (see the section
+<i>Customizing a system model later</i>)</li>
+<li>The <i>Initialization</i> tab allows to define default start
+values for mass flow rates, pressures and temperatures in the
+model; this can be useful to help nonlinear solver converge to the
+solution of any nonlinear system of equations that involves such
+variables, by providing meaningful guess values.</li>
+<li>The <i>Advanced</i> tab contains default values for parameters
+used in the advanced settings of some components.</li>
+</ul>
+<p>Remember to <b>always add a System component</b> at the top
+level of your system model, otherwise you will get errors when
+compiling the model. The tool will automatically name it
+<code>system</code>, so that it is recognized by all other
+components.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.'partial'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<span class="omc-h1">'partial'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Prohibit instantiation of components of the class</p>
+<h4>Examples</h4>
+<pre>
+<b>partial block</b> PartialBlock
+  <b>input</b> Real u;
+  <b>output</b> Real y;
+<b>protected</b>
+  Real x;
+<b>equation</b>
+  x = y;
+<b>end</b> PartialBlock;
+
+<b>block</b> Integrator
+  <b>extends</b> PartialBlock;
+<b>equation
+  der</b>(x) = u;
+<b>end</b> Integrator;
+
+<b>block</b> Gain
+  <b>extends</b> PartialBlock;
+  <b>parameter</b> k = 1;
+<b>equation</b>
+  x = k*u;
+<b>end</b> Gain;
+
+<b>model</b> Composition
+  PartialBlock block1; // Illegal
+  Integrator block2; // Legal
+  Gain block3; // Legal
+<b>end</b> Composition;
+</pre>
+<h4>Syntax</h4>
+<pre>
+class_definition :
+   [ <b>encapsulated</b> ]
+   [ <b>partial</b> ]
+   ( <b>class</b> | <b>model</b> | <b>record</b> | <b>block</b> | <b>connector</b> | <b>type</b> |
+     <b>package</b> | <b>function</b> )
+   IDENT class_specifier
+
+class_specifier :
+   string_comment composition <b>end</b> IDENT
+   | "=" base_prefix name [ array_subscripts ] [ class_modification ] comment
+   | "=" <b>enumeration</b> "(" ( [enum_list] | ":" ) ")" comment
+</pre>
+<h4>Description</h4>
+<p>The keyword <b>partial</b> defines that a class is
+<b>incomplete</b> and that it cannot be instantiated. For example,
+defining</p>
+<pre>
+   PartialBlock block1;
+</pre>
+<p>is illegal. A partial class can only be used in an "extends"
+clause to inherit from it or in a "constrained" clause to define
+the constraints of a replaceable class.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

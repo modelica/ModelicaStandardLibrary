@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.IdealGases.Common.SingleGasNasa</title>
+</head>
+<body>
+<h1><a href="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg"><img class="svgiconhead" src="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.html">IdealGases</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.html">Common</a>.<span class="omc-h1">SingleGasNasa</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This model calculates medium properties for an ideal gas of a
+single substance, or for an ideal gas consisting of several
+substances where the mass fractions are fixed. Independent
+variables are temperature <b>T</b> and pressure <b>p</b>. Only
+density is a function of T and p. All other quantities are solely a
+function of T. The properties are valid in the range:</p>
+<pre>
+   200 K ≤ T ≤ 6000 K
+</pre>
+<p>The following quantities are always computed:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><b>Variable</b></td>
+<td valign="top"><b>Unit</b></td>
+<td valign="top"><b>Description</b></td>
+</tr>
+<tr>
+<td valign="top">h</td>
+<td valign="top">J/kg</td>
+<td valign="top">specific enthalpy h = h(T)</td>
+</tr>
+<tr>
+<td valign="top">u</td>
+<td valign="top">J/kg</td>
+<td valign="top">specific internal energy u = u(T)</td>
+</tr>
+<tr>
+<td valign="top">d</td>
+<td valign="top">kg/m^3</td>
+<td valign="top">density d = d(p,T)</td>
+</tr>
+</table>
+<p>For the other variables, see the functions in
+Modelica.Media.IdealGases.Common.SingleGasNasa. Note, dynamic
+viscosity and thermal conductivity are only provided for gases that
+use a data record from Modelica.Media.IdealGases.FluidData.
+Currently these are the following gases:</p>
+<pre>
+  Ar
+  C2H2_vinylidene
+  C2H4
+  C2H5OH
+  C2H6
+  C3H6_propylene
+  C3H7OH
+  C3H8
+  C4H8_1_butene
+  C4H9OH
+  C4H10_n_butane
+  C5H10_1_pentene
+  C5H12_n_pentane
+  C6H6
+  C6H12_1_hexene
+  C6H14_n_heptane
+  C7H14_1_heptene
+  C8H10_ethylbenz
+  CH3OH
+  CH4
+  CL2
+  CO
+  CO2
+  F2
+  H2
+  H2O
+  He
+  N2
+  N2O
+  NH3
+  NO
+  O2
+  SO2
+  SO3
+</pre>
+<p><b>Sources for model and literature:</b><br />
+Original Data: Computer program for calculation of complex chemical
+equilibrium compositions and applications. Part 1: Analysis
+Document ID: 19950013764 N (95N20180) File Series: NASA Technical
+Reports Report Number: NASA-RP-1311 E-8017 NAS 1.61:1311 Authors:
+Gordon, Sanford (NASA Lewis Research Center) Mcbride, Bonnie J.
+(NASA Lewis Research Center) Published: Oct 01, 1994.</p>
+<p><b>Known limits of validity:</b><br />
+The data is valid for temperatures between 200K and 6000K. A few of
+the data sets for monatomic gases have a discontinuous 1st
+derivative at 1000K, but this never caused problems so far.</p>
+<p>This model has been copied from the ThermoFluid library and
+adapted to the Modelica.Media package.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.ThermodynamicState.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.ThermodynamicState.html">ThermodynamicState</a></td>
+<td>Thermodynamic state variables for ideal gases</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.BaseProperties.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.BaseProperties.html">BaseProperties</a></td>
+<td>Base properties of ideal gas medium</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.setState_pTX.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.setState_pTX.html">setState_pTX</a></td>
+<td>Return thermodynamic state as function of p, T and composition
+X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.setState_phX.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.setState_phX.html">setState_phX</a></td>
+<td>Return thermodynamic state as function of p, h and composition
+X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.setState_psX.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.setState_psX.html">setState_psX</a></td>
+<td>Return thermodynamic state as function of p, s and composition
+X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.setState_dTX.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.setState_dTX.html">setState_dTX</a></td>
+<td>Return thermodynamic state as function of d, T and composition
+X</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.setSmoothState.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.setSmoothState.html">setSmoothState</a></td>
+<td>Return thermodynamic state so that it smoothly approximates: if
+x &gt; 0 then state_a else state_b</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.pressure.html"><img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.pressure.html">pressure</a></td>
+<td>Return pressure of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.temperature.html"><img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.temperature.html">temperature</a></td>
+<td>Return temperature of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.density.html"><img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.density.html">density</a></td>
+<td>Return density of ideal gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificEnthalpy.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificEnthalpy.html">specificEnthalpy</a></td>
+<td>Return specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificInternalEnergy.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificInternalEnergy.html">specificInternalEnergy</a></td>
+<td>Return specific internal energy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificEntropy.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificEntropy.html">specificEntropy</a></td>
+<td>Return specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificGibbsEnergy.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificGibbsEnergy.html">specificGibbsEnergy</a></td>
+<td>Return specific Gibbs energy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificHelmholtzEnergy.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificHelmholtzEnergy.html">specificHelmholtzEnergy</a></td>
+<td>Return specific Helmholtz energy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificHeatCapacityCp.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificHeatCapacityCp.html">specificHeatCapacityCp</a></td>
+<td>Return specific heat capacity at constant pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificHeatCapacityCv.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.specificHeatCapacityCv.html">specificHeatCapacityCv</a></td>
+<td>Compute specific heat capacity at constant volume from
+temperature and gas data</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isentropicExponent.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isentropicExponent.html">isentropicExponent</a></td>
+<td>Return isentropic exponent</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.velocityOfSound.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.velocityOfSound.html">velocityOfSound</a></td>
+<td>Return velocity of sound</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isentropicEnthalpyApproximation.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isentropicEnthalpyApproximation.html">isentropicEnthalpyApproximation</a></td>
+<td>Approximate method of calculating h_is from upstream properties
+and downstream pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isentropicEnthalpy.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isentropicEnthalpy.html">isentropicEnthalpy</a></td>
+<td>Return isentropic enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isobaricExpansionCoefficient.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isobaricExpansionCoefficient.html">isobaricExpansionCoefficient</a></td>
+<td>Returns overall the isobaric expansion coefficient beta</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isothermalCompressibility.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.isothermalCompressibility.html">isothermalCompressibility</a></td>
+<td>Returns overall the isothermal compressibility factor</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.density_derp_T.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.density_derp_T.html">density_derp_T</a></td>
+<td>Returns the partial derivative of density with respect to
+pressure at constant temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.density_derT_p.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.density_derT_p.html">density_derT_p</a></td>
+<td>Returns the partial derivative of density with respect to
+temperature at constant pressure</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.density_derX.html"><img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.density_derX.html">density_derX</a></td>
+<td>Returns the partial derivative of density with respect to mass
+fractions at constant pressure and temperature</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.dynamicViscosity.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.dynamicViscosity.html">dynamicViscosity</a></td>
+<td>Dynamic viscosity</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.thermalConductivity.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.thermalConductivity.html">thermalConductivity</a></td>
+<td>Thermal conductivity of gas</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.molarMass.html"><img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.molarMass.html">molarMass</a></td>
+<td>Return the molar mass of the medium</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.T_h.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.T_h.html">T_h</a></td>
+<td>Compute temperature from specific enthalpy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.T_ps.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.T_ps.html">T_ps</a></td>
+<td>Compute temperature from pressure and specific entropy</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.dynamicViscosityLowPressure.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.dynamicViscosityLowPressure.html">dynamicViscosityLowPressure</a></td>
+<td>Dynamic viscosity of low pressure gases</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.IdealGases.Common.SingleGasNasa.thermalConductivityEstimate.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.IdealGases.Common.SingleGasNasa.thermalConductivityEstimate.html">thermalConductivityEstimate</a></td>
+<td>Thermal conductivity of polyatomic gases(Eucken and Modified
+Eucken correlation)</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

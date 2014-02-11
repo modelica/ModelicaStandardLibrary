@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<span class="omc-h1">Operators</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>In this chapter <b>operators</b> of Modelica are documented.
+Elementary operators, such as "+" or "-" are overloaded and operate
+on scalar and array variables. Other operators have the same syntax
+as a <a href="ModelicaReference.Classes.%27function%27.html">Modelica
+function</a> call. However, they do not behave as a Modelica
+function, either because the result depends not only on the input
+arguments but also on the status of the simulation (such as
+"pre(..)"), or the function operates on input arguments of
+different types (such as "String(..)"). Neither of these
+"functions" can be defined with a "standard" Modelica function and
+are therefore builtin operators of the Modelica language (with
+exception of the basic mathematical functions, sin, cos, tan, asin,
+acos, atan, atan2, sinh, cosh, tanh, exp, log, log10 that are
+provided for convenience as built-in functions).</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.ElementaryOperators.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.ElementaryOperators.html">ElementaryOperators</a></td>
+<td>Elementary operators (+, &gt;, or, ..)</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27abs()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27abs()%27.html">'abs()'</a></td>
+<td>abs()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27acos()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27acos()%27.html">'acos()'</a></td>
+<td>acos()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27actualStream()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27actualStream()%27.html">'actualStream()'</a></td>
+<td>actualStream()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27array()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27array()%27.html">'array()'</a></td>
+<td>array()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27asin()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27asin()%27.html">'asin()'</a></td>
+<td>asin()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27assert()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27assert()%27.html">'assert()'</a></td>
+<td>assert()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27atan()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27atan()%27.html">'atan()'</a></td>
+<td>atan()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27atan2()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27atan2()%27.html">'atan2()'</a></td>
+<td>atan2()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27cardinality()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27cardinality()%27.html">'cardinality()'</a></td>
+<td>cardinality()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27cat()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27cat()%27.html">'cat()'</a></td>
+<td>cat()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27ceil()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27ceil()%27.html">'ceil()'</a></td>
+<td>ceil()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27change()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27change()%27.html">'change()'</a></td>
+<td>change()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27connect()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27connect()%27.html">'connect()'</a></td>
+<td>connect()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27Connections.branch()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27Connections.branch()%27.html">'Connections.branch()'</a></td>
+<td>Connections.branch()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27Connections.root()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27Connections.root()%27.html">'Connections.root()'</a></td>
+<td>Connections.root()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27Connections.potentialRoot()%27.html">
+<img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27Connections.potentialRoot()%27.html">'Connections.potentialRoot()'</a></td>
+<td>Connection.potentialRoot()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27Connections.isRoot()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27Connections.isRoot()%27.html">'Connections.isRoot()'</a></td>
+<td>Connections.isRoot()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27Connections.rooted()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27Connections.rooted()%27.html">'Connections.rooted()'</a></td>
+<td>Connections.rooted()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27cos()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27cos()%27.html">'cos()'</a></td>
+<td>cos()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27cosh()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27cosh()%27.html">'cosh()'</a></td>
+<td>cosh()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27cross()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27cross()%27.html">'cross()'</a></td>
+<td>cross()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27delay()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27delay()%27.html">'delay()'</a></td>
+<td>delay()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27der()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27der()%27.html">'der()'</a></td>
+<td>der()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27diagonal()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27diagonal()%27.html">'diagonal()'</a></td>
+<td>diagonal()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27div()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27div()%27.html">'div()'</a></td>
+<td>div()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27edge()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27edge()%27.html">'edge()'</a></td>
+<td>edge()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27exp()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27exp()%27.html">'exp()'</a></td>
+<td>exp()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27fill()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27fill()%27.html">'fill()'</a></td>
+<td>fill()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27floor()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27floor()%27.html">'floor()'</a></td>
+<td>floor()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27homotopy()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27homotopy()%27.html">'homotopy()'</a></td>
+<td>homotopy()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27identity()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27identity()%27.html">'identity()'</a></td>
+<td>identity()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27initial()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27initial()%27.html">'initial()'</a></td>
+<td>initial()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27inStream()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27inStream()%27.html">'inStream()'</a></td>
+<td>inStream()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27Integer()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27Integer()%27.html">'Integer()'</a></td>
+<td>Integer()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27integer()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27integer()%27.html">'integer()'</a></td>
+<td>integer()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27inverse()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27inverse()%27.html">'inverse()'</a></td>
+<td>inverse()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27linspace()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27linspace()%27.html">'linspace()'</a></td>
+<td>linspace()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27log()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27log()%27.html">'log()'</a></td>
+<td>log()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27log10()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27log10()%27.html">'log10()'</a></td>
+<td>log10()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27matrix()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27matrix()%27.html">'matrix()'</a></td>
+<td>matrix()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27max()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27max()%27.html">'max()'</a></td>
+<td>max()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27min()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27min()%27.html">'min()'</a></td>
+<td>min()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27mod()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27mod()%27.html">'mod()'</a></td>
+<td>mod()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27ndims()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27ndims()%27.html">'ndims()'</a></td>
+<td>ndims()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27noEvent()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27noEvent()%27.html">'noEvent()'</a></td>
+<td>noEvent()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27ones()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27ones()%27.html">'ones()'</a></td>
+<td>ones()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27outerProduct()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27outerProduct()%27.html">'outerProduct()'</a></td>
+<td>outerProduct()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27pre()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27pre()%27.html">'pre()'</a></td>
+<td>pre()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27product()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27product()%27.html">'product()'</a></td>
+<td>product()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27reinit()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27reinit()%27.html">'reinit()'</a></td>
+<td>reinit()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27rem()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27rem()%27.html">'rem()'</a></td>
+<td>rem()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27rooted()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27rooted()%27.html">'rooted()'</a></td>
+<td>rooted() - deprecated</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27sample()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27sample()%27.html">'sample()'</a></td>
+<td>sample()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27scalar()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27scalar()%27.html">'scalar()'</a></td>
+<td>scalar()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27semiLinear()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27semiLinear()%27.html">'semiLinear()'</a></td>
+<td>semiLinear()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27sign()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27sign()%27.html">'sign()'</a></td>
+<td>sign()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27sin()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27sin()%27.html">'sin()'</a></td>
+<td>sin()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27sinh()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27sinh()%27.html">'sinh()'</a></td>
+<td>sinh()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27size()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27size()%27.html">'size()'</a></td>
+<td>size()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27skew()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27skew()%27.html">'skew()'</a></td>
+<td>skew()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27smooth()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27smooth()%27.html">'smooth()'</a></td>
+<td>smooth()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27sqrt()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27sqrt()%27.html">'sqrt()'</a></td>
+<td>sqrt()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27String()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27String()%27.html">'String()'</a></td>
+<td>String()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27sum()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27sum()%27.html">'sum()'</a></td>
+<td>sum()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27symmetric()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27symmetric()%27.html">'symmetric()'</a></td>
+<td>symmetric()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27tan()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27tan()%27.html">'tan()'</a></td>
+<td>tan()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27tanh()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27tanh()%27.html">'tanh()'</a></td>
+<td>tanh()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27terminal()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27terminal()%27.html">'terminal()'</a></td>
+<td>terminal()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27terminate()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27terminate()%27.html">'terminate()'</a></td>
+<td>terminate()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27transpose()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27transpose()%27.html">'transpose()'</a></td>
+<td>transpose()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27vector()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27vector()%27.html">'vector()'</a></td>
+<td>vector()</td>
+</tr>
+<tr>
+<td><a href="ModelicaReference.Operators.%27zeros()%27.html"><img class="svgiconsmall" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a href="ModelicaReference.Operators.%27zeros()%27.html">'zeros()'</a></td>
+<td>zeros()</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

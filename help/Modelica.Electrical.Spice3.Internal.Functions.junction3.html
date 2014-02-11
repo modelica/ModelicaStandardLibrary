@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.Internal.Functions.junction3</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.Internal.html">Internal</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.Internal.Functions.html">Functions</a>.<span class="omc-h1">junction3</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This internal function calculates both the junction current and
+the junction conductance dependent from the given voltage.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function junction3
+  extends Modelica.Icons.Function;
+  input Modelica.SIunits.Voltage voltage "Input voltage";
+  input Modelica.SIunits.Temp_K temp "Device Temperature";
+  input Real ncoeff;
+  input Modelica.SIunits.Current satcur "Saturation current";
+  input Modelica.SIunits.Voltage v23;
+  output Modelica.SIunits.Current current "Output current";
+  output Modelica.SIunits.Conductance cond "Output conductance";
+end junction3;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.isPowerOf2</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<span class="omc-h1">isPowerOf2</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Math.<b>isPowerOf2</b>(i);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>Math.isPowerOf2(i)</code>" returns
+<b>true</b>, if the Integer input i is a power of 2. Otherwise the
+function returns <b>false</b>. The Integer input has to be
+&gt;=1.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Integer i1 = 1;
+  Integer i2 = 4;
+  Integer i3 = 9;
+  Boolean result;
+<b>algorithm</b>
+  result := Math.isPowerOf2(i1);     // = <b>true</b> 2^0
+  result := Math.isPowerOf2(i2);     // = <b>true</b> 2^2
+  result := Math.isPowerOf2(i3);     // = <b>false</b>
+</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function isPowerOf2
+  extends Modelica.Icons.Function;
+  input Integer i(min = 1) "Integer scalar";
+  output Boolean result "= true, if integer scalar is a power of 2";
+end isPowerOf2;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

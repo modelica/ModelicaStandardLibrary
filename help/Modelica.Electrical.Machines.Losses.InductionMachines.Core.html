@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Machines.Losses.InductionMachines.Core</title>
+</head>
+<body>
+<h1><a href="Icons/61e61dce024c6be5e546ad847d29af77eebba555.svg"><img class="svgiconhead" src="Icons/61e61dce024c6be5e546ad847d29af77eebba555.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.html">Losses</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.Losses.InductionMachines.html">InductionMachines</a>.<span class="omc-h1">Core</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Core losses can be separated into <b>eddy current</b> and
+<b>hysteresis</b> losses. The total core losses can thus be
+expressed as</p>
+<pre>
+  P = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (V / VRef)^2
+</pre>
+<p>where <code>w</code> is the actual angular remagnetization
+velocity and <code>V</code> is the actual voltage. The term
+<code>ratioHysteresis</code> is the ratio of the hysteresis losses
+with respect to the total core losses for the reference voltage and
+frequency.</p>
+<p>In the current implementation hysteresis losses are <b>not
+considered</b> since complex numbers are not provided in Modelica.
+Therefore, implicitly <code>ratioHysteresis = 0</code> is set. For
+the voltage and frequency range with respect to Fig.&nbsp;1, the
+dependency of total core losses on the parameter
+<code>ratioHysteresis</code> is depicted in Fig.&nbsp;2. The
+current implementation has thus the drawback over a model that
+considers <code>ratioHysteresis &gt; 0</code>:</p>
+<ul>
+<li>underestimation of the losses in the constant field region
+(<code>w</code> &lt; <code>wRef</code>)</li>
+<li>overestimation of the losses in the field weakening region
+(<code>w</code> &gt; <code>wRef</code>)</li>
+</ul>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Electrical/Machines/corelossesVw.png" alt="corelossesVw.png" /></td>
+</tr>
+<tr>
+<td><b>Fig. 1:</b> Voltage versus angular velocity</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="1">
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Electrical/Machines/corelossesPcw.png" alt="corelossesPcw.png" /></td>
+</tr>
+<tr>
+<td><b>Fig. 2:</b> Core losses versus angular velocity with
+parameter <code>ratioHysteresis</code></td>
+</tr>
+</table>
+<h4>Note</h4>
+<p>In the current implementation it is assumed that
+<code>ratioHysteresis = 0</code>. This parameter cannot be changed
+due to compatibility reasons.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Electrical.Machines.Losses.CoreParameters.html">Core
+loss parameters</a></p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

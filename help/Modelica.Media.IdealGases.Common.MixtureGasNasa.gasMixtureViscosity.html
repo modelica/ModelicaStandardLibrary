@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.IdealGases.Common.MixtureGasNasa.gasMixtureViscosity</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.html">IdealGases</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.html">Common</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa</a>.<span class="omc-h1">gasMixtureViscosity</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Simplification of the kinetic theory (Chapman and Enskog theory)
+approach neglecting the second-order effects.<br />
+<br />
+This equation has been extensively tested (Amdur and Mason, 1958;
+Bromley and Wilke, 1951; Cheung, 1958; Dahler, 1959; Gandhi and
+Saxena, 1964; Ranz and Brodowsky, 1962; Saxena and Gambhir, 1963a;
+Strunk, et al., 1964; Vanderslice, et al. 1962; Wright and Gray,
+1962). In most cases, only nonpolar mixtures were compared, and
+very good results obtained. For some systems containing hydrogen as
+one component, less satisfactory agreement was noted. Wilke's
+method predicted mixture viscosities that were larger than
+experimental for the H2-N2 system, but for H2-NH3, it
+underestimated the viscosities.<br />
+Gururaja, et al. (1967) found that this method also overpredicted
+in the H2-O2 case but was quite accurate for the H2-CO2
+system.<br />
+Wilke's approximation has proved reliable even for polar-polar gas
+mixtures of aliphatic alcohols (Reid and Belenyessy, 1960). The
+principal reservation appears to lie in those cases where
+Mi&gt;&gt;Mj and etai&gt;&gt;etaj.<br /></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function gasMixtureViscosity
+  extends Modelica.Icons.Function;
+  input MoleFraction[:] yi "Mole fractions";
+  input MolarMass[:] M "Mole masses";
+  input DynamicViscosity[:] eta "Pure component viscosities";
+  output DynamicViscosity etam "Viscosity of the mixture";
+end gasMixtureViscosity;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

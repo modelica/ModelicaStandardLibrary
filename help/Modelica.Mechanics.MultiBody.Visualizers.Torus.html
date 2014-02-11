@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Visualizers.Torus</title>
+</head>
+<body>
+<h1><a href="Icons/ecabbc1dfa77a46053baa3900c88f49e1a5329cf.svg"><img class="svgiconhead" src="Icons/ecabbc1dfa77a46053baa3900c88f49e1a5329cf.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<span class="omc-h1">Torus</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Model <b>Torus</b> visualizes a torus. The center of the torus
+is located at connector frame_a (visualized by the red coordinate
+system in the figure below). The left image below shows a torus
+with ri=0.5 m and ro = 0.2 m. The right images below shows the
+torus with the additional parameter settings:</p>
+<pre>
+  opening    =   45 degree
+  startAngle = -135 degree
+  stopAngle  =  135 degree
+</pre>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Visualizers/Torus.png" /></blockquote>
+<p>In the advanced menu the discretization of the surface
+visualization can be defined by the number of points of the inner
+radius of the torus (n_ri) and by the number of points of the outer
+radius of the torus (n_ro). In case the torus is closed (that is,
+opening = 0 degree), the actual number of points is one less (that
+is n_ri-1, n_ro-1), because the first and the last point of the
+parametrization coincide in this case.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li>July 2010 by Martin Otter<br />
+Adapted to the new Surface model.</li>
+<li>July 2005 by Dirk Zimmer (practical training at DLR)<br />
+First version to visualize a multi-level tyre wheel model.</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

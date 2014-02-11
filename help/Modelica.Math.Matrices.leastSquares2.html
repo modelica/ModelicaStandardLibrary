@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.leastSquares2</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">leastSquares2</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+X = Matrices.<b>leastSquares2</b>(A,B);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Returns a solution of equation A*X = B in a least square sense
+(A may be rank deficient):</p>
+<pre>
+  minimize | A*X - B |
+</pre>
+<p>Several different cases can be distinguished (note, <b>rank</b>
+is an output argument of this function):</p>
+<p><b>size(A,1) = size(A,2)</b></p>
+<p>A solution is returned for a regular, as well as a singular
+matrix A:</p>
+<ul>
+<li><b>rank</b> = size(A,1):<br />
+A is <b>regular</b> and the returned solution X fulfills the
+equation A*X = B uniquely.</li>
+<li><b>rank</b> &lt; size(A,1):<br />
+A is <b>singular</b> and no unique solution for equation A*X = B
+exists.
+<ul>
+<li>If an infinite number of solutions exists, the one is selected
+that fulfills the equation and at the same time has the minimum
+norm |x| for all solution vectors that fulfill the equation.</li>
+<li>If no solution exists, X is selected such that |A*X - B| is as
+small as possible (but A*X - B is not zero).</li>
+</ul>
+</li>
+</ul>
+<p><b>size(A,1) &gt; size(A,2):</b></p>
+<p>The equation A*X = B has no unique solution. The solution X is
+selected such that |A*X - B| is as small as possible. If rank =
+size(A,2), this minimum norm solution is unique. If rank &lt;
+size(A,2), there are an infinite number of solutions leading to the
+same minimum value of |A*X - B|. From these infinite number of
+solutions, the one with the minimum norm |X| is selected. This
+gives a unique solution that minimizes both |A*X - B| and |X|.</p>
+<p><b>size(A,1) &lt; size(A,2):</b></p>
+<ul>
+<li><b>rank</b> = size(A,1):<br />
+There are an infinite number of solutions that fulfill the equation
+A*X = B. From this infinite number, the unique solution is selected
+that minimizes |X|.</li>
+<li><b>rank</b> &lt; size(A,1):<br />
+There is either no solution of equation A*X = B, or there are again
+an infinite number of solutions. The unique solution X is returned
+that minimizes both |A*X - B| and |X|.</li>
+</ul>
+<p>Note, the solution is computed with the LAPACK function
+"dgelsx", i.e., QR or LQ factorization of A with column
+pivoting.</p>
+<h4>Algorithmic details</h4>
+<p>The function first computes a QR factorization with column
+pivoting:</p>
+<pre>
+      A * P = Q * [ R11 R12 ]
+                  [  0  R22 ]
+</pre>
+<p>with R11 defined as the largest leading submatrix whose
+estimated condition number is less than 1/rcond. The order of R11,
+<b>rank</b>, is the effective rank of A.</p>
+<p>Then, R22 is considered to be negligible, and R12 is annihilated
+by orthogonal transformations from the right, arriving at the
+complete orthogonal factorization:</p>
+<pre>
+     A * P = Q * [ T11 0 ] * Z
+                 [  0  0 ]
+</pre>
+<p>The minimum-norm solution is then</p>
+<pre>
+     X = P * Z' [ inv(T11)*Q1'*B ]
+                [        0       ]
+</pre>
+<p>where Q1 consists of the first "rank" columns of Q.</p>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Matrices.leastSquares.html">Matrices.leastSquares</a>
+(same as leastSquares2, but with a right hand side vector),<br />
+<a href="Modelica.Math.Matrices.solve2.html">Matrices.solve2</a> (for
+square, regular matrices A)</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function leastSquares2
+  extends Modelica.Icons.Function;
+  input Real A[:,:] "Matrix A";
+  input Real B[size(A, 1),:] "Matrix B";
+  input Real rcond = 100 * Modelica.Constants.eps "Reciprocal condition number to estimate rank of A";
+  output Real X[size(A, 2),size(B, 2)] "Matrix X such that min|A*X-B|^2 if size(A,1) &gt;= size(A,2) or min|X|^2 and A*X=B, if size(A,1) &lt; size(A,2)";
+  output Integer rank "Rank of A";
+end leastSquares2;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

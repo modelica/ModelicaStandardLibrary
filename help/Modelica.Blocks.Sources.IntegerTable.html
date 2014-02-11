@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Sources.IntegerTable</title>
+</head>
+<body>
+<h1><a href="Icons/8378468425e113c4673fd3d575a3217eccf96c3f.svg"><img class="svgiconhead" src="Icons/8378468425e113c4673fd3d575a3217eccf96c3f.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Sources.html">Sources</a>.<span class="omc-h1">IntegerTable</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This block generates an Integer output signal by using a table.
+The time points and y-values are stored in a matrix
+<b>table[i,j]</b>, where the first column table[:,1] contains the
+Real time points and the second column contains the Integer value
+of the output y at this time point.</p>
+<p>An assert is triggered, if no table values are provided, if the
+time points are not strict monotonically increasing, or if the
+second column of the table matrix does not contain Integer
+values.</p>
+<p>If the simulation time is less than the first table time
+instant, then the output y = table[1,2].<br />
+If the simulation time is greater than the last table time instant,
+then the output y = table[end,2].</p>
+<p>Example:</p>
+<pre>
+   table = [  0, 1;
+              1, 4;
+            1.5, 5;
+              2, 6];
+</pre>
+<p>results in the following output:</p>
+<blockquote>
+<p><img src="../Modelica%203.2.1/Resources/Images/Blocks/Sources/IntegerTable.png" alt="IntegerTable.png" /></p>
+</blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

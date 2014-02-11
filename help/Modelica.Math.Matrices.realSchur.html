@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.realSchur</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">realSchur</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+                            S = Matrices.<b>realSchur</b>(A);
+(S, QZ, alphaReal, alphaImag) = Matrices.<b>realSchur</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>realSchur</b> calculates the real Schur form of a
+real square matrix <b>A</b>, i.e.</p>
+<blockquote>
+<pre>
+ <b>A</b> = <b>QZ</b>*<b>S</b>*transpose(<b>QZ</b>)
+</pre></blockquote>
+<p>with the real nxn matrices <b>S</b> and <b>QZ</b>. <b>S</b> is a
+block upper triangular matrix with 1x1 and 2x2 blocks in the
+diagonal. <b>QZ</b> is an orthogonal matrix. The 1x1 blocks
+contains the real eigenvalues of <b>A</b>. The 2x2 blocks [s11,
+s12; s21, s11] represents the conjugated complex pairs of
+eigenvalues, whereas the real parts of the eigenvalues are the
+elements of the diagonal (s11). The imaginary parts are the
+positive and negative square roots of the product of the two
+elements s12 and s21 (imag = +-sqrt(s12*s21)).</p>
+<p>The calculation in lapack.dgees is performed stepwise, i.e.,
+using the internal methods of balancing and scaling of dgees.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+   Real A[3,3] = [1, 2, 3; 4, 5, 6; 7, 8, 9];
+   Real T[3,3];
+   Real Z[3,3];
+   Real alphaReal[3];
+   Real alphaImag[3];
+
+<b>algorithm</b>
+  (T, Z, alphaReal, alphaImag):=Modelica.Math.Matrices.realSchur(A);
+//   T = [16.12, 4.9,   1.59E-015;
+//        0,    -1.12, -1.12E-015;
+//        0,     0,    -1.30E-015]
+//   Z = [-0.23,  -0.88,   0.41;
+//        -0.52,  -0.24,  -0.82;
+//        -0.82,   0.4,    0.41]
+//alphaReal = {16.12, -1.12, -1.32E-015}
+//alphaImag = {0, 0, 0}
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.Utilities.reorderRSF.html">Math.Matrices.Utilities.reorderRSF</a>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function realSchur
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Matrices;
+  input Real A[:,size(A, 1)] "Square matrix";
+  output Real S[size(A, 1),size(A, 2)] "Real Schur form of A";
+  output Real QZ[size(A, 1),size(A, 2)] "Schur vector Matrix";
+  output Real alphaReal[size(A, 1)] "Real part of eigenvalue=alphaReal+i*alphaImag";
+  output Real alphaImag[size(A, 1)] "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
+end realSchur;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

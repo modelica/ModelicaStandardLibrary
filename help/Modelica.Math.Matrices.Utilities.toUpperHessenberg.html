@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.Utilities.toUpperHessenberg</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.Utilities.html">Utilities</a>.<span class="omc-h1">toUpperHessenberg</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+         H = Matrices.Utilities.<b>toUpperHessenberg</b>(A);
+         (H, V, tau, info) = Matrices.Utilities.<b>toUpperHessenberg</b>(A,ilo, ihi);
+</pre></blockquote>
+<h4>Description</h4>
+<p>Function <b>toUpperHessenberg</b> computes a upper Hessenberg
+form <b>H</b> of a matrix <b>A</b> by orthogonal similarity
+transformation: <b>Q</b>' * <b>A</b> * <b>Q</b> = <b>H</b>. With
+the optional inputs ilo and ihi, also partial transformation is
+possible. The function calls LAPACK function DGEHRD. See <a href="Modelica.Math.Matrices.LAPACK.dgehrd.html">Matrices.LAPACK.dgehrd</a>
+for more information about the additional outputs V, tau, info and
+inputs ilo, ihi.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+ A  = [1, 2, 3;
+       6, 5, 4;
+       1, 0, 0];
+
+ H = toUpperHessenberg(A);
+
+  results in:
+
+ H = [1.0,  -2.466,  2.630;
+     -6.083, 5.514, -3.081;
+      0.0,   0.919, -0.514]
+
+</pre></blockquote>
+<h4>See also</h4>
+<a href="Modelica.Math.Matrices.hessenberg.html">Matrices.hessenberg</a>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function toUpperHessenberg
+  extends Modelica.Icons.Function;
+  import Modelica.Math.Matrices;
+  import Modelica.Math.Matrices.LAPACK;
+  input Real A[:,size(A, 1)] "Square matrix A";
+  input Integer ilo = 1 "Lowest index where the original matrix had been Hessenbergform";
+  input Integer ihi = size(A, 1) "Highest index where the original matrix had been Hessenbergform";
+  output Real H[size(A, 1),size(A, 2)] "Upper Hessenberg form";
+  output Real V[size(A, 1),size(A, 2)] "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
+  output Real tau[max(0, size(A, 1) - 1)] "Scalar factors of the elementary reflectors";
+  output Integer info "Information of successful function call";
+end toUpperHessenberg;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>2010/04/30</i> by Marcus Baur, DLR-RM</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

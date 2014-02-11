@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Colors.html">Colors</a>.<span class="omc-h1">colorMapToSvg</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Colors.<b>colorMapToSvg</b>(colorMap);
+Colors.<b>colorMapToSvg</b>(colorMap,
+                     fileName   = "colorMap.svg",
+                     width      =  10,  // [mm]
+                     height     = 100,  // [mm]
+                     x          =  20,  // [mm]
+                     y          =  10,  // [mm]
+                     T_min      =   0,
+                     T_max      = 100,
+                     nScalars   =  11,
+                     format     = ".3g",
+                     fontSize   =  11,  // [pt]
+                     textWidth  =   8,  // [mm]
+                     caption    = "",
+                     headerType = Colors.colorMapToSvg.Header.svgBeginAndEnd)
+                                                           // svgBegin
+                                                           // svgEnd
+                                                           // svgNoHeader
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function saves the color map "Real colorMap[:,3]" on file
+"fileName" in svg format. The color map has a width of "width" and
+a height of "height" and the upper left corner is placed at
+coordinates "(x,y)". Over the color map, a caption "caption" is
+placed. On the right side of the color map, a set of scalar field
+values T is displayed where "T_min" is placed at colorMap[1,:],
+"T_max" is placed at colorMap[end,:] and "nScalars" values between
+"T_min" and "T_max" (including T_min and T_max) are shown. The
+printing format of the numbers is defined with "format", see
+definition below. With argument "headerType" it is defined whether
+"svg" begin and end lines are printed. If the "begin" svg tag shall
+be printed, file "fileName" is deleted, if it already exists.
+Otherwise, all output is appended to the file "fileName".</p>
+<p>A "svg" file can be displayed by a web browser, such as <a href="http://www.mozilla.org/firefox">Firefox</a> by dragging the file
+in the browser window. Alternatively, a svg-file can be loaded in a
+graphics program, such as the free <a href="http://inkscape.org">Inkscape</a>, can be manipulated and can be
+exported in other graphic formats. The following image was
+generated with a call to "colorMapToSvg", the generated file was
+loaded in Inkscape and exported in "png" format:</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Visualizers/Colors/jet.png" /></blockquote>
+<p>The "format" argument defines the string formatting according to
+ANSI-C without "%" and "*" character<br />
+(e.g., ".6g", "14.5e", "+6f"). In particular:</p>
+<p>format = "[&lt;flags&gt;] [&lt;width&gt;] [.&lt;precision&gt;]
+&lt;conversion&gt;" with</p>
+<blockquote>
+<table>
+<tr>
+<td>&lt;flags&gt;</td>
+<td>zero, one or more of<br />
+"-": left adjustment of the converted number<br />
+"+": number will always be printed with a sign<br />
+"0": padding to the field width with leading zeros</td>
+</tr>
+<tr>
+<td>&lt;width&gt;</td>
+<td>Minimum field width. The converted number will be printed in a
+field at<br />
+least this wide and wider if necessary. If the converted number
+has<br />
+fewer characters it will be padded on the left (or the right
+depending<br />
+on &lt;flags&gt;) with blanks or 0 (depending on
+&lt;flags&gt;).</td>
+</tr>
+<tr>
+<td>&lt;precision&gt;</td>
+<td>The number of digits to be printed after the decimal point
+for<br />
+e, E, or f conversions, or the number of significant digits
+for<br />
+g or G conversions.</td>
+</tr>
+<tr>
+<td>&lt;conversion&gt;</td>
+<td>= "e": Exponential notation using a lower case e<br />
+= "E": Exponential notation using an upper case E<br />
+= "f": Fixed point notation<br />
+= "g": Either "e" or "f"<br />
+= "G": Same as "g", but with upper case E</td>
+</tr>
+</table>
+</blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function colorMapToSvg
+  extends Modelica.Icons.Function;
+  encapsulated type HeaderType = enumeration(svgBeginAndEnd, svgBegin, svgEnd, noHeader);
+  import Modelica.Utilities.Streams.print;
+  input Real colorMap[:,3] "Color map to be stored in svg format" annotation(choices(choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.hot(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.gray(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.spring(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.summer(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.autumn(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.winter()));
+  input String fileName = "colorMap.svg" "File where the svg representation shall be stored";
+  input Real width(unit = "mm") = 10 "Width in svg-figure";
+  input Real height(unit = "mm") = 100 "Height in svg-figure";
+  input Real x(unit = "mm") = 20 "X-Coordinate of left upper corner";
+  input Real y(unit = "mm") = 10 "Y-Coordinate of left upper corner";
+  input Real T_min = 0 "Value of scalar corresponding to colorMap[1,:]";
+  input Real T_max = 100 "Value of scalar corresponding to colorMap[end,:]";
+  input Integer nScalars = 11 "Number of scalars to be displayed at the right side";
+  input String format = ".3g" "Format of the numbers";
+  input Real fontSize = 11 "Font size in [pt]";
+  input Real textWidth(unit = "mm") = 8 "Numbers are right justified starting at x+width+textWidth";
+  input String caption = "" "Caption above the map";
+  input HeaderType headerType = Colors.colorMapToSvg.HeaderType.svgBeginAndEnd "Type of header";
+end colorMapToSvg;
+</pre></blockquote>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.HeaderType.html">
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.HeaderType.html">HeaderType</a></td>
+<td></td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

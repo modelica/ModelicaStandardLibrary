@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.QR</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">QR</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+(Q,R,p) = Matrices.<b>QR</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function returns the QR decomposition of a rectangular
+matrix <b>A</b> (the number of columns of <b>A</b> must be less
+than or equal to the number of rows):</p>
+<blockquote>
+<p><b>Q</b>*<b>R</b> = <b>A</b>[:,<b>p</b>]</p>
+</blockquote>
+<p>where <b>Q</b> is a rectangular matrix that has orthonormal
+columns and has the same size as A
+(<b>Q</b><sup>T</sup><b>Q</b>=<b>I</b>), <b>R</b> is a square,
+upper triangular matrix and <b>p</b> is a permutation vector.
+Matrix <b>R</b> has the following important properties:</p>
+<ul>
+<li>The absolute value of a diagonal element of <b>R</b> is the
+largest value in this row, i.e., abs(R[i,i]) ≥ abs(R[i,j]).</li>
+<li>The diagonal elements of <b>R</b> are sorted according to size,
+such that the largest absolute value is abs(R[1,1]) and abs(R[i,i])
+≥ abs(R[j,j]) with i &lt; j.</li>
+</ul>
+<p>This means that if abs(R[i,i]) ≤ ε then abs(R[j,k]) ≤ ε for j ≥
+i, i.e., the i-th row up to the last row of <b>R</b> have small
+elements and can be treated as being zero. This allows to, e.g.,
+estimate the row-rank of <b>R</b> (which is the same row-rank as
+<b>A</b>). Furthermore, <b>R</b> can be partitioned in two
+parts</p>
+<blockquote>
+<pre>
+   <b>A</b>[:,<b>p</b>] = <b>Q</b> * [<b>R</b><sub>1</sub>, <b>R</b><sub>2</sub>;
+                 <b>0</b>,  <b>0</b>]
+</pre></blockquote>
+<p>where <b>R</b><sub>1</sub> is a regular, upper triangular
+matrix.</p>
+<p>Note, the solution is computed with the LAPACK functions
+"dgeqpf" and "dorgqr", i.e., by Householder transformations with
+column pivoting. If <b>Q</b> is not needed, the function may be
+called as: <code>(,R,p) = QR(A)</code>.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real R[3,3];
+<b>algorithm</b>
+  (,R) := Matrices.QR(A);  // R = [-7.07.., -4.24.., -3.67..;
+                                    0     , -1.73.., -0.23..;
+                                    0     ,  0     ,  0.65..];
+</pre></blockquote>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function QR
+  extends Modelica.Icons.Function;
+  input Real A[:,:] "Rectangular matrix with size(A,1) &gt;= size(A,2)";
+  input Boolean pivoting = true "True if column pivoting is performed. True is default";
+  output Real Q[size(A, 1),size(A, 2)] "Rectangular matrix with orthonormal columns such that Q*R=A[:,p]";
+  output Real R[size(A, 2),size(A, 2)] "Square upper triangular matrix";
+  output Integer p[size(A, 2)] "Column permutation vector";
+end QR;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

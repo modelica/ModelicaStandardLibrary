@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Valves.BaseClasses.PartialValve</title>
+</head>
+<body>
+<h1><a href="Icons/2dbcb4048e13bc5671e4e0586f002fb4bda9322a.svg"><img class="svgiconhead" src="Icons/2dbcb4048e13bc5671e4e0586f002fb4bda9322a.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Valves.html">Valves</a>.<a class="omc-h1-a" href="Modelica.Fluid.Valves.BaseClasses.html">BaseClasses</a>.<span class="omc-h1">PartialValve</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is the base model for the <code>ValveIncompressible</code>,
+<code>ValveVaporizing</code>, and <code>ValveCompressible</code>
+valve models. The model is based on the IEC 534 / ISA S.75
+standards for valve sizing.</p>
+<p>The model optionally supports reverse flow conditions (assuming
+symmetrical behaviour) or check valve operation, and has been
+suitably regularized, compared to the equations in the standard, in
+order to avoid numerical singularities around zero pressure drop
+operating conditions.</p>
+<p>The model assumes adiabatic operation (no heat losses to the
+ambient); changes in kinetic energy from inlet to outlet are
+neglected in the energy balance.</p>
+<p><b>Modelling options</b></p>
+<p>The following options are available to specify the valve flow
+coefficient in fully open conditions:</p>
+<ul>
+<li><code>CvData = Modelica.Fluid.Types.CvTypes.Av</code>: the flow
+coefficient is given by the metric <code>Av</code> coefficient
+(m^2).</li>
+<li><code>CvData = Modelica.Fluid.Types.CvTypes.Kv</code>: the flow
+coefficient is given by the metric <code>Kv</code> coefficient
+(m^3/h).</li>
+<li><code>CvData = Modelica.Fluid.Types.CvTypes.Cv</code>: the flow
+coefficient is given by the US <code>Cv</code> coefficient
+(USG/min).</li>
+<li><code>CvData = Modelica.Fluid.Types.CvTypes.OpPoint</code>: the
+flow is computed from the nominal operating point specified by
+<code>p_nominal</code>, <code>dp_nominal</code>,
+<code>m_flow_nominal</code>, <code>rho_nominal</code>,
+<code>opening_nominal</code>.</li>
+</ul>
+<p>The nominal pressure drop <code>dp_nominal</code> must always be
+specified; to avoid numerical singularities, the flow
+characteristic is modified for pressure drops less than
+<code>b*dp_nominal</code> (the default value is 1% of the nominal
+pressure drop). Increase this parameter if numerical problems occur
+in valves with very low pressure drops.</p>
+<p>If <code>checkValve</code> is true, then the flow is stopped
+when the outlet pressure is higher than the inlet pressure;
+otherwise, reverse flow takes place. Use this option only when
+needed, as it increases the numerical complexity of the
+problem.</p>
+<p>The valve opening characteristic
+<code>valveCharacteristic</code>, linear by default, can be
+replaced by any user-defined function. Quadratic and equal
+percentage with customizable rangeability are already provided by
+the library. The characteristics for constant port_a.p and port_b.p
+pressures with continuously changing opening are shown in the next
+two figures:</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Fluid/Components/ValveCharacteristics1a.png" alt="ValveCharacteristics1a.png" /><br />
+<img src="../Modelica%203.2.1/Resources/Images/Fluid/Components/ValveCharacteristics1b.png" alt="Components/ValveCharacteristics1b.png" /></blockquote>
+<p>The treatment of parameters <b>Kv</b> and <b>Cv</b> is explained
+in detail in the <a href="Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics.html">
+User's Guide</a>.</p>
+<p>With the optional parameter "filteredOpening", the opening can
+be filtered with a <b>second order, criticalDamping</b> filter so
+that the opening demand is delayed by parameter "riseTime". The
+filtered opening is then available via the output signal
+"opening_filtered" and is used to control the valve equations. This
+approach approximates the driving device of a valve. The "riseTime"
+parameter is used to compute the cut-off frequency of the filter by
+the equation: f_cut = 5/(2*pi*riseTime). It defines the time that
+is needed until opening_filtered reaches 99.6 % of a step input of
+opening. The icon of a valve changes in the following way (left
+image: filteredOpening=false, right image:
+filteredOpening=true):</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Fluid/Components/FilteredValveIcon.png" alt="FilteredValveIcon.png" /></blockquote>
+<p>If "filteredOpening = <b>true</b>", the input signal "opening"
+is limited by parameter <b>leakageOpening</b>, i.e., if "opening"
+becomes smaller as "leakageOpening", then "leakageOpening" is used
+instead of "opening" as input for the filter. The reason is that
+"opening=0" might structurally change the equations of the fluid
+network leading to a singularity. If a small leakage flow is
+introduced (which is often anyway present in reality), the
+singularity might be avoided.</p>
+<p>In the next figure, "opening" and "filtered_opening" are shown
+in the case that filteredOpening = <b>true</b>, riseTime = 1 s, and
+leakageOpening = 0.02.</p>
+<blockquote><img src="../Modelica%203.2.1/Resources/Images/Fluid/Components/ValveFilteredOpening.png" alt="ValveFilteredOpening.png" /></blockquote>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Fluid.Valves.BaseClasses.PartialValve.valveCharacteristic.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Fluid.Valves.BaseClasses.PartialValve.valveCharacteristic.html">valveCharacteristic</a></td>
+<td></td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>Sept. 5, 2010</i> by <a href="mailto:martin.otter@dlr.de">Martin Otter</a>:<br />
+Optional filtering of opening introduced, based on a proposal from
+Mike Barth (Universitaet der Bundeswehr Hamburg) + Documentation
+improved.</li>
+<li><i>2 Nov 2005</i> by <a href="mailto:francesco.casella@polimi.it">Francesco Casella</a>:<br />
+Adapted from the ThermoPower library.</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

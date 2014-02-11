@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.GearType1</title>
+</head>
+<body>
+<h1><a href="Icons/7993f78de84384ce9e9983667572adb2108e6a03.svg"><img class="svgiconhead" src="Icons/7993f78de84384ce9e9983667572adb2108e6a03.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Systems.html">Systems</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.html">RobotR3</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.html">Components</a>.<span class="omc-h1">GearType1</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Models the gearbox used in the first three joints with all its
+effects, like elasticity and friction. Coulomb friction is
+approximated by a friction element acting at the "motor"-side. In
+reality, bearing friction should be also incorporated at the driven
+side of the gearbox. However, this would require considerable more
+effort for the measurement of the friction parameters. Default
+values for all parameters are given for joint 1. Model
+relativeStates is used to define the relative angle and relative
+angular velocity across the spring (=gear elasticity) as state
+variables. The reason is, that a default initial value of zero of
+these states makes always sense. If the absolute angle and the
+absolute angular velocity of model Jmotor would be used as states,
+and the load angle (= joint angle of robot) is NOT zero, one has
+always to ensure that the initial values of the motor angle and of
+the joint angle are modified correspondingly. Otherwise, the spring
+has an unrealistic deflection at initial time. Since relative
+quantities are used as state variables, this simplifies the
+definition of initial values considerably.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

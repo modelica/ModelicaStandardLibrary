@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.StateGraph.Temporary.SetRealParameter</title>
+</head>
+<body>
+<h1><a href="Icons/781139f102df0afb50763d4af484499b965c7416.svg"><img class="svgiconhead" src="Icons/781139f102df0afb50763d4af484499b965c7416.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.StateGraph.html">StateGraph</a>.<a class="omc-h1-a" href="Modelica.StateGraph.Temporary.html">Temporary</a>.<span class="omc-h1">SetRealParameter</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is an <b>experimental component</b> to define a <b>Real
+parameter</b> in the <b>diagram layer</b>. The idea is to drag the
+icon from the package browser into the diagram layer. Then a window
+pops up in which the properties of this parameter can be defined
+(such as the default value). The name and default value of the
+parameter are displayed in the icon of this component. Whenever
+clicking on it, the dialog to change parameter settings
+pops-up.</p>
+<p>In Dymola, the described property is not fully available.
+Currently, when dragging this component in the diagram layer, a
+dialog pops up in which the properties of the parameter can be
+defined. However, afterwards, the parameter is not visible in the
+diagram layer. Making it visible requires to go into the text layer
+and add an annotation with the component size, resulting for
+example in:</p>
+<pre>
+  <b>parameter</b> StateGraph.SetRealParameter name = 2
+                       <b>annotation</b>(extent=[-10,-10; 10,10]);
+</pre>
+<p>This change makes the parameter icon visible in the diagram
+layer. However, clicking on this icon has no effect. Changing
+parameter properties, such as the default value, still requires to
+go in to the text layer.</p>
+<h4><a name="definition" id="definition">Definition</a></h4>
+<blockquote>
+<pre>
+type SetRealParameter = Real;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

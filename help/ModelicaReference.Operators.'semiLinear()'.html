@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'semiLinear()'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'semiLinear()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Returns "if x &gt;= 0 then positiveSlope*x else negativeSlope*x"
+and handle x=0 in a meaningful way</p>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+<b>semiLinear</b>(x, positiveSlope, negativeSlope)
+</pre></blockquote>
+<h4>Description</h4>
+<p>Returns "if x &gt;= 0 then positiveSlope*x else
+negativeSlope*x". In some situations, equations with the semiLinear
+function become underdetermined if the first argument (x) becomes
+zero, i.e., there are an infinite number of solutions. It is
+recommended that the following rules are used to transform the
+equations during the translation phase in order to select one
+meaningful solution in such cases:</p>
+<p><b>Rule 1</b>: The equations</p>
+<blockquote>
+<pre>
+y = <b>semiLinear</b>(x, sa, s1);
+y = <b>semiLinear</b>(x, s1, s2);
+y = <b>semiLinear</b>(x, s2, s3);
+   ...
+y = <b>semiLinear</b>(x, sN, sb);
+</pre></blockquote>
+<p>may be replaced by</p>
+<blockquote>
+<pre>
+s1 = <b>if</b> x &gt;= 0 <b>then</b> sa <b>else</b> sb
+s2 = s1;
+s3 = s2;
+   ...
+sN = sN-1;
+y = <b>semiLinear</b>(x, sa, sb);
+</pre></blockquote>
+<p><b>Rule 2</b>: The equations</p>
+<blockquote>
+<pre>
+x = 0;
+y = 0;
+y = <b>semiLinear</b>(x, sa, sb);
+</pre></blockquote>
+<p>may be replaced by</p>
+<blockquote>
+<pre>
+x = 0
+y = 0;
+sa = sb;
+</pre></blockquote>
+<p><i>[For symbolic transformations, the following property is
+useful (this follows from the definition):</i></p>
+<blockquote>
+<pre>
+<b>semiLinear</b>(m_flow, port_h, h);
+</pre></blockquote>
+<p>is identical to</p>
+<blockquote>
+<pre>
+-<b>semiLinear</b>(-m_flow, h, port_h);
+</pre></blockquote>
+<p><i>The semiLinear function is designed to handle reversing flow
+in fluid systems, such as</i></p>
+<blockquote>
+<pre>
+H_flow = <b>semiLinear</b>(m_flow, port.h, h);
+</pre></blockquote>
+<p><i>i.e., the enthalpy flow rate H _flow is computed from the
+mass flow rate m_flow and the upstream specific enthalpy depending
+on the flow direction.]</i></p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

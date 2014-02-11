@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.Strings</title>
+</head>
+<body>
+<h1><a href="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg"><img class="svgiconhead" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<span class="omc-h1">Strings</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Library content</h4>
+<p>Package <b>Strings</b> contains functions to manipulate
+strings.</p>
+<p>In the table below an example call to every function is given
+using the <b>default</b> options.</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b><i>Function</i></b></th>
+<th><b><i>Description</i></b></th>
+</tr>
+<tr>
+<td valign="top">len = <a href="Modelica.Utilities.Strings.length.html">length</a>(string)</td>
+<td valign="top">Returns length of string</td>
+</tr>
+<tr>
+<td valign="top">string2 = <a href="Modelica.Utilities.Strings.substring.html">substring</a>(string1,startIndex,endIndex)</td>
+<td valign="top">Returns a substring defined by start and end
+index</td>
+</tr>
+<tr>
+<td valign="top">result = <a href="Modelica.Utilities.Strings.repeat.html">repeat</a>(n)<br />
+result = <a href="Modelica.Utilities.Strings.repeat.html">repeat</a>(n,string)</td>
+<td valign="top">Repeat a blank or a string n times.</td>
+</tr>
+<tr>
+<td valign="top">result = <a href="Modelica.Utilities.Strings.compare.html">compare</a>(string1,
+string2)</td>
+<td valign="top">Compares two substrings with regards to
+alphabetical order</td>
+</tr>
+<tr>
+<td valign="top">identical = <a href="Modelica.Utilities.Strings.isEqual.html">isEqual</a>(string1,string2)</td>
+<td valign="top">Determine whether two strings are identical</td>
+</tr>
+<tr>
+<td valign="top">result = <a href="Modelica.Utilities.Strings.count.html">count</a>(string,searchString)</td>
+<td valign="top">Count the number of occurrences of a string</td>
+</tr>
+<tr>
+<td valign="top">index = <a href="Modelica.Utilities.Strings.find.html">find</a>(string,searchString)</td>
+<td valign="top">Find first occurrence of a string in another
+string</td>
+</tr>
+<tr>
+<td valign="top">index = <a href="Modelica.Utilities.Strings.findLast.html">findLast</a>(string,searchString)</td>
+<td valign="top">Find last occurrence of a string in another
+string</td>
+</tr>
+<tr>
+<td valign="top">string2 = <a href="Modelica.Utilities.Strings.replace.html">replace</a>(string,searchString,replaceString)</td>
+<td valign="top">Replace one or all occurrences of a string</td>
+</tr>
+<tr>
+<td valign="top">stringVector2 = <a href="Modelica.Utilities.Strings.sort.html">sort</a>(stringVector1)</td>
+<td valign="top">Sort vector of strings in alphabetic order</td>
+</tr>
+<tr>
+<td valign="top">(token, index) = <a href="Modelica.Utilities.Strings.scanToken.html">scanToken</a>(string,startIndex)</td>
+<td valign="top">Scan for a token
+(Real/Integer/Boolean/String/Identifier/Delimiter/NoToken)</td>
+</tr>
+<tr>
+<td valign="top">(number, index) = <a href="Modelica.Utilities.Strings.scanReal.html">scanReal</a>(string,startIndex)</td>
+<td valign="top">Scan for a Real constant</td>
+</tr>
+<tr>
+<td valign="top">(number, index) = <a href="Modelica.Utilities.Strings.scanInteger.html">scanInteger</a>(string,startIndex)</td>
+<td valign="top">Scan for an Integer constant</td>
+</tr>
+<tr>
+<td valign="top">(boolean, index) = <a href="Modelica.Utilities.Strings.scanBoolean.html">scanBoolean</a>(string,startIndex)</td>
+<td valign="top">Scan for a Boolean constant</td>
+</tr>
+<tr>
+<td valign="top">(string2, index) = <a href="Modelica.Utilities.Strings.scanString.html">scanString</a>(string,startIndex)</td>
+<td valign="top">Scan for a String constant</td>
+</tr>
+<tr>
+<td valign="top">(identifier, index) = <a href="Modelica.Utilities.Strings.scanIdentifier.html">scanIdentifier</a>(string,startIndex)</td>
+<td valign="top">Scan for an identifier</td>
+</tr>
+<tr>
+<td valign="top">(delimiter, index) = <a href="Modelica.Utilities.Strings.scanDelimiter.html">scanDelimiter</a>(string,startIndex)</td>
+<td valign="top">Scan for delimiters</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Utilities.Strings.scanNoToken.html">scanNoToken</a>(string,startIndex)</td>
+<td valign="top">Check that remaining part of string consists
+solely of<br />
+white space or line comments ("// ...\n").</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Utilities.Strings.syntaxError.html">syntaxError</a>(string,index,message)</td>
+<td valign="top">Print a "syntax error message" as well as a string
+and the<br />
+index at which scanning detected an error</td>
+</tr>
+</table>
+<p>The functions "compare", "isEqual", "count", "find", "findLast",
+"replace", "sort" have the optional input argument
+<b>caseSensitive</b> with default <b>true</b>. If <b>false</b>, the
+operation is carried out without taking into account whether a
+character is upper or lower case.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.length.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.length.html">length</a></td>
+<td>Returns length of string</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.substring.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.substring.html">substring</a></td>
+<td>Returns a substring defined by start and end index</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.repeat.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.repeat.html">repeat</a></td>
+<td>Repeat a string n times</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.compare.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.compare.html">compare</a></td>
+<td>Compare two strings lexicographically</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.isEqual.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.isEqual.html">isEqual</a></td>
+<td>Determine whether two strings are identical</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.isEmpty.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.isEmpty.html">isEmpty</a></td>
+<td>Return true if a string is empty (has only white space
+characters)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.count.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.count.html">count</a></td>
+<td>Count the number of non-overlapping occurrences of a
+string</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.find.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.find.html">find</a></td>
+<td>Find first occurrence of a string within another string</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.findLast.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.findLast.html">findLast</a></td>
+<td>Find last occurrence of a string within another string</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.replace.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.replace.html">replace</a></td>
+<td>Replace non-overlapping occurrences of a string from left to
+right</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.sort.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.sort.html">sort</a></td>
+<td>Sort vector of strings in alphabetic order</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.scanToken.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.scanToken.html">scanToken</a></td>
+<td>Scan for the next token and return it</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.scanReal.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.scanReal.html">scanReal</a></td>
+<td>Scan for the next Real number and trigger an assert if not
+present</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.scanInteger.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.scanInteger.html">scanInteger</a></td>
+<td>Scan for the next Integer number and trigger an assert if not
+present</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.scanBoolean.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.scanBoolean.html">scanBoolean</a></td>
+<td>Scan for the next Boolean number and trigger an assert if not
+present</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.scanString.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.scanString.html">scanString</a></td>
+<td>Scan for the next Modelica string and trigger an assert if not
+present</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.scanIdentifier.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.scanIdentifier.html">scanIdentifier</a></td>
+<td>Scan for the next Identifier and trigger an assert if not
+present</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.scanDelimiter.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.scanDelimiter.html">scanDelimiter</a></td>
+<td>Scan for the next delimiter and trigger an assert if not
+present</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.scanNoToken.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.scanNoToken.html">scanNoToken</a></td>
+<td>Scan string and check that it contains no more token</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.syntaxError.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.syntaxError.html">syntaxError</a></td>
+<td>Print an error message, a string and the index at which
+scanning detected an error</td>
+</tr>
+<tr>
+<td><a href="Modelica.Utilities.Strings.Advanced.html"><img class="svgiconsmall" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a href="Modelica.Utilities.Strings.Advanced.html">Advanced</a></td>
+<td>Advanced scanning functions</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

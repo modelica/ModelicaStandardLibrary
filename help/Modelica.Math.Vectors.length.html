@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Vectors.length</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Vectors.html">Vectors</a>.<span class="omc-h1">length</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Vectors.<b>length</b>(v);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call "<code>Vectors.<b>length</b>(v)</code>"
+returns the <b>Euclidean length</b> "<code>sqrt(v*v)</code>" of
+vector v. The function call is equivalent to Vectors.norm(v). The
+advantage of length(v) over norm(v)"is that function length(..) is
+implemented in one statement and therefore the function is usually
+automatically inlined. Further symbolic processing is therefore
+possible, which is not the case with function norm(..).</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  v = {2, -4, -2, -1};
+  <b>length</b>(v);  // = 5
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Vectors.norm.html">Vectors.norm</a></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function length
+  extends Modelica.Icons.Function;
+  input Real v[:] "Vector";
+  output Real result "Length of vector v";
+end length;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

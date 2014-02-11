@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Magnetic.FundamentalWave.UsersGuide.Concept</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">Concept</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Overview of the concept of fundamental waves</h4>
+<p>The exact magnetic field in the air gap of an electric machine
+is usually determined by an electro magnetic finite element
+analysis. The waveform of the magnetic field, e.g., the magnetic
+potential difference <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png" />
+, consists of a spatial fundamental wave - with respect to an
+equivalent two pole machine - and additional harmonic waves of
+different order. The fundamental wave is however dominant in the
+air gap of an electric machine.</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><b>Fig. 1:</b> Field lines of a four pole
+induction machine</caption>
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/aimc_fem.png" /></td>
+</tr>
+</table>
+<p>In the fundamental wave theory only a pure sinusoidal
+distribution of magnetic quantities is assumed. It is thus assumed
+that all other harmonic wave effects are not taken into
+account.</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><b>Fig. 2:</b> Magnetic potential
+difference of a four pole machine, where <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/varphi.png" />
+ is the angle of the spatial domain with respect to one pole
+pair</caption>
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/four_pole_V_m.png" /></td>
+</tr>
+</table>
+<p>The waveforms of the magnetic field quantities, e.g., the
+magnetic potential difference <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png" />
+, can be represented by complex phasor, e.g., <img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/V_m.png" />
+ according to:</p>
+<p>&nbsp;&nbsp;<img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/V_m_real_complex.png" /></p>
+<p>It is important to note that the magnetic potential used in this
+library <b>always</b> refers to an equivalent two pole machine.</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><b>Fig. 3:</b> Spatial distribution of the
+magnetic potential difference (red shade = positive sine wave, blue
+shade = negative sine wave) including complex phasor representing
+this spatial distribution</caption>
+<tr>
+<td><img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Concept/electrical_reference_V_m.png" /></td>
+</tr>
+</table>
+<p>The potential and flow quantities of this library are the
+complex magnetic potential difference and the complex magnetic flux
+as defined in the basic <a href="Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort.html">
+magnetic port</a>. Due to the sinusoidal distribution of magnetic
+potential and flux, such a complex phasor representation can be
+used. This way, the FundamentalWave library can be seen as a
+spatial extension of the <a href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a> library.</p>
+<p>The specific arrangement of windings in electric machines with
+<img src="../Modelica%203.2.1/Resources/Images/Magnetic/FundamentalWave/p.png" />
+ pole pairs give rise to sinusoidal dominant magnetic potential
+wave. The spatial period of this wave is determined by one pole
+pair [<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.References.html">Mueller70</a>,
+<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.References.html">
+Spaeth73</a>].</p>
+<p>The main components of an electric machine model based on the
+FundamentalWave library are <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding.html">
+multi phase</a> and <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding.html">
+single phase windings</a>, <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap.html">
+air gap</a> as well as <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding.html">
+symmetric</a> or <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding.html">
+salient cage</a> models. The electric machine models provided in
+this library are based on symmetrical windings in the stator and
+equivalent two or three phase windings in squirrel cage rotors.
+Slip ring induction machines may have different phase numbers in
+the stator and rotor.</p>
+<h4>Assumptions</h4>
+<p>The machine models of the FundamentalWave library are currently
+based on the following assumptions</p>
+<ul>
+<li>The number of stator phases is greater or equal to three
+[<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.References.html">Eckhardt82</a>]</li>
+<li>The phase windings are assumed to be symmetrical; an extension
+to this approach can be considered</li>
+<li>Only fundamental wave effects are taken into account</li>
+<li>The magnetic potential difference refers to an equivalent two
+pole machine</li>
+<li>There are no restrictions on the waveforms of voltages and
+currents</li>
+<li>All resistances and inductances are modeled as constant
+quantities; saturation effects, cross coupling effects [<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.References.html">Li07</a>],
+temperature dependency of resistances and deep bar effects could be
+considered in an extension to this library</li>
+<li>Hysteresis losses are currently not considered [<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.References.html">Haumer09</a>]</li>
+<li>The losses dissipated in the electric machine models are
+<ul>
+<li>ohmic heat losses,</li>
+<li>eddy current losses in the stator core,</li>
+<li>stray load losses,</li>
+<li>friction losses.</li>
+</ul>
+</li>
+</ul>
+<h4>Note</h4>
+<p>The term <b>fundamental wave</b> refers to spatial waves of the
+electro magnetic quantities. This library has no limitations with
+respect to the waveforms of the time domain signals of any
+voltages, currents, etc.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

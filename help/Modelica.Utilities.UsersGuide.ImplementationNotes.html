@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Utilities.UsersGuide.ImplementationNotes</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Utilities.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">ImplementationNotes</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Below the major design decisions of this library are
+summarized.</p>
+<ul>
+<li><b>C-Function Interface</b><br />
+This library contains several interfaces to C-functions in order to
+operate with the environment. As will become clear, it is usually
+required that a Modelica tool vendor provides an implementation of
+these C-functions that are suited for his environment. In directory
+"Modelica/Resources/C-Sources" a reference implementation is given
+for Microsoft Windows Systems and for POSIX environments. The files
+"ModelicaInternal.c" and "ModelicaStrings.c" can be used as a basis
+for the integration in the vendors environment.<br />
+&nbsp;</li>
+<li><b>Character Encoding</b><br />
+The representation of characters is different in operating systems.
+The more modern ones (e.g., Windows-NT) use an early variant of
+Unicode (16 bit per character) other (e.g., Windows-ME) use 8-bit
+encoding. Also 32 bit per character and multi-byte representations
+are in use. This is important, since e.g., Japanese Modelica users
+need Unicode representation. The design in this library is done in
+such a way that a basic set of calls to the operating system hides
+the actual character representation. This means, that all functions
+of this package can be used independent from the underlying
+character representation.<br />
+The C-interface of the Modelica language provides only an 8-bit
+character encoding passing mechanism of strings. As a result, the
+reference implementation in "Modelica.Utilities\C-Source" needs to
+be adapted to the character representation supported in the
+Modelica vendor environment.<br />
+&nbsp;</li>
+<li><b>Internal String Representation</b><br />
+The design of this package was made in order that string handling
+is convenient. This is in contrast to, e.g., the C-language, where
+string handling is inconvenient, cumbersome and error prone, but on
+the other hand is in some sense "efficient". The standard reference
+implementation in "Modelica.Utilities\C-Source" is based on the
+standard C definition of a string, i.e., a pointer to a sequence of
+characters, ended with a null terminating character. In order that
+the string handling in this package is convenient, some assumptions
+have been made, especially, that the access to a substring is
+efficient (O(1) access instead of O(n) as in standard C). This
+allows to hide string pointer arithmetic from the user. In such a
+case, a similar efficiency as in C can be expected for most high
+level operations, such as find, sort, replace. The "efficient
+character access" can be reached if, e.g., the number of characters
+are stored in a string, and the length of a character is fixed, say
+16 or 32 bit (if all Unicode characters shall be represented). A
+vendor should adapt the reference implementation in this
+respect.<br />
+&nbsp;</li>
+<li><b>String copy = pointer copy</b><br />
+The Modelica language has no mechanism to change a character of a
+string. When a string has to be modified, the only way to achieve
+this is to generate it newly. The advantage is that a Modelica tool
+can treat a string as a constant entity and can replace (expensive)
+string copy operations by pointer copy operations. For example,
+when sorting a set of strings the following type of operations
+occur:
+<pre>
+     String s[:], s_temp;
+      ...
+     s_temp := s[i];
+     s[i]   := s[j];
+     s[j]   := s_temp;
+     
+</pre>
+Formally, three strings are copied. Due to the feature sketched
+above, a Modelica tool can replace this copy operation by pointer
+assignments, a very "cheap" operation. The Modelica.Utilities
+functions will perform efficiently, if such types of optimizations
+are supported by the tool.</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

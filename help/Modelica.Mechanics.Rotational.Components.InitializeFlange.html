@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Rotational.Components.InitializeFlange</title>
+</head>
+<body>
+<h1><a href="Icons/4396abbdba2262918e7002aa63334c7304f35a7a.svg"><img class="svgiconhead" src="Icons/4396abbdba2262918e7002aa63334c7304f35a7a.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Components.html">Components</a>.<span class="omc-h1">InitializeFlange</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This component is used to optionally initialize the angle,
+speed, and/or angular acceleration of the flange to which this
+component is connected. Via parameters use_phi_start, use_w_start,
+use_a_start the corresponding input signals phi_start, w_start,
+a_start are conditionally activated. If an input is activated, the
+corresponding flange property is initialized with the input value
+at start time.</p>
+<p>For example, if "use_phi_start = true", then flange.phi is
+initialized with the value of the input signal "phi_start" at the
+start time.</p>
+<p>Additionally, it is optionally possible to define the
+"StateSelect" attribute of the flange angle and the flange speed
+via parameter "stateSelection".</p>
+<p>This component is especially useful when the initial values of a
+flange shall be set according to reference signals of a controller
+that are provided via a signal bus.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.UsersGuide.MediumDefinition.MultipleSubstances</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumDefinition.html">MediumDefinition</a>.<span class="omc-h1">MultipleSubstances</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>When writing the model of a multiple-substance medium, a
+fundamental issue concerns how to consider the mass fractions of
+the fluid. If there are nS substances, there are also nS mass
+fractions; however, one of them is redundant, as sum(X) = 1.
+Therefore there are basically two options, concerning the number of
+independent mass fractions nXi:</p>
+<ul>
+<li><i>Reduced-state models</i>: reducedX = <b>true</b> and nXi =
+nS - 1. In this case, the number of independent mass fractions nXi
+is the minimum possible. The full state vector X is provided by
+equations declared in the base class
+Interfaces.PartialMedium.BaseProperties: the first nXi elements are
+equal to Xi, and the last one is 1 - sum(Xi).</li>
+<li><i>Full-state models</i>: reducedX = <b>false</b> and nXi = nS.
+In this case, Xi = X, i.e., all the elements of the composition
+vector are considered as independent variables, and the constraint
+sum(X) = 1 is never written explicitly. Although this kind of model
+is heavier, as it provides one extra state variable, it can be less
+prone to numerical and/or symbolic problems, which can be caused by
+that constraint.</li>
+<li><i>Fixed-composition models</i>: fixedX = <b>true</b> and nXi =
+0. In this case X = reference_X, i.e., all the elements of the
+composition vector are fixed.</li>
+</ul>
+<p>The medium implementer can declare the value reducedX as
+<b>final</b>. In this way only one implementation must be given.
+For instance, Modelica.Media.IdealGases models declare <b>final</b>
+reducedX = <b>false</b>, so that the implementation can always
+assume nXi = nX. The same is true for Air.MoistAir, which declares
+<b>final</b> reducedX = <b>true</b>, and always assumes nXi = nX -
+1 = 1.</p>
+<p>It is also possible to leave reducedX modifiable. In this case,
+the BaseProperties model and all additional functions should check
+for the actual value of reducedX, and provide the corresponding
+implementation.</p>
+<p>If fixedX is left modifiable, then the implementation should
+also handle the case fixedX = true properly.</p>
+<p>Fluid connectors should always use composition vectors of size
+Xi, such as in the Modelica_Fluid library:</p>
+<pre>
+<b>connector</b> FluidPort
+  <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
+  Medium.AbsolutePressure      p;
+  <b>flow</b> Medium.MassFlowRate     m_flow;
+
+  Medium.SpecificEnthalpy      h;
+  <b>flow</b> Medium.EnthalpyFlowRate H_flow;
+
+  Medium.MassFraction          Xi    [Medium.nXi];
+  <b>flow</b> Medium.MassFlowRate     mX_flow[Medium.nXi];
+<b>end</b> FluidPort;
+</pre>
+<p>For further details, refer to the implementation of <a href="Modelica.Media.IdealGases.Common.MixtureGasNasa.html">MixtureGasNasa
+model</a> and <a href="Modelica.Media.Air.MoistAir.html">MoistAir model</a>.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

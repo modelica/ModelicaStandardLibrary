@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Math.MatrixGain</title>
+</head>
+<body>
+<h1><a href="Icons/553c2d473feb41662a4c4ff872db21e92b4c4f56.svg"><img class="svgiconhead" src="Icons/553c2d473feb41662a4c4ff872db21e92b4c4f56.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Math.html">Math</a>.<span class="omc-h1">MatrixGain</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This blocks computes output vector <b>y</b> as <i>product</i> of
+the gain matrix <b>K</b> with the input signal vector <b>u</b>:</p>
+<pre>
+    <b>y</b> = <b>K</b> * <b>u</b>;
+</pre>
+<p>Example:</p>
+<pre>
+   parameter: <b>K</b> = [0.12 2; 3 1.5]
+
+   results in the following equations:
+
+     | y[1] |     | 0.12  2.00 |   | u[1] |
+     |      |  =  |            | * |      |
+     | y[2] |     | 3.00  1.50 |   | u[2] |
+</pre>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

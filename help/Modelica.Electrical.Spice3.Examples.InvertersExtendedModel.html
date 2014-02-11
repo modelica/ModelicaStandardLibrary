@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.Spice3.Examples.InvertersExtendedModel</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.Examples.html">Examples</a>.<span class="omc-h1">InvertersExtendedModel</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>An inverter is an electrical circuit that consists of a PMOS and
+a NMOS. Its task is to turn the input voltage from high potential
+to low potential or the other way round. This circuit
+<i>InverterExtendedModel</i> contains two inverters. The input
+voltage of the first inverter is nearly equal to the output voltage
+of the second inverter. Capacities cause some differences.</p>
+<p>To see the typical behavior of the circuit the input voltages
+and the output voltages should be plotted. Besides that it can be
+interesting to watch the output voltage of the first inverter.
+Simulated until t=5s.</p>
+<p>Input voltages: vin.p.v and v.p.v</p>
+<p>Output voltage of the first inverter: mn1.ND.v</p>
+<p>Output voltage of the second Inverter: mn2.ND.v</p>
+<p>This example shows one possibility to make the record of the
+technology parameters available for more than one transistor. For
+each set of technology parameters an apart model has to be defined
+(in this example: MPmos ans MNmos). Inside the model definition the
+technology parameters are appointed
+(Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)).
+Every model extends a transistor. In this process the required
+technologieparameters are specified (extends
+Spice3.Repository.MOS(final mtype=1, modelcard=M). To make
+transistors available in the circuit instances of the defined
+models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos
+mn2;).</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmos.html">
+<img class="svgiconsmall" src="Icons/7015216c89713ef6c060abef534a58fda09a7268.svg" /></a>&nbsp;<a href="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmos.html">MPmos</a></td>
+<td>PMOS transistor with specified modelcard</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MNmos.html">
+<img class="svgiconsmall" src="Icons/85b7888a727b85ff2948b1e2fc23e4c1826e14fd.svg" /></a>&nbsp;<a href="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MNmos.html">MNmos</a></td>
+<td>NMOS transistor with specified modelcard</td>
+</tr>
+</table>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>April 2009</i> by Kristin Majetta initially implemented</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

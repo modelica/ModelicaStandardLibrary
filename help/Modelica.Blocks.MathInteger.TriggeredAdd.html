@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.MathInteger.TriggeredAdd</title>
+</head>
+<body>
+<h1><a href="Icons/dd94be95fa8e601e9295741476598830da8d8e08.svg"><img class="svgiconhead" src="Icons/dd94be95fa8e601e9295741476598830da8d8e08.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.MathInteger.html">MathInteger</a>.<span class="omc-h1">TriggeredAdd</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Add input to previous value of output, if rising edge of trigger
+port</p>
+<p>This block has one Integer input "u", one Boolean input
+"trigger", an optional Boolean input "reset", an optional Integer
+input "set", and an Integer output "y". The optional inputs can be
+activated with the "use_reset" and "use_set" flags,
+respectively.</p>
+<p>The input "u" is added to the previous value of the output "y"
+if the "trigger" port has a rising edge. At the start of the
+simulation "y = y_start".</p>
+<p>If the "reset" port is enabled, then the output "y" is reset to
+"set" or to "y_start" (if the "set" port is not enabled), whenever
+the "reset" port has a rising edge.</p>
+<p>The usage is demonstrated, e.g., in example <a href="Modelica.Blocks.Examples.IntegerNetwork1.html">Modelica.Blocks.Examples.IntegerNetwork1</a>.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

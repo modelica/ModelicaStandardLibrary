@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.'when'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<span class="omc-h1">'when'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Activate equations or statements when condition becomes true</p>
+<h4>Examples</h4>
+<pre>
+ <b>equation
+   when</b> x &gt; 2 <b>then</b>
+     y3 = 2*x +y1+y2; // Order of y1 and y3 equations does not matter
+     y1 = sin(x);
+   <b>end when</b>;
+   y2 = sin(y1);
+</pre>
+<h4>Syntax</h4>
+<p>In equation sections:</p>
+<pre>
+  <b>when</b> expression <b>then</b>
+    { equation ";" }
+  { <b>elsewhen</b> expression <b>then</b>
+    { equation ";" } }
+  <b>end when</b>
+</pre>
+<p>In algorithm sections:</p>
+<pre>
+  <b>when</b> expression <b>then</b>
+    { algorithm ";" }
+  { <b>elsewhen</b> expression <b>then</b>
+    { algorithm ";" } }
+  <b>end when</b>
+</pre>
+<h4>Description</h4>
+<p>The expression of a when clause shall be a discrete-time Boolean
+scalar or vector expression. The equations and algorithm statements
+within a when clause are activated when the scalar or any one of
+the elements of the vector expression becomes true. When-clauses in
+equation sections are allowed, provided the equations within the
+when-clause have one of the following forms:</p>
+<ul>
+<li>v = expr;</li>
+<li>(out1, out2, out3, ...) = function_call(in1, in2, ...);</li>
+<li>operators <b>assert</b>(), <b>terminate</b>(),
+<b>reinit</b>()</li>
+<li><b>For</b> and <b>if</b>-clause if the equations within the
+<b>for</b> and <b>if</b>-clauses satisfy these requirements.</li>
+<li>In an equation section, the different branches of when/elsewhen
+must have the same set of component references on the left-hand
+side.</li>
+<li>In an equation section, the branches of an if-then-else clause
+inside when-clauses must have the same set of component references
+on the left-hand side, unless the if-then-else have exclusively
+parameter expressions as switching conditions.</li>
+</ul>
+<p>A when clause shall not be used within a function class.</p>
+<p><i>[Example:</i></p>
+<p><i>Algorithms are activated when x becomes &gt; 2:</i></p>
+<pre>
+   <b>when</b> x &gt; 2 <b>then</b>
+     y1 := sin(x);
+     y3 := 2*x + y1 + y2;
+   <b>end when</b>;
+</pre>
+<p><i>Algorithms are activated when either x becomes &gt; 2 or
+sample(0,2) becomes true or x becomes less than 5:</i></p>
+<pre>
+   <b>when</b> {x &gt; 2, sample(0,2), x &lt; 5} <b>then</b>
+     y1 := sin(x);
+     y3 := 2*x + y1 + y2;
+   <b>end when</b>;
+</pre>
+<p><i>For when in equation sections the order between the equations
+does not matter, e.g.,</i></p>
+<pre>
+ <b>equation
+   when</b> x &gt; 2 <b>then</b>
+     y3 = 2*x +y1+y2; // Order of y1 and y3 equations does not matter
+     y1 = sin(x);
+   <b>end when</b>;
+   y2 = sin(y1);
+</pre>
+<p><i>The needed restrictions on equations within a when-clause
+becomes apparent with the following example:</i></p>
+<pre>
+   Real x, y;
+<b>equation</b>
+   x + y = 5;
+   <b>when</b> condition <b>then</b>
+      2*x + y = 7;         // error: not valid Modelica
+   <b>end when</b>;
+</pre>
+<p><i>When the equations of the when-clause are not activated it is
+not clear which variable to hold constant, either x or y. A
+corrected version of this example is:</i></p>
+<pre>
+   Real x, y;
+<b>equation</b>
+   x + y = 5;
+   <b>when</b> condition <b>then</b>
+      y = 7 - 2*x;        // fine
+   <b>end when</b>;
+</pre>
+<p><i>Here, variable y is held constant when the when-clause is
+de-activated and x is computed from the first equation using the
+value of y from the previous event instant.</i></p>
+<p><i>For when in algorithm sections the order is significant and
+it is advisable to have only one assignment within the when-clause
+and instead use several algorithms having when-clauses with
+identical conditions, e.g.,</i></p>
+<pre>
+ <b>algorithm</b>
+   <b>when</b> x &gt; 2 <b>then</b>
+     y1 := sin(x);
+   <b>end when</b>;
+ <b>equation</b>
+   y2 = sin(y1);
+ <b>algorithm</b>
+   <b>when</b> x &gt; 2 <b>then</b>
+     y3 := 2*x + y1 + y2;
+   <b>end when</b>;
+</pre>
+<p><i>Merging the when-clauses can lead to less efficient code and
+different models with different behaviour depending on the order of
+the assignment to y1 and y3 in the algorithm.]</i></p>
+<p>A when clause</p>
+<pre>
+ <b>algorithm
+   when</b> {x&gt;1, <b>..., </b>y&gt;p} <b>then
+     ...
+   elsewhen</b> x &gt; y.start <b>then
+     ...
+   end when</b>;
+</pre>
+<p>is equivalent to the following special if-clause, where Boolean
+b1[N] and Boolean b2 are necessary because the <b>edge</b>()
+operator can only be applied to variables</p>
+<pre>
+   Boolean b1[N](start={x.start&gt;1,<b> ..., </b>y.start&gt;p});
+   Boolean b2(start=x.start&gt;y.start);
+ <b>algorithm</b>
+   b1:={x&gt;1, ..., y&gt;p};
+   b2:=x&gt;y.start;
+
+   <b>if edge</b>(b1[1]) <b>or edge</b>(b1[2]) <b>or ... edge</b>(b1[N]) <b>then
+     ...
+   elseif edge</b>(b2) <b>then
+     ...
+   end if</b>;
+</pre>
+<p>with "<b>edge</b>(A)= A <b>and not pre</b>(A)" and the
+additional guarantee, that the algorithms within this special if
+clause are only evaluated at event instants.</p>
+<p>A when-clause</p>
+<pre>
+ <b>equation
+   when</b> x&gt;2 <b>then</b>
+     v1 = expr1 ;
+     v2 = expr2 ;
+   <b>end when</b>;
+</pre>
+<p>is equivalent to the following special if-expressions</p>
+<pre>
+   Boolean b(start=x.start&gt;2);
+ <b>equation</b>
+   b  = x&gt;2;
+   v1 = <b>if edge</b>(b) <b>then</b> expr1 <b>else pre</b>(v1);
+   v2 = <b>if edge</b>(b) <b>then</b> expr2 <b>else pre</b>(v2);
+</pre>
+<p>The start-values of the introduced Boolean variables are defined
+by the taking the start-value of the when-condition, as above where
+p is a parameter variable. The start-values of the special
+functions <b>initial</b>, <b>terminal</b>, and <b>sample</b> is
+false.</p>
+<p>When clauses cannot be nested.</p>
+<p><i>[Example:</i></p>
+<p><i>The following when clause is invalid:</i></p>
+<pre>
+   <b>when</b> x &gt; 2 <b>then
+     when</b> y1 &gt; 3 <b>then</b>
+       y2 = sin(x);
+     <b>end when</b>;
+   <b>end when</b>;
+</pre>
+<p><i>]</i></p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

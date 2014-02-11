@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'actualStream()'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'actualStream()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <code><strong>actualStream</strong>(v)</code> operator is
+provided for convenience, in order to return the actual value of
+the stream variable, depending on the actual flow direction. The
+only argument of this built-in operator needs to be a reference to
+a stream variable. The operator is vectorizable, in the case of
+vector arguments. For the following definition it is assumed that
+an (inside or outside) connector <code>c</code> contains a stream
+variable <code>h_outflow</code> which is associated with a flow
+variable <code>m_flow</code> in the same connector
+<code>c</code>:</p>
+<pre>
+<strong>actualStream</strong>(port.h_outflow) = <strong>if</strong> port.m_flow &gt; 0 <strong>then inStream</strong>(port.h_outflow)
+                                                  <strong>else</strong> port.h_outflow;
+</pre>
+<h4>Example</h4>
+<p>The <code><strong>actualStream</strong>(v)</code> operator is
+typically used in two contexts:</p>
+<pre>
+der(U) = c.m_flow*actualStream(c.h_outflow); // (1)energy balance equation
+h_port = actualStream(port.h);               // (2)monitoring the enthalpy at a port
+</pre>
+<p>In the case of equation (1), although the
+<code><strong>actualStream()</strong></code> operator is
+discontinuous, the product with the flow variable is not, because
+<code><strong>actualStream())</strong></code> is discontinuous when
+the flow is zero by construction. Therefore, a tool might infer
+that the expression is <code><strong>smooth(0, ...)</strong></code>
+automatically, and decide whether or not to generate an event. If a
+user wants to avoid events entirely, he/she may enclose the
+right-hand side of (1) with the
+<code><strong>noEvent()</strong></code> operator.</p>
+<p>Equations like (2) might be used for monitoring purposes (e.g.
+plots), in order to inspect what the <em>actual</em> enthalpy of
+the fluid flowing through a port is. In this case, the user will
+probably want to see the change due to flow reversal at the exact
+instant, so an event should be generated. If the user does not
+bother, then he/she should enclose the right-hand side of (2) with
+<code><strong>noEvent()</strong></code>. Since the output of
+<code><strong>actualStream()</strong></code> will be discontinuous,
+it should not be used by itself to model physical behaviour (e.g.,
+to compute densities used in momentum balances) -
+<code><strong>inStream()</strong></code> should be used for this
+purpose.The operator <code><strong>actualStream()</strong></code>
+should be used to model physical behaviour only when multiplied by
+the corresponding flow variable (like in the above energy balance
+equation), because this removes the discontinuity.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

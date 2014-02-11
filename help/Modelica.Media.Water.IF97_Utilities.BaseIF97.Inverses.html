@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</title>
+</head>
+<body>
+<h1><a href="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg"><img class="svgiconhead" src="Icons/0449c75a491ebc5d6eef3560aff3063eb0924e82.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Water.html">Water</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.BaseIF97.html">BaseIF97</a>.<span class="omc-h1">Inverses</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Package description</h4>
+<h4>Package contents</h4>
+<ul>
+<li>Function <b>fixdT</b> constrains density and temperature to
+allowed region</li>
+<li>Function <b>dofp13</b> computes d as a function of p at
+boundary between regions 1 and 3</li>
+<li>Function <b>dofp23</b> computes d as a function of p at
+boundary between regions 2 and 3</li>
+<li>Function <b>dofpt3</b> iteration to compute d as a function of
+p and T in region 3</li>
+<li>Function <b>dtofph3</b> iteration to compute d and T as a
+function of p and h in region 3</li>
+<li>Function <b>dtofps3</b> iteration to compute d and T as a
+function of p and s in region 3</li>
+<li>Function <b>dtofpsdt3</b> iteration to compute d and T as a
+function of p and s in region 3, with initial guesses</li>
+<li>Function <b>pofdt125</b> iteration to compute p as a function
+of p and T in regions 1, 2 and 5</li>
+<li>Function <b>tofph5</b> iteration to compute T as a function of
+p and h in region 5</li>
+<li>Function <b>tofps5</b> iteration to compute T as a function of
+p and s in region 5</li>
+<li>Function <b>tofpst5</b> iteration to compute T as a function of
+p and s in region 5, with initial guess in T</li>
+</ul>
+<h4>Version Info and Revision history</h4>
+<ul>
+<li>First implemented: <i>July, 2000</i> by <a href="http://www.control.lth.se/~hubertus/">Hubertus
+Tummescheit</a></li>
+</ul>
+<address>Author: Hubertus Tummescheit,<br />
+Modelon AB<br />
+Ideon Science Park<br />
+SE-22370 Lund, Sweden<br />
+email: hubertus@modelon.se</address>
+<ul>
+<li>Initial version: July 2000</li>
+<li>Documentation added: December 2002</li>
+</ul>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT.html"><img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT.html">fixdT</a></td>
+<td>Region limits for inverse iteration in region 3</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13.html">dofp13</a></td>
+<td>Density at the boundary between regions 1 and 3</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23.html">dofp23</a></td>
+<td>Density at the boundary between regions 2 and 3</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3.html">dofpt3</a></td>
+<td>Inverse iteration in region 3: (d) = f(p,T)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3.html">dtofph3</a></td>
+<td>Inverse iteration in region 3: (d,T) = f(p,h)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3.html">dtofps3</a></td>
+<td>Inverse iteration in region 3: (d,T) = f(p,s)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3.html">dtofpsdt3</a></td>
+<td>Inverse iteration in region 3: (d,T) = f(p,s)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125.html">pofdt125</a></td>
+<td>Inverse iteration in region 1,2 and 5: p = g(d,T)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5.html">tofph5</a></td>
+<td>Inverse iteration in region 5: (p,T) = f(p,h)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5.html">tofps5</a></td>
+<td>Inverse iteration in region 5: (p,T) = f(p,s)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5.html">
+<img class="svgiconsmall" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5.html">tofpst5</a></td>
+<td>Inverse iteration in region 5: (p,T) = f(p,s)</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

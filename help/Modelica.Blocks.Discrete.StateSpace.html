@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Discrete.StateSpace</title>
+</head>
+<body>
+<h1><a href="Icons/6347ec6ff009fcefa4f0c983d16159ca2f4b8735.svg"><img class="svgiconhead" src="Icons/6347ec6ff009fcefa4f0c983d16159ca2f4b8735.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Discrete.html">Discrete</a>.<span class="omc-h1">StateSpace</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <b>discrete state space</b> block defines the relation
+between the input u=inPort.signal and the output y=outPort.signal
+in state space form:</p>
+<pre>
+    x = A * pre(x) + B * u
+    y = C * pre(x) + D * u
+</pre>
+<p>where pre(x) is the value of the discrete state x at the
+previous sample time instant. The input is a vector of length nu,
+the output is a vector of length ny and nx is the number of states.
+Accordingly</p>
+<pre>
+        A has the dimension: A(nx,nx),
+        B has the dimension: B(nx,nu),
+        C has the dimension: C(ny,nx),
+        D has the dimension: D(ny,nu)
+</pre>
+<p>Example:</p>
+<pre>
+     parameter: A = [0.12, 2;3, 1.5]
+     parameter: B = [2, 7;3, 1]
+     parameter: C = [0.1, 2]
+     parameter: D = zeros(ny,nu)
+
+results in the following equations:
+  [x[1]]   [0.12  2.00] [pre(x[1])]   [2.0  7.0] [u[1]]
+  [    ] = [          ]*[         ] + [        ]*[    ]
+  [x[2]]   [3.00  1.50] [pre(x[2])]   [0.1  2.0] [u[2]]
+                             [pre(x[1])]            [u[1]]
+       y[1]   = [0.1  2.0] * [         ] + [0  0] * [    ]
+                             [pre(x[2])]            [u[2]]
+</pre>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

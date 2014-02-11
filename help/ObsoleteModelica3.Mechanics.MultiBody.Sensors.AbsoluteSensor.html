@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor</title>
+</head>
+<body>
+<h1><a href="Icons/2aaa6fe8c4b5b3a141ee8b237a77ce6cd0e541ae.svg"><img class="svgiconhead" src="Icons/2aaa6fe8c4b5b3a141ee8b237a77ce6cd0e541ae.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ObsoleteModelica3.html">ObsoleteModelica3</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="ObsoleteModelica3.Mechanics.MultiBody.Sensors.html">Sensors</a>.<span class="omc-h1">AbsoluteSensor</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Absolute kinematic quantities of frame_a are computed and
+provided at the output signal connector <b>y</b> in packed format
+in the order</p>
+<ol>
+<li>absolute position vector (= r_abs)</li>
+<li>absolute velocity vector (= v_abs)</li>
+<li>absolute acceleration vector (= a_abs)</li>
+<li>3 angles to rotate the world frame into frame_a (= angles)</li>
+<li>absolute angular velocity vector (= w_abs)</li>
+<li>absolute angular acceleration vector (= z_abs)</li>
+</ol>
+<p>For example, if parameters <b>get_v</b> and <b>get_w</b> are
+<b>true</b> and all other get_XXX parameters are <b>false</b>, then
+y contains 6 elements:</p>
+<pre>
+ y[1:3] = absolute velocity
+ y[4:6] = absolute angular velocity
+</pre>
+<p>In the following figure the animation of an AbsoluteSensor
+component is shown. The light blue coordinate system is frame_a and
+the yellow arrow is the animated sensor.</p>
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png" />
+<p>If <b>frame_resolve</b> is connected to another frame, then the
+provided absolute kinematic vectors are resolved in this frame. If
+<b>frame_resolve</b> is <b>not</b> connected then the coordinate
+system in which the relative quantities are resolved is defined by
+parameter <b>resolveInFrame_a</b>. If this parameter is
+<b>true</b>, then the provided kinematic vectors are resolved in
+frame_a of this component. Otherwise, the kinematic vectors are
+resolved in the world frame. For example, if frame_resolve is not
+connected and if resolveInFrame_a = <b>false</b>, and get_v =
+<b>true</b>, then</p>
+<pre>
+  y = <b>der</b>(frame_a.r) // resolved in world frame
+</pre>
+<p>is returned, i.e., the derivative of the distance frame_a.r_0
+from the origin of the world frame to the origin of frame_a,
+resolved in the world frame.</p>
+<p>Note, the cut-force and the cut-torque in frame_resolve are
+always zero, whether frame_resolve is connected or not.</p>
+<p>If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate the
+world frame into frame_a along the axes defined by parameter
+<b>sequence</b> are returned. For example, if sequence = {3,1,2}
+then the world frame is rotated around angles[1] along the z-axis,
+afterwards it is rotated around angles[2] along the x-axis, and
+finally it is rotated around angles[3] along the y-axis and is then
+identical to frame_a. The 3 angles are returned in the range</p>
+<pre>
+    -<font face="Symbol">p</font> &lt;= angles[i] &lt;= <font face="Symbol">p</font>
+</pre>
+<p>There are <b>two solutions</b> for "angles[1]" in this range.
+Via parameter <b>guessAngle1</b> (default = 0) the returned
+solution is selected such that |angles[1] - guessAngle1| is
+minimal. The transformation matrix between the world frame and
+frame_a may be in a singular configuration with respect to
+"sequence", i.e., there is an infinite number of angle values
+leading to the same transformation matrix. In this case, the
+returned solution is selected by setting angles[1] = guessAngle1.
+Then angles[2] and angles[3] can be uniquely determined in the
+above range.</p>
+<p>Note, that parameter <b>sequence</b> has the restriction that
+only values 1,2,3 can be used and that sequence[1] ≠ sequence[2]
+and sequence[2] ≠ sequence[3]. Often used values are:</p>
+<pre>
+  sequence = <b>{1,2,3}</b>  // Cardan angle sequence
+           = <b>{3,1,3}</b>  // Euler angle sequence
+           = <b>{3,2,1}</b>  // Tait-Bryan angle sequence
+</pre>
+<p>Exact definition of the returned quantities:</p>
+<ol>
+<li>r_abs is vector frame_a.r_0, resolved according to table
+below.</li>
+<li>v_abs is vector <b>der</b>(frame_a.r_0), resolved according to
+table below.</li>
+<li>a_abs is vector <b>der</b>(<b>der</b>(frame_a.r_0)), resolved
+according to table below.</li>
+<li>angles is a vector of 3 angles such that frame_a.R =
+Frames.axesRotations(sequence, angles).</li>
+<li>w_abs is vector
+Modelica.Mechanics.MultiBody.Frames.angularVelocity1(frame_a.R,
+<b>der</b>(frame_a.R)), resolved according to table below.</li>
+<li>z_abs is vector <b>der</b>(w_abs) (= derivative of absolute
+angular velocity of frame_a with respect to the world frame,
+resolved according to table below).</li>
+</ol>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b><i>frame_resolve is</i></b></th>
+<th><b><i>resolveInFrame_a =</i></b></th>
+<th><b><i>vector is resolved in</i></b></th>
+</tr>
+<tr>
+<td valign="top">connected</td>
+<td valign="top">true</td>
+<td valign="top"><b>frame_resolve</b></td>
+</tr>
+<tr>
+<td valign="top">connected</td>
+<td valign="top">false</td>
+<td valign="top"><b>frame_resolve</b></td>
+</tr>
+<tr>
+<td valign="top">not connected</td>
+<td valign="top">true</td>
+<td valign="top"><b>frame_a</b></td>
+</tr>
+<tr>
+<td valign="top">not connected</td>
+<td valign="top">false</td>
+<td valign="top"><b>world frame</b></td>
+</tr>
+</table>
+<br />
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

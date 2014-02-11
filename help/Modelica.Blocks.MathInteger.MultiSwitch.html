@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.MathInteger.MultiSwitch</title>
+</head>
+<body>
+<h1><a href="Icons/05952dfd8a05b86bee106dd329f95f7e0c51d8b7.svg"><img class="svgiconhead" src="Icons/05952dfd8a05b86bee106dd329f95f7e0c51d8b7.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.MathInteger.html">MathInteger</a>.<span class="omc-h1">MultiSwitch</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This block has a vector of Boolean input signals u[nu] and a
+vector of (time varying) Integer expressions expr[nu]. The output
+signal y is set to expr[i], if i is the first element in the input
+vector u that is true. If all input signals are false, y is set to
+parameter "y_default" or the last value is kept, if
+use_pre_as_default = <b>true</b>.</p>
+<blockquote>
+<pre>
+  // Conceptual equation (not valid Modelica)
+  i = 'first element of u[:] that is true';
+  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y)
+                                          <b>else</b> y_default)
+      <b>else</b> expr[i];
+</pre></blockquote>
+<p>The input connector is a vector of Boolean input signals. When a
+connection line is drawn, the dimension of the input vector is
+enlarged by one and the connection is automatically connected to
+this new free index (thanks to the connectorSizing annotation).</p>
+<p>The usage is demonstrated, e.g., in example <a href="Modelica.Blocks.Examples.IntegerNetwork1.html">Modelica.Blocks.Examples.IntegerNetwork1</a>.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

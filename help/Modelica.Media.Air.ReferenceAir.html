@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Air.ReferenceAir</title>
+</head>
+<body>
+<h1><a href="Icons/08e35a6617ee86c550a5591f66396a32a714e4d7.svg"><img class="svgiconhead" src="Icons/08e35a6617ee86c550a5591f66396a32a714e4d7.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Air.html">Air</a>.<span class="omc-h1">ReferenceAir</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of fluid properties of air in the fluid region of
+130 Kelvin to 2000 Kelvin at pressures up to 2000 MPa. To use this
+package in your model, select <a href="Modelica.Media.Air.ReferenceAir.Air_dT.html">Air_dT</a>,
+<a href="Modelica.Media.Air.ReferenceAir.Air_pT.html">Air_pT</a> or
+<a href="Modelica.Media.Air.ReferenceAir.Air_ph.html">Air_ph</a>
+according to which variables you choose to determine your
+state.</p>
+<h4>Restriction</h4>
+<p>The functions provided by this package shall be used inside of
+the restricted limits according to the referenced literature.</p>
+<ul>
+<li><b>p ≤ 2000 MPa</b></li>
+<li><b>130 K ≤ T ≤ 2000 K</b></li>
+</ul>
+<h4>References</h4>
+<dl>
+<dt>Lemmon, E. W., Jacobsen, R. T., Penoncello, S. G., Friend, D.
+G.:</dt>
+<dd><b>Thermodynamic Properties of Air and Mixtures of Nitrogen,
+Argon, and Oxygen From 60 to 2000 K at Pressures to 2000 MPa</b>.
+J. Phys. Chem. Ref. Data, Vol. 29, No. 3, 2000.</dd>
+<dt>Lemmon, E. W., Jacobsen, R. T.:</dt>
+<dd><b>Viscosity and Thermal Conductivity Equations for Nitrogen,
+Oxygen, Argon, and Air</b>. International Journal of Thermophysics,
+Vol. 25, No. 1, January 2004</dd>
+</dl>
+<h4>Verification</h4>
+<p>The verification report for the development of this library is
+provided <a href="../Modelica%203.2.1/Resources/Documentation/Media/MoMoLib_VerificationResults_XRG.pdf">
+here</a>.</p>
+<h4>Acknowledgment</h4>
+<p>This library was developed by XRG Simulation GmbH as part of the
+<a href="http://www.cleansky.eu/">Clean Sky</a> JTI project
+(Project title: MoMoLib-Modelica Model Library Development for
+Media, Magnetic Systems and Wavelets; Project number: 296369;
+Theme: JTI-CS-2011-1-SGO-02-026: Modelica Model Library Development
+Part I). The partial financial support for the development of this
+library by the European Union is highly appreciated.</p>
+<p>Some parts of this library refer to the ThermoFluid library
+developed at Lund University (<a href="http://thermofluid.sourceforge.net/">http://thermofluid.sourceforge.net</a>).</p>
+<h4>Disclaimer</h4>
+<p>In no event will XRG Simulation GmbH be liable for any direct,
+indirect, incidental, special, exemplary, or consequential damages,
+arising in any way out of the use of this software, even if advised
+of the possibility of such damage.</p>
+<h4>Copyright (C) 2013, XRG Simulation GmbH</h4>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_ph.html"><img class="svgiconsmall" src="Icons/44234730c197576990c17d3865c88559fa6ef8ad.svg" /></a>&nbsp;<a href="Modelica.Media.Air.ReferenceAir.Air_ph.html">Air_ph</a></td>
+<td>ReferenceAir.Air_ph: Detailed dry air model (130 ... 2000 K)
+explicit in p and h</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_pT.html"><img class="svgiconsmall" src="Icons/44234730c197576990c17d3865c88559fa6ef8ad.svg" /></a>&nbsp;<a href="Modelica.Media.Air.ReferenceAir.Air_pT.html">Air_pT</a></td>
+<td>ReferenceAir.Air_pT: Detailed dry air model (130 ... 2000 K)
+explicit in p and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_dT.html"><img class="svgiconsmall" src="Icons/44234730c197576990c17d3865c88559fa6ef8ad.svg" /></a>&nbsp;<a href="Modelica.Media.Air.ReferenceAir.Air_dT.html">Air_dT</a></td>
+<td>ReferenceAir.Air_dT: Detailed dry air model (130 ... 2000 K)
+explicit in d and T</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Base.html"><img class="svgiconsmall" src="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg" /></a>&nbsp;<a href="Modelica.Media.Air.ReferenceAir.Air_Base.html">Air_Base</a></td>
+<td>Properties of dry air calculated using the equation of state by
+Lemmon et. al.</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.html"><img class="svgiconsmall" src="Icons/ffc4fbc4397f6f05878f16f78d75ad48b3a4d554.svg" /></a>&nbsp;<a href="Modelica.Media.Air.ReferenceAir.Air_Utilities.html">Air_Utilities</a></td>
+<td>Low level and utility computation for high accuracy dry air
+properties</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

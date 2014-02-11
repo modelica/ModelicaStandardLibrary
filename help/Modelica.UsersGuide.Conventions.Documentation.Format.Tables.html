@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.UsersGuide.Conventions.Documentation.Format.Tables</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.Conventions.html">Conventions</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.Conventions.Documentation.html">Documentation</a>.<a class="omc-h1-a" href="Modelica.UsersGuide.Conventions.Documentation.Format.html">Format</a>.<span class="omc-h1">Tables</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<ol>
+<li>Tables should always be typeset with <code>&lt;table&gt;</code>
+and <code>&lt;/table&gt;</code>, not with <code>&lt;pre&gt;</code>
+and <code>&lt;/pre&gt;</code>.</li>
+<li>Tables have to be placed <strong>outside</strong> of paragraphs
+to be HTML compliant.</li>
+<li>Each table must have a table caption.</li>
+<li>Table headers and entries start with capital letters.</li>
+</ol>
+<h5>Example 1</h5>
+<p>This is a simple example of a table.</p>
+<pre>
+&lt;table border="1" cellspacing="0" cellpadding="2"&gt;
+  &lt;caption align="bottom"&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Head 1&lt;/th&gt;
+    &lt;th&gt;Head 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 1&lt;/td&gt;
+    &lt;td&gt;Entry 2&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 3&lt;/td&gt;
+    &lt;td&gt;Entry 4&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<p>appears as</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<caption align="bottom">Caption starts with a capital
+letter</caption>
+<tr>
+<th><b>Head 1</b></th>
+<th><b>Head 2</b></th>
+</tr>
+<tr>
+<td>Entry 1</td>
+<td>Entry 2</td>
+</tr>
+<tr>
+<td>Entry 3</td>
+<td>Entry 4</td>
+</tr>
+</table>
+<h5>Example 2</h5>
+<p>In this case of table captions, the table name (Tab.) including
+the table enumeration (1,2,...) has to be displayed bold using
+<code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code>. The table name
+and enumeration should look like this: <b>Tab. 1:</b> Tables have
+to be enumerated manually.</p>
+<pre>
+&lt;table border="1" cellspacing="0" cellpadding="2"&gt;
+  &lt;caption align="bottom"&gt;&lt;b&gt;Tab 2: &lt;/b&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Head 1&lt;/th&gt;
+    &lt;th&gt;Head 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 1&lt;/td&gt;
+    &lt;td&gt;Entry 2&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Entry 3&lt;/td&gt;
+    &lt;td&gt;Entry 4&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</pre>
+<p>appears as</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<caption align="bottom"><b>Tab. 2:</b> Caption starts with a
+capital letter</caption>
+<tr>
+<th>Head 1</th>
+<th>Head 2</th>
+</tr>
+<tr>
+<td>Entry 1</td>
+<td>Entry 2</td>
+</tr>
+<tr>
+<td>Entry 3</td>
+<td>Entry 4</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

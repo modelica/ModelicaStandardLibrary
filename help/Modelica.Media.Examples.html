@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.Examples</title>
+</head>
+<body>
+<h1><a href="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg"><img class="svgiconhead" src="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<span class="omc-h1">Examples</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Examples</h4>
+Physical properties for fluids are needed in so many different
+variants that a library can only provide models for the most common
+situations. With the following examples we are going to demonstrate
+how to use the existing packages and functions in Modelica.Media to
+customize these models for advanced applications. The high level
+functions try to abstract as much as possible form the fact that
+different media are based on different variables, e.g., ideal gases
+need pressure and temperature, while many refrigerants are based on
+Helmholtz functions of density and temperature, and many water
+properties are based on pressure and specific enthalpy. Medium
+properties are needed in control volumes in the dynamic state
+equations and in many thermodynamic state locations that are
+independent of the dynamic states of a control volume, e.g., at a
+wall temperature, an isentropic reference state or at a phase
+boundary. The general structure of the library is such that:<br />
+<ul>
+<li>Each medium has a model called BaseProperties. BaseProperties
+contains the minimum set of medium properties needed in a dynamic
+control volume model.</li>
+<li>Each instance of BaseProperties contains a "state" record that
+is an input to all the functions to compute properties. If these
+functions need further inputs, like e.g., the molarMass, these are
+accessible as constants in the package.</li>
+<li>The simplest way to compute properties at any other reference
+point is to declare an instance of ThermodynamicState and use that
+as input to arbitrary property functions.<br /></li>
+</ul>
+<p>A small library of generic volume, pipe, pump and ambient models
+is provided in Modelica.Media.Examples.Tests.Components to
+demonstrate how fluid components should be implemented that are
+using Modelica.Media models. This library is also used to test all
+media models in Modelica.Media.Examples.Tests.MediaTestModels.</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.SimpleLiquidWater.html"><img class="svgiconsmall" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.SimpleLiquidWater.html">SimpleLiquidWater</a></td>
+<td>Example for Water.SimpleLiquidWater medium model</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.IdealGasH2O.html"><img class="svgiconsmall" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.IdealGasH2O.html">IdealGasH2O</a></td>
+<td>IdealGas H20 medium model</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.WaterIF97.html"><img class="svgiconsmall" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.WaterIF97.html">WaterIF97</a></td>
+<td>WaterIF97 medium model</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.MixtureGases.html"><img class="svgiconsmall" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.MixtureGases.html">MixtureGases</a></td>
+<td>Test gas mixtures</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.MoistAir.html"><img class="svgiconsmall" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.MoistAir.html">MoistAir</a></td>
+<td>Ideal gas flue gas model</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.TwoPhaseWater.html"><img class="svgiconsmall" src="Icons/36f2c4a80b4c2df8a94553cfca8e792c87ce6eea.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.TwoPhaseWater.html">TwoPhaseWater</a></td>
+<td>Extension of the StandardWater package</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.ReferenceAir.html"><img class="svgiconsmall" src="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.ReferenceAir.html">ReferenceAir</a></td>
+<td>Examples for detailed dry air and moist air medium models</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.R134a.html"><img class="svgiconsmall" src="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.R134a.html">R134a</a></td>
+<td>Examples for R134a</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.TestOnly.html"><img class="svgiconsmall" src="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.TestOnly.html">TestOnly</a></td>
+<td>Examples to show the testing of media</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.Tests.html"><img class="svgiconsmall" src="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.Tests.html">Tests</a></td>
+<td>Library to test that all media models simulate and fulfill the
+expected structural properties</td>
+</tr>
+<tr>
+<td><a href="Modelica.Media.Examples.SolveOneNonlinearEquation.html"><img class="svgiconsmall" src="Icons/83f6b68e3d0c18c77d3b56ee48344d4b18d850a2.svg" /></a>&nbsp;<a href="Modelica.Media.Examples.SolveOneNonlinearEquation.html">SolveOneNonlinearEquation</a></td>
+<td>Demonstrate how to solve one non-linear algebraic equation in
+one unknown</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

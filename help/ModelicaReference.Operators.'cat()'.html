@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Operators.'cat()'</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Operators.html">Operators</a>.<span class="omc-h1">'cat()'</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The function <code>cat(k,A,B,C,...)</code>concatenates arrays
+<code>A,B,C,...</code> along dimension <code>k</code>.</p>
+<h4>Examples</h4>
+<pre>
+Real[2,3] r1 = cat(1, {{1.0, 2.0, 3}}, {{4, 5, 6}});
+Real[2,6] r2 = cat(2, r1, 2*r1);
+</pre>
+<h4>Description</h4>
+The function <code>cat(k,A,B,C,...)</code>concatenates arrays
+<code>A,B,C,...</code> along dimension <code>k</code> according to
+the following rules:
+<ul>
+<li>Arrays <code>A, B, C, ...</code> must have the same number of
+dimensions, i.e., <code>ndims(A) = ndims(B) = ...</code></li>
+<li>Arrays <code>A, B, C, ...</code> must be type compatible
+expressions giving the type of the elements of the result. The
+maximally expanded types should be equivalent. Real and Integer
+subtypes can be mixed resulting in a Real result array where the
+Integer numbers have been transformed to Real numbers.</li>
+<li><code>k</code> has to characterize an existing dimension, i.e.,
+<code>1 &lt;= k &lt;= ndims(A) = ndims(B) = ndims(C)</code>;
+<code>k</code> shall be an integer number.</li>
+<li>Size matching: Arrays <code>A, B, C, ...</code> must have
+identical array sizes with the exception of the size of dimension
+<code>k</code>, i.e., <code>size(A,j) = size(B,j), for 1 &lt;= j
+&lt;= ndims(A) and j &lt;&gt; k</code>.</li>
+</ul>
+<p>Concatenation is formally defined according to:</p>
+<pre>
+Let R = cat(k,A,B,C,...), and let n = ndims(A) = ndims(B) = ndims(C) = ...., then
+size(R,k) = size(A,k) + size(B,k) + size(C,k) + ...
+size(R,j) = size(A,j) = size(B,j) = size(C,j) = ...., for 1 &lt;= j &lt;= n and j &lt;&gt; k.
+R[i_1, ..., i_k, ..., i_n] = A[i_1, ..., i_k, ..., i_n], for i_k &lt;= size(A,k),
+R[i_1, ..., i_k, ..., i_n] = B[i_1, ..., i_k - size(A,i), ..., i_n], for i_k &lt;= size(A,k) + size(B,k),
+....
+where 1 &lt;= i_j &lt;= size(R,j) for 1 &lt;= j &lt;= n.
+</pre>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

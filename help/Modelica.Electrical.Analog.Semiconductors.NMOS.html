@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Analog.Semiconductors.NMOS</title>
+</head>
+<body>
+<h1><a href="Icons/0eb8160802c4508330bc46ff96609e7dbc4c8d71.svg"><img class="svgiconhead" src="Icons/0eb8160802c4508330bc46ff96609e7dbc4c8d71.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Semiconductors.html">Semiconductors</a>.<span class="omc-h1">NMOS</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The NMOS model is a simple model of a n-channel metal-oxide
+semiconductor FET. It differs slightly from the device used in the
+SPICE simulator. For more details please care for H. Spiro.</p>
+<p>The model does not consider capacitances. A high drain-source
+resistance RDS is included to avoid numerical difficulties.<br />
+<br />
+<b>Please note:</b> In case of useHeatPort=true the temperature
+dependence of the electrical behavior is <b>not</b> modelled yet.
+The parameters are not temperature dependent.</p>
+<pre>
+  W       L      Beta         Vt      K2     K5       DW       DL
+  m       m      A/V^2        V       -      -        m        m
+  12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
+  60.e-6  3.e-6  0.048e-3     0.1     0.08   0.68    -1.2e-6  -0.9e-6      enhancement
+  12.e-6  4.e-6  0.0625e-3   -0.8     0.21   0.78    -1.2e-6  -0.9e-6      zero
+  50.e-6  8.e-6  0.0299e-3    0.24    1.144  0.7311  -5.4e-6  -4.e-6
+  20.e-6  6.e-6  0.041e-3     0.8     1.144  0.7311  -2.5e-6  -1.5e-6
+  30.e-6  9.e-6  0.025e-3    -4.0     0.861  0.878   -3.4e-6  -1.74e-6
+  30.e-6  5.e-6  0.031e-3     0.6     1.5    0.72     0       -3.9e-6
+  50.e-6  6.e-6  0.0414e-3   -3.8     0.34   0.8     -1.6e-6  -2.e-6       depletion
+  50.e-6  5.e-6  0.03e-3      0.37    0.23   0.86    -1.6e-6  -2.e-6       enhancement
+  50.e-6  6.e-6  0.038e-3    -0.9     0.23   0.707   -1.6e-6  -2.e-6       zero
+  20.e-6  4.e-6  0.06776e-3   0.5409  0.065  0.71    -0.8e-6  -0.2e-6
+  20.e-6  4.e-6  0.06505e-3   0.6209  0.065  0.71    -0.8e-6  -0.2e-6
+  20.e-6  4.e-6  0.05365e-3   0.6909  0.03   0.8     -0.3e-6  -0.2e-6
+  20.e-6  4.e-6  0.05365e-3   0.4909  0.03   0.8     -0.3e-6  -0.2e-6
+  12.e-6  4.e-6  0.023e-3    -4.5     0.29   0.6      0        0           depletion
+  60.e-6  3.e-6  0.022e-3     0.1     0.11   0.65     0        0           enhancement
+  12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
+  20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
+</pre>
+<dl>
+<dt><b>References:</b></dt>
+<dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg
+Verlag Muenchen Wien 1990.</dd>
+</dl>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>March 11, 2009</i> by Christoph Clauss<br />
+conditional heat port added<br /></li>
+<li><i>December 7, 2005</i> by Christoph Clauss<br />
+error in RDS calculation deleted</li>
+<li><i>1998</i> by Christoph Clauss<br />
+initially implemented<br /></li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

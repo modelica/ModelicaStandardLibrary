@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.Functions.General.LambertW</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.General.html">General</a>.<span class="omc-h1">LambertW</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This function calculates an approximation of the <b>inverse</b>
+for</p>
+<pre>
+    f(x) = y = x * exp( x )
+</pre>
+<p>within ∞ &gt; y &gt; -1/e. The relative deviation of this
+approximation for Lambert's w function <b>x = W(y)</b> is displayed
+in the following graph.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/utilities/LambertW_deviation.png" alt="LambertW_deviation" /></p>
+<p>For y &gt; 10 and higher values the relative deviation is
+smaller 2%.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function LambertW
+  extends Modelica.Icons.Function;
+  input Real y "f(x)";
+  output Real x "W(y)";
+end LambertW;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

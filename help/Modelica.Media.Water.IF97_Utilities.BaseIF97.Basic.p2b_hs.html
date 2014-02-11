@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2b_hs</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.Water.html">Water</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.html">IF97_Utilities</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.BaseIF97.html">BaseIF97</a>.<a class="omc-h1-a" href="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.html">Basic</a>.<span class="omc-h1">p2b_hs</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Equation number 4 from:<br />
+The International Association for the Properties of Water and
+Steam<br />
+Gaithersburg, Maryland, USA<br />
+September 2001<br />
+Supplementary Release on&nbsp; Backward Equations for Pressure as a
+Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+Formulation 1997 for the Thermodynamic Properties of Water and
+Steam<br /></p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function p2b_hs
+  extends Modelica.Icons.Function;
+  input SI.SpecificEnthalpy h "Specific enthalpy";
+  input SI.SpecificEntropy s "Specific entropy";
+  output SI.Pressure p "Pressure";
+  constant Real[:] n = {0.08014969899294951,-0.543862807146111,0.337455597421283,8.905554511574501,313.840736431485,0.7973670659777889,-1.2161697355624,8.728033869374769,-16.9769781757602,-186.552827328416,95115.92743442371,-18.9168510120494,-4334.0703719484,543212633.012715,0.144793408386013,128.024559637516,-67230.9534071268,33697238.0095287,-586.63419676272,-22140322476.9889,1716.06668708389,-570817595.806302,-3121.09693178482,-2078413.8463301,3056059461577.86,3221.57004314333,326810259797.295,-1441.04158934487,410.694867802691,109077066873.024,-24796465425889.3,1888019068.65134,-123651009018773.0};
+  constant Real[:] I = {0,0,0,0,0,1,1,1,1,1,1,2,2,2,3,3,3,3,4,4,5,5,6,6,6,7,7,8,8,8,8,12,14};
+  constant Real[:] J = {0,1,2,4,8,0,1,2,3,5,12,1,6,18,0,1,7,12,1,16,1,12,1,8,18,1,16,1,3,14,18,10,16};
+  constant SI.SpecificEnthalpy hstar = 4100000.0 "Normalization enthalpy";
+  constant SI.Pressure pstar = 100000000.0 "Normalization pressure";
+  constant SI.SpecificEntropy sstar = 7900.0 "Normalization entropy";
+end p2b_hs;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

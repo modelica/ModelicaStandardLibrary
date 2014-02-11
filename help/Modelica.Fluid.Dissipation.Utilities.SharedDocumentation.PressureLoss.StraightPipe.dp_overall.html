@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.html">SharedDocumentation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.html">PressureLoss</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.html">StraightPipe</a>.<span class="omc-h1">dp_overall</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Calculation of pressure loss in a straight pipe for <b>laminar
+or turbulent</b> flow regime of single-phase fluid flow only
+considering surface roughness.</p>
+<h4>Restriction</h4>
+<p>This function shall be used within the restricted limits
+according to the referenced literature.</p>
+<ul>
+<li><b>circular cross sectional area</b></li>
+</ul>
+<h4>Geometry</h4>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png" alt="pic_straightPipe" /></p>
+<h4>Calculation</h4>
+The pressure loss <b>dp</b> for straight pipes is determined by:
+<pre>
+    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>lambda_FRI</b></td>
+<td>as Darcy friction factor [-],</td>
+</tr>
+<tr>
+<td><b>L</b></td>
+<td>as length of straight pipe [m],</td>
+</tr>
+<tr>
+<td><b>d_hyd</b></td>
+<td>as hydraulic diameter of straight pipe [m],</td>
+</tr>
+<tr>
+<td><b>rho</b></td>
+<td>as density of fluid [kg/m3],</td>
+</tr>
+<tr>
+<td><b>velocity</b></td>
+<td>as mean velocity [m/s].</td>
+</tr>
+</table>
+<p>The Darcy friction factor <b>lambda_FRI</b> for straight pipes
+is calculated depending on the fluid flow regime (with
+corresponding Reynolds number <b>Re</b>) and the absolute surface
+roughness <b>K</b> .</p>
+<p><b>The Laminar regime</b> is calculated for <b>Re</b> ≤ 2000 by
+the Hagen-Poiseuille law according to <i>[Idelchik 2006, p. 77, eq.
+2-3]</i></p>
+<pre>
+    lambda_FRI = 64/Re
+</pre>
+<p>The Darcy friction factor <b>lambda_FRI</b> in the laminar
+regime is independent of the surface roughness <b>k</b> as long as
+the relative roughness <b>k</b> is smaller than 0.007. A greater
+relative roughness <b>k</b> than 0.007 is leading to an earlier
+leaving of the Hagen-Poiseuille law at some value of Reynolds
+number <b>Re_lam_leave</b> . The leaving of the laminar regime in
+dependence of the relative roughness <b>k</b> is calculated
+according to <i>[Samoilenko in Idelchik 2006, p. 81, sect.
+2-1-21]</i> as:</p>
+<pre>
+    Re_lam_leave = 754*exp(if k ≤ 0.007 then 0.93 else 0.0065/k)
+</pre>
+<p><b>The Transition regime</b> is calculated for 2000 &lt;
+<b>Re</b> ≤ 4000 by a cubic interpolation between the equations of
+the laminar and turbulent flow regime. Different cubic
+interpolation equations for the calculation of either pressure loss
+<b>dp</b> or mass flow rate <b>m_flow</b> results in a deviation of
+the Darcy friction factor <b>lambda_FRI</b> through the transition
+regime. This deviation can be neglected due to the uncertainty in
+determination of the fluid flow in the transition regime.</p>
+<p><b>Turbulent regime</b> can be calculated for a smooth surface
+(Blasius law) <b>or</b> a rough surface (Colebrook-White law):</p>
+<p><b>Smooth surface (roughness =
+Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Neglected)</b>
+w.r.t. <b>Blasius</b> law in the turbulent regime according to
+<i>[Idelchik 2006, p. 77, sec. 15]</i>:</p>
+<pre>
+    lambda_FRI = 0.3164*Re^(-0.25)
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>lambda_FRI</b></td>
+<td>as Darcy friction factor [-].</td>
+</tr>
+<tr>
+<td><b>Re</b></td>
+<td>as Reynolds number [-].</td>
+</tr>
+</table>
+<p>Note that the Darcy friction factor <b>lambda_FRI</b> for smooth
+straight pipes in the turbulent regime is independent of the
+surface roughness <b>K</b> .</p>
+<p><b>Rough surface (roughness =
+Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered)</b>
+w.r.t. <b>Colebrook-White</b> law in the turbulent regime according
+to <i>[Miller 1984, p. 191, eq. 8.4]</i>:</p>
+<pre>
+    lambda_FRI = 0.25/{lg[k/(3.7*d_hyd) + 5.74/(Re)^0.9]}^2
+</pre>
+<p>with</p>
+<table>
+<tr>
+<td><b>d_hyd</b></td>
+<td>as hydraulic diameter [-],</td>
+</tr>
+<tr>
+<td><b>k= K/d_hyd</b></td>
+<td>as relative roughness [-],</td>
+</tr>
+<tr>
+<td><b>K</b></td>
+<td>as roughness (average height of surface asperities [m],</td>
+</tr>
+<tr>
+<td><b>lambda_FRI</b></td>
+<td>as Darcy friction factor [-],</td>
+</tr>
+<tr>
+<td><b>Re</b></td>
+<td>as Reynolds number [-].</td>
+</tr>
+</table>
+<h4>Verification</h4>
+<p>The Darcy friction factor <b>lambda_FRI</b> in dependence of
+Reynolds number for different values of relative roughness <b>k</b>
+is shown in the figure below.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_lambdavsRe_ver.png" alt="fig_straightPipe_dp_overall_lambdavsRe_ver" /></p>
+<p>The pressure loss <b>dp</b> for the turbulent regime in
+dependence of the mass flow rate of water is shown in the figure
+below.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_DPvsMFLOW.png" alt="fig_straightPipe_dp_overall_DPvsMFLOW" /></p>
+<p>And the mass flow rate <b>m_flow</b> for the turbulent regime in
+dependence of the pressure loss of water is shown in the figure
+below.</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_MFLOWvsDP.png" alt="fig_straightPipe_dp_overall_MFLOWvsDP" /></p>
+<h4>References</h4>
+<dl>
+<dt>Idelchik,I.E.:</dt>
+<dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing
+House, Mumbai, 3rd edition, 2006.</dd>
+<dt>Miller,D.S.:</dt>
+<dd><b>Internal flow systems</b>. volume 5th of BHRA Fluid
+Engineering Series.BHRA Fluid Engineering, 1984.</dd>
+<dt>Samoilenko,L.A.:</dt>
+<dd><b>Investigation of the hydraulic resistance of pipelines in
+the zone of transition from laminar into turbulent motion</b>. PhD
+thesis, Leningrad State University, 1968.</dd>
+<dt>VDI:</dt>
+<dd><b>VDI - Wärmeatlas: Berechnungsblätter für den
+Wärmeübergang</b>. Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

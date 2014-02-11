@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Fluid.Sources.MassFlowSource_h</title>
+</head>
+<body>
+<h1><a href="Icons/5a6a0b0a033fffc7ecc8620838a9cfe10e1f36fe.svg"><img class="svgiconhead" src="Icons/5a6a0b0a033fffc7ecc8620838a9cfe10e1f36fe.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Sources.html">Sources</a>.<span class="omc-h1">MassFlowSource_h</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Models an ideal flow source, with prescribed values of flow
+rate, temperature and composition:</p>
+<ul>
+<li>Prescribed mass flow rate.</li>
+<li>Prescribed specific enthalpy.</li>
+<li>Boundary composition (only for multi-substance or
+trace-substance flow).</li>
+</ul>
+<p>If <code>use_m_flow_in</code> is false (default option), the
+<code>m_flow</code> parameter is used as boundary pressure, and the
+<code>m_flow_in</code> input connector is disabled; if
+<code>use_m_flow_in</code> is true, then the <code>m_flow</code>
+parameter is ignored, and the value provided by the input connector
+is used instead.</p>
+<p>The same thing goes for the temperature and composition</p>
+<p>Note, that boundary temperature, mass fractions and trace
+substances have only an effect if the mass flow is from the
+boundary into the port. If mass is flowing from the port into the
+boundary, the boundary definitions, with exception of boundary flow
+rate, do not have an effect.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

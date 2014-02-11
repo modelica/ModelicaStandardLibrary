@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.tempInterpol2</title>
+</head>
+<body>
+<h1><a href="Icons/ed446252ff0d0183b821c0a1cd4ae740c5b0ad8f.svg"><img class="svgiconhead" src="Icons/ed446252ff0d0183b821c0a1cd4ae740c5b0ad8f.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<span class="omc-h1">tempInterpol2</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function tempInterpol2
+  extends Modelica.Icons.Function;
+  extends Modelica.Icons.ObsoleteModel;
+  input Real u "input value (first column of table)";
+  input Real table[:,:] "table to be interpolated";
+  input Integer icol[:] "column(s) of table to be interpolated";
+  output Real y[1,size(icol, 1)] "interpolated input value(s) (column(s) icol of table)";
+end tempInterpol2;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

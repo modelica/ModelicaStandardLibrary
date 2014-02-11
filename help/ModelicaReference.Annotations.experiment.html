@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.experiment</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">experiment</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Define default experiment parameters</p>
+<h4>Examples</h4>
+<pre>
+<b>annotation</b>(experiment(StartTime=0, StopTime=5, Tolerance=1e-6))
+</pre>
+<h4>Syntax</h4>
+<pre>
+experiment_annotation:
+   <b>annotation</b>"(" "experiment" "(" [experimentOption] {, experimentOption}] ")"
+
+experimentOption:
+   StartTime  "=" ["+" | "-"] UNSIGNED_NUMBER |
+   StopTime   "=" ["+" | "-"] UNSIGNED_NUMBER |
+   Interval   "=" UNSIGNED_NUMBER
+   Tolerance  "=" UNSIGNED_NUMBER
+</pre>
+<h4>Description</h4>
+<p>The experiment annotation defines the default start time
+(<code>StartTime</code>) in [s], the default stop time
+(<code>StopTime</code>) in [s], the suitable time resolution for
+the result grid (<code>Interval</code>) in [s], and the default
+relative integration tolerance (<code>Tolerance</code>) for
+simulation experiments to be carried out with the model or block at
+hand.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

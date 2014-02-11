@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Visualizers.FixedShape</title>
+</head>
+<body>
+<h1><a href="Icons/099cc45e3ab7391a0dcd9c099361565550609fb7.svg"><img class="svgiconhead" src="Icons/099cc45e3ab7391a0dcd9c099361565550609fb7.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<span class="omc-h1">FixedShape</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Model <b>FixedShape</b> defines a visual shape that is shown at
+the location of its frame_a. All describing data such as size and
+color can vary dynamically by providing appropriate expressions in
+the input fields of the parameter menu. The only exception is
+parameter shapeType that cannot be changed during simulation. The
+following shapes are currently supported via parameter
+<b>shapeType</b> (e.g., shapeType="box"):<br />
+&nbsp;</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Shape.png" alt="model Visualizers.FixedShape" /></p>
+<p>The dark blue arrows in the figure above are directed along
+variable <b>lengthDirection</b>. The light blue arrows are directed
+along variable <b>widthDirection</b>. The <b>coordinate systems</b>
+in the figure represent frame_a of the FixedShape component.</p>
+<p>Additionally, <b>external shapes</b> can be specified as (not
+all options might be supported by all tools):</p>
+<ul>
+<li><b>"1", "2", ...</b><br />
+define external shapes specified in DXF format in files "1.dxf",
+"2.dxf", ... The DXF-files must be found either in the current
+directory or in the directory where the Shape instance is stored
+that references the DXF file. This (very limited) option should not
+be used for new models. Example:<br />
+shapeType="1".<br /></li>
+<li>
+"<b>modelica:</b>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;"<br />
+
+characterizes the file that is stored under the location of the
+&lt;Modelica-name&gt; library path with the given relative file
+name. Example:<br />
+shapeType =
+"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf".<br />
+</li>
+<li>"<b>file:</b>//&lt;absolute-file-name&gt;"<br />
+characterizes an absolute file name in the file system.
+Example:<br />
+shapeType="file://C:/users/myname/shapes/piston.dxf".</li>
+</ul>
+<p>The supported file formats are tool dependent. Most tools
+support at least DXF-files (a tool might support 3-dim. Face of the
+DXF format only), but may support other format as well (such as
+stl, obj, 3ds). Since visualization files contain color and other
+data, the corresponding information in the model is usually
+ignored.</p>
+<p>The sizes of any of the above components are specified by the
+<b>length</b>, <b>width</b> and <b>height</b> variables. Via
+variable <b>extra</b> additional data can be defined:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b>shapeType</b></th>
+<th>Meaning of parameter <b>extra</b></th>
+</tr>
+<tr>
+<td valign="top">"cylinder"</td>
+<td valign="top">if extra &gt; 0, a black line is included in the
+cylinder to show the rotation of it.</td>
+</tr>
+<tr>
+<td valign="top">"cone"</td>
+<td valign="top">extra = diameter-left-side / diameter-right-side,
+i.e.,<br />
+extra = 1: cylinder<br />
+extra = 0: "real" cone.</td>
+</tr>
+<tr>
+<td valign="top">"pipe"</td>
+<td valign="top">extra = outer-diameter / inner-diameter,
+i.e,<br />
+extra = 1: cylinder that is completely hollow<br />
+extra = 0: cylinder without a hole.</td>
+</tr>
+<tr>
+<td valign="top">"gearwheel"</td>
+<td valign="top">extra is the number of teeth of the (external)
+gear. If extra &lt; 0, an internal gear is visualized with |extra|
+teeth. The axis of the gearwheel is along "lengthDirection", and
+usually: width = height = 2*radiusOfGearWheel.</td>
+</tr>
+<tr>
+<td valign="top">"spring"</td>
+<td valign="top">extra is the number of windings of the spring.
+Additionally, "height" is <b>not</b> the "height" but
+2*coil-width.</td>
+</tr>
+<tr>
+<td valign="top">external shape</td>
+<td valign="top">extra = 0: Visualization from file is not
+scaled.<br />
+extra = 1: Visualization from file is scaled with "length", "width"
+and height" of the shape</td>
+</tr>
+</table>
+<p>Parameter <b>color</b> is a vector with 3 elements, {r, g, b},
+and specifies the color of the shape. {r,g,b} are the "red",
+"green" and "blue" color parts. Note, r g, b are given as
+Integer[3] in the ranges 0 .. 255, respectively. The predefined
+type <a href="Modelica.Mechanics.MultiBody.Types.Color.html">MultiBody.Types.Color</a>
+contains a menu definition of the colors used in the MultiBody
+library together with a color editor.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

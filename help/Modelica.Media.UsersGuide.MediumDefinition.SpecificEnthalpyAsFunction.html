@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Media.UsersGuide.MediumDefinition.SpecificEnthalpyAsFunction</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumDefinition.html">MediumDefinition</a>.<span class="omc-h1">SpecificEnthalpyAsFunction</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>If pressure p and specific enthalpy h are <b>not</b> used as
+independent medium variables, the specific enthalpy should be
+computed by a Modelica function that has as input arguments only
+the independent medium variables. It should <b>not</b> be computed
+by an equation. For example, if p and T are used as independent
+medium variables, a function h_pT(p,T) should be defined that is
+called to compute h:</p>
+<pre>
+    h = h_pT(p,T);
+</pre>
+<p>The reason for this rule requires a longer explanation. In
+short, if h is not a computed by a Modelica function and this
+function is non-linear in the independent medium variables, then
+non-linear systems of equations will occur at every connection
+point, if the FluidPort connectors from the Modelica_Fluid library
+are used (these are the same as in
+Modelica.Media.Examples.Tests.Components.FluidPort). Only, if the
+above rule is fulfilled, a tool is able to remove these non-linear
+system of equations in most cases.</p>
+<p>The basic idea of the FluidPort connector is that 2 or more
+components can be connected together at a point and that
+automatically the mass and energy balance is fulfilled in the
+connection point, i.e., the ideal mixing equations are generated.
+Note, the momentum balance is only correct for straight line
+connections. If "ideal mixing" is not sufficient, a special
+component to define the mixing equations must be introduced.</p>
+<p>The mass and momentum balance equations in a component are
+derived from the partial differential equations along the flow
+direction of a pipe:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Media/UsersGuide/BalanceEquations1.png" /></p>
+<p>Note, F<sub>F</sub> is the fanning friction factor. The energy
+balance can be given in different forms. Usually, it is given
+as:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Media/UsersGuide/EnergyBalance1.png" /></p>
+<p>This form describes the change of the internal energy, kinetic
+energy and potential energy of a volume as function of the in and
+out flowing fluid. Multiplying the momentum balance with the flow
+velocity v and subtracting it from the energy balance above,
+results in the following alternative form of the energy
+balance:</p>
+<p><img src="../Modelica%203.2.1/Resources/Images/Media/UsersGuide/EnergyBalance2.png" /></p>
+<p>This form has the advantage that the kinetic and potential
+energy is no longer part of the energy balance and therefore the
+energy balance is substantially simpler (e.g., additional
+non-linear systems of equations occur in the first form since the
+velocity is present in the energy balance; in the second form this
+is not the case and it is still valid also for high speeds).</p>
+<p>Assume now that the second form of the energy balance above is
+used in all components and that the following FluidPort connector
+is used in all components:</p>
+<pre>
+<b>connector</b> FluidPort
+  <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
+  Medium.AbsolutePressure      p;
+  <b>flow</b> Medium.MassFlowRate     m_flow;
+
+  Medium.SpecificEnthalpy      h;
+  <b>flow</b> Medium.EnthalpyFlowRate H_flow;
+
+  Medium.MassFraction          Xi    [Medium.nXi];
+  <b>flow</b> Medium.MassFlowRate     mX_flow[Medium.nXi];
+<b>end</b> FluidPort;
+</pre>
+<p>As an example, assume that 3 components are connected together
+and that the medium is a single substance fluid. This will result
+in the following connection equations:</p>
+<pre>
+    p1=p2=p3;
+    h1=h2=h3;
+    0 = m_flow1 + m_flow2 + m_flow3;
+    0 = H_flow1 + H_flow2 + H_flow3;
+</pre>
+<p>These are the mass balance and the energy balance (form 2) of an
+infinitesimal volume in the connection point under the assumption
+that no mass or energy is stored in this volume. In other words,
+the connection equations are the equations that describe ideal
+mixing. Under the assumption that the velocity vectors of the 3
+flows are identical (especially, they are parallel), also the
+momentum balance is fulfilled:</p>
+<pre>
+   0 = m_flow1*v1 + m_flow2*v2 + m_flow3*v3;
+     = v*(m_flow1 + m_flow2 + m_flow3);
+     = 0;
+</pre>
+<p>With the above connector it is therefore possible to connect
+components together in a nearly arbitrary fashion, because every
+connection fulfills automatically the balance equations. This
+approach has, however, one drawback: If two components are
+connected together, then the medium variables on both sides of the
+connector are identical. However, due to the connector, only the
+two equations</p>
+<pre>
+   p1 = p2;
+   h1 = h2;
+</pre>
+<p>are present. Assume, that p,T are the independent medium
+variables and that the medium properties are computed at one side
+of the connections. This means, the following equations are
+basically present:</p>
+<pre>
+    h1 = h(p1,T1);
+    h2 = h(p2,T2);
+    p1 = p2;
+    h1 = h2;
+</pre>
+<p>These equations can be solved in the following way:</p>
+<pre>
+    h1 := h(p1,T1)
+    p2 := p1;
+    h2 := h1;
+    0  := h2 - h(p2,T2);   // non-linear system of equations for T2
+</pre>
+<p>This means that T2 is computed by solving a non-linear system of
+equations. If h1 and h2 are provided as Modelica functions, a
+Modelica translator, such as Dymola, can replace this non-linear
+system of equations by the equation:</p>
+<pre>
+   T2 := T1;
+</pre>
+<p>because after alias substitution there are two function
+calls</p>
+<pre>
+    h1 := h(p1,T1);
+    h1 := h(p1,T2);
+</pre>
+<p>Since the left hand side of the function call and the first
+argument are the same, the second arguments T1 and T2 must also be
+identical and therefore T2 := T1. This type of analysis seems to be
+only possible, if the specific enthalpy is defined as a function of
+the independent medium variables.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

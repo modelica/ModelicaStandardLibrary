@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Matrices.exp</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">exp</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+phi = Matrices.<b>exp</b>(A);
+phi = Matrices.<b>exp</b>(A,T=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the exponential e<sup><b>A</b>T</sup> of
+matrix <b>A</b>, i.e.</p>
+<blockquote>
+<pre>
+                            (<b>A</b>T)^2   (<b>A</b>T)^3
+     <font size="4"> <b>Φ</b></font> = e^(<b>A</b>T) = <b>I</b> + <b>A</b>T + ------ + ------ + ....
+                              2!       3!
+</pre></blockquote>
+<p>where e=2.71828..., <b>A</b> is an n x n matrix with real
+elements and T is a real number, e.g., the sampling time. <b>A</b>
+may be singular. With the exponential of a matrix it is, e.g.,
+possible to compute the solution of a linear system of differential
+equations</p>
+<pre>
+    der(<b>x</b>) = <b>A</b>*<b>x</b>   -&gt;   <b>x</b>(t0 + T) = e^(<b>A</b>T)*x(t0)
+</pre>
+<h4>Algorithmic details:</h4>
+<p>The algorithm is taken from</p>
+<dl>
+<dt>H. D. Joos, G. Gruebel:</dt>
+<dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br />
+DLR - Control Systems Group 1991</dd>
+</dl>
+<p>The following steps are performed to calculate the exponential
+of A:</p>
+<ol>
+<li>Matrix <b>A</b> is balanced<br />
+(= is transformed with a diagonal matrix <b>D</b>, such that
+inv(<b>D</b>)*<b>A</b>*<b>D</b> has a smaller condition as
+<b>A</b>).</li>
+<li>The scalar T is divided by a multiple of 2 such that norm(
+inv(<b>D</b>)*<b>A</b>*<b>D</b>*T/2^k ) &lt; 0.5. Note, that (1)
+and (2) are implemented such that no round-off errors are
+introduced.</li>
+<li>The matrix from (2) is approximated by explicitly performing
+the Taylor series expansion with a variable number of terms.
+Truncation occurs if a new term does no longer contribute to the
+value of <b>Φ</b> from the previous iteration.</li>
+<li>The resulting matrix is transformed back, by reverting the
+steps of (2) and (1).</li>
+</ol>
+<p>In several sources it is not recommended to use Taylor series
+expansion to calculate the exponential of a matrix, such as in
+'C.B. Moler and C.F. Van Loan: Nineteen dubious ways to compute the
+exponential of a matrix. SIAM Review 20, pp. 801-836, 1979' or in
+the documentation of m-file expm2 in Matlab version 6
+(http://www.MathWorks.com) where it is stated that 'As a practical
+numerical method, this is often slow and inaccurate'. These
+statements are valid for a direct implementation of the Taylor
+series expansion, but <i>not</i> for the implementation variant
+used in this function.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function exp
+  extends Modelica.Icons.Function;
+  input Real A[:,size(A, 1)];
+  input Real T = 1;
+  output Real phi[size(A, 1),size(A, 1)] "= exp(A*T)";
+end exp;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>July 5, 2002</i> by H. D. Joos and Nico Walther<br />
+Implemented.</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

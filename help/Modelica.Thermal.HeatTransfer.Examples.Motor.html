@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Thermal.HeatTransfer.Examples.Motor</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Thermal.html">Thermal</a>.<a class="omc-h1-a" href="Modelica.Thermal.HeatTransfer.html">HeatTransfer</a>.<a class="omc-h1-a" href="Modelica.Thermal.HeatTransfer.Examples.html">Examples</a>.<span class="omc-h1">Motor</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This example contains a simple second order thermal model of a
+motor. The periodic power losses are described by table
+"lossTable":</p>
+<table>
+<tr>
+<td valign="top">time</td>
+<td valign="top">winding losses</td>
+<td valign="top">core losses</td>
+</tr>
+<tr>
+<td valign="top">0</td>
+<td valign="top">100</td>
+<td valign="top">500</td>
+</tr>
+<tr>
+<td valign="top">360</td>
+<td valign="top">100</td>
+<td valign="top">500</td>
+</tr>
+<tr>
+<td valign="top">360</td>
+<td valign="top">1000</td>
+<td valign="top">500</td>
+</tr>
+<tr>
+<td valign="top">600</td>
+<td valign="top">1000</td>
+<td valign="top">500</td>
+</tr>
+</table>
+<p>Since constant speed is assumed, the core losses keep constant
+whereas the winding losses are low for 6 minutes (no-load) and high
+for 4 minutes (over load).</p>
+<p>The winding losses are corrected by (1 + alpha*(T - T_ref))
+because the winding's resistance is temperature dependent whereas
+the core losses are kept constant (alpha = 0).</p>
+<p>The power dissipation to the environment is approximated by heat
+flow through a thermal conductance between winding and core,
+partially storage of the heat in the winding's heat capacity as
+well as the core's heat capacity and finally by forced convection
+to the environment.<br />
+Since constant speed is assumed, the convective conductance keeps
+constant.<br />
+Using Modelica.Thermal.FluidHeatFlow it would be possible to model
+the coolant air flow, too (instead of simple dissipation to a
+constant ambient's temperature).</p>
+<p>Simulate for 7200 s; plot Twinding.T and Tcore.T.</p>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

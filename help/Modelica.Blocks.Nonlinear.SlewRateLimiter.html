@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Blocks.Nonlinear.SlewRateLimiter</title>
+</head>
+<body>
+<h1><a href="Icons/cf0de8168537d2a148bd50045d3e132863e6d43a.svg"><img class="svgiconhead" src="Icons/cf0de8168537d2a148bd50045d3e132863e6d43a.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Nonlinear.html">Nonlinear</a>.<span class="omc-h1">SlewRateLimiter</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>The <code>SlewRateLimiter</code> block limits the slew rate of
+its input signal in the range of <code>[Falling,
+Rising]</code>.</p>
+<p>To ensure this for arbitrary inputs and in order to produce a
+differential output, the input is numerically differentiated with
+derivative time constant <code>Td</code>. Smaller time constant
+<code>Td</code> means nearer ideal derivative.</p>
+<p><em>Note: The user has to choose the derivative time constant
+according to the nature of the input signal.</em></p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<table cellspacing="0" cellpadding="2" border="1">
+<tr>
+<th>Revision</th>
+<th>Date</th>
+<th>Author</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td valign="top">4954</td>
+<td valign="top">2012-03-02</td>
+<td valign="top">A. Haumer &amp; D. Winkler</td>
+<td valign="top">
+<p>Initial version based on discussion in <a href="https://trac.modelica.org/Modelica%203.2.1/ticket/529/Modelica">#529</a></p>
+</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

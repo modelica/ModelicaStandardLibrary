@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Mechanics.MultiBody.Parts</title>
+</head>
+<body>
+<h1><a href="Icons/583df0be128672687cce68f3cd56c681a050ce4f.svg"><img class="svgiconhead" src="Icons/583df0be128672687cce68f3cd56c681a050ce4f.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<span class="omc-h1">Parts</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Package <b>Parts</b> contains <b>rigid components</b> of a
+multi-body system. These components may be used to build up more
+complicated structures. For example, a part may be built up of a
+"Body" and of several "FixedTranslation" components.</p>
+<h4>Content</h4>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th><b><i>Model</i></b></th>
+<th><b><i>Description</i></b></th>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.Fixed.html">Fixed</a></td>
+<td valign="top">Frame fixed in world frame at a given position. It
+is visualized with a shape, see <b>shapeType</b> below (the frames
+on the two sides do not belong to the component):<br />
+&nbsp;<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Fixed.png" alt="model Parts.Fixed" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></td>
+<td valign="top">Fixed translation of frame_b with respect to
+frame_a. It is visualized with a shape, see <b>shapeType</b> below
+(the frames on the two sides do not belong to the component):<br />
+&nbsp;<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/FixedTranslation.png" alt="model Parts.FixedTranslation" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.FixedRotation.html">FixedRotation</a></td>
+<td valign="top">Fixed translation and fixed rotation of frame_b
+with respect to frame_a It is visualized with a shape, see
+<b>shapeType</b> below (the frames on the two sides do not belong
+to the component):<br />
+&nbsp;<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/FixedRotation.png" alt="model Parts.FixedRotation" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></td>
+<td valign="top">Rigid body with mass, inertia tensor and one frame
+connector. It is visualized with a cylinder and a sphere at the
+center of mass:<br />
+&nbsp;<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Body.png" alt="model Parts.Body" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.BodyShape.html">BodyShape</a></td>
+<td valign="top">Rigid body with mass, inertia tensor, different
+shapes (see <b>shapeType</b> below) for animation, and two frame
+connectors:<br />
+&nbsp;<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/BodyShape.png" alt="model Parts.BodyShape" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.Fixed.html">Fixed
+BodyBox</a></td>
+<td valign="top">Rigid body with box shape (mass and animation
+properties are computed from box data and from density):<br />
+&nbsp;<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/BodyBox.png" alt="model Parts.BodyBox" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></td>
+<td valign="top">Rigid body with cylinder shape (mass and animation
+properties are computed from cylinder data and from density):<br />
+&nbsp;<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/BodyCylinder.png" alt="model Parts.BodyCylinder" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.PointMass.html">PointMass</a></td>
+<td valign="top">Rigid body where inertia tensor and rotation is
+neglected:<br />
+&nbsp;<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Parts/PointMass.png" alt="model Parts.PointMass" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.Mounting1D.html">Mounting1D</a></td>
+<td valign="top">Propagate 1-dim. support torque to 3-dim.
+system</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.html">Rotor1D</a></td>
+<td valign="top">1D inertia attachable on 3-dim. bodies (without
+neglecting dynamic effects)<br />
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Parts/Rotor1D.png" alt="model Parts.Rotor1D" /></td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Mechanics.MultiBody.Parts.BevelGear1D.html">BevelGear1D</a></td>
+<td valign="top">1D gearbox with arbitrary shaft directions (3D
+bearing frame)</td>
+</tr>
+</table>
+<p>Components <b>Fixed</b>, <b>FixedTranslation</b>,
+<b>FixedRotation</b> and <b>BodyShape</b> are visualized according
+to parameter <b>shapeType</b>, that may have the following values
+(e.g., shapeType = "box"):<br />
+&nbsp;<br /></p>
+<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/FixedShape.png" alt="model Visualizers.FixedShape" />
+<p>All the details of the visualization shape parameters are given
+in <a href="Modelica.Mechanics.MultiBody.Visualizers.FixedShape.html">Visualizers.FixedShape</a></p>
+<p>Colors in all animation parts are defined via parameter
+<b>color</b>. This is an Integer vector with 3 elements, {r, g, b},
+and specifies the color of the shape. {r,g,b} are the "red",
+"green" and "blue" color parts, given in the ranges 0 .. 255,
+respectively. The predefined type <b>MultiBody.Types.Color</b>
+contains a menu definition of the colors used in the MultiBody
+library (this will be replaced by a color editor).</p>
+<h2>Contents</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.Fixed.html"><img class="svgiconsmall" src="Icons/5f9d05e3e5b1401cdc2160f03a1b3cc378d0b84f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.Fixed.html">Fixed</a></td>
+<td>Frame fixed in the world frame at a given position</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html"><img class="svgiconsmall" src="Icons/8f84bfb0b32ad6acefc66050cbeac878d7c81498.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.FixedTranslation.html">FixedTranslation</a></td>
+<td>Fixed translation of frame_b with respect to frame_a</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.FixedRotation.html"><img class="svgiconsmall" src="Icons/bdb590cc37fe32ab56a31f7c3eec0ea57a348cc0.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.FixedRotation.html">FixedRotation</a></td>
+<td>Fixed translation followed by a fixed rotation of frame_b with
+respect to frame_a</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.Body.html"><img class="svgiconsmall" src="Icons/016778eef959282d6ba18ad88e618a380efb6bef.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.Body.html">Body</a></td>
+<td>Rigid body with mass, inertia tensor and one frame connector
+(12 potential states)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.BodyShape.html"><img class="svgiconsmall" src="Icons/67bc5b4d656ab6d54c8061e323c127b223e412d9.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.BodyShape.html">BodyShape</a></td>
+<td>Rigid body with mass, inertia tensor, different shapes for
+animation, and two frame connectors (12 potential states)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html"><img class="svgiconsmall" src="Icons/a33de09250096922c7f4573dc89a1d7051f4667c.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.BodyBox.html">BodyBox</a></td>
+<td>Rigid body with box shape. Mass and animation properties are
+computed from box data and density (12 potential states)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html"><img class="svgiconsmall" src="Icons/839950b55de877ccfeb815ac2689c6c0d58e8e84.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.BodyCylinder.html">BodyCylinder</a></td>
+<td>Rigid body with cylinder shape. Mass and animation properties
+are computed from cylinder data and density (12 potential
+states)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.PointMass.html"><img class="svgiconsmall" src="Icons/bf081e616d3f658b50bb80ced6f1d2783b3a080f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.PointMass.html">PointMass</a></td>
+<td>Rigid body where body rotation and inertia tensor is neglected
+(6 potential states)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.Mounting1D.html"><img class="svgiconsmall" src="Icons/ba2b3134a5d7b140f82b61c5fec06128e8fa0d27.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.Mounting1D.html">Mounting1D</a></td>
+<td>Propagate 1-dim. support torque to 3-dim. system (provided
+world.driveTrainMechanics3D=true)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.html"><img class="svgiconsmall" src="Icons/a3343a156f3c42393676327b62c5a89e9dc2bfe8.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.Rotor1D.html">Rotor1D</a></td>
+<td>1D inertia attachable on 3-dim. bodies (3D dynamic effects are
+taken into account if world.driveTrainMechanics3D=true)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.BevelGear1D.html"><img class="svgiconsmall" src="Icons/6717f955a9d24ec4bd5882b8f58c0535def04e6f.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.BevelGear1D.html">BevelGear1D</a></td>
+<td>1D gearbox with arbitrary shaft directions and 3-dim. bearing
+frame (3D dynamic effects are taken into account provided
+world.driveTrainMechanics3D=true)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.RollingWheel.html"><img class="svgiconsmall" src="Icons/a70c6eeb15d7a865f594b5611c2c93b15d163ed7.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.RollingWheel.html">RollingWheel</a></td>
+<td>Ideal rolling wheel on flat surface z=0 (5 positional, 3
+velocity degrees of freedom)</td>
+</tr>
+<tr>
+<td><a href="Modelica.Mechanics.MultiBody.Parts.RollingWheelSet.html"><img class="svgiconsmall" src="Icons/6035d5392cd6566ba16d1201a554dde30ad04f90.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Parts.RollingWheelSet.html">RollingWheelSet</a></td>
+<td>Ideal rolling wheel set consisting of two ideal rolling wheels
+connected together by an axis</td>
+</tr>
+</table>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

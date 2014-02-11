@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.R134a.R134a_ph.fid_R134a</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.R134a.html">R134a</a>.<a class="omc-h1-a" href="Modelica.Media.R134a.R134a_ph.html">R134a_ph</a>.<span class="omc-h1">fid_R134a</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+This function computes the ideal gas helmholtz derivatives of the
+fundamental equation of Tillner-Roth and Baehr for R134a (1994)
+w.r.t. to reduced temperature (tau=T_crit/T) and reduced density
+(delta=rho/rho_crit).
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function fid_R134a
+  extends Modelica.Icons.Function;
+  input Real delta "Reduced density (delta=d/dcrit)";
+  input Real tau "Reduced temperature (tau=Tcrit/T)";
+  output Modelica.Media.Common.HelmholtzDerivs fid "Helmholtz derivatives of ideal part";
+end fid_R134a;
+</pre></blockquote>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

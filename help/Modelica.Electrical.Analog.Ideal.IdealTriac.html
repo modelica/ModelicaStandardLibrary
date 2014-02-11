@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Electrical.Analog.Ideal.IdealTriac</title>
+</head>
+<body>
+<h1><a href="Icons/780dd6400ea31155931fe387705c6988de7a572d.svg"><img class="svgiconhead" src="Icons/780dd6400ea31155931fe387705c6988de7a572d.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Ideal.html">Ideal</a>.<span class="omc-h1">IdealTriac</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This is an ideal triac model based on an ideal thyristor
+model.</p>
+<p>Two ideal thyristors
+(Modelica.Electrical.Analog.Ideal.IdealThyristor) are contrarily
+connected in parallel and additionally eliminated interference with
+a resistor (Rdis=100) and a capacitor (Cdis=0.005), which are
+connected in series.</p>
+<p>The electrical component triac (TRIode Alternating Current
+switch) is, due to whose complex structure, a multifunctional
+applicable construction unit. The application area of this element
+is the manipulation of alternating current signals in frequency,
+voltage and/or current and also general blocking or filtering.
+However, compared to a thyristor the triac is only applied for
+substantial lesser currents, what is justified by whose sensitive
+structure. Generally one is limited to maximal voltages from 800
+volt and currents from 40 ampere. For comparison maximal voltages
+of a thyristor are 8.000 volt and currents 5.000 ampere.</p>
+<p>Structure and functionality:</p>
+<p>Functionality of a triac is in principle the same like
+functionality of a thyristor, even connecting through of current
+starting from a certain voltage (knee voltage), but only if the
+current at anode and cathode is caused by a impulse current in the
+gate electrode. In case of the triac this process is also possible
+with reverse polarity, wherefore it is possible to control both
+half-waves of alternating currents. By means of gate electrodes,
+which are connected in a triac and why only one gate electrode is
+necessary, the point of time can be determined, at which the triac
+lets the alternating current signal pass. Thereby it is possible to
+affect the phase, at which the alternating current signal is cut.
+One speaks also of phase-angle control. Also depending on doping
+and specific structure knee voltage and maximal current carrying
+are alterable.</p>
+<p>Characteristics:</p>
+<ul>
+<li>high switching times between on-state and off state up to
+activation of the reverse current phase</li>
+<li>gate electrode are activated with (positive) impulse (called
+thyristor/triac firing), after firing thyristor path holds itself
+in state of low resistance or conductive state up to holding
+voltage is fallen below, it follows change to off state and next
+thyristor path can fire</li>
+<li>in particular by switching of inductive components triacs
+generate harmonic waves, whose frequency ranges into broadcast
+sector and could there cause transmission disturbances; therefore
+triacs have to eliminate interference by inductors and
+capacitors</li>
+</ul>
+<p>Applications:</p>
+<ul>
+<li>any stepless exposure (dimmer)</li>
+<li>engine speed adjustment of electric motors</li>
+<li>further applications of phase-angle control (power
+electronics)</li>
+<li>power packs</li>
+</ul>
+<p>As an additional information: this model is based on the
+Modelica.Electrical.Analog.Ideal.IdealThyristor.</p>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<ul>
+<li><i>November 25, 2009</i><br />
+by Susann Wolf<br />
+<br /></li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>

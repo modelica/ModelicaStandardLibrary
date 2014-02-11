@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Media.UsersGuide.MediumUsage.Initialization</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.html">UsersGuide</a>.<a class="omc-h1-a" href="Modelica.Media.UsersGuide.MediumUsage.html">MediumUsage</a>.<span class="omc-h1">Initialization</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>When a medium model is used in a balance volume, differential
+equations for the independent medium variables are present and
+therefore initial conditions have to be provided. The following
+possibilities exist:</p>
+<h4>Steady state initialization</h4>
+<p>Modelica has currently no language element to define steady
+state initialization. In the Modelica simulation environment
+Dymola, the option</p>
+<pre>
+   Advanced.DefaultSteadyStateInitialization = <b>true</b>
+</pre>
+<p>can be set before translation. Then, missing initial conditions
+are provided by automatically setting appropriate state derivatives
+to zero.</p>
+<h4>Explicit start values or initial equations</h4>
+<p>Explicit start values can be defined with the "start" and
+"fixed" attributes. The number of independent variables nx need to
+be known which can be deduced from the medium constants (nx = nXi +
+<b>if</b> singleState <b>then</b> 1 <b>else</b> 2). Then, start
+values or initial equations can be defined for nx variables (= p,
+T, d, u, h, Xi) from Medium.BaseProperties, e.g., in the form:</p>
+<pre>
+     <b>replaceable</b> package Medium = Medium.Interfaces.PartialMedium;
+     Medium.BaseProperties medium1 (p(start=1e5, fixed=<b>not</b> Medium.singleState),
+                                    T(start=300, fixed=<b>true</b>));
+     Medium.BaseProperties medium2;
+  <b>initial equation</b>
+     <b>if not</b> Medium.singleState <b>then</b>
+        medium2.p = 1e5;
+     <b>end if</b>;
+     medium2.T = 300;
+  <b>equation</b>
+  
+</pre>
+<p>If initial conditions are not provided for the independent
+medium variables, non-linear systems of equations may occur to
+compute the initial values of the independent medium variables from
+the provided initial conditions.</p>
+<h4>Guess values</h4>
+<p>If non-linear systems of equations occur during initialization,
+e.g., in case of steady state initialization, guess values for the
+iteration variables of the non-linear system of equations have to
+be provided via the "start" attribute (and fixed=false).
+Unfortunately, it is usually not known in advance which variables
+are selected as iteration variables of a non-linear system of
+equations. One of the following possibilities exist:</p>
+<ul>
+<li>Do not supply start values and hope that the medium specific
+types have meaningful start values, such as in
+"Medium.AbsolutePressure"</li>
+<li>Supply start values on all variables of the BaseProperties
+model, i.e., on p, T, d, u, h, Xi.</li>
+<li>Determine the iteration variables of the non-linear systems of
+equations and provide start values for these variables. In the
+Modelica simulation environment Dymola, the iteration variables can
+be determined by setting the command
+<code>Advanced.OutputModelicaCode = <b>true</b></code> and by
+inspection of the file "dsmodel.mof" that is generated when this
+option is set (search for "nonlinear").</li>
+</ul>
+<hr />
+Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
+version)
+</body>
+</html>
