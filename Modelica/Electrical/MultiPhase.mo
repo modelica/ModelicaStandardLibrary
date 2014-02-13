@@ -1600,22 +1600,67 @@ This package contains basic analog electrical multiphase components.
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
              Rectangle(
-               origin=  {11.626,40},
-               lineColor=  {0,0,255},
-               fillColor=  {255,255,255},
-               fillPattern=  FillPattern.Solid,
-               extent=  {{-80,-70},{60,-10}}),
+               origin = {11.626,40},
+               lineColor = {0,0,255},
+               fillColor = {255,255,255},
+               fillPattern = FillPattern.Solid,
+               extent = {{-80,-70},{60,-10}}),
              Line(
-               origin=  {11.626,40},
-               points=  {{60,-40},{80,-40}},
-               color=  {0,0,255}),
+               origin = {11.626,40},
+               points = {{60,-40},{80,-40}},
+               color = {0,0,255}),
              Line(
-               points=  {{-88.374,0},{-68.374,0}},
-               color=  {0,0,255})}));
+               points = {{-88.374,0},{-68.374,0}},
+               color = {0,0,255})}));
   end Basic;
 
   package Ideal "Multiphase components with idealized behaviour"
     extends Modelica.Icons.Package;
+
+    model IdealDiode "Multiphase ideal diode"
+      extends Interfaces.TwoPlug;
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m))
+        "Closed diode resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m))
+        "Opened diode conductance";
+      parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start = zeros(m))
+        "Threshold voltage";
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
+      Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode[m](
+        final Ron=Ron,
+        final Goff=Goff,
+        final Vknee=Vknee,
+        each final useHeatPort=useHeatPort) annotation (Placement(
+            transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+    equation
+      connect(plug_p.pin, idealDiode.p)
+        annotation (Line(points={{-100,0},{-10,0}}, color={0,0,255}));
+      connect(idealDiode.n, plug_n.pin)
+        annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{-150,-40},{150,-100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-90,0},{40,0}}, color={0,0,255}),
+            Polygon(
+              points={{30,0},{-30,40},{-30,-40},{30,0}},
+              lineColor={0,0,0},
+              fillColor={255,255,255}),
+            Line(points={{30,40},{30,-40}}, color={0,0,255}),
+            Line(points={{40,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{-80,100},{80,60}},
+              lineColor={0,0,0},
+              textString="m=%m")}),
+        Documentation(info="<HTML>
+<p>
+Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
+</p>
+</HTML>"));
+    end IdealDiode;
 
     model IdealThyristor "Multiphase ideal thyristor"
       extends Interfaces.TwoPlug;
@@ -1625,6 +1670,7 @@ This package contains basic analog electrical multiphase components.
         "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start = zeros(m))
         "Threshold voltage";
+      parameter Boolean offStart[m] =  fill(true,m) "Boolean off start values";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
       Modelica.Blocks.Interfaces.BooleanInput fire[m]
         annotation (Placement(transformation(
@@ -1635,7 +1681,9 @@ This package contains basic analog electrical multiphase components.
         final Ron=Ron,
         final Goff=Goff,
         final Vknee=Vknee,
-        each final useHeatPort=useHeatPort) annotation (Placement(
+        each final useHeatPort=useHeatPort,
+        final off(final start=offStart, each fixed=true))
+                                            annotation (Placement(
             transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
       connect(plug_p.pin, idealThyristor.p)
@@ -1891,50 +1939,6 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
 </HTML>"));
     end IdealIntermediateSwitch;
 
-    model IdealDiode "Multiphase ideal diode"
-      extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m))
-        "Closed diode resistance";
-      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m))
-        "Opened diode conductance";
-      parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start = zeros(m))
-        "Threshold voltage";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
-      Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode[m](
-        final Ron=Ron,
-        final Goff=Goff,
-        final Vknee=Vknee,
-        each final useHeatPort=useHeatPort) annotation (Placement(
-            transformation(extent={{-10,-10},{10,10}}, rotation=0)));
-    equation
-      connect(plug_p.pin, idealDiode.p)
-        annotation (Line(points={{-100,0},{-10,0}}, color={0,0,255}));
-      connect(idealDiode.n, plug_n.pin)
-        annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Text(
-              extent={{-150,-40},{150,-100}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Line(points={{-90,0},{40,0}}, color={0,0,255}),
-            Polygon(
-              points={{30,0},{-30,40},{-30,-40},{30,0}},
-              lineColor={0,0,0},
-              fillColor={255,255,255}),
-            Line(points={{30,40},{30,-40}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Text(
-              extent={{-80,100},{80,60}},
-              lineColor={0,0,0},
-              textString="m=%m")}),
-        Documentation(info="<HTML>
-<p>
-Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
-</p>
-</HTML>"));
-    end IdealDiode;
 
     model IdealTransformer "Multiphase ideal transformer"
       extends Interfaces.FourPlug;
@@ -2351,17 +2355,17 @@ like thyristor, diode, switch, transformer.
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
              Line(
-               origin=  {10,40},
-               points=  {{-100,-40},{80,-40}},
-               color=  {0,0,255}),
+               origin = {10,40},
+               points = {{-100,-40},{80,-40}},
+               color = {0,0,255}),
              Polygon(
-               origin=  {10,40},
-               fillColor=  {255,255,255},
-               points=  {{20,-40},{-40,0},{-40,-80},{20,-40}}),
+               origin = {10,40},
+               fillColor = {255,255,255},
+               points = {{20,-40},{-40,0},{-40,-80},{20,-40}}),
              Line(
-               origin=  {-10,0},
-               points=  {{40,40},{40,-40}},
-               color=  {0,0,255})}));
+               origin = {-10,0},
+               points = {{40,40},{40,-40}},
+               color = {0,0,255})}));
   end Ideal;
 
   package Blocks "Blocks for multi phase systems"
