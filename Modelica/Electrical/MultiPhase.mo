@@ -497,24 +497,30 @@ This package contains test examples of analog electrical multiphase circuits.
       end for;
       sum(plug_p.pin.i) + pin_n.i = 0;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-150,60},{150,120}},
-                  textString="%name",
-                  lineColor={0,0,255}),Line(
-                  points={{80,0},{0,0}},
-                  thickness=0.5,
-                  color={0,0,255}),Line(
-                  points={{0,0},{-39,68}},
-                  thickness=0.5,
-                  color={0,0,255}),Line(
-                  points={{0,0},{-38,-69}},
-                  thickness=0.5,
-                  color={0,0,255}),Text(
-                  extent={{-100,-110},{100,-70}},
-                  lineColor={0,0,0},
-                  textString="m=%m"),Line(points={{-90,0},{-40,0}}, color={0,0,
-              255}),Line(points={{80,0},{90,0}}, color={0,0,255})}),
-          Documentation(info="<HTML>
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{-150,60},{150,120}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(
+              points={{80,0},{0,0}},
+              thickness=0.5,
+              color={0,0,255}),
+            Line(
+              points={{0,0},{-39,68}},
+              thickness=0.5,
+              color={0,0,255}),
+            Line(
+              points={{0,0},{-38,-69}},
+              thickness=0.5,
+              color={0,0,255}),
+            Text(
+              extent={{-100,-110},{100,-70}},
+              lineColor={0,0,0},
+              textString="m=%m"),
+            Line(points={{-90,0},{-40,0}}, color={0,0,255}),
+            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info
+            ="<HTML>
 <p>
 Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
 </p>
@@ -858,19 +864,22 @@ Connects all pins of plug_n to the pin array pin_n.
           color={191,0,0},
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-70,30},{70,-30}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{-90,0},{-70,0}},
-              color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
-              Text(
-                  extent={{-150,40},{150,100}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,-100},{100,-60}},
-                  lineColor={0,0,0},
-                  textString="m=%m")}), Documentation(info="<HTML>
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+            Line(points={{70,0},{90,0}}, color={0,0,255}),
+            Text(
+              extent={{-150,40},{150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,-100},{100,-60}},
+              lineColor={0,0,0},
+              textString="m=%m")}), Documentation(info="<HTML>
 <p>
 Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
 </p>
@@ -968,22 +977,26 @@ Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
       connect(inductor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Ellipse(extent={{-60,-15},{-30,15}},
-              lineColor={0,0,255}),Ellipse(extent={{-30,-15},{0,15}}, lineColor
-              ={0,0,255}),Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-              Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),Rectangle(
-                  extent={{-60,-30},{60,0}},
-                  lineColor={255,255,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{60,0},{90,0}},
-              color={0,0,255}),Line(points={{-90,0},{-60,0}}, color={0,0,255}),
-              Text(
-                  extent={{-150,40},{150,100}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,-100},{100,-60}},
-                  lineColor={0,0,0},
-                  textString="m=%m")}), Documentation(info="<HTML>
+                -100},{100,100}}), graphics={
+            Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
+            Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
+            Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
+            Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
+            Rectangle(
+              extent={{-60,-30},{60,0}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{60,0},{90,0}}, color={0,0,255}),
+            Line(points={{-90,0},{-60,0}}, color={0,0,255}),
+            Text(
+              extent={{-150,40},{150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,-100},{100,-60}},
+              lineColor={0,0,0},
+              textString="m=%m")}), Documentation(info="<HTML>
 <p>
 Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
 </p>
@@ -2305,13 +2318,29 @@ Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/4p
     function factorY2D "Calculates factor Y voltage to polygon (delta) voltage"
       extends Modelica.Icons.Function;
       import Modelica.Constants.pi;
-      input Integer m "Number of phases";
+      input Integer m=3 "Number of phases";
       output Real y "Factor Y to D";
+    protected
+      parameter Integer mBasic=integer(m/
+          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          m));
     algorithm
-      y := 2*sin(pi/(m/
-        Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)));
+      y := 2*sin(pi/mBasic);
       annotation ();
     end factorY2D;
+
+    function factorY2DC "Calculates factor of DC-voltage from RMS Y-voltage"
+      extends Modelica.Icons.Function;
+      import Modelica.Constants.pi;
+      input Integer m=3 "Number of phases";
+      output Real y "Factor Yrms to DC";
+    protected
+      parameter Integer mBasic=integer(m/
+          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          m));
+    algorithm
+      y := sqrt(2)*2*sin((mBasic - 1)/mBasic*pi/2)*sin(pi/(2*m))/(pi/(2*m));
+    end factorY2DC;
 
     function indexPositiveSequence
       "Determines the indices of the all positive sequences"
@@ -2822,33 +2851,39 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
       connect(sineVoltage.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-90,0},{-50,0}},
-              color={0,0,255}),Line(points={{50,0},{90,0}}, color={0,0,255}),
-              Ellipse(
-                  extent={{-50,50},{50,-50}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{-50,0},{50,0}},
-              color={0,0,255}),Line(
-                  points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
-                65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},{-23.6,61},{-18.6,52},
-                {-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},{
-                25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},{
-                50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
-                  color={192,192,192},
-                  smooth=Smooth.Bezier),Text(
-                  extent={{-150,-110},{150,-50}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-100,100},{100,60}},
-                  lineColor={0,0,0},
-                  textString="m=%m"),Text(
-                  extent={{30,60},{110,0}},
-                  lineColor={0,0,255},
-                  textString="-"),Text(
-                  extent={{-110,60},{-30,0}},
-                  lineColor={0,0,255},
-                  textString="+")}), Documentation(info="<HTML>
+                -100},{100,100}}), graphics={
+            Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+            Line(points={{50,0},{90,0}}, color={0,0,255}),
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-50,0},{50,0}}, color={0,0,255}),
+            Line(
+              points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
+                  65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},{-23.6,61},{-18.6,
+                  52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},
+                  {25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},
+                  {50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
+              color={192,192,192},
+              smooth=Smooth.Bezier),
+            Text(
+              extent={{-150,-110},{150,-50}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,100},{100,60}},
+              lineColor={0,0,0},
+              textString="m=%m"),
+            Text(
+              extent={{30,60},{110,0}},
+              lineColor={0,0,255},
+              textString="-"),
+            Text(
+              extent={{-110,60},{-30,0}},
+              lineColor={0,0,255},
+              textString="+")}), Documentation(info="<HTML>
 <p>
 Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
 with a default phase shift determined by
@@ -3172,9 +3207,9 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
 </p>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={Text(
-                  extent={{-100,-99},{100,-179}},
-                  lineColor={0,0,255},
-                  textString="%name")}));
+              extent={{-100,-99},{100,-179}},
+              lineColor={0,0,255},
+              textString="%name")}));
     end Plug;
 
     connector PositivePlug "Positive plug with m pins"
@@ -3182,16 +3217,16 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
-                  extent={{-100,100},{100,-100}},
-                  lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid)}),
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={Ellipse(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid)}),
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
 Connectors PositivePlug and NegativePlug are nearly identical.
@@ -3210,16 +3245,16 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(
-                  extent={{-100,100},{100,-100}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid)}),
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={Ellipse(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid)}),
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
 Connectors PositivePlug and NegativePlug are nearly identical.
