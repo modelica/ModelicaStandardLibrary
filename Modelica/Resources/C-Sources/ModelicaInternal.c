@@ -163,7 +163,7 @@ static void ModelicaNotExistError(const char* name) {
 #else
 #define BUFFER_LENGTH 1024
 #endif
-static char buffer[BUFFER_LENGTH];  /* Buffer for temporary storage. Should be sufficient for PATH_MAX on all standard platforms.  */
+static char buffer[BUFFER_LENGTH];  /* Buffer for temporary storage. Should be sufficient for PATH_MAX on all standard platforms. */
 
 typedef enum {
    FileType_NoFile = 1,
@@ -690,10 +690,7 @@ MODELICA_EXPORT void ModelicaInternal_readFile(const char* fileName, const char*
   /* Read file into string vector string[nLines] */
      FILE* fp = ModelicaStreams_openFileForReading(fileName, 0);
      char*  line;
-     int    c;
-     size_t lineLen;
      size_t iLines;
-     long   offset;
      size_t nc;
      char localbuf[200]; /* To avoid fseek */
 
@@ -701,9 +698,9 @@ MODELICA_EXPORT void ModelicaInternal_readFile(const char* fileName, const char*
      iLines = 1;
      while ( iLines <= nLines ) {
         /* Determine length of next line */
-           offset  = ftell(fp);
-           lineLen = 0;
-           c = fgetc(fp);
+           long offset = ftell(fp);
+           size_t lineLen = 0;
+           int c = fgetc(fp);
            while ( c != '\n' && c != EOF ) {
               if (lineLen<sizeof(localbuf)) localbuf[lineLen]=c;
               lineLen++;
@@ -872,7 +869,6 @@ MODELICA_EXPORT void ModelicaInternal_setenv(const char* name, const char* value
 {
 #if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
 
-    size_t valueStart;
     if (strlen(name) + strlen(value) + 1 > sizeof(buffer)) {
         ModelicaFormatError("Environment variable\n"
             "\"%s\"=\"%s\"\n"
@@ -881,12 +877,11 @@ MODELICA_EXPORT void ModelicaInternal_setenv(const char* name, const char* value
             name, value, sizeof(buffer));
     }
 
-    strcpy(buffer,name);
+    strcpy(buffer, name);
     strcat(buffer, "=");
-    valueStart = strlen(buffer);
     strcat(buffer, value);
 
-    if ( convertFromSlash == 1 ) ModelicaConvertFromUnixDirectorySeparator(&buffer[valueStart]);
+    if ( convertFromSlash == 1 ) ModelicaConvertFromUnixDirectorySeparator(&buffer[strlen(name) + 1]);
 #endif
 
     /* Set environment variable */
