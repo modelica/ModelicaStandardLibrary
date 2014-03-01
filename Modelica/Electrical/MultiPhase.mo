@@ -1520,16 +1520,19 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
 
     model IdealThyristor "Multiphase ideal thyristor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start= fill(1.E-5, m))
-        "Closed thyristor resistance";
-      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m))
-        "Opened thyristor conductance";
-      parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start = zeros(m))
-        "Threshold voltage";
-      parameter Boolean offStart[m] =  fill(true,m) "Boolean off start values";
-      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
-      Modelica.Blocks.Interfaces.BooleanInput fire[m]
-        annotation (Placement(transformation(
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start=
+            fill(1.E-5, m)) "Closed thyristor resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start=
+            fill(1.E-5, m)) "Opened thyristor conductance";
+      parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start=
+            zeros(m)) "Threshold voltage";
+      Boolean off[m](start=fill(true,m))
+        "Alias of boolean thyristor off; type, e.g.: off(start=fill(true,m))" annotation(Dialog);
+
+      extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
+          final mh=m, final T=fill(293.15, m));
+      Modelica.Blocks.Interfaces.BooleanInput fire[m] annotation (Placement(
+            transformation(
             origin={70,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -1537,13 +1540,13 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
         final Ron=Ron,
         final Goff=Goff,
         final Vknee=Vknee,
-        each final useHeatPort=useHeatPort,
-        final off(final start=offStart, each fixed=true))
-                                            annotation (Placement(
+        each final useHeatPort=useHeatPort)               annotation (Placement(
             transformation(extent={{-10,-10},{10,10}}, rotation=0)));
     equation
+      off = idealThyristor.off;
       connect(plug_p.pin, idealThyristor.p)
-        annotation (Line(points={{-100,0},{-10,0}}, color={0,0,255}));
+        annotation (Line(points={{-100,8.88178e-16},{-60,8.88178e-16},{-60,0},{-38,0},
+              {-38,8.88178e-16},{-10,8.88178e-16}}, color={0,0,255}));
       connect(idealThyristor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(fire, idealThyristor.fire) annotation (Line(points={{70,110},{70,
@@ -1553,27 +1556,21 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
           color={191,0,0},
           pattern=LinePattern.None,
           smooth=Smooth.None));
-      annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Text(
-              extent={{-150,-40},{150,-100}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Line(points={{-90,0},{40,0}}, color={0,0,255}),
-            Polygon(
-              points={{30,0},{-30,40},{-30,-40},{30,0}},
-              lineColor={0,0,0},
-              fillColor={255,255,255}),
-            Line(points={{30,40},{30,-40}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Line(points={{40,50},{60,30}}, color={0,0,255}),
-            Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
-            Text(
-              extent={{-100,100},{60,60}},
-              lineColor={0,0,0},
-              textString="m=%m")}),
-        Documentation(info="<HTML>
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+                  extent={{-150,-40},{150,-100}},
+                  textString="%name",
+                  lineColor={0,0,255}),Line(points={{-90,0},{40,0}}, color={0,0,
+              255}),Polygon(
+                  points={{30,0},{-30,40},{-30,-40},{30,0}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255}),Line(points={{30,40},{30,-40}},
+              color={0,0,255}),Line(points={{40,0},{90,0}}, color={0,0,255}),
+              Line(points={{40,50},{60,30}}, color={0,0,255}),Line(points={{30,
+              20},{70,60},{70,90}}, color={0,0,255}),Text(
+                  extent={{-100,100},{60,60}},
+                  lineColor={0,0,0},
+                  textString="m=%m")}), Documentation(info="<HTML>
 <p>
 Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
 </p>
@@ -1794,7 +1791,6 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
 </p>
 </HTML>"));
     end IdealIntermediateSwitch;
-
 
     model IdealTransformer "Multiphase ideal transformer"
       extends Interfaces.FourPlug;
