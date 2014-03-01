@@ -1026,82 +1026,82 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
     end ThermalCollector;
     annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
       Rectangle(
-        origin = {12,40},
-        fillColor = {192,192,192},
-        fillPattern = FillPattern.Backward,
-        extent = {{-100,-100},{-70,18}}),
+        origin=  {12,40},
+        fillColor=  {192,192,192},
+        fillPattern=  FillPattern.Backward,
+        extent=  {{-100,-100},{-70,18}}),
       Line(
-        origin = {12,40},
-        points = {{-44,16},{-44,-100}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-44,16},{-44,-100}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-4,16},{-4,-100}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-4,16},{-4,-100}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{30,18},{30,-100}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{30,18},{30,-100}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{66,18},{66,-100}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{66,18},{66,-100}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{66,-100},{76,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{66,-100},{76,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{66,-100},{56,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{66,-100},{56,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{30,-100},{40,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{30,-100},{40,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{30,-100},{20,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{30,-100},{20,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-4,-100},{6,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-4,-100},{6,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-4,-100},{-14,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-4,-100},{-14,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-44,-100},{-34,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-44,-100},{-34,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-44,-100},{-54,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-44,-100},{-54,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-70,-60},{66,-60}},
-        color = {191,0,0}),
+        origin=  {12,40},
+        points=  {{-70,-60},{66,-60}},
+        color=  {191,0,0}),
       Line(
-        origin = {12,40},
-        points = {{46,-70},{66,-60}},
-        color = {191,0,0}),
+        origin=  {12,40},
+        points=  {{46,-70},{66,-60}},
+        color=  {191,0,0}),
       Line(
-        origin = {12,40},
-        points = {{46,-50},{66,-60}},
-        color = {191,0,0}),
+        origin=  {12,40},
+        points=  {{46,-50},{66,-60}},
+        color=  {191,0,0}),
       Line(
-        origin = {12,40},
-        points = {{46,-30},{66,-20}},
-        color = {191,0,0}),
+        origin=  {12,40},
+        points=  {{46,-30},{66,-20}},
+        color=  {191,0,0}),
       Line(
-        origin = {12,40},
-        points = {{46,-10},{66,-20}},
-        color = {191,0,0}),
+        origin=  {12,40},
+        points=  {{46,-10},{66,-20}},
+        color=  {191,0,0}),
       Line(
-        origin = {12,40},
-        points = {{-70,-20},{66,-20}},
-        color = {191,0,0})}), Documentation(
+        origin=  {12,40},
+        points=  {{-70,-20},{66,-20}},
+        color=  {191,0,0})}), Documentation(
           info="<html>
 
 </html>"));
@@ -1346,20 +1346,20 @@ The output signal is positive, if the heat flows from port_a to port_b.
       annotation (
         Icon(graphics={
           Rectangle(
-            lineColor = {255,0,0},
-            fillColor = {255,0,0},
-            fillPattern = FillPattern.HorizontalCylinder,
-            extent = {{-90,-10},{-70,10}}),
+            lineColor=  {255,0,0},
+            fillColor=  {255,0,0},
+            fillPattern=  FillPattern.HorizontalCylinder,
+            extent=  {{-90,-10},{-70,10}}),
           Rectangle(
-            lineColor = {255,0,0},
-            fillColor = {255,0,0},
-            fillPattern = FillPattern.HorizontalCylinder,
+            lineColor=  {255,0,0},
+            fillColor=  {255,0,0},
+            fillPattern=  FillPattern.HorizontalCylinder,
             extent={{70,-10},{90,10}}),
           Text(
-            lineColor = {0,0,255},
-            extent = {{-150,85},{150,125}},
-            textString = "%name"),
-          Line(points = {{0,-70},{0,-90}}, color = {0,0,127})},
+            lineColor=  {0,0,255},
+            extent=  {{-150,85},{150,125}},
+            textString=  "%name"),
+          Line(points=  {{0,-70},{0,-90}}, color=  {0,0,127})},
             coordinateSystem(extent = {{-100,-100},{100,100}},
               preserveAspectRatio = true,
               initialScale = 0.1)),
@@ -2139,7 +2139,9 @@ and provides is as output signal.
     end ToKelvin;
 
     model FromKelvin "Conversion from Kelvin to degFahrenheit"
-      parameter Integer n=1 "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)" annotation(Dialog(enable=false));
+      parameter Integer n=1
+        "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)"
+                                                                                                            annotation(Dialog(enable=false));
       Modelica.Blocks.Interfaces.RealInput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -2466,7 +2468,9 @@ Example:
     extends Modelica.Icons.VariantsPackage;
 
     model ToKelvin "Conversion block from degRankine to Kelvin"
-      parameter Integer n=1 "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)" annotation(Dialog(enable=false));
+      parameter Integer n=1
+        "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)"
+                                                                                                            annotation(Dialog(enable=false));
       Modelica.Blocks.Interfaces.RealInput Rankine(unit="degRk")
        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -2526,7 +2530,9 @@ and provides them as output signals.
     end ToKelvin;
 
     model FromKelvin "Conversion from Kelvin to degRankine"
-      parameter Integer n=1 "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)" annotation(Dialog(enable=false));
+      parameter Integer n=1
+        "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)"
+                                                                                                            annotation(Dialog(enable=false));
       Modelica.Blocks.Interfaces.RealInput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -3062,7 +3068,7 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
 </html>"));
   end Interfaces;
   annotation (
-     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
         origin = {13.758,27.517},
         lineColor = {128,128,128},

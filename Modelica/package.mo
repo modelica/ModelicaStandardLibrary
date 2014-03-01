@@ -1475,13 +1475,13 @@ This class summarizes contact information of the contributing persons.
         &lt;a href=\"mailto:dr.christian.kral@gmail.com\"&gt;C. Kral&lt;/a&gt;
       &lt;/td&gt;
       &lt;td valign=\"top\"&gt;
-        &lt;a href=\"http://www.ait.ac.at\"&gt;Austrian Institute of Technology, AIT&lt;/a&gt;, Mobility Department&lt;br&gt;
-        Giefinggasse 2&lt;br&gt;
-        1210 Vienna&lt;br&gt;
+        &lt;a href=\"http://christiankral.net\"&gt;Electric Machines, Drives and Systems&lt;/a&gt;&lt;br&gt;
+        1060 Vienna&lt;br&gt;
         Austria
       &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/table&gt;</pre>
+
 
 <p>appears as</p>
 
@@ -1509,9 +1509,8 @@ This class summarizes contact information of the contributing persons.
         <a href=\"mailto:dr.christian.kral@gmail.com\">C. Kral</a>
       </td>
       <td valign=\"top\">
-        <a href=\"http://www.ait.ac.at\">Austrian Institute of Technology, AIT</a>, Mobility Department<br>
-        Giefinggasse 2<br>
-        1210 Vienna<br>
+        <a href=\"http://christiankral.net\">Electric Machines, Drives and Systems</a><br>
+        1060 Vienna<br>
         Austria
       </td>
     </tr>
@@ -2862,7 +2861,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
     This library allows very fast simulations of electrical circuits with sinusoidal
     currents and voltages by only taking into account the quasi-stationary, periodic part
     and neglecting non-periodic transients.<br>
-    (This library was developed by Anton Haumer and Christian Kral, AIT).
+    (This library was developed by Anton Haumer and Christian Kral).
     </td></tr>
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Spice3\">Modelica.Electrical.Spice3</a></td>
@@ -2895,7 +2894,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
      electrical machines.
      From a didactic point of view this library is very beneficial for students in the field
      of electrical engineering.<br>
-     (This library was developed by Christian Kral, AIT, and Anton Haumer, using
+     (This library was developed by Christian Kral, and Anton Haumer, using
      ideas and source code of a library from Michael Beuschel from 2000).
     </td></tr>
 
@@ -3348,7 +3347,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 
 <tr><td colspan=\"2\"><b>Modelica.Math.BooleanVectors.</b></td></tr>
 <tr><td valign=\"top\"> allTrue </td>
-    <td valign=\"top\"> Returns t" + "rue, if all elements of the Boolean input vector are true. </td> </tr>
+    <td valign=\"top\"> Returns true, if al" + "l elements of the Boolean input vector are true. </td> </tr>
 <tr><td valign=\"top\"> anyTrue </td>
     <td valign=\"top\"> Returns true, if at least on element of the Boolean input vector is true. </td> </tr>
 <tr><td valign=\"top\"> oneTrue </td>
@@ -7352,7 +7351,7 @@ class Contact "Contact"
    <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
         (Martin Otter)<br>
         Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, <br>
-        Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)
+        Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria
 </td>
 
 </tr>
@@ -7375,7 +7374,7 @@ class Contact "Contact"
                       Modelica.Electrical.MultiPhase<br>
                       Modelica.Electrical.QuasiStationary </td>
    <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
-      Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)</td>
+      Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria</td>
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
@@ -7386,7 +7385,7 @@ class Contact "Contact"
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Magnetic.FundamentalWave </td>
-   <td valign=\"top\"> Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral),<br>
+   <td valign=\"top\"> Electric Machines, Drives and Systems, Vienna, Austria<br>
                      Anton Haumer, Consultant, St.Andrae-Woerdern, Austria
 </td>
 </tr>
@@ -7413,7 +7412,7 @@ class Contact "Contact"
    <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
       Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)
+      Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria
    </td>
 </tr>
 
@@ -7427,13 +7426,13 @@ class Contact "Contact"
    <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
       Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral),<br>
+      Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria,<br>
       Modelon AB, Lund, Sweden (Johan Andreasson)</td>
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Mechanics.Translational </td>
    <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral), <br>
+      Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria, <br>
       DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
        Modelon AB, Lund, Sweden (Johan Andreasson)</td>
@@ -7452,7 +7451,7 @@ class Contact "Contact"
 <tr><td valign=\"top\"> Modelica.Thermal.FluidHeatFlow <br>
       Modelica.Thermal.HeatTransfer </td>
    <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
-      Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)</td>
+      Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria</td>
 
 <tr><td valign=\"top\"> Modelica.Utilities </td>
    <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
@@ -7563,7 +7562,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Christian Kral</b> </td>
-   <td valign=\"top\"> Austrian Institute of Technology (AIT), Vienna, Austria</td>
+   <td valign=\"top\"> Electric Machines, Drives and Systems, Vienna, Austria</td>
    <td valign=\"top\"> Modelica.ComplexBlocks<br>
      Modelica.Electrical.Machines<br>
      Modelica.Electrical.MultiPhase<br>
@@ -7766,9 +7765,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2.1",
-versionBuild=5,
-versionDate="2014-03-01",
-dateModified = "2014-03-01 16:35:00Z",
+versionBuild=4,
+versionDate="2014-02-13",
+dateModified = "2013-08-23 19:30:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
 conversion(
@@ -7840,7 +7839,7 @@ and it has been tested with Modelica tools from different vendors.
 
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2013, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.Haumer, ITI, Modelon,
+Copyright &copy; 1998-2013, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, ITI, C.&nbsp;Kral, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 </p>
 

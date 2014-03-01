@@ -313,6 +313,7 @@ phase winding parameters -- at the same nominal rotor voltage and frequency.
 
 <p>
 Christian Kral<br>
+Electric Machines, Drives and Systems<br>
 1060 Vienna, Austria<br>
 email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
 </p>

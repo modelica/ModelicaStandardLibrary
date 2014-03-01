@@ -968,9 +968,8 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
     <dd>D-82230 Wessling</dd>
     <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 <dt>Christian Kral</dt>
-    <dd><a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a></dd>
-    <dd>Mobility Department</dd><dd>Giefinggasse 2</dd>
-    <dd>1210 Vienna, Austria</dd>
+    <dd><a href=\"http://christiankral.net/\">Electric Machines, Drives and Systems</a></dd>
+    <dd>1060 Vienna, Austria</dd>
     <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a></dd>
 <dt>Johan Andreasson</dt>
     <dd><a href=\"http://www.modelon.se/\">Modelon AB</a></dd>
