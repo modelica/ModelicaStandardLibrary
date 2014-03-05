@@ -203,14 +203,12 @@ static int MatchUnsignedInteger(const char* string, int start)
 
 MODELICA_EXPORT void ModelicaStrings_scanIdentifier(const char* string, int startIndex, int* nextIndex, const char** identifier)
 {
-    int token_length=0;
-
     int token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
     /* Index of first char of token, after ws. */
 
     if (isalpha(string[token_start-1])) {
         /* Identifier has begun. */
-        token_length = 1;
+        int token_length = 1;
         while (string[token_start+token_length-1] != '\0' &&
             (isalpha(string[token_start+token_length-1]) ||
             isdigit(string[token_start+token_length-1]) ||
@@ -238,7 +236,6 @@ MODELICA_EXPORT void ModelicaStrings_scanIdentifier(const char* string, int star
 MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIndex, int unsignedNumber,
                                  int* nextIndex, int* integerNumber)
 {
-    int number_length=0;
     int sign = 0;
     /* Number of characters used for sign. */
 
@@ -249,7 +246,7 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
         sign = 1;
 
     if (unsignedNumber==0 || (unsignedNumber==1 && sign==0)) {
-        number_length = MatchUnsignedInteger(string, token_start + sign);
+        int number_length = MatchUnsignedInteger(string, token_start + sign);
         /* Number of characters in unsigned number. */
 
         if (number_length > 0 && sign + number_length < MAX_TOKEN_SIZE) {
