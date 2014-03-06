@@ -114,10 +114,10 @@ enum TableSource {
 
 /* ----- Internal table memory ----- */
 
-/* 3 (of 4) 1D-spline coefficents (per interval) */
+/* 3 (of 4) 1D-spline coefficients (per interval) */
 typedef double Akima1D[3];
 
-/* 15 (of 16) 2D-spline coefficents (per grid) */
+/* 15 (of 16) 2D-spline coefficients (per grid) */
 typedef double Akima2D[15];
 
 /* Left and right interval indices (per interval) */
