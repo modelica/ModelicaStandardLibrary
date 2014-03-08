@@ -91,7 +91,7 @@ joints on the right top side have been replaced by the assembly joint
 which consists of two spherical joints and one prismatic joint.
 Since JointSSP solves the non-linear constraint equation internally
 analytically, no non-linear equation appears any more and a Modelica
-translator, such as Dymola, can transform the system into state space
+translator can transform the system into state space
 form without solving a system of equations. For more details, see
 <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
 MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.

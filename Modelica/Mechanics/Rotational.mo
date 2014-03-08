@@ -1059,7 +1059,7 @@ gear.mode  :  1 = forward rolling
 <p>
 This model contains bearing friction and gear friction (= efficiency).
 If both friction models are stuck, there is no unique solution.
-Still a reliable Modelica simulator, such as Dymola, should
+Still a reliable Modelica simulator should
 be able to handle this situation.
 </p>
 <p>

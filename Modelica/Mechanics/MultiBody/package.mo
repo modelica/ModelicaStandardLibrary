@@ -84,7 +84,7 @@ The main features of the library are:
     tree-structure). </li>
 <li><b>Automatic state selection from joints and bodies</b>.
     Most joints and all bodies have potential states. A Modelica
-    translator, such as Dymola, will use the generalized coordinates
+    translator will use the generalized coordinates
     of joints as states if possible. If this is not possible,
     states are selected from body coordinates. As a consequence,
     strange joints with 6 degrees of freedom are not necessary
@@ -132,7 +132,7 @@ The main features of the library are:
     in many cases warning or error messages that are related
     to the library components (and not to specific equations
     as it is usual in Modelica libraries). This requires
-    appropriate tool support, as it is, e.g., available in Dymola.</li>
+    appropriate tool support, as it is.</li>
 <li><b>Inverse models</b> of mechanical systems can be easily
     defined by using motion generators, e.g.,
     Modelica.Mechanics.Rotational.Position. Also, non-standard
@@ -179,8 +179,7 @@ The reason is that in the world object the gravity field is defined
 animation shapes and this information is reported to all used
 components. If the World object is missing, a warning message is
 printed and an instance of the World object with default settings is
-automatically utilized (this feature is defined with annotations and
-is, e.g., supported by Dymola).
+automatically utilized (this feature is defined with annotations).
 </p>
 <p>
 In a second step the parameters of the dragged components need to be
@@ -212,7 +211,7 @@ is shown in the parameter menus of the revolute joint and the body:
 </p>
 
 <p>
-Translate and simulate the model, e.g., with Dymola.
+Translate and simulate the model.
 Automatically, all defined components are visualized in
 an animation using default absolute or relative sizes
 of the components. For example, a body is visualized as
@@ -375,7 +374,7 @@ slightly different to other revolute joints to visualize this case.
 <p>
 If a modeler is not aware of the problems with planar
 loops and models them without special consideration, a Modelica
-translator, such as Dymola, displays an error
+translator displays an error
 message and points out that a planar loop may be the reason and suggests to
 use the RevolutePlanarLoopConstraint joint.
 This error message is due to an annotation in
@@ -507,7 +506,7 @@ Since this is a structural property, the
 symbolic algorithms can automatically select <span style=\"font-family:Symbol\">
 j</span> and its derivative as states and then all positional variables can be
 computed in a forwards sequence. It is now understandable that a Modelica
-translator, such as Dymola, can
+translator can
 transform the equations of the four bar mechanism to a recursive sequence of
 statements that has no non-linear algebraic loops anymore(remember,
 the previous \"straightforward\" solution with 6 revolute joints and 1
@@ -617,7 +616,7 @@ Since this is a structural property, the
 symbolic algorithms can automatically select <span style=\"font-family:Symbol\">
 j</span> and its derivative as states and then all positional variables can be
 computed in a forwards sequence. It is now understandable that a Modelica
-translator, such as Dymola, can
+translator can
 transform the equations of the four bar mechanism to a recursive sequence of
 statements that has no non-linear algebraic loops anymore(remember,
 the previous \"straightforward\" solution with 6 revolute joints and 1
@@ -772,7 +771,7 @@ from each other. Within one cylinder
 the position of frame_a and frame_b of the jointRRP assembly
 can be computed and therefore the generalized coordinates of the two revolute
 and the prismatic joint in the jointRRP object can be determined. From this
-analysis it is not surprising that a Modelica translator, such as Dymola,
+analysis it is not surprising that a Modelica translator
 is able to transform the DAE
 equations into a sequential evaluation without any non-linear loop.
 Compare this nice result with the model using only elementary joints

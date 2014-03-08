@@ -1692,7 +1692,7 @@ These equations can be solved in the following way:
 <p>
 This means that T2 is computed by solving a non-linear system
 of equations. If h1 and h2 are provided as Modelica functions,
-a Modelica translator, such as Dymola, can replace
+a Modelica translator can replace
 this non-linear system of equations by the equation:
 </p>
 
