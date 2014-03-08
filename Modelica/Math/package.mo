@@ -1966,7 +1966,6 @@ matrix A was interchanged with row pivots[i].
 
   protected
     Integer info;
-    // replace with "isPresent(..)" if supported by Dymola
     Boolean onlyEigenvalues=false;
   algorithm
     if size(A, 1) > 0 then
@@ -2195,7 +2194,6 @@ This is not allowed when calling Modelica.Matrices.QR(A).");
       end for;
     end for;
 
-    // if isPresent(Q) then (not yet supported by Dymola)
     Q := LAPACK.dorgqr(Q, tau);
     annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
