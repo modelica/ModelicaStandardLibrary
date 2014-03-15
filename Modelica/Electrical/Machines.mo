@@ -247,7 +247,7 @@ SM_ElectricalExcited</a>
       using new 
       <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation\">
       ElectricalExcitation</a>
-      as well as a new exmaple</li>
+      as well as a new example</li>
 </ul>
 
 <h5>Version 1.51, 2005-02-01 (Anton Haumer)</h5>
