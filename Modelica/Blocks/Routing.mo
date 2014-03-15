@@ -26,6 +26,70 @@ This block replicates the input signal to an array of <code>nout</code> identica
 </html>"));
   end Replicator;
 
+  block IntegerReplicator "Integer signal replicator"
+    extends Modelica.Blocks.Icons.IntegerBlock;
+    parameter Integer nout=1 "Number of outputs";
+    Modelica.Blocks.Interfaces.IntegerInput u
+      "Connector of Integer input signal"
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+    Modelica.Blocks.Interfaces.IntegerOutput y[nout]
+      "Connector of Integer output signals"
+      annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+  equation
+
+    y = fill(u, nout);
+    annotation (
+      Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
+          Line(points={{100,0},{10,0}}, color={0,0,127}),
+          Line(points={{0,0},{100,10}}, color={0,0,127}),
+          Line(points={{0,0},{100,-10}}, color={0,0,127}),
+          Ellipse(
+            extent={{-14,16},{16,-14}},
+            lineColor={0,0,0},
+            fillColor={0,0,127},
+            fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
+<p>
+This block replicates the Integer input signal to an array of <code>nout</code> identical Integer output signals.
+</p>
+</html>"));
+  end IntegerReplicator;
+
+  block BooleanReplicator "Boolean signal replicator"
+    extends Modelica.Blocks.Icons.BooleanBlock;
+    parameter Integer nout=1 "Number of outputs";
+    Modelica.Blocks.Interfaces.BooleanInput u
+      "Connector of Boolean input signal"
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+    Modelica.Blocks.Interfaces.BooleanOutput y[nout]
+      "Connector of Boolean output signals"
+      annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+  equation
+
+    y = fill(u, nout);
+    annotation (
+      Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
+          Line(points={{100,0},{10,0}}, color={0,0,127}),
+          Line(points={{0,0},{100,10}}, color={0,0,127}),
+          Line(points={{0,0},{100,-10}}, color={0,0,127}),
+          Ellipse(
+            extent={{-14,16},{16,-14}},
+            lineColor={0,0,0},
+            fillColor={0,0,127},
+            fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
+<p>
+This block replicates the Boolean input signal to an array of <code>nout</code> identical Boolean output signals.
+</p>
+</html>"));
+  end BooleanReplicator;
+
 block ExtractSignal "Extract signals from an input signal vector"
   extends Modelica.Blocks.Interfaces.MIMO;
   parameter Integer extract[nout]=1:nout "Extracting vector";
