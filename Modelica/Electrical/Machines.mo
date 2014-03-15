@@ -16245,7 +16245,7 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral a
   <li> v1.52  2005/10/12 Anton Haumer<br>
        added BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited<br>
        using new basicMachines.Components.ElectricalExcitation<br>
-       as well as a new exmaple.</li>
+       as well as a new example.</li>
   <li> v1.53  2005/10/14 Anton Haumer<br>
        introduced unsymmetrical DamperCage for Synchronous Machines</li>
   <li> v1.60  2005/11/04 Anton Haumer<br>
