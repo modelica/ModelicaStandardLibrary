@@ -695,6 +695,79 @@ Delta (polygon) connection of a multi phase circuit consiting of multiple base s
 </html>"));
     end MultiDelta;
 
+    model MultiStarResistance "Resistance connection of star points"
+      parameter Integer m(final min=3) = 3 "Number of phases";
+      final parameter Integer mBasic=
+          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          m) "Number of symmetric base systems";
+      parameter Modelica.SIunits.Resistance R=1e6
+        "Insulation resistance between base systems";
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug(m=m)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Modelica.Electrical.MultiPhase.Basic.MultiStar multiStar(m=m) annotation (
+         Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-50,0})));
+      Modelica.Electrical.MultiPhase.Basic.Resistor resistor(m=mBasic, R=fill(R,
+            mBasic)) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={0,0})));
+      Modelica.Electrical.MultiPhase.Basic.Star star(m=mBasic) annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={50,0})));
+      Modelica.Electrical.Analog.Interfaces.NegativePin pin
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={100,0})));
+    equation
+      connect(plug, multiStar.plug_p) annotation (Line(
+          points={{-100,4.44089e-16},{-100,0},{-60,0},{-60,4.44089e-16}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(multiStar.starpoints, resistor.plug_p) annotation (Line(
+          points={{-40,4.44089e-16},{-40,0},{-10,0}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(resistor.plug_n, star.plug_p) annotation (Line(
+          points={{10,0},{10,0},{34,0},{34,0},{40,0},{40,6.66134e-16}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(star.pin_n, pin) annotation (Line(
+          points={{60,6.66134e-16},{60,0},{98,0},{98,0},{100,0},{100,
+              4.44089e-16}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),      graphics), Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics={
+            Line(
+              points={{-40,40},{0,0},{40,40},{0,0},{0,-40}},
+              color={0,0,255},
+              smooth=Smooth.None,
+              origin={-60,0},
+              rotation=90),
+            Rectangle(extent={{-10,20},{10,-20}}, lineColor={0,0,255},
+              origin={0,0},
+              rotation=90),
+            Line(
+              points={{-40,40},{0,0},{40,40},{0,0},{0,-40}},
+              color={0,0,255},
+              smooth=Smooth.None,
+              origin={60,0},
+              rotation=90)}),
+        Documentation(info="<html>
+<p>
+Multi star points are connected by resistors. This model is required to operate multi phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>.
+</p>
+</html>"));
+    end MultiStarResistance;
+
     model PlugToPin_p "Connect one (positive) Pin"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Integer k(
@@ -3426,14 +3499,6 @@ The package is based on the plug: a composite connector containing m pins.<br>
 It is possible to connect plugs to plugs or single pins of a plug to single pins.<br>
 Potentials may be accessed as <code>plug.pin[].v</code>, currents may be accessed as <code>plug.pin[].i</code>.
 </p>
-<p>
-Further development:
-</p>
-
-<ul>
-<li>temperature-dependent resistor</li>
-<li>lines (m-phase models)</li>
-</ul>
 
 <dl>
   <dt><b>Main Authors:</b></dt>
