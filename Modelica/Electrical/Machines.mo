@@ -3,7 +3,7 @@ package Machines "Library for electric machines"
   extends Modelica.Icons.Package;
   package UsersGuide "User's Guide"
     extends Modelica.Icons.Information;
-    class Concept "Fundamental wave concept"
+    class Concept "Concept"
       extends Modelica.Icons.Information;
       annotation (preferredView="info",Documentation(info="<html>
 <p>This package contains electric machine models and components for modeling these machines.</p>
@@ -328,10 +328,9 @@ SM_ElectricalExcited</a>
 </table>
 </html>"));
     end References;
-    annotation (preferredView="info",Documentation(info="<html>
+    annotation (preferredView="info",DocumentationClass=true, Documentation(info="<html>
 <p>
-This is the library of quasi static fundamental wave models for multi phase electric machines. This is complementary library with the transient machine models of 
-<a href=\"modelica://\"></a>
+This is the library of electric machine models.
 </p>
 
 </html>"));
