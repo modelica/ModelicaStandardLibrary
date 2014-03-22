@@ -304,16 +304,17 @@ The reason could be that
   partial model ConditionalHeatPort
     "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
-    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+    parameter Boolean useHeatPort = false "=true, if heatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Modelica.SIunits.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort
+      "Conditional heat port"
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
     Modelica.SIunits.Power LossPower
-      "Loss power leaving component via HeatPort";
-    Modelica.SIunits.Temperature T_heatPort "Temperature of HeatPort";
+      "Loss power leaving component via heatPort";
+    Modelica.SIunits.Temperature T_heatPort "Temperature of heatPort";
   equation
     if not useHeatPort then
        T_heatPort = T;
@@ -342,7 +343,8 @@ ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
 <b>T_heatPort</b> can be used to describe the influence of the device temperature
 on the model behaviour.
 </p>
-</html>"));
+</html>"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics));
   end ConditionalHeatPort;
 
   partial model AbsoluteSensor

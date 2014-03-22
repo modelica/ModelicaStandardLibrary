@@ -3343,7 +3343,8 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
     partial model ConditionalHeatPort
       "Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network"
       parameter Integer mh(min=1) = 3 "Number of heatPorts=number of phases";
-      parameter Boolean useHeatPort=false "=true, if all HeatPorts are enabled"
+      parameter Boolean useHeatPort=false
+        "=true, if all heat ports are enabled"
         annotation (
         Evaluate=true,
         HideResult=true,
@@ -3352,7 +3353,8 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
         "Fixed device temperatures if useHeatPort = false"
         annotation (Dialog(enable=not useHeatPort));
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort[mh] if
-        useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
+        useHeatPort "Conditional heat ports"
+                    annotation (Placement(transformation(extent={{-10,-110},{10,
                 -90}}), iconTransformation(extent={{-10,-110},{10,-90}})));
       annotation (Documentation(revisions="<html>
 <ul>
@@ -3368,7 +3370,8 @@ This partial model provides conditional heat ports for the connection to a therm
      the fixed device temperatures.</li>
 <li> If <b>useHeatPort</b> is set to <b>true</b>, all heat ports are available.</li>
 </ul>
-</html>"));
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end ConditionalHeatPort;
 
     partial model TwoPlug "Component with one m-phase electric port"
