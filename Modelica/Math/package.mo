@@ -5012,7 +5012,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
       Real Awork[size(A, 1), size(A, 1)]=A;
       Real work[12*size(A, 1)];
 
-    external"Fortran 77" dgeev(
+    external"FORTRAN 77" dgeev(
               "N",
               "V",
               n,
@@ -5149,11 +5149,11 @@ Lapack documentation
       Real EigenvectorsL[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
 
       /*
-    external "Fortran 77" dgeev("N", "V", size(A, 1), Awork, size(A, 1),
+    external "FORTRAN 77" dgeev("N", "V", size(A, 1), Awork, size(A, 1),
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
         Eigenvectors, size(Eigenvectors, 1), work, size(work, 1), info)
 */
-    external"Fortran 77" dgeev(
+    external"FORTRAN 77" dgeev(
               "N",
               "N",
               size(A, 1),
@@ -5286,7 +5286,7 @@ Lapack documentation
       Real dummy1[1, 1];
       Real dummy2[1, 1];
 
-    external"Fortran 77" dgegv(
+    external"FORTRAN 77" dgegv(
               "N",
               "N",
               n,
@@ -6413,7 +6413,7 @@ For details of the arguments, see documentation of dgbsv.
       Integer lwork=5*size(A, 1) + 5*size(A, 2);
       Real work[5*size(A, 1) + 5*size(A, 2)];
 
-    external"Fortran 77" dgesvd(
+    external"FORTRAN 77" dgesvd(
               "A",
               "A",
               size(A, 1),
@@ -6559,7 +6559,7 @@ For details of the arguments, see documentation of dgbsv.
       Integer lwork=5*size(A, 1) + 5*size(A, 2);
       Real work[5*size(A, 1) + 5*size(A, 2)];
 
-    external"Fortran 77" dgesvd(
+    external"FORTRAN 77" dgesvd(
               "N",
               "N",
               size(A, 1),
@@ -7340,7 +7340,7 @@ external"FORTRAN 77" dgees(
         "Estimated reciprocal condition number of the specified invariant subspace";
       output Integer info;
 
-    external"Fortran 77" dtrsen(
+    external"FORTRAN 77" dtrsen(
               job,
               compq,
               select,
@@ -7864,7 +7864,7 @@ external"FORTRAN 77" dgees(
       Integer lda=max(1, m);
       Integer ldb=max(1, n);
 
-    external"Fortran 77" dtrsyl(
+    external"FORTRAN 77" dtrsyl(
               trana,
               tranb,
               isgn,
@@ -7984,7 +7984,7 @@ external"FORTRAN 77" dgees(
       Integer lwork=3*max(1, size(H, 1))
         "Dimension of the dwork array used in dhseqr";
 
-    external"Fortran 77" dhseqr(
+    external"FORTRAN 77" dhseqr(
               job,
               compz,
               n,
@@ -8160,7 +8160,7 @@ external"FORTRAN 77" dgees(
       Integer lda=max(1, size(A, 1));
       Real work[lda];
 
-    external"Fortran 77" anorm = dlange(
+    external"FORTRAN 77" anorm = dlange(
               norm,
               m,
               n,
@@ -8238,7 +8238,7 @@ external"FORTRAN 77" dgees(
       Integer iwork[size(LU_of_A, 2)];
       String norm=if inf then "I" else "1";
 
-    external"Fortran 77" dgecon(
+    external"FORTRAN 77" dgecon(
               norm,
               n,
               LU_of_A,
@@ -8317,7 +8317,7 @@ external"FORTRAN 77" dgees(
       Integer lwork=max(1, 3*n);
       Real work[max(1, 3*size(A, 1))];
 
-    external"Fortran 77" dgehrd(
+    external"FORTRAN 77" dgehrd(
               n,
               ilo,
               ihi,
@@ -8432,7 +8432,7 @@ external"FORTRAN 77" dgees(
       Integer lda=max(1, m);
       Integer lwork=3*max(1, n);
 
-    external"Fortran 77" dgeqrf(
+    external"FORTRAN 77" dgeqrf(
               m,
               n,
               Aout,
@@ -8535,7 +8535,7 @@ external"FORTRAN 77" dgees(
       Real work[size(A, 1)*(size(A, 1) + 6)];
       Integer iwork[1];
 
-    external"Fortran 77" dgeevx(
+    external"FORTRAN 77" dgeevx(
               "B",
               "V",
               "V",
@@ -8759,7 +8759,7 @@ external"FORTRAN 77" dgees(
         2)) + max(max(size(A, 1), size(A, 2)), 4*min(size(A, 1), size(A, 2))*
         min(size(A, 1), size(A, 2)) + 4*min(size(A, 1), size(A, 2)))))];
 
-    external"Fortran 77" dgesdd(
+    external"FORTRAN 77" dgesdd(
               "A",
               size(A, 1),
               size(A, 2),
@@ -8928,7 +8928,7 @@ external"FORTRAN 77" dgees(
       Real work[max(1, 8*size(A, 1))];
       Integer lda=max(1, n);
 
-    external"Fortran 77" dggev(
+    external"FORTRAN 77" dggev(
               "V",
               "V",
               nA,
@@ -9103,7 +9103,7 @@ external"FORTRAN 77" dgees(
       Integer iwork[size(A, 1) + 6];
       Integer bwork[size(A, 1)];
 
-    external"Fortran 77" dggevx(
+    external"FORTRAN 77" dggevx(
               "B",
               "V",
               "V",
@@ -9400,7 +9400,7 @@ external"FORTRAN 77" dgees(
                 1,
                 n);
 
-    external"Fortran 77" dhgeqz(
+    external"FORTRAN 77" dhgeqz(
               "E",
               "N",
               "N",
@@ -9639,7 +9639,7 @@ external"FORTRAN 77" dgees(
       Integer lwork=max(1, 2*size(A, 2));
       Real work[max(1, 2*size(A, 2))];
 
-    external"Fortran 77" dormhr(
+    external"FORTRAN 77" dormhr(
               side,
               trans,
               m,
@@ -9765,7 +9765,7 @@ external"FORTRAN 77" dgees(
       Integer lwork=if side == "L" then max(1, n) else max(1, m);
       Real work[if side == "L" then max(1, size(C, 2)) else max(1, size(C, 1))];
 
-    external"Fortran 77" dormqr(
+    external"FORTRAN 77" dormqr(
               side,
               trans,
               m,
@@ -9888,7 +9888,7 @@ external"FORTRAN 77" dgees(
       Integer ldvr=max(1, n);
       Real work[3*size(T, 1)];
 
-    external"Fortran 77" dtrevc(
+    external"FORTRAN 77" dtrevc(
               side,
               howmny,
               select,
@@ -10124,7 +10124,7 @@ external"FORTRAN 77" dgees(
       Integer lda=if right then max(1, n) else max(1, m) "First dimension of A";
       Integer ldb=max(1, m) "First dimension of B";
 
-    external"Fortran 77" dtrsm(
+    external"FORTRAN 77" dtrsm(
               side,
               uplo,
               transA,
@@ -10270,7 +10270,7 @@ external"FORTRAN 77" dgees(
       Integer lwork=max(1, 3*n);
       Real work[max(1, 3*size(A, 1))];
 
-    external"Fortran 77" dorghr(
+    external"FORTRAN 77" dorghr(
               n,
               ilo,
               ihi,
