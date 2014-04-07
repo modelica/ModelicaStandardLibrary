@@ -4,7 +4,6 @@
 #include <stddef.h>
 #include <stdarg.h>
 
-
 /* Utility functions which can be called by external Modelica functions.
 
    These functions are defined in section 12.8.6 of the
@@ -16,6 +15,32 @@
    window of the respective simulation tool. Therefore, only
    this header file is shipped with the Modelica Standard Library.
 */
+
+/*
+ * Some of the functions never return to the caller. In order to compile
+ * external Modelica C-code in most compilers, noreturn attributes need to
+ * be present to avoid warnings or errors.
+ *
+ * The following macros handle noreturn attributes according to the latest
+ * C11/C++11 standard with fallback to GNU or MSVC extensions if using an
+ * older compiler.
+ */
+#if __STDC_VERSION__ >= 201112L
+#define MODELICA_NORETURN _Noreturn
+#define MODELICA_NORETURNATTR
+#elif __cplusplus >= 201103L
+#define MODELICA_NORETURN [[noreturn]]
+#define MODELICA_NORETURNATTR
+#elif defined(__GNUC__)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#elif defined(_MSC_VER)
+#define MODELICA_NORETURN __declspec(noreturn)
+#define MODELICA_NORETURNATTR
+#else
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#endif
 
 void ModelicaMessage(const char *string);
 /*
@@ -35,7 +60,7 @@ Output the message under the same format control as the C-function vprintf.
   */
 
 
-void ModelicaError(const char *string);
+MODELICA_NORETURN void ModelicaError(const char *string) MODELICA_NORETURNATTR;
 /*
 Output the error message string (no format control). This function
 never returns to the calling function, but handles the error
@@ -43,7 +68,7 @@ similarly to an assert in the Modelica code.
 */
 
 
-void ModelicaFormatError(const char *string,...);
+MODELICA_NORETURN void ModelicaFormatError(const char *string,...) MODELICA_NORETURNATTR;
 /*
 Output the error message under the same format control as the C-function
 printf. This function never returns to the calling function,
@@ -51,7 +76,7 @@ but handles the error similarly to an assert in the Modelica code.
 */
 
 
-void ModelicaVFormatError(const char *string, va_list);
+MODELICA_NORETURN void ModelicaVFormatError(const char *string, va_list) MODELICA_NORETURNATTR;
 /*
 Output the error message under the same format control as the C-function
 vprintf. This function never returns to the calling function,
