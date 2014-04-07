@@ -132,7 +132,11 @@
 
 #include <stdarg.h>
 
+#if defined(__cplusplus)
+#define EXTERN extern "C"
+#else
 #define EXTERN extern
+#endif
 
 /** @defgroup MAT Matlab MAT File I/O Library */
 /** @defgroup mat_util MAT File I/O Utitlity Functions */
