@@ -55,23 +55,11 @@
 #define _GNU_SOURCE 1
 #endif
 #include "ModelicaStandardTables.h"
-#if defined(__cplusplus)
-extern "C" {
-#endif
 #include "ModelicaUtilities.h"
-#if defined(__cplusplus)
-}
-#endif
 #if !defined(NO_FILE_SYSTEM)
 #include <stdio.h>
 #include <locale.h>
-#if defined(__cplusplus)
-extern "C" {
-#endif
 #include "ModelicaMatIO.h"
-#if defined(__cplusplus)
-}
-#endif
 #endif
 #include <float.h>
 #include <math.h>
