@@ -1,0 +1,203 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Blocks.Interaction.Show</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Library of blocks to show variables in a diagram animation&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Show<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Interaction.Show"></A><A HREF="Modelica_Blocks_Interaction.html#Modelica.Blocks.Interaction"
+>Modelica.Blocks.Interaction</A>.Show</H2>
+<B>Library of blocks to show variables in a diagram animation</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Interacti77f846e6defc327cValueS.png" ALT="Modelica.Blocks.Interaction.Show.RealValue" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Interaction_Show.html#Modelica.Blocks.Interaction.Show.RealValue"
+>RealValue</A>
+</TD><TD>Show Real value from numberPort or from number input field in diagram layer dynamically</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Interacti52235e782aa3793cValueS.png" ALT="Modelica.Blocks.Interaction.Show.IntegerValue" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Interaction_Show.html#Modelica.Blocks.Interaction.Show.IntegerValue"
+>IntegerValue</A>
+</TD><TD>Show Integer value from numberPort or from number input field in diagram layer dynamically</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Interacti3e1c80f61724102dValueS.png" ALT="Modelica.Blocks.Interaction.Show.BooleanValue" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Interaction_Show.html#Modelica.Blocks.Interaction.Show.BooleanValue"
+>BooleanValue</A>
+</TD><TD>Show Boolean value from numberPort or from number input field in diagram layer dynamically</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RealValue<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Interacti77f846e6defc327cValueI.png" ALT="Modelica.Blocks.Interaction.Show.RealValue" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Interaction.Show.RealValue"></A><A HREF="Modelica_Blocks_Interaction_Show.html#Modelica.Blocks.Interaction.Show"
+>Modelica.Blocks.Interaction.Show</A>.RealValue</H2>
+<B>Show Real value from numberPort or from number input field in diagram layer dynamically</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block visualizes a Real number in a diagram animation.
+The number to be visualized can be defined in the following ways:
+</p>
+
+<ul>
+<li> If useNumberPort = <b>true</b> (which is the default), a Real
+     input is present and this input variable is shown.</li>
+
+<li> If useNumberPort = <b>false</b> no input connector is present.
+     Instead, a Real input field is activated in the parameter menu
+     and the Real expression from this input menu is shown.</li>
+</ul>
+
+<p>
+The two versions of the block are shown in the following image (in the right variant, the
+name of the variable value that is displayed is also shown below the icon):
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Interaction/RealValue.png"
+     alt="RealValue.png">
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.RealNetwork1"
+>Modelica.Blocks.Examples.RealNetwork1</a>.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>use_numberPort</TD><TD>= true, if numberPort enabled</TD></TR>
+<TR><TD>number</TD><TD>Number to visualize if use_numberPort=false (time varying)</TD></TR>
+<TR><TD>significantDigits</TD><TD>Number of significant digits to be shown</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>numberPort</TD><TD>Number to be shown in diagram layer if use_numberPort = true</TD></TR>
+<TR><TD>showNumber</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerValue<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Interacti52235e782aa3793cValueI.png" ALT="Modelica.Blocks.Interaction.Show.IntegerValue" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Interaction.Show.IntegerValue"></A><A HREF="Modelica_Blocks_Interaction_Show.html#Modelica.Blocks.Interaction.Show"
+>Modelica.Blocks.Interaction.Show</A>.IntegerValue</H2>
+<B>Show Integer value from numberPort or from number input field in diagram layer dynamically</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block visualizes an Integer number in a diagram animation.
+The number to be visualized can be defined in the following ways:
+</p>
+
+<ul>
+<li> If useNumberPort = <b>true</b> (which is the default), an Integer
+     input is present and this input variable is shown.</li>
+
+<li> If useNumberPort = <b>false</b> no input connector is present.
+     Instead, an Integer input field is activated in the parameter menu
+     and the Integer expression from this input menu is shown.</li>
+</ul>
+
+<p>
+The two versions of the block are shown in the following image (in the right variant, the
+name of the variable value that is displayed is also shown below the icon):
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Interaction/IntegerValue.png"
+     alt="IntegerValue.png">
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
+>Modelica.Blocks.Examples.IntegerNetwork1</a>.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>use_numberPort</TD><TD>= true, if numberPort enabled</TD></TR>
+<TR><TD>number</TD><TD>Number to visualize if use_numberPort=false (time varying)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>numberPort</TD><TD>Number to be shown in diagram layer if use_numberPort = true</TD></TR>
+<TR><TD>showNumber</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanValue<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Interacti3e1c80f61724102dValueI.png" ALT="Modelica.Blocks.Interaction.Show.BooleanValue" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Interaction.Show.BooleanValue"></A><A HREF="Modelica_Blocks_Interaction_Show.html#Modelica.Blocks.Interaction.Show"
+>Modelica.Blocks.Interaction.Show</A>.BooleanValue</H2>
+<B>Show Boolean value from numberPort or from number input field in diagram layer dynamically</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block visualizes a Boolean variable in a diagram animation.
+The Boolean variable to be visualized can be defined in the following ways:
+</p>
+
+<ul>
+<li> If useActivePort = <b>true</b> (which is the default), a Boolean
+     input is present and this input variable is shown.</li>
+
+<li> If useActivePort = <b>false</b> no input connector is present.
+     Instead, a Boolean input field is activated in the parameter menu
+     and the Boolean expression from this input menu is shown.</li>
+</ul>
+
+<p>
+If the Boolean variable is <b>false</b> the block is "grey", otherwise, it is "green".
+The two versions of the block are shown in the following image (in the right variant, the
+name of the variable value that is displayed is also shown below the icon):
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Interaction/BooleanValue.png"
+     alt="BooleanValue.png">
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+>Modelica.Blocks.Examples.BooleanNetwork1</a>.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>use_activePort</TD><TD>= true, if activePort enabled</TD></TR>
+<TR><TD>active</TD><TD>Boolean variable to visualize if use_activePort=false (time varying)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>activePort</TD><TD>Boolean variable to be shown in diagram layer if use_activePort = true</TD></TR>
+<TR><TD>showActive</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:24 2013.
+</address></BODY>
+</HTML>

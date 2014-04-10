@@ -1,0 +1,216 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.Examples.Transformers</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Test examples of transformers&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Transformers<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.Examples.Transformers"></A><A HREF="Modelica_Electrical_Machines_Examples.html#Modelica.Electrical.Machines.Examples"
+>Modelica.Electrical.Machines.Examples</A>.Transformers</H2>
+<B>Test examples of transformers</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This package contains test examples of DC machines.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machic7a3e356571be39aC_DOLS.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench"
+>TransformerTestbench</A>
+</TD><TD>Transformer Testbench</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machic7a3e356571be39aC_DOLS.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad"
+>AsymmetricalLoad</A>
+</TD><TD>AsymmetricalLoad</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machic7a3e356571be39aC_DOLS.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse"
+>Rectifier6pulse</A>
+</TD><TD>6-pulse rectifier with 1 transformer</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machic7a3e356571be39aC_DOLS.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse"
+>Rectifier12pulse</A>
+</TD><TD>12-pulse rectifier with 2 transformers</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machic7a3e356571be39aC_DOLS.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.AIMC_Transformer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.AIMC_Transformer"
+>AIMC_Transformer</A>
+</TD><TD>Test example: AsynchronousInductionMachineSquirrelCage transformer starting</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TransformerTestbench<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi5d117060c647c4bdbenchI.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench"></A><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers"
+>Modelica.Electrical.Machines.Examples.Transformers</A>.TransformerTestbench</H2>
+<B>Transformer Testbench</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Transformer testbench:</h4>
+<p>
+You may choose different connections as well as vary the load (even not symmetrical).
+</p>
+<p>
+<b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
+The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).
+</p>
+<p>
+In some cases it may be necessary to ground the transformer's starpoint even though the source's or load's starpoint are grounded:
+</p>
+<ul>
+<li>Yy ... Grounding of transformer's primary or secondary starpoint with reasonable high earthing resistance is necessary.</li>
+<li>Yd ... No grounding necessary.</li>
+<li>Yz ... Grounding of transformer's primary starpoint with reasonable high earthing resistance is necessary.</li>
+<li>Dy ... No grounding necessary.</li>
+<li>Dd ... No grounding necessary.</li>
+<li>Dz ... No grounding necessary.</li>
+</ul>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>RL[3]</TD><TD>Load resistance [Ohm]</TD></TR>
+<TR><TD>transformerData</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AsymmetricalLoad<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi5d117060c647c4bdbenchI.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad"></A><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers"
+>Modelica.Electrical.Machines.Examples.Transformers</A>.AsymmetricalLoad</H2>
+<B>AsymmetricalLoad</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Asymmetrical (singlephase) load:</h4>
+<p>
+You may choose different connections.
+</p>
+<p>
+<b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
+The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).
+</p>
+<p>
+In some cases it may be necessary to ground the transformer's starpoint even though the source's or load's starpoint are grounded:
+</p>
+<ul>
+<li>Yy with primary starpoint connected to source's starpoint: primary current in only one phase</li>
+<li>Yy primary starpoint  not connected to source's starpoint: secondary voltage breaks down</li>
+<li>Yz ... Grounding of transformer's primary starpoint with reasonable high earthing resistance is necessary.</li>
+<li>Dy ... Load current in two   primary phases.</li>
+<li>Dz ... Load current in three primary phases.</li>
+</ul>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>RL</TD><TD>Load resistance [Ohm]</TD></TR>
+<TR><TD>transformerData</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rectifier6pulse<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi5d117060c647c4bdbenchI.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse"></A><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers"
+>Modelica.Electrical.Machines.Examples.Transformers</A>.Rectifier6pulse</H2>
+<B>6-pulse rectifier with 1 transformer</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Test example with multiphase components:<br>
+Star-connected voltage source feeds via a transformer a diode bridge rectifier with a DC burden.<br>
+Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
+neglecting initial transient.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>V</TD><TD>Amplitude of star-voltage [V]</TD></TR>
+<TR><TD>f</TD><TD>Frequency [Hz]</TD></TR>
+<TR><TD>RL</TD><TD>Load resistance [Ohm]</TD></TR>
+<TR><TD>C</TD><TD>Total DC-capacitance [F]</TD></TR>
+<TR><TD>VC0</TD><TD>Initial voltage of capacitance [V]</TD></TR>
+<TR><TD>transformerData1</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rectifier12pulse<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi5d117060c647c4bdbenchI.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse"></A><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers"
+>Modelica.Electrical.Machines.Examples.Transformers</A>.Rectifier12pulse</H2>
+<B>12-pulse rectifier with 2 transformers</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Test example with multiphase components:<br>
+Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode bridge rectifiers with a single DC burden.<br>
+Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
+neglecting initial transient.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse"
+>Machines.Examples.Transformers.Rectifier6pulse</A> (6-pulse rectifier with 1 transformer).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>V</TD><TD>Amplitude of star-voltage [V]</TD></TR>
+<TR><TD>f</TD><TD>Frequency [Hz]</TD></TR>
+<TR><TD>RL</TD><TD>Load resistance [Ohm]</TD></TR>
+<TR><TD>C</TD><TD>Total DC-capacitance [F]</TD></TR>
+<TR><TD>VC0</TD><TD>Initial voltage of capacitance [V]</TD></TR>
+<TR><TD>transformerData1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>transformerData2</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AIMC_Transformer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi5d117060c647c4bdbenchI.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.AIMC_Transformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Examples.Transformers.AIMC_Transformer"></A><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers"
+>Modelica.Electrical.Machines.Examples.Transformers</A>.AIMC_Transformer</H2>
+<B>Test example: AsynchronousInductionMachineSquirrelCage transformer starting</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<b>Test example: Asynchronous induction machine with squirrel cage - transformer starting</b><br>
+At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
+at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.<br>
+Simulate for 2.5 seconds and plot (versus time):
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>aimc.wMechanical: motor's speed</li>
+<li>aimc.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_Examples_AsynchronousInductionMachines.html#Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer"
+>Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer</A> (Test example: AsynchronousInductionMachineSquirrelCage transformer starting).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>VNominal</TD><TD>Nominal RMS voltage per phase [V]</TD></TR>
+<TR><TD>fNominal</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD>tStart1</TD><TD>Start time [s]</TD></TR>
+<TR><TD>tStart2</TD><TD>Start time of bypass transformer [s]</TD></TR>
+<TR><TD>TLoad</TD><TD>Nominal load torque [N.m]</TD></TR>
+<TR><TD>wLoad</TD><TD>Nominal load speed [rad/s]</TD></TR>
+<TR><TD>JLoad</TD><TD>Load&#39;s moment of inertia [kg.m2]</TD></TR>
+<TR><TD>transformerData</TD><TD>&nbsp;</TD></TR>
+<TR><TD>aimcData</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:29 2013.
+</address></BODY>
+</HTML>

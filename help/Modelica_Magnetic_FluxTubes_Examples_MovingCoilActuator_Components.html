@@ -1,0 +1,151 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Components to be used in examples&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Components<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator"
+>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</A>.Components</H2>
+<B>Components to be used in examples</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubea467ac2f8a3d05fuatorS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
+>PermeanceActuator</A>
+</TD><TD>Detailed actuator model for rough magnetic design of actuator and system simulation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubf6ea28b8a95fc56euatorS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
+>ConstantActuator</A>
+</TD><TD>Simple behavioural actuator model for system simulation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PermeanceActuator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubea467ac2f8a3d05fuatorI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components"
+>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components</A>.PermeanceActuator</H2>
+<B>Detailed actuator model for rough magnetic design of actuator and system simulation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+In the <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
+>ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
+</p>
+
+<pre>
+        1  2 dL
+    F = - i  --  + c i
+        2    dx
+</pre>
+
+<p>
+Both force components are properly considered with a simple permeance model as shown in the figures below. Figure (a) illustrates the dimensions of the axisymmetric moving coil actuator that are needed in the permeance model. Figure (b) shows partitioning into flux tubes and the permanent magnetic field without current. G_ma and G_mb both are the permeances resulting from a series connection of the permanent magnet and air gap sections. The field plot of the coil-imposed mmf is shown in figure (c) without the permanent magnetic mmf (H_cB=0). The placement of the magnetic network components in figure (d) retains the geometric structure of the actuator. In figure (e), the permeance model is restructured and thus simplified.
+</p>
+
+<p>
+<IMG src="../Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_PermeanceModel.png" ALT="Structure, assigned flux tubes and field plots of the moving coil actuator">
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>N</TD><TD>Number of turns</TD></TR>
+<TR><TD colspan=2><IMG SRC="./modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_dimensions.png"></TD></TR>
+<TR><TD>R</TD><TD>Coil resistance [Ohm]</TD></TR>
+<TR><TD>r_core</TD><TD>Radius of ferromagnetic stator core [m]</TD></TR>
+<TR><TD>l_PM</TD><TD>Radial thickness of permanent magnet ring [m]</TD></TR>
+<TR><TD>t</TD><TD>Axial length of permanent magnet ring and air gap respectively [m]</TD></TR>
+<TR><TD>l_air</TD><TD>Total radial length of armature air gap [m]</TD></TR>
+<TR><TD>l_FeOut</TD><TD>Radial thickness of outer back iron (for estimation of leakage permeance) [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Material</TD></TR>
+<TR><TD>material</TD><TD>Ferromagnetic material characteristics</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Armature and stopper</TD></TR>
+<TR><TD>m_a</TD><TD>Mass of armature [kg]</TD></TR>
+<TR><TD>c</TD><TD>Spring stiffness between impact partners [N/m]</TD></TR>
+<TR><TD>d</TD><TD>Damping coefficient between impact partners [N.s/m]</TD></TR>
+<TR><TD>x_min</TD><TD>Position of stopper at minimum armature position [m]</TD></TR>
+<TR><TD>x_max</TD><TD>Position of stopper at maximum armature position [m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Electrical connector</TD></TR>
+<TR><TD>n</TD><TD>Electrical connector</TD></TR>
+<TR><TD>flange</TD><TD>Flange of component</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConstantActuator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubf6ea28b8a95fc56euatorI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components"
+>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components</A>.ConstantActuator</H2>
+<B>Simple behavioural actuator model for system simulation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Similar to rotational DC-Motors, the electro-mechanical energy conversion of translatory electrodynamic actuators and generators of moving coil and moving magnet type can be described with the following two converter equations:
+</p>
+
+<pre>
+      F = c * i
+    V_i = c * v
+</pre>
+
+<p>
+with electrodynamic or <i>Lorentz</i> force F, converter constant c, current i, induced back-emf V_i and armature velocity v. The model is very similar to the well-known behavioural model of a rotational one-phase DC-Machine, except that it is for translatory motion. For a moving coil actuator with a coil inside an air gap with flux density B and a total wire length l inside the magnetic field, the converter constant becomes
+</p>
+
+<pre>
+    c = B * l.
+</pre>
+
+<p>
+The converter constant c as well as coil resistance R and inductance L are assumed to be known, e.g., from measurements or catalogue data. Hence this model is well-suited for system simulation together with neighbouring subsystems, but not for actuator design, where the motor constant is to be found on base of the magnetic circuit's geometry, material properties and winding data. See <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
+>PermeanceActuator</a> for a more accurate model of this actuator that is based on a magnetic network. Due to identical connectors, both models can be used in system simulation, e.g. to simulate a stroke as demonstrated in <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke"
+>ArmatureStroke</a>.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>k</TD><TD>Converter constant [N/A]</TD></TR>
+<TR><TD>R</TD><TD>Coil resistance [Ohm]</TD></TR>
+<TR><TD>L</TD><TD>Coil inductance at mid-stroke [H]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Armature and stopper</TD></TR>
+<TR><TD>m_a</TD><TD>Armature mass [kg]</TD></TR>
+<TR><TD>c</TD><TD>Spring stiffness between impact partners [N/m]</TD></TR>
+<TR><TD>d</TD><TD>Damping coefficient between impact partners [N.s/m]</TD></TR>
+<TR><TD>x_min</TD><TD>Minimum armature position [m]</TD></TR>
+<TR><TD>x_max</TD><TD>Maximum armature position [m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Electrical connector</TD></TR>
+<TR><TD>n</TD><TD>Electrical connector</TD></TR>
+<TR><TD>flange</TD><TD>Flange of component</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:37 2013.
+</address></BODY>
+</HTML>

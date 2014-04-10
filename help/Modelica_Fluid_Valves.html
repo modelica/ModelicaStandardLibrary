@@ -1,0 +1,372 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Valves</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Components for the regulation and control of fluid flow&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Valves<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Valves"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</A>.Valves</H2>
+<B>Components for the regulation and control of fluid flow</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.Valbdd15ef2601afe41sibleS.png" ALT="Modelica.Fluid.Valves.ValveIncompressible" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves.ValveIncompressible"
+>ValveIncompressible</A>
+</TD><TD>Valve for (almost) incompressible fluids</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.Valbdd15ef2601afe41sibleS.png" ALT="Modelica.Fluid.Valves.ValveVaporizing" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves.ValveVaporizing"
+>ValveVaporizing</A>
+</TD><TD>Valve for possibly vaporizing (almost) incompressible fluids, accounts for choked flow conditions</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.Valbdd15ef2601afe41sibleS.png" ALT="Modelica.Fluid.Valves.ValveCompressible" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves.ValveCompressible"
+>ValveCompressible</A>
+</TD><TD>Valve for compressible fluids, accounts for choked flow conditions</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.ValveLinearS.png" ALT="Modelica.Fluid.Valves.ValveLinear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves.ValveLinear"
+>ValveLinear</A>
+</TD><TD>Valve for water/steam flows with linear pressure drop</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.ValveDiscreteS.png" ALT="Modelica.Fluid.Valves.ValveDiscrete" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves.ValveDiscrete"
+>ValveDiscrete</A>
+</TD><TD>Valve for water/steam flows with linear pressure drop</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.BaseClassesS.png" ALT="Modelica.Fluid.Valves.BaseClasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves_BaseClasses.html#Modelica.Fluid.Valves.BaseClasses"
+>BaseClasses</A>
+</TD><TD>Base classes used in the Valves package (only of interest to build new component models)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ValveIncompressible<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Valves.Valbdd15ef2601afe41sibleI.png" ALT="Modelica.Fluid.Valves.ValveIncompressible" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Valves.ValveIncompressible"></A><A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves"
+>Modelica.Fluid.Valves</A>.ValveIncompressible</H2>
+<B>Valve for (almost) incompressible fluids</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluids.<
+/p>
+
+<p>
+The parameters of this model are explained in detail in
+<A HREF="Modelica_Fluid_Valves_BaseClasses.html#Modelica.Fluid.Valves.BaseClasses.PartialValve"
+>PartialValve</a>
+(the base model for valves).
+</p>
+
+<p>
+This model assumes that the fluid has a low compressibility, which is always the case for liquids.
+It can also be used with gases, provided that the pressure drop is lower than 0.2 times the absolute pressure at the inlet, so that the fluid density does not change much inside the valve.</p>
+
+<p>
+If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).
+</p>
+
+<p>
+The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+explained in detail in the
+<A HREF="Modelica_Fluid_UsersGuide_ComponentDefinition.html#Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics"
+>User's Guide</a>.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Valves_BaseClasses.html#Modelica.Fluid.Valves.BaseClasses.PartialValve"
+>BaseClasses.PartialValve</A> (Base model for valves).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>replaceable function valveCharacteristic</TD><TD>Inherent flow characteristic</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Flow Coefficient</TD></TR>
+<TR><TD>CvData</TD><TD>Selection of flow coefficient</TD></TR>
+<TR><TD>Av</TD><TD>Av (metric) flow coefficient [m2]</TD></TR>
+<TR><TD>Kv</TD><TD>Kv (metric) flow coefficient [m3/h]</TD></TR>
+<TR><TD>Cv</TD><TD>Cv (US) flow coefficient [USG/min]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Nominal operating point</TD></TR>
+<TR><TD>dp_nominal</TD><TD>Nominal pressure drop [Pa]</TD></TR>
+<TR><TD>m_flow_nominal</TD><TD>Nominal mass flowrate [kg/s]</TD></TR>
+<TR><TD>rho_nominal</TD><TD>Nominal inlet density [kg/m3]</TD></TR>
+<TR><TD>opening_nominal</TD><TD>Nominal opening</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Filtered opening</TD></TR>
+<TR><TD>filteredOpening</TD><TD>= true, if opening is filtered with a 2nd order CriticalDamping filter</TD></TR>
+<TR><TD>riseTime</TD><TD>Rise time of the filter (time to reach 99.6 % of an opening step) [s]</TD></TR>
+<TR><TD>leakageOpening</TD><TD>The opening signal is limited by leakageOpening (to improve the numerics)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR><TD>checkValve</TD><TD>Reverse flow stopped</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>dp_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR><TD>use_Re</TD><TD>= true, if turbulent region is defined by Re, otherwise by m_flow_small</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>show_T</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>show_V_flow</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>opening</TD><TD>Valve position in the range 0..1</TD></TR>
+<TR><TD>opening_filtered</TD><TD>Filtered valve position in the range 0..1</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ValveVaporizing<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Valves.Valbdd15ef2601afe41sibleI.png" ALT="Modelica.Fluid.Valves.ValveVaporizing" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Valves.ValveVaporizing"></A><A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves"
+>Modelica.Fluid.Valves</A>.ValveVaporizing</H2>
+<B>Valve for possibly vaporizing (almost) incompressible fluids, accounts for choked flow conditions</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluid at the inlet, and possibly two-phase fluid at the outlet, including choked flow conditions.</p>
+
+<p>
+The parameters of this model are explained in detail in
+<A HREF="Modelica_Fluid_Valves_BaseClasses.html#Modelica.Fluid.Valves.BaseClasses.PartialValve"
+>PartialValve</a>
+(the base model for valves).
+</p>
+
+<p>The model operating range includes choked flow operation, which takes place for low outlet pressures due to flashing in the vena contracta; otherwise, non-choking conditions are assumed.
+<p>This model requires a two-phase medium model, to describe the liquid and (possible) two-phase conditions.
+<p>The default liquid pressure recovery coefficient <code>Fl</code> is constant and given by the parameter <code>Fl_nominal</code>. The relative change (per unit) of the recovery coefficient can be specified as a given function of the valve opening by replacing the <code>FlCharacteristic</code> function.
+<p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
+
+<p>
+The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+explained in detail in the
+<A HREF="Modelica_Fluid_UsersGuide_ComponentDefinition.html#Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics"
+>User's Guide</a>.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Valves_BaseClasses.html#Modelica.Fluid.Valves.BaseClasses.PartialValve"
+>BaseClasses.PartialValve</A> (Base model for valves).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>replaceable function valveCharacteristic</TD><TD>Inherent flow characteristic</TD></TR>
+<TR><TD>Fl_nominal</TD><TD>Liquid pressure recovery factor</TD></TR>
+<TR><TD>replaceable function FlCharacteristic</TD><TD>Pressure recovery characteristic</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Flow Coefficient</TD></TR>
+<TR><TD>CvData</TD><TD>Selection of flow coefficient</TD></TR>
+<TR><TD>Av</TD><TD>Av (metric) flow coefficient [m2]</TD></TR>
+<TR><TD>Kv</TD><TD>Kv (metric) flow coefficient [m3/h]</TD></TR>
+<TR><TD>Cv</TD><TD>Cv (US) flow coefficient [USG/min]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Nominal operating point</TD></TR>
+<TR><TD>dp_nominal</TD><TD>Nominal pressure drop [Pa]</TD></TR>
+<TR><TD>m_flow_nominal</TD><TD>Nominal mass flowrate [kg/s]</TD></TR>
+<TR><TD>rho_nominal</TD><TD>Nominal inlet density [kg/m3]</TD></TR>
+<TR><TD>opening_nominal</TD><TD>Nominal opening</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Filtered opening</TD></TR>
+<TR><TD>filteredOpening</TD><TD>= true, if opening is filtered with a 2nd order CriticalDamping filter</TD></TR>
+<TR><TD>riseTime</TD><TD>Rise time of the filter (time to reach 99.6 % of an opening step) [s]</TD></TR>
+<TR><TD>leakageOpening</TD><TD>The opening signal is limited by leakageOpening (to improve the numerics)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR><TD>checkValve</TD><TD>Reverse flow stopped</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>dp_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR><TD>use_Re</TD><TD>= true, if turbulent region is defined by Re, otherwise by m_flow_small</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>show_T</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>show_V_flow</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>opening</TD><TD>Valve position in the range 0..1</TD></TR>
+<TR><TD>opening_filtered</TD><TD>Filtered valve position in the range 0..1</TD></TR>
+<TR><TD>replaceable function FlCharacteristic</TD><TD>Pressure recovery characteristic</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ValveCompressible<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Valves.Valbdd15ef2601afe41sibleI.png" ALT="Modelica.Fluid.Valves.ValveCompressible" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Valves.ValveCompressible"></A><A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves"
+>Modelica.Fluid.Valves</A>.ValveCompressible</H2>
+<B>Valve for compressible fluids, accounts for choked flow conditions</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, compressible fluid, no phase change, also covering choked-flow conditions.</p>
+
+<p>
+The parameters of this model are explained in detail in
+<A HREF="Modelica_Fluid_Valves_BaseClasses.html#Modelica.Fluid.Valves.BaseClasses.PartialValve"
+>PartialValve</a>
+(the base model for valves).
+</p>
+
+<p>This model can be used with gases and vapours, with arbitrary pressure ratio between inlet and outlet.</p>
+
+<p>The product Fk*xt is given by the parameter <code>Fxt_full</code>, and is assumed constant by default. The relative change (per unit) of the xt coefficient with the valve opening can be specified by replacing the <code>xtCharacteristic</code> function.
+<p>If <code>checkValve</code> is false, the valve supports reverse flow, with a symmetric flow characteristic curve. Otherwise, reverse flow is stopped (check valve behaviour).</p>
+
+<p>
+The treatment of parameters <b>Kv</b> and <b>Cv</b> is
+explained in detail in the
+<A HREF="Modelica_Fluid_UsersGuide_ComponentDefinition.html#Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics"
+>User's Guide</a>.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Valves_BaseClasses.html#Modelica.Fluid.Valves.BaseClasses.PartialValve"
+>BaseClasses.PartialValve</A> (Base model for valves).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>replaceable function valveCharacteristic</TD><TD>Inherent flow characteristic</TD></TR>
+<TR><TD>Fxt_full</TD><TD>Fk*xt critical ratio at full opening</TD></TR>
+<TR><TD>replaceable function xtCharacteristic</TD><TD>Critical ratio characteristic</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Flow Coefficient</TD></TR>
+<TR><TD>CvData</TD><TD>Selection of flow coefficient</TD></TR>
+<TR><TD>Av</TD><TD>Av (metric) flow coefficient [m2]</TD></TR>
+<TR><TD>Kv</TD><TD>Kv (metric) flow coefficient [m3/h]</TD></TR>
+<TR><TD>Cv</TD><TD>Cv (US) flow coefficient [USG/min]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Nominal operating point</TD></TR>
+<TR><TD>dp_nominal</TD><TD>Nominal pressure drop [Pa]</TD></TR>
+<TR><TD>m_flow_nominal</TD><TD>Nominal mass flowrate [kg/s]</TD></TR>
+<TR><TD>rho_nominal</TD><TD>Nominal inlet density [kg/m3]</TD></TR>
+<TR><TD>opening_nominal</TD><TD>Nominal opening</TD></TR>
+<TR><TD>p_nominal</TD><TD>Nominal inlet pressure [Pa]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Filtered opening</TD></TR>
+<TR><TD>filteredOpening</TD><TD>= true, if opening is filtered with a 2nd order CriticalDamping filter</TD></TR>
+<TR><TD>riseTime</TD><TD>Rise time of the filter (time to reach 99.6 % of an opening step) [s]</TD></TR>
+<TR><TD>leakageOpening</TD><TD>The opening signal is limited by leakageOpening (to improve the numerics)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR><TD>checkValve</TD><TD>Reverse flow stopped</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>dp_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR><TD>use_Re</TD><TD>= true, if turbulent region is defined by Re, otherwise by m_flow_small</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>show_T</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>show_V_flow</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>opening</TD><TD>Valve position in the range 0..1</TD></TR>
+<TR><TD>opening_filtered</TD><TD>Filtered valve position in the range 0..1</TD></TR>
+<TR><TD>replaceable function xtCharacteristic</TD><TD>Critical ratio characteristic</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ValveLinear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Valves.ValveLinearI.png" ALT="Modelica.Fluid.Valves.ValveLinear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Valves.ValveLinear"></A><A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves"
+>Modelica.Fluid.Valves</A>.ValveLinear</H2>
+<B>Valve for water/steam flows with linear pressure drop</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This very simple model provides a pressure drop which is proportional to the flowrate and to the <code>opening</code> input, without computing any fluid property. It can be used for testing purposes, when
+a simple model of a variable pressure loss is needed.</p>
+<p>A medium model must be nevertheless be specified, so that the fluid ports can be connected to other components using the same medium model.</p>
+<p>The model is adiabatic (no heat losses to the ambient) and neglects changes in kinetic energy from the inlet to the outlet.</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>Modelica.Fluid.Interfaces.PartialTwoPortTransport</A> (Partial element transporting fluid between two ports without storage of mass or energy).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>m_flow_nominal</TD><TD>Nominal mass flowrate at full opening [kg/s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Nominal operating point</TD></TR>
+<TR><TD>dp_nominal</TD><TD>Nominal pressure drop at full opening [Pa]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>dp_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>show_T</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>show_V_flow</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>opening</TD><TD>=1: completely open, =0: completely closed</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ValveDiscrete<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Valves.ValveDiscreteI.png" ALT="Modelica.Fluid.Valves.ValveDiscrete" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Valves.ValveDiscrete"></A><A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves"
+>Modelica.Fluid.Valves</A>.ValveDiscrete</H2>
+<B>Valve for water/steam flows with linear pressure drop</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This very simple model provides a (small) pressure drop which is proportional to the flowrate if the Boolean open signal is <b>true</b>. Otherwise, the mass flow rate is zero. If opening_min > 0, a small leakage mass flow rate occurs when open = <b>false</b>.
+</p>
+<p>This model can be used for simplified modelling of on-off valves, when it is not important to accurately describe the pressure loss when the valve is open. Although the medium model is not used to determine the pressure loss, it must be nevertheless be specified, so that the fluid ports can be connected to other components using the same medium model.</p>
+<p>The model is adiabatic (no heat losses to the ambient) and neglects changes in kinetic energy from the inlet to the outlet.</p>
+<p>
+In a diagram animation, the valve is shown in "green", when
+it is open.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>Modelica.Fluid.Interfaces.PartialTwoPortTransport</A> (Partial element transporting fluid between two ports without storage of mass or energy).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>m_flow_nominal</TD><TD>Nominal mass flowrate at full opening=1 [kg/s]</TD></TR>
+<TR><TD>opening_min</TD><TD>Remaining opening if closed, causing small leakage flow</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Nominal operating point</TD></TR>
+<TR><TD>dp_nominal</TD><TD>Nominal pressure drop at full opening=1 [Pa]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>dp_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>show_T</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>show_V_flow</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>open</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:48 2013.
+</address></BODY>
+</HTML>

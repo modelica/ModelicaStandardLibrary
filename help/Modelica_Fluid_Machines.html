@@ -1,0 +1,308 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Machines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Devices for converting between energy held in a fluid and mechanical energy&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Machines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Machines"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</A>.Machines</H2>
+<B>Devices for converting between energy held in a fluid and mechanical energy</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Machines.SweptVolumeS.png" ALT="Modelica.Fluid.Machines.SweptVolume" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Machines.html#Modelica.Fluid.Machines.SweptVolume"
+>SweptVolume</A>
+</TD><TD>varying cylindric volume depending on the position of the piston</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Machines.PumpS.png" ALT="Modelica.Fluid.Machines.Pump" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Machines.html#Modelica.Fluid.Machines.Pump"
+>Pump</A>
+</TD><TD>Centrifugal pump with mechanical connector for the shaft</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Machines.ControlledPumpS.png" ALT="Modelica.Fluid.Machines.ControlledPump" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Machines.html#Modelica.Fluid.Machines.ControlledPump"
+>ControlledPump</A>
+</TD><TD>Centrifugal pump with ideally controlled mass flow rate</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Machines.PrescribedPumpS.png" ALT="Modelica.Fluid.Machines.PrescribedPump" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Machines.html#Modelica.Fluid.Machines.PrescribedPump"
+>PrescribedPump</A>
+</TD><TD>Centrifugal pump with ideally controlled speed</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Machines.BaseClassesS.png" ALT="Modelica.Fluid.Machines.BaseClasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Machines_BaseClasses.html#Modelica.Fluid.Machines.BaseClasses"
+>BaseClasses</A>
+</TD><TD>Base classes used in the Machines package (only of interest to build new component models)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SweptVolume<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Machines.SweptVolumeI.png" ALT="Modelica.Fluid.Machines.SweptVolume" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Machines.SweptVolume"></A><A HREF="Modelica_Fluid_Machines.html#Modelica.Fluid.Machines"
+>Modelica.Fluid.Machines</A>.SweptVolume</H2>
+<B>varying cylindric volume depending on the position of the piston</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p> Mixing volume with varying size. The size of the volume is given by:</p>
+<ul>
+  <li>cross sectional piston area</li>
+  <li>piston stroke given by the flange position s</li>
+  <li>clearance (volume at flange position = 0)</li>
+</ul>
+<p>Losses are neglected. The shaft power is completely converted into mechanical work on the fluid.</p>
+
+<p> The flange position has to be equal or greater than zero. Otherwise the simulation stops. The force of the flange results from the pressure difference between medium and ambient pressure and the cross sectional piston area. For using the component, a top level instance of the ambient model with the inner attribute is needed.</p>
+<p> The pressure at both fluid ports equals the medium pressure in the volume. No suction nor discharge valve is included in the model.</p>
+<p>The thermal port is directly connected to the medium. The temperature of the thermal port equals the medium temperature. The heat capacity of the cylinder and the piston are not includes in the model.</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel"
+>Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel</A> (Lumped volume with a vector of fluid ports and replaceable heat transfer model).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pistonCrossArea</TD><TD>cross sectional area of piston [m2]</TD></TR>
+<TR><TD>clearance</TD><TD>remaining volume at zero piston stroke [m3]</TD></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>fluidVolume</TD><TD>Volume [m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Ports</TD></TR>
+<TR><TD>use_portsData</TD><TD>= false to neglect pressure loss and kinetic energy</TD></TR>
+<TR><TD>portsData[if use_portsData then nPorts else 0]</TD><TD>Data of inlet/outlet ports</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
+<TR><TD>energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
+<TR><TD>massDynamics</TD><TD>Formulation of mass balance</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Heat transfer</TD></TR>
+<TR><TD>use_HeatTransfer</TD><TD>= true to use the HeatTransfer model</TD></TR>
+<TR><TD>replaceable model HeatTransfer</TD><TD>Wall heat transfer</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
+<TR><TD>p_start</TD><TD>Start value of pressure [Pa]</TD></TR>
+<TR><TD>use_T_start</TD><TD>= true, use T_start, otherwise h_start</TD></TR>
+<TR><TD>T_start</TD><TD>Start value of temperature [K]</TD></TR>
+<TR><TD>h_start</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD>X_start[Medium.nX]</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
+<TR><TD>C_start[Medium.nC]</TD><TD>Start value of trace substances</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Port properties</TD></TR>
+<TR><TD>m_flow_nominal</TD><TD>Nominal value for mass flow rates in ports [kg/s]</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Regularization range at zero mass flow rate [kg/s]</TD></TR>
+<TR><TD>use_Re</TD><TD>= true, if turbulent region is defined by Re, otherwise by m_flow_small</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ports[nPorts]</TD><TD>Fluid inlets and outlets</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+<TR><TD>flange</TD><TD>translation flange for piston</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Pump<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Machines.PumpI.png" ALT="Modelica.Fluid.Machines.Pump" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Machines.Pump"></A><A HREF="Modelica_Fluid_Machines.html#Modelica.Fluid.Machines"
+>Modelica.Fluid.Machines</A>.Pump</H2>
+<B>Centrifugal pump with mechanical connector for the shaft</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <code>nParallel</code> pumps, the mechanical connector is relative to a single pump.
+<p>The model extends <code>PartialPump</code>
+ <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Machines_BaseClasses.html#Modelica.Fluid.Machines.BaseClasses.PartialPump"
+>Modelica.Fluid.Machines.BaseClasses.PartialPump</A> (Base model for centrifugal pumps).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Characteristics</TD></TR>
+<TR><TD>nParallel</TD><TD>Number of pumps in parallel</TD></TR>
+<TR><TD>replaceable function flowCharacteristic</TD><TD>Head vs. V_flow characteristic at nominal speed and density</TD></TR>
+<TR><TD>N_nominal</TD><TD>Nominal rotational speed for flow characteristic [1/min]</TD></TR>
+<TR><TD>rho_nominal</TD><TD>Nominal fluid density for characteristic [kg/m3]</TD></TR>
+<TR><TD>use_powerCharacteristic</TD><TD>Use powerCharacteristic (vs. efficiencyCharacteristic)</TD></TR>
+<TR><TD>replaceable function powerCharacteristic</TD><TD>Power consumption vs. V_flow at nominal speed and density</TD></TR>
+<TR><TD>replaceable function efficiencyCharacteristic</TD><TD>Efficiency vs. V_flow at nominal speed and density</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR><TD>checkValve</TD><TD>= true to prevent reverse flow</TD></TR>
+<TR><TD>V</TD><TD>Volume inside the pump [m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
+<TR><TD>energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
+<TR><TD>massDynamics</TD><TD>Formulation of mass balance</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Heat transfer</TD></TR>
+<TR><TD>use_HeatTransfer</TD><TD>= true to use a HeatTransfer model, e.g., for a housing</TD></TR>
+<TR><TD>replaceable model HeatTransfer</TD><TD>Wall heat transfer</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
+<TR><TD>p_a_start</TD><TD>Guess value for inlet pressure [Pa]</TD></TR>
+<TR><TD>p_b_start</TD><TD>Guess value for outlet pressure [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>use_T_start</TD><TD>= true, use T_start, otherwise h_start</TD></TR>
+<TR><TD>T_start</TD><TD>Start value of temperature [K]</TD></TR>
+<TR><TD>h_start</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD>X_start[Medium.nX]</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
+<TR><TD>C_start[Medium.nC]</TD><TD>Start value of trace substances</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>replaceable model Monitoring</TD><TD>Optional pump monitoring</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+<TR><TD>shaft</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ControlledPump<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Machines.ControlledPumpI.png" ALT="Modelica.Fluid.Machines.ControlledPump" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Machines.ControlledPump"></A><A HREF="Modelica_Fluid_Machines.html#Modelica.Fluid.Machines"
+>Modelica.Fluid.Machines</A>.ControlledPump</H2>
+<B>Centrifugal pump with ideally controlled mass flow rate</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps)
+with ideally controlled mass flow rate or pressure.
+</p>
+<p>
+Nominal values are used to predefine an exemplary pump characteristics and to define the operation of the pump.
+The input connectors <code>m_flow_set</code> or <code>p_set</code> can optionally be enabled to provide time varying set points.
+</p>
+<p>
+Use this model if the pump characteristics is of secondary interest.
+The actual characteristics can be configured later on for the appropriate rotational speed N.
+Then the model can be replaced with a Pump with rotational shaft or with a PrescribedPump.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Machines_BaseClasses.html#Modelica.Fluid.Machines.BaseClasses.PartialPump"
+>Modelica.Fluid.Machines.BaseClasses.PartialPump</A> (Base model for centrifugal pumps).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>p_a_nominal</TD><TD>Nominal inlet pressure for predefined pump characteristics [Pa]</TD></TR>
+<TR><TD>p_b_nominal</TD><TD>Nominal outlet pressure, fixed if not control_m_flow and not use_p_set [Pa]</TD></TR>
+<TR><TD>m_flow_nominal</TD><TD>Nominal mass flow rate, fixed if control_m_flow and not use_m_flow_set [kg/s]</TD></TR>
+<TR><TD>control_m_flow</TD><TD>= false to control outlet pressure port_b.p instead of m_flow</TD></TR>
+<TR><TD>use_m_flow_set</TD><TD>= true to use input signal m_flow_set instead of m_flow_nominal</TD></TR>
+<TR><TD>use_p_set</TD><TD>= true to use input signal p_set instead of p_b_nominal</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Characteristics</TD></TR>
+<TR><TD>nParallel</TD><TD>Number of pumps in parallel</TD></TR>
+<TR><TD>replaceable function flowCharacteristic</TD><TD>Head vs. V_flow characteristic at nominal speed and density</TD></TR>
+<TR><TD>N_nominal</TD><TD>Nominal rotational speed for flow characteristic [1/min]</TD></TR>
+<TR><TD>rho_nominal</TD><TD>Nominal fluid density for characteristic [kg/m3]</TD></TR>
+<TR><TD>use_powerCharacteristic</TD><TD>Use powerCharacteristic (vs. efficiencyCharacteristic)</TD></TR>
+<TR><TD>replaceable function powerCharacteristic</TD><TD>Power consumption vs. V_flow at nominal speed and density</TD></TR>
+<TR><TD>replaceable function efficiencyCharacteristic</TD><TD>Efficiency vs. V_flow at nominal speed and density</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR><TD>checkValve</TD><TD>= true to prevent reverse flow</TD></TR>
+<TR><TD>V</TD><TD>Volume inside the pump [m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
+<TR><TD>energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
+<TR><TD>massDynamics</TD><TD>Formulation of mass balance</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Heat transfer</TD></TR>
+<TR><TD>use_HeatTransfer</TD><TD>= true to use a HeatTransfer model, e.g., for a housing</TD></TR>
+<TR><TD>replaceable model HeatTransfer</TD><TD>Wall heat transfer</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
+<TR><TD>p_a_start</TD><TD>Guess value for inlet pressure [Pa]</TD></TR>
+<TR><TD>p_b_start</TD><TD>Guess value for outlet pressure [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>use_T_start</TD><TD>= true, use T_start, otherwise h_start</TD></TR>
+<TR><TD>T_start</TD><TD>Start value of temperature [K]</TD></TR>
+<TR><TD>h_start</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD>X_start[Medium.nX]</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
+<TR><TD>C_start[Medium.nC]</TD><TD>Start value of trace substances</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>replaceable model Monitoring</TD><TD>Optional pump monitoring</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+<TR><TD>m_flow_set</TD><TD>Prescribed mass flow rate</TD></TR>
+<TR><TD>p_set</TD><TD>Prescribed outlet pressure</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Characteristics</TD></TR>
+<TR><TD>replaceable function flowCharacteristic</TD><TD>Head vs. V_flow characteristic at nominal speed and density</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PrescribedPump<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Machines.PrescribedPumpI.png" ALT="Modelica.Fluid.Machines.PrescribedPump" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Machines.PrescribedPump"></A><A HREF="Modelica_Fluid_Machines.html#Modelica.Fluid.Machines"
+>Modelica.Fluid.Machines</A>.PrescribedPump</H2>
+<B>Centrifugal pump with ideally controlled speed</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with prescribed speed, either fixed or provided by an external signal.
+<p>The model extends <code>PartialPump</code>
+<p>If the <code>N_in</code> input connector is wired, it provides rotational speed of the pumps (rpm); otherwise, a constant rotational speed equal to <code>n_const</code> (which can be different from <code>N_nominal</code>) is assumed.</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Machines_BaseClasses.html#Modelica.Fluid.Machines.BaseClasses.PartialPump"
+>Modelica.Fluid.Machines.BaseClasses.PartialPump</A> (Base model for centrifugal pumps).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>use_N_in</TD><TD>Get the rotational speed from the input connector</TD></TR>
+<TR><TD>N_const</TD><TD>Constant rotational speed [1/min]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Characteristics</TD></TR>
+<TR><TD>nParallel</TD><TD>Number of pumps in parallel</TD></TR>
+<TR><TD>replaceable function flowCharacteristic</TD><TD>Head vs. V_flow characteristic at nominal speed and density</TD></TR>
+<TR><TD>N_nominal</TD><TD>Nominal rotational speed for flow characteristic [1/min]</TD></TR>
+<TR><TD>rho_nominal</TD><TD>Nominal fluid density for characteristic [kg/m3]</TD></TR>
+<TR><TD>use_powerCharacteristic</TD><TD>Use powerCharacteristic (vs. efficiencyCharacteristic)</TD></TR>
+<TR><TD>replaceable function powerCharacteristic</TD><TD>Power consumption vs. V_flow at nominal speed and density</TD></TR>
+<TR><TD>replaceable function efficiencyCharacteristic</TD><TD>Efficiency vs. V_flow at nominal speed and density</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR><TD>checkValve</TD><TD>= true to prevent reverse flow</TD></TR>
+<TR><TD>V</TD><TD>Volume inside the pump [m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
+<TR><TD>energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
+<TR><TD>massDynamics</TD><TD>Formulation of mass balance</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Heat transfer</TD></TR>
+<TR><TD>use_HeatTransfer</TD><TD>= true to use a HeatTransfer model, e.g., for a housing</TD></TR>
+<TR><TD>replaceable model HeatTransfer</TD><TD>Wall heat transfer</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
+<TR><TD>p_a_start</TD><TD>Guess value for inlet pressure [Pa]</TD></TR>
+<TR><TD>p_b_start</TD><TD>Guess value for outlet pressure [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>use_T_start</TD><TD>= true, use T_start, otherwise h_start</TD></TR>
+<TR><TD>T_start</TD><TD>Start value of temperature [K]</TD></TR>
+<TR><TD>h_start</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD>X_start[Medium.nX]</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
+<TR><TD>C_start[Medium.nC]</TD><TD>Start value of trace substances</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>replaceable model Monitoring</TD><TD>Optional pump monitoring</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+<TR><TD>N_in</TD><TD>Prescribed rotational speed [1/min]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:47 2013.
+</address></BODY>
+</HTML>

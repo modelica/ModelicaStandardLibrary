@@ -1,0 +1,163 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.UsersGuide.BuildingSystemModels</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Building system models&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BuildingSystemModels<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.UsersGuide.BuildingSystemModels"></A><A HREF="Modelica_Fluid_UsersGuide.html#Modelica.Fluid.UsersGuide"
+>Modelica.Fluid.UsersGuide</A>.BuildingSystemModels</H2>
+<PRE></pre>
+
+<p>
+This section is a quick primer explaining how to build a system model using Modelica.Fluid.
+It covers some key issues, such as the System component, the definition of medium models in the
+system, and the typical customizations available in the Modelica.Fluid models.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.UsersGuidef8ea72e40148cbbbctorsS.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent"
+>SystemComponent</A>
+</TD><TD>System component</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.UsersGuidef8ea72e40148cbbbctorsS.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition"
+>MediumDefinition</A>
+</TD><TD>Definition of the medium models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.UsersGuidef8ea72e40148cbbbctorsS.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel"
+>CustomizingModel</A>
+</TD><TD>Customizing a system model</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SystemComponent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent"></A><A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels"
+>Modelica.Fluid.UsersGuide.BuildingSystemModels</A>.SystemComponent</H2>
+<PRE></pre>
+<p>
+The Modelica.Fluid library is designed so that each model of a system must
+include an instance <code>system</code> of the <code>System</code> component at the top level, in the same way as the <code>World</code> model of the MultiBody Library. The System component contains the parameters that
+describe the environment surrounding the components (ambient pressure and
+temperature, gravity acceleration), and also provides default settings
+for many parameters which are used consistently by the models in the library.
+These parameters are then propagated to the individual components
+using the inner/outer variable mechanism. In case the system model is structured
+hierarchically, it is possible to either put a single System
+component at the top level, or possibly to put many of them at different levels,
+which will only influence the system components from that level down.
+</p>
+<p>All the parameters defined in the System model are used as default values for the parameters of the individual components of the system model. Note that it is always possible to override these defaults locally by changing the value of the parameters in the specific component instance.
+</p>
+<ul>
+<li> The <i>General</i> tab of the System model allows to set the default environment variables (pressure, temperature and gravity)
+used by all the components.
+</li>
+<li> The <i>Assumptions</i> tab allows to change the default modelling assumptions
+used by all the components (see the section <i>Customizing a system model later</i>)</li>
+<li> The <i>Initialization</i> tab allows to define default start values for mass flow rates, pressures and temperatures in the model; this can be useful to help nonlinear solver converge to the solution of any nonlinear system of equations that involves such variables, by providing meaningful guess values. </li>
+<li> The <i>Advanced</i> tab contains default values for parameters used in
+the advanced settings of some components.</li>
+</ul>
+<p>
+Remember to <b>always add a System component</b> at the top level of
+your system model, otherwise you will get errors when compiling the model. The tool will automatically name it <code>system</code>, so that it
+is recognized by all other components.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MediumDefinition<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition"></A><A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels"
+>Modelica.Fluid.UsersGuide.BuildingSystemModels</A>.MediumDefinition</H2>
+<PRE></pre>
+
+<p>
+All the models in Modelica.Fluid compute fluid properties by using medium
+models defined by Modelica.Media packages. Custom fluid models can also be
+used, provided they extend the interfaces defined in
+Modelica.Media.Interfaces.
+</p>
+<p>
+All the components in Modelica.Fluid use a <i>replaceable</i> medium package, called <code>Medium</code>: the model is written for a generic fluid, and a specific fluid model can then be specified when building a system model by redeclaring the package. This can be done in different ways:
+<ul>
+<li>
+If several components use the same medium, it is possible to select
+all of them within a GUI, and set them simultaneously (as they are
+all named Medium).
+</li>
+<li>It is also possible to declare one or more (possibly replaceable) medium packages in the model, and then use them to set up the individual components.</li>
+</ul>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CustomizingModel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel"></A><A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels"
+>Modelica.Fluid.UsersGuide.BuildingSystemModels</A>.CustomizingModel</H2>
+<PRE></pre>
+<p>
+Once a system model has been built, it is possible to obtain different approximations by
+appropriately setting the defaults in the System component (and/or the settings of specific
+components.
+</p>
+<p>
+The Assumptions | allowFlowReversal parameter determines whether reversing flow conditions
+(i.e., flow direction opposite to design direction) are modelled or not. By default,
+reversing flow conditions are considered by the models, but this causes a significant increase
+of complexity in the equations, due to the conditional equations depending on the flow direction.
+If you know in advance that the flow in a certain component (or in the whole system) will always
+be in the design direction, then setting this parameter to false will produce a much faster and
+possibly more robust simulation code.
+</p>
+<p>
+The flags in the Assumptions | Dynamics tab allow different degrees of approximation on
+the mass, energy, and momentum equations of the components.
+</p>
+<ul>
+<li>DynamicFreeInitial: dynamic equations are considered (nonzero storage), no
+initial equations are provided, and the start values are used as guess values.</li>
+<li>FixedInitial: dynamic equations are considered (nonzero storage) and initial
+equations are included, fixing the states to the start values provided by the
+component parameters.</li>
+<li>SteadyStateInitial: dynamic equations are considered (nonzero storage), initial
+equations are included, declaring that the state derivatives are zero (steady-state
+initialization) and the start values are used as guess values for the nonlinear solver. </li>
+<li>SteadyState: algebraic (or static) balance equations are considered (no storage)
+and the start values are used as guess values for the nonlinear solver.</li>
+</ul>
+<p>
+It is then possible to neglect the storage of mass, momentum, and energy in the whole system
+(or just in parts of it) just by a few mouse clicks in a GUI, and also to change the type of
+initialization when considering dynamic models. Please note that some combinations of the
+options might be contradictory, and will therefore trigger compilation errors.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:44 2013.
+</address></BODY>
+</HTML>

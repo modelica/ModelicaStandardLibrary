@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FluxTubes.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Illustration of component usage with simple models of various devices&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FluxTubes.Examples"></A><A HREF="Modelica_Magnetic_FluxTubes.html#Modelica.Magnetic.FluxTubes"
+>Modelica.Magnetic.FluxTubes</A>.Examples</H2>
+<B>Illustration of component usage with simple models of various devices</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains examples to demonstrate the usage of the flux tubes components.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubc251a08c8d094554uctorS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SaturatedInductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples.SaturatedInductor"
+>SaturatedInductor</A>
+</TD><TD>Inductor with saturation in the ferromagnetic core</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub25eae4311a2dd602uatorS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator"
+>MovingCoilActuator</A>
+</TD><TD>Two translatory electrodynamic actuator models of different modelling depth and their comparison</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub25eae4311a2dd602uatorS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>SolenoidActuator</A>
+</TD><TD>Two models of a reluctance actuator of different modelling depth and their comparison and usage</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub27d0f93fe6789da2itiesS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities"
+>Utilities</A>
+</TD><TD>Utilities to be used in examples</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SaturatedInductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubc251a08c8d094554uctorI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SaturatedInductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Examples.SaturatedInductor"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples"
+>Modelica.Magnetic.FluxTubes.Examples</A>.SaturatedInductor</H2>
+<B>Inductor with saturation in the ferromagnetic core</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This model demonstrates the effects of non-linear magnetisation characteristics of soft magnetic materials (hysteresis neglected). A sinusoidal voltage is applied to an inductor with a closed ferromagnetic core of rectangular shape. Set the <b>tolerance</b> to <b>1e-7</b>, <b>simulate for 0.1 s</b> and plot for example:
+</p>
+
+<pre>
+    coil.i vs. time           // non-harmonic current due to saturation of the core material
+    r_mFe.mu_r vs. r_mFe.B    // relative permeability vs. flux density inside core
+    r_mFe.B vs. r_mFe.H       // magnetisation curve B(H); hysteresis neglected
+</pre>
+
+<p>
+The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (nonLinearPermeability set to false and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g., selection of one of the electric sheets in <A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic"
+>Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient inital design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.
+</p>
+
+<h4>Note</h4>
+
+<p>
+If the supply voltage has a zero-crossing when applied to the inductor at time t=0 (i.e., source.phase set to zero instead of &pi;/2), then the inrush current that is typical for switching of inductive loads can be observed.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:37 2013.
+</address></BODY>
+</HTML>

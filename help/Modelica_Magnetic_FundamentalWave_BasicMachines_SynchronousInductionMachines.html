@@ -1,0 +1,305 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Synchronous machines&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SynchronousInductionMachines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines"></A><A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines"
+>Modelica.Magnetic.FundamentalWave.BasicMachines</A>.SynchronousInductionMachines</H2>
+<B>Synchronous machines</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This package contains various synchronous induction machine models.</p>
+
+<h4>See also</h4>
+
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_AsynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines"
+>AsynchronousInductionMachines</a>
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.Fundame3fc5627b8202280eagnetS.png" ALT="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet"
+>SM_PermanentMagnet</A>
+</TD><TD>Permanent magnet synchronous machine with optional damper cage</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.Fundame6f558c116852c8d0citedS.png" ALT="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited"
+>SM_ElectricalExcited</A>
+</TD><TD>Electrical excited synchronous machine with optional damper cage</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.Fundame46690789fd3d05ccRotorS.png" ALT="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"
+>SM_ReluctanceRotor</A>
+</TD><TD>Reluctance machine with optional damper cage</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SM_PermanentMagnet<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.Fundame3fc5627b8202280eagnetI.png" ALT="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet"></A><A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines"
+>Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines</A>.SM_PermanentMagnet</H2>
+<B>Permanent magnet synchronous machine with optional damper cage</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+<li>permanent magnet losses</li>
+</ul>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited"
+>SM_ElectricalExcited</a>,
+<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"
+>SM_ReluctanceRotor</a>,
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine</A> (Partial model for induction machine).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of stator phases</TD></TR>
+<TR><TD>Jr</TD><TD>Rotor inertia [kg.m2]</TD></TR>
+<TR><TD>useSupport</TD><TD>Enable / disable (=fixed stator) support</TD></TR>
+<TR><TD>Js</TD><TD>Stator inertia [kg.m2]</TD></TR>
+<TR><TD>useThermalPort</TD><TD>Enable / disable (=fixed temperatures) thermal port</TD></TR>
+<TR><TD>p</TD><TD>Number of pole pairs (Integer)</TD></TR>
+<TR><TD>fsNominal</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD>effectiveStatorTurns</TD><TD>Effective number of stator turns</TD></TR>
+<TR><TD>VsOpenCircuit</TD><TD>Open circuit RMS voltage per phase @ fsNominal [V]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Operational temperatures</TD></TR>
+<TR><TD>TsOperational</TD><TD>Operational temperature of stator resistance [K]</TD></TR>
+<TR><TD>TrOperational</TD><TD>Operational temperature of (optional) damper cage [K]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phiMechanical</TD><TD>Mechanical angle of rotor against stator [rad]</TD></TR>
+<TR><TD>wMechanical</TD><TD>Mechanical angular velocity of rotor against stator [rad/s]</TD></TR>
+<TR><TD>ir[2]</TD><TD>Damper cage currents [A]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal resistances and inductances</B></TD></TR>
+<TR><TD>TsRef</TD><TD>Reference temperature of stator resistance [K]</TD></TR>
+<TR><TD>alpha20s</TD><TD>Temperature coefficient of stator resistance at 20 degC [1/K]</TD></TR>
+<TR><TD>Lszero</TD><TD>Stator zero inductance [H]</TD></TR>
+<TR><TD>Lmd</TD><TD>Stator main field inductance, d-axis [H]</TD></TR>
+<TR><TD>Lmq</TD><TD>Stator main field inductance, q-axis [H]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Damper cage</TD></TR>
+<TR><TD>useDamperCage</TD><TD>Enable/disable damper cage</TD></TR>
+<TR><TD>Lrsigmad</TD><TD>Rotor leakage inductance, d-axis, w.r.t. stator side [H]</TD></TR>
+<TR><TD>Lrsigmaq</TD><TD>Rotor leakage inductance, q-axis, w.r.t. stator side [H]</TD></TR>
+<TR><TD>Rrd</TD><TD>Rotor resistance, d-axis, w.r.t. stator side [Ohm]</TD></TR>
+<TR><TD>Rrq</TD><TD>Rotor resistance , q-axis, w.r.t. stator side [Ohm]</TD></TR>
+<TR><TD>TrRef</TD><TD>Reference temperature of damper resistances in d- and q-axis [K]</TD></TR>
+<TR><TD>alpha20r</TD><TD>Temperature coefficient of damper resistances in d- and q-axis [1/K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Losses</B></TD></TR>
+<TR><TD>frictionParameters</TD><TD>Friction losses</TD></TR>
+<TR><TD>statorCoreParameters</TD><TD>Stator core losses; all parameters refer to stator side</TD></TR>
+<TR><TD>strayLoadParameters</TD><TD>Stray load losses</TD></TR>
+<TR><TD>permanentMagnetLossParameters</TD><TD>Permanent magnet loss losses</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>Shaft</TD></TR>
+<TR><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+<TR><TD>plug_sp</TD><TD>Positive plug of stator</TD></TR>
+<TR><TD>plug_sn</TD><TD>Negative plug of stator</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>ir[2]</TD><TD>Damper cage currents [A]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SM_ElectricalExcited<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.Fundame6f558c116852c8d0citedI.png" ALT="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited"></A><A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines"
+>Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines</A>.SM_ElectricalExcited</H2>
+<B>Electrical excited synchronous machine with optional damper cage</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent excitation winding resistance</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>brush losses in the excitation circuit</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet"
+>SM_PermanentMagnet</a>,
+<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"
+>SM_ReluctanceRotor</a>,
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine</A> (Partial model for induction machine).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of stator phases</TD></TR>
+<TR><TD>Jr</TD><TD>Rotor inertia [kg.m2]</TD></TR>
+<TR><TD>useSupport</TD><TD>Enable / disable (=fixed stator) support</TD></TR>
+<TR><TD>Js</TD><TD>Stator inertia [kg.m2]</TD></TR>
+<TR><TD>useThermalPort</TD><TD>Enable / disable (=fixed temperatures) thermal port</TD></TR>
+<TR><TD>p</TD><TD>Number of pole pairs (Integer)</TD></TR>
+<TR><TD>fsNominal</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD>effectiveStatorTurns</TD><TD>Effective number of stator turns</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Operational temperatures</TD></TR>
+<TR><TD>TsOperational</TD><TD>Operational temperature of stator resistance [K]</TD></TR>
+<TR><TD>TrOperational</TD><TD>Operational temperature of (optional) damper cage [K]</TD></TR>
+<TR><TD>TeOperational</TD><TD>Operational excitation temperature [K]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phiMechanical</TD><TD>Mechanical angle of rotor against stator [rad]</TD></TR>
+<TR><TD>wMechanical</TD><TD>Mechanical angular velocity of rotor against stator [rad/s]</TD></TR>
+<TR><TD>ir[2]</TD><TD>Damper cage currents [A]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal resistances and inductances</B></TD></TR>
+<TR><TD>TsRef</TD><TD>Reference temperature of stator resistance [K]</TD></TR>
+<TR><TD>alpha20s</TD><TD>Temperature coefficient of stator resistance at 20 degC [1/K]</TD></TR>
+<TR><TD>Lszero</TD><TD>Stator zero inductance [H]</TD></TR>
+<TR><TD>Lmd</TD><TD>Stator main field inductance, d-axis [H]</TD></TR>
+<TR><TD>Lmq</TD><TD>Stator main field inductance, q-axis [H]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>DamperCage</TD></TR>
+<TR><TD>useDamperCage</TD><TD>Enable/disable damper cage</TD></TR>
+<TR><TD>Lrsigmad</TD><TD>Rotor leakage inductance, d-axis, w.r.t. stator side [H]</TD></TR>
+<TR><TD>Lrsigmaq</TD><TD>Rotor leakage inductance, q-axis, w.r.t. stator side [H]</TD></TR>
+<TR><TD>Rrd</TD><TD>Rotor resistance, d-axis, w.r.t. stator side [Ohm]</TD></TR>
+<TR><TD>Rrq</TD><TD>Rotor resistance , q-axis, w.r.t. stator side [Ohm]</TD></TR>
+<TR><TD>TrRef</TD><TD>Reference temperature of damper resistances in d- and q-axis [K]</TD></TR>
+<TR><TD>alpha20r</TD><TD>Temperature coefficient of damper resistances in d- and q-axis [1/K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Losses</B></TD></TR>
+<TR><TD>frictionParameters</TD><TD>Friction losses</TD></TR>
+<TR><TD>statorCoreParameters</TD><TD>Stator core losses; all parameters refer to stator side</TD></TR>
+<TR><TD>strayLoadParameters</TD><TD>Stray load losses</TD></TR>
+<TR><TD>brushParameters</TD><TD>Brush losses</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Excitation</B></TD></TR>
+<TR><TD>VsNominal</TD><TD>Nominal stator voltage [V]</TD></TR>
+<TR><TD>IeOpenCircuit</TD><TD>Open circuit excitation current @ nominal voltage and frequency [A]</TD></TR>
+<TR><TD>Re</TD><TD>Warm excitation resistance [Ohm]</TD></TR>
+<TR><TD>TeRef</TD><TD>Reference temperture of excitation resistance [K]</TD></TR>
+<TR><TD>alpha20e</TD><TD>Temperature coefficient of excitation resistance [1/K]</TD></TR>
+<TR><TD>sigmae</TD><TD>Stray fraction of total excitation inductance</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>Shaft</TD></TR>
+<TR><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+<TR><TD>plug_sp</TD><TD>Positive plug of stator</TD></TR>
+<TR><TD>plug_sn</TD><TD>Negative plug of stator</TD></TR>
+<TR><TD>pin_ep</TD><TD>Positive pin of excitation</TD></TR>
+<TR><TD>pin_en</TD><TD>Negative pin of excitation</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>ir[2]</TD><TD>Damper cage currents [A]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SM_ReluctanceRotor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.Fundame46690789fd3d05ccRotorI.png" ALT="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor"></A><A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines"
+>Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines</A>.SM_ReluctanceRotor</H2>
+<B>Reluctance machine with optional damper cage</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited"
+>SM_ElectricalExcited</a>,
+<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet"
+>SM_PermanentMagnet</a>,
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine</A> (Partial model for induction machine).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of stator phases</TD></TR>
+<TR><TD>Jr</TD><TD>Rotor inertia [kg.m2]</TD></TR>
+<TR><TD>useSupport</TD><TD>Enable / disable (=fixed stator) support</TD></TR>
+<TR><TD>Js</TD><TD>Stator inertia [kg.m2]</TD></TR>
+<TR><TD>useThermalPort</TD><TD>Enable / disable (=fixed temperatures) thermal port</TD></TR>
+<TR><TD>p</TD><TD>Number of pole pairs (Integer)</TD></TR>
+<TR><TD>fsNominal</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD>effectiveStatorTurns</TD><TD>Effective number of stator turns</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Operational temperatures</TD></TR>
+<TR><TD>TsOperational</TD><TD>Operational temperature of stator resistance [K]</TD></TR>
+<TR><TD>TrOperational</TD><TD>Operational temperature of (optional) damper cage [K]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phiMechanical</TD><TD>Mechanical angle of rotor against stator [rad]</TD></TR>
+<TR><TD>wMechanical</TD><TD>Mechanical angular velocity of rotor against stator [rad/s]</TD></TR>
+<TR><TD>ir[2]</TD><TD>Damper cage currents [A]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal resistances and inductances</B></TD></TR>
+<TR><TD>TsRef</TD><TD>Reference temperature of stator resistance [K]</TD></TR>
+<TR><TD>alpha20s</TD><TD>Temperature coefficient of stator resistance at 20 degC [1/K]</TD></TR>
+<TR><TD>Lszero</TD><TD>Stator zero inductance [H]</TD></TR>
+<TR><TD>Lmd</TD><TD>Stator main field inductance, d-axis [H]</TD></TR>
+<TR><TD>Lmq</TD><TD>Stator main field inductance, q-axis [H]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>DamperCage</TD></TR>
+<TR><TD>useDamperCage</TD><TD>Enable/disable damper cage</TD></TR>
+<TR><TD>Lrsigmad</TD><TD>Rotor leakage inductance, d-axis, w.r.t. stator side [H]</TD></TR>
+<TR><TD>Lrsigmaq</TD><TD>Rotor leakage inductance, q-axis, w.r.t. stator side [H]</TD></TR>
+<TR><TD>Rrd</TD><TD>Rotor resistance, d-axis, w.r.t. stator side [Ohm]</TD></TR>
+<TR><TD>Rrq</TD><TD>Rotor resistance , q-axis, w.r.t. stator side [Ohm]</TD></TR>
+<TR><TD>TrRef</TD><TD>Reference temperature of damper resistances in d- and q-axis [K]</TD></TR>
+<TR><TD>alpha20r</TD><TD>Temperature coefficient of damper resistances in d- and q-axis [1/K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Losses</B></TD></TR>
+<TR><TD>frictionParameters</TD><TD>Friction losses</TD></TR>
+<TR><TD>statorCoreParameters</TD><TD>Stator core losses; all parameters refer to stator side</TD></TR>
+<TR><TD>strayLoadParameters</TD><TD>Stray load losses</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>Shaft</TD></TR>
+<TR><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+<TR><TD>plug_sp</TD><TD>Positive plug of stator</TD></TR>
+<TR><TD>plug_sn</TD><TD>Negative plug of stator</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>ir[2]</TD><TD>Damper cage currents [A]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:39 2013.
+</address></BODY>
+</HTML>

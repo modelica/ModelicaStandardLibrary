@@ -1,0 +1,185 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Thermal.HeatTransfer.Celsius</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Components with Celsius input and/or output&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Celsius<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Thermal.HeatTransfer.Celsius"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.Celsius</H2>
+<B>Components with Celsius input and/or output</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The components of this package are provided for the convenience of
+people working mostly with Celsius units, since all models
+in package HeatTransfer are based on Kelvin units.
+</p>
+<p>
+Note, that in package SIunits.Conversions, functions are provided
+to convert between the units Kelvin, degree Celsius, degree Fahrenheit,
+and degree Rankine. These functions allow, e.g., a direct conversion
+of units at all places where Kelvin is required as parameter.
+Example:
+</p>
+<pre>
+    <b>import</b> SIunits.Conversions.*;
+    Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degC(20));
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTran1933d26cd16dcb50elvinS.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.ToKelvin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.ToKelvin"
+>ToKelvin</A>
+</TD><TD>Conversion block from degCelsius to Kelvin</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTran0231e9a7f803f229elvinS.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.FromKelvin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.FromKelvin"
+>FromKelvin</A>
+</TD><TD>Conversion from Kelvin to degCelsius</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTran606404c4cb6f9b8batureS.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.FixedTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.FixedTemperature"
+>FixedTemperature</A>
+</TD><TD>Fixed temperature boundary condition in degree Celsius</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTran941ee9a55963a8cdatureS.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.PrescribedTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.PrescribedTemperature"
+>PrescribedTemperature</A>
+</TD><TD>Variable temperature boundary condition in degCelsius</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTrana41f14facbe7b49censorS.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"
+>TemperatureSensor</A>
+</TD><TD>Absolute temperature sensor in degCelsius</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ToKelvin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTran1933d26cd16dcb50elvinI.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.ToKelvin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Celsius.ToKelvin"></A><A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius"
+>Modelica.Thermal.HeatTransfer.Celsius</A>.ToKelvin</H2>
+<B>Conversion block from degCelsius to Kelvin</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This component converts an input signal from Celsius to Kelvin
+and provide is as output signal.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Celsius</TD><TD>[degC]</TD></TR>
+<TR><TD>Kelvin</TD><TD>[K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FromKelvin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTran0231e9a7f803f229elvinI.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.FromKelvin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Celsius.FromKelvin"></A><A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius"
+>Modelica.Thermal.HeatTransfer.Celsius</A>.FromKelvin</H2>
+<B>Conversion from Kelvin to degCelsius</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This component converts an input signal from Kelvin to Celsius
+and provides is as output signal.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Kelvin</TD><TD>[K]</TD></TR>
+<TR><TD>Celsius</TD><TD>[degC]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTran606404c4cb6f9b8batureI.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.FixedTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Celsius.FixedTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius"
+>Modelica.Thermal.HeatTransfer.Celsius</A>.FixedTemperature</H2>
+<B>Fixed temperature boundary condition in degree Celsius</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This model defines a fixed temperature T at its port in [degC],
+i.e., it defines a fixed temperature as a boundary condition.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Fixed Temperature at the port [degC]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PrescribedTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTran941ee9a55963a8cdatureI.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.PrescribedTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Celsius.PrescribedTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius"
+>Modelica.Thermal.HeatTransfer.Celsius</A>.PrescribedTemperature</H2>
+<B>Variable temperature boundary condition in degCelsius</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This model represents a variable temperature boundary condition
+The temperature value in [degC] is given by the input signal
+to the model. The effect is that an instance of this model acts as
+an infinite reservoir able to absorb or generate as much energy
+as required to keep the temperature at the specified value.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port</TD><TD>&nbsp;</TD></TR>
+<TR><TD>T</TD><TD>[degC]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TemperatureSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTrana41f14facbe7b49censorI.png" ALT="Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor"></A><A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius"
+>Modelica.Thermal.HeatTransfer.Celsius</A>.TemperatureSensor</H2>
+<B>Absolute temperature sensor in degCelsius</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This is an ideal absolute temperature sensor which returns
+the temperature of the connected port in Celsius as an output
+signal.  The sensor itself has no thermal interaction with
+whatever it is connected to.  Furthermore, no
+thermocouple-like lags are associated with this
+sensor model.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Absolute temperature in degree Celsius as output signal [degC]</TD></TR>
+<TR><TD>port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:09 2013.
+</address></BODY>
+</HTML>

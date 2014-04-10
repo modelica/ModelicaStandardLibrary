@@ -1,0 +1,1770 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Blocks.Math</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Library of Real mathematical functions as input/output blocks&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Math<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Math"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</A>.Math</H2>
+<B>Library of Real mathematical functions as input/output blocks</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains basic <b>mathematical operations</b>,
+such as summation and multiplication, and basic <b>mathematical
+functions</b>, such as <b>sqrt</b> and <b>sin</b>, as
+input/output blocks. All blocks of this library can be either
+connected with continuous blocks or with sampled-data blocks.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.UnitConversionsS.png" ALT="Modelica.Blocks.Math.UnitConversions" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>UnitConversions</A>
+</TD><TD>Conversion blocks to convert between SI and non-SI unit signals</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.Inve7c3ae33b2cd30f63aintsS.png" ALT="Modelica.Blocks.Math.InverseBlockConstraints" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.InverseBlockConstraints"
+>InverseBlockConstraints</A>
+</TD><TD>Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.GainS.png" ALT="Modelica.Blocks.Math.Gain" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Gain</A>
+</TD><TD>Output the product of a gain value with the input signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.MatrixGainS.png" ALT="Modelica.Blocks.Math.MatrixGain" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.MatrixGain"
+>MatrixGain</A>
+</TD><TD>Output the product of a gain matrix with the input signal vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.MultiSumS.png" ALT="Modelica.Blocks.Math.MultiSum" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.MultiSum"
+>MultiSum</A>
+</TD><TD>Sum of Reals: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.MultiProductS.png" ALT="Modelica.Blocks.Math.MultiProduct" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.MultiProduct"
+>MultiProduct</A>
+</TD><TD>Product of Reals: y = u[1]*u[2]* ... *u[n]</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.MultiSwitchS.png" ALT="Modelica.Blocks.Math.MultiSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.MultiSwitch"
+>MultiSwitch</A>
+</TD><TD>Set Real expression that is associated with the first active input signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.SumS.png" ALT="Modelica.Blocks.Math.Sum" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Sum"
+>Sum</A>
+</TD><TD>Output the sum of the elements of the input vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.FeedbackS.png" ALT="Modelica.Blocks.Math.Feedback" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Feedback</A>
+</TD><TD>Output difference between commanded and feedback input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.AddS.png" ALT="Modelica.Blocks.Math.Add" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Add</A>
+</TD><TD>Output the sum of the two inputs</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.Add3S.png" ALT="Modelica.Blocks.Math.Add3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add3"
+>Add3</A>
+</TD><TD>Output the sum of the three inputs</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.ProductS.png" ALT="Modelica.Blocks.Math.Product" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Product"
+>Product</A>
+</TD><TD>Output product of the two inputs</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.DivisionS.png" ALT="Modelica.Blocks.Math.Division" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Division"
+>Division</A>
+</TD><TD>Output first input divided by second input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.AbsS.png" ALT="Modelica.Blocks.Math.Abs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Abs"
+>Abs</A>
+</TD><TD>Output the absolute value of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.SignS.png" ALT="Modelica.Blocks.Math.Sign" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Sign"
+>Sign</A>
+</TD><TD>Output the sign of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.SqrtS.png" ALT="Modelica.Blocks.Math.Sqrt" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Sqrt"
+>Sqrt</A>
+</TD><TD>Output the square root of the input (input &gt;= 0 required)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.SinS.png" ALT="Modelica.Blocks.Math.Sin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Sin"
+>Sin</A>
+</TD><TD>Output the sine of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.CosS.png" ALT="Modelica.Blocks.Math.Cos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Cos"
+>Cos</A>
+</TD><TD>Output the cosine of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.TanS.png" ALT="Modelica.Blocks.Math.Tan" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Tan"
+>Tan</A>
+</TD><TD>Output the tangent of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.AsinS.png" ALT="Modelica.Blocks.Math.Asin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Asin"
+>Asin</A>
+</TD><TD>Output the arc sine of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.AcosS.png" ALT="Modelica.Blocks.Math.Acos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Acos"
+>Acos</A>
+</TD><TD>Output the arc cosine of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.AtanS.png" ALT="Modelica.Blocks.Math.Atan" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Atan"
+>Atan</A>
+</TD><TD>Output the arc tangent of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.Atan2S.png" ALT="Modelica.Blocks.Math.Atan2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Atan2"
+>Atan2</A>
+</TD><TD>Output atan(u1/u2) of the inputs u1 and u2</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.SinhS.png" ALT="Modelica.Blocks.Math.Sinh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Sinh"
+>Sinh</A>
+</TD><TD>Output the hyperbolic sine of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.CoshS.png" ALT="Modelica.Blocks.Math.Cosh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Cosh"
+>Cosh</A>
+</TD><TD>Output the hyperbolic cosine of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.TanhS.png" ALT="Modelica.Blocks.Math.Tanh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Tanh"
+>Tanh</A>
+</TD><TD>Output the hyperbolic tangent of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.ExpS.png" ALT="Modelica.Blocks.Math.Exp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Exp"
+>Exp</A>
+</TD><TD>Output the exponential (base e) of the input</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.LogS.png" ALT="Modelica.Blocks.Math.Log" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Log"
+>Log</A>
+</TD><TD>Output the natural (base e) logarithm of the input (input &gt; 0 required)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.Log10S.png" ALT="Modelica.Blocks.Math.Log10" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Log10"
+>Log10</A>
+</TD><TD>Output the base 10 logarithm of the input (input &gt; 0 required)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.RealToIntegerS.png" ALT="Modelica.Blocks.Math.RealToInteger" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RealToInteger"
+>RealToInteger</A>
+</TD><TD>Convert Real to Integer signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.IntegerToRealS.png" ALT="Modelica.Blocks.Math.IntegerToReal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.IntegerToReal"
+>IntegerToReal</A>
+</TD><TD>Convert Integer to Real signals</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.BooleanToRealS.png" ALT="Modelica.Blocks.Math.BooleanToReal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.BooleanToReal"
+>BooleanToReal</A>
+</TD><TD>Convert Boolean to Real signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.BooleanToIntegerS.png" ALT="Modelica.Blocks.Math.BooleanToInteger" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.BooleanToInteger"
+>BooleanToInteger</A>
+</TD><TD>Convert Boolean to Integer signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.RealToBooleanS.png" ALT="Modelica.Blocks.Math.RealToBoolean" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RealToBoolean"
+>RealToBoolean</A>
+</TD><TD>Convert Real to Boolean signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.IntegerToBooleanS.png" ALT="Modelica.Blocks.Math.IntegerToBoolean" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.IntegerToBoolean"
+>IntegerToBoolean</A>
+</TD><TD>Convert Integer to Boolean signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.RectangularToPolarS.png" ALT="Modelica.Blocks.Math.RectangularToPolar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RectangularToPolar"
+>RectangularToPolar</A>
+</TD><TD>Convert rectangular coordinates to polar coordinates</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.RectangularToPolarS.png" ALT="Modelica.Blocks.Math.PolarToRectangular" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.PolarToRectangular"
+>PolarToRectangular</A>
+</TD><TD>Convert polar coordinates to rectangular coordinates</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.MeanS.png" ALT="Modelica.Blocks.Math.Mean" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Mean"
+>Mean</A>
+</TD><TD>Calculate mean over period 1/f</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.MeanS.png" ALT="Modelica.Blocks.Math.RectifiedMean" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RectifiedMean"
+>RectifiedMean</A>
+</TD><TD>Calculate rectified mean over period 1/f</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.MeanS.png" ALT="Modelica.Blocks.Math.RootMeanSquare" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RootMeanSquare"
+>RootMeanSquare</A>
+</TD><TD>Calculate root mean square over period 1/f</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.HarmonicS.png" ALT="Modelica.Blocks.Math.Harmonic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Harmonic"
+>Harmonic</A>
+</TD><TD>Calculate harmonic over period 1/f</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.MaxS.png" ALT="Modelica.Blocks.Math.Max" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Max"
+>Max</A>
+</TD><TD>Pass through the largest signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.MaxS.png" ALT="Modelica.Blocks.Math.Min" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Min"
+>Min</A>
+</TD><TD>Pass through the smallest signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.MinMaxS.png" ALT="Modelica.Blocks.Math.MinMax" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.MinMax"
+>MinMax</A>
+</TD><TD>Output the minimum and the maximum element of the input vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.LinearDependencyS.png" ALT="Modelica.Blocks.Math.LinearDependency" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.LinearDependency"
+>LinearDependency</A>
+</TD><TD>Output a linear combination of the two inputs</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.EdgeS.png" ALT="Modelica.Blocks.Math.Edge" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Edge"
+>Edge</A>
+</TD><TD>Indicates rising edge of Boolean signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.EdgeS.png" ALT="Modelica.Blocks.Math.BooleanChange" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.BooleanChange"
+>BooleanChange</A>
+</TD><TD>Indicates Boolean signal changing</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Math.IntegerChangeS.png" ALT="Modelica.Blocks.Math.IntegerChange" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.IntegerChange"
+>IntegerChange</A>
+</TD><TD>Indicates integer signal changing</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InverseBlockConstraints<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.Inve7c3ae33b2cd30f63aintsI.png" ALT="Modelica.Blocks.Math.InverseBlockConstraints" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.InverseBlockConstraints"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.InverseBlockConstraints</H2>
+<B>Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Exchange input and output signals of a block, i.e., the previous
+block inputs become block outputs and the previous block outputs become
+block inputs. This block is used to construct inverse models.
+Its usage is demonstrated in example:
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.InverseModel"
+>Modelica.Blocks.Examples.InverseModel</a>.
+</p>
+
+<p>
+Note, if a block shall be inverted that has several input and output blocks,
+then this can be easily achieved by using a vector of InverseBlockConstraints
+instances:
+</p>
+
+<pre>
+   InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
+</pre>
+<pre></PRE><P></P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u1</TD><TD>Input signal 1 (u1 = u2)</TD></TR>
+<TR><TD>u2</TD><TD>Input signal 2 (u1 = u2)</TD></TR>
+<TR><TD>y1</TD><TD>Output signal 1 (y1 = y2)</TD></TR>
+<TR><TD>y2</TD><TD>Output signal 2 (y2 = y2)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Gain<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.GainI.png" ALT="Modelica.Blocks.Math.Gain" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Gain"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Gain</H2>
+<B>Output the product of a gain value with the input signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block computes output <i>y</i> as
+<i>product</i> of gain <i>k</i> with the
+input <i>u</i>:
+</p>
+<pre>
+    y = k * u;
+</pre>
+
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>k</TD><TD>Gain value multiplied with input signal [1]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Input signal connector</TD></TR>
+<TR><TD>y</TD><TD>Output signal connector</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MatrixGain<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.MatrixGainI.png" ALT="Modelica.Blocks.Math.MatrixGain" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.MatrixGain"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.MatrixGain</H2>
+<B>Output the product of a gain matrix with the input signal vector</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes output vector <b>y</b> as <i>product</i> of the
+gain matrix <b>K</b> with the input signal vector <b>u</b>:
+</p>
+<pre>
+    <b>y</b> = <b>K</b> * <b>u</b>;
+</pre>
+<p>
+Example:
+</p>
+<pre>
+   parameter: <b>K</b> = [0.12 2; 3 1.5]
+
+   results in the following equations:
+
+     | y[1] |     | 0.12  2.00 |   | u[1] |
+     |      |  =  |            | * |      |
+     | y[2] |     | 3.00  1.50 |   | u[2] |
+</pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMO"
+>Interfaces.MIMO</A> (Multiple Input Multiple Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>K[:, :]</TD><TD>Gain matrix which is multiplied with the input</TD></TR>
+<TR><TD>nin</TD><TD>Number of inputs</TD></TR>
+<TR><TD>nout</TD><TD>Number of outputs</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[nin]</TD><TD>Connector of Real input signals</TD></TR>
+<TR><TD>y[nout]</TD><TD>Connector of Real output signals</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MultiSum<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.MultiSumI.png" ALT="Modelica.Blocks.Math.MultiSum" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.MultiSum"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.MultiSum</H2>
+<B>Sum of Reals: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the scalar Real output "y" as sum of the elements of the
+Real input signal vector u:
+</p>
+<blockquote><pre>
+y = k[1]*u[1] + k[2]*u[2] + ... k[N]*u[N];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Real input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.RealNetwork1"
+>Modelica.Blocks.Examples.RealNetwork1</a>.
+</p>
+
+<p>
+If no connection to the input connector "u" is present,
+the output is set to zero: y=0.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialRealMISO"
+>Modelica.Blocks.Interfaces.PartialRealMISO</A> (Partial block with a RealVectorInput and a RealOutput signal).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>k[nu]</TD><TD>Input gains</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>significantDigits</TD><TD>Number of significant digits to be shown in dynamic diagram layer for y</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[nu]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MultiProduct<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.MultiProductI.png" ALT="Modelica.Blocks.Math.MultiProduct" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.MultiProduct"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.MultiProduct</H2>
+<B>Product of Reals: y = u[1]*u[2]* ... *u[n]</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the scalar Real output "y" as product of the elements of the
+Real input signal vector u:
+</p>
+<blockquote><pre>
+y = u[1]*u[2]* ... *u[N];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Real input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.RealNetwork1"
+>Modelica.Blocks.Examples.RealNetwork1</a>.
+</p>
+
+<p>
+If no connection to the input connector "u" is present,
+the output is set to zero: y=0.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialRealMISO"
+>Modelica.Blocks.Interfaces.PartialRealMISO</A> (Partial block with a RealVectorInput and a RealOutput signal).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>significantDigits</TD><TD>Number of significant digits to be shown in dynamic diagram layer for y</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[nu]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MultiSwitch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.MultiSwitchI.png" ALT="Modelica.Blocks.Math.MultiSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.MultiSwitch"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.MultiSwitch</H2>
+<B>Set Real expression that is associated with the first active input signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block has a vector of Boolean input signals u[nu] and a vector of
+(time varying) Real expressions expr[nu]. The output signal y is
+set to expr[i], if i is the first element in the input vector u that is true. If all input signals are
+false, y is set to parameter "y_default".
+</p>
+
+<blockquote><pre>
+  // Conceptual equation (not valid Modelica)
+  i = 'first element of u[:] that is true';
+  y = <b>if</b> i==0 <b>then</b> y_default <b>else</b> expr[i];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Boolean input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.RealNetwork1"
+>Modelica.Blocks.Examples.RealNetwork1</a>.
+</p>
+
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>expr[nu]</TD><TD>y = if u[i] then expr[i] else y_default (time varying)</TD></TR>
+<TR><TD>y_default</TD><TD>Default value of output y if all u[i] = false</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>precision</TD><TD>Number of significant digits to be shown in dynamic diagram layer for y</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[nu]</TD><TD>Set y = expr[i], if u[i] = true</TD></TR>
+<TR><TD>y</TD><TD>Output depending on expression</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sum<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.SumI.png" ALT="Modelica.Blocks.Math.Sum" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Sum"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Sum</H2>
+<B>Output the sum of the elements of the input vector</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes output <b>y</b> as
+<i>sum</i> of the elements of the input signal vector
+<b>u</b>:
+</p>
+<pre>
+    <b>y</b> = <b>u</b>[1] + <b>u</b>[2] + ...;
+</pre>
+<p>
+Example:
+</p>
+<pre>
+     parameter:   nin = 3;
+
+  results in the following equations:
+
+     y = u[1] + u[2] + u[3];
+</pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MISO"
+>Interfaces.MISO</A> (Multiple Input Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nin</TD><TD>Number of inputs</TD></TR>
+<TR><TD>k[nin]</TD><TD>Optional: sum coefficients</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[nin]</TD><TD>Connector of Real input signals</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Feedback<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.FeedbackI.png" ALT="Modelica.Blocks.Math.Feedback" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Feedback"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Feedback</H2>
+<B>Output difference between commanded and feedback input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes output <b>y</b> as <i>difference</i> of the
+commanded input <b>u1</b> and the feedback
+input <b>u2</b>:
+</p>
+<pre>
+    <b>y</b> = <b>u1</b> - <b>u2</b>;
+</pre>
+<p>
+Example:
+</p>
+<pre>
+     parameter:   n = 2
+
+  results in the following equations:
+
+     y = u1 - u2
+</pre>
+
+<pre></PRE><P></P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>u2</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Add<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.AddI.png" ALT="Modelica.Blocks.Math.Add" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Add"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Add</H2>
+<B>Output the sum of the two inputs</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes output <b>y</b> as <i>sum</i> of the
+two input signals <b>u1</b> and <b>u2</b>:
+</p>
+<pre>
+    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b>;
+</pre>
+<p>
+Example:
+</p>
+<pre>
+     parameter:   k1= +2, k2= -3
+
+  results in the following equations:
+
+     y = 2 * u1 - 3 * u2
+</pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2SO"
+>Interfaces.SI2SO</A> (2 Single Input / 1 Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>k1</TD><TD>Gain of upper input</TD></TR>
+<TR><TD>k2</TD><TD>Gain of lower input</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u1</TD><TD>Connector of Real input signal 1</TD></TR>
+<TR><TD>u2</TD><TD>Connector of Real input signal 2</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Add3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.Add3I.png" ALT="Modelica.Blocks.Math.Add3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Add3"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Add3</H2>
+<B>Output the sum of the three inputs</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes output <b>y</b> as <i>sum</i> of the
+three input signals <b>u1</b>, <b>u2</b> and <b>u3</b>:
+</p>
+<pre>
+    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b> + k3*<b>u3</b>;
+</pre>
+<p>
+Example:
+</p>
+<pre>
+     parameter:   k1= +2, k2= -3, k3=1;
+
+  results in the following equations:
+
+     y = 2 * u1 - 3 * u2 + u3;
+</pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>k1</TD><TD>Gain of upper input</TD></TR>
+<TR><TD>k2</TD><TD>Gain of middle input</TD></TR>
+<TR><TD>k3</TD><TD>Gain of lower input</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u1</TD><TD>Connector 1 of Real input signals</TD></TR>
+<TR><TD>u2</TD><TD>Connector 2 of Real input signals</TD></TR>
+<TR><TD>u3</TD><TD>Connector 3 of Real input signals</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signals</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Product<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.ProductI.png" ALT="Modelica.Blocks.Math.Product" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Product"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Product</H2>
+<B>Output product of the two inputs</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> (element-wise)
+as <i>product</i> of the corresponding elements of
+the two inputs <b>u1</b> and <b>u2</b>:
+</p>
+<pre>
+    y = u1 * u2;
+</pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2SO"
+>Interfaces.SI2SO</A> (2 Single Input / 1 Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u1</TD><TD>Connector of Real input signal 1</TD></TR>
+<TR><TD>u2</TD><TD>Connector of Real input signal 2</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Division<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.DivisionI.png" ALT="Modelica.Blocks.Math.Division" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Division"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Division</H2>
+<B>Output first input divided by second input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block computes the output <b>y</b> (element-wise)
+by <i>dividing</i> the corresponding elements of
+the two inputs <b>u1</b> and <b>u2</b>:
+</p>
+<pre>
+    y = u1 / u2;
+</pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2SO"
+>Interfaces.SI2SO</A> (2 Single Input / 1 Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u1</TD><TD>Connector of Real input signal 1</TD></TR>
+<TR><TD>u2</TD><TD>Connector of Real input signal 2</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Abs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.AbsI.png" ALT="Modelica.Blocks.Math.Abs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Abs"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Abs</H2>
+<B>Output the absolute value of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b>
+as <i>absolute value</i> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>abs</b>( u );
+</pre>
+<p>
+The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>generateEvent</TD><TD>Choose whether events shall be generated</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sign<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.SignI.png" ALT="Modelica.Blocks.Math.Sign" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Sign"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Sign</H2>
+<B>Output the sign of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b>
+as <b>sign</b> of the input <b>u</b>:
+</p>
+<pre>
+         1  <b>if</b> u &gt; 0
+    y =  0  <b>if</b> u == 0
+        -1  <b>if</b> u &lt; 0
+</pre>
+<p>
+The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>generateEvent</TD><TD>Choose whether events shall be generated</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sqrt<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.SqrtI.png" ALT="Modelica.Blocks.Math.Sqrt" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Sqrt"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Sqrt</H2>
+<B>Output the square root of the input (input &gt;= 0 required)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b>
+as <i>square root</i> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>sqrt</b>( u );
+</pre>
+<p>
+All elements of the input vector shall be zero or positive.
+Otherwise an error occurs.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.SinI.png" ALT="Modelica.Blocks.Math.Sin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Sin"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Sin</H2>
+<B>Output the sine of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b>
+as <b>sine</b> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>sin</b>( u );
+</pre>
+
+<p>
+<img src="../Resources/Images/Math/sin.png"
+     alt="sin.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Cos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.CosI.png" ALT="Modelica.Blocks.Math.Cos" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Cos"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Cos</H2>
+<B>Output the cosine of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b>
+as <b>cos</b> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>cos</b>( u );
+</pre>
+
+<p>
+<img src="../Resources/Images/Math/cos.png"
+     alt="cos.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Tan<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.TanI.png" ALT="Modelica.Blocks.Math.Tan" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Tan"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Tan</H2>
+<B>Output the tangent of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b>
+as <b>tan</b> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>tan</b>( u );
+</pre>
+
+<p>
+<img src="../Resources/Images/Math/tan.png"
+     alt="tan.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Asin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.AsinI.png" ALT="Modelica.Blocks.Math.Asin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Asin"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Asin</H2>
+<B>Output the arc sine of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> as the
+<i>sine-inverse</i> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>asin</b>( u );
+</pre>
+<p>
+The absolute values of the elements of the input <b>u</b> need to
+be less or equal to one (<b>abs</b>( u ) <= 1).
+Otherwise an error occurs.
+</p>
+
+<p>
+<img src="../Resources/Images/Math/asin.png"
+     alt="atan.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Acos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.AcosI.png" ALT="Modelica.Blocks.Math.Acos" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Acos"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Acos</H2>
+<B>Output the arc cosine of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> as the
+<i>cosine-inverse</i> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>acos</b>( u );
+</pre>
+<p>
+The absolute values of the elements of the input <b>u</b> need to
+be less or equal to one (<b>abs</b>( u ) <= 1).
+Otherwise an error occurs.
+</p>
+
+<p>
+<img src="../Resources/Images/Math/acos.png"
+     alt="acos.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Atan<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.AtanI.png" ALT="Modelica.Blocks.Math.Atan" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Atan"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Atan</H2>
+<B>Output the arc tangent of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> as the
+<i>tangent-inverse</i> of the input <b>u</b>:
+</p>
+<pre>
+    y= <b>atan</b>( u );
+</pre>
+
+<p>
+<img src="../Resources/Images/Math/atan.png"
+     alt="atan.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Atan2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.Atan2I.png" ALT="Modelica.Blocks.Math.Atan2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Atan2"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Atan2</H2>
+<B>Output atan(u1/u2) of the inputs u1 and u2</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> as the
+<i>tangent-inverse</i> of the input <b>u1</b> divided by
+input <b>u2</b>:
+</p>
+<pre>
+    y = <b>atan2</b>( u1, u2 );
+</pre>
+<p>
+u1 and u2 shall not be zero at the same time instant.
+<b>Atan2</b> uses the sign of u1 and u2 in order to construct
+the solution in the range -180 deg &le; y &le; 180 deg, whereas
+block <b>Atan</b> gives a solution in the range
+-90 deg &le; y &le; 90 deg.
+</p>
+
+<p>
+<img src="../Resources/Images/Math/atan2.png"
+     alt="atan2.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2SO"
+>Interfaces.SI2SO</A> (2 Single Input / 1 Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u1</TD><TD>Connector of Real input signal 1</TD></TR>
+<TR><TD>u2</TD><TD>Connector of Real input signal 2</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sinh<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.SinhI.png" ALT="Modelica.Blocks.Math.Sinh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Sinh"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Sinh</H2>
+<B>Output the hyperbolic sine of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> as the
+<i>hyperbolic sine</i> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>sinh</b>( u );
+</pre>
+
+<p>
+<img src="../Resources/Images/Math/sinh.png"
+     alt="sinh.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Cosh<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.CoshI.png" ALT="Modelica.Blocks.Math.Cosh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Cosh"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Cosh</H2>
+<B>Output the hyperbolic cosine of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> as the
+<i>hyperbolic cosine</i> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>cosh</b>( u );
+</pre>
+
+<p>
+<img src="../Resources/Images/Math/cosh.png"
+     alt="cosh.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Tanh<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.TanhI.png" ALT="Modelica.Blocks.Math.Tanh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Tanh"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Tanh</H2>
+<B>Output the hyperbolic tangent of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> as the
+<i>hyperbolic tangent</i> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>tanh</b>( u );
+</pre>
+
+<p>
+<img src="../Resources/Images/Math/tanh.png"
+     alt="tanh.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Exp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.ExpI.png" ALT="Modelica.Blocks.Math.Exp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Exp"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Exp</H2>
+<B>Output the exponential (base e) of the input</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> as the
+<i>exponential</i> (of base e) of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>exp</b>( u );
+</pre>
+
+<p>
+<img src="../Resources/Images/Math/exp.png"
+     alt="exp.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Log<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.LogI.png" ALT="Modelica.Blocks.Math.Log" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Log"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Log</H2>
+<B>Output the natural (base e) logarithm of the input (input &gt; 0 required)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> as the
+<i>natural (base e) logarithm</i> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>log</b>( u );
+</pre>
+<p>
+An error occurs if the elements of the input <b>u</b> are
+zero or negative.
+</p>
+
+<p>
+<img src="../Resources/Images/Math/log.png"
+     alt="log.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Log10<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.Log10I.png" ALT="Modelica.Blocks.Math.Log10" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Log10"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Log10</H2>
+<B>Output the base 10 logarithm of the input (input &gt; 0 required)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This blocks computes the output <b>y</b> as the
+<i>base 10 logarithm</i> of the input <b>u</b>:
+</p>
+<pre>
+    y = <b>log10</b>( u );
+</pre>
+<p>
+An error occurs if the elements of the input <b>u</b> are
+zero or negative.
+</p>
+
+<p>
+<img src="../Resources/Images/Math/log10.png"
+     alt="log10.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RealToInteger<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.RealToIntegerI.png" ALT="Modelica.Blocks.Math.RealToInteger" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.RealToInteger"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.RealToInteger</H2>
+<B>Convert Real to Integer signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block computes the output <b>y</b>
+as <i>nearest integer value</i> of the input <b>u</b>:
+</p>
+<pre>    y = <b>integer</b>( <b>floor</b>( u + 0.5 ) )  for  u &gt; 0;
+    y = <b>integer</b>( <b>ceil </b>( u - 0.5 ) )  for  u &lt; 0;
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.IntegerBlock"
+>Modelica.Blocks.Icons.IntegerBlock</A> (Basic graphical layout of Integer block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Integer output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerToReal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.IntegerToRealI.png" ALT="Modelica.Blocks.Math.IntegerToReal" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.IntegerToReal"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.IntegerToReal</H2>
+<B>Convert Integer to Real signals</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block computes the output <b>y</b>
+as <i>Real equivalent</i> of the Integer input <b>u</b>:
+</p>
+<pre>    y = u;
+</pre>
+<p>where <b>u</b> is of Integer and <b>y</b> of Real type.</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Integer input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanToReal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.BooleanToRealI.png" ALT="Modelica.Blocks.Math.BooleanToReal" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.BooleanToReal"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.BooleanToReal</H2>
+<B>Convert Boolean to Real signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block computes the output <b>y</b>
+as <i>Real equivalent</i> of the Boolean input <b>u</b>:
+</p>
+<pre>    y = <b>if</b> u <b>then</b> realTrue <b>else</b> realFalse;
+</pre>
+<p>where <b>u</b> is of Boolean and <b>y</b> of Real type,
+and <b>realTrue</b> and <b>realFalse</b> are parameters.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSI"
+>Interfaces.partialBooleanSI</A> (Partial block with 1 input Boolean signal).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>realTrue</TD><TD>Output signal for true Boolean input</TD></TR>
+<TR><TD>realFalse</TD><TD>Output signal for false Boolean input</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Boolean input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanToInteger<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.BooleanToIntegerI.png" ALT="Modelica.Blocks.Math.BooleanToInteger" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.BooleanToInteger"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.BooleanToInteger</H2>
+<B>Convert Boolean to Integer signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block computes the output <b>y</b>
+as <i>Integer equivalent</i> of the Boolean input <b>u</b>:
+</p>
+<pre>    y = <b>if</b> u <b>then</b> integerTrue <b>else</b> integerFalse;
+</pre>
+<p>where <b>u</b> is of Boolean and <b>y</b> of Integer type,
+and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSI"
+>Interfaces.partialBooleanSI</A> (Partial block with 1 input Boolean signal).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>integerTrue</TD><TD>Output signal for true Boolean input</TD></TR>
+<TR><TD>integerFalse</TD><TD>Output signal for false Boolean input</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Boolean input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Integer output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RealToBoolean<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.RealToBooleanI.png" ALT="Modelica.Blocks.Math.RealToBoolean" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.RealToBoolean"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.RealToBoolean</H2>
+<B>Convert Real to Boolean signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block computes the Boolean output <b>y</b>
+from the Real input <b> u</b> by the equation:
+</p>
+
+<pre>    y = u &ge; threshold;
+</pre>
+
+<p>
+where <b>threshold</b> is a parameter.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSO"
+>Interfaces.partialBooleanSO</A> (Partial block with 1 output Boolean signal).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>threshold</TD><TD>Output signal y is true, if input u &gt;= threshold</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Boolean output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerToBoolean<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.IntegerToBooleanI.png" ALT="Modelica.Blocks.Math.IntegerToBoolean" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.IntegerToBoolean"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.IntegerToBoolean</H2>
+<B>Convert Integer to Boolean signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block computes the Boolean output <b>y</b>
+from the Integer input <b> u</b> by the equation:
+</p>
+
+<pre>    y = u &ge; threshold;
+</pre>
+
+<p>
+where <b>threshold</b> is a parameter.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSO"
+>Interfaces.partialBooleanSO</A> (Partial block with 1 output Boolean signal).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>threshold</TD><TD>Output signal y is true, if input u &gt;= threshold</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Integer input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Boolean output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RectangularToPolar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.RectangularToPolarI.png" ALT="Modelica.Blocks.Math.RectangularToPolar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.RectangularToPolar"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.RectangularToPolar</H2>
+<B>Convert rectangular coordinates to polar coordinates</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The input values of this block are the rectangular components
+<code>u_re</code> and <code>u_im</code> of a phasor in two dimensions.
+This block calculates the length <code>y_abs</code> and
+the angle <code>y_arg</code> of the polar representation of this phasor.
+</p>
+
+<pre>
+  y_abs = abs(u_re + j*u_im) = sqrt( u_re<sup>2</sup> + u_im<sup>2</sup> )
+  y_arg = arg(u_re + j*u_im) = atan2(u_im, u_re)
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u_re</TD><TD>Real part of rectangular representation</TD></TR>
+<TR><TD>u_im</TD><TD>Imaginary part of rectangular representation</TD></TR>
+<TR><TD>y_abs</TD><TD>Length of polar representation</TD></TR>
+<TR><TD>y_arg</TD><TD>Angle of polar representation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PolarToRectangular<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.RectangularToPolarI.png" ALT="Modelica.Blocks.Math.PolarToRectangular" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.PolarToRectangular"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.PolarToRectangular</H2>
+<B>Convert polar coordinates to rectangular coordinates</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The input values of this block are the polar components <code>uabs</code> and <code>uarg</code> of a phasor.
+This block calculates the components <code>y_re</code> and <code>y_im</code> of the rectangular representation of this phasor.
+</p>
+<pre>
+   y_re = u_abs * cos( u_arg )
+   y_im = u_abs * sin( u_arg )
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u_abs</TD><TD>Length of polar representation</TD></TR>
+<TR><TD>u_arg</TD><TD>Angle of polar representation</TD></TR>
+<TR><TD>y_re</TD><TD>Real part of rectangular representation</TD></TR>
+<TR><TD>y_im</TD><TD>Imaginary part of rectangular representation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Mean<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.MeanI.png" ALT="Modelica.Blocks.Math.Mean" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Mean"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Mean</H2>
+<B>Calculate mean over period 1/f</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block calculates the mean of the input signal u over the given period 1/f:
+</p>
+<pre>
+1 T
+- &int; u(t) dt
+T 0
+</pre>
+<p>
+Note: The output is updated after each period defined by 1/f.
+</p>
+
+<p>
+If parameter <b>yGreaterOrEqualZero</b> in the Advanced tab is <b>true</b> (default = <b>false</b>),
+then the modeller provides the information that the mean of the input signal is guaranteed
+to be &ge; 0 for the exact solution. However, due to inaccuracies in the numerical integration scheme,
+the output might be slightly negative. If this parameter is set to true, then the output is
+explicitly set to 0.0, if the mean value results in a negative value.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Modelica.Blocks.Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Base frequency [Hz]</TD></TR>
+<TR><TD>x0</TD><TD>Start value of integrator state</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>yGreaterOrEqualZero</TD><TD>=true, if output y is guaranteed to be &gt;= 0 for the exact solution</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RectifiedMean<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.MeanI.png" ALT="Modelica.Blocks.Math.RectifiedMean" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.RectifiedMean"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.RectifiedMean</H2>
+<B>Calculate rectified mean over period 1/f</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block calculates the rectified mean of the input signal u over the given period 1/f, using the
+<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Mean"
+>mean block</a>.
+</p>
+<p>
+Note: The output is updated after each period defined by 1/f.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Modelica.Blocks.Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Base frequency [Hz]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RootMeanSquare<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.MeanI.png" ALT="Modelica.Blocks.Math.RootMeanSquare" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.RootMeanSquare"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.RootMeanSquare</H2>
+<B>Calculate root mean square over period 1/f</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block calculates the root mean square of the input signal u over the given period 1/f, using the
+<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Mean"
+>mean block</a>.
+</p>
+<p>
+Note: The output is updated after each period defined by 1/f.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Modelica.Blocks.Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Base frequency [Hz]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Harmonic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.HarmonicI.png" ALT="Modelica.Blocks.Math.Harmonic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Harmonic"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Harmonic</H2>
+<B>Calculate harmonic over period 1/f</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block calculates the root mean square and the phase angle of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the
+<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Mean"
+>mean block</a>.
+</p>
+<p>
+Note: The output is updated after each period defined by 1/f.
+</p>
+<p>
+Note: The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code>
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Base frequency [Hz]</TD></TR>
+<TR><TD>k</TD><TD>Order of harmonic</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y_rms</TD><TD>Root mean square of polar representation</TD></TR>
+<TR><TD>y_arg</TD><TD>Angle of polar representation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Max<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.MaxI.png" ALT="Modelica.Blocks.Math.Max" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Max"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Max</H2>
+<B>Pass through the largest signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block computes the output <b>y</b> as <i>maximum</i>
+of the two Real inputs <b>u1</b> and <b>u2</b>:
+</p>
+<pre>    y = <b>max</b> ( u1 , u2 );
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2SO"
+>Interfaces.SI2SO</A> (2 Single Input / 1 Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u1</TD><TD>Connector of Real input signal 1</TD></TR>
+<TR><TD>u2</TD><TD>Connector of Real input signal 2</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Min<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.MaxI.png" ALT="Modelica.Blocks.Math.Min" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Min"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Min</H2>
+<B>Pass through the smallest signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block computes the output <b>y</b> as <i>minimum</i> of
+the two Real inputs <b>u1</b> and <b>u2</b>:
+</p>
+<pre>    y = <b>min</b> ( u1 , u2 );
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2SO"
+>Interfaces.SI2SO</A> (2 Single Input / 1 Single Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u1</TD><TD>Connector of Real input signal 1</TD></TR>
+<TR><TD>u2</TD><TD>Connector of Real input signal 2</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MinMax<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.MinMaxI.png" ALT="Modelica.Blocks.Math.MinMax" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.MinMax"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.MinMax</H2>
+<B>Output the minimum and the maximum element of the input vector</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Determines the minimum and maximum element of the input vector and
+provide both values as output.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[nu]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>yMax</TD><TD>&nbsp;</TD></TR>
+<TR><TD>yMin</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LinearDependency<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.LinearDependencyI.png" ALT="Modelica.Blocks.Math.LinearDependency" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.LinearDependency"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.LinearDependency</H2>
+<B>Output a linear combination of the two inputs</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Determine the linear combination of the two inputs:
+<code>y = y0*(1 + k1*u1 + k2*u2)</code>
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2SO"
+>Modelica.Blocks.Interfaces.SI2SO</A> (2 Single Input / 1 Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y0</TD><TD>Initial value</TD></TR>
+<TR><TD>k1</TD><TD>u1 dependency</TD></TR>
+<TR><TD>k2</TD><TD>u2 dependency</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u1</TD><TD>Connector of Real input signal 1</TD></TR>
+<TR><TD>u2</TD><TD>Connector of Real input signal 2</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Edge<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.EdgeI.png" ALT="Modelica.Blocks.Math.Edge" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.Edge"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.Edge</H2>
+<B>Indicates rising edge of Boolean signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block sets the Boolean output <b>y</b> to true,
+when the Boolean input <b>u</b> shows a <i>rising edge</i>:
+</p>
+<pre>    y = <b>edge</b>( u );
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanSISO"
+>Interfaces.BooleanSISO</A> (Single Input Single Output control block with signals of type Boolean).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Boolean input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Boolean output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanChange<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.EdgeI.png" ALT="Modelica.Blocks.Math.BooleanChange" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.BooleanChange"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.BooleanChange</H2>
+<B>Indicates Boolean signal changing</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block sets the Boolean output <b>y</b> to true, when the
+Boolean input <b>u</b> shows a <i>rising or falling edge</i>,
+i.e., when the signal changes:
+</p>
+<pre>    y = <b>change</b>( u );
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanSISO"
+>Interfaces.BooleanSISO</A> (Single Input Single Output control block with signals of type Boolean).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Boolean input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Boolean output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerChange<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Math.IntegerChangeI.png" ALT="Modelica.Blocks.Math.IntegerChange" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Math.IntegerChange"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</A>.IntegerChange</H2>
+<B>Indicates integer signal changing</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block sets the Boolean output <b>y</b> to true, when the
+Integer input <b>u</b> changes:
+</p>
+<pre>    y = <b>change</b>( u );
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerSIBooleanSO"
+>Interfaces.IntegerSIBooleanSO</A> (Integer Input Boolean Output continuous control block).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Integer input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Boolean output signal</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:25 2013.
+</address></BODY>
+</HTML>

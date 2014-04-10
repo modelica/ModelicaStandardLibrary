@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FluxTubes.Examples.Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Utilities to be used in examples&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FluxTubes.Examples.Utilities"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples"
+>Modelica.Magnetic.FluxTubes.Examples</A>.Utilities</H2>
+<B>Utilities to be used in examples</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</A> (Icon for utility packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub2a263bf5529cb929opperS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper"
+>TranslatoryArmatureAndStopper</A>
+</TD><TD>Mass with free travel between two stoppers</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub2734cb60bfab1891esignS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign"
+>CoilDesign</A>
+</TD><TD>Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TranslatoryArmatureAndStopper<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTub2a263bf5529cb929opperI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities"
+>Modelica.Magnetic.FluxTubes.Examples.Utilities</A>.TranslatoryArmatureAndStopper</H2>
+<B>Mass with free travel between two stoppers</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+In translatory actuators with limited stroke, the armature with its inertia can travel between two stoppers.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>L</TD><TD>Length of component from left flange to right flange (= flange_b.s - flange_a.s) [m]</TD></TR>
+<TR><TD>m</TD><TD>Armature mass [kg]</TD></TR>
+<TR><TD>c</TD><TD>Spring stiffness between impact partners [N/m]</TD></TR>
+<TR><TD>d</TD><TD>Damping coefficient between impact partners [N.s/m]</TD></TR>
+<TR><TD>n</TD><TD>Exponent of spring forces (f_c = c*|s_rel|^n)</TD></TR>
+<TR><TD>x_max</TD><TD>Position of stopper at maximum armature position [m]</TD></TR>
+<TR><TD>x_min</TD><TD>Position of stopper at minimum armature position [m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>flange_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CoilDesign<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTub2734cb60bfab1891esignI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities"
+>Modelica.Magnetic.FluxTubes.Examples.Utilities</A>.CoilDesign</H2>
+<B>Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This model example shows dimensioning of a winding (wire diameter, number of turns) based on desired operating conditions (voltage, temperature, current density, conductor filling factor) for a given cross-section area of the winding. It can be modified according to the parameters given and sought after for a particular design project.
+</p>
+
+<p>
+The calculated winding resistance and number of turns can be used as input parameters to the electrical subsystem
+of a device to be modelled. Operating voltage V_op can be minimum, nominal and maximum voltage respectively as specified for a particular design project. In conjunction with the setting of the operating temperature T_op, this enables for analysis of the device under worst-case conditions (e.g., minimum required magnetomotive force, maximum allowed ohmic losses, minimum and maximum force respectively).
+</p>
+
+<p>
+For manufacturing of a winding, the obtained wire diameter d_wireCalculated must be rounded to that of an available wire. In order to analyse the influence of this rounding, one can enter the chosen wire diameter d_wireChosen and number of turns N_chosen as optional input. Calculation of the resulting winding parameters enables for comparison with the ones obtained otherwise.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rho_20</TD><TD>Resistivity of conductor material at 20 degC (default: Copper) [Ohm.m]</TD></TR>
+<TR><TD>alpha_20</TD><TD>Temperature coefficient of conductor material&#39;s resistivity at 20 degC (default: Copper) [1/K]</TD></TR>
+<TR><TD>T_op</TD><TD>Operating temperature of winding [K]</TD></TR>
+<TR><TD>h_w</TD><TD>Height of winding cross-section [m]</TD></TR>
+<TR><TD>b_w</TD><TD>Width of winding cross-section [m]</TD></TR>
+<TR><TD>l_avg</TD><TD>Average length of one turn [m]</TD></TR>
+<TR><TD>V_op</TD><TD>Operating voltage (nominal/ minimum/ maximum voltage depending on design objective) [V]</TD></TR>
+<TR><TD>J_desired</TD><TD>DESIRED current density at operating temperature and voltage resp. [A/m2]</TD></TR>
+<TR><TD>c_condFillChosen</TD><TD>CHOSEN conductor filling factor = total conductor area without insulation/ total winding area</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Chosen feasible parameters (optional)</TD></TR>
+<TR><TD>d_wireChosen</TD><TD>CHOSEN available wire diameter (without insulation) [m]</TD></TR>
+<TR><TD>N_chosen</TD><TD>CHOSEN number of turns</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:37 2013.
+</address></BODY>
+</HTML>

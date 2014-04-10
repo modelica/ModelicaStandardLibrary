@@ -1,0 +1,1177 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Base functions as described in IAWPS/IF97&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</A>.Basic</H2>
+<B>Base functions as described in IAWPS/IF97</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre><h4>Package description</h4>
+          <p>Package BaseIF97/Basic computes the the fundamental functions for the 5 regions of the steam tables
+          as described in the standards document <a  >IF97.pdf</a>. The code of these
+          functions has been generated using <b><i>Mathematica</i></b> and the add-on packages "Format" and "Optimize"
+          to generate highly efficient, expression-optimized C-code from a symbolic representation of the thermodynamic
+          functions. The C-code has than been transformed into Modelica code. An important feature of this optimization was to
+          simultaneously optimize the functions and the directional derivatives because they share many common subexpressions.</p>
+          <h4>Package contents</h4>
+          <ul>
+          <li>Function <b>g1</b> computes the dimensionless Gibbs function for region 1 and all derivatives up
+          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
+          <li>Function <b>g2</b> computes the dimensionless Gibbs function  for region 2 and all derivatives up
+          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
+          <li>Function <b>g2metastable</b> computes the dimensionless Gibbs function for metastable vapour
+          (adjacent to region 2 but 2-phase at equilibrium) and all derivatives up
+          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
+          <li>Function <b>f3</b> computes the dimensionless Helmholtz function  for region 3 and all derivatives up
+          to order 2 w.r.t. delta and tau. Inputs: d and T.</li>
+          <li>Function <b>g5</b>computes the dimensionless Gibbs function for region 5 and all derivatives up
+          to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
+          <li>Function <b>tph1</b> computes the inverse function T(p,h) in region 1.</li>
+          <li>Function <b>tph2</b> computes the inverse function T(p,h) in region 2.</li>
+          <li>Function <b>tps2a</b> computes the inverse function T(p,s) in region 2a.</li>
+          <li>Function <b>tps2b</b> computes the inverse function T(p,s) in region 2b.</li>
+          <li>Function <b>tps2c</b> computes the inverse function T(p,s) in region 2c.</li>
+          <li>Function <b>tps2</b> computes the inverse function T(p,s) in region 2.</li>
+          <li>Function <b>tsat</b> computes the saturation temperature as a function of pressure.</li>
+          <li>Function <b>dtsatofp</b> computes the derivative of the saturation temperature w.r.t. pressure as
+          a function of pressure.</li>
+          <li>Function <b>tsat_der</b> computes the Modelica derivative function of tsat.</li>
+          <li>Function <b>psat</b> computes the saturation pressure as a function of temperature.</li>
+          <li>Function <b>dptofT</b>  computes the derivative of the saturation pressure w.r.t. temperature as
+          a function of temperature.</li>
+          <li>Function <b>psat_der</b> computes the Modelica derivative function of psat.</li>
+          </ul>
+          <h4>Version Info and Revision history
+          </h4>
+          <ul>
+          <li>First implemented: <i>July, 2000</i>
+          by <a href="http://www.control.lth.se/~hubertus/">Hubertus Tummescheit</a>
+          </li>
+          </ul>
+          <address>Author: Hubertus Tummescheit, <br>
+      Modelon AB<br>
+      Ideon Science Park<br>
+      SE-22370 Lund, Sweden<br>
+      email: hubertus@modelon.se
+          </address>
+          <ul>
+          <li>Initial version: July 2000</li>
+          <li>Documentation added: December 2002</li>
+          </ul>
+       <p>
+       Equation from:
+       </p>
+       <div style="text-align: center;">&nbsp;[1] The international Association
+       for the Properties of Water and Steam<br>
+       &nbsp;Vejle, Denmark<br>
+       &nbsp;August 2003<br>
+       &nbsp;Supplementary Release on Backward Equations for the Functions
+       T(p,h), v(p,h) and T(p,s), <br>
+       &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+       the Thermodynamic Properties of<br>
+       &nbsp;Water and Steam</div>
+       <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1"
+>g1</A>
+</TD><TD>Gibbs function for region 1: g(p,T)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2"
+>g2</A>
+</TD><TD>Gibbs function for region 2: g(p,T)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2metastable" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2metastable"
+>g2metastable</A>
+</TD><TD>Gibbs function for metastable part of region 2: g(p,T)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3"
+>f3</A>
+</TD><TD>Helmholtz function for region 3: f(d,T)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5"
+>g5</A>
+</TD><TD>Base function for region 5: g(p,T)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.gibbs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.gibbs"
+>gibbs</A>
+</TD><TD>Gibbs function for region 1, 2 or 5: g(p,T,region)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1pitau" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1pitau"
+>g1pitau</A>
+</TD><TD>Derivative of g w.r.t. pi and tau</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2pitau" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2pitau"
+>g2pitau</A>
+</TD><TD>Derivative of g w.r.t. pi and tau</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5pitau" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5pitau"
+>g5pitau</A>
+</TD><TD>Derivative of g w.r.t. pi and tau</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3deltatau" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3deltatau"
+>f3deltatau</A>
+</TD><TD>1st derivatives of f w.r.t. delta and tau</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph1"
+>tph1</A>
+</TD><TD>Inverse function for region 1: T(p,h)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps1"
+>tps1</A>
+</TD><TD>Inverse function for region 1: T(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph2"
+>tph2</A>
+</TD><TD>Reverse function for region 2: T(p,h)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2a"
+>tps2a</A>
+</TD><TD>Reverse function for region 2a: T(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2b"
+>tps2b</A>
+</TD><TD>Reverse function for region 2b: T(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2c" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2c"
+>tps2c</A>
+</TD><TD>Reverse function for region 2c: T(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2"
+>tps2</A>
+</TD><TD>Reverse function for region 2: T(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat"
+>tsat</A>
+</TD><TD>Region 4 saturation temperature as a function of pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dtsatofp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dtsatofp"
+>dtsatofp</A>
+</TD><TD>Derivative of saturation temperature w.r.t. pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat_der"
+>tsat_der</A>
+</TD><TD>Derivative function for tsat</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat"
+>psat</A>
+</TD><TD>Region 4 saturation pressure as a function of temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dptofT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dptofT"
+>dptofT</A>
+</TD><TD>Derivative of pressure w.r.t. temperature along the saturation pressure curve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat_der"
+>psat_der</A>
+</TD><TD>Derivative function for psat</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p1_hs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p1_hs"
+>p1_hs</A>
+</TD><TD>Pressure as a function of enthalpy and entropy in region 1</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h2ab_s" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h2ab_s"
+>h2ab_s</A>
+</TD><TD>Boundary between regions 2a and 2b</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2a_hs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2a_hs"
+>p2a_hs</A>
+</TD><TD>Pressure as a function of enthalpy and entropy in subregion 2a</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2b_hs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2b_hs"
+>p2b_hs</A>
+</TD><TD>Pressure as a function of enthalpy and entropy in subregion 2a</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2c_hs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2c_hs"
+>p2c_hs</A>
+</TD><TD>Pressure as a function of enthalpy and entropy in subregion 2c</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h3ab_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h3ab_p"
+>h3ab_p</A>
+</TD><TD>Region 3 a b boundary for pressure/enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ph"
+>T3a_ph</A>
+</TD><TD>Region 3 a: inverse function T(p,h)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ph"
+>T3b_ph</A>
+</TD><TD>Region 3 b: inverse function T(p,h)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ph"
+>v3a_ph</A>
+</TD><TD>Region 3 a: inverse function v(p,h)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ph"
+>v3b_ph</A>
+</TD><TD>Region 3 b: inverse function v(p,h)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ps"
+>T3a_ps</A>
+</TD><TD>Region 3 a: inverse function T(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ps"
+>T3b_ps</A>
+</TD><TD>Region 3 b: inverse function T(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ps"
+>v3a_ps</A>
+</TD><TD>Region 3 a: inverse function v(p,s)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ps"
+>v3b_ps</A>
+</TD><TD>Region 3 b: inverse function v(p,s)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.g1</H2>
+<B>Gibbs function for region 1: g(p,T)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless Gibbs function and derivatives w.r.t. pi and tau</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.g2</H2>
+<B>Gibbs function for region 2: g(p,T)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless Gibbs function and derivatives w.r.t. pi and tau</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g2metastable<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2metastable" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2metastable"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.g2metastable</H2>
+<B>Gibbs function for metastable part of region 2: g(p,T)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless Gibbs function and derivatives w.r.t. pi and tau</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE f3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.f3</H2>
+<B>Helmholtz function for region 3: f(d,T)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Dimensionless Helmholtz function and derivatives w.r.t. delta and tau</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g5<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.g5</H2>
+<B>Base function for region 5: g(p,T)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless Gibbs function and derivatives w.r.t. pi and tau</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE gibbs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.gibbs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.gibbs"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.gibbs</H2>
+<B>Gibbs function for region 1, 2 or 5: g(p,T,region)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+<TR><TD>region</TD><TD>IF97 region, 1, 2 or 5</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless Gibbs function</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g1pitau<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1pitau" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g1pitau"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.g1pitau</H2>
+<B>Derivative of g w.r.t. pi and tau</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pi</TD><TD>Dimensionless pressure</TD></TR>
+<TR><TD>tau</TD><TD>Dimensionless temperature</TD></TR>
+<TR><TD>gpi</TD><TD>Dimensionless derivative of Gibbs function w.r.t. pi</TD></TR>
+<TR><TD>gtau</TD><TD>Dimensionless derivative of Gibbs function w.r.t. tau</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g2pitau<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2pitau" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g2pitau"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.g2pitau</H2>
+<B>Derivative of g w.r.t. pi and tau</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pi</TD><TD>Dimensionless pressure</TD></TR>
+<TR><TD>tau</TD><TD>Dimensionless temperature</TD></TR>
+<TR><TD>gpi</TD><TD>Dimensionless derivative of Gibbs function w.r.t. pi</TD></TR>
+<TR><TD>gtau</TD><TD>Dimensionless derivative of Gibbs function w.r.t. tau</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE g5pitau<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5pitau" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.g5pitau"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.g5pitau</H2>
+<B>Derivative of g w.r.t. pi and tau</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pi</TD><TD>Dimensionless pressure</TD></TR>
+<TR><TD>tau</TD><TD>Dimensionless temperature</TD></TR>
+<TR><TD>gpi</TD><TD>Dimensionless derivative of Gibbs function w.r.t. pi</TD></TR>
+<TR><TD>gtau</TD><TD>Dimensionless derivative of Gibbs function w.r.t. tau</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE f3deltatau<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3deltatau" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.f3deltatau"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.f3deltatau</H2>
+<B>1st derivatives of f w.r.t. delta and tau</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>delta</TD><TD>Dimensionless density</TD></TR>
+<TR><TD>tau</TD><TD>Dimensionless temperature</TD></TR>
+<TR><TD>fdelta</TD><TD>Dimensionless derivative of Helmholtz function w.r.t. delta</TD></TR>
+<TR><TD>ftau</TD><TD>Dimensionless derivative of Helmholtz function w.r.t. tau</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tph1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.tph1</H2>
+<B>Inverse function for region 1: T(p,h)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tps1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.tps1</H2>
+<B>Inverse function for region 1: T(p,s)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tph2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tph2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.tph2</H2>
+<B>Reverse function for region 2: T(p,h)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tps2a<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2a"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.tps2a</H2>
+<B>Reverse function for region 2a: T(p,s)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tps2b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.tps2b</H2>
+<B>Reverse function for region 2b: T(p,s)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tps2c<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2c" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2c"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.tps2c</H2>
+<B>Reverse function for region 2c: T(p,s)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tps2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tps2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.tps2</H2>
+<B>Reverse function for region 2: T(p,s)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tsat<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.tsat</H2>
+<B>Region 4 saturation temperature as a function of pressure</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>t_sat</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dtsatofp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dtsatofp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dtsatofp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.dtsatofp</H2>
+<B>Derivative of saturation temperature w.r.t. pressure</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>dtsat</TD><TD>Derivative of T w.r.t. p [K/Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tsat_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.tsat_der"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.tsat_der</H2>
+<B>Derivative function for tsat</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>der_p</TD><TD>Pressure derivative [Pa/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>der_tsat</TD><TD>Temperature derivative [K/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE psat<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.psat</H2>
+<B>Region 4 saturation pressure as a function of temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p_sat</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dptofT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dptofT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.dptofT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.dptofT</H2>
+<B>Derivative of pressure w.r.t. temperature along the saturation pressure curve</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>dpt</TD><TD>Temperature derivative of pressure [Pa/K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE psat_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.psat_der"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.psat_der</H2>
+<B>Derivative function for psat</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
+<TR><TD>der_T</TD><TD>Temperature derivative [K/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>der_psat</TD><TD>Pressure [Pa/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE p1_hs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p1_hs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p1_hs"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.p1_hs</H2>
+<B>Pressure as a function of enthalpy and entropy in region 1</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+  Equation number 1 from:<br>
+  The International Association for the Properties of Water and Steam<br>
+  Gaithersburg, Maryland, USA<br>
+  September 2001<br>
+  Supplementary Release on&nbsp; Backward Equations for Pressure as a
+  Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+  Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
+</p>
+  <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h2ab_s<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h2ab_s" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h2ab_s"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.h2ab_s</H2>
+<B>Boundary between regions 2a and 2b</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+  <p>
+  Equation number 2 from:<br>
+  The International Association for the Properties of Water and Steam<br>
+  Gaithersburg, Maryland, USA<br>
+  September 2001<br>
+  Supplementary Release on&nbsp; Backward Equations for Pressure as a
+  Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+  Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
+</p>
+  <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>Entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Enthalpy [J/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE p2a_hs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2a_hs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2a_hs"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.p2a_hs</H2>
+<B>Pressure as a function of enthalpy and entropy in subregion 2a</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+  <p>
+  Equation number 3 from:<br>
+  The International Association for the Properties of Water and Steam<br>
+  Gaithersburg, Maryland, USA<br>
+  September 2001<br>
+  Supplementary Release on&nbsp; Backward Equations for Pressure as a
+  Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+  Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
+</p>
+  <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE p2b_hs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2b_hs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2b_hs"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.p2b_hs</H2>
+<B>Pressure as a function of enthalpy and entropy in subregion 2a</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Equation number 4 from:<br>
+The International Association for the Properties of Water and Steam<br>
+Gaithersburg, Maryland, USA<br>
+September 2001<br>
+Supplementary Release on&nbsp; Backward Equations for Pressure as a
+Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
+</p>
+      <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE p2c_hs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2c_hs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.p2c_hs"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.p2c_hs</H2>
+<B>Pressure as a function of enthalpy and entropy in subregion 2c</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+      <p>
+      Equation number 5 from:<br>
+      The International Association for the Properties of Water and Steam<br>
+      Gaithersburg, Maryland, USA<br>
+      September 2001<br>
+      Supplementary Release on&nbsp; Backward Equations for Pressure as a
+      Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
+      Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
+   </p>
+      <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h3ab_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h3ab_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.h3ab_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.h3ab_p</H2>
+<B>Region 3 a b boundary for pressure/enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+      <p>
+      &nbsp;Equation number 1 from:
+      </p>
+      <div style="text-align: center;">&nbsp;[1] The international Association
+      for the Properties of Water and Steam<br>
+      &nbsp;Vejle, Denmark<br>
+      &nbsp;August 2003<br>
+      &nbsp;Supplementary Release on Backward Equations for the Functions
+      T(p,h), v(p,h) and T(p,s), <br>
+      &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+      the Thermodynamic Properties of<br>
+      &nbsp;Water and Steam</div>
+      <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Enthalpy [J/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T3a_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ph"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.T3a_ph</H2>
+<B>Region 3 a: inverse function T(p,h)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+ &nbsp;Equation number 2 from:
+</p>
+ <div style="text-align: center;">&nbsp;[1] The international Association
+ for the Properties of Water and Steam<br>
+ &nbsp;Vejle, Denmark<br>
+ &nbsp;August 2003<br>
+ &nbsp;Supplementary Release on Backward Equations for the Functions
+ T(p,h), v(p,h) and T(p,s), <br>
+ &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+ the Thermodynamic Properties of<br>
+ &nbsp;Water and Steam</div>
+ <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T3b_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ph"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.T3b_ph</H2>
+<B>Region 3 b: inverse function T(p,h)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+ <p>
+ &nbsp;Equation number 3 from:
+</p>
+ <div style="text-align: center;">&nbsp;[1] The international Association
+ for the Properties of Water and Steam<br>
+ &nbsp;Vejle, Denmark<br>
+ &nbsp;August 2003<br>
+ &nbsp;Supplementary Release on Backward Equations for the Functions
+ T(p,h), v(p,h) and T(p,s), <br>
+ &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+ the Thermodynamic Properties of<br>
+ &nbsp;Water and Steam</div>
+ <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE v3a_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ph"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.v3a_ph</H2>
+<B>Region 3 a: inverse function v(p,h)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+&nbsp;Equation number 4 from:
+</p>
+ <div style="text-align: center;">&nbsp;[1] The international Association
+ for the Properties of Water and Steam<br>
+ &nbsp;Vejle, Denmark<br>
+ &nbsp;August 2003<br>
+ &nbsp;Supplementary Release on Backward Equations for the Functions
+ T(p,h), v(p,h) and T(p,s), <br>
+ &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+ the Thermodynamic Properties of<br>
+ &nbsp;Water and Steam</div>
+ <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v</TD><TD>Specific volume [m3/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE v3b_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ph"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.v3b_ph</H2>
+<B>Region 3 b: inverse function v(p,h)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+ &nbsp;Equation number 5 from:
+</p>
+ <div style="text-align: center;">&nbsp;[1] The international Association
+ for the Properties of Water and Steam<br>
+ &nbsp;Vejle, Denmark<br>
+ &nbsp;August 2003<br>
+ &nbsp;Supplementary Release on Backward Equations for the Functions
+ T(p,h), v(p,h) and T(p,s), <br>
+ &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+ the Thermodynamic Properties of<br>
+ &nbsp;Water and Steam</div>
+ <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v</TD><TD>Specific volume [m3/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T3a_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3a_ps"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.T3a_ps</H2>
+<B>Region 3 a: inverse function T(p,s)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+ &nbsp;Equation number 6 from:
+</p>
+ <div style="text-align: center;">&nbsp;[1] The international Association
+ for the Properties of Water and Steam<br>
+ &nbsp;Vejle, Denmark<br>
+ &nbsp;August 2003<br>
+ &nbsp;Supplementary Release on Backward Equations for the Functions
+ T(p,h), v(p,h) and T(p,s), <br>
+ &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+ the Thermodynamic Properties of<br>
+ &nbsp;Water and Steam</div>
+ <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T3b_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.T3b_ps"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.T3b_ps</H2>
+<B>Region 3 b: inverse function T(p,s)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+ &nbsp;Equation number 7 from:
+</p>
+ <div style="text-align: center;">&nbsp;[1] The international Association
+ for the Properties of Water and Steam<br>
+ &nbsp;Vejle, Denmark<br>
+ &nbsp;August 2003<br>
+ &nbsp;Supplementary Release on Backward Equations for the Functions
+ T(p,h), v(p,h) and T(p,s), <br>
+ &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+ the Thermodynamic Properties of<br>
+ &nbsp;Water and Steam</div>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE v3a_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3a_ps"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.v3a_ps</H2>
+<B>Region 3 a: inverse function v(p,s)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+ &nbsp;Equation number 8 from:
+</p>
+ <div style="text-align: center;">&nbsp;[1] The international Association
+ for the Properties of Water and Steam<br>
+ &nbsp;Vejle, Denmark<br>
+ &nbsp;August 2003<br>
+ &nbsp;Supplementary Release on Backward Equations for the Functions
+ T(p,h), v(p,h) and T(p,s), <br>
+ &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+ the Thermodynamic Properties of<br>
+ &nbsp;Water and Steam</div>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v</TD><TD>Specific volume [m3/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE v3b_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Water.IF97df662eb11ab55227ic.g1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic.v3b_ps"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Basic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Basic</A>.v3b_ps</H2>
+<B>Region 3 b: inverse function v(p,s)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+ &nbsp;Equation number 9 from:
+</p>
+<div style="text-align: center;">&nbsp;[1] The international Association
+ for the Properties of Water and Steam<br>
+ &nbsp;Vejle, Denmark<br>
+ &nbsp;August 2003<br>
+ &nbsp;Supplementary Release on Backward Equations for the Functions
+ T(p,h), v(p,h) and T(p,s), <br>
+ &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
+ the Thermodynamic Properties of<br>
+ &nbsp;Water and Steam</div>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v</TD><TD>Specific volume [m3/kg]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:07 2013.
+</address></BODY>
+</HTML>

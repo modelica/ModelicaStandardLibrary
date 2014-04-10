@@ -1,0 +1,896 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Digital.Registers</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Registers with N-bit input data and output data&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Registers<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Digital.Registers"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>.Registers</H2>
+<B>Registers with N-bit input data and output data</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Registers is a collection of flipflops and latches. In the opposite to the Examples.Utilities models the Register models are a series of assignments in the algorithm part of the model. The model text is taken nearly identical from the standard logic text.</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digit8480efa4c9e0d731.DFFRS.png" ALT="Modelica.Electrical.Digital.Registers.DFFR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFR"
+>DFFR</A>
+</TD><TD>Edge triggered register bank with reset</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digit67407c5ae35ccfc0FFREGS.png" ALT="Modelica.Electrical.Digital.Registers.DFFREG" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREG"
+>DFFREG</A>
+</TD><TD>Edge triggered register bank with high active reset</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digitd5ffa25a6b99f852FREGLS.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGL" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGL"
+>DFFREGL</A>
+</TD><TD>Edge triggered register bank with low active reset</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digitcdfaa1c13c9ae64bDFFSRS.png" ALT="Modelica.Electrical.Digital.Registers.DFFSR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFSR"
+>DFFSR</A>
+</TD><TD>Edge triggered register bank with set and reset</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHS.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGSRH" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGSRH"
+>DFFREGSRH</A>
+</TD><TD>Edge triggered register bank with high active set and reset</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHS.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGSRL" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGSRL"
+>DFFREGSRL</A>
+</TD><TD>Edge triggered register bank with low active set and reset</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digitcec724b93c9ffaabDLATRS.png" ALT="Modelica.Electrical.Digital.Registers.DLATR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATR"
+>DLATR</A>
+</TD><TD>Level sensitive register bank with reset</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digit639cd9177feaa419ATREGS.png" ALT="Modelica.Electrical.Digital.Registers.DLATREG" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREG"
+>DLATREG</A>
+</TD><TD>Level sensitive register bank with reset active high</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digitf9431711fd5483a3TREGLS.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGL" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGL"
+>DLATREGL</A>
+</TD><TD>Level sensitive register bank with reset active low</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digitcfe7cb80e3ff5515LATSRS.png" ALT="Modelica.Electrical.Digital.Registers.DLATSR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATSR"
+>DLATSR</A>
+</TD><TD>Level sensitive register bank with set and reset</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digit526742165210f9fdEGSRHS.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGSRH" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGSRH"
+>DLATREGSRH</A>
+</TD><TD>Level sensitive register bank with set and reset, active high</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digit5267421a5210f9f9EGSRLS.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGSRL" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGSRL"
+>DLATREGSRL</A>
+</TD><TD>Level sensitive register bank with set and reset, active low</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DFFR<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit8480efa4c9e0d731.DFFRI.png" ALT="Modelica.Electrical.Digital.Registers.DFFR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DFFR"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DFFR</H2>
+<B>Edge triggered register bank with reset</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities</p>
+<p><b>Truth Table for high active reset:</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Clock</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>DataOut</b></td>
+      <td valign="top">Map</td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td > <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">0</td> <td valign="top">2</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0-Trns</td> <td valign="top">0</td>  <td valign="top">NC</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1-Trns</td> <td valign="top">0</td>  <td valign="top">DataIn</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X-Trns</td> <td valign="top">0</td>  <td valign="top">X or U or NC</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">X or U or 0 or NC</td> <td valign="top">4</td> </tr>
+</table>
+
+<p><b>Truth Table for low active reset:</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Clock</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>DataOut</b></td>
+      <td valign="top">Map</td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td > <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">2</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0-Trns</td> <td valign="top">1</td>  <td valign="top">NC</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1-Trns</td> <td valign="top">1</td>  <td valign="top">DataIn</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X-Trns</td> <td valign="top">1</td>  <td valign="top">X or U or NC</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">X or U or 0 or NC</td> <td valign="top">4</td> </tr>
+</table>
+
+<PRE>
+
+  *  = do not care
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+
+Clock transition definitions:
+  1-Trns: 0 -> 1
+  0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
+  X-Trns: 0 -> X|U or X|U -> 1
+</PRE>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ResetMap[9]</TD><TD>function selection, defaults for high active reset</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DFFREG<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit67407c5ae35ccfc0FFREGI.png" ALT="Modelica.Electrical.Digital.Registers.DFFREG" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DFFREG"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DFFREG</H2>
+<B>Edge triggered register bank with high active reset</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><b>Truth Table</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Clock</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>DataOut</b></td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td > <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">0</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0-Trns</td> <td valign="top">0</td>  <td valign="top">NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1-Trns</td> <td valign="top">0</td>  <td valign="top">DataIn</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X-Trns</td> <td valign="top">0</td>  <td valign="top">X or U or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">X or U or 0 or NC</td> </tr>
+</table>
+
+<PRE>
+  *  = do not care
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+
+Clock transition definitions:
+  1-Trns: 0 -> 1
+  0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
+  X-Trns: 0 -> X|U or X|U -> 1
+</PRE>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DFFREGL<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit67407c5ae35ccfc0FFREGI.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGL" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DFFREGL"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DFFREGL</H2>
+<B>Edge triggered register bank with low active reset</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><b>Truth Table</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Clock</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>DataOut</b></td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td > <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td>  <td valign="top">0</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0-Trns</td> <td valign="top">1</td>  <td valign="top">NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1-Trns</td> <td valign="top">1</td>  <td valign="top">DataIn</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X-Trns</td> <td valign="top">1</td>  <td valign="top">X or U or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">X or U or 0 or NC</td> </tr>
+</table>
+
+<PRE>
+  *  = do not care
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+
+Clock transition definitions:
+  1-Trns: 0 -> 1
+  0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
+  X-Trns: 0 -> X|U or X|U -> 1
+</PRE>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREG"
+>DFFREG</A> (Edge triggered register bank with high active reset).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DFFSR<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digitcdfaa1c13c9ae64bDFFSRI.png" ALT="Modelica.Electrical.Digital.Registers.DFFSR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DFFSR"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DFFSR</H2>
+<B>Edge triggered register bank with set and reset</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><b>Truth Table for high active set and reset</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Clock</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>Set</b></td>
+      <td valign="top"><b>DataOut</b></td>
+      <td valign="top">Map</td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">U</td> <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td>  <td valign="top">*</td> <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">1</td> <td valign="top">1</td> <td valign="top">2</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">0</td> <td valign="top">0</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">X</td> <td valign="top">X</td> <td valign="top">6</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">X</td> <td valign="top">X or U</td> <td valign="top">4</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td> <td valign="top">X</td> <td valign="top">X or U or 1 or NC</td> <td valign="top">5</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">0</td> <td valign="top">X or U or 0 or NC</td> <td valign="top">7</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X-Trns</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">X or U or NC</td> <td valign="top">8</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1-Trns</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">DataIn</td> <td valign="top">8</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0-Trns</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">NC</td> <td valign="top">8</td> </tr>
+
+</table>
+
+<p><b>Truth Table for low active set and reset </b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Clock</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>Set</b></td>
+      <td valign="top"><b>DataOut</b></td>
+      <td valign="top">Map</td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">U</td> <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td>  <td valign="top">*</td> <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">0</td> <td valign="top">1</td> <td valign="top">2</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td>  <td valign="top">1</td> <td valign="top">0</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td>  <td valign="top">X</td> <td valign="top">X</td> <td valign="top">6</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">X</td> <td valign="top">X or U</td> <td valign="top">4</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td> <td valign="top">X</td> <td valign="top">X or U or 1 or NC</td> <td valign="top">5</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">1</td> <td valign="top">X or U or 0 or NC</td> <td valign="top">7</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X-Trns</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">X or U or NC</td> <td valign="top">8</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1-Trns</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">DataIn</td> <td valign="top">8</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0-Trns</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">NC</td> <td valign="top">8</td> </tr>
+</table>
+
+<PRE>
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+
+Clock transition definitions:
+  1-Trns: 0 -> 1
+  0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
+  X-Trns: 0 -> X|U or X|U -> 1
+</PRE>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ResetSetMap[9, 9]</TD><TD>function selection by [reset, set] reading</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>set</TD><TD>&nbsp;</TD></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DFFREGSRH<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHI.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGSRH" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DFFREGSRH"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DFFREGSRH</H2>
+<B>Edge triggered register bank with high active set and reset</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><b>Truth Table</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Clock</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>Set</b></td>
+      <td valign="top"><b>DataOut</b></td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">U</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td>  <td valign="top">*</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">1</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">0</td> <td valign="top">0</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">X</td> <td valign="top">X</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">X</td> <td valign="top">X or U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td> <td valign="top">X</td> <td valign="top">X or U or 1 or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">0</td> <td valign="top">X or U or 0 or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X-Trns</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">X or U or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1-Trns</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">DataIn</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0-Trns</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">NC</td> </tr>
+</table>
+
+<PRE>
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+
+Clock transition definitions:
+  1-Trns: 0 -> 1
+  0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
+  X-Trns: 0 -> X|U or X|U -> 1
+</PRE>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>set</TD><TD>&nbsp;</TD></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DFFREGSRL<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHI.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGSRL" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DFFREGSRL"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DFFREGSRL</H2>
+<B>Edge triggered register bank with low active set and reset</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+
+<p><b>Truth Table</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Clock</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>Set</b></td>
+      <td valign="top"><b>DataOut</b></td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">U</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td>  <td valign="top">*</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">0</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td>  <td valign="top">1</td> <td valign="top">0</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td>  <td valign="top">X</td> <td valign="top">X</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">X</td> <td valign="top">X or U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td> <td valign="top">X</td> <td valign="top">X or U or 1 or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">X</td> <td valign="top">1</td> <td valign="top">X or U or 0 or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X-Trns</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">X or U or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1-Trns</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">DataIn</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0-Trns</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">NC</td> </tr>
+</table>
+
+<PRE>
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+
+Clock transition definitions:
+  1-Trns: 0 -> 1
+  0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
+  X-Trns: 0 -> X|U or X|U -> 1
+</PRE>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGSRH"
+>Digital.Registers.DFFREGSRH</A> (Edge triggered register bank with high active set and reset).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>set</TD><TD>&nbsp;</TD></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DLATR<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digitcec724b93c9ffaabDLATRI.png" ALT="Modelica.Electrical.Digital.Registers.DLATR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DLATR"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DLATR</H2>
+<B>Level sensitive register bank with reset</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+
+<p> Description in VHDL is given by <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
+<p><b>Truth Table for high active reset:</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Enable</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>DataOut</b></td>
+      <td valign="top">Map</td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td > <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">0</td> <td valign="top">2</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0</td> <td valign="top">0</td>  <td valign="top">NC</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1</td> <td valign="top">0</td>  <td valign="top">DataIn</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X</td> <td valign="top">0</td>  <td valign="top">X or U or NC</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">U</td> <td valign="top">~1</td> <td valign="top">U</td> <td valign="top">4</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">X or U or 0 or NC</td> <td valign="top">4</td> </tr>
+</table>
+
+<p><b>Truth Table for low active reset:</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Enable</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>DataOut</b></td>
+      <td valign="top">Map</td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td> <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td> <td valign="top">0</td> <td valign="top">2</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0</td> <td valign="top">1</td> <td valign="top">NC</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1</td> <td valign="top">1</td> <td valign="top">DataIn</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X</td> <td valign="top">1</td> <td valign="top">X or U or NC</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">U</td> <td valign="top">~0</td> <td valign="top">U</td> <td valign="top">4</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">X or U or 0 or NC</td> <td valign="top">4</td> </tr>
+</table>
+
+<PRE>
+
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+</PRE>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ResetMap[9]</TD><TD>function selection, defaults for high active reset</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DLATREG<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit639cd9177feaa419ATREGI.png" ALT="Modelica.Electrical.Digital.Registers.DLATREG" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DLATREG"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DLATREG</H2>
+<B>Level sensitive register bank with reset active high</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><b>Truth Table</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Enable</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>DataOut</b></td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td > <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">0</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0</td> <td valign="top">0</td>  <td valign="top">NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1</td> <td valign="top">0</td>  <td valign="top">DataIn</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X</td> <td valign="top">0</td>  <td valign="top">X or U or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">U</td> <td valign="top">~1</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">X or U or 0 or NC</td> </tr>
+</table>
+
+<PRE>
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+</PRE>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DLATREGL<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit639cd9177feaa419ATREGI.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGL" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DLATREGL"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DLATREGL</H2>
+<B>Level sensitive register bank with reset active low</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><b>Truth Table</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Enable</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>DataOut</b></td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td> <td valign="top">0</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0</td> <td valign="top">1</td> <td valign="top">NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1</td> <td valign="top">1</td> <td valign="top">DataIn</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X</td> <td valign="top">1</td> <td valign="top">X or U or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">U</td> <td valign="top">~0</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">X or U or 0 or NC</td> </tr>
+</table>
+
+<PRE>
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+</PRE>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREG"
+>DLATREG</A> (Level sensitive register bank with reset active high).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DLATSR<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digitcfe7cb80e3ff5515LATSRI.png" ALT="Modelica.Electrical.Digital.Registers.DLATSR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DLATSR"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DLATSR</H2>
+<B>Level sensitive register bank with set and reset</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><b>Truth Table for high active set and reset</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Enable</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>Set</b></td>
+      <td valign="top"><b>DataOut</b></td>
+      <td valign="top">Map</td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">U</td> <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td>  <td valign="top">~1</td> <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">1</td> <td valign="top">1</td> <td valign="top">2</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">0</td> <td valign="top">0</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">X</td> <td valign="top">X</td> <td valign="top">6</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">U</td> <td valign="top">~1</td> <td valign="top">~1</td> <td valign="top">U</td> <td valign="top">4,5,7,8</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">X</td> <td valign="top">X or U</td> <td valign="top">4</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">0</td> <td valign="top">X</td> <td valign="top">X or U or 1 or NC</td> <td valign="top">5</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">0</td> <td valign="top">X or U or 0 or NC</td> <td valign="top">7</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">X or U or NC</td> <td valign="top">8</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">DataIn</td> <td valign="top">8</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">NC</td> <td valign="top">8</td> </tr>
+
+</table>
+
+<p><b>Truth Table for low active set and reset </b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Enable</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>Set</b></td>
+      <td valign="top"><b>DataOut</b></td>
+      <td valign="top">Map</td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">U</td> <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td>  <td valign="top">~0</td> <td valign="top">U</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">0</td> <td valign="top">1</td> <td valign="top">2</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td>  <td valign="top">1</td> <td valign="top">0</td> <td valign="top">3</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td>  <td valign="top">X</td> <td valign="top">X</td> <td valign="top">6</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">U</td> <td valign="top">~0</td> <td valign="top">~0</td> <td valign="top">U</td> <td valign="top">4,5,7,8</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">X</td> <td valign="top">X or U</td> <td valign="top">4</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">1</td> <td valign="top">X</td> <td valign="top">X or U or 1 or NC</td> <td valign="top">5</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">1</td> <td valign="top">X or U or 0 or NC</td> <td valign="top">7</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">X or U or NC</td> <td valign="top">8</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">DataIn</td> <td valign="top">8</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">NC</td> <td valign="top">8</td> </tr>
+
+</table>
+
+<PRE>
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+</PRE>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ResetSetMap[9, 9]</TD><TD>function selection by [reset, set] reading</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>set</TD><TD>&nbsp;</TD></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DLATREGSRH<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit526742165210f9fdEGSRHI.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGSRH" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DLATREGSRH"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DLATREGSRH</H2>
+<B>Level sensitive register bank with set and reset, active high</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><b>Truth Table:</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Enable</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>Set</b></td>
+      <td valign="top"><b>DataOut</b></td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">U</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td>  <td valign="top">~1</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">1</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">0</td> <td valign="top">0</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">1</td>  <td valign="top">X</td> <td valign="top">X</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">U</td> <td valign="top">~1</td> <td valign="top">~1</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">X</td> <td valign="top">X or U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">0</td> <td valign="top">X</td> <td valign="top">X or U or 1 or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">0</td> <td valign="top">X or U or 0 or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">X or U or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">DataIn</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0</td> <td valign="top">0</td>  <td valign="top">0</td> <td valign="top">NC</td> </tr>
+
+</table>
+
+<PRE>
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+</PRE>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>set</TD><TD>&nbsp;</TD></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DLATREGSRL<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit526742165210f9fdEGSRHI.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGSRL" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Registers.DLATREGSRL"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</A>.DLATREGSRL</H2>
+<B>Level sensitive register bank with set and reset, active low</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p><b>Truth Table</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>DataIn</b></td>
+      <td valign="top"><b>Enable</b></td>
+      <td valign="top"><b>Reset</b></td>
+      <td valign="top"><b>Set</b></td>
+      <td valign="top"><b>DataOut</b></td>
+  </tr>
+
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">U</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">U</td>  <td valign="top">~0</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">*</td>  <td valign="top">0</td> <td valign="top">1</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td>  <td valign="top">1</td> <td valign="top">0</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">*</td> <td valign="top">0</td>  <td valign="top">X</td> <td valign="top">X</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">U</td> <td valign="top">~0</td> <td valign="top">~0</td> <td valign="top">U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">X</td> <td valign="top">X or U</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">1</td> <td valign="top">X</td> <td valign="top">X or U or 1 or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">~U</td> <td valign="top">X</td> <td valign="top">1</td> <td valign="top">X or U or 0 or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">X</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">X or U or NC</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">1</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">DataIn</td> </tr>
+  <tr><td valign="top">*</td> <td valign="top">0</td> <td valign="top">1</td>  <td valign="top">1</td> <td valign="top">NC</td> </tr>
+</table>
+
+<PRE>
+  *  = do not care
+  ~  = not equal
+  U  = L.'U'
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-'
+  NC = no change
+</PRE>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGSRH"
+>Digital.Registers.DLATREGSRH</A> (Level sensitive register bank with set and reset, active high).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n</TD><TD>data width</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>set</TD><TD>&nbsp;</TD></TR>
+<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:28 2013.
+</address></BODY>
+</HTML>

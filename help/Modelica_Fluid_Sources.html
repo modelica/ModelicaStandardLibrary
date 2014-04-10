@@ -1,0 +1,317 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Sources</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Define fixed or prescribed boundary conditions&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Sources"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</A>.Sources</H2>
+<B>Define fixed or prescribed boundary conditions</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Package <b>Sources</b> contains generic sources for fluid connectors
+to define fixed or prescribed ambient conditions.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</A> (Icon for packages containing sources).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.FixedBoundaryS.png" ALT="Modelica.Fluid.Sources.FixedBoundary" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.FixedBoundary"
+>FixedBoundary</A>
+</TD><TD>Boundary source component</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.Boundary_pTS.png" ALT="Modelica.Fluid.Sources.Boundary_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.Boundary_pT"
+>Boundary_pT</A>
+</TD><TD>Boundary with prescribed pressure, temperature, composition and trace substances</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.Boundary_phS.png" ALT="Modelica.Fluid.Sources.Boundary_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.Boundary_ph"
+>Boundary_ph</A>
+</TD><TD>Boundary with prescribed pressure, specific enthalpy, composition and trace substances</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.MassFlowSource_TS.png" ALT="Modelica.Fluid.Sources.MassFlowSource_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.MassFlowSource_T"
+>MassFlowSource_T</A>
+</TD><TD>Ideal flow source that produces a prescribed mass flow with prescribed temperature, mass fraction and trace substances</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.MassFlowSource_hS.png" ALT="Modelica.Fluid.Sources.MassFlowSource_h" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.MassFlowSource_h"
+>MassFlowSource_h</A>
+</TD><TD>Ideal flow source that produces a prescribed mass flow with prescribed specific enthalpy, mass fraction and trace substances</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.BaseClassesS.png" ALT="Modelica.Fluid.Sources.BaseClasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses"
+>BaseClasses</A>
+</TD><TD>Base classes used in the Sources package (only of interest to build new component models)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedBoundary<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.FixedBoundaryI.png" ALT="Modelica.Fluid.Sources.FixedBoundary" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.FixedBoundary"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.FixedBoundary</H2>
+<B>Boundary source component</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Model <b>FixedBoundary</b> defines constant values for boundary conditions:
+</p>
+<ul>
+<li> Boundary pressure or boundary density.</li>
+<li> Boundary temperature or boundary specific enthalpy.</li>
+<li> Boundary composition (only for multi-substance or trace-substance flow).</li>
+</ul>
+<p>
+Note, that boundary temperature, density, specific enthalpy,
+mass fractions and trace substances have only an effect if the mass flow
+is from the Boundary into the port. If mass is flowing from
+the port into the boundary, the boundary definitions,
+with exception of boundary pressure, do not have an effect.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A> (Partial component source with one fluid connector).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium model within the source</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Boundary pressure or Boundary density</TD></TR>
+<TR><TD>use_p</TD><TD>select p or d</TD></TR>
+<TR><TD>p</TD><TD>Boundary pressure [Pa]</TD></TR>
+<TR><TD>d</TD><TD>Boundary density [kg/m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Boundary temperature or Boundary specific enthalpy</TD></TR>
+<TR><TD>use_T</TD><TD>select T or h</TD></TR>
+<TR><TD>T</TD><TD>Boundary temperature [K]</TD></TR>
+<TR><TD>h</TD><TD>Boundary specific enthalpy [J/kg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Only for multi-substance flow</TD></TR>
+<TR><TD>X[Medium.nX]</TD><TD>Boundary mass fractions m_i/m [kg/kg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Only for trace-substance flow</TD></TR>
+<TR><TD>C[Medium.nC]</TD><TD>Boundary trace substances</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Boundary_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.Boundary_pTI.png" ALT="Modelica.Fluid.Sources.Boundary_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.Boundary_pT"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.Boundary_pT</H2>
+<B>Boundary with prescribed pressure, temperature, composition and trace substances</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Defines prescribed values for boundary conditions:
+</p>
+<ul>
+<li> Prescribed boundary pressure.</li>
+<li> Prescribed boundary temperature.</li>
+<li> Boundary composition (only for multi-substance or trace-substance flow).</li>
+</ul>
+<p>If <code>use_p_in</code> is false (default option), the <code>p</code> parameter
+is used as boundary pressure, and the <code>p_in</code> input connector is disabled; if <code>use_p_in</code> is true, then the <code>p</code> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>The same thing goes for the temperature, composition and trace substances.</p>
+<p>
+Note, that boundary temperature,
+mass fractions and trace substances have only an effect if the mass flow
+is from the boundary into the port. If mass is flowing from
+the port into the boundary, the boundary definitions,
+with exception of boundary pressure, do not have an effect.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A> (Partial component source with one fluid connector).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium model within the source</TD></TR>
+<TR><TD>use_p_in</TD><TD>Get the pressure from the input connector</TD></TR>
+<TR><TD>use_T_in</TD><TD>Get the temperature from the input connector</TD></TR>
+<TR><TD>use_X_in</TD><TD>Get the composition from the input connector</TD></TR>
+<TR><TD>use_C_in</TD><TD>Get the trace substances from the input connector</TD></TR>
+<TR><TD>p</TD><TD>Fixed value of pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Fixed value of temperature [K]</TD></TR>
+<TR><TD>X[Medium.nX]</TD><TD>Fixed value of composition [kg/kg]</TD></TR>
+<TR><TD>C[Medium.nC]</TD><TD>Fixed values of trace substances</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>p_in</TD><TD>Prescribed boundary pressure</TD></TR>
+<TR><TD>T_in</TD><TD>Prescribed boundary temperature</TD></TR>
+<TR><TD>X_in[Medium.nX]</TD><TD>Prescribed boundary composition</TD></TR>
+<TR><TD>C_in[Medium.nC]</TD><TD>Prescribed boundary trace substances</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Boundary_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.Boundary_phI.png" ALT="Modelica.Fluid.Sources.Boundary_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.Boundary_ph"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.Boundary_ph</H2>
+<B>Boundary with prescribed pressure, specific enthalpy, composition and trace substances</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Defines prescribed values for boundary conditions:
+</p>
+<ul>
+<li> Prescribed boundary pressure.</li>
+<li> Prescribed boundary temperature.</li>
+<li> Boundary composition (only for multi-substance or trace-substance flow).</li>
+</ul>
+<p>If <code>use_p_in</code> is false (default option), the <code>p</code> parameter
+is used as boundary pressure, and the <code>p_in</code> input connector is disabled; if <code>use_p_in</code> is true, then the <code>p</code> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>The same thing goes for the specific enthalpy and composition</p>
+<p>
+Note, that boundary temperature,
+mass fractions and trace substances have only an effect if the mass flow
+is from the boundary into the port. If mass is flowing from
+the port into the boundary, the boundary definitions,
+with exception of boundary pressure, do not have an effect.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>Sources.BaseClasses.PartialSource</A> (Partial component source with one fluid connector).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium model within the source</TD></TR>
+<TR><TD>use_p_in</TD><TD>Get the pressure from the input connector</TD></TR>
+<TR><TD>use_h_in</TD><TD>Get the specific enthalpy from the input connector</TD></TR>
+<TR><TD>use_X_in</TD><TD>Get the composition from the input connector</TD></TR>
+<TR><TD>use_C_in</TD><TD>Get the trace substances from the input connector</TD></TR>
+<TR><TD>p</TD><TD>Fixed value of pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Fixed value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD>X[Medium.nX]</TD><TD>Fixed value of composition [kg/kg]</TD></TR>
+<TR><TD>C[Medium.nC]</TD><TD>Fixed values of trace substances</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>p_in</TD><TD>Prescribed boundary pressure</TD></TR>
+<TR><TD>h_in</TD><TD>Prescribed boundary specific enthalpy</TD></TR>
+<TR><TD>X_in[Medium.nX]</TD><TD>Prescribed boundary composition</TD></TR>
+<TR><TD>C_in[Medium.nC]</TD><TD>Prescribed boundary trace substances</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MassFlowSource_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.MassFlowSource_TI.png" ALT="Modelica.Fluid.Sources.MassFlowSource_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.MassFlowSource_T"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.MassFlowSource_T</H2>
+<B>Ideal flow source that produces a prescribed mass flow with prescribed temperature, mass fraction and trace substances</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Models an ideal flow source, with prescribed values of flow rate, temperature, composition and trace substances:
+</p>
+<ul>
+<li> Prescribed mass flow rate.</li>
+<li> Prescribed temperature.</li>
+<li> Boundary composition (only for multi-substance or trace-substance flow).</li>
+</ul>
+<p>If <code>use_m_flow_in</code> is false (default option), the <code>m_flow</code> parameter
+is used as boundary pressure, and the <code>m_flow_in</code> input connector is disabled; if <code>use_m_flow_in</code> is true, then the <code>m_flow</code> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>The same thing goes for the temperature and composition</p>
+<p>
+Note, that boundary temperature,
+mass fractions and trace substances have only an effect if the mass flow
+is from the boundary into the port. If mass is flowing from
+the port into the boundary, the boundary definitions,
+with exception of boundary flow rate, do not have an effect.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialFlowSource"
+>Sources.BaseClasses.PartialFlowSource</A> (Partial component source with one fluid connector).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium model within the source</TD></TR>
+<TR><TD>use_m_flow_in</TD><TD>Get the mass flow rate from the input connector</TD></TR>
+<TR><TD>use_T_in</TD><TD>Get the temperature from the input connector</TD></TR>
+<TR><TD>use_X_in</TD><TD>Get the composition from the input connector</TD></TR>
+<TR><TD>use_C_in</TD><TD>Get the trace substances from the input connector</TD></TR>
+<TR><TD>m_flow</TD><TD>Fixed mass flow rate going out of the fluid port [kg/s]</TD></TR>
+<TR><TD>T</TD><TD>Fixed value of temperature [K]</TD></TR>
+<TR><TD>X[Medium.nX]</TD><TD>Fixed value of composition [kg/kg]</TD></TR>
+<TR><TD>C[Medium.nC]</TD><TD>Fixed values of trace substances</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>m_flow_in</TD><TD>Prescribed mass flow rate</TD></TR>
+<TR><TD>T_in</TD><TD>Prescribed fluid temperature</TD></TR>
+<TR><TD>X_in[Medium.nX]</TD><TD>Prescribed fluid composition</TD></TR>
+<TR><TD>C_in[Medium.nC]</TD><TD>Prescribed boundary trace substances</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MassFlowSource_h<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.MassFlowSource_hI.png" ALT="Modelica.Fluid.Sources.MassFlowSource_h" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.MassFlowSource_h"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.MassFlowSource_h</H2>
+<B>Ideal flow source that produces a prescribed mass flow with prescribed specific enthalpy, mass fraction and trace substances</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Models an ideal flow source, with prescribed values of flow rate, temperature and composition:
+</p>
+<ul>
+<li> Prescribed mass flow rate.</li>
+<li> Prescribed specific enthalpy.</li>
+<li> Boundary composition (only for multi-substance or trace-substance flow).</li>
+</ul>
+<p>If <code>use_m_flow_in</code> is false (default option), the <code>m_flow</code> parameter
+is used as boundary pressure, and the <code>m_flow_in</code> input connector is disabled; if <code>use_m_flow_in</code> is true, then the <code>m_flow</code> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>The same thing goes for the temperature and composition</p>
+<p>
+Note, that boundary temperature,
+mass fractions and trace substances have only an effect if the mass flow
+is from the boundary into the port. If mass is flowing from
+the port into the boundary, the boundary definitions,
+with exception of boundary flow rate, do not have an effect.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialFlowSource"
+>Sources.BaseClasses.PartialFlowSource</A> (Partial component source with one fluid connector).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium model within the source</TD></TR>
+<TR><TD>use_m_flow_in</TD><TD>Get the mass flow rate from the input connector</TD></TR>
+<TR><TD>use_h_in</TD><TD>Get the specific enthalpy from the input connector</TD></TR>
+<TR><TD>use_X_in</TD><TD>Get the composition from the input connector</TD></TR>
+<TR><TD>use_C_in</TD><TD>Get the trace substances from the input connector</TD></TR>
+<TR><TD>m_flow</TD><TD>Fixed mass flow rate going out of the fluid port [kg/s]</TD></TR>
+<TR><TD>h</TD><TD>Fixed value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD>X[Medium.nX]</TD><TD>Fixed value of composition [kg/kg]</TD></TR>
+<TR><TD>C[Medium.nC]</TD><TD>Fixed values of trace substances</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>m_flow_in</TD><TD>Prescribed mass flow rate</TD></TR>
+<TR><TD>h_in</TD><TD>Prescribed fluid specific enthalpy</TD></TR>
+<TR><TD>X_in[Medium.nX]</TD><TD>Prescribed fluid composition</TD></TR>
+<TR><TD>C_in[Medium.nC]</TD><TD>Prescribed boundary trace substances</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:49 2013.
+</address></BODY>
+</HTML>

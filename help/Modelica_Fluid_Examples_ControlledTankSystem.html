@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Examples.ControlledTankSystem</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Tank system with controller, start/stop/shut operation and diagram animation&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ControlledTankSystem<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Examples.ControlledTankSystem"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</A>.ControlledTankSystem</H2>
+<B>Tank system with controller, start/stop/shut operation and diagram animation</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.Tanks.ThreeTanksS.png" ALT="Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_ControlledTankSystem.html#Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks"
+>ControlledTanks</A>
+</TD><TD>Demonstrating the controller of a tank filling/emptying system</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.C3352a578a351a621itiesS.png" ALT="Modelica.Fluid.Examples.ControlledTankSystem.Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_ControlledTankSystem_Utilities.html#Modelica.Fluid.Examples.ControlledTankSystem.Utilities"
+>Utilities</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ControlledTanks<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.C32af27c559ca9c60TanksI.png" ALT="Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.ControlledTankSystem.ControlledTanks"></A><A HREF="Modelica_Fluid_Examples_ControlledTankSystem.html#Modelica.Fluid.Examples.ControlledTankSystem"
+>Modelica.Fluid.Examples.ControlledTankSystem</A>.ControlledTanks</H2>
+<B>Demonstrating the controller of a tank filling/emptying system</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+With this example, the controller of a tank filling/emptying system
+is demonstrated.
+</p>
+
+<p>
+The basic operation is to fill and empty the two tanks:
+</p>
+<ol>
+<li> Valve 1 is opened and tank 1 is filled.</li>
+<li> When tank 1 reaches its fill level limit,
+     valve 1 is closed. </li>
+<li> After a waiting time, valve 2 is
+     opened and the fluid flows from tank 1 into tank 2.</li>
+<li> When tank 1 reaches its minimum level, valve 2 is closed. </li>
+<li> After a waiting time, valve 3 is opened and
+     the fluid flows out of tank 2</li>
+<li> When tank 2 reaches its minimum level, valve 3 is closed</li>
+</ol>
+<p>
+The above "normal" process can be influenced by three
+buttons:
+</p>
+<ul>
+<li> Button <b>start</b> starts the above process.
+     When this button is pressed after a "stop" or
+     "shut" operation, the process operation continues.
+     </li>
+<li> Button <b>stop</b> stops the above process by
+     closing all valves. Then, the controller waits for
+     further input (either "start" or "shut" operation).</li>
+<li> Button <b>shut</b> is used to shutdown the process,
+     by emptying at once both tanks by opening valve 2 and
+     valve 3. When this is achieved,
+     the process goes back to its start configuration
+     where all 3 valves are closed.
+     Clicking on "start", restarts the process.</li>
+</ul>
+
+<p>
+The demo-run uses the following button presses:
+</p>
+
+<ul>
+<li> Button <b>start</b> pressed at 20 s.</li>
+<li> Button <b>stop</b> pressed at 220 s </li>
+<li> Button <b>start</b> pressed at 280 s </li>
+<li> Button <b>stop</b> pressed at 650 s </li>
+<li> Button <b>shut</b> pressed at 700 s </li>
+<li> Simulate for 900 s</li>
+</ul>
+
+<p>
+This example is based on
+</p>
+
+<dl>
+<dt>Dressler I. (2004):</dt>
+<dd> <b>Code Generation From JGrafchart to Modelica</b>.
+     Master thesis, supervisor: Karl-Erik Arzen,
+     Department of Automatic Control, Lund Institute of Technology,
+     Lund, Sweden, March 30, 2004<br>&nbsp;</dd>
+</dl>
+
+<img src="../Resources/Images/Fluid/Examples/ControlledTanks.png" border="1"
+     alt="ControlledTanks.png">
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:44 2013.
+</address></BODY>
+</HTML>

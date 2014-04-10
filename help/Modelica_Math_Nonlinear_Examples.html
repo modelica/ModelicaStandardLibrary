@@ -1,0 +1,232 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Math.Nonlinear.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Examples demonstrating the usage of the functions in package Nonlinear&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.Nonlinear.Examples"></A><A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
+>Modelica.Math.Nonlinear</A>.Examples</H2>
+<B>Examples demonstrating the usage of the functions in package Nonlinear</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Math.Nonlinear.q584f5df5b5d95d62battoS.png" ALT="Modelica.Math.Nonlinear.Examples.quadratureLobatto1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples.quadratureLobatto1"
+>quadratureLobatto1</A>
+</TD><TD>Integrate integral with fixed inputs</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Nonlinear.q584f5df5b5d95d62battoS.png" ALT="Modelica.Math.Nonlinear.Examples.quadratureLobatto2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples.quadratureLobatto2"
+>quadratureLobatto2</A>
+</TD><TD>Integrate integral with user dependent inputs</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Nonlinear.q584f5df5b5d95d62battoS.png" ALT="Modelica.Math.Nonlinear.Examples.solveNonlinearEquations1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples.solveNonlinearEquations1"
+>solveNonlinearEquations1</A>
+</TD><TD>Solve nonlinear equations with fixed inputs</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Nonlinear.q584f5df5b5d95d62battoS.png" ALT="Modelica.Math.Nonlinear.Examples.solveNonlinearEquations2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples.solveNonlinearEquations2"
+>solveNonlinearEquations2</A>
+</TD><TD>Solve nonlinear equations with user dependent inputs</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Nonlinear.E250a4edbf536c7a4atto3S.png" ALT="Modelica.Math.Nonlinear.Examples.quadratureLobatto3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples.quadratureLobatto3"
+>quadratureLobatto3</A>
+</TD><TD>Integrate function in a model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Nonlinear.E2055a3a28fdc459ftionsS.png" ALT="Modelica.Math.Nonlinear.Examples.UtilityFunctions" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear_Examples_UtilityFunctions.html#Modelica.Math.Nonlinear.Examples.UtilityFunctions"
+>UtilityFunctions</A>
+</TD><TD>Utility functions that are used as function arguments to the examples</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE quadratureLobatto1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Nonlinear.E250a4ed9f536c7a6atto1I.png" ALT="Modelica.Math.Nonlinear.Examples.quadratureLobatto1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Nonlinear.Examples.quadratureLobatto1"></A><A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Modelica.Math.Nonlinear.Examples</A>.quadratureLobatto1</H2>
+<B>Integrate integral with fixed inputs</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This example integrates the following integrands with function
+<A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear.quadratureLobatto"
+>quadratureLobatto</a>
+and compares the result with an analytical solution.
+The examples also demonstrate how additional input arguments to the integrand
+function can be passed as additional arguments.
+The following integrals are computed:
+</p>
+
+<ul>
+<li> integral(sin(x)*dx) from x=0 to x=1 </li>
+<li> integral(sin(5*x)*dx) from x=0 to x=13 </li>
+<li> elliptic integral from x=0 to pi/2 </li>
+</ul>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tolerance</TD><TD>Error tolerance of integral values</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE quadratureLobatto2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Nonlinear.E250a4ed9f536c7a6atto1I.png" ALT="Modelica.Math.Nonlinear.Examples.quadratureLobatto2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Nonlinear.Examples.quadratureLobatto2"></A><A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Modelica.Math.Nonlinear.Examples</A>.quadratureLobatto2</H2>
+<B>Integrate integral with user dependent inputs</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This example solves the following integrands with function
+<A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear.quadratureLobatto"
+>quadratureLobatto</a>.
+The user can set the parameters, like "w" or "k", and can experiment with
+different integration intervals.
+The following integrals are computed:
+</p>
+
+<ul>
+<li> integral(sin(x)*dx) </li>
+<li> integral(sin(w*x)*dx) </li>
+<li> elliptic integral </li>
+</ul>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>General</TD></TR>
+<TR><TD>Tolerance</TD><TD>Error tolerance of integral value</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Sine</TD></TR>
+<TR><TD>a1</TD><TD>Lower limit</TD></TR>
+<TR><TD>b1</TD><TD>Upper limit</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Sine w</TD></TR>
+<TR><TD>a2</TD><TD>Lower limit</TD></TR>
+<TR><TD>b2</TD><TD>Upper limit</TD></TR>
+<TR><TD>w</TD><TD>Angular velocity</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Elliptic integral</TD></TR>
+<TR><TD>a3</TD><TD>Lower limit</TD></TR>
+<TR><TD>b3</TD><TD>Upper limit</TD></TR>
+<TR><TD>k</TD><TD>Modul</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE solveNonlinearEquations1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Nonlinear.E250a4ed9f536c7a6atto1I.png" ALT="Modelica.Math.Nonlinear.Examples.solveNonlinearEquations1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Nonlinear.Examples.solveNonlinearEquations1"></A><A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Modelica.Math.Nonlinear.Examples</A>.solveNonlinearEquations1</H2>
+<B>Solve nonlinear equations with fixed inputs</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This example solves the following nonlinear equations with function
+<A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear.solveOneNonlinearEquation"
+>solveOneNonlinearEquation</a>
+and compares the result with the available analytical solution.
+The examples also demonstrate how additional input arguments to the nonlinear equation
+function can be passes as additional arguments.
+The following nonlinear equations are solved:
+</p>
+
+<ul>
+<li> 0 = u^2 - 1 </li>
+<li> 0 = 3*u - sin(3*u) - 1 </li>
+<li> 0 = 5 + log(u) - u </li>
+</ul>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tolerance</TD><TD>Relative tolerance of solution u</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE solveNonlinearEquations2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Nonlinear.E250a4ed9f536c7a6atto1I.png" ALT="Modelica.Math.Nonlinear.Examples.solveNonlinearEquations2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Nonlinear.Examples.solveNonlinearEquations2"></A><A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Modelica.Math.Nonlinear.Examples</A>.solveNonlinearEquations2</H2>
+<B>Solve nonlinear equations with user dependent inputs</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This example solves the following nonlinear equations with function
+<A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear.solveOneNonlinearEquation"
+>solveOneNonlinearEquation</a>.
+The user can set the parameters, like "w" or "m", and can experiment with
+different start intervals.
+The following nonlinear equations are solved:
+</p>
+
+<ul>
+<li> 0 = u^2 - 1 </li>
+<li> 0 = 3*u - sin(w*u) - 1 </li>
+<li> 0 = p[1] + log(p[2]*u) - m*u </li>
+</ul>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>General</TD></TR>
+<TR><TD>tolerance</TD><TD>Relative tolerance of solution u</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>u^2-1</TD></TR>
+<TR><TD>u_min1</TD><TD>Lower limit</TD></TR>
+<TR><TD>u_max1</TD><TD>Upper limit</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>3*u - sin(w*u) - 1</TD></TR>
+<TR><TD>u_min2</TD><TD>Lower limit</TD></TR>
+<TR><TD>u_max2</TD><TD>Upper limit</TD></TR>
+<TR><TD>w</TD><TD>Angular velocity</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>p[1] + log(p[2]*u) - m*u</TD></TR>
+<TR><TD>u_min3</TD><TD>Lower limit</TD></TR>
+<TR><TD>u_max3</TD><TD>Upper limit</TD></TR>
+<TR><TD>p[2]</TD><TD>Parameter vector</TD></TR>
+<TR><TD>m</TD><TD>Parameter</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE quadratureLobatto3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Nonlinear.E250a4edbf536c7a4atto3I.png" ALT="Modelica.Math.Nonlinear.Examples.quadratureLobatto3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Nonlinear.Examples.quadratureLobatto3"></A><A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Modelica.Math.Nonlinear.Examples</A>.quadratureLobatto3</H2>
+<B>Integrate function in a model</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This example demonstrates how to utilize a function as input argument
+to a function in a model.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A</TD><TD>Amplitude of integrand of s</TD></TR>
+<TR><TD>ws</TD><TD>Angular frequency of integrand of s</TD></TR>
+<TR><TD>wq</TD><TD>Angular frequency of q</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:10 2013.
+</address></BODY>
+</HTML>

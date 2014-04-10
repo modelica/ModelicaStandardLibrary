@@ -1,0 +1,234 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.MultiPhase.Sensors</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Multiphase potential, voltage and current Sensors&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.MultiPhase.Sensors"></A><A HREF="Modelica_Electrical_MultiPhase.html#Modelica.Electrical.MultiPhase"
+>Modelica.Electrical.MultiPhase</A>.Sensors</H2>
+<B>Multiphase potential, voltage and current Sensors</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains multiphase potential, voltage, and current sensors.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_SensorsPackage.html#Modelica.Icons.SensorsPackage"
+>Modelica.Icons.SensorsPackage</A> (Icon for packages containing sensors).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi6531a955e688cc8densorS.png" ALT="Modelica.Electrical.MultiPhase.Sensors.PotentialSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.PotentialSensor"
+>PotentialSensor</A>
+</TD><TD>Multiphase potential sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi4784c6c9431555aaensorS.png" ALT="Modelica.Electrical.MultiPhase.Sensors.VoltageSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.VoltageSensor"
+>VoltageSensor</A>
+</TD><TD>Multiphase voltage sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi582975ee72b309a8ensorS.png" ALT="Modelica.Electrical.MultiPhase.Sensors.VoltageQuasiRMSSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.VoltageQuasiRMSSensor"
+>VoltageQuasiRMSSensor</A>
+</TD><TD>Continuous quasi voltage RMS sensor for multi phase system</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi33d5a6805e6d91e7ensorS.png" ALT="Modelica.Electrical.MultiPhase.Sensors.CurrentSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.CurrentSensor"
+>CurrentSensor</A>
+</TD><TD>Multiphase current sensor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi7d797b050a7744b5ensorS.png" ALT="Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor"
+>CurrentQuasiRMSSensor</A>
+</TD><TD>Continuous quasi current RMS sensor for multi phase system</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi1ba2dbd0be1606fbensorS.png" ALT="Modelica.Electrical.MultiPhase.Sensors.PowerSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.PowerSensor"
+>PowerSensor</A>
+</TD><TD>Multiphase instantaneous power sensor</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PotentialSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi6531a955e688cc8densorI.png" ALT="Modelica.Electrical.MultiPhase.Sensors.PotentialSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sensors.PotentialSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Modelica.Electrical.MultiPhase.Sensors</A>.PotentialSensor</H2>
+<B>Multiphase potential sensor</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor),
+thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>phi[m]</TD><TD>Absolute voltage potential as output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VoltageSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi4784c6c9431555aaensorI.png" ALT="Modelica.Electrical.MultiPhase.Sensors.VoltageSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sensors.VoltageSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Modelica.Electrical.MultiPhase.Sensors</A>.VoltageSensor</H2>
+<B>Multiphase voltage sensor</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor),
+thus measuring the m potential differences <i>v[m]</i> between the m pins of plug_p and plug_n.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v[m]</TD><TD>Voltage between pin p and n (= p.v - n.v) as output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VoltageQuasiRMSSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi582975ee72b309a8ensorI.png" ALT="Modelica.Electrical.MultiPhase.Sensors.VoltageQuasiRMSSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sensors.VoltageQuasiRMSSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Modelica.Electrical.MultiPhase.Sensors</A>.VoltageQuasiRMSSensor</H2>
+<B>Continuous quasi voltage RMS sensor for multi phase system</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This sensor determines the continuous quasi <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RootMeanSquare"
+>RMS</a> value of a multi phase voltage system, representiong an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+</p>
+<pre>
+ V = sqrt(sum(v[k]^2 for k in 1:m)/m)
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Modelica.Electrical.MultiPhase.Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>V</TD><TD>Continuous quasi RMS of voltage</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CurrentSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi33d5a6805e6d91e7ensorI.png" ALT="Modelica.Electrical.MultiPhase.Sensors.CurrentSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sensors.CurrentSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Modelica.Electrical.MultiPhase.Sensors</A>.CurrentSensor</H2>
+<B>Multiphase current sensor</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
+thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to the m pins of plug_n.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>i[m]</TD><TD>current in the branch from p to n as output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CurrentQuasiRMSSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi7d797b050a7744b5ensorI.png" ALT="Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Modelica.Electrical.MultiPhase.Sensors</A>.CurrentQuasiRMSSensor</H2>
+<B>Continuous quasi current RMS sensor for multi phase system</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This sensor determines the continuous quasi <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RootMeanSquare"
+>RMS</a> value of a multi phase current system, representiong an equivalent RMS current vector <code>I</code> or phasor. If the current waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+</p>
+<pre>
+ I = sqrt(sum(i[k]^2 for k in 1:m)/m)
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Modelica.Electrical.MultiPhase.Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>I</TD><TD>Continuous quasi average RMS of current</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PowerSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi1ba2dbd0be1606fbensorI.png" ALT="Modelica.Electrical.MultiPhase.Sensors.PowerSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sensors.PowerSensor"></A><A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Modelica.Electrical.MultiPhase.Sensors</A>.PowerSensor</H2>
+<B>Multiphase instantaneous power sensor</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre><p>
+This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite.
+</p><pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pc</TD><TD>Positive plug, current path</TD></TR>
+<TR><TD>nc</TD><TD>Negative plug, current path</TD></TR>
+<TR><TD>pv</TD><TD>Positive plug, voltage path</TD></TR>
+<TR><TD>nv</TD><TD>Negative plug, voltage path</TD></TR>
+<TR><TD>power</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:33 2013.
+</address></BODY>
+</HTML>

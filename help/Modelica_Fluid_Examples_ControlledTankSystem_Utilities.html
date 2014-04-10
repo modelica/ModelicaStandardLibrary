@@ -1,0 +1,119 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Examples.ControlledTankSystem.Utilities"></A><A HREF="Modelica_Fluid_Examples_ControlledTankSystem.html#Modelica.Fluid.Examples.ControlledTankSystem"
+>Modelica.Fluid.Examples.ControlledTankSystem</A>.Utilities</H2>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</A> (Icon for utility packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.Cc420075caf52b68bollerS.png" ALT="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_ControlledTankSystem_Utilities.html#Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController"
+>TankController</A>
+</TD><TD>Controller for tank system</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.C76acf6361302a503ationS.png" ALT="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.NormalOperation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_ControlledTankSystem_Utilities.html#Modelica.Fluid.Examples.ControlledTankSystem.Utilities.NormalOperation"
+>NormalOperation</A>
+</TD><TD>Normal operation of tank system (button start pressed)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.C7365656b4f1b50bfuttonS.png" ALT="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_ControlledTankSystem_Utilities.html#Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton"
+>RadioButton</A>
+</TD><TD>Button that sets its output to true when pressed and is reset when an element of &#39;reset&#39; becomes true</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TankController<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.Cc420075caf52b68bollerI.png" ALT="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController"></A><A HREF="Modelica_Fluid_Examples_ControlledTankSystem_Utilities.html#Modelica.Fluid.Examples.ControlledTankSystem.Utilities"
+>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</A>.TankController</H2>
+<B>Controller for tank system</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialStateGraphIcon"
+>Modelica.StateGraph.Interfaces.PartialStateGraphIcon</A> (Icon for a StateGraph object).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>maxLevel</TD><TD>Fill level of tank 1 [m]</TD></TR>
+<TR><TD>minLevel</TD><TD>Lowest level of tank 1 and 2 [m]</TD></TR>
+<TR><TD>waitTime</TD><TD>Wait time, between operations [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>start</TD><TD>&nbsp;</TD></TR>
+<TR><TD>stop</TD><TD>&nbsp;</TD></TR>
+<TR><TD>shut</TD><TD>&nbsp;</TD></TR>
+<TR><TD>level1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>level2</TD><TD>&nbsp;</TD></TR>
+<TR><TD>valve1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>valve2</TD><TD>&nbsp;</TD></TR>
+<TR><TD>valve3</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NormalOperation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.C76acf6361302a503ationI.png" ALT="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.NormalOperation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.NormalOperation"></A><A HREF="Modelica_Fluid_Examples_ControlledTankSystem_Utilities.html#Modelica.Fluid.Examples.ControlledTankSystem.Utilities"
+>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</A>.NormalOperation</H2>
+<B>Normal operation of tank system (button start pressed)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.PartialCompositeStep"
+>Modelica.StateGraph.PartialCompositeStep</A> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>maxLevel</TD><TD>Fill level of tank 1 [m]</TD></TR>
+<TR><TD>minLevel</TD><TD>Lowest level of tank 1 and 2 [m]</TD></TR>
+<TR><TD>waitTime</TD><TD>Wait time between operations [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Exception connections</TD></TR>
+<TR><TD>nSuspend</TD><TD>Number of suspend ports</TD></TR>
+<TR><TD>nResume</TD><TD>Number of resume ports</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>inPort</TD><TD>&nbsp;</TD></TR>
+<TR><TD>outPort</TD><TD>&nbsp;</TD></TR>
+<TR><TD>suspend[nSuspend]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>resume[nResume]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>level1</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RadioButton<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.C7365656b4f1b50bfuttonI.png" ALT="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton"></A><A HREF="Modelica_Fluid_Examples_ControlledTankSystem_Utilities.html#Modelica.Fluid.Examples.ControlledTankSystem.Utilities"
+>Modelica.Fluid.Examples.ControlledTankSystem.Utilities</A>.RadioButton</H2>
+<B>Button that sets its output to true when pressed and is reset when an element of &#39;reset&#39; becomes true</B><p></P>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>buttonTimeTable[:]</TD><TD>Time instants where button is pressed [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Time varying expressions</TD></TR>
+<TR><TD>reset[:]</TD><TD>Reset button to false, if an element of reset becomes true</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>on</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:45 2013.
+</address></BODY>
+</HTML>

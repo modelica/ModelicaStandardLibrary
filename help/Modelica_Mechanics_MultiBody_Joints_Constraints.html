@@ -1,0 +1,212 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Joints.Constraints</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Components that define joints by constraints&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Constraints<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Joints.Constraints"></A><A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</A>.Constraints</H2>
+<B>Components that define joints by constraints</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains <b>constraint components</b>, that is, idealized, massless elements that
+constrain the motion between frames by means of kinematic constraints. The constraint
+elements are especially aimed to be used for multibody models which contain <b>kinematic loops</b>.
+Usually, kinematic loops are automatically handled. However, the performance might be improved
+by either solving certain kinds of loops analytically with the help of the components of
+subpackage  <A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+>Assemblies</a>, or
+by providing numerically better loop constraint formulations with the help of the components
+of this subpackage.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiB8ba44abba34c3a6amaticS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Constraints.Prismatic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Constraints.html#Modelica.Mechanics.MultiBody.Joints.Constraints.Prismatic"
+>Prismatic</A>
+</TD><TD>Prismatic cut-joint and translational directions may be constrained or released</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBc51ccd81b3dab1c9oluteS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Constraints.Revolute" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Constraints.html#Modelica.Mechanics.MultiBody.Joints.Constraints.Revolute"
+>Revolute</A>
+</TD><TD>Revolute cut-joint and translational directions may be constrained or released</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBcaf0642aceb86475ricalS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Constraints.Spherical" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Constraints.html#Modelica.Mechanics.MultiBody.Joints.Constraints.Spherical"
+>Spherical</A>
+</TD><TD>Spherical cut joint and translational directions may be constrained or released</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiB93c9b6b8a9c5a285ersalS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Constraints.Universal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Constraints.html#Modelica.Mechanics.MultiBody.Joints.Constraints.Universal"
+>Universal</A>
+</TD><TD>Universal cut-joint and translational directions may be constrained or released</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Prismatic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiB8ba44abba34c3a6amaticI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Constraints.Prismatic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Joints.Constraints.Prismatic"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Constraints.html#Modelica.Mechanics.MultiBody.Joints.Constraints"
+>Modelica.Mechanics.MultiBody.Joints.Constraints</A>.Prismatic</H2>
+<B>Prismatic cut-joint and translational directions may be constrained or released</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
+<p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
+<p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
+<p>See the subpackage <A HREF="Modelica_Mechanics_MultiBody_Examples_Constraints.html#Modelica.Mechanics.MultiBody.Examples.Constraints"
+>Examples.Constraints</a> for testing the joint. </p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>= true, if animation shall be enabled (show sphere)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constraints</TD></TR>
+<TR><TD>x_locked</TD><TD>= true: constraint force in x-direction, resolved in frame_a</TD></TR>
+<TR><TD>y_locked</TD><TD>= true: constraint force in y-direction, resolved in frame_a</TD></TR>
+<TR><TD>z_locked</TD><TD>= true: constraint force in z-direction, resolved in frame_a</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true</TD></TR>
+<TR><TD>sphereDiameter</TD><TD>Diameter of sphere representing the spherical joint [m]</TD></TR>
+<TR><TD>sphereColor</TD><TD>Color of sphere representing the spherical joint</TD></TR>
+<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Revolute<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBc51ccd81b3dab1c9oluteI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Constraints.Revolute" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Joints.Constraints.Revolute"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Constraints.html#Modelica.Mechanics.MultiBody.Joints.Constraints"
+>Modelica.Mechanics.MultiBody.Joints.Constraints</A>.Revolute</H2>
+<B>Revolute cut-joint and translational directions may be constrained or released</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
+<p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
+<p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
+<p>See the subpackage <A HREF="Modelica_Mechanics_MultiBody_Examples_Constraints.html#Modelica.Mechanics.MultiBody.Examples.Constraints"
+>Examples.Constraints</a> for testing the joint. </p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>= true, if animation shall be enabled (show sphere)</TD></TR>
+<TR><TD>n</TD><TD>Axis of rotation resolved in frame_a (= same as in frame_b) [1]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constraints in translational motion</TD></TR>
+<TR><TD>x_locked</TD><TD>= true: constraint force in x-direction, resolved in frame_a</TD></TR>
+<TR><TD>y_locked</TD><TD>= true: constraint force in y-direction, resolved in frame_a</TD></TR>
+<TR><TD>z_locked</TD><TD>= true: constraint force in z-direction, resolved in frame_a</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true</TD></TR>
+<TR><TD>sphereDiameter</TD><TD>Diameter of sphere representing the spherical joint [m]</TD></TR>
+<TR><TD>sphereColor</TD><TD>Color of sphere representing the spherical joint</TD></TR>
+<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Spherical<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBcaf0642aceb86475ricalI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Constraints.Spherical" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Joints.Constraints.Spherical"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Constraints.html#Modelica.Mechanics.MultiBody.Joints.Constraints"
+>Modelica.Mechanics.MultiBody.Joints.Constraints</A>.Spherical</H2>
+<B>Spherical cut joint and translational directions may be constrained or released</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
+<p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
+<p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
+<p>See the subpackage <A HREF="Modelica_Mechanics_MultiBody_Examples_Constraints.html#Modelica.Mechanics.MultiBody.Examples.Constraints"
+>Examples.Constraints</a> for testing the joint. </p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constraints</TD></TR>
+<TR><TD>x_locked</TD><TD>= true: constraint force in x-direction, resolved in frame_a</TD></TR>
+<TR><TD>y_locked</TD><TD>= true: constraint force in y-direction, resolved in frame_a</TD></TR>
+<TR><TD>z_locked</TD><TD>= true: constraint force in z-direction, resolved in frame_a</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Animation</TD></TR>
+<TR><TD>animation</TD><TD>= true, if animation shall be enabled (show sphere)</TD></TR>
+<TR><TD>sphereDiameter</TD><TD>Diameter of sphere representing the spherical joint [m]</TD></TR>
+<TR><TD>sphereColor</TD><TD>Color of sphere representing the spherical joint</TD></TR>
+<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Universal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiB93c9b6b8a9c5a285ersalI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Constraints.Universal" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Joints.Constraints.Universal"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Constraints.html#Modelica.Mechanics.MultiBody.Joints.Constraints"
+>Modelica.Mechanics.MultiBody.Joints.Constraints</A>.Universal</H2>
+<B>Universal cut-joint and translational directions may be constrained or released</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
+<p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
+<p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
+<p>See the subpackage <A HREF="Modelica_Mechanics_MultiBody_Examples_Constraints.html#Modelica.Mechanics.MultiBody.Examples.Constraints"
+>Examples.Constraints</a> for testing the joint. </p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>n_a</TD><TD>Axis of revolute joint 1 resolved in frame_a [1]</TD></TR>
+<TR><TD>n_b</TD><TD>Axis of revolute joint 2 resolved in frame_b [1]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constraints in translational motion</TD></TR>
+<TR><TD>x_locked</TD><TD>= true: constraint force in x-direction, resolved in frame_a</TD></TR>
+<TR><TD>y_locked</TD><TD>= true: constraint force in y-direction, resolved in frame_a</TD></TR>
+<TR><TD>z_locked</TD><TD>= true: constraint force in z-direction, resolved in frame_a</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Animation</TD></TR>
+<TR><TD>animation</TD><TD>= true, if animation shall be enabled (show sphere)</TD></TR>
+<TR><TD>sphereDiameter</TD><TD>Diameter of sphere representing the spherical joint [m]</TD></TR>
+<TR><TD>sphereColor</TD><TD>Color of sphere representing the spherical joint</TD></TR>
+<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:42 2013.
+</address></BODY>
+</HTML>

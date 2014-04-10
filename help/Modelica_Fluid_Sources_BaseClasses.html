@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Sources.BaseClasses</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Base classes used in the Sources package (only of interest to build new component models)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseClasses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Sources.BaseClasses"></A><A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources"
+>Modelica.Fluid.Sources</A>.BaseClasses</H2>
+<B>Base classes used in the Sources package (only of interest to build new component models)</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
+>Modelica.Icons.BasesPackage</A> (Icon for packages containing base classes).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.Ba94e3c671c7d4f13eourceS.png" ALT="Modelica.Fluid.Sources.BaseClasses.PartialSource" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialSource"
+>PartialSource</A>
+</TD><TD>Partial component source with one fluid connector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Sources.Ba8d7394b333759adbourceS.png" ALT="Modelica.Fluid.Sources.BaseClasses.PartialFlowSource" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses.PartialFlowSource"
+>PartialFlowSource</A>
+</TD><TD>Partial component source with one fluid connector</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialSource<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.Ba94e3c671c7d4f13eourceI.png" ALT="Modelica.Fluid.Sources.BaseClasses.PartialSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.BaseClasses.PartialSource"></A><A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses"
+>Modelica.Fluid.Sources.BaseClasses</A>.PartialSource</H2>
+<B>Partial component source with one fluid connector</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Partial component to model the <b>volume interface</b> of a <b>source</b>
+component, such as a mass flow source. The essential
+features are:
+</p>
+<ul>
+<li> The pressure in the connection port (= ports.p) is identical to the
+     pressure in the volume.</li>
+<li> The outflow enthalpy rate (= port.h_outflow) and the composition of the
+     substances (= port.Xi_outflow) are identical to the respective values in the volume.</li>
+</ul>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium model within the source</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium model within the source</TD></TR>
+<TR><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialFlowSource<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Sources.Ba8d7394b333759adbourceI.png" ALT="Modelica.Fluid.Sources.BaseClasses.PartialFlowSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Sources.BaseClasses.PartialFlowSource"></A><A HREF="Modelica_Fluid_Sources_BaseClasses.html#Modelica.Fluid.Sources.BaseClasses"
+>Modelica.Fluid.Sources.BaseClasses</A>.PartialFlowSource</H2>
+<B>Partial component source with one fluid connector</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Partial component to model the <b>volume interface</b> of a <b>source</b>
+component, such as a mass flow source. The essential
+features are:
+</p>
+<ul>
+<li> The pressure in the connection port (= ports.p) is identical to the
+     pressure in the volume.</li>
+<li> The outflow enthalpy rate (= port.h_outflow) and the composition of the
+     substances (= port.Xi_outflow) are identical to the respective values in the volume.</li>
+</ul>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium model within the source</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium model within the source</TD></TR>
+<TR><TD>ports[nPorts]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:49 2013.
+</address></BODY>
+</HTML>

@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Thermal parts of synchronous induction machines&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SynchronousInductionMachines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines"></A><A HREF="Modelica_Electrical_Machines_Thermal.html#Modelica.Electrical.Machines.Thermal"
+>Modelica.Electrical.Machines.Thermal</A>.SynchronousInductionMachines</H2>
+<B>Thermal parts of synchronous induction machines</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Thermal parts for synchronous induction machines
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machica71accff8c898aatSMPMS.png" ALT="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_SynchronousInductionMachines.html#Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM"
+>ThermalAmbientSMPM</A>
+</TD><TD>Thermal ambient for synchronous induction machine with permanent magnets</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machica71accff8c898aatSMPMS.png" ALT="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMEE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_SynchronousInductionMachines.html#Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMEE"
+>ThermalAmbientSMEE</A>
+</TD><TD>Thermal ambient for synchronous induction machine with electrical excitation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi3a3795d8bfc644c6ntSMRS.png" ALT="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_SynchronousInductionMachines.html#Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR"
+>ThermalAmbientSMR</A>
+</TD><TD>Thermal ambient for synchronous induction machine with reluctance rotor</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientSMPM<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machica71accff8c898aatSMPMI.png" ALT="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM"></A><A HREF="Modelica_Electrical_Machines_Thermal_SynchronousInductionMachines.html#Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines"
+>Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines</A>.ThermalAmbientSMPM</H2>
+<B>Thermal ambient for synchronous induction machine with permanent magnets</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Thermal ambient for synchronous induction machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines"
+>Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines</A> (Partial thermal ambient for induction machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useDamperCage</TD><TD>Enable / disable damper cage</TD></TR>
+<TR><TD>m</TD><TD>Number of stator phases</TD></TR>
+<TR><TD>useTemperatureInputs</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD>Ts</TD><TD>Temperature of stator windings [K]</TD></TR>
+<TR><TD>Tpm</TD><TD>Temperature of permanent magnet [K]</TD></TR>
+<TR><TD>Tr</TD><TD>Temperature of damper cage (optional) [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>TStatorWinding</TD><TD>Temperature of stator windings</TD></TR>
+<TR><TD>TRotorWinding</TD><TD>Temperature of damper cage (optional)</TD></TR>
+<TR><TD>TPermanentMagnet</TD><TD>Temperature of permanent magnet</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientSMEE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machica71accff8c898aatSMPMI.png" ALT="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMEE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMEE"></A><A HREF="Modelica_Electrical_Machines_Thermal_SynchronousInductionMachines.html#Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines"
+>Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines</A>.ThermalAmbientSMEE</H2>
+<B>Thermal ambient for synchronous induction machine with electrical excitation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Thermal ambient for synchronous induction machines with electrical excitation to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines"
+>Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines</A> (Partial thermal ambient for induction machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useDamperCage</TD><TD>Enable / disable damper cage</TD></TR>
+<TR><TD>m</TD><TD>Number of stator phases</TD></TR>
+<TR><TD>useTemperatureInputs</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD>Ts</TD><TD>Temperature of stator windings [K]</TD></TR>
+<TR><TD>Tr</TD><TD>Temperature of damper cage (optional) [K]</TD></TR>
+<TR><TD>Te</TD><TD>Temperature of excitation [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>TStatorWinding</TD><TD>Temperature of stator windings</TD></TR>
+<TR><TD>TRotorWinding</TD><TD>Temperature of damper cage (optional)</TD></TR>
+<TR><TD>TExcitation</TD><TD>Temperature of excitation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientSMR<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi3a3795d8bfc644c6ntSMRI.png" ALT="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR"></A><A HREF="Modelica_Electrical_Machines_Thermal_SynchronousInductionMachines.html#Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines"
+>Modelica.Electrical.Machines.Thermal.SynchronousInductionMachines</A>.ThermalAmbientSMR</H2>
+<B>Thermal ambient for synchronous induction machine with reluctance rotor</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Thermal ambient for synchronous induction machines with reluctance rotor to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines"
+>Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines</A> (Partial thermal ambient for induction machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useDamperCage</TD><TD>Enable / disable damper cage</TD></TR>
+<TR><TD>m</TD><TD>Number of stator phases</TD></TR>
+<TR><TD>useTemperatureInputs</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD>Ts</TD><TD>Temperature of stator windings [K]</TD></TR>
+<TR><TD>Tr</TD><TD>Temperature of damper cage (optional) [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>TStatorWinding</TD><TD>Temperature of stator windings</TD></TR>
+<TR><TD>TRotorWinding</TD><TD>Temperature of damper cage (optional)</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:32 2013.
+</address></BODY>
+</HTML>

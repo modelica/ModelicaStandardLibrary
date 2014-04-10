@@ -1,0 +1,526 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE StraightPipe<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer.html#Modelica.Fluid.Dissipation.HeatTransfer"
+>Modelica.Fluid.Dissipation.HeatTransfer</A>.StraightPipe</H2>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Straight pipe</h4>
+<h5>Laminar flow</h5>
+<p>Calculation of mean convective heat transfer coefficient <b>kc</b> of a straight pipe at an uniform wall temperature <b>or</b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar"
+>See more information</a>.</p>
+
+<h5>Turbulent flow</h5>
+<p>Calculation of mean convective heat transfer coefficient <b>kc</b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b>or</b> <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_twoPhaseOverall"
+>See more information</a>.</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio9346f94b29c5fa02minarS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar"
+>kc_laminar</A>
+</TD><TD>Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped laminar flow regime</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio9346f94b29c5fa02minarS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC"
+>kc_laminar_KC</A>
+</TD><TD>Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped laminar flow regime</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatiof39fce7458e1d196N_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_con"
+>kc_laminar_IN_con</A>
+</TD><TD>Input record for function kc_laminar and kc_laminar_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatiof39fce7458e1d196N_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_var"
+>kc_laminar_IN_var</A>
+</TD><TD>Input record for function kc_laminar and kc_laminar_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatioc7fca356c74847bcerallS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall"
+>kc_overall</A>
+</TD><TD>Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped overall flow regime| pressure loss dependence</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatioc7fca356c74847bcerallS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC"
+>kc_overall_KC</A>
+</TD><TD>Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped overall flow regime| pressure loss dependence</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatioaa4d5ced2c8c3c61N_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_con"
+>kc_overall_IN_con</A>
+</TD><TD>Input record for function kc_overall and kc_overall_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatioaa4d5ced2c8c3c61N_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var"
+>kc_overall_IN_var</A>
+</TD><TD>Input record for function kc_overall and kc_overall_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio006fb0c8c05ece74ulentS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent"
+>kc_turbulent</A>
+</TD><TD>Mean heat transfer coefficient of straight pipe | hydrodynamically developed turbulent flow regime | pressure loss dependence</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio006fb0c8c05ece74ulentS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC"
+>kc_turbulent_KC</A>
+</TD><TD>Mean heat transfer coefficient of straight pipe | hydrodynamically developed turbulent flow regime | pressure loss dependence</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatioad4e70d354387b3fN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con"
+>kc_turbulent_IN_con</A>
+</TD><TD>Input record for function kc_turbulent and kc_turbulent_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatioad4e70d354387b3fN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_var"
+>kc_turbulent_IN_var</A>
+</TD><TD>Input record for function kc_turbulent and kc_turbulent_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio43a128cc463c1ca6ll_KCS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC"
+>kc_twoPhaseOverall_KC</A>
+</TD><TD>Local two phase heat transfer coefficient of straight pipe | horizontal or vertical boiling | horizontal condensation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatioe00598ff644ee4abN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_con"
+>kc_twoPhaseOverall_KC_IN_con</A>
+</TD><TD>Input record for function kc_twoPhaseOverall_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipatioe00598ff644ee4abN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_var"
+>kc_twoPhaseOverall_KC_IN_var</A>
+</TD><TD>Input record for function kc_twoPhaseOverall_KC</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_laminar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatio9346f94b29c5fa02minarI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_laminar</H2>
+<B>Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped laminar flow regime</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar"
+>See more information</a> .
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
+<TR><TD>IN_con</TD><TD>Input record for function kc_laminar</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
+<TR><TD>IN_var</TD><TD>Input record for function kc_laminar</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Output</TD></TR>
+<TR><TD>kc</TD><TD>Convective heat transfer coefficient [W/(m2.K)]</TD></TR>
+<TR><TD>Pr</TD><TD>Prandtl number [1]</TD></TR>
+<TR><TD>Re</TD><TD>Reynolds number [1]</TD></TR>
+<TR><TD>Nu</TD><TD>Nusselt number [1]</TD></TR>
+<TR><TD>failureStatus</TD><TD>0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningful results</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_laminar_KC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatio9346f94b29c5fa02minarI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_laminar_KC</H2>
+<B>Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped laminar flow regime</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar"
+>See more information</a> .
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
+<TR><TD>IN_con</TD><TD>Input record for function kc_laminar_KC</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
+<TR><TD>IN_var</TD><TD>Input record for function kc_laminar_KC</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>kc</TD><TD>Output for function kc_laminar_KC [W/(m2.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_laminar_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatiof39fce7458e1d196N_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_laminar_IN_con</H2>
+<B>Input record for function kc_laminar and kc_laminar_KC</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar"
+> kc_laminar</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC"
+> kc_laminar_KC</a>.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_HeatTransfer.html#Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.StraightPipe"
+>Utilities.Records.HeatTransfer.StraightPipe</A> (Input for straight pipe).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Straight pipe</TD></TR>
+<TR><TD>d_hyd</TD><TD>Hydraulic diameter [m]</TD></TR>
+<TR><TD>L</TD><TD>Length [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Choices</TD></TR>
+<TR><TD>target</TD><TD>Choice of heat transfer boundary condition</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_laminar_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatiof39fce7458e1d196N_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_laminar_IN_var</H2>
+<B>Input record for function kc_laminar and kc_laminar_KC</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar"
+> kc_laminar</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC"
+> kc_laminar_KC</a>.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var</A> (Input record for function kc_overall and kc_overall_KC).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid properties</TD></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity of fluid at constant pressure [J/(kg.K)]</TD></TR>
+<TR><TD>eta</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
+<TR><TD>lambda</TD><TD>Thermal conductivity of fluid [W/(m.K)]</TD></TR>
+<TR><TD>rho</TD><TD>Density of fluid [kg/m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Input</TD></TR>
+<TR><TD>m_flow</TD><TD>[kg/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_overall<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatioc7fca356c74847bcerallI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_overall</H2>
+<B>Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped overall flow regime| pressure loss dependence</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped overall fluid flow with neglect <b> or </b> consideration of pressure loss influence. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall"
+>See more information</a> .
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
+<TR><TD>IN_con</TD><TD>Input record for function kc_overall</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
+<TR><TD>IN_var</TD><TD>Input record for function kc_overall</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Output</TD></TR>
+<TR><TD>kc</TD><TD>Convective heat transfer coefficient [W/(m2.K)]</TD></TR>
+<TR><TD>Pr</TD><TD>Prandtl number [1]</TD></TR>
+<TR><TD>Re</TD><TD>Reynolds number [1]</TD></TR>
+<TR><TD>Nu</TD><TD>Nusselt number [1]</TD></TR>
+<TR><TD>failureStatus</TD><TD>0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningful results</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_overall_KC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatioc7fca356c74847bcerallI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_overall_KC</H2>
+<B>Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped overall flow regime| pressure loss dependence</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped overall fluid flow with neglect <b> or </b> consideration of pressure loss influence.<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall"
+>See more information</a> .
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
+<TR><TD>IN_con</TD><TD>Input record for function kc_overall_KC</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
+<TR><TD>IN_var</TD><TD>Input record for function kc_overall_KC</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>kc</TD><TD>Output for function kc_overall_KC [W/(m2.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_overall_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatioaa4d5ced2c8c3c61N_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_overall_IN_con</H2>
+<B>Input record for function kc_overall and kc_overall_KC</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall"
+> kc_overall</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC"
+> kc_overall_KC</a>.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con"
+>kc_turbulent_IN_con</A> (Input record for function kc_turbulent and kc_turbulent_KC).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Choices</TD></TR>
+<TR><TD>target</TD><TD>Choice of heat transfer boundary condition</TD></TR>
+<TR><TD>roughness</TD><TD>Choice of considering surface roughness</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Straight pipe</TD></TR>
+<TR><TD>d_hyd</TD><TD>Hydraulic diameter [m]</TD></TR>
+<TR><TD>L</TD><TD>Length [m]</TD></TR>
+<TR><TD>K</TD><TD>Roughness (average height of surface asperities) [m]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_overall_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatioaa4d5ced2c8c3c61N_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_overall_IN_var</H2>
+<B>Input record for function kc_overall and kc_overall_KC</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall"
+> kc_overall</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC"
+> kc_overall_KC</a>.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties</A> (Base record for fluid properties).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid properties</TD></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity of fluid at constant pressure [J/(kg.K)]</TD></TR>
+<TR><TD>eta</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
+<TR><TD>lambda</TD><TD>Thermal conductivity of fluid [W/(m.K)]</TD></TR>
+<TR><TD>rho</TD><TD>Density of fluid [kg/m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Input</TD></TR>
+<TR><TD>m_flow</TD><TD>[kg/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_turbulent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatio006fb0c8c05ece74ulentI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_turbulent</H2>
+<B>Mean heat transfer coefficient of straight pipe | hydrodynamically developed turbulent flow regime | pressure loss dependence</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent"
+>See more information</a> .
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
+<TR><TD>IN_con</TD><TD>Input record for function kc_turbulent</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
+<TR><TD>IN_var</TD><TD>Input record for function kc_turbulent</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Output</TD></TR>
+<TR><TD>kc</TD><TD>Convective heat transfer coefficient [W/(m2.K)]</TD></TR>
+<TR><TD>Pr</TD><TD>Prandtl number [1]</TD></TR>
+<TR><TD>Re</TD><TD>Reynolds number [1]</TD></TR>
+<TR><TD>Nu</TD><TD>Nusselt number [1]</TD></TR>
+<TR><TD>failureStatus</TD><TD>0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningful results</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_turbulent_KC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatio006fb0c8c05ece74ulentI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_turbulent_KC</H2>
+<B>Mean heat transfer coefficient of straight pipe | hydrodynamically developed turbulent flow regime | pressure loss dependence</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent"
+>See more information</a> .
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
+<TR><TD>IN_con</TD><TD>Input record for function kc_turbulent_KC</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
+<TR><TD>IN_var</TD><TD>Input record for function kc_turbulent_KC</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>kc</TD><TD>Output for function kc_turbulent_KC [W/(m2.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_turbulent_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatioad4e70d354387b3fN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_turbulent_IN_con</H2>
+<B>Input record for function kc_turbulent and kc_turbulent_KC</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent"
+>kc_turbulent</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC"
+>kc_turbulent_KC</a>.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_HeatTransfer.html#Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.StraightPipe"
+>Utilities.Records.HeatTransfer.StraightPipe</A> (Input for straight pipe).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Straight pipe</TD></TR>
+<TR><TD>d_hyd</TD><TD>Hydraulic diameter [m]</TD></TR>
+<TR><TD>L</TD><TD>Length [m]</TD></TR>
+<TR><TD>K</TD><TD>Roughness (average height of surface asperities) [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Choices</TD></TR>
+<TR><TD>roughness</TD><TD>Choice of considering surface roughness</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_turbulent_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatioad4e70d354387b3fN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_turbulent_IN_var</H2>
+<B>Input record for function kc_turbulent and kc_turbulent_KC</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent"
+>kc_turbulent</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC"
+>kc_turbulent_KC</a>.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var</A> (Input record for function kc_overall and kc_overall_KC).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid properties</TD></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity of fluid at constant pressure [J/(kg.K)]</TD></TR>
+<TR><TD>eta</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
+<TR><TD>lambda</TD><TD>Thermal conductivity of fluid [W/(m.K)]</TD></TR>
+<TR><TD>rho</TD><TD>Density of fluid [kg/m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Input</TD></TR>
+<TR><TD>m_flow</TD><TD>[kg/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_twoPhaseOverall_KC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatio43a128cc463c1ca6ll_KCI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_twoPhaseOverall_KC</H2>
+<B>Local two phase heat transfer coefficient of straight pipe | horizontal or vertical boiling | horizontal condensation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime. <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_twoPhaseOverall"
+>See more information</a> .</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
+<TR><TD>IN_con</TD><TD>&nbsp;</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
+<TR><TD>IN_var</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>kc</TD><TD>Local two phase heat transfer coefficient [W/(m2.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_twoPhaseOverall_KC_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatioe00598ff644ee4abN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_twoPhaseOverall_KC_IN_con</H2>
+<B>Input record for function kc_twoPhaseOverall_KC</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC"
+> kc_twoPhaseOverall_KC</a>.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_HeatTransfer.html#Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.TwoPhaseFlowHT_IN_con"
+>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.TwoPhaseFlowHT_IN_con</A> (Base record for two phase heat transfer coefficient).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Choices</TD></TR>
+<TR><TD>target</TD><TD>Choice of (horizontal/vertical) boiling or (horizontal) condensation in pipe</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Geometry</TD></TR>
+<TR><TD>A_cross</TD><TD>Cross sectional area [m2]</TD></TR>
+<TR><TD>perimeter</TD><TD>Wetted perimeter [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid properties</TD></TR>
+<TR><TD>MM</TD><TD>Molar mass of fluid [g/mol]</TD></TR>
+<TR><TD>p_crit</TD><TD>Critical pressure of fluid [Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_twoPhaseOverall_KC_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipatioe00598ff644ee4abN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe"
+>Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe</A>.kc_twoPhaseOverall_KC_IN_var</H2>
+<B>Input record for function kc_twoPhaseOverall_KC</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This record is used as <b>input record</b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_StraightPipe.html#Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC"
+> kc_twoPhaseOverall_KC</a>.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_HeatTransfer.html#Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.TwoPhaseFlowHT_IN_var"
+>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.TwoPhaseFlowHT_IN_var</A> (Base record for two phase heat transfer coefficient).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Choices</TD></TR>
+<TR><TD>target</TD><TD>Choice of (horizontal/vertical) boiling or (horizontal) condensation in pipe</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid properties</TD></TR>
+<TR><TD>cp_l</TD><TD>Specific heat capacity of liquid [J/(kg.K)]</TD></TR>
+<TR><TD>lambda_l</TD><TD>Thermal conductivity of liquid [W/(m.K)]</TD></TR>
+<TR><TD>rho_g</TD><TD>Density of gas [kg/m3]</TD></TR>
+<TR><TD>rho_l</TD><TD>Density of liquid [kg/m3]</TD></TR>
+<TR><TD>eta_g</TD><TD>Dynamic viscosity of gas [Pa.s]</TD></TR>
+<TR><TD>eta_l</TD><TD>Dynamic viscosity of liquid [Pa.s]</TD></TR>
+<TR><TD>pressure</TD><TD>Mean pressure of fluid [Pa]</TD></TR>
+<TR><TD>dh_lg</TD><TD>Evaporation enthalpy of fluid [J/kg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Input</TD></TR>
+<TR><TD>m_flow</TD><TD>Mass flow rate [kg/s]</TD></TR>
+<TR><TD>qdot_A</TD><TD>Heat flux at boiling [W/m2]</TD></TR>
+<TR><TD>x_flow</TD><TD>Mass flow rate quality</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:50 2013.
+</address></BODY>
+</HTML>

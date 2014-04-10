@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.QuasiStationary.SinglePhase.Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Library with auxiliary models for testing&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Utilities"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase.html#Modelica.Electrical.QuasiStationary.SinglePhase"
+>Modelica.Electrical.QuasiStationary.SinglePhase</A>.Utilities</H2>
+<B>Library with auxiliary models for testing</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This package hosts utilities for test examples of quasi stationary single phase circuits.
+Quasi stationary theory for single phase circuits can be found in the
+<A HREF="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
+>references</a>.
+</p>
+<h4>See also</h4>
+
+<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Examples.html#Modelica.Electrical.QuasiStationary.SinglePhase.Examples"
+>Examples</a>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</A> (Icon for utility packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Quasie6ab29ae774921fcerterS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Utilities.html#Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter"
+>IdealACDCConverter</A>
+</TD><TD>Ideal AC DC converter</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Quasi22fd8658d65f413difierS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Utilities.html#Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier"
+>GraetzRectifier</A>
+</TD><TD>Graetz rectifier bridge</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealACDCConverter<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Quasie6ab29ae774921fcerterI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Utilities.html#Modelica.Electrical.QuasiStationary.SinglePhase.Utilities"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Utilities</A>.IdealACDCConverter</H2>
+<B>Ideal AC DC converter</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This is an ideal AC DC converter, based on a power balance between QS circuit and DC side.
+The parameter <i>conversionFactor</i> defines the ratio between averaged DC voltage and QS rms voltage.
+Furthermore, reactive power at the QS side is set to 0.
+</p>
+<h4>Note:</h4>
+<p>
+Of course no voltage or current ripple is present, neither at the QS side nor at the DC side.
+At the QS side, only base harmonics of voltage and current are taken into account.
+At the DC side, only the mean of voltage and current are taken into account.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>conversionFactor</TD><TD>Ratio of DC voltage / QS rms voltage</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pin_pQS</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_nQS</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_pDC</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_nDC</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GraetzRectifier<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Quasi22fd8658d65f413difierI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Utilities.html#Modelica.Electrical.QuasiStationary.SinglePhase.Utilities"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Utilities</A>.GraetzRectifier</H2>
+<B>Graetz rectifier bridge</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This is a so called Graetz-bridge, a single phase rectifier built from 4 diodes.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pin_pAC</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_nAC</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_pDC</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_nDC</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:34 2013.
+</address></BODY>
+</HTML>

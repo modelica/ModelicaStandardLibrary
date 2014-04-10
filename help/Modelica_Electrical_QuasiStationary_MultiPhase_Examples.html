@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.QuasiStationary.MultiPhase.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Test examples&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Examples"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase.html#Modelica.Electrical.QuasiStationary.MultiPhase"
+>Modelica.Electrical.QuasiStationary.MultiPhase</A>.Examples</H2>
+<B>Test examples</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Examples to demonstrate the usage of quasistationary electric components.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Quasi162377d5db7a1c5agStarS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Examples.BalancingStar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Examples.html#Modelica.Electrical.QuasiStationary.MultiPhase.Examples.BalancingStar"
+>BalancingStar</A>
+</TD><TD>Balancing an unsymmetrical star-connected load</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Quasi162377d5db7a1c5agStarS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Examples.BalancingDelta" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Examples.html#Modelica.Electrical.QuasiStationary.MultiPhase.Examples.BalancingDelta"
+>BalancingDelta</A>
+</TD><TD>Balancing an unsymmetrical delta-connected load</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BalancingStar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Quasi162377d5db7a1c5agStarI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Examples.BalancingStar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Examples.BalancingStar"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Examples.html#Modelica.Electrical.QuasiStationary.MultiPhase.Examples"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Examples</A>.BalancingStar</H2>
+<B>Balancing an unsymmetrical star-connected load</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+For the unsymmetrical load (resistor, capacitor and inductor) the parameters inductance L and capacitance C
+are chosen such way that the neutral current (see currentSensor0) is zero.
+</p>
+<p>
+P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase circuits), Teubner 1973, page 42, example 18
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>V</TD><TD>Source Voltage [V]</TD></TR>
+<TR><TD>f</TD><TD>Source frequency [Hz]</TD></TR>
+<TR><TD>R</TD><TD>Load resistance [Ohm]</TD></TR>
+<TR><TD>L</TD><TD>Load inductance [H]</TD></TR>
+<TR><TD>C</TD><TD>Load capacitance [F]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BalancingDelta<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Quasi162377d5db7a1c5agStarI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Examples.BalancingDelta" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Examples.BalancingDelta"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Examples.html#Modelica.Electrical.QuasiStationary.MultiPhase.Examples"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Examples</A>.BalancingDelta</H2>
+<B>Balancing an unsymmetrical delta-connected load</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+For the unsymmetrical load (resistor, capacitor and inductor) the parameters inductance L and capacitance C
+are chosen such way that the magnitudes of the three phase currents (see currentSensor12, currentSensor23, currentSensor31) are equal.
+</p>
+<p>
+P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase circuits), Teubner 1973, page 43, example 23
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>V_LL</TD><TD>Source voltage line-to-line [V]</TD></TR>
+<TR><TD>f</TD><TD>Source frequency [Hz]</TD></TR>
+<TR><TD>R</TD><TD>Load resistance [Ohm]</TD></TR>
+<TR><TD>L</TD><TD>Load inductance [H]</TD></TR>
+<TR><TD>C</TD><TD>Load capacitance [F]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:36 2013.
+</address></BODY>
+</HTML>

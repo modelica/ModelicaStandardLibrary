@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.Translational</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Library to model 1-dimensional, translational mechanical systems&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Translational<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.Translational"></A><A HREF="Modelica_Mechanics.html#Modelica.Mechanics"
+>Modelica.Mechanics</A>.Translational</H2>
+<B>Library to model 1-dimensional, translational mechanical systems</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains components to model <i>1-dimensional translational
+mechanical</i> systems.
+</p>
+<p>
+The <i>filled</i> and <i>non-filled green squares</i> at the left and
+right side of a component represent <i>mechanical flanges</i>.
+Drawing a line between such squares means that the corresponding
+flanges are <i>rigidly attached</i> to each other. The components of this
+library can be usually connected together in an arbitrary way. E.g. it is
+possible to connect two springs or two sliding masses with inertia directly
+together.
+<p> The only <i>connection restriction</i> is that the Coulomb friction
+elements (e.g., MassWithStopAndFriction) should be only connected
+together provided a compliant element, such as a spring, is in between.
+The reason is that otherwise the frictional force is not uniquely
+defined if the elements are stuck at the same time instant (i.e., there
+does not exist a unique solution) and some simulation systems may not be
+able to handle this situation, since this leads to a singularity during
+simulation. It can only be resolved in a "clean way" by combining the
+two connected friction elements into
+one component and resolving the ambiguity of the frictional force in the
+stuck mode.
+</p>
+<p> Another restriction arises if the hard stops in model MassWithStopAndFriction are used, i. e.
+the movement of the mass is limited by a stop at smax or smin.
+<font color="#ff0000"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
+the model will not work. To avoid this any inertias should be connected via springs
+to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided.</p>
+<p>
+In the <i>icon</i> of every component an <i>arrow</i> is displayed in grey
+color. This arrow characterizes the coordinate system in which the vectors
+of the component are resolved. It is directed into the positive
+translational direction (in the mathematical sense).
+In the flanges of a component, a coordinate system is rigidly attached
+to the flange. It is called <i>flange frame</i> and is directed in parallel
+to the component coordinate system. As a result, e.g., the positive
+cut-force of a "left" flange (flange_a) is directed into the flange, whereas
+the positive cut-force of a "right" flange (flange_b) is directed out of the
+flange. A flange is described by a Modelica connector containing
+the following variables:
+</p>
+<pre>
+   Modelica.SIunits.Position s    "Absolute position of flange";
+   <b>flow</b> Modelica.SIunits.Force f  "Cut-force in the flange";
+</pre>
+
+<p>
+This library is designed in a fully object oriented way in order that
+components can be connected together in every meaningful combination
+(e.g., direct connection of two springs or two shafts with inertia).
+As a consequence, most models lead to a system of
+differential-algebraic equations of <i>index 3</i> (= constraint
+equations have to be differentiated twice in order to arrive at
+a state space representation) and the Modelica translator or
+the simulator has to cope with this system representation.
+According to our present knowledge, this requires that the
+Modelica translator is able to symbolically differentiate equations
+(otherwise it is e.g., not possible to provide consistent initial
+conditions; even if consistent initial conditions are present, most
+numerical DAE integrators can cope at most with index 2 DAEs).
+</p>
+
+<p>
+In version 3.2 of the Modelica Standard Library, all <b>dissipative</b> components
+of the Translational library got an optional <b>heatPort</b> connector to which the
+dissipated energy is transported in form of heat. This connector is enabled
+via parameter "useHeatPort". If the heatPort connector is enabled,
+it must be connected, and if it is not enabled, it must not be connected.
+Independently, whether the heatPort is enabled or not,
+the dissipated power is available from the new variable "<b>lossPower</b>" (which is
+positive if heat is flowing out of the heatPort). For an example, see
+<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.HeatLosses"
+>Examples.HeatLosses</a>.
+</p>
+
+<dl>
+<dt><b>Library Officer</b>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> <br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
+    Abteilung Systemdynamik und Regelungstechnik<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br><br>
+</dl>
+
+<p>
+<b>Contributors to this library:</b>
+</p>
+
+<ul>
+<li> Main author until 2006:<br>
+     Peter Beater <br>
+     Universit&auml;t Paderborn, Abteilung Soest<br>
+     Fachbereich Maschinenbau/Automatisierungstechnik<br>
+     L&uuml;becker Ring 2 <br>
+     D 59494 Soest <br>
+     Germany <br>
+     email: <A HREF="mailto:info@beater.de">info@beater.de</A><br><br>
+     </li>
+
+<li> <a href="http://www.haumer.at/">Anton Haumer</a><br>
+     Technical Consulting &amp; Electrical Engineering<br>
+     A-3423 St.Andrae-Woerdern, Austria<br>
+     email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a><br><br></li>
+
+<li> <a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> (DLR-RM)</li>
+</ul>
+
+<p>
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Universit&auml;t Paderborn, FB 12.
+</p>
+<p>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+>Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Transl94b8b6bac98cf578mplesS.png" ALT="Modelica.Mechanics.Translational.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Examples</A>
+</TD><TD>Demonstration examples of the components of this package</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Transle77b46fb4cf54eb2nentsS.png" ALT="Modelica.Mechanics.Translational.Components" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components"
+>Components</A>
+</TD><TD>Components for 1D translational mechanical drive trains</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.SensorsS.png" ALT="Modelica.Mechanics.Translational.Sensors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors"
+>Sensors</A>
+</TD><TD>Sensors for 1-dim. translational mechanical quantities</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.SourcesS.png" ALT="Modelica.Mechanics.Translational.Sources" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources"
+>Sources</A>
+</TD><TD>Sources to drive 1D translational mechanical components</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translab2067fb3676395ffacesS.png" ALT="Modelica.Mechanics.Translational.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Interfaces</A>
+</TD><TD>Interfaces for 1-dim. translational mechanical components</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:44 2013.
+</address></BODY>
+</HTML>

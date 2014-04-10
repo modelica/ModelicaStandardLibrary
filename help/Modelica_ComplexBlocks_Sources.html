@@ -1,0 +1,170 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.ComplexBlocks.Sources</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Library of signal source blocks generating Complex signals&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.ComplexBlocks.Sources"></A><A HREF="Modelica_ComplexBlocks.html#Modelica.ComplexBlocks"
+>Modelica.ComplexBlocks</A>.Sources</H2>
+<B>Library of signal source blocks generating Complex signals</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</A> (Icon for packages containing sources).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.ComplexBlocks.Soe3f9b0f2132ef84assionS.png" ALT="Modelica.ComplexBlocks.Sources.ComplexExpression" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_ComplexBlocks_Sources.html#Modelica.ComplexBlocks.Sources.ComplexExpression"
+>ComplexExpression</A>
+</TD><TD>Set output signal to a time varying Complex expression</TD></TR>
+<TR><TD><IMG SRC="Modelica.ComplexBlocks.Soda94cc628d1c07b5stantS.png" ALT="Modelica.ComplexBlocks.Sources.ComplexConstant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_ComplexBlocks_Sources.html#Modelica.ComplexBlocks.Sources.ComplexConstant"
+>ComplexConstant</A>
+</TD><TD>Generate constant signal of type Complex</TD></TR>
+<TR><TD><IMG SRC="Modelica.ComplexBlocks.Soac1ee48e78f875b1xStepS.png" ALT="Modelica.ComplexBlocks.Sources.ComplexStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_ComplexBlocks_Sources.html#Modelica.ComplexBlocks.Sources.ComplexStep"
+>ComplexStep</A>
+</TD><TD>Generate step signal of type Complex</TD></TR>
+<TR><TD><IMG SRC="Modelica.ComplexBlocks.So73dfe8cf08be49f9hasorS.png" ALT="Modelica.ComplexBlocks.Sources.ComplexRotatingPhasor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_ComplexBlocks_Sources.html#Modelica.ComplexBlocks.Sources.ComplexRotatingPhasor"
+>ComplexRotatingPhasor</A>
+</TD><TD>Generate a phasor with constant magnitude and constant angular velocity of type Complex</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ComplexExpression<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.ComplexBlocks.Soe3f9b0f2132ef84assionI.png" ALT="Modelica.ComplexBlocks.Sources.ComplexExpression" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.ComplexBlocks.Sources.ComplexExpression"></A><A HREF="Modelica_ComplexBlocks_Sources.html#Modelica.ComplexBlocks.Sources"
+>Modelica.ComplexBlocks.Sources</A>.ComplexExpression</H2>
+<B>Set output signal to a time varying Complex expression</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The (time varying) Complex output signal of this block can be defined in its
+parameter menu via variable <b>y</b>. The purpose is to support the
+easy definition of Complex expressions in a block diagram.
+Note, that "time" is a built-in variable that is always
+accessible and represents the "model time" and that
+Variable <b>y</b> is both a variable and a connector.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Time varying output signal</TD></TR>
+<TR><TD>y</TD><TD>Value of Complex output</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Time varying output signal</TD></TR>
+<TR><TD>y</TD><TD>Value of Complex output</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ComplexConstant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.ComplexBlocks.Soda94cc628d1c07b5stantI.png" ALT="Modelica.ComplexBlocks.Sources.ComplexConstant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.ComplexBlocks.Sources.ComplexConstant"></A><A HREF="Modelica_ComplexBlocks_Sources.html#Modelica.ComplexBlocks.Sources"
+>Modelica.ComplexBlocks.Sources</A>.ComplexConstant</H2>
+<B>Generate constant signal of type Complex</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Complex output y is a constant signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Constant.png"
+     alt="Constant.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSO"
+>Modelica.ComplexBlocks.Interfaces.ComplexSO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>k</TD><TD>Constant output value</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Complex output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ComplexStep<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.ComplexBlocks.Soac1ee48e78f875b1xStepI.png" ALT="Modelica.ComplexBlocks.Sources.ComplexStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.ComplexBlocks.Sources.ComplexStep"></A><A HREF="Modelica_ComplexBlocks_Sources.html#Modelica.ComplexBlocks.Sources"
+>Modelica.ComplexBlocks.Sources</A>.ComplexStep</H2>
+<B>Generate step signal of type Complex</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Complex output y is a step signal (of real and imaginary part):
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Step.png"
+     alt="Step.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSignalSource"
+>ComplexBlocks.Interfaces.ComplexSignalSource</A> (Base class for continuous signal source).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>height</TD><TD>Height of step</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signal y</TD></TR>
+<TR><TD>startTime</TD><TD>Output y = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Complex output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ComplexRotatingPhasor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.ComplexBlocks.So73dfe8cf08be49f9hasorI.png" ALT="Modelica.ComplexBlocks.Sources.ComplexRotatingPhasor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.ComplexBlocks.Sources.ComplexRotatingPhasor"></A><A HREF="Modelica_ComplexBlocks_Sources.html#Modelica.ComplexBlocks.Sources"
+>Modelica.ComplexBlocks.Sources</A>.ComplexRotatingPhasor</H2>
+<B>Generate a phasor with constant magnitude and constant angular velocity of type Complex</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The output y is a complex phasor with constant magnitude, spinning with constant angular velocity.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSO"
+>Modelica.ComplexBlocks.Interfaces.ComplexSO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>magnitude</TD><TD>Magnitude of complex phasor</TD></TR>
+<TR><TD>w</TD><TD>Constant angular velocity of complex phasor [rad/s]</TD></TR>
+<TR><TD>phi0</TD><TD>Initial angle of complex phasor at time = 0 [rad]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Complex output signal</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:26 2013.
+</address></BODY>
+</HTML>

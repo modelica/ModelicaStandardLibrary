@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Characteristics mu_r(B) of common soft magnetic materials; hysteresis neglected&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SoftMagnetic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic"></A><A HREF="Modelica_Magnetic_FluxTubes_Material.html#Modelica.Magnetic.FluxTubes.Material"
+>Modelica.Magnetic.FluxTubes.Material</A>.SoftMagnetic</H2>
+<B>Characteristics mu_r(B) of common soft magnetic materials; hysteresis neglected</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The magnetisation characteristics mu_r(B) of all soft magnetic materials currently included in this library are approximated with a <A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox"
+>function</a>. Each material is characterised by the five parameters of this function. The approximated characteristics mu_r(B) for most of the ferromagnetic materials currently included are shown in the plots below (solid lines) together with the original data points compiled from measurements and literature.
+</p>
+
+<p>
+<IMG src="../Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/Steel.png" ALT="Approximated magnetization characteristics of selected steels"><br>
+<IMG src="../Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/Miscellaneous.png" ALT="Approximated magnetization characteristics of miscellaneous soft magnetic materials"><br>
+<IMG src="../Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/ElectricSheet.png" ALT="Approximated magnetization characteristics of included electric sheets"><br>
+</p>
+
+<p>
+For the nonlinear curve fit, data points for high flux densities (approximately B>1T) have been weighted higher than the ones for low flux densities. This is due to the large impact of saturated ferromagnetic sections in a magnetic circuit compared to that of non-saturated sections with relative permeabilities mu_r>>1.
+</p>
+
+<p>
+Note that the magnetisation characteristics largely depend on possible previous machining and on measurement conditions. A virgin material normally has a considerably higher permeability than the same material after machining (and packet assembling in case of electric sheets). This is indicated in the above plots by different magnetisation curves for similar materials. In most cases, the original data points represent commutating curves obtained with measurements at 50Hz.
+</p>
+
+<p>
+Additional user-specific materials can be defined as needed. This requires determination of the approximation parameters from the original data points, preferably with a nonlinear curve fit.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_MaterialPropertiesPackage.html#Modelica.Icons.MaterialPropertiesPackage"
+>Modelica.Icons.MaterialPropertiesPackage</A> (Icon for package containing property classes).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub94d5ca362faebe39eDataS.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData"
+>BaseData</A>
+</TD><TD>Coefficients for approximation of soft magnetic materials</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub30f134bc68c28776SteelS.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic_Steel.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel"
+>Steel</A>
+</TD><TD>Various ferromagnetic steels</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub30f134bc68c28776SteelS.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic_ElectricSheet.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet"
+>ElectricSheet</A>
+</TD><TD>Various electric sheets</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub30f134bc68c28776SteelS.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic_PureIron.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.PureIron"
+>PureIron</A>
+</TD><TD>Pure iron</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub30f134bc68c28776SteelS.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.CobaltIron" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic_CobaltIron.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.CobaltIron"
+>CobaltIron</A>
+</TD><TD>Cobalt iron</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub30f134bc68c28776SteelS.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic_NickelIron.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.NickelIron"
+>NickelIron</A>
+</TD><TD>Nickel iron</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTuba731f61c71ef3043pproxS.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox"
+>mu_rApprox</A>
+</TD><TD>Approximation of relative permeability mu_r as a function of flux density B for soft magnetic materials</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseData<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTub94d5ca362faebe39eDataI.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic</A>.BaseData</H2>
+<B>Coefficients for approximation of soft magnetic materials</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The parameters needed for <A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox"
+>approximation of the magnetisation characteristics</a> of included soft magnetic materials are declared in this record.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>mu_i</TD><TD>Initial relative permeability at B=0 [1]</TD></TR>
+<TR><TD>B_myMax</TD><TD>Flux density at maximum relative permeability [T]</TD></TR>
+<TR><TD>c_a</TD><TD>Coefficient of approximation function</TD></TR>
+<TR><TD>c_b</TD><TD>Coefficient of approximation function</TD></TR>
+<TR><TD>n</TD><TD>Exponent of approximation function</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mu_rApprox<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTuba731f61c71ef3043pproxI.png" ALT="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox"></A><A HREF="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic"
+>Modelica.Magnetic.FluxTubes.Material.SoftMagnetic</A>.mu_rApprox</H2>
+<B>Approximation of relative permeability mu_r as a function of flux density B for soft magnetic materials</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The relative permeability mu_r as a function of flux density B for all soft magnetic materials currently included in this library is approximated with the following function <A HREF="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro00]</a>:
+</p>
+
+<p>
+<IMG src="../Resources/Images/Magnetic/FluxTubes/Material/SoftMagnetic/eq_mu_rApprox.png" ALT="Equation for approximation mu_r(B)"/>
+</p>
+
+<p>
+Two of the five parameters of this equation have a physical meaning, namely the initial relative permeability mu_i at B=0 and the magnetic flux density at maximum permeability B_myMax. B_N is the flux density normalized to latter parameter.</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>B</TD><TD>Flux density in ferromagnetic flux tube element [T]</TD></TR>
+<TR><TD>mu_i</TD><TD>Initial relative permeability at B=0 [1]</TD></TR>
+<TR><TD>B_myMax</TD><TD>Flux density at maximum relative permeability [T]</TD></TR>
+<TR><TD>c_a</TD><TD>Coefficient of approximation function</TD></TR>
+<TR><TD>c_b</TD><TD>Coefficient of approximation function</TD></TR>
+<TR><TD>n</TD><TD>Exponent of approximation function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>mu_r</TD><TD>Relative magnetic permeability of ferromagnetic flux tube element [1]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:38 2013.
+</address></BODY>
+</HTML>

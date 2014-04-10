@@ -1,0 +1,650 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.MultiPhase.Basic</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Basic components for electrical multiphase models&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.MultiPhase.Basic"></A><A HREF="Modelica_Electrical_MultiPhase.html#Modelica.Electrical.MultiPhase"
+>Modelica.Electrical.MultiPhase</A>.Basic</H2>
+<B>Basic components for electrical multiphase models</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains basic analog electrical multiphase components.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi7cef7494073cd956.StarS.png" ALT="Modelica.Electrical.MultiPhase.Basic.Star" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Star</A>
+</TD><TD>Star-connection</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multie53b4fb2e6ef9e61DeltaS.png" ALT="Modelica.Electrical.MultiPhase.Basic.Delta" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Delta"
+>Delta</A>
+</TD><TD>Delta (polygon) connection</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multia4540d43e2c5ed9dPin_pS.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPin_p"
+>PlugToPin_p</A>
+</TD><TD>Connect one (positive) Pin</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multia4540d41e2c5ed83Pin_nS.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_n" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPin_n"
+>PlugToPin_n</A>
+</TD><TD>Connect one (negative) Pin</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi1707fdba589d062cins_pS.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPins_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPins_p"
+>PlugToPins_p</A>
+</TD><TD>Connect all (positive) Pins</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi1707fdb8589d0632ins_nS.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPins_n" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPins_n"
+>PlugToPins_n</A>
+</TD><TD>Connect all (negative) Pins</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multie1259443f0e82e5bistorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.Resistor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Resistor"
+>Resistor</A>
+</TD><TD>Ideal linear electrical resistors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multie1259443f0e82e5bistorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.Conductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Conductor"
+>Conductor</A>
+</TD><TD>Ideal linear electrical conductors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multicc132de8cc0b354ccitorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.Capacitor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Capacitor"
+>Capacitor</A>
+</TD><TD>Ideal linear electrical capacitors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi1c9894e01f202e81uctorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.Inductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Inductor"
+>Inductor</A>
+</TD><TD>Ideal linear electrical inductors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi53987038ab1a0462uctorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.SaturatingInductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.SaturatingInductor"
+>SaturatingInductor</A>
+</TD><TD>Simple model of inductors with saturation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multifbac6bd430a80f03uctorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.MutualInductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MutualInductor"
+>MutualInductor</A>
+</TD><TD>Linear mutual inductor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi69838fd0747f74c6uctorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.ZeroInductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.ZeroInductor"
+>ZeroInductor</A>
+</TD><TD>Linear zero sequence inductor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multib074c27b332bb29eormerS.png" ALT="Modelica.Electrical.MultiPhase.Basic.Transformer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Transformer"
+>Transformer</A>
+</TD><TD>Multiphase Transformer</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multibd867cb341de62e9istorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableResistor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableResistor"
+>VariableResistor</A>
+</TD><TD>Ideal linear electrical resistors with variable resistance</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multibd867cb341de62e9istorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableConductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableConductor"
+>VariableConductor</A>
+</TD><TD>Ideal linear electrical conductors with variable conductance</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multi91aa1f38eac263dacitorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableCapacitor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableCapacitor"
+>VariableCapacitor</A>
+</TD><TD>Ideal linear electrical capacitors with variable capacitance</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Multif8f97d50ae166233uctorS.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableInductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.VariableInductor"
+>VariableInductor</A>
+</TD><TD>Ideal linear electrical inductors with variable inductance</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Star<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi7cef7494073cd956.StarI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Star" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Star"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Star</H2>
+<B>Star-connection</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Delta<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multie53b4fb2e6ef9e61DeltaI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Delta" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Delta"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Delta</H2>
+<B>Delta (polygon) connection</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1],
+thus establishing a so-called delta (or polygon) connection
+when used in parallel to another component.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlugToPin_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multia4540d43e2c5ed9dPin_pI.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.PlugToPin_p</H2>
+<B>Connect one (positive) Pin</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p unconnected.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>k</TD><TD>Phase index</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_p</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlugToPin_n<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multia4540d41e2c5ed83Pin_nI.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPin_n" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.PlugToPin_n"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.PlugToPin_n</H2>
+<B>Connect one (negative) Pin</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n unconnected.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>k</TD><TD>Phase index</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlugToPins_p<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi1707fdba589d062cins_pI.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPins_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.PlugToPins_p"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.PlugToPins_p</H2>
+<B>Connect all (positive) Pins</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Connects all pins of plug_p to the pin array pin_p.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_p[m]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlugToPins_n<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi1707fdb8589d0632ins_nI.png" ALT="Modelica.Electrical.MultiPhase.Basic.PlugToPins_n" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.PlugToPins_n"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.PlugToPins_n</H2>
+<B>Connect all (negative) Pins</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Connects all pins of plug_n to the pin array pin_n.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>pin_n[m]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Resistor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multie1259443f0e82e5bistorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Resistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Resistor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Resistor</H2>
+<B>Ideal linear electrical resistors</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>R[m]</TD><TD>Resistances R_ref at temperatures T_ref [Ohm]</TD></TR>
+<TR><TD>T_ref[m]</TD><TD>Reference temperatures [K]</TD></TR>
+<TR><TD>alpha[m]</TD><TD>Temperature coefficients of resistances at reference temperatures [1/K]</TD></TR>
+<TR><TD>mh</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD>T[mh]</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Conductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multie1259443f0e82e5bistorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Conductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Conductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Conductor</H2>
+<B>Ideal linear electrical conductors</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>G[m]</TD><TD>Conductances G_ref at temperatures T_ref [S]</TD></TR>
+<TR><TD>T_ref[m]</TD><TD>Reference temperatures [K]</TD></TR>
+<TR><TD>alpha[m]</TD><TD>Temperature coefficients of conductances at reference temperatures [1/K]</TD></TR>
+<TR><TD>mh</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD>T[mh]</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Capacitor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multicc132de8cc0b354ccitorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Capacitor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Capacitor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Capacitor</H2>
+<B>Ideal linear electrical capacitors</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>C[m]</TD><TD>Capacitance [F]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Inductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi1c9894e01f202e81uctorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Inductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Inductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Inductor</H2>
+<B>Ideal linear electrical inductors</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>L[m]</TD><TD>Inductance [H]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SaturatingInductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi53987038ab1a0462uctorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.SaturatingInductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.SaturatingInductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.SaturatingInductor</H2>
+<B>Simple model of inductors with saturation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m saturating inductors (Modelica.Electrical.Analog.Basic.SaturatingInductor)
+</p>
+<p>
+<b>Attention!!!</b><br>
+Each element of the array of saturatingInductors is only dependent on the current flowing through this element.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>Inom[m]</TD><TD>Nominal current [A]</TD></TR>
+<TR><TD>Lnom[m]</TD><TD>Nominal inductance at Nominal current [H]</TD></TR>
+<TR><TD>Lzer[m]</TD><TD>Inductance near current=0 [H]</TD></TR>
+<TR><TD>Linf[m]</TD><TD>Inductance at large currents [H]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MutualInductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multifbac6bd430a80f03uctorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.MutualInductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.MutualInductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.MutualInductor</H2>
+<B>Linear mutual inductor</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Model of a multi phase inductor providing a mutual inductance matrix model.
+</p>
+<H4>Implementation</H4>
+<pre>
+  v[1] = L[1,1]*der(i[1]) + L[1,2]*der(i[2]) + ... + L[1,m]*der(i[m])
+  v[2] = L[2,1]*der(i[1]) + L[2,2]*der(i[2]) + ... + L[2,m]*der(i[m])
+    :              :                         :                                :
+  v[m] = L[m,1]*der(i[1]) + L[m,2]*der(i[2]) + ... + L[m,m]*der(i[m])
+</pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.OnePort"
+>Modelica.Electrical.MultiPhase.Interfaces.OnePort</A> (Component with two electrical plugs and currents from plug_p to plug_n).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>L[m, m]</TD><TD>Mutual inductance matrix [H]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ZeroInductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi69838fd0747f74c6uctorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.ZeroInductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.ZeroInductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.ZeroInductor</H2>
+<B>Linear zero sequence inductor</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Model of a multi phase zero sequence inductor.
+</p>
+<H4>Implementation</H4>
+<pre>
+  v = Lzero*sum(der(i)) = Lzero*der(sum(i))
+</pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.OnePort"
+>Modelica.Electrical.MultiPhase.Interfaces.OnePort</A> (Component with two electrical plugs and currents from plug_p to plug_n).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>Lzero</TD><TD>Zero sequence inductance [H]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Transformer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multib074c27b332bb29eormerI.png" ALT="Modelica.Electrical.MultiPhase.Basic.Transformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.Transformer"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.Transformer</H2>
+<B>Multiphase Transformer</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.FourPlug"
+>Interfaces.FourPlug</A> (Component with two m-phase electric ports).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>L1[m]</TD><TD>Primary inductance [H]</TD></TR>
+<TR><TD>L2[m]</TD><TD>Secondary inductance [H]</TD></TR>
+<TR><TD>M[m]</TD><TD>Coupling inductance [H]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_p2</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n2</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableResistor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multibd867cb341de62e9istorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableResistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.VariableResistor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.VariableResistor</H2>
+<B>Ideal linear electrical resistors with variable resistance</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
+</p>
+<P>
+<b>Attention!!!</b><br>
+  It is recommended that none of the R_Port signals should not cross the zero value.
+  Otherwise depending on the surrounding circuit the probability of singularities is high.
+</P>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>T_ref[m]</TD><TD>Reference temperatures [K]</TD></TR>
+<TR><TD>alpha[m]</TD><TD>Temperature coefficients of resistances at reference temperatures [1/K]</TD></TR>
+<TR><TD>mh</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD>T[mh]</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>R[m]</TD><TD>[Ohm]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableConductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multibd867cb341de62e9istorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableConductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.VariableConductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.VariableConductor</H2>
+<B>Ideal linear electrical conductors with variable conductance</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
+</p>
+<P>
+<b>Attention!!!</b><br>
+  It is recommended that none of the G_Port signals should not cross the zero value.
+  Otherwise depending on the surrounding circuit the probability of singularities is high.
+</P>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>T_ref[m]</TD><TD>Reference temperatures [K]</TD></TR>
+<TR><TD>alpha[m]</TD><TD>Temperature coefficients of conductances at reference temperatures [1/K]</TD></TR>
+<TR><TD>mh</TD><TD>Number of heatPorts=number of phases</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
+<TR><TD>T[mh]</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>G[m]</TD><TD>[S]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableCapacitor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multi91aa1f38eac263dacitorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableCapacitor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.VariableCapacitor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.VariableCapacitor</H2>
+<B>Ideal linear electrical capacitors with variable capacitance</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m variable capacitors (Modelica.Electrical.Analog.Basic.VariableCapacitor)
+</p>
+<P>
+It is required that each C_Port.signal &ge; 0, otherwise an
+assertion is raised. To avoid a variable index system,<br>
+C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
+Cmin is a parameter with default value Modelica.Constants.eps.
+</P>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>Cmin[m]</TD><TD>minimum Capacitance [F]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>C[m]</TD><TD>[F]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableInductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Multif8f97d50ae166233uctorI.png" ALT="Modelica.Electrical.MultiPhase.Basic.VariableInductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Basic.VariableInductor"></A><A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</A>.VariableInductor</H2>
+<B>Ideal linear electrical inductors with variable inductance</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m variable inductors (Modelica.Electrical.Analog.Basic.VariableInductor)
+</p>
+<P>
+It is required that each L_Port.signal &ge; 0, otherwise an
+assertion is raised. To avoid a variable index system,<br>
+L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
+Lmin is a parameter with default value Modelica.Constants.eps.
+</P>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>Lmin[m]</TD><TD>minimum Inductance [H]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>L[m]</TD><TD>[H]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:33 2013.
+</address></BODY>
+</HTML>

@@ -1,0 +1,1141 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Common</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Data structures and fundamental functions for fluid properties&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Common<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common"></A><A HREF="Modelica_Media.html#Modelica.Media"
+>Modelica.Media</A>.Common</H2>
+<B>Data structures and fundamental functions for fluid properties</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre><h4>Package description</h4>
+      <p>Package Modelica.Media.Common provides records and functions shared by many of the property sub-packages.
+      High accuracy fluid property models share a lot of common structure, even if the actual models are different.
+      Common data structures and computations shared by these property models are collected in this library.
+   </p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Rate"
+>Rate</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.MolarFlowRate"
+>MolarFlowRate</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.MolarReactionRate"
+>MolarReactionRate</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.MolarEnthalpy"
+>MolarEnthalpy</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerDensityByEntropy"
+>DerDensityByEntropy</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerEnergyByPressure"
+>DerEnergyByPressure</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerEnergyByMoles"
+>DerEnergyByMoles</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerEntropyByTemperature"
+>DerEntropyByTemperature</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerEntropyByPressure"
+>DerEntropyByPressure</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerEntropyByMoles"
+>DerEntropyByMoles</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByDensity"
+>DerPressureByDensity</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureBySpecificVolume"
+>DerPressureBySpecificVolume</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByTemperature"
+>DerPressureByTemperature</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerVolumeByTemperature"
+>DerVolumeByTemperature</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerVolumeByPressure"
+>DerVolumeByPressure</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerVolumeByMoles"
+>DerVolumeByMoles</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsenthalpicExponent"
+>IsenthalpicExponent</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsentropicExponent"
+>IsentropicExponent</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsobaricVolumeExpansionCoefficient"
+>IsobaricVolumeExpansionCoefficient</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsochoricPressureCoefficient"
+>IsochoricPressureCoefficient</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsothermalCompressibility"
+>IsothermalCompressibility</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.JouleThomsonCoefficient"
+>JouleThomsonCoefficient</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD>MINPOS=1.0e-9</TD><TD>Minimal value for physical variables which are always &gt; 0.0</TD></TR>
+<TR><TD>AMIN=MINPOS</TD><TD>Minimal init area</TD></TR>
+<TR><TD>AMAX=1.0e5</TD><TD>Maximal init area</TD></TR>
+<TR><TD>ANOM=1.0</TD><TD>Nominal init area</TD></TR>
+<TR><TD>MOLMIN=-1.0*MINPOS</TD><TD>Minimal Mole Number</TD></TR>
+<TR><TD>MOLMAX=1.0e8</TD><TD>Maximal Mole Number</TD></TR>
+<TR><TD>MOLNOM=1.0</TD><TD>Nominal Mole Number</TD></TR>
+<TR><TD>DMIN=1e-6</TD><TD>Minimal init density</TD></TR>
+<TR><TD>DMAX=30.0e3</TD><TD>Maximal init density</TD></TR>
+<TR><TD>DNOM=1.0</TD><TD>Nominal init density</TD></TR>
+<TR><TD>LAMMIN=MINPOS</TD><TD>Minimal thermal conductivity</TD></TR>
+<TR><TD>LAMNOM=1.0</TD><TD>Nominal thermal conductivity</TD></TR>
+<TR><TD>LAMMAX=1000.0</TD><TD>Maximal thermal conductivity</TD></TR>
+<TR><TD>ETAMIN=MINPOS</TD><TD>Minimal init dynamic viscosity</TD></TR>
+<TR><TD>ETAMAX=1.0e8</TD><TD>Maximal init dynamic viscosity</TD></TR>
+<TR><TD>ETANOM=100.0</TD><TD>Nominal init dynamic viscosity</TD></TR>
+<TR><TD>EMIN=-1.0e10</TD><TD>Minimal init energy</TD></TR>
+<TR><TD>EMAX=1.0e10</TD><TD>Maximal init energy</TD></TR>
+<TR><TD>ENOM=1.0e3</TD><TD>Nominal init energy</TD></TR>
+<TR><TD>SMIN=-1.0e6</TD><TD>Minimal init entropy</TD></TR>
+<TR><TD>SMAX=1.0e6</TD><TD>Maximal init entropy</TD></TR>
+<TR><TD>SNOM=1.0e3</TD><TD>Nominal init entropy</TD></TR>
+<TR><TD>MDOTMIN=-1.0e5</TD><TD>Minimal init mass flow rate</TD></TR>
+<TR><TD>MDOTMAX=1.0e5</TD><TD>Maximal init mass flow rate</TD></TR>
+<TR><TD>MDOTNOM=1.0</TD><TD>Nominal init mass flow rate</TD></TR>
+<TR><TD>MASSXMIN=-1.0*MINPOS</TD><TD>Minimal init mass fraction</TD></TR>
+<TR><TD>MASSXMAX=1.0</TD><TD>Maximal init mass fraction</TD></TR>
+<TR><TD>MASSXNOM=0.1</TD><TD>Nominal init mass fraction</TD></TR>
+<TR><TD>MMIN=-1.0*MINPOS</TD><TD>Minimal init mass</TD></TR>
+<TR><TD>MMAX=1.0e8</TD><TD>Maximal init mass</TD></TR>
+<TR><TD>MNOM=1.0</TD><TD>Nominal init mass</TD></TR>
+<TR><TD>MMMIN=0.001</TD><TD>Minimal initial molar mass</TD></TR>
+<TR><TD>MMMAX=250.0</TD><TD>Maximal initial molar mass</TD></TR>
+<TR><TD>MMNOM=0.2</TD><TD>Nominal initial molar mass</TD></TR>
+<TR><TD>MOLEYMIN=-1.0*MINPOS</TD><TD>Minimal init mole fraction</TD></TR>
+<TR><TD>MOLEYMAX=1.0</TD><TD>Maximal init mole fraction</TD></TR>
+<TR><TD>MOLEYNOM=0.1</TD><TD>Nominal init mole fraction</TD></TR>
+<TR><TD>GMIN=-1.0e8</TD><TD>Minimal init momentum flux</TD></TR>
+<TR><TD>GMAX=1.0e8</TD><TD>Maximal init momentum flux</TD></TR>
+<TR><TD>GNOM=1.0</TD><TD>Nominal init momentum flux</TD></TR>
+<TR><TD>POWMIN=-1.0e8</TD><TD>Minimal init power or heat</TD></TR>
+<TR><TD>POWMAX=1.0e8</TD><TD>Maximal init power or heat</TD></TR>
+<TR><TD>POWNOM=1.0e3</TD><TD>Nominal init power or heat</TD></TR>
+<TR><TD>PMIN=1.0e4</TD><TD>Minimal init pressure</TD></TR>
+<TR><TD>PMAX=1.0e8</TD><TD>Maximal init pressure</TD></TR>
+<TR><TD>PNOM=1.0e5</TD><TD>Nominal init pressure</TD></TR>
+<TR><TD>COMPPMIN=-1.0*MINPOS</TD><TD>Minimal init pressure</TD></TR>
+<TR><TD>COMPPMAX=1.0e8</TD><TD>Maximal init pressure</TD></TR>
+<TR><TD>COMPPNOM=1.0e5</TD><TD>Nominal init pressure</TD></TR>
+<TR><TD>KAPPAMIN=1.0</TD><TD>Minimal init isentropic exponent</TD></TR>
+<TR><TD>KAPPAMAX=1.7</TD><TD>Maximal init isentropic exponent</TD></TR>
+<TR><TD>KAPPANOM=1.2</TD><TD>Nominal init isentropic exponent</TD></TR>
+<TR><TD>SEMIN=-1.0e8</TD><TD>Minimal init specific energy</TD></TR>
+<TR><TD>SEMAX=1.0e8</TD><TD>Maximal init specific energy</TD></TR>
+<TR><TD>SENOM=1.0e6</TD><TD>Nominal init specific energy</TD></TR>
+<TR><TD>SHMIN=-1.0e8</TD><TD>Minimal init specific enthalpy</TD></TR>
+<TR><TD>SHMAX=1.0e8</TD><TD>Maximal init specific enthalpy</TD></TR>
+<TR><TD>SHNOM=1.0e6</TD><TD>Nominal init specific enthalpy</TD></TR>
+<TR><TD>SSMIN=-1.0e6</TD><TD>Minimal init specific entropy</TD></TR>
+<TR><TD>SSMAX=1.0e6</TD><TD>Maximal init specific entropy</TD></TR>
+<TR><TD>SSNOM=1.0e3</TD><TD>Nominal init specific entropy</TD></TR>
+<TR><TD>CPMIN=MINPOS</TD><TD>Minimal init specific heat capacity</TD></TR>
+<TR><TD>CPMAX=1.0e6</TD><TD>Maximal init specific heat capacity</TD></TR>
+<TR><TD>CPNOM=1.0e3</TD><TD>Nominal init specific heat capacity</TD></TR>
+<TR><TD>TMIN=1.0</TD><TD>Minimal init temperature</TD></TR>
+<TR><TD>TMAX=6000.0</TD><TD>Maximal init temperature</TD></TR>
+<TR><TD>TNOM=320.0</TD><TD>Nominal init temperature</TD></TR>
+<TR><TD>LMIN=MINPOS</TD><TD>Minimal init thermal conductivity</TD></TR>
+<TR><TD>LMAX=500.0</TD><TD>Maximal init thermal conductivity</TD></TR>
+<TR><TD>LNOM=1.0</TD><TD>Nominal init thermal conductivity</TD></TR>
+<TR><TD>VELMIN=-1.0e5</TD><TD>Minimal init speed</TD></TR>
+<TR><TD>VELMAX=1.0e5</TD><TD>Maximal init speed</TD></TR>
+<TR><TD>VELNOM=1.0</TD><TD>Nominal init speed</TD></TR>
+<TR><TD>VMIN=0.0</TD><TD>Minimal init volume</TD></TR>
+<TR><TD>VMAX=1.0e5</TD><TD>Maximal init volume</TD></TR>
+<TR><TD>VNOM=1.0e-3</TD><TD>Nominal init volume</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.ThermoFluidSpecialS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>ThermoFluidSpecial</A>
+</TD><TD>Property records used by the ThermoFluid library</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.SaturationProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.SaturationProperties"
+>SaturationProperties</A>
+</TD><TD>Properties in the two phase region</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.SaturationBoundaryProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.SaturationBoundaryProperties"
+>SaturationBoundaryProperties</A>
+</TD><TD>Properties on both phase boundaries, including some derivatives</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.IF97BaseTwoPhase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IF97BaseTwoPhase"
+>IF97BaseTwoPhase</A>
+</TD><TD>Intermediate property data record for IF 97</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.IF97PhaseBoundaryProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IF97PhaseBoundaryProperties"
+>IF97PhaseBoundaryProperties</A>
+</TD><TD>Thermodynamic base properties on the phase boundary for IF97 steam tables</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.GibbsDerivs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>GibbsDerivs</A>
+</TD><TD>Derivatives of dimensionless Gibbs-function w.r.t. dimensionless pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.HelmholtzDerivs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A>
+</TD><TD>Derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressure, density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.TwoPhaseTransportProps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.TwoPhaseTransportProps"
+>TwoPhaseTransportProps</A>
+</TD><TD>Defines properties on both phase boundaries, needed in the two phase region</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.PhaseBoundaryProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A>
+</TD><TD>Thermodynamic base properties on the phase boundary</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.NewtonDerivatives_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ph"
+>NewtonDerivatives_ph</A>
+</TD><TD>Derivatives for fast inverse calculations of Helmholtz functions: p &amp; h</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.NewtonDerivatives_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ps"
+>NewtonDerivatives_ps</A>
+</TD><TD>Derivatives for fast inverse calculation of Helmholtz functions: p &amp; s</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.NewtonDerivatives_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_pT"
+>NewtonDerivatives_pT</A>
+</TD><TD>Derivatives for fast inverse calculations of Helmholtz functions:p &amp; T</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.ExtraDerivatives" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.ExtraDerivatives"
+>ExtraDerivatives</A>
+</TD><TD>Additional thermodynamic derivatives</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.BridgmansTables" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.BridgmansTables"
+>BridgmansTables</A>
+</TD><TD>Calculates all entries in Bridgmans tables if first seven variables given</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.FundamentalConstants" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.FundamentalConstants"
+>FundamentalConstants</A>
+</TD><TD>Constants of the medium</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.AuxiliaryProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.AuxiliaryProperties"
+>AuxiliaryProperties</A>
+</TD><TD>Intermediate property data record</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.GibbsDerivs2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs2"
+>GibbsDerivs2</A>
+</TD><TD>Derivatives of Gibbs function w.r.t. pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesS.png" ALT="Modelica.Media.Common.NewtonDerivatives_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_dT"
+>NewtonDerivatives_dT</A>
+</TD><TD>Derivatives for fast inverse calculations of Gibbs function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.gibbsToBridgmansTables" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.gibbsToBridgmansTables"
+>gibbsToBridgmansTables</A>
+</TD><TD>Calculates base coefficients for Bridgman&#39;s tables from gibbs enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.helmholtzToBridgmansTables" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.helmholtzToBridgmansTables"
+>helmholtzToBridgmansTables</A>
+</TD><TD>Calculates base coefficients for Bridgmans tables from Helmholtz energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.gibbsToBoundaryProps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.gibbsToBoundaryProps"
+>gibbsToBoundaryProps</A>
+</TD><TD>Calculate phase boundary property record from dimensionless Gibbs function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.helmholtzToBoundaryProps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.helmholtzToBoundaryProps"
+>helmholtzToBoundaryProps</A>
+</TD><TD>Calculate phase boundary property record from dimensionless Helmholtz function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.cv2Phase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.cv2Phase"
+>cv2Phase</A>
+</TD><TD>Compute isochoric specific heat capacity inside the two-phase region</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.cvdpT2Phase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.cvdpT2Phase"
+>cvdpT2Phase</A>
+</TD><TD>Compute isochoric specific heat capacity inside the two-phase region and derivative of pressure w.r.t. temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.gibbsToExtraDerivs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.gibbsToExtraDerivs"
+>gibbsToExtraDerivs</A>
+</TD><TD>Compute additional thermodynamic derivatives from dimensionless Gibbs function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.helmholtzToExtraDerivs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.helmholtzToExtraDerivs"
+>helmholtzToExtraDerivs</A>
+</TD><TD>Compute additional thermodynamic derivatives from dimensionless Helmholtz function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.Helmholtz_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Helmholtz_ph"
+>Helmholtz_ph</A>
+</TD><TD>Function to calculate analytic derivatives for computing d and t given p and h</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.Helmholtz_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Helmholtz_pT"
+>Helmholtz_pT</A>
+</TD><TD>Function to calculate analytic derivatives for computing d and t given p and t</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.Helmholtz_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Helmholtz_ps"
+>Helmholtz_ps</A>
+</TD><TD>Function to calculate analytic derivatives for computing d and t given p and s</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.smoothStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.smoothStep"
+>smoothStep</A>
+</TD><TD>Approximation of a general step, such that the characteristic is continuous and differentiable</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.Gibbs2_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Gibbs2_ph"
+>Gibbs2_ph</A>
+</TD><TD>Function to calculate analytic derivatives for computing T given p and h</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.Gibbs2_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Gibbs2_dT"
+>Gibbs2_dT</A>
+</TD><TD>Function to calculate analytic derivatives for computing p given d and T</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesS.png" ALT="Modelica.Media.Common.Gibbs2_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Gibbs2_ps"
+>Gibbs2_ps</A>
+</TD><TD>Function to calculate analytic derivatives for computing d and t given p and s</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.Onef587a5c51ff84fd4ationS.png" ALT="Modelica.Media.Common.OneNonLinearEquation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>OneNonLinearEquation</A>
+</TD><TD>Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.Rate"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.Rate</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MolarFlowRate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.MolarFlowRate"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.MolarFlowRate</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MolarReactionRate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.MolarReactionRate"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.MolarReactionRate</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MolarEnthalpy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.MolarEnthalpy"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.MolarEnthalpy</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerDensityByEntropy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerDensityByEntropy"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerDensityByEntropy</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerEnergyByPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerEnergyByPressure"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerEnergyByPressure</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerEnergyByMoles<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerEnergyByMoles"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerEnergyByMoles</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerEntropyByTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerEntropyByTemperature"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerEntropyByTemperature</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerEntropyByPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerEntropyByPressure"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerEntropyByPressure</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerEntropyByMoles<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerEntropyByMoles"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerEntropyByMoles</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerPressureByDensity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerPressureByDensity"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerPressureByDensity</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerPressureBySpecificVolume<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerPressureBySpecificVolume"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerPressureBySpecificVolume</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerPressureByTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerPressureByTemperature"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerPressureByTemperature</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerVolumeByTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerVolumeByTemperature"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerVolumeByTemperature</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerVolumeByPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerVolumeByPressure"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerVolumeByPressure</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DerVolumeByMoles<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.DerVolumeByMoles"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.DerVolumeByMoles</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IsenthalpicExponent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.IsenthalpicExponent"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.IsenthalpicExponent</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IsentropicExponent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.IsentropicExponent"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.IsentropicExponent</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IsobaricVolumeExpansionCoefficient<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.IsobaricVolumeExpansionCoefficient"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.IsobaricVolumeExpansionCoefficient</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IsochoricPressureCoefficient<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.IsochoricPressureCoefficient"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.IsochoricPressureCoefficient</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IsothermalCompressibility<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.IsothermalCompressibility"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.IsothermalCompressibility</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE JouleThomsonCoefficient<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.JouleThomsonCoefficient"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.JouleThomsonCoefficient</H2>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
+<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SaturationProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.SaturationProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.SaturationProperties"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.SaturationProperties</H2>
+<B>Properties in the two phase region</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SaturationBoundaryProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.SaturationBoundaryProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.SaturationBoundaryProperties"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.SaturationBoundaryProperties</H2>
+<B>Properties on both phase boundaries, including some derivatives</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IF97BaseTwoPhase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.IF97BaseTwoPhase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.IF97BaseTwoPhase"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.IF97BaseTwoPhase</H2>
+<B>Intermediate property data record for IF 97</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IF97PhaseBoundaryProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.IF97PhaseBoundaryProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.IF97PhaseBoundaryProperties"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.IF97PhaseBoundaryProperties</H2>
+<B>Thermodynamic base properties on the phase boundary for IF97 steam tables</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GibbsDerivs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.GibbsDerivs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.GibbsDerivs"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.GibbsDerivs</H2>
+<B>Derivatives of dimensionless Gibbs-function w.r.t. dimensionless pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HelmholtzDerivs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.HelmholtzDerivs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.HelmholtzDerivs"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.HelmholtzDerivs</H2>
+<B>Derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressure, density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoPhaseTransportProps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.TwoPhaseTransportProps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.TwoPhaseTransportProps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.TwoPhaseTransportProps</H2>
+<B>Defines properties on both phase boundaries, needed in the two phase region</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PhaseBoundaryProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.PhaseBoundaryProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.PhaseBoundaryProperties"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.PhaseBoundaryProperties</H2>
+<B>Thermodynamic base properties on the phase boundary</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NewtonDerivatives_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.NewtonDerivatives_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.NewtonDerivatives_ph"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.NewtonDerivatives_ph</H2>
+<B>Derivatives for fast inverse calculations of Helmholtz functions: p &amp; h</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NewtonDerivatives_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.NewtonDerivatives_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.NewtonDerivatives_ps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.NewtonDerivatives_ps</H2>
+<B>Derivatives for fast inverse calculation of Helmholtz functions: p &amp; s</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NewtonDerivatives_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.NewtonDerivatives_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.NewtonDerivatives_pT"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.NewtonDerivatives_pT</H2>
+<B>Derivatives for fast inverse calculations of Helmholtz functions:p &amp; T</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ExtraDerivatives<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.ExtraDerivatives" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.ExtraDerivatives"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.ExtraDerivatives</H2>
+<B>Additional thermodynamic derivatives</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BridgmansTables<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.BridgmansTables" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.BridgmansTables"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.BridgmansTables</H2>
+<B>Calculates all entries in Bridgmans tables if first seven variables given</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Important: the phase equilibrium conditions are not yet considered.
+this means that Bridgman's tables do not yet work in the two phase region.
+Some derivatives are 0 or infinity anyways.
+Idea: Do not use the values in Bridgmans table directly, all
+derivatives are calculated as the quotient of two entries in the
+table. The last letter indicates which variable is held constant in
+taking the derivative. The second letters are the two variables
+involved in the derivative and the first letter is always a d to remind
+of differentiation.
+</p>
+
+<pre>
+Example 1: Get the derivative of specific entropy s w.r.t. Temperature at
+constant specific volume (between identical to constant density)
+constant volume  --> last letter v
+Temperature      --> second letter T
+Specific entropy --> second letter s
+--> the needed value is dsv/dTv
+Known variables:
+Temperature T
+pressure p
+specific volume v
+specific inner energy u
+specific enthalpy h
+specific entropy s
+specific Helmholtz energy f
+specific gibbs enthalpy g
+Not included but useful:
+density d
+In order to convert derivatives involving density use the following
+rules:
+at constant density == at constant specific volume
+ddx/dyx = -d*d*dvx/dyx with y,x any of T,p,u,h,s,f,g
+dyx/ddx = -1/(d*d)dyx/dvx with y,x any of T,p,u,h,s,f,g
+Usage example assuming water as the medium:
+model BridgmansTablesForWater
+extends ThermoFluid.BaseClasses.MediumModels.Water.WaterSteamMedium_ph;
+Real derOfsByTAtConstantv "derivative of sp. entropy by temperature at constant sp. volume"
+ThermoFluid.BaseClasses.MediumModels.Common.ExtraDerivatives dpro;
+ThermoFluid.BaseClasses.MediumModels.Common.BridgmansTables bt;
+equation
+dpro = ThermoFluid.BaseClasses.MediumModels.SteamIF97.extraDerivs_pT(p[1],T[1]);
+bt.p = p[1];
+bt.T = T[1];
+bt.v = 1/pro[1].d;
+bt.s = pro[1].s;
+bt.cp = pro[1].cp;
+bt.alpha = dpro.alpha;
+bt.gamma = dpro.gamma;
+derOfsByTAtConstantv =  bt.dsv/bt.dTv;
+                ...
+end BridgmansTablesForWater;
+                </pre>
+
+                <pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FundamentalConstants<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.FundamentalConstants" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.FundamentalConstants"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.FundamentalConstants</H2>
+<B>Constants of the medium</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AuxiliaryProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.AuxiliaryProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.AuxiliaryProperties"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.AuxiliaryProperties</H2>
+<B>Intermediate property data record</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GibbsDerivs2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.GibbsDerivs2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.GibbsDerivs2"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.GibbsDerivs2</H2>
+<B>Derivatives of Gibbs function w.r.t. pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NewtonDerivatives_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.Sat5bd56aca40798467rtiesI.png" ALT="Modelica.Media.Common.NewtonDerivatives_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.NewtonDerivatives_dT"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.NewtonDerivatives_dT</H2>
+<B>Derivatives for fast inverse calculations of Gibbs function</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE gibbsToBridgmansTables<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.gibbsToBridgmansTables" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.gibbsToBridgmansTables"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.gibbsToBridgmansTables</H2>
+<B>Calculates base coefficients for Bridgman&#39;s tables from gibbs enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless derivatives of Gibbs function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v</TD><TD>Specific volume [m3/kg]</TD></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>cp</TD><TD>Heat capacity at constant pressure [J/(kg.K)]</TD></TR>
+<TR><TD>alpha</TD><TD>Isobaric volume expansion coefficient [1/K]</TD></TR>
+<TR><TD>gamma</TD><TD>Isothermal compressibility [1/Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE helmholtzToBridgmansTables<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.helmholtzToBridgmansTables" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.helmholtzToBridgmansTables"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.helmholtzToBridgmansTables</H2>
+<B>Calculates base coefficients for Bridgmans tables from Helmholtz energy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v</TD><TD>Specific volume [m3/kg]</TD></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>cp</TD><TD>Heat capacity at constant pressure [J/(kg.K)]</TD></TR>
+<TR><TD>alpha</TD><TD>Isobaric volume expansion coefficient [1/K]</TD></TR>
+<TR><TD>gamma</TD><TD>Isothermal compressibility [1/Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE gibbsToBoundaryProps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.gibbsToBoundaryProps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.gibbsToBoundaryProps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.gibbsToBoundaryProps</H2>
+<B>Calculate phase boundary property record from dimensionless Gibbs function</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless derivatives of Gibbs function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>sat</TD><TD>Phase boundary properties</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE helmholtzToBoundaryProps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.helmholtzToBoundaryProps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.helmholtzToBoundaryProps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.helmholtzToBoundaryProps</H2>
+<B>Calculate phase boundary property record from dimensionless Helmholtz function</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>sat</TD><TD>Phase boundary property record</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv2Phase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.cv2Phase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.cv2Phase"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.cv2Phase</H2>
+<B>Compute isochoric specific heat capacity inside the two-phase region</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>liq</TD><TD>Properties on the boiling curve</TD></TR>
+<TR><TD>vap</TD><TD>Properties on the condensation curve</TD></TR>
+<TR><TD>x</TD><TD>Vapour mass fraction [1]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>p</TD><TD>Properties [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cv</TD><TD>Isochoric specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cvdpT2Phase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.cvdpT2Phase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.cvdpT2Phase"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.cvdpT2Phase</H2>
+<B>Compute isochoric specific heat capacity inside the two-phase region and derivative of pressure w.r.t. temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>liq</TD><TD>Properties on the boiling curve</TD></TR>
+<TR><TD>vap</TD><TD>Properties on the condensation curve</TD></TR>
+<TR><TD>x</TD><TD>Vapour mass fraction [1]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>p</TD><TD>Properties [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cv</TD><TD>Isochoric specific heat capacity [J/(kg.K)]</TD></TR>
+<TR><TD>dpT</TD><TD>Derivative of pressure w.r.t. temperature</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE gibbsToExtraDerivs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.gibbsToExtraDerivs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.gibbsToExtraDerivs"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.gibbsToExtraDerivs</H2>
+<B>Compute additional thermodynamic derivatives from dimensionless Gibbs function</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless derivatives of Gibbs function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>dpro</TD><TD>Additional property derivatives</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE helmholtzToExtraDerivs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.helmholtzToExtraDerivs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.helmholtzToExtraDerivs"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.helmholtzToExtraDerivs</H2>
+<B>Compute additional thermodynamic derivatives from dimensionless Helmholtz function</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>dpro</TD><TD>Additional property derivatives</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Helmholtz_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.Helmholtz_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.Helmholtz_ph"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.Helmholtz_ph</H2>
+<B>Function to calculate analytic derivatives for computing d and t given p and h</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nderivs</TD><TD>Derivatives for Newton iteration to calculate d and t from p and h</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Helmholtz_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.Helmholtz_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.Helmholtz_pT"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.Helmholtz_pT</H2>
+<B>Function to calculate analytic derivatives for computing d and t given p and t</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nderivs</TD><TD>Derivatives for Newton iteration to compute d and t from p and t</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Helmholtz_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.Helmholtz_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.Helmholtz_ps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.Helmholtz_ps</H2>
+<B>Function to calculate analytic derivatives for computing d and t given p and s</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nderivs</TD><TD>Derivatives for Newton iteration to compute d and t from p and s</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE smoothStep<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.smoothStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.smoothStep"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.smoothStep</H2>
+<B>Approximation of a general step, such that the characteristic is continuous and differentiable</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This function is used to approximate the equation
+</p>
+<pre>
+    y = <b>if</b> x &gt; 0 <b>then</b> y1 <b>else</b> y2;
+</pre>
+
+<p>
+by a smooth characteristic, so that the expression is continuous and differentiable:
+</p>
+
+<pre>
+   y = <b>smooth</b>(1, <b>if</b> x &gt;  x_small <b>then</b> y1 <b>else</b>
+                 <b>if</b> x &lt; -x_small <b>then</b> y2 <b>else</b> f(y1, y2));
+</pre>
+
+<p>
+In the region -x_small &lt; x &lt; x_small a 2nd order polynomial is used
+for a smooth transition from y1 to y2.
+</p>
+
+<p>
+If <b>mass fractions</b> X[:] are approximated with this function then this can be performed
+for all <b>nX</b> mass fractions, instead of applying it for nX-1 mass fractions and computing
+the last one by the mass fraction constraint sum(X)=1. The reason is that the approximating function has the
+property that sum(X) = 1, provided sum(X_a) = sum(X_b) = 1
+(and y1=X_a[i], y2=X_b[i]).
+This can be shown by evaluating the approximating function in the abs(x) &lt; x_small
+region (otherwise X is either X_a or X_b):
+</p>
+
+<pre>
+    X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
+    X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
+       ...
+    X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
+</pre>
+
+<p>
+or
+</p>
+
+<pre>
+    X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
+    X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
+       ...
+    X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
+    c     = (x/x_small)*((x/x_small)^2 - 3)/4
+</pre>
+
+<p>
+Summing all mass fractions together results in
+</p>
+
+<pre>
+    sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
+           = c*(1 - 1) + (1 + 1)/2
+           = 1
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>x</TD><TD>Abscissa value</TD></TR>
+<TR><TD>y1</TD><TD>Ordinate value for x &gt; 0</TD></TR>
+<TR><TD>y2</TD><TD>Ordinate value for x &lt; 0</TD></TR>
+<TR><TD>x_small</TD><TD>Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt; 0 required</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Ordinate value to approximate y = if x &gt; 0 then y1 else y2</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Gibbs2_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.Gibbs2_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.Gibbs2_ph"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.Gibbs2_ph</H2>
+<B>Function to calculate analytic derivatives for computing T given p and h</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless derivatives of Gibbs function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nderivs</TD><TD>Derivatives for Newton iteration to calculate d and t from p and h</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Gibbs2_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.Gibbs2_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.Gibbs2_dT"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.Gibbs2_dT</H2>
+<B>Function to calculate analytic derivatives for computing p given d and T</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless derivatives of Gibbs function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nderivs</TD><TD>Derivatives for Newton iteration to compute p from d and T</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Gibbs2_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gib14ed9c8bb0d386fbablesI.png" ALT="Modelica.Media.Common.Gibbs2_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.Gibbs2_ps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.Gibbs2_ps</H2>
+<B>Function to calculate analytic derivatives for computing d and t given p and s</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>g</TD><TD>Dimensionless derivatives of Gibbs function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nderivs</TD><TD>Derivatives for Newton iteration to compute T from p and s</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:56 2013.
+</address></BODY>
+</HTML>

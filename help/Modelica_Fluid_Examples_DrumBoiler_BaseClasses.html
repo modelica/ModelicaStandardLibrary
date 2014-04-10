@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Examples.DrumBoiler.BaseClasses</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Additional components for drum boiler example&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseClasses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Examples.DrumBoiler.BaseClasses"></A><A HREF="Modelica_Fluid_Examples_DrumBoiler.html#Modelica.Fluid.Examples.DrumBoiler"
+>Modelica.Fluid.Examples.DrumBoiler</A>.BaseClasses</H2>
+<B>Additional components for drum boiler example</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
+>Modelica.Icons.BasesPackage</A> (Icon for packages containing base classes).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.D19f10ff8e2dc9750oilerS.png" ALT="Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_DrumBoiler_BaseClasses.html#Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler"
+>EquilibriumDrumBoiler</A>
+</TD><TD>Simple Evaporator with two states, see Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE EquilibriumDrumBoiler<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.D19f10ff8e2dc9750oilerI.png" ALT="Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler"></A><A HREF="Modelica_Fluid_Examples_DrumBoiler_BaseClasses.html#Modelica.Fluid.Examples.DrumBoiler.BaseClasses"
+>Modelica.Fluid.Examples.DrumBoiler.BaseClasses</A>.EquilibriumDrumBoiler</H2>
+<B>Simple Evaporator with two states, see Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Model of a simple evaporator with two states. The model assumes two-phase equilibrium inside the component; saturated steam goes out of the steam outlet.</p>
+<p>
+References: Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
+>Modelica.Fluid.Interfaces.PartialTwoPort</A> (Partial component with two ports).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>m_D</TD><TD>mass of surrounding drum metal [kg]</TD></TR>
+<TR><TD>cp_D</TD><TD>specific heat capacity of drum metal [J/(kg.K)]</TD></TR>
+<TR><TD>V_t</TD><TD>total volume inside drum [m3]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
+<TR><TD>energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
+<TR><TD>massDynamics</TD><TD>Formulation of mass balance</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
+<TR><TD>p_start</TD><TD>Start value of pressure [Pa]</TD></TR>
+<TR><TD>V_l_start</TD><TD>Start value of liquid volumeStart value of volume [m3]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+<TR><TD>V</TD><TD>liquid volume</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:44 2013.
+</address></BODY>
+</HTML>

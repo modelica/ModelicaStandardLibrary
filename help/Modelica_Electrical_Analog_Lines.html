@@ -1,0 +1,332 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Analog.Lines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Lossy and lossless segmented transmission lines, and LC distributed line models&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Lines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Analog.Lines"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</A>.Lines</H2>
+<B>Lossy and lossless segmented transmission lines, and LC distributed line models</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This package contains lossy and lossless segmented transmission lines, and LC distributed line models. The line models do not yet possess a conditional heating port.</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.OLineS.png" ALT="Modelica.Electrical.Analog.Lines.OLine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.OLine"
+>OLine</A>
+</TD><TD>Lossy Transmission Line</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.M_OLineS.png" ALT="Modelica.Electrical.Analog.Lines.M_OLine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.M_OLine"
+>M_OLine</A>
+</TD><TD>Multiple OLine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.ULineS.png" ALT="Modelica.Electrical.Analog.Lines.ULine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.ULine"
+>ULine</A>
+</TD><TD>Lossy RC Line</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1S.png" ALT="Modelica.Electrical.Analog.Lines.TLine1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.TLine1"
+>TLine1</A>
+</TD><TD>Lossless transmission line with characteristic impedance Z0 and transmission delay TD</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1S.png" ALT="Modelica.Electrical.Analog.Lines.TLine2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.TLine2"
+>TLine2</A>
+</TD><TD>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1S.png" ALT="Modelica.Electrical.Analog.Lines.TLine3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines.TLine3"
+>TLine3</A>
+</TD><TD>Lossless transmission line with characteristic impedance Z0 and frequency F</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OLine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.OLineI.png" ALT="Modelica.Electrical.Analog.Lines.OLine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Lines.OLine"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.OLine</H2>
+<B>Lossy Transmission Line</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductor and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
+<p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
+
+<p>
+<img src="../Resources/Images/Electrical/Analog/OLine.png"
+     alt="OLine.png">
+</p>
+
+<p>The capacitances are calculated with: C=c*length/N.
+<br> The conductances are calculated with: G=g*length/N.
+<br> The resistances are calculated with : R=r*length/(N+1).
+<br> The inductances are calculated with : L=l*length/(N+1).
+<br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.
+<br><p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to an value greater then zero, the OLine becomes temperature sensitive</p><p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</code> </p>
+<p>Note, this is different to the lumped line model of SPICE.</p>
+
+<dl><dt><b>References:</b> </dt>
+<dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
+</dl><pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>r</TD><TD>Resistance per meter [Ohm/m]</TD></TR>
+<TR><TD>l</TD><TD>Inductance per meter [H/m]</TD></TR>
+<TR><TD>g</TD><TD>Conductance per meter [S/m]</TD></TR>
+<TR><TD>c</TD><TD>Capacitance per meter [F/m]</TD></TR>
+<TR><TD>length</TD><TD>Length of line [m]</TD></TR>
+<TR><TD>N</TD><TD>Number of lumped segments</TD></TR>
+<TR><TD>alpha_R</TD><TD>Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref)) [1/K]</TD></TR>
+<TR><TD>alpha_G</TD><TD>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)) [1/K]</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
+<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
+<TR><TD>T_ref</TD><TD>[K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>p2</TD><TD>&nbsp;</TD></TR>
+<TR><TD>p3</TD><TD>&nbsp;</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE M_OLine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.M_OLineI.png" ALT="Modelica.Electrical.Analog.Lines.M_OLine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Lines.M_OLine"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.M_OLine</H2>
+<B>Multiple OLine</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
+
+<blockquote>
+<img src="../Resources/Images/Electrical/Analog/segment.png"
+     alt="segment.png">
+</blockquote>
+
+<p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
+<p align="center"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code> </p>
+<p>In the picture of the segment can be seen, that a single segment is asymmetric. Connecting such asymmetric segments in a series forces also an asymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:</p>
+
+<blockquote>
+<img src="../Resources/Images/Electrical/Analog/segment_last.png"
+     alt="segment_last.png">
+</blockquote>
+
+<p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segments</b>. Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m length, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
+<p>Filling the matrices of the inductances, capacitances and conductances is a bit more complicated, because those components occur also between two lines and not only (like the resistor) in one line. The entries of the matrices are given by the user in form of a vector. The vector length dim_vector_lgc is calculated by <b>dim_vector_lgc = lines*(lines+1)/2</b>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and a symmetric conductance matrix are built out of the entries of the vectors given by the user. The way of building is the same for each matrix, so the approach for filling one of the matrices will be shown at an example:</p>
+<p>The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from the positions that are below the main diagonal. To get the following matrix</p>
+
+<blockquote>
+<img src="../Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png" alt="Matrix"/>
+</blockquote>
+
+<p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<b>1</b>, 0.1, 0.2, 0.4, <b>2</b>, 0.3 0.5, <b>3</b>, 0.6, <b>4</b>] </p>
+
+<p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible inductance-matrix would be </p>
+
+<blockquote>
+<img src="../Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png" alt="L"/>
+</blockquote>
+
+<p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible capacitance-matrix would be:</p>
+
+<blockquote>
+<img src="../Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png" alt="C"/>
+</blockquote>
+
+<p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible conductance-matrix would be:</p>
+
+<blockquote>
+<img src="../Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png" alt="G"/>
+</blockquote>
+
+<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to an value greater then zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R = R_ref*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>length</TD><TD>Length of line [m]</TD></TR>
+<TR><TD>N</TD><TD>Number of lumped segments</TD></TR>
+<TR><TD>lines</TD><TD>Number of lines</TD></TR>
+<TR><TD>r[lines]</TD><TD>Resistance per meter [Ohm/m]</TD></TR>
+<TR><TD>l[dim_vector_lgc]</TD><TD>Inductance per meter [H/m]</TD></TR>
+<TR><TD>g[dim_vector_lgc]</TD><TD>Conductance per meter [S/m]</TD></TR>
+<TR><TD>c[dim_vector_lgc]</TD><TD>Capacitance per meter [F/m]</TD></TR>
+<TR><TD>alpha_R</TD><TD>Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref)) [1/K]</TD></TR>
+<TR><TD>alpha_G</TD><TD>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)) [1/K]</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
+<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
+<TR><TD>T_ref</TD><TD>[K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+<TR><TD>p[lines]</TD><TD>Positive pin</TD></TR>
+<TR><TD>n[lines]</TD><TD>Negative pin</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ULine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.ULineI.png" ALT="Modelica.Electrical.Analog.Lines.ULine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Lines.ULine"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.ULine</H2>
+<B>Lossy RC Line</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>As can be seen in the picture below, the lossy RC line ULine is a single conductor lossy transmission line which consists of segments of lumped series resistors and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
+<br>To get a symmetric line model, the first resistor is cut into two parts (R1 and R_Nplus1). These two new resistors have the half of the resistance of the original resistor.
+</p>
+<blockquote>
+<img src="../Resources/Images/Electrical/Analog/ULine.png"
+     alt="ULine.png">
+</blockquote>
+<p>
+The capacitances are calculated with: C=c*length/N.
+<br>The resistances are calculated with: R=r*length/(N+1).
+<br>For all capacitors and resistors the values of each segment are the same except for the first and last resistor, that only has the half of the above calculated value.<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to an value greater then zero, the ULine becomes temperature sensitive</p>
+<p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref)).</code> </p>
+<p>Note, this is different compared with the lumped line model of SPICE.</p>
+<p><b>References</b></p>
+<dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>
+<dd>SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>
+</dl><pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>r</TD><TD>Resistance per meter [Ohm/m]</TD></TR>
+<TR><TD>c</TD><TD>Capacitance per meter [F/m]</TD></TR>
+<TR><TD>length</TD><TD>Length of line [m]</TD></TR>
+<TR><TD>N</TD><TD>Number of lumped segments</TD></TR>
+<TR><TD>alpha</TD><TD>Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref)) [1/K]</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
+<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
+<TR><TD>T_ref</TD><TD>[K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>&nbsp;</TD></TR>
+<TR><TD>p2</TD><TD>&nbsp;</TD></TR>
+<TR><TD>p3</TD><TD>&nbsp;</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TLine1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1I.png" ALT="Modelica.Electrical.Analog.Lines.TLine1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Lines.TLine1"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.TLine1</H2>
+<B>Lossless transmission line with characteristic impedance Z0 and transmission delay TD</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see Branin&#39;;s article below. The model parameters can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;) and TD = sqrt(L&#39;;*C&#39;;)*length_of_line. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero.</p>
+<p><b>References:</b></p>
+<dl><dt>Branin Jr., F. H.</dt>
+<dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
+<dt>Hoefer, E. E. E.; Nielinger, H.</dt>
+<dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
+</dl><pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Modelica.Electrical.Analog.Interfaces.TwoPort</A> (Component with two electrical ports, including current).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Z0</TD><TD>Characteristic impedance [Ohm]</TD></TR>
+<TR><TD>TD</TD><TD>Transmission delay [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TLine2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1I.png" ALT="Modelica.Electrical.Analog.Lines.TLine2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Lines.TLine2"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.TLine2</H2>
+<B>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;;s article below. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
+<p><b>References:</b></p>
+<dl><dt>Branin Jr., F. H.</dt>
+<dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
+<dt>Hoefer, E. E. E.; Nielinger, H.</dt>
+<dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
+</dl><pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Modelica.Electrical.Analog.Interfaces.TwoPort</A> (Component with two electrical ports, including current).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Z0</TD><TD>Characteristic impedance [Ohm]</TD></TR>
+<TR><TD>F</TD><TD>Frequency [Hz]</TD></TR>
+<TR><TD>NL</TD><TD>Normalized length</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TLine3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Lines.TLine1I.png" ALT="Modelica.Electrical.Analog.Lines.TLine3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Lines.TLine3"></A><A HREF="Modelica_Electrical_Analog_Lines.html#Modelica.Electrical.Analog.Lines"
+>Modelica.Electrical.Analog.Lines</A>.TLine3</H2>
+<B>Lossless transmission line with characteristic impedance Z0 and frequency F</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;;s article below. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
+<p><b>References:</b></p>
+<dl><dt>Branin Jr., F. H.</dt>
+<dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
+<dt>Hoefer, E. E. E.; Nielinger, H.</dt>
+<dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
+</dl><pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Modelica.Electrical.Analog.Interfaces.TwoPort</A> (Component with two electrical ports, including current).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Z0</TD><TD>Natural impedance [Ohm]</TD></TR>
+<TR><TD>F</TD><TD>Frequency [Hz]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:27 2013.
+</address></BODY>
+</HTML>

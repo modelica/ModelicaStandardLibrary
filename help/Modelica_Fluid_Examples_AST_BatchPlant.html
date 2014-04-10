@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Examples.AST_BatchPlant</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AST_BatchPlant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Examples.AST_BatchPlant"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</A>.AST_BatchPlant</H2>
+<B>Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The process under consideration is an evaporation plant for a
+student lab at the Process Control Laboratory (AST) of the
+University of Dortmund that evaporates a water sodium chloride
+mixture so that a higher concentrated solution is produced.
+The task of the students is to learn how to program the process
+control system. A picture of the batch plant is shown in the figure
+below.
+</p>
+
+<p>
+<img src="../Resources/Images/Fluid/Examples/AST_BatchPlant1.jpg" border="1"
+     alt="AST_BatchPlant1.jpg">
+</p>
+
+<p>
+The flow sheet diagram is shown in the next figure.
+</p>
+
+<p>
+<img src="../Resources/Images/Fluid/Examples/AST_BatchPlant2.png" border="1"
+     alt="AST_BatchPlant2.png">
+</p>
+
+<p>
+Pure water from tank B1 and concentrated sodium chloride
+solution from tank B2 are mixed in a mixing tank B3.
+After buffering in tank B4 the mixture flows to the
+evaporator B5. Here the water sodium chloride mixture
+is evaporated until the desired concentration is reached.
+The steam is condensed in the condenser K1 and cooled
+afterwards in the cooling tank B6. The concentrated
+ solution is also led to a cooling tank B7. The cooled
+fluids are pumped back to the charging vessels by the
+pumps P1 and P2. Be-tween the tanks several valves are
+present that are regulated by a central control system.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.A5ca7474f2c61d07aWaterS.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_AST_BatchPlant.html#Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater"
+>BatchPlant_StandardWater</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.Ac5df909e398de4eaassesS.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_AST_BatchPlant_BaseClasses.html#Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses"
+>BaseClasses</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.A6b096289287fa494.TestS.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
+>Test</A>
+</TD><TD>Test of used tank models</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BatchPlant_StandardWater<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.A5ca7474f2c61d07aWaterI.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.AST_BatchPlant.BatchPlant_StandardWater"></A><A HREF="Modelica_Fluid_Examples_AST_BatchPlant.html#Modelica.Fluid.Examples.AST_BatchPlant"
+>Modelica.Fluid.Examples.AST_BatchPlant</A>.BatchPlant_StandardWater</H2>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<img src="../Resources/Images/Fluid/Examples/BatchPlant_StandardWater.png" border="1"
+     alt="BatchPlant_StandardWater.png">
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package BatchMedium</TD><TD>Component media</TD></TR>
+<TR><TD>pipeDiameter</TD><TD>[m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package BatchMedium</TD><TD>Component media</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:45 2013.
+</address></BODY>
+</HTML>

@@ -1,0 +1,249 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Models of quasistationary DC machines&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE QuasiStationaryDCMachines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines"></A><A HREF="Modelica_Electrical_Machines_BasicMachines.html#Modelica.Electrical.Machines.BasicMachines"
+>Modelica.Electrical.Machines.BasicMachines</A>.QuasiStationaryDCMachines</H2>
+<B>Models of quasistationary DC machines</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains quasistationary models of DC machines;
+these models are fully compatible with the
+<A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines"
+>transient machine models of DC machines</a>;
+the only difference is that electrical transients are neglected.
+</p>
+<h4>Please note:</h4>
+<p>
+Quasistationary DC machine models are basically different from quasistationary induction machine models:
+Quasistaionary DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
+whereas quasistationary induction machine models are based on time phasor theory,
+see <A HREF="Modelica_Electrical_QuasiStationary.html#Modelica.Electrical.QuasiStationary"
+>QuasiStationary Library</a>,
+where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi19ae1d78b9f8ad6eagnetS.png" ALT="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_QuasiStationaryDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet"
+>DC_PermanentMagnet</A>
+</TD><TD>Quasistationary permanent magnet DC machine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi017455f642474ffecitedS.png" ALT="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_ElectricalExcited" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_QuasiStationaryDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_ElectricalExcited"
+>DC_ElectricalExcited</A>
+</TD><TD>Quasistationary electrical shunt/separate excited linear DC machine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi9f2e277b73ccaa82citedS.png" ALT="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_SeriesExcited" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_BasicMachines_QuasiStationaryDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_SeriesExcited"
+>DC_SeriesExcited</A>
+</TD><TD>Quasistationary series excited linear DC machine</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DC_PermanentMagnet<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi19ae1d78b9f8ad6eagnetI.png" ALT="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_QuasiStationaryDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines"
+>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines</A>.DC_PermanentMagnet</H2>
+<B>Quasistationary permanent magnet DC machine</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<b>Quasistaionary model of a DC Machine with permanent magnets.</b><br>
+This model is fully compatible with the
+<A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet"
+>transient machine model of a DC machine with permanent magnets</a>;
+the only difference is that electrical transients are neglected.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet"
+>Machines.BasicMachines.DCMachines.DC_PermanentMagnet</A> (Permanent magnet DC machine), <A HREF="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.QuasiStationaryMachine"
+>Machines.Icons.QuasiStationaryMachine</A>.
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Jr</TD><TD>Rotor&#39;s moment of inertia [kg.m2]</TD></TR>
+<TR><TD>useSupport</TD><TD>Enable / disable (=fixed stator) support</TD></TR>
+<TR><TD>Js</TD><TD>Stator&#39;s moment of inertia [kg.m2]</TD></TR>
+<TR><TD>useThermalPort</TD><TD>Enable / disable (=fixed temperatures) thermal port</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Operational temperatures</TD></TR>
+<TR><TD>TaOperational</TD><TD>Operational armature temperature [K]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phiMechanical</TD><TD>Mechanical angle of rotor against stator [rad]</TD></TR>
+<TR><TD>wMechanical</TD><TD>Mechanical angular velocity of rotor against stator [rad/s]</TD></TR>
+<TR><TD>ia</TD><TD>Armature current [A]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal parameters</B></TD></TR>
+<TR><TD>VaNominal</TD><TD>Nominal armature voltage [V]</TD></TR>
+<TR><TD>IaNominal</TD><TD>Nominal armature current (&gt;0..Motor, &lt;0..Generator) [A]</TD></TR>
+<TR><TD>wNominal</TD><TD>Nominal speed [rad/s]</TD></TR>
+<TR><TD>TaNominal</TD><TD>Nominal armature temperature [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal resistances and inductances</B></TD></TR>
+<TR><TD>Ra</TD><TD>Armature resistance at TRef [Ohm]</TD></TR>
+<TR><TD>TaRef</TD><TD>Reference temperature of armature resistance [K]</TD></TR>
+<TR><TD>alpha20a</TD><TD>Temperature coefficient of armature resistance [1/K]</TD></TR>
+<TR><TD>La</TD><TD>Armature inductance [H]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Losses</B></TD></TR>
+<TR><TD>frictionParameters</TD><TD>Friction losses</TD></TR>
+<TR><TD>coreParameters</TD><TD>Armature core losses</TD></TR>
+<TR><TD>strayLoadParameters</TD><TD>Stray load losses</TD></TR>
+<TR><TD>brushParameters</TD><TD>Brush losses</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>Shaft</TD></TR>
+<TR><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+<TR><TD>pin_ap</TD><TD>Positive armature pin</TD></TR>
+<TR><TD>pin_an</TD><TD>Negative armature pin</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DC_ElectricalExcited<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi017455f642474ffecitedI.png" ALT="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_ElectricalExcited" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_ElectricalExcited"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_QuasiStationaryDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines"
+>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines</A>.DC_ElectricalExcited</H2>
+<B>Quasistationary electrical shunt/separate excited linear DC machine</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<b>Quasistaionary model of a DC Machine with electrical shunt or separate excitation.</b><br>
+This model is fully compatible with the
+<A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited"
+>transient machine model of a DC machine with electrical shunt or separate excitation</a>;
+the only difference is that electrical transients are neglected.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited"
+>Machines.BasicMachines.DCMachines.DC_ElectricalExcited</A> (Electrical shunt/separate excited linear DC machine), <A HREF="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.QuasiStationaryMachine"
+>Machines.Icons.QuasiStationaryMachine</A>.
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Jr</TD><TD>Rotor&#39;s moment of inertia [kg.m2]</TD></TR>
+<TR><TD>useSupport</TD><TD>Enable / disable (=fixed stator) support</TD></TR>
+<TR><TD>Js</TD><TD>Stator&#39;s moment of inertia [kg.m2]</TD></TR>
+<TR><TD>useThermalPort</TD><TD>Enable / disable (=fixed temperatures) thermal port</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Operational temperatures</TD></TR>
+<TR><TD>TaOperational</TD><TD>Operational armature temperature [K]</TD></TR>
+<TR><TD>TeOperational</TD><TD>Operational (shunt) excitation temperature [K]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phiMechanical</TD><TD>Mechanical angle of rotor against stator [rad]</TD></TR>
+<TR><TD>wMechanical</TD><TD>Mechanical angular velocity of rotor against stator [rad/s]</TD></TR>
+<TR><TD>ia</TD><TD>Armature current [A]</TD></TR>
+<TR><TD>ie</TD><TD>Field excitation current [A]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal parameters</B></TD></TR>
+<TR><TD>VaNominal</TD><TD>Nominal armature voltage [V]</TD></TR>
+<TR><TD>IaNominal</TD><TD>Nominal armature current (&gt;0..Motor, &lt;0..Generator) [A]</TD></TR>
+<TR><TD>wNominal</TD><TD>Nominal speed [rad/s]</TD></TR>
+<TR><TD>TaNominal</TD><TD>Nominal armature temperature [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal resistances and inductances</B></TD></TR>
+<TR><TD>Ra</TD><TD>Armature resistance at TRef [Ohm]</TD></TR>
+<TR><TD>TaRef</TD><TD>Reference temperature of armature resistance [K]</TD></TR>
+<TR><TD>alpha20a</TD><TD>Temperature coefficient of armature resistance [1/K]</TD></TR>
+<TR><TD>La</TD><TD>Armature inductance [H]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Losses</B></TD></TR>
+<TR><TD>frictionParameters</TD><TD>Friction losses</TD></TR>
+<TR><TD>coreParameters</TD><TD>Armature core losses</TD></TR>
+<TR><TD>strayLoadParameters</TD><TD>Stray load losses</TD></TR>
+<TR><TD>brushParameters</TD><TD>Brush losses</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Excitation</B></TD></TR>
+<TR><TD>IeNominal</TD><TD>Nominal excitation current [A]</TD></TR>
+<TR><TD>Re</TD><TD>Field excitation resistance at TRef [Ohm]</TD></TR>
+<TR><TD>TeRef</TD><TD>Reference temperature of excitation resistance [K]</TD></TR>
+<TR><TD>alpha20e</TD><TD>Temperature coefficient of excitation resistance [1/K]</TD></TR>
+<TR><TD>Le</TD><TD>Total field excitation inductance [H]</TD></TR>
+<TR><TD>sigmae</TD><TD>Stray fraction of total excitation inductance</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>Shaft</TD></TR>
+<TR><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+<TR><TD>pin_ap</TD><TD>Positive armature pin</TD></TR>
+<TR><TD>pin_an</TD><TD>Negative armature pin</TD></TR>
+<TR><TD>pin_ep</TD><TD>Positive excitation pin</TD></TR>
+<TR><TD>pin_en</TD><TD>Negative excitation pin</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DC_SeriesExcited<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi9f2e277b73ccaa82citedI.png" ALT="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_SeriesExcited" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.DC_SeriesExcited"></A><A HREF="Modelica_Electrical_Machines_BasicMachines_QuasiStationaryDCMachines.html#Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines"
+>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines</A>.DC_SeriesExcited</H2>
+<B>Quasistationary series excited linear DC machine</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<b>Quasistaionary model of a DC Machine with Series excitation.</b><br>
+This model is fully compatible with the
+<A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"
+>transient machine model of a DC machine with with series excitation</a>;
+the only difference is that electrical transients are neglected.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_BasicMachines_DCMachines.html#Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"
+>Machines.BasicMachines.DCMachines.DC_SeriesExcited</A> (Series excited linear DC machine), <A HREF="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.QuasiStationaryMachine"
+>Machines.Icons.QuasiStationaryMachine</A>.
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Jr</TD><TD>Rotor&#39;s moment of inertia [kg.m2]</TD></TR>
+<TR><TD>useSupport</TD><TD>Enable / disable (=fixed stator) support</TD></TR>
+<TR><TD>Js</TD><TD>Stator&#39;s moment of inertia [kg.m2]</TD></TR>
+<TR><TD>useThermalPort</TD><TD>Enable / disable (=fixed temperatures) thermal port</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Operational temperatures</TD></TR>
+<TR><TD>TaOperational</TD><TD>Operational armature temperature [K]</TD></TR>
+<TR><TD>TeOperational</TD><TD>Operational series excitation temperature [K]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phiMechanical</TD><TD>Mechanical angle of rotor against stator [rad]</TD></TR>
+<TR><TD>wMechanical</TD><TD>Mechanical angular velocity of rotor against stator [rad/s]</TD></TR>
+<TR><TD>ia</TD><TD>Armature current [A]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal parameters</B></TD></TR>
+<TR><TD>VaNominal</TD><TD>Nominal armature voltage [V]</TD></TR>
+<TR><TD>IaNominal</TD><TD>Nominal armature current (&gt;0..Motor, &lt;0..Generator) [A]</TD></TR>
+<TR><TD>wNominal</TD><TD>Nominal speed [rad/s]</TD></TR>
+<TR><TD>TaNominal</TD><TD>Nominal armature temperature [K]</TD></TR>
+<TR><TD>TeNominal</TD><TD>Nominal series excitation temperature [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal resistances and inductances</B></TD></TR>
+<TR><TD>Ra</TD><TD>Armature resistance at TRef [Ohm]</TD></TR>
+<TR><TD>TaRef</TD><TD>Reference temperature of armature resistance [K]</TD></TR>
+<TR><TD>alpha20a</TD><TD>Temperature coefficient of armature resistance [1/K]</TD></TR>
+<TR><TD>La</TD><TD>Armature inductance [H]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Losses</B></TD></TR>
+<TR><TD>frictionParameters</TD><TD>Friction losses</TD></TR>
+<TR><TD>coreParameters</TD><TD>Armature core losses</TD></TR>
+<TR><TD>strayLoadParameters</TD><TD>Stray load losses</TD></TR>
+<TR><TD>brushParameters</TD><TD>Brush losses</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Excitation</B></TD></TR>
+<TR><TD>Re</TD><TD>Series excitation resistance at TRef [Ohm]</TD></TR>
+<TR><TD>TeRef</TD><TD>Reference temperature of excitation resistance [K]</TD></TR>
+<TR><TD>alpha20e</TD><TD>Temperature coefficient of excitation resistance [1/K]</TD></TR>
+<TR><TD>Le</TD><TD>Total field excitation inductance [H]</TD></TR>
+<TR><TD>sigmae</TD><TD>Stray fraction of total excitation inductance</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>Shaft</TD></TR>
+<TR><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+<TR><TD>pin_ap</TD><TD>Positive armature pin</TD></TR>
+<TR><TD>pin_an</TD><TD>Negative armature pin</TD></TR>
+<TR><TD>pin_ep</TD><TD>Positive series excitation pin</TD></TR>
+<TR><TD>pin_en</TD><TD>Negative series excitation pin</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:30 2013.
+</address></BODY>
+</HTML>

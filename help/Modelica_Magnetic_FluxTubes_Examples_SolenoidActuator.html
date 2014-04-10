@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Two models of a reluctance actuator of different modelling depth and their comparison and usage&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SolenoidActuator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples"
+>Modelica.Magnetic.FluxTubes.Examples</A>.SolenoidActuator</H2>
+<B>Two models of a reluctance actuator of different modelling depth and their comparison and usage</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <A HREF="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation"
+>Reluctance Forces</a> of the User's Guide.
+</p>
+
+<p>
+As an example of a reluctance actuator, a simple axisymmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+>AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely.
+</p>
+
+<p>
+The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"
+>ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
+>ComparisonPullInStroke</a>.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"
+>ComparisonQuasiStationary</A>
+</TD><TD>Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
+>ComparisonPullInStroke</A>
+</TD><TD>Pull-in stroke of both solenoid models after a voltage step at time t=0</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTube698761fbba49e2anentsS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components"
+>Components</A>
+</TD><TD>Components to be used in examples</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ComparisonQuasiStationary<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</A>.ComparisonQuasiStationary</H2>
+<B>Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Have a look at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>SolenoidActuator</a> for general comments and at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>SimpleSolenoid</a> and <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+>AdvancedSolenoid</a> for a detailed description of both magnetic network models.
+</p>
+
+<p>
+Similar to static force-stroke measurements on real actuators, the armatures of both actuator models are forced to move slowly here. Hence, the dynamics of the electrical subsystems due to coil inductance and armature motion can be neglected and the static force-stroke characteristics are obtained. To illustrate the accuracy to be expected from the lumped magnetic network models, results obtained with stationary FEA are included as reference (position-dependent force, armature flux and actuator inductance). Note that these reference values are valid for the default supply voltage v_step=12V DC only!
+</p>
+
+<p>
+Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 10 s</b>. Plot in one common window the electromagnetic force of the two magnetic network models and the FEA reference <b>vs. armature position x_set.y</b>:
+</p>
+
+<pre>
+    simpleSolenoid.armature.flange_a.f     // electromagnetic force of simple magnetic network model
+    advancedSolenoid.armature.flange_a.f   // electromagnetic force of advanced magnetic network model
+    comparisonWithFEA.y[1]                 // electromagnetic force obtained with FEA as reference
+</pre>
+
+<p>
+Electromagnetic or reluctance forces always act towards a decrease of air gap lengths. With the defined armature position coordinate x, the forces of the models are negative.
+</p>
+
+<p>
+The magnetic flux through the armature and the actuator's static inductance both illustrate the differences between the two magnetic network models. Similar to the forces, compare these quantities in one common plot window for each variable (plot vs. armature position x_set.y):
+</p>
+
+<pre>
+    simpleSolenoid.G_mFeArm.Phi            // magnetic flux through armature of simple magnetic network model
+    advancedSolenoid.G_mFeArm.Phi          // magnetic flux through armature of advanced magnetic network model
+    comparisonWithFEA.y[2]                 // magnetic flux obtained with FEA as reference
+
+    simpleSolenoid.coil.L_stat             // static inductance of simple magnetic network model
+    advancedSolenoid.L_statTot             // series connection of both partial coils of advanced network model
+    comparisonWithFEA.y[3]                 // static inductance obtained with FEA as reference
+</pre>
+
+<p>
+As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
+>ComparisonPullInStroke</a>.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v_step</TD><TD>Applied voltage [V]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ComparisonPullInStroke<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</A>.ComparisonPullInStroke</H2>
+<B>Pull-in stroke of both solenoid models after a voltage step at time t=0</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Have a look at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>SolenoidActuator</a> for general comments and at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>SimpleSolenoid</a> and <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+>AdvancedSolenoid</a> for a detailed description of both magnetic network models.
+</p>
+
+<p>
+A voltage step is applied to both solenoid models at time t=0. The armatures of both models and therewith connected loads are pulled from their rest position at maximum air gap length to their minimum position that is due to a stopper. As a reference, simulation results obtained with a dynamic model based on stationary FEA look-up tables (not part of this library) are included. Note that these reference results are valid for the default supply voltage v_step=12V DC and the default load mass m_load=0.01kg only!
+</p>
+
+<p>
+Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 0.05 s</b>. Plot actuator current, force and position of the two magnetic network models and the FEA-based reference <b>vs. time</b> (each quantity in one common plot window):
+</p>
+
+<pre>
+Plot window for current:
+    simpleSolenoid.p.i          // rapid current rise indicates low inductance of simple network model
+    advancedSolenoid.p.i        // current rise slower, better match with FEA reference
+    comparisonWithFEA.y[1]      // current obtained from dynamic model based on stationary FEA look-up tables
+
+Plot window for force:
+    simpleSolenoid.armature.flange_a.f       // reluctance force of simple actuator model
+    advancedSolenoid.armature.flange_a.f     // reluctance force of advanced actuator model
+    comparisonWithFEA.y[2]      // force obtained from dynamic model based on stationary FEA look-up tables
+
+Plot window for position:
+    simpleSolenoid.x            // armature position of simple actuator model
+    advancedSolenoid.x          // armature position of advanced actuator model
+    comparisonWithFEA.y[3]      // position obtained from dynamic model based on stationary FEA look-up tables
+</pre>
+
+<p>
+The characteristic current drop during pull-in is due to both armature motion and increasing inductance with decreasing air gap length. Bouncing occurs when  armature and load of each model arrive at the stopper at minimum position. Although the pull-in times of the two magnetic network models are relatively close to the time obtained with the reference model, the accuracy of the advanced solenoid model is better, as one can tell from a comparison of the current rise at the beginning of the stroke.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v_step</TD><TD>Applied voltage [V]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:37 2013.
+</address></BODY>
+</HTML>

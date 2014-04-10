@@ -1,0 +1,164 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Digital.Memories</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Memories<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Digital.Memories"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>.Memories</H2>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digit9d0c546413d134acATRAMS.png" ALT="Modelica.Electrical.Digital.Memories.DLATRAM" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Memories.html#Modelica.Electrical.Digital.Memories.DLATRAM"
+>DLATRAM</A>
+</TD><TD>Level sensitive Random Access Memory</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digit9d0c5b8e13d1356cATROMS.png" ALT="Modelica.Electrical.Digital.Memories.DLATROM" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Memories.html#Modelica.Electrical.Digital.Memories.DLATROM"
+>DLATROM</A>
+</TD><TD>Level sensitive Read Only Memory</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DLATRAM<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit9d0c546413d134acATRAMI.png" ALT="Modelica.Electrical.Digital.Memories.DLATRAM" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Memories.DLATRAM"></A><A HREF="Modelica_Electrical_Digital_Memories.html#Modelica.Electrical.Digital.Memories"
+>Modelica.Electrical.Digital.Memories</A>.DLATRAM</H2>
+<B>Level sensitive Random Access Memory</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Description in VHDL is given by <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
+</p>
+
+<p><b>Truth Table for high active read enable RE:</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>RE</b></td>
+      <td valign="top"><b>Addr</b></td>
+      <td valign="top"><b>DataOut</b></td>
+  </tr>
+  <tr><td valign="top">0</td>  <td valign="top">*</td>              <td valign="top">Z over all</td>  </tr>
+  <tr><td valign="top">1</td>  <td valign="top">  no X in Addr</td> <td valign="top">DataOut=m(Addr)</td>     </tr>
+  <tr><td valign="top">1</td>  <td valign="top">X in Addr</td>      <td valign="top">X over all</td>  </tr>
+  <tr><td valign="top">X</td>  <td valign="top">*</td>              <td valign="top">X over all</td>  </tr>
+</table>
+<p><b>Truth Table for high active write enable WE:</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>WE</b></td>
+      <td valign="top"><b>Addr</b></td>
+      <td valign="top"><b>Memory</b></td>
+  </tr>
+  <tr><td valign="top">0</td>  <td valign="top">*</td>              <td valign="top">no write</td>           </tr>
+  <tr><td valign="top">1</td>  <td valign="top">no X in Addr</td>   <td valign="top">m(Addr)=DataIn</td>     </tr>
+  <tr><td valign="top">1</td>  <td valign="top">X in Addr</td>      <td valign="top">no write</td>  </tr>
+  <tr><td valign="top">X</td>  <td valign="top">no X in Addr</td>   <td valign="top">m(Addr)=X over all</td> </tr>
+  <tr><td valign="top">X</td>  <td valign="top">X in Addr</td>      <td valign="top">no write</td>  </tr>
+</table>
+
+<PRE>
+
+  *  = do not care
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
+  Z  = L.'Z'
+</PRE>
+
+<p><b>Simultaneous read/write operations are allowed.
+Firstly Write is carried out, then Read.</b></p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n_addr</TD><TD>addr width</TD></TR>
+<TR><TD>n_data</TD><TD>data width</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>table data definition</TD></TR>
+<TR><TD>fileName</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>RE</TD><TD>read enable</TD></TR>
+<TR><TD>WE</TD><TD>write enable</TD></TR>
+<TR><TD>addr[n_addr]</TD><TD>address</TD></TR>
+<TR><TD>dataIn[n_data]</TD><TD>data input</TD></TR>
+<TR><TD>dataOut[n_data]</TD><TD>data output</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DLATROM<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digit9d0c5b8e13d1356cATROMI.png" ALT="Modelica.Electrical.Digital.Memories.DLATROM" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Memories.DLATROM"></A><A HREF="Modelica_Electrical_Digital_Memories.html#Modelica.Electrical.Digital.Memories"
+>Modelica.Electrical.Digital.Memories</A>.DLATROM</H2>
+<B>Level sensitive Read Only Memory</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Description in VHDL is given by <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
+</p>
+<p><b>Truth Table for high active read enable RE:</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>RE</b></td>
+      <td valign="top"><b>Addr</b></td>
+      <td valign="top"><b>DataOut</b></td>
+  </tr>
+
+  <tr><td valign="top">0</td> <td valign="top">*</td> <td valign="top">Z over all</td>  </tr>
+  <tr><td valign="top">1</td> <td valign="top">  no X in Addr</td> <td valign="top">DataOut=m(Addr)</td>  </tr>
+  <tr><td valign="top">1</td> <td valign="top">X in Addr</td> <td valign="top">X over all</td> </tr>
+  <tr><td valign="top">X</td> <td valign="top">*</td> <td valign="top">X over all</td> </tr>
+</table>
+
+<PRE>
+
+  *  = do not care
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
+  Z  = L.'Z'
+</PRE>
+
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+<TR><TD>n_addr</TD><TD>addr width</TD></TR>
+<TR><TD>n_data</TD><TD>data width</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>table data definition</TD></TR>
+<TR><TD>fileName</TD><TD>File where matrix for memory is stored</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>RE</TD><TD>read enable</TD></TR>
+<TR><TD>addr[n_addr]</TD><TD>address</TD></TR>
+<TR><TD>dataOut[n_data]</TD><TD>data output</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:28 2013.
+</address></BODY>
+</HTML>

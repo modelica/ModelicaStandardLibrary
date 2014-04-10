@@ -1,0 +1,115 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Digital.Multiplexers</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Multiplexers<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Digital.Multiplexers"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>.Multiplexers</H2>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digitc436ae7fbd4197a5UX2x1S.png" ALT="Modelica.Electrical.Digital.Multiplexers.MUX2x1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Multiplexers.html#Modelica.Electrical.Digital.Multiplexers.MUX2x1"
+>MUX2x1</A>
+</TD><TD>A two inputs MULTIPLEXER for multiple value logic
+(2 data inputs, 1 select input, 1 output)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MUX2x1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digitc436ae7fbd4197a5UX2x1I.png" ALT="Modelica.Electrical.Digital.Multiplexers.MUX2x1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Multiplexers.MUX2x1"></A><A HREF="Modelica_Electrical_Digital_Multiplexers.html#Modelica.Electrical.Digital.Multiplexers"
+>Modelica.Electrical.Digital.Multiplexers</A>.MUX2x1</H2>
+<B>A two inputs MULTIPLEXER for multiple value logic
+(2 data inputs, 1 select input, 1 output)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Description in VHDL is given by <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
+<p>and for Multiplexer table <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</a></p>
+<h4>Truth Table</h4>
+<table cellspacing="0" cellpadding="2" border="1"><tr>
+<td valign="top"><h4>DataIn</h4></td>
+<td valign="top"><h4>Select</h4></td>
+<td valign="top"><h4>DataOut</h4></td>
+</tr>
+<tr>
+<td valign="top"><p>*</p></td>
+<td valign="top"><p>0</p></td>
+<td valign="top"><p>Input0</p></td>
+</tr>
+<tr>
+<td valign="top"><p>*</p></td>
+<td valign="top"><p>1</p></td>
+<td valign="top"><p>Input1</p></td>
+</tr>
+<tr>
+<td valign="top"><p>Inputs equal</p></td>
+<td valign="top"><p>U</p></td>
+<td valign="top"><p>Input</p></td>
+</tr>
+<tr>
+<td valign="top"><p>Inputs not equal</p></td>
+<td valign="top"><p>U</p></td>
+<td valign="top"><p>U</p></td>
+</tr>
+<tr>
+<td valign="top"><p>U in Input</p></td>
+<td valign="top"><p>X</p></td>
+<td valign="top"><p>U</p></td>
+</tr>
+<tr>
+<td valign="top"><p>Inputs equal</p></td>
+<td valign="top"><p>X</p></td>
+<td valign="top"><p>Input</p></td>
+</tr>
+<tr>
+<td valign="top"><p>no U in Input and Inputs not equal</p></td>
+<td valign="top"><p>X</p></td>
+<td valign="top"><p>X</p></td>
+</tr>
+</table>
+<pre>
+
+  *  = don&apos;t care
+  0  = L.&apos;0&apos; or L.&apos;L&apos;
+  1  = L.&apos;1&apos; or L.&apos;H&apos;
+  X  = L.&apos;X&apos; or L.&apos;W&apos; or L.&apos;Z&apos; or L.&apos;-&apos;
+  U  = L.&apos;U&apos; </pre>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
+<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
+<TR><TD>strength</TD><TD>output strength</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>in1</TD><TD>data input 1</TD></TR>
+<TR><TD>in0</TD><TD>data input 0</TD></TR>
+<TR><TD>sel</TD><TD>select input</TD></TR>
+<TR><TD>out</TD><TD>output</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:28 2013.
+</address></BODY>
+</HTML>

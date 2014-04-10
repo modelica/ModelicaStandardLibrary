@@ -1,0 +1,291 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Utility models for Examples.Loops&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.Utilities</H2>
+<B>Utility models for Examples.Loops</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</A> (Icon for utility packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiB01ef50644d0a3265inderS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder"
+>Cylinder</A>
+</TD><TD>Cylinder with rod and crank of a combustion engine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiB692bce5071faea94ForceS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce"
+>GasForce</A>
+</TD><TD>Simple gas force computation for combustion engine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBd16a9322375d52bcorce2S.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2"
+>GasForce2</A>
+</TD><TD>Rough approximation of gas force in a cylinder</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBb3e52b412675aaa6rBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase"
+>CylinderBase</A>
+</TD><TD>One cylinder with analytic handling of kinematic loop</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBb3e52b412675aaa6rBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD"
+>Cylinder_analytic_CAD</A>
+</TD><TD>One cylinder with analytic handling of kinematic loop and CAD visualization</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBf048027402f391f9lyticS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic"
+>EngineV6_analytic</A>
+</TD><TD>V6 engine with analytic loop handling</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBase"
+>Engine1bBase</A>
+</TD><TD>Model of one cylinder engine with gas force</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Cylinder<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiB01ef50644d0a3265inderI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.Cylinder</H2>
+<B>Cylinder with rod and crank of a combustion engine</B><p></P>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>cylinderTopPosition</TD><TD>Length from crank shaft to end of cylinder. [m]</TD></TR>
+<TR><TD>pistonLength</TD><TD>Length of cylinder [m]</TD></TR>
+<TR><TD>rodLength</TD><TD>Length of rod [m]</TD></TR>
+<TR><TD>crankLength</TD><TD>Length of crank shaft in x direction [m]</TD></TR>
+<TR><TD>crankPinOffset</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>crankPinLength</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>cylinderInclination</TD><TD>Inclination of cylinder [rad]</TD></TR>
+<TR><TD>crankAngleOffset</TD><TD>Offset for crank angle [rad]</TD></TR>
+<TR><TD>cylinderLength</TD><TD>Maximum length of cylinder volume [m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cylinder_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>cylinder_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>crank_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>crank_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GasForce<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiB692bce5071faea94ForceI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.GasForce</H2>
+<B>Simple gas force computation for combustion engine</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialCompliant"
+>Modelica.Mechanics.Translational.Interfaces.PartialCompliant</A> (Compliant connection of two translational 1D flanges).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>L</TD><TD>Length of cylinder [m]</TD></TR>
+<TR><TD>d</TD><TD>Diameter of cylinder [m]</TD></TR>
+<TR><TD>k0</TD><TD>Volume V = k0 + k1*(1-x), with x = 1 + s_rel/L [m3]</TD></TR>
+<TR><TD>k1</TD><TD>Volume V = k0 + k1*(1-x), with x = 1 + s_rel/L [m3]</TD></TR>
+<TR><TD>k</TD><TD>Gas constant (p*V = k*T) [J/K]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>s_rel</TD><TD>Relative distance (= flange_b.s - flange_a.s) [m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Left flange of compliant 1-dim. translational component</TD></TR>
+<TR><TD>flange_b</TD><TD>Right flange of compliant 1-dim. translational component</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GasForce2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBd16a9322375d52bcorce2I.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.GasForce2"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.GasForce2</H2>
+<B>Rough approximation of gas force in a cylinder</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The gas force in a cylinder is computed as function of the relative
+distance of the two flanges. It is required that s_rel = flange_b.s - flange_a.s
+is in the range
+</p>
+<pre>
+    0 &le; s_rel &le; L
+</pre>
+<p>
+where the parameter L is the length
+of the cylinder. If this assumption is not fulfilled, an error occurs.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialCompliant"
+>Modelica.Mechanics.Translational.Interfaces.PartialCompliant</A> (Compliant connection of two translational 1D flanges).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>L</TD><TD>Length of cylinder [m]</TD></TR>
+<TR><TD>d</TD><TD>diameter of cylinder [m]</TD></TR>
+<TR><TD>k0</TD><TD>Volume V = k0 + k1*(1-x), with x = 1 - s_rel/L [m3]</TD></TR>
+<TR><TD>k1</TD><TD>Volume V = k0 + k1*(1-x), with x = 1 - s_rel/L [m3]</TD></TR>
+<TR><TD>k</TD><TD>Gas constant (p*V = k*T) [J/K]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>s_rel</TD><TD>Relative distance (= flange_b.s - flange_a.s) [m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Left flange of compliant 1-dim. translational component</TD></TR>
+<TR><TD>flange_b</TD><TD>Right flange of compliant 1-dim. translational component</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CylinderBase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBb3e52b412675aaa6rBaseI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.CylinderBase</H2>
+<B>One cylinder with analytic handling of kinematic loop</B><p></P>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>cylinderTopPosition</TD><TD>Length from crank shaft to end of cylinder. [m]</TD></TR>
+<TR><TD>crankLength</TD><TD>Length of crank shaft in x direction [m]</TD></TR>
+<TR><TD>crankPinOffset</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>crankPinLength</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>cylinderInclination</TD><TD>Inclination of cylinder [deg]</TD></TR>
+<TR><TD>crankAngleOffset</TD><TD>Offset for crank angle [deg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Piston</TD></TR>
+<TR><TD>pistonLength</TD><TD>Length of cylinder [m]</TD></TR>
+<TR><TD>pistonCenterOfMass</TD><TD>Distance from frame_a to center of mass of piston [m]</TD></TR>
+<TR><TD>pistonMass</TD><TD>Mass of piston [kg]</TD></TR>
+<TR><TD>pistonInertia_11</TD><TD>Inertia 11 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>pistonInertia_22</TD><TD>Inertia 22 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>pistonInertia_33</TD><TD>Inertia 33 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Rod</TD></TR>
+<TR><TD>rodLength</TD><TD>Length of rod [m]</TD></TR>
+<TR><TD>rodCenterOfMass</TD><TD>Distance from frame_a to center of mass of piston [m]</TD></TR>
+<TR><TD>rodMass</TD><TD>Mass of rod [kg]</TD></TR>
+<TR><TD>rodInertia_11</TD><TD>Inertia 11 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>rodInertia_22</TD><TD>Inertia 22 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>rodInertia_33</TD><TD>Inertia 33 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cylinder_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>cylinder_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>crank_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>crank_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Cylinder_analytic_CAD<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBb3e52b412675aaa6rBaseI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.Cylinder_analytic_CAD</H2>
+<B>One cylinder with analytic handling of kinematic loop and CAD visualization</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.CylinderBase"
+>CylinderBase</A> (One cylinder with analytic handling of kinematic loop).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>cylinderTopPosition</TD><TD>Length from crank shaft to end of cylinder. [m]</TD></TR>
+<TR><TD>crankLength</TD><TD>Length of crank shaft in x direction [m]</TD></TR>
+<TR><TD>crankPinOffset</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>crankPinLength</TD><TD>Offset of crank pin from center axis [m]</TD></TR>
+<TR><TD>cylinderInclination</TD><TD>Inclination of cylinder [deg]</TD></TR>
+<TR><TD>crankAngleOffset</TD><TD>Offset for crank angle [deg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Piston</TD></TR>
+<TR><TD>pistonLength</TD><TD>Length of cylinder [m]</TD></TR>
+<TR><TD>pistonCenterOfMass</TD><TD>Distance from frame_a to center of mass of piston [m]</TD></TR>
+<TR><TD>pistonMass</TD><TD>Mass of piston [kg]</TD></TR>
+<TR><TD>pistonInertia_11</TD><TD>Inertia 11 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>pistonInertia_22</TD><TD>Inertia 22 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>pistonInertia_33</TD><TD>Inertia 33 of piston with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Rod</TD></TR>
+<TR><TD>rodLength</TD><TD>Length of rod [m]</TD></TR>
+<TR><TD>rodCenterOfMass</TD><TD>Distance from frame_a to center of mass of piston [m]</TD></TR>
+<TR><TD>rodMass</TD><TD>Mass of rod [kg]</TD></TR>
+<TR><TD>rodInertia_11</TD><TD>Inertia 11 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>rodInertia_22</TD><TD>Inertia 22 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+<TR><TD>rodInertia_33</TD><TD>Inertia 33 of rod with respect to center of mass frame, parallel to frame_a [kg.m2]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cylinder_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>cylinder_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>crank_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>crank_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE EngineV6_analytic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBf048027402f391f9lyticI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.EngineV6_analytic"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.EngineV6_analytic</H2>
+<B>V6 engine with analytic loop handling</B><p></P>
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR><TD>replaceable model Cylinder</TD><TD>Cylinder type</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable model Cylinder</TD><TD>Cylinder type</TD></TR>
+<TR><TD>flange_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>frame_a</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Engine1bBase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBase"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities</A>.Engine1bBase</H2>
+<B>Model of one cylinder engine with gas force</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This is a model of the mechanical part of one cylinder of an engine.
+The combustion is not modelled. The "inertia" component at the lower
+left part is the output inertia of the engine driving the gearbox.
+The angular velocity of the output inertia has a start value of 10 rad/s
+in order to demonstrate the movement of the engine.
+</p>
+<p>
+The engine is modeled solely by revolute and prismatic joints.
+Since this results in a <b>planar</b> loop there is the well known
+difficulty that the cut-forces perpendicular to the loop cannot be
+uniquely computed, as well as the cut-torques within the plane.
+This ambiguity is resolved by using the option <b>planarCutJoint</b>
+in the <b>Advanced</b> menu of one revolute joint in every planar loop
+(here: joint B1). This option sets the cut-force in direction of the
+axis of rotation, as well as the cut-torques perpendicular to the axis
+of rotation at this joint to zero and makes the problem mathematically
+well-formed.
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+
+<IMG src="../Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png" ALT="model Examples.Loops.Engine">
+<pre></PRE><P></P>
+
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:40 2013.
+</address></BODY>
+</HTML>

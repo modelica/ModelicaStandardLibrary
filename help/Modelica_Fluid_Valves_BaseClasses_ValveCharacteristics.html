@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Functions for valve characteristics&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ValveCharacteristics<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics"></A><A HREF="Modelica_Fluid_Valves_BaseClasses.html#Modelica.Fluid.Valves.BaseClasses"
+>Modelica.Fluid.Valves.BaseClasses</A>.ValveCharacteristics</H2>
+<B>Functions for valve characteristics</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.Basf25e50d8d493a280seFunS.png" ALT="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun"
+>baseFun</A>
+</TD><TD>Base class for valve characteristics</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.Basf25e50d8d493a280seFunS.png" ALT="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.linear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.linear"
+>linear</A>
+</TD><TD>Linear characteristic</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.Basf25e50d8d493a280seFunS.png" ALT="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one"
+>one</A>
+</TD><TD>Constant characteristic</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.Basf25e50d8d493a280seFunS.png" ALT="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.quadratic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.quadratic"
+>quadratic</A>
+</TD><TD>Quadratic characteristic</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Valves.Basf25e50d8d493a280seFunS.png" ALT="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.equalPercentage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.equalPercentage"
+>equalPercentage</A>
+</TD><TD>Equal percentage characteristic</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE baseFun<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Valves.Basf25e50d8d493a280seFunI.png" ALT="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun"></A><A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics"
+>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</A>.baseFun</H2>
+<B>Base class for valve characteristics</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This is a partial function that defines the interface of valve
+characteristics. The function returns "rc = valveCharacteristic" as function of the
+opening "pos" (in the range 0..1):
+</p>
+
+<blockquote><pre>
+    dp = (zeta_TOT/2) * rho * velocity^2
+m_flow =    sqrt(2/zeta_TOT) * Av * sqrt(rho * dp)
+m_flow = valveCharacteristic * Av * sqrt(rho * dp)
+m_flow =                  rc * Av * sqrt(rho * dp)
+</pre></blockquote>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pos</TD><TD>Opening position (0: closed, 1: fully open)</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rc</TD><TD>Relative flow coefficient (per unit)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE linear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Valves.Basf25e50d8d493a280seFunI.png" ALT="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.linear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.linear"></A><A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics"
+>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</A>.linear</H2>
+<B>Linear characteristic</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun"
+>baseFun</A> (Base class for valve characteristics).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pos</TD><TD>Opening position (0: closed, 1: fully open)</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rc</TD><TD>Relative flow coefficient (per unit)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE one<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Valves.Basf25e50d8d493a280seFunI.png" ALT="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one"></A><A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics"
+>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</A>.one</H2>
+<B>Constant characteristic</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun"
+>baseFun</A> (Base class for valve characteristics).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pos</TD><TD>Opening position (0: closed, 1: fully open)</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rc</TD><TD>Relative flow coefficient (per unit)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE quadratic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Valves.Basf25e50d8d493a280seFunI.png" ALT="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.quadratic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.quadratic"></A><A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics"
+>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</A>.quadratic</H2>
+<B>Quadratic characteristic</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun"
+>baseFun</A> (Base class for valve characteristics).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pos</TD><TD>Opening position (0: closed, 1: fully open)</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rc</TD><TD>Relative flow coefficient (per unit)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE equalPercentage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Valves.Basf25e50d8d493a280seFunI.png" ALT="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.equalPercentage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.equalPercentage"></A><A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics"
+>Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics</A>.equalPercentage</H2>
+<B>Equal percentage characteristic</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This characteristic is such that the relative change of the flow coefficient is proportional to the change in the opening position:
+<p> d(rc)/d(pos) = k d(pos).
+<p> The constant k is expressed in terms of the rangeability, i.e., the ratio between the maximum and the minimum useful flow coefficient:
+<p> rangeability = exp(k) = rc(1.0)/rc(0.0).
+<p> The theoretical characteristic has a non-zero opening when pos = 0; the implemented characteristic is modified so that the valve closes linearly when pos &lt; delta.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Valves_BaseClasses_ValveCharacteristics.html#Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun"
+>baseFun</A> (Base class for valve characteristics).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>pos</TD><TD>Opening position (0: closed, 1: fully open)</TD></TR>
+<TR><TD>rangeability</TD><TD>Rangeability</TD></TR>
+<TR><TD>delta</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rc</TD><TD>Relative flow coefficient (per unit)</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:48 2013.
+</address></BODY>
+</HTML>

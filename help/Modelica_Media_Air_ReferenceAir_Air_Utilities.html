@@ -1,0 +1,1906 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Air.ReferenceAir.Air_Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Low level and utility computation for high accuracy dry air properties&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Air_Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities"></A><A HREF="Modelica_Media_Air_ReferenceAir.html#Modelica.Media.Air.ReferenceAir"
+>Modelica.Media.Air.ReferenceAir</A>.Air_Utilities</H2>
+<B>Low level and utility computation for high accuracy dry air properties</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</A> (Icon for utility packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere398fdc327d24a5ff.iterS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.iter" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.iter"
+>iter</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Referec57ecb04262e64ecBasicS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities_Basic.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.Basic"
+>Basic</A>
+</TD><TD>Fundamental equation of state</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Referec57ecb04262e64ecBasicS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.Inverses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities_Inverses.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.Inverses"
+>Inverses</A>
+</TD><TD>Inverse function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Referec57ecb04262e64ecBasicS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities_Transport.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.Transport"
+>Transport</A>
+</TD><TD>Transport properties for air</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_ps"
+>airBaseProp_ps</A>
+</TD><TD>Intermediate property record for air</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_ps"
+>rho_props_ps</A>
+</TD><TD>Density as function of pressure and specific entropy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ps"
+>rho_ps</A>
+</TD><TD>Density as function of pressure and specific entropy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.T_props_ps"
+>T_props_ps</A>
+</TD><TD>Temperature as function of pressure and specific entropy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ps"
+>T_ps</A>
+</TD><TD>Temperature as function of pressure and specific entropy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_ps"
+>h_props_ps</A>
+</TD><TD>Specific enthalpy as function or pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.h_ps"
+>h_ps</A>
+</TD><TD>Specific enthalpy as function or pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_ph"
+>airBaseProp_ph</A>
+</TD><TD>Intermediate property record for air</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_ph"
+>rho_props_ph</A>
+</TD><TD>Density as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ph"
+>rho_ph</A>
+</TD><TD>Density as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ph_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ph_der"
+>rho_ph_der</A>
+</TD><TD>Derivative function of rho_ph</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.T_props_ph"
+>T_props_ph</A>
+</TD><TD>Temperature as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph"
+>T_ph</A>
+</TD><TD>Temperature as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph_der"
+>T_ph_der</A>
+</TD><TD>Derivative function of T_ph</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_ph"
+>s_props_ph</A>
+</TD><TD>Specific entropy as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.s_ph"
+>s_ph</A>
+</TD><TD>Specific entropy as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_ph_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.s_ph_der"
+>s_ph_der</A>
+</TD><TD>Specific entropy as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_ph"
+>cv_props_ph</A>
+</TD><TD>Specific heat capacity at constant volume as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_ph"
+>cv_ph</A>
+</TD><TD>Specific heat capacity at constant volume as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_ph"
+>cp_props_ph</A>
+</TD><TD>Specific heat capacity at constant pressure as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_ph"
+>cp_ph</A>
+</TD><TD>Specific heat capacity at constant pressure as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_ph"
+>beta_props_ph</A>
+</TD><TD>Isobaric expansion coefficient as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_ph"
+>beta_ph</A>
+</TD><TD>Isobaric expansion coefficient as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_ph"
+>kappa_props_ph</A>
+</TD><TD>Isothermal compressibility factor as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_ph"
+>kappa_ph</A>
+</TD><TD>Isothermal compressibility factor as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_ph"
+>velocityOfSound_props_ph</A>
+</TD><TD>Speed of sound as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_ph"
+>velocityOfSound_ph</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_ph"
+>isentropicExponent_props_ph</A>
+</TD><TD>Isentropic exponent as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_ph"
+>isentropicExponent_ph</A>
+</TD><TD>Isentropic exponent as function of pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddph_props" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.ddph_props"
+>ddph_props</A>
+</TD><TD>Density derivative by pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.ddph"
+>ddph</A>
+</TD><TD>Density derivative by pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddhp_props" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.ddhp_props"
+>ddhp_props</A>
+</TD><TD>Density derivative by specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddhp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.ddhp"
+>ddhp</A>
+</TD><TD>Density derivative by specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT"
+>airBaseProp_pT</A>
+</TD><TD>Intermediate property record for air (p and T prefered states)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_pT"
+>rho_props_pT</A>
+</TD><TD>Density as function or pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT"
+>rho_pT</A>
+</TD><TD>Density as function or pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der"
+>rho_pT_der</A>
+</TD><TD>Derivative function of rho_pT</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_pT"
+>h_props_pT</A>
+</TD><TD>Specific enthalpy as function or pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT"
+>h_pT</A>
+</TD><TD>Specific enthalpy as function or pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT_der"
+>h_pT_der</A>
+</TD><TD>Derivative function of h_pT</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_pT"
+>s_props_pT</A>
+</TD><TD>Specific entropy as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.s_pT"
+>s_pT</A>
+</TD><TD>Temperature as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_pT"
+>cv_props_pT</A>
+</TD><TD>Specific heat capacity at constant volume as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT"
+>cv_pT</A>
+</TD><TD>Specific heat capacity at constant volume as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_pT"
+>cp_props_pT</A>
+</TD><TD>Specific heat capacity at constant pressure as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT"
+>cp_pT</A>
+</TD><TD>Specific heat capacity at constant pressure as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_pT"
+>beta_props_pT</A>
+</TD><TD>Isobaric expansion coefficient as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_pT"
+>beta_pT</A>
+</TD><TD>Isobaric expansion coefficient as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_pT"
+>kappa_props_pT</A>
+</TD><TD>Isothermal compressibility factor as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_pT"
+>kappa_pT</A>
+</TD><TD>Isothermal compressibility factor as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_pT"
+>velocityOfSound_props_pT</A>
+</TD><TD>Speed of sound as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_pT"
+>velocityOfSound_pT</A>
+</TD><TD>Speed of sound as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_pT"
+>isentropicExponent_props_pT</A>
+</TD><TD>Isentropic exponent as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_pT"
+>isentropicExponent_pT</A>
+</TD><TD>Isentropic exponent as function of pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_dT"
+>airBaseProp_dT</A>
+</TD><TD>Intermediate property record for air (d and T prefered states)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_dT"
+>h_props_dT</A>
+</TD><TD>Specific enthalpy as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.h_dT"
+>h_dT</A>
+</TD><TD>Specific enthalpy as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_dT_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.h_dT_der"
+>h_dT_der</A>
+</TD><TD>Derivative function of h_dT</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.p_props_dT"
+>p_props_dT</A>
+</TD><TD>Pressure as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.p_dT"
+>p_dT</A>
+</TD><TD>Pressure as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_dT_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.p_dT_der"
+>p_dT_der</A>
+</TD><TD>Derivative function of p_dT</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_dT"
+>s_props_dT</A>
+</TD><TD>Specific entropy as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.s_dT"
+>s_dT</A>
+</TD><TD>Temperature as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_dT"
+>cv_props_dT</A>
+</TD><TD>Specific heat capacity at constant volume as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_dT"
+>cv_dT</A>
+</TD><TD>Specific heat capacity at constant volume as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_dT"
+>cp_props_dT</A>
+</TD><TD>Specific heat capacity at constant pressure as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_dT"
+>cp_dT</A>
+</TD><TD>Specific heat capacity at constant pressure as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_dT"
+>beta_props_dT</A>
+</TD><TD>Isobaric expansion coefficient as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_dT"
+>beta_dT</A>
+</TD><TD>Isobaric expansion coefficient as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_dT"
+>kappa_props_dT</A>
+</TD><TD>Isothermal compressibility factor as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_dT"
+>kappa_dT</A>
+</TD><TD>Isothermal compressibility factor as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_dT"
+>velocityOfSound_props_dT</A>
+</TD><TD>Speed of sound as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_dT"
+>velocityOfSound_dT</A>
+</TD><TD>Speed of sound as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_dT"
+>isentropicExponent_props_dT</A>
+</TD><TD>Isentropic exponent as function of density and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psS.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_dT"
+>isentropicExponent_dT</A>
+</TD><TD>Isentropic exponent as function of density and temperature</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE iter<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere398fdc327d24a5ff.iterI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.iter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.iter"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.iter</H2>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE airBaseProp_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_ps"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.airBaseProp_ps</H2>
+<B>Intermediate property record for air</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rho_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_ps"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.rho_props_ps</H2>
+<B>Density as function of pressure and specific entropy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rho</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rho_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ps"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.rho_ps</H2>
+<B>Density as function of pressure and specific entropy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rho</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_props_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_props_ps"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.T_props_ps</H2>
+<B>Temperature as function of pressure and specific entropy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ps"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.T_ps</H2>
+<B>Temperature as function of pressure and specific entropy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_props_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_ps"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.h_props_ps</H2>
+<B>Specific enthalpy as function or pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_ps"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.h_ps</H2>
+<B>Specific enthalpy as function or pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE airBaseProp_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.airBaseProp_ph</H2>
+<B>Intermediate property record for air</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rho_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.rho_props_ph</H2>
+<B>Density as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rho</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rho_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.rho_ph</H2>
+<B>Density as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rho</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rho_ph_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ph_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_ph_der"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.rho_ph_der</H2>
+<B>Derivative function of rho_ph</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+<TR><TD>p_der</TD><TD>Derivative of pressure</TD></TR>
+<TR><TD>h_der</TD><TD>Derivative of specific enthalpy</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rho_der</TD><TD>Derivative of density</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_props_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_props_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.T_props_ph</H2>
+<B>Temperature as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.T_ph</H2>
+<B>Temperature as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T_ph_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.T_ph_der"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.T_ph_der</H2>
+<B>Derivative function of T_ph</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+<TR><TD>p_der</TD><TD>Derivative of pressure</TD></TR>
+<TR><TD>h_der</TD><TD>Derivative of specific enthalpy</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T_der</TD><TD>Derivative of temperature</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.s_props_ph</H2>
+<B>Specific entropy as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.s_ph</H2>
+<B>Specific entropy as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_ph_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_ph_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_ph_der"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.s_ph_der</H2>
+<B>Specific entropy as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+<TR><TD>p_der</TD><TD>Derivative of pressure</TD></TR>
+<TR><TD>h_der</TD><TD>Derivative of specific enthalpy</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s_der</TD><TD>Derivative of entropy</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cv_props_ph</H2>
+<B>Specific heat capacity at constant volume as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cv</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cv_ph</H2>
+<B>Specific heat capacity at constant volume as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cv</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cp_props_ph</H2>
+<B>Specific heat capacity at constant pressure as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cp_ph</H2>
+<B>Specific heat capacity at constant pressure as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE beta_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.beta_props_ph</H2>
+<B>Isobaric expansion coefficient as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>beta</TD><TD>Isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE beta_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.beta_ph</H2>
+<B>Isobaric expansion coefficient as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>beta</TD><TD>Isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kappa_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.kappa_props_ph</H2>
+<B>Isothermal compressibility factor as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>kappa</TD><TD>Isothermal compressibility factor [1/Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kappa_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.kappa_ph</H2>
+<B>Isothermal compressibility factor as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>kappa</TD><TD>Isothermal compressibility factor [1/Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE velocityOfSound_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.velocityOfSound_props_ph</H2>
+<B>Speed of sound as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>a</TD><TD>Speed of sound [m/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE velocityOfSound_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.velocityOfSound_ph</H2>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>a</TD><TD>Speed of sound [m/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isentropicExponent_props_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.isentropicExponent_props_ph</H2>
+<B>Isentropic exponent as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>gamma</TD><TD>Isentropic exponent</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isentropicExponent_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_ph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.isentropicExponent_ph</H2>
+<B>Isentropic exponent as function of pressure and specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>gamma</TD><TD>Isentropic exponent</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ddph_props<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddph_props" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddph_props"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.ddph_props</H2>
+<B>Density derivative by pressure</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ddph</TD><TD>Density derivative by pressure [s2/m2]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ddph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddph"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.ddph</H2>
+<B>Density derivative by pressure</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ddph</TD><TD>Density derivative by pressure [s2/m2]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ddhp_props<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddhp_props" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddhp_props"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.ddhp_props</H2>
+<B>Density derivative by specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ddhp</TD><TD>Density derivative by specific enthalpy [kg.s2/m5]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ddhp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddhp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.ddhp"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.ddhp</H2>
+<B>Density derivative by specific enthalpy</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ddhp</TD><TD>Density derivative by specific enthalpy [kg.s2/m5]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE airBaseProp_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.airBaseProp_pT</H2>
+<B>Intermediate property record for air (p and T prefered states)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rho_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.rho_props_pT</H2>
+<B>Density as function or pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rho</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rho_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.rho_pT</H2>
+<B>Density as function or pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rho</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rho_pT_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.rho_pT_der"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.rho_pT_der</H2>
+<B>Derivative function of rho_pT</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+<TR><TD>p_der</TD><TD>Derivative of pressure</TD></TR>
+<TR><TD>T_der</TD><TD>Derivative of temperature</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rho_der</TD><TD>Derivative of density</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.h_props_pT</H2>
+<B>Specific enthalpy as function or pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.h_pT</H2>
+<B>Specific enthalpy as function or pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_pT_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_pT_der"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.h_pT_der</H2>
+<B>Derivative function of h_pT</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+<TR><TD>p_der</TD><TD>Derivative of pressure</TD></TR>
+<TR><TD>T_der</TD><TD>Derivative of temperature</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h_der</TD><TD>Derivative of specific enthalpy</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.s_props_pT</H2>
+<B>Specific entropy as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.s_pT</H2>
+<B>Temperature as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cv_props_pT</H2>
+<B>Specific heat capacity at constant volume as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cv</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cv_pT</H2>
+<B>Specific heat capacity at constant volume as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cv</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cp_props_pT</H2>
+<B>Specific heat capacity at constant pressure as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cp_pT</H2>
+<B>Specific heat capacity at constant pressure as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE beta_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.beta_props_pT</H2>
+<B>Isobaric expansion coefficient as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>beta</TD><TD>Isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE beta_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.beta_pT</H2>
+<B>Isobaric expansion coefficient as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>beta</TD><TD>Isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kappa_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.kappa_props_pT</H2>
+<B>Isothermal compressibility factor as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>kappa</TD><TD>Isothermal compressibility factor [1/Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kappa_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.kappa_pT</H2>
+<B>Isothermal compressibility factor as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>kappa</TD><TD>Isothermal compressibility factor [1/Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE velocityOfSound_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.velocityOfSound_props_pT</H2>
+<B>Speed of sound as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>a</TD><TD>Speed of sound [m/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE velocityOfSound_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.velocityOfSound_pT</H2>
+<B>Speed of sound as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>a</TD><TD>Speed of sound [m/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isentropicExponent_props_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.isentropicExponent_props_pT</H2>
+<B>Isentropic exponent as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>gamma</TD><TD>Isentropic exponent</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isentropicExponent_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_pT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.isentropicExponent_pT</H2>
+<B>Isentropic exponent as function of pressure and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>gamma</TD><TD>Isentropic exponent</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE airBaseProp_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.airBaseProp_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.airBaseProp_dT</H2>
+<B>Intermediate property record for air (d and T prefered states)</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_props_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.h_props_dT</H2>
+<B>Specific enthalpy as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.h_dT</H2>
+<B>Specific enthalpy as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_dT_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_dT_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.h_dT_der"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.h_dT_der</H2>
+<B>Derivative function of h_dT</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+<TR><TD>d_der</TD><TD>Derivative of density</TD></TR>
+<TR><TD>T_der</TD><TD>Derivative of temperature</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h_der</TD><TD>Derivative of specific enthalpy</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE p_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_props_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_props_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.p_props_dT</H2>
+<B>Pressure as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE p_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.p_dT</H2>
+<B>Pressure as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE p_dT_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_dT_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.p_dT_der"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.p_dT_der</H2>
+<B>Derivative function of p_dT</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+<TR><TD>d_der</TD><TD>Derivative of density</TD></TR>
+<TR><TD>T_der</TD><TD>Derivative of temperature</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p_der</TD><TD>Derivative of pressure</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_props_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.s_props_dT</H2>
+<B>Specific entropy as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.s_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.s_dT</H2>
+<B>Temperature as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_props_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cv_props_dT</H2>
+<B>Specific heat capacity at constant volume as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cv</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cv_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cv_dT</H2>
+<B>Specific heat capacity at constant volume as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cv</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_props_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cp_props_dT</H2>
+<B>Specific heat capacity at constant pressure as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.cp_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.cp_dT</H2>
+<B>Specific heat capacity at constant pressure as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE beta_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_props_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.beta_props_dT</H2>
+<B>Isobaric expansion coefficient as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>beta</TD><TD>Isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE beta_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.beta_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.beta_dT</H2>
+<B>Isobaric expansion coefficient as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>beta</TD><TD>Isobaric expansion coefficient [1/K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kappa_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_props_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.kappa_props_dT</H2>
+<B>Isothermal compressibility factor as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>kappa</TD><TD>Isothermal compressibility factor [1/Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kappa_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.kappa_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.kappa_dT</H2>
+<B>Isothermal compressibility factor as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>kappa</TD><TD>Isothermal compressibility factor [1/Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE velocityOfSound_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_props_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.velocityOfSound_props_dT</H2>
+<B>Speed of sound as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>a</TD><TD>Speed of sound [m/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE velocityOfSound_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.velocityOfSound_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.velocityOfSound_dT</H2>
+<B>Speed of sound as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>a</TD><TD>Speed of sound [m/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isentropicExponent_props_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_props_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.isentropicExponent_props_dT</H2>
+<B>Isentropic exponent as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>gamma</TD><TD>Isentropic exponent</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isentropicExponent_dT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Air.Refere26e99cdaae7836ccop_psI.png" ALT="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Air.ReferenceAir.Air_Utilities.isentropicExponent_dT"></A><A HREF="Modelica_Media_Air_ReferenceAir_Air_Utilities.html#Modelica.Media.Air.ReferenceAir.Air_Utilities"
+>Modelica.Media.Air.ReferenceAir.Air_Utilities</A>.isentropicExponent_dT</H2>
+<B>Isentropic exponent as function of density and temperature</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>gamma</TD><TD>Isentropic exponent</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:57 2013.
+</address></BODY>
+</HTML>

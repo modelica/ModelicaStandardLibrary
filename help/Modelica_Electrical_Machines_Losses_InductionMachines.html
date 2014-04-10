@@ -1,0 +1,274 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.Losses.InductionMachines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Loss models for induction machines&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InductionMachines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.Losses.InductionMachines"></A><A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses"
+>Modelica.Electrical.Machines.Losses</A>.InductionMachines</H2>
+<B>Loss models for induction machines</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This package contains loss models used for induction machine models.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi8c2e7274dd5aba48BrushS.png" ALT="Modelica.Electrical.Machines.Losses.InductionMachines.Brush" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines.Brush"
+>Brush</A>
+</TD><TD>Model considering voltage drop of carbon brushes</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi1e36152d61ba74deyLoadS.png" ALT="Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad"
+>StrayLoad</A>
+</TD><TD>Model of stray load losses dependent on current and speed</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machib44426ebe442780cossesS.png" ALT="Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses"
+>PermanentMagnetLosses</A>
+</TD><TD>Model of permanent magnet losses dependent on current and speed</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi320e52ed06ea2123.CoreS.png" ALT="Modelica.Electrical.Machines.Losses.InductionMachines.Core" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines.Core"
+>Core</A>
+</TD><TD>Model of core losses</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Brush<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi8c2e7274dd5aba48BrushI.png" ALT="Modelica.Electrical.Machines.Losses.InductionMachines.Brush" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Losses.InductionMachines.Brush"></A><A HREF="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines"
+>Modelica.Electrical.Machines.Losses.InductionMachines</A>.Brush</H2>
+<B>Model considering voltage drop of carbon brushes</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Model of voltage drop and losses of carbon brushes. This three-phase model uses three
+<A HREF="Modelica_Electrical_Machines_Losses_DCMachines.html#Modelica.Electrical.Machines.Losses.DCMachines.Brush"
+>DC Brush</a> loss models.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Modelica.Electrical.MultiPhase.Interfaces.TwoPlug</A> (Component with one m-phase electric port), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for building models by drag-and-drop).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>brushParameters</TD><TD>Brush loss parameters</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
+<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE StrayLoad<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi1e36152d61ba74deyLoadI.png" ALT="Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad"></A><A HREF="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines"
+>Modelica.Electrical.Machines.Losses.InductionMachines</A>.StrayLoad</H2>
+<B>Model of stray load losses dependent on current and speed</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e., they are dependent on square of current,
+but without scaling them to zero at no-load current.
+</p>
+<p>
+For an estimation of dependency on varying angular velocity see:<br>
+W. Lang, &Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r Pulsumrichterspeisung,
+Doctoral Thesis, Technical University of Vienna, 1984.
+</p>
+<p>
+The stray load losses are modeled such way that they do not cause a voltage drop in the electric circuit.
+Instead, the dissipated losses are considered through an equivalent braking torque at the shaft.
+</p>
+<p>
+The stray load loss torque is
+</p>
+<pre>
+  tau = PRef/wRef * (i/IRef)^2 * (w/wRef)^power_w
+</pre>
+<p>
+where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.
+The dependency of the stray load torque on the angular velocity is modeled by the exponent <code>power_w</code>.
+</p>
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses.StrayLoadParameters"
+>StrayLoad parameters</a>
+</p>
+<p>
+If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.OnePort"
+>Modelica.Electrical.MultiPhase.Interfaces.OnePort</A> (Component with two electrical plugs and currents from plug_p to plug_n), <A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.FlangeSupport"
+>Machines.Interfaces.FlangeSupport</A> (Shaft and support), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>strayLoadParameters</TD><TD>Stray load loss parameters</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>flange</TD><TD>Shaft end</TD></TR>
+<TR><TD>support</TD><TD>Housing and support</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PermanentMagnetLosses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machib44426ebe442780cossesI.png" ALT="Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses"></A><A HREF="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines"
+>Modelica.Electrical.Machines.Losses.InductionMachines</A>.PermanentMagnetLosses</H2>
+<B>Model of permanent magnet losses dependent on current and speed</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Permanent magnet losses are modeled dependent on current and speed.
+</p>
+<p>
+The permanent magnet losses are modeled such way that they do not cause a voltage drop in the electric circuit.
+Instead, the dissipated losses are considered through an equivalent braking torque at the shaft.
+</p>
+<p>
+The permanent magnet loss torque is
+</p>
+<pre>
+  tau = PRef/wRef * (c + (1 - c) * (i/IRef)^power_I) * (w/wRef)^power_w
+</pre>
+<p>
+where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.
+The parameter <code>c</code> designates the part of the permanent magnet losses that are present even at current = 0, i.e. independent of current.
+The dependency of the permanent magnet loss torque on the stator current is modeled by the exponent <code>power_I</code>.
+The dependency of the permanent magnet loss torque on the angular velocity is modeled by the exponent <code>power_w</code>.
+</p>
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters"
+>Permanent magnet loss parameters</a>
+</p>
+<p>
+If it is desired to neglect permanent magnet losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.FlangeSupport"
+>Machines.Interfaces.FlangeSupport</A> (Shaft and support), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>permanentMagnetLossParameters</TD><TD>Permanent magnet loss parameters</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>Shaft end</TD></TR>
+<TR><TD>support</TD><TD>Housing and support</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Core<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi320e52ed06ea2123.CoreI.png" ALT="Modelica.Electrical.Machines.Losses.InductionMachines.Core" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Losses.InductionMachines.Core"></A><A HREF="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines"
+>Modelica.Electrical.Machines.Losses.InductionMachines</A>.Core</H2>
+<B>Model of core losses</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Core losses can be separated into <b>eddy current</b> and <b>hysteresis</b> losses. The total core losses
+can thus be expressed as
+</p>
+<pre>
+  P = PRef * (ratioHysteresis * (wRef / w) + 1 - ratioHysteresis) * (V / VRef)^2
+</pre>
+<p>
+where <code>w</code> is the actual angular remagnetization velocity and <code>V</code> is the actual voltage.
+The term <code>ratioHysteresis</code> is the ratio of the hysteresis losses with respect to the total core losses for the reference voltage and frequency.
+</p>
+
+<p>
+In the current implementation hysteresis losses are <b>not considered</b> since complex numbers are not provided in Modelica.
+Therefore, implicitly <code>ratioHysteresis = 0</code> is set. For the voltage and frequency range with respect to Fig.&nbsp;1,
+the dependency of total core losses on the parameter <code>ratioHysteresis</code> is depicted in Fig.&nbsp;2.
+The current implementation has thus the drawback over a model that considers <code>ratioHysteresis &gt; 0</code>:
+</p>
+<ul>
+<li>underestimation of the losses in the constant field region (<code>w</code> &lt; <code>wRef</code>)</li>
+<li>overestimation of the losses in the field weakening region (<code>w</code> &gt; <code>wRef</code>)</li>
+</ul>
+
+<table border=0 cellspacing=0 cellpadding=1>
+  <tr><td> <img src="../Resources/Images/Electrical/Machines/corelossesVw.png"
+                alt="corelossesVw.png"> </td>
+  </tr>
+  <tr><td> <b> Fig. 1: </b>Voltage versus angular velocity</td>
+  </tr>
+</table>
+
+<table border=0 cellspacing=0 cellpadding=1>
+  <tr><td> <img src="../Resources/Images/Electrical/Machines/corelossesPcw.png"
+                alt="corelossesPcw.png"> </td>
+  </tr>
+  <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
+  </tr>
+</table>
+
+<h4>Note</h4>
+<p>In the current implementation it is assumed that <code>ratioHysteresis = 0</code>. This parameter cannot be changed due to compatibility reasons.</p>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses.CoreParameters"
+>Core loss parameters</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>coreParameters</TD><TD>&nbsp;</TD></TR>
+<TR><TD>turnsRatio</TD><TD>Effective number of stator turns / effective number of rotor turns (if used as rotor core)</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Losses</TD></TR>
+<TR><TD>w</TD><TD>Remagnetization angular velocity [rad/s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+<TR><TD>spacePhasor</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:31 2013.
+</address></BODY>
+</HTML>

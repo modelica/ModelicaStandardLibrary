@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.Thermal.DCMachines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Thermal parts of DC machines&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DCMachines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.Thermal.DCMachines"></A><A HREF="Modelica_Electrical_Machines_Thermal.html#Modelica.Electrical.Machines.Thermal"
+>Modelica.Electrical.Machines.Thermal</A>.DCMachines</H2>
+<B>Thermal parts of DC machines</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Thermal parts for DC machines
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi795edd5d733f9522tDCPMS.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM"
+>ThermalAmbientDCPM</A>
+</TD><TD>Thermal ambient for DC machine with permanent magnets</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi795edd5d733f9522tDCPMS.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE"
+>ThermalAmbientDCEE</A>
+</TD><TD>Thermal ambient for DC machine with electrical excitation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi795edede733f954atDCSES.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE"
+>ThermalAmbientDCSE</A>
+</TD><TD>Thermal ambient for DC machine with series excitation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi795ed6ae733f974atDCCES.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE"
+>ThermalAmbientDCCE</A>
+</TD><TD>Thermal ambient for DC machine with compound excitation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientDCPM<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi795edd5d733f9522tDCPMI.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM"></A><A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines"
+>Modelica.Electrical.Machines.Thermal.DCMachines</A>.ThermalAmbientDCPM</H2>
+<B>Thermal ambient for DC machine with permanent magnets</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Thermal ambient for DC machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A> (Partial thermal ambient for DC machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useTemperatureInputs</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD>Ta</TD><TD>Temperature of armature [K]</TD></TR>
+<TR><TD>Tpm</TD><TD>Temperature of permanent magnet [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>TArmature</TD><TD>Temperature of armature</TD></TR>
+<TR><TD>TPermanentMagnet</TD><TD>Temperature of permanent magnet</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientDCEE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi795edd5d733f9522tDCPMI.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE"></A><A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines"
+>Modelica.Electrical.Machines.Thermal.DCMachines</A>.ThermalAmbientDCEE</H2>
+<B>Thermal ambient for DC machine with electrical excitation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Thermal ambient for DC machines with electrical (shunt) excitation to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A> (Partial thermal ambient for DC machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useTemperatureInputs</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD>Ta</TD><TD>Temperature of armature [K]</TD></TR>
+<TR><TD>Te</TD><TD>Temperature of (shunt) excitation [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>TArmature</TD><TD>Temperature of armature</TD></TR>
+<TR><TD>TExcitation</TD><TD>Temperature of (shunt) excitation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientDCSE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi795edede733f954atDCSEI.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE"></A><A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines"
+>Modelica.Electrical.Machines.Thermal.DCMachines</A>.ThermalAmbientDCSE</H2>
+<B>Thermal ambient for DC machine with series excitation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Thermal ambient for DC machines with serial excitation to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A> (Partial thermal ambient for DC machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useTemperatureInputs</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD>Ta</TD><TD>Temperature of armature [K]</TD></TR>
+<TR><TD>Tse</TD><TD>Temperature of series excitation [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>TArmature</TD><TD>Temperature of armature</TD></TR>
+<TR><TD>T_se</TD><TD>Temperature of series excitation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientDCCE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi795ed6ae733f974atDCCEI.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE"></A><A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines"
+>Modelica.Electrical.Machines.Thermal.DCMachines</A>.ThermalAmbientDCCE</H2>
+<B>Thermal ambient for DC machine with compound excitation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Thermal ambient for DC machines with compound excitation to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A> (Partial thermal ambient for DC machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useTemperatureInputs</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD>Ta</TD><TD>Temperature of armature [K]</TD></TR>
+<TR><TD>Te</TD><TD>Temperature of (shunt) excitation [K]</TD></TR>
+<TR><TD>Tse</TD><TD>Temperature of series excitation [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>TArmature</TD><TD>Temperature of armature</TD></TR>
+<TR><TD>T_e</TD><TD>Temperature of (shunt) excitation</TD></TR>
+<TR><TD>T_se</TD><TD>Temperature of series excitation</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:32 2013.
+</address></BODY>
+</HTML>

@@ -1,0 +1,218 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Thermal.FluidHeatFlow.Components</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Basic components (pipes, valves)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Components<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Thermal.FluidHeatFlow.Components"></A><A HREF="Modelica_Thermal_FluidHeatFlow.html#Modelica.Thermal.FluidHeatFlow"
+>Modelica.Thermal.FluidHeatFlow</A>.Components</H2>
+<B>Basic components (pipes, valves)</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This package contains components:
+<ul>
+<li>pipe without heat exchange</li>
+<li>pipe with heat exchange</li>
+<li>valve (simple controlled valve)</li>
+</ul>
+Pressure drop is taken from partial model SimpleFriction.<br>
+Thermodynamic equations are defined in partial models (package Partials).<br>
+<dl>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <p>
+  <a href="http://www.haumer.at/">Anton Haumer</a><br>
+  Technical Consulting &amp; Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern, Austria<br>
+  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+</p>
+  <p>
+  Dr. Christian Kral<br>
+  <a href="http://www.ait.ac.at/">Austrian Institute of Technology, AIT</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
+</p>
+  </dd>
+</dl>
+<p>
+Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+</p>
+<p>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+>Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeab64c5e2ac341d94fdPipeS.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"
+>IsolatedPipe</A>
+</TD><TD>Pipe without heat exchange</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHea6d63cd98c3aa562fdPipeS.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>HeatedPipe</A>
+</TD><TD>Pipe with heat exchange</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHea1015e755e01cc922ValveS.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.Valve" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.Valve"
+>Valve</A>
+</TD><TD>Simple valve</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IsolatedPipe<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeab64c5e2ac341d94fdPipeI.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</A>.IsolatedPipe</H2>
+<B>Pipe without heat exchange</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Pipe without heat exchange.<br>
+Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).<br>
+<b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
+leads to neglection of temperature transient cv*m*der(T).
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
+>Interfaces.Partials.TwoPort</A> (Partial model of two port), <A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction"
+>Interfaces.Partials.SimpleFriction</A> (Simple friction model).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>m</TD><TD>Mass of medium [kg]</TD></TR>
+<TR><TD>T0</TD><TD>Initial temperature of medium [K]</TD></TR>
+<TR><TD>T0fixed</TD><TD>Initial temperature guess value or fixed</TD></TR>
+<TR><TD>tapT</TD><TD>Defines temperature of heatPort between inlet and outlet temperature</TD></TR>
+<TR><TD>h_g</TD><TD>Geodetic height (height difference from flowPort_a to flowPort_b) [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Simple Friction</TD></TR>
+<TR><TD>V_flowLaminar</TD><TD>Laminar volume flow [m3/s]</TD></TR>
+<TR><TD>dpLaminar</TD><TD>Laminar pressure drop [Pa]</TD></TR>
+<TR><TD>V_flowNominal</TD><TD>Nominal volume flow [m3/s]</TD></TR>
+<TR><TD>dpNominal</TD><TD>Nominal pressure drop [Pa]</TD></TR>
+<TR><TD>frictionLoss</TD><TD>Part of friction losses fed to medium</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatedPipe<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHea6d63cd98c3aa562fdPipeI.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</A>.HeatedPipe</H2>
+<B>Pipe with heat exchange</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Pipe with heat exchange.<br>
+Thermodynamic equations are defined by Partials.TwoPort.<br>
+Q_flow is defined by heatPort.Q_flow.<br>
+<b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
+leads to neglection of temperature transient cv*m*der(T).<br>
+<b>Note:</b> Injecting heat into a pipe with zero massflow causes
+temperature rise defined by storing heat in medium's mass.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
+>Interfaces.Partials.TwoPort</A> (Partial model of two port), <A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction"
+>Interfaces.Partials.SimpleFriction</A> (Simple friction model).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>m</TD><TD>Mass of medium [kg]</TD></TR>
+<TR><TD>T0</TD><TD>Initial temperature of medium [K]</TD></TR>
+<TR><TD>T0fixed</TD><TD>Initial temperature guess value or fixed</TD></TR>
+<TR><TD>tapT</TD><TD>Defines temperature of heatPort between inlet and outlet temperature</TD></TR>
+<TR><TD>h_g</TD><TD>Geodetic height (heigth difference from flowPort_a to flowPort_b) [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Simple Friction</TD></TR>
+<TR><TD>V_flowLaminar</TD><TD>Laminar volume flow [m3/s]</TD></TR>
+<TR><TD>dpLaminar</TD><TD>Laminar pressure drop [Pa]</TD></TR>
+<TR><TD>V_flowNominal</TD><TD>Nominal volume flow [m3/s]</TD></TR>
+<TR><TD>dpNominal</TD><TD>Nominal pressure drop [Pa]</TD></TR>
+<TR><TD>frictionLoss</TD><TD>Part of friction losses fed to medium</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Valve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHea1015e755e01cc922ValveI.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.Valve" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Components.Valve"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</A>.Valve</H2>
+<B>Simple valve</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>Simple controlled valve.</p>
+<p>
+Standard characteristic Kv=<i>f </i>(y) is given at standard conditions (dp0, rho0),
+</p>
+<ul>
+<li>either linear :<code> Kv/Kv1 = Kv0/Kv1 + (1-Kv0/Kv1) * y/Y1</code></li>
+<li>or exponential:<code> Kv/Kv1 = Kv0/Kv1 * exp[log(Kv1/Kv0) * y/Y1]</code></li>
+</ul>
+<p>
+where:
+</p>
+<ul>
+<li><code>Kv0 ... min. flow @ y = 0</code></li>
+<li><code>Y1 .... max. valve opening</code></li>
+<li><code>Kv1 ... max. flow @ y = Y1</code></li>
+</ul>
+<p>
+Flow resistance under real conditions is calculated by
+</p>
+<blockquote><pre>
+V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
+</pre></blockquote>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
+>Interfaces.Partials.TwoPort</A> (Partial model of two port).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>T0</TD><TD>Initial temperature of medium [K]</TD></TR>
+<TR><TD>T0fixed</TD><TD>Initial temperature guess value or fixed</TD></TR>
+<TR><TD>tapT</TD><TD>Defines temperature of heatPort between inlet and outlet temperature</TD></TR>
+<TR><TD>frictionLoss</TD><TD>Part of friction losses fed to medium</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Standard characteristic</TD></TR>
+<TR><TD>LinearCharacteristic</TD><TD>Type of characteristic</TD></TR>
+<TR><TD>y1</TD><TD>Max. valve opening</TD></TR>
+<TR><TD>Kv1</TD><TD>Max. flow @ y = y1 [m3/s]</TD></TR>
+<TR><TD>kv0</TD><TD>Leakage flow / max.flow @ y = 0</TD></TR>
+<TR><TD>dp0</TD><TD>Standard pressure drop [Pa]</TD></TR>
+<TR><TD>rho0</TD><TD>Standard medium&#39;s density [kg/m3]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:08 2013.
+</address></BODY>
+</HTML>

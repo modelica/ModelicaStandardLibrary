@@ -1,0 +1,197 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Asynchronous induction machines&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AsynchronousInductionMachines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines"></A><A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines"
+>Modelica.Magnetic.FundamentalWave.BasicMachines</A>.AsynchronousInductionMachines</H2>
+<B>Asynchronous induction machines</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This package provides squirrel cage and slip ring induction machine models.</p>
+
+<h4>See also</h4>
+
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_SynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines"
+>SynchronousInductionMachines</a>
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.Fundameb9f71106bed56d36lCageS.png" ALT="Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_AsynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage"
+>AIM_SquirrelCage</A>
+</TD><TD>Asynchronous induction machine with squirrel cage</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.Fundame17061dcd2fdb5693pRingS.png" ALT="Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_AsynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"
+>AIM_SlipRing</A>
+</TD><TD>Asynchronous induction machine with slip ring rotor</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AIM_SquirrelCage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.Fundameb9f71106bed56d36lCageI.png" ALT="Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage"></A><A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_AsynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines"
+>Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines</A>.AIM_SquirrelCage</H2>
+<B>Asynchronous induction machine with squirrel cage</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and rotor is assumed. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_AsynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"
+>AIM_SlipRing</a>,
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine</A> (Partial model for induction machine).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of stator phases</TD></TR>
+<TR><TD>Jr</TD><TD>Rotor inertia [kg.m2]</TD></TR>
+<TR><TD>useSupport</TD><TD>Enable / disable (=fixed stator) support</TD></TR>
+<TR><TD>Js</TD><TD>Stator inertia [kg.m2]</TD></TR>
+<TR><TD>useThermalPort</TD><TD>Enable / disable (=fixed temperatures) thermal port</TD></TR>
+<TR><TD>p</TD><TD>Number of pole pairs (Integer)</TD></TR>
+<TR><TD>fsNominal</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD>effectiveStatorTurns</TD><TD>Effective number of stator turns</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Operational temperatures</TD></TR>
+<TR><TD>TsOperational</TD><TD>Operational temperature of stator resistance [K]</TD></TR>
+<TR><TD>TrOperational</TD><TD>Operational temperature of rotor resistance [K]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phiMechanical</TD><TD>Mechanical angle of rotor against stator [rad]</TD></TR>
+<TR><TD>wMechanical</TD><TD>Mechanical angular velocity of rotor against stator [rad/s]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal resistances and inductances</B></TD></TR>
+<TR><TD>TsRef</TD><TD>Reference temperature of stator resistance [K]</TD></TR>
+<TR><TD>alpha20s</TD><TD>Temperature coefficient of stator resistance at 20 degC [1/K]</TD></TR>
+<TR><TD>Lszero</TD><TD>Stator zero inductance [H]</TD></TR>
+<TR><TD>Lm</TD><TD>Stator main field inductance [H]</TD></TR>
+<TR><TD>Lrsigma</TD><TD>Rotor leakage inductance of equivalent m phase winding w.r.t. stator side [H]</TD></TR>
+<TR><TD>Rr</TD><TD>Rotor resistance of equivalent m phase winding w.r.t. stator side [Ohm]</TD></TR>
+<TR><TD>TrRef</TD><TD>Reference temperature of rotor resistance [K]</TD></TR>
+<TR><TD>alpha20r</TD><TD>Temperature coefficient of rotor resistance at 20 degC [1/K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Losses</B></TD></TR>
+<TR><TD>frictionParameters</TD><TD>Friction losses</TD></TR>
+<TR><TD>statorCoreParameters</TD><TD>Stator core losses; all parameters refer to stator side</TD></TR>
+<TR><TD>strayLoadParameters</TD><TD>Stray load losses</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>Shaft</TD></TR>
+<TR><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+<TR><TD>plug_sp</TD><TD>Positive plug of stator</TD></TR>
+<TR><TD>plug_sn</TD><TD>Negative plug of stator</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AIM_SlipRing<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.Fundame17061dcd2fdb5693pRingI.png" ALT="Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"></A><A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_AsynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines"
+>Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines</A>.AIM_SlipRing</H2>
+<B>Asynchronous induction machine with slip ring rotor</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Resistances and stray inductances of the machine always refer to either stator or rotor. The symmetry of the stator and rotor is assumed. The number of stator and rotor phases may be different. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent rotor winding resistances</li>
+<li>friction losses</li>
+<li>stator and rotor core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_AsynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage"
+>AIM_SquirrelCage</a>,
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine</A> (Partial model for induction machine).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>mr</TD><TD>Number of rotor phases</TD></TR>
+<TR><TD>m</TD><TD>Number of stator phases</TD></TR>
+<TR><TD>Jr</TD><TD>Rotor inertia [kg.m2]</TD></TR>
+<TR><TD>useSupport</TD><TD>Enable / disable (=fixed stator) support</TD></TR>
+<TR><TD>Js</TD><TD>Stator inertia [kg.m2]</TD></TR>
+<TR><TD>useThermalPort</TD><TD>Enable / disable (=fixed temperatures) thermal port</TD></TR>
+<TR><TD>p</TD><TD>Number of pole pairs (Integer)</TD></TR>
+<TR><TD>fsNominal</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD>effectiveStatorTurns</TD><TD>Effective number of stator turns</TD></TR>
+<TR><TD>useTurnsRatio</TD><TD>Use TurnsRatio or calculate from locked-rotor voltage?</TD></TR>
+<TR><TD>TurnsRatio</TD><TD>Effective number of stator turns / effective number of rotor turns</TD></TR>
+<TR><TD>VsNominal</TD><TD>Nominal stator voltage per phase [V]</TD></TR>
+<TR><TD>VrLockedRotor</TD><TD>Locked rotor voltage per phase [V]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Operational temperatures</TD></TR>
+<TR><TD>TsOperational</TD><TD>Operational temperature of stator resistance [K]</TD></TR>
+<TR><TD>TrOperational</TD><TD>Operational temperature of rotor resistance [K]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phiMechanical</TD><TD>Mechanical angle of rotor against stator [rad]</TD></TR>
+<TR><TD>wMechanical</TD><TD>Mechanical angular velocity of rotor against stator [rad/s]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Nominal resistances and inductances</B></TD></TR>
+<TR><TD>TsRef</TD><TD>Reference temperature of stator resistance [K]</TD></TR>
+<TR><TD>alpha20s</TD><TD>Temperature coefficient of stator resistance at 20 degC [1/K]</TD></TR>
+<TR><TD>Lszero</TD><TD>Stator zero inductance [H]</TD></TR>
+<TR><TD>Lm</TD><TD>Stator main field inductance [H]</TD></TR>
+<TR><TD>Lrsigma</TD><TD>Rotor leakage inductance w.r.t. rotor side [H]</TD></TR>
+<TR><TD>Lrzero</TD><TD>Rotor zero inductance w.r.t. rotor side [H]</TD></TR>
+<TR><TD>Rr</TD><TD>Rotor resistance per phase w.r.t. rotor side [Ohm]</TD></TR>
+<TR><TD>TrRef</TD><TD>Reference temperature of rotor resistance [K]</TD></TR>
+<TR><TD>alpha20r</TD><TD>Temperature coefficient of rotor resistance at 20 degC [1/K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Losses</B></TD></TR>
+<TR><TD>frictionParameters</TD><TD>Friction losses</TD></TR>
+<TR><TD>statorCoreParameters</TD><TD>Stator core losses; all parameters refer to stator side</TD></TR>
+<TR><TD>strayLoadParameters</TD><TD>Stray load losses</TD></TR>
+<TR><TD>rotorCoreParameters</TD><TD>Rotor core losses, all quantities refer to rotor side</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>Shaft</TD></TR>
+<TR><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+<TR><TD>plug_sp</TD><TD>Positive plug of stator</TD></TR>
+<TR><TD>plug_sn</TD><TD>Negative plug of stator</TD></TR>
+<TR><TD>plug_rn</TD><TD>Negative plug of rotor</TD></TR>
+<TR><TD>plug_rp</TD><TD>Positive plug of rotor</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:39 2013.
+</address></BODY>
+</HTML>

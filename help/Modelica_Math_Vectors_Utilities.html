@@ -1,0 +1,244 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Math.Vectors.Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Utility functions that should not be directly utilized by the user&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.Vectors.Utilities"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</A>.Utilities</H2>
+<B>Utility functions that should not be directly utilized by the user</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains utility functions that are utilized by higher level vector
+and matrix functions. These functions are usually not useful for an end-user.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</A> (Icon for utility packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Math.Vectors.Uti2e813f0f0adb6e83ectorS.png" ALT="Modelica.Math.Vectors.Utilities.householderVector" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors_Utilities.html#Modelica.Math.Vectors.Utilities.householderVector"
+>householderVector</A>
+</TD><TD>Calculate a normalized householder vector to reflect vector a onto vector b</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Vectors.Uti2e813f0f0adb6e83ectorS.png" ALT="Modelica.Math.Vectors.Utilities.householderReflection" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors_Utilities.html#Modelica.Math.Vectors.Utilities.householderReflection"
+>householderReflection</A>
+</TD><TD>Reflect a vector a on a plane with orthogonal vector u</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Vectors.Uti2e813f0f0adb6e83ectorS.png" ALT="Modelica.Math.Vectors.Utilities.roots" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors_Utilities.html#Modelica.Math.Vectors.Utilities.roots"
+>roots</A>
+</TD><TD>Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE householderVector<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Vectors.Uti2e813f0f0adb6e83ectorI.png" ALT="Modelica.Math.Vectors.Utilities.householderVector" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Vectors.Utilities.householderVector"></A><A HREF="Modelica_Math_Vectors_Utilities.html#Modelica.Math.Vectors.Utilities"
+>Modelica.Math.Vectors.Utilities</A>.householderVector</H2>
+<B>Calculate a normalized householder vector to reflect vector a onto vector b</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.Utilities.<b>householderVector</b>(a,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>householderVector(a, b)</code>" returns the normalized Householder vector
+<b>u</b> for Householder reflection of input vector <b>a</b> onto vector <b>b</b>, i.e., Householder vector <b>u</b> is the normal
+vector of the reflection plane. Algebraically, the reflection is performed by transformation matrix <b>Q</b>
+</p>
+<blockquote>
+<p>
+<b>Q</b> = <b>I</b> - 2*<b>u</b>*<b>u</b>',
+</p>
+</blockquote>
+i.e., vector <b>a</b> is mapped to
+<blockquote>
+<p>
+<b>a</b> -> <b>Q</b>*<b>a</b>=c*<b>b</b>
+</p>
+</blockquote>
+with scalar c, |c| = ||<b>a</b>|| / ||<b>b</b>||. <b>Q</b>*<b>a</b> is the reflection of <b>a</b> about the hyperplane orthogonal to <b>u</b>.
+<b>Q</b> is an orthogonal matrix, i.e.
+<blockquote>
+<p>
+    <b>Q</b> = inv(<b>Q</b>) = <b>Q</b>'
+</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+  a = {2, -4, -2, -1};
+  b = {1, 0, 0, 0};
+
+  u = <b>householderVector</b>(a,b);    // {0.837, -0.478, -0.239, -0.119}
+                               // Computation (identity(4) - 2*matrix(u)*transpose(matrix(u)))*a results in
+                               // {-5, 0, 0, 0} = -5*b
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Vectors_Utilities.html#Modelica.Math.Vectors.Utilities.householderReflection"
+>Vectors.Utilities.householderReflection</a><br>
+<A HREF="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities.householderReflection"
+>Matrices.Utilities.householderReflection</a><br>
+<A HREF="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities.householderSimilarityTransformation"
+>Matrices.Utilities.householderSimilarityTransformation</a>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>a[:]</TD><TD>Real vector to be reflected</TD></TR>
+<TR><TD>b[size(a, 1)]</TD><TD>Real vector b vector a is mapped onto</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[size(a, 1)]</TD><TD>Householder vector to map a onto b</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE householderReflection<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Vectors.Uti2e813f0f0adb6e83ectorI.png" ALT="Modelica.Math.Vectors.Utilities.householderReflection" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Vectors.Utilities.householderReflection"></A><A HREF="Modelica_Math_Vectors_Utilities.html#Modelica.Math.Vectors.Utilities"
+>Modelica.Math.Vectors.Utilities</A>.householderReflection</H2>
+<B>Reflect a vector a on a plane with orthogonal vector u</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.Utilities.<b>householderReflection</b>(a,u);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function "<code>householderReflection(a, u)</code>" performs the reflection of vector
+<b>a</b> about a plane orthogonal to vector <b>u</b> (Householder vector).
+Algebraically the operation is defined by
+</p>
+<blockquote>
+<p>
+<b>b</b>=<b>Q</b>*<b>a</b>
+</p>
+</blockquote>
+with
+<blockquote>
+<p>
+   <b>Q</b> = <b>I</b> - 2*<b>u</b>*<b>u</b>',
+</p>
+</blockquote>
+where <b>Q</b> is an orthogonal matrix, i.e.
+<blockquote>
+<p>
+    <b>Q</b> = inv(<b>Q</b>) = <b>Q</b>'
+</p>
+</blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+  a = {2, -4, -2, -1};
+  u = {0.837, -0.478, -0.239, -0.119};
+
+  <b>householderReflection</b>(a,u);    //  = {-5.0, -0.001, -0.0005, -0.0044}
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Vectors_Utilities.html#Modelica.Math.Vectors.Utilities.householderVector"
+>Utilities.householderVector</a><br>
+<A HREF="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities.householderReflection"
+>Matrices.Utilities.householderReflection</a><br>
+<A HREF="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities.householderSimilarityTransformation"
+>Matrices.Utilities.householderSimilarityTransformation</a>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>a[:]</TD><TD>Real vector a to be reflected</TD></TR>
+<TR><TD>u[size(a, 1)]</TD><TD>householder vector</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ra[size(u, 1)]</TD><TD>reflexion of a</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE roots<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Vectors.Uti2e813f0f0adb6e83ectorI.png" ALT="Modelica.Math.Vectors.Utilities.roots" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Vectors.Utilities.roots"></A><A HREF="Modelica_Math_Vectors_Utilities.html#Modelica.Math.Vectors.Utilities"
+>Modelica.Math.Vectors.Utilities</A>.roots</H2>
+<B>Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+  r = Vectors.Utilities.<b>roots</b>(p);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the roots of a polynomial P of x
+</p>
+<blockquote><pre>
+  P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
+</pre></blockquote>
+<p>
+with the coefficient vector <b>p</b>. It is assumed that the first element of <b>p</b> is not zero, i.e., that the polynomial is of order size(p,1)-1.
+<p>
+To compute the roots, the eigenvalues of the corresponding companion matrix <b>C</b>
+</p>
+<blockquote><pre>
+         |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
+         |    1            0                0               0           0     |
+         |    0            1      ...       0               0           0     |
+  <b>C</b> =    |    .            .      ...       .               .           .     |
+         |    .            .      ...       .               .           .     |
+         |    0            0      ...       0               1           0     |
+</pre></blockquote>
+<p>
+are calculated. These are the roots of the polynomial.<br>
+Since the companion matrix has already Hessenberg form, the transformation to Hessenberg form has not to be performed.
+Function <A HREF="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities.eigenvaluesHessenberg"
+>eigenvaluesHessenberg</a><br>
+provides efficient eigenvalue computation for those matrices.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  r = <b>roots</b>({1,2,3});
+  // r = [-1.0,  1.41421356237309;
+  //      -1.0, -1.41421356237309]
+  // which corresponds to the roots: -1.0 +/- j*1.41421356237309
+</pre></blockquote>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p[:]</TD><TD>Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>roots[max(0, size(p, 1) - 1), 2]</TD><TD>roots[:,1] and roots[:,2] are the real and imaginary parts of the roots of polynomial p</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:10 2013.
+</address></BODY>
+</HTML>

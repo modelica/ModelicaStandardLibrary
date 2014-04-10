@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.Sensors</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Sensors for machine modelling&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.Sensors"></A><A HREF="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
+>Modelica.Electrical.Machines</A>.Sensors</H2>
+<B>Sensors for machine modelling</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+This package contains sensors that are useful when modelling machines.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_SensorsPackage.html#Modelica.Icons.SensorsPackage"
+>Modelica.Icons.SensorsPackage</A> (Icon for packages containing sensors).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machie428765caee7c28densorS.png" ALT="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor"
+>VoltageQuasiRMSSensor</A>
+</TD><TD>Length of space phasor -&gt; RMS voltage</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machie428765caee7c28densorS.png" ALT="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor"
+>CurrentQuasiRMSSensor</A>
+</TD><TD>Length of space phasor -&gt; RMS current</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machie7bbfe1e0e1e8c91ensorS.png" ALT="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor"
+>ElectricalPowerSensor</A>
+</TD><TD>Instantaneous power from space phasors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi866a3e67976b6c15ensorS.png" ALT="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor"
+>MechanicalPowerSensor</A>
+</TD><TD>Mechanical power = torque x speed</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machi417496c70b6b53a9AngleS.png" ALT="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle"
+>RotorDisplacementAngle</A>
+</TD><TD>Rotor lagging angle</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VoltageQuasiRMSSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machie428765caee7c28densorI.png" ALT="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor"></A><A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Modelica.Electrical.Machines.Sensors</A>.VoltageQuasiRMSSensor</H2>
+<B>Length of space phasor -&gt; RMS voltage</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
+output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>V</TD><TD>[V]</TD></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CurrentQuasiRMSSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machie428765caee7c28densorI.png" ALT="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor"></A><A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Modelica.Electrical.Machines.Sensors</A>.CurrentQuasiRMSSensor</H2>
+<B>Length of space phasor -&gt; RMS current</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
+output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>I</TD><TD>[A]</TD></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ElectricalPowerSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machie7bbfe1e0e1e8c91ensorI.png" ALT="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor"></A><A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Modelica.Electrical.Machines.Sensors</A>.ElectricalPowerSensor</H2>
+<B>Instantaneous power from space phasors</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
+which are used to calculate power quantities:<br>
+P = instantaneous power, thus giving in stationary state active power.<br>
+Q = giving in stationary state reactive power.<br>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>P</TD><TD>[W]</TD></TR>
+<TR><TD>Q</TD><TD>[var]</TD></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_ni</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_nv</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MechanicalPowerSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi866a3e67976b6c15ensorI.png" ALT="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor"></A><A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Modelica.Electrical.Machines.Sensors</A>.MechanicalPowerSensor</H2>
+<B>Mechanical power = torque x speed</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Calculates (mechanical) power from torque times angular speed.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device), <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges</A> (Partial model for a component with two rotational 1-dim. shaft flanges).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useSupport</TD><TD>Use support or fixed housing</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+<TR><TD>P</TD><TD>[W]</TD></TR>
+<TR><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RotorDisplacementAngle<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machi417496c70b6b53a9AngleI.png" ALT="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle"></A><A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Modelica.Electrical.Machines.Sensors</A>.RotorDisplacementAngle</H2>
+<B>Rotor lagging angle</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system, <br>
+rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.
+<p>
+The sensor's housing can be implicitly fixed (useSupport=false).<br>
+If the machine's stator also implicitly fixed (useSupport=false), the angle at the flange
+is equal to the angle of the machine's rotor against the stator.<br>
+Otherwise, the sensor's support has to be connected to the machine's support.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Number of pole pairs</TD></TR>
+<TR><TD>useSupport</TD><TD>Use support or fixed housing</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rotorDisplacementAngle</TD><TD>[rad]</TD></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>flange</TD><TD>&nbsp;</TD></TR>
+<TR><TD>support</TD><TD>support at which the reaction torque is acting</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:31 2013.
+</address></BODY>
+</HTML>

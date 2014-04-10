@@ -1,0 +1,769 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Pressure loss components that are mainly defined by a quadratic turbulent regime with constant loss factor data&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE QuadraticTurbulent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses.html#Modelica.Fluid.Fittings.BaseClasses"
+>Modelica.Fluid.Fittings.BaseClasses</A>.QuadraticTurbulent</H2>
+<B>Pressure loss components that are mainly defined by a quadratic turbulent regime with constant loss factor data</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This library provides pressure loss factors of a pipe
+segment (orifice, bending etc.) with a minimum amount of data.
+If available, data can be provided for <b>both flow directions</b>,
+i.e., flow from port_a to port_b and from port_b to port_a,
+as well as for the <b>laminar</b> and the <b>turbulent</b> region.
+It is also an option to provide the loss factor <b>only</b> for the
+<b>turbulent</b> region for a flow from port_a to port_b.
+Basically, the pressure drop is defined by the following
+equation:
+</p>
+<pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
+      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+      = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+</pre>
+<p>
+where
+</p>
+<ul>
+<li> &Delta;p is the pressure drop: &Delta;p = port_a.p - port_b.p</li>
+<li> v is the mean velocity.</li>
+<li> &rho; is the density.</li>
+<li> &zeta; is the loss factor that depends on the geometry of
+     the pipe. In the turbulent flow regime, it is assumed that
+     &zeta; is constant and is given by "zeta1" and
+     "zeta2" depending on the flow direction.</li>
+<li> D is the diameter of the pipe segment. If this is not a
+     circular cross section, D = 4*A/P, where A is the cross section
+     area and P is the wetted perimeter.</li>
+</ul>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.Bfb34d4e4a57b6914rDataS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData"
+>LossFactorData</A>
+</TD><TD>Data structure defining constant loss factor data for dp = zeta*rho*v*|v|/2 and functions providing the data for some loss types</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.Be873f0490a6e2a0fte_dpS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp"
+>massFlowRate_dp</A>
+</TD><TD>Return mass flow rate from constant loss factor data and pressure drop (m_flow = f(dp))</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.Be873f0490a6e2a0fte_dpS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp_and_Re" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp_and_Re"
+>massFlowRate_dp_and_Re</A>
+</TD><TD>Return mass flow rate from constant loss factor data, pressure drop and Re (m_flow = f(dp))</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.Be873f0490a6e2a0fte_dpS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow"
+>pressureLoss_m_flow</A>
+</TD><TD>Return pressure drop from constant loss factor and mass flow rate (dp = f(m_flow))</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.Be873f0490a6e2a0fte_dpS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_and_Re" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_and_Re"
+>pressureLoss_m_flow_and_Re</A>
+</TD><TD>Return pressure drop from constant loss factor, mass flow rate and Re (dp = f(m_flow))</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.Bd73fc15c10c6ea87ModelS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel"
+>BaseModel</A>
+</TD><TD>Generic pressure drop component with constant turbulent loss factor data and without an icon</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.Bfce8e132cf0544c3ctionS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction"
+>TestWallFriction</A>
+</TD><TD>Pressure drop in pipe due to wall friction (only for test purposes; if needed use Pipes.StaticPipe instead)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.B8254aaabf7c1d414nAreaS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea"
+>BaseModelNonconstantCrossSectionArea</A>
+</TD><TD>Generic pressure drop component with constant turbulent loss factor data and without an icon, for non-constant cross section area</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.B3bece04dea207987ssureS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_totalPressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_totalPressure"
+>pressureLoss_m_flow_totalPressure</A>
+</TD><TD>Return pressure drop from constant loss factor and mass flow rate (dp = f(m_flow))</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LossFactorData<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.Bfb34d4e4a57b6914rDataI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent"
+>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</A>.LossFactorData</H2>
+<B>Data structure defining constant loss factor data for dp = zeta*rho*v*|v|/2 and functions providing the data for some loss types</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This record defines the pressure loss factors of a pipe
+segment (orifice, bending etc.) with a minimum amount of data.
+If available, data should be provided for <b>both flow directions</b>,
+i.e., flow from port_a to port_b and from port_b to port_a,
+as well as for the <b>laminar</b> and the <b>turbulent</b> region.
+It is also an option to provide the loss factor <b>only</b> for the
+<b>turbulent</b> region for a flow from port_a to port_b.
+</p>
+<p>
+The following equations are used:
+</p>
+<pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
+      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+      = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+        Re = |v|*D*&rho;/&mu;
+</pre>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td><b>flow type</b></td>
+    <td><b>&zeta;</b> = </td>
+    <td><b>flow region</b></td></tr>
+<tr><td>turbulent</td>
+    <td><b>zeta1</b> = const.</td>
+    <td>Re &ge;  Re_turbulent, v &ge; 0</td></tr>
+<tr><td></td>
+    <td><b>zeta2</b> = const.</td>
+    <td>Re &ge; Re_turbulent, v &lt; 0</td></tr>
+<tr><td>laminar</td>
+    <td><b>c0</b>/Re</td>
+    <td>both flow directions, Re small; c0 = const.</td></tr>
+</table>
+<p>
+where
+</p>
+<ul>
+<li> &Delta;p is the pressure drop: &Delta;p = port_a.p - port_b.p</li>
+<li> v is the mean velocity.</li>
+<li> &rho; is the density.</li>
+<li> &zeta; is the loss factor that depends on the geometry of
+     the pipe. In the turbulent flow regime, it is assumed that
+     &zeta; is constant and is given by "zeta1" and
+     "zeta2" depending on the flow direction.<br>
+     When the Reynolds number Re is below "Re_turbulent", the
+     flow is laminar for small flow velocities. For higher
+     velocities there is a transition region from
+     laminar to turbulent flow. The loss factor for
+     laminar flow at small velocities is defined by the often occurring
+     approximation c0/Re. If c0 is different for the two
+     flow directions, the mean value has to be used
+     (c0 = (c0_ab + c0_ba)/2).</li>
+<li> The equation "&Delta;p = 0.5*&zeta;*&rho;*v*|v|" is either with
+     respect to port_a or to port_b, depending on the definition
+     of the particular loss factor &zeta; (in some references loss
+     factors are defined with respect to port_a, in other references
+     with respect to port_b).</li>
+<li> Re = |v|*D_Re*&rho;/&mu; = |m_flow|*D_Re/(A_Re*&mu;)
+     is the Reynolds number at the smallest cross
+     section area. This is often at port_a or at port_b, but can
+     also be between the two ports. In the record, the diameter
+     D_Re of this smallest cross section area has to be provided, as
+     well, as Re_turbulent, the absolute value of the
+     Reynolds number at which
+     the turbulent flow starts. If Re_turbulent is different for
+     the two flow directions, use the smaller value as Re_turbulent.</li>
+<li> D is the diameter of the pipe. If the pipe has not a
+     circular cross section, D = 4*A/P, where A is the cross section
+     area and P is the wetted perimeter.</li>
+<li> A is the cross section area with A = &pi;(D/2)^2.</li>
+<li> &mu; is the dynamic viscosity.</li>
+</ul>
+<p>
+The laminar and the transition region is usually of
+not much technical interest because the operating point is
+mostly in the turbulent regime. For simplification and for
+numerical reasons, this whole region is described by two
+polynomials of third order, one polynomial for m_flow &ge; 0
+and one for m_flow &lt; 0. The polynomials start at
+Re = |m_flow|*4/(&pi;*D_Re*&mu;), where D_Re is the
+smallest diameter between port_a and port_b.
+The common derivative
+of the two polynomials at Re = 0 is
+computed from the equation "c0/Re". Note, the pressure drop
+equation above in the laminar region is always defined
+with respect to the smallest diameter D_Re.
+</p>
+<p>
+If no data for c0 is available, the derivative at Re = 0 is computed in such
+a way, that the second derivatives of the two polynomials
+are identical at Re = 0. The polynomials are constructed, such that
+they smoothly touch the characteristic curves in the turbulent
+regions. The whole characteristic is therefore <b>continuous</b>
+and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+In some cases, the constructed polynomials would "vibrate". This is
+avoided by reducing the derivative at Re=0 in such a way that
+the polynomials are guaranteed to be monotonically increasing.
+The used sufficient criteria for monotonicity follows from:
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <b>Monotone piecewise cubic interpolation</b>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>diameter_a</TD><TD>Diameter at port_a [m]</TD></TR>
+<TR><TD>diameter_b</TD><TD>Diameter at port_b [m]</TD></TR>
+<TR><TD>zeta1</TD><TD>Loss factor for flow port_a -&gt; port_b</TD></TR>
+<TR><TD>zeta2</TD><TD>Loss factor for flow port_b -&gt; port_a</TD></TR>
+<TR><TD>Re_turbulent</TD><TD>Loss factors suited for Re &gt;= Re_turbulent [1]</TD></TR>
+<TR><TD>D_Re</TD><TD>Diameter used to compute Re [m]</TD></TR>
+<TR><TD>zeta1_at_a</TD><TD>dp = zeta1*(if zeta1_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)</TD></TR>
+<TR><TD>zeta2_at_a</TD><TD>dp = -zeta2*(if zeta2_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)</TD></TR>
+<TR><TD>zetaLaminarKnown</TD><TD>= true, if zeta = c0/Re in laminar region</TD></TR>
+<TR><TD>c0</TD><TD>zeta = c0/Re; dp = zeta*rho_Re*v_Re^2/2, Re=v_Re*D_Re*rho_Re/mu_Re)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE massFlowRate_dp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.Be873f0490a6e2a0fte_dpI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent"
+>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</A>.massFlowRate_dp</H2>
+<B>Return mass flow rate from constant loss factor data and pressure drop (m_flow = f(dp))</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Compute mass flow rate from constant loss factor and pressure drop (m_flow = f(dp)).
+For small pressure drops (dp &lt; dp_small), the characteristic is approximated by
+a polynomial in order to have a finite derivative at zero mass flow rate.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>dp</TD><TD>Pressure drop (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+<TR><TD>rho_a</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD>rho_b</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD>data</TD><TD>Constant loss factors for both flow directions</TD></TR>
+<TR><TD>dp_small</TD><TD>Turbulent flow if |dp| &gt;= dp_small [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE massFlowRate_dp_and_Re<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.Be873f0490a6e2a0fte_dpI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp_and_Re" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.massFlowRate_dp_and_Re"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent"
+>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</A>.massFlowRate_dp_and_Re</H2>
+<B>Return mass flow rate from constant loss factor data, pressure drop and Re (m_flow = f(dp))</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Compute mass flow rate from constant loss factor and pressure drop (m_flow = f(dp)).
+If the Reynolds-number Re &ge; data.Re_turbulent, the flow
+is treated as a turbulent flow with constant loss factor zeta.
+If the Reynolds-number Re &lt; data.Re_turbulent, the flow
+is laminar and/or in a transition region between laminar and
+turbulent. This region is approximated by two
+polynomials of third order, one polynomial for m_flow &ge; 0
+and one for m_flow &lt; 0.
+The common derivative
+of the two polynomials at Re = 0 is
+computed from the equation "data.c0/Re".
+</p>
+<p>
+If no data for c0 is available, the derivative at Re = 0 is computed in such
+a way, that the second derivatives of the two polynomials
+are identical at Re = 0. The polynomials are constructed, such that
+they smoothly touch the characteristic curves in the turbulent
+regions. The whole characteristic is therefore <b>continuous</b>
+and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+In some cases, the constructed polynomials would "vibrate". This is
+avoided by reducing the derivative at Re=0 in such a way that
+the polynomials are guaranteed to be monotonically increasing.
+The used sufficient criteria for monotonicity follows from:
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <b>Monotone piecewise cubic interpolation</b>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>dp</TD><TD>Pressure drop (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+<TR><TD>rho_a</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD>rho_b</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD>mu_a</TD><TD>Dynamic viscosity at port_a [Pa.s]</TD></TR>
+<TR><TD>mu_b</TD><TD>Dynamic viscosity at port_b [Pa.s]</TD></TR>
+<TR><TD>data</TD><TD>Constant loss factors for both flow directions</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressureLoss_m_flow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.Be873f0490a6e2a0fte_dpI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent"
+>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</A>.pressureLoss_m_flow</H2>
+<B>Return pressure drop from constant loss factor and mass flow rate (dp = f(m_flow))</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Compute pressure drop from constant loss factor and mass flow rate (dp = f(m_flow)).
+For small mass flow rates(|m_flow| &lt; m_flow_small), the characteristic is approximated by
+a polynomial in order to have a finite derivative at zero mass flow rate.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+<TR><TD>rho_a</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD>rho_b</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD>data</TD><TD>Constant loss factors for both flow directions</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Turbulent flow if |m_flow| &gt;= m_flow_small [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>dp</TD><TD>Pressure drop (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressureLoss_m_flow_and_Re<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.Be873f0490a6e2a0fte_dpI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_and_Re" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_and_Re"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent"
+>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</A>.pressureLoss_m_flow_and_Re</H2>
+<B>Return pressure drop from constant loss factor, mass flow rate and Re (dp = f(m_flow))</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Compute pressure drop from constant loss factor and mass flow rate (dp = f(m_flow)).
+If the Reynolds-number Re &ge; data.Re_turbulent, the flow
+is treated as a turbulent flow with constant loss factor zeta.
+If the Reynolds-number Re &lt; data.Re_turbulent, the flow
+is laminar and/or in a transition region between laminar and
+turbulent. This region is approximated by two
+polynomials of third order, one polynomial for m_flow &ge; 0
+and one for m_flow &lt; 0.
+The common derivative
+of the two polynomials at Re = 0 is
+computed from the equation "data.c0/Re".
+</p>
+<p>
+If no data for c0 is available, the derivative at Re = 0 is computed in such
+a way, that the second derivatives of the two polynomials
+are identical at Re = 0. The polynomials are constructed, such that
+they smoothly touch the characteristic curves in the turbulent
+regions. The whole characteristic is therefore <b>continuous</b>
+and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+In some cases, the constructed polynomials would "vibrate". This is
+avoided by reducing the derivative at Re=0 in such a way that
+the polynomials are guaranteed to be monotonically increasing.
+The used sufficient criteria for monotonicity follows from:
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <b>Monotone piecewise cubic interpolation</b>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+<TR><TD>rho_a</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD>rho_b</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD>mu_a</TD><TD>Dynamic viscosity at port_a [Pa.s]</TD></TR>
+<TR><TD>mu_b</TD><TD>Dynamic viscosity at port_b [Pa.s]</TD></TR>
+<TR><TD>data</TD><TD>Constant loss factors for both flow directions</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>dp</TD><TD>Pressure drop (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseModel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.Bd73fc15c10c6ea87ModelI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent"
+>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</A>.BaseModel</H2>
+<B>Generic pressure drop component with constant turbulent loss factor data and without an icon</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This model computes the pressure loss of a pipe
+segment (orifice, bending etc.) with a minimum amount of data
+provided via parameter <b>data</b>.
+If available, data should be provided for <b>both flow directions</b>,
+i.e., flow from port_a to port_b and from port_b to port_a,
+as well as for the <b>laminar</b> and the <b>turbulent</b> region.
+It is also an option to provide the loss factor <b>only</b> for the
+<b>turbulent</b> region for a flow from port_a to port_b.
+</p>
+<p>
+The following equations are used:
+</p>
+<pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
+      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+        Re = |v|*D*&rho;/&mu;
+</pre>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td><b>flow type</b></td>
+    <td><b>&zeta;</b> = </td>
+    <td><b>flow region</b></td></tr>
+<tr><td>turbulent</td>
+    <td><b>zeta1</b> = const.</td>
+    <td>Re &ge;  Re_turbulent, v &ge; 0</td></tr>
+<tr><td></td>
+    <td><b>zeta2</b> = const.</td>
+    <td>Re &ge; Re_turbulent, v &lt; 0</td></tr>
+<tr><td>laminar</td>
+    <td><b>c0</b>/Re</td>
+    <td>both flow directions, Re small; c0 = const.</td></tr>
+</table>
+<p>
+where
+</p>
+<ul>
+<li> &Delta;p is the pressure drop: &Delta;p = port_a.p - port_b.p</li>
+<li> v is the mean velocity.</li>
+<li> &rho; is the density.</li>
+<li> &zeta; is the loss factor that depends on the geometry of
+     the pipe. In the turbulent flow regime, it is assumed that
+     &zeta; is constant and is given by "zeta1" and
+     "zeta2" depending on the flow direction.<br>
+     When the Reynolds number Re is below "Re_turbulent", the
+     flow is laminar for small flow velocities. For higher
+     velocities there is a transition region from
+     laminar to turbulent flow. The loss factor for
+     laminar flow at small velocities is defined by the often occurring
+     approximation c0/Re. If c0 is different for the two
+     flow directions, the mean value has to be used
+     (c0 = (c0_ab + c0_ba)/2).</li>
+<li> The equation "&Delta;p = 0.5*&zeta;*&rho;*v*|v|" is either with
+     respect to port_a or to port_b, depending on the definition
+     of the particular loss factor &zeta; (in some references loss
+     factors are defined with respect to port_a, in other references
+     with respect to port_b).</li>
+<li> Re = |v|*D_Re*&rho;/&mu; = |m_flow|*D_Re/(A_Re*&mu;)
+     is the Reynolds number at the smallest cross
+     section area. This is often at port_a or at port_b, but can
+     also be between the two ports. In the record, the diameter
+     D_Re of this smallest cross section area has to be provided, as
+     well, as Re_turbulent, the absolute value of the
+     Reynolds number at which
+     the turbulent flow starts. If Re_turbulent is different for
+     the two flow directions, use the smaller value as Re_turbulent.</li>
+<li> D is the diameter of the pipe. If the pipe has not a
+     circular cross section, D = 4*A/P, where A is the cross section
+     area and P is the wetted perimeter.</li>
+<li> A is the cross section area with A = &pi;(D/2)^2.</li>
+<li> &mu; is the dynamic viscosity.</li>
+</ul>
+<p>
+The laminar and the transition region is usually of
+not much technical interest because the operating point is
+mostly in the turbulent regime. For simplification and for
+numerical reasons, this whole region is described by two
+polynomials of third order, one polynomial for m_flow &ge; 0
+and one for m_flow &lt; 0. The polynomials start at
+Re = |m_flow|*4/(&pi;*D_Re*&mu;), where D_Re is the
+smallest diameter between port_a and port_b.
+The common derivative
+of the two polynomials at Re = 0 is
+computed from the equation "c0/Re". Note, the pressure drop
+equation above in the laminar region is always defined
+with respect to the smallest diameter D_Re.
+</p>
+<p>
+If no data for c0 is available, the derivative at Re = 0 is computed in such
+a way, that the second derivatives of the two polynomials
+are identical at Re = 0. The polynomials are constructed, such that
+they smoothly touch the characteristic curves in the turbulent
+regions. The whole characteristic is therefore <b>continuous</b>
+and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+In some cases, the constructed polynomials would "vibrate". This is
+avoided by reducing the derivative at Re=0 in such a way that
+the polynomials are guaranteed to be monotonically increasing.
+The used sufficient criteria for monotonicity follows from:
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <b>Monotone piecewise cubic interpolation</b>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>Modelica.Fluid.Interfaces.PartialTwoPortTransport</A> (Partial element transporting fluid between two ports without storage of mass or energy), <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedFlow"
+>Modelica.Fluid.Interfaces.PartialLumpedFlow</A> (Base class for a lumped momentum balance).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>pathLength</TD><TD>Length flow path [m]</TD></TR>
+<TR><TD>data</TD><TD>Loss factor data</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Nominal operating point</TD></TR>
+<TR><TD>m_flow_nominal</TD><TD>Nominal mass flow rate [kg/s]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
+<TR><TD>momentumDynamics</TD><TD>Formulation of momentum balance</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>dp_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR><TD>use_Re</TD><TD>= true, if turbulent region is defined by Re, otherwise by m_flow_small</TD></TR>
+<TR><TD>from_dp</TD><TD>= true, use m_flow = f(dp) else dp = f(m_flow)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>show_T</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>show_V_flow</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+<TR><TD>show_Re</TD><TD>= true, if Reynolds number is included for plotting</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestWallFriction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.Bfce8e132cf0544c3ctionI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent"
+>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</A>.TestWallFriction</H2>
+<B>Pressure drop in pipe due to wall friction (only for test purposes; if needed use Pipes.StaticPipe instead)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel"
+>BaseModel</A> (Generic pressure drop component with constant turbulent loss factor data and without an icon).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>data</TD><TD>Loss factor data</TD></TR>
+<TR><TD>length</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD>diameter</TD><TD>Inner diameter of pipe [m]</TD></TR>
+<TR><TD>roughness</TD><TD>Absolute roughness of pipe (&gt; 0 required, details see info layer) [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Nominal operating point</TD></TR>
+<TR><TD>m_flow_nominal</TD><TD>Nominal mass flow rate [kg/s]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>dp_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR><TD>use_Re</TD><TD>= true, if turbulent region is defined by Re, otherwise by m_flow_small</TD></TR>
+<TR><TD>from_dp</TD><TD>= true, use m_flow = f(dp) else dp = f(m_flow)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>show_T</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>show_V_flow</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+<TR><TD>show_Re</TD><TD>= true, if Reynolds number is included for plotting</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseModelNonconstantCrossSectionArea<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.B8254aaabf7c1d414nAreaI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent"
+>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</A>.BaseModelNonconstantCrossSectionArea</H2>
+<B>Generic pressure drop component with constant turbulent loss factor data and without an icon, for non-constant cross section area</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This model computes the pressure loss of a pipe
+segment (orifice, bending etc.) with a minimum amount of data
+provided via parameter <b>data</b>.
+If available, data should be provided for <b>both flow directions</b>,
+i.e., flow from port_a to port_b and from port_b to port_a,
+as well as for the <b>laminar</b> and the <b>turbulent</b> region.
+It is also an option to provide the loss factor <b>only</b> for the
+<b>turbulent</b> region for a flow from port_a to port_b.
+</p>
+<p>
+The following equations are used:
+</p>
+<pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
+      = 0.5*&zeta;/A^2 * (1/&rho;) * m_flow*|m_flow|
+        Re = |v|*D*&rho;/&mu;
+</pre>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><td><b>flow type</b></td>
+    <td><b>&zeta;</b> = </td>
+    <td><b>flow region</b></td></tr>
+<tr><td>turbulent</td>
+    <td><b>zeta1</b> = const.</td>
+    <td>Re &ge;  Re_turbulent, v &ge; 0</td></tr>
+<tr><td></td>
+    <td><b>zeta2</b> = const.</td>
+    <td>Re &ge; Re_turbulent, v &lt; 0</td></tr>
+<tr><td>laminar</td>
+    <td><b>c0</b>/Re</td>
+    <td>both flow directions, Re small; c0 = const.</td></tr>
+</table>
+<p>
+where
+</p>
+<ul>
+<li> &Delta;p is the pressure drop: &Delta;p = port_a.p - port_b.p</li>
+<li> v is the mean velocity.</li>
+<li> &rho; is the density.</li>
+<li> &zeta; is the loss factor that depends on the geometry of
+     the pipe. In the turbulent flow regime, it is assumed that
+     &zeta; is constant and is given by "zeta1" and
+     "zeta2" depending on the flow direction.<br>
+     When the Reynolds number Re is below "Re_turbulent", the
+     flow is laminar for small flow velocities. For higher
+     velocities there is a transition region from
+     laminar to turbulent flow. The loss factor for
+     laminar flow at small velocities is defined by the often occurring
+     approximation c0/Re. If c0 is different for the two
+     flow directions, the mean value has to be used
+     (c0 = (c0_ab + c0_ba)/2).</li>
+<li> The equation "&Delta;p = 0.5*&zeta;*&rho;*v*|v|" is either with
+     respect to port_a or to port_b, depending on the definition
+     of the particular loss factor &zeta; (in some references loss
+     factors are defined with respect to port_a, in other references
+     with respect to port_b).</li>
+
+<li> Re = |v|*D_Re*&rho;/&mu; = |m_flow|*D_Re/(A_Re*&mu;)
+     is the Reynolds number at the smallest cross
+     section area. This is often at port_a or at port_b, but can
+     also be between the two ports. In the record, the diameter
+     D_Re of this smallest cross section area has to be provided, as
+     well, as Re_turbulent, the absolute value of the
+     Reynolds number at which
+     the turbulent flow starts. If Re_turbulent is different for
+     the two flow directions, use the smaller value as Re_turbulent.</li>
+<li> D is the diameter of the pipe. If the pipe has not a
+     circular cross section, D = 4*A/P, where A is the cross section
+     area and P is the wetted perimeter.</li>
+<li> A is the cross section area with A = &pi;(D/2)^2.</li>
+<li> &mu; is the dynamic viscosity.</li>
+</ul>
+<p>
+The laminar and the transition region is usually of
+not much technical interest because the operating point is
+mostly in the turbulent regime. For simplification and for
+numerical reasons, this whole region is described by two
+polynomials of third order, one polynomial for m_flow &ge; 0
+and one for m_flow &lt; 0. The polynomials start at
+Re = |m_flow|*4/(&pi;*D_Re*&mu;), where D_Re is the
+smallest diameter between port_a and port_b.
+The common derivative
+of the two polynomials at Re = 0 is
+computed from the equation "c0/Re". Note, the pressure drop
+equation above in the laminar region is always defined
+with respect to the smallest diameter D_Re.
+</p>
+<p>
+If no data for c0 is available, the derivative at Re = 0 is computed in such
+a way, that the second derivatives of the two polynomials
+are identical at Re = 0. The polynomials are constructed, such that
+they smoothly touch the characteristic curves in the turbulent
+regions. The whole characteristic is therefore <b>continuous</b>
+and has a <b>finite</b>, <b>continuous first derivative everywhere</b>.
+In some cases, the constructed polynomials would "vibrate". This is
+avoided by reducing the derivative at Re=0 in such a way that
+the polynomials are guaranteed to be monotonically increasing.
+The used sufficient criteria for monotonicity follows from:
+</p>
+
+<dl>
+<dt> Fritsch F.N. and Carlson R.E. (1980):</dt>
+<dd> <b>Monotone piecewise cubic interpolation</b>.
+     SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
+</dl>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>Modelica.Fluid.Interfaces.PartialTwoPortTransport</A> (Partial element transporting fluid between two ports without storage of mass or energy), <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedFlow"
+>Modelica.Fluid.Interfaces.PartialLumpedFlow</A> (Base class for a lumped momentum balance).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>pathLength</TD><TD>Length flow path [m]</TD></TR>
+<TR><TD>data</TD><TD>Loss factor data</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Nominal operating point</TD></TR>
+<TR><TD>m_flow_nominal</TD><TD>Nominal mass flow rate [kg/s]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
+<TR><TD>momentumDynamics</TD><TD>Formulation of momentum balance</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>dp_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>show_T</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>show_V_flow</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+<TR><TD>show_Re</TD><TD>= true, if Reynolds number is included for plotting</TD></TR>
+<TR><TD>show_totalPressures</TD><TD>= true, if total pressures are included for plotting</TD></TR>
+<TR><TD>show_portVelocities</TD><TD>= true, if port velocities are included for plotting</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressureLoss_m_flow_totalPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.B3bece04dea207987ssureI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_totalPressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.pressureLoss_m_flow_totalPressure"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent"
+>Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent</A>.pressureLoss_m_flow_totalPressure</H2>
+<B>Return pressure drop from constant loss factor and mass flow rate (dp = f(m_flow))</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Compute pressure drop from constant loss factor and mass flow rate (dp = f(m_flow)).
+For small mass flow rates(|m_flow| &lt; m_flow_small), the characteristic is approximated by
+a polynomial in order to have a finite derivative at zero mass flow rate.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+<TR><TD>rho_a_des</TD><TD>Density at port_a, mass flow in design direction a -&gt; b [kg/m3]</TD></TR>
+<TR><TD>rho_b_des</TD><TD>Density at port_b, mass flow in design direction a -&gt; b [kg/m3]</TD></TR>
+<TR><TD>rho_b_nondes</TD><TD>Density at port_b, mass flow against design direction a &lt;- b [kg/m3]</TD></TR>
+<TR><TD>rho_a_nondes</TD><TD>Density at port_a, mass flow against design direction a &lt;- b [kg/m3]</TD></TR>
+<TR><TD>data</TD><TD>Constant loss factors for both flow directions</TD></TR>
+<TR><TD>m_flow_small</TD><TD>Turbulent flow if |m_flow| &gt;= m_flow_small [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>dp</TD><TD>Pressure drop (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:48 2013.
+</address></BODY>
+</HTML>

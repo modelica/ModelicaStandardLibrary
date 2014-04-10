@@ -1,0 +1,120 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Examples.TraceSubstances</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Library demonstrating the usage of trace substances&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TraceSubstances<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Examples.TraceSubstances"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</A>.TraceSubstances</H2>
+<B>Library demonstrating the usage of trace substances</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.Tb9ad91c4fd375333omCO2S.png" ALT="Modelica.Fluid.Examples.TraceSubstances.RoomCO2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_TraceSubstances.html#Modelica.Fluid.Examples.TraceSubstances.RoomCO2"
+>RoomCO2</A>
+</TD><TD>Demonstrates a room volume with CO2 accumulation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.Tb9ad91c4fd375333omCO2S.png" ALT="Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_TraceSubstances.html#Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls"
+>RoomCO2WithControls</A>
+</TD><TD>Demonstrates a room volume with CO2 controls</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RoomCO2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.Tb9ad91c4fd375333omCO2I.png" ALT="Modelica.Fluid.Examples.TraceSubstances.RoomCO2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.TraceSubstances.RoomCO2"></A><A HREF="Modelica_Fluid_Examples_TraceSubstances.html#Modelica.Fluid.Examples.TraceSubstances"
+>Modelica.Fluid.Examples.TraceSubstances</A>.RoomCO2</H2>
+<B>Demonstrates a room volume with CO2 accumulation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This example consists of a volume with a carbon dioxide concentration that corresponds to
+1.519E-3 kg/kg, which is equal to 1000 PPM.
+There is a fresh air stream with a carbon dioxide concentration of about 300 PPM.
+The fresh air stream is such that the air exchange rate is about 5 air changes per hour.
+After 1 hour of ventilation, the volume's carbon dioxide concentration is close to the
+concentration of the fresh air.
+</p>
+<p>
+The nominal value for the trace substance is set to <code>C_nominal={1.519E-3}</code>.
+This scales the residual equations that are used by the solver to the right order
+of magnitude.
+</p>
+<p>
+<img src="../Resources/Images/Fluid/Examples/RoomCO2.png" border="1"
+     alt="RoomCO2.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RoomCO2WithControls<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.Tb9ad91c4fd375333omCO2I.png" ALT="Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls"></A><A HREF="Modelica_Fluid_Examples_TraceSubstances.html#Modelica.Fluid.Examples.TraceSubstances"
+>Modelica.Fluid.Examples.TraceSubstances</A>.RoomCO2WithControls</H2>
+<B>Demonstrates a room volume with CO2 controls</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This example illustrates a room volume with a CO2 source and a fresh air supply with feedback
+control.
+The CO2 emission rate is proportional to the room occupancy, which is defined by a schedule.
+The fresh air flow rate is controlled such that the room CO2
+concentration does not exceed <code>1000 PPM (=1.519E-3 kg/kg)</code>.
+The fresh air has a CO2 concentration of <code>300 PPM</code> which corresponds to a typical
+CO2 concentration in the outside air.
+</p>
+
+<p>
+The CO2 emission from the occupants is implemented as a mass flow source.
+Depending on the activity and size, a person emits about <code>8.18E-6 kg/s</code> CO2. In the model,
+this value is multiplied by the number of occupants.
+Since the mass flow rate associate with the CO2 source model contributes to the volume's energy balance,
+this mass flow rate should be kept small. Thus, in the source model, we set the
+CO2 concentration to <code>C={100} kg/kg</code>, and scaled the mass flow rate using
+</p>
+
+<pre>
+  m_flow = 1/100 * nPeo * 8.18E-6 kg/(s*person)
+</pre>
+
+<p>
+where <code>nPeo</code> is the number of people in the room.
+This results in a mass flow rate that is about 5 orders of magnitudes smaller than the supply air flow rate,
+and hence its contribution to the volume's energy balance is negligible.
+</p>
+<p>
+The nominal value for the trace substance is set to <code>C_nominal={1.519E-3}</code>.
+This scales the residual equations that are used by the solver to the right order
+of magnitude.
+</p>
+<p>
+<img src="../Resources/Images/Fluid/Examples/RoomCO2WithControls.png" border="1"
+     alt="RoomCO2WithControls.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:45 2013.
+</address></BODY>
+</HTML>

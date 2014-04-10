@@ -1,0 +1,1342 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Blocks.Sources</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Library of signal source blocks generating Real and Boolean signals&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Sources"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</A>.Sources</H2>
+<B>Library of signal source blocks generating Real and Boolean signals</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains <b>source</b> components, i.e., blocks which
+have only output signals. These blocks are used as signal generators
+for Real, Integer and Boolean signals.
+</p>
+
+<p>
+All Real source signals (with the exception of the Constant source)
+have at least the following two parameters:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>offset</b></td>
+      <td valign="top">Value which is added to the signal</td>
+  </tr>
+  <tr><td valign="top"><b>startTime</b></td>
+      <td valign="top">Start time of signal. For time &lt; startTime,
+                the output y is set to offset.</td>
+  </tr>
+</table>
+
+<p>
+The <b>offset</b> parameter is especially useful in order to shift
+the corresponding source, such that at initial time the system
+is stationary. To determine the corresponding value of offset,
+usually requires a trimming calculation.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</A> (Icon for packages containing sources).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.RealExpressionS.png" ALT="Modelica.Blocks.Sources.RealExpression" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.RealExpression"
+>RealExpression</A>
+</TD><TD>Set output signal to a time varying Real expression</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.I076167f8108f57f9ssionS.png" ALT="Modelica.Blocks.Sources.IntegerExpression" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.IntegerExpression"
+>IntegerExpression</A>
+</TD><TD>Set output signal to a time varying Integer expression</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.B585ed09232f4592bssionS.png" ALT="Modelica.Blocks.Sources.BooleanExpression" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanExpression"
+>BooleanExpression</A>
+</TD><TD>Set output signal to a time varying Boolean expression</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.ClockS.png" ALT="Modelica.Blocks.Sources.Clock" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Clock"
+>Clock</A>
+</TD><TD>Generate actual time signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.ConstantS.png" ALT="Modelica.Blocks.Sources.Constant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Constant</A>
+</TD><TD>Generate constant signal of type Real</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.StepS.png" ALT="Modelica.Blocks.Sources.Step" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Step"
+>Step</A>
+</TD><TD>Generate step signal of type Real</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.RampS.png" ALT="Modelica.Blocks.Sources.Ramp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Ramp</A>
+</TD><TD>Generate ramp signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.SineS.png" ALT="Modelica.Blocks.Sources.Sine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Sine</A>
+</TD><TD>Generate sine signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.CosineS.png" ALT="Modelica.Blocks.Sources.Cosine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Cosine"
+>Cosine</A>
+</TD><TD>Generate cosine signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.ExpSineS.png" ALT="Modelica.Blocks.Sources.ExpSine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.ExpSine"
+>ExpSine</A>
+</TD><TD>Generate exponentially damped sine signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.ExponentialsS.png" ALT="Modelica.Blocks.Sources.Exponentials" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Exponentials"
+>Exponentials</A>
+</TD><TD>Generate a rising and falling exponential signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.PulseS.png" ALT="Modelica.Blocks.Sources.Pulse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Pulse"
+>Pulse</A>
+</TD><TD>Generate pulse signal of type Real</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.SawToothS.png" ALT="Modelica.Blocks.Sources.SawTooth" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.SawTooth"
+>SawTooth</A>
+</TD><TD>Generate saw tooth signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.TrapezoidS.png" ALT="Modelica.Blocks.Sources.Trapezoid" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Trapezoid"
+>Trapezoid</A>
+</TD><TD>Generate trapezoidal signal of type Real</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.KinematicPTPS.png" ALT="Modelica.Blocks.Sources.KinematicPTP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.KinematicPTP"
+>KinematicPTP</A>
+</TD><TD>Move as fast as possible along a distance within given kinematic constraints</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.KinematicPTP2S.png" ALT="Modelica.Blocks.Sources.KinematicPTP2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.KinematicPTP2"
+>KinematicPTP2</A>
+</TD><TD>Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.TimeTableS.png" ALT="Modelica.Blocks.Sources.TimeTable" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.TimeTable"
+>TimeTable</A>
+</TD><TD>Generate a (possibly discontinuous) signal by linear interpolation in a table</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.CombiTimeTableS.png" ALT="Modelica.Blocks.Sources.CombiTimeTable" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>CombiTimeTable</A>
+</TD><TD>Table look-up with respect to time and linear/periodic extrapolation methods (data from matrix/file)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.BooleanConstantS.png" ALT="Modelica.Blocks.Sources.BooleanConstant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanConstant"
+>BooleanConstant</A>
+</TD><TD>Generate constant signal of type Boolean</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.BooleanStepS.png" ALT="Modelica.Blocks.Sources.BooleanStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanStep"
+>BooleanStep</A>
+</TD><TD>Generate step signal of type Boolean</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.BooleanPulseS.png" ALT="Modelica.Blocks.Sources.BooleanPulse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanPulse"
+>BooleanPulse</A>
+</TD><TD>Generate pulse signal of type Boolean</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.SampleTriggerS.png" ALT="Modelica.Blocks.Sources.SampleTrigger" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.SampleTrigger"
+>SampleTrigger</A>
+</TD><TD>Generate sample trigger signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.BooleanTableS.png" ALT="Modelica.Blocks.Sources.BooleanTable" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanTable"
+>BooleanTable</A>
+</TD><TD>Generate a Boolean output signal based on a vector of time instants</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.R66b092faeecd6a95ourceS.png" ALT="Modelica.Blocks.Sources.RadioButtonSource" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.RadioButtonSource"
+>RadioButtonSource</A>
+</TD><TD>Boolean signal source that mimics a radio button</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.IntegerConstantS.png" ALT="Modelica.Blocks.Sources.IntegerConstant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.IntegerConstant"
+>IntegerConstant</A>
+</TD><TD>Generate constant signal of type Integer</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.IntegerStepS.png" ALT="Modelica.Blocks.Sources.IntegerStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.IntegerStep"
+>IntegerStep</A>
+</TD><TD>Generate step signal of type Integer</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Sources.IntegerTableS.png" ALT="Modelica.Blocks.Sources.IntegerTable" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.IntegerTable"
+>IntegerTable</A>
+</TD><TD>Generate an Integer output signal based on a table matrix with [time, yi] values</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RealExpression<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.RealExpressionI.png" ALT="Modelica.Blocks.Sources.RealExpression" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.RealExpression"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.RealExpression</H2>
+<B>Set output signal to a time varying Real expression</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The (time varying) Real output signal of this block can be defined in its
+parameter menu via variable <b>y</b>. The purpose is to support the
+easy definition of Real expressions in a block diagram. For example,
+in the y-menu the definition "if time &lt; 1 then 0 else 1" can be given in order
+to define that the output signal is one, if time &ge; 1 and otherwise
+it is zero. Note, that "time" is a built-in variable that is always
+accessible and represents the "model time" and that
+Variable <b>y</b> is both a variable and a connector.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Time varying output signal</TD></TR>
+<TR><TD>y</TD><TD>Value of Real output</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Time varying output signal</TD></TR>
+<TR><TD>y</TD><TD>Value of Real output</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerExpression<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.I076167f8108f57f9ssionI.png" ALT="Modelica.Blocks.Sources.IntegerExpression" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.IntegerExpression"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.IntegerExpression</H2>
+<B>Set output signal to a time varying Integer expression</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The (time varying) Integer output signal of this block can be defined in its
+parameter menu via variable <b>y</b>. The purpose is to support the
+easy definition of Integer expressions in a block diagram. For example,
+in the y-menu the definition "if time &lt; 1 then 0 else 1" can be given in order
+to define that the output signal is one, if time &ge; 1 and otherwise
+it is zero. Note, that "time" is a built-in variable that is always
+accessible and represents the "model time" and that
+Variable <b>y</b> is both a variable and a connector.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Time varying output signal</TD></TR>
+<TR><TD>y</TD><TD>Value of Integer output</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Time varying output signal</TD></TR>
+<TR><TD>y</TD><TD>Value of Integer output</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanExpression<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.B585ed09232f4592bssionI.png" ALT="Modelica.Blocks.Sources.BooleanExpression" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.BooleanExpression"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.BooleanExpression</H2>
+<B>Set output signal to a time varying Boolean expression</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The (time varying) Boolean output signal of this block can be defined in its
+parameter menu via variable <b>y</b>. The purpose is to support the
+easy definition of Boolean expressions in a block diagram. For example,
+in the y-menu the definition "time &gt;= 1 and time &lt;= 2" can be given in order
+to define that the output signal is <b>true</b> in the time interval
+1 &le; time &le; 2 and otherwise it is <b>false</b>.
+Note, that "time" is a built-in variable that is always
+accessible and represents the "model time" and that
+Variable <b>y</b> is both a variable and a connector.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Time varying output signal</TD></TR>
+<TR><TD>y</TD><TD>Value of Boolean output</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Time varying output signal</TD></TR>
+<TR><TD>y</TD><TD>Value of Boolean output</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Clock<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.ClockI.png" ALT="Modelica.Blocks.Sources.Clock" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.Clock"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.Clock</H2>
+<B>Generate actual time signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a clock signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Clock.png"
+     alt="Clock.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>offset</TD><TD>Offset of output signal [s]</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Constant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.ConstantI.png" ALT="Modelica.Blocks.Sources.Constant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.Constant"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.Constant</H2>
+<B>Generate constant signal of type Real</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a constant signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Constant.png"
+     alt="Constant.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>k</TD><TD>Constant output value</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Step<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.StepI.png" ALT="Modelica.Blocks.Sources.Step" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.Step"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.Step</H2>
+<B>Generate step signal of type Real</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a step signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Step.png"
+     alt="Step.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SignalSource"
+>Interfaces.SignalSource</A> (Base class for continuous signal source).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>height</TD><TD>Height of step</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signal y</TD></TR>
+<TR><TD>startTime</TD><TD>Output y = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Ramp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.RampI.png" ALT="Modelica.Blocks.Sources.Ramp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.Ramp"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.Ramp</H2>
+<B>Generate ramp signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a ramp signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Ramp.png"
+     alt="Ramp.png">
+</p>
+
+<p>
+If parameter duration is set to 0.0, the limiting case of a Step signal is achieved.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>height</TD><TD>Height of ramps</TD></TR>
+<TR><TD>duration</TD><TD>Duration of ramp (= 0.0 gives a Step) [s]</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signal</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.SineI.png" ALT="Modelica.Blocks.Sources.Sine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.Sine"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.Sine</H2>
+<B>Generate sine signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a sine signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Sine.png"
+     alt="Sine.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>amplitude</TD><TD>Amplitude of sine wave</TD></TR>
+<TR><TD>freqHz</TD><TD>Frequency of sine wave [Hz]</TD></TR>
+<TR><TD>phase</TD><TD>Phase of sine wave [rad]</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signal</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Cosine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.CosineI.png" ALT="Modelica.Blocks.Sources.Cosine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.Cosine"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.Cosine</H2>
+<B>Generate cosine signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a cosine signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Cosine.png"
+     alt="Cosine.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>amplitude</TD><TD>Amplitude of cosine wave</TD></TR>
+<TR><TD>freqHz</TD><TD>Frequency of cosine wave [Hz]</TD></TR>
+<TR><TD>phase</TD><TD>Phase of cosine wave [rad]</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signal</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ExpSine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.ExpSineI.png" ALT="Modelica.Blocks.Sources.ExpSine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.ExpSine"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.ExpSine</H2>
+<B>Generate exponentially damped sine signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a sine signal with exponentially changing amplitude:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/ExpSine.png"
+     alt="ExpSine.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>amplitude</TD><TD>Amplitude of sine wave</TD></TR>
+<TR><TD>freqHz</TD><TD>Frequency of sine wave [Hz]</TD></TR>
+<TR><TD>phase</TD><TD>Phase of sine wave [rad]</TD></TR>
+<TR><TD>damping</TD><TD>Damping coefficient of sine wave [s-1]</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signal</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Exponentials<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.ExponentialsI.png" ALT="Modelica.Blocks.Sources.Exponentials" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.Exponentials"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.Exponentials</H2>
+<B>Generate a rising and falling exponential signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a rising exponential followed
+by a falling exponential signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Exponentials.png"
+     alt="Exponentials.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>outMax</TD><TD>Height of output for infinite riseTime</TD></TR>
+<TR><TD>riseTime</TD><TD>Rise time [s]</TD></TR>
+<TR><TD>riseTimeConst</TD><TD>Rise time constant; rising is defined as outMax*(1-exp(-riseTime/riseTimeConst)) [s]</TD></TR>
+<TR><TD>fallTimeConst</TD><TD>Fall time constant [s]</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signal</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Pulse<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.PulseI.png" ALT="Modelica.Blocks.Sources.Pulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.Pulse"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.Pulse</H2>
+<B>Generate pulse signal of type Real</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a pulse signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Pulse.png"
+     alt="Pulse.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Modelica.Blocks.Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>amplitude</TD><TD>Amplitude of pulse</TD></TR>
+<TR><TD>width</TD><TD>Width of pulse in % of period</TD></TR>
+<TR><TD>period</TD><TD>Time for one period [s]</TD></TR>
+<TR><TD>nperiod</TD><TD>Number of periods (&lt; 0 means infinite number of periods)</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signals</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SawTooth<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.SawToothI.png" ALT="Modelica.Blocks.Sources.SawTooth" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.SawTooth"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.SawTooth</H2>
+<B>Generate saw tooth signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a saw tooth signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/SawTooth.png"
+     alt="SawTooth.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>amplitude</TD><TD>Amplitude of saw tooth</TD></TR>
+<TR><TD>period</TD><TD>Time for one period [s]</TD></TR>
+<TR><TD>nperiod</TD><TD>Number of periods (&lt; 0 means infinite number of periods)</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signals</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Trapezoid<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.TrapezoidI.png" ALT="Modelica.Blocks.Sources.Trapezoid" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.Trapezoid"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.Trapezoid</H2>
+<B>Generate trapezoidal signal of type Real</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Real output y is a trapezoid signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Trapezoid.png"
+     alt="Trapezoid">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>amplitude</TD><TD>Amplitude of trapezoid</TD></TR>
+<TR><TD>rising</TD><TD>Rising duration of trapezoid [s]</TD></TR>
+<TR><TD>width</TD><TD>Width duration of trapezoid [s]</TD></TR>
+<TR><TD>falling</TD><TD>Falling duration of trapezoid [s]</TD></TR>
+<TR><TD>period</TD><TD>Time for one period [s]</TD></TR>
+<TR><TD>nperiod</TD><TD>Number of periods (&lt; 0 means infinite number of periods)</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signal</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE KinematicPTP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.KinematicPTPI.png" ALT="Modelica.Blocks.Sources.KinematicPTP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.KinematicPTP"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.KinematicPTP</H2>
+<B>Move as fast as possible along a distance within given kinematic constraints</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The goal is to move as <b>fast</b> as possible along a distance
+<b>deltaq</b>
+under given <b>kinematical constraints</b>. The distance can be a positional or
+angular range. In robotics such a movement is called <b>PTP</b> (Point-To-Point).
+This source block generates the <b>acceleration</b> qdd of this signal
+as output:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/KinematicPTP.png"
+     alt="KinematicPTP.png">
+</p>
+
+<p>
+After integrating the output two times, the position q is
+obtained. The signal is constructed in such a way that it is not possible
+to move faster, given the <b>maximally</b> allowed <b>velocity</b> qd_max and
+the <b>maximally</b> allowed <b>acceleration</b> qdd_max.
+</p>
+<p>
+If several distances are given (vector deltaq has more than 1 element),
+an acceleration output vector is constructed such that all signals
+are in the same periods in the acceleration, constant velocity
+and deceleration phase. This means that only one of the signals
+is at its limits whereas the others are synchronized in such a way
+that the end point is reached at the same time instant.
+</p>
+
+<p>
+This element is useful to generate a reference signal for a controller
+which controls a drive train or in combination with model
+Modelica.Mechanics.Rotational.<b>Accelerate</b> to drive
+a flange according to a given acceleration.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
+>Interfaces.MO</A> (Multiple Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>deltaq[:]</TD><TD>Distance to move</TD></TR>
+<TR><TD>qd_max[:]</TD><TD>Maximum velocities der(q)</TD></TR>
+<TR><TD>qdd_max[:]</TD><TD>Maximum accelerations der(qd)</TD></TR>
+<TR><TD>startTime</TD><TD>Time instant at which movement starts [s]</TD></TR>
+<TR><TD>nout</TD><TD>Number of outputs</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y[nout]</TD><TD>Connector of Real output signals</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE KinematicPTP2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.KinematicPTP2I.png" ALT="Modelica.Blocks.Sources.KinematicPTP2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.KinematicPTP2"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.KinematicPTP2</H2>
+<B>Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The goal is to move as <b>fast</b> as possible from start position <b>q_begin</b>
+to end position <b>q_end</b>
+under given <b>kinematical constraints</b>. The positions can be translational or
+rotational definitions (i.e., q_begin/q_end is given). In robotics such a movement is called <b>PTP</b> (Point-To-Point).
+This source block generates the <b>position</b> q(t), the
+<b>speed</b> qd(t) = der(q), and the <b>acceleration</b> qdd = der(qd)
+as output. The signals are constructed in such a way that it is not possible
+to move faster, given the <b>maximally</b> allowed <b>velocity</b> qd_max and
+the <b>maximally</b> allowed <b>acceleration</b> qdd_max:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/KinematicPTP2.png"
+     alt="KinematicPTP2.png">
+</p>
+
+<p>
+If vectors q_begin/q_end have more than 1 element,
+the output vectors are constructed such that all signals
+are in the same periods in the acceleration, constant velocity
+and deceleration phase. This means that only one of the signals
+is at its limits whereas the others are synchronized in such a way
+that the end point is reached at the same time instant.
+</p>
+
+<p>
+This element is useful to generate a reference signal for a controller
+which controls, e.g., a drive train, or to drive
+a flange according to a given acceleration.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>q_begin[:]</TD><TD>Start position</TD></TR>
+<TR><TD>q_end[:]</TD><TD>End position</TD></TR>
+<TR><TD>qd_max[:]</TD><TD>Maximum velocities der(q)</TD></TR>
+<TR><TD>qdd_max[:]</TD><TD>Maximum accelerations der(qd)</TD></TR>
+<TR><TD>startTime</TD><TD>Time instant at which movement starts [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>q[nout]</TD><TD>Reference position of path planning</TD></TR>
+<TR><TD>qd[nout]</TD><TD>Reference speed of path planning</TD></TR>
+<TR><TD>qdd[nout]</TD><TD>Reference acceleration of path planning</TD></TR>
+<TR><TD>moving[nout]</TD><TD>= true, if end position not yet reached; = false, if end position reached or axis is completely at rest</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TimeTable<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.TimeTableI.png" ALT="Modelica.Blocks.Sources.TimeTable" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.TimeTable"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.TimeTable</H2>
+<B>Generate a (possibly discontinuous) signal by linear interpolation in a table</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block generates an output signal by <b>linear interpolation</b> in
+a table. The time points and function values are stored in a matrix
+<strong><code>table[i,j]</code></strong>, where the first column table[:,1] contains the
+time points and the second column contains the data to be interpolated.
+The table interpolation has the following properties:
+</p>
+<ul>
+<li>The time points need to be <b>monotonically increasing</b>. </li>
+<li><b>Discontinuities</b> are allowed, by providing the same
+    time point twice in the table. </li>
+<li>Values <b>outside</b> of the table range, are computed by
+    <b>extrapolation</b> through the last or first two points of the
+    table.</li>
+<li>If the table has only <b>one row</b>, no interpolation is performed and
+    the function value is just returned independently of the
+    actual time instant.</li>
+<li>Via parameters <strong><code>startTime</code></strong> and <strong><code>offset</code></strong> the curve defined
+    by the table can be shifted both in time and in the ordinate value.</li>
+<li>The first point in time <strong>always</strong> has to be set to <strong><code>0</code></strong>, e.g.,
+    <strong><code>table=[1,1;2,2]</code></strong> is <strong>illegal</strong>. If you want to
+    shift the time table in time use the  <strong><code>startTime</code></strong> parameter instead.</li>
+<li>The table is implemented in a numerically sound way by
+    generating <b>time events</b> at interval boundaries.
+    This generates continuously differentiable values for the integrator.</li>
+</ul>
+<p>
+Example:
+</p>
+<pre>
+   table = [0  0
+            1  0
+            1  1
+            2  4
+            3  9
+            4 16]
+If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
+    e.g., time = 1.5, the output y =  2.5,
+    e.g., time = 2.0, the output y =  4.0,
+    e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation).
+</pre>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/TimeTable.png"
+     alt="TimeTable.png">
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Interfaces.SO</A> (Single Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>table[:, 2]</TD><TD>Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signal</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CombiTimeTable<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.CombiTimeTableI.png" ALT="Modelica.Blocks.Sources.CombiTimeTable" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.CombiTimeTable"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.CombiTimeTable</H2>
+<B>Table look-up with respect to time and linear/periodic extrapolation methods (data from matrix/file)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This block generates an output signal y[:] by <b>linear interpolation</b> in
+a table. The time points and function values are stored in a matrix
+<b>table[i,j]</b>, where the first column table[:,1] contains the
+time points and the other columns contain the data to be interpolated.
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/CombiTimeTable.png"
+     alt="CombiTimeTable.png">
+</p>
+
+<p>
+Via parameter <b>columns</b> it can be defined which columns of the
+table are interpolated. If, e.g., columns={2,4}, it is assumed that
+2 output signals are present and that the first output is computed
+by interpolation of column 2 and the second output is computed
+by interpolation of column 4 of the table matrix.
+The table interpolation has the following properties:
+</p>
+<ul>
+<li>The time points need to be <b>strictly increasing</b> if smoothness
+    is ContinuousDerivative, otherwise <b>monotonically increasing</b>.</li>
+<li><b>Discontinuities</b> are allowed, by providing the same
+    time point twice in the table. </li>
+<li>Values <b>outside</b> of the table range, are computed by
+    extrapolation according to the setting of parameter
+    <b>extrapolation</b>:
+<pre>
+  extrapolation = 1: hold the first or last value of the table,
+                     if outside of the table scope.
+                = 2: extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
+                = 3: periodically repeat the table data
+                     (periodical function).
+                = 4: no extrapolation, i.e. extrapolation triggers an error
+</pre></li>
+<li>Via parameter <b>smoothness</b> it is defined how the data is interpolated:
+<pre>
+  smoothness = 1: linear interpolation
+             = 2: smooth interpolation with Akima-splines such
+                  that der(y) is continuous, also if extrapolated.
+             = 3: constant segments
+</pre></li>
+<li>If the table has only <b>one row</b>, no interpolation is performed and
+    the table values of this row are just returned.</li>
+<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined
+    by the table can be shifted both in time and in the ordinate value.
+    The time instants stored in the table are therefore <b>relative</b>
+    to <b>startTime</b>.
+    If time &lt; startTime, no interpolation is performed and the offset
+    is used as ordinate value for all outputs.</li>
+<li>The table is implemented in a numerically sound way by
+    generating <b>time events</b> at interval boundaries.
+    This generates continuously differentiable values for the integrator.</li>
+<li>For special applications it is sometimes needed to know the minimum
+    and maximum time instant defined in the table as a parameter. For this
+    reason parameters <b>t_min</b> and <b>t_max</b> are provided and can be
+    accessed from the outside of the table object.</li>
+</ul>
+<p>
+Example:
+</p>
+<pre>
+   table = [0  0
+            1  0
+            1  1
+            2  4
+            3  9
+            4 16]; extrapolation = 3 (default)
+If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
+    e.g., time = 1.5, the output y =  2.5,
+    e.g., time = 2.0, the output y =  4.0,
+    e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation via last 2 points).
+</pre>
+<p>
+The table matrix can be defined in the following ways:
+</p>
+<ol>
+<li> Explicitly supplied as <b>parameter matrix</b> "table",
+     and the other parameters have the following values:
+<pre>
+   tableName is "NoName" or has only blanks,
+   fileName  is "NoName" or has only blanks.
+</pre></li>
+<li> <b>Read</b> from a <b>file</b> "fileName" where the matrix is stored as
+      "tableName". Both ASCII and MAT-file format is possible.
+      (The ASCII format is described below).
+      The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+      The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+      It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+      by command
+<pre>
+   save tables.mat tab1 tab2 tab3
+</pre>
+      or Scilab by command
+<pre>
+   savematfile tables.mat tab1 tab2 tab3
+</pre>
+      when the three tables tab1, tab2, tab3 should be used from the model.<br>
+      Note, a fileName can be defined as URI by using the helper function
+      <A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.loadResource"
+>loadResource</a>.</li>
+<li>  Statically stored in function "usertab" in file "usertab.c".
+      The matrix is identified by "tableName". Parameter
+      fileName = "NoName" or has only blanks. Row-wise storage is always to be
+      preferred as otherwise the table is reallocated and transposed.</li>
+</ol>
+<p>
+When the constant "NO_FILE_SYSTEM" is defined, all file I/O related parts of the
+source code are removed by the C-preprocessor, such that no access to files takes place.
+</p>
+<p>
+If tables are read from an ASCII-file, the file needs to have the
+following structure ("-----" is not part of the file content):
+</p>
+<pre>
+-----------------------------------------------------
+#1
+double tab1(6,2)   # comment line
+  0   0
+  1   0
+  1   1
+  2   4
+  3   9
+  4  16
+double tab2(6,2)   # another comment line
+  0   0
+  2   0
+  2   2
+  4   8
+  6  18
+  8  32
+-----------------------------------------------------
+</pre>
+<p>
+Note, that the first two characters in the file need to be
+"#1" (a line comment defining the version number of the file format).
+Afterwards, the corresponding matrix has to be declared
+with type (= "double" or "float"), name and actual dimensions.
+Finally, in successive rows of the file, the elements of the matrix
+have to be given. The elements have to be provided as a sequence of
+numbers in row-wise order (therefore a matrix row can span several
+lines in the file and need not start at the beginning of a line).
+Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
+Number separators are spaces, tab (	), comma (,), or semicolon (;).
+Several matrices may be defined one after another. Line comments start
+with the hash symbol (#) and can appear everywhere.
+Other characters, like trailing non comments, are not allowed in the file.
+</p>
+<p>
+MATLAB is a registered trademark of The MathWorks, Inc.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MO"
+>Modelica.Blocks.Interfaces.MO</A> (Multiple Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nout</TD><TD>Number of outputs</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Table data definition</TD></TR>
+<TR><TD>tableOnFile</TD><TD>= true, if table is defined on file or in function usertab</TD></TR>
+<TR><TD>table[:, :]</TD><TD>Table matrix (time = first column; e.g., table=[0,2])</TD></TR>
+<TR><TD>tableName</TD><TD>Table name on file or in function usertab (see docu)</TD></TR>
+<TR><TD>fileName</TD><TD>File where matrix is stored</TD></TR>
+<TR><TD>verboseRead</TD><TD>= true, if info message that file is loading is to be printed</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Table data interpretation</TD></TR>
+<TR><TD>columns[:]</TD><TD>Columns of table to be interpolated</TD></TR>
+<TR><TD>smoothness</TD><TD>Smoothness of table interpolation</TD></TR>
+<TR><TD>extrapolation</TD><TD>Extrapolation of data outside the definition range</TD></TR>
+<TR><TD>offset[:]</TD><TD>Offsets of output signals</TD></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y[nout]</TD><TD>Connector of Real output signals</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanConstant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.BooleanConstantI.png" ALT="Modelica.Blocks.Sources.BooleanConstant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.BooleanConstant"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.BooleanConstant</H2>
+<B>Generate constant signal of type Boolean</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Boolean output y is a constant signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/BooleanConstant.png"
+     alt="BooleanConstant.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSource"
+>Interfaces.partialBooleanSource</A> (Partial source block (has 1 output Boolean signal and an appropriate default icon)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>k</TD><TD>Constant output value</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Boolean output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanStep<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.BooleanStepI.png" ALT="Modelica.Blocks.Sources.BooleanStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.BooleanStep"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.BooleanStep</H2>
+<B>Generate step signal of type Boolean</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Boolean output y is a step signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/BooleanStep.png"
+     alt="BooleanStep.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSource"
+>Interfaces.partialBooleanSource</A> (Partial source block (has 1 output Boolean signal and an appropriate default icon)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>startTime</TD><TD>Time instant of step start [s]</TD></TR>
+<TR><TD>startValue</TD><TD>Output before startTime</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Boolean output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanPulse<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.BooleanPulseI.png" ALT="Modelica.Blocks.Sources.BooleanPulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.BooleanPulse"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.BooleanPulse</H2>
+<B>Generate pulse signal of type Boolean</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Boolean output y is a pulse signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/Pulse.png"
+     alt="Pulse.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSource"
+>Modelica.Blocks.Interfaces.partialBooleanSource</A> (Partial source block (has 1 output Boolean signal and an appropriate default icon)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>width</TD><TD>Width of pulse in % of period</TD></TR>
+<TR><TD>period</TD><TD>Time for one period [s]</TD></TR>
+<TR><TD>startTime</TD><TD>Time instant of first pulse [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Boolean output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SampleTrigger<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.SampleTriggerI.png" ALT="Modelica.Blocks.Sources.SampleTrigger" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.SampleTrigger"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.SampleTrigger</H2>
+<B>Generate sample trigger signal</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Boolean output y is a trigger signal where the output y is only <b>true</b>
+at sample times (defined by parameter <b>period</b>) and is otherwise
+<b>false</b>.
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/SampleTrigger.png"
+     alt="SampleTrigger.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSource"
+>Interfaces.partialBooleanSource</A> (Partial source block (has 1 output Boolean signal and an appropriate default icon)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>period</TD><TD>Sample period [s]</TD></TR>
+<TR><TD>startTime</TD><TD>Time instant of first sample trigger [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Boolean output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanTable<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.BooleanTableI.png" ALT="Modelica.Blocks.Sources.BooleanTable" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.BooleanTable"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.BooleanTable</H2>
+<B>Generate a Boolean output signal based on a vector of time instants</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Boolean output y is a signal defined by parameter vector <b>table</b>.
+In the vector time points are stored. At every time point, the output y
+changes its value to the negated value of the previous one.
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/BooleanTable.png"
+     alt="BooleanTable.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.partialBooleanSource"
+>Interfaces.partialBooleanSource</A> (Partial source block (has 1 output Boolean signal and an appropriate default icon)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>startValue</TD><TD>Start value of y. At time = table[1], y changes to &#39;not startValue&#39;</TD></TR>
+<TR><TD>table[:]</TD><TD>Vector of time points. At every time point, the output y gets its opposite value (e.g., table={0,1}) [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Boolean output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RadioButtonSource<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.R66b092faeecd6a95ourceI.png" ALT="Modelica.Blocks.Sources.RadioButtonSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.RadioButtonSource"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.RadioButtonSource</H2>
+<B>Boolean signal source that mimics a radio button</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Boolean signal source that mimics a radio button:
+Via a table, a radio button is pressed (i.e., the output 'on' is set to true) and is reset when an element of the Boolean vector
+'reset' becomes true. If both appear at the same time instant, setting
+the button according to the table has a higher priority as resetting
+the button. Example:
+</p>
+
+<pre>
+  RadioButtonSource start(buttonTimeTable={1,3}, reset={stop.on});
+  RadioButtonSource stop (buttonTimeTable={2,4}, reset={start.on});
+</pre>
+
+<p>
+The "start" button is pressed at time=1 s and time=3 s,
+whereas the "stop" button is pressed at time=2 s and time=4 s.
+This gives the following result:
+</p>
+
+<blockquote>
+<img src="../Resources/Images/Blocks/Sources/RadioButtonSource.png"
+     alt="RadioButtonSource.png">
+</blockquote>
+
+<p>
+This example is also available in
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.Interaction1"
+>Modelica.Blocks.Examples.Interaction1</a>
+</p>
+
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>buttonTimeTable[:]</TD><TD>Time instants where button is pressed [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Time varying expressions</TD></TR>
+<TR><TD>reset[:]</TD><TD>Reset button to false, if an element of reset becomes true</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>on</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerConstant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.IntegerConstantI.png" ALT="Modelica.Blocks.Sources.IntegerConstant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.IntegerConstant"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.IntegerConstant</H2>
+<B>Generate constant signal of type Integer</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Integer output y is a constant signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/IntegerConstant.png"
+     alt="IntegerConstant.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerSO"
+>Interfaces.IntegerSO</A> (Single Integer Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>k</TD><TD>Constant output value</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Integer output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerStep<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.IntegerStepI.png" ALT="Modelica.Blocks.Sources.IntegerStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.IntegerStep"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.IntegerStep</H2>
+<B>Generate step signal of type Integer</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The Integer output y is a step signal:
+</p>
+
+<p>
+<img src="../Resources/Images/Blocks/Sources/IntegerStep.png"
+     alt="IntegerStep.png">
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerSignalSource"
+>Interfaces.IntegerSignalSource</A> (Base class for continuous Integer signal source).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>height</TD><TD>Height of step</TD></TR>
+<TR><TD>offset</TD><TD>Offset of output signal y</TD></TR>
+<TR><TD>startTime</TD><TD>Output y = offset for time &lt; startTime [s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Integer output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IntegerTable<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Sources.IntegerTableI.png" ALT="Modelica.Blocks.Sources.IntegerTable" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Sources.IntegerTable"></A><A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Modelica.Blocks.Sources</A>.IntegerTable</H2>
+<B>Generate an Integer output signal based on a table matrix with [time, yi] values</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+
+<p>
+This block generates an Integer output signal by using a table.
+The time points and y-values are stored in a matrix
+<b>table[i,j]</b>, where the first column table[:,1] contains the
+Real time points and the second column contains the Integer value of the
+output y at this time point.
+</p>
+
+<p>
+An assert is triggered, if no table values are provided, if the
+time points are not strict monotonically increasing, or if
+the second column of the table matrix does not contain Integer values.
+</p>
+
+<p>
+If the simulation time is less than the first table time instant,
+then the output y = table[1,2].<br>
+If the simulation time is greater than the last table time instant,
+then the output y = table[end,2].
+</p>
+
+<p>
+Example:
+</p>
+<pre>
+   table = [  0, 1;
+              1, 4;
+            1.5, 5;
+              2, 6];
+</pre>
+<p>
+results in the following output:
+</p>
+
+<blockquote><p>
+<img src="../Resources/Images/Blocks/Sources/IntegerTable.png"
+     alt="IntegerTable.png">
+</p></blockquote>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerSO"
+>Interfaces.IntegerSO</A> (Single Integer Output continuous control block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>table[:, 2]</TD><TD>Table matrix (first column: time; second column: y)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Integer output signal</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:25 2013.
+</address></BODY>
+</HTML>

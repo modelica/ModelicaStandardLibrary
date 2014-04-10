@@ -1,0 +1,394 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.IdealGases.Common.Functions</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Basic Functions for ideal gases: cp, h, s, thermal conductivity, viscosity&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Functions<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.IdealGases.Common.Functions"></A><A HREF="Modelica_Media_IdealGases_Common.html#Modelica.Media.IdealGases.Common"
+>Modelica.Media.IdealGases.Common</A>.Functions</H2>
+<B>Basic Functions for ideal gases: cp, h, s, thermal conductivity, viscosity</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD>excludeEnthalpyOfFormation=true</TD><TD>If true, enthalpy of formation Hf is not included in specific enthalpy h</TD></TR>
+<TR><TD>referenceChoice=Modelica.Media.Interfaces.Choices.ReferenceEnthalpy.ZeroAt0K</TD><TD>Choice of reference enthalpy</TD></TR>
+<TR><TD>h_offset=0.0</TD><TD>User defined offset for reference enthalpy, if referenceChoice = UserDefined</TD></TR>
+<TR><TD>methodForThermalConductivity=1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.cp_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.cp_T"
+>cp_T</A>
+</TD><TD>Compute specific heat capacity at constant pressure from temperature and gas data</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.cp_Tlow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.cp_Tlow"
+>cp_Tlow</A>
+</TD><TD>Compute specific heat capacity at constant pressure, low T region</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.cp_Tlow_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.cp_Tlow_der"
+>cp_Tlow_der</A>
+</TD><TD>Compute specific heat capacity at constant pressure, low T region</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.h_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.h_T"
+>h_T</A>
+</TD><TD>Compute specific enthalpy from temperature and gas data; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.h_T_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.h_T_der"
+>h_T_der</A>
+</TD><TD>Derivative function for h_T</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.h_Tlow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.h_Tlow"
+>h_Tlow</A>
+</TD><TD>Compute specific enthalpy, low T region; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.h_Tlow_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.h_Tlow_der"
+>h_Tlow_der</A>
+</TD><TD>Compute specific enthalpy, low T region; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.s0_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.s0_T"
+>s0_T</A>
+</TD><TD>Compute specific entropy from temperature and gas data</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.s0_Tlow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.s0_Tlow"
+>s0_Tlow</A>
+</TD><TD>Compute specific entropy, low T region</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der"
+>s0_Tlow_der</A>
+</TD><TD>Compute derivative of specific entropy, low T region</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.dynamicViscosityLowPressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.dynamicViscosityLowPressure"
+>dynamicViscosityLowPressure</A>
+</TD><TD>Dynamic viscosity of low pressure gases</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TS.png" ALT="Modelica.Media.IdealGases.Common.Functions.thermalConductivityEstimate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions.thermalConductivityEstimate"
+>thermalConductivityEstimate</A>
+</TD><TD>Thermal conductivity of polyatomic gases(Eucken and Modified Eucken correlation)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.cp_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.cp_T"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.cp_T</H2>
+<B>Compute specific heat capacity at constant pressure from temperature and gas data</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity at temperature T [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_Tlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.cp_Tlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.cp_Tlow"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.cp_Tlow</H2>
+<B>Compute specific heat capacity at constant pressure, low T region</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cp</TD><TD>Specific heat capacity at temperature T [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cp_Tlow_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.cp_Tlow_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.cp_Tlow_der"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.cp_Tlow_der</H2>
+<B>Compute specific heat capacity at constant pressure, low T region</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>dT</TD><TD>Temperature derivative</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>cp_der</TD><TD>Derivative of specific heat capacity</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.h_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.h_T"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.h_T</H2>
+<B>Compute specific enthalpy from temperature and gas data; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>exclEnthForm</TD><TD>If true, enthalpy of formation Hf is not included in specific enthalpy h</TD></TR>
+<TR><TD>refChoice</TD><TD>Choice of reference enthalpy</TD></TR>
+<TR><TD>h_off</TD><TD>User defined offset for reference enthalpy, if referenceChoice = UserDefined [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy at temperature T [J/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_T_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.h_T_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.h_T_der"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.h_T_der</H2>
+<B>Derivative function for h_T</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>exclEnthForm</TD><TD>If true, enthalpy of formation Hf is not included in specific enthalpy h</TD></TR>
+<TR><TD>refChoice</TD><TD>Choice of reference enthalpy</TD></TR>
+<TR><TD>h_off</TD><TD>User defined offset for reference enthalpy, if referenceChoice = UserDefined [J/kg]</TD></TR>
+<TR><TD>dT</TD><TD>Temperature derivative</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h_der</TD><TD>Specific enthalpy at temperature T</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_Tlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.h_Tlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.h_Tlow"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.h_Tlow</H2>
+<B>Compute specific enthalpy, low T region; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>exclEnthForm</TD><TD>If true, enthalpy of formation Hf is not included in specific enthalpy h</TD></TR>
+<TR><TD>refChoice</TD><TD>Choice of reference enthalpy</TD></TR>
+<TR><TD>h_off</TD><TD>User defined offset for reference enthalpy, if referenceChoice = UserDefined [J/kg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h</TD><TD>Specific enthalpy at temperature T [J/kg]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_Tlow_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.h_Tlow_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.h_Tlow_der"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.h_Tlow_der</H2>
+<B>Compute specific enthalpy, low T region; reference is decided by the
+    refChoice input, or by the referenceChoice package constant by default</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>exclEnthForm</TD><TD>If true, enthalpy of formation Hf is not included in specific enthalpy h</TD></TR>
+<TR><TD>refChoice</TD><TD>Choice of reference enthalpy</TD></TR>
+<TR><TD>h_off</TD><TD>User defined offset for reference enthalpy, if referenceChoice = UserDefined [J/kg]</TD></TR>
+<TR><TD>dT</TD><TD>Temperature derivative [K/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>h_der</TD><TD>Derivative of specific enthalpy at temperature T [J/(kg.s)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s0_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.s0_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.s0_T"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.s0_T</H2>
+<B>Compute specific entropy from temperature and gas data</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>Specific entropy at temperature T [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s0_Tlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.s0_Tlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.s0_Tlow"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.s0_Tlow</H2>
+<B>Compute specific entropy, low T region</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>Specific entropy at temperature T [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s0_Tlow_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.s0_Tlow_der</H2>
+<B>Compute derivative of specific entropy, low T region</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>T_der</TD><TD>Temperature derivative</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>Specific entropy at temperature T [J/(kg.K)]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dynamicViscosityLowPressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.dynamicViscosityLowPressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.dynamicViscosityLowPressure"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.dynamicViscosityLowPressure</H2>
+<B>Dynamic viscosity of low pressure gases</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The used formula are based on the method of Chung et al (1984, 1988) referred to in ref [1] chapter 9.
+The formula 9-4.10 is the one being used. The Formula is given in non-SI units, the following conversion constants were used to
+transform the formula to SI units:
+</p>
+
+<ul>
+<li> <b>Const1_SI:</b> The factor 10^(-9.5) =10^(-2.5)*1e-7 where the
+     factor 10^(-2.5) originates from the conversion of g/mol->kg/mol + cm^3/mol->m^3/mol
+      and the factor 1e-7 is due to conversion from microPoise->Pa.s.</li>
+<li>  <b>Const2_SI:</b> The factor 1/3.335641e-27 = 1e-3/3.335641e-30
+      where the factor 3.335641e-30 comes from debye->C.m and
+      1e-3 is due to conversion from cm^3/mol->m^3/mol</li>
+</ul>
+
+<h4>References:</h4>
+<p>
+[1] Bruce E. Poling, John E. Prausnitz, John P. O'Connell, "The Properties of Gases and Liquids" 5th Ed. Mc Graw Hill.
+</p>
+
+<h4>Author</h4>
+<p>T. Skoglund, Lund, Sweden, 2004-08-31</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Gas temperature [K]</TD></TR>
+<TR><TD>Tc</TD><TD>Critical temperature of gas [K]</TD></TR>
+<TR><TD>M</TD><TD>Molar mass of gas [kg/mol]</TD></TR>
+<TR><TD>Vc</TD><TD>Critical molar volume of gas [m3/mol]</TD></TR>
+<TR><TD>w</TD><TD>Acentric factor of gas</TD></TR>
+<TR><TD>mu</TD><TD>Dipole moment of gas molecule [debye]</TD></TR>
+<TR><TD>k</TD><TD>Special correction for highly polar substances</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>eta</TD><TD>Dynamic viscosity of gas [Pa.s]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE thermalConductivityEstimate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGasesfb99b44e5539e65d.cp_TI.png" ALT="Modelica.Media.IdealGases.Common.Functions.thermalConductivityEstimate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.Functions.thermalConductivityEstimate"></A><A HREF="Modelica_Media_IdealGases_Common_Functions.html#Modelica.Media.IdealGases.Common.Functions"
+>Modelica.Media.IdealGases.Common.Functions</A>.thermalConductivityEstimate</H2>
+<B>Thermal conductivity of polyatomic gases(Eucken and Modified Eucken correlation)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This function provides two similar methods for estimating the
+thermal conductivity of polyatomic gases.
+The Eucken method (input method == 1) gives good results for low temperatures,
+but it tends to give an underestimated value of the thermal conductivity
+(lambda) at higher temperatures.<br>
+The Modified Eucken method (input method == 2) gives good results for
+high-temperatures, but it tends to give an overestimated value of the
+thermal conductivity (lambda) at low temperatures.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Cp</TD><TD>Constant pressure heat capacity [J/(kg.K)]</TD></TR>
+<TR><TD>eta</TD><TD>Dynamic viscosity [Pa.s]</TD></TR>
+<TR><TD>method</TD><TD>1: Eucken Method, 2: Modified Eucken Method</TD></TR>
+<TR><TD>data</TD><TD>Ideal gas data</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>lambda</TD><TD>Thermal conductivity [W/(m.k)] [W/(m.K)]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:02 2013.
+</address></BODY>
+</HTML>

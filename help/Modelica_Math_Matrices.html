@@ -1,0 +1,3480 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Math.Matrices</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Library of functions operating on matrices&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Matrices<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.Matrices"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.Matrices</H2>
+<B>Library of functions operating on matrices</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Library content</h4>
+<p>
+This library provides functions operating on matrices. Below, the
+functions are ordered according to categories and a typical
+call of the respective function is shown.
+Most functions are solely an interface to the external
+<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>LAPACK</a> library.
+</p>
+
+<p>
+Note: A' is a short hand notation of transpose(A):
+</p>
+
+<p><b>Basic Information</b></p>
+<ul>
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.toString"
+>toString</a>(A)
+     - returns the string representation of matrix A.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.isEqual"
+>isEqual</a>(M1, M2)
+     - returns true if matrices M1 and M2 have the same size and the same elements.</li>
+</ul>
+
+<p><b>Linear Equations</b></p>
+<ul>
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>solve</a>(A,b)
+     - returns solution x of the linear equation A*x=b (where b is a vector,
+       and A is a square matrix that must be regular).</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve2"
+>solve2</a>(A,B)
+     - returns solution X of the linear equation A*X=B (where B is a matrix,
+       and A is a square matrix that must be regular)</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.leastSquares"
+>leastSquares</a>(A,b)
+     - returns solution x of the linear equation A*x=b in a least squares sense
+       (where b is a vector and A may be non-square and may be rank deficient)</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.leastSquares2"
+>leastSquares2</a>(A,B)
+     - returns solution X of the linear equation A*X=B in a least squares sense
+       (where B is a matrix and A may be non-square and may be rank deficient)</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.equalityLeastSquares"
+>equalityLeastSquares</a>(A,a,B,b)
+     - returns solution x of a linear equality constrained least squares problem:
+       min|A*x-a|^2 subject to B*x=b</<li>
+
+<li> (LU,p,info) = <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU"
+>LU</a>(A)
+     - returns the LU decomposition with row pivoting of a rectangular matrix A.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU_solve"
+>LU_solve</a>(LU,p,b)
+     - returns solution x of the linear equation L*U*x[p]=b with a b
+       vector and an LU decomposition from "LU(..)".</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU_solve2"
+>LU_solve2</a>(LU,p,B)
+     - returns solution X of the linear equation L*U*X[p,:]=B with a B
+       matrix and an LU decomposition from "LU(..)".</li>
+</ul>
+
+<p><b>Matrix Factorizations</b></p>
+<ul>
+<li> (eval,evec) = <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.eigenValues"
+>eigenValues</a>(A)
+     - returns eigen values "eval" and eigen vectors "evec" for a real,
+       nonsymmetric matrix A in a Real representation.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.eigenValueMatrix"
+>eigenValueMatrix</a>(eval)
+     - returns real valued block diagonal matrix of the eigenvalues "eval" of matrix A.</li>
+
+<li> (sigma,U,VT) = <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.singularValues"
+>singularValues</a>(A)
+     - returns singular values "sigma" and left and right singular vectors U and VT
+       of a rectangular matrix A.</li>
+
+<li> (Q,R,p) = <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.QR"
+>QR</a>(A)
+     - returns the QR decomposition with column pivoting of a rectangular matrix A
+       such that Q*R = A[:,p].</li>
+
+<li> (H,U) = <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.hessenberg"
+>hessenberg</a>(A)
+     - returns the upper Hessenberg form H and the orthogonal transformation matrix U
+       of a square matrix A such that H = U'*A*U.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.realSchur"
+>realSchur</a>(A)
+     - returns the real Schur form of a square matrix A.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.cholesky"
+>cholesky</a>(A)
+     - returns the cholesky factor H of a real symmetric positive definite matrix A so that A = H'*H.</li>
+
+<li> (D,Aimproved) = <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.balance"
+>balance</a>(A)
+     - returns an improved form Aimproved of a square matrix A that has a smaller condition as A,
+       with Aimproved = inv(diagonal(D))*A*diagonal(D).</li>
+</ul>
+
+<p><b>Matrix Properties</b></p>
+<ul>
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.trace"
+>trace</a>(A)
+     - returns the trace of square matrix A, i.e., the sum of the diagonal elements.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.det"
+>det</a>(A)
+     - returns the determinant of square matrix A (using LU decomposition; try to avoid det(..))</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.inv"
+>inv</a>(A)
+     - returns the inverse of square matrix A (try to avoid, use instead "solve2(..) with B=identity(..))</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.rank"
+>rank</a>(A)
+     - returns the rank of square matrix A (computed with singular value decomposition)</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.conditionNumber"
+>conditionNumber</a>(A)
+     - returns the condition number norm(A)*norm(inv(A)) of a square matrix A in the range 1..&infin;.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.rcond"
+>rcond</a>(A)
+     - returns the reciprocal condition number 1/conditionNumber(A) of a square matrix A in the range 0..1.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.norm"
+>norm</a>(A)
+     - returns the 1-, 2-, or infinity-norm of matrix A.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.frobeniusNorm"
+>frobeniusNorm</a>(A)
+     - returns the Frobenius norm of matrix A.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.nullSpace"
+>nullSpace</a>(A)
+     - returns the null space of matrix A.</li>
+</ul>
+
+<p><b>Matrix Exponentials</b></p>
+<ul>
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.exp"
+>exp</a>(A)
+     - returns the exponential e^A of a matrix A by adaptive Taylor series
+       expansion with scaling and balancing</li>
+
+<li> (phi, gamma) = <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.integralExp"
+>integralExp</a>(A,B)
+     - returns the exponential phi=e^A and the integral gamma=integral(exp(A*t)*dt)*B as needed
+       for a discretized system with zero order hold.</li>
+
+<li> (phi, gamma, gamma1) = <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.integralExpT"
+>integralExpT</a>(A,B)
+     - returns the exponential phi=e^A, the integral gamma=integral(exp(A*t)*dt)*B,
+       and the time-weighted integral gamma1 = integral((T-t)*exp(A*t)*dt)*B as needed
+       for a discretized system with first order hold.</li>
+</ul>
+
+<p><b>Matrix Equations</b></p>
+<ul>
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousLyapunov"
+>continuousLyapunov</a>(A,C)
+     - returns solution X of the continuous-time Lyapunov equation X*A + A'*X = C</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousSylvester"
+>continuousSylvester</a>(A,B,C)
+     - returns solution X of the continuous-time Sylvester equation A*X + X*B = C</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousRiccati"
+>continuousRiccati</a>(A,B,R,Q)
+     - returns solution X of the continuous-time algebraic Riccati equation
+       A'*X + X*A - X*B*inv(R)*B'*X + Q = 0</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteLyapunov"
+>discreteLyapunov</a>(A,C)
+     - returns solution X of the discrete-time Lyapunov equation A'*X*A + sgn*X = C</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteSylvester"
+>discreteSylvester</a>(A,B,C)
+     - returns solution X of the discrete-time Sylvester equation A*X*B + sgn*X = C</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteRiccati"
+>discreteRiccati</a>(A,B,R,Q)
+     - returns solution X of the discrete-time algebraic Riccati equation
+       A'*X*A - X - A'*X*B*inv(R + B'*X*B)*B'*X*A + Q = 0</li>
+</ul>
+
+<p><b>Matrix Manipulation</b></p>
+<ul>
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.sort"
+>sort</a>(M)
+     - returns the sorted rows or columns of matrix M in ascending or descending order.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.flipLeftRight"
+>flipLeftRight</a>(M)
+     - returns matrix M so that the columns of M are flipped in left/right direction.</li>
+
+<li> <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.flipUpDown"
+>flipUpDown</a>(M)
+     - returns matrix M so that the rows of M are flipped in up/down direction.</li>
+</ul>
+
+<h4>See also</h4>
+<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Vectors</a>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.ExamplesS.png" ALT="Modelica.Math.Matrices.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_Examples.html#Modelica.Math.Matrices.Examples"
+>Examples</A>
+</TD><TD>Examples demonstrating the usage of the Math.Matrices functions</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.toString" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.toString"
+>toString</A>
+</TD><TD>Convert a matrix into its string representation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.isEqual" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.isEqual"
+>isEqual</A>
+</TD><TD>Compare whether two Real matrices are identical</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.solve" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>solve</A>
+</TD><TD>Solve real system of linear equations A*x=b with a b vector (Gaussian elimination with partial pivoting)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.solve2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve2"
+>solve2</A>
+</TD><TD>Solve real system of linear equations A*X=B with a B matrix (Gaussian elimination with partial pivoting)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.leastSquares" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.leastSquares"
+>leastSquares</A>
+</TD><TD>Solve linear equation A*x = b (exactly if possible, or otherwise in a least square sense; A may be non-square and may be rank deficient)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.leastSquares2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.leastSquares2"
+>leastSquares2</A>
+</TD><TD>Solve linear equation A*X = B (exactly if possible, or otherwise in a least square sense; A may be non-square and may be rank deficient)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.equalityLeastSquares" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.equalityLeastSquares"
+>equalityLeastSquares</A>
+</TD><TD>Solve a linear equality constrained least squares problem</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.LU" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU"
+>LU</A>
+</TD><TD>LU decomposition of square or rectangular matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.LU_solve" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU_solve"
+>LU_solve</A>
+</TD><TD>Solve real system of linear equations P*L*U*x=b with a b vector and an LU decomposition (from LU(..))</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.LU_solve2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU_solve2"
+>LU_solve2</A>
+</TD><TD>Solve real system of linear equations P*L*U*X=B with a B matrix and an LU decomposition (from LU(..))</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.eigenValues" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.eigenValues"
+>eigenValues</A>
+</TD><TD>Return eigenvalues and eigenvectors for a real, nonsymmetric matrix in a Real representation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.eigenValueMatrix" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.eigenValueMatrix"
+>eigenValueMatrix</A>
+</TD><TD>Return real valued block diagonal matrix J of eigenvalues of matrix A (A=V*J*Vinv)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.singularValues" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.singularValues"
+>singularValues</A>
+</TD><TD>Return singular values and left and right singular vectors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.QR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.QR"
+>QR</A>
+</TD><TD>Return the QR decomposition of a square matrix with optional column pivoting (A(:,p) = Q*R)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.hessenberg" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.hessenberg"
+>hessenberg</A>
+</TD><TD>Return upper Hessenberg form of a matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.realSchur" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.realSchur"
+>realSchur</A>
+</TD><TD>Return the real Schur form (rsf) S of a square matrix A, A=QZ*S*QZ&#39;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.cholesky" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.cholesky"
+>cholesky</A>
+</TD><TD>Return the Cholesky factorization of a symmetric positive definite matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.balance" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.balance"
+>balance</A>
+</TD><TD>Return a balanced form of matrix A to improve the condition of A</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.trace" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.trace"
+>trace</A>
+</TD><TD>Return the trace of matrix A, i.e., the sum of the diagonal elements</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.det" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.det"
+>det</A>
+</TD><TD>Return determinant of a matrix (computed by LU decomposition; try to avoid det(..))</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.inv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.inv"
+>inv</A>
+</TD><TD>Return inverse of a matrix (try to avoid inv(..))</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.rank" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.rank"
+>rank</A>
+</TD><TD>Return rank of a rectangular matrix (computed with singular values)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.conditionNumber" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.conditionNumber"
+>conditionNumber</A>
+</TD><TD>Return the condition number norm(A)*norm(inv(A)) of a matrix A</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.rcond" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.rcond"
+>rcond</A>
+</TD><TD>Return the reciprocal condition number of a matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.norm" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.norm"
+>norm</A>
+</TD><TD>Return the p-norm of a matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.frobeniusNorm" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.frobeniusNorm"
+>frobeniusNorm</A>
+</TD><TD>Return the Frobenius norm of a matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.nullSpace" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.nullSpace"
+>nullSpace</A>
+</TD><TD>Return the orthonormal nullspace of a matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.exp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.exp"
+>exp</A>
+</TD><TD>Return the exponential of a matrix by adaptive Taylor series expansion with scaling and balancing</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.integralExp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.integralExp"
+>integralExp</A>
+</TD><TD>Return the exponential and the integral of the exponential of a matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.integralExpT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.integralExpT"
+>integralExpT</A>
+</TD><TD>Return the exponential, the integral of the exponential, and time-weighted integral of the exponential of a matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.continuousLyapunov" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousLyapunov"
+>continuousLyapunov</A>
+</TD><TD>Return solution X of the continuous-time Lyapunov equation X*A + A&#39;*X = C</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.continuousSylvester" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousSylvester"
+>continuousSylvester</A>
+</TD><TD>Return solution X of the continuous-time Sylvester equation A*X + X*B = C</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.continuousRiccati" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousRiccati"
+>continuousRiccati</A>
+</TD><TD>Return solution X of the continuous-time algebraic Riccati equation A&#39;*X + X*A - X*B*inv(R)*B&#39;*X + Q = 0 (care)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.discreteLyapunov" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteLyapunov"
+>discreteLyapunov</A>
+</TD><TD>Return solution X of the discrete-time Lyapunov equation A&#39;*X*A + sgn*X = C</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.discreteSylvester" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteSylvester"
+>discreteSylvester</A>
+</TD><TD>Return solution of the discrete-time Sylvester equation A*X*B + sgn*X = C</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.discreteRiccati" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteRiccati"
+>discreteRiccati</A>
+</TD><TD>Return solution of discrete-time algebraic Riccati equation A&#39;*X*A - X - A&#39;*X*B*inv(R + B&#39;*X*B)*B&#39;*X*A + Q = 0 (dare)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.sort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.sort"
+>sort</A>
+</TD><TD>Sort the rows or columns of a matrix in ascending or descending order</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.flipLeftRight" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.flipLeftRight"
+>flipLeftRight</A>
+</TD><TD>Flip the columns of a matrix in left/right direction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.toStringS.png" ALT="Modelica.Math.Matrices.flipUpDown" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.flipUpDown"
+>flipUpDown</A>
+</TD><TD>Flip the rows of a matrix in up/down direction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACKS.png" ALT="Modelica.Math.Matrices.LAPACK" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>LAPACK</A>
+</TD><TD>Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.UtilitiesS.png" ALT="Modelica.Math.Matrices.Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities"
+>Utilities</A>
+</TD><TD>Utility functions that should not be directly utilized by the user</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE toString<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.toString" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.toString"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.toString</H2>
+<B>Convert a matrix into its string representation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>toString</b>(A);
+Matrices.<b>toString</b>(A, name="", significantDigits=6);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Matrices.<b>toString</b>(A)</code>" returns the
+string representation of matrix <b>A</b>.
+With the optional arguments "name" and "significantDigits", a name and the number of the digits are defined.
+The default values of name and significantDigits are "" and 6 respectively. If name=="" then the
+prefix "&lt;name&gt; =" is leaved out.
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [2.12, -4.34; -2.56, -1.67];
+
+  toString(A);
+  // = "
+  //      2.12   -4.34
+  //     -2.56   -1.67";
+
+  toString(A,"A",1);
+  // = "A =
+  //         2     -4
+  //        -3     -2"
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.toString"
+>Vectors.toString</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>M[:, :]</TD><TD>Real matrix</TD></TR>
+<TR><TD>name</TD><TD>Independent variable name used for printing</TD></TR>
+<TR><TD>significantDigits</TD><TD>Number of significant digits that are shown</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>s</TD><TD>String expression of matrix M</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isEqual<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.isEqual" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.isEqual"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.isEqual</H2>
+<B>Compare whether two Real matrices are identical</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>isEqual</b>(M1, M2);
+Matrices.<b>isEqual</b>(M1, M2, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Matrices.isEqual(M1, M2)</code>" returns <b>true</b>,
+if the two Real matrices M1 and M2 have the same dimensions and
+the same elements. Otherwise the function
+returns <b>false</b>. Two elements e1 and e2 of the two matrices
+are checked on equality by the test "abs(e1-e2) &le; eps", where "eps"
+can be provided as third argument of the function. Default is "eps = 0".
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A1[2,2] = [1,2; 3,4];
+  Real A2[3,2] = [1,2; 3,4; 5,6];
+  Real A3[2,2] = [1,2, 3,4.0001];
+  Boolean result;
+<b>algorithm</b>
+  result := Matrices.isEqual(M1,M2);     // = <b>false</b>
+  result := Matrices.isEqual(M1,M3);     // = <b>false</b>
+  result := Matrices.isEqual(M1,M1);     // = <b>true</b>
+  result := Matrices.isEqual(M1,M3,0.1); // = <b>true</b>
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
+>Vectors.isEqual</a>,
+<A HREF="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.isEqual"
+>Strings.isEqual</a>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>M1[:, :]</TD><TD>First matrix</TD></TR>
+<TR><TD>M2[:, :]</TD><TD>Second matrix (may have different size as M1)</TD></TR>
+<TR><TD>eps</TD><TD>Two elements e1 and e2 of the two matrices are identical if abs(e1-e2) &lt;= eps</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result</TD><TD>= true, if matrices have the same size and the same elements</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE solve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.solve" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.solve"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.solve</H2>
+<B>Solve real system of linear equations A*x=b with a b vector (Gaussian elimination with partial pivoting)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>solve</b>(A,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function call returns the
+solution <b>x</b> of the linear system of equations
+</p>
+<blockquote>
+<p>
+<b>A</b>*<b>x</b> = <b>b</b>
+</p>
+</blockquote>
+<p>
+If a unique solution <b>x</b> does not exist (since <b>A</b> is singular),
+an assertion is triggered. If this is not desired, use instead
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.leastSquares"
+>Matrices.leastSquares</a>
+and inquire the singularity of the solution with the return argument rank
+(a unique solution is computed if rank = size(A,1)).
+</p>
+
+<p>
+Note, the solution is computed with the LAPACK function "dgesv",
+i.e., by Gaussian elimination with partial pivoting.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real b[3] = {10,22,12};
+  Real x[3];
+<b>algorithm</b>
+  x := Matrices.solve(A,b);  // x = {3,2,1}
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU"
+>Matrices.LU</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU_solve"
+>Matrices.LU_solve</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.leastSquares"
+>Matrices.leastSquares</a>.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Matrix A of A*x = b</TD></TR>
+<TR><TD>b[size(A, 1)]</TD><TD>Vector b of A*x = b</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>x[size(b, 1)]</TD><TD>Vector x such that A*x = b</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE solve2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.solve2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.solve2"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.solve2</H2>
+<B>Solve real system of linear equations A*X=B with a B matrix (Gaussian elimination with partial pivoting)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>solve2</b>(A,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function call returns the
+solution <b>X</b> of the linear system of equations
+</p>
+<blockquote>
+<p>
+<b>A</b>*<b>X</b> = <b>B</b>
+</p>
+</blockquote>
+<p>
+If a unique solution <b>X</b> does not exist (since <b>A</b> is singular),
+an assertion is triggered. If this is not desired, use instead
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.leastSquares2"
+>Matrices.leastSquares2</a>
+and inquire the singularity of the solution with the return argument rank
+(a unique solution is computed if rank = size(A,1)).
+
+</p>
+<p>
+Note, the solution is computed with the LAPACK function "dgesv",
+i.e., by Gaussian elimination with partial pivoting.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real B[3,2] = [10, 20;
+                 22, 44;
+                 12, 24];
+  Real X[3,2];
+<b>algorithm</b>
+  X := Matrices.solve2(A, B);  /* X = [3, 6;
+                                       2, 4;
+                                       1, 2] */
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU"
+>Matrices.LU</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU_solve2"
+>Matrices.LU_solve2</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.leastSquares2"
+>Matrices.leastSquares2</a>.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Matrix A of A*X = B</TD></TR>
+<TR><TD>B[size(A, 1), :]</TD><TD>Matrix B of A*X = B</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>X[size(B, 1), size(B, 2)]</TD><TD>Matrix X such that A*X = B</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE leastSquares<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.leastSquares" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.leastSquares"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.leastSquares</H2>
+<B>Solve linear equation A*x = b (exactly if possible, or otherwise in a least square sense; A may be non-square and may be rank deficient)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+x = Matrices.<b>leastSquares</b>(A,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns a solution of equation A*x = b in a least
+square sense (A may be rank deficient):
+</p>
+<pre>
+  minimize | A*x - b |
+</pre>
+
+<p>
+Several different cases can be distinguished (note, <b>rank</b> is an
+output argument of this function):
+</p>
+
+<p>
+<b>size(A,1) = size(A,2)</b>
+</p>
+
+<p> A solution is returned for a regular, as well as a singular matrix A:
+</p>
+
+<ul>
+<li> <b>rank</b> = size(A,1):<br>
+     A is <b>regular</b> and the returned solution x fulfills the equation
+     A*x = b uniquely.</li>
+
+<li> <b>rank</b> &lt; size(A,1):<br>
+     A is <b>singular</b> and no unique solution for equation A*x = b exists.
+     <ul>
+     <li>  If an infinite number of solutions exists, the one is selected that fulfills
+           the equation and at the same time has the minimum norm |x| for all solution
+           vectors that fulfill the equation.</li>
+     <li>  If no solution exists, x is selected such that |A*x - b| is as small as
+           possible (but A*x - b is not zero).</li>
+     </ul>
+</ul>
+
+<p>
+<b>size(A,1) &gt; size(A,2):</b>
+</p>
+
+<p>
+The equation A*x = b has no unique solution. The solution x is selected such that
+|A*x - b| is as small as possible. If rank = size(A,2), this minimum norm solution is
+unique. If rank &lt; size(A,2), there are an infinite number of solutions leading to the
+same minimum value of |A*x - b|. From these infinite number of solutions, the one with the
+minimum norm |x| is selected. This gives a unique solution that minimizes both
+|A*x - b| and |x|.
+</p>
+
+<p>
+<b>size(A,1) &lt; size(A,2):</b>
+</p>
+
+<ul>
+<li> <b>rank</b> = size(A,1):<br>
+     There are an infinite number of solutions that fulfill the equation A*x = b.
+     From this infinite number, the unique solution is selected that minimizes |x|.
+     </li>
+
+<li> <b>rank</b> &lt; size(A,1):<br>
+     There is either no solution of equation A*x = b, or there are again an infinite
+     number of solutions. The unique solution x is returned that minimizes
+      both |A*x - b| and |x|.</li>
+</ul>
+
+<p>
+Note, the solution is computed with the LAPACK function "dgelsx",
+i.e., QR or LQ factorization of A with column pivoting.
+</p>
+
+<h4>Algorithmic details</h4>
+
+<p>
+The function first computes a QR factorization with column pivoting:
+</p>
+
+<pre>
+      A * P = Q * [ R11 R12 ]
+                  [  0  R22 ]
+</pre>
+
+<p>
+with R11 defined as the largest leading submatrix whose estimated
+condition number is less than 1/rcond.  The order of R11, <b>rank</b>,
+is the effective rank of A.
+</p>
+
+<p>
+Then, R22 is considered to be negligible, and R12 is annihilated
+by orthogonal transformations from the right, arriving at the
+complete orthogonal factorization:
+</p>
+
+<pre>
+     A * P = Q * [ T11 0 ] * Z
+                 [  0  0 ]
+</pre>
+
+<p>
+The minimum-norm solution is then
+</p>
+
+<pre>
+     x = P * Z' [ inv(T11)*Q1'*b ]
+                [        0       ]
+</pre>
+
+<p>
+where Q1 consists of the first "rank" columns of Q.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.leastSquares2"
+>Matrices.leastSquares2</a>
+(same as leastSquares, but with a right hand side matrix), <br>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>Matrices.solve</a>
+(for square, regular matrices A)
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Matrix A</TD></TR>
+<TR><TD>b[size(A, 1)]</TD><TD>Vector b</TD></TR>
+<TR><TD>rcond</TD><TD>Reciprocal condition number to estimate the rank of A</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>x[size(A, 2)]</TD><TD>Vector x such that min|A*x-b|^2 if size(A,1) &gt;= size(A,2) or min|x|^2 and A*x=b, if size(A,1) &lt; size(A,2)</TD></TR>
+<TR><TD>rank</TD><TD>Rank of A</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE leastSquares2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.leastSquares2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.leastSquares2"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.leastSquares2</H2>
+<B>Solve linear equation A*X = B (exactly if possible, or otherwise in a least square sense; A may be non-square and may be rank deficient)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+X = Matrices.<b>leastSquares2</b>(A,B);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns a solution of equation A*X = B in a least
+square sense (A may be rank deficient):
+</p>
+<pre>
+  minimize | A*X - B |
+</pre>
+
+<p>
+Several different cases can be distinguished (note, <b>rank</b> is an
+output argument of this function):
+</p>
+
+<p>
+<b>size(A,1) = size(A,2)</b>
+</p>
+
+<p> A solution is returned for a regular, as well as a singular matrix A:
+</p>
+
+<ul>
+<li> <b>rank</b> = size(A,1):<br>
+     A is <b>regular</b> and the returned solution X fulfills the equation
+     A*X = B uniquely.</li>
+
+<li> <b>rank</b> &lt; size(A,1):<br>
+     A is <b>singular</b> and no unique solution for equation A*X = B exists.
+     <ul>
+     <li>  If an infinite number of solutions exists, the one is selected that fulfills
+           the equation and at the same time has the minimum norm |x| for all solution
+           vectors that fulfill the equation.</li>
+     <li>  If no solution exists, X is selected such that |A*X - B| is as small as
+           possible (but A*X - B is not zero).</li>
+     </ul>
+</ul>
+
+<p>
+<b>size(A,1) &gt; size(A,2):</b>
+</p>
+
+<p>
+The equation A*X = B has no unique solution. The solution X is selected such that
+|A*X - B| is as small as possible. If rank = size(A,2), this minimum norm solution is
+unique. If rank &lt; size(A,2), there are an infinite number of solutions leading to the
+same minimum value of |A*X - B|. From these infinite number of solutions, the one with the
+minimum norm |X| is selected. This gives a unique solution that minimizes both
+|A*X - B| and |X|.
+</p>
+
+<p>
+<b>size(A,1) &lt; size(A,2):</b>
+</p>
+
+<ul>
+<li> <b>rank</b> = size(A,1):<br>
+     There are an infinite number of solutions that fulfill the equation A*X = B.
+     From this infinite number, the unique solution is selected that minimizes |X|.
+     </li>
+
+<li> <b>rank</b> &lt; size(A,1):<br>
+     There is either no solution of equation A*X = B, or there are again an infinite
+     number of solutions. The unique solution X is returned that minimizes
+      both |A*X - B| and |X|.</li>
+</ul>
+
+<p>
+Note, the solution is computed with the LAPACK function "dgelsx",
+i.e., QR or LQ factorization of A with column pivoting.
+</p>
+
+<h4>Algorithmic details</h4>
+
+<p>
+The function first computes a QR factorization with column pivoting:
+</p>
+
+<pre>
+      A * P = Q * [ R11 R12 ]
+                  [  0  R22 ]
+</pre>
+
+<p>
+with R11 defined as the largest leading submatrix whose estimated
+condition number is less than 1/rcond.  The order of R11, <b>rank</b>,
+is the effective rank of A.
+</p>
+
+<p>
+Then, R22 is considered to be negligible, and R12 is annihilated
+by orthogonal transformations from the right, arriving at the
+complete orthogonal factorization:
+</p>
+
+<pre>
+     A * P = Q * [ T11 0 ] * Z
+                 [  0  0 ]
+</pre>
+
+<p>
+The minimum-norm solution is then
+</p>
+
+<pre>
+     X = P * Z' [ inv(T11)*Q1'*B ]
+                [        0       ]
+</pre>
+
+<p>
+where Q1 consists of the first "rank" columns of Q.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.leastSquares"
+>Matrices.leastSquares</a>
+(same as leastSquares2, but with a right hand side vector), <br>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve2"
+>Matrices.solve2</a>
+(for square, regular matrices A)
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Matrix A</TD></TR>
+<TR><TD>B[size(A, 1), :]</TD><TD>Matrix B</TD></TR>
+<TR><TD>rcond</TD><TD>Reciprocal condition number to estimate rank of A</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>X[size(A, 2), size(B, 2)]</TD><TD>Matrix X such that min|A*X-B|^2 if size(A,1) &gt;= size(A,2) or min|X|^2 and A*X=B, if size(A,1) &lt; size(A,2)</TD></TR>
+<TR><TD>rank</TD><TD>Rank of A</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE equalityLeastSquares<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.equalityLeastSquares" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.equalityLeastSquares"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.equalityLeastSquares</H2>
+<B>Solve a linear equality constrained least squares problem</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+x = Matrices.<b>equalityLeastSquares</b>(A,a,B,b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the
+solution <b>x</b> of the linear equality-constrained least squares problem:
+</p>
+<blockquote>
+<p>
+min|<b>A</b>*<b>x</b> - <b>a</b>|^2 over <b>x</b>, subject to <b>B</b>*<b>x</b> = <b>b</b>
+</p>
+</blockquote>
+
+<p>
+It is required that the dimensions of A and B fulfill the following
+relationship:
+</p>
+
+<blockquote>
+size(B,1) &le; size(A,2) &le; size(A,1) + size(B,1)
+</blockquote>
+
+<p>
+Note, the solution is computed with the LAPACK function "dgglse"
+using the generalized RQ factorization under the assumptions that
+B has full row rank (= size(B,1)) and the matrix [A;B] has
+full column rank (= size(A,2)). In this case, the problem
+has a unique solution.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Minimize |A*x - a|^2</TD></TR>
+<TR><TD>a[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>B[:, size(A, 2)]</TD><TD>subject to B*x=b</TD></TR>
+<TR><TD>b[size(B, 1)]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>x[size(A, 2)]</TD><TD>solution vector</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LU<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.LU" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LU"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.LU</H2>
+<B>LU decomposition of square or rectangular matrix</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+(LU, pivots)       = Matrices.<b>LU</b>(A);
+(LU, pivots, info) = Matrices.<b>LU</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function call returns the
+LU decomposition of a "Real[m,n]" matrix A, i.e.,
+</p>
+<blockquote>
+<p>
+<b>P</b>*<b>L</b>*<b>U</b> = <b>A</b>
+</p>
+</blockquote>
+<p>
+where <b>P</b> is a permutation matrix (implicitly
+defined by vector <code>pivots</code>),
+<b>L</b> is a lower triangular matrix with unit
+diagonal elements (lower trapezoidal if m &gt; n), and
+<b>U</b> is an upper triangular matrix (upper trapezoidal if m &lt; n).
+Matrices <b>L</b> and <b>U</b> are stored in the returned
+matrix <code>LU</code> (the diagonal of <b>L</b> is not stored).
+With the companion function
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU_solve"
+>Matrices.LU_solve</a>,
+this decomposition can be used to solve
+linear systems (<b>P</b>*<b>L</b>*<b>U</b>)*<b>x</b> = <b>b</b> with different right
+hand side vectors <b>b</b>. If a linear system of equations with
+just one right hand side vector <b>b</b> shall be solved, it is
+more convenient to just use the function
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>Matrices.solve</a>.
+</p>
+<p>
+The optional third (Integer) output argument has the following meaning:</p>
+<table border=0 cellspacing=0 cellpadding=2>
+  <tr><td valign="top">info = 0:</td>
+      <td valign="top">successful exit</td></tr>
+  <tr><td valign="top">info &gt; 0:</td>
+      <td valign="top">if info = i, U[i,i] is exactly zero. The factorization
+          has been completed, <br>
+          but the factor U is exactly
+          singular, and division by zero will occur<br> if it is used
+          to solve a system of equations.</td></tr>
+</table>
+<p>
+The LU factorization is computed
+with the LAPACK function "dgetrf",
+i.e., by Gaussian elimination using partial pivoting
+with row interchanges. Vector "pivots" are the
+pivot indices, i.e., for 1 &le; i &le; min(m,n), row i of
+matrix A was interchanged with row pivots[i].
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real b1[3] = {10,22,12};
+  Real b2[3] = { 7,13,10};
+  Real    LU[3,3];
+  Integer pivots[3];
+  Real    x1[3];
+  Real    x2[3];
+<b>algorithm</b>
+  (LU, pivots) := Matrices.LU(A);
+  x1 := Matrices.LU_solve(LU, pivots, b1);  // x1 = {3,2,1}
+  x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU_solve"
+>Matrices.LU_solve</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>Matrices.solve</a>,
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Square or rectangular matrix</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>LU[size(A, 1), size(A, 2)]</TD><TD>L,U factors (used with LU_solve(..))</TD></TR>
+<TR><TD>pivots[min(size(A, 1), size(A, 2))]</TD><TD>pivot indices (used with LU_solve(..))</TD></TR>
+<TR><TD>info</TD><TD>Information</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LU_solve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.LU_solve" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LU_solve"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.LU_solve</H2>
+<B>Solve real system of linear equations P*L*U*x=b with a b vector and an LU decomposition (from LU(..))</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>LU_solve</b>(LU, pivots, b);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function call returns the
+solution <b>x</b> of the linear systems of equations
+</p>
+<blockquote>
+<p>
+<b>P</b>*<b>L</b>*<b>U</b>*<b>x</b> = <b>b</b>;
+</p>
+</blockquote>
+<p>
+where <b>P</b> is a permutation matrix (implicitly
+defined by vector <code>pivots</code>),
+<b>L</b> is a lower triangular matrix with unit
+diagonal elements (lower trapezoidal if m &gt; n), and
+<b>U</b> is an upper triangular matrix (upper trapezoidal if m &lt; n).
+The matrices of this decomposition are computed with function
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU"
+>Matrices.LU</a> that
+returns arguments <code>LU</code> and <code>pivots</code>
+used as input arguments of <code>Matrices.LU_solve</code>.
+With <code>Matrices.LU</code> and <code>Matrices.LU_solve</code>
+it is possible to efficiently solve linear systems
+with different right hand side vectors. If a linear system of equations with
+just one right hand side vector shall be solved, it is
+more convenient to just use the function
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>Matrices.solve</a>.
+</p>
+<p>
+If a unique solution <b>x</b> does not exist (since the
+LU decomposition is singular), an exception is raised.
+</p>
+<p>
+The LU factorization is computed
+with the LAPACK function "dgetrf",
+i.e., by Gaussian elimination using partial pivoting
+with row interchanges. Vector "pivots" are the
+pivot indices, i.e., for 1 &le; i &le; min(m,n), row i of
+matrix A was interchanged with row pivots[i].
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real b1[3] = {10,22,12};
+  Real b2[3] = { 7,13,10};
+  Real    LU[3,3];
+  Integer pivots[3];
+  Real    x1[3];
+  Real    x2[3];
+<b>algorithm</b>
+  (LU, pivots) := Matrices.LU(A);
+  x1 := Matrices.LU_solve(LU, pivots, b1);  // x1 = {3,2,1}
+  x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU"
+>Matrices.LU</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>Matrices.solve</a>,
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>LU[:, size(LU, 1)]</TD><TD>L,U factors of Matrices.LU(..) for a square matrix</TD></TR>
+<TR><TD>pivots[size(LU, 1)]</TD><TD>Pivots indices of Matrices.LU(..)</TD></TR>
+<TR><TD>b[size(LU, 1)]</TD><TD>Right hand side vector of P*L*U*x=b</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>x[size(b, 1)]</TD><TD>Solution vector such that P*L*U*x = b</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LU_solve2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.LU_solve2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LU_solve2"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.LU_solve2</H2>
+<B>Solve real system of linear equations P*L*U*X=B with a B matrix and an LU decomposition (from LU(..))</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>LU_solve</b>(LU, pivots, B);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function call returns the
+solution <b>X</b> of the linear systems of equations
+</p>
+<blockquote>
+<p>
+<b>P</b>*<b>L</b>*<b>U</b>*<b>X</b> = <b>B</b>;
+</p>
+</blockquote>
+<p>
+where <b>P</b> is a permutation matrix (implicitly
+defined by vector <code>pivots</code>),
+<b>L</b> is a lower triangular matrix with unit
+diagonal elements (lower trapezoidal if m &gt; n), and
+<b>U</b> is an upper triangular matrix (upper trapezoidal if m &lt; n).
+The matrices of this decomposition are computed with function
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU"
+>Matrices.LU</a> that
+returns arguments <code>LU</code> and <code>pivots</code>
+used as input arguments of <code>Matrices.LU_solve2</code>.
+With <code>Matrices.LU</code> and <code>Matrices.LU_solve2</code>
+it is possible to efficiently solve linear systems
+with different right hand side <b>matrices</b>. If a linear system of equations with
+just one right hand side matrix shall be solved, it is
+more convenient to just use the function
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve2"
+>Matrices.solve2</a>.
+</p>
+<p>
+If a unique solution <b>X</b> does not exist (since the
+LU decomposition is singular), an exception is raised.
+</p>
+<p>
+The LU factorization is computed
+with the LAPACK function "dgetrf",
+i.e., by Gaussian elimination using partial pivoting
+with row interchanges. Vector "pivots" are the
+pivot indices, i.e., for 1 &le; i &le; min(m,n), row i of
+matrix A was interchanged with row pivots[i].
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real B1[3] = [10, 20;
+                22, 44;
+                12, 24];
+  Real B2[3] = [ 7, 14;
+                13, 26;
+                10, 20];
+  Real    LU[3,3];
+  Integer pivots[3];
+  Real    X1[3,2];
+  Real    X2[3,2];
+<b>algorithm</b>
+  (LU, pivots) := Matrices.LU(A);
+  X1 := Matrices.LU_solve2(LU, pivots, B1);  /* X1 = [3, 6;
+                                                      2, 4;
+                                                      1, 2] */
+  X2 := Matrices.LU_solve2(LU, pivots, B2);  /* X2 = [1, 2;
+                                                      0, 0;
+                                                      2, 4] */
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU"
+>Matrices.LU</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve2"
+>Matrices.solve2</a>,
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>LU[:, size(LU, 1)]</TD><TD>L,U factors of Matrices.LU(..) for a square matrix</TD></TR>
+<TR><TD>pivots[size(LU, 1)]</TD><TD>Pivots indices of Matrices.LU(..)</TD></TR>
+<TR><TD>B[size(LU, 1), :]</TD><TD>Right hand side matrix of P*L*U*X=B</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>X[size(B, 1), size(B, 2)]</TD><TD>Solution matrix such that P*L*U*X = B</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE eigenValues<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.eigenValues" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.eigenValues"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.eigenValues</H2>
+<B>Return eigenvalues and eigenvectors for a real, nonsymmetric matrix in a Real representation</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+                eigenvalues = Matrices.<b>eigenValues</b>(A);
+(eigenvalues, eigenvectors) = Matrices.<b>eigenValues</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function call returns the eigenvalues and
+optionally the (right) eigenvectors of a square matrix
+<b>A</b>. The first column of "eigenvalues" contains the real and the
+second column contains the imaginary part of the eigenvalues.
+If the i-th eigenvalue has no imaginary part, then eigenvectors[:,i] is
+the corresponding real eigenvector. If the i-th eigenvalue
+has an imaginary part, then eigenvalues[i+1,:] is the conjugate complex
+eigenvalue and eigenvectors[:,i] is the real and eigenvectors[:,i+1] is the
+imaginary part of the eigenvector of the i-th eigenvalue.
+With function
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.eigenValueMatrix"
+>Matrices.eigenValueMatrix</a>,
+a real block diagonal matrix is constructed from the eigenvalues
+such that
+</p>
+<blockquote>
+<pre>
+A = eigenvectors * eigenValueMatrix(eigenvalues) * inv(eigenvectors)
+</pre>
+</blockquote>
+<p>
+provided the eigenvector matrix "eigenvectors" can be inverted
+(an inversion is possible, if all eigenvalues are different;
+in some cases, an inversion is also possible if some eigenvalues are
+the same).
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real eval;
+<b>algorithm</b>
+  eval := Matrices.eigenValues(A);  // eval = [-0.618, 0;
+                                    //          8.0  , 0;
+                                    //          1.618, 0];
+</pre>
+</blockquote>
+<p>
+i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
+</p>
+
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.eigenValueMatrix"
+>Matrices.eigenValueMatrix</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.singularValues"
+>Matrices.singularValues</a>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Matrix</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>eigenvalues[size(A, 1), 2]</TD><TD>Eigenvalues of matrix A (Re: first column, Im: second column)</TD></TR>
+<TR><TD>eigenvectors[size(A, 1), size(A, 2)]</TD><TD>Real-valued eigenvector matrix</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE eigenValueMatrix<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.eigenValueMatrix" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.eigenValueMatrix"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.eigenValueMatrix</H2>
+<B>Return real valued block diagonal matrix J of eigenvalues of matrix A (A=V*J*Vinv)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>eigenValueMatrix</b>(eigenvalues);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call returns a block diagonal matrix <b>J</b>
+from the the two-column matrix <code>eigenvalues</code>
+(computed by function
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.eigenValues"
+>Matrices.eigenValues</a>).
+Matrix <code>eigenvalues</code> must have the real part of the
+eigenvalues in the first column and the imaginary part in the
+second column. If an eigenvalue i has a vanishing imaginary
+part, then <b>J</b>[i,i] = eigenvalues[i,1], i.e., the diagonal
+element of <b>J</b> is the real eigenvalue.
+Otherwise, eigenvalue i and conjugate complex eigenvalue i+1
+are used to construct a 2 by 2 diagonal block of <b>J</b>:
+</p>
+<blockquote>
+<pre>
+  J[i  , i]   := eigenvalues[i,1];
+  J[i  , i+1] := eigenvalues[i,2];
+  J[i+1, i]   := eigenvalues[i+1,2];
+  J[i+1, i+1] := eigenvalues[i+1,1];
+</pre>
+</blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.eigenValues"
+>Matrices.eigenValues</a>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>eigenValues[:, 2]</TD><TD>Eigen values from function eigenValues(..) (Re: first column, Im: second column)</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>J[size(eigenValues, 1), size(eigenValues, 1)]</TD><TD>Real valued block diagonal matrix with eigen values (Re: 1x1 block, Im: 2x2 block)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE singularValues<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.singularValues" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.singularValues"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.singularValues</H2>
+<B>Return singular values and left and right singular vectors</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+         sigma = Matrices.<b>singularValues</b>(A);
+(sigma, U, VT) = Matrices.<b>singularValues</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function computes the singular values and optionally the
+singular vectors of matrix A. Basically the singular
+value decomposition of A is computed, i.e.,
+</p>
+<blockquote><pre>
+<b>A</b> = <b>U</b> <b><font face="Symbol">S</font></b> <b>V</b><sup>T</sup>
+  = U*Sigma*VT
+</pre></blockquote>
+<p>
+where <b>U </b>and <b>V</b> are orthogonal matrices (<b>UU</b><sup>T</sup>=<b>I,
+</b><b>VV</b><sup>T</sup>=<b>I</b>). <b><font face="Symbol">S
+</font></b> = diag(<font face="Symbol">s</font><sub>i</sub>)
+has the same size as matrix A with nonnegative diagonal elements
+in decreasing order and with all other elements zero
+(<font face="Symbol">s</font><sub>1</sub> is the largest element). The function
+returns the singular values <font face="Symbol">s</font><sub>i</sub>
+in vector <code>sigma</code> and the orthogonal matrices in
+matrices <code>U</code> and <code>V</code>.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3,  4;
+       3, 4,  5, -2;
+      -1, 2, -3,  5];
+  (sigma, U, VT) = singularValues(A);
+  results in:
+     sigma = {8.33, 6.94, 2.31};
+  i.e.
+     Sigma = [8.33,    0,    0, 0;
+                 0, 6.94,    0, 0;
+                 0,    0, 2.31, 0]
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.eigenValues"
+>Matrices.eigenValues</a>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Matrix</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>sigma[min(size(A, 1), size(A, 2))]</TD><TD>Singular values</TD></TR>
+<TR><TD>U[size(A, 1), size(A, 1)]</TD><TD>Left orthogonal matrix</TD></TR>
+<TR><TD>VT[size(A, 2), size(A, 2)]</TD><TD>Transposed right orthogonal matrix</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE QR<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.QR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.QR"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.QR</H2>
+<B>Return the QR decomposition of a square matrix with optional column pivoting (A(:,p) = Q*R)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+(Q,R,p) = Matrices.<b>QR</b>(A);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the QR decomposition of
+a rectangular matrix <b>A</b> (the number of columns of <b>A</b>
+must be less than or equal to the number of rows):
+</p>
+<blockquote>
+<p>
+<b>Q</b>*<b>R</b> = <b>A</b>[:,<b>p</b>]
+</p>
+</blockquote>
+<p>
+where <b>Q</b> is a rectangular matrix that has orthonormal columns and
+has the same size as A (<b>Q</b><sup>T</sup><b>Q</b>=<b>I</b>),
+<b>R</b> is a square, upper triangular matrix and <b>p</b> is a permutation
+vector. Matrix <b>R</b> has the following important properties:
+</p>
+<ul>
+<li> The absolute value of a diagonal element of <b>R</b> is the largest
+     value in this row, i.e.,
+     abs(R[i,i]) &ge; abs(R[i,j]).</li>
+<li> The diagonal elements of <b>R</b> are sorted according to size, such that
+     the largest absolute value is abs(R[1,1]) and
+     abs(R[i,i]) &ge; abs(R[j,j]) with i &lt; j. </li>
+</ul>
+<p>
+This means that if abs(R[i,i]) &le; &epsilon; then abs(R[j,k]) &le; &epsilon;
+for j &ge; i, i.e., the i-th row up to the last row of <b>R</b> have
+small elements and can be treated as being zero.
+This allows to, e.g., estimate the row-rank
+of <b>R</b> (which is the same row-rank as <b>A</b>). Furthermore,
+<b>R</b> can be partitioned in two parts
+</p>
+<blockquote>
+<pre>
+   <b>A</b>[:,<b>p</b>] = <b>Q</b> * [<b>R</b><sub>1</sub>, <b>R</b><sub>2</sub>;
+                 <b>0</b>,  <b>0</b>]
+</pre>
+</blockquote>
+<p>
+where <b>R</b><sub>1</sub> is a regular, upper triangular matrix.
+</p>
+<p>
+Note, the solution is computed with the LAPACK functions "dgeqpf"
+and "dorgqr", i.e., by Householder transformations with
+column pivoting. If <b>Q</b> is not needed, the function may be
+called as: <code>(,R,p) = QR(A)</code>.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real A[3,3] = [1,2,3;
+                 3,4,5;
+                 2,1,4];
+  Real R[3,3];
+<b>algorithm</b>
+  (,R) := Matrices.QR(A);  // R = [-7.07.., -4.24.., -3.67..;
+                                    0     , -1.73.., -0.23..;
+                                    0     ,  0     ,  0.65..];
+</pre></blockquote>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Rectangular matrix with size(A,1) &gt;= size(A,2)</TD></TR>
+<TR><TD>pivoting</TD><TD>True if column pivoting is performed. True is default</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Q[size(A, 1), size(A, 2)]</TD><TD>Rectangular matrix with orthonormal columns such that Q*R=A[:,p]</TD></TR>
+<TR><TD>R[size(A, 2), size(A, 2)]</TD><TD>Square upper triangular matrix</TD></TR>
+<TR><TD>p[size(A, 2)]</TD><TD>Column permutation vector</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE hessenberg<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.hessenberg" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.hessenberg"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.hessenberg</H2>
+<B>Return upper Hessenberg form of a matrix</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+         H = Matrices.<b>hessenberg</b>(A);
+    (H, U) = Matrices.<b>hessenberg</b>(A);
+ </pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <b>hessenberg</b> computes the Hessenberg matrix <b>H</b> of matrix <b>A</b> as well as the orthogonal transformation matrix <b>U</b> that holds <b>H</b> = <b>U</b>'*<b>A</b>*<b>U</b>.
+The Hessenberg form of a matrix is computed by repeated Householder similarity transformation. The elementary reflectors and the corresponding scalar factors are provided
+by function "Utilities.toUpperHessenberg()". The transformation matrix <b>U</b> is then computed by
+<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dorghr"
+>LAPACK.dorghr</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+ A  = [1, 2,  3;
+       6, 5,  4;
+       1, 0,  0];
+
+ (H, U) = hessenberg(A);
+
+  results in:
+
+ H = [1.0,  -2.466,  2.630;
+     -6.083, 5.514, -3.081;
+      0.0,   0.919, -0.514]
+
+ U = [1.0,    0.0,      0.0;
+      0.0,   -0.9864,  -0.1644;
+      0.0,   -0.1644,   0.9864]
+
+  and therefore,
+
+ U*H*transpose(U) = [1.0, 2.0, 3.0;
+                     6.0, 5.0, 4.0;
+                     1.0, 0.0, 0.0]
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities.toUpperHessenberg"
+>Matrices.Utilities.toUpperHessenberg</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Square matrix A</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>H[size(A, 1), size(A, 2)]</TD><TD>Hessenberg form of A</TD></TR>
+<TR><TD>U[size(A, 1), size(A, 2)]</TD><TD>Transformation matrix</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE realSchur<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.realSchur" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.realSchur"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.realSchur</H2>
+<B>Return the real Schur form (rsf) S of a square matrix A, A=QZ*S*QZ&#39;</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+
+<blockquote><pre>
+                            S = Matrices.<b>realSchur</b>(A);
+(S, QZ, alphaReal, alphaImag) = Matrices.<b>realSchur</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Function <b>realSchur</b> calculates the real Schur form of a real square matrix <b>A</b>, i.e.
+</p>
+
+<blockquote><pre>
+ <b>A</b> = <b>QZ</b>*<b>S</b>*transpose(<b>QZ</b>)
+</pre></blockquote>
+
+<p>
+with the real nxn matrices <b>S</b> and <b>QZ</b>. <b>S</b> is a block upper triangular matrix with 1x1 and 2x2 blocks in the diagonal. <b>QZ</b> is an orthogonal matrix.
+The 1x1 blocks contains the real eigenvalues of <b>A</b>. The 2x2 blocks [s11, s12; s21, s11] represents the conjugated complex pairs of eigenvalues, whereas the real parts of the eigenvalues
+are the elements of the diagonal (s11). The imaginary parts are the positive and negative square roots of the product of the two elements s12 and s21 (imag = +-sqrt(s12*s21)).
+</p>
+
+<p>
+The calculation in lapack.dgees is performed stepwise, i.e., using the internal methods of balancing and scaling of dgees.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+   Real A[3,3] = [1, 2, 3; 4, 5, 6; 7, 8, 9];
+   Real T[3,3];
+   Real Z[3,3];
+   Real alphaReal[3];
+   Real alphaImag[3];
+
+<b>algorithm</b>
+  (T, Z, alphaReal, alphaImag):=Modelica.Math.Matrices.realSchur(A);
+//   T = [16.12, 4.9,   1.59E-015;
+//        0,    -1.12, -1.12E-015;
+//        0,     0,    -1.30E-015]
+//   Z = [-0.23,  -0.88,   0.41;
+//        -0.52,  -0.24,  -0.82;
+//        -0.82,   0.4,    0.41]
+//alphaReal = {16.12, -1.12, -1.32E-015}
+//alphaImag = {0, 0, 0}
+</pre></blockquote>
+
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities.reorderRSF"
+>Math.Matrices.Utilities.reorderRSF</a>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Square matrix</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>S[size(A, 1), size(A, 2)]</TD><TD>Real Schur form of A</TD></TR>
+<TR><TD>QZ[size(A, 1), size(A, 2)]</TD><TD>Schur vector Matrix</TD></TR>
+<TR><TD>alphaReal[size(A, 1)]</TD><TD>Real part of eigenvalue=alphaReal+i*alphaImag</TD></TR>
+<TR><TD>alphaImag[size(A, 1)]</TD><TD>Imaginary part of eigenvalue=alphaReal+i*alphaImag</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cholesky<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.cholesky" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.cholesky"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.cholesky</H2>
+<B>Return the Cholesky factorization of a symmetric positive definite matrix</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+
+<blockquote><pre>
+         H = Matrices.<b>cholesky</b>(A);
+         H = Matrices.<b>cholesky</b>(A, upper=true);
+ </pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <b>cholesky</b> computes the Cholesky factorization of a real symmetric positive definite matrix A.
+The optional Boolean input "upper" specifies whether the upper or the lower triangular matrix is returned, i.e.
+</p>
+
+<blockquote><pre>
+ A = H'*H   if upper is true (H is upper triangular)
+ A = H*H'   if upper is false (H is lower triangular)
+</pre></blockquote>
+
+<p>
+The computation is performed by <A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dpotrf"
+>LAPACK.dpotrf</a>.
+</p>
+
+<h4>Example</h4>
+
+<blockquote><pre>
+  A  = [1, 0,  0;
+        6, 5,  0;
+        1, -2,  2];
+  S = A*transpose(A);
+
+  H = Matrices.cholesky(S);
+
+  results in:
+
+  H = [1.0,  6.0,  1.0;
+       0.0,  5.0, -2.0;
+       0.0,  0.0,  2.0]
+
+  with
+
+  transpose(H)*H = [1.0,  6.0,   1;
+                    6.0, 61.0,  -4.0;
+                    1.0, -4.0,   9.0] //=S
+
+</pre></blockquote>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Symmetric positive definite matrix</TD></TR>
+<TR><TD>upper</TD><TD>True if the right cholesky factor (upper triangle) should be returned</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>H[size(A, 1), size(A, 2)]</TD><TD>Cholesky factor U (upper=true) or L (upper=false) for A = U&#39;*U or A = L*L&#39;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE balance<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.balance" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.balance"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.balance</H2>
+<B>Return a balanced form of matrix A to improve the condition of A</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+(D,B) = Matrices.<b>balance</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+This function returns a vector D, such that B=inv(diagonal(D))*A*diagonal(D) has a
+better condition as matrix A, i.e., conditionNumber(B) &le; conditionNumber(A). The elements of D
+are multiples of 2 which means that this function does not introduce round-off errors.
+Balancing attempts to make the norm of each row of B equal to the
+norm of the respective column.
+</p>
+
+<p>
+Balancing is used to minimize roundoff errors induced
+through large matrix calculations like Taylor-series approximation
+or computation of eigenvalues.
+</p>
+
+<h4>Example</h4>
+
+<blockquote>
+<pre>       - A = [1, 10,  1000; 0.01,  0,  10; 0.005,  0.01,  10]
+       - Matrices.norm(A, 1);
+         = 1020.0
+       - (T,B)=Matrices.balance(A)
+       - T
+         = {256, 16, 0.5}
+       - B
+         =  [1,     0.625,   1.953125;
+             0.16,  0,       0.3125;
+             2.56,  0.32,   10.0]
+       - Matrices.norm(B, 1);
+         = 12.265625
+</pre>
+</blockquote>
+
+<p>
+The Algorithm is taken from
+</p>
+<dl>
+<dt>H. D. Joos, G. Grbel:
+<dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
+    DLR - Control Systems Group 1991
+</dl>
+<p>
+which based on the <code>balance</code> function from EISPACK.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>D[size(A, 1)]</TD><TD>diagonal(D)=T is transformation matrix, such that
+          B = inv(T)*A*T has smaller condition as A</TD></TR>
+<TR><TD>B[size(A, 1), size(A, 1)]</TD><TD>Balanced matrix (= inv(diagonal(D))*A*diagonal(D) )</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE trace<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.trace" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.trace"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.trace</H2>
+<B>Return the trace of matrix A, i.e., the sum of the diagonal elements</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+  r = Matrices.<b>trace</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the trace, i.e., the sum of the elements in the diagonal of matrix <b>A</b>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 3;
+       2, 1];
+  r = trace(A);
+
+  results in:
+
+  r = 2.0
+</pre></blockquote>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Square matrix A</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result</TD><TD>Trace of A</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE det<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.det" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.det"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.det</H2>
+<B>Return determinant of a matrix (computed by LU decomposition; try to avoid det(..))</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+result = Matrices.<b>det</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the determinant "result" of matrix A
+computed by a LU decomposition with row pivoting. For details about determinants, see
+<a href="http://en.wikipedia.org/wiki/Determinant">http://en.wikipedia.org/wiki/Determinant</a>.
+Usually, this function should never be used, because
+there are nearly always better numerical algorithms
+as by computing the determinant. Examples:
+</p>
+
+<ul>
+<li> Use <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.rank"
+>Matrices.rank</a>
+     to compute whether det(A) = 0 (i.e., Matrices.rank(A) &lt; size(A,1)).</li>
+
+<li> Use <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>Matrices.solve</a>
+     to solve the linear equation A*x = b, instead of using determinants to
+     compute the solution.</li>
+</ul>
+
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.rank"
+>Matrices.rank</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>Matrices.solve</a>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result</TD><TD>Determinant of matrix A</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE inv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.inv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.inv"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.inv</H2>
+<B>Return inverse of a matrix (try to avoid inv(..))</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+invA = Matrices.<b>inv</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the inverse of matrix A, i.e., A*inv(A) = identity(size(A,1))
+computed by a LU decomposition with row pivoting.
+Usually, this function should not be used, because
+there are nearly always better numerical algorithms
+as by computing directly the inverse. Example:
+</p>
+
+<blockquote>
+Use x = <A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>Matrices.solve</a>(A,b)
+to solve the linear equation A*x = b, instead of computing the solution by
+x = inv(A)*b, because this is much more efficient and much more reliable.
+</blockquote>
+
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve"
+>Matrices.solve</a>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.solve2"
+>Matrices.solve2</a>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>invA[size(A, 1), size(A, 2)]</TD><TD>Inverse of matrix A</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rank<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.rank" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.rank"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.rank</H2>
+<B>Return rank of a rectangular matrix (computed with singular values)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+result = Matrices.<b>rank</b>(A);
+result = Matrices.<b>rank</b>(A,eps=0);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function returns the rank of a square or rectangular matrix A computed by singular value decomposition.
+For details about the rank of a matrix, see
+<a href="http://en.wikipedia.org/wiki/Matrix_rank">http://en.wikipedia.org/wiki/Matrix_rank</a>.
+To be more precise:
+</p>
+
+<ul>
+<li> rank(A) returns the number of singular values of A that are larger than
+     max(size(A))*norm(A)*Modelica.Constants.eps.</li>
+<li> rank(A, eps) returns the number of singular values of A that are larger than "eps".</li>
+</ul>
+
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.rcond"
+>Matrices.rcond</a>.
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Matrix</TD></TR>
+<TR><TD>eps</TD><TD>If eps &gt; 0, the singular values are checked against eps; otherwise eps=max(size(A))*norm(A)*Modelica.Constants.eps is used</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result</TD><TD>Rank of matrix A</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE conditionNumber<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.conditionNumber" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.conditionNumber"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.conditionNumber</H2>
+<B>Return the condition number norm(A)*norm(inv(A)) of a matrix A</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+r = Matrices.<b>conditionNumber</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function calculates the condition number (norm(A) * norm(inv(A))) of a general real matrix <b>A</b>, in either the 1-norm, 2-norm or the infinity-norm.
+In the case of 2-norm the result is the ratio of the largest to the smallest singular value of <b>A</b>.
+For more details, see <a href="http://en.wikipedia.org/wiki/Condition_number">http://en.wikipedia.org/wiki/Condition_number</a>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2;
+       2, 1];
+  r = conditionNumber(A);
+
+  results in:
+
+  r = 3.0
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.rcond"
+>Matrices.rcond</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Input matrix</TD></TR>
+<TR><TD>p</TD><TD>Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result</TD><TD>Condition number of matrix A</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE rcond<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.rcond" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.rcond"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.rcond</H2>
+<B>Return the reciprocal condition number of a matrix</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+r = Matrices.<b>rcond</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function estimates the reciprocal of the condition number (norm(A) * norm(inv(A))) of a general real matrix <b>A</b>, in either the 1-norm or
+the infinity-norm, using the LAPACK function <A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgecon"
+>DGECON</a>.
+If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill conditioned if rcond(A) is near zero.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2;
+       2, 1];
+  r = rcond(A);
+
+  results in:
+
+  r = 0.3333
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.conditionNumber"
+>Matrices.conditionNumber</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Square real matrix</TD></TR>
+<TR><TD>inf</TD><TD>Is true if infinity norm is used and false for 1-norm</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rcond</TD><TD>Reciprocal condition number of A</TD></TR>
+<TR><TD>info</TD><TD>Information</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE norm<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.norm" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.norm"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.norm</H2>
+<B>Return the p-norm of a matrix</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Matrices.<b>norm</b>(A);
+Matrices.<b>norm</b>(A, p=2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call "<code>Matrices.norm(A)</code>" returns the
+2-norm of matrix A, i.e., the largest singular value of A.<br>
+The function call "<code>Matrices.norm(A, p)</code>" returns the
+p-norm of matrix A. The only allowed values for p are
+</p>
+
+<ul>
+<li> "p=1": the largest column sum of A</li>
+<li> "p=2": the largest singular value of A</li>
+<li> "p=Modelica.Constants.inf": the largest row sum of A</li>
+</ul>
+
+<p>
+Note, for any matrices A1, A2 the following inequality holds:
+</p>
+
+<blockquote><pre>
+Matrices.<b>norm</b>(A1+A2,p) &le; Matrices.<b>norm</b>(A1,p) + Matrices.<b>norm</b>(A2,p)
+</pre></blockquote>
+
+<p>
+Note, for any matrix A and vector v the following inequality holds:
+</p>
+
+<blockquote><pre>
+Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,p)
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.frobeniusNorm"
+>Matrices.frobeniusNorm</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Input matrix</TD></TR>
+<TR><TD>p</TD><TD>Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result</TD><TD>p-norm of matrix A</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE frobeniusNorm<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.frobeniusNorm" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.frobeniusNorm"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.frobeniusNorm</H2>
+<B>Return the Frobenius norm of a matrix</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+  r = Matrices.<b>frobeniusNorm</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e., the square root of the sum of the squares of all elements.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2;
+       2, 1];
+  r = frobeniusNorm(A);
+
+  results in:
+
+  r = 3.162;
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.norm"
+>Matrices.norm</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Input matrix</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result</TD><TD>Frobenius norm of matrix A</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE nullSpace<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.nullSpace" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.nullSpace"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.nullSpace</H2>
+<B>Return the orthonormal nullspace of a matrix</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+           Z = Matrices.<b>nullspace</b>(A);
+(Z, nullity) = Matrices.<b>nullspace</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function calculates an orthonormal basis <b>Z</b>=[<b>z</b>_1, <b>z</b>_2, ...] of the nullspace of a matrix <b>A</b>, i.e., <b>A</b>*<b>z</b>_i=<b>0</b>.
+</p>
+
+<p>
+The nullspace is obtained by SVD method. That is, matrix <b>A</b> is decomposed into the matrices <b>S</b>, <b>U</b>, <b>V</b>:
+</p>
+
+<blockquote><pre>
+ <b>A</b> = <b>U</b>*<b>S</b>*transpose(<b>V</b>)
+</pre></blockquote>
+
+<p>
+with the orthonormal matrices <b>U</b> and <b>V</b> and the matrix <b>S</b> with
+</p>
+
+<blockquote><pre>
+ <b>S</b> = [<b>S</b>1, <b>0</b>]
+ <b>S</b>1 = [diag(s); <b>0</b>]
+</pre></blockquote>
+
+<p>
+and the singular values <b>s</b>={s1, s2, ..., sr} of <b>A</b> and r=rank(<b>A</b>). Note, that <b>S</b> has the same size as <b>A</b>. Since <b>U</b> and <b>V</b> are orthonormal we may write
+</p>
+
+<blockquote><pre>
+ transpose(<b>U</b>)*<b>A</b>*<b>V</b> = [<b>S</b>1, <b>0</b>].
+</pre></blockquote>
+
+<p>
+Matrix <b>S</b>1 obviously has full column rank and therefore, the left n-r rows (n is the number of columns of <b>A</b> or <b>S</b>) of matrix <b>V</b> span a nullspace of <b>A</b>.
+</p>
+
+<p>
+The nullity of matrix <b>A</b> is the dimension of the nullspace of <b>A</b>. In view of the above, it becomes clear that nullity holds
+</p>
+<blockquote><pre>
+ nullity = n - r
+</pre></blockquote>
+<p>
+with
+</p>
+<blockquote><pre>
+ n = number of columns of matrix <b>A</b>
+ r = rank(<b>A</b>)
+</pre></blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3, 1;
+       3, 4,  5, 2;
+      -1, 2, -3, 3];
+  (Z, nullity) = nullspace(A);
+
+  results in:
+
+  Z=[0.1715;
+    -0.686;
+     0.1715;
+     0.686]
+
+  nullity = 1
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.singularValues"
+>Matrices.singularValues</a>
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Input matrix</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Z[size(A, 2), :]</TD><TD>Orthonormal nullspace of matrix A</TD></TR>
+<TR><TD>nullity</TD><TD>Nullity, i.e., the dimension of the nullspace</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE exp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.exp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.exp"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.exp</H2>
+<B>Return the exponential of a matrix by adaptive Taylor series expansion with scaling and balancing</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+phi = Matrices.<b>exp</b>(A);
+phi = Matrices.<b>exp</b>(A,T=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the exponential e<sup><b>A</b>T</sup> of matrix <b>A</b>, i.e.
+</p>
+<blockquote>
+<pre>                            (<b>A</b>T)^2   (<b>A</b>T)^3
+     <font size=4> <b>&Phi;</b></font> = e^(<b>A</b>T) = <b>I</b> + <b>A</b>T + ------ + ------ + ....
+                              2!       3!
+</pre></blockquote>
+
+<p>where e=2.71828..., <b>A</b> is an n x n matrix with real elements and T is a real number,
+e.g., the sampling time.
+<b>A</b> may be singular. With the exponential of a matrix it is, e.g., possible
+to compute the solution of a linear system of differential equations</p>
+<pre>    der(<b>x</b>) = <b>A</b>*<b>x</b>   ->   <b>x</b>(t0 + T) = e^(<b>A</b>T)*x(t0)
+</pre>
+
+<h4>Algorithmic details:</h4>
+
+<p>The algorithm is taken from</p>
+<dl>
+<dt>H. D. Joos, G. Gruebel:
+<dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
+    DLR - Control Systems Group 1991
+</dl>
+<p>The following steps are performed to calculate the exponential of A:</p>
+<ol>
+  <li>Matrix <b>A</b> is balanced <br>
+  (= is transformed with a diagonal matrix <b>D</b>, such that inv(<b>D</b>)*<b>A</b>*<b>D</b>
+  has a smaller condition as <b>A</b>).</li>
+  <li>The scalar T is divided by a multiple of 2 such that norm(
+       inv(<b>D</b>)*<b>A</b>*<b>D</b>*T/2^k ) &lt; 0.5. Note, that (1) and (2) are implemented such that no round-off errors
+  are introduced.</li>
+  <li>The matrix from (2) is approximated by explicitly performing the Taylor
+  series expansion with a variable number of terms.
+  Truncation occurs if a new term does no longer contribute to the value of <b>&Phi;</b>
+  from the previous iteration.</li>
+  <li>The resulting matrix is transformed back, by reverting the steps of (2)
+  and (1).</li>
+</ol>
+<p>In several sources it is not recommended to use Taylor series expansion to
+calculate the exponential of a matrix, such as in 'C.B. Moler and C.F. Van Loan:
+Nineteen dubious ways to compute the exponential of a matrix. SIAM Review 20,
+pp. 801-836, 1979' or in the documentation of m-file expm2 in Matlab version 6
+(http://www.MathWorks.com) where it is stated that 'As a practical numerical
+method, this is often slow and inaccurate'. These statements are valid for a
+direct implementation of the Taylor series expansion, but <i>not</i> for the
+implementation variant used in this function.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>T</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>phi[size(A, 1), size(A, 1)]</TD><TD>= exp(A*T)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE integralExp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.integralExp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.integralExp"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.integralExp</H2>
+<B>Return the exponential and the integral of the exponential of a matrix</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+(phi,gamma) = Matrices.<b>integralExp</b>(A,B);
+(phi,gamma) = Matrices.<b>integralExp</b>(A,B,T=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the exponential phi = e^(<b>A</b>T) of matrix <b>A</b>
+and the integral gamma = integral(phi*dt)*B.
+</p>
+
+<p>
+The function uses a Taylor series expansion with Balancing and
+scaling/squaring to approximate the integral <b>&Psi;</b> of the matrix
+exponential <b>&Phi;</b>=e^(AT):
+</p>
+<pre>                                 AT^2   A^2 * T^3          A^k * T^(k+1)
+        <b>&Psi;</b> = int(e^(As))ds = IT + ---- + --------- + ... + --------------
+                                  2!        3!                (k+1)!
+</pre>
+<p>
+<b>&Phi;</b> is calculated through <b>&Phi;</b> = I + A*<b>&Psi;</b>, so A may be singular. <b>&Gamma;</b> is
+simply <b>&Psi;</b>*B.
+</p>
+<p>The algorithm runs in the following steps:</p>
+<ol>
+  <li>Balancing</li>
+  <li>Scaling</li>
+  <li>Taylor series expansion</li>
+  <li>Re-scaling</li>
+  <li>Re-Balancing</li>
+</ol>
+<p>Balancing put the bad condition of a square matrix <i>A</i> into a diagonal
+transformation matrix <i>D</i>. This reduce the effort of following calculations.
+Afterwards the result have to be re-balanced by transformation D*A<small>transf</small>
+*inv(D).<br>
+Scaling halfen T&nbsp; k-times, until the norm of A*T is less than 0.5. This
+guarantees minimum rounding errors in the following series
+expansion. The re-scaling based on the equation&nbsp; exp(A*2T) = exp(AT)^2.
+The needed re-scaling formula for psi thus becomes:
+</p>
+<pre>         <b>&Phi;</b> = <b>&Phi;</b>'*<b>&Phi;</b>'
+   I + A*<b>&Psi;</b> = I + 2A*<b>&Psi;</b>' + A^2*<b>&Psi;</b>'^2
+         <b>&Psi;</b> = A*<b>&Psi;</b>'^2 + 2*<b>&Psi;</b>'
+</pre>
+<p>
+where psi' is the scaled result from the series expansion while psi is the
+re-scaled matrix.
+</p>
+<p>
+The function is normally used to discretize a state-space system as the
+zero-order-hold equivalent:
+</p>
+<pre>      x(k+1) = <b>&Phi;</b>*x(k) + <b>&Gamma;</b>*u(k)
+        y(k) = C*x(k) + D*u(k)
+</pre>
+<p>
+The zero-order-hold sampling, also known as step-invariant method, gives
+exact values of the state variables, under the assumption that the control
+signal u is constant between the sampling instants. Zero-order-hold sampling
+is described in
+</p>
+<dl>
+<dt>K. J. Astroem, B. Wittenmark:
+<dd><b>Computer Controlled Systems - Theory and Design</b><br>
+    Third Edition, p. 32
+</dl>
+<pre><b>Syntax:</b>
+      (phi,gamma) = Matrices.expIntegral(A,B,T)
+                       A,phi: [n,n] square matrices
+                     B,gamma: [n,m] input matrix
+                           T: scalar, e.g., sampling time
+</pre>
+<p>
+The Algorithm to calculate psi is taken from
+</p>
+<dl>
+<dt>H. D. Joos, G. Gruebel:
+<dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
+    DLR - Control Systems Group 1991
+</dl>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>B[size(A, 1), :]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>T</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>phi[size(A, 1), size(A, 1)]</TD><TD>= exp(A*T)</TD></TR>
+<TR><TD>gamma[size(A, 1), size(B, 2)]</TD><TD>= integral(phi)*B</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE integralExpT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.integralExpT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.integralExpT"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.integralExpT</H2>
+<B>Return the exponential, the integral of the exponential, and time-weighted integral of the exponential of a matrix</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<blockquote><pre>
+(phi,gamma,gamma1) = Matrices.<b>integralExp</b>(A,B);
+(phi,gamma,gamma1) = Matrices.<b>integralExp</b>(A,B,T=1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the exponential phi = e^(<b>A</b>T) of matrix <b>A</b>
+and the integral gamma = integral(phi*dt)*B and the integral
+integral((T-t)*exp(A*t)*dt)*B, where A is a square (n,n) matrix and
+B, gamma, and gamma1 are (n,m) matrices.
+</p>
+
+<p>
+The function calculates the matrices phi,gamma,gamma1 through the equation:
+</p>
+<pre>                                 [ A B 0 ]
+[phi gamma gamma1] = [I 0 0]*exp([ 0 0 I ]*T)
+                                 [ 0 0 0 ]
+</pre>
+
+<p>
+The matrices define the discretized first-order-hold equivalent of
+a state-space system:
+<pre>      x(k+1) = phi*x(k) + gamma*u(k) + gamma1/T*(u(k+1) - u(k))
+</pre>
+<p>
+The first-order-hold sampling, also known as ramp-invariant method, gives
+more smooth control signals as the ZOH equivalent. First-order-hold sampling
+is, e.g., described in
+</p>
+
+<dl>
+<dt>K. J. Astroem, B. Wittenmark:
+<dd><b>Computer Controlled Systems - Theory and Design</b><br>
+    Third Edition, p. 256
+</dl>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>B[size(A, 1), :]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>T</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>phi[size(A, 1), size(A, 1)]</TD><TD>= exp(A*T)</TD></TR>
+<TR><TD>gamma[size(A, 1), size(B, 2)]</TD><TD>= integral(phi)*B</TD></TR>
+<TR><TD>gamma1[size(A, 1), size(B, 2)]</TD><TD>= integral((T-t)*exp(A*t))*B</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE continuousLyapunov<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.continuousLyapunov" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.continuousLyapunov"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.continuousLyapunov</H2>
+<B>Return solution X of the continuous-time Lyapunov equation X*A + A&#39;*X = C</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>continuousLyapunov</b>(A, C);
+         X = Matrices.<b>continuousLyapunov</b>(A, C, ATisSchur, eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the solution <b>X</b> of the continuous-time Lyapunov equation
+</p>
+
+<blockquote><pre>
+ <b>X</b>*<b>A</b> + <b>A</b>'*<b>X</b> = <b>C</b>
+</pre></blockquote>
+
+<p>
+using the Schur method for Lyapunov equations proposed by Bartels and Stewart [1].
+</p>
+
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+</p>
+
+<blockquote><pre>
+ <b>Y</b>*<b>R</b>' + <b>R</b>*<b>Y</b> = <b>D</b>
+</pre></blockquote>
+
+<p>
+with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
+are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially for the 1x1 or 2x2 Schur blocks by exploiting the block triangular form of <b>R</b>.
+Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
+The Boolean input "ATisSchur" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
+</p>
+
+<h4>References</h4>
+<pre>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</pre>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3,  4;
+       3, 4,  5, -2;
+      -1, 2, -3, -5;
+       0, 2,  0,  6];
+
+  C =  [-2, 3, 1, 0;
+        -6, 8, 0, 1;
+         2, 3, 4, 5;
+        0, -2, 0, 0];
+
+  X = continuousLyapunov(A, C);
+
+  results in:
+
+  X = [1.633, -0.761,  0.575, -0.656;
+      -1.158,  1.216,  0.047,  0.343;
+      -1.066, -0.052, -0.916,  1.61;
+      -2.473,  0.717, -0.986,  1.48]
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousSylvester"
+>Matrices.continuousSylvester</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteLyapunov"
+>Matrices.discreteLyapunov</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Square matrix A in X*A + A&#39;*X = C</TD></TR>
+<TR><TD>C[size(A, 1), size(A, 2)]</TD><TD>Square matrix C in X*A + A&#39;*X = C</TD></TR>
+<TR><TD>ATisSchur</TD><TD>True if transpose(A) has already real Schur form</TD></TR>
+<TR><TD>eps</TD><TD>Tolerance eps</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>X[size(A, 1), size(A, 2)]</TD><TD>Solution X of the Lyapunov equation X*A + A&#39;*X = C</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE continuousSylvester<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.continuousSylvester" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.continuousSylvester"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.continuousSylvester</H2>
+<B>Return solution X of the continuous-time Sylvester equation A*X + X*B = C</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>continuousSylvester</b>(A, B, C);
+         X = Matrices.<b>continuousSylvester</b>(A, B, C, AisSchur, BisSchur);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <b>continuousSylvester</b> computes the solution <b>X</b> of the continuous-time Sylvester equation
+</p>
+
+<blockquote><pre>
+ <b>A</b>*<b>X</b> + <b>X</b>*<b>B</b> = <b>C</b>.
+</pre></blockquote>
+
+<p>
+using the Schur method for Sylvester equations proposed by Bartels and Stewart [1].
+</p>
+
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+</p>
+<blockquote><pre>
+ <b>S</b>*<b>Y</b> + <b>Y</b>*<b>T</b> = <b>D</b>.
+</pre></blockquote>
+<p>
+with <b>S</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the real Schur of <b>A</b>,  <b>T</b>=<b>V</b>'*<b>T</b>*<b>V</b> is the real Schur form of <b>B</b> and
+<b>D</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
+are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the block triangular form of <b>S</b> and <b>T</b>.
+Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
+The Boolean inputs "AisSchur" and "BisSchur" indicate to omit one or both of the transformation to Schur in the case that <b>A</b> and/or <b>B</b> have already Schur form.
+</p>
+
+<p>
+The function applies LAPACK-routine DTRSYL. See <A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dtrsyl"
+>LAPACK.dtrsyl</a>
+for more information.
+</p>
+
+<h4>References</h4>
+<pre>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</pre>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [17.0,   24.0,   1.0,   8.0,   15.0 ;
+       23.0,    5.0,   7.0,  14.0,   16.0 ;
+        0.0,    6.0,  13.0,  20.0,   22.0;
+        0.0,    0.0,  19.0,  21.0,    3.0 ;
+        0.0,    0.0,   0.0,   2.0,    9.0];
+
+  B =  [8.0, 1.0, 6.0;
+        0.0, 5.0, 7.0;
+        0.0, 9.0, 2.0];
+
+  C = [62.0,  -12.0, 26.0;
+       59.0,  -10.0, 31.0;
+       70.0,  -6.0,   9.0;
+       35.0,  31.0,  -7.0;
+       36.0, -15.0,   7.0];
+
+  X = continuousSylvester(A, B, C);
+
+  results in:
+
+  X = [0.0,  0.0,  1.0;
+       1.0,  0.0,  0.0;
+       0.0,  1.0,  0.0;
+       1.0,  1.0, -1.0;
+       2.0, -2.0,  1.0];
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteSylvester"
+>Matrices.discreteSylvester</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousLyapunov"
+>Matrices.continuousLyapunov</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Square matrix A</TD></TR>
+<TR><TD>B[:, :]</TD><TD>Square matrix B</TD></TR>
+<TR><TD>C[size(A, 1), size(B, 2)]</TD><TD>Matrix C</TD></TR>
+<TR><TD>AisSchur</TD><TD>True if A has already real Schur form</TD></TR>
+<TR><TD>BisSchur</TD><TD>True if B has already real Schur form</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>X[size(A, 1), size(B, 2)]</TD><TD>Solution of the continuous Sylvester equation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE continuousRiccati<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.continuousRiccati" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.continuousRiccati"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.continuousRiccati</H2>
+<B>Return solution X of the continuous-time algebraic Riccati equation A&#39;*X + X*A - X*B*inv(R)*B&#39;*X + Q = 0 (care)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+                                X = Matrices.<b>continuousRiccati</b>(A, B, R, Q);
+        (X, alphaReal, alphaImag) = Matrices.<b>continuousRiccati</b>(A, B, R, Q, true);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <b>continuousRiccati</b> computes the solution <b>X</b> of the continuous-time algebraic Riccati equation
+</p>
+
+<blockquote><pre>
+ <b>A</b>'*<b>X</b> + <b>X</b>*<b>A</b> - <b>X</b>*<b>G</b>*<b>X</b> + <b>Q</b> = <b>0</b>
+</pre></blockquote>
+
+<p>
+with <code><b>G</b> = <b>B</b>*inv(<b>R</b>)*<b>B</b>'</code>
+using the Schur vector approach proposed by Laub [1].
+</p>
+
+<p>
+It is assumed that <b>Q</b> is symmetric and positive semidefinite and <b>R</b> is symmetric, nonsingular and positive definite,
+(<b>A</b>,<b>B</b>) is stabilizable and (<b>A</b>,<b>Q</b>) is detectable.
+</p>
+
+<p><b>
+These assumptions are not checked in this function !!
+</b><br>
+</p>
+
+<p>
+The assumptions guarantee that the Hamiltonian matrix
+</p>
+
+<blockquote><pre>
+<b>H</b> = [<b>A</b>, -<b>G</b>; -<b>Q</b>, -<b>A</b>']
+</pre></blockquote>
+
+<p>
+has no pure imaginary eigenvalue and can be put
+to an ordered real Schur form
+</p>
+
+<blockquote><pre>
+<b>U</b>'*<b>H</b>*<b>U</b> = <b>S</b> = [<b>S</b>11, <b>S</b>12; <b>0</b>, <b>S</b>22]
+</pre></blockquote>
+
+<p>
+with orthogonal similarity transformation <b>U</b>. <b>S</b> is ordered in such a way,
+that <b>S</b>11 contains the n stable eigenvalues of the closed loop system with system matrix
+<b>A</b> - <b>B</b>*inv(<b>R</b>)*<b>B</b>'*<b>X</b>.
+If <b>U</b> is partitioned to
+</p>
+
+<blockquote><pre>
+<b>U</b> = [<b>U</b>11, <b>U</b>12; <b>U</b>21, <b>U</b>22]
+</pre></blockquote>
+
+<p>
+with dimensions according to <b>S</b>, the solution <b>X</b> is calculated by
+</p>
+
+<blockquote><pre>
+<b>X</b>*<b>U</b>11 = <b>U</b>21.
+</pre></blockquote>
+
+<p>
+With optional input <code>refinement=true</code> a subsequent iterative refinement based on Newton's method with exact line search is applied.
+See <A HREF="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities.continuousRiccatiIterative"
+>continuousRiccatiIterative</a>
+for more information.
+</p>
+
+<h4>References</h4>
+<PRE>
+  [1] Laub, A.J.
+      A Schur Method for Solving Algebraic Riccati equations.
+      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</PRE>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [0.0, 1.0;
+       0.0, 0.0];
+
+  B = [0.0;
+       1.0];
+
+  R = [1];
+
+  Q = [1.0, 0.0;
+       0.0, 2.0];
+
+X = continuousRiccati(A, B, R, Q);
+
+  results in:
+
+X = [2.0, 1.0;
+     1.0, 2.0];
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices_Utilities.html#Modelica.Math.Matrices.Utilities.continuousRiccatiIterative"
+>Matrices.Utilities.continuousRiccatiIterative</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteRiccati"
+>Matrices.discreteRiccati</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Square matrix A in CARE</TD></TR>
+<TR><TD>B[size(A, 1), :]</TD><TD>Matrix B in CARE</TD></TR>
+<TR><TD>R[size(B, 2), size(B, 2)]</TD><TD>Matrix R in CARE</TD></TR>
+<TR><TD>Q[size(A, 1), size(A, 1)]</TD><TD>Matrix Q in CARE</TD></TR>
+<TR><TD>refine</TD><TD>True for subsequent refinement</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>X[size(A, 1), size(A, 2)]</TD><TD>stabilizing solution of CARE</TD></TR>
+<TR><TD>alphaReal[size(H, 1)]</TD><TD>Real parts of eigenvalue=alphaReal+i*alphaImag</TD></TR>
+<TR><TD>alphaImag[size(H, 1)]</TD><TD>Imaginary parts of eigenvalue=alphaReal+i*alphaImag</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE discreteLyapunov<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.discreteLyapunov" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.discreteLyapunov"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.discreteLyapunov</H2>
+<B>Return solution X of the discrete-time Lyapunov equation A&#39;*X*A + sgn*X = C</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>discreteLyapunov</b>(A, C);
+         X = Matrices.<b>discreteLyapunov</b>(A, C, ATisSchur, sgn, eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+This function computes the solution <b>X</b> of the discrete-time Lyapunov equation
+</p>
+
+<blockquote><pre>
+ <b>A</b>'*<b>X</b>*<b>A</b> + sgn*<b>X</b> = <b>C</b>
+</pre></blockquote>
+
+<p>
+where sgn=1 or sgn =-1. For sgn = -1, the discrete Lyapunov equation is a special case of the Stein equation:
+</p>
+
+<blockquote><pre>
+ <b>A</b>*<b>X</b>*<b>B</b> - <b>X</b> + <b>Q</b> = <b>0</b>.
+</pre></blockquote>
+
+<p>
+The algorithm uses the Schur method for Lyapunov equations proposed by Bartels and Stewart [1].
+</p>
+
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+</p>
+
+<blockquote><pre>
+ <b>R</b>*<b>Y</b>*<b>R</b>' + sgn*<b>Y</b> = <b>D</b>.
+</pre></blockquote>
+
+<p>
+with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
+are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the block triangular form of <b>R</b>.
+Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
+The Boolean input "ATisSchur" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
+</p>
+
+<h4>References</h4>
+<PRE>
+  [1] Bartels, R.H. and Stewart G.W.
+      Algorithm 432: Solution of the matrix equation AX + XB = C.
+      Comm. ACM., Vol. 15, pp. 820-826, 1972.
+</PRE>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3,  4;
+       3, 4,  5, -2;
+      -1, 2, -3, -5;
+       0, 2,  0,  6];
+
+  C =  [-2,  3, 1, 0;
+        -6,  8, 0, 1;
+         2,  3, 4, 5;
+         0, -2, 0, 0];
+
+  X = discreteLyapunov(A, C, sgn=-1);
+
+  results in:
+
+  X  = [7.5735,   -3.1426,  2.7205, -2.5958;
+       -2.6105,    1.2384, -0.9232,  0.9632;
+        6.6090,   -2.6775,  2.6415, -2.6928;
+       -0.3572,    0.2298,  0.0533, -0.27410];
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteSylvester"
+>Matrices.discreteSylvester</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousLyapunov"
+>Matrices.continuousLyapunov</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Square matrix A in A&#39;*X*A + sgn*X = C</TD></TR>
+<TR><TD>C[size(A, 1), size(A, 2)]</TD><TD>Square matrix C in A&#39;*X*A + sgn*X = C</TD></TR>
+<TR><TD>ATisSchur</TD><TD>True if transpose(A) has already real Schur form</TD></TR>
+<TR><TD>sgn</TD><TD>Specifies the sign in A&#39;*X*A + sgn*X = C</TD></TR>
+<TR><TD>eps</TD><TD>Tolerance eps</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>X[size(A, 1), size(A, 2)]</TD><TD>Solution X of the Lyapunov equation A&#39;*X*A + sgn*X = C</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE discreteSylvester<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.discreteSylvester" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.discreteSylvester"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.discreteSylvester</H2>
+<B>Return solution of the discrete-time Sylvester equation A*X*B + sgn*X = C</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+         X = Matrices.<b>discreteSylvester</b>(A, B, C);
+         X = Matrices.<b>discreteSylvester</b>(A, B, C, AisHess, BTisSchur, sgn, eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <b>discreteSylvester</b> computes the solution <b>X</b> of the discrete-time Sylvester equation
+</p>
+
+<blockquote><pre>
+ <b>A</b>*<b>X</b>*<b>B</b> + sgn*<b>X</b> = <b>C</b>.
+
+</pre></blockquote>
+
+<p>
+where sgn = 1 or sgn = -1. The algorithm applies the Hessenberg-Schur method proposed by Golub et al [1].
+For sgn = -1, the discrete Sylvester equation is also known as Stein equation:
+</p>
+
+<blockquote><pre>
+ <b>A</b>*<b>X</b>*<b>B</b> - <b>X</b> + <b>Q</b> = <b>0</b>.
+</pre></blockquote>
+
+<p>
+In a nutshell, the problem is reduced to the corresponding problem
+</p>
+<blockquote><pre>
+ <b>H</b>*<b>Y</b>*<b>S</b>' + sgn*<b>Y</b> = <b>F</b>.
+</pre></blockquote>
+
+<p>
+with <b>H</b>=<b>U</b>'*<b>A</b>*<b>U</b> is the Hessenberg form of <b>A</b> and <b>S</b>=<b>V</b>'*<b>B</b>'*<b>V</b> is the real Schur form of <b>B</b>',
+<b>F</b>=<b>U</b>'*<b>C</b>*<b>V</b> and <b>Y</b>=<b>U</b>*<b>X</b>*<b>V</b>'
+are appropriate transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the specific forms of <b>S</b> and <b>H</b>.
+Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>'*<b>Y</b>*<b>V</b>.<br>
+The Boolean inputs "AisHess" and "BTisSchur" indicate to omit one or both of the transformation to Hessenberg form or Schur form respectively in the case that <b>A</b> and/or <b>B</b> have already Hessenberg form or Schur respectively.
+</p>
+
+<h4>References</h4>
+<PRE>
+  [1] Golub, G.H., Nash, S. and Van Loan, C.F.
+      A Hessenberg-Schur method for the problem AX + XB = C.
+      IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
+
+</PRE>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1.0,   2.0,   3.0;
+       6.0,   7.0,   8.0;
+       9.0,   2.0,   3.0];
+
+  B = [7.0,   2.0,   3.0;
+       2.0,   1.0,   2.0;
+       3.0,   4.0,   1.0];
+
+  C = [271.0,   135.0,   147.0;
+       923.0,   494.0,   482.0;
+       578.0,   383.0,   287.0];
+
+  X = discreteSylvester(A, B, C);
+
+  results in:
+  X = [2.0,   3.0,   6.0;
+       4.0,   7.0,   1.0;
+       5.0,   3.0,   2.0];
+
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousSylvester"
+>Matrices.continuousSylvester</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.discreteLyapunov"
+>Matrices.discreteLyapunov</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Square matrix A in A*X*B + sgn*X = C</TD></TR>
+<TR><TD>B[:, size(B, 1)]</TD><TD>Square matrix B in A*X*B + sgn*X = C</TD></TR>
+<TR><TD>C[size(A, 2), size(B, 1)]</TD><TD>Rectangular matrix C in A*X*B + sgn*X = C</TD></TR>
+<TR><TD>AisHess</TD><TD>True if A has already Hessenberg form</TD></TR>
+<TR><TD>BTisSchur</TD><TD>True if B&#39; has already real Schur form</TD></TR>
+<TR><TD>sgn</TD><TD>Specifies the sign in A*X*B + sgn*X = C</TD></TR>
+<TR><TD>eps</TD><TD>Tolerance</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>X[size(A, 2), size(B, 1)]</TD><TD>solution of the discrete Sylvester equation A*X*B + sgn*X = C</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE discreteRiccati<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.discreteRiccati" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.discreteRiccati"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.discreteRiccati</H2>
+<B>Return solution of discrete-time algebraic Riccati equation A&#39;*X*A - X - A&#39;*X*B*inv(R + B&#39;*X*B)*B&#39;*X*A + Q = 0 (dare)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+                                 X = Matrices.<b>discreteRiccati</b>(A, B, R, Q);
+         (X, alphaReal, alphaImag) = Matrices.<b>discreteRiccati</b>(A, B, R, Q, true);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Function <b>discreteRiccati</b> computes the solution <b>X</b> of the discrete-time algebraic Riccati equation
+</p>
+
+<blockquote><pre>
+ <b>A</b>'*<b>X</b>*<b>A</b> - <b>X</b> - <b>A</b>'*<b>X</b>*<b>B</b>*inv(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)*<b>B</b>'*<b>X</b>*<b>A</b> + <b>Q</b> = <b>0</b>
+</pre></blockquote>
+
+<p>
+using the Schur vector approach proposed by Laub [1].
+</p>
+
+<p>
+It is assumed that <b>Q</b> is symmetric and positive semidefinite and <b>R</b> is symmetric, nonsingular and positive definite,
+(<b>A</b>,<b>B</b>) is stabilizable and (<b>A</b>,<b>Q</b>) is detectable. Using this method, <b>A</b> has also to be invertible.
+</p>
+
+<p>
+<b>These assumptions are not checked in this function !!!</b>
+</p>
+
+<p>
+The assumptions guarantee that the Hamiltonian matrix.
+</p>
+<blockquote><pre>
+<b>H</b> = [<b>A</b> + <b>G</b>*<b>T</b>*<b>Q</b>, -<b>G</b>*<b>T</b>; -<b>T</b>*<b>Q</b>, <b>T</b>]
+</pre></blockquote>
+<p>
+with
+</p>
+<blockquote><pre>
+     -T
+<b>T</b> = <b>A</b>
+</pre></blockquote>
+
+<p>
+and
+</p>
+
+<blockquote><pre>
+       -1
+<b>G</b> = <b>B</b>*<b>R</b> *<b>B</b>'
+</pre></blockquote>
+
+<p>
+has no eigenvalue on the unit circle and can be put
+to an ordered real Schur form
+</p>
+
+<blockquote><pre>
+<b>U</b>'*<b>H</b>*<b>U</b> = <b>S</b> = [<b>S11</b>, <b>S12</b>; <b>0</b>, <b>S22</b>]
+</pre></blockquote>
+
+<p>
+with orthogonal similarity transformation <b>U</b>. <b>S</b> is ordered in such a way,
+that <b>S11</b> contains the n stable eigenvalues of the closed loop system with system matrix
+</p>
+
+<blockquote><pre>
+                  -1
+<b>A</b> - <b>B</b>*(<b>R</b> + <b>B</b>'*<b>X</b>*<b>B</b>)  *<b>B</b>'*<b>X</b>*<b>A</b>
+</pre></blockquote>
+
+<p>
+If <b>U</b> is partitioned to
+</p>
+
+<blockquote><pre>
+<b>U</b> = [<b>U11</b>, <b>U12</b>; <b>U21</b>, <b>U22</b>]
+</pre></blockquote>
+
+<p>
+according to <b>S</b>, the solution <b>X</b> can be calculated by
+</p>
+
+<blockquote><pre>
+<b>X</b>*<b>U11</b> = <b>U21</b>.
+</pre></blockquote>
+
+<h4>References</h4>
+<PRE>
+  [1] Laub, A.J.
+      A Schur Method for Solving Algebraic Riccati equations.
+      IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
+</PRE>
+
+<h4>Example</h4>
+<blockquote><pre>
+ A  = [4.0    3.0]
+      -4.5,  -3.5];
+
+ B  = [ 1.0;
+       -1.0];
+
+ R = [1.0];
+
+ Q = [9.0, 6.0;
+      6.0, 4.0]
+
+X = discreteRiccati(A, B, R, Q);
+
+  results in:
+
+X = [14.5623, 9.7082;
+      9.7082, 6.4721];
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.continuousRiccati"
+>Matrices.continuousRiccati</a>
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, size(A, 1)]</TD><TD>Square matrix A in DARE</TD></TR>
+<TR><TD>B[size(A, 1), :]</TD><TD>Matrix B in DARE</TD></TR>
+<TR><TD>R[size(B, 2), size(B, 2)]</TD><TD>Matrix R in DARE</TD></TR>
+<TR><TD>Q[size(A, 1), size(A, 1)]</TD><TD>Matrix Q in DARE</TD></TR>
+<TR><TD>refine</TD><TD>True for subsequent refinement</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>X[size(A, 1), size(A, 2)]</TD><TD>orthogonal matrix of the Schur vectors associated to ordered rsf</TD></TR>
+<TR><TD>alphaReal[size(H, 1)]</TD><TD>Real part of eigenvalue=alphaReal+i*alphaImag</TD></TR>
+<TR><TD>alphaImag[size(H, 1)]</TD><TD>Imaginary part of eigenvalue=alphaReal+i*alphaImag</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.sort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.sort"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.sort</H2>
+<B>Sort the rows or columns of a matrix in ascending or descending order</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+           sorted_M = Matrices.<b>sort</b>(M);
+(sorted_M, indices) = Matrices.<b>sort</b>(M, sortRows=true, ascending=true);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <b>sort</b>(..) sorts the rows of a Real matrix M
+in ascending order and returns the result in sorted_M.
+If the optional argument "sortRows" is <b>false</b>, the columns
+of the matrix are sorted.
+If the optional argument "ascending" is <b>false</b>, the rows or
+columns are sorted in descending order. In the optional second
+output argument, the indices of the sorted rows or columns with respect
+to the original matrix are given, such that
+</p>
+
+<pre>
+   sorted_M = <b>if</b> sortedRow <b>then</b> M[indices,:] <b>else</b> M[:,indices];
+</pre>
+
+<h4>Example</h4>
+<blockquote><pre>
+  (M2, i2) := Matrices.sort([2, 1,  0;
+                             2, 0, -1]);
+       -> M2 = [2, 0, -1;
+                2, 1, 0 ];
+          i2 = {2,1};
+</pre></blockquote>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>M[:, :]</TD><TD>Matrix to be sorted</TD></TR>
+<TR><TD>sortRows</TD><TD>= true if rows are sorted, otherwise columns</TD></TR>
+<TR><TD>ascending</TD><TD>= true if ascending order, otherwise descending order</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>sorted_M[size(M, 1), size(M, 2)]</TD><TD>Sorted matrix</TD></TR>
+<TR><TD>indices[if sortRows then size(M, 1) else size(M, 2)]</TD><TD>sorted_M = if sortRows then M[indices,:] else M[:,indices]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE flipLeftRight<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.flipLeftRight" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.flipLeftRight"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.flipLeftRight</H2>
+<B>Flip the columns of a matrix in left/right direction</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+ <h4>Syntax</h4>
+<blockquote><pre>
+         A_flr = Matrices.<b>flipLeftRight</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b> with flipped columns, i.e., <b>A_flr</b>[:,i]=<b>A</b>[:,n-i+1], i=1,..., n.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3;
+       3, 4,  5;
+      -1, 2, -3];
+
+  A_flr = flipLeftRight(A);
+
+  results in:
+
+  A_flr = [3, 2,  1;
+           5, 4,  3;
+          -3, 2, -1]
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.flipUpDown"
+>Matrices.flipUpDown</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Matrix to be flipped</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Aflip[size(A, 1), size(A, 2)]</TD><TD>Flipped matrix</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE flipUpDown<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.toStringI.png" ALT="Modelica.Math.Matrices.flipUpDown" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.flipUpDown"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.flipUpDown</H2>
+<B>Flip the rows of a matrix in up/down direction</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+         A_fud = Matrices.<b>flipUpDown</b>(A);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> with flipped rows, i.e., <b>A_fud</b>[i,:]=<b>A</b>[n-i+1,:], i=1,..., n.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  A = [1, 2,  3;
+       3, 4,  5;
+      -1, 2, -3];
+
+  A_fud = flipUpDown(A);
+
+  results in:
+
+  A_fud  = [-1, 2, -3;
+             3, 4,  5;
+             1, 2,  3]
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.flipLeftRight"
+>Matrices.flipLeftRight</a>
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>A[:, :]</TD><TD>Matrix to be flipped</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Aflip[size(A, 1), size(A, 2)]</TD><TD>Flipped matrix</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:10 2013.
+</address></BODY>
+</HTML>

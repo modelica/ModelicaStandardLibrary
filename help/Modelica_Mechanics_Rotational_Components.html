@@ -1,0 +1,1583 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.Rotational.Components</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Components for 1D rotational mechanical drive trains&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Components<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.Rotational.Components"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</A>.Components</H2>
+<B>Components for 1D rotational mechanical drive trains</B>
+<P></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains basic components 1D mechanical rotational drive trains.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati9605649e0123b098FixedS.png" ALT="Modelica.Mechanics.Rotational.Components.Fixed" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Fixed"
+>Fixed</A>
+</TD><TD>Flange fixed in housing at a given angle</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati6b70ffe04107ad46ertiaS.png" ALT="Modelica.Mechanics.Rotational.Components.Inertia" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Inertia"
+>Inertia</A>
+</TD><TD>1D-rotational component with inertia</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati917ce3f7e0081ce7.DiscS.png" ALT="Modelica.Mechanics.Rotational.Components.Disc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Disc"
+>Disc</A>
+</TD><TD>1-dim. rotational rigid component without inertia, where right flange is rotated by a fixed angle with respect to left flange</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati048d8def0fe32a27pringS.png" ALT="Modelica.Mechanics.Rotational.Components.Spring" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Spring"
+>Spring</A>
+</TD><TD>Linear 1D rotational spring</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati3fd5c01b20fccf52amperS.png" ALT="Modelica.Mechanics.Rotational.Components.Damper" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Damper"
+>Damper</A>
+</TD><TD>Linear 1D rotational damper</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotatid1a9b6e44ddfb25bamperS.png" ALT="Modelica.Mechanics.Rotational.Components.SpringDamper" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.SpringDamper"
+>SpringDamper</A>
+</TD><TD>Linear 1D rotational spring and damper in parallel</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotaticc93a73baa86e722klashS.png" ALT="Modelica.Mechanics.Rotational.Components.ElastoBacklash" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.ElastoBacklash"
+>ElastoBacklash</A>
+</TD><TD>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati581a659e1bd20935ctionS.png" ALT="Modelica.Mechanics.Rotational.Components.BearingFriction" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.BearingFriction"
+>BearingFriction</A>
+</TD><TD>Coulomb friction in bearings</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati50fd4311016e5559BrakeS.png" ALT="Modelica.Mechanics.Rotational.Components.Brake" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Brake"
+>Brake</A>
+</TD><TD>Brake based on Coulomb friction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati067bc20f2e20df88lutchS.png" ALT="Modelica.Mechanics.Rotational.Components.Clutch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Clutch"
+>Clutch</A>
+</TD><TD>Clutch based on Coulomb friction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati6ecb54f4cd797cfelutchS.png" ALT="Modelica.Mechanics.Rotational.Components.OneWayClutch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.OneWayClutch"
+>OneWayClutch</A>
+</TD><TD>Series connection of freewheel and clutch</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati6b3358ea31220506lGearS.png" ALT="Modelica.Mechanics.Rotational.Components.IdealGear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.IdealGear"
+>IdealGear</A>
+</TD><TD>Ideal gear without inertia</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati4d0a80579472005byGearS.png" ALT="Modelica.Mechanics.Rotational.Components.LossyGear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.LossyGear"
+>LossyGear</A>
+</TD><TD>Gear with mesh efficiency and bearing friction (stuck/rolling possible)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotatiada5bdb13221d97betaryS.png" ALT="Modelica.Mechanics.Rotational.Components.IdealPlanetary" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.IdealPlanetary"
+>IdealPlanetary</A>
+</TD><TD>Ideal planetary gear box</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotatie4299466d747f59carboxS.png" ALT="Modelica.Mechanics.Rotational.Components.Gearbox" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Gearbox"
+>Gearbox</A>
+</TD><TD>Realistic model of a gearbox (based on LossyGear)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati28feca7a02825885arR2TS.png" ALT="Modelica.Mechanics.Rotational.Components.IdealGearR2T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.IdealGearR2T"
+>IdealGearR2T</A>
+</TD><TD>Gearbox transforming rotational into translational motion</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati3371c9b563e9238eWheelS.png" ALT="Modelica.Mechanics.Rotational.Components.IdealRollingWheel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.IdealRollingWheel"
+>IdealRollingWheel</A>
+</TD><TD>Simple 1-dim. model of an ideal rolling wheel without inertia</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotatib9ebf5b371f83675langeS.png" ALT="Modelica.Mechanics.Rotational.Components.InitializeFlange" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.InitializeFlange"
+>InitializeFlange</A>
+</TD><TD>Initializes a flange with pre-defined angle, speed and angular acceleration (usually, this is reference data from a control bus)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati075208a85db83676tatesS.png" ALT="Modelica.Mechanics.Rotational.Components.RelativeStates" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.RelativeStates"
+>RelativeStates</A>
+</TD><TD>Definition of relative state variables</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati0ee2df115beb0344aptorS.png" ALT="Modelica.Mechanics.Rotational.Components.TorqueToAngleAdaptor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.TorqueToAngleAdaptor"
+>TorqueToAngleAdaptor</A>
+</TD><TD>Signal adaptor for a Rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Rotati02358ac37a24567baptorS.png" ALT="Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor"
+>AngleToTorqueAdaptor</A>
+</TD><TD>Signal adaptor for a Rotational flange with torque as output and angle, speed, and optionally acceleration as inputs (especially useful for FMUs)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Fixed<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati9605649e0123b098FixedI.png" ALT="Modelica.Mechanics.Rotational.Components.Fixed" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.Fixed"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.Fixed</H2>
+<B>Flange fixed in housing at a given angle</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The <b>flange</b> of a 1D rotational mechanical system is <b>fixed</b>
+at an angle phi0 in the <b>housing</b>. May be used:
+</p>
+<ul>
+<li> to connect a compliant element, such as a spring or a damper,
+     between an inertia or gearbox component and the housing.
+<li> to fix a rigid element, such as an inertia, with a specific
+     angle to the housing.
+</ul>
+
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>phi0</TD><TD>Fixed offset angle of housing [rad]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>(right) flange fixed in housing</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Inertia<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati6b70ffe04107ad46ertiaI.png" ALT="Modelica.Mechanics.Rotational.Components.Inertia" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.Inertia"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.Inertia</H2>
+<B>1D-rotational component with inertia</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Rotational component with <b>inertia</b> and two rigidly connected flanges.
+</p>
+
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>J</TD><TD>Moment of inertia [kg.m2]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phi</TD><TD>Absolute rotation angle of component [rad]</TD></TR>
+<TR><TD>w</TD><TD>Absolute angular velocity of component (= der(phi)) [rad/s]</TD></TR>
+<TR><TD>a</TD><TD>Absolute angular acceleration of component (= der(w)) [rad/s2]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>stateSelect</TD><TD>Priority to use phi and w as states</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Left flange of shaft</TD></TR>
+<TR><TD>flange_b</TD><TD>Right flange of shaft</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Disc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati917ce3f7e0081ce7.DiscI.png" ALT="Modelica.Mechanics.Rotational.Components.Disc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.Disc"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.Disc</H2>
+<B>1-dim. rotational rigid component without inertia, where right flange is rotated by a fixed angle with respect to left flange</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Rotational component with two rigidly connected flanges without <b>inertia</b>.
+The right flange is rotated by the fixed angle "deltaPhi" with respect to the left
+flange.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
+>Rotational.Interfaces.PartialTwoFlanges</A> (Partial model for a component with two rotational 1-dim. shaft flanges).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>deltaPhi</TD><TD>Fixed rotation of left flange with respect to right flange (= flange_b.phi - flange_a.phi) [rad]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Spring<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati048d8def0fe32a27pringI.png" ALT="Modelica.Mechanics.Rotational.Components.Spring" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.Spring"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.Spring</H2>
+<B>Linear 1D rotational spring</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+A <b>linear 1D rotational spring</b>. The component can be connected either
+between two inertias/gears to describe the shaft elasticity, or between
+a inertia/gear and the housing (component Fixed), to describe
+a coupling of the element with the housing via a spring.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliant"
+>Modelica.Mechanics.Rotational.Interfaces.PartialCompliant</A> (Partial model for the compliant connection of two rotational 1-dim. shaft flanges).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>c</TD><TD>Spring constant [N.m/rad]</TD></TR>
+<TR><TD>phi_rel0</TD><TD>Unstretched spring angle [rad]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phi_rel</TD><TD>Relative rotation angle (= flange_b.phi - flange_a.phi) [rad]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Left flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>flange_b</TD><TD>Right flange of compliant 1-dim. rotational component</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Damper<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati3fd5c01b20fccf52amperI.png" ALT="Modelica.Mechanics.Rotational.Components.Damper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.Damper"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.Damper</H2>
+<B>Linear 1D rotational damper</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+<b>Linear, velocity dependent damper</b> element. It can be either connected
+between an inertia or gear and the housing (component Fixed), or
+between two inertia/gear elements.
+</p>
+
+<p>
+See also the discussion
+<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.StateSelection"
+>State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates"
+>Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates</A> (Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>d</TD><TD>Damping constant [N.m.s/rad]</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phi_rel</TD><TD>Relative rotation angle (= flange_b.phi - flange_a.phi) [rad]</TD></TR>
+<TR><TD>w_rel</TD><TD>Relative angular velocity (= der(phi_rel)) [rad/s]</TD></TR>
+<TR><TD>a_rel</TD><TD>Relative angular acceleration (= der(w_rel)) [rad/s2]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>phi_nominal</TD><TD>Nominal value of phi_rel (used for scaling) [rad]</TD></TR>
+<TR><TD>stateSelect</TD><TD>Priority to use phi_rel and w_rel as states</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Left flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>flange_b</TD><TD>Right flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpringDamper<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotatid1a9b6e44ddfb25bamperI.png" ALT="Modelica.Mechanics.Rotational.Components.SpringDamper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.SpringDamper"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.SpringDamper</H2>
+<B>Linear 1D rotational spring and damper in parallel</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+A <b>spring</b> and <b>damper</b> element <b>connected in parallel</b>.
+The component can be
+connected either between two inertias/gears to describe the shaft elasticity
+and damping, or between an inertia/gear and the housing (component Fixed),
+to describe a coupling of the element with the housing via a spring/damper.
+</p>
+
+<p>
+See also the discussion
+<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.StateSelection"
+>State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates"
+>Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates</A> (Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>c</TD><TD>Spring constant [N.m/rad]</TD></TR>
+<TR><TD>d</TD><TD>Damping constant [N.m.s/rad]</TD></TR>
+<TR><TD>phi_rel0</TD><TD>Unstretched spring angle [rad]</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phi_rel</TD><TD>Relative rotation angle (= flange_b.phi - flange_a.phi) [rad]</TD></TR>
+<TR><TD>w_rel</TD><TD>Relative angular velocity (= der(phi_rel)) [rad/s]</TD></TR>
+<TR><TD>a_rel</TD><TD>Relative angular acceleration (= der(w_rel)) [rad/s2]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>phi_nominal</TD><TD>Nominal value of phi_rel (used for scaling) [rad]</TD></TR>
+<TR><TD>stateSelect</TD><TD>Priority to use phi_rel and w_rel as states</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Left flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>flange_b</TD><TD>Right flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ElastoBacklash<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotaticc93a73baa86e722klashI.png" ALT="Modelica.Mechanics.Rotational.Components.ElastoBacklash" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.ElastoBacklash"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.ElastoBacklash</H2>
+<B>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This element consists of a <b>backlash</b> element <b>connected in series</b>
+to a <b>spring</b> and <b>damper</b> element which are <b>connected in parallel</b>.
+The spring constant shall be non-zero, otherwise the component cannot be used.
+</p>
+
+<p>
+In combination with components IdealGear, the ElastoBacklash model
+can be used to model a gear box with backlash, elasticity and damping.
+</p>
+
+<p>
+During initialization, the backlash characteristic is replaced by a continuous
+approximation in the backlash region, in order to reduce problems during
+initialization, especially for inverse models.
+</p>
+
+<p>
+If the backlash b is smaller as 1e-10 rad (especially, if b=0),
+then the backlash is ignored and the component reduces to a spring/damper
+element in parallel.
+</p>
+
+<p>
+In the backlash region (-b/2 &le; flange_b.phi - flange_a.phi - phi_rel0 &le; b/2) no torque
+is exerted (flange_b.tau = 0). Outside of this region, contact is present and
+the contact torque is basically computed with a linear
+spring/damper characteristic:
+</p>
+
+<pre>
+   desiredContactTorque = c*phi_contact + d*<b>der</b>(phi_contact)
+
+            phi_contact = phi_rel - phi_rel0 - b/2 <b>if</b> phi_rel - phi_rel0 &gt;  b/2
+                        = phi_rel - phi_rel0 + b/2 <b>if</b> phi_rel - phi_rel0 &lt; -b/2
+
+            phi_rel     = flange_b.phi - flange_a.phi;
+</pre>
+
+<p>
+This torque characteristic leads to the following difficulties:
+</p>
+
+<ol>
+<li> If the damper torque becomes larger as the spring torque and with opposite sign,
+     the contact torque would be "pulling/sticking" which is unphysical, since during
+     contact only pushing torques can occur.</li>
+
+<li> When contact occurs with a non-zero relative speed (which is the usual
+     situation), the damping torque has a non-zero value and therefore the contact
+     torque changes discontinuously at phi_rel = phi_rel0. Again, this is not physical
+     because the torque can only change continuously. (Note, this component is not an
+     idealized model where a steep characteristic is approximated by a discontinuity,
+     but it shall model the steep characteristic.)</li>
+</ol>
+
+<p>
+In the literature there are several proposals to fix problem (2). However, there
+seems to be no proposal to avoid sticking. For this reason, the most simple
+approach is used in the ElastoBacklash model, to fix both problems by slight changes
+to the linear spring/damper characteristic:
+</p>
+
+<pre>
+    // Torque characteristic when phi_rel > phi_rel0
+    <b>if</b> phi_rel - phi_rel0 &lt; b/2 <b>then</b>
+       tau_c = 0;          // spring torque
+       tau_d = 0;          // damper torque
+       flange_b.tau = 0;
+    <b>else</b>
+       tau_c = c*(phi_rel - phi_rel0);    // spring torque
+       tau_d = d*<b>der</b>(phi_rel);            // damper torque
+       flange_b.tau = <b>if</b> tau_c + tau_d &le; 0 <b>then</b> 0 <b>else</b> tau_c + <b>min</b>( tau_c, tau_d );
+    <b>end if</b>;
+</pre>
+
+<p>
+Note, when sticking would occur (tau_c + tau_d &le; 0), then the contact torque
+is explicitly set to zero. The "min(tau_c, tau_d)" part in the if-expression,
+limits the damping torque when it is pushing. This means that at the start of
+the contact (phi_rel - phi_rel0 = b/2), the damping torque is zero and is continuous.
+The effect of both modifications is that the absolute value of the damping torque
+is always limited by the absolute value of the spring torque: |tau_d| &le; |tau_c|.
+</p>
+
+<p>
+In the next figure, a typical simulation with the ElastoBacklash model is shown
+(<A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.Backlash"
+>Examples.Backlash</a>)
+where the different effects are visualized:
+</p>
+
+<ol>
+<li> Curve 1 (elastoBacklash1.tau) is the unmodified contact torque, i.e., the linear spring/damper
+     characteristic. A pulling/sticking torque is present at the end of the contact.</li>
+<li> Curve 2 (elastoBacklash2.tau) is the contact torque, where the torque is explicitly set to
+     zero when pulling/sticking occurs. The contact torque is discontinuous at begin of
+     contact.</li>
+<li> Curve 3 (elastoBacklash3.tau) is the ElastoBacklash model of this library. No discontinuity and no
+     pulling/sticking occurs.</li>
+</ol>
+
+<p>
+<img src="../Resources/Images/Mechanics/Rotational/elastoBacklash1.png">
+</p>
+
+<p>
+See also the discussion
+<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.StateSelection"
+>State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates"
+>Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates</A> (Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>c</TD><TD>Spring constant (c &gt; 0 required) [N.m/rad]</TD></TR>
+<TR><TD>d</TD><TD>Damping constant [N.m.s/rad]</TD></TR>
+<TR><TD>b</TD><TD>Total backlash [rad]</TD></TR>
+<TR><TD>phi_rel0</TD><TD>Unstretched spring angle [rad]</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phi_rel</TD><TD>Relative rotation angle (= flange_b.phi - flange_a.phi) [rad]</TD></TR>
+<TR><TD>w_rel</TD><TD>Relative angular velocity (= der(phi_rel)) [rad/s]</TD></TR>
+<TR><TD>a_rel</TD><TD>Relative angular acceleration (= der(w_rel)) [rad/s2]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>phi_nominal</TD><TD>Nominal value of phi_rel (used for scaling) [rad]</TD></TR>
+<TR><TD>stateSelect</TD><TD>Priority to use phi_rel and w_rel as states</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Left flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>flange_b</TD><TD>Right flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BearingFriction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati581a659e1bd20935ctionI.png" ALT="Modelica.Mechanics.Rotational.Components.BearingFriction" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.BearingFriction"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.BearingFriction</H2>
+<B>Coulomb friction in bearings</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This element describes <b>Coulomb friction</b> in <b>bearings</b>,
+i.e., a frictional torque acting between a flange and the housing.
+The positive sliding friction torque "tau" has to be defined
+by table "tau_pos" as function of the absolute angular velocity "w".
+E.g.
+</p>
+<pre>
+       w | tau
+      ---+-----
+       0 |   0
+       1 |   2
+       2 |   5
+       3 |   8
+</pre>
+<p>
+gives the following table:
+</p>
+<pre>
+   tau_pos = [0, 0; 1, 2; 2, 5; 3, 8];
+</pre>
+<p>
+Currently, only linear interpolation in the table is supported.
+Outside of the table, extrapolation through the last
+two table entries is used. It is assumed that the negative
+sliding friction force has the same characteristic with negative
+values. Friction is modelled in the following way:
+</p>
+<p>
+When the absolute angular velocity "w" is not zero, the friction torque
+is a function of w and of a constant normal force. This dependency
+is defined via table tau_pos and can be determined by measurements,
+e.g., by driving the gear with constant velocity and measuring the
+needed motor torque (= friction torque).
+</p>
+<p>
+When the absolute angular velocity becomes zero, the elements
+connected by the friction element become stuck, i.e., the absolute
+angle remains constant. In this phase the friction torque is
+calculated from a torque balance due to the requirement, that
+the absolute acceleration shall be zero.  The elements begin
+to slide when the friction torque exceeds a threshold value,
+called the maximum static friction torque, computed via:
+</p>
+<pre>
+   maximum_static_friction = <b>peak</b> * sliding_friction(w=0)  (<b>peak</b> >= 1)
+</pre>
+<p>
+This procedure is implemented in a "clean" way by state events and
+leads to continuous/discrete systems of equations if friction elements
+are dynamically coupled which have to be solved by appropriate
+numerical methods. The method is described in:
+</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dd><b>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+</dl>
+<p>
+More precise friction models take into account the elasticity of the
+material when the two elements are "stuck", as well as other effects,
+like hysteresis. This has the advantage that the friction element can
+be completely described by a differential equation without events. The
+drawback is that the system becomes stiff (about 10-20 times slower
+simulation) and that more material constants have to be supplied which
+requires more sophisticated identification. For more details, see the
+following references, especially (Armstrong and Canudas de Witt 1996):
+</p>
+<dl>
+<dt>Armstrong B. (1991):</dt>
+<dd><b>Control of Machines with Friction</b>. Kluwer Academic
+    Press, Boston MA.<br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
+<dd><b>Friction Modeling and Compensation.</b>
+    The Control Handbook, edited by W.S.Levine, CRC Press,
+    pp. 1369-1382.<br></dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
+<dd><b>A new model for control of systems with friction.</b>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.</dd>
+</dl>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2</A> (Partial model for a component with two rotational 1-dim. shaft flanges and a support used for textual modeling, i.e., for elementary models), <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialFriction"
+>Rotational.Interfaces.PartialFriction</A> (Partial model of Coulomb friction elements), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useSupport</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>tau_pos[:, 2]</TD><TD>[w,tau] Positive sliding friction characteristic (w&gt;=0)</TD></TR>
+<TR><TD>peak</TD><TD>peak*tau_pos[1,2] = Maximum friction torque for w==0</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>startForward</TD><TD>true, if w_rel=0 and start of forward sliding</TD></TR>
+<TR><TD>startBackward</TD><TD>true, if w_rel=0 and start of backward sliding</TD></TR>
+<TR><TD>locked</TD><TD>true, if w_rel=0 and not sliding</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>w_small</TD><TD>Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur) [rad/s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+<TR><TD>support</TD><TD>Support/housing of component</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Brake<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati50fd4311016e5559BrakeI.png" ALT="Modelica.Mechanics.Rotational.Components.Brake" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.Brake"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.Brake</H2>
+<B>Brake based on Coulomb friction</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This component models a <b>brake</b>, i.e., a component where a frictional
+torque is acting between the housing and a flange and a controlled normal
+force presses the flange to the housing in order to increase friction.
+The normal force fn has to be provided as input signal f_normalized in a normalized form
+(0 &le; f_normalized &le; 1),
+fn = fn_max*f_normalized, where fn_max has to be provided as parameter.
+Friction in the brake is modelled in the following way:
+</p>
+<p>
+When the absolute angular velocity "w" is not zero, the friction torque
+is a function of the velocity dependent friction coefficient  mue(w) , of
+the normal force "fn", and of a geometry constant "cgeo" which takes into
+account the geometry of the device and the assumptions on the friction
+distributions:
+</p>
+<pre>
+        frictional_torque = <b>cgeo</b> * <b>mue</b>(w) * <b>fn</b>
+</pre>
+<p>
+   Typical values of coefficients of friction:
+</p>
+<pre>
+      dry operation   :  <b>mue</b> = 0.2 .. 0.4
+      operating in oil:  <b>mue</b> = 0.05 .. 0.1
+</pre>
+<p>
+   When plates are pressed together, where  <b>ri</b>  is the inner radius,
+   <b>ro</b> is the outer radius and <b>N</b> is the number of friction interfaces,
+   the geometry constant is calculated in the following way under the
+   assumption of a uniform rate of wear at the interfaces:
+</p>
+<pre>
+         <b>cgeo</b> = <b>N</b>*(<b>r0</b> + <b>ri</b>)/2
+</pre>
+<p>
+    The positive part of the friction characteristic <b>mue</b>(w),
+    w >= 0, is defined via table mue_pos (first column = w,
+    second column = mue). Currently, only linear interpolation in
+    the table is supported.
+</p>
+<p>
+   When the absolute angular velocity becomes zero, the elements
+   connected by the friction element become stuck, i.e., the absolute
+   angle remains constant. In this phase the friction torque is
+   calculated from a torque balance due to the requirement, that
+   the absolute acceleration shall be zero.  The elements begin
+   to slide when the friction torque exceeds a threshold value,
+   called the  maximum static friction torque, computed via:
+</p>
+<pre>
+       frictional_torque = <b>peak</b> * <b>cgeo</b> * <b>mue</b>(w=0) * <b>fn</b>   (<b>peak</b> >= 1)
+</pre>
+<p>
+This procedure is implemented in a "clean" way by state events and
+leads to continuous/discrete systems of equations if friction elements
+are dynamically coupled. The method is described in:
+</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dd><b>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+</dl>
+<p>
+More precise friction models take into account the elasticity of the
+material when the two elements are "stuck", as well as other effects,
+like hysteresis. This has the advantage that the friction element can
+be completely described by a differential equation without events. The
+drawback is that the system becomes stiff (about 10-20 times slower
+simulation) and that more material constants have to be supplied which
+requires more sophisticated identification. For more details, see the
+following references, especially (Armstrong and Canudas de Witt 1996):
+</p>
+<dl>
+<dt>Armstrong B. (1991):</dt>
+<dd><b>Control of Machines with Friction</b>. Kluwer Academic
+    Press, Boston MA.<br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
+<dd><b>Friction Modeling and Compensation.</b>
+    The Control Handbook, edited by W.S.Levine, CRC Press,
+    pp. 1369-1382.<br></dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
+<dd><b>A new model for control of systems with friction.</b>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.</dd>
+</dl>
+
+<p>
+See also the discussion
+<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.StateSelection"
+>State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2</A> (Partial model for a component with two rotational 1-dim. shaft flanges and a support used for textual modeling, i.e., for elementary models), <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialFriction"
+>Rotational.Interfaces.PartialFriction</A> (Partial model of Coulomb friction elements), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useSupport</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>mue_pos[:, 2]</TD><TD>[w,mue] positive sliding friction coefficient (w_rel&gt;=0)</TD></TR>
+<TR><TD>peak</TD><TD>peak*mue_pos[1,2] = maximum value of mue for w_rel==0</TD></TR>
+<TR><TD>cgeo</TD><TD>Geometry constant containing friction distribution assumption</TD></TR>
+<TR><TD>fn_max</TD><TD>Maximum normal force [N]</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>startForward</TD><TD>true, if w_rel=0 and start of forward sliding</TD></TR>
+<TR><TD>startBackward</TD><TD>true, if w_rel=0 and start of backward sliding</TD></TR>
+<TR><TD>locked</TD><TD>true, if w_rel=0 and not sliding</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>w_small</TD><TD>Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur) [rad/s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+<TR><TD>support</TD><TD>Support/housing of component</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+<TR><TD>f_normalized</TD><TD>Normalized force signal 0..1 (normal force = fn_max*f_normalized; brake is active if &gt; 0)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Clutch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati067bc20f2e20df88lutchI.png" ALT="Modelica.Mechanics.Rotational.Components.Clutch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.Clutch"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.Clutch</H2>
+<B>Clutch based on Coulomb friction</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This component models a <b>clutch</b>, i.e., a component with
+two flanges where friction is present between the two flanges
+and these flanges are pressed together via a normal force.
+The normal force fn has to be provided as input signal f_normalized in a normalized form
+(0 &le; f_normalized &le; 1),
+fn = fn_max*f_normalized, where fn_max has to be provided as parameter. Friction in the
+clutch is modelled in the following way:
+</p>
+<p>
+When the relative angular velocity is not zero, the friction torque is a
+function of the velocity dependent friction coefficient  mue(w_rel) , of
+the normal force "fn", and of a geometry constant "cgeo" which takes into
+account the geometry of the device and the assumptions on the friction
+distributions:
+</p>
+<pre>
+        frictional_torque = <b>cgeo</b> * <b>mue</b>(w_rel) * <b>fn</b>
+</pre>
+<p>
+   Typical values of coefficients of friction:
+</p>
+<pre>
+      dry operation   :  <b>mue</b> = 0.2 .. 0.4
+      operating in oil:  <b>mue</b> = 0.05 .. 0.1
+</pre>
+<p>
+   When plates are pressed together, where  <b>ri</b>  is the inner radius,
+   <b>ro</b> is the outer radius and <b>N</b> is the number of friction interfaces,
+   the geometry constant is calculated in the following way under the
+   assumption of a uniform rate of wear at the interfaces:
+</p>
+<pre>
+         <b>cgeo</b> = <b>N</b>*(<b>r0</b> + <b>ri</b>)/2
+</pre>
+<p>
+    The positive part of the friction characteristic <b>mue</b>(w_rel),
+    w_rel >= 0, is defined via table mue_pos (first column = w_rel,
+    second column = mue). Currently, only linear interpolation in
+    the table is supported.
+</p>
+<p>
+   When the relative angular velocity becomes zero, the elements
+   connected by the friction element become stuck, i.e., the relative
+   angle remains constant. In this phase the friction torque is
+   calculated from a torque balance due to the requirement, that
+   the relative acceleration shall be zero.  The elements begin
+   to slide when the friction torque exceeds a threshold value,
+   called the  maximum static friction torque, computed via:
+</p>
+<pre>
+       frictional_torque = <b>peak</b> * <b>cgeo</b> * <b>mue</b>(w_rel=0) * <b>fn</b>   (<b>peak</b> >= 1)
+</pre>
+<p>
+This procedure is implemented in a "clean" way by state events and
+leads to continuous/discrete systems of equations if friction elements
+are dynamically coupled. The method is described in:
+</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dd><b>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+</dl>
+<p>
+More precise friction models take into account the elasticity of the
+material when the two elements are "stuck", as well as other effects,
+like hysteresis. This has the advantage that the friction element can
+be completely described by a differential equation without events. The
+drawback is that the system becomes stiff (about 10-20 times slower
+simulation) and that more material constants have to be supplied which
+requires more sophisticated identification. For more details, see the
+following references, especially (Armstrong and Canudas de Witt 1996):
+</p>
+<dl>
+<dt>Armstrong B. (1991):</dt>
+<dd><b>Control of Machines with Friction</b>. Kluwer Academic
+    Press, Boston MA.<br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
+<dd><b>Friction Modeling and Compensation.</b>
+    The Control Handbook, edited by W.S.Levine, CRC Press,
+    pp. 1369-1382.<br></dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
+<dd><b>A new model for control of systems with friction.</b>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.</dd>
+</dl>
+
+<p>
+See also the discussion
+<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.StateSelection"
+>State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Icons.html#Modelica.Mechanics.Rotational.Icons.Clutch"
+>Modelica.Mechanics.Rotational.Icons.Clutch</A> (Icon of a clutch), <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates"
+>Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates</A> (Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states), <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialFriction"
+>Rotational.Interfaces.PartialFriction</A> (Partial model of Coulomb friction elements), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>mue_pos[:, 2]</TD><TD>[w,mue] positive sliding friction coefficient (w_rel&gt;=0)</TD></TR>
+<TR><TD>peak</TD><TD>peak*mue_pos[1,2] = maximum value of mue for w_rel==0</TD></TR>
+<TR><TD>cgeo</TD><TD>Geometry constant containing friction distribution assumption</TD></TR>
+<TR><TD>fn_max</TD><TD>Maximum normal force [N]</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phi_rel</TD><TD>Relative rotation angle (= flange_b.phi - flange_a.phi) [rad]</TD></TR>
+<TR><TD>w_rel</TD><TD>Relative angular velocity (= der(phi_rel)) [rad/s]</TD></TR>
+<TR><TD>a_rel</TD><TD>Relative angular acceleration (= der(w_rel)) [rad/s2]</TD></TR>
+<TR><TD>startForward</TD><TD>true, if w_rel=0 and start of forward sliding</TD></TR>
+<TR><TD>startBackward</TD><TD>true, if w_rel=0 and start of backward sliding</TD></TR>
+<TR><TD>locked</TD><TD>true, if w_rel=0 and not sliding</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>phi_nominal</TD><TD>Nominal value of phi_rel (used for scaling) [rad]</TD></TR>
+<TR><TD>stateSelect</TD><TD>Priority to use phi_rel and w_rel as states</TD></TR>
+<TR><TD>w_small</TD><TD>Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur) [rad/s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Left flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>flange_b</TD><TD>Right flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+<TR><TD>f_normalized</TD><TD>Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if &gt; 0)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OneWayClutch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati6ecb54f4cd797cfelutchI.png" ALT="Modelica.Mechanics.Rotational.Components.OneWayClutch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.OneWayClutch"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.OneWayClutch</H2>
+<B>Series connection of freewheel and clutch</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This component models a <b>one-way clutch</b>, i.e., a component with
+two flanges where friction is present between the two flanges
+and these flanges are pressed together via a normal force. These
+flanges maybe sliding with respect to each other
+Parallel connection of ClutchCombi and of FreeWheel.
+                     The element is introduced to resolve the ambiguity
+                     of the constraint torques of the elements.
+<p>
+A one-way-clutch is an element where a clutch is connected in parallel
+to a free wheel. This special element is provided, because such
+a parallel connection introduces an ambiguity into the model
+(the constraint torques are not uniquely defined when both
+elements are stuck) and this element resolves it by introducing
+<b>one</b> constraint torque and not two.
+</p>
+<p>
+Note, initial values have to be chosen for the model, such that the
+relative speed of the one-way-clutch >= 0. Otherwise, the configuration
+is physically not possible and an error occurs.
+</p>
+<p>
+The normal force fn has to be provided as input signal f_normalized in a normalized form
+(0 &le; f_normalized &le; 1),
+fn = fn_max*f_normalized, where fn_max has to be provided as parameter. Friction in the
+clutch is modelled in the following way:
+</p>
+<p>
+When the relative angular velocity is positive, the friction torque is a
+function of the velocity dependent friction coefficient  mue(w_rel) , of
+the normal force "fn", and of a geometry constant "cgeo" which takes into
+account the geometry of the device and the assumptions on the friction
+distributions:
+</p>
+<pre>
+        frictional_torque = <b>cgeo</b> * <b>mue</b>(w_rel) * <b>fn</b>
+</pre>
+<p>
+   Typical values of coefficients of friction:
+</p>
+<pre>
+      dry operation   :  <b>mue</b> = 0.2 .. 0.4
+      operating in oil:  <b>mue</b> = 0.05 .. 0.1
+</pre>
+<p>
+   When plates are pressed together, where  <b>ri</b>  is the inner radius,
+   <b>ro</b> is the outer radius and <b>N</b> is the number of friction interfaces,
+   the geometry constant is calculated in the following way under the
+   assumption of a uniform rate of wear at the interfaces:
+</p>
+<pre>
+         <b>cgeo</b> = <b>N</b>*(<b>r0</b> + <b>ri</b>)/2
+</pre>
+<p>
+    The positive part of the friction characteristic <b>mue</b>(w_rel),
+    w_rel >= 0, is defined via table mue_pos (first column = w_rel,
+    second column = mue). Currently, only linear interpolation in
+    the table is supported.
+</p>
+<p>
+   When the relative angular velocity becomes zero, the elements
+   connected by the friction element become stuck, i.e., the relative
+   angle remains constant. In this phase the friction torque is
+   calculated from a torque balance due to the requirement, that
+   the relative acceleration shall be zero.  The elements begin
+   to slide when the friction torque exceeds a threshold value,
+   called the  maximum static friction torque, computed via:
+</p>
+<pre>
+       frictional_torque = <b>peak</b> * <b>cgeo</b> * <b>mue</b>(w_rel=0) * <b>fn</b>   (<b>peak</b> >= 1)
+</pre>
+<p>
+This procedure is implemented in a "clean" way by state events and
+leads to continuous/discrete systems of equations if friction elements
+are dynamically coupled. The method is described in:
+</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><b>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+</dl>
+
+<p>
+See also the discussion
+<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.StateSelection"
+>State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Icons.html#Modelica.Mechanics.Rotational.Icons.Clutch"
+>Modelica.Mechanics.Rotational.Icons.Clutch</A> (Icon of a clutch), <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates"
+>Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates</A> (Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>mue_pos[:, 2]</TD><TD>[w,mue] positive sliding friction coefficient (w_rel&gt;=0)</TD></TR>
+<TR><TD>peak</TD><TD>peak*mue_pos[1,2] = maximum value of mue for w_rel==0</TD></TR>
+<TR><TD>cgeo</TD><TD>Geometry constant containing friction distribution assumption</TD></TR>
+<TR><TD>fn_max</TD><TD>Maximum normal force [N]</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Initialization</TD></TR>
+<TR><TD>phi_rel</TD><TD>Relative rotation angle (= flange_b.phi - flange_a.phi) [rad]</TD></TR>
+<TR><TD>w_rel</TD><TD>Relative angular velocity (= der(phi_rel)) [rad/s]</TD></TR>
+<TR><TD>a_rel</TD><TD>Relative angular acceleration (= der(w_rel)) [rad/s2]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>phi_nominal</TD><TD>Nominal value of phi_rel (used for scaling) [rad]</TD></TR>
+<TR><TD>stateSelect</TD><TD>Priority to use phi_rel and w_rel as states</TD></TR>
+<TR><TD>w_small</TD><TD>Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur) [rad/s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Left flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>flange_b</TD><TD>Right flange of compliant 1-dim. rotational component</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+<TR><TD>f_normalized</TD><TD>Normalized force signal 0..1 (normal force = fn_max*f_normalized; clutch is engaged if &gt; 0)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealGear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati6b3358ea31220506lGearI.png" ALT="Modelica.Mechanics.Rotational.Components.IdealGear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.IdealGear"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.IdealGear</H2>
+<B>Ideal gear without inertia</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This element characterizes any type of gear box which is fixed in the
+ground and which has one driving shaft and one driven shaft.
+The gear is <b>ideal</b>, i.e., it does not have inertia, elasticity, damping
+or backlash. If these effects have to be considered, the gear has to be
+connected to other elements in an appropriate way.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Icons.html#Modelica.Mechanics.Rotational.Icons.Gear"
+>Modelica.Mechanics.Rotational.Icons.Gear</A> (Rotational gear icon), <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2</A> (Partial model for a component with two rotational 1-dim. shaft flanges and a support used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useSupport</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>ratio</TD><TD>Transmission ratio (flange_a.phi/flange_b.phi)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+<TR><TD>support</TD><TD>Support/housing of component</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LossyGear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati4d0a80579472005byGearI.png" ALT="Modelica.Mechanics.Rotational.Components.LossyGear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.LossyGear"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.LossyGear</H2>
+<B>Gear with mesh efficiency and bearing friction (stuck/rolling possible)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This component models the gear ratio and the <b>losses</b> of
+a standard gear box in a <b>reliable</b> way including the stuck phases
+that may occur at zero speed. The gear boxes that can
+be handled are fixed in the ground or on a moving support, have one input and one
+output shaft, and are essentially described by the equations:
+</p>
+<blockquote><pre>
+             flange_a.phi  = i*flange_b.phi;
+-(flange_b.tau - tau_bf_b) = i*eta_mf*(flange_a.tau - tau_bf_a);
+
+// or        -flange_b.tau = i*eta_mf*(flange_a.tau - tau_bf_a - tau_bf_b/(i*eta_mf));
+</pre></blockquote>
+<p>
+where
+</p>
+
+<ul>
+<li> <b>i</b> is the constant <b>gear ratio</b>, </li>
+
+<li> <b>eta_mf</b> = eta_mf(w_a) is the <b>mesh efficiency</b> due to the
+     friction between the teeth of the gear wheels, </li>
+
+<li> <b>tau_bf_a</b> = tau_bf_a(w_a) is the <b>bearing friction torque</b>
+     on the flange_a side,</li>
+
+<li> <b>tau_bf_b</b> = tau_bf_b(w_a) is the <b>bearing friction torque</b>
+     on the flange_b side, and</li>
+
+<li><b>w_a</b> = der(flange_a.phi) is the speed of flange_a</li>
+</ul>
+
+<p>
+The loss terms "eta_mf", "tau_bf_a" and "tau_bf_b" are functions of the
+<i>absolute value</i> of the input shaft speed w_a and of the energy
+flow direction. They are defined by parameter <b>lossTable[:,5]
+</b> where the columns of this table have the following
+meaning:
+</p>
+
+<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+  <tbody>
+    <tr>
+      <td valign="top">|w_a|</td>
+      <td valign="top">eta_mf1</td>
+      <td valign="top">eta_mf2</td>
+      <td valign="top">|tau_bf1|</td>
+      <td valign="top">|tau_bf2|</td>
+    </tr>
+    <tr>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+    </tr>
+    <tr>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>with</p>
+<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+  <tbody>
+    <tr>
+      <td valign="top">|w_a|</td>
+      <td valign="top">Absolute value of angular velocity of input shaft flange_a</td>
+    </tr>
+    <tr>
+      <td valign="top">eta_mf1</td>
+      <td valign="top">Mesh efficiency in case that flange_a is driving</td>
+    </tr>
+    <tr>
+      <td valign="top">eta_mf2</td>
+      <td valign="top">Mesh efficiency in case that flange_b is driving</td>
+    </tr>
+    <tr>
+      <td valign="top">|tau_bf1|</td>
+      <td valign="top"> Absolute resultant bearing friction torque with respect to flange_a
+                        in case that flange_a is driving<br>
+                        (= |tau_bf_a*eta_mf1 + tau_bf_b/i|)
+                        </td>
+    </tr>
+    <tr>
+      <td valign="top">|tau_bf2|</td>
+      <td valign="top"> Absolute resultant bearing friction torque with respect to flange_a
+                        in case that flange_b is driving<br>
+                        (= |tau_bf_a/eta_mf2 + tau_bf_b/i|)
+                        </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+With these variables, the mesh efficiency and the bearing friction
+are formally defined as:
+</p>
+
+<blockquote><pre>
+<b>if</b> (flange_a.tau - tau_bf_a)*w_a &gt; 0 <b>or</b>
+   (flange_a.tau - tau_bf_a) == 0 <b>and</b> w_a &gt; 0 <b>then</b>
+   eta_mf := eta_mf1
+   tau_bf := tau_bf1
+<b>elseif</b> (flange_a.tau - tau_bf_a)*w_a &lt; 0 <b>or</b>
+       (flange_a.tau - tau_bf_a) == 0 <b>and</b> w_a &lt; 0 <b>then</b>
+   eta_mf := 1/eta_mf2
+   tau_bf := tau_bf2
+<b>else</b> // w_a == 0
+   eta_mf and tau_bf are computed such that <b>der</b>(w_a) = 0
+<b>end if</b>;
+-flange_b.tau = i*(eta_mf*flange_a.tau - tau_bf);
+</pre></blockquote>
+
+<p>
+Note, that the losses are modeled in a physically meaningful way taking
+into account that at zero speed the movement may be locked due
+to the friction in the gear teeth and/or in the bearings.
+Due to this important property, this component can be used in
+situations where the combination of the components
+Modelica.Mechanics.Rotational.IdealGear and
+Modelica.Mechanics.Rotational.GearEfficiency will fail because,
+e.g., chattering occurs when using the
+Modelica.Mechanics.Rotational.GearEfficiency model.
+</p>
+
+<h4>Acknowledgement:</h4>
+<ul>
+<li> The essential idea to model efficiency
+     in this way is from Christoph Pelchen, ZF Friedrichshafen.</li>
+<li> The article (Pelchen et.al. 2002), see Literature below,
+     and the first implementation of LossyGear (up to version 3.1 of package Modelica)
+     contained a bug leading to a non-converging solution in cases where the
+     driving side is not obvious.
+     This was pointed out by Christian Bertsch and Max Westenkirchner, Bosch,
+     and Christian Bertsch proposed a concrete solution how to fix this
+     bug, see Literature below.</li>
+</ul>
+
+<h4>Literature</h4>
+
+<ul>
+<li>Pelchen C.,
+<a href="http://www.robotic.dlr.de/Christian.Schweiger/">Schweiger C.</a>,
+and <a href="http://www.robotic.dlr.de/Martin.Otter/">Otter M.</a>:
+&quot;<a href="https://www.modelica.org/events/Conference2002/papers/p33_Pelchen.pdf">Modeling
+and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</A>,&quot; in
+<I>Proceedings of the 2nd International Modelica Conference, Oberpfaffenhofen, Germany,</I>
+pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics,
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</li>
+
+<li>Bertsch C. (2009):
+&quot;<a  >Problem
+with model LossyGear and a proposed solution</a>&quot;,
+Ticket <a href="http://trac.modelica.org/Modelica/ticket/108">#108</a>,
+Sept. 11, 2009.</li>
+</ul>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Icons.html#Modelica.Mechanics.Rotational.Icons.Gear"
+>Modelica.Mechanics.Rotational.Icons.Gear</A> (Rotational gear icon), <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2</A> (Partial model for a component with two rotational 1-dim. shaft flanges and a support used for textual modeling, i.e., for elementary models), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useSupport</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>ratio</TD><TD>Transmission ratio (flange_a.phi/flange_b.phi)</TD></TR>
+<TR><TD>lossTable[:, 5]</TD><TD>Array for mesh efficiencies and bearing friction depending on speed</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if heatPort is enabled</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+<TR><TD>support</TD><TD>Support/housing of component</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealPlanetary<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotatiada5bdb13221d97betaryI.png" ALT="Modelica.Mechanics.Rotational.Components.IdealPlanetary" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.IdealPlanetary"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.IdealPlanetary</H2>
+<B>Ideal planetary gear box</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+The IdealPlanetary gear box is an ideal gear without inertia,
+elasticity, damping or backlash consisting
+of an inner <b>sun</b> wheel, an outer <b>ring</b> wheel and a
+<b>planet</b> wheel located between sun and ring wheel. The bearing
+of the planet wheel shaft is fixed in the planet <b>carrier</b>.
+The component can be connected to other elements at the
+sun, ring and/or carrier flanges. It is not possible to connect
+to the planet wheel. If inertia shall not be neglected,
+the sun, ring and carrier inertias can be easily added by attaching
+inertias (= model Inertia) to the corresponding connectors.
+The inertias of the planet wheels are always neglected.
+</p>
+<p>
+The icon of the planetary gear signals that the sun and carrier
+flanges are on the left side and the ring flange is on the right side
+of the gear box. However, this component is generic and is valid
+independently how the flanges are actually placed (e.g., sun wheel
+may be placed on the right side instead on the left side in reality).
+</p>
+<p>
+The ideal planetary gearbox is uniquely defined by the ratio
+of the number of ring teeth zr with respect to the number of
+sun teeth zs. For example, if there are 100 ring teeth and
+50 sun teeth then ratio = zr/zs = 2. The number of planet teeth
+zp has to fulfill the following relationship:
+</p>
+<pre>
+   <b>zp := (zr - zs) / 2</b>
+</pre>
+<p>
+Therefore, in the above example zp = 25 is required.
+</p>
+<p>
+According to the overall convention, the positive direction of all
+vectors, especially the absolute angular velocities and cut-torques
+in the flanges, are along the axis vector displayed in the icon.
+</p>
+
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>ratio</TD><TD>Number of ring_teeth/sun_teeth (e.g., ratio=100/50)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>sun</TD><TD>Flange of sun shaft</TD></TR>
+<TR><TD>carrier</TD><TD>Flange of carrier shaft</TD></TR>
+<TR><TD>ring</TD><TD>Flange of ring shaft</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Gearbox<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotatie4299466d747f59carboxI.png" ALT="Modelica.Mechanics.Rotational.Components.Gearbox" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.Gearbox"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.Gearbox</H2>
+<B>Realistic model of a gearbox (based on LossyGear)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This component models the essential effects of a gearbox, in
+particular</p>
+<ul>
+  <li>in component <b>lossyGear</b>
+    <ul>
+      <li>gear <b>efficiency</b> due to friction between the teeth</li>
+      <li><b>bearing friction</b></li>
+    </ul></li>
+  <li>in component <b>elastoBacklash</b>
+    <ul>
+      <li>gear <b>elasticity</b></li>
+      <li><b>damping</b></li>
+      <li><b>backlash</b></li>
+    </ul></li>
+</ul>
+<p>The inertia of the gear wheels is not modeled. If necessary,
+inertia has to be taken into account by connecting components of
+model Inertia to the left and/or the right flange of component
+Gearbox.
+</p>
+
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Icons.html#Modelica.Mechanics.Rotational.Icons.Gearbox"
+>Modelica.Mechanics.Rotational.Icons.Gearbox</A> (Icon of gear box), <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport</A> (Partial model for a component with two rotational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components), <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for building models by drag-and-drop).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useSupport</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>ratio</TD><TD>Transmission ratio (flange_a.phi/flange_b.phi)</TD></TR>
+<TR><TD>lossTable[:, 5]</TD><TD>Array for mesh efficiencies and bearing friction depending on speed (see docu of LossyGear)</TD></TR>
+<TR><TD>c</TD><TD>Gear elasticity (spring constant) [N.m/rad]</TD></TR>
+<TR><TD>d</TD><TD>(relative) gear damping [N.m.s/rad]</TD></TR>
+<TR><TD>b</TD><TD>Total backlash [rad]</TD></TR>
+<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
+<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR><TD>stateSelect</TD><TD>Priority to use phi_rel and w_rel as states</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+<TR><TD>support</TD><TD>Support/housing of component</TD></TR>
+<TR><TD>heatPort</TD><TD>Optional port to which dissipated losses are transported in form of heat</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealGearR2T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati28feca7a02825885arR2TI.png" ALT="Modelica.Mechanics.Rotational.Components.IdealGearR2T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.IdealGearR2T"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.IdealGearR2T</H2>
+<B>Gearbox transforming rotational into translational motion</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This is an ideal mass- and inertialess gearbox which transforms a
+1D-rotational into a 1D-translational motion. If elasticity, damping
+or backlash has to be considered, this ideal gearbox has to be
+connected with corresponding elements.
+This component defines the kinematic constraint:
+</p>
+
+<pre>
+  (flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational"
+>Rotational.Interfaces.PartialElementaryRotationalToTranslational</A> (Partial model to transform rotational into translational motion).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useSupportR</TD><TD>= true, if rotational support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>useSupportT</TD><TD>= true, if translational support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>ratio</TD><TD>Transmission ratio (flange_a.phi/flange_b.s) [rad/m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flangeR</TD><TD>Flange of rotational shaft</TD></TR>
+<TR><TD>flangeT</TD><TD>Flange of translational rod</TD></TR>
+<TR><TD>supportR</TD><TD>Rotational support/housing of component</TD></TR>
+<TR><TD>supportT</TD><TD>Translational support/housing of component</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealRollingWheel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati3371c9b563e9238eWheelI.png" ALT="Modelica.Mechanics.Rotational.Components.IdealRollingWheel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.IdealRollingWheel"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.IdealRollingWheel</H2>
+<B>Simple 1-dim. model of an ideal rolling wheel without inertia</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+A simple kinematic model of a rolling wheel which has no inertia and
+no rolling resistance. This component defines the kinematic constraint:
+</p>
+
+<pre>
+   (flangeR.phi - internalSupportR.phi)*wheelRadius = (flangeT.s - internalSupportT.s);
+</pre>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational"
+>Rotational.Interfaces.PartialElementaryRotationalToTranslational</A> (Partial model to transform rotational into translational motion).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useSupportR</TD><TD>= true, if rotational support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>useSupportT</TD><TD>= true, if translational support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>radius</TD><TD>Wheel radius [m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flangeR</TD><TD>Flange of rotational shaft</TD></TR>
+<TR><TD>flangeT</TD><TD>Flange of translational rod</TD></TR>
+<TR><TD>supportR</TD><TD>Rotational support/housing of component</TD></TR>
+<TR><TD>supportT</TD><TD>Translational support/housing of component</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InitializeFlange<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotatib9ebf5b371f83675langeI.png" ALT="Modelica.Mechanics.Rotational.Components.InitializeFlange" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.InitializeFlange"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.InitializeFlange</H2>
+<B>Initializes a flange with pre-defined angle, speed and angular acceleration (usually, this is reference data from a control bus)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+This component is used to optionally initialize the angle, speed,
+and/or angular acceleration of the flange to which this component
+is connected. Via parameters use_phi_start, use_w_start, use_a_start
+the corresponding input signals phi_start, w_start, a_start are conditionally
+activated. If an input is activated, the corresponding flange property
+is initialized with the input value at start time.
+</p>
+
+<p>
+For example, if "use_phi_start = true", then flange.phi is initialized
+with the value of the input signal "phi_start" at the start time.
+</p>
+
+<p>
+Additionally, it is optionally possible to define the "StateSelect"
+attribute of the flange angle and the flange speed via parameter
+"stateSelection".
+</p>
+
+<p>
+This component is especially useful when the initial values of a flange
+shall be set according to reference signals of a controller that are
+provided via a signal bus.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>use_phi_start</TD><TD>= true, if initial angle is defined by input phi_start, otherwise not initialized</TD></TR>
+<TR><TD>use_w_start</TD><TD>= true, if initial speed is defined by input w_start, otherwise not initialized</TD></TR>
+<TR><TD>use_a_start</TD><TD>= true, if initial angular acceleration is defined by input a_start, otherwise not initialized</TD></TR>
+<TR><TD>stateSelect</TD><TD>Priority to use flange angle and speed as states</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>phi_start</TD><TD>Initial angle of flange [rad]</TD></TR>
+<TR><TD>w_start</TD><TD>Initial speed of flange [rad/s]</TD></TR>
+<TR><TD>a_start</TD><TD>Initial angular acceleration of flange [rad/s2]</TD></TR>
+<TR><TD>flange</TD><TD>Flange that is initialized</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RelativeStates<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati075208a85db83676tatesI.png" ALT="Modelica.Mechanics.Rotational.Components.RelativeStates" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.RelativeStates"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.RelativeStates</H2>
+<B>Definition of relative state variables</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Usually, the absolute angle and the absolute angular velocity of
+Modelica.Mechanics.Rotational.Components.Inertia models are used as state variables.
+In some circumstances, relative quantities are better suited, e.g.,
+because it may be easier to supply initial values.
+In such cases, model <b>RelativeStates</b> allows the definition of state variables
+in the following way:
+</p>
+<ul>
+<li> Connect an instance of this model between two flange connectors.</li>
+<li> The <b>relative rotation angle</b> and the <b>relative angular velocity</b>
+     between the two connectors are used as <b>state variables</b>.
+</ul>
+<p>
+An example is given in the next figure
+</p>
+
+<p>
+<IMG src="../Resources/Images/Mechanics/Rotational/relativeStates.png" ALT="relativeStates">
+</p>
+
+<p>
+Here, the relative angle and the relative angular velocity between
+the two inertias are used as state variables. Additionally, the
+simulator selects either the absolute angle and absolute angular
+velocity of model inertia1 or of model inertia2 as state variables.
+</p>
+
+<p>
+See also the discussion
+<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.StateSelection"
+>State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
+>Rotational.Interfaces.PartialTwoFlanges</A> (Partial model for a component with two rotational 1-dim. shaft flanges).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>stateSelect</TD><TD>Priority to use the relative angle and relative speed as states</TD></TR>
+<TR><TD>phi_nominal</TD><TD>Nominal value of the relative angle (used for scaling) [rad]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TorqueToAngleAdaptor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati0ee2df115beb0344aptorI.png" ALT="Modelica.Mechanics.Rotational.Components.TorqueToAngleAdaptor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.TorqueToAngleAdaptor"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.TorqueToAngleAdaptor</H2>
+<B>Signal adaptor for a Rotational flange with angle, speed, and acceleration as outputs and torque as input (especially useful for FMUs)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Adaptor between a flange connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a Rotational model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mockup Unit</a>).
+Examples of the usage of this adaptor are provided in
+<A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs"
+>Rotational.Examples.GenerationOfFMUs</a>.
+This adaptor has torque as input and angle, angular velocity and angular acceleration as output signals.
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>use_w</TD><TD>= true, enable the output connector w (angular velocity)</TD></TR>
+<TR><TD>use_a</TD><TD>= true, enable the output connector a (angular acceleration)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>&nbsp;</TD></TR>
+<TR><TD>phi</TD><TD>Flange moves with angle phi due to torque tau [rad]</TD></TR>
+<TR><TD>w</TD><TD>Flange moves with speed w due to torque tau [rad/s]</TD></TR>
+<TR><TD>a</TD><TD>Flange moves with angular acceleration a due to torque tau [rad/s2]</TD></TR>
+<TR><TD>tau</TD><TD>Torque to drive the flange [N.m]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AngleToTorqueAdaptor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Rotati02358ac37a24567baptorI.png" ALT="Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Rotational.Components.AngleToTorqueAdaptor"></A><A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</A>.AngleToTorqueAdaptor</H2>
+<B>Signal adaptor for a Rotational flange with torque as output and angle, speed, and optionally acceleration as inputs (especially useful for FMUs)</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+Adaptor between a flange connector and a signal representation of the flange.
+This component is used to provide a pure signal interface around a Rotational model
+and export this model in form of an input/output block,
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mockup Unit</a>).
+Examples of the usage of this adaptor are provided in
+<A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs"
+>Rotational.Examples.GenerationOfFMUs</a>.
+This adaptor has angle, angular velocity and angular acceleration as input signals and
+torque as output signal. Note, the input signals must be consistent to each other
+(w=der(phi), a=der(w)).
+</p>
+<pre></PRE><P></P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>use_w</TD><TD>= true, enable the output connector w (angular velocity)</TD></TR>
+<TR><TD>use_a</TD><TD>= true, enable the input connector a (angular acceleration)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flange</TD><TD>&nbsp;</TD></TR>
+<TR><TD>phi</TD><TD>Angle to drive the flange [rad]</TD></TR>
+<TR><TD>w</TD><TD>Speed to drive the flange (w=der(phi) required) [rad/s]</TD></TR>
+<TR><TD>a</TD><TD>Angular acceleration to drive the flange (a = der(w) required) [rad/s2]</TD></TR>
+<TR><TD>tau</TD><TD>Torque needed to drive the flange according to phi, w, a [N.m]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:43 2013.
+</address></BODY>
+</HTML>

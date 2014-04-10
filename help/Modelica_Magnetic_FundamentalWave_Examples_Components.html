@@ -1,0 +1,107 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FundamentalWave.Examples.Components</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Examples of components of the FundamentalWave library&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Components<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FundamentalWave.Examples.Components"></A><A HREF="Modelica_Magnetic_FundamentalWave_Examples.html#Modelica.Magnetic.FundamentalWave.Examples"
+>Modelica.Magnetic.FundamentalWave.Examples</A>.Components</H2>
+<B>Examples of components of the FundamentalWave library</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.Fundameba0fd291e7452c47ossesS.png" ALT="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Examples_Components.html#Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses"
+>EddyCurrentLosses</A>
+</TD><TD>Comparison of equivalent circuits of eddy current loss models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.Fundameba0fd291e7452c47ossesS.png" ALT="Modelica.Magnetic.FundamentalWave.Examples.Components.SinglePhaseInductance" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Examples_Components.html#Modelica.Magnetic.FundamentalWave.Examples.Components.SinglePhaseInductance"
+>SinglePhaseInductance</A>
+</TD><TD>Single phase inductance</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.Fundameba0fd291e7452c47ossesS.png" ALT="Modelica.Magnetic.FundamentalWave.Examples.Components.MultiPhaseInductance" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Examples_Components.html#Modelica.Magnetic.FundamentalWave.Examples.Components.MultiPhaseInductance"
+>MultiPhaseInductance</A>
+</TD><TD>Multi phase inductance</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE EddyCurrentLosses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.Fundameba0fd291e7452c47ossesI.png" ALT="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses"></A><A HREF="Modelica_Magnetic_FundamentalWave_Examples_Components.html#Modelica.Magnetic.FundamentalWave.Examples.Components"
+>Modelica.Magnetic.FundamentalWave.Examples.Components</A>.EddyCurrentLosses</H2>
+<B>Comparison of equivalent circuits of eddy current loss models</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>
+In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters.</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>R</TD><TD>Resistance of leader cables [Ohm]</TD></TR>
+<TR><TD>Gc</TD><TD>Loss conductance [S]</TD></TR>
+<TR><TD>R_m</TD><TD>Reluctance of the magnetic circuit [H-1]</TD></TR>
+<TR><TD>N</TD><TD>Number of turns</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SinglePhaseInductance<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.Fundameba0fd291e7452c47ossesI.png" ALT="Modelica.Magnetic.FundamentalWave.Examples.Components.SinglePhaseInductance" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.Examples.Components.SinglePhaseInductance"></A><A HREF="Modelica_Magnetic_FundamentalWave_Examples_Components.html#Modelica.Magnetic.FundamentalWave.Examples.Components"
+>Modelica.Magnetic.FundamentalWave.Examples.Components</A>.SinglePhaseInductance</H2>
+<B>Single phase inductance</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>f</TD><TD>Supply frequency [Hz]</TD></TR>
+<TR><TD>VRMS</TD><TD>RMS supply voltage [V]</TD></TR>
+<TR><TD>R</TD><TD>Leader cable resistance [Ohm]</TD></TR>
+<TR><TD>L</TD><TD>Load inductance [H]</TD></TR>
+<TR><TD>effectiveTurns</TD><TD>Effective number of turns</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MultiPhaseInductance<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.Fundameba0fd291e7452c47ossesI.png" ALT="Modelica.Magnetic.FundamentalWave.Examples.Components.MultiPhaseInductance" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.Examples.Components.MultiPhaseInductance"></A><A HREF="Modelica_Magnetic_FundamentalWave_Examples_Components.html#Modelica.Magnetic.FundamentalWave.Examples.Components"
+>Modelica.Magnetic.FundamentalWave.Examples.Components</A>.MultiPhaseInductance</H2>
+<B>Multi phase inductance</B><p></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>Number of phases</TD></TR>
+<TR><TD>f</TD><TD>Supply frequency [Hz]</TD></TR>
+<TR><TD>VRMS</TD><TD>RMS supply voltage [V]</TD></TR>
+<TR><TD>R</TD><TD>Leader cable resistance [Ohm]</TD></TR>
+<TR><TD>effectiveTurns</TD><TD>Effective number of turns</TD></TR>
+<TR><TD>L</TD><TD>Load inductance [H]</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:38 2013.
+</address></BODY>
+</HTML>

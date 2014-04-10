@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Machines.BaseClasses</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="description" content="&quot;Base classes used in the Machines package (only of interest to build new component models)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal} 
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P></P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseClasses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Machines.BaseClasses"></A><A HREF="Modelica_Fluid_Machines.html#Modelica.Fluid.Machines"
+>Modelica.Fluid.Machines</A>.BaseClasses</H2>
+<B>Base classes used in the Machines package (only of interest to build new component models)</B>
+<P></P>
+<P></P><H3>Information</H3>
+Extends from <A HREF="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
+>Modelica.Icons.BasesPackage</A> (Icon for packages containing base classes).
+<P></P><H3>Package Content</H3>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Machines.B603853b2f860ff67lPumpS.png" ALT="Modelica.Fluid.Machines.BaseClasses.PartialPump" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Machines_BaseClasses.html#Modelica.Fluid.Machines.BaseClasses.PartialPump"
+>PartialPump</A>
+</TD><TD>Base model for centrifugal pumps</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Machines.B0069cc89f6fa224dsticsS.png" ALT="Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Machines_BaseClasses_PumpCharacteristics.html#Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics"
+>PumpCharacteristics</A>
+</TD><TD>Functions for pump characteristics</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Machines.B0069cc89f6fa224dsticsS.png" ALT="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring"
+>PumpMonitoring</A>
+</TD><TD>Monitoring of pump operation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialPump<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Machines.B603853b2f860ff67lPumpI.png" ALT="Modelica.Fluid.Machines.BaseClasses.PartialPump" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Machines.BaseClasses.PartialPump"></A><A HREF="Modelica_Fluid_Machines_BaseClasses.html#Modelica.Fluid.Machines.BaseClasses"
+>Modelica.Fluid.Machines.BaseClasses</A>.PartialPump</H2>
+<B>Base model for centrifugal pumps</B><p></P>
+<P></P><H3>Information</H3>
+<PRE></pre>
+<p>This is the base model for pumps.
+<p>The model describes a centrifugal pump, or a group of <code>nParallel</code> identical pumps. The pump model is based on the theory of kinematic similarity: the pump characteristics are given for nominal operating conditions (rotational speed and fluid density), and then adapted to actual operating condition, according to the similarity equations.
+
+<p><b>Pump characteristics</b></p>
+<p> The nominal hydraulic characteristic (head vs. volume flow rate) is given by the the replaceable function <code>flowCharacteristic</code>.
+<p> The pump energy balance can be specified in two alternative ways:
+<ul>
+<li><code>use_powerCharacteristic = false</code> (default option): the replaceable function <code>efficiencyCharacteristic</code> (efficiency vs. volume flow rate in nominal conditions) is used to determine the efficiency, and then the power consumption.
+    The default is a constant efficiency of 0.8.</li>
+<li><code>use_powerCharacteristic = true</code>: the replaceable function <code>powerCharacteristic</code> (power consumption vs. volume flow rate in nominal conditions) is used to determine the power consumption, and then the efficiency.
+    Use <code>powerCharacteristic</code> to specify a non-zero power consumption for zero flow rate.
+</ul>
+<p>
+Several functions are provided in the package <code>PumpCharacteristics</code> to specify the characteristics as a function of some operating points at nominal conditions.
+<p>Depending on the value of the <code>checkValve</code> parameter, the model either supports reverse flow conditions, or includes a built-in check valve to avoid flow reversal.
+</p>
+<p>It is possible to take into account the mass and energy storage of the fluid inside the pump by specifying its volume <code>V</code>, and by selecting appropriate dynamic mass and energy balance assumptions (see below);
+this is recommended to avoid singularities in the computation of the outlet enthalpy in case of zero flow rate.
+If zero flow rate conditions are always avoided, this dynamic effect can be neglected by leaving the default value <code>V = 0</code>, thus avoiding fast state variables in the model.
+</p>
+
+<p><b>Dynamics options</b></p>
+<p>
+Steady-state mass and energy balances are assumed per default, neglecting the holdup of fluid in the pump; this configuration works well if the flow rate is always positive.
+Dynamic mass and energy balance can be used by setting the corresponding dynamic parameters. This is recommended to avoid singularities at zero or reversing mass flow rate. If the initial conditions imply non-zero mass flow rate, it is possible to use the <code>SteadyStateInitial</code> condition, otherwise it is recommended to use <code>FixedInitial</code> in order to avoid undetermined initial conditions.
+</p>
+
+<p><b>Heat transfer</b></p>
+<p>
+The Boolean parameter <code>use_HeatTransfer</code> can be set to true if heat exchanged with the environment
+should be taken into account or to model a housing. This might be desirable if a pump with realistic
+<code>powerCharacteristic</code> for zero flow operates while a valve prevents fluid flow.
+</p>
+
+<p><b>Diagnostics of Cavitation</b></p>
+<p>The replaceable Monitoring submodel can be configured to PumpMonitoringNPSH,
+in order to compute the Net Positive Suction Head available and check for cavitation,
+provided a two-phase medium model is used (see Advanced tab).
+</p>
+<pre></PRE><P></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
+>Modelica.Fluid.Interfaces.PartialTwoPort</A> (Partial component with two ports), <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedVolume"
+>Modelica.Fluid.Interfaces.PartialLumpedVolume</A> (Lumped volume with mass and energy balance).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+<TR><TD>fluidVolume</TD><TD>Volume [m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Characteristics</TD></TR>
+<TR><TD>nParallel</TD><TD>Number of pumps in parallel</TD></TR>
+<TR><TD>replaceable function flowCharacteristic</TD><TD>Head vs. V_flow characteristic at nominal speed and density</TD></TR>
+<TR><TD>N_nominal</TD><TD>Nominal rotational speed for flow characteristic [1/min]</TD></TR>
+<TR><TD>rho_nominal</TD><TD>Nominal fluid density for characteristic [kg/m3]</TD></TR>
+<TR><TD>use_powerCharacteristic</TD><TD>Use powerCharacteristic (vs. efficiencyCharacteristic)</TD></TR>
+<TR><TD>replaceable function powerCharacteristic</TD><TD>Power consumption vs. V_flow at nominal speed and density</TD></TR>
+<TR><TD>replaceable function efficiencyCharacteristic</TD><TD>Efficiency vs. V_flow at nominal speed and density</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR><TD>checkValve</TD><TD>= true to prevent reverse flow</TD></TR>
+<TR><TD>V</TD><TD>Volume inside the pump [m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
+<TR><TD>energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
+<TR><TD>massDynamics</TD><TD>Formulation of mass balance</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Heat transfer</TD></TR>
+<TR><TD>use_HeatTransfer</TD><TD>= true to use a HeatTransfer model, e.g., for a housing</TD></TR>
+<TR><TD>replaceable model HeatTransfer</TD><TD>Wall heat transfer</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
+<TR><TD>p_a_start</TD><TD>Guess value for inlet pressure [Pa]</TD></TR>
+<TR><TD>p_b_start</TD><TD>Guess value for outlet pressure [Pa]</TD></TR>
+<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD>p_start</TD><TD>Start value of pressure [Pa]</TD></TR>
+<TR><TD>use_T_start</TD><TD>= true, use T_start, otherwise h_start</TD></TR>
+<TR><TD>T_start</TD><TD>Start value of temperature [K]</TD></TR>
+<TR><TD>h_start</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD>X_start[Medium.nX]</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
+<TR><TD>C_start[Medium.nC]</TD><TD>Start value of trace substances</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>replaceable model Monitoring</TD><TD>Optional pump monitoring</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Characteristics</TD></TR>
+<TR><TD>replaceable function flowCharacteristic</TD><TD>Head vs. V_flow characteristic at nominal speed and density</TD></TR>
+<TR><TD>replaceable function powerCharacteristic</TD><TD>Power consumption vs. V_flow at nominal speed and density</TD></TR>
+<TR><TD>replaceable function efficiencyCharacteristic</TD><TD>Efficiency vs. V_flow at nominal speed and density</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Heat transfer</TD></TR>
+<TR><TD>replaceable model HeatTransfer</TD><TD>Wall heat transfer</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
+<TR><TD>replaceable model Monitoring</TD><TD>Optional pump monitoring</TD></TR>
+</TABLE>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:47 2013.
+</address></BODY>
+</HTML>
