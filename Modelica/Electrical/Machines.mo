@@ -106,15 +106,15 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 2.1.2, 2010-02-09 (Anton Haumer)</h5>
 <ul>
-  <li>Included new Examples: 
+  <li>Included new Examples:
 <a href=\"modelica://Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer\">
-AIMC_Transformer</a>, 
+AIMC_Transformer</a>,
 DC_Comparison</li>
 </ul>
 
 <h5>Version 2.1.1, 2010-02-05 (Anton Haumer, Christian Kral)</h5>
 <ul>
-  <li>Included 
+  <li>Included
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.SwitchedRheostat>
 SwitchedRheostat</a>,
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.RampedRheostat>
@@ -144,7 +144,7 @@ SwitchedRheostat</a>,
 </ul>
 
 <h5>Version 1.9.0, 2007-08-24 (Anton Haumer)</h5>
-       
+
 <ul>
   <li>Removed redeclare type SignalType</li>
 </ul>
@@ -161,7 +161,7 @@ SwitchedRheostat</a>,
 </ul>
 
 <h5>Version 1.8.6, 2007-08-12 (Anton Haumer)</h5>
-       
+
 <ul>
   <li>Improved documentation</li>
 </ul>
@@ -228,7 +228,7 @@ SwitchedRheostat</a>,
 
 <h5>Version 1.60, 2005-11-04 (Anton Haumer)</h5>
 <ul>
-  <li>Added 
+  <li>Added
       <a href=\"modelica://Modelica.Electrical.Machines.SpacePhasors.Components.Rotator\">
       Rotator</a></li>
   <li>Corrected consistent naming of parameters and variables</li>
@@ -241,10 +241,10 @@ SwitchedRheostat</a>,
 
 <h5>Version 1.52, 2005-10-12 (Anton Haumer)</h5>
 <ul>
-  <li>Added 
+  <li>Added
       <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
 SM_ElectricalExcited</a>
-      using new 
+      using new
       <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation\">
       ElectricalExcitation</a>
       as well as a new example</li>
@@ -320,7 +320,7 @@ SM_ElectricalExcited</a>
     <tr>
       <td valign=\"top\">[Lang1984]</td>
       <td valign=\"top\">W. Lang,
-        &quot;&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r 
+        &quot;&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r
         Pulsumrichterspeisung,&quot;
         Doctoral Thesis,
         Technical University of Vienna, 1984.</td>
@@ -10830,7 +10830,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
   </tr>
   <caption align=\"bottom\"><b>Fig. 1:</b> Original and rotated reference frame of a space phasor </caption>
 </table>
- 
+
 </HTML>"));
       end Rotator;
 
@@ -14949,7 +14949,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           PRef=0,
           VRef=100,
           wRef=2*pi*fsNominal)
-          "Stator core losses; all parameters refer tpo stator side"
+          "Stator core losses; all parameters refer to stator side"
           annotation (Dialog(tab="Losses"));
         parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
           PRef=0,
