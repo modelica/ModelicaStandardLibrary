@@ -444,8 +444,8 @@ neglecting initial transient.
           points={{60,1},{60,12}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info
-            ="<HTML>
+      annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info=
+             "<HTML>
 <p>
 Test multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
 </p>
@@ -519,8 +519,8 @@ This package contains test examples of analog electrical multiphase circuits.
               lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
-            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>
 Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
 </p>
@@ -567,8 +567,8 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
               lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
-            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>
 Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1],
 thus establishing a so-called delta (or polygon) connection
@@ -595,8 +595,8 @@ when used in parallel to another component.
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug starpoints(final m
-          =mSystems) annotation (Placement(transformation(extent={{90,-10},{110,
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug starpoints(final m=
+           mSystems) annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
     equation
       for k in 1:mSystems loop
@@ -721,8 +721,8 @@ Delta (polygon) connection of a multi phase circuit consiting of multiple base s
         "Insulation resistance between base systems";
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug(m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Electrical.MultiPhase.Basic.MultiStar multiStar(m=m) annotation
-        (Placement(transformation(
+      Modelica.Electrical.MultiPhase.Basic.MultiStar multiStar(m=m) annotation (
+         Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-50,0})));
@@ -1133,8 +1133,7 @@ Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
             :m}) "Inductance near current=0";
       parameter Modelica.SIunits.Inductance Linf[m](start={Lnom[j]/2 for j in 1
             :m}) "Inductance at large currents";
-      Modelica.Electrical.Analog.Basic.SaturatingInductor saturatingInductor[m]
-        (
+      Modelica.Electrical.Analog.Basic.SaturatingInductor saturatingInductor[m](
         final Inom=Inom,
         final Lnom=Lnom,
         final Lzer=Lzer,
@@ -1857,8 +1856,8 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
             Line(points={{-37,2},{40,50}}, color={0,0,255}),
             Line(points={{40,50},{90,50}}, color={0,0,255}),
             Line(points={{0,90},{0,25}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>
 Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch).
 </p>
@@ -1930,8 +1929,8 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
             Line(points={{-44,50},{40,0}}, color={0,0,255}),
             Line(points={{40,50},{90,50}}, color={0,0,255}),
             Line(points={{0,90},{0,25}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>
 Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch).
 </p>
@@ -2026,8 +2025,8 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}),
             Line(points={{-90,0},{-41,0}}, color={0,0,255}),
-            Line(points={{91,0},{40,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{91,0},{40,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>
 Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
 </p>
@@ -2081,8 +2080,7 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
             origin={0,70},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpeningSwitch[m]
-        (
+      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpeningSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
         each final useHeatPort=useHeatPort) annotation (Placement(
@@ -2140,8 +2138,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
             origin={0,70},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealClosingSwitch[m]
-        (
+      Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealClosingSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
         each final useHeatPort=useHeatPort) annotation (Placement(
@@ -2483,8 +2480,7 @@ This function determines the orientation of the symmetrical winding with <img sr
       end if;
       annotation (Documentation(info="<html>
 <p>
-This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://
-Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups is <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/pi_over_m.png\">.
+This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_m.png\">.
 </p>
 <h4>See also</h4>
 <p>
@@ -2509,8 +2505,7 @@ Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/4p
 
       annotation (Documentation(info="<html>
 <p>
-This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://
-Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups is <img src=\"modelica://Modelica/QuasiStaticFundamentalWave/Resources/Images/Magnetic/FundamentalWave/pi_over_m.png\">.
+This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_m.png\">.
 </p>
 <h4>See also</h4>
 <p>
@@ -2976,8 +2971,8 @@ This package contains multiphase potential, voltage, and current sensors.
       Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealInput v[m](each unit="V")
-        "Voltage between pin p and n (= p.v - n.v) as input signal" annotation
-        (Placement(transformation(
+        "Voltage between pin p and n (= p.v - n.v) as input signal" annotation (
+         Placement(transformation(
             origin={0,70},
             extent={{-20,-20},{20,20}},
             rotation=270)));
