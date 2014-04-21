@@ -2461,7 +2461,7 @@ This function determines the orientation of the symmetrical winding with <img sr
         // Even number of phases
         if m == 2 then
           // Special case two phase machine
-          orientation := {{0,pi/2},{0,0}};
+          orientation := {{0,+pi/2},{0,-pi/2}};
         else
           orientation[1:integer(m/2), 1:integer(m/2)] :=
             symmetricOrientationMatrix(integer(m/2));
