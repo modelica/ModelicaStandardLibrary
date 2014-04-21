@@ -1,8 +1,126 @@
 within Modelica.Electrical;
 
 
-package MultiPhase "Library for electrical components with 2, 3 or more phases"
+package MultiPhase "Library for electrical components of one or more phases"
   extends Modelica.Icons.Package;
+
+  package UsersGuide "User's Guide"
+    extends Modelica.Icons.Information;
+    class Concept "Concept"
+      extends Modelica.Icons.Information;
+      annotation (preferredView="info",Documentation(info="<html>
+<p>
+This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
+</p>
+<ul>
+<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Basic\">Basic</a> 
+    components (resistor, capacitor, inductor, ...)</li>
+<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Ideal\">Ideal</a> 
+    elements (switches, diode, transformer, ...)</li>
+<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Sensors\">Sensors</a> 
+    to measure potentials, voltages, and currents</li>
+<li>Time-dependent and controlled voltage and current 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Sources\">sources</a></li>
+</ul>
+<p>
+This package is intended to be used the same way as Modelica.Electrical.Analog
+but to make design of multiphase models easier.
+The package is based on the 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.Plug\">plug</a>: 
+a composite connector containing <code>m</code> pins.
+It is possible to connect plugs to plugs or single pins of a plug to single pins. 
+Potentials may be accessed as <code>plug.pin[].v</code>, currents may be accessed as <code>plug.pin[].i</code>.
+</p>
+</html>"));
+    end Concept;
+
+    class Contact "Contact"
+      extends Modelica.Icons.Contact;
+      annotation (preferredView="info",Documentation(info="<html>
+<h4>Contact</h4>
+
+<p>
+Anton Haumer<br>
+<a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+3423 St. Andrae-Woerdern, Austria<br>
+email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
+</p>
+
+</html>"));
+    end Contact;
+
+    class ReleaseNotes "Release Notes"
+      extends Modelica.Icons.ReleaseNotes;
+      annotation (preferredView="info",Documentation(info="<html>
+
+<h5>Version 3.2.2, 2014-04-21 (Anton Haumer, Christian Kral)</h5>
+<ul>
+<li>Added User's Guide</li>
+<li>Added blocks and functions for multiple base systems</li>
+</ul>
+
+
+<h5>Version 1.4.0, 2009-08-26 (Anton Haumer)</h5>
+<ul>
+<li>Added conditional HeatPorts as in Electrical.Analog</li>
+<li>Added switches with arc as in Electrical.Analog</li>
+</ul>
+
+<h5>Version 1.3.2, 2007-08-24 (Anton Haumer)</h5>
+<ul>
+<li>Removed redeclare type SignalType</li>
+</ul>
+
+<h5>Version 1.3.1, 2007-08-12 (Anton Haumer)</h5>
+<ul>
+<li>Improved documentation</li>
+</ul>
+
+<h5>Version 1.3.0, 2007-01-23 (Anton Haumer)</h5>
+<ul>
+<li>Improved some icons</li>
+</ul>
+
+<h5>Version 1.2, 2006-07-05 (Anton Haumer)</h5>
+<ul>
+<li>Removed annotation from pin of Interfaces.Plug</li>
+<li>Corrected usage of resistance/conductance</li>
+</ul>
+
+<h5>Version 1.1, 2006-01-12 (Anton Haumer)</h5>
+<ul>
+<li>Added Sensors.PowerSensor</li>
+</ul>
+
+<h5>Version 1.0, 2004-10-01 (Anton Haumer)</h5>
+<ul>
+  <li>Initial release version</li>
+</ul></html>"));
+    end ReleaseNotes;
+
+    class References "References"
+      extends Modelica.Icons.References;
+      annotation (preferredView="info",Documentation(info="<html>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td valign=\"top\">[Vaske1963]</td>
+      <td valign=\"top\">P. Vaske,
+        &quot;&Uuml;ber die Drehfelder und Drehmomente symmetrischer Komponenten in Induktionsmaschinen,&quot;
+        (in German), <i>Archiv f&uuml;r Elektrotechnik</i>
+        vol 2, 1963, pp. 97-117.</td>
+    </tr>
+</table>
+</html>"));
+    end References;
+    annotation (
+      preferredView="info",
+      DocumentationClass=true,
+      Documentation(info="<html>
+<p>
+This is a library of multi phase electrical models.
+</p></html>"));
+  end UsersGuide;
 
   package Examples "Multiphase test examples"
     extends Modelica.Icons.ExamplesPackage;
@@ -2484,7 +2602,8 @@ This function determines the orientation of the symmetrical winding with <img sr
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide on multi phase winding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide</a> on multi phase winding,
+[<a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.References\">Vaske1963</a>.
 </p>
 </html>"));
     end symmetricOrientationMatrix;
@@ -3628,43 +3747,11 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
 
   annotation (Documentation(info="<HTML>
 <p>
-This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
+Copyright &copy; 1998-2014, Modelica Association and Anton Haumer.
 </p>
-<ul>
-<li>Basic: basic components (resistor, capacitor, inductor, ...)</li>
-<li>Ideal: ideal elements (switches, diode, transformer, ...)</li>
-<li>Sensors: sensors to measure potentials, voltages, and currents</li>
-<li>Sources: time-dependent and controlled voltage and current sources</li>
-</ul>
 <p>
-This package is intended to be used the same way as Modelica.Electrical.Analog
-but to make design of multiphase models easier.<br>
-The package is based on the plug: a composite connector containing m pins.<br>
-It is possible to connect plugs to plugs or single pins of a plug to single pins.<br>
-Potentials may be accessed as <code>plug.pin[].v</code>, currents may be accessed as <code>plug.pin[].i</code>.
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </dd>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.0 2004/10/01 Anton Haumer</li>
-  </ul>
-  </dd>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</dl>
 </HTML>", revisions="<html>
   <ul>
   <li>v1.0 2004/10/01 Anton Haumer</li>
