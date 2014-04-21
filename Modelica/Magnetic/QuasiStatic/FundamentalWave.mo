@@ -5870,7 +5870,6 @@ This package provides sensors for the magnetic potential difference and the magn
 </html>"));
   end Sensors;
 
-
   package Interfaces "Interfaces"
     extends Modelica.Icons.InterfacesPackage;
     connector MagneticPort "Basic quasi static magnet connector"
@@ -6344,41 +6343,36 @@ The partial two port elementary model extends from the partial two port model an
         BasePhase - pi/2, m));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false,extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,-100},{0,60},{80,60}}, color={0,0,255}),
-            Line(
-              points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
-                  65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},{-23.6,61},{-18.6,
-                  52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},
-                  {25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},
-                  {50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
-              color={192,192,192},
-              smooth=Smooth.Bezier),
-            Line(
-              points={{-40,0},{-30.2,29.9},{-23.8,46.5},{-18.2,58.1},{-13.3,
-                  65.2},{-8.3,69.2},{-3.4,69.8},{1.5,67},{6.4,61},{11.4,52},{17,
-                  38.6},{24.02,18.6},{38.79,-26.9},{45.1,-44},{50.8,-56.2},{
-                  55.7,-64},{60.6,-68.6},{65.5,-70},{70.5,-67.9},{75.4,-62.5},{
-                  80.3,-54.1},{85.9,-41.3},{93,-21.7},{100,0}},
-              color={192,192,192},
-              smooth=Smooth.Bezier),
-            Line(
-              points={{-100,0},{-90.2,29.9},{-83.8,46.5},{-78.2,58.1},{-73.3,
-                  65.2},{-68.3,69.2},{-63.4,69.8},{-58.5,67},{-53.6,61},{-48.6,
-                  52},{-43,38.6},{-35.98,18.6},{-21.21,-26.9},{-14.9,-44},{-9.2,
-                  -56.2},{-4.3,-64},{0.6,-68.6},{5.5,-70},{10.5,-67.9},{15.4,-62.5},
-                  {20.3,-54.1},{25.9,-41.3},{33,-21.7},{40,0}},
-              color={192,192,192},
-              smooth=Smooth.Bezier),
-            Text(
-              extent={{-150,150},{150,110}},
-              textString="%name",
-              lineColor={0,0,255})}),
+                100,100}}), graphics={Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-100,-100},{0,60},
+              {80,60}}, color={0,0,255}),Line(
+                  points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
+                65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},{-23.6,61},{-18.6,52},
+                {-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},{
+                25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},{
+                50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
+                  color={192,192,192},
+                  smooth=Smooth.Bezier),Line(
+                  points={{-40,0},{-30.2,29.9},{-23.8,46.5},{-18.2,58.1},{-13.3,
+                65.2},{-8.3,69.2},{-3.4,69.8},{1.5,67},{6.4,61},{11.4,52},{17,
+                38.6},{24.02,18.6},{38.79,-26.9},{45.1,-44},{50.8,-56.2},{55.7,
+                -64},{60.6,-68.6},{65.5,-70},{70.5,-67.9},{75.4,-62.5},{80.3,-54.1},
+                {85.9,-41.3},{93,-21.7},{100,0}},
+                  color={192,192,192},
+                  smooth=Smooth.Bezier),Line(
+                  points={{-100,0},{-90.2,29.9},{-83.8,46.5},{-78.2,58.1},{-73.3,
+                65.2},{-68.3,69.2},{-63.4,69.8},{-58.5,67},{-53.6,61},{-48.6,52},
+                {-43,38.6},{-35.98,18.6},{-21.21,-26.9},{-14.9,-44},{-9.2,-56.2},
+                {-4.3,-64},{0.6,-68.6},{5.5,-70},{10.5,-67.9},{15.4,-62.5},{
+                20.3,-54.1},{25.9,-41.3},{33,-21.7},{40,0}},
+                  color={192,192,192},
+                  smooth=Smooth.Bezier),Text(
+                  extent={{-150,150},{150,110}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An 
@@ -6451,14 +6445,14 @@ The output voltages may serve as inputs for complex voltage sources with phase i
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-40,-90},{40,-130}},
-              lineColor={0,0,0},
-              textString="%terminalConnection"), Polygon(
-              points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{80,-110},
-                  {80,-84},{76,-80},{-80,-80}},
-              lineColor={95,95,95},
-              fillColor={135,135,135},
-              fillPattern=FillPattern.Solid)}),
+                  extent={{-40,-90},{40,-130}},
+                  lineColor={0,0,0},
+                  textString="%terminalConnection"),Polygon(
+                  points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{
+                80,-110},{80,-84},{76,-80},{-80,-80}},
+                  lineColor={95,95,95},
+                  fillColor={135,135,135},
+                  fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
@@ -6519,14 +6513,14 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
-              points={{-74,-80},{-80,-86},{-80,-120},{-40,-140},{40,-140},{80,-110},
-                  {80,-84},{76,-80},{-74,-80}},
-              lineColor={95,95,95},
-              fillColor={135,135,135},
-              fillPattern=FillPattern.CrossDiag),Text(
-              extent={{-40,-90},{40,-130}},
-              lineColor={0,0,0},
-              textString="%terminalConnection")}),
+                  points={{-74,-80},{-80,-86},{-80,-120},{-40,-140},{40,-140},{
+                80,-110},{80,-84},{76,-80},{-74,-80}},
+                  lineColor={95,95,95},
+                  fillColor={135,135,135},
+                  fillPattern=FillPattern.CrossDiag),Text(
+                  extent={{-40,-90},{40,-130}},
+                  lineColor={0,0,0},
+                  textString="%terminalConnection")}),
         Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
@@ -6608,23 +6602,20 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-            Rectangle(
-              extent={{26,40},{54,-40}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{100,60},{-40,60},{-40,40}}, color={0,0,255}),
-            Line(points={{100,-60},{-40,-60},{-40,-40}}, color={0,0,255}),
-            Ellipse(extent={{-44,40},{-36,32}}, lineColor={0,0,255}),
-            Ellipse(extent={{-44,-32},{-36,-40}}, lineColor={0,0,255}),
-            Line(points={{-80,40},{-42,-34}}, color={0,0,255}),
-            Line(points={{40,40},{40,42},{40,60}}, color={0,0,255}),
-            Line(points={{40,-40},{40,-60}}, color={0,0,255}),
-            Line(points={{10,-80},{70,-80}}, color={0,0,255}),
-            Line(points={{40,-60},{40,-80}}, color={0,0,255}),
-            Line(points={{20,-90},{60,-90}}, color={0,0,255}),
-            Line(points={{30,-100},{50,-100}}, color={0,0,255})}),
+            grid={2,2}), graphics={Rectangle(
+                  extent={{26,40},{54,-40}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{100,60},{-40,60},
+              {-40,40}}, color={0,0,255}),Line(points={{100,-60},{-40,-60},{-40,
+              -40}}, color={0,0,255}),Ellipse(extent={{-44,40},{-36,32}},
+              lineColor={0,0,255}),Ellipse(extent={{-44,-32},{-36,-40}},
+              lineColor={0,0,255}),Line(points={{-80,40},{-42,-34}}, color={0,0,
+              255}),Line(points={{40,40},{40,42},{40,60}}, color={0,0,255}),
+              Line(points={{40,-40},{40,-60}}, color={0,0,255}),Line(points={{
+              10,-80},{70,-80}}, color={0,0,255}),Line(points={{40,-60},{40,-80}},
+              color={0,0,255}),Line(points={{20,-90},{60,-90}}, color={0,0,255}),
+              Line(points={{30,-100},{50,-100}}, color={0,0,255})}),
         Documentation(info="<HTML>
 <p>Switched rheostat, used for starting induction motors with slipring rotor:</p>
 <p>The external rotor resistance <code>RStart</code> is shortened at time <code>tStart</code>.</p>
@@ -6705,20 +6696,17 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-100,60},{20,40}},
-              lineColor={0,0,255},
-              textString="id_rms"),
-            Text(
-              extent={{-100,-40},{20,-60}},
-              lineColor={0,0,255},
-              textString="iq_rms")}),
+                100,100}}), graphics={Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-100,60},{20,40}},
+                  lineColor={0,0,255},
+                  textString="id_rms"),Text(
+                  extent={{-100,-40},{20,-60}},
+                  lineColor={0,0,255},
+                  textString="iq_rms")}),
         Documentation(info="<html>
 <p>
 This is a simple current controller.

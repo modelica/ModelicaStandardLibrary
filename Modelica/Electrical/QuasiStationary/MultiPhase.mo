@@ -1426,12 +1426,14 @@ A linear temperature dependency of the conductances is also taken into account.
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics));
     end VariableAdmittance;
-    annotation (Icon(graphics={Line(origin={10,40}, points={{-100,-40},{-80,-40}}),
-            Line(origin={10,40}, points={{60,-40},{80,-40}}),Rectangle(
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
+    annotation (Icon(graphics={
+          Line(origin={10,40}, points={{-100,-40},{-80,-40}}),
+          Line(origin={10,40}, points={{60,-40},{80,-40}}),
+          Rectangle(
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
               {100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
@@ -1851,11 +1853,13 @@ This switch is only intended to be used for structural changes, not fast switchi
 </HTML>"));
     end IdealClosingSwitch;
     annotation (Icon(coordinateSystem(extent={{-100,-100},{100,100}},
-            preserveAspectRatio=true), graphics={Line(origin={10,34}, points={{
-            -100,-60},{-54,-60}}),Ellipse(origin={10,34}, extent={{-54,-64},{-46,
-            -56}}),Line(origin={10,34}, points={{-47,-58},{30,-10}}),Line(
-            origin={10,34}, points={{30,-40},{30,-60}}),Line(origin={10,34},
-            points={{30,-60},{80,-60}})}), Documentation(info="<html>
+            preserveAspectRatio=true), graphics={
+          Line(origin={10,34}, points={{-100,-60},{-54,-60}}),
+          Ellipse(origin={10,34}, extent={{-54,-64},{-46,-56}}),
+          Line(origin={10,34}, points={{-47,-58},{30,-10}}),
+          Line(origin={10,34}, points={{30,-40},{30,-60}}),
+          Line(origin={10,34}, points={{30,-60},{80,-60}})}), Documentation(
+          info="<html>
 <p>This package hosts ideal models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -2390,13 +2394,16 @@ Quasi stationary theory can be found in the
       omega = 2*Modelica.Constants.pi*f;
       v = {V[k]*exp(j*phi[k]) for k in 1:m};
       annotation (
-        Icon(graphics={Line(points={{50,0},{-50,0}}, color={0,0,0}),Text(
-                  extent={{-120,50},{-20,0}},
-                  lineColor={0,0,255},
-                  textString="+"),Text(
-                  extent={{20,50},{120,0}},
-                  lineColor={0,0,255},
-                  textString="-")}),
+        Icon(graphics={
+            Line(points={{50,0},{-50,0}}, color={0,0,0}),
+            Text(
+              extent={{-120,50},{-20,0}},
+              lineColor={0,0,255},
+              textString="+"),
+            Text(
+              extent={{20,50},{120,0}},
+              lineColor={0,0,255},
+              textString="-")}),
         Documentation(info="<html>
 
 <p>
@@ -2434,14 +2441,16 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = V;
-      annotation (Icon(graphics={Line(points={{50,0},{-50,0}}, color={0,0,0}),
-              Text(
-                  extent={{-120,50},{-20,0}},
-                  lineColor={0,0,255},
-                  textString="+"),Text(
-                  extent={{20,50},{120,0}},
-                  lineColor={0,0,255},
-                  textString="-")}), Documentation(info="<html>
+      annotation (Icon(graphics={
+            Line(points={{50,0},{-50,0}}, color={0,0,0}),
+            Text(
+              extent={{-120,50},{-20,0}},
+              lineColor={0,0,255},
+              textString="+"),
+            Text(
+              extent={{20,50},{120,0}},
+              lineColor={0,0,255},
+              textString="-")}), Documentation(info="<html>
 
 <p>
 This model describes <i>m</i> variable voltage sources, with <i>m</i> complex signal inputs,
@@ -2460,86 +2469,6 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 </p>
 </html>"));
     end VariableVoltageSource;
-
-    model CurrentSource "Constant multiphase AC current"
-      extends Interfaces.Source;
-      import Modelica.ComplexMath.j;
-      import Modelica.ComplexMath.exp;
-      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-      parameter Modelica.SIunits.Current I[m](start=fill(1, m))
-        "RMS current of the source";
-      parameter Modelica.SIunits.Angle phi[m]=-
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
-        "Phase shift of the source";
-    equation
-      omega = 2*Modelica.Constants.pi*f;
-      i = {I[k]*exp(j*phi[k]) for k in 1:m};
-      annotation (Icon(graphics={Line(points={{-60,60},{60,60}}, color={0,0,255}),
-              Polygon(
-                  points={{60,60},{30,70},{30,50},{60,60}},
-                  lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid),Line(points={{0,-50},{0,50}},
-              color={0,0,0})}), Documentation(info="<html>
-
-<p>
-This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the the phase shifts
-(defaults are
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
-<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">SinglePhase.CurrentSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
-</p>
-</html>"));
-    end CurrentSource;
-
-    model VariableCurrentSource "Variable multiphase AC current"
-      extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
-            transformation(
-            origin={40,100},
-            extent={{-20,-20},{20,20}},
-            rotation=270)));
-      Modelica.ComplexBlocks.Interfaces.ComplexInput I[m] annotation (Placement(
-            transformation(
-            origin={-40,100},
-            extent={{-20,-20},{20,20}},
-            rotation=270)));
-    equation
-      omega = 2*Modelica.Constants.pi*f;
-      i = I;
-      annotation (Icon(graphics={Line(points={{-60,60},{60,60}}, color={85,170,
-              255}),Polygon(
-                  points={{60,60},{30,70},{30,50},{60,60}},
-                  lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid),Line(points={{0,-50},{0,50}},
-              color={0,0,0})}), Documentation(info="<html>
-
-<p>
-This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
-specifying the complex current by the complex RMS voltage components.
-Additionally, the frequency of the current source is defined by a real signal input.
-<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
-</p>
-
-<h4>See also</h4>
-
-<p>
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
-</p>
-</html>"));
-    end VariableCurrentSource;
 
     model ReferenceVoltageSource
       "Variable multiphase AC voltage with reference angle input"
@@ -2560,14 +2489,16 @@ Additionally, the frequency of the current source is defined by a real signal in
       plug_p.reference.gamma = gamma;
       v = V;
       annotation (
-        Icon(graphics={Text(
-                  extent={{-120,50},{-20,0}},
-                  lineColor={0,0,255},
-                  textString="+"),Text(
-                  extent={{20,50},{120,0}},
-                  lineColor={0,0,255},
-                  textString="-"),Line(points={{50,0},{-50,0}}, color={0,0,0})}),
-
+        Icon(graphics={
+            Text(
+              extent={{-120,50},{-20,0}},
+              lineColor={0,0,255},
+              textString="+"),
+            Text(
+              extent={{20,50},{120,0}},
+              lineColor={0,0,255},
+              textString="-"),
+            Line(points={{50,0},{-50,0}}, color={0,0,0})}),
         Documentation(info="<html>
 
 <p>
@@ -2615,6 +2546,89 @@ Additionally, the frequency of the current source is defined by a real signal in
                 {100,100}}), graphics));
     end ReferenceVoltageSource;
 
+    model CurrentSource "Constant multiphase AC current"
+      extends Interfaces.Source;
+      import Modelica.ComplexMath.j;
+      import Modelica.ComplexMath.exp;
+      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
+      parameter Modelica.SIunits.Current I[m](start=fill(1, m))
+        "RMS current of the source";
+      parameter Modelica.SIunits.Angle phi[m]=-
+          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
+        "Phase shift of the source";
+    equation
+      omega = 2*Modelica.Constants.pi*f;
+      i = {I[k]*exp(j*phi[k]) for k in 1:m};
+      annotation (Icon(graphics={
+            Line(points={{-60,60},{60,60}}, color={0,0,255}),
+            Polygon(
+              points={{60,60},{30,70},{30,50},{60,60}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-50},{0,50}}, color={0,0,0})}), Documentation(info="<html>
+
+<p>
+This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the the phase shifts
+(defaults are
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
+<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">SinglePhase.CurrentSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
+</p>
+</html>"));
+    end CurrentSource;
+
+    model VariableCurrentSource "Variable multiphase AC current"
+      extends Interfaces.Source;
+      Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
+            transformation(
+            origin={40,100},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Modelica.ComplexBlocks.Interfaces.ComplexInput I[m] annotation (Placement(
+            transformation(
+            origin={-40,100},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+    equation
+      omega = 2*Modelica.Constants.pi*f;
+      i = I;
+      annotation (Icon(graphics={
+            Line(points={{-60,60},{60,60}}, color={85,170,255}),
+            Polygon(
+              points={{60,60},{30,70},{30,50},{60,60}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-50},{0,50}}, color={0,0,0})}), Documentation(info="<html>
+
+<p>
+This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource\">single phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource\">SinglePhase.VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource\">VoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
+</p>
+</html>"));
+    end VariableCurrentSource;
+
+
     model ReferenceCurrentSource
       "Variable multiphase AC current with reference angle input"
       extends Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource;
@@ -2634,13 +2648,14 @@ Additionally, the frequency of the current source is defined by a real signal in
       plug_p.reference.gamma = gamma;
       i = I;
       annotation (
-        Icon(graphics={Line(points={{-60,60},{60,60}}, color={85,170,255}),
-              Polygon(
-                  points={{60,60},{30,70},{30,50},{60,60}},
-                  lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid),Line(points={{0,-50},{0,50}},
-              color={0,0,0})}),
+        Icon(graphics={
+            Line(points={{-60,60},{60,60}}, color={85,170,255}),
+            Polygon(
+              points={{60,60},{30,70},{30,50},{60,60}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-50},{0,50}}, color={0,0,0})}),
         Documentation(info="<html>
 
 <p>
@@ -2938,20 +2953,24 @@ The relative sensor partial model relies on the
     equation
       Connections.root(plug_p.reference);
       annotation (
-        Icon(graphics={Ellipse(
-                  extent={{-50,50},{50,-50}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{100,-100},{-100,-60}},
-                  textString="%name",
-                  lineColor={0,0,255}),Line(points={{-90,0},{-50,0}}, color={0,
-              0,0}),Line(points={{50,0},{90,0}}, color={0,0,0}),Text(
-                  extent={{100,60},{-100,100}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
-                  textString="m=%m")}),
+        Icon(graphics={
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{100,-100},{-100,-60}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-90,0},{-50,0}}, color={0,0,0}),
+            Line(points={{50,0},{90,0}}, color={0,0,0}),
+            Text(
+              extent={{100,60},{-100,100}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              textString="m=%m")}),
         Documentation(info="<html>
 <p>
 The source partial model relies on the
@@ -2978,20 +2997,24 @@ The source partial model relies on the
       import Modelica.Constants.pi;
     equation
       Connections.root(plug_p.reference);
-      annotation (Icon(graphics={Ellipse(
-                  extent={{-50,50},{50,-50}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{100,-100},{-100,-60}},
-                  textString="%name",
-                  lineColor={0,0,255}),Line(points={{-90,0},{-50,0}}, color={0,
-              0,0}),Line(points={{50,0},{90,0}}, color={0,0,0}),Text(
-                  extent={{100,60},{-100,100}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
-                  textString="m=%m")}), Documentation(info="<html>
+      annotation (Icon(graphics={
+            Ellipse(
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{100,-100},{-100,-60}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-90,0},{-50,0}}, color={0,0,0}),
+            Line(points={{50,0},{90,0}}, color={0,0,0}),
+            Text(
+              extent={{100,60},{-100,100}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 The source partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug\">TwoPlug</a> and contains a proper icon.
@@ -3011,20 +3034,24 @@ The source partial model relies on the
   end Interfaces;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}}), graphics={Ellipse(
+            {100,100}}), graphics={
+        Ellipse(
           origin={14,56},
           lineColor={0,0,255},
-          extent={{-84,-126},{56,14}}),Ellipse(
+          extent={{-84,-126},{56,14}}),
+        Ellipse(
           origin={-0,40},
           lineColor={0,0,255},
           fillColor={170,213,255},
           fillPattern=FillPattern.Solid,
-          extent={{-40,-34},{-20,-14}}),Ellipse(
+          extent={{-40,-34},{-20,-14}}),
+        Ellipse(
           origin={20,40},
           lineColor={0,0,255},
           fillColor={170,213,255},
           fillPattern=FillPattern.Solid,
-          extent={{0,-34},{20,-14}}),Ellipse(
+          extent={{0,-34},{20,-14}}),
+        Ellipse(
           origin={10,34},
           lineColor={0,0,255},
           fillColor={170,213,255},
