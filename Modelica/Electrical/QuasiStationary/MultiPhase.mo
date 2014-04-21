@@ -491,6 +491,77 @@ Delta (polygon) connection of a multi phase circuit consiting of multiple base s
 </html>"));
     end MultiDelta;
 
+    model MultiStarResistance "Resistance connection of star points"
+      parameter Integer m(final min=3) = 3 "Number of phases";
+      final parameter Integer mBasic=
+          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          m) "Number of symmetric base systems";
+      parameter Modelica.SIunits.Resistance R=1e6
+        "Insulation resistance between base systems";
+      Interfaces.PositivePlug plug(m=m)
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      MultiStar multiStar(m=m) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-50,0})));
+      Resistor resistor(m=mBasic, final R_ref=fill(R, mBasic)) annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={0,0})));
+      Star star(m=mBasic) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={50,0})));
+      SinglePhase.Interfaces.NegativePin pin annotation (Placement(
+            transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={100,0})));
+    equation
+      connect(plug, multiStar.plug_p) annotation (Line(
+          points={{-100,0},{-60,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(multiStar.starpoints, resistor.plug_p) annotation (Line(
+          points={{-40,0},{-10,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(resistor.plug_n, star.plug_p) annotation (Line(
+          points={{10,0},{40,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      connect(star.pin_n, pin) annotation (Line(
+          points={{60,0},{100,0}},
+          color={85,170,255},
+          smooth=Smooth.None));
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Line(
+                  points={{-40,40},{0,0},{40,40},{0,0},{0,-40}},
+                  color={0,0,255},
+                  smooth=Smooth.None,
+                  origin={-60,0},
+                  rotation=90),Rectangle(
+                  extent={{-10,20},{10,-20}},
+                  lineColor={0,0,255},
+                  origin={0,0},
+                  rotation=90),Line(
+                  points={{-40,40},{0,0},{40,40},{0,0},{0,-40}},
+                  color={0,0,255},
+                  smooth=Smooth.None,
+                  origin={60,0},
+                  rotation=90)}),
+        Documentation(info="<html>
+<p>
+Multi star points are connected by resistors. This model is required to operate multi phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>.
+</p>
+</html>"));
+    end MultiStarResistance;
+
     model PlugToPin_p "Connect one (positive) pin"
       parameter Integer m(final min=1) = 3 "Number of phases";
       parameter Integer k(
@@ -1355,14 +1426,12 @@ A linear temperature dependency of the conductances is also taken into account.
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics));
     end VariableAdmittance;
-    annotation (Icon(graphics={
-          Line(origin={10,40}, points={{-100,-40},{-80,-40}}),
-          Line(origin={10,40}, points={{60,-40},{80,-40}}),
-          Rectangle(
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
+    annotation (Icon(graphics={Line(origin={10,40}, points={{-100,-40},{-80,-40}}),
+            Line(origin={10,40}, points={{60,-40},{80,-40}}),Rectangle(
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
               {100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
@@ -1782,13 +1851,11 @@ This switch is only intended to be used for structural changes, not fast switchi
 </HTML>"));
     end IdealClosingSwitch;
     annotation (Icon(coordinateSystem(extent={{-100,-100},{100,100}},
-            preserveAspectRatio=true), graphics={
-          Line(origin={10,34}, points={{-100,-60},{-54,-60}}),
-          Ellipse(origin={10,34}, extent={{-54,-64},{-46,-56}}),
-          Line(origin={10,34}, points={{-47,-58},{30,-10}}),
-          Line(origin={10,34}, points={{30,-40},{30,-60}}),
-          Line(origin={10,34}, points={{30,-60},{80,-60}})}), Documentation(
-          info="<html>
+            preserveAspectRatio=true), graphics={Line(origin={10,34}, points={{
+            -100,-60},{-54,-60}}),Ellipse(origin={10,34}, extent={{-54,-64},{-46,
+            -56}}),Line(origin={10,34}, points={{-47,-58},{30,-10}}),Line(
+            origin={10,34}, points={{30,-40},{30,-60}}),Line(origin={10,34},
+            points={{30,-60},{80,-60}})}), Documentation(info="<html>
 <p>This package hosts ideal models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1815,61 +1882,49 @@ Quasi stationary theory can be found in the
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics), Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics={
-            Line(
-              points={{-44,0},{-44,0},{-8,-20},{-22,-16},{-18,-10},{-8,-20}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{-44,0},{-44,40},{-40,26},{-48,26},{-44,40}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
-              color={0,0,255},
-              smooth=Smooth.None,
-              origin={-54,-18},
-              rotation=-90),
-            Line(
-              points={{42,48},{42,48},{78,28},{64,32},{68,38},{78,28}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{42,48},{42,88},{46,74},{38,74},{42,88}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
-              color={0,0,255},
-              smooth=Smooth.None,
-              origin={32,30},
-              rotation=-90),
-            Line(
-              points={{42,-22},{42,-22},{78,-42},{64,-38},{68,-32},{78,-42}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{42,-22},{42,18},{46,4},{38,4},{42,18}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
-              color={0,0,255},
-              smooth=Smooth.None,
-              origin={32,-40},
-              rotation=-90),
-            Line(
-              points={{42,-88},{42,-48},{46,-62},{38,-62},{42,-48}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{52,-88},{52,-48},{56,-62},{48,-62},{52,-48}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{32,-88},{32,-48},{36,-62},{28,-62},{32,-48}},
-              color={0,0,255},
-              smooth=Smooth.None)}));
+            graphics={Line(
+                  points={{-44,0},{-44,0},{-8,-20},{-22,-16},{-18,-10},{-8,-20}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{-44,0},{-44,40},{-40,26},{-48,26},{-44,40}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+                  color={0,0,255},
+                  smooth=Smooth.None,
+                  origin={-54,-18},
+                  rotation=-90),Line(
+                  points={{42,48},{42,48},{78,28},{64,32},{68,38},{78,28}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{42,48},{42,88},{46,74},{38,74},{42,88}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+                  color={0,0,255},
+                  smooth=Smooth.None,
+                  origin={32,30},
+                  rotation=-90),Line(
+                  points={{42,-22},{42,-22},{78,-42},{64,-38},{68,-32},{78,-42}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{42,-22},{42,18},{46,4},{38,4},{42,18}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+                  color={0,0,255},
+                  smooth=Smooth.None,
+                  origin={32,-40},
+                  rotation=-90),Line(
+                  points={{42,-88},{42,-48},{46,-62},{38,-62},{42,-48}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{52,-88},{52,-48},{56,-62},{48,-62},{52,-48}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{32,-88},{32,-48},{36,-62},{28,-62},{32,-48}},
+                  color={0,0,255},
+                  smooth=Smooth.None)}));
     end SymmetricalComponents;
 
     block SingleToMultiPhase
@@ -1894,25 +1949,21 @@ Quasi stationary theory can be found in the
                   color={0,0,255},
                   smooth=Smooth.None,
                   origin={30,-38},
-                  rotation=-90)}), Icon(graphics={
-            Line(
-              points={{-60,-20},{-60,20},{-56,8},{-64,8},{-60,20}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{40,-20},{40,20},{44,6},{36,6},{40,20}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{40,-20},{40,-20},{76,-40},{62,-36},{66,-30},{76,-40}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Line(
-              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
-              color={0,0,255},
-              smooth=Smooth.None,
-              origin={30,-38},
-              rotation=-90)}));
+                  rotation=-90)}), Icon(graphics={Line(
+                  points={{-60,-20},{-60,20},{-56,8},{-64,8},{-60,20}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{40,-20},{40,20},{44,6},{36,6},{40,20}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{40,-20},{40,-20},{76,-40},{62,-36},{66,-30},{76,-40}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Line(
+                  points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+                  color={0,0,255},
+                  smooth=Smooth.None,
+                  origin={30,-38},
+                  rotation=-90)}));
     end SingleToMultiPhase;
 
     block ToSpacePhasor "Conversion: m phase -> space phasor"
@@ -1934,39 +1985,32 @@ Quasi stationary theory can be found in the
       y = {c.re,c.im};
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
-            Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,255}),
-
-            Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,0,
-                  255}),
-            Line(
-              points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,17.32},
-                  {-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,-20},{-13.33,
-                  -17.32},{-6.67,-10},{0,0}},
-              color={0,0,255},
-              smooth=Smooth.Bezier),
-            Line(
-              points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,17.32},
-                  {-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,-20},{-23.33,
-                  -17.32},{-16.67,-10},{-10,0}},
-              color={0,0,255},
-              smooth=Smooth.Bezier),
-            Line(
-              points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,17.32},
-                  {-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,-20},{-3.33,
-                  -17.32},{3.33,-10},{10,0}},
-              color={0,0,255},
-              smooth=Smooth.Bezier),
-            Text(
-              extent={{-12,-74},{64,-86}},
-              lineColor={0,0,0},
-              textString="zero")}),
+                100,100}}), graphics={Line(points={{0,0},{80,80},{60,72},{72,60},
+              {80,80}}, color={0,0,255}),Line(points={{0,0},{80,-80},{72,-60},{
+              60,-72},{80,-80}}, color={0,0,255}),Line(
+                  points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
+                17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,-20},
+                {-13.33,-17.32},{-6.67,-10},{0,0}},
+                  color={0,0,255},
+                  smooth=Smooth.Bezier),Line(
+                  points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
+                17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,-20},
+                {-23.33,-17.32},{-16.67,-10},{-10,0}},
+                  color={0,0,255},
+                  smooth=Smooth.Bezier),Line(
+                  points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
+                17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,-20},
+                {-3.33,-17.32},{3.33,-10},{10,0}},
+                  color={0,0,255},
+                  smooth=Smooth.Bezier),Text(
+                  extent={{-12,-74},{64,-86}},
+                  lineColor={0,0,0},
+                  textString="zero")}),
         Documentation(info="<HTML>
     Transformation of m phase values (voltages or currents) to space phasor.
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics));
-
     end ToSpacePhasor;
 
     block FromSpacePhasor "Conversion: space phasor -> m phase"
@@ -1984,36 +2028,29 @@ Quasi stationary theory can be found in the
     equation
       y = {Complex(u[1], u[2])*exp(-j*phi[k])/sqrt(2) for k in 1:m};
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={0,0,
-                  255}),
-            Line(points={{0,0},{-80,-80},{-72,-60},{-60,-72},{-80,-80}}, color=
-                  {0,0,255}),
-            Line(
-              points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,17.32},{
-                  33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},{66.67,-17.32},
-                  {73.33,-10},{80,0}},
-              color={0,0,255},
-              smooth=Smooth.Bezier),
-            Line(
-              points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,17.32},{
-                  23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},{56.67,-17.32},
-                  {63.33,-10},{70,0}},
-              color={0,0,255},
-              smooth=Smooth.Bezier),
-            Line(
-              points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,17.32},{
-                  43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},{76.67,-17.32},
-                  {83.33,-10},{90,0}},
-              color={0,0,255},
-              smooth=Smooth.Bezier),
-            Text(
-              extent={{-62,-74},{14,-86}},
-              lineColor={0,0,0},
-              textString="zero")}), Documentation(info="<HTML>
+                -100},{100,100}}), graphics={Line(points={{0,0},{-80,80},{-60,
+              72},{-72,60},{-80,80}}, color={0,0,255}),Line(points={{0,0},{-80,
+              -80},{-72,-60},{-60,-72},{-80,-80}}, color={0,0,255}),Line(
+                  points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,17.32},{
+                33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},{66.67,-17.32},
+                {73.33,-10},{80,0}},
+                  color={0,0,255},
+                  smooth=Smooth.Bezier),Line(
+                  points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,17.32},
+                {23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},{56.67,-17.32},
+                {63.33,-10},{70,0}},
+                  color={0,0,255},
+                  smooth=Smooth.Bezier),Line(
+                  points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,17.32},
+                {43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},{76.67,-17.32},
+                {83.33,-10},{90,0}},
+                  color={0,0,255},
+                  smooth=Smooth.Bezier),Text(
+                  extent={{-62,-74},{14,-86}},
+                  lineColor={0,0,0},
+                  textString="zero")}), Documentation(info="<HTML>
           Transformation of space phasorto m phase values (voltages or currents).
 </HTML>"));
-
     end FromSpacePhasor;
   end Blocks;
 
@@ -2694,20 +2731,20 @@ derived from this base connector.
       QuasiStationary.Types.Reference reference;
       annotation (
         Icon(graphics={Ellipse(
-                  extent={{-100,100},{100,-100}},
-                  lineColor={85,170,255},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid)}),
+              extent={{-100,100},{100,-100}},
+              lineColor={85,170,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid)}),
         Diagram(graphics={Ellipse(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={85,170,255},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-100,100},{100,60}},
-                  lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid,
-                  textString="%name")}),
+              extent={{-40,40},{40,-40}},
+              lineColor={85,170,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-100,100},{100,60}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),
         Documentation(info="<html>
 
 <p>
@@ -2732,20 +2769,20 @@ Additionally the reference angle is specified in the connector. The time derivat
       QuasiStationary.Types.Reference reference;
       annotation (
         Icon(graphics={Ellipse(
-                  extent={{-100,100},{100,-100}},
-                  lineColor={85,170,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid)}),
+              extent={{-100,100},{100,-100}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
         Diagram(graphics={Ellipse(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={85,170,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-100,100},{100,60}},
-                  lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid,
-                  textString="%name")}),
+              extent={{-40,40},{40,-40}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-100,100},{100,60}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name")}),
         Documentation(info="<html>
 
 <p>
@@ -2891,6 +2928,7 @@ The relative sensor partial model relies on the
 </p>
 
 </html>"));
+
     end RelativeSensor;
 
     partial model Source "Partial voltage / current source"
@@ -2973,24 +3011,20 @@ The source partial model relies on the
   end Interfaces;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}}), graphics={
-        Ellipse(
+            {100,100}}), graphics={Ellipse(
           origin={14,56},
           lineColor={0,0,255},
-          extent={{-84,-126},{56,14}}),
-        Ellipse(
+          extent={{-84,-126},{56,14}}),Ellipse(
           origin={-0,40},
           lineColor={0,0,255},
           fillColor={170,213,255},
           fillPattern=FillPattern.Solid,
-          extent={{-40,-34},{-20,-14}}),
-        Ellipse(
+          extent={{-40,-34},{-20,-14}}),Ellipse(
           origin={20,40},
           lineColor={0,0,255},
           fillColor={170,213,255},
           fillPattern=FillPattern.Solid,
-          extent={{0,-34},{20,-14}}),
-        Ellipse(
+          extent={{0,-34},{20,-14}}),Ellipse(
           origin={10,34},
           lineColor={0,0,255},
           fillColor={170,213,255},

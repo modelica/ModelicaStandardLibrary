@@ -9,7 +9,8 @@ package Types "Definition of types for quasistationary AC models"
       input Reference reference2;
       output Real residue[0];
     algorithm
-      assert(abs(reference1.gamma - reference2.gamma) < 1E-6*2*Modelica.Constants.pi, "Reference angles should be equal!");
+      assert(abs(reference1.gamma - reference2.gamma) < 1E-6*2*Modelica.Constants.pi,
+        "Reference angles should be equal!");
       annotation (Documentation(info="<html>
 Equality constraint for the reference angle, according to the Modelica Specification (Overdetermined connection sets).
 </html>"));
@@ -18,7 +19,7 @@ Equality constraint for the reference angle, according to the Modelica Specifica
 Reference angle, used in the AC connectors.
 </html>"));
   end Reference;
-annotation (Documentation(info="<html>
+  annotation (Documentation(info="<html>
 Type definitions needed for quasistationary AC models.
 </html>"));
 end Types;

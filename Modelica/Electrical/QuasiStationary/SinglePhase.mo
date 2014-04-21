@@ -7,13 +7,13 @@ package SinglePhase "Single phase AC components"
 
     model SeriesResonance "Series resonance circuit"
       extends Modelica.Icons.Example;
-      Modelica.Blocks.Sources.Constant V(k=1)
-        annotation (Placement(transformation(
+      Modelica.Blocks.Sources.Constant V(k=1) annotation (Placement(
+            transformation(
             origin={-40,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Blocks.Sources.Constant phi(k=0)
-        annotation (Placement(transformation(
+      Modelica.Blocks.Sources.Constant phi(k=0) annotation (Placement(
+            transformation(
             origin={-80,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -24,24 +24,25 @@ package SinglePhase "Single phase AC components"
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource(gamma(
-            fixed=true, start=0))
-        annotation (Placement(transformation(
+      QuasiStationary.SinglePhase.Sources.VariableVoltageSource voltageSource(
+          gamma(fixed=true, start=0)) annotation (Placement(transformation(
             origin={-30,-20},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Ground ground
-        annotation (Placement(transformation(extent={{-40,-60},{-20,-40}}, rotation=
-               0)));
+      QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
+            transformation(extent={{-40,-60},{-20,-40}}, rotation=0)));
       QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=0.1)
-        annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=0)));
+        annotation (Placement(transformation(extent={{10,-10},{30,10}},
+              rotation=0)));
       QuasiStationary.SinglePhase.Basic.Inductor inductor(L=1/(2*Modelica.Constants.pi))
-        annotation (Placement(transformation(extent={{40,-10},{60,10}}, rotation=0)));
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},
+              rotation=0)));
       QuasiStationary.SinglePhase.Basic.Capacitor capacitor(C=1/(2*Modelica.Constants.pi))
-        annotation (Placement(transformation(extent={{70,-10},{90,10}}, rotation=0)));
+        annotation (Placement(transformation(extent={{70,-10},{90,10}},
+              rotation=0)));
       QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor
-                                          annotation (Placement(transformation(
-              extent={{-20,10},{0,-10}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-20,10},{0,-10}},
+              rotation=0)));
       Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
         annotation (Placement(transformation(
             origin={-60,10},
@@ -54,26 +55,21 @@ package SinglePhase "Single phase AC components"
             rotation=90)));
     equation
       connect(f.y, voltageSource.f) annotation (Line(points={{-60,-39},{-60,-24},
-              {-40,-24}},
-                     color={0,0,127}));
-      connect(polarToComplex.y, voltageSource.V) annotation (Line(points={{-60,-1},
-              {-60,-16},{-40,-16}},color={85,170,255}));
+              {-40,-24}}, color={0,0,127}));
+      connect(polarToComplex.y, voltageSource.V) annotation (Line(points={{-60,
+              -1},{-60,-16},{-40,-16}}, color={85,170,255}));
       connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},
-              {-30,-35},{-30,-30}},      color={85,170,255}));
-      connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points={{-30,-10},
-              {-30,0},{-20,0}},      color={85,170,255}));
-      connect(currentSensor.pin_n, resistor.pin_p)
-        annotation (Line(points={{0,0},{2.5,0},{5,0},{10,0}},
-                             color={85,170,255}));
-      connect(resistor.pin_n, inductor.pin_p)
-        annotation (Line(points={{30,0},{32.5,0},{35,0},{40,0}},
-                              color={85,170,255}));
-      connect(inductor.pin_n, capacitor.pin_p)
-        annotation (Line(points={{60,0},{62.5,0},{65,0},{70,0}},
-                              color={85,170,255}));
+              {-30,-35},{-30,-30}}, color={85,170,255}));
+      connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points
+            ={{-30,-10},{-30,0},{-20,0}}, color={85,170,255}));
+      connect(currentSensor.pin_n, resistor.pin_p) annotation (Line(points={{0,
+              0},{2.5,0},{5,0},{10,0}}, color={85,170,255}));
+      connect(resistor.pin_n, inductor.pin_p) annotation (Line(points={{30,0},{
+              32.5,0},{35,0},{40,0}}, color={85,170,255}));
+      connect(inductor.pin_n, capacitor.pin_p) annotation (Line(points={{60,0},
+              {62.5,0},{65,0},{70,0}}, color={85,170,255}));
       connect(capacitor.pin_n, ground.pin) annotation (Line(points={{90,0},{90,
-              -40},{-30,-40}},
-                          color={85,170,255}));
+              -40},{-30,-40}}, color={85,170,255}));
       connect(phi.y, polarToComplex.phi) annotation (Line(points={{-80,39},{-80,
               30},{-66,30},{-66,22}}, color={0,0,127}));
       connect(V.y, polarToComplex.len) annotation (Line(
@@ -84,24 +80,23 @@ package SinglePhase "Single phase AC components"
           points={{-10,11},{-10,18}},
           color={85,170,255},
           smooth=Smooth.None));
-      annotation ( Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 The frequency of the voltage source is varied by a ramp.
 Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, versus time resp. frequency.
 </p>
-</html>"),
-        experiment(StopTime=1.0, Interval=0.001));
+</html>"), experiment(StopTime=1.0, Interval=0.001));
     end SeriesResonance;
 
     model ParallelResonance "Parallel resonance circuit"
       extends Modelica.Icons.Example;
-      Modelica.Blocks.Sources.Constant I(k=1)
-        annotation (Placement(transformation(
+      Modelica.Blocks.Sources.Constant I(k=1) annotation (Placement(
+            transformation(
             origin={-80,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.Constant phi(k=0)
-        annotation (Placement(transformation(
+      Modelica.Blocks.Sources.Constant phi(k=0) annotation (Placement(
+            transformation(
             origin={-40,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
@@ -112,16 +107,15 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             origin={-60,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource(gamma(
-            fixed=true, start=0))
-        annotation (Placement(transformation(
+      QuasiStationary.SinglePhase.Sources.VariableCurrentSource currentSource(
+          gamma(fixed=true, start=0)) annotation (Placement(transformation(
             origin={-30,20},
             extent={{10,10},{-10,-10}},
             rotation=270)));
-      QuasiStationary.SinglePhase.Basic.Ground ground
-        annotation (Placement(transformation(extent={{-40,-20},{-20,0}}, rotation=0)));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10)
-        annotation (Placement(transformation(
+      QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
+            transformation(extent={{-40,-20},{-20,0}}, rotation=0)));
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10) annotation
+        (Placement(transformation(
             origin={-10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -145,34 +139,32 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             origin={-60,-10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar annotation (Placement(transformation(
-              extent={{70,10},{90,30}}, rotation=0)));
+      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
+        annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation
+              =0)));
     equation
-      connect(currentSource.pin_n, resistor.pin_p) annotation (Line(points={{-30,30},
-              {-30,40},{-10,40},{-10,30}}, color={85,170,255}));
-      connect(currentSource.pin_n, inductor.pin_p) annotation (Line(points={{-30,30},
-              {-30,40},{10,40},{10,30}}, color={85,170,255}));
-      connect(currentSource.pin_n, capacitor.pin_p) annotation (Line(points={{-30,30},
-              {-30,40},{30,40},{30,30}}, color={85,170,255}));
-      connect(currentSource.pin_n, voltageSensor.pin_p) annotation (Line(points={{-30,30},
-              {-30,40},{50,40},{50,30}},     color={85,170,255}));
+      connect(currentSource.pin_n, resistor.pin_p) annotation (Line(points={{-30,
+              30},{-30,40},{-10,40},{-10,30}}, color={85,170,255}));
+      connect(currentSource.pin_n, inductor.pin_p) annotation (Line(points={{-30,
+              30},{-30,40},{10,40},{10,30}}, color={85,170,255}));
+      connect(currentSource.pin_n, capacitor.pin_p) annotation (Line(points={{-30,
+              30},{-30,40},{30,40},{30,30}}, color={85,170,255}));
+      connect(currentSource.pin_n, voltageSensor.pin_p) annotation (Line(points
+            ={{-30,30},{-30,40},{50,40},{50,30}}, color={85,170,255}));
       connect(currentSource.pin_p, ground.pin) annotation (Line(points={{-30,10},
-              {-30,5},{-30,0}},               color={85,170,255}));
-      connect(resistor.pin_n, ground.pin) annotation (Line(points={{-10,10},{
-              -10,0},{-30,0}},
-                        color={85,170,255}));
-      connect(inductor.pin_n, ground.pin) annotation (Line(points={{10,10},{10,0},{-30,
-              0}}, color={85,170,255}));
-      connect(capacitor.pin_n, ground.pin) annotation (Line(points={{30,10},{30,
-              0},{-30,0}},
-                       color={85,170,255}));
-      connect(voltageSensor.pin_n, ground.pin) annotation (Line(points={{50,10},{50,
+              {-30,5},{-30,0}}, color={85,170,255}));
+      connect(resistor.pin_n, ground.pin) annotation (Line(points={{-10,10},{-10,
               0},{-30,0}}, color={85,170,255}));
-      connect(f.y, currentSource.f) annotation (Line(points={{-60,39},{-60,24},{-40,
-              24}}, color={0,0,127}));
-      connect(polarToComplex.y, currentSource.I) annotation (Line(points={{-60,1},{
-              -60,16},{-40,16}},
-                             color={85,170,255}));
+      connect(inductor.pin_n, ground.pin)
+        annotation (Line(points={{10,10},{10,0},{-30,0}}, color={85,170,255}));
+      connect(capacitor.pin_n, ground.pin)
+        annotation (Line(points={{30,10},{30,0},{-30,0}}, color={85,170,255}));
+      connect(voltageSensor.pin_n, ground.pin)
+        annotation (Line(points={{50,10},{50,0},{-30,0}}, color={85,170,255}));
+      connect(f.y, currentSource.f) annotation (Line(points={{-60,39},{-60,24},
+              {-40,24}}, color={0,0,127}));
+      connect(polarToComplex.y, currentSource.I) annotation (Line(points={{-60,
+              1},{-60,16},{-40,16}}, color={85,170,255}));
       connect(phi.y, polarToComplex.phi) annotation (Line(points={{-40,-39},{-40,
               -32},{-54,-32},{-54,-22}},color={0,0,127}));
       connect(I.y, polarToComplex.len) annotation (Line(
@@ -183,26 +175,25 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
           points={{61,20},{68,20}},
           color={85,170,255},
           smooth=Smooth.None));
-      annotation ( Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 The frequency of the current source is varied by a ramp.
 Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, versus time resp. frequency.
 </p>
-</html>"),
-        experiment(StopTime=1.0, Interval=0.001));
+</html>"), experiment(StopTime=1.0, Interval=0.001));
     end ParallelResonance;
 
     model Rectifier "Rectifier example"
       extends Modelica.Icons.Example;
       import Modelica.Constants.pi;
-      parameter Modelica.SIunits.Voltage VAC = 100 "AC rms voltage";
-      parameter Real conversionFactor = 1
-        "Ratio of DC voltage / AC rms voltage";
-      Sources.VoltageSource voltageQS(f=50, V=VAC,
+      parameter Modelica.SIunits.Voltage VAC=100 "AC rms voltage";
+      parameter Real conversionFactor=1 "Ratio of DC voltage / AC rms voltage";
+      Sources.VoltageSource voltageQS(
+        f=50,
+        V=VAC,
         phi=0,
         i(re(start=0), im(start=0)),
-        gamma(fixed=true, start=0))                annotation (Placement(
-            transformation(
+        gamma(fixed=true, start=0)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-80,50})));
@@ -214,7 +205,8 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
         annotation (Placement(transformation(extent={{-20,70},{0,90}})));
       Basic.Ground groundQS
         annotation (Placement(transformation(extent={{-20,10},{0,30}})));
-      Utilities.IdealACDCConverter rectifierQS(conversionFactor=conversionFactor)
+      Utilities.IdealACDCConverter rectifierQS(conversionFactor=
+            conversionFactor)
         annotation (Placement(transformation(extent={{-10,40},{10,60}})));
       Analog.Basic.Ground groundDC1
         annotation (Placement(transformation(extent={{0,10},{20,30}})));
@@ -224,9 +216,10 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={50,50})));
-      Analog.Sources.SineVoltage voltageAC(V=sqrt(2)*VAC, freqHz=50,phase=pi/2)
-        annotation (
-          Placement(transformation(
+      Analog.Sources.SineVoltage voltageAC(
+        V=sqrt(2)*VAC,
+        freqHz=50,
+        phase=pi/2) annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=270,
             origin={-80,-50})));
@@ -248,7 +241,8 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={50,-50})));
-      Blocks.Sources.Ramp ramp(height=1,
+      Blocks.Sources.Ramp ramp(
+        height=1,
         duration=0.8,
         startTime=0.1)
         annotation (Placement(transformation(extent={{100,-10},{80,10}})));
@@ -305,15 +299,15 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
           points={{-20,60},{-10,60}},
           color={85,170,255},
           smooth=Smooth.None));
-      connect(currentSensorQS.y, iQS.u)            annotation (Line(
+      connect(currentSensorQS.y, iQS.u) annotation (Line(
           points={{-30,71},{-30,80},{-22,80}},
           color={85,170,255},
           smooth=Smooth.None));
-      connect(rectifierQS.pin_pDC, iDC1.p)             annotation (Line(
+      connect(rectifierQS.pin_pDC, iDC1.p) annotation (Line(
           points={{10,60},{20,60}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(iDC1.n, load1.p)             annotation (Line(
+      connect(iDC1.n, load1.p) annotation (Line(
           points={{40,60},{50,60}},
           color={0,0,255},
           smooth=Smooth.None));
@@ -325,7 +319,7 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
           points={{-20,-40},{-10,-40}},
           color={0,0,255},
           smooth=Smooth.None));
-      connect(currentSensorAC.i, iAC.u)            annotation (Line(
+      connect(currentSensorAC.i, iAC.u) annotation (Line(
           points={{-30,-30},{-30,-20},{-22,-20}},
           color={0,0,127},
           smooth=Smooth.None));
@@ -333,7 +327,7 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
           points={{30,-30},{30,-20},{38,-20}},
           color={0,0,127},
           smooth=Smooth.None));
-     connect(currentSensorDC2.p, rectifierAC.pin_pDC) annotation (Line(
+      connect(currentSensorDC2.p, rectifierAC.pin_pDC) annotation (Line(
           points={{20,-40},{10,-40}},
           color={0,0,255},
           smooth=Smooth.None));
@@ -341,8 +335,7 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
           points={{40,-40},{50,-40}},
           color={0,0,255},
           smooth=Smooth.None));
-      annotation (
-        Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This example demonstrates coupling a quasi stationary circuit with a DC circuit.
 The QS voltage is rectified (using an
@@ -369,8 +362,7 @@ It can be seen that at the DC side the current is represented by its averaged va
 The quasi stationary model needs a grounding at the QS side as well as the DC side,
 whereas the transient model may have only one ground since AC side and DC side are connected via the diodes.
 </p>
-</html>"),
-        experiment(StopTime=1.0, Interval=0.0001));
+</html>"), experiment(StopTime=1.0, Interval=0.0001));
     end Rectifier;
 
     annotation (Documentation(info="<html>
@@ -383,8 +375,8 @@ Examples to demonstrate the usage of quasistationary electric components.
 
     model Ground "Electrical ground"
 
-      Interfaces.PositivePin pin
-        annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
+      Interfaces.PositivePin pin annotation (Placement(transformation(extent={{
+                -10,90},{10,110}}, rotation=0)));
     equation
       Connections.potentialRoot(pin.reference, 256);
       if Connections.isRoot(pin.reference) then
@@ -396,11 +388,10 @@ Examples to demonstrate the usage of quasistationary electric components.
             Line(points={{-40,30},{40,30}}),
             Line(points={{-20,10},{20,10}}),
             Line(points={{0,90},{0,50}}),
-            Text(extent={{100,-60},{-100,-20}},
-                                              textString=
-                                                "%name",
-              lineColor={0,0,255})}),
-        Documentation(info="<html>
+            Text(
+              extent={{100,-60},{-100,-20}},
+              textString="%name",
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Ground of a single phase circuit. The potential at the ground node is zero.
 Every electrical circuit, e.g., a series resonance
@@ -421,17 +412,19 @@ Every electrical circuit, e.g., a series resonance
         "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
       Modelica.SIunits.Resistance R_actual
         "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
     equation
-      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+        "Temperature outside scope of model!");
       R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
       v = R_actual*i;
       LossPower = real(v*conj(i));
       annotation (Icon(graphics={
-            Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name",
+            Text(
+              extent={{100,60},{-100,100}},
+              textString="%name",
               lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
@@ -440,9 +433,8 @@ Every electrical circuit, e.g., a series resonance
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(extent={{100,-80},{-100,-40}}, textString=
-                                                  "R=%R_ref")}),
-        Documentation(info="<html>
+            Text(extent={{100,-80},{-100,-40}}, textString="R=%R_ref")}),
+          Documentation(info="<html>
 <p>
 The linear resistor connects the complex voltage <code><u>v</u></code> with the complex
 current <code><u>i</u></code> by <code><u>i</u>*R = <u>v</u></code>.
@@ -480,17 +472,19 @@ A linear temperature dependency of the resistance is also taken into account.
         "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
         "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
       Modelica.SIunits.Conductance G_actual
         "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
     equation
-      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+        "Temperature outside scope of model!");
       G_actual = G_ref/(1 + alpha_ref*(T_heatPort - T_ref));
       i = G_actual*v;
       LossPower = real(v*conj(i));
       annotation (Icon(graphics={
-            Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name",
+            Text(
+              extent={{100,60},{-100,100}},
+              textString="%name",
               lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
@@ -499,9 +493,8 @@ A linear temperature dependency of the resistance is also taken into account.
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(extent={{100,-80},{-100,-40}}, textString=
-                                                  "G=%G_ref")}),
-        Documentation(info="<html>
+            Text(extent={{100,-80},{-100,-40}}, textString="G=%G_ref")}),
+          Documentation(info="<html>
 
 <p>
 The linear conductor connects the voltage <code><u>v</u></code> with the
@@ -537,8 +530,9 @@ A linear temperature dependency of the conductance is also taken into account.
     equation
       i = j*omega*C*v;
       annotation (Icon(graphics={
-            Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name",
+            Text(
+              extent={{100,60},{-100,100}},
+              textString="%name",
               lineColor={0,0,255}),
             Line(
               points={{-14,28},{-14,-28}},
@@ -550,9 +544,8 @@ A linear temperature dependency of the conductance is also taken into account.
               thickness=0.5),
             Line(points={{-90,0},{-14,0}}),
             Line(points={{14,0},{90,0}}),
-            Text(extent={{100,-80},{-100,-40}}, textString=
-                                                  "C=%C")}),
-        Documentation(info="<html>
+            Text(extent={{100,-80},{-100,-40}}, textString="C=%C")}),
+          Documentation(info="<html>
 
 <p>
 The linear capacitor connects the voltage <code><u>v</u></code> with the
@@ -582,8 +575,9 @@ The capacitance <code>C</code> is allowed to be positive, zero, or negative.
     equation
       v = j*omega*L*i;
       annotation (Icon(graphics={
-            Text(extent={{100,60},{-100,100}}, textString=
-                                                   "%name",
+            Text(
+              extent={{100,60},{-100,100}},
+              textString="%name",
               lineColor={0,0,255}),
             Ellipse(extent={{-60,-15},{-30,15}}),
             Ellipse(extent={{-30,-15},{0,15}}),
@@ -596,9 +590,8 @@ The capacitance <code>C</code> is allowed to be positive, zero, or negative.
               fillPattern=FillPattern.Solid),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
-            Text(extent={{100,-80},{-100,-40}}, textString=
-                                                  "L=%L")}),
-        Documentation(info="<html>
+            Text(extent={{100,-80},{-100,-40}}, textString="L=%L")}),
+          Documentation(info="<html>
 
 <p>
 The linear inductor connects the voltage <code><u>v</u></code> with the
@@ -629,23 +622,25 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
         "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
       Modelica.SIunits.Resistance R_actual
         "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.Blocks.Interfaces.RealInput R_ref(unit="Ohm")
-        "Variable resistance"
-        annotation (Placement(transformation(
+        "Variable resistance" annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
     equation
-      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+        "Temperature outside scope of model!");
       R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
       v = R_actual*i;
       LossPower = real(v*conj(i));
-      annotation (Icon(graphics={
-            Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name",
+      annotation (
+        Icon(graphics={
+            Text(
+              extent={{100,-80},{-100,-40}},
+              textString="%name",
               lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
@@ -690,8 +685,8 @@ A zero crossing of the R signal could cause singularities due to the actual stru
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end VariableResistor;
 
     model VariableConductor "Single phase variable conductor"
@@ -702,23 +697,25 @@ A zero crossing of the R signal could cause singularities due to the actual stru
         "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
         "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
       Modelica.SIunits.Conductance G_actual
         "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.Blocks.Interfaces.RealInput G_ref(unit="S")
-        "Variable conductance"
-        annotation (Placement(transformation(
+        "Variable conductance" annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
     equation
-      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+        "Temperature outside scope of model!");
       G_actual = G_ref/(1 + alpha_ref*(T_heatPort - T_ref));
       i = G_actual*v;
       LossPower = real(v*conj(i));
-      annotation (Icon(graphics={
-            Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name",
+      annotation (
+        Icon(graphics={
+            Text(
+              extent={{100,-80},{-100,-40}},
+              textString="%name",
               lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
@@ -758,8 +755,8 @@ A linear temperature dependency of the conductance is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end VariableConductor;
 
     model VariableCapacitor "Single phase variable capacitor"
@@ -772,9 +769,11 @@ A linear temperature dependency of the conductance is also taken into account.
             rotation=270)));
     equation
       i = j*omega*C*v;
-      annotation (Icon(graphics={
-            Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name",
+      annotation (
+        Icon(graphics={
+            Text(
+              extent={{100,-80},{-100,-40}},
+              textString="%name",
               lineColor={0,0,255}),
             Line(
               points={{-14,28},{-14,-28}},
@@ -818,8 +817,8 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end VariableCapacitor;
 
     model VariableInductor "Single phase variable inductor"
@@ -832,9 +831,11 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:
             rotation=270)));
     equation
       v = j*omega*L*i;
-      annotation (Icon(graphics={
-            Text(extent={{100,-80},{-100,-40}}, textString=
-                                                   "%name",
+      annotation (
+        Icon(graphics={
+            Text(
+              extent={{100,-80},{-100,-40}},
+              textString="%name",
               lineColor={0,0,255}),
             Ellipse(extent={{-60,-15},{-30,15}}),
             Ellipse(extent={{-30,-15},{0,15}}),
@@ -878,8 +879,8 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>,
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end VariableInductor;
 
     model VariableImpedance "Single phase variable impedance"
@@ -891,12 +892,11 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
         "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
       Modelica.SIunits.Resistance R_actual
         "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.ComplexBlocks.Interfaces.ComplexInput Z_ref
-        "Variable complex inductance"
-        annotation (Placement(transformation(
+        "Variable complex inductance" annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -905,13 +905,16 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
       Modelica.SIunits.Reactance X_ref=imag(Z_ref)
         "Reactive component of impedance";
     equation
-      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+        "Temperature outside scope of model!");
       R_actual = R_ref*(1 + alpha_ref*(T_heatPort - T_ref));
-      v = Complex(R_actual,X_ref)*i;
+      v = Complex(R_actual, X_ref)*i;
       LossPower = real(v*conj(i));
-      annotation (Icon(graphics={
-            Text(extent={{100,-80},{-100,-40}}, textString=
-              "%name",
+      annotation (
+        Icon(graphics={
+            Text(
+              extent={{100,-80},{-100,-40}},
+              textString="%name",
               lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
@@ -960,8 +963,8 @@ singularities due to the actual structure of the connected network.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end VariableImpedance;
 
     model VariableAdmittance "Single phase variable admittance"
@@ -973,12 +976,11 @@ singularities due to the actual structure of the connected network.
         "Reference temperature";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
         "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
       Modelica.SIunits.Conductance G_actual
         "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       Modelica.ComplexBlocks.Interfaces.ComplexInput Y_ref
-        "Variable complex admittance"
-        annotation (Placement(transformation(
+        "Variable complex admittance" annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -987,13 +989,16 @@ singularities due to the actual structure of the connected network.
       Modelica.SIunits.Susceptance B_ref=imag(Y_ref)
         "Reactive component of susceptance";
     equation
-      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+      assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
+        "Temperature outside scope of model!");
       G_actual = G_ref/(1 + alpha_ref*(T_heatPort - T_ref));
-      i = Complex(G_actual,B_ref)*v;
+      i = Complex(G_actual, B_ref)*v;
       LossPower = real(v*conj(i));
-      annotation (Icon(graphics={
-            Text(extent={{100,-80},{-100,-40}}, textString=
-              "%name",
+      annotation (
+        Icon(graphics={
+            Text(
+              extent={{100,-80},{-100,-40}},
+              textString="%name",
               lineColor={0,0,255}),
             Line(points={{60,0},{90,0}}),
             Line(points={{-90,0},{-60,0}}),
@@ -1042,23 +1047,18 @@ singularities due to the actual structure of the connected network.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end VariableAdmittance;
-    annotation (Icon(
-      graphics={
-        Line(
-          origin=  {10,40},
-          points=  {{-100,-40},{-80,-40}}),
-        Line(
-          origin=  {10,40},
-          points=  {{60,-40},{80,-40}}),
-        Rectangle(
-          lineColor=  {0,0,255},
-          fillColor=  {255,255,255},
-          fillPattern=  FillPattern.Solid,
-          extent=  {{-70,-30},{70,30}})},
-      coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)), Documentation(info="<html>
+    annotation (Icon(graphics={
+          Line(origin={10,40}, points={{-100,-40},{-80,-40}}),
+          Line(origin={10,40}, points={{60,-40},{80,-40}}),
+          Rectangle(
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            extent={{-70,-30},{70,30}})}, coordinateSystem(extent={{-100,-100},
+              {100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
 <p>This package hosts basic models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1077,19 +1077,15 @@ Quasi stationary theory for single phase circuits can be found in the
       extends Interfaces.OnePort;
     equation
       i = Complex(0);
-      annotation (
-        Icon(graphics={
-            Rectangle(
-              extent={{-60,60},{60,-60}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,0},{-41,0}}),
-            Line(points={{91,0},{40,0}}),
-            Text(extent={{-100,100},{100,70}}, textString=
-                                                   "%name",
-              lineColor={0,0,255})}),
-        Documentation(info="<html>
+      annotation (Icon(graphics={Rectangle(
+                  extent={{-60,60},{60,-60}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-90,0},{-41,0}}),
+              Line(points={{91,0},{40,0}}),Text(
+                  extent={{-100,100},{100,70}},
+                  textString="%name",
+                  lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 This model is a simple idle branch considering the complex current <i><u>i</u></i> = 0.
 </p>
@@ -1105,18 +1101,15 @@ This model is a simple idle branch considering the complex current <i><u>i</u></
       extends Interfaces.OnePort;
     equation
       v = Complex(0);
-      annotation (
-        Icon(graphics={
-            Rectangle(
-              extent={{-60,60},{60,-60}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{91,0},{-90,0}}),
-            Text(extent={{-100,100},{100,70}}, textString=
-                                                   "%name",
-              lineColor={0,0,255})}),
-        Documentation(info="<html>
+      annotation (Icon(graphics={Rectangle(
+                  extent={{-60,60},{60,-60}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{91,0},{-90,0}}),
+              Text(
+                  extent={{-100,100},{100,70}},
+                  textString="%name",
+                  lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 This model is a simple short cut branch considering the complex voltage <i><u>v</u></i> = 0.
 </p>
@@ -1131,42 +1124,46 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
     model IdealCommutingSwitch "Ideal commuting switch"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
         "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
         "Opened switch conductance";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
+          =293.15);
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p
-       annotation (Placement(transformation(extent={{-110,
-                -10},{-90,10}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n2
-       annotation (Placement(transformation(extent={{90,
-                -10},{110,10}}, rotation=0)));
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n1
-       annotation (Placement(transformation(extent={{90,
-                40},{110,60}}, rotation=0)));
+        annotation (Placement(transformation(extent={{90,40},{110,60}},
+              rotation=0)));
       Modelica.Blocks.Interfaces.BooleanInput control
-        "true => p--n2 connected, false => p--n1 connected" annotation (Placement(
-            transformation(
+        "true => p--n2 connected, false => p--n1 connected" annotation (
+          Placement(transformation(
             origin={0,80},
             extent={{-20,-20},{20,20}},
             rotation=270)));
     protected
       Complex s1(re(final unit="1"), im(final unit="1"));
       Complex s2(re(final unit="1"), im(final unit="1")) "Auxiliary variables";
-      constant Modelica.SIunits.ComplexVoltage  unitVoltage=Complex(1,0)  annotation(HideResult=true);
-      constant Modelica.SIunits.ComplexCurrent  unitCurrent=Complex(1,0)  annotation(HideResult=true);
+      constant Modelica.SIunits.ComplexVoltage unitVoltage=Complex(1, 0)
+        annotation (HideResult=true);
+      constant Modelica.SIunits.ComplexCurrent unitCurrent=Complex(1, 0)
+        annotation (HideResult=true);
     equation
       Connections.branch(p.reference, n1.reference);
       p.reference.gamma = n1.reference.gamma;
       Connections.branch(p.reference, n2.reference);
       p.reference.gamma = n2.reference.gamma;
-      p.i + n2.i + n1.i = Complex(0,0);
+      p.i + n2.i + n1.i = Complex(0, 0);
       p.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
       n1.i = -(s1*unitVoltage)*(if (control) then Goff else 1);
       p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
       n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
-      LossPower = real(p.v*conj(p.i)) + real(n1.v*conj(n1.i)) + real(n2.v*conj(n2.i));
+      LossPower = real(p.v*conj(p.i)) + real(n1.v*conj(n1.i)) + real(n2.v*conj(
+        n2.i));
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -1193,68 +1190,59 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),
-        Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Text(
-              extent={{-80,0},{-60,22}},
-              textString="p",
-              lineColor={0,0,255}),
-            Text(
-              extent={{60,50},{80,72}},
-              textString="n1",
-              lineColor={0,0,255}),
-            Text(
-              extent={{60,0},{80,22}},
-              textString="n2",
-              lineColor={0,0,255}),
-            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{40,50},{90,50}}, color={0,0,255}),
-            Line(points={{0,90},{0,25}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Line(
-              visible=useHeatPort,
-              points={{0,-100},{0,25}},
-              color={127,0,0},
-              smooth=Smooth.None,
-              pattern=LinePattern.Dot),
-            Text(
-              extent={{-148,-22},{152,-62}},
-              textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{40,50},{96,50}}, color={0,0,255}),
-            Line(points={{0,60},{0,25}}, color={0,0,255}),
-            Line(points={{40,0},{96,0}}, color={0,0,255})}));
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
+              lineColor={0,0,255}),Text(
+                  extent={{-80,0},{-60,22}},
+                  textString="p",
+                  lineColor={0,0,255}),Text(
+                  extent={{60,50},{80,72}},
+                  textString="n1",
+                  lineColor={0,0,255}),Text(
+                  extent={{60,0},{80,22}},
+                  textString="n2",
+                  lineColor={0,0,255}),Line(points={{-90,0},{-44,0}}, color={0,
+              0,255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(
+              points={{40,50},{90,50}}, color={0,0,255}),Line(points={{0,90},{0,
+              25}}, color={0,0,255}),Line(points={{40,0},{90,0}}, color={0,0,
+              255}),Line(
+                  visible=useHeatPort,
+                  points={{0,-100},{0,25}},
+                  color={127,0,0},
+                  smooth=Smooth.None,
+                  pattern=LinePattern.Dot),Text(
+                  extent={{-148,-22},{152,-62}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
+              lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,
+              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points
+              ={{40,50},{96,50}}, color={0,0,255}),Line(points={{0,60},{0,25}},
+              color={0,0,255}),Line(points={{40,0},{96,0}}, color={0,0,255})}));
     end IdealCommutingSwitch;
 
     model IdealIntermediateSwitch "Ideal intermediate switch"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
         "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
         "Opened switch conductance";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
+          =293.15);
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p1
-        annotation (Placement(transformation(extent={{
-                -110,40},{-90,60}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-110,40},{-90,60}},
+              rotation=0)));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p2
-        annotation (Placement(transformation(extent={{
-                -110,-10},{-90,10}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n1
-        annotation (Placement(transformation(extent={{90,
-                40},{110,60}}, rotation=0)));
+        annotation (Placement(transformation(extent={{90,40},{110,60}},
+              rotation=0)));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n2
-        annotation (Placement(transformation(extent={{90,
-                -10},{110,10}}, rotation=0)));
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
       Modelica.Blocks.Interfaces.BooleanInput control
         "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
         annotation (Placement(transformation(
@@ -1266,8 +1254,10 @@ This switch is only intended to be used for structural changes, not for fast swi
       Complex s2(re(final unit="1"), im(final unit="1"));
       Complex s3(re(final unit="1"), im(final unit="1"));
       Complex s4(re(final unit="1"), im(final unit="1")) "Auxiliary variables";
-      constant Modelica.SIunits.ComplexVoltage  unitVoltage=Complex(1,0)  annotation(HideResult=true);
-      constant Modelica.SIunits.ComplexCurrent  unitCurrent=Complex(1,0)  annotation(HideResult=true);
+      constant Modelica.SIunits.ComplexVoltage unitVoltage=Complex(1, 0)
+        annotation (HideResult=true);
+      constant Modelica.SIunits.ComplexCurrent unitCurrent=Complex(1, 0)
+        annotation (HideResult=true);
     equation
       Connections.branch(p1.reference, n1.reference);
       p1.reference.gamma = n1.reference.gamma;
@@ -1281,12 +1271,17 @@ This switch is only intended to be used for structural changes, not for fast swi
       p1.v - n2.v = (s3*unitCurrent)*(if (control) then Ron else 1);
       p2.v - n1.v = (s4*unitCurrent)*(if (control) then Ron else 1);
 
-      p1.i = if control then s1*unitVoltage*Goff + s3*unitCurrent else s1*unitCurrent + s3*unitVoltage*Goff;
-      p2.i = if control then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
-      n1.i = if control then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
-      n2.i = if control then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
+      p1.i = if control then s1*unitVoltage*Goff + s3*unitCurrent else s1*
+        unitCurrent + s3*unitVoltage*Goff;
+      p2.i = if control then s2*unitVoltage*Goff + s4*unitCurrent else s2*
+        unitCurrent + s4*unitVoltage*Goff;
+      n1.i = if control then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*
+        unitCurrent - s4*unitVoltage*Goff;
+      n2.i = if control then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*
+        unitCurrent - s3*unitVoltage*Goff;
 
-      LossPower = real(p1.v*conj(p1.i)) + real(p2.v*conj(p2.i)) + real(n1.v*conj(n1.i)) + real(n2.v*conj(n2.i));
+      LossPower = real(p1.v*conj(p1.i)) + real(p2.v*conj(p2.i)) + real(n1.v*
+        conj(n1.i)) + real(n2.v*conj(n2.i));
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -1326,77 +1321,69 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),
-        Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
-            Text(
-              extent={{-80,50},{-60,72}},
-              textString="p1",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-80,0},{-60,22}},
-              textString="p2",
-              lineColor={0,0,255}),
-            Text(
-              extent={{60,50},{80,72}},
-              textString="n1",
-              lineColor={0,0,255}),
-            Text(
-              extent={{60,0},{80,22}},
-              textString="n2",
-              lineColor={0,0,255}),
-            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-90,50},{-44,50}}, color={0,0,255}),
-            Line(points={{-44,0},{40,50}}, color={0,0,255}),
-            Line(points={{-44,50},{40,0}}, color={0,0,255}),
-            Line(points={{40,50},{90,50}}, color={0,0,255}),
-            Line(points={{0,90},{0,25}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Text(
-              extent={{-151,-24},{149,-64}},
-              textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(extent={{-4,29},{4,21}}, lineColor={0,0,255}),
-            Line(points={{-96,0},{-40,0}}, color={0,0,255}),
-            Line(points={{-96,50},{-40,50}}, color={0,0,255}),
-            Line(points={{-40,0},{40,50}}, color={0,0,255}),
-            Line(points={{-40,50},{40,0}}, color={0,0,255}),
-            Line(points={{40,50},{96,50}}, color={0,0,255}),
-            Line(points={{0,60},{0,25}}, color={0,0,255}),
-            Line(points={{40,0},{96,0}}, color={0,0,255})}));
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={Ellipse(extent={{-4,30},{4,22}},
+              lineColor={0,0,255}),Text(
+                  extent={{-80,50},{-60,72}},
+                  textString="p1",
+                  lineColor={0,0,255}),Text(
+                  extent={{-80,0},{-60,22}},
+                  textString="p2",
+                  lineColor={0,0,255}),Text(
+                  extent={{60,50},{80,72}},
+                  textString="n1",
+                  lineColor={0,0,255}),Text(
+                  extent={{60,0},{80,22}},
+                  textString="n2",
+                  lineColor={0,0,255}),Line(points={{-90,0},{-44,0}}, color={0,
+              0,255}),Line(points={{-90,50},{-44,50}}, color={0,0,255}),Line(
+              points={{-44,0},{40,50}}, color={0,0,255}),Line(points={{-44,50},
+              {40,0}}, color={0,0,255}),Line(points={{40,50},{90,50}}, color={0,
+              0,255}),Line(points={{0,90},{0,25}}, color={0,0,255}),Line(points
+              ={{40,0},{90,0}}, color={0,0,255}),Text(
+                  extent={{-151,-24},{149,-64}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={Ellipse(extent={{-4,29},{4,21}},
+              lineColor={0,0,255}),Line(points={{-96,0},{-40,0}}, color={0,0,
+              255}),Line(points={{-96,50},{-40,50}}, color={0,0,255}),Line(
+              points={{-40,0},{40,50}}, color={0,0,255}),Line(points={{-40,50},
+              {40,0}}, color={0,0,255}),Line(points={{40,50},{96,50}}, color={0,
+              0,255}),Line(points={{0,60},{0,25}}, color={0,0,255}),Line(points
+              ={{40,0},{96,0}}, color={0,0,255})}));
     end IdealIntermediateSwitch;
 
     model IdealOpeningSwitch "Ideal electrical opener"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-     extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
-     parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
-        "Closed switch resistance"
-         annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
-              rotation=0)));
-     parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
-        "Opened switch conductance" annotation (Placement(transformation(extent={
-                {10,10},{56.6667,56.6667}}, rotation=0)));
-     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
-     Modelica.Blocks.Interfaces.BooleanInput control
+      extends
+        Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+        "Closed switch resistance" annotation (Placement(transformation(extent=
+                {{-56.6667,10},{-10,56.6667}}, rotation=0)));
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+        "Opened switch conductance" annotation (Placement(transformation(extent
+              ={{10,10},{56.6667,56.6667}}, rotation=0)));
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
+          =293.15);
+      Modelica.Blocks.Interfaces.BooleanInput control
         "true => switch open, false => p--n connected" annotation (Placement(
             transformation(
             origin={0,70},
             extent={{-20,-20},{20,20}},
             rotation=270)));
     protected
-     Complex s(re(final unit="1"), im(final unit="1")) "Auxiliary variable";
-     constant Modelica.SIunits.ComplexVoltage  unitVoltage=Complex(1,0)  annotation(HideResult=true);
-     constant Modelica.SIunits.ComplexCurrent  unitCurrent=Complex(1,0)  annotation(HideResult=true);
+      Complex s(re(final unit="1"),im(final unit="1")) "Auxiliary variable";
+      constant Modelica.SIunits.ComplexVoltage unitVoltage=Complex(1, 0)
+        annotation (HideResult=true);
+      constant Modelica.SIunits.ComplexCurrent unitCurrent=Complex(1, 0)
+        annotation (HideResult=true);
     equation
-     v = (s*unitCurrent)*(if control then 1 else Ron);
-     i = (s*unitVoltage)*(if control then Goff else 1);
+      v = (s*unitCurrent)*(if control then 1 else Ron);
+      i = (s*unitVoltage)*(if control then Goff else 1);
 
-     LossPower = real(v*conj(i));
+      LossPower = real(v*conj(i));
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -1424,38 +1411,30 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),
-        Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,51},{0,26}}, color={0,0,255}),
-            Line(points={{40,20},{40,0}}, color={0,0,255}),
-            Line(
-              visible=useHeatPort,
-              points={{0,-100},{0,25}},
-              color={127,0,0},
-              smooth=Smooth.None,
-              pattern=LinePattern.Dot),
-            Text(
-              extent={{-151,-21},{149,-61}},
-              textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{40,0},{96,0}}, color={0,0,255}),
-            Text(
-              extent={{-100,-40},{100,-79}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Line(points={{0,51},{0,26}}, color={0,0,255}),
-            Line(points={{40,20},{40,0}}, color={0,0,255})}));
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
+              lineColor={0,0,255}),Line(points={{-90,0},{-44,0}}, color={0,0,
+              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points
+              ={{40,0},{90,0}}, color={0,0,255}),Line(points={{0,51},{0,26}},
+              color={0,0,255}),Line(points={{40,20},{40,0}}, color={0,0,255}),
+              Line(
+                  visible=useHeatPort,
+                  points={{0,-100},{0,25}},
+                  color={127,0,0},
+                  smooth=Smooth.None,
+                  pattern=LinePattern.Dot),Text(
+                  extent={{-151,-21},{149,-61}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
+              lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,
+              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points
+              ={{40,0},{96,0}}, color={0,0,255}),Text(
+                  extent={{-100,-40},{100,-79}},
+                  textString="%name",
+                  lineColor={0,0,255}),Line(points={{0,51},{0,26}}, color={0,0,
+              255}),Line(points={{40,20},{40,0}}, color={0,0,255})}));
     end IdealOpeningSwitch;
 
     model IdealClosingSwitch "Ideal electrical closer"
@@ -1463,31 +1442,33 @@ This switch is only intended to be used for structural changes, not for fast swi
       import Modelica.ComplexMath.conj;
       extends
         Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
-        parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
-        "Closed switch resistance"
-           annotation (Placement(transformation(extent={{-56.6667,10},{-10,
-                56.6667}}, rotation=0)));
-        parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
-        "Opened switch conductance"   annotation (Placement(transformation(extent=
-               {{10,10},{56.6667,56.6667}}, rotation=0)));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
-        Modelica.Blocks.Interfaces.BooleanInput control
-        "true => p--n connected, false => switch open"   annotation (Placement(
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+        "Closed switch resistance" annotation (Placement(transformation(extent=
+                {{-56.6667,10},{-10,56.6667}}, rotation=0)));
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+        "Opened switch conductance" annotation (Placement(transformation(extent
+              ={{10,10},{56.6667,56.6667}}, rotation=0)));
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
+          =293.15);
+      Modelica.Blocks.Interfaces.BooleanInput control
+        "true => p--n connected, false => switch open" annotation (Placement(
             transformation(
             origin={0,70},
             extent={{-20,-20},{20,20}},
             rotation=270)));
     protected
-        Complex s(re(final unit="1"), im(final unit="1")) "Auxiliary variable";
-        constant Modelica.SIunits.ComplexVoltage  unitVoltage=Complex(1,0)  annotation(HideResult=true);
-        constant Modelica.SIunits.ComplexCurrent  unitCurrent=Complex(1,0)  annotation(HideResult=true);
+      Complex s(re(final unit="1"), im(final unit="1")) "Auxiliary variable";
+      constant Modelica.SIunits.ComplexVoltage unitVoltage=Complex(1, 0)
+        annotation (HideResult=true);
+      constant Modelica.SIunits.ComplexCurrent unitCurrent=Complex(1, 0)
+        annotation (HideResult=true);
     equation
-        v = (s*unitCurrent)*(if control then Ron else 1);
-        i = (s*unitVoltage)*(if control then 1 else Goff);
+      v = (s*unitCurrent)*(if control then Ron else 1);
+      i = (s*unitVoltage)*(if control then 1 else Goff);
 
-        LossPower = real(v*conj(i));
-        annotation (
-          Documentation(info="<HTML>
+      LossPower = real(v*conj(i));
+      annotation (
+        Documentation(info="<HTML>
 <P>
 The ideal closing switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by input signal control.
@@ -1512,156 +1493,136 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"),Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,51},{0,26}}, color={0,0,255}),
-            Line(
-              visible=useHeatPort,
-              points={{0,-100},{0,25}},
-              color={127,0,0},
-              smooth=Smooth.None,
-              pattern=LinePattern.Dot),
-            Text(
-              extent={{-152,-28},{148,-68}},
-              textString="%name",
-              lineColor={0,0,255})}),
-          Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-            Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-            Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),
-            Line(points={{40,0},{96,0}}, color={0,0,255}),
-            Text(
-              extent={{-100,-40},{100,-79}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Line(points={{0,51},{0,26}}, color={0,0,255})}));
+</HTML>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
+              lineColor={0,0,255}),Line(points={{-90,0},{-44,0}}, color={0,0,
+              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points
+              ={{40,0},{90,0}}, color={0,0,255}),Line(points={{0,51},{0,26}},
+              color={0,0,255}),Line(
+                  visible=useHeatPort,
+                  points={{0,-100},{0,25}},
+                  color={127,0,0},
+                  smooth=Smooth.None,
+                  pattern=LinePattern.Dot),Text(
+                  extent={{-152,-28},{148,-68}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
+              lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,
+              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points
+              ={{40,0},{96,0}}, color={0,0,255}),Text(
+                  extent={{-100,-40},{100,-79}},
+                  textString="%name",
+                  lineColor={0,0,255}),Line(points={{0,51},{0,26}}, color={0,0,
+              255})}));
     end IdealClosingSwitch;
 
     model IdealTransformer "Ideal transformer"
-      parameter Real n = 1 "Ratio of primary to secondary voltage";
-      Modelica.SIunits.ComplexVoltage v1 = pin_p1.v - pin_n1.v
+      parameter Real n=1 "Ratio of primary to secondary voltage";
+      Modelica.SIunits.ComplexVoltage v1=pin_p1.v - pin_n1.v
         "Voltage drop of side 1";
-      Modelica.SIunits.ComplexCurrent i1 = pin_p1.i "Current into side 1";
-      Modelica.SIunits.ComplexVoltage v2 = pin_p2.v - pin_n2.v
+      Modelica.SIunits.ComplexCurrent i1=pin_p1.i "Current into side 1";
+      Modelica.SIunits.ComplexVoltage v2=pin_p2.v - pin_n2.v
         "Voltage drop of side 2";
-      Modelica.SIunits.ComplexCurrent i2 = pin_p2.i "Current into side 2";
-      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p1
-        "Primary positive pin"                                                      annotation(Placement(transformation(extent={{-110,40},
-                {-90,60}}), iconTransformation(extent={{-110,40},{-90,60}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin pin_p2
-        "Secondary positive pin"                                                    annotation(Placement(transformation(extent={{90,40},
-                {110,60}}), iconTransformation(extent={{90,40},{110,60}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n1
-        "Primary negative pin"                                                      annotation(Placement(transformation(extent={{-110,
-                -60},{-90,-40}}), iconTransformation(extent={{-110,-60},{-90,-40}})));
-      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin pin_n2
-        "Secondary negative pin"                                                    annotation(Placement(transformation(extent={{90,-60},
-                {110,-40}}), iconTransformation(extent={{90,-60},{110,-40}})));
+      Modelica.SIunits.ComplexCurrent i2=pin_p2.i "Current into side 2";
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin
+        pin_p1 "Primary positive pin" annotation (Placement(transformation(
+              extent={{-110,40},{-90,60}}), iconTransformation(extent={{-110,40},
+                {-90,60}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin
+        pin_p2 "Secondary positive pin" annotation (Placement(transformation(
+              extent={{90,40},{110,60}}), iconTransformation(extent={{90,40},{
+                110,60}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin
+        pin_n1 "Primary negative pin" annotation (Placement(transformation(
+              extent={{-110,-60},{-90,-40}}), iconTransformation(extent={{-110,
+                -60},{-90,-40}})));
+      Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin
+        pin_n2 "Secondary negative pin" annotation (Placement(transformation(
+              extent={{90,-60},{110,-40}}), iconTransformation(extent={{90,-60},
+                {110,-40}})));
     equation
       // Current balance
       pin_p1.i + pin_n1.i = Complex(0, 0);
       pin_p2.i + pin_n2.i = Complex(0, 0);
       // Transformation ratios
-      v1 = Complex(+n, 0) * v2;
-      i2 = Complex(-n, 0) * i1;
+      v1 = Complex(+n, 0)*v2;
+      i2 = Complex(-n, 0)*i1;
       Connections.branch(pin_p1.reference, pin_n1.reference);
       pin_p1.reference.gamma = pin_n1.reference.gamma;
       Connections.branch(pin_n1.reference, pin_n2.reference);
       pin_p2.reference.gamma = pin_n2.reference.gamma;
       Connections.branch(pin_p1.reference, pin_p2.reference);
       pin_p1.reference.gamma = pin_p2.reference.gamma;
-      annotation(Diagram(coordinateSystem(preserveAspectRatio=false,   extent={{-100,
-                -100},{100,100}}),                                                                        graphics={
-                          Text(
-              extent={{-100,10},{0,-10}},
-              lineColor={0,0,255},
-              textString="1=primary"), Text(
-              extent={{0,10},{100,-10}},
-              lineColor={0,0,255},
-              textString="2=secondary"),
-            Polygon(
-              points={{-120,53},{-110,50},{-120,47},{-120,53}},
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-136,50},{-111,50}}, color={160,160,164}),
-            Text(
-              extent={{-136,53},{-119,68}},
-              lineColor={160,160,164},
-              textString="i1"),
-            Line(points={{-136,-49},{-111,-49}}, color={160,160,164}),
-            Polygon(
-              points={{-126,-46},{-136,-49},{-126,-52},{-126,-46}},
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-127,-46},{-110,-31}},
-              lineColor={160,160,164},
-              textString="i1"),
-            Polygon(
-              points={{127,-47},{137,-50},{127,-53},{127,-47}},
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Line(points={{111,-50},{136,-50}}, color={160,160,164}),
-            Text(
-              extent={{112,-44},{128,-29}},
-              lineColor={160,160,164},
-              textString="i2"),
-            Text(
-              extent={{118,52},{135,67}},
-              lineColor={0,0,0},
-              textString="i2"),
-            Polygon(
-              points={{120,53},{110,50},{120,47},{120,53}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}),
-            Line(points={{111,50},{136,50}}, color={0,0,0})}),                                                       Icon(coordinateSystem(preserveAspectRatio=false,   extent={{-100,
-                -100},{100,100}}),                                                                                                    graphics={
-            Ellipse(extent={{-45,-50},{-20,-25}}),
-            Ellipse(extent={{-45,-25},{-20,0}}),
-            Ellipse(extent={{-45,0},{-20,25}}),
-            Ellipse(extent={{-45,25},{-20,50}}),
-            Rectangle(
-              extent={{-72,-60},{-33,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,50},{-32,50}}),
-            Line(points={{-90,-50},{-32,-50}}),
-            Ellipse(extent={{20,-50},{45,-25}}),
-            Ellipse(extent={{20,-25},{45,0}}),
-            Ellipse(extent={{20,0},{45,25}}),
-            Ellipse(extent={{20,25},{45,50}}),
-            Rectangle(
-              extent={{33,-60},{72,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{32,50},{90,50}}),
-            Line(points={{32,-50},{90,-50}}),
-            Text(extent={{-100,-80},{100,-100}}, textString="n=%n"),
-            Text(
-              extent={{-146,115},{154,75}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-100,10},{-80,-10}},
-              lineColor={0,0,255},
-              textString="1"),
-            Text(
-              extent={{80,10},{100,-10}},
-              lineColor={0,0,255},
-              textString="2")}),
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={Text(
+                  extent={{-100,10},{0,-10}},
+                  lineColor={0,0,255},
+                  textString="1=primary"),Text(
+                  extent={{0,10},{100,-10}},
+                  lineColor={0,0,255},
+                  textString="2=secondary"),Polygon(
+                  points={{-120,53},{-110,50},{-120,47},{-120,53}},
+                  lineColor={160,160,164},
+                  fillColor={160,160,164},
+                  fillPattern=FillPattern.Solid),Line(points={{-136,50},{-111,
+              50}}, color={160,160,164}),Text(
+                  extent={{-136,53},{-119,68}},
+                  lineColor={160,160,164},
+                  textString="i1"),Line(points={{-136,-49},{-111,-49}}, color={
+              160,160,164}),Polygon(
+                  points={{-126,-46},{-136,-49},{-126,-52},{-126,-46}},
+                  lineColor={160,160,164},
+                  fillColor={160,160,164},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-127,-46},{-110,-31}},
+                  lineColor={160,160,164},
+                  textString="i1"),Polygon(
+                  points={{127,-47},{137,-50},{127,-53},{127,-47}},
+                  lineColor={160,160,164},
+                  fillColor={160,160,164},
+                  fillPattern=FillPattern.Solid),Line(points={{111,-50},{136,-50}},
+              color={160,160,164}),Text(
+                  extent={{112,-44},{128,-29}},
+                  lineColor={160,160,164},
+                  textString="i2"),Text(
+                  extent={{118,52},{135,67}},
+                  lineColor={0,0,0},
+                  textString="i2"),Polygon(
+                  points={{120,53},{110,50},{120,47},{120,53}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={160,160,164}),Line(points={{111,50},{136,50}},
+              color={0,0,0})}),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Ellipse(extent={{-45,-50},{-20,-25}}),
+              Ellipse(extent={{-45,-25},{-20,0}}),Ellipse(extent={{-45,0},{-20,
+              25}}),Ellipse(extent={{-45,25},{-20,50}}),Rectangle(
+                  extent={{-72,-60},{-33,60}},
+                  lineColor={255,255,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-90,50},{-32,50}}),
+              Line(points={{-90,-50},{-32,-50}}),Ellipse(extent={{20,-50},{45,-25}}),
+              Ellipse(extent={{20,-25},{45,0}}),Ellipse(extent={{20,0},{45,25}}),
+              Ellipse(extent={{20,25},{45,50}}),Rectangle(
+                  extent={{33,-60},{72,60}},
+                  lineColor={255,255,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{32,50},{90,50}}),
+              Line(points={{32,-50},{90,-50}}),Text(extent={{-100,-80},{100,-100}},
+              textString="n=%n"),Text(
+                  extent={{-146,115},{154,75}},
+                  textString="%name",
+                  lineColor={0,0,255}),Text(
+                  extent={{-100,10},{-80,-10}},
+                  lineColor={0,0,255},
+                  textString="1"),Text(
+                  extent={{80,10},{100,-10}},
+                  lineColor={0,0,255},
+                  textString="2")}),
         Documentation(info="<html>
 <p>
 The ideal transformer is a two-port circuit element without magnetization. Voltages and currents are ideally transformed:
@@ -1680,12 +1641,14 @@ where <code>n</code> is a real number called the turns ratio.
 
 </html>"));
     end IdealTransformer;
-    annotation (Icon(coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true), graphics={
-                Line(origin=  {10,34}, points=  {{-100,-60},{-54,-60}}),
-                Ellipse(origin=  {10,34}, extent=  {{-54,-64},{-46,-56}}),
-                Line(origin=  {10,34}, points=  {{-47,-58},{30,-10}}),
-                Line(origin=  {10,34}, points=  {{30,-40},{30,-60}}),
-                Line(origin=  {10,34}, points=  {{30,-60},{80,-60}})}), Documentation(info="<html>
+    annotation (Icon(coordinateSystem(extent={{-100,-100},{100,100}},
+            preserveAspectRatio=true), graphics={
+          Line(origin={10,34}, points={{-100,-60},{-54,-60}}),
+          Ellipse(origin={10,34}, extent={{-54,-64},{-46,-56}}),
+          Line(origin={10,34}, points={{-47,-58},{30,-10}}),
+          Line(origin={10,34}, points={{30,-40},{30,-60}}),
+          Line(origin={10,34}, points={{30,-60},{80,-60}})}), Documentation(
+          info="<html>
 <p>This package hosts ideal models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1700,18 +1663,33 @@ Quasi stationary theory for single phase circuits can be found in the
   package Sensors "AC singlephase sensors"
     extends Modelica.Icons.SensorsPackage;
 
+    model ReferenceSensor "Sensor of reference angle gamma"
+      extends
+        Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor;
+      Modelica.Blocks.Interfaces.RealOutput y "Reference angle" annotation (
+          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+    equation
+      y = pin.reference.gamma;
+      annotation (Icon(graphics={Text(
+              extent={{60,-60},{-60,-30}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio
+              =false, extent={{-100,-100},{100,100}}), graphics));
+    end ReferenceSensor;
+
     model FrequencySensor "Frequency sensor"
       extends Interfaces.AbsoluteSensor;
       import Modelica.Constants.pi;
-      Blocks.Interfaces.RealOutput y                    annotation (Placement(transformation(extent={{100,-10},
-                {120,10}},           rotation=0)));
+      Blocks.Interfaces.RealOutput y annotation (Placement(transformation(
+              extent={{100,-10},{120,10}}, rotation=0)));
     equation
       2*pi*y = omega;
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString="f")}),
-      Documentation(info="<html>
+              textString="f")}), Documentation(info="<html>
 
 <p>
 This sensor can be used to measure the frequency of the reference system.
@@ -1731,15 +1709,14 @@ This sensor can be used to measure the frequency of the reference system.
 
     model PotentialSensor "Potential sensor"
       extends Interfaces.AbsoluteSensor;
-      ComplexBlocks.Interfaces.ComplexOutput y          annotation (Placement(transformation(extent={{100,-10},
-                {120,10}},           rotation=0)));
+      ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
+            transformation(extent={{100,-10},{120,10}}, rotation=0)));
     equation
       y = pin.v;
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString="V")}),
-      Documentation(info="<html>
+              textString="V")}), Documentation(info="<html>
 
 <p>
 This sensor can be used to measure the complex potential.
@@ -1764,9 +1741,7 @@ This sensor can be used to measure the complex potential.
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString=
-                   "V")}),
-      Documentation(info="<html>
+              textString="V")}), Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex voltage.
 </p>
@@ -1790,9 +1765,7 @@ This sensor can be used to measure the complex voltage.
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString=
-                   "I")}),
-      Documentation(info="<html>
+              textString="I")}), Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex current.
 </p>
@@ -1811,20 +1784,18 @@ This sensor can be used to measure the complex current.
     model PowerSensor "Power sensor"
       import Modelica.ComplexMath.conj;
       extends Modelica.Icons.RotationalSensor;
-      Interfaces.PositivePin currentP
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
-               0)));
-      Interfaces.NegativePin currentN
-        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Interfaces.PositivePin voltageP
-        annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
-      Interfaces.NegativePin voltageN
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=
-               0)));
-      output Modelica.SIunits.ComplexCurrent  i;
-      output Modelica.SIunits.ComplexVoltage  v;
-      Modelica.ComplexBlocks.Interfaces.ComplexOutput y
-        annotation (Placement(transformation(
+      Interfaces.PositivePin currentP annotation (Placement(transformation(
+              extent={{-110,-10},{-90,10}}, rotation=0)));
+      Interfaces.NegativePin currentN annotation (Placement(transformation(
+              extent={{90,-10},{110,10}}, rotation=0)));
+      Interfaces.PositivePin voltageP annotation (Placement(transformation(
+              extent={{-10,90},{10,110}}, rotation=0)));
+      Interfaces.NegativePin voltageN annotation (Placement(transformation(
+              extent={{-10,-110},{10,-90}}, rotation=0)));
+      output Modelica.SIunits.ComplexCurrent i;
+      output Modelica.SIunits.ComplexVoltage v;
+      Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
+            transformation(
             origin={-80,-110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -1841,24 +1812,19 @@ This sensor can be used to measure the complex current.
       voltageP.i + voltageN.i = Complex(0);
       voltageP.i = Complex(0);
       v = voltageP.v - voltageN.v;
-    //P + j*Q = v * conj(i);
+      //P + j*Q = v * conj(i);
       y = v*conj(i);
-      annotation (
-        Icon(graphics={
-        Line(points=  {{0,100},{0,70}},
-            color=  {0,0,255}),
-          Line(points=  {{0,-70},{0,-100}},
-            color=  {0,0,255}),
-          Text(extent=  {{-29,-70},{30,-11}},
-            textString=  "P"),
-          Line(points=  {{-80,-100},{-80,0}},
-            color=  {85,170,255}),
-          Text(textColor=  {0,0,255},
-            extent=  {{-100,110},{100,150}},
-            textString=  "%name"),
-          Line(points=  {{-100,0},{100,0}},
-            color=  {0,0,255})}),
-        Documentation(info="<html>
+      annotation (Icon(graphics={
+            Line(points={{0,100},{0,70}}, color={0,0,255}),
+            Line(points={{0,-70},{0,-100}}, color={0,0,255}),
+            Text(extent={{-29,-70},{30,-11}}, textString="P"),
+            Line(points={{-80,-100},{-80,0}}, color={85,170,255}),
+            Text(
+              textColor={0,0,255},
+              extent={{-100,110},{100,150}},
+              textString="%name"),
+            Line(points={{-100,0},{100,0}}, color={0,0,255})}), Documentation(
+            info="<html>
 
 <p>
 This sensor can be used to measure the complex apparent power.
@@ -1897,18 +1863,13 @@ Quasi stationary theory for single phase circuits can be found in the
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = Complex(V*cos(phi), V*sin(phi));
-      annotation (Icon(graphics={
-            Text(
-              extent={{-120,50},{-20,0}},
-              lineColor={0,0,255},
-              textString=
-                      "+"),
-            Text(
-              extent={{20,50},{120,0}},
-              lineColor={0,0,255},
-              textString=
-                      "-"),
-            Line(points={{50,0},{-50,0}}, color={0,0,0})}),
+      annotation (Icon(graphics={Text(
+                  extent={{-120,50},{-20,0}},
+                  lineColor={0,0,255},
+                  textString="+"),Text(
+                  extent={{20,50},{120,0}},
+                  lineColor={0,0,255},
+                  textString="-"),Line(points={{50,0},{-50,0}}, color={0,0,0})}),
           Documentation(info="<html>
 
 <p>
@@ -1927,34 +1888,28 @@ This is a constant voltage source, specifying the complex voltage by the RMS vol
 
     model VariableVoltageSource "Variable AC voltage"
       extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f
-        annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
+            transformation(
             origin={40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.ComplexBlocks.Interfaces.ComplexInput V
-        annotation (Placement(transformation(
+      Modelica.ComplexBlocks.Interfaces.ComplexInput V annotation (Placement(
+            transformation(
             origin={-40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = V;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}),
-                       graphics={
-            Text(
-              extent={{-120,50},{-20,0}},
-              lineColor={0,0,255},
-              textString=
-                      "+"),
-            Text(
-              extent={{20,50},{120,0}},
-              lineColor={0,0,255},
-              textString=
-                      "-"),
-            Line(points={{50,0},{-50,0}}, color={0,0,0})}),
-        Documentation(info="<html>
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+                  extent={{-120,50},{-20,0}},
+                  lineColor={0,0,255},
+                  textString="+"),Text(
+                  extent={{20,50},{120,0}},
+                  lineColor={0,0,255},
+                  textString="-"),Line(points={{50,0},{-50,0}}, color={0,0,0})}),
+          Documentation(info="<html>
 
 <p>
 This is a voltage source with a complex signal input, specifying the complex voltage by the complex RMS voltage components.
@@ -1979,15 +1934,12 @@ Additionally, the frequency of the voltage source is defined by a real signal in
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = Complex(I*cos(phi), I*sin(phi));
-      annotation (Icon(graphics={
-            Line(points={{0,-50},{0,50}}, color={0,0,0}),
-            Line(points={{-60,60},{60,60}}, color={0,0,255}),
-            Polygon(
-              points={{60,60},{30,70},{30,50},{60,60}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}),
-        Documentation(info="<html>
+      annotation (Icon(graphics={Line(points={{0,-50},{0,50}}, color={0,0,0}),
+              Line(points={{-60,60},{60,60}}, color={0,0,255}),Polygon(
+                  points={{60,60},{30,70},{30,50},{60,60}},
+                  lineColor={0,0,255},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 
 <p>
 This is a constant current source, specifying the complex current by the RMS current and the phase shift.
@@ -2005,28 +1957,25 @@ This is a constant current source, specifying the complex current by the RMS cur
 
     model VariableCurrentSource "Variable AC current"
       extends Interfaces.Source;
-      Modelica.Blocks.Interfaces.RealInput f
-        annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput f annotation (Placement(
+            transformation(
             origin={40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.ComplexBlocks.Interfaces.ComplexInput I
-        annotation (Placement(transformation(
+      Modelica.ComplexBlocks.Interfaces.ComplexInput I annotation (Placement(
+            transformation(
             origin={-40,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = I;
-      annotation (Icon(graphics={
-            Line(points={{0,-50},{0,50}}, color={0,0,0}),
-            Line(points={{-60,60},{60,60}}, color={0,0,255}),
-            Polygon(
-              points={{60,60},{30,70},{30,50},{60,60}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
+      annotation (Icon(graphics={Line(points={{0,-50},{0,50}}, color={0,0,0}),
+              Line(points={{-60,60},{60,60}}, color={0,0,255}),Polygon(
+                  points={{60,60},{30,70},{30,50},{60,60}},
+                  lineColor={0,0,255},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 
 <p>
 This is a current source with a complex signal input, specifying the complex current by the complex RMS current components.
@@ -2058,8 +2007,8 @@ Quasi stationary theory for single phase circuits can be found in the
     extends Modelica.Icons.InterfacesPackage;
 
     connector Pin "Basic connector"
-      Modelica.SIunits.ComplexVoltage  v "Complex potential at the node";
-      flow Modelica.SIunits.ComplexCurrent  i
+      Modelica.SIunits.ComplexVoltage v "Complex potential at the node";
+      flow Modelica.SIunits.ComplexCurrent i
         "Complex current flowing into the pin";
       annotation (Documentation(info="<html>
 <p>
@@ -2085,23 +2034,23 @@ derived from this base connector.
     connector PositivePin "Positive connector"
       extends Pin;
       QuasiStationary.Types.Reference reference "Reference";
-      annotation (Diagram(graphics={Text(
+      annotation (
+        Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid,
-              textString=
-                   "%name"), Rectangle(
+              textString="%name"), Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={85,170,255},
               fillColor={85,170,255},
               fillPattern=FillPattern.Solid)}),
-                                Icon(graphics={Rectangle(
+        Icon(graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={85,170,255},
               fillColor={85,170,255},
               fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
+        Documentation(info="<html>
 
 <p>
 The positive pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
@@ -2123,23 +2072,23 @@ Additionally the reference angle is specified in the connector. The time derivat
     connector NegativePin "Negative Connector"
       extends Pin;
       QuasiStationary.Types.Reference reference "Reference";
-      annotation (Diagram(graphics={Text(
+      annotation (
+        Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid,
-              textString=
-                   "%name"), Rectangle(
+              textString="%name"), Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={85,170,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
-                                Icon(graphics={Rectangle(
+        Icon(graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={85,170,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
+        Documentation(info="<html>
 
 <p>
 The negative pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
@@ -2159,21 +2108,20 @@ Additionally the reference angle is specified in the connector. The time derivat
     end NegativePin;
 
     partial model TwoPin "Two pins"
-      Modelica.SIunits.ComplexVoltage  v;
-      Modelica.SIunits.ComplexCurrent  i;
+      Modelica.SIunits.ComplexVoltage v;
+      Modelica.SIunits.ComplexCurrent i;
       Modelica.SIunits.AngularVelocity omega;
-      PositivePin pin_p "Positive pin"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
-               0)));
-      NegativePin pin_n "Negative pin"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      PositivePin pin_p "Positive pin" annotation (Placement(transformation(
+              extent={{-110,-10},{-90,10}}, rotation=0)));
+      NegativePin pin_n "Negative pin" annotation (Placement(transformation(
+              extent={{90,-10},{110,10}}, rotation=0)));
     equation
       Connections.branch(pin_p.reference, pin_n.reference);
       pin_p.reference.gamma = pin_n.reference.gamma;
       omega = der(pin_p.reference.gamma);
       v = pin_p.v - pin_n.v;
       i = pin_p.i;
-      annotation (         Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a>
 and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines the complex voltage difference as well as the complex current (into the positive pin). Additionally, the angular velocity of the quasi stationary system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
@@ -2193,7 +2141,7 @@ and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfa
       extends TwoPin;
     equation
       pin_p.i + pin_n.i = Complex(0);
-      annotation (         Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 This partial model is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin\">TwoPin</a> and
 additionally considers the complex current balance of the
@@ -2215,13 +2163,12 @@ This model is intended to be used with textual representation of user models.
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
       Modelica.SIunits.AngularVelocity omega;
-      PositivePin pin "Pin"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
-               0)));
+      PositivePin pin "Pin" annotation (Placement(transformation(extent={{-110,
+                -10},{-90,10}}, rotation=0)));
     equation
       omega = der(pin.reference.gamma);
       pin.i = Complex(0);
-      annotation (         Icon(graphics={
+      annotation (Icon(graphics={
             Line(points={{-70,0},{-94,0}}, color={0,0,0}),
             Text(
               extent={{-100,100},{100,70}},
@@ -2229,10 +2176,8 @@ This model is intended to be used with textual representation of user models.
               pattern=LinePattern.None,
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid,
-              textString=
-                   "%name"),
-            Line(points={{100,0},{70,0}},  color={0,0,0})}),
-      Documentation(info="<html>
+              textString="%name"),
+            Line(points={{100,0},{70,0}}, color={0,0,0})}), Documentation(info="<html>
 <p>
 The absolute sensor partial model provides a single
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a> to measure the complex voltage. Additionally this model contains a proper icon and a definition of the angular velocity.
@@ -2253,11 +2198,12 @@ The absolute sensor partial model provides a single
     partial model RelativeSensor "Partial voltage / current sensor"
       extends Modelica.Icons.RotationalSensor;
       extends OnePort;
-      Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(transformation(
+      Modelica.ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
+            transformation(
             origin={0,-110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      annotation (         Icon(graphics={
+      annotation (Icon(graphics={
             Line(points={{-70,0},{-94,0}}, color={0,0,0}),
             Line(points={{70,0},{94,0}}, color={0,0,0}),
             Text(
@@ -2266,10 +2212,9 @@ The absolute sensor partial model provides a single
               pattern=LinePattern.None,
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid,
-              textString=
-                   "%name"),
+              textString="%name"),
             Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255})}),
-      Documentation(info="<html>
+          Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> to measure the complex voltage, current or power. Additionally this model contains a proper icon and a definition of the angular velocity.
@@ -2291,7 +2236,7 @@ The relative sensor partial model relies on the
 
     partial model Source "Partial voltage / current source"
       extends OnePort;
-      Modelica.SIunits.Angle gamma(start=0)=pin_p.reference.gamma;
+      Modelica.SIunits.Angle gamma(start=0) = pin_p.reference.gamma;
     equation
       Connections.root(pin_p.reference);
       annotation (Icon(graphics={
@@ -2300,12 +2245,12 @@ The relative sensor partial model relies on the
               lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Text(extent={{100,-100},{-100,-60}}, textString=
-                                                   "%name",
+            Text(
+              extent={{100,-100},{-100,-60}},
+              textString="%name",
               lineColor={0,0,255}),
             Line(points={{-90,0},{-50,0}}, color={0,0,0}),
-            Line(points={{50,0},{90,0}}, color={0,0,0})}),
-      Documentation(info="<html>
+            Line(points={{50,0},{90,0}}, color={0,0,0})}), Documentation(info="<html>
 <p>
 The source partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort\">OnePort</a> and contains a proper icon.
@@ -2336,69 +2281,62 @@ The source partial model relies on the
       import Modelica.ComplexMath.conj;
       import Modelica.ComplexMath.'abs';
       import Modelica.ComplexMath.arg;
-      Modelica.SIunits.ComplexVoltage  vQS= pin_pQS.v - pin_nQS.v
-        "AC QS voltage";
-      Modelica.SIunits.ComplexCurrent  iQS= pin_pQS.i "AC QS current";
+      Modelica.SIunits.ComplexVoltage vQS=pin_pQS.v - pin_nQS.v "AC QS voltage";
+      Modelica.SIunits.ComplexCurrent iQS=pin_pQS.i "AC QS current";
       output Modelica.SIunits.Voltage vQSabs='abs'(vQS) "Abs(AC QS voltage)";
       output Modelica.SIunits.Current iQSabs='abs'(iQS) "Abs(AC QS current)";
-      Modelica.SIunits.ComplexPower  sQS= vQS*conj(iQS) "AC QS apparent power";
-      Modelica.SIunits.ActivePower pQS = real(sQS) "AC QS active power";
-      Modelica.SIunits.ReactivePower qQS = imag(sQS) "AC QS reactive power";
-      Modelica.SIunits.Voltage vDC = pin_pDC.v - pin_nDC.v "DC voltage";
-      Modelica.SIunits.Current iDC = pin_pDC.i "DC current";
-      Modelica.SIunits.Power pDC = vDC*iDC "DC power";
-      Interfaces.PositivePin pin_pQS
-        annotation (Placement(transformation(extent={{-110,110},{-90,90}}),
-            iconTransformation(extent={{-110,110},{-90,90}})));
-      Interfaces.NegativePin pin_nQS
-        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
-            iconTransformation(extent={{-110,-110},{-90,-90}})));
-      Analog.Interfaces.PositivePin pin_pDC
-        annotation (Placement(transformation(extent={{90,110},{110,90}}),
-            iconTransformation(extent={{90,110},{110,90}})));
-      Analog.Interfaces.NegativePin pin_nDC
-        annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
-            iconTransformation(extent={{90,-110},{110,-90}})));
+      Modelica.SIunits.ComplexPower sQS=vQS*conj(iQS) "AC QS apparent power";
+      Modelica.SIunits.ActivePower pQS=real(sQS) "AC QS active power";
+      Modelica.SIunits.ReactivePower qQS=imag(sQS) "AC QS reactive power";
+      Modelica.SIunits.Voltage vDC=pin_pDC.v - pin_nDC.v "DC voltage";
+      Modelica.SIunits.Current iDC=pin_pDC.i "DC current";
+      Modelica.SIunits.Power pDC=vDC*iDC "DC power";
+      Interfaces.PositivePin pin_pQS annotation (Placement(transformation(
+              extent={{-110,110},{-90,90}}), iconTransformation(extent={{-110,
+                110},{-90,90}})));
+      Interfaces.NegativePin pin_nQS annotation (Placement(transformation(
+              extent={{-110,-110},{-90,-90}}), iconTransformation(extent={{-110,
+                -110},{-90,-90}})));
+      Analog.Interfaces.PositivePin pin_pDC annotation (Placement(
+            transformation(extent={{90,110},{110,90}}), iconTransformation(
+              extent={{90,110},{110,90}})));
+      Analog.Interfaces.NegativePin pin_nDC annotation (Placement(
+            transformation(extent={{90,-110},{110,-90}}), iconTransformation(
+              extent={{90,-110},{110,-90}})));
     equation
-    //QS balances
+      //QS balances
       Connections.branch(pin_pQS.reference, pin_nQS.reference);
       pin_pQS.reference.gamma = pin_nQS.reference.gamma;
       pin_pQS.i + pin_nQS.i = Complex(0);
-    //DC current balance
+      //DC current balance
       pin_pDC.i + pin_nDC.i = 0;
-    //voltage relation
+      //voltage relation
       vDC = 'abs'(vQS)*conversionFactor;
-    //power balance
+      //power balance
       pQS + pDC = 0;
-    //define reactive power
+      //define reactive power
       qQS = 0;
-      annotation ( Icon(graphics={
-            Line(
-              points={{2,100},{2,60},{82,60},{2,60},{82,-60},{2,-60},{2,60},{2,-100}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Text(
-              extent={{40,40},{100,0}},
-              lineColor={0,0,255},
-              textString="DC"),
-            Line(
-              points={{-2,100},{-2,60},{-82,60},{-2,60},{-82,-60},{-2,-60},{-2,60},
-                  {-2,-100}},
-              color={85,170,255},
-              smooth=Smooth.None),
-            Text(
-              extent={{-100,40},{-40,0}},
-              lineColor={85,170,255},
-              textString="QS"),
-            Text(
-              extent={{-100,92},{100,60}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{-100,-60},{100,-92}},
-              lineColor={0,0,255},
-              textString="%conversionFactor")}),
-        Documentation(info="<html>
+      annotation (Icon(graphics={Line(
+                  points={{2,100},{2,60},{82,60},{2,60},{82,-60},{2,-60},{2,60},
+                {2,-100}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Text(
+                  extent={{40,40},{100,0}},
+                  lineColor={0,0,255},
+                  textString="DC"),Line(
+                  points={{-2,100},{-2,60},{-82,60},{-2,60},{-82,-60},{-2,-60},
+                {-2,60},{-2,-100}},
+                  color={85,170,255},
+                  smooth=Smooth.None),Text(
+                  extent={{-100,40},{-40,0}},
+                  lineColor={85,170,255},
+                  textString="QS"),Text(
+                  extent={{-100,92},{100,60}},
+                  lineColor={0,0,255},
+                  textString="%name"),Text(
+                  extent={{-100,-60},{100,-92}},
+                  lineColor={0,0,255},
+                  textString="%conversionFactor")}), Documentation(info="<html>
 <p>
 This is an ideal AC DC converter, based on a power balance between QS circuit and DC side.
 The parameter <i>conversionFactor</i> defines the ratio between averaged DC voltage and QS rms voltage.
@@ -2414,41 +2352,41 @@ At the DC side, only the mean of voltage and current are taken into account.
     end IdealACDCConverter;
 
     model GraetzRectifier "Graetz rectifier bridge"
-      Modelica.SIunits.Voltage vAC = pin_pAC.v - pin_nAC.v "AC voltage";
-      Modelica.SIunits.Current iAC = pin_pAC.i "AC current";
-      Modelica.SIunits.ActivePower pAC = vAC*iAC "AC power";
-      Modelica.SIunits.Voltage vDC = pin_pDC.v - pin_nDC.v "DC voltage";
-      Modelica.SIunits.Current iDC = pin_pDC.i "DC current";
-      Modelica.SIunits.Power pDC = vDC*iDC "DC power";
-      Analog.Interfaces.PositivePin pin_pAC
-        annotation (Placement(transformation(extent={{-110,110},{-90,90}}),
-            iconTransformation(extent={{-110,110},{-90,90}})));
-      Analog.Interfaces.NegativePin pin_nAC
-        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}}),
-            iconTransformation(extent={{-110,-110},{-90,-90}})));
-      Analog.Interfaces.PositivePin pin_pDC
-        annotation (Placement(transformation(extent={{90,110},{110,90}}),
-            iconTransformation(extent={{90,110},{110,90}})));
-      Analog.Interfaces.NegativePin pin_nDC
-        annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
-            iconTransformation(extent={{90,-110},{110,-90}})));
-      Analog.Ideal.IdealDiode idealDiode1(Vknee=0)
-                                          annotation (Placement(transformation(
+      Modelica.SIunits.Voltage vAC=pin_pAC.v - pin_nAC.v "AC voltage";
+      Modelica.SIunits.Current iAC=pin_pAC.i "AC current";
+      Modelica.SIunits.ActivePower pAC=vAC*iAC "AC power";
+      Modelica.SIunits.Voltage vDC=pin_pDC.v - pin_nDC.v "DC voltage";
+      Modelica.SIunits.Current iDC=pin_pDC.i "DC current";
+      Modelica.SIunits.Power pDC=vDC*iDC "DC power";
+      Analog.Interfaces.PositivePin pin_pAC annotation (Placement(
+            transformation(extent={{-110,110},{-90,90}}), iconTransformation(
+              extent={{-110,110},{-90,90}})));
+      Analog.Interfaces.NegativePin pin_nAC annotation (Placement(
+            transformation(extent={{-110,-110},{-90,-90}}), iconTransformation(
+              extent={{-110,-110},{-90,-90}})));
+      Analog.Interfaces.PositivePin pin_pDC annotation (Placement(
+            transformation(extent={{90,110},{110,90}}), iconTransformation(
+              extent={{90,110},{110,90}})));
+      Analog.Interfaces.NegativePin pin_nDC annotation (Placement(
+            transformation(extent={{90,-110},{110,-90}}), iconTransformation(
+              extent={{90,-110},{110,-90}})));
+      Analog.Ideal.IdealDiode idealDiode1(Vknee=0) annotation (Placement(
+            transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-40,30})));
-      Analog.Ideal.IdealDiode idealDiode2(Vknee=0)
-                                          annotation (Placement(transformation(
+      Analog.Ideal.IdealDiode idealDiode2(Vknee=0) annotation (Placement(
+            transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={40,30})));
-      Analog.Ideal.IdealDiode idealDiode3(Vknee=0)
-                                          annotation (Placement(transformation(
+      Analog.Ideal.IdealDiode idealDiode3(Vknee=0) annotation (Placement(
+            transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-40,-30})));
-      Analog.Ideal.IdealDiode idealDiode4(Vknee=0)
-                                          annotation (Placement(transformation(
+      Analog.Ideal.IdealDiode idealDiode4(Vknee=0) annotation (Placement(
+            transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={40,-30})));
@@ -2485,29 +2423,24 @@ At the DC side, only the mean of voltage and current are taken into account.
           points={{40,-40},{40,-100},{100,-100}},
           color={0,0,255},
           smooth=Smooth.None));
-      annotation ( Icon(graphics={
-            Line(
-              points={{2,100},{2,60},{82,60},{2,60},{82,-60},{2,-60},{2,60},{2,-100}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Text(
-              extent={{40,40},{100,0}},
-              lineColor={0,0,255},
-              textString="DC"),
-            Line(
-              points={{-2,100},{-2,60},{-82,60},{-2,60},{-82,-60},{-2,-60},{-2,60},
-                  {-2,-100}},
-              color={0,0,255},
-              smooth=Smooth.None),
-            Text(
-              extent={{-100,40},{-40,0}},
-              lineColor={0,0,255},
-              textString="AC"),
-            Text(
-              extent={{-100,92},{100,60}},
-              lineColor={0,0,255},
-              textString="%name")}),
-        Documentation(info="<html>
+      annotation (Icon(graphics={Line(
+                  points={{2,100},{2,60},{82,60},{2,60},{82,-60},{2,-60},{2,60},
+                {2,-100}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Text(
+                  extent={{40,40},{100,0}},
+                  lineColor={0,0,255},
+                  textString="DC"),Line(
+                  points={{-2,100},{-2,60},{-82,60},{-2,60},{-82,-60},{-2,-60},
+                {-2,60},{-2,-100}},
+                  color={0,0,255},
+                  smooth=Smooth.None),Text(
+                  extent={{-100,40},{-40,0}},
+                  lineColor={0,0,255},
+                  textString="AC"),Text(
+                  extent={{-100,92},{100,60}},
+                  lineColor={0,0,255},
+                  textString="%name")}), Documentation(info="<html>
 <p>
 This is a so called Graetz-bridge, a single phase rectifier built from 4 diodes.
 </p>
@@ -2525,16 +2458,12 @@ Quasi stationary theory for single phase circuits can be found in the
 
 </html>"));
   end Utilities;
-  annotation (Icon(
-      graphics={
-        Rectangle(
-          lineColor = {0,0,255},
-          extent = {{-50,-50},{50,50}}),
-        Rectangle(
-          fillColor = {170,213,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-20},{20,20}})},
-      coordinateSystem(extent = {{-100,-100},{100,100}}, preserveAspectRatio = true)),  Documentation(info="<html>
+  annotation (Icon(graphics={Rectangle(lineColor={0,0,255}, extent={{-50,-50},{
+              50,50}}), Rectangle(
+          fillColor={170,213,255},
+          fillPattern=FillPattern.Solid,
+          extent={{-20,-20},{20,20}})}, coordinateSystem(extent={{-100,-100},{
+            100,100}}, preserveAspectRatio=true)), Documentation(info="<html>
 <p>This package hosts models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.

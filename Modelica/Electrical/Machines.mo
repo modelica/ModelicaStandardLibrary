@@ -10161,32 +10161,28 @@ The induction machine models use package SpacePhasors.
        conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"), Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-            origin={2.835,10},
-            fillColor={0,128,255},
-            fillPattern=FillPattern.HorizontalCylinder,
-            extent={{-60,-60},{60,60}}),
-          Rectangle(
-            origin={2.835,10},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.HorizontalCylinder,
-            extent={{-80,-60},{-60,60}}),
-          Rectangle(
-            origin={2.835,10},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.HorizontalCylinder,
-            extent={{60,-10},{80,10}}),
-          Rectangle(
-            origin={2.835,10},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
-            extent={{-60,50},{20,70}}),
-          Polygon(
-            origin={2.835,10},
-            fillPattern=FillPattern.Solid,
-            points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{
-                60,-100},{-70,-100},{-70,-90}})}));
+            Rectangle(
+              origin={2.835,10},
+              fillColor={0,128,255},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-60,-60},{60,60}}),Rectangle(
+              origin={2.835,10},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-80,-60},{-60,60}}),Rectangle(
+              origin={2.835,10},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{60,-10},{80,10}}),Rectangle(
+              origin={2.835,10},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              extent={{-60,50},{20,70}}),Polygon(
+              origin={2.835,10},
+              fillPattern=FillPattern.Solid,
+              points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},
+              {60,-100},{-70,-100},{-70,-90}})}));
   end BasicMachines;
 
   package Sensors "Sensors for machine modelling"
@@ -10816,33 +10812,27 @@ a ground has to be used where necessary for currents flowing back.
         y = RotationMatrix*u;
         //u = InverseRotator*y;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Line(points={{0,0},{0,80},{-10,60},{10,60},{0,80}}, color={0,0,
-                    255}),
-              Line(points={{0,0},{80,0},{60,10},{60,-10},{80,0}}, color={0,0,
-                    255}),
-              Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}),
-              Rectangle(
-                extent={{-51,51},{-1,-51}},
-                pattern=LinePattern.None,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                lineColor={0,0,255}),
-              Rectangle(
-                extent={{51,-1},{-1,-51}},
-                pattern=LinePattern.None,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                lineColor={0,0,255}),
-              Polygon(
-                points={{50,0},{42,14},{54,16},{50,0}},
-                lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid),
-              Text(
-                extent={{-88,-72},{84,-92}},
-                lineColor={0,0,0},
-                textString="angle")}), Documentation(info="<HTML>
+                  -100},{100,100}}), graphics={Line(points={{0,0},{0,80},{-10,
+                60},{10,60},{0,80}}, color={0,0,255}),Line(points={{0,0},{80,0},
+                {60,10},{60,-10},{80,0}}, color={0,0,255}),Ellipse(extent={{-50,
+                50},{50,-50}}, lineColor={0,0,255}),Rectangle(
+                      extent={{-51,51},{-1,-51}},
+                      pattern=LinePattern.None,
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid,
+                      lineColor={0,0,255}),Rectangle(
+                      extent={{51,-1},{-1,-51}},
+                      pattern=LinePattern.None,
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid,
+                      lineColor={0,0,255}),Polygon(
+                      points={{50,0},{42,14},{54,16},{50,0}},
+                      lineColor={0,0,255},
+                      fillColor={0,0,255},
+                      fillPattern=FillPattern.Solid),Text(
+                      extent={{-88,-72},{84,-92}},
+                      lineColor={0,0,0},
+                      textString="angle")}), Documentation(info="<HTML>
 Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the spave phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -10877,33 +10867,27 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
         //u = fill(zero,m) + InverseTransformation*y;
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={
-              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
-                    255}),
-              Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,
-                    0,255}),
-              Line(
-                points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
-                    17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
-                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}},
-                color={0,0,255},
-                smooth=Smooth.Bezier),
-              Line(
-                points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
-                    17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}},
-                color={0,0,255},
-                smooth=Smooth.Bezier),
-              Line(
-                points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
-                    17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
-                    -20},{-3.33,-17.32},{3.33,-10},{10,0}},
-                color={0,0,255},
-                smooth=Smooth.Bezier),
-              Text(
-                extent={{-12,-74},{64,-86}},
-                lineColor={0,0,0},
-                textString="zero")}),
+                  100,100}}), graphics={Line(points={{0,0},{80,80},{60,72},{72,
+                60},{80,80}}, color={0,0,255}),Line(points={{0,0},{80,-80},{72,
+                -60},{60,-72},{80,-80}}, color={0,0,255}),Line(
+                      points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
+                  17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
+                  -20},{-13.33,-17.32},{-6.67,-10},{0,0}},
+                      color={0,0,255},
+                      smooth=Smooth.Bezier),Line(
+                      points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
+                  17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
+                  -20},{-23.33,-17.32},{-16.67,-10},{-10,0}},
+                      color={0,0,255},
+                      smooth=Smooth.Bezier),Line(
+                      points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
+                  17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
+                  -20},{-3.33,-17.32},{3.33,-10},{10,0}},
+                      color={0,0,255},
+                      smooth=Smooth.Bezier),Text(
+                      extent={{-12,-74},{64,-86}},
+                      lineColor={0,0,0},
+                      textString="zero")}),
           Documentation(info="<HTML>
 Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
 </HTML>"),
@@ -10930,33 +10914,27 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
         //m*zero = sum(y);
         //u = TransformationMatrix *y;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={0,
-                    0,255}),
-              Line(points={{0,0},{-80,-80},{-72,-60},{-60,-72},{-80,-80}},
-                  color={0,0,255}),
-              Line(
-                points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,17.32},{
-                    33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},{66.67,
-                    -17.32},{73.33,-10},{80,0}},
-                color={0,0,255},
-                smooth=Smooth.Bezier),
-              Line(
-                points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,17.32},{
-                    23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},{56.67,
-                    -17.32},{63.33,-10},{70,0}},
-                color={0,0,255},
-                smooth=Smooth.Bezier),
-              Line(
-                points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,17.32},{
-                    43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},{76.67,
-                    -17.32},{83.33,-10},{90,0}},
-                color={0,0,255},
-                smooth=Smooth.Bezier),
-              Text(
-                extent={{-62,-74},{14,-86}},
-                lineColor={0,0,0},
-                textString="zero")}), Documentation(info="<HTML>
+                  -100},{100,100}}), graphics={Line(points={{0,0},{-80,80},{-60,
+                72},{-72,60},{-80,80}}, color={0,0,255}),Line(points={{0,0},{-80,
+                -80},{-72,-60},{-60,-72},{-80,-80}}, color={0,0,255}),Line(
+                      points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,
+                  17.32},{33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},
+                  {66.67,-17.32},{73.33,-10},{80,0}},
+                      color={0,0,255},
+                      smooth=Smooth.Bezier),Line(
+                      points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,
+                  17.32},{23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},
+                  {56.67,-17.32},{63.33,-10},{70,0}},
+                      color={0,0,255},
+                      smooth=Smooth.Bezier),Line(
+                      points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,
+                  17.32},{43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},
+                  {76.67,-17.32},{83.33,-10},{90,0}},
+                      color={0,0,255},
+                      smooth=Smooth.Bezier),Text(
+                      extent={{-62,-74},{14,-86}},
+                      lineColor={0,0,0},
+                      textString="zero")}), Documentation(info="<HTML>
 Transformation of space phasor and zero sequence value to mutli phase values (of voltages or currents).
 </HTML>"));
       end FromSpacePhasor;
@@ -10980,26 +10958,21 @@ Transformation of space phasor and zero sequence value to mutli phase values (of
   end if;
 */
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
-              Line(points={{-100,-100},{100,100}}, color={0,0,255}),
-              Polygon(points={{26,26},{14,20},{20,14},{26,26}}, lineColor={0,0,
-                    255}),
-              Line(
-                points={{-18,-18},{-14,-22},{-10,-28},{-6,-34},{-2,-44},{0,-52},
-                    {0,-60}},
-                color={0,0,255},
-                smooth=Smooth.Bezier),
-              Polygon(points={{-18,-18},{-14,-26},{-10,-22},{-18,-18}},
-                  lineColor={0,0,255}),
-              Text(
-                extent={{-100,100},{-6,-6}},
-                lineColor={0,0,255},
-                textString="R"),
-              Text(
-                extent={{6,6},{100,-100}},
-                lineColor={0,0,255},
-                textString="P")}), Documentation(info="<HTML>
+                  -100},{100,100}}), graphics={Line(points={{-60,60},{-60,-60},
+                {60,-60}}, color={0,0,255}),Line(points={{-100,-100},{100,100}},
+                color={0,0,255}),Polygon(points={{26,26},{14,20},{20,14},{26,26}},
+                lineColor={0,0,255}),Line(
+                      points={{-18,-18},{-14,-22},{-10,-28},{-6,-34},{-2,-44},{
+                  0,-52},{0,-60}},
+                      color={0,0,255},
+                      smooth=Smooth.Bezier),Polygon(points={{-18,-18},{-14,-26},
+                {-10,-22},{-18,-18}}, lineColor={0,0,255}),Text(
+                      extent={{-100,100},{-6,-6}},
+                      lineColor={0,0,255},
+                      textString="R"),Text(
+                      extent={{6,6},{100,-100}},
+                      lineColor={0,0,255},
+                      textString="P")}), Documentation(info="<HTML>
 Converts a space phasor from rectangular coordinates to polar coordinates.
 </HTML>"));
       end ToPolar;
@@ -11009,26 +10982,21 @@ Converts a space phasor from rectangular coordinates to polar coordinates.
       equation
         y = u[1]*{cos(u[2]),sin(u[2])};
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
-              Line(points={{-100,-100},{100,100}}, color={0,0,255}),
-              Polygon(points={{26,26},{14,20},{20,14},{26,26}}, lineColor={0,0,
-                    255}),
-              Line(
-                points={{-18,-18},{-14,-22},{-10,-28},{-6,-34},{-2,-44},{0,-52},
-                    {0,-60}},
-                color={0,0,255},
-                smooth=Smooth.Bezier),
-              Polygon(points={{-18,-18},{-14,-26},{-10,-22},{-18,-18}},
-                  lineColor={0,0,255}),
-              Text(
-                extent={{-100,100},{-6,-6}},
-                lineColor={0,0,255},
-                textString="P"),
-              Text(
-                extent={{6,6},{100,-100}},
-                lineColor={0,0,255},
-                textString="R")}), Documentation(info="<HTML>
+                  -100},{100,100}}), graphics={Line(points={{-60,60},{-60,-60},
+                {60,-60}}, color={0,0,255}),Line(points={{-100,-100},{100,100}},
+                color={0,0,255}),Polygon(points={{26,26},{14,20},{20,14},{26,26}},
+                lineColor={0,0,255}),Line(
+                      points={{-18,-18},{-14,-22},{-10,-28},{-6,-34},{-2,-44},{
+                  0,-52},{0,-60}},
+                      color={0,0,255},
+                      smooth=Smooth.Bezier),Polygon(points={{-18,-18},{-14,-26},
+                {-10,-22},{-18,-18}}, lineColor={0,0,255}),Text(
+                      extent={{-100,100},{-6,-6}},
+                      lineColor={0,0,255},
+                      textString="P"),Text(
+                      extent={{6,6},{100,-100}},
+                      lineColor={0,0,255},
+                      textString="R")}), Documentation(info="<HTML>
 Converts a space phasor from polar coordinates to rectangular coordinates.
 </HTML>"));
       end FromPolar;
@@ -11061,10 +11029,9 @@ This model determines the RMS value of the input space phasor <code>u</code>.</p
 
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
-                extent={{-60,40},{60,-20}},
-                lineColor={0,0,255},
-                textString="RMS")}));
-
+                      extent={{-60,40},{60,-20}},
+                      lineColor={0,0,255},
+                      textString="RMS")}));
       end QuasiRMS;
       annotation (Documentation(info="<HTML>
 This package contains space phasor transformation blocks for use in controllers:
@@ -11223,11 +11190,11 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
         input Real x[3];
         output Real y;
       protected
-        Integer m=size(u, 1) "Number of phases";
+        Integer m=size(x, 1) "Number of phases";
         Modelica.SIunits.Angle phi[m]=
             Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
         Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
-        Real h[2]=TransformationMatrix*u;
+        Real h[2]=TransformationMatrix*x;
       algorithm
         y := sqrt(h[1]^2 + h[2]^2)/sqrt(2);
         annotation (Inline=true, Documentation(info="<HTML>
@@ -13055,10 +13022,10 @@ Additionally, all losses = heat flows are recorded.
 </HTML>"));
     end ThermalAmbientTransformer;
     annotation (Icon(graphics={Ellipse(
-            extent={{-65,-63},{65,63}},
-            lineColor={191,0,0},
-            fillColor={191,0,0},
-            fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+              extent={{-65,-63},{65,63}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
 <h4>Thermal concept</h4>
 <p>
 Each machine model is equipped with a machine-specific conditional <code>thermalPort</code>.
@@ -13731,7 +13698,7 @@ Partial thermal port for induction machines
                       fillColor={191,0,0},
                       fillPattern=FillPattern.Solid,
                       origin={0,68},
-                      rotation=90)}),Documentation(info="<HTML>
+                      rotation=90)}), Documentation(info="<HTML>
 Partial thermal ambient for induction machines
 </HTML>"));
       end PartialThermalAmbientInductionMachines;
@@ -15868,6 +15835,67 @@ TerminalBox: at the bottom connected to both machine plugs, connect at the top t
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
 </html>"));
     end TerminalBox;
+
+    model MultiTerminalBox "Terminal box Y/D-connection"
+      parameter Integer m(min=1) = 3 "number of phases";
+      final parameter Integer mSystems=
+          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
+          m);
+      final parameter Integer mBasic=integer(m/mSystems);
+      parameter String terminalConnection(start="Y") "Choose Y=star/D=delta"
+        annotation (choices(choice="Y" "Star connection", choice="D"
+            "Delta connection"));
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
+        "To positive stator plug" annotation (Placement(transformation(extent={
+                {50,-90},{70,-110}}, rotation=0)));
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
+        "To negative stator plug" annotation (Placement(transformation(extent={
+                {-70,-90},{-50,-110}}, rotation=0)));
+      MultiPhase.Basic.MultiStar multiStar(final m=m) if (terminalConnection
+         <> "D") annotation (Placement(transformation(
+            origin={-70,-80},
+            extent={{-10,10},{10,-10}},
+            rotation=180)));
+      MultiPhase.Basic.MultiDelta multiDelta(final m=m) if (terminalConnection
+         == "D") annotation (Placement(transformation(extent={{-20,-70},{-40,-50}},
+              rotation=0)));
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m
+          =m) "To grid" annotation (Placement(transformation(extent={{-10,-70},
+                {10,-90}}, rotation=0)));
+      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug starpoint(final m=
+            mSystems) if (terminalConnection <> "D") annotation (Placement(
+            transformation(extent={{-100,-90},{-80,-70}}, rotation=0)));
+    equation
+      connect(plug_sn, multiStar.plug_p)
+        annotation (Line(points={{-60,-100},{-60,-80}}, color={0,0,255}));
+      connect(plug_sn, multiDelta.plug_n) annotation (Line(points={{-60,-100},{
+              -40,-100},{-40,-60}}, color={0,0,255}));
+      connect(multiDelta.plug_p, plug_sp) annotation (Line(points={{-20,-60},{
+              60,-60},{60,-100}}, color={0,0,255}));
+      connect(plug_sp, plugSupply) annotation (Line(points={{60,-100},{0,-100},
+              {0,-80}}, color={0,0,255}));
+      connect(starpoint, multiStar.starpoints) annotation (Line(
+          points={{-90,-80},{-80,-80}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Polygon(
+                  points={{-74,-80},{-80,-86},{-80,-120},{-40,-140},{40,-140},{
+                80,-110},{80,-84},{76,-80},{-74,-80}},
+                  lineColor={95,95,95},
+                  fillColor={135,135,135},
+                  fillPattern=FillPattern.CrossDiag),Text(
+                  extent={{-40,-90},{40,-130}},
+                  lineColor={0,0,0},
+                  textString="%terminalConnection")}),
+        Documentation(info="<html>
+TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
+choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
+    end MultiTerminalBox;
 
     model SwitchedRheostat "Rheostat which is shortened after a given time"
       parameter Integer m=3 "Number of phases";
