@@ -5962,8 +5962,7 @@ The partial two port elementary model extends from the partial two port model an
 
     partial model PartialBasicMachine
       "Partial model for quasi static multi phase machines"
-      extends
-        Electrical.Machines.Icons.Modelica.Magnetic.QuasiStatic.FundamentalWaveMachine;
+      extends Electrical.Machines.Icons.QuasiStaticFundamentalWaveMachine;
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       parameter Integer m(min=3) = 3 "Number of stator phases";
       // Mechanical parameters
