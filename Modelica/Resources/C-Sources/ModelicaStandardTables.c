@@ -2021,7 +2021,7 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                         y = TABLE(1, last2 + 1);
                         break;
                     }
-                    /* Fall trough: linear extrapolation */
+                    /* Fall through: linear extrapolation */
                 case LINEAR_SEGMENTS: {
                     const double u20 = TABLE_ROW0(last2 + 1);
                     const double u21 = TABLE_ROW0(last2 + 2);
@@ -2086,7 +2086,7 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                         y = TABLE(last1 + 1, 1);
                         break;
                     }
-                    /* Fall trough: linear extrapolation */
+                    /* Fall through: linear extrapolation */
                 case LINEAR_SEGMENTS: {
                     const double u10 = TABLE_COL0(last1 + 1);
                     const double u11 = TABLE_COL0(last1 + 2);
@@ -2416,7 +2416,7 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                     if (extrapolate2 == IN_TABLE) {
                         break;
                     }
-                    /* Fall trough: linear extrapolation */
+                    /* Fall through: linear extrapolation */
                 case LINEAR_SEGMENTS: {
                     der_y = (TABLE(1, last2 + 2) - TABLE(1, last2 + 1))/
                         (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
@@ -2472,7 +2472,7 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                     if (extrapolate1 == IN_TABLE) {
                         break;
                     }
-                    /* Fall trough: linear extrapolation */
+                    /* Fall through: linear extrapolation */
                 case LINEAR_SEGMENTS: {
                     der_y = (TABLE(last1 + 2, 1) - TABLE(last1 + 1, 1))/
                         (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
