@@ -4688,8 +4688,8 @@ on the model behaviour.
     SI.Voltage vGS "Gate - source voltage";
 
   equation
-    assert( NRD <> 0, "NRD, length of drain in squares, must not be zero");
-    assert( NRS <> 0, "NRS, length of source in squares, must not be zero");
+    assert( NRD > 0, "NRD, length of drain in squares, must be greater than zero");
+    assert( NRS > 0, "NRS, length of source in squares, must be greater than zero");
 
     vDS = D.v - S.v;
     vGS = G.v - S.v;
