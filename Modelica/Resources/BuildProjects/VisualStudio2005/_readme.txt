@@ -1,7 +1,7 @@
 This directory contains Microsoft Visual Studio projects to construct object
 libraries from the C-code under Resources/C-Sources
 
-- ModelicaStandardTables (.lib, .dll)
+- ModelicaStandardTables.lib
   This library contains
   Resources/C-Sources/ModelicaStandardTables.c
                      /ModelicaMatIO.c
