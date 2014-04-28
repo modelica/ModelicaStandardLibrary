@@ -872,4 +872,119 @@ package CombiTable2D
         thickness=0.0625));
       annotation (experiment(StartTime=0, StopTime=6));
   end Test21;
+
+  model Test22 "Ticket #1465, Akima extrapolation"
+    extends Modelica.Icons.Example;
+    // Right extrapolate u1
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D_1R(
+      table=[0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,55},{-50,75}})));
+    Modelica.Blocks.Continuous.Der der_1R annotation(Placement(transformation(extent={{-30,55},{-10,75}})));
+    // Right extrapolate u2
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D_2R(
+      table=transpose([0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039]),
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,20},{-50,40}})));
+    Modelica.Blocks.Continuous.Der der_2R annotation(Placement(transformation(extent={{-30,20},{-10,40}})));
+    Modelica.Blocks.Sources.Sine sine_R(
+      amplitude=3,
+      freqHz=0.5,
+      phase=Modelica.Constants.pi/2,
+      offset=33) annotation(Placement(transformation(extent={{-130,60},{-110,80}})));
+    Modelica.Blocks.Sources.Constant const_R(k=81) annotation(Placement(transformation(extent={{-130,25},{-110,45}})));
+    // Left extrapolate u1
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D_1L(
+      table=[0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,-15},{-50,5}})));
+    Modelica.Blocks.Continuous.Der der_1L annotation(Placement(transformation(extent={{-30,-15},{-10,5}})));
+    // Left extrapolate u2
+    Modelica.Blocks.Tables.CombiTable2D combiTable2D_2L(
+      table=transpose([0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778]),
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,-50},{-50,-30}})));
+    Modelica.Blocks.Continuous.Der der_2L annotation(Placement(transformation(extent={{-30,-50},{-10,-30}})));
+    Modelica.Blocks.Sources.Sine sine_L(
+      amplitude=-3,
+      freqHz=0.5,
+      phase=Modelica.Constants.pi/2,
+      offset=18) annotation(Placement(transformation(extent={{-130,-10},{-110,10}})));
+    Modelica.Blocks.Sources.Constant const_L(k=82) annotation(Placement(transformation(extent={{-130,-45},{-110,-25}})));
+    equation
+      connect(der_1R.u,combiTable2D_1R.y) annotation(Line(
+        points={{-32,65},{-37,65},{-44,65},{-49,65}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D_2R.y,der_2R.u) annotation(Line(
+        points={{-49,30},{-44,30},{-37,30},{-32,30}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D_2R.u2,sine_R.y) annotation(Line(
+        points={{-72,24},{-77,24},{-104,24},{-104,70},{-109,70}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D_1R.u1,sine_R.y) annotation(Line(
+        points={{-72,71},{-77,71},{-104,71},{-104,70},{-109,70}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(const_R.y,combiTable2D_2R.u1) annotation(Line(
+        points={{-109,35},{-104,35},{-77,35},{-77,36},{-72,36}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(const_R.y,combiTable2D_1R.u2) annotation(Line(
+        points={{-109,35},{-104,35},{-77,35},{-77,59},{-72,59}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D_1L.u1,sine_L.y) annotation(Line(
+        points={{-72,1},{-77,1},{-104,1},{-104,0},{-109,0}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D_2L.u2,sine_L.y) annotation(Line(
+        points={{-72,-46},{-77,-46},{-104,-46},{-104,0},{-109,0}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(der_1L.u,combiTable2D_1L.y) annotation(Line(
+        points={{-32,-5},{-37,-5},{-44,-5},{-49,-5}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(combiTable2D_2L.y,der_2L.u) annotation(Line(
+        points={{-49,-40},{-44,-40},{-37,-40},{-32,-40}},
+        color={0,0,127},
+        thickness=0.0625));
+      connect(const_L.y,combiTable2D_2L.u1) annotation(Line(
+        points={{-109,-35},{-104,-35},{-77,-35},{-77,-34},{-72,-34}},
+        color={0,0,127},
+        thickness=0.015625));
+      connect(const_L.y,combiTable2D_1L.u2) annotation(Line(
+        points={{-109,-35},{-104,-35},{-77,-35},{-77,-11},{-72,-11}},
+        color={0,0,127},
+        thickness=0.015625));
+    annotation(
+      Diagram(
+        coordinateSystem(preserveAspectRatio=false),
+        graphics={
+                Rectangle(
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid,
+                  extent={{20,30},{45,15}}),
+                Text(
+                  textString="1L",
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  extent={{25,35},{40,30}}),
+                Text(
+                  textString="1R",
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  extent={{25,15},{40,10}}),
+                Text(
+                  textString="2L",
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  extent={{10,25},{25,20}}),
+                Text(
+                  textString="2R",
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.Solid,
+                  extent={{40,25},{55,20}})}),
+      experiment(StartTime=0, StopTime=1));
+  end Test22;
 end CombiTable2D;
