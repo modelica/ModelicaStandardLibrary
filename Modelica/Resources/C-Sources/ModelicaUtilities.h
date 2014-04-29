@@ -52,15 +52,15 @@ Output the message string (no format control).
 
 
 void ModelicaFormatMessage(const char *string,...);
-  /*
+/*
 Output the message under the same format control as the C-function printf.
-  */
+*/
 
 
 void ModelicaVFormatMessage(const char *string, va_list);
-  /*
+/*
 Output the message under the same format control as the C-function vprintf.
-  */
+*/
 
 
 MODELICA_NORETURN void ModelicaError(const char *string) MODELICA_NORETURNATTR;
