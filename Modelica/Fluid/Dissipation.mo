@@ -10842,7 +10842,8 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
         algorithm
           y := if x >= adeltax then x^pow else if x <= -adeltax then -(-x)^pow else (C1
              + C3*x*x)*x;
-          annotation (derivative=SmoothPower_der,
+          annotation (derivative(zeroDerivative=deltax, zeroDerivative=pow)=SmoothPower_der,
+            smoothOrder=1,
             Documentation(info="<html>
 <p>
 The function is used to limit the derivative of the following function at x=0:
@@ -10877,6 +10878,8 @@ For |x| &gt; 1 both functions return identical results.
 <dt>ThermoFluid Library</dt>
     <dd><b><a href=\"http://sourceforge.net/projects/thermofluid/\">http://sourceforge.net/projects/thermofluid/</a></b></dd>
 </dl>
+</html>", revisions="<html>
+2014-04-29 Stefan Wischhusen: Introduced deltax and pow as zero derivatives.
 </html>"));
         end SmoothPower;
 
@@ -10886,8 +10889,6 @@ For |x| &gt; 1 both functions return identical results.
           input Real deltax "range of interpolation";
           input Real pow "exponent for x";
           input Real dx "derivative of x";
-          input Real ddeltax "derivative of deltax";
-          input Real dpow "derivative of pow";
           output Real dy "derivative of SmoothPower";
         protected
           Real C3;
@@ -10899,12 +10900,15 @@ For |x| &gt; 1 both functions return identical results.
           if noEvent(x >= adeltax) then
             dy := dx*pow*x^(pow - 1);
           elseif noEvent(x <= -adeltax) then
-            dy := -dx*pow*(-x)^(pow - 1);
+            dy := dx*pow*(-x)^(pow - 1);
           else
             C3 := (pow - 1)/2*adeltax^(pow - 3);
             C1 := (3 - pow)/2*adeltax^(pow - 1);
             dy := (C1 + 3*C3*x*x)*dx;
           end if;
+         annotation (Documentation(revisions="<html>
+2014-04-29 Stefan Wischhusen: Corrected branch for x<=-adeltax, removed dpow and ddeltax.
+</html>"));
         end SmoothPower_der;
 
         function Stepsmoother "Continuous interpolation for x"
@@ -10918,14 +10922,12 @@ For |x| &gt; 1 both functions return identical results.
         protected
           Real m=Modelica.Constants.pi/(func - nofunc);
           Real b=-Modelica.Constants.pi/2 - m*nofunc;
-          Real r_1=tan(m*x + b);
 
         algorithm
           result := if x >= 0.999999*(func - nofunc) + nofunc and func > nofunc or x
              <= 0.999999*(func - nofunc) + nofunc and nofunc > func then 1 else if x
              <= 0.000001*(func - nofunc) + nofunc and func > nofunc or x >= 0.000001*(
-            func - nofunc) + nofunc and nofunc > func then 0 else ((0.5*(exp(r_1) - exp(
-            -r_1))/(0.5*(exp(r_1) + exp(-r_1))) + 1)/2);
+            func - nofunc) + nofunc and nofunc > func then 0 else (1+Modelica.Math.tanh(Modelica.Math.tan(m*x + b)))/2;
           annotation (
             derivative=Stepsmoother_der,
             Documentation(info="<html>
