@@ -163,8 +163,9 @@ An appropriate simulating time would be 10 seconds.
         "Ambient temperature";
 
       Modelica.Blocks.Sources.CombiTimeTable lossTable(extrapolation=Modelica.
-            Blocks.Types.Extrapolation.Periodic, table=[0,100,500; 360,100,500;
-            360,1000,500; 600,1000,500])
+            Blocks.Types.Extrapolation.Periodic, smoothness=Modelica.Blocks.
+            Types.Smoothness.ConstantSegments, table=[0,100,500; 360,1000,500;
+            600,100,500])
                                 annotation (Placement(transformation(
             origin={-40,70},
             extent={{-10,-10},{10,10}},
