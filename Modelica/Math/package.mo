@@ -10396,7 +10396,7 @@ This package contains a direct interface to the LAPACK subroutines
     protected
       Integer n=size(A, 1);
       Real G[size(A, 1), size(A, 2)]=B*Matrices.solve2(R, transpose(B));
-      Real Xk[size(X, 1), size(X, 2)];
+      Real Xk[size(A, 1), size(A, 2)];
       Real Ak[size(A, 1), size(A, 2)];
       Real Rk[size(A, 1), size(A, 2)];
       Real Nk[size(A, 1), size(A, 2)];
@@ -10559,7 +10559,7 @@ The algorithm is taken from [1] and [2].
 
     protected
       Integer n=size(A, 1);
-      Real Xk[size(X, 1), size(X, 2)];
+      Real Xk[size(A, 1), size(A, 2)];
       Real Ak[size(A, 1), size(A, 2)];
       Real Rk[size(A, 1), size(A, 2)];
       Real Nk[size(A, 1), size(A, 2)];
