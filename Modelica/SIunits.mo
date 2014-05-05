@@ -1824,6 +1824,9 @@ argument):</p>
  // Other types not defined in ISO 31-1992
   type PerUnit = Real(unit = "1");
 
+  type PerArea = Real (final quantity="PerArea", final unit="1/m2") "Per Area";
+  type AreaPerVoltageSecond = Real (final quantity="AreaPerVoltageSecond", final unit="m2/(V.s)") "Area per voltage second";
+
  // Complex types for electrical systems (not defined in ISO 31-1992)
   operator record ComplexCurrent =
     Complex(redeclare Modelica.SIunits.Current re,
