@@ -37,7 +37,7 @@ package Tables
           table,
           columns,
           smoothness) "External table object";
-     Real tableOnFileRead
+    parameter Real tableOnFileRead(fixed=false)
       "= 1, if table was successfully read from file";
 
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
@@ -92,14 +92,13 @@ package Tables
         annotation (Library={"ModelicaStandardTables"});
     end getDerTableValue;
 
+  initial algorithm
+    if tableOnFile then
+      tableOnFileRead := readTableData(tableID, false, verboseRead);
+    else
+      tableOnFileRead := 1.;
+    end if;
   equation
-    when initial() then
-      if tableOnFile then
-        tableOnFileRead = readTableData(tableID,  false,   verboseRead);
-      else
-        tableOnFileRead = 1.;
-      end if;
-    end when;
     if tableOnFile then
       assert(tableName <> "NoName",
         "tableOnFile = true and no table name given");
@@ -340,7 +339,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           table,
           columns,
           smoothness) "External table object";
-    Real tableOnFileRead
+    parameter Real tableOnFileRead(fixed=false)
       "= 1, if table was successfully read from file";
 
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
@@ -395,14 +394,13 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Library={"ModelicaStandardTables"});
     end getDerTableValue;
 
+  initial algorithm
+    if tableOnFile then
+      tableOnFileRead := readTableData(tableID, false, verboseRead);
+    else
+      tableOnFileRead := 1.;
+    end if;
   equation
-    when initial() then
-      if tableOnFile then
-        tableOnFileRead = readTableData(tableID, false, verboseRead);
-      else
-        tableOnFileRead = 1.;
-      end if;
-    end when;
     if tableOnFile then
       assert(tableName <> "NoName",
         "tableOnFile = true and no table name given");
@@ -638,7 +636,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           smoothness) "External table object";
-    Real tableOnFileRead
+    parameter Real tableOnFileRead(fixed=false)
       "= 1, if table was successfully read from file";
 
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
@@ -694,14 +692,13 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Library={"ModelicaStandardTables"});
     end getDerTableValue;
 
+  initial algorithm
+    if tableOnFile then
+      tableOnFileRead := readTableData(tableID, false, verboseRead);
+    else
+      tableOnFileRead := 1.;
+    end if;
   equation
-    when initial() then
-     if tableOnFile then
-       tableOnFileRead = readTableData(tableID, false, verboseRead);
-     else
-       tableOnFileRead = 1.;
-     end if;
-    end when;
     if tableOnFile then
       assert(tableName <> "NoName",
         "tableOnFile = true and no table name given");
