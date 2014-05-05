@@ -3347,7 +3347,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 
 <tr><td colspan=\"2\"><b>Modelica.Math.BooleanVectors.</b></td></tr>
 <tr><td valign=\"top\"> allTrue </td>
-    <td valign=\"top\"> Returns true, if al" + "l elements of the Boolean input vector are true. </td> </tr>
+    <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are true. </td> </tr>
 <tr><td valign=\"top\"> anyTrue </td>
     <td valign=\"top\"> Returns true, if at least on element of the Boolean input vector is true. </td> </tr>
 <tr><td valign=\"top\"> oneTrue </td>
@@ -4990,7 +4990,7 @@ should be automatic):
                                                 transforms from the \"old\" to the \"new\" form of initialization.</td> </tr>
 
 <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Sensors.</b></td></tr>
-<tr><" + "td valign=\"top\"> AbsoluteSensor<br>
+<tr><td valign=\"top\"> AbsoluteSensor<br>
                                                 RelativeSensor<br>
                                                 CutForceAndTorque</td>
           <td valign=\"top\"> New design of sensor components: Via Boolean parameters<br>
@@ -6082,7 +6082,7 @@ units are wrong or errors in documentation):
 </tr>
 
 <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Examples.Loops.</b></td></tr>
-<tr><td valign=\"top\"> Engi" + "neV6</td>
+<tr><td valign=\"top\"> EngineV6</td>
           <td valign=\"top\"> Corrected wrong crankAngleOffset of some cylinders
                    and improved the example.
            </td>
