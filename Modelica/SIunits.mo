@@ -1899,7 +1899,9 @@ argument):</p>
 <p>
 Since magnetic material properties like reluctance and permeance often are anisotropic resp. salient,
 a special operator instead of multiplication (compare: tensor vs. vector) is required.
-Modelica.Magentic.FundamentalWave uses a special record Salient which is only valid in the rotor-fixed coordinate system.
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> uses a
+special record <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Types.Salient\">Salient</a>
+which is only valid in the rotor-fixed coordinate system.
 </p>
 <p>
 <b>Note:</b> To avoid confusion, no magnetic material properties should be defined as Complex units.
