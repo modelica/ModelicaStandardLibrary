@@ -1351,7 +1351,7 @@ argument):</p>
        final quantity="ElectricalForceConstant",
        final unit = "N/A");
 
-  // Light and Related Electromagnetic Radiations (chapter 6 of ISO 31-1992)"
+  // Light and Related Electromagnetic Radiations (chapter 6 of ISO 31-1992)
   type RadiantEnergy = Real (final quantity="Energy", final unit="J");
   type RadiantEnergyDensity = Real (final quantity="EnergyDensity", final unit=
           "J/m3");
