@@ -1873,7 +1873,7 @@ matrix A was interchanged with row pivots[i].
   algorithm
     for i in 1:size(LU, 1) loop
       assert(LU[i, i] <> 0, "Solving a linear system of equations with function
-\"Matrices.LU_solve\" is not possible, since the LU decomposition
+\"Matrices.LU_solve2\" is not possible, since the LU decomposition
 is singular, i.e., no unique solution exists.");
     end for;
     X := Modelica.Math.Matrices.LAPACK.dgetrs(
@@ -1883,7 +1883,7 @@ is singular, i.e., no unique solution exists.");
     annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>LU_solve</b>(LU, pivots, B);
+Matrices.<b>LU_solve2</b>(LU, pivots, B);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
