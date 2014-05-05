@@ -180,7 +180,7 @@ The thermodynamic pressure is an <i>effort</i> variable, which means that the co
 of two or more ports states that the port pressures are the same.
 </p>
 <p>
-The mass flow rate is a <i>flow </i>variable, which means that the connection of two or
+The mass flow rate is a <i>flow</i> variable, which means that the connection of two or
 more ports states that the sum of all flow rates is zero.
 </p>
 <p>

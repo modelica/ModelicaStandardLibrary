@@ -49,7 +49,7 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b>not</b> modelled.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -182,7 +182,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -321,7 +321,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -485,7 +485,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 </html>", revisions="<html>
 <ul>
@@ -699,7 +699,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 </html>", revisions="<html>
 <ul>
@@ -1440,7 +1440,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 </html>", revisions="<html>
 <ul>
@@ -1525,7 +1525,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 </html>", revisions="<html>
 <ul>
@@ -1616,7 +1616,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 </html>", revisions="<html>
 <ul>
@@ -1706,7 +1706,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 </html>", revisions="<html>
 <ul>
@@ -1859,7 +1859,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -1989,7 +1989,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -2100,7 +2100,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 <p>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </p>
 </html>", revisions="<html>
 <dl>

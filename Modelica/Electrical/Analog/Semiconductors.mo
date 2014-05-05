@@ -210,7 +210,7 @@ is included to avoid numerical difficulties.
 <br><br>
 <b>Please note: </b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
 </P>
 <DL>
 <DT><b>References:</b>
@@ -350,7 +350,7 @@ is included to avoid numerical difficulties.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
 </P>
 <PRE>
   W       L      Beta         Vt      K2     K5       DW       DL
@@ -532,7 +532,7 @@ to Ebers-Moll.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
 </P>
 <P>
 A typical parameter set is:
@@ -687,7 +687,7 @@ to Ebers-Moll.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
 <P>
 A typical parameter set is:
 </P>

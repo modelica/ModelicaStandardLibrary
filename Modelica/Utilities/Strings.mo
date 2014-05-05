@@ -581,7 +581,7 @@ is not allowed to start with a \"+\" or \"-\" sign.
      realValue := token.real;
   <b>elseif</b> token.tokenType == T.IntegerToken <b>then</b>
      integerValue := token.integer;
-  <b>elseif</b> token.tokenType == T.BooleanToken<b> then</b>
+  <b>elseif</b> token.tokenType == T.BooleanToken <b>then</b>
      booleanValue := token.boolean;
   <b>elseif</b> token.tokenType == T.Identifier <b>then</b>
      name := token.string;

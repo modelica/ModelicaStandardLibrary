@@ -1183,7 +1183,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
@@ -1314,7 +1314,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
@@ -1404,7 +1404,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
@@ -1487,7 +1487,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>

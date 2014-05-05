@@ -2131,7 +2131,7 @@ value decomposition of A is computed, i.e.,
   = U*Sigma*VT
 </pre></blockquote>
 <p>
-where <b>U </b>and <b>V</b> are orthogonal matrices (<b>UU</b><sup>T</sup>=<b>I,
+where <b>U</b> and <b>V</b> are orthogonal matrices (<b>UU</b><sup>T</sup>=<b>I,
 </b><b>VV</b><sup>T</sup>=<b>I</b>). <b><font face=\"Symbol\">S
 </font></b> = diag(<font face=\"Symbol\">s</font><sub>i</sub>)
 has the same size as matrix A with nonnegative diagonal elements

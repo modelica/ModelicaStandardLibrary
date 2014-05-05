@@ -6043,7 +6043,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       </td>
       <td valign=\"top\" bgcolor=\"#cccccc\"><b>Common name</b><br>
        </td>
-       <td valign=\"top\" bgcolor=\"#cccccc\"><b>Abbreviation </b><br>
+       <td valign=\"top\" bgcolor=\"#cccccc\"><b>Abbreviation</b><br>
        </td>
        <td valign=\"top\" bgcolor=\"#cccccc\"><b>Unit</b><br>
        </td>

@@ -484,11 +484,11 @@ the form
 </p>
 <p align=\"left\">
   <b>q</b> = <b>
-  f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>,
+  f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>, <b>r</b><sup>b</sup>,
   <b>R</b><sup>b</sup>)
 </p>
 <p>
-where<b> r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
+where <b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
 r</b><sup>b</sup>, <b>R</b><sup>b</sup> are the variables defining the
 position and orientation of the frame_a and frame_b connector,
 <b>q</b> are the generalized positional coordinates inside the
@@ -499,7 +499,7 @@ forward recursion
 </p>
 <p align=\"left\">
 (<b>r</b><sup>a</sup>,
-<b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style=\"font-family:Symbol\">j)</span>
+<b>R</b><sup>a</sup>, <b>r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style=\"font-family:Symbol\">j)</span>
 </p>
 <p>
 Since this is a structural property, the
@@ -594,11 +594,11 @@ the form
 </p>
 <p align=\"left\">
   <b>q</b> = <b>
-  f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>,
+  f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>, <b>r</b><sup>b</sup>,
   <b>R</b><sup>b</sup>)
 </p>
 <p>
-where<b> r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
+where <b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
 r</b><sup>b</sup>, <b>R</b><sup>b</sup> are the variables defining the
 position and orientation of the frame_a and frame_b connector,
 <b>q</b> are the generalized positional coordinates inside the
@@ -609,7 +609,7 @@ forward recursion
 </p>
 <p align=\"left\">
 (<b>r</b><sup>a</sup>,
-<b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style=\"font-family:Symbol\">j)</span>
+<b>R</b><sup>a</sup>, <b>r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style=\"font-family:Symbol\">j)</span>
 </p>
 <p>
 Since this is a structural property, the

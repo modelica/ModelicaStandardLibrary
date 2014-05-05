@@ -2841,7 +2841,7 @@ Armstrong B. (1991):</dt>
 <DD><i>Friction Modeling and Compensation.</i> The Control Handbook, edited by W.S.Levine, CRC Press, pp. 1369-1382.<BR>
 </DD>
 <DT>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995): </DT>
-<DD>A<i> new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<BR>
+<DD><i>A new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<BR>
 </DD>
 </DL>
 
@@ -2860,7 +2860,7 @@ in the lossPower due to the discontinuously changing kinetic energy of the mass
 <h4>Release Notes:</h4>
 <ul>
 <li><i>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</i> </li>
-<li><i>July 14, 2001 by P. Beater, assert on initialization added, diagram modified </i> </li>
+<li><i>July 14, 2001 by P. Beater, assert on initialization added, diagram modified</i> </li>
 <li><i>October 11, 2001, by Hans Olsson, Dassault Syst&egrave;mes AB, modified assert to handle start at stops,
 modified event logic such if you have friction parameters equal to zero you do not get events
 between the stops.</i> </li>
@@ -4497,7 +4497,7 @@ It is used e.g., to built up sliding masses.
       annotation (
         Documentation(info="<html>
 <p>
-This is a 1D translational component with a <i>compliant </i>connection of two
+This is a 1D translational component with a <i>compliant</i> connection of two
 translational 1D flanges where inertial effects between the two
 flanges are not included. The absolute value of the force at the left and the right
 flange is the same. It is used to built up springs, dampers etc.

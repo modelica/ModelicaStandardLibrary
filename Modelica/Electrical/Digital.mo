@@ -1444,7 +1444,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>MUX4 is a four bit multiplexer which is built up by And, Not, and Or gates according to the schematic.</p>
-<p>The parameters delayTime and q0 are prepared but<b> not</b> yet used in the component. The MUX4 component uses standard values in its components.</p>
+<p>The parameters delayTime and q0 are prepared but <b>not</b> yet used in the component. The MUX4 component uses standard values in its components.</p>
 </html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
@@ -2732,7 +2732,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               fillPattern=FillPattern.Solid), Line(points={{50,0},{90,0}},
                 color={127,0,127})}),
             Documentation(info="<html>
-<p>MISO is a partial model for the connection pattern with <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
+<p>MISO is a partial model for the connection pattern with <b>m</b>ultiple (vector) digital <b>i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
 </html>"));
         end MISO;
 
@@ -2764,7 +2764,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
             Documentation(info="<html>
-<p>MIMO is a partial model for the connection pattern with <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>m</b>ultiple  (vector) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
+<p>MIMO is a partial model for the connection pattern with <b>m</b>ultiple (vector) digital <b>i</b>nput and <b>m</b>ultiple  (vector) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
 </html>"));
         end MIMO;
 
@@ -4060,7 +4060,7 @@ To specify <i>setval</i>, the integer code has to be used.
 </table>
 
 <P>
-If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
+If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;</b><br>
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </html>",       revisions=
@@ -4136,7 +4136,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
+If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;</b><br>
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </html>",       revisions=
@@ -4213,7 +4213,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
+If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;</b><br>
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </html>",         revisions="<HTML>
@@ -4313,7 +4313,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
+If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;</b><br>
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </html>",         revisions=

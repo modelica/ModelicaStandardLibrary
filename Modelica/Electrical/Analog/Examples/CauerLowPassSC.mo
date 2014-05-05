@@ -76,7 +76,7 @@ equation
           Line(points={{60,0},{60,-4}}, color={85,255,85}),
           Line(points={{60,-16},{60,-20},{80,-20}}, color={85,255,85})}),
       Documentation(info="<html>
-<p>This model is a<b> negative</b> resistor without thermal behavior which is described as a switched capacitor model (care for the schematic).</p>
+<p>This model is a <b>negative</b> resistor without thermal behavior which is described as a switched capacitor model (care for the schematic).</p>
 <p>The clock source is inside the model, its frequency can be chosen by parameter. Also the resistance is a parameter, it has to be <b>positive</b>. The internal (switched) capacitor is parametrized in such a way that the total resistance is independently from the frequency equal to the negative value of the <b>negative</b> resistance parameter.</p>
 </html>"));
 end Rn;

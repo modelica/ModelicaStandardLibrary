@@ -2721,7 +2721,7 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
     annotation (Documentation(info="<html>
 <p>
 This block computes the Boolean output <b>y</b>
-from the Real input <b> u</b> by the equation:
+from the Real input <b>u</b> by the equation:
 </p>
 
 <pre>    y = u &ge; threshold;
@@ -2762,7 +2762,7 @@ where <b>threshold</b> is a parameter.
     annotation (Documentation(info="<html>
 <p>
 This block computes the Boolean output <b>y</b>
-from the Integer input <b> u</b> by the equation:
+from the Integer input <b>u</b> by the equation:
 </p>
 
 <pre>    y = u &ge; threshold;
