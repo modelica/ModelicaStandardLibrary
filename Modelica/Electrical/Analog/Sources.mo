@@ -2753,7 +2753,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Text(
             extent={{33,83},{76,67}},
             lineColor={0,0,0},
-            textString="v"),
+            textString="i"),
           Text(
             extent={{-73,75},{-53,95}},
             lineColor={192,192,192},
