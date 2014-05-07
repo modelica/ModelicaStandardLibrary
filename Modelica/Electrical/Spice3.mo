@@ -4961,8 +4961,8 @@ on the model behaviour.
     Real MOScapgs = qm.qm_capgs;
     Real MOScapgb = qm.qm_capgb;
   equation
-    assert( NRD <> 0, "NRD, length of drain in squares, must not be zero");
-    assert( NRS <> 0, "NRS, length of source in squares, must not be zero");
+    assert( NRD > 0, "NRD, length of drain in squares, must be greater than zero");
+    assert( NRS > 0, "NRS, length of source in squares, must be greater than zero");
 
       cc = Spice3.Internal.Mos.mos2CalcNoBypassCodeRevised(
           m1,
