@@ -5115,7 +5115,7 @@ This adaptor has torque as input and angle, angular velocity and angular acceler
     model AngleToTorqueAdaptor
       "Signal adaptor for a Rotational flange with torque as output and angle, speed, and optionally acceleration as inputs (especially useful for FMUs)"
       parameter Boolean use_w=true
-        "= true, enable the output connector w (angular velocity)" annotation (
+        "= true, enable the input connector w (angular velocity)" annotation (
         Evaluate=true,
         HideResult=true,
         choices(checkBox=true));
