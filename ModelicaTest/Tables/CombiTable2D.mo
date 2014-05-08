@@ -873,16 +873,18 @@ package CombiTable2D
       annotation (experiment(StartTime=0, StopTime=6));
   end Test21;
 
-  model Test22 "Ticket #1465, Akima extrapolation"
+  model Test22 "Ticket #1465, Akima extrapolation of either u1 xor u2"
     extends Modelica.Icons.Example;
+    parameter Real tableR[4,4] = [0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039] "Table matrix for right extrapolation";
+    parameter Real tableL[4,4] = [0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778] "Table matrix for left extrapolation";
     // Right extrapolate u1
     Modelica.Blocks.Tables.CombiTable2D combiTable2D_1R(
-      table=[0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039],
+      table=tableR,
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,55},{-50,75}})));
     Modelica.Blocks.Continuous.Der der_1R annotation(Placement(transformation(extent={{-30,55},{-10,75}})));
     // Right extrapolate u2
     Modelica.Blocks.Tables.CombiTable2D combiTable2D_2R(
-      table=transpose([0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039]),
+      table=transpose(tableR),
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,20},{-50,40}})));
     Modelica.Blocks.Continuous.Der der_2R annotation(Placement(transformation(extent={{-30,20},{-10,40}})));
     Modelica.Blocks.Sources.Sine sine_R(
@@ -893,12 +895,12 @@ package CombiTable2D
     Modelica.Blocks.Sources.Constant const_R(k=81) annotation(Placement(transformation(extent={{-130,25},{-110,45}})));
     // Left extrapolate u1
     Modelica.Blocks.Tables.CombiTable2D combiTable2D_1L(
-      table=[0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778],
+      table=tableL,
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,-15},{-50,5}})));
     Modelica.Blocks.Continuous.Der der_1L annotation(Placement(transformation(extent={{-30,-15},{-10,5}})));
     // Left extrapolate u2
     Modelica.Blocks.Tables.CombiTable2D combiTable2D_2L(
-      table=transpose([0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778]),
+      table=transpose(tableL),
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,-50},{-50,-30}})));
     Modelica.Blocks.Continuous.Der der_2L annotation(Placement(transformation(extent={{-30,-50},{-10,-30}})));
     Modelica.Blocks.Sources.Sine sine_L(
