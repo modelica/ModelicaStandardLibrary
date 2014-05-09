@@ -2178,6 +2178,12 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                             if (extrapolate2 == IN_TABLE) {
                                 const double v1 = u1 - TABLE_COL0(last1 + 1);
                                 const double v2 = u2 - TABLE_ROW0(last2 + 1);
+								/*
+								The following is an efficient way of computing:
+								y=sum( c[4*(3-i)+(3-j)]*v1^i*v2^j for i in 0:3 for j in 0:3)=
+								c[0]*v1^3*v2^3+c[1]*v1^3*v2^2+c[2]*v1^3*v2^1+c[3]*v1^3+c[4]*v1^2*v2^3+...´+c[15]
+								where c[15]=TABLE(last1+1,last2+1)
+								*/
                                 const double p1 = ((c[0]*v2 + c[1])*v2 +
                                     c[2])*v2 + c[3];
                                 const double p2 = ((c[4]*v2 + c[5])*v2 +
@@ -2190,6 +2196,10 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                 y += ((p1*v1 + p2)*v1 + p3)*v1;
                             }
                             else if (extrapolate2 == LEFT) {
+								/*
+								Using the IN_TABLE this corresponds to:
+								y=in_table(u1-..,v2=0)+(u2-...)*d in_table/dv2(u1-..,v2) at v2=0
+								*/
                                 const double u10 = TABLE_COL0(last1 + 1);
                                 const double v1 = u1 - u10;
                                 const double der_y2 = ((c[2]*v1 + c[6])*v1 +
@@ -2200,6 +2210,10 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                    u2 - TABLE_ROW0(1));
                             }
                             else /* if (extrapolate2 == RIGHT) */ {
+								/*
+								Using the IN_TABLE this corresponds to:
+								y=in_table(u1-..,v2=v2)+(u2-...)*d in_table/dv2(u1-..,v2) at v2=v2
+								*/
                                 const double u10 = TABLE_COL0(last1 + 1);
                                 const double v1 = u1 - u10;
                                 const double v2 = TABLE_ROW0(nCol - 1) -
@@ -2231,6 +2245,10 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                         else if (extrapolate1 == LEFT) {
                             const double u11 = TABLE_COL0(1);
                             if (extrapolate2 == IN_TABLE) {
+								/*
+								Using the IN_TABLE this corresponds to:
+								y=in_table(v1=0,u2-..)+(u1-...)*d in_table/dv1(v1,u2-..) at v1=0
+								*/
                                 const double v2 = u2 - TABLE_ROW0(last2 + 1);
                                 const double der_y1 = ((c[8]*v2 + c[9])*v2 +
                                     c[10])*v2 + c[11];
@@ -2276,6 +2294,10 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                         else /* if (extrapolate1 == RIGHT) */ {
                             const double u10 = TABLE_COL0(nRow - 1);
                             if (extrapolate2 == IN_TABLE) {
+								/*
+								Using the IN_TABLE this corresponds to:
+								y=in_table(v1=v1,u2-..)+(u1-...)*d in_table/dv1(v1,u2-..) at v1=v1
+								*/
                                 const double v1 = u10 - TABLE_COL0(nRow - 2);
                                 const double v2 = u2 - TABLE_ROW0(last2 + 1);
                                 const double p1 = ((c[0]*v2 + c[1])*v2 +
@@ -2543,6 +2565,16 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                             IDX(last1, last2, nCol - 2)];
                         if (extrapolate1 == IN_TABLE) {
                             if (extrapolate2 == IN_TABLE) {
+								/*
+								The value corresponds to the following:
+								y=sum( c[4*(3-i)+(3-j)]*v1^i*v2^j for i in 0:3 for j in 0:3)=
+								c[0]*v1^3*v2^3+c[1]*v1^3*v2^2+c[2]*v1^3*v2^1+c[3]*v1^3+c[4]*v1^2*v2^3+...´+c[15]
+								where c[15]=TABLE(last1+1,last2+1)
+
+								Its derivative is:
+								sum( c[4*(3-i)+(3-j)]*i*v1^(i-1)*v2^j for i in 1:3 for j in 0:3)*der_u1+
+								sum( c[4*(3-i)+(3-j)]*v1^i*j*v2^(j-1) for i in 0:3 for j in 1:3)*der_u2
+								*/
                                 const double v1 = u1 - TABLE_COL0(last1 + 1);
                                 const double v2 = u2 - TABLE_ROW0(last2 + 1);
                                 const double p1 = ((c[0]*v2 + c[1])*v2 +
@@ -2564,6 +2596,17 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                                     dp3_u2)*v1 + dp4_u2)*der_u2;
                             }
                             else if (extrapolate2 == LEFT) {
+								/*
+								Using the IN_TABLE the value corresponds to:
+								y=in_table(u1-..,v2=0)+(u2-...)*d in_table(u1-..,v2)/dv2 at v2=0
+
+								Its derivative is:
+								  d in_table(u1-...,v2=0)/du1*der_u1+
+								  d in_table(u1-..,v2)/dv2 at v2=0*der_u2+
+								  (u2-...)*d^2 in_table(u1-..,v2)/dv2/du1*der_u1
+
+								  The der_u1 parts are missing!
+								*/
                                 const double v1 = u1 - TABLE_COL0(last1 + 1);
                                 der_y = (((c[2]*v1 + c[6])*v1 + c[10])*v1 +
                                     c[14])*der_u2;
