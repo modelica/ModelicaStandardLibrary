@@ -85,7 +85,7 @@ equation
       color={0,127,255},
       smooth=Smooth.None));
   connect(pipeFriction3.port_a, pipeFriction1.port_b) annotation (Line(
-      points={{-1.12703e-16,-10},{0,-10},{0,-30},{-12,-30}},
+      points={{0,-10},{0,-10},{0,-30},{-12,-30}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(boundary1.ports[1], pipeFriction1.port_a)
@@ -100,7 +100,7 @@ equation
       smooth=Smooth.None));
   connect(boundary3.ports[1], pipeFriction3.port_b)
                                                 annotation (Line(
-      points={{-1.11022e-15,20},{-1.11022e-15,10},{1.1119e-15,10}},
+      points={{0,20},{0,10},{1.1119e-15,10}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(sine1.y, boundary1.p_in) annotation (Line(
@@ -112,11 +112,11 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   connect(sine3.y, boundary3.p_in) annotation (Line(
-      points={{-1.28416e-15,59},{-1.28416e-15,50.5},{-8,50.5},{-8,42}},
+      points={{0,59},{0,50.5},{-8,50.5},{-8,42}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(temperature.port, pipeFriction3.port_a) annotation (Line(
-      points={{6.10623e-16,-60},{6.10623e-16,-10},{-1.12703e-16,-10}},
+      points={{0,-60},{0,-10},{0,-10}},
       color={0,127,255},
       smooth=Smooth.None));
   annotation (experiment(StopTime=10));

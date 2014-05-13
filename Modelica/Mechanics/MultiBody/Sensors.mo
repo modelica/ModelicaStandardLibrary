@@ -1156,7 +1156,7 @@ computed as:
         color={0,0,127},
         smooth=Smooth.None));
     connect(position.frame_a, frame_a) annotation (Line(
-        points={{-60,0},{-80,0},{-80,4.44089e-16},{-100,4.44089e-16}},
+        points={{-60,0},{-80,0},{-80,0},{-100,0}},
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
@@ -1174,7 +1174,7 @@ computed as:
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
     connect(tansformAbsoluteVector.frame_a, frame_a) annotation (Line(
-        points={{50,10},{50,20},{-70,20},{-70,4.44089e-16},{-100,4.44089e-16}},
+        points={{50,10},{50,20},{-70,20},{-70,0},{-100,0}},
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));

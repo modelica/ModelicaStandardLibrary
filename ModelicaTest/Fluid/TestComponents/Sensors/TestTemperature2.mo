@@ -111,7 +111,7 @@ equation
       color={0,127,255},
       smooth=Smooth.None));
   connect(volume2_1.ports[2], Tmix2.port_a)     annotation (Line(
-      points={{-22,-30},{-12,-30},{-12,-20},{-5.55112e-16,-20}},
+      points={{-22,-30},{-12,-30},{-12,-20},{0,-20}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(Tmix2.port_b, volume2_2.ports[2])     annotation (Line(

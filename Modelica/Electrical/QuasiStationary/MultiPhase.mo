@@ -1371,7 +1371,7 @@ A linear temperature dependency of the resistances is also taken into account.
           color={191,0,0},
           smooth=Smooth.None));
       connect(Y_ref, variableImpedance.Y_ref) annotation (Line(
-          points={{1.11022e-15,110},{1.11022e-15,61},{0,61},{0,11}},
+          points={{0,110},{0,61},{0,61},{0,11}},
           color={85,170,255},
           smooth=Smooth.None));
       annotation (

@@ -1147,7 +1147,7 @@ phi_b.start = 45<sup>o</sup>).
 
     connect(frame_a, prismatic_x.frame_a)
       annotation (Line(
-        points={{-100,4.44089e-16},{-84,4.44089e-16},{-84,0},{-69,0}},
+        points={{-100,0},{-84,0},{-84,0},{-69,0}},
         color={95,95,95},
         thickness=0.5));
     connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (Line(
@@ -1160,7 +1160,7 @@ phi_b.start = 45<sup>o</sup>).
         thickness=0.5));
     connect(revolute.frame_b, frame_b)
       annotation (Line(
-        points={{81,0},{92,0},{92,4.44089e-16},{100,4.44089e-16}},
+        points={{81,0},{92,0},{92,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
     annotation (
@@ -3313,12 +3313,12 @@ the origin of frame_a to the middle of the rod, this might be defined as:
         thickness=0.5));
     connect(frame_a, actuatedRevolute_a.frame_b)
       annotation (Line(
-        points={{-100,4.44089e-16},{-80,4.44089e-16},{-80,0},{-60,0}},
+        points={{-100,0},{-80,0},{-80,0},{-60,0}},
         color={95,95,95},
         thickness=0.5));
     connect(actuatedRevolute_b.frame_b, frame_b)
       annotation (Line(
-        points={{60,0},{80,0},{80,4.44089e-16},{100,4.44089e-16}},
+        points={{60,0},{80,0},{80,0},{100,0}},
         color={95,95,95},
         thickness=0.5));
     annotation (

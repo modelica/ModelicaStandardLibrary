@@ -60,18 +60,18 @@ package OverdeterminedInitialization
         end when;
       end if;
       connect(source.ports[1], pipe.port_a)         annotation (Line(
-          points={{-60,6.66134e-16},{-55,6.66134e-16},{-55,1.27676e-15},{-50,
-              1.27676e-15},{-50,6.10623e-16},{-40,6.10623e-16}},
+          points={{-60,0},{-55,0},{-55,0},{-50,
+              0},{-50,0},{-40,0}},
           color={0,127,255},
           smooth=Smooth.None));
       connect(pipe.port_b, valve.port_a)               annotation (Line(
-          points={{-20,6.10623e-16},{-15,6.10623e-16},{-15,1.22125e-15},{-10,
-              1.22125e-15},{-10,6.10623e-16},{-5.55112e-16,6.10623e-16}},
+          points={{-20,0},{-15,0},{-15,0},{-10,
+              0},{-10,0},{0,0}},
           color={0,127,255},
           smooth=Smooth.None));
       connect(valve.port_b, sink.ports[1])                          annotation (Line(
-          points={{20,6.10623e-16},{25,6.10623e-16},{25,1.27676e-15},{30,
-              1.27676e-15},{30,6.66134e-16},{40,6.66134e-16}},
+          points={{20,0},{25,0},{25,0},{30,
+              0},{30,0},{40,0}},
           color={0,127,255},
           smooth=Smooth.None));
       connect(ramp.y, valve.opening)               annotation (Line(
@@ -152,18 +152,18 @@ The initial equations are consistent however and a tool shall reduce them approp
         end when;
       end if;
       connect(source.ports[1], pipe.port_a)         annotation (Line(
-          points={{-60,6.66134e-16},{-55,6.66134e-16},{-55,1.27676e-15},{-50,
-              1.27676e-15},{-50,6.10623e-16},{-40,6.10623e-16}},
+          points={{-60,0},{-55,0},{-55,0},{-50,
+              0},{-50,0},{-40,0}},
           color={0,127,255},
           smooth=Smooth.None));
       connect(pipe.port_b, valve.port_a)               annotation (Line(
-          points={{-20,6.10623e-16},{-15,6.10623e-16},{-15,1.22125e-15},{-10,
-              1.22125e-15},{-10,6.10623e-16},{-5.55112e-16,6.10623e-16}},
+          points={{-20,0},{-15,0},{-15,0},{-10,
+              0},{-10,0},{0,0}},
           color={0,127,255},
           smooth=Smooth.None));
       connect(valve.port_b, sink.ports[1])                          annotation (Line(
-          points={{20,6.10623e-16},{25,6.10623e-16},{25,1.27676e-15},{30,
-              1.27676e-15},{30,6.66134e-16},{40,6.66134e-16}},
+          points={{20,0},{25,0},{25,0},{30,
+              0},{30,0},{40,0}},
           color={0,127,255},
           smooth=Smooth.None));
       connect(ramp.y, valve.opening)               annotation (Line(

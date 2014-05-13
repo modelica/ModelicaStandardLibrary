@@ -5768,7 +5768,7 @@ These models use package SpacePhasors.
             color={191,0,0},
             smooth=Smooth.None));
         connect(permanentMagnet.flange, inertiaRotor.flange_b) annotation (Line(
-            points={{30,-20},{90,-20},{90,-1.33227e-015}},
+            points={{30,-20},{90,-20},{90,0}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(damperCage.heatPort, internalThermalPort.heatPortRotorWinding)
@@ -6169,7 +6169,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapR.support, internalSupport) annotation (Line(
-            points={{-10,1.77636e-015},{-26,0},{-40,0},{-40,-90},{60,-90},{60,-100}},
+            points={{-10,0},{-26,0},{-40,0},{-40,-90},{60,-90},{60,-100}},
 
             color={0,0,0},
             smooth=Smooth.None));
@@ -15403,10 +15403,10 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
         toSpacePhasor(final m=m) annotation (Placement(transformation(extent={{
                 -60,-10},{-40,10}}, rotation=0)));
     equation
-      connect(phi, toGamma.u) annotation (Line(points={{0,-120},{-2.22045e-015,
-              -120},{-2.22045e-015,-62}}, color={0,0,127}));
+      connect(phi, toGamma.u) annotation (Line(points={{0,-120},{0,
+              -120},{0,-62}}, color={0,0,127}));
       connect(rotator.angle, toGamma.y) annotation (Line(points={{0,-12},{0,-39},
-              {2.22045e-015,-39}}, color={0,0,127}));
+              {0,-39}}, color={0,0,127}));
       connect(toSpacePhasor.y, rotator.u) annotation (Line(
           points={{-39,0},{-12,0}},
           color={0,0,127},
@@ -15457,10 +15457,10 @@ using the provided mechanical rotor angle phi. The ouput are the resulting d and
             extent={{20,-20},{-20,20}},
             rotation=270)));
     equation
-      connect(phi, toGamma.u) annotation (Line(points={{0,-120},{-2.22045e-015,
-              -120},{-2.22045e-015,-62}}, color={0,0,127}));
+      connect(phi, toGamma.u) annotation (Line(points={{0,-120},{0,
+              -120},{0,-62}}, color={0,0,127}));
       connect(rotator.angle, toGamma.y) annotation (Line(points={{0,-12},{0,-39},
-              {2.22045e-015,-39}}, color={0,0,127}));
+              {0,-39}}, color={0,0,127}));
       connect(rotator.y, fromSpacePhasor.u)
         annotation (Line(points={{11,0},{34,0},{58,0}}, color={0,0,127}));
       connect(i0.y, fromSpacePhasor.zero) annotation (Line(

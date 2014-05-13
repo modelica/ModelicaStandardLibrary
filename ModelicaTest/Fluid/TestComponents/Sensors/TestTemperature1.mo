@@ -129,7 +129,7 @@ equation
       color={0,127,255},
       smooth=Smooth.None));
   connect(volume2.ports[2], Tmix2.port_a) annotation (Line(
-      points={{-20,-30},{-11,-30},{-11,-20},{-5.55112e-16,-20}},
+      points={{-20,-30},{-11,-30},{-11,-20},{0,-20}},
       color={0,127,255},
       smooth=Smooth.None));
   annotation (experiment(StopTime=15));

@@ -2186,7 +2186,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           connect(coil2.port_p, g_mFeArm.port_p)
             annotation (Line(points={{24,30},{20,30}}, color={255,127,0}));
           connect(G_mLeakRad.port_p, g_mFeArm.port_n) annotation (Line(points={{
-                  -6.12323e-016,46},{0,46},{0,30}},
+                  0,46},{0,46},{0,30}},
                                          color={255,127,0}));
           connect(g_mAirWork.port_p, g_mFeArm.port_n)
             annotation (Line(points={{-10,30},{0,30}}, color={255,127,0}));
@@ -2203,7 +2203,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           connect(g_mFePoleBot.port_n, g_mFeYokeSide1.port_p) annotation (Line(
                 points={{-78,66},{-78,80},{-50,80}}, color={255,127,0}));
           connect(g_mFeYokeSide1.port_n, G_mLeakRad.port_n) annotation (Line(
-                points={{-30,80},{6.12323e-016,80},{6.12323e-016,66}},
+                points={{-30,80},{0,80},{0,66}},
                                                  color={255,127,0}));
           connect(g_mFeYokeSide1.port_n, g_mFeYokeSide2.port_p)
             annotation (Line(points={{-30,80},{20,80}}, color={255,127,0}));

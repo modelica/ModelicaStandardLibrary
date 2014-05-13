@@ -6814,7 +6814,7 @@ a linear damper is connected here.
         k = 0;
       end if;
       connect(jointUSP.frame_im, body.frame_a) annotation (Line(
-          points={{-8,60},{-4,60},{-4,72},{-6.12323e-016,72}},
+          points={{-8,60},{-4,60},{-4,72},{0,72}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -7157,7 +7157,7 @@ a linear damper is connected here.
           thickness=0.5,
           smooth=Smooth.None));
       connect(world.frame_b, spring1.frame_a) annotation (Line(
-          points={{-60,30},{1.83697e-015,30},{1.83697e-015,10}},
+          points={{-60,30},{0,30},{0,10}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -7167,7 +7167,7 @@ a linear damper is connected here.
           thickness=0.5,
           smooth=Smooth.None));
       connect(spring1.frame_b, body.frame_a) annotation (Line(
-          points={{-1.83697e-015,-10},{-1.83697e-015,-30},{20,-30}},
+          points={{0,-10},{0,-30},{20,-30}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));

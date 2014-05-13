@@ -861,20 +861,20 @@ Delta (polygon) connection of a multi phase circuit consiting of multiple base s
             origin={100,0})));
     equation
       connect(plug, multiStar.plug_p) annotation (Line(
-          points={{-100,4.44089e-16},{-100,0},{-60,0},{-60,4.44089e-16}},
+          points={{-100,0},{-100,0},{-60,0},{-60,0}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(multiStar.starpoints, resistor.plug_p) annotation (Line(
-          points={{-40,4.44089e-16},{-40,0},{-10,0}},
+          points={{-40,0},{-40,0},{-10,0}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(resistor.plug_n, star.plug_p) annotation (Line(
-          points={{10,0},{10,0},{34,0},{34,0},{40,0},{40,6.66134e-16}},
+          points={{10,0},{10,0},{34,0},{34,0},{40,0},{40,0}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(star.pin_n, pin) annotation (Line(
-          points={{60,6.66134e-16},{60,0},{98,0},{98,0},{100,0},{100,
-              4.44089e-16}},
+          points={{60,0},{60,0},{98,0},{98,0},{100,0},{100,
+              0}},
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
@@ -1821,8 +1821,8 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
     equation
       off = idealThyristor.off;
       connect(plug_p.pin, idealThyristor.p) annotation (Line(points={{-100,
-              8.88178e-16},{-60,8.88178e-16},{-60,0},{-38,0},{-38,8.88178e-16},
-              {-10,8.88178e-16}}, color={0,0,255}));
+              0},{-60,0},{-60,0},{-38,0},{-38,0},
+              {-10,0}}, color={0,0,255}));
       connect(idealThyristor.n, plug_n.pin)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(fire, idealThyristor.fire) annotation (Line(points={{70,110},{70,
@@ -2832,9 +2832,9 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
             origin={0,-50})));
     equation
       connect(plug_p, voltageSensor.plug_p) annotation (Line(points={{-100,
-              5.55112e-016},{-100,0},{-10,0}}, color={0,0,255}));
+              0},{-100,0},{-10,0}}, color={0,0,255}));
       connect(voltageSensor.plug_n, plug_n) annotation (Line(points={{10,0},{
-              100,0},{100,5.55112e-016}}, color={0,0,255}));
+              100,0},{100,0}}, color={0,0,255}));
       connect(voltageSensor.v, quasiRMS.u) annotation (Line(
           points={{0,-11},{0,-38}},
           color={0,0,127},
@@ -2935,9 +2935,9 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
             origin={0,-50})));
     equation
       connect(plug_p, currentSensor.plug_p) annotation (Line(points={{-100,
-              5.55112e-016},{-100,0},{-10,0}}, color={0,0,255}));
+              0},{-100,0},{-10,0}}, color={0,0,255}));
       connect(currentSensor.plug_n, plug_n) annotation (Line(points={{10,0},{
-              100,0},{100,5.55112e-016}}, color={0,0,255}));
+              100,0},{100,0}}, color={0,0,255}));
       connect(currentSensor.i, quasiRMS.u) annotation (Line(
           points={{0,-11},{0,-38}},
           color={0,0,127},
@@ -3012,9 +3012,9 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
         annotation (Line(points={{-100,0},{-50,0}}, color={0,0,255}));
       connect(currentSensor.plug_n, nc)
         annotation (Line(points={{-30,0},{100,0}}, color={0,0,255}));
-      connect(voltageSensor.plug_p, pv) annotation (Line(points={{6.12303e-016,
+      connect(voltageSensor.plug_p, pv) annotation (Line(points={{0,
               -10},{0,-10},{0,100}}, color={0,0,255}));
-      connect(voltageSensor.plug_n, nv) annotation (Line(points={{-6.12303e-016,
+      connect(voltageSensor.plug_n, nv) annotation (Line(points={{0,
               -30},{0,-30},{0,-100}}, color={0,0,255}));
       connect(voltageSensor.v, product.u1) annotation (Line(
           points={{-11,-20},{-24,-20},{-24,-28}},

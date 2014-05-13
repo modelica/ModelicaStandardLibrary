@@ -2961,7 +2961,7 @@ It is used e.g., to build up equation-based parts of a drive train.</p>
         equation
           tau_support = -adapter.flange_b.tau;
           connect(adapter.flange_a, bearing) annotation (Line(points={{
-                  -6.12323e-016,-70},{0,-70},{0,-100}}, color={0,0,0}));
+                  0,-70},{0,-70},{0,-100}}, color={0,0,0}));
           annotation (obsolete=
                 "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
         Documentation(info="<html>
@@ -3430,14 +3430,14 @@ from tables of the gear manufacturers.
         connect(elastoBacklash.flange_b, flange_b)
           annotation (Line(points={{70,0},{100,0}}, color={0,0,0}));
         connect(gearEfficiency.bearing, adapter.flange_b) annotation (Line(points={{-20,-10},
-                {-20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},           color={
+                {-20,-40},{0,-40},{0,-50}},           color={
                 0,0,0}));
         connect(bearingFriction.support, adapter.flange_b) annotation (Line(
-            points={{20,-10},{20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},
+            points={{20,-10},{20,-40},{0,-40},{0,-50}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(gearRatio.support, adapter.flange_b) annotation (Line(
-            points={{-60,-10},{-60,-40},{6.12323e-016,-40},{6.12323e-016,-50}},
+            points={{-60,-10},{-60,-40},{0,-40},{0,-50}},
             color={0,0,0},
             smooth=Smooth.None));
 

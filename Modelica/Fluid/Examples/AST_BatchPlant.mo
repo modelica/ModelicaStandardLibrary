@@ -986,7 +986,7 @@ package AST_BatchPlant
 
     equation
       connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-          points={{-200,0},{-87,0},{-87,8.88178e-016},{-74,8.88178e-016}},
+          points={{-200,0},{-87,0},{-87,0},{-74,0}},
           color={191,0,0},
           smooth=Smooth.None));
       annotation (
@@ -1801,7 +1801,7 @@ end for;
 
   equation
       connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-          points={{-100,0},{-87,0},{-87,8.88178e-016},{-74,8.88178e-016}},
+          points={{-100,0},{-87,0},{-87,0},{-74,0}},
           color={191,0,0},
           smooth=Smooth.None));
       annotation (defaultComponentName="tank",
@@ -2356,7 +2356,7 @@ Implemented trace substances and missing equation for outflow of multi substance
               70,45},{70,49}},
                     color={0,127,255}));
       connect(pipe2.port_a, tank3.ports[2]) annotation (Line(points={{
-              -6.12323e-016,-32},{-6.12323e-016,-48},{0,-60},{-58,-60},{-58,-51}},
+              0,-32},{0,-48},{0,-60},{-58,-60},{-58,-51}},
                           color={0,127,255}));
       connect(pipe3.port_a, tank3.topPorts[1])
                                               annotation (Line(points={{-60,0},

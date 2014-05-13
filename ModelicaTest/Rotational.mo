@@ -373,22 +373,22 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
           Placement(transformation(extent={{40,-24},{60,-4}}, rotation=0)));
     equation
       connect(torque1.flange, inertia1.flange_a) annotation (Line(
-          points={{-40,0},{-37.5,0},{-37.5,1.22125e-015},{-35,1.22125e-015},{-35,
+          points={{-40,0},{-37.5,0},{-37.5,0},{-35,0},{-35,
               0},{-30,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(sine1.y, torque1.tau) annotation (Line(
-          points={{-69,0},{-67.25,0},{-67.25,1.27676e-015},{-65.5,1.27676e-015},
+          points={{-69,0},{-67.25,0},{-67.25,0},{-65.5,0},
               {-65.5,0},{-62,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(torque2.flange, inertia2.flange_b) annotation (Line(
-          points={{40,0},{37.5,0},{37.5,1.22125e-015},{35,1.22125e-015},{35,0},
+          points={{40,0},{37.5,0},{37.5,0},{35,0},{35,0},
               {30,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(sine2.y, torque2.tau) annotation (Line(
-          points={{69,0},{67.25,0},{67.25,1.27676e-015},{65.5,1.27676e-015},{
+          points={{69,0},{67.25,0},{67.25,0},{65.5,0},{
               65.5,0},{62,0}},
           color={0,0,127},
           smooth=Smooth.None));

@@ -300,7 +300,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
             color={85,170,255},
             smooth=Smooth.None));
         connect(voltageSource_e.plug_n, inductor_e.plug_n) annotation (Line(
-            points={{-60,60},{-1.33227e-15,60}},
+            points={{-60,60},{0,60}},
             color={85,170,255},
             smooth=Smooth.None));
         connect(converter_m.port_p, reluctance_m.port_p) annotation (Line(
@@ -324,7 +324,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
             color={85,170,255},
             smooth=Smooth.None));
         connect(voltageSource_m.plug_n, converter_m.plug_n) annotation (Line(
-            points={{-60,-40},{-4.44089e-16,-40}},
+            points={{-60,-40},{0,-40}},
             color={85,170,255},
             smooth=Smooth.None));
         connect(voltageSource_e.plug_p, resistor_e.plug_p) annotation (Line(
@@ -332,7 +332,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
             color={85,170,255},
             smooth=Smooth.None));
         connect(resistor_e.plug_n, inductor_e.plug_p) annotation (Line(
-            points={{-20,80},{2.66454e-15,80}},
+            points={{-20,80},{0,80}},
             color={85,170,255},
             smooth=Smooth.None));
         connect(voltageSource_m.plug_p, resistor_m.plug_p) annotation (Line(
@@ -340,7 +340,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
             color={85,170,255},
             smooth=Smooth.None));
         connect(resistor_m.plug_n, converter_m.plug_p) annotation (Line(
-            points={{-20,-20},{-4.44089e-16,-20}},
+            points={{-20,-20},{0,-20}},
             color={85,170,255},
             smooth=Smooth.None));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
@@ -468,11 +468,11 @@ This is the library of quasi static fundamental wave models for multi phase elec
             color={85,170,255},
             smooth=Smooth.None));
         connect(loss_e.plug_n, sineVoltage_e.plug_n) annotation (Line(
-            points={{-1.33227e-15,50},{-80,50}},
+            points={{0,50},{-80,50}},
             color={85,170,255},
             smooth=Smooth.None));
         connect(loss_e.plug_p, converter_e.plug_p) annotation (Line(
-            points={{2.66454e-15,70},{20,70}},
+            points={{0,70},{20,70}},
             color={85,170,255},
             smooth=Smooth.None));
         connect(resistor_e.plug_n, powerb_e.currentP) annotation (Line(
@@ -1029,7 +1029,7 @@ In this example the eddy current losses are implemented in two different ways. C
 
         equation
           connect(ramp.y, vfController.u) annotation (Line(points={{-79,
-                  4.44089e-16},{-70,4.44089e-16},{-70,-20},{-40,-20}}, color={0,
+                  0},{-70,0},{-70,-20},{-40,-20}}, color={0,
                   0,255}));
           connect(loadTorqueStep.flange, loadInertia.flange_b)
             annotation (Line(points={{76,-80},{68,-80}}, color={0,0,0}));
@@ -1113,11 +1113,11 @@ In this example the eddy current losses are implemented in two different ways. C
               color={85,170,255},
               smooth=Smooth.None));
           connect(ramp.y, vfControllerQS.u) annotation (Line(
-              points={{-79,4.44089e-16},{-70,4.44089e-16},{-70,84},{-42,84}},
+              points={{-79,0},{-70,0},{-70,84},{-42,84}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(ramp.y, signalVoltageQS.f) annotation (Line(
-              points={{-79,4.44089e-16},{-70,4.44089e-16},{-70,70},{-14,70},{-14,
+              points={{-79,0},{-70,0},{-70,70},{-14,70},{-14,
                   60}},
               color={0,0,127},
               smooth=Smooth.None));
@@ -1757,7 +1757,7 @@ Simulate for 1.5 seconds and plot (versus time):
               smooth=Smooth.None));
           connect(terminalBox.plugSupply, currentSensor.plug_n) annotation (
               Line(
-              points={{6.66134e-16,-48},{0,-48},{0,-20}},
+              points={{0,-48},{0,-48},{0,-20}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(currentSensor.plug_p, powerSensor.nc) annotation (Line(
@@ -3588,8 +3588,8 @@ This is a simple idle running branch.
     model Short "Short connection"
       extends FundamentalWave.Interfaces.PartialTwoPort;
     equation
-      connect(port_p, port_n) annotation (Line(points={{-100,5.55112e-16},{-1,
-              5.55112e-16},{-1,5.55112e-16},{100,5.55112e-16}}, color={255,128,
+      connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,
+              0},{-1,0},{100,0}}, color={255,128,
               0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
@@ -3738,7 +3738,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
       equation
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{-6.10623e-16,-40},{-40,-40},{-40,-90}},
+            points={{0,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(airGap.port_rn, rotorCage.port_p) annotation (Line(
@@ -4080,7 +4080,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
             color={191,0,0},
             smooth=Smooth.None));
         connect(permanentMagnet.flange, inertiaRotor.flange_b) annotation (Line(
-            points={{0,-40},{0,-20},{90,-20},{90,-1.33227e-015}},
+            points={{0,-40},{0,-20},{90,-20},{90,0}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
@@ -4792,7 +4792,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
         connect(electroMagneticConverter.port_n, port_n) annotation (Line(
               points={{10,-10},{10,-100},{100,-100}}, color={255,128,0}));
         connect(heatPortWinding, resistor.heatPort) annotation (Line(
-            points={{5.55112e-16,-100},{5.55112e-16,-60},{-40,-60},{-40,70},{-20,
+            points={{0,-100},{0,-60},{-40,-60},{-40,70},{-20,
                 70}},
             color={191,0,0},
             smooth=Smooth.None));
@@ -5071,7 +5071,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             color={191,0,0},
             smooth=Smooth.None));
         connect(thermalCollector.port_b, heatPortWinding) annotation (Line(
-            points={{-40,-90},{-40,-100},{5.55112e-16,-100}},
+            points={{-40,-90},{-40,-100},{0,-100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(port_p, winding.port_p) annotation (Line(
@@ -5242,7 +5242,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             color={191,0,0},
             smooth=Smooth.None));
         connect(port_p, winding.port_p) annotation (Line(
-            points={{-100,4.44089e-16},{-55,4.44089e-16},{-55,0},{-10,0}},
+            points={{-100,0},{-55,0},{-55,0},{-10,0}},
             color={255,170,85},
             smooth=Smooth.None));
         connect(winding.port_n, port_n) annotation (Line(
@@ -6138,15 +6138,15 @@ The partial two port elementary model extends from the partial two port model an
           color={85,170,255},
           smooth=Smooth.None));
       connect(thermalPort, internalThermalPort) annotation (Line(
-          points={{5.55112e-16,-100},{5.55112e-16,-90},{-40,-90}},
+          points={{0,-100},{0,-90},{-40,-90}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
           points={{-60,-90},{-40,-90}},
           color={199,0,0},
           smooth=Smooth.None));
-      connect(inertiaRotor.flange_b, flange) annotation (Line(points={{90,-1.72421e-15},
-              {100,-1.72421e-15},{100,5.55112e-16}}, color={0,0,0}));
+      connect(inertiaRotor.flange_b, flange) annotation (Line(points={{90,0},
+              {100,0},{100,0}}, color={0,0,0}));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
           points={{60,-100},{70,-100}},
           color={0,0,0},
@@ -6158,12 +6158,12 @@ The partial two port elementary model extends from the partial two port model an
       connect(inertiaStator.flange_b, support) annotation (Line(points={{90,-100},
               {90,-100},{100,-100}}, color={0,0,0}));
       connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
-          points={{10,-1.33731e-15},{25,-1.33731e-15},{25,-6.12304e-16},{40,-6.12304e-16},
-              {40,7.25006e-16},{70,7.25006e-16}},
+          points={{10,0},{25,0},{25,0},{40,0},
+              {40,0},{70,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(airGap.support, internalSupport) annotation (Line(
-          points={{-10,2.33651e-15},{-50,2.33651e-15},{-50,-70},{60,-70},{60,-100}},
+          points={{-10,0},{-50,0},{-50,-70},{60,-70},{60,-100}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(groundR.port_p, airGap.port_rn) annotation (Line(points={{-30,-10},
@@ -6190,11 +6190,11 @@ The partial two port elementary model extends from the partial two port model an
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{50,80},{90,80},{90,-1.72421e-15}},
+          points={{50,80},{90,80},{90,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{90,-20},{90,-1.72421e-15}},
+          points={{90,-20},{90,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction)
@@ -6522,7 +6522,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           color={85,170,255},
           smooth=Smooth.None));
       connect(idealCommutingSwitch.plug_n1, rheostat.plug_p) annotation (Line(
-          points={{35,10},{35,-20},{4.44089e-16,-20}},
+          points={{35,10},{35,-20},{0,-20}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(rheostat.plug_n, starRheostat.plug_p) annotation (Line(
@@ -6617,7 +6617,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           color={85,170,255},
           smooth=Smooth.None));
       connect(toGamma.y, add.u1) annotation (Line(
-          points={{1.55431e-15,-59},{1.55431e-15,-34},{38,-34}},
+          points={{0,-59},{0,-34},{38,-34}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(const.y, add.u2) annotation (Line(
