@@ -2841,6 +2841,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
     constant D.Interfaces.Logic UX01Table[L]={
         L.'U',L.'X',L.'0',L.'1',L.'X',L.'X',L.'0',L.'1',L.'X'};
 
+    constant D.Interfaces.UX01 UX01Conv[L]={
+        R.'U',R.'X',R.'0',R.'1',R.'X',R.'X',R.'0',R.'1',R.'X'};
+
     constant Integer DelayTable[L, L]=[
          0,  0, -1,  1,  0,  0, -1,  1,  0;
          0,  0, -1,  1,  0,  0, -1,  1,  0;
@@ -3105,7 +3108,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
           parameter Modelica.SIunits.Time tHL(start=0) "fall inertial delay";
           parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
     protected
-          constant Integer delayTable[:,:]=Modelica.Electrical.Digital.Tables.DelayTable
+          constant Integer delayTable[L,L]=Modelica.Electrical.Digital.Tables.DelayTable
         "specification of delay according to signal change";
           Modelica.SIunits.Time delayTime;
           D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
@@ -5052,7 +5055,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
-          parameter Integer ResetMap[9] = {1, 4, 3, 2, 4, 4, 3, 2, 4}
+          parameter Integer ResetMap[L] = {1, 4, 3, 2, 4, 4, 3, 2, 4}
         "function selection, defaults for high active reset";
           parameter D.Interfaces.Strength strength = S.'S_X01'
         "output strength";
@@ -5248,7 +5251,7 @@ Clock transition definitions:
         "output strength";
           parameter Integer n(min=1) = 1 "data width";
     protected
-          constant Integer ResetMap[9] = {1, 4, 3, 2, 4, 4, 3, 2, 4};
+          constant Integer ResetMap[L] = {1, 4, 3, 2, 4, 4, 3, 2, 4};
               // Function selection by [reset] reading
               // 1: output := U
               // 2: output := 0
@@ -5446,7 +5449,7 @@ Clock transition definitions:
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
-          parameter Integer ResetSetMap[9, 9]=[
+          parameter Integer ResetSetMap[L, L]=[
                      1,  1,  1,  1,  1,  1,  1,  1,  1;
                      1,  4,  7,  2,  4,  4,  7,  2,  4;
                      1,  5,  8,  2,  5,  5,  8,  2,  5;
@@ -5706,7 +5709,7 @@ Clock transition definitions:
           parameter Integer n(min=1) = 1 "data width";
 
     protected
-          constant Integer ResetSetMap[9, 9]=[
+          constant Integer ResetSetMap[L, L]=[
                      1,  1,  1,  1,  1,  1,  1,  1,  1;
                      1,  4,  7,  2,  4,  4,  7,  2,  4;
                      1,  5,  8,  2,  5,  5,  8,  2,  5;
@@ -5939,7 +5942,7 @@ Clock transition definitions:
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
-          parameter Integer ResetMap[9] = {1, 4, 3, 2, 4, 4, 3, 2, 4}
+          parameter Integer ResetMap[L] = {1, 4, 3, 2, 4, 4, 3, 2, 4}
         "function selection, defaults for high active reset";
           parameter D.Interfaces.Strength strength = S.'S_X01'
         "output strength";
@@ -6140,7 +6143,7 @@ Clock transition definitions:
           parameter Integer n(min=1) = 1 "data width";
 
     protected
-          constant Integer ResetMap[9] = {1, 4, 3, 2, 4, 4, 3, 2, 4};
+          constant Integer ResetMap[L] = {1, 4, 3, 2, 4, 4, 3, 2, 4};
               // Function selection by [reset] reading
               // 1: output := U
               // 2: output := 0
@@ -6335,7 +6338,7 @@ Clock transition definitions:
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
-          parameter Integer ResetSetMap[9, 9]=[
+          parameter Integer ResetSetMap[L, L]=[
                      1,  1,  1,  1,  1,  1,  1,  1,  1;
                      1,  4,  7,  2,  4,  4,  7,  2,  4;
                      1,  5,  8,  2,  5,  5,  8,  2,  5;
@@ -6599,7 +6602,7 @@ Clock transition definitions:
           parameter Integer n(min=1) = 1 "data width";
 
     protected
-          constant Integer ResetSetMap[9, 9]=[
+          constant Integer ResetSetMap[L, L]=[
                      1,  1,  1,  1,  1,  1,  1,  1,  1;
                      1,  4,  7,  2,  4,  4,  7,  2,  4;
                      1,  5,  8,  2,  5,  5,  8,  2,  5;
@@ -7201,7 +7204,7 @@ Clock transition definitions:
               D.Interfaces.DigitalOutput yy(start=L.'U');
               D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U', fixed=true));
     algorithm
-      nextstate := T.Buf3sTable[strength, T.UX01Table[enable], T.UX01Table[x]];
+      nextstate := T.Buf3sTable[strength, T.UX01Conv[enable], T.UX01Conv[x]];
       yy := nextstate;
     equation
       connect(yy, inertialDelaySensitive.x);
@@ -7286,7 +7289,7 @@ Clock transition definitions:
               D.Interfaces.DigitalOutput yy(start=L.'U');
               D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
     algorithm
-      nextstate := T.Buf3slTable[strength, T.UX01Table[enable], T.UX01Table[x]];
+      nextstate := T.Buf3slTable[strength, T.UX01Conv[enable], T.UX01Conv[x]];
       yy := nextstate;
     equation
       connect(yy, inertialDelaySensitive.x);
@@ -7371,7 +7374,7 @@ Clock transition definitions:
               D.Interfaces.DigitalOutput yy(start=L.'U');
               D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U',fixed=true));
     algorithm
-      nextstate := T.Buf3sTable[strength, T.UX01Table[enable], T.NotTable[x]];
+      nextstate := T.Buf3sTable[strength, T.UX01Conv[enable], T.UX01Conv[T.NotTable[x]]];
       yy := nextstate;
     equation
       connect(yy, inertialDelaySensitive.x);
@@ -7461,7 +7464,7 @@ Clock transition definitions:
               D.Interfaces.DigitalOutput yy(start=L.'U');
               D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL);
     algorithm
-      nextstate := T.Buf3sTable[strength, T.NotTable[enable], T.NotTable[x]];
+      nextstate := T.Buf3sTable[strength, T.UX01Conv[T.NotTable[enable]], T.UX01Conv[T.NotTable[x]]];
       yy := nextstate;
     equation
       connect(yy, inertialDelaySensitive.x);
@@ -8041,7 +8044,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
               D.Delay.InertialDelaySensitive inertialDelaySensitive(tLH=tLH, tHL=tHL, y(start=L.'U',fixed=true));
 
     algorithm
-      nextstate := T.MUX2x1Table[T.UX01Table[in1], T.UX01Table[sel], T.UX01Table[in0]];
+      nextstate := T.MUX2x1Table[T.UX01Conv[in1], T.UX01Conv[sel], T.UX01Conv[in0]];
 
       nextstate := T.StrengthMap[nextstate, strength];
 
