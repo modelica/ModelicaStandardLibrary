@@ -186,14 +186,24 @@ typedef struct CombiTable2D {
 
 #define LINEAR(u, u0, u1, y0, y1) \
     y = (y0) + ((y1) - (y0))*((u) - (u0))/((u1) - (u0));
+/*
+LINEAR(u0, ...) -> y0
+LINEAR(u1, ...) -> y1
+*/
 
 #define LINEAR_SLOPE(y0, dy_du, du) ((y0) + (dy_du)*(du))
 
-#define BILINEAR(u1, u2, u10, u11, u20, u21, y10, y11, y20, y21) {\
+#define BILINEAR(u1, u2, u10, u11, u20, u21, y00, y01, y10, y11) {\
     const double tmp = ((u2) - (u20))/((u20) - (u21)); \
-    y = (y10) + tmp*((y10) - (y11)) + ((u1) - (u10))/((u10) - (u11))* \
-        ((1 + tmp)*((y10) - (y20)) + tmp*((y21) - (y11))); \
+    y = (y00) + tmp*((y00) - (y01)) + ((u1) - (u10))/((u10) - (u11))* \
+        ((1 + tmp)*((y00) - (y10)) + tmp*((y11) - (y01))); \
 }
+/*
+BILINEAR(u10, u20, ...) -> y00
+BILINEAR(u10, u21, ...) -> y01
+BILINEAR(u11, u20, ...) -> y10
+BILINEAR(u11, u21, ...) -> y11
+*/
 
 #if defined(__cplusplus)
 #define STATIC_CAST(T, E) static_cast<T>(E)
@@ -2013,9 +2023,9 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                 case LINEAR_SEGMENTS: {
                     const double u20 = TABLE_ROW0(last2 + 1);
                     const double u21 = TABLE_ROW0(last2 + 2);
-                    const double y20 = TABLE(1, last2 + 1);
-                    const double y21 = TABLE(1, last2 + 2);
-                    LINEAR(u2, u20, u21, y20, y21)
+                    const double y0 = TABLE(1, last2 + 1);
+                    const double y1 = TABLE(1, last2 + 2);
+                    LINEAR(u2, u20, u21, y0, y1)
                     break;
                 }
 
@@ -2025,7 +2035,7 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                         const double u20 = TABLE_ROW0(last2 + 1);
                         if (extrapolate2 == IN_TABLE) {
                             u2 -= u20;
-                            y = TABLE(1, last2 + 1); /* c[3] = y20 */
+                            y = TABLE(1, last2 + 1); /* c[3] = y0 */
                             y += ((c[0]*u2 + c[1])*u2 + c[2])*u2;
                         }
                         else if (extrapolate2 == LEFT) {
@@ -2077,9 +2087,9 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                 case LINEAR_SEGMENTS: {
                     const double u10 = TABLE_COL0(last1 + 1);
                     const double u11 = TABLE_COL0(last1 + 2);
-                    const double y10 = TABLE(last1 + 1, 1);
-                    const double y11 = TABLE(last1 + 2, 1);
-                    LINEAR(u1, u10, u11, y10, y11)
+                    const double y0 = TABLE(last1 + 1, 1);
+                    const double y1 = TABLE(last1 + 2, 1);
+                    LINEAR(u1, u10, u11, y0, y1)
                     break;
                 }
 
@@ -2089,7 +2099,7 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                         const double u10 = TABLE_COL0(last1 + 1);
                         if (extrapolate1 == IN_TABLE) {
                             u1 -= u10;
-                            y = TABLE(last1 + 1, 1); /* c[3] = y10 */
+                            y = TABLE(last1 + 1, 1); /* c[3] = y0 */
                             y += ((c[0]*u1 + c[1])*u1 + c[2])*u1;
                         }
                         else if (extrapolate1 == LEFT) {
@@ -2161,12 +2171,12 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                     const double u11 = TABLE_COL0(last1 + 2);
                     const double u20 = TABLE_ROW0(last2 + 1);
                     const double u21 = TABLE_ROW0(last2 + 2);
-                    const double y10 = TABLE(last1 + 1, last2 + 1);
-                    const double y11 = TABLE(last1 + 1, last2 + 2);
-                    const double y20 = TABLE(last1 + 2, last2 + 1);
-                    const double y21 = TABLE(last1 + 2, last2 + 2);
+                    const double y00 = TABLE(last1 + 1, last2 + 1);
+                    const double y01 = TABLE(last1 + 1, last2 + 2);
+                    const double y10 = TABLE(last1 + 2, last2 + 1);
+                    const double y11 = TABLE(last1 + 2, last2 + 2);
                     BILINEAR(u1, u2,
-                        u10, u11, u20, u21, y10, y11, y20, y21)
+                        u10, u11, u20, u21, y00, y01, y10, y11)
                     break;
                 }
 
@@ -2190,8 +2200,8 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                     c[6])*v2 + c[7];
                                 const double p3 = ((c[8]*v2 + c[9])*v2 +
                                     c[10])*v2 + c[11];
-                                y = TABLE(last1 + 1, last2 + 1); /* c[15] = y10 */
-                                /* p4 = ((c[12]*v2 + c[13])*v2 + c[14])*v2 + y10; */
+                                y = TABLE(last1 + 1, last2 + 1); /* c[15] = y00 */
+                                /* p4 = ((c[12]*v2 + c[13])*v2 + c[14])*v2 + y00; */
                                 y += ((c[12]*v2 + c[13])*v2 + c[14])*v2; /* p4 */
                                 y += ((p1*v1 + p2)*v1 + p3)*v1;
                             }
@@ -2202,9 +2212,9 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                 */
                                 const double der_y2 = ((c[2]*v1 + c[6])*v1 +
                                     c[10])*v1 + c[14];
-                                double y21 = TABLE(last1 + 1, last2 + 1); /* c[15] = y10 */
-                                y21 += ((c[3]*v1 + c[7])*v1 + c[11])*v1;
-                                y = LINEAR_SLOPE(y21, der_y2,
+                                y = TABLE(last1 + 1, last2 + 1); /* c[15] = y00 */
+                                y += ((c[3]*v1 + c[7])*v1 + c[11])*v1;
+                                y = LINEAR_SLOPE(y, der_y2,
                                    u2 - TABLE_ROW0(1));
                             }
                             else /* if (extrapolate2 == RIGHT) */ {
@@ -2230,11 +2240,11 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                     2*c[13])*v2 + c[14];
                                 const double der_y2 = ((dp1_u2*v1 +
                                     dp2_u2)*v1 + dp3_u2)*v1 + dp4_u2;
-                                double y22 = TABLE(last1 + 1, last2 + 1); /* c[15] = y10 */
-                                /* p4 = ((c[12]*v2 + c[13])*v2 + c[14])*v2 + y10; */
-                                y22 += ((c[12]*v2 + c[13])*v2 + c[14])*v2; /* p4 */
-                                y22 += ((p1*v1 + p2)*v1 + p3)*v1;
-                                y = LINEAR_SLOPE(y22, der_y2,
+                                y = TABLE(last1 + 1, last2 + 1); /* c[15] = y00 */
+                                /* p4 = ((c[12]*v2 + c[13])*v2 + c[14])*v2 + y00; */
+                                y += ((c[12]*v2 + c[13])*v2 + c[14])*v2; /* p4 */
+                                y += ((p1*v1 + p2)*v1 + p3)*v1;
+                                y = LINEAR_SLOPE(y, der_y2,
                                     u2 - TABLE_ROW0(nCol - 1));
                             }
                         }
@@ -2248,43 +2258,43 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                 const double v2 = u2 - TABLE_ROW0(last2 + 1);
                                 const double der_y1 = ((c[8]*v2 + c[9])*v2 +
                                     c[10])*v2 + c[11];
-                                double y11 = TABLE(last1 + 1, last2 + 1); /* c[15] = y10 */
-                                /* p4 = ((c[12]*v2 + c[13])*v2 + c[14])*v2 + y10; */
-                                y11 += ((c[12]*v2 + c[13])*v2 + c[14])*v2; /* p4 */
-                                y = LINEAR_SLOPE(y11, der_y1, u1 - u11);
+                                y = TABLE(last1 + 1, last2 + 1); /* c[15] = y00 */
+                                /* p4 = ((c[12]*v2 + c[13])*v2 + c[14])*v2 + y00; */
+                                y += ((c[12]*v2 + c[13])*v2 + c[14])*v2; /* p4 */
+                                y = LINEAR_SLOPE(y, der_y1, u1 - u11);
                             }
                             else if (extrapolate2 == LEFT) {
                                 const double u10 = 2*u11 - TABLE_COL0(2);
                                 const double u21 = TABLE_ROW0(1);
                                 const double u20 = 2*u21 - TABLE_ROW0(2);
-                                const double y21 = TABLE(1, 1);
-                                const double y11 = LINEAR_SLOPE(y21,
+                                const double y11 = TABLE(1, 1);
+                                const double y01 = LINEAR_SLOPE(y11,
                                     c[11], u10 - u11);
-                                const double y20 = LINEAR_SLOPE(y21,
+                                const double y10 = LINEAR_SLOPE(y11,
                                     c[14], u20 - u21);
-                                const double y10 = LINEAR_SLOPE(y20,
+                                const double y00 = LINEAR_SLOPE(y10,
                                     c[11], u10 - u11);
                                 BILINEAR(u1, u2,
-                                    u10, u11, u20, u21, y10, y11, y20, y21)
+                                    u10, u11, u20, u21, y00, y01, y10, y11)
                             }
                             else /* if (extrapolate2 == RIGHT) */ {
                                 const double u10 = 2*u11 - TABLE_COL0(2);
                                 const double u20 = TABLE_ROW0(nCol - 1);
                                 const double u21 = 2*u20 - TABLE_ROW0(nCol - 2);
-                                const double y20 = TABLE(1, nCol - 1);
+                                const double y10 = TABLE(1, nCol - 1);
                                 const double v2 = u21 - u20;
                                 const double der_y1 = ((c[8]*v2 + c[9])*v2 +
                                     c[10])*v2 + c[11];
                                 const double der_y2 =(3*c[12]*v2 +
                                     2*c[13])*v2 + c[14];
-                                const double y10 = LINEAR_SLOPE(y20,
+                                const double y00 = LINEAR_SLOPE(y10,
                                     der_y1, u10 - u11);
+                                const double y01 = LINEAR_SLOPE(y00,
+                                    der_y2, v2);
                                 const double y11 = LINEAR_SLOPE(y10,
                                     der_y2, v2);
-                                const double y21 = LINEAR_SLOPE(y20,
-                                    der_y2, v2);
                                 BILINEAR(u1, u2,
-                                    u10, u11, u20, u21, y10, y11, y20, y21)
+                                    u10, u11, u20, u21, y00, y01, y10, y11)
                             }
                         }
                         else /* if (extrapolate1 == RIGHT) */ {
@@ -2303,36 +2313,36 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                 const double p3 = ((c[8]*v2 + c[9])*v2 +
                                     c[10])*v2 + c[11];
                                 const double der_y1 = (3*p1*v1 + 2*p2)*v1 + p3;
-                                double y10 = TABLE(last1 + 1, last2 + 1); /* c[15] = y10 */
-                                /* p4 = ((c[12]*v2 + c[13])*v2 + c[14])*v2 + y10; */
-                                y10 += ((c[12]*v2 + c[13])*v2 + c[14])*v2; /* p4 */
-                                y10 += ((p1*v1 + p2)*v1 + p3)*v1;
-                                y = LINEAR_SLOPE(y10, der_y1, u1 - u10);
+                                y = TABLE(last1 + 1, last2 + 1); /* c[15] = y00 */
+                                /* p4 = ((c[12]*v2 + c[13])*v2 + c[14])*v2 + y00; */
+                                y += ((c[12]*v2 + c[13])*v2 + c[14])*v2; /* p4 */
+                                y += ((p1*v1 + p2)*v1 + p3)*v1;
+                                y = LINEAR_SLOPE(y, der_y1, u1 - u10);
                             }
                             else if (extrapolate2 == LEFT) {
                                 const double u11 = 2*u10 - TABLE_COL0(nRow - 2);
                                 const double u21 = TABLE_ROW0(1);
                                 const double u20 = 2*u21 - TABLE_ROW0(2);
-                                const double y11 = TABLE(nRow - 1, 1);
+                                const double y01 = TABLE(nRow - 1, 1);
                                 const double v2 = u20 - u21;
                                 const double der_y1 = (3*c[3]*v1 + 2*c[7])*v1 +
                                     c[11];
                                 const double der_y2 = ((c[2]*v1 + c[6])*v1 +
                                     c[10])*v1 + c[14];
-                                const double y21 = LINEAR_SLOPE(y11,
+                                const double y11 = LINEAR_SLOPE(y01,
                                     der_y1, v1);
-                                const double y20 = LINEAR_SLOPE(y21,
-                                    der_y2, v2);
                                 const double y10 = LINEAR_SLOPE(y11,
                                     der_y2, v2);
+                                const double y00 = LINEAR_SLOPE(y01,
+                                    der_y2, v2);
                                 BILINEAR(u1, u2,
-                                    u10, u11, u20, u21, y10, y11, y20, y21)
+                                    u10, u11, u20, u21, y00, y01, y10, y11)
                             }
                             else /* if (extrapolate2 == RIGHT) */ {
                                 const double u11 = 2*u10 - TABLE_COL0(nRow - 2);
                                 const double u20 = TABLE_ROW0(nCol - 1);
                                 const double u21 = 2*u20 - TABLE_ROW0(nCol - 2);
-                                const double y10 = TABLE(nRow - 1, nCol - 1);
+                                const double y00 = TABLE(nRow - 1, nCol - 1);
                                 const double v2 = u21 - u20;
                                 const double p1 = ((c[0]*v2 + c[1])*v2 +
                                     c[2])*v2 + c[3];
@@ -2351,14 +2361,14 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                 const double der_y1 = (3*p1*v1 + 2*p2)*v1 + p3;
                                 const double der_y2 = ((dp1_u2*v1 + dp2_u2)*v1 +
                                     dp3_u2)*v1 + dp4_u2;
+                                const double y01 = LINEAR_SLOPE(y00,
+                                    der_y2, v2);
+                                const double y10 = LINEAR_SLOPE(y00,
+                                    der_y1, v1);
                                 const double y11 = LINEAR_SLOPE(y10,
                                     der_y2, v2);
-                                const double y20 = LINEAR_SLOPE(y10,
-                                    der_y1, v1);
-                                const double y21 = LINEAR_SLOPE(y20,
-                                    der_y2, v2);
                                 BILINEAR(u1, u2,
-                                    u10, u11, u20, u21, y10, y11, y20, y21)
+                                    u10, u11, u20, u21, y00, y01, y10, y11)
                             }
                         }
                     }
@@ -2541,14 +2551,14 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                     const double u11 = TABLE_COL0(last1 + 2);
                     const double u20 = TABLE_ROW0(last2 + 1);
                     const double u21 = TABLE_ROW0(last2 + 2);
-                    const double y10 = TABLE(last1 + 1, last2 + 1);
-                    const double y11 = TABLE(last1 + 1, last2 + 2);
-                    const double y20 = TABLE(last1 + 2, last2 + 1);
-                    const double y21 = TABLE(last1 + 2, last2 + 2);
-                    der_y = (u21*(y20 - y10) + u20*(y11 - y21) +
-                        u2*(y10 - y11 - y20 + y21))*der_u1;
-                    der_y += (u11*(y11 - y10) + u10*(y20 - y21) +
-                        u1*(y10 - y11 - y20 + y21))*der_u2;
+                    const double y00 = TABLE(last1 + 1, last2 + 1);
+                    const double y01 = TABLE(last1 + 1, last2 + 2);
+                    const double y10 = TABLE(last1 + 2, last2 + 1);
+                    const double y11 = TABLE(last1 + 2, last2 + 2);
+                    der_y = (u21*(y10 - y00) + u20*(y01 - y11) +
+                        u2*(y00 - y01 - y10 + y11))*der_u1;
+                    der_y += (u11*(y01 - y00) + u10*(y10 - y11) +
+                        u1*(y00 - y01 - y10 + y11))*der_u2;
                     der_y /= (u10 - u11);
                     der_y /= (u20 - u21);
                 }
@@ -2577,11 +2587,20 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                                 c[6];
                             const double dp3_u2 = (3*c[8]*v2 + 2*c[9])*v2 +
                                 c[10];
-                            const double dp4_u2 = (3*c[12]*v2 +
-                                2*c[13])*v2 + c[14];
-                            der_y = ((3*p1*v1 + 2*p2)*v1 + p3)*der_u1;
-                            der_y += (((dp1_u2*v1 + dp2_u2)*v1 +
-                                dp3_u2)*v1 + dp4_u2)*der_u2;
+                            const double dp4_u2 = (3*c[12]*v2 + 2*c[13])*v2 +
+                                c[14];
+                            double der_y1 = (3*p1*v1 + 2*p2)*v1 + p3;
+                            double der_y2 = ((dp1_u2*v1 + dp2_u2)*v1 +
+                                dp3_u2)*v1 + dp4_u2;
+                            if (extrapolate1 == IN_TABLE && extrapolate2 == RIGHT) {
+                                der_y1 += ((3*dp1_u2*v1 + 2*dp2_u2)*v1 + dp3_u2)*
+                                    (u2 - TABLE_ROW0(nCol - 1));
+                            }
+                            else if (extrapolate1 == RIGHT && extrapolate2 == IN_TABLE) {
+                                der_y2 += ((3*dp1_u2*v1 + 2*dp2_u2)*v1 + dp3_u2)*
+                                    (u1 - TABLE_COL0(nRow - 1));
+                            }
+                            der_y = der_y1*der_u1 + der_y2*der_u2;
                         }
                         else if (extrapolate1 == LEFT && extrapolate2 == LEFT) {
                             der_y = c[11]*der_u1 + c[14]*der_u2;
@@ -2590,17 +2609,25 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                             const double v2 = (extrapolate2 == IN_TABLE) ?
                                 u2 - TABLE_ROW0(last2 + 1) :
                                 TABLE_ROW0(nCol - 1) - TABLE_ROW0(nCol - 2);
-                            der_y = (((c[8]*v2 + c[9])*v2 +
-                                c[10])*v2 + c[11])*der_u1;
-                            der_y += ((3*c[12]*v2 + 2*c[13])*v2 +
-                                c[14])*der_u2;
+                            der_y += (3*c[12]*v2 + 2*c[13])*v2 + c[14];
+                            if (extrapolate2 == IN_TABLE) {
+                                der_y += ((3*c[8]*v2 + 2*c[9])*v2 + c[10])*
+                                    (u1 - TABLE_COL0(1));
+                            }
+                            der_y *= der_u2;
+                            der_y += (((c[8]*v2 + c[9])*v2 + c[10])*v2 + c[11])*
+                                der_u1;
                         }
                         else /* if (extrapolate2 == LEFT) */ {
                             const double v1 = (extrapolate1 == IN_TABLE) ?
                                 u1 - TABLE_COL0(last1 + 1) :
                                 TABLE_COL0(nRow - 1) - TABLE_COL0(nRow - 2);
-                            der_y = ((3*c[3]*v1 + 2*c[7])*v1 +
-                                c[11])*der_u1;
+                            der_y = (3*c[3]*v1 + 2*c[7])*v1 + c[11];
+                            if (extrapolate1 == IN_TABLE) {
+                                der_y += ((3*c[2]*v1 + 2*c[6])*v1 + c[10])*
+                                    (u2 - TABLE_ROW0(1));
+                            }
+                            der_y *= der_u1;
                             der_y += (((c[2]*v1 + c[6])*v1 + c[10])*v1 +
                                 c[14])*der_u2;
                         }
