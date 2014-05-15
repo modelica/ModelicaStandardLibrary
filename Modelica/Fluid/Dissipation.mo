@@ -9821,7 +9821,6 @@ documentation available in this package.
                         m_flow));
 
               annotation (Inline=false);
-
           end dp_twoPhaseFriedel_DP;
 
           function dp_twoPhaseGeodetic_DP
@@ -9873,7 +9872,6 @@ documentation available in this package.
             DP_geo := (eps*rho_g + (1 - eps)*rho_l)*9.81*length*sin(phi);
 
               annotation (Inline=false);
-
           end dp_twoPhaseGeodetic_DP;
 
           function dp_twoPhaseMomentum_DP
@@ -10938,10 +10936,9 @@ For |x| &gt; 1 both functions return identical results.
           Real b=-Modelica.Constants.pi/2 - m*nofunc;
 
         algorithm
-          result := if x >= 0.999999*(func - nofunc) + nofunc and func > nofunc or x
-             <= 0.999999*(func - nofunc) + nofunc and nofunc > func then 1 else if x
-             <= 0.000001*(func - nofunc) + nofunc and func > nofunc or x >= 0.000001*(
-            func - nofunc) + nofunc and nofunc > func then 0 else (1+Modelica.Math.tanh(Modelica.Math.tan(m*x + b)))/2;
+          result := if x >= func and func > nofunc or x
+             <= func and nofunc > func then 1 else if x
+             <= nofunc and func > nofunc or x >= nofunc and nofunc > func then 0 else (1+Modelica.Math.tanh(Modelica.Math.tan(m*x + b)))/2;
           annotation (
             Inline=false,
             derivative=Stepsmoother_der,
@@ -10997,12 +10994,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           Real b=-Modelica.Constants.pi/2 - m*nofunc;
 
         algorithm
-          dresult := if x >= 0.999*(func - nofunc) + nofunc and func > nofunc or x <=
-            0.999*(func - nofunc) + nofunc and nofunc > func or x <= 0.001*(func -
-            nofunc) + nofunc and func > nofunc or x >= 0.001*(func - nofunc) + nofunc
-             and nofunc > func then 0 else (1 - Modelica.Math.tanh(Modelica.Math.tan(m*
-            x + b))^2)*(1 + Modelica.Math.tan(m*x + b)^2)*m*dx/2;
-          annotation (smoothOrder=5);
+        dresult := if x >= func and func > nofunc or x <= func and nofunc > func or x <= nofunc and func > nofunc or x >= nofunc
+             and nofunc > func then 0 else (1 - Modelica.Math.tanh(Modelica.Math.tan(m*x + b))^2)*
+             (1 + Modelica.Math.tan(m*x + b)^2)*(-m^2/Modelica.Constants.pi*(dfunc - dnofunc)*x
+              + m*dx + m^2/Modelica.Constants.pi*(dfunc - dnofunc)*nofunc - m*dnofunc)/2;
         end Stepsmoother_der;
       end General;
     end Functions;
