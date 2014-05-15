@@ -673,7 +673,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (        Documentation(info="<html>
 <p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the results plot both the input vector x and the output vector y.</p>
 </html>"),
-        experiment(StopTime=1.01));
+        experiment(StopTime=10));
         end VectorDelay;
 
         model DFFREG "Pulse triggered D-Register-Bank, high active reset"
