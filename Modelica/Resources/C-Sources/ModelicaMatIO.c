@@ -9168,24 +9168,24 @@ Mat_Open(const char *matname,int mode)
     mat_t *mat = NULL;
     size_t bytesread = 0;
 
-    if ( (mode & 0x00000001) == MAT_ACC_RDONLY ) {
+    if ( (mode & 0x01) == MAT_ACC_RDONLY ) {
         fp = fopen( matname, "rb" );
         if ( !fp )
             return NULL;
-    } else if ( (mode & 0x00000001) == MAT_ACC_RDWR ) {
+    } else if ( (mode & 0x01) == MAT_ACC_RDWR ) {
         fp = fopen( matname, "r+b" );
         if ( !fp ) {
             mat = Mat_CreateVer(matname,NULL,mode&0xfffffffe);
             return mat;
         }
     } else {
-        mat = Mat_CreateVer(matname,NULL,mode&0xfffffffe);
-        return mat;
+        Mat_Critical("Invalid file open mode");
+        return NULL;
     }
 
     mat = malloc(sizeof(*mat));
     if ( NULL == mat ) {
-        Mat_Critical("Could not allocate memory for the MAT file");
+        Mat_Critical("Couldn't allocate memory for the MAT file");
         fclose(fp);
         return NULL;
     }
@@ -9196,6 +9196,7 @@ Mat_Open(const char *matname,int mode)
     mat->filename      = NULL;
     mat->byteswap      = 0;
     mat->version       = 0;
+    mat->refs_id       = -1;
 
     bytesread += fread(mat->header,1,116,fp);
     mat->header[116] = '\0';
@@ -9239,6 +9240,7 @@ Mat_Open(const char *matname,int mode)
         mat->mode          = mode;
         mat->bof           = 0;
         mat->next_index    = 0;
+        mat->refs_id       = -1;
 
         Mat_Rewind(mat);
         var = Mat_VarReadNextInfo4(mat);
@@ -9265,9 +9267,9 @@ Mat_Open(const char *matname,int mode)
 
         mat->fp = malloc(sizeof(hid_t));
 
-        if ( (mode & 0x00ff) == MAT_ACC_RDONLY )
+        if ( (mode & 0x01) == MAT_ACC_RDONLY )
             *(hid_t*)mat->fp=H5Fopen(mat->filename,H5F_ACC_RDONLY,H5P_DEFAULT);
-        else if ( (mode & 0x00ff) == MAT_ACC_RDWR )
+        else if ( (mode & 0x01) == MAT_ACC_RDWR )
             *(hid_t*)mat->fp=H5Fopen(mat->filename,H5F_ACC_RDWR,H5P_DEFAULT);
 
         if ( -1 < *(hid_t*)mat->fp ) {
@@ -9710,7 +9712,7 @@ Mat_VarCreate(const char *name,enum matio_classes class_type,
     return matvar;
 }
 
-int mat_rename(const char* src, const char* dst)
+static int mat_rename(const char* src, const char* dst)
 {
     size_t len;
     char buf[BUFSIZ] = {'\0'};
@@ -11030,32 +11032,9 @@ Mat_VarReadDataLinear4(mat_t *mat,matvar_t *matvar,void *data,int start,
 {
     size_t i, nmemb = 1;
     int err = 0;
-    enum matio_classes class_type = MAT_C_EMPTY;
 
     fseek(mat->fp,matvar->internal->datapos,SEEK_SET);
 
-    switch( matvar->data_type ) {
-        case MAT_T_DOUBLE:
-            class_type = MAT_C_DOUBLE;
-            break;
-        case MAT_T_SINGLE:
-            class_type = MAT_C_SINGLE;
-            break;
-        case MAT_T_INT32:
-            class_type = MAT_C_INT32;
-            break;
-        case MAT_T_INT16:
-            class_type = MAT_C_INT16;
-            break;
-        case MAT_T_UINT16:
-            class_type = MAT_C_UINT16;
-            break;
-        case MAT_T_UINT8:
-            class_type = MAT_C_UINT8;
-            break;
-        default:
-            return 1;
-    }
     matvar->data_size = Mat_SizeOf(matvar->data_type);
 
     for ( i = 0; i < matvar->rank; i++ )
@@ -11068,13 +11047,13 @@ Mat_VarReadDataLinear4(mat_t *mat,matvar_t *matvar,void *data,int start,
             mat_complex_split_t *complex_data = data;
             long nbytes = nmemb*matvar->data_size;
 
-            ReadDataSlab1(mat,complex_data->Re,class_type,
+            ReadDataSlab1(mat,complex_data->Re,matvar->class_type,
                           matvar->data_type,start,stride,edge);
             fseek(mat->fp,matvar->internal->datapos+nbytes,SEEK_SET);
-            ReadDataSlab1(mat,complex_data->Im,class_type,
+            ReadDataSlab1(mat,complex_data->Im,matvar->class_type,
                           matvar->data_type,start,stride,edge);
     } else {
-        ReadDataSlab1(mat,data,class_type,matvar->data_type,start,
+        ReadDataSlab1(mat,data,matvar->class_type,matvar->data_type,start,
                       stride,edge);
     }
 
@@ -11111,7 +11090,7 @@ Mat_VarReadNextInfo4(mat_t *mat)
 
     err = fread(&tmp,sizeof(int),1,mat->fp);
     if ( !err ) {
-        free(matvar);
+        Mat_VarFree(matvar);
         return NULL;
     }
 
@@ -11373,6 +11352,18 @@ GetStructFieldBufSize(matvar_t *matvar)
 
         break;
     }
+    case MAT_C_CHAR:
+        if ( MAT_T_UINT8 == matvar->data_type ||
+             MAT_T_INT8 == matvar->data_type )
+            data_bytes = nmemb*Mat_SizeOf(MAT_T_UINT16);
+        else
+            data_bytes = nmemb*Mat_SizeOf(matvar->data_type);
+        if ( data_bytes % 8 )
+            data_bytes += (8 - (data_bytes % 8));
+        nBytes += tag_size + data_bytes;
+        if ( matvar->isComplex )
+            nBytes += tag_size + data_bytes;
+        break;
     default:
         data_bytes = nmemb*Mat_SizeOf(matvar->data_type);
         if ( data_bytes % 8 )
@@ -11479,6 +11470,18 @@ GetCellArrayFieldBufSize(matvar_t *matvar)
             nBytes += tag_size + data_bytes;
         break;
     }
+    case MAT_C_CHAR:
+        if ( MAT_T_UINT8 == matvar->data_type ||
+            MAT_T_INT8 == matvar->data_type )
+            data_bytes = nmemb*Mat_SizeOf(MAT_T_UINT16);
+        else
+            data_bytes = nmemb*Mat_SizeOf(matvar->data_type);
+        if ( data_bytes % 8 )
+            data_bytes += (8 - (data_bytes % 8));
+        nBytes += tag_size + data_bytes;
+        if ( matvar->isComplex )
+            nBytes += tag_size + data_bytes;
+        break;
     default:
         data_bytes = nmemb*Mat_SizeOf(matvar->data_type);
         if ( data_bytes % 8 )
@@ -11640,6 +11643,18 @@ GetMatrixMaxBufSize(matvar_t *matvar)
 
         break;
     }
+    case MAT_C_CHAR:
+        if ( MAT_T_UINT8 == matvar->data_type ||
+            MAT_T_INT8 == matvar->data_type )
+            data_bytes = nmemb*Mat_SizeOf(MAT_T_UINT16);
+        else
+            data_bytes = nmemb*Mat_SizeOf(matvar->data_type);
+        if ( data_bytes % 8 )
+            data_bytes += (8 - (data_bytes % 8));
+        nBytes += tag_size + data_bytes;
+        if ( matvar->isComplex )
+            nBytes += tag_size + data_bytes;
+        break;
     default:
         data_bytes = nmemb*Mat_SizeOf(matvar->data_type);
         if ( data_bytes % 8 )
@@ -11952,6 +11967,21 @@ WriteCompressedCharData(mat_t *mat,z_stream *z,void *data,int N,
                 byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
             }
             break;
+        }
+        case MAT_T_UNKNOWN:
+        {
+            /* Sometimes empty char data will have MAT_T_UNKNOWN, so just write
+             * a data tag
+             */
+            data_size = 2;
+            data_tag[0]  = MAT_T_UINT16;
+            data_tag[1]  = N*data_size;
+            z->next_in   = ZLIB_BYTE_PTR(data_tag);
+            z->avail_in  = 8;
+            z->next_out  = buf;
+            z->avail_out = buf_size;
+            err = deflate(z,Z_NO_FLUSH);
+            byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
         }
         default:
             break;
@@ -12788,7 +12818,7 @@ ReadNextCell( mat_t *mat, matvar_t *matvar )
     matvar->nbytes    = ncells*matvar->data_size;
     matvar->data      = malloc(matvar->nbytes);
     if ( !matvar->data ) {
-        Mat_Critical("Could not allocate memory for %s->data",matvar->name);
+        Mat_Critical("Couldn't allocate memory for %s->data",matvar->name);
         return bytesread;
     }
     cells = (matvar_t **)matvar->data;
@@ -12803,7 +12833,7 @@ ReadNextCell( mat_t *mat, matvar_t *matvar )
         for ( i = 0; i < ncells; i++ ) {
             cells[i] = Mat_VarCalloc();
             if ( NULL == cells[i] ) {
-                Mat_Critical("Could not allocate memory for cell %d", i);
+                Mat_Critical("Couldn't allocate memory for cell %d", i);
                 continue;
             }
 
@@ -12930,7 +12960,7 @@ ReadNextCell( mat_t *mat, matvar_t *matvar )
             int cell_bytes_read,name_len;
             cells[i] = Mat_VarCalloc();
             if ( !cells[i] ) {
-                Mat_Critical("Could not allocate memory for cell %d", i);
+                Mat_Critical("Couldn't allocate memory for cell %d", i);
                 continue;
             }
 
@@ -13236,13 +13266,18 @@ ReadNextStructField( mat_t *mat, matvar_t *matvar )
         nfields = nfields / fieldname_size;
         matvar->data_size = sizeof(matvar_t *);
 
-        matvar->internal->num_fields = nfields;
-        matvar->internal->fieldnames =
-            calloc(nfields,sizeof(*matvar->internal->fieldnames));
-        for ( i = 0; i < nfields; i++ ) {
-            matvar->internal->fieldnames[i] = malloc(fieldname_size);
-            bytesread+=fread(matvar->internal->fieldnames[i],1,fieldname_size,mat->fp);
-            matvar->internal->fieldnames[i][fieldname_size-1] = '\0';
+        if ( nfields ) {
+            matvar->internal->num_fields = nfields;
+            matvar->internal->fieldnames =
+                calloc(nfields,sizeof(*matvar->internal->fieldnames));
+            for ( i = 0; i < nfields; i++ ) {
+                matvar->internal->fieldnames[i] = malloc(fieldname_size);
+                bytesread+=fread(matvar->internal->fieldnames[i],1,fieldname_size,mat->fp);
+                matvar->internal->fieldnames[i][fieldname_size-1] = '\0';
+            }
+        } else {
+            matvar->internal->num_fields = 0;
+            matvar->internal->fieldnames = NULL;
         }
 
         if ( (nfields*fieldname_size) % 8 ) {
@@ -13670,24 +13705,18 @@ WriteCellArrayField(mat_t *mat,matvar_t *matvar )
         }
         case MAT_C_STRUCT:
         {
-            char **fieldnames, *padzero;
+            char  *padzero;
             int    fieldname_size, nfields;
             size_t maxlen = 0;
             matvar_t **fields = (matvar_t **)matvar->data;
             unsigned fieldname;
 
-            if ( nmemb && matvar->data_size )
-                nfields = matvar->nbytes / (nmemb*matvar->data_size);
-            else if ( matvar->data_size )
-                nfields = matvar->nbytes / matvar->data_size;
-            else
-                break;
+            nfields = matvar->internal->num_fields;
 
-            fieldnames = malloc(nfields*sizeof(char *));
             for ( i = 0; i < nfields; i++ ) {
-                fieldnames[i] = fields[i]->name;
-                if ( strlen(fieldnames[i]) > maxlen )
-                    maxlen = strlen(fieldnames[i]);
+                size_t len = strlen(matvar->internal->fieldnames[i]);
+                if ( len > maxlen )
+                    maxlen = len;
             }
             maxlen++;
             fieldname_size = maxlen;
@@ -13708,10 +13737,10 @@ WriteCellArrayField(mat_t *mat,matvar_t *matvar )
             fwrite(&nBytes,4,1,mat->fp);
             padzero = calloc(fieldname_size,1);
             for ( i = 0; i < nfields; i++ ) {
-                fwrite(fieldnames[i],1,strlen(fieldnames[i]),mat->fp);
-                fwrite(padzero,1,fieldname_size-strlen(fieldnames[i]),mat->fp);
+                size_t len = strlen(matvar->internal->fieldnames[i]);
+                fwrite(matvar->internal->fieldnames[i],1,len,mat->fp);
+                fwrite(padzero,1,fieldname_size-len,mat->fp);
             }
-            free(fieldnames);
             free(padzero);
             for ( i = 0; i < nmemb*nfields; i++ )
                 WriteStructField(mat,fields[i]);
@@ -13902,7 +13931,6 @@ WriteCompressedCellArrayField(mat_t *mat,matvar_t *matvar,z_stream *z)
         }
         case MAT_C_STRUCT:
         {
-            char     **fieldnames;
             unsigned char *padzero;
             int        fieldname_size, nfields;
             size_t     maxlen = 0;
@@ -13927,16 +13955,13 @@ WriteCompressedCellArrayField(mat_t *mat,matvar_t *matvar,z_stream *z)
                     sizeof(*comp_buf)-z->avail_out,mat->fp);
                 break;
             }
-            if ( nmemb )
-                nfields = matvar->nbytes / (nmemb*matvar->data_size);
-            else /* matvar->data_size is checked above */
-                nfields = matvar->nbytes / matvar->data_size;
 
-            fieldnames = malloc(nfields*sizeof(char *));
+            nfields = matvar->internal->num_fields;
+
             for ( i = 0; i < nfields; i++ ) {
-                fieldnames[i] = fields[i]->name;
-                if ( strlen(fieldnames[i]) > maxlen )
-                    maxlen = strlen(fieldnames[i]);
+                size_t len = strlen(matvar->internal->fieldnames[i]);
+                if ( len > maxlen )
+                    maxlen = len;
             }
             maxlen++;
             fieldname_size = maxlen;
@@ -13957,7 +13982,8 @@ WriteCompressedCellArrayField(mat_t *mat,matvar_t *matvar,z_stream *z)
                     buf_size*sizeof(*comp_buf)-z->avail_out,mat->fp);
             for ( i = 0; i < nfields; i++ ) {
                 memset(padzero,'\0',fieldname_size);
-                memcpy(padzero,fieldnames[i],strlen(fieldnames[i]));
+                memcpy(padzero,matvar->internal->fieldnames[i],
+                       strlen(matvar->internal->fieldnames[i]));
                 z->next_out  = ZLIB_BYTE_PTR(comp_buf);
                 z->next_in   = ZLIB_BYTE_PTR(padzero);
                 z->avail_out = buf_size*sizeof(*comp_buf);
@@ -13966,7 +13992,6 @@ WriteCompressedCellArrayField(mat_t *mat,matvar_t *matvar,z_stream *z)
                 byteswritten += fwrite(comp_buf,1,
                         buf_size*sizeof(*comp_buf)-z->avail_out,mat->fp);
             }
-            free(fieldnames);
             free(padzero);
             for ( i = 0; i < nmemb*nfields; i++ )
                 byteswritten +=
@@ -14850,10 +14875,18 @@ Read5(mat_t *mat, matvar_t *matvar)
 
                 matvar->nbytes = len*matvar->data_size;
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(matvar->nbytes);
                 complex_data->Im = malloc(matvar->nbytes);
-                if ( NULL == complex_data || NULL == complex_data->Re ||
-                    NULL == complex_data->Im ) {
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
                     Mat_Critical("Failed to allocate %d bytes",2*matvar->nbytes);
                     break;
                 }
@@ -14879,10 +14912,18 @@ Read5(mat_t *mat, matvar_t *matvar)
 
                 matvar->nbytes = len*matvar->data_size;
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(matvar->nbytes);
                 complex_data->Im = malloc(matvar->nbytes);
-                if ( NULL == complex_data || NULL == complex_data->Re ||
-                    NULL == complex_data->Im ) {
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
                     Mat_Critical("Failed to allocate %d bytes",2*matvar->nbytes);
                     break;
                 }
@@ -14909,10 +14950,18 @@ Read5(mat_t *mat, matvar_t *matvar)
 
                 matvar->nbytes = len*matvar->data_size;
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(matvar->nbytes);
                 complex_data->Im = malloc(matvar->nbytes);
-                if ( NULL == complex_data || NULL == complex_data->Re ||
-                    NULL == complex_data->Im ) {
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
                     Mat_Critical("Failed to allocate %d bytes",2*matvar->nbytes);
                     break;
                 }
@@ -14940,10 +14989,18 @@ Read5(mat_t *mat, matvar_t *matvar)
 
                 matvar->nbytes = len*matvar->data_size;
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(matvar->nbytes);
                 complex_data->Im = malloc(matvar->nbytes);
-                if ( NULL == complex_data || NULL == complex_data->Re ||
-                    NULL == complex_data->Im ) {
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
                     Mat_Critical("Failed to allocate %d bytes",2*matvar->nbytes);
                     break;
                 }
@@ -14970,10 +15027,18 @@ Read5(mat_t *mat, matvar_t *matvar)
 
                 matvar->nbytes = len*matvar->data_size;
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(matvar->nbytes);
                 complex_data->Im = malloc(matvar->nbytes);
-                if ( NULL == complex_data || NULL == complex_data->Re ||
-                    NULL == complex_data->Im ) {
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
                     Mat_Critical("Failed to allocate %d bytes",2*matvar->nbytes);
                     break;
                 }
@@ -14999,10 +15064,18 @@ Read5(mat_t *mat, matvar_t *matvar)
 
                 matvar->nbytes = len*matvar->data_size;
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(matvar->nbytes);
                 complex_data->Im = malloc(matvar->nbytes);
-                if ( NULL == complex_data || NULL == complex_data->Re ||
-                    NULL == complex_data->Im ) {
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
                     Mat_Critical("Failed to allocate %d bytes",2*matvar->nbytes);
                     break;
                 }
@@ -15028,10 +15101,18 @@ Read5(mat_t *mat, matvar_t *matvar)
 
                 matvar->nbytes = len*matvar->data_size;
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(matvar->nbytes);
                 complex_data->Im = malloc(matvar->nbytes);
-                if ( NULL == complex_data || NULL == complex_data->Re ||
-                    NULL == complex_data->Im ) {
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
                     Mat_Critical("Failed to allocate %d bytes",2*matvar->nbytes);
                     break;
                 }
@@ -15057,10 +15138,18 @@ Read5(mat_t *mat, matvar_t *matvar)
 
                 matvar->nbytes = len*matvar->data_size;
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(matvar->nbytes);
                 complex_data->Im = malloc(matvar->nbytes);
-                if ( NULL == complex_data || NULL == complex_data->Re ||
-                    NULL == complex_data->Im ) {
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
                     Mat_Critical("Failed to allocate %d bytes",2*matvar->nbytes);
                     break;
                 }
@@ -15086,10 +15175,18 @@ Read5(mat_t *mat, matvar_t *matvar)
 
                 matvar->nbytes = len*matvar->data_size;
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(matvar->nbytes);
                 complex_data->Im = malloc(matvar->nbytes);
-                if ( NULL == complex_data || NULL == complex_data->Re ||
-                    NULL == complex_data->Im ) {
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
                     Mat_Critical("Failed to allocate %d bytes",2*matvar->nbytes);
                     break;
                 }
@@ -15115,10 +15212,18 @@ Read5(mat_t *mat, matvar_t *matvar)
 
                 matvar->nbytes = len*matvar->data_size;
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(matvar->nbytes);
                 complex_data->Im = malloc(matvar->nbytes);
-                if ( NULL == complex_data || NULL == complex_data->Re ||
-                    NULL == complex_data->Im ) {
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
                     Mat_Critical("Failed to allocate %d bytes",2*matvar->nbytes);
                     break;
                 }
@@ -15246,7 +15351,7 @@ Read5(mat_t *mat, matvar_t *matvar)
         }
         case MAT_C_SPARSE:
         {
-            int N;
+            int N = 0;
             mat_sparse_t *data;
 
             matvar->data_size = sizeof(mat_sparse_t);
@@ -15427,421 +15532,422 @@ Read5(mat_t *mat, matvar_t *matvar)
                 mat_complex_split_t *complex_data;
 
                 complex_data = malloc(sizeof(*complex_data));
+                if ( NULL == complex_data ) {
+                    Mat_Critical("Failed to allocate %d bytes",sizeof(*complex_data));
+                    break;
+                }
                 complex_data->Re = malloc(data->ndata*
                                           Mat_SizeOf(matvar->data_type));
                 complex_data->Im = malloc(data->ndata*
                                           Mat_SizeOf(matvar->data_type));
-                if ( NULL != complex_data && NULL != complex_data->Re &&
-                     NULL != complex_data->Im ) {
-                    if ( matvar->compression == MAT_COMPRESSION_NONE) {
-#if defined(EXTENDED_SPARSE)
-                        switch ( matvar->data_type ) {
-                            case MAT_T_DOUBLE:
-                                nBytes = ReadDoubleData(mat,complex_data->Re,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_SINGLE:
-                                nBytes = ReadSingleData(mat,complex_data->Re,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
-                                nBytes = ReadInt64Data(mat,complex_data->Re,
-                                    packed_type,data->ndata);
-#endif
-                                break;
-                            case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
-                                nBytes = ReadUInt64Data(mat,complex_data->Re,
-                                    packed_type,data->ndata);
-#endif
-                                break;
-                            case MAT_T_INT32:
-                                nBytes = ReadInt32Data(mat,complex_data->Re,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT32:
-                                nBytes = ReadInt32Data(mat,complex_data->Re,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT16:
-                                nBytes = ReadInt16Data(mat,complex_data->Re,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT16:
-                                nBytes = ReadInt16Data(mat,complex_data->Re,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT8:
-                                nBytes = ReadInt8Data(mat,complex_data->Re,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT8:
-                                nBytes = ReadInt8Data(mat,complex_data->Re,
-                                    packed_type,data->ndata);
-                                break;
-                            default:
-                                break;
-                        }
-#else
-                        nBytes = ReadDoubleData(mat,complex_data->Re,
-                                     packed_type,data->ndata);
-#endif
-                        if ( data_in_tag )
-                            nBytes+=4;
-                        if ( (nBytes % 8) != 0 )
-                            fseek(mat->fp,8-(nBytes % 8),SEEK_CUR);
-
-                        /* Complex Data Tag */
-                        fread(tag,4,1,mat->fp);
-                        if ( byteswap )
-                            (void)Mat_uint32Swap(tag);
-                        packed_type = TYPE_FROM_TAG(tag[0]);
-                        if ( tag[0] & 0xffff0000 ) { /* Data is in the tag */
-                            data_in_tag = 1;
-                            nBytes = (tag[0] & 0xffff0000) >> 16;
-                        } else {
-                            data_in_tag = 0;
-                            fread(tag+1,4,1,mat->fp);
-                            if ( byteswap )
-                                (void)Mat_uint32Swap(tag+1);
-                            nBytes = tag[1];
-                        }
-#if defined(EXTENDED_SPARSE)
-                        switch ( matvar->data_type ) {
-                            case MAT_T_DOUBLE:
-                                nBytes = ReadDoubleData(mat,complex_data->Im,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_SINGLE:
-                                nBytes = ReadSingleData(mat,complex_data->Im,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
-                                nBytes = ReadInt64Data(mat,complex_data->Im,
-                                    packed_type,data->ndata);
-#endif
-                                break;
-                            case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
-                                nBytes = ReadUInt64Data(mat,complex_data->Im,
-                                    packed_type,data->ndata);
-#endif
-                                break;
-                            case MAT_T_INT32:
-                                nBytes = ReadInt32Data(mat,complex_data->Im,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT32:
-                                nBytes = ReadUInt32Data(mat,complex_data->Im,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT16:
-                                nBytes = ReadInt16Data(mat,complex_data->Im,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT16:
-                                nBytes = ReadUInt16Data(mat,complex_data->Im,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT8:
-                                nBytes = ReadInt8Data(mat,complex_data->Im,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT8:
-                                nBytes = ReadUInt8Data(mat,complex_data->Im,
-                                    packed_type,data->ndata);
-                                break;
-                            default:
-                                break;
-                        }
-#else /* EXTENDED_SPARSE */
-                        nBytes = ReadDoubleData(mat,complex_data->Im,
-                                     packed_type,data->ndata);
-#endif /* EXTENDED_SPARSE */
-                        if ( data_in_tag )
-                            nBytes+=4;
-                        if ( (nBytes % 8) != 0 )
-                            fseek(mat->fp,8-(nBytes % 8),SEEK_CUR);
-#if defined(HAVE_ZLIB)
-                    } else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
-#if defined(EXTENDED_SPARSE)
-                        switch ( matvar->data_type ) {
-                            case MAT_T_DOUBLE:
-                                nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
-                                     complex_data->Re,packed_type,data->ndata);
-                                break;
-                            case MAT_T_SINGLE:
-                                nBytes = ReadCompressedSingleData(mat,matvar->internal->z,
-                                     complex_data->Re,packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
-                                nBytes = ReadCompressedInt64Data(mat,
-                                    matvar->internal->z,complex_data->Re,
-                                    packed_type,data->ndata);
-#endif
-                                break;
-                            case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
-                                nBytes = ReadCompressedUInt64Data(mat,
-                                    matvar->internal->z,complex_data->Re,
-                                    packed_type,data->ndata);
-#endif
-                                break;
-                            case MAT_T_INT32:
-                                nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
-                                     complex_data->Re,packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT32:
-                                nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
-                                     complex_data->Re,packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT16:
-                                nBytes = ReadCompressedInt16Data(mat,matvar->internal->z,
-                                     complex_data->Re,packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT16:
-                                nBytes = ReadCompressedInt16Data(mat,matvar->internal->z,
-                                     complex_data->Re,packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT8:
-                                nBytes = ReadCompressedInt8Data(mat,matvar->internal->z,
-                                     complex_data->Re,packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT8:
-                                nBytes = ReadCompressedInt8Data(mat,matvar->internal->z,
-                                     complex_data->Re,packed_type,data->ndata);
-                                break;
-                            default:
-                                break;
-                        }
-#else    /* EXTENDED_SPARSE */
-                        nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
-                                     complex_data->Re,packed_type,data->ndata);
-#endif    /* EXTENDED_SPARSE */
-                        if ( data_in_tag )
-                            nBytes+=4;
-                        if ( (nBytes % 8) != 0 )
-                            InflateSkip(mat,matvar->internal->z,8-(nBytes % 8));
-
-                        /* Complex Data Tag */
-                        InflateDataType(mat,matvar->internal->z,tag);
-                        if ( byteswap )
-                            (void)Mat_uint32Swap(tag);
-
-                        packed_type = TYPE_FROM_TAG(tag[0]);
-                        if ( tag[0] & 0xffff0000 ) { /* Data is in the tag */
-                            data_in_tag = 1;
-                            nBytes = (tag[0] & 0xffff0000) >> 16;
-                        } else {
-                            data_in_tag = 0;
-                            InflateDataType(mat,matvar->internal->z,tag+1);
-                            if ( byteswap )
-                                (void)Mat_uint32Swap(tag+1);
-                            nBytes = tag[1];
-                        }
-#if defined(EXTENDED_SPARSE)
-                        switch ( matvar->data_type ) {
-                            case MAT_T_DOUBLE:
-                                nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
-                                     complex_data->Im,packed_type,data->ndata);
-                                break;
-                            case MAT_T_SINGLE:
-                                nBytes = ReadCompressedSingleData(mat,matvar->internal->z,
-                                     complex_data->Im,packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
-                                nBytes = ReadCompressedInt64Data(mat,
-                                    matvar->internal->z,complex_data->Im,
-                                    packed_type,data->ndata);
-#endif
-                                break;
-                            case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
-                                nBytes = ReadCompressedUInt64Data(mat,
-                                    matvar->internal->z,complex_data->Im,
-                                    packed_type,data->ndata);
-#endif
-                                break;
-                            case MAT_T_INT32:
-                                nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
-                                     complex_data->Im,packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT32:
-                                nBytes = ReadCompressedUInt32Data(mat,matvar->internal->z,
-                                     complex_data->Im,packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT16:
-                                nBytes = ReadCompressedInt16Data(mat,matvar->internal->z,
-                                     complex_data->Im,packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT16:
-                                nBytes = ReadCompressedUInt16Data(mat,matvar->internal->z,
-                                     complex_data->Im,packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT8:
-                                nBytes = ReadCompressedInt8Data(mat,matvar->internal->z,
-                                     complex_data->Im,packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT8:
-                                nBytes = ReadCompressedUInt8Data(mat,matvar->internal->z,
-                                     complex_data->Im,packed_type,data->ndata);
-                                break;
-                            default:
-                                break;
-                        }
-#else    /* EXTENDED_SPARSE */
-                        nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
-                                     complex_data->Im,packed_type,data->ndata);
-#endif    /* EXTENDED_SPARSE */
-                        if ( data_in_tag )
-                            nBytes+=4;
-                        if ( (nBytes % 8) != 0 )
-                            InflateSkip(mat,matvar->internal->z,8-(nBytes % 8));
-#endif    /* HAVE_ZLIB */
-                    }
-                } else {
-                    if ( NULL != complex_data ) {
-                        if ( NULL != complex_data->Re )
-                            free(complex_data->Re);
-                        if ( NULL != complex_data->Im )
-                            free(complex_data->Im);
-                        free(complex_data);
-                    }
-                    Mat_Critical("ReadData: Allocation of data pointer failed");
+                if ( NULL == complex_data->Re || NULL == complex_data->Im ) {
+                    if ( NULL != complex_data->Re )
+                        free(complex_data->Re);
+                    if ( NULL != complex_data->Im )
+                        free(complex_data->Im);
+                    free(complex_data);
+                    Mat_Critical("Failed to allocate %d bytes",
+                                 data->ndata* Mat_SizeOf(matvar->data_type));
                     break;
+                }
+                if ( matvar->compression == MAT_COMPRESSION_NONE) {
+#if defined(EXTENDED_SPARSE)
+                    switch ( matvar->data_type ) {
+                        case MAT_T_DOUBLE:
+                            nBytes = ReadDoubleData(mat,complex_data->Re,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_SINGLE:
+                            nBytes = ReadSingleData(mat,complex_data->Re,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT64:
+#ifdef HAVE_MAT_INT64_T
+                            nBytes = ReadInt64Data(mat,complex_data->Re,
+                                packed_type,data->ndata);
+#endif
+                            break;
+                        case MAT_T_UINT64:
+#ifdef HAVE_MAT_UINT64_T
+                            nBytes = ReadUInt64Data(mat,complex_data->Re,
+                                packed_type,data->ndata);
+#endif
+                            break;
+                        case MAT_T_INT32:
+                            nBytes = ReadInt32Data(mat,complex_data->Re,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT32:
+                            nBytes = ReadInt32Data(mat,complex_data->Re,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT16:
+                            nBytes = ReadInt16Data(mat,complex_data->Re,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT16:
+                            nBytes = ReadInt16Data(mat,complex_data->Re,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT8:
+                            nBytes = ReadInt8Data(mat,complex_data->Re,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT8:
+                            nBytes = ReadInt8Data(mat,complex_data->Re,
+                                packed_type,data->ndata);
+                            break;
+                        default:
+                            break;
+                    }
+#else
+                    nBytes = ReadDoubleData(mat,complex_data->Re,
+                                 packed_type,data->ndata);
+#endif
+                    if ( data_in_tag )
+                        nBytes+=4;
+                    if ( (nBytes % 8) != 0 )
+                        fseek(mat->fp,8-(nBytes % 8),SEEK_CUR);
+
+                    /* Complex Data Tag */
+                    fread(tag,4,1,mat->fp);
+                    if ( byteswap )
+                        (void)Mat_uint32Swap(tag);
+                    packed_type = TYPE_FROM_TAG(tag[0]);
+                    if ( tag[0] & 0xffff0000 ) { /* Data is in the tag */
+                        data_in_tag = 1;
+                        nBytes = (tag[0] & 0xffff0000) >> 16;
+                    } else {
+                        data_in_tag = 0;
+                        fread(tag+1,4,1,mat->fp);
+                        if ( byteswap )
+                            (void)Mat_uint32Swap(tag+1);
+                        nBytes = tag[1];
+                    }
+#if defined(EXTENDED_SPARSE)
+                    switch ( matvar->data_type ) {
+                        case MAT_T_DOUBLE:
+                            nBytes = ReadDoubleData(mat,complex_data->Im,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_SINGLE:
+                            nBytes = ReadSingleData(mat,complex_data->Im,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT64:
+#ifdef HAVE_MAT_INT64_T
+                            nBytes = ReadInt64Data(mat,complex_data->Im,
+                                packed_type,data->ndata);
+#endif
+                            break;
+                        case MAT_T_UINT64:
+#ifdef HAVE_MAT_UINT64_T
+                            nBytes = ReadUInt64Data(mat,complex_data->Im,
+                                packed_type,data->ndata);
+#endif
+                            break;
+                        case MAT_T_INT32:
+                            nBytes = ReadInt32Data(mat,complex_data->Im,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT32:
+                            nBytes = ReadUInt32Data(mat,complex_data->Im,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT16:
+                            nBytes = ReadInt16Data(mat,complex_data->Im,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT16:
+                            nBytes = ReadUInt16Data(mat,complex_data->Im,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT8:
+                            nBytes = ReadInt8Data(mat,complex_data->Im,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT8:
+                            nBytes = ReadUInt8Data(mat,complex_data->Im,
+                                packed_type,data->ndata);
+                            break;
+                        default:
+                            break;
+                    }
+#else /* EXTENDED_SPARSE */
+                    nBytes = ReadDoubleData(mat,complex_data->Im,
+                                 packed_type,data->ndata);
+#endif /* EXTENDED_SPARSE */
+                    if ( data_in_tag )
+                        nBytes+=4;
+                    if ( (nBytes % 8) != 0 )
+                        fseek(mat->fp,8-(nBytes % 8),SEEK_CUR);
+#if defined(HAVE_ZLIB)
+                } else if ( matvar->compression == MAT_COMPRESSION_ZLIB ) {
+#if defined(EXTENDED_SPARSE)
+                    switch ( matvar->data_type ) {
+                        case MAT_T_DOUBLE:
+                            nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
+                                 complex_data->Re,packed_type,data->ndata);
+                            break;
+                        case MAT_T_SINGLE:
+                            nBytes = ReadCompressedSingleData(mat,matvar->internal->z,
+                                 complex_data->Re,packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT64:
+#ifdef HAVE_MAT_INT64_T
+                            nBytes = ReadCompressedInt64Data(mat,
+                                matvar->internal->z,complex_data->Re,
+                                packed_type,data->ndata);
+#endif
+                            break;
+                        case MAT_T_UINT64:
+#ifdef HAVE_MAT_UINT64_T
+                            nBytes = ReadCompressedUInt64Data(mat,
+                                matvar->internal->z,complex_data->Re,
+                                packed_type,data->ndata);
+#endif
+                            break;
+                        case MAT_T_INT32:
+                            nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
+                                 complex_data->Re,packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT32:
+                            nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
+                                 complex_data->Re,packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT16:
+                            nBytes = ReadCompressedInt16Data(mat,matvar->internal->z,
+                                 complex_data->Re,packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT16:
+                            nBytes = ReadCompressedInt16Data(mat,matvar->internal->z,
+                                 complex_data->Re,packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT8:
+                            nBytes = ReadCompressedInt8Data(mat,matvar->internal->z,
+                                 complex_data->Re,packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT8:
+                            nBytes = ReadCompressedInt8Data(mat,matvar->internal->z,
+                                 complex_data->Re,packed_type,data->ndata);
+                            break;
+                        default:
+                            break;
+                    }
+#else    /* EXTENDED_SPARSE */
+                    nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
+                                 complex_data->Re,packed_type,data->ndata);
+#endif    /* EXTENDED_SPARSE */
+                    if ( data_in_tag )
+                        nBytes+=4;
+                    if ( (nBytes % 8) != 0 )
+                        InflateSkip(mat,matvar->internal->z,8-(nBytes % 8));
+
+                    /* Complex Data Tag */
+                    InflateDataType(mat,matvar->internal->z,tag);
+                    if ( byteswap )
+                        (void)Mat_uint32Swap(tag);
+
+                    packed_type = TYPE_FROM_TAG(tag[0]);
+                    if ( tag[0] & 0xffff0000 ) { /* Data is in the tag */
+                        data_in_tag = 1;
+                        nBytes = (tag[0] & 0xffff0000) >> 16;
+                    } else {
+                        data_in_tag = 0;
+                        InflateDataType(mat,matvar->internal->z,tag+1);
+                        if ( byteswap )
+                            (void)Mat_uint32Swap(tag+1);
+                        nBytes = tag[1];
+                    }
+#if defined(EXTENDED_SPARSE)
+                    switch ( matvar->data_type ) {
+                        case MAT_T_DOUBLE:
+                            nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
+                                 complex_data->Im,packed_type,data->ndata);
+                            break;
+                        case MAT_T_SINGLE:
+                            nBytes = ReadCompressedSingleData(mat,matvar->internal->z,
+                                 complex_data->Im,packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT64:
+#ifdef HAVE_MAT_INT64_T
+                            nBytes = ReadCompressedInt64Data(mat,
+                                matvar->internal->z,complex_data->Im,
+                                packed_type,data->ndata);
+#endif
+                            break;
+                        case MAT_T_UINT64:
+#ifdef HAVE_MAT_UINT64_T
+                            nBytes = ReadCompressedUInt64Data(mat,
+                                matvar->internal->z,complex_data->Im,
+                                packed_type,data->ndata);
+#endif
+                            break;
+                        case MAT_T_INT32:
+                            nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
+                                 complex_data->Im,packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT32:
+                            nBytes = ReadCompressedUInt32Data(mat,matvar->internal->z,
+                                 complex_data->Im,packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT16:
+                            nBytes = ReadCompressedInt16Data(mat,matvar->internal->z,
+                                 complex_data->Im,packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT16:
+                            nBytes = ReadCompressedUInt16Data(mat,matvar->internal->z,
+                                 complex_data->Im,packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT8:
+                            nBytes = ReadCompressedInt8Data(mat,matvar->internal->z,
+                                 complex_data->Im,packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT8:
+                            nBytes = ReadCompressedUInt8Data(mat,matvar->internal->z,
+                                 complex_data->Im,packed_type,data->ndata);
+                            break;
+                        default:
+                            break;
+                    }
+#else    /* EXTENDED_SPARSE */
+                    nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
+                                 complex_data->Im,packed_type,data->ndata);
+#endif    /* EXTENDED_SPARSE */
+                    if ( data_in_tag )
+                        nBytes+=4;
+                    if ( (nBytes % 8) != 0 )
+                        InflateSkip(mat,matvar->internal->z,8-(nBytes % 8));
+#endif    /* HAVE_ZLIB */
                 }
                 data->data = complex_data;
             } else { /* isComplex */
                 data->data = malloc(data->ndata*Mat_SizeOf(MAT_T_DOUBLE));
-                if ( data->data != NULL ) {
-                    if ( matvar->compression == MAT_COMPRESSION_NONE) {
-#if defined(EXTENDED_SPARSE)
-                        switch ( matvar->data_type ) {
-                            case MAT_T_DOUBLE:
-                                nBytes = ReadDoubleData(mat,data->data,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_SINGLE:
-                                nBytes = ReadSingleData(mat,data->data,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
-                                nBytes = ReadInt64Data(mat,data->data,
-                                    packed_type,data->ndata);
-#endif
-                                break;
-                            case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
-                                nBytes = ReadUInt64Data(mat,data->data,
-                                    packed_type,data->ndata);
-#endif
-                                break;
-                            case MAT_T_INT32:
-                                nBytes = ReadInt32Data(mat,data->data,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT32:
-                                nBytes = ReadInt32Data(mat,data->data,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT16:
-                                nBytes = ReadInt16Data(mat,data->data,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT16:
-                                nBytes = ReadInt16Data(mat,data->data,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT8:
-                                nBytes = ReadInt8Data(mat,data->data,
-                                    packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT8:
-                                nBytes = ReadInt8Data(mat,data->data,
-                                    packed_type,data->ndata);
-                                break;
-                            default:
-                                break;
-                        }
-#else
-                        nBytes = ReadDoubleData(mat,data->data,packed_type,
-                                     data->ndata);
-#endif
-                        if ( data_in_tag )
-                            nBytes+=4;
-                        if ( (nBytes % 8) != 0 )
-                            fseek(mat->fp,8-(nBytes % 8),SEEK_CUR);
-#if defined(HAVE_ZLIB)
-                    } else if ( matvar->compression == MAT_COMPRESSION_ZLIB) {
-#if defined(EXTENDED_SPARSE)
-                        switch ( matvar->data_type ) {
-                            case MAT_T_DOUBLE:
-                                nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
-                                     data->data,packed_type,data->ndata);
-                                break;
-                            case MAT_T_SINGLE:
-                                nBytes = ReadCompressedSingleData(mat,matvar->internal->z,
-                                     data->data,packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
-                                nBytes = ReadCompressedInt64Data(mat,
-                                    matvar->internal->z,data->data,packed_type,
-                                    data->ndata);
-#endif
-                                break;
-                            case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
-                                nBytes = ReadCompressedUInt64Data(mat,
-                                    matvar->internal->z,data->data,packed_type,
-                                    data->ndata);
-#endif
-                                break;
-                            case MAT_T_INT32:
-                                nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
-                                     data->data,packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT32:
-                                nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
-                                     data->data,packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT16:
-                                nBytes = ReadCompressedInt16Data(mat,matvar->internal->z,
-                                     data->data,packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT16:
-                                nBytes = ReadCompressedInt16Data(mat,matvar->internal->z,
-                                     data->data,packed_type,data->ndata);
-                                break;
-                            case MAT_T_INT8:
-                                nBytes = ReadCompressedInt8Data(mat,matvar->internal->z,
-                                     data->data,packed_type,data->ndata);
-                                break;
-                            case MAT_T_UINT8:
-                                nBytes = ReadCompressedInt8Data(mat,matvar->internal->z,
-                                     data->data,packed_type,data->ndata);
-                                break;
-                            default:
-                                break;
-                        }
-#else   /* EXTENDED_SPARSE */
-                        nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
-                                     data->data,packed_type,data->ndata);
-#endif   /* EXTENDED_SPARSE */
-                        if ( data_in_tag )
-                            nBytes+=4;
-                        if ( (nBytes % 8) != 0 )
-                            InflateSkip(mat,matvar->internal->z,8-(nBytes % 8));
-#endif   /* HAVE_ZLIB */
-                    }
-                } else {
-                    Mat_Critical("ReadData: Allocation of data pointer failed");
+                if ( data->data == NULL ) {
+                    Mat_Critical("Failed to allocate %d bytes",
+                                 data->ndata*Mat_SizeOf(MAT_T_DOUBLE));
                     break;
+                }
+                if ( matvar->compression == MAT_COMPRESSION_NONE) {
+#if defined(EXTENDED_SPARSE)
+                    switch ( matvar->data_type ) {
+                        case MAT_T_DOUBLE:
+                            nBytes = ReadDoubleData(mat,data->data,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_SINGLE:
+                            nBytes = ReadSingleData(mat,data->data,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT64:
+#ifdef HAVE_MAT_INT64_T
+                            nBytes = ReadInt64Data(mat,data->data,
+                                packed_type,data->ndata);
+#endif
+                            break;
+                        case MAT_T_UINT64:
+#ifdef HAVE_MAT_UINT64_T
+                            nBytes = ReadUInt64Data(mat,data->data,
+                                packed_type,data->ndata);
+#endif
+                            break;
+                        case MAT_T_INT32:
+                            nBytes = ReadInt32Data(mat,data->data,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT32:
+                            nBytes = ReadInt32Data(mat,data->data,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT16:
+                            nBytes = ReadInt16Data(mat,data->data,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT16:
+                            nBytes = ReadInt16Data(mat,data->data,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT8:
+                            nBytes = ReadInt8Data(mat,data->data,
+                                packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT8:
+                            nBytes = ReadInt8Data(mat,data->data,
+                                packed_type,data->ndata);
+                            break;
+                        default:
+                            break;
+                    }
+#else
+                    nBytes = ReadDoubleData(mat,data->data,packed_type,
+                                 data->ndata);
+#endif
+                    if ( data_in_tag )
+                        nBytes+=4;
+                    if ( (nBytes % 8) != 0 )
+                        fseek(mat->fp,8-(nBytes % 8),SEEK_CUR);
+#if defined(HAVE_ZLIB)
+                } else if ( matvar->compression == MAT_COMPRESSION_ZLIB) {
+#if defined(EXTENDED_SPARSE)
+                    switch ( matvar->data_type ) {
+                        case MAT_T_DOUBLE:
+                            nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
+                                 data->data,packed_type,data->ndata);
+                            break;
+                        case MAT_T_SINGLE:
+                            nBytes = ReadCompressedSingleData(mat,matvar->internal->z,
+                                 data->data,packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT64:
+#ifdef HAVE_MAT_INT64_T
+                            nBytes = ReadCompressedInt64Data(mat,
+                                matvar->internal->z,data->data,packed_type,
+                                data->ndata);
+#endif
+                            break;
+                        case MAT_T_UINT64:
+#ifdef HAVE_MAT_UINT64_T
+                            nBytes = ReadCompressedUInt64Data(mat,
+                                matvar->internal->z,data->data,packed_type,
+                                data->ndata);
+#endif
+                            break;
+                        case MAT_T_INT32:
+                            nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
+                                 data->data,packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT32:
+                            nBytes = ReadCompressedInt32Data(mat,matvar->internal->z,
+                                 data->data,packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT16:
+                            nBytes = ReadCompressedInt16Data(mat,matvar->internal->z,
+                                 data->data,packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT16:
+                            nBytes = ReadCompressedInt16Data(mat,matvar->internal->z,
+                                 data->data,packed_type,data->ndata);
+                            break;
+                        case MAT_T_INT8:
+                            nBytes = ReadCompressedInt8Data(mat,matvar->internal->z,
+                                 data->data,packed_type,data->ndata);
+                            break;
+                        case MAT_T_UINT8:
+                            nBytes = ReadCompressedInt8Data(mat,matvar->internal->z,
+                                 data->data,packed_type,data->ndata);
+                            break;
+                        default:
+                            break;
+                    }
+#else   /* EXTENDED_SPARSE */
+                    nBytes = ReadCompressedDoubleData(mat,matvar->internal->z,
+                                 data->data,packed_type,data->ndata);
+#endif   /* EXTENDED_SPARSE */
+                    if ( data_in_tag )
+                        nBytes+=4;
+                    if ( (nBytes % 8) != 0 )
+                        InflateSkip(mat,matvar->internal->z,8-(nBytes % 8));
+#endif   /* HAVE_ZLIB */
                 }
             }
             break;

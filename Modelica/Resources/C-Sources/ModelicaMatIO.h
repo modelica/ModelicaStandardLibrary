@@ -55,6 +55,9 @@
 /* Matio version number */
 #define MATIO_VERSION 152
 
+/* Matio version string */
+#define MATIO_VERSION_STR "1.5.2"
+
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
 
