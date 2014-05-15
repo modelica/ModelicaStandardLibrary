@@ -598,7 +598,7 @@ model M_Transformer "Generic transformer with free number of inductors"
   Modelica.SIunits.Current i[N](each start=0, fixed=true)
       "Current through inductors";
   parameter Modelica.SIunits.Inductance Lm[N,N](each final fixed=false)
-      "Complete  symmetric inductance matrix, calculated internally";
+      "Complete symmetric inductance matrix, calculated internally";
 
 initial equation
   for s in 1:N loop
