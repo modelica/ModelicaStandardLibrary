@@ -287,7 +287,7 @@ the output is set to <b>false</b>: y=false.
 
   equation
     y = not u;
-    annotation (defaultComponentName="nor1", Icon(graphics={Text(
+    annotation (defaultComponentName="not1", Icon(graphics={Text(
               extent={{-98,40},{42,-40}},
               lineColor={0,0,0},
             textString="not")}),
