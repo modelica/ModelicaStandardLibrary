@@ -257,7 +257,7 @@ animation = <b>false</b>.
           Text(
             extent={{150,-50},{-150,-20}},
             lineColor={0,0,0},
-            textString="%=r"),
+            textString="r=%r"),
           Text(
             extent={{-89,38},{-53,13}},
             lineColor={128,128,128},
@@ -1298,7 +1298,7 @@ states and of the \"Advanced\" menu parameters, see model
           Text(
             extent={{-150,-100},{150,-70}},
             lineColor={0,0,0},
-            textString="%=r"),
+            textString="r=%r"),
           Rectangle(
             extent={{-100,31},{101,-30}},
             lineColor={0,24,48},
@@ -1574,7 +1574,7 @@ states and of the \"Advanced\" menu parameters, see model
           Text(
             extent={{150,-80},{-150,-50}},
             lineColor={0,0,0},
-            textString="%=r"),
+            textString="r=%r"),
           Text(
             extent={{52,8},{88,-17}},
             lineColor={0,0,0},
@@ -1791,7 +1791,7 @@ states and of the \"Advanced\" menu parameters, see model
           Text(
             extent={{150,-80},{-150,-50}},
             lineColor={0,0,0},
-            textString="%=r"),
+            textString="r=%r"),
           Rectangle(
             extent={{-100,40},{100,-40}},
             lineColor={0,24,48},

@@ -271,7 +271,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
           Text(
             extent={{150,-90},{-150,-60}},
             lineColor={0,0,0},
-            textString="%=r"),
+            textString="r=%r"),
           Polygon(
             points={{-100,50},{-100,-44},{-10,-24},{79,-43},{80,49},{-10,28},{-100,
                 50}},
