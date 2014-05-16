@@ -2114,26 +2114,31 @@ a flange according to a given acceleration.
       "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
     parameter Real offset=0 "Offset of output signal";
     parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
+    parameter Modelica.SIunits.Time timeScale(
+      min=Modelica.Constants.eps)=1 "Time scale of first table column"
+      annotation (Evaluate=true);
     extends Interfaces.SO;
   protected
     Real a "Interpolation coefficients a of actual interval (y=a*x+b)";
     Real b "Interpolation coefficients b of actual interval (y=a*x+b)";
     Integer last(start=1) "Last used lower grid index";
     discrete SIunits.Time nextEvent(start=0, fixed=true) "Next event instant";
+    discrete Real nextEventScaled(start=0, fixed=true) "Next scaled event instant";
+    Real timeScaled "Scaled time";
 
     function getInterpolationCoefficients
       "Determine interpolation coefficients and next time event"
       extends Modelica.Icons.Function;
       input Real table[:, 2] "Table for interpolation";
       input Real offset "y-offset";
-      input Real startTime "time-offset";
-      input Real t "Actual time instant";
+      input Real startTimeScaled "Scaled time-offset";
+      input Real timeScaled "Actual scaled time instant";
       input Integer last "Last used lower grid index";
       input Real TimeEps
         "Relative epsilon to check for identical time instants";
       output Real a "Interpolation coefficients a (y=a*x + b)";
       output Real b "Interpolation coefficients b (y=a*x + b)";
-      output Real nextEvent "Next event instant";
+      output Real nextEventScaled "Next scaled event instant";
       output Integer next "New lower grid index";
     protected
       Integer columns=2 "Column to be interpolated";
@@ -2144,13 +2149,13 @@ a flange according to a given acceleration.
       Real dt;
     algorithm
       next := last;
-      nextEvent := t - TimeEps*abs(t);
+      nextEventScaled := timeScaled - TimeEps*abs(timeScaled);
       // in case there are no more time events
-      tp := t + TimeEps*abs(t) - startTime;
+      tp := timeScaled + TimeEps*abs(timeScaled) - startTimeScaled;
 
       if tp < 0.0 then
         // First event not yet reached
-        nextEvent := startTime;
+        nextEventScaled := startTimeScaled;
         a := 0;
         b := offset;
       elseif nrow < 2 then
@@ -2167,7 +2172,7 @@ a flange according to a given acceleration.
 
         // Define next time event, if last table entry not reached
         if next < nrow then
-          nextEvent := startTime + table[next, 1];
+          nextEventScaled := startTimeScaled + table[next, 1];
         end if;
 
         // Determine interpolation coefficients
@@ -2182,21 +2187,23 @@ a flange according to a given acceleration.
           b := offset + table[next0, columns] - a*table[next0, 1];
         end if;
       end if;
-      // Take into account startTime "a*(time - startTime) + b"
-      b := b - a*startTime;
+      // Take into account startTimeScaled "a*(time - startTime) + b"
+      b := b - a*startTimeScaled;
     end getInterpolationCoefficients;
   algorithm
-    when {time >= pre(nextEvent),initial()} then
-      (a,b,nextEvent,last) := getInterpolationCoefficients(
+    timeScaled := time/timeScale;
+    when {timeScaled >= pre(nextEventScaled),initial()} then
+      (a,b,nextEventScaled,last) := getInterpolationCoefficients(
           table,
           offset,
-          startTime,
-          time,
+          startTime/timeScale,
+          timeScaled,
           last,
           100*Modelica.Constants.eps);
+      nextEvent := nextEventScaled*timeScale;
     end when;
   equation
-    y = a*time + b;
+    y = a*timeScaled + b;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2311,6 +2318,9 @@ The table interpolation has the following properties:
 <li>The table is implemented in a numerically sound way by
     generating <b>time events</b> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
+<li>Via parameter <b>timeScale</b> the first column of the table array can
+    be scaled, e.g. if the table array is given in hours (instead of seconds)
+    <b>timeScale</b> shall be set to 3600.</li>
 </ul>
 <p>
 Example:
@@ -2390,10 +2400,17 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime"
       annotation (Dialog(group="Table data interpretation"));
+    parameter Modelica.SIunits.Time timeScale(
+      min=Modelica.Constants.eps)=1 "Time scale of first table column"
+      annotation (Dialog(group="Table data interpretation"), Evaluate=true);
     final parameter Modelica.SIunits.Time t_min(fixed=false)
       "Minimum abscissa value defined in table";
     final parameter Modelica.SIunits.Time t_max(fixed=false)
       "Maximum abscissa value defined in table";
+    final parameter Real t_minScaled(fixed=false)
+      "Minimum (scaled) abscissa value defined in table";
+    final parameter Real t_maxScaled(fixed=false)
+      "Maximum (scaled) abscissa value defined in table";
   protected
     final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*offset[1] else offset)
       "Offsets of output signals";
@@ -2402,14 +2419,18 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           if tableOnFile then tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
-          startTime,
+          startTime/timeScale,
           columns,
           smoothness,
           extrapolation) "External table object";
     discrete Modelica.SIunits.Time nextTimeEvent(start=0, fixed=true)
       "Next time event instant";
+    discrete Real nextTimeEventScaled(start=0, fixed=true)
+      "Next scaled time event instant";
     parameter Real tableOnFileRead(fixed=false)
       "= 1, if table was successfully read from file";
+    constant Real DBL_MAX = 1.7976931348623158e+308;
+    Real timeScaled "Scaled time";
 
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
@@ -2513,8 +2534,10 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     else
       tableOnFileRead := 1.;
     end if;
-    t_min := getTableTimeTmin(tableID, tableOnFileRead);
-    t_max := getTableTimeTmax(tableID, tableOnFileRead);
+    t_minScaled := getTableTimeTmin(tableID, tableOnFileRead);
+    t_maxScaled := getTableTimeTmax(tableID, tableOnFileRead);
+    t_min := t_minScaled*timeScale;
+    t_max := t_maxScaled*timeScale;
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -2523,16 +2546,22 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       assert(size(table, 1) > 0 and size(table, 2) > 0,
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    when {time >= pre(nextTimeEvent),initial()} then
-      nextTimeEvent = getNextTimeEvent(tableID, time, tableOnFileRead);
+    timeScaled = time/timeScale;
+    when {timeScaled >= pre(nextTimeEventScaled),initial()} then
+      nextTimeEventScaled = getNextTimeEvent(tableID, timeScaled, tableOnFileRead);
+      if (nextTimeEventScaled < DBL_MAX) then
+        nextTimeEvent = nextTimeEventScaled*timeScale;
+      else
+        nextTimeEvent = DBL_MAX;
+      end if;
     end when;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:nout loop
-        y[i] = p_offset[i] + getTableValueNoDer(tableID, i, time, nextTimeEvent, pre(nextTimeEvent), tableOnFileRead);
+        y[i] = p_offset[i] + getTableValueNoDer(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled), tableOnFileRead);
       end for;
     else
       for i in 1:nout loop
-        y[i] = p_offset[i] + getTableValue(tableID, i, time, nextTimeEvent, pre(nextTimeEvent), tableOnFileRead);
+        y[i] = p_offset[i] + getTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled), tableOnFileRead);
       end for;
     end if;
     annotation (
@@ -2595,10 +2624,18 @@ The table interpolation has the following properties:
 <li>The table is implemented in a numerically sound way by
     generating <b>time events</b> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
+<li>Via parameter <b>timeScale</b> the first column of the table array can
+    be scaled, e.g. if the table array is given in hours (instead of seconds)
+    <b>timeScale</b> shall be set to 3600.</li>
 <li>For special applications it is sometimes needed to know the minimum
     and maximum time instant defined in the table as a parameter. For this
-    reason parameters <b>t_min</b> and <b>t_max</b> are provided and can be
-    accessed from the outside of the table object.</li>
+    reason parameters <b>t_min</b>/<b>t_minScaled</b> and
+    <b>t_max</b>/<b>t_maxScaled</b> are provided and can be
+    accessed from the outside of the table object. Whereas <b>t_min</b> and
+    <b>t_max</b> define the scaled abscissa values (using parameter
+    <b>timeScale</b>) in SIunits.Time, <b>t_minScaled</b> and
+    <b>t_maxScaled</b> define the unitless original abscissa values of
+    the table.</li>
 </ul>
 <p>
 Example:
