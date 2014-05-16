@@ -4194,8 +4194,11 @@ The following variables are transported through this connector:
               fillPattern=FillPattern.Solid)}), Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
-              extent={{-150,150},{150,-150}},
+              extent={{-90,-90},{90,90}},
               lineColor={0,127,0},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid), Rectangle(
+              extent={{-150,150},{150,-150}},
               fillColor={175,175,175},
               fillPattern=FillPattern.Solid,
               pattern=LinePattern.None), Rectangle(
