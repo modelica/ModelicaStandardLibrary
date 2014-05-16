@@ -1161,7 +1161,7 @@ using the following call:
 
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMap.jet(),
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, caption=\"Temperature in C\");
 </pre>
 </blockquote>
@@ -2294,7 +2294,7 @@ using the following call:
 
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMap.jet(),
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, caption=\"Temperature in C\");
 </pre>
 </blockquote>
@@ -2429,7 +2429,7 @@ using the following call:
 
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizer.Colors.ColorMap.jet(),
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, heading=\"Temperature in C\");
 </pre>
 </blockquote>
