@@ -53,66 +53,38 @@ Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2)
         extent={{-10,-10},{10,10}},
         rotation=270)));
 equation
-  connect(R1.n,C1. p) annotation (Line(points={{-80,30},{-60,30},{-60,-10}},
+  connect(R1.n,C1.p) annotation (Line(points={{-80,30},{-60,30},{-60,-10}},
         color={0,0,255}));
-  connect(C1.n,G. p) annotation (Line(points={{-60,-30},{-60,-50},{0,-50},{0,
-          -70}}, color={0,0,255}));
-  connect(R1.n,C2. p)
-    annotation (Line(points={{-80,30},{-60,30},{-40,30}},
-                                                 color={0,0,255}));
-  connect(L1.p,C2. p)
-    annotation (Line(points={{-40,70},{-40,30}}, color={0,0,255}));
-  connect(L1.p,C1. p) annotation (Line(points={{-40,70},{-40,30},{-60,30},{-60,
-          -10}}, color={0,0,255}));
-  connect(L1.n,C2. n)
-    annotation (Line(points={{-20,70},{-20,30}}, color={0,0,255}));
-  connect(C2.n,C3. p) annotation (Line(points={{-20,30},{0,30},{0,-10}},
-                              color={0,0,255}));
-  connect(C2.n,C4. p)
-    annotation (Line(points={{-20,30},{20,30}}, color={0,0,255}));
-  connect(L1.n,C3. p) annotation (Line(points={{-20,70},{-20,30},{0,30},{0,-10}},
-                                   color={0,0,255}));
-  connect(L1.n,C4. p) annotation (Line(points={{-20,70},{-20,30},{20,30}},
+  connect(C1.n,G.p) annotation (Line(points={{-60,-30},{-60,-50},{0,-50},{0,
+        -70}}, color={0,0,255}));
+  connect(L1.p,C2.p) annotation (Line(points={{-40,70},{-40,30}}, color=
+        {0,0,255}));
+  connect(L1.p,C1.p) annotation (Line(points={{-40,70},{-40,30},{-60,30},{-60,
+        -10}}, color={0,0,255}));
+  connect(L1.n,C2.n) annotation (Line(points={{-20,70},{-20,30}}, color={0,0,
+        255}));
+  connect(C2.n,C3.p) annotation (Line(points={{-20,30},{0,30},{0,-10}},
         color={0,0,255}));
-  connect(L2.p,C4. p)
-    annotation (Line(points={{20,70},{20,30}}, color={0,0,255}));
-  connect(C2.n,L2. p) annotation (Line(points={{-20,30},{20,30},{20,70}}, color=
-         {0,0,255}));
-  connect(C3.p,L2. p) annotation (Line(points={{0,-10},{0,-10},{0,30},{20,30},{
-          20,70}},          color={0,0,255}));
-  connect(L2.n,C4. n)
-    annotation (Line(points={{40,70},{40,30}}, color={0,0,255}));
-  connect(L2.n,C5. p) annotation (Line(points={{40,70},{40,30},{60,30},{60,-10}},
+  connect(C2.n,C4.p) annotation (Line(points={{-20,30},{20,30}}, color=
+        {0,0,255}));
+  connect(C2.n,L2.p) annotation (Line(points={{-20,30},{20,30},{20,70}}, color=
+        {0,0,255}));
+  connect(L2.n,C4.n) annotation (Line(points={{40,70},{40,30}}, color={0,0,
+        255}));
+  connect(C4.n,C5.p) annotation (Line(points={{40,30},{60,30},{60,-10}}, color=
+        {0,0,255}));
+  connect(C4.n,R2.p) annotation (Line(points={{40,30},{100,30},{100,-10}},
         color={0,0,255}));
-  connect(L2.n,R2. p) annotation (Line(points={{40,70},{40,30},{100,30},{100,
-          -10}}, color={0,0,255}));
-  connect(R2.n,G. p) annotation (Line(points={{100,-30},{100,-50},{0,-50},{0,
-          -70}}, color={0,0,255}));
-  connect(C4.n,C5. p) annotation (Line(points={{40,30},{60,30},{60,-10}}, color=
-         {0,0,255}));
-  connect(C4.n,R2. p) annotation (Line(points={{40,30},{100,30},{100,-10}},
-        color={0,0,255}));
-  connect(C3.n,G. p) annotation (Line(points={{0,-30},{0,-30},{0,-70}},
-                 color={0,0,255}));
-  connect(C5.n,G. p) annotation (Line(points={{60,-30},{60,-50},{0,-50},{0,-70}},
-        color={0,0,255}));
-  connect(C1.n,C3. n) annotation (Line(points={{-60,-30},{-60,-50},{0,-50},{0,
-          -30}},                     color={0,0,255}));
-  connect(C1.n,C5. n) annotation (Line(points={{-60,-30},{-60,-50},{60,-50},{60,
-          -30}}, color={0,0,255}));
-  connect(R2.n,C5. n) annotation (Line(points={{100,-30},{100,-50},{60,-50},{60,
-          -30}}, color={0,0,255}));
-  connect(R2.n,C3. n) annotation (Line(points={{100,-30},{100,-50},{0,-50},{0,
-          -30}},                     color={0,0,255}));
-  connect(R2.n,C1. n) annotation (Line(points={{100,-30},{100,-50},{-60,-50},{
-          -60,-30}}, color={0,0,255}));
-  connect(C5.p,R2. p) annotation (Line(
-      points={{60,-10},{60,30},{100,30},{100,-10}},
-      color={0,0,255}));
-  connect(R1.p, V.p)
-    annotation (Line(points={{-100,30},{-100,0}}, color={0,0,255}));
-  connect(V.n, G.p)            annotation (Line(points={{-100,-20},{-100,-70},{
-          0,-70}}, color={0,0,255}));
+  connect(C1.n,C3.n) annotation (Line(points={{-60,-30},{-60,-50},{0,-50},{0,
+        -30}}, color={0,0,255}));
+  connect(C1.n,C5.n) annotation (Line(points={{-60,-30},{-60,-50},{60,-50},{60,
+        -30}}, color={0,0,255}));
+  connect(R2.n,C1.n) annotation (Line(points={{100,-30},{100,-50},{-60,-50},{
+        -60,-30}}, color={0,0,255}));
+  connect(R1.p,V.p) annotation (Line(points={{-100,30},{-100,0}}, color={0,0,
+        255}));
+  connect(V.n,G.p) annotation (Line(points={{-100,-20},{-100,-70},{
+         0,-70}}, color={0,0,255}));
   annotation (Diagram(coordinateSystem(
           preserveAspectRatio=false,extent={{-120,-100},{120,100}}), graphics={
         Rectangle(
