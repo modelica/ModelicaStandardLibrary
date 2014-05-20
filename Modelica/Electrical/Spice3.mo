@@ -7757,7 +7757,7 @@ on the model behaviour.
         input Spice3.Internal.Mos2.Mos2ModelLineParams
                                        in_p "Input record Mos2 values";
         input Spice3.Internal.SpiceConstants in_C "Spice constants";
-        input MosModelLineVariables in_vp "Input record model line variables";
+        input Spice3.Internal.Mos2.Mos2ModelLineVariables in_vp "Input record model line variables";
         input Spice3.Internal.Mosfet.Mosfet in_m
           "Input record MOSFET parameters";
 
@@ -7929,7 +7929,7 @@ on the model behaviour.
                                        in_p
           "Output record Mos1 calculated values";
         input Spice3.Internal.SpiceConstants in_C "Spice constants";
-        input MosModelLineVariables in_vp "Input record model line variables";
+        input Spice3.Internal.Mos2.Mos2ModelLineVariables in_vp "Input record model line variables";
         input Spice3.Internal.Mosfet.Mosfet in_m
           "Input record MOSFET parameters";
         input Spice3.Internal.Mos2.Mos2Calc
