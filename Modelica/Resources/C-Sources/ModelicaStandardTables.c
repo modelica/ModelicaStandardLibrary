@@ -3933,7 +3933,46 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                     }
                     /* Check for trailing non-comment character */
                     if (token && token[0] != '#') {
-                        tableReadError = 1;
+                        /* Check for trailing number */
+                        if (i == nRow) {
+                            int foundExponentSign = 0;
+                            int foundExponent = 0;
+                            int foundDec = 0;
+                            tableReadError = 2;
+                            if (token[0] == '+' || token[0] == '-') {
+                                k = 1;
+                            }
+                            else {
+                                k = 0;
+                            }
+                            while (token[k] != '\0') {
+                                if (token[k] >= '0' && token[k] <= '9') {
+                                    k++;
+                                }
+                                else if (token[k] == '.' && foundDec == 0 &&
+                                    foundExponent == 0 && foundExponentSign == 0) {
+                                    foundDec = 1;
+                                    k++;
+                                }
+                                else if ((token[k] == 'e' || token[k] == 'E') &&
+                                    foundExponent == 0) {
+                                    foundExponent = 1;
+                                    k++;
+                                }
+                                else if ((token[k] == '+' || token[k] == '-') &&
+                                    foundExponent == 1 && foundExponentSign == 0) {
+                                    foundExponentSign = 1;
+                                    k++;
+                                }
+                                else {
+                                    tableReadError = 1;
+                                    break;
+                                }
+                            }
+                        }
+                        else {
+                            tableReadError = 1;
+                        }
                         break;
                     }
                 }
@@ -3966,13 +4005,21 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             *_nCol = 0;
             if (tableReadError == EOF) {
                 ModelicaFormatError(
-                    "End-of-file reached when reading numeric data of matrix \"%s(%lu,%lu)\" "
-                    "from file \"%s\"\n", tableName, nRow, nCol, fileName);
+                    "End-of-file reached when reading numeric data of matrix "
+                    "\"%s(%lu,%lu)\" from file \"%s\"\n", tableName, nRow,
+                    nCol, fileName);
+            }
+            else if (tableReadError == 2) {
+                ModelicaFormatError(
+                    "The table dimensions of matrix \"%s(%lu,%lu)\" from file "
+                    "\"%s\" do not match the actual table size.\n", tableName,
+                    nRow, nCol, fileName);
             }
             else {
                 ModelicaFormatError(
-                    "Error in line %lu when reading numeric data of matrix \"%s(%lu,%lu)\" "
-                    "from file \"%s\"\n", lineNo, tableName, nRow, nCol, fileName);
+                    "Error in line %lu when reading numeric data of matrix "
+                    "\"%s(%lu,%lu)\" from file \"%s\"\n", lineNo, tableName,
+                    nRow, nCol, fileName);
             }
         }
     }
