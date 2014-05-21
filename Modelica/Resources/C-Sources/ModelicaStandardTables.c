@@ -21,7 +21,7 @@
    to decrease the utilized memory (ticket #1110).
 
    Release Notes:
-      May 12, 2014:  by Thomas Beutlich, ITI GmbH.
+      May 21, 2014:  by Thomas Beutlich, ITI GmbH.
                      Fixed Akima extrapolation (ticket #1465)
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
                      Implemented a first version
