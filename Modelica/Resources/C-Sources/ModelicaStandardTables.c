@@ -22,7 +22,7 @@
 
    Release Notes:
       May 21, 2014:  by Thomas Beutlich, ITI GmbH.
-                     Fixed Akima extrapolation (ticket #1465)
+                     Fixed bivariate Akima-spline extrapolation (ticket #1465)
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
                      Implemented a first version
 
