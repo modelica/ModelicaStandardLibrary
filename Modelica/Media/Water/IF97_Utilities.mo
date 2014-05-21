@@ -1282,8 +1282,7 @@ package IF97_Utilities
           sl := sl_p(p);
           sv := sv_p(p);
           // check all cases two-phase
-          if (phase == 2) or (phase == 0 and s > sl and s < sv and p < data.PCRIT)
-               then
+          if (phase == 2) or (phase == 0 and s > sl and s < sv and p < data.PCRIT) then
             region := 4;
           else
             // phase == 1
@@ -4540,8 +4539,7 @@ Ordinary Water Substance<br>
         Real tau "Dimensionless temperature";
         Real[13] o "Vector of auxiliary variables";
         Real ftau "Derivative of dimensionless Helmholtz energy w.r.t. tau";
-        Real fdelta
-          "Derivative of dimensionless Helmholtz energy w.r.t. delta";
+        Real fdelta "Derivative of dimensionless Helmholtz energy w.r.t. delta";
       algorithm
         tau := data.TCRIT/T;
         delta := d/data.DCRIT;
@@ -7627,9 +7625,9 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       aux.s := aux.R*(f.tau*f.ftau - f.f);
       aux.pd := aux.R*T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
       aux.pt := aux.R*rho*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+      aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
       aux.cp := (aux.rho*aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt)/(aux.rho*
         aux.rho*aux.pd);
-      aux.cv := aux.R*(-f.tau*f.tau*f.ftautau);
       aux.x := 0.0;
     elseif (aux.region == 4) then
       aux.p := BaseIF97.Basic.psat(T);
