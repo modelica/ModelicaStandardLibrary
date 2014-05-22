@@ -763,25 +763,25 @@ package CombiTimeTable
 
   model Test67 "Ticket #1473, timeScale"
     extends Modelica.Icons.Example;
-	Modelica.Blocks.Sources.CombiTimeTable t_s(
-	  table=[0,0;1800,1;1800,1;3600,0],
-	  startTime=400) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
-	Modelica.Blocks.Sources.CombiTimeTable t_min(
-	  table=[0,0;30,1;30,1;60,0],
-	  startTime=400,
-	  timeScale(displayUnit="min")=60) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
-	Modelica.Blocks.Sources.CombiTimeTable t_h(
-	  table=[0,0;0.5,1;0.5,1;1,0],
-	  startTime=400,
-	  timeScale(displayUnit="h")=3.6e3) annotation(Placement(transformation(extent={{-40,-60},{-20,-40}})));
-	Modelica.Blocks.Sources.CombiTimeTable t_d(
-	  table=[0,0;1/48,1;1/48,1;1/24,0],
-	  startTime=400,
-	  timeScale(displayUnit="d")=86.4e3) annotation(Placement(transformation(extent={{-40,-90},{-20,-70}})));
-	Modelica.Blocks.Sources.CombiTimeTable t_ms(
-	  table=[0,0;1.8e6,1;1.8e6,1;3.6e6,0],
-	  startTime=400,
-	  timeScale(displayUnit="ms")=1e-3) annotation(Placement(transformation(extent={{-40,-120},{-20,-100}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_s(
+      table=[0,0;1800,1;1800,1;3600,0],
+      startTime=400) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_min(
+      table=[0,0;30,1;30,1;60,0],
+      startTime=400,
+      timeScale(displayUnit="min")=60) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_h(
+      table=[0,0;0.5,1;0.5,1;1,0],
+      startTime=400,
+      timeScale(displayUnit="h")=3.6e3) annotation(Placement(transformation(extent={{-40,-60},{-20,-40}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_d(
+      table=[0,0;1/48,1;1/48,1;1/24,0],
+      startTime=400,
+      timeScale(displayUnit="d")=86.4e3) annotation(Placement(transformation(extent={{-40,-90},{-20,-70}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_ms(
+      table=[0,0;1.8e6,1;1.8e6,1;3.6e6,0],
+      startTime=400,
+      timeScale(displayUnit="ms")=1e-3) annotation(Placement(transformation(extent={{-40,-120},{-20,-100}})));
     annotation (experiment(StartTime=0, StopTime=4000));
   end Test67;
 
