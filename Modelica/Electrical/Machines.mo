@@ -1416,7 +1416,7 @@ This package contains test examples of asynchronous induction machines.
           TrRef=smrData.TrRef,
           TsOperational=293.15,
           alpha20s=smrData.alpha20s,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15,
           alpha20r=smrData.alpha20r) annotation (Placement(transformation(
                 extent={{-20,-50},{0,-30}}, rotation=0)));
@@ -1562,7 +1562,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
 
           TsOperational=293.15,
           alpha20s=smpmData.alpha20s,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15,
           alpha20r=smpmData.alpha20r) annotation (Placement(transformation(
                 extent={{-20,-50},{0,-30}}, rotation=0)));
@@ -2168,7 +2168,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           brushParameters(ILinear=0.01),
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15,
           alpha20r=smeeData.alpha20r,
           alpha20e=smeeData.alpha20e,
@@ -2369,7 +2369,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           brushParameters(ILinear=0.01),
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15,
           alpha20r=smeeData.alpha20r,
           alpha20e=smeeData.alpha20e,
@@ -2638,7 +2638,7 @@ One could try to optimize the controller parameters.
           brushParameters(ILinear=0.01),
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15,
           alpha20r=smeeData.alpha20r,
           alpha20e=smeeData.alpha20e,
