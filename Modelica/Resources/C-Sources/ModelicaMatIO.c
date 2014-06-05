@@ -1521,13 +1521,10 @@ strdup_printf(const char* format, ...)
  */
 void Mat_Critical( const char *format, ... )
 {
-    char* buffer;
     va_list ap;
     va_start(ap, format);
-    buffer = strdup_vprintf(format, ap);
+    ModelicaVFormatError(format, ap);
     va_end(ap);
-    ModelicaFormatError("%s\n", buffer);
-    free(buffer);
 }
 
 /** @brief Prints a warning message
@@ -1540,13 +1537,10 @@ void Mat_Critical( const char *format, ... )
 void
 Mat_Warning( const char *format, ... )
 {
-    char* buffer;
     va_list ap;
     va_start(ap, format);
-    buffer = strdup_vprintf(format, ap);
+    ModelicaVFormatMessage(format, ap);
     va_end(ap);
-    ModelicaFormatMessage("%s\n", buffer);
-    free(buffer);
 }
 
 /** @brief Calculate the size of MAT data types
