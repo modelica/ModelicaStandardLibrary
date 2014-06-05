@@ -51,13 +51,13 @@ Output the message string (no format control).
 */
 
 
-void ModelicaFormatMessage(const char *string,...);
+void ModelicaFormatMessage(const char *string, ...);
 /*
 Output the message under the same format control as the C-function printf.
 */
 
 
-void ModelicaVFormatMessage(const char *string, va_list);
+void ModelicaVFormatMessage(const char *string, va_list args);
 /*
 Output the message under the same format control as the C-function vprintf.
 */
@@ -71,7 +71,7 @@ similarly to an assert in the Modelica code.
 */
 
 
-MODELICA_NORETURN void ModelicaFormatError(const char *string,...) MODELICA_NORETURNATTR;
+MODELICA_NORETURN void ModelicaFormatError(const char *string, ...) MODELICA_NORETURNATTR;
 /*
 Output the error message under the same format control as the C-function
 printf. This function never returns to the calling function,
@@ -79,7 +79,7 @@ but handles the error similarly to an assert in the Modelica code.
 */
 
 
-MODELICA_NORETURN void ModelicaVFormatError(const char *string, va_list) MODELICA_NORETURNATTR;
+MODELICA_NORETURN void ModelicaVFormatError(const char *string, va_list args) MODELICA_NORETURNATTR;
 /*
 Output the error message under the same format control as the C-function
 vprintf. This function never returns to the calling function,
