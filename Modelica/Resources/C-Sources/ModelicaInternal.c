@@ -99,6 +99,10 @@ static void ModelicaNotExistError(const char* name) {
   MODELICA_EXPORT const char* ModelicaInternal_temporaryFileName(void) {
        ModelicaNotExistError("ModelicaInternal_temporaryFileName"); return 0; }
   MODELICA_EXPORT void ModelicaInternal_print(const char* string, const char* fileName) {
+       if ( fileName[0] == '\0' ) {
+           /* Write string to terminal */
+           ModelicaFormatMessage("%s\n", string);
+       }
        return; }
   MODELICA_EXPORT int  ModelicaInternal_countLines(const char* fileName) {
        ModelicaNotExistError("ModelicaInternal_countLines"); return 0; }
