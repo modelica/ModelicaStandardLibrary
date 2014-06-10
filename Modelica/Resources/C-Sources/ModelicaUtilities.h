@@ -37,7 +37,7 @@ extern "C" {
 #elif defined(__GNUC__)
 #define MODELICA_NORETURN
 #define MODELICA_NORETURNATTR __attribute__((noreturn))
-#elif defined(_MSC_VER)
+#elif defined(_MSC_VER) || defined(__BORLANDC__)
 #define MODELICA_NORETURN __declspec(noreturn)
 #define MODELICA_NORETURNATTR
 #else
