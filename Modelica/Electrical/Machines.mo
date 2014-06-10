@@ -685,10 +685,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           L2sigma=transformerData.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -1438,7 +1436,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           Jr=0.12,
           Rs=0.56,
           alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
           Lssigma=1.52/(2*pi*fNominal),
           frictionParameters(PRef=180, wRef=wNominal),
           strayLoadParameters(
@@ -1471,7 +1468,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         connect(currentQuasiRMSSensor.plug_n, electricalPowerSensor.plug_p)
           annotation (Line(
             points={{-30,60},{-30,57.5},{-30,57.5},{-30,55},{-30,50},{-30,50}},
-
             color={0,0,255},
             smooth=Smooth.None));
 
@@ -1900,7 +1896,6 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
           Rrq=smpmData.Rrq,
           TrRef=smpmData.TrRef,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
-
           TsOperational=293.15,
           alpha20s=smpmData.alpha20s,
           ir(each fixed=true),
@@ -2267,7 +2262,6 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           Rrq=smpmData.Rrq,
           TrRef=smpmData.TrRef,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
-
           TsOperational=293.15,
           alpha20s=smpmData.alpha20s,
           TrOperational=293.15,
@@ -2581,11 +2575,8 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           Td0Subtransient=0.006963029,
           Tq0Subtransient=0.123345081,
           alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TsSpecification=293.15,
           TsRef=293.15,
           TrSpecification=293.15,
@@ -2737,11 +2728,9 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           TsSpecification=293.15,
           TsRef=293.15,
           alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TrSpecification=293.15,
           TrRef=293.15,
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TeSpecification=293.15,
           TeRef=293.15,
           alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)
@@ -3007,11 +2996,9 @@ One could try to optimize the controller parameters.
           TsSpecification=293.15,
           TsRef=293.15,
           alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TrSpecification=293.15,
           TrRef=293.15,
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TeSpecification=293.15,
           TeRef=293.15,
           alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)
@@ -3821,7 +3808,6 @@ Default machine parameters are used.
           annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
         parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData(
           alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
           TaNominal=353.15,
           TaRef=353.15)
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
@@ -3997,7 +3983,6 @@ So the machine is at the beginning in cold condition, ending in warm condition
       public
         parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData(
           alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
           TaNominal=353.15,
           TaRef=353.15)
           annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
@@ -4360,7 +4345,6 @@ Simulate for 2 seconds and plot (versus time):
         parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData2(
           Ra=0.03864,
           alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
           wNominal=148.44025288212,
           TaNominal=368.15,
           frictionParameters(PRef=100),
@@ -4538,10 +4522,8 @@ This package contains test examples of DC machines.
           L2sigma=transformerData.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(extent={{-20,
                   -10},{20,30}}, rotation=0)));
@@ -4673,10 +4655,8 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
           L2sigma=transformerData.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(extent={{-20,
                   -10},{20,30}}, rotation=0)));
@@ -4839,10 +4819,8 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
           L2sigma=transformerData1.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(extent={{-50,
                   30},{-30,50}}, rotation=0)));
@@ -4922,10 +4900,8 @@ neglecting initial transient.
           L2sigma=transformerData2.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(extent={{-50,
                   -50},{-30,-30}}, rotation=0)));
@@ -5266,7 +5242,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             final lossPowerRotorCore=rotorCore.lossPower,
             final lossPowerBrush=0,
             final powerRotor=Machines.SpacePhasors.Functions.activePower(vr, ir)),
-
           statorCore(final w=statorCoreParameters.wRef));
 
         Machines.BasicMachines.Components.AirGapS airGapS(
@@ -6170,7 +6145,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             smooth=Smooth.None));
         connect(airGapR.support, internalSupport) annotation (Line(
             points={{-10,0},{-26,0},{-40,0},{-40,-90},{60,-90},{60,-100}},
-
             color={0,0,0},
             smooth=Smooth.None));
 
@@ -11026,7 +11000,6 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
           Documentation(info="<html>
 <p>
 This model determines the RMS value of the input space phasor <code>u</code>.</p> </html>"),
-
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                       extent={{-60,40},{60,-20}},
@@ -13369,7 +13342,6 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         final powerStator=Machines.SpacePhasors.Functions.activePower(vs, is),
         final powerMechanical=wMechanical*tauShaft,
         final powerInertiaStator=inertiaStator.J*inertiaStator.a*inertiaStator.w,
-
         final powerInertiaRotor=inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
         final lossPowerStatorWinding=sum(rs.resistor.LossPower),
         final lossPowerStatorCore=statorCore.lossPower,
@@ -13648,7 +13620,6 @@ Partial thermal port for induction machines
             smooth=Smooth.None));
         connect(TStatorWinding, temperatureStatorWinding.T) annotation (Line(
             points={{-80,-100},{-80,-60},{-100,-60},{-100,8},{-80,8},{-80,18}},
-
             color={0,0,127},
             smooth=Smooth.None));
 
@@ -13925,7 +13896,6 @@ Interfaces and partial models for induction machines
         final powerArmature=va*ia,
         final powerMechanical=wMechanical*tauShaft,
         final powerInertiaStator=inertiaStator.J*inertiaStator.a*inertiaStator.w,
-
         final powerInertiaRotor=inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
         final lossPowerArmature=ra.LossPower,
         final lossPowerCore=core.lossPower,
@@ -14166,7 +14136,6 @@ Partial thermal port for DC machines
             smooth=Smooth.None));
         connect(TArmature, temperatureArmature.T) annotation (Line(
             points={{-80,-100},{-80,-60},{-100,-60},{-100,8},{-80,8},{-80,18}},
-
             color={0,0,127},
             smooth=Smooth.None));
 
@@ -15681,13 +15650,11 @@ They can be used to feed a current source which in turn feeds an induction machi
           smooth=Smooth.None));
       connect(toDQ.y[1], feedback_d.u2) annotation (Line(
           points={{-59.5,-69},{-59.5,-60},{-50,-60},{-50,40},{-28,40},{-28,52}},
-
           color={0,0,127},
           smooth=Smooth.None));
 
       connect(toDQ.y[2], feedback_q.u2) annotation (Line(
           points={{-60.5,-69},{-60.5,-60},{-50,-60},{-50,-20},{-30,-20},{-30,-8}},
-
           color={0,0,127},
           smooth=Smooth.None));
 
