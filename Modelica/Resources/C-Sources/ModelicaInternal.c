@@ -66,14 +66,6 @@
 #   define MODELICA_EXPORT
 #endif
 
-#if defined(__GNUC__)
-#define MODELICA_TLS __thread
-#elif (defined(_MSC_VER) && _MSC_VER >= 1310) || defined(__WATCOMC__) || defined(__BORLANDC__)
-#define MODELICA_TLS __declspec(thread)
-#else
-#define MODELICA_TLS
-#endif
-
 #include <string.h>
 #include "ModelicaUtilities.h"
 
@@ -175,6 +167,7 @@ static void ModelicaNotExistError(const char* name) {
 #else
 #define BUFFER_LENGTH 1024
 #endif
+static char buffer[BUFFER_LENGTH];  /* Buffer for temporary storage. Should be sufficient for PATH_MAX on all standard platforms.  */
 
 typedef enum {
    FileType_NoFile = 1,
@@ -509,15 +502,14 @@ MODELICA_EXPORT const char* ModelicaInternal_fullPathName(const char* name)
 {
     /* Get full path name of file or directory */
 
-    char* fullName;
+    char* fullName=0;
 
 #if defined(_WIN32) || (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || (_POSIX_VERSION >= 200112L))
-    char localbuf[BUFFER_LENGTH];
 #if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
     /* realpath availability: 4.4BSD, POSIX.1-2001. Using the behaviour of NULL: POSIX.1-2008 */
-    char* tempName = realpath(name, localbuf);
+    char* tempName = realpath(name, buffer);
 #else
-    char* tempName = _fullpath(localbuf, name, sizeof(localbuf));
+    char* tempName = _fullpath(buffer, name, sizeof(buffer));
 #endif
     if (tempName == NULL) {
         ModelicaFormatError("Not possible to construct full path name of \"%s\"\n%s",
@@ -528,9 +520,8 @@ MODELICA_EXPORT const char* ModelicaInternal_fullPathName(const char* name)
     strcpy(fullName, tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
 #elif defined(_POSIX_)
-    char localbuf[BUFFER_LENGTH];
     /* No such system call in _POSIX_ available (except realpath above) */
-    char* cwd = getcwd(localbuf, sizeof(localbuf));
+    char* cwd = getcwd(buffer, sizeof(buffer));
     if (cwd == NULL) {
         ModelicaFormatError("Not possible to get current working directory:\n%s",
             strerror(errno));
@@ -572,11 +563,11 @@ MODELICA_EXPORT const char* ModelicaInternal_temporaryFileName(void)
 /* --------------------- Abstract data type for stream handles --------------------- */
 
 /* Improved for caching of the open files */
-static MODELICA_TLS char cached_fileName[300];
-static MODELICA_TLS FILE*cached_fp=0;
-static MODELICA_TLS int cached_line;
+static char cached_fileName[300];
+static FILE*cached_fp=0;
+static int cached_line;
 
-static void CacheFileForReading(FILE*f, const char*fileName, int line) {
+static void CacheFileForReading(FILE*f,const char*fileName, int line) {
     if (cached_fp!=0) {
         FILE*f1=cached_fp;
         cached_fp=0;
@@ -592,7 +583,6 @@ static void CacheFileForReading(FILE*f, const char*fileName, int line) {
     cached_fp=f;
     cached_line=line;
 }
-
 static void CloseCachedFile() {
     CacheFileForReading(0,0,0);
 }
@@ -841,11 +831,9 @@ MODELICA_EXPORT const char* ModelicaInternal_getcwd(int dummy)
     char* directory;
 
 #if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_POSIX_) || defined(__GNUC__)
-    char localbuf[BUFFER_LENGTH];
-    cwd = getcwd(localbuf, sizeof(localbuf));
+    cwd = getcwd(buffer, sizeof(buffer));
 #elif defined(_WIN32)
-    char localbuf[BUFFER_LENGTH];
-    cwd = _getcwd(localbuf, sizeof(localbuf));
+    cwd = _getcwd(buffer, sizeof(buffer));
 #else
     ModelicaNotExistError("ModelicaInternal_getcwd");
     cwd = "";
@@ -889,34 +877,32 @@ MODELICA_EXPORT void ModelicaInternal_setenv(const char* name, const char* value
 #if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
 
     size_t valueStart;
-    char localbuf[BUFFER_LENGTH];
-    if (strlen(name) + strlen(value) + 1 > sizeof(localbuf)) {
+    if (strlen(name) + strlen(value) + 1 > sizeof(buffer)) {
         ModelicaFormatError("Environment variable\n"
             "\"%s\"=\"%s\"\n"
             "cannot be set, because the internal buffer\n"
             "in file \"ModelicaInternal.c\" is too small (= %d)",
-            name, value, sizeof(localbuf));
+            name, value, sizeof(buffer));
     }
 
-    strcpy(localbuf, name);
-    strcat(localbuf, "=");
-    valueStart = strlen(localbuf);
-    strcat(localbuf, value);
+    strcpy(buffer,name);
+    strcat(buffer, "=");
+    valueStart = strlen(buffer);
+    strcat(buffer, value);
 
-    if ( convertFromSlash == 1 )
-        ModelicaConvertFromUnixDirectorySeparator(&localbuf[valueStart]);
+    if ( convertFromSlash == 1 ) ModelicaConvertFromUnixDirectorySeparator(&buffer[valueStart]);
 #endif
 
     /* Set environment variable */
 #if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_POSIX_) || defined(__GNUC__)
-    if (putenv(localbuf) != 0) {
+    if (putenv(buffer) != 0) {
         ModelicaFormatError("Environment variable\n"
             "\"%s\"=\"%s\"\n"
             "cannot be set: %s", name, value, strerror(errno));
     }
 
 #elif defined(_WIN32)
-    if (_putenv(localbuf) != 0) {
+    if (_putenv(buffer) != 0) {
         ModelicaFormatError("Environment variable\n"
             "\"%s\"=\"%s\"\n"
             "cannot be set: %s", name, value, strerror(errno));
