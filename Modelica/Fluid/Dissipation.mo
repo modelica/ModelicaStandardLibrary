@@ -3233,14 +3233,14 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
         //SOURCE_2: p.207, sec. 9.2.4
         //SOURCE_3: p.Lac 6, fig. 16
         SI.ReynoldsNumber Re_min=1 "Minimum Reynolds number";
-        SI.ReynoldsNumber Re_lam_min=1e3
-          "Minimum Reynolds number for laminar regime (1e2)";
-        SI.ReynoldsNumber Re_lam_max=4e4
-          "Maximum Reynolds number for laminar regime (1e3)";
+        SI.ReynoldsNumber Re_lam_min=5e2
+          "Start of transition regime for roughness contribution";
+        SI.ReynoldsNumber Re_lam_max=1e4
+          "End of transition regime for roughness contribution";
         SI.ReynoldsNumber Re_turb_min=1e5
-          "Minimum Reynolds number for turbulent regime (1e5)";
-        SI.ReynoldsNumber Re_turb_max=3e5
-          "Maximum Reynolds number for turbulent regime (2e5)";
+          "Minimum Reynolds number for Reynolds-dependent transition regime";
+        SI.ReynoldsNumber Re_turb_max=2e5
+          "Maximum Reynolds number for Reynolds-dependent transition regime (k_Re=1)";
         SI.ReynoldsNumber Re_turb_const=1e6
           "Reynolds number for independence on pressure loss coefficient (1e6)";
 
@@ -3259,10 +3259,11 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
         TYP.LocalResistanceCoefficient zeta_LOC=max(MIN, 0.95*sin(PI/180*delta/2)^2
              + 2.05*sin(PI/180*delta/2)^4) "Local resistance coefficient";
 
-        //SOURCE_1: p.344, sec. 39/29: Correction w.r.t. effect of Reynolds number in laminar regime
-        Real B=0.0292*(delta)^2 + 1.1995*delta
-          "Coefficient considering effect of Reynolds number in laminar regime";
-        Real exp=1 "Exponent for Reynolds number correction in laminar regime";
+        //SOURCE_1: p.365: Correction w.r.t effect of Reynolds number in laminar regime
+        Real B=24.8
+          "Coefficient considering effect of Reynolds number on zeta_TOT";
+        Real exp=0.263
+          "Exponent for Reynolds number correction in laminar regime";
 
         Real v_min=Re_min*IN_var.eta/(IN_var.rho*d_hyd)
           "Minimum mean velocity for linear interpolation";
@@ -3272,33 +3273,28 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
           "Reynolds number";
 
         //SOURCE_2: p.191, eq. 8.4: considering surface roughness
-        //restriction of lambda_FRI at maximum Reynolds number Re=1e6 (SOURCE_2: p.207, sec. 9.2.4)
         TYP.DarcyFrictionFactor lambda_FRI_rough=0.25/(Modelica.Math.log10(k/(3.7*
-            IN_con.d_hyd) + 5.74/min(Re_turb_const, max(Re_lam_leave, Re))^0.9))^2
-          "Darcy friction factor considering surface roughness";
-        TYP.DarcyFrictionFactor lambda_FRI_smooth=0.25/(Modelica.Math.log10(5.74/min(
-            Re_turb_const, max(Re_lam_leave, Re))^0.9))^2
+            IN_con.d_hyd) + 5.74/max(Re_lam_min, Re)^0.9))
+            ^2 "Darcy friction factor considering surface roughness";
+        TYP.DarcyFrictionFactor lambda_FRI_smooth=0.25/(Modelica.Math.log10(5.74/max(Re_lam_min, Re)^0.9))^2
           "Darcy friction factor neglecting surface roughness";
 
-        //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
-        //SOURCE_2: p.214, sec. 9.4.2: no correction w.r.t. surface roughness for angle of turning >= 45deg
-        Real CF_fri=if delta <= 45 then max(1, min(1.4, (lambda_FRI_rough/
-            lambda_FRI_smooth))) else 1
+        //SOURCE_3: Lac 6, Figure 18
+        Real CF_fri= SMOOTH(Re_lam_leave, Re_lam_min, Re)*max(1, min(1.4, (lambda_FRI_rough/
+            lambda_FRI_smooth))) + SMOOTH(Re_lam_min, Re_lam_leave, Re)
           "Correction factor for surface roughness";
 
-        //SOURCE_2: p.208, diag. 9.3: Correction w.r.t. effect of Reynolds number
+        //SOURCE_2: p.208, diag. 9.3: Correction w.r.t effect of Reynolds number
         Real CF_Re=SMOOTH(
-            Re_min,
-            Re_lam_leave,
+            Re_turb_min,
+            Re_turb_max,
             Re)*B/Re^exp + SMOOTH(
-            Re_lam_leave,
-            Re_min,
+            Re_turb_max,
+            Re_turb_min,
             Re) "Correction factor for Reynolds number";
 
-        TYP.PressureLossCoefficient zeta_TOT=A*C1*zeta_LOC*CF_fri*CF_Re
+        TYP.PressureLossCoefficient zeta_TOT=A*C1*zeta_LOC*CF_Re*CF_fri
           "Pressure loss coefficient";
-
-        //Documentation
 
       algorithm
         DP := zeta_TOT*(IN_var.rho/2)*
@@ -3364,14 +3360,14 @@ Generally this function is numerically best used for the <b>incompressible case<
         //SOURCE_2: p.207, sec. 9.2.4
         //SOURCE_3: p.Lac 6, fig. 16
         SI.ReynoldsNumber Re_min=1 "Minimum Reynolds number";
-        SI.ReynoldsNumber Re_lam_min=1e3
-          "Minimum Reynolds number for laminar regime (1e2)";
-        SI.ReynoldsNumber Re_lam_max=4e4
-          "Maximum Reynolds number for laminar regime (1e3)";
+        SI.ReynoldsNumber Re_lam_min=500
+          "Start of transition regime for roughness contribution";
+        SI.ReynoldsNumber Re_lam_max=1e4
+          "End of transition regime for roughness contribution";
         SI.ReynoldsNumber Re_turb_min=1e5
-          "Minimum Reynolds number for turbulent regime (1e5)";
-        SI.ReynoldsNumber Re_turb_max=3e5
-          "Maximum Reynolds number for turbulent regime (2e5)";
+          "Minimum Reynolds number for Reynolds-dependent transition regime";
+        SI.ReynoldsNumber Re_turb_max=2e5
+          "Maximum Reynolds number for Reynolds-dependent transition regime (k_Re=1)";
         SI.ReynoldsNumber Re_turb_const=1e6
           "Reynolds number for independence on pressure loss coefficient (1e6)";
 
@@ -3390,69 +3386,110 @@ Generally this function is numerically best used for the <b>incompressible case<
         TYP.LocalResistanceCoefficient zeta_LOC=max(MIN, 0.95*sin(PI/180*delta/2)^2
              + 2.05*sin(PI/180*delta/2)^4) "Local resistance coefficient";
 
-        //SOURCE_1: p.344, sec. 39/29: Correction w.r.t. effect of Reynolds number in laminar regime
-        Real B=0.0292*(delta)^2 + 1.1995*delta
+        //SOURCE_1: p.365: Correction w.r.t effect of Reynolds number
+        Real B=24.8
           "Coefficient considering effect of Reynolds number on zeta_TOT";
-        Real exp=1 "Exponent for Reynolds number correction in laminar regime";
+        Real exp=0.263 "Exponent for Reynolds number correction";
         Real pow=(2 - exp) "pressure loss = f(mass flow rate^pow)";
+      //   Real k_Re = B/(max(MIN, velocity)*IN_con.d_hyd*IN_var.rho)^exp*IN_var.eta^exp;
 
-        SI.Pressure dp_min=1
+        SI.Velocity v_min = Re_min*IN_var.eta/(IN_var.rho*d_hyd)
+          "Minimum mean velocity for regularization";
+
+        SI.Pressure dp_min=A*C1*zeta_LOC*(B/2)*(d_hyd/IN_var.eta)^(-exp)*IN_var.rho^(1 - exp)
+            *v_min^(pow)
           "Linear smoothing of mass flow rate for decreasing pressure loss";
-        SI.Velocity v_lam_trans = 0.9*(Re_lam_min)*IN_var.eta/(IN_var.rho*d_hyd)
-          "Minimum mean velocity for transition to turbulent regime";
-        SI.Velocity v_lam_max=Re_lam_leave*IN_var.eta/(IN_var.rho*d_hyd)
-          "Maximum mean velocity in laminar regime (Re < Re_lam_leave)";
-        SI.Pressure dp_lam_trans=A*C1*zeta_LOC*(B/2)*(d_hyd/IN_var.eta)^(-exp)*IN_var.rho^(1 - exp)
-            *v_lam_trans^(pow)
-          "Minimum pressure loss for transition to turbulent regime";
-        SI.Pressure dp_lam_max=A*C1*zeta_LOC*(B/2)*(d_hyd/IN_var.eta)^(-exp)*IN_var.rho^(1 - exp)
-            *v_lam_max^(pow)
-          "Maximum pressure loss in laminar regime (Re < Re_lam_leave)";
 
-        SI.Velocity v_turb= (2*abs(dp))^0.5*(A*C1*zeta_LOC*IN_var.rho)^(-0.5)
-          "Mean velocity under turbulent conditions";
-        SI.Velocity v_lam= (2*(d_hyd/IN_var.eta)^exp/(A*C1*zeta_LOC*B*(IN_var.rho)^(1 - exp)))^(1/pow)*
-            Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
+        SI.Velocity v_lam_min = Re_lam_min*IN_var.eta/(IN_var.rho*d_hyd)
+          "Mean velocity for starting of transition to roughness regime";
+        SI.Velocity v_lam_leave = Re_lam_leave*IN_var.eta/(IN_var.rho*d_hyd)
+          "Mean velocity for end of transition to roughness regime";
+
+        SI.Pressure dp_lam_min=A*C1*zeta_LOC*(B/2)*(d_hyd/IN_var.eta)^(-exp)*IN_var.rho^(1 - exp)
+            *v_lam_min^(pow)
+          "Pressure loss for starting of transition to roughness regime";
+
+        TYP.DarcyFrictionFactor lambda_lam_leave_rough=0.25/(Modelica.Math.log10(k/(3.7*
+            IN_con.d_hyd) + 5.74/Re_lam_leave^0.9))^2
+          "Darcy friction factor considering surface roughness at Re_lem_leave";
+        TYP.DarcyFrictionFactor lambda_lam_leave_smooth=0.25/(Modelica.Math.log10(5.74/Re_lam_leave^0.9))^2
+          "Darcy friction factor neglecting surface roughness at Re_lam_leave";
+
+        SI.Pressure dp_lam_leave=A*C1*zeta_LOC*(B/2)*max(1, min(1.4, (lambda_lam_leave_rough/
+            lambda_lam_leave_smooth)))*(d_hyd/IN_var.eta)^(-exp)*IN_var.rho^(1 - exp)
+            *v_lam_leave^(pow)
+          "Pressure loss at end of transition to surface roughness regime";
+
+        TYP.DarcyFrictionFactor lambda_turb_min_rough=0.25/(Modelica.Math.log10(k/(3.7*
+            IN_con.d_hyd) + 5.74/Re_turb_min^0.9))^2
+          "Darcy friction factor considering surface roughness at starting transition to constant turbulent regime";
+        TYP.DarcyFrictionFactor lambda_turb_min_smooth=0.25/(Modelica.Math.log10(5.74/Re_turb_min^0.9))^2
+          "Darcy friction factor neglecting surface roughness at starting transition to constant turbulent regimee";
+
+        TYP.DarcyFrictionFactor lambda_turb_max_rough=0.25/(Modelica.Math.log10(k/(3.7*
+            IN_con.d_hyd) + 5.74/Re_turb_max^0.9))^2
+          "Darcy friction factor considering surface roughness at starting transition to constant turbulent regime";
+        TYP.DarcyFrictionFactor lambda_turb_max_smooth=0.25/(Modelica.Math.log10(5.74/Re_turb_max^0.9))^2
+          "Darcy friction factor neglecting surface roughness at starting transition to constant turbulent regimee";
+
+        SI.Velocity v_turb_min = Re_turb_min*IN_var.eta/(IN_var.rho*d_hyd)
+          "Mean velocity for starting of transition to constant turbulent regime";
+
+        SI.Velocity v_turb_max = Re_turb_max*IN_var.eta/(IN_var.rho*d_hyd)
+          "Mean velocity for end of transition to constant turbulent regime";
+
+        SI.Pressure dp_turb_min=A*C1*zeta_LOC*(B/2)*max(1, min(1.4, (lambda_turb_min_rough/
+            lambda_turb_min_smooth)))*(d_hyd/IN_var.eta)^(-exp)*IN_var.rho^(1 - exp)
+            *v_turb_min^(pow)
+          "Pressure loss at starting of transition to constant turbulent regime";
+
+        SI.Pressure dp_turb_max=A*C1*zeta_LOC*max(1, min(1.4, (lambda_turb_max_rough/
+            lambda_turb_max_smooth)))*IN_var.rho/2*v_turb_max^2
+          "Pressure loss at end of transition to constant turbulent regime";
+
+        SI.Velocity v_turb=(A*C1*zeta_LOC*IN_var.rho/2)^(-0.5)*
+            Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
+            abs(dp),
+            dp_min,
+            0.5) "Mean velocity under turbulent conditions";
+
+        SI.Velocity v_lam=(2*(d_hyd/IN_var.eta)^exp/(A*C1*zeta_LOC*B*(IN_var.rho)^(1 - exp)))^(1/pow)*
+            Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
             abs(dp),
             dp_min,
             1/pow) "Mean velocity under laminar conditions";
 
         //mean velocity under smooth conditions w.r.t flow regime
-        SI.Velocity v_smooth=if abs(dp) > dp_lam_max then v_turb
-            else if abs(dp) < dp_lam_trans then v_lam
+        SI.Velocity v_smooth=if abs(dp) > dp_turb_max then v_turb
+            else if abs(dp) < dp_turb_min then v_lam
             else SMOOTH(
-            dp_lam_max,
-            dp_lam_trans,
+            dp_turb_max,
+            dp_turb_min,
             abs(dp))*v_turb + SMOOTH(
-            dp_lam_trans,
-            dp_lam_max,
+            dp_turb_min,
+            dp_turb_max,
             abs(dp))*v_lam "Mean velocity under smooth conditions";
 
         SI.ReynoldsNumber Re_smooth=max(Re_min, IN_var.rho*v_smooth*d_hyd/IN_var.eta)
           "Reynolds number under smooth conditions";
 
         //SOURCE_2: p.191, eq. 8.4: considering surface roughness
-        //restriction of lambda_FRI at maximum Reynolds number Re=1e6 (SOURCE_2: p.207, sec. 9.2.4)
         TYP.DarcyFrictionFactor lambda_FRI_rough=0.25/(Modelica.Math.log10(k/(3.7*
-            IN_con.d_hyd) + 5.74/min(Re_turb_const, max(Re_lam_leave, Re_smooth))^0.9))
+            IN_con.d_hyd) + 5.74/max(Re_lam_min, Re_smooth)^0.9))
             ^2 "Darcy friction factor considering surface roughness";
-        TYP.DarcyFrictionFactor lambda_FRI_smooth=0.25/(Modelica.Math.log10(5.74/min(
-            Re_turb_const, max(Re_lam_leave, Re_smooth))^0.9))^2
+        TYP.DarcyFrictionFactor lambda_FRI_smooth=0.25/(Modelica.Math.log10(5.74/max(Re_lam_min, Re_smooth)^0.9))^2
           "Darcy friction factor neglecting surface roughness";
 
-        //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
-        //SOURCE_2: p.214, sec. 9.4.2: no correction w.r.t. surface roughness for angle of turning >= 45deg
-        Real CF_fri=if delta <= 45 then max(1, min(1.4, (lambda_FRI_rough/
-            lambda_FRI_smooth))) else 1
+        //SOURCE_3: Lac 6, Figure 18
+        Real CF_fri= SMOOTH(dp_lam_leave, dp_lam_min, abs(dp))*max(1, min(1.4, (lambda_FRI_rough/
+            lambda_FRI_smooth))) + SMOOTH(dp_lam_min, dp_lam_leave, abs(dp))
           "Correction factor for surface roughness";
 
         SI.Velocity velocity=v_smooth/max(1, CF_fri)^(0.5)
           "Corrected velocity considering surface roughness";
 
-        //Documentation
-
       algorithm
-        M_FLOW := sign(dp)*IN_var.rho*A_cross*velocity;
+          M_FLOW := sign(dp)*IN_var.rho*A_cross*velocity;
 
       annotation (Inline=false, smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP(
@@ -7976,12 +8013,12 @@ with
 <tr><td><b> zeta_TOT           </b></td><td> as pressure loss coefficient [-].</td></tr>
 </table>
 
-<p>
-Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>. Additionally no influence of surface roughness is considered for angles of turning equal or smaller than 45&deg; according to <i>[Miller 1984, p. 214, eq. 9.4.2]</i>.
-</p>
-
-<p>
-The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t. <i>[VDI, p. Lac 6, fig. 16]</i>.
+<p> 
+Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>. 
+</p> 
+ 
+<p> 
+The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t <i>[VDI, p. Lac 6, fig. 16]</i>. 
 </p>
 
 <p>
@@ -8002,15 +8039,15 @@ with
 </table>
 
 <p>
-Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 1e2 </b> according to <i>[VDI 2002, p. Lac 6, fig. 16]</i>
-</p>
+Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 5e2 </b>.
+</p> 
 
 <p>
-In addition the influence or decreasing Reynolds numbers <b> Re </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime is considered through a second correction factor <b> CF_Re </b> according to <i>[Miller 1984, p. 149, sec. 9.4]</i> and <i>[Idelchik 2006, p. 340, sec. 28]</i> by:
+In addition the influence or decreasing Reynolds numbers <b> Re </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar and turbulent regime is considered through a second correction factor <b> CF_Re </b> according to <i>[Miller 1984, p. 149, sec. 9.4]</i> by:
 </p>
 
 <pre>
-   CF_Re = B/Re^exp for Re &le; Re_lam_leave
+   CF_Re = B/Re^exp for Re &le; 2e5
 </pre>
 
 <p>
@@ -8021,7 +8058,6 @@ with
 <tr><td><b> B = f(Geometry)  </b></td><td> as coefficient considering effect of Reynolds number in laminar regime [-],</td></tr>
 <tr><td><b> exp              </b></td><td> as exponent for Reynolds number in laminar regime [-],</td></tr>
 <tr><td><b> Re               </b></td><td> as Reynolds number [-], </td></tr>
-<tr><td><b> Re_lam_leave     </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
 </table>
 
 
@@ -8030,7 +8066,7 @@ Note that the coefficient <b> B </b> considers the influence of the angle of tur
 </p>
 
 <p>
-Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is influenced by the correction factor <b> CF_Re </b> only for decreasing Reynolds numbers <b> Re </b> out of the turbulent fluid flow regime at <b> Re &le; Re_lam_leave </b> into transition and laminar fluid flow regime.
+Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is influenced by the correction factor <b> CF_Re </b> only for decreasing Reynolds numbers <b> Re </b> out of the turbulent fluid flow regime at <b> Re &le; 2e5 </b> into transition and laminar fluid flow regime.
 </p>
 
 <h4>Verification</h4>
@@ -8051,13 +8087,13 @@ The validation of the pressure loss coefficient for an edged bends shows four po
 </p>
 <ul>
  <li>
-      <b> laminar regime </b> for Re &le; 4e2</li>
+      <b> laminar regime </b> for Re &le; 5e2</li>
  <li>
-      <b> transition regime </b> for 4e2 &le; Re &le; 2e3</li>
+      <b> transition regime </b> for 5e2 &le; Re &le; 1e3 ... 1e4</li>
  <li>
-      <b> turbulent regime dependent on Reynolds number </b> for 2e3 &le; Re &le; 1e5</li>
+      <b> turbulent regime dependent on Reynolds number </b> for 2e3 ... 1e4 &le; Re &le; 1e5</li>
  <li>
-      <b> turbulent regime independent of Reynolds number </b> for Re &ge; 1e5</li>
+      <b> turbulent regime independent of Reynolds number</b> for Re &ge; 2e5</li>
 </ul>
 
 <p>
