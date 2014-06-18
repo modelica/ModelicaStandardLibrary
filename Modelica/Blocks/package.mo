@@ -1245,7 +1245,7 @@ just potential signals. The user might still add different signal names.
   equation
     der(d2_int) = (source.y - source.offset)^2;
     rms = sqrt((d2_int+eps)/max(time,eps))
-    annotation (experiment(StopTime=300, NumberOfIntervals = 5000));
+    annotation (experiment(StopTime=300, Interval=0.06));
   end WhiteNoise;
 
   package BusUsage_Utilities
