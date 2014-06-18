@@ -85,54 +85,44 @@ behavior is <b>not</b> modelled.
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(points={{-80,0},{80,0}}, color={128,128,128}),
-          Polygon(
-            points={{70,4},{80,0},{70,-4},{70,4}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,80},{0,-80}}, color={128,128,128}),
-          Polygon(
-            points={{-4,70},{0,80},{4,70},{-4,70}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{10,80},{20,70}},
-            lineColor={128,128,128},
-            textString="i"),
-          Text(
-            extent={{70,-10},{80,-20}},
-            lineColor={128,128,128},
-            textString="v"),
-          Line(
-            points={{-80,-40},{-20,-10},{20,10},{40,70}},
-            color={0,0,0},
-            thickness=0.5),
-          Line(
-            points={{20,9},{20,0}},
-            color={128,128,128},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{20,0},{40,-10}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            textString="Vknee"),
-          Text(
-            extent={{20,70},{40,60}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            textString="Ron"),
-          Text(
-            extent={{-20,10},{0,0}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            textString="Goff"),
-          Ellipse(
-            extent={{18,12},{22,8}},
-            pattern=LinePattern.Dot,
-            lineColor={0,0,255})}));
+              100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={128,
+            128,128}),Polygon(
+              points={{70,4},{80,0},{70,-4},{70,4}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),Line(points={{0,80},{0,-80}},
+            color={128,128,128}),Polygon(
+              points={{-4,70},{0,80},{4,70},{-4,70}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),Text(
+              extent={{10,80},{20,70}},
+              lineColor={128,128,128},
+              textString="i"),Text(
+              extent={{70,-10},{80,-20}},
+              lineColor={128,128,128},
+              textString="v"),Line(
+              points={{-80,-40},{-20,-10},{20,10},{40,70}},
+              color={0,0,0},
+              thickness=0.5),Line(
+              points={{20,9},{20,0}},
+              color={128,128,128},
+              pattern=LinePattern.Dot),Text(
+              extent={{20,0},{40,-10}},
+              lineColor={128,128,128},
+              pattern=LinePattern.Dot,
+              textString="Vknee"),Text(
+              extent={{20,70},{40,60}},
+              lineColor={128,128,128},
+              pattern=LinePattern.Dot,
+              textString="Ron"),Text(
+              extent={{-20,10},{0,0}},
+              lineColor={128,128,128},
+              pattern=LinePattern.Dot,
+              textString="Goff"),Ellipse(
+              extent={{18,12},{22,8}},
+              pattern=LinePattern.Dot,
+              lineColor={0,0,255})}));
   end IdealDiode;
 
   model IdealThyristor "Ideal thyristor"
@@ -220,58 +210,47 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(points={{-80,0},{80,0}}, color={128,128,128}),
-          Polygon(
-            points={{70,4},{80,0},{70,-4},{70,4}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,80},{0,-80}}, color={128,128,128}),
-          Polygon(
-            points={{-4,70},{0,80},{4,70},{-4,70}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{10,80},{20,70}},
-            lineColor={128,128,128},
-            textString="i"),
-          Text(
-            extent={{70,-10},{80,-20}},
-            lineColor={128,128,128},
-            textString="v"),
-          Line(
-            points={{-80,-40},{-20,-10},{20,10},{40,70}},
-            color={0,0,0},
-            thickness=0.5),
-          Line(
-            points={{20,9},{20,0}},
-            color={128,128,128},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{20,0},{40,-10}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            textString="Vknee"),
-          Text(
-            extent={{20,70},{40,60}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            textString="Ron"),
-          Text(
-            extent={{-20,10},{0,0}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            textString="Goff"),
-          Ellipse(
-            extent={{18,12},{22,8}},
-            pattern=LinePattern.Dot,
-            lineColor={0,0,255}),
-          Line(
-            points={{20,10},{70,40}},
-            color={0,0,0},
-            thickness=0.5)}));
+              100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={128,
+            128,128}),Polygon(
+              points={{70,4},{80,0},{70,-4},{70,4}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),Line(points={{0,80},{0,-80}},
+            color={128,128,128}),Polygon(
+              points={{-4,70},{0,80},{4,70},{-4,70}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),Text(
+              extent={{10,80},{20,70}},
+              lineColor={128,128,128},
+              textString="i"),Text(
+              extent={{70,-10},{80,-20}},
+              lineColor={128,128,128},
+              textString="v"),Line(
+              points={{-80,-40},{-20,-10},{20,10},{40,70}},
+              color={0,0,0},
+              thickness=0.5),Line(
+              points={{20,9},{20,0}},
+              color={128,128,128},
+              pattern=LinePattern.Dot),Text(
+              extent={{20,0},{40,-10}},
+              lineColor={128,128,128},
+              pattern=LinePattern.Dot,
+              textString="Vknee"),Text(
+              extent={{20,70},{40,60}},
+              lineColor={128,128,128},
+              pattern=LinePattern.Dot,
+              textString="Ron"),Text(
+              extent={{-20,10},{0,0}},
+              lineColor={128,128,128},
+              pattern=LinePattern.Dot,
+              textString="Goff"),Ellipse(
+              extent={{18,12},{22,8}},
+              pattern=LinePattern.Dot,
+              lineColor={0,0,255}),Line(
+              points={{20,10},{70,40}},
+              color={0,0,0},
+              thickness=0.5)}));
   end IdealThyristor;
 
   model IdealGTOThyristor "Ideal GTO thyristor"
@@ -381,58 +360,47 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             fillPattern=FillPattern.Solid,
             textString="GTO")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(points={{-80,0},{80,0}}, color={128,128,128}),
-          Polygon(
-            points={{70,4},{80,0},{70,-4},{70,4}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,80},{0,-80}}, color={128,128,128}),
-          Polygon(
-            points={{-4,70},{0,80},{4,70},{-4,70}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{10,80},{20,70}},
-            lineColor={128,128,128},
-            textString="i"),
-          Text(
-            extent={{70,-10},{80,-20}},
-            lineColor={128,128,128},
-            textString="v"),
-          Line(
-            points={{-80,-40},{-20,-10},{20,10},{40,70}},
-            color={0,0,0},
-            thickness=0.5),
-          Line(
-            points={{20,9},{20,0}},
-            color={128,128,128},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{20,0},{40,-10}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            textString="Vknee"),
-          Text(
-            extent={{20,70},{40,60}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            textString="Ron"),
-          Text(
-            extent={{-20,10},{0,0}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            textString="Goff"),
-          Ellipse(
-            extent={{18,12},{22,8}},
-            pattern=LinePattern.Dot,
-            lineColor={0,0,255}),
-          Line(
-            points={{20,10},{70,40}},
-            color={0,0,0},
-            thickness=0.5)}));
+              100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={128,
+            128,128}),Polygon(
+              points={{70,4},{80,0},{70,-4},{70,4}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),Line(points={{0,80},{0,-80}},
+            color={128,128,128}),Polygon(
+              points={{-4,70},{0,80},{4,70},{-4,70}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),Text(
+              extent={{10,80},{20,70}},
+              lineColor={128,128,128},
+              textString="i"),Text(
+              extent={{70,-10},{80,-20}},
+              lineColor={128,128,128},
+              textString="v"),Line(
+              points={{-80,-40},{-20,-10},{20,10},{40,70}},
+              color={0,0,0},
+              thickness=0.5),Line(
+              points={{20,9},{20,0}},
+              color={128,128,128},
+              pattern=LinePattern.Dot),Text(
+              extent={{20,0},{40,-10}},
+              lineColor={128,128,128},
+              pattern=LinePattern.Dot,
+              textString="Vknee"),Text(
+              extent={{20,70},{40,60}},
+              lineColor={128,128,128},
+              pattern=LinePattern.Dot,
+              textString="Ron"),Text(
+              extent={{-20,10},{0,0}},
+              lineColor={128,128,128},
+              pattern=LinePattern.Dot,
+              textString="Goff"),Ellipse(
+              extent={{18,12},{22,8}},
+              pattern=LinePattern.Dot,
+              lineColor={0,0,255}),Line(
+              points={{20,10},{70,40}},
+              color={0,0,0},
+              thickness=0.5)}));
   end IdealGTOThyristor;
 
   model IdealCommutingSwitch "Ideal commuting switch"
@@ -1103,34 +1071,114 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Polygon(
-              points={{60,0},{-60,70},{-60,-70},{60,0}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{-45,-10},{-10,-10},{-10,10},{
-            20,10}}, color={0,0,255}),Line(points={{0,35},{0,80}}, color={0,0,
-            255}),Line(points={{0,-35},{0,-80}}, color={0,0,255}),Line(points={
-            {-96,50},{-60,50}}, color={0,0,255}),Line(points={{-96,-50},{-60,-50}},
-            color={0,0,255}),Line(points={{60,0},{96,0}}, color={0,0,255}),Line(
-            points={{-55,50},{-45,50}}, color={0,0,255}),Line(points={{-50,-45},
-            {-50,-55}}, color={0,0,255}),Line(points={{-55,-50},{-45,-50}},
-            color={0,0,255}),Text(
-              extent={{-111,-39},{-90,-19}},
-              lineColor={160,160,164},
-              textString="p1.i=0"),Polygon(
-              points={{120,3},{110,0},{120,-3},{120,3}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={160,160,164}),Line(points={{111,0},{136,0}}, color={0,
-            0,0}),Text(
-              extent={{118,2},{135,17}},
-              lineColor={0,0,0},
-              textString="i2"),Text(
-              extent={{-111,60},{-90,80}},
-              lineColor={160,160,164},
-              textString="n1.i=0")}));
+              100,100}}), graphics={
+          Polygon(
+            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
+
+          Line(points={{0,35},{0,80}}, color={0,0,255}),
+          Line(points={{0,-35},{0,-80}}, color={0,0,255}),
+          Line(points={{-96,50},{-60,50}}, color={0,0,255}),
+          Line(points={{-96,-50},{-60,-50}}, color={0,0,255}),
+          Line(points={{60,0},{96,0}}, color={0,0,255}),
+          Line(points={{-55,50},{-45,50}}, color={0,0,255}),
+          Line(points={{-50,-45},{-50,-55}}, color={0,0,255}),
+          Line(points={{-55,-50},{-45,-50}}, color={0,0,255}),
+          Text(
+            extent={{-111,-39},{-90,-19}},
+            lineColor={160,160,164},
+            textString="p1.i=0"),
+          Polygon(
+            points={{120,3},{110,0},{120,-3},{120,3}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={160,160,164}),
+          Line(points={{111,0},{136,0}}, color={0,0,0}),
+          Text(
+            extent={{118,2},{135,17}},
+            lineColor={0,0,0},
+            textString="i2"),
+          Text(
+            extent={{-111,60},{-90,80}},
+            lineColor={160,160,164},
+            textString="n1.i=0")}));
   end IdealOpAmpLimited;
 
+  model IdealizedOpAmpLimted "Idealized operational amplifier with limitation"
+    parameter Real V0=15000.0 "No-load amplification";
+    parameter Boolean useSupply=false
+      "Use supply pins (otherwise constant supply" annotation (Evaluate=true);
+    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply voltage"
+      annotation (Dialog(enable=not useSupply));
+    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply voltage"
+      annotation (Dialog(enable=not useSupply));
+    Modelica.SIunits.Voltage vps "Positive supply voltage";
+    Modelica.SIunits.Voltage vns "Negative supply voltage";
+    Modelica.SIunits.Voltage v_in=in_p.v - in_n.v "Input voltage difference";
+    Modelica.SIunits.Voltage v_out=out.v "Ouput voltage to ground";
+    Modelica.SIunits.Power p_in=in_p.v*in_p.i + in_n.v*in_n.i "Input power";
+    Modelica.SIunits.Power p_out=out.v*out.i "Output power";
+    Modelica.SIunits.Power p_s=-(p_in + p_out) "Supply power";
+    Modelica.SIunits.Current i_s=p_s/(vps - vns) "Supply current";
+    Modelica.Electrical.Analog.Interfaces.PositivePin in_p
+      "Positive pin of the input port" annotation (Placement(transformation(
+            extent={{-90,-70},{-110,-50}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.NegativePin in_n
+      "Negative pin of the input port" annotation (Placement(transformation(
+            extent={{-110,50},{-90,70}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.PositivePin out
+      "Pin of the output port" annotation (Placement(transformation(extent={{
+              110,-10},{90,10}}, rotation=0), iconTransformation(extent={{110,-10},
+              {90,10}})));
+    //optional supply pins
+    Modelica.Electrical.Analog.Interfaces.PositivePin s_p(final i=+i_s, final v
+        =vps) if useSupply "Optional positive supply pin" annotation (Placement(
+          transformation(extent={{10,90},{-10,110}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.NegativePin s_n(final i=-i_s, final v
+        =vns) if useSupply "Optional negative supply pin" annotation (Placement(
+          transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
+  equation
+    if not useSupply then
+      vps = Vps;
+      vns = Vns;
+    end if;
+    in_p.i = 0;
+    in_n.i = 0;
+    v_out = smooth(0, min(Vps, max(Vns, V0*v_in)));
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Polygon(
+            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{-90,60},{-60,60}}, color={0,0,255}),
+          Line(points={{-90,-60},{-60,-60}}, color={0,0,255}),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
+          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
+          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
+          Text(
+            extent={{-100,100},{100,80}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Documentation(info="<html>
+<p>Idealized operational amplifier with saturation: </p>
+<ul>
+<li>Input currents are zero. </li>
+<li>No-load amplification is high (but not infinite). </li>
+<li>Output voltage is limited between positive and negative supply. </li>
+</ul>
+<p>Supply voltage is either defined by parameter Vps and Vpn or by (optional) pins s_p and s_n. </p>
+<p>In the first case the necessary power is drwan from an implicit internal supply, in the second case from the external supply.</p>
+</html>"),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics));
+  end IdealizedOpAmpLimted;
 
   model IdealTransformer "Ideal transformer core with or without magnetization"
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;

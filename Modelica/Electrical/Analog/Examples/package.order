@@ -22,4 +22,5 @@ ControlledSwitchWithArc
 SimpleTriacCircuit
 IdealTriacCircuit
 AD_DA_conversion
+OpAmps
 Utilities

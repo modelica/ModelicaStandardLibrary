@@ -3,12 +3,10 @@ package Examples "Examples that demonstrate the usage of the Analog electrical c
 extends Modelica.Icons.ExamplesPackage;
 
 
-annotation (
-  Documentation(info="<html>
+annotation (Documentation(info="<html>
 <p>This package contains examples that demonstrate the usage of the components of the Electrical.Analog library.</p>
 <p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
-</html>",
-   revisions="<html>
+</html>", revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
