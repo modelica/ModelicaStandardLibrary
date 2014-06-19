@@ -1839,6 +1839,102 @@ public
 </ul>
 </html>"));
   end SimpleTriac;
+
+  model Diode2 "Improved diode model"
+     import Modelica.SIunits;
+      extends Modelica.Electrical.Analog.Interfaces.OnePort;
+          parameter SIunits.Voltage Vf = 0.7 "Forward voltage";
+      parameter SIunits.Current Ids = 1.e-13 "Reverse saturation current";
+      parameter SIunits.Resistance Rs = 16 "Ohmic resistance";
+      parameter SIunits.Voltage Vt = 0.026 "Thermal voltage (kT/q)";
+      parameter Real N = 1 "Emission coefficient";
+      parameter SIunits.Voltage Bv = 100 "Reverse breakdown voltage";
+      parameter SIunits.Conductance Gp = 1e-6
+      "Parallel conductance for numerical stability";
+  protected
+      parameter SIunits.Voltage VdMax = Vf + (N*Vt)
+      "Linear continuation threshold";
+      parameter SIunits.Current iVdMax = Ids * (exp(VdMax/(N*Vt)) - 1)
+      "Current at threshold";
+      parameter SIunits.Conductance diVdMax = Ids * exp(VdMax/(N*Vt))/(N*Vt)
+      "Conductance at threshold";
+      SIunits.Voltage Vd "Voltage across pure diode part";
+      SIunits.Current id "diode current";
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
+       T=293.15);
+  equation
+      id = smooth(1,
+                 if Vd < -Bv / 2 then
+                     -Ids * (exp(-(Vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))
+                 elseif Vd < VdMax then
+                     Ids * (exp(Vd/(N*Vt)) - 1)
+                 else
+                     iVdMax + (Vd - VdMax) * diVdMax);                        //Lower half of reverse biased region including breakdown.
+                                                 //Upper half of reverse biased region, and forward biased region before conduction.
+                                                        //Forward biased region after conduction
+
+      v = Vd + id * Rs;
+      i = id + v*Gp;
+      LossPower=i*v;
+
+      assert(Bv>0, "Bv must be grater then zero", AssertionLevel.error);
+      assert(Vf>0, "Vf musst be greater then zero", AssertionLevel.error);
+      assert(Vt>0, "Vt must be greater then zero", AssertionLevel.error);
+    annotation (
+      Documentation(info="<html>
+<p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. It was proposed by Stefan Vorkoetter.The model is devided into three parts:</p>
+<ul>
+<li>lower half of reversed bias region including breakdown: -Ids * (exp(-(Vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))</li>
+<li>upper half of reverse biased region and forward biased region before conduction: Ids * (exp(Vd/(N*Vt)) - 1</li>
+<li>forward biased region after conduction: iVdMax + (Vd-VdMax) * diVdMax</li>
+</ul>
+<p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
+</html>",
+   revisions="<html>
+<ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
+<li><i> November 15, 2005   </i>
+       by Christoph Clauss<br> smooth function added<br>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> implemented<br>
+       </li>
+</ul>
+</html>"),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{40,0}}, color={0,0,255}),
+          Line(points={{40,0},{90,0}}, color={0,0,255}),
+          Line(points={{30,40},{30,-40}}, color={0,0,255}),
+          Text(
+            extent={{-154,100},{146,60}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}},
+            lineColor={0,0,255},
+            fillColor={255,0,0},
+            fillPattern=FillPattern.None),
+          Line(points={{-96,0},{96,0}}, color={0,0,255}),
+          Line(points={{30,40},{30,-40}}, color={0,0,255})}));
+  end Diode2;
   annotation (
     Documentation(info="<html>
 <p>This package contains semiconductor devices:</p>
