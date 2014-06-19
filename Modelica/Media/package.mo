@@ -6639,7 +6639,7 @@ quantities are assumed to be constant.
       output ThermodynamicState state "Thermodynamic state record";
       algorithm
       state := ThermodynamicState(p=p, T=Modelica.Math.exp(s/cp_const +
-        Modelica.Math.log(reference_T)) + R_gas*Modelica.Math.log(p/reference_p));
+        Modelica.Math.log(reference_T) + R_gas*Modelica.Math.log(p/reference_p)));
       end setState_psX;
 
     redeclare function setState_dTX
