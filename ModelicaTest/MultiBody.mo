@@ -5321,7 +5321,6 @@ a linear damper is connected here.
     model FreeMotionScalarInit5
       extends Modelica.Icons.Example;
 
-
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
           animateGravity=false) annotation (Placement(transformation(extent={{-60,20},
                 {-40,40}},     rotation=0)));
@@ -6341,7 +6340,7 @@ a linear damper is connected here.
             0.5,0,0})
         annotation (Placement(transformation(extent={{14,12},{34,32}})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs1(
-        get_r_rel=true,
+        final get_r_rel=true,
         get_v_rel=true,
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -6390,14 +6389,14 @@ a linear damper is connected here.
         w_0_start={1,0,0})
         annotation (Placement(transformation(extent={{38,-48},{58,-28}})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs2(
-        get_r_rel=true,
+        final get_r_rel=true,
         get_v_rel=true,
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={104,-28})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs3(
-        get_r_rel=true,
+        final get_r_rel=true,
         get_v_rel=true,
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -6540,7 +6539,7 @@ a linear damper is connected here.
             0,0})
         annotation (Placement(transformation(extent={{-30,12},{-10,32}})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs1(
-        get_r_rel=true,
+        final get_r_rel=true,
         get_v_rel=true,
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
@@ -6575,14 +6574,14 @@ a linear damper is connected here.
         w_0_start={0,0,0})
         annotation (Placement(transformation(extent={{38,-48},{58,-28}})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs2(
-        get_r_rel=true,
+        final get_r_rel=true,
         get_v_rel=true,
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={104,-12})));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensor rs3(
-        get_r_rel=true,
+        final get_r_rel=true,
         get_v_rel=true,
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
