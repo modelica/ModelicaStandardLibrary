@@ -1595,7 +1595,7 @@ Zeunerstrasse 38<br />
       connect(VIE.p, n41);
       connect(VIE.n, n42);
 
-      annotation (experiment(Interval=0.001,
+      annotation (experiment(StopTime=1, Interval=0.001,
           Tolerance=1e-005),
           Documentation(info="<html>
 <p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3).</p>
@@ -7757,7 +7757,8 @@ on the model behaviour.
         input Spice3.Internal.Mos2.Mos2ModelLineParams
                                        in_p "Input record Mos2 values";
         input Spice3.Internal.SpiceConstants in_C "Spice constants";
-        input Spice3.Internal.Mos2.Mos2ModelLineVariables in_vp "Input record model line variables";
+        input Spice3.Internal.Mos2.Mos2ModelLineVariables in_vp
+          "Input record model line variables";
         input Spice3.Internal.Mosfet.Mosfet in_m
           "Input record MOSFET parameters";
 
@@ -7929,7 +7930,8 @@ on the model behaviour.
                                        in_p
           "Output record Mos1 calculated values";
         input Spice3.Internal.SpiceConstants in_C "Spice constants";
-        input Spice3.Internal.Mos2.Mos2ModelLineVariables in_vp "Input record model line variables";
+        input Spice3.Internal.Mos2.Mos2ModelLineVariables in_vp
+          "Input record model line variables";
         input Spice3.Internal.Mosfet.Mosfet in_m
           "Input record MOSFET parameters";
         input Spice3.Internal.Mos2.Mos2Calc
