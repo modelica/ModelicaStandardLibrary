@@ -610,8 +610,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             points={{-96,50},{-40,50}}, color={0,0,255}),Line(points={{-40,0},{
             40,50}}, color={0,0,255}),Line(points={{-40,50},{40,0}}, color={0,0,
             255}),Line(points={{40,50},{96,50}}, color={0,0,255}),Line(points={
-            {0,60},{0,25}}, color={0,0,255}),Line(points={{40,0},{96,0}}, color
-            ={0,0,255})}));
+            {0,60},{0,25}}, color={0,0,255}),Line(points={{40,0},{96,0}}, color=
+             {0,0,255})}));
   end IdealIntermediateSwitch;
 
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
@@ -838,8 +838,8 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
             points={{-96,50},{-40,50}}, color={0,0,255}),Line(points={{-40,0},{
             40,50}}, color={0,0,255}),Line(points={{-40,50},{40,0}}, color={0,0,
             255}),Line(points={{40,50},{96,50}}, color={0,0,255}),Line(points={
-            {0,96},{0,25}}, color={0,0,255}),Line(points={{40,0},{96,0}}, color
-            ={0,0,255})}));
+            {0,96},{0,25}}, color={0,0,255}),Line(points={{40,0},{96,0}}, color=
+             {0,0,255})}));
   end ControlledIdealIntermediateSwitch;
 
   model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)"
@@ -1057,7 +1057,6 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
-
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-90,50},{-60,50}}, color={0,0,255}),
@@ -1078,7 +1077,6 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
-
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-96,50},{-60,50}}, color={0,0,255}),
@@ -1134,11 +1132,11 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
               110,-10},{90,10}}, rotation=0), iconTransformation(extent={{110,-10},
               {90,10}})));
     //optional supply pins
-    Modelica.Electrical.Analog.Interfaces.PositivePin s_p(final i=+i_s, final v
-        =vps) if useSupply "Optional positive supply pin" annotation (Placement(
+    Modelica.Electrical.Analog.Interfaces.PositivePin s_p(final i=+i_s, final v=
+         vps) if useSupply "Optional positive supply pin" annotation (Placement(
           transformation(extent={{10,90},{-10,110}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin s_n(final i=-i_s, final v
-        =vns) if useSupply "Optional negative supply pin" annotation (Placement(
+    Modelica.Electrical.Analog.Interfaces.NegativePin s_n(final i=-i_s, final v=
+         vns) if useSupply "Optional negative supply pin" annotation (Placement(
           transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
   equation
     if not useSupply then
@@ -1333,7 +1331,6 @@ where the constant <i>G</i> is called the gyration conductance.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
-
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
@@ -1367,8 +1364,8 @@ where the constant <i>G</i> is called the gyration conductance.
               points={{20,63},{30,60},{20,57},{20,63}},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Ellipse(extent={{10,-30},{70,30}}, lineColor
-            ={0,0,255}),Rectangle(
+              lineColor={0,0,255}),Ellipse(extent={{10,-30},{70,30}}, lineColor=
+             {0,0,255}),Rectangle(
               extent={{80,-40},{40,40}},
               lineColor={255,255,255},
               fillColor={255,255,255},
@@ -1446,12 +1443,9 @@ where the constant <i>G</i> is called the gyration conductance.
 
   model IdealOpeningSwitch "Ideal electrical opener"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
-      annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
-            rotation=0)));
+    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance" annotation (Placement(transformation(extent={
-              {10,10},{56.6667,56.6667}}, rotation=0)));
+      "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
@@ -1531,12 +1525,9 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
   model IdealClosingSwitch "Ideal electrical closer"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
-      annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
-            rotation=0)));
+    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance" annotation (Placement(transformation(extent={
-              {10,10},{56.6667,56.6667}}, rotation=0)));
+      "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
@@ -1614,14 +1605,10 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener"
 
-    parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
-          transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
-      annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
-            rotation=0)));
+    parameter SI.Voltage level=0.5 "Switch level";
+    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance" annotation (Placement(transformation(extent={
-              {-56.6667,-56.6667},{-10,-10}}, rotation=0)));
+      "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
@@ -1704,14 +1691,10 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
   model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
 
-    parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
-          transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
-      annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
-            rotation=0)));
+    parameter SI.Voltage level=0.5 "Switch level";
+    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance" annotation (Placement(transformation(extent={
-              {-56.6667,-56.6667},{-10,-10}}, rotation=0)));
+      "Opened switch conductance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
@@ -2052,8 +2035,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     "Controlled ideal electrical opener with simple arc model"
 
     parameter Modelica.SIunits.Voltage level=0.5 "Switch level" annotation (
-        Placement(transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation
-            =0)));
+        Placement(transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=
+             0)));
     parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed switch resistance" annotation (Placement(transformation(extent={{
               10,10},{56.6667,56.6667}}, rotation=0)));
@@ -2181,8 +2164,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     "Controlled ideal electrical closer with simple arc model"
 
     parameter Modelica.SIunits.Voltage level=0.5 "Switch level" annotation (
-        Placement(transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation
-            =0)));
+        Placement(transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=
+             0)));
     parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed switch resistance" annotation (Placement(transformation(extent={{
               10,10},{56.6667,56.6667}}, rotation=0)));
