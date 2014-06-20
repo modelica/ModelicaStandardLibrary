@@ -11292,7 +11292,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Modelica.SIunits.Charge chargebx;
         Real argtf;
         Real exponent;
-        Modelica.SIunits.Temp_K temp;
+        Real temp;
 
         Real aux1;
         Real aux2;
@@ -11301,6 +11301,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real sarg;
 
       algorithm
+        temp := 0;
+
         vce := in_p.m_type * (in_m_pVoltageValues[4] - in_m_pVoltageValues[6]); // ( ColP, EmitP);
         vbe := in_p.m_type * (in_m_pVoltageValues[5] - in_m_pVoltageValues[6]); // ( BaseP, EmitP);
         vbx := in_p.m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( Base, ColP);
@@ -11432,7 +11434,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
             end if;
               arg2 := argtf;
               if (in_p.m_transitTimeHighCurrentF <> 0) then
-               cbe := cbe / (cbe + in_p.m_transitTimeHighCurrentF);
+               temp := cbe / (cbe + in_p.m_transitTimeHighCurrentF);
                 argtf := argtf * temp * temp;
                 arg2  := argtf * (3-temp-temp);
               end if;
