@@ -2034,15 +2034,11 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   model ControlledOpenerWithArc
     "Controlled ideal electrical opener with simple arc model"
 
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level" annotation (
-        Placement(transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=
-             0)));
+    parameter Modelica.SIunits.Voltage level=0.5 "Switch level";
     parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance" annotation (Placement(transformation(extent={{
-              10,10},{56.6667,56.6667}}, rotation=0)));
+      "Closed switch resistance";
     parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance" annotation (Placement(transformation(extent={
-              {-56.6667,-56.6667},{-10,-10}}, rotation=0)));
+      "Opened switch conductance";
     parameter Modelica.SIunits.Voltage V0(start=30) "Initial arc voltage";
     parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
@@ -2163,15 +2159,11 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   model ControlledCloserWithArc
     "Controlled ideal electrical closer with simple arc model"
 
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level" annotation (
-        Placement(transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=
-             0)));
+    parameter Modelica.SIunits.Voltage level=0.5 "Switch level";
     parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance" annotation (Placement(transformation(extent={{
-              10,10},{56.6667,56.6667}}, rotation=0)));
+      "Closed switch resistance";
     parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance" annotation (Placement(transformation(extent={
-              {-56.6667,-56.6667},{-10,-10}}, rotation=0)));
+      "Opened switch conductance";
     parameter Modelica.SIunits.Voltage V0(start=30) "Initial arc voltage";
     parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
