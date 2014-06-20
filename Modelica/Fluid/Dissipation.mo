@@ -568,7 +568,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
         SI.ReynoldsNumber Re=max(1, IN_var.rho*velocity*d_hyd/max(MIN, IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
-        //Documentation
+        kc_evenGapTurbulent_IN_con IN_con_turb(h=IN_con.h,s=IN_con.s,L=IN_con.L);
       algorithm
         kc := SMOOTH(
                 laminar,
@@ -578,7 +578,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
                 turbulent,
                 laminar,
                 Re)*Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_KC(
-          IN_con, IN_var);
+          IN_con_turb, IN_var);
       annotation (Inline=false, Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall\">See more information.</a>
@@ -2509,7 +2509,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //failure status
         Real fstatus[3] "Check of expected boundary conditions";
 
-        //Documentation
       algorithm
         Pr := abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
         Re := max(1e-3, IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
@@ -2581,17 +2580,19 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
             IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
-        //Documentation
+        kc_turbulent_IN_con IN_con_turb(d_hyd=IN_con.d_hyd, L= IN_con.L, roughness = IN_con.roughness, K=IN_con.K);
+        kc_laminar_IN_con IN_con_lam(d_hyd=IN_con.d_hyd, L= IN_con.L, target=IN_con.target);
+
       algorithm
         kc := SMOOTH(
                 laminar,
                 turbulent,
-                Re)*Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC(IN_con,
+                Re)*Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC(IN_con_lam,
           IN_var) + SMOOTH(
                 turbulent,
                 laminar,
                 Re)*Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC(
-          IN_con, IN_var);
+          IN_con_turb, IN_var);
 
       annotation (Inline=false, Documentation(info="<html>
 <p>
@@ -5154,14 +5155,13 @@ This record is used as <b> input record </b> for the pressure loss function
             IN_var.eta,
             m_flow);
 
-        //Documentation
-
+        dp_laminar_IN_con IN_con_lam(d_hyd=IN_con.d_hyd, L= IN_con.L);
       algorithm
         DP := SMOOTH(
                 Re_lam_min,
                 Re_lam_max,
                 Re)*Dissipation.PressureLoss.StraightPipe.dp_laminar_DP(
-                IN_con,
+                IN_con_lam,
                 IN_var,
                 m_flow) + SMOOTH(
                 Re_lam_max,
@@ -5256,14 +5256,14 @@ Generally this  function is numerically best used for the <b> incompressible cas
         SI.ReynoldsNumber Re=if Re_lam < Re_lam_leave then Re_lam else if Re_turb >
             Re_turb_min then Re_turb else Re_trans;
 
-        //Documentation
+        dp_laminar_IN_con IN_con_lam(d_hyd=IN_con.d_hyd, L= IN_con.L);
 
       algorithm
         M_FLOW := SMOOTH(
                 Re_lam_min,
                 Re_turb,
                 Re)*Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW(
-                IN_con,
+                IN_con_lam,
                 IN_var,
                 dp) + SMOOTH(
                 Re_turb,
