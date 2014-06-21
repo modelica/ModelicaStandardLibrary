@@ -4453,18 +4453,18 @@ in the flanges, are along the axis vector displayed in the icon.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-20.0,-4.0},{20.0,4.0}}),
-        Rectangle(visible=  true,
-          origin=  {-30,65},
-          fillColor=  {192,192,192},
-          extent=  {{-20,-19},{20,19}}),
-        Rectangle(visible=  true,
-          origin=  {-30,-1},
-          fillColor=  {255,255,255},
-          extent=  {{-20,-35},{20,35}}),
-        Rectangle(visible=  true,
-          lineColor=  {64,64,64},
-          fillColor=  {255,255,255},
-          extent=  {{10,-100},{50,100}})}),
+        Rectangle(visible = true,
+          origin = {-30,65},
+          fillColor = {192,192,192},
+          extent = {{-20,-19},{20,19}}),
+        Rectangle(visible = true,
+          origin = {-30,-1},
+          fillColor = {255,255,255},
+          extent = {{-20,-35},{20,35}}),
+        Rectangle(visible = true,
+          lineColor = {64,64,64},
+          fillColor = {255,255,255},
+          extent = {{10,-100},{50,100}})}),
       Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
         Rectangle(lineColor=  {64,64,64},
           fillColor=  {192,192,192},
@@ -6135,8 +6135,7 @@ blocks of the block library Modelica.Blocks.Sources.
         output Real q;
       algorithm
         q := q_qd_qdd[1];
-        annotation (derivative(noDerivative=q_qd_qdd) = position_der,
-            InlineAfterIndexReduction=true);
+        annotation (derivative(noDerivative=q_qd_qdd) = position_der, Inline=false);
       end position;
 
       function position_der
@@ -6151,7 +6150,7 @@ blocks of the block library Modelica.Blocks.Sources.
         qd := q_qd_qdd[2];
         annotation (derivative(
             noDerivative=q_qd_qdd,
-            order=2) = position_der2, InlineAfterIndexReduction=true);
+            order=2) = position_der2, Inline=false);
       end position_der;
 
       function position_der2
@@ -7803,13 +7802,13 @@ only be used as basic building elements for models.
             fillPattern=FillPattern.Solid,
             extent={{-15.0,-4.0},{15.0,4.0}}),
           Rectangle(
-            origin=  {-35,40},
-            fillColor=  {255,255,255},
-            extent=  {{-15,-61},{15,60}}),
+            origin = {-35,40},
+            fillColor = {255,255,255},
+            extent = {{-15,-61},{15,60}}),
           Rectangle(
-            origin=  {35,21},
-            fillColor=  {255,255,255},
-            extent=  {{-15,-61},{15,60}})}), Documentation(
+            origin = {35,21},
+            fillColor = {255,255,255},
+            extent = {{-15,-61},{15,60}})}), Documentation(
             info="<html>
 <p>
 This is the icon of a gear from the rotational package.

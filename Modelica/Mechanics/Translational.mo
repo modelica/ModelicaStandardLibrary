@@ -2472,7 +2472,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       encapsulated model Set_v_start "Set v_start"
         import Modelica;
         extends Modelica.Blocks.Icons.Block;
-        Modelica.Blocks.Interfaces.RealInput v_start(unit="m/s") "Start velocity"
+        Modelica.Blocks.Interfaces.RealInput v_start(unit="m/s")
+          "Start velocity"
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
 
@@ -2489,7 +2490,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       encapsulated model Set_a_start "Set a_start"
         import Modelica;
         extends Modelica.Blocks.Icons.Block;
-        Modelica.Blocks.Interfaces.RealInput a_start(unit="m/s2") "Start acceleration"
+        Modelica.Blocks.Interfaces.RealInput a_start(unit="m/s2")
+          "Start acceleration"
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
 
@@ -2722,7 +2724,6 @@ Additionally, a left and right stop are handled.
                          if pre(mode) == Forward then F_prop*v + F_Coulomb + F_Stribeck*exp(-fexp*abs(v)) else
                                                       F_prop*v - F_Coulomb - F_Stribeck*exp(-fexp*abs(v)));
       lossPower = f*v_relfric;
-    equation
       when (initial()) then
         assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
           "Error in initialization of hard stop. (s - L/2) must be >= smin\n"+
@@ -3142,7 +3143,7 @@ velocity of model mass1 or of model mass2 as state variables.
               color={0,0,0},
               pattern=LinePattern.Dash)}));
     end RelativeStates;
-    annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+    annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
         Rectangle(
           origin = {11.5,31.183},
           lineColor = {64,64,64},
@@ -3770,8 +3771,7 @@ blocks of the block library Modelica.Blocks.Source.
          output Real q;
       algorithm
         q :=q_qd_qdd[1];
-        annotation (derivative(noDerivative=q_qd_qdd) = position_der,
-            InlineAfterIndexReduction=true);
+        annotation (derivative(noDerivative=q_qd_qdd) = position_der, Inline=false);
       end position;
 
       function position_der
@@ -3784,8 +3784,7 @@ blocks of the block library Modelica.Blocks.Source.
          output Real qd;
       algorithm
         qd :=q_qd_qdd[2];
-        annotation (derivative(noDerivative=q_qd_qdd, order=2) = position_der2,
-            InlineAfterIndexReduction=true);
+        annotation (derivative(noDerivative=q_qd_qdd, order=2) = position_der2, Inline=false);
       end position_der;
 
       function position_der2
@@ -3860,8 +3859,8 @@ blocks of the block library Modelica.Blocks.Sources.
       "External force acting on a drive train element as input signal"
       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2;
-      Modelica.Blocks.Interfaces.RealInput f(unit="N") "Driving force as input signal"
-                                        annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput f(unit="N")
+        "Driving force as input signal" annotation (Placement(transformation(
               extent={{-140,-20},{-100,20}}, rotation=0)));
 
     equation
@@ -3911,8 +3910,8 @@ blocks of Modelica.Blocks.Source.
 
     model Force2 "Input signal acting as torque on two flanges"
       extends Translational.Interfaces.PartialTwoFlanges;
-      Modelica.Blocks.Interfaces.RealInput f(unit="N") "Driving force as input signal"
-                                        annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput f(unit="N")
+        "Driving force as input signal" annotation (Placement(transformation(
               extent={{-20,-20},{20,20}},    rotation=270,
             origin={0,60}), iconTransformation(
             extent={{-20,-20},{20,20}},
@@ -5110,7 +5109,7 @@ only be used as basic building elements for models.
   end Interfaces;
 
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+    Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Line(
         origin = {14,53},
         points = {{-84,-73},{66,-73}}),
@@ -5139,8 +5138,7 @@ only be used as basic building elements for models.
         points = {{39,-73},{14,-93}}),
       Line(
         origin = {14,53},
-        points = {{63,-73},{38,-93}})}),
-                                                        Documentation(info="<html>
+        points = {{63,-73},{38,-93}})}),                Documentation(info="<html>
 <p>
 This package contains components to model <i>1-dimensional translational
 mechanical</i> systems.
