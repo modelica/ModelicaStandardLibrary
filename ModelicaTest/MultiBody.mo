@@ -1,5 +1,167 @@
 within ModelicaTest;
 package MultiBody "Test models for Modelica.Mechanics.MultiBody"
+  model PlanarLoopWithMove
+    "Move block + multi-body system where index reduction can fail"
+    import SI = Modelica.SIunits;
+    extends Modelica.Icons.Example;
+    parameter SI.Length rh1[3]={0.5,0,0} "Position vector from r1 to r4";
+    parameter SI.Length rv1[3]={0,0.5,0} "Position vector from r1 to r2";
+    parameter SI.Length rv2[3]={0.1,0.5,0} "Position vector from r4 to r2";
+    final parameter SI.Length rh2[3]=rv2 + rh1 - rv1
+      "Position vector from r2 to r3";
+
+    inner Modelica.Mechanics.MultiBody.World world(axisDiameter=0.6/40,
+        axisLength=0.8) annotation (Placement(transformation(extent={{-28,-60},{-8,
+              -40}},      rotation=0)));
+    Modelica.Mechanics.MultiBody.Joints.Revolute r1(useAxisFlange=true)
+      annotation (Placement(transformation(
+          origin={0,-10},
+          extent={{-10,-10},{10,10}},
+          rotation=90)));
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(r=rv1) annotation (
+       Placement(transformation(
+          origin={0,20},
+          extent={{-10,-10},{10,10}},
+          rotation=90)));
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(r=rh1) annotation (
+       Placement(transformation(extent={{16,-60},{36,-40}},   rotation=0)));
+    Modelica.Mechanics.MultiBody.Joints.Revolute r2 annotation (Placement(
+          transformation(extent={{10,30},{30,50}},   rotation=0)));
+    Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
+      m=1,
+      r=rh2,
+      r_CM=rh2/2) annotation (Placement(transformation(extent={{38,30},{58,50}},
+            rotation=0)));
+    Modelica.Mechanics.MultiBody.Joints.Revolute r3 annotation (Placement(
+          transformation(extent={{64,30},{84,50}}, rotation=0)));
+    Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint r4
+      annotation (Placement(transformation(extent={{64,-60},{84,-40}}, rotation=
+             0)));
+    Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod3(r=rv2) annotation (
+       Placement(transformation(
+          origin={90,-10},
+          extent={{-10,-10},{10,10}},
+          rotation=90)));
+    Modelica.Blocks.Math.MatrixGain deg2rad1(
+                                            K=[2*Modelica.Math.asin(1)/180,0,0;
+          0,2*Modelica.Math.asin(1)/180,0; 0,0,2*Modelica.Math.asin(1)/180])
+      annotation (Placement(transformation(extent={{-70,-20},{-50,0}})));
+    Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
+      table=[0,0,10,0; 1,10,10,0; 2,20,10,0; 3,30,10,0])
+      annotation (Placement(transformation(extent={{-100,-20},{-80,0}})));
+    Modelica.Mechanics.Rotational.Sources.Move move
+      annotation (Placement(transformation(extent={{-38,-20},{-18,0}})));
+  equation
+    connect(world.frame_b,r1. frame_a) annotation (Line(
+        points={{-8,-50},{-6.66134e-016,-50},{-6.66134e-016,-20}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(rod1.frame_a,r1. frame_b) annotation (Line(
+        points={{-6.66134e-016,10},{-6.66134e-016,6},{-6.66134e-016,0},{4.44089e-016,
+            0}},
+        color={0,0,0},
+        thickness=0.5));
+    connect(rod2.frame_a,world. frame_b) annotation (Line(
+        points={{16,-50},{-8,-50}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(rod1.frame_b,r2. frame_a) annotation (Line(
+        points={{4.44089e-016,30},{4.44089e-016,40},{10,40}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(bodyShape.frame_b,r3. frame_a) annotation (Line(
+        points={{58,40},{58,40},{64,40}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(rod2.frame_b,r4. frame_a) annotation (Line(
+        points={{36,-50},{36,-50},{64,-50}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(r4.frame_b,rod3. frame_a) annotation (Line(
+        points={{84,-50},{90,-50},{90,-20}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(rod3.frame_b,r3. frame_b) annotation (Line(
+        points={{90,0},{90,40},{84,40}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(combiTimeTable.y,deg2rad1. u) annotation (Line(
+        points={{-79,-10},{-72,-10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(move.flange, r1.axis) annotation (Line(
+        points={{-18,-10},{-10,-10}},
+        color={0,0,0},
+        smooth=Smooth.None));
+    connect(deg2rad1.y, move.u) annotation (Line(
+        points={{-49,-10},{-40,-10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(r2.frame_b, bodyShape.frame_a) annotation (Line(
+        points={{30,40},{38,40}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    annotation (experiment(StopTime=3), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics),
+      Documentation(info="<html>
+<p>
+This model is a combination of a multi-body system with a kinematic loop
+and a Move block, where symbolic transformation is difficult:
+</p>
+
+<p>
+Standard symbolic transformation works in the following way if functions
+are present with annotation \"InineAfterIndexReduction = true\".
+</p>
+
+<ol>
+<li> These functions are not inlined, the Pantelides algorithm
+     is applied and the equations are aymbolically differentiated.</li>
+
+<li> The functions are inlined and further symbolic transoformation 
+     is performed (sorting the equations, dummy derivative method etc.. </li>
+</ol>
+
+<p>
+The model contains the following functions that have annotation
+\"InineAfterIndexReduction = true\":
+</p>
+
+<ol>
+<li> MultiBody.Frames.resolve1/resolve2(..) functions are used to transform the coordinates
+     of a vector in another coordinate system. When these functions need to be differentiated
+     in the Pantelides algorithm, then Eulers differentiation rule is applied with the angular velocity
+     that is usually a factor of 2-3 more efficient as if direct differentation
+     is applied. The drawback is that the sparsity structure is more \"coarse\" and
+     this lets the Pantelides algorithm fail in this example (this happens usually only
+     in systems with kinematic loops). This means that the differentiated equation system
+     is structurally singular, after the functions with annotation \"InineAfterIndexReduction = true\"
+     are inlined. </li>
+<li> The Rotational.Sources.Move block is using internally functions to express that
+     an input u[2] is the derivative of of input u[1]. In order that this is possible, the functions
+     have the annotation \"InineAfterIndexReduction = true\" so that the differentiation takes place
+     with the not inlined functions. After the Pantelides algorithm and the differentation
+     is applied, the functions are inlined to enhance efficiency.</li>
+</ol>
+
+<p>
+The problem with (1) is that after inlining the functions with
+annotation \"InineAfterIndexReduction = true\", the equations are structurally singular, but the
+source of the singularity is now known. One remedy is to restart symbolic processing and to
+inline all functions with \"InineAfterIndexReduction = true\" before the Pantelides algorithm 
+is applied. In the model, this approach is in principal succeessful and the model would 
+be structurally regular. However, the Move block is no longer working correctly if the Pantelides
+algorithm is appliwed with inlining. For this reason in MSL 3.2.1 build 3, the annotation
+\"InineAfterIndexReduction = true\" in the Move block has been replaced by 
+annotation \"Inine = false\". This results in slightly less efficient code, but is more robust
+in the situation at hand.
+</p>
+
+</html>"));
+  end PlanarLoopWithMove;
   extends Modelica.Icons.ExamplesPackage;
 
   model SphericalDoublePendulum
