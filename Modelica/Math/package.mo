@@ -383,7 +383,7 @@ is usually inlined and symbolic processing is applied.
   end normalize;
 
 function normalizeWithAssert
-  "Return normalized vector such that length = 1 (trigger an assert for zero vector)"
+    "Return normalized vector such that length = 1 (trigger an assert for zero vector)"
   import Modelica.Math.Vectors.length;
   extends Modelica.Icons.Function;
   input Real v[:] "Vector";
@@ -7163,16 +7163,16 @@ For details of the arguments, see documentation of dgbsv.
         "imaginary part of the eigenvectors of A";
       output Integer info;
 
-protected
-  constant Integer dummyFunctionPointerNotUsed[1] = {0};
-  Integer n=size(A, 1) "Row dimension of A";
-  Integer lda=max(1, n);
-  Integer sdim=0;
-  Integer lwork=max(1, 10*size(A, 1));
-  Real work[lwork];
-  Boolean bwork[size(A, 1)];
+    protected
+      constant Integer dummyFunctionPointerNotUsed[1]={0};
+      Integer n=size(A, 1) "Row dimension of A";
+      Integer lda=max(1, n);
+      Integer sdim=0;
+      Integer lwork=max(1, 10*size(A, 1));
+      Real work[lwork];
+      Boolean bwork[size(A, 1)];
 
-external"FORTRAN 77" dgees(
+    external"FORTRAN 77" dgees(
     "V",
     "N",
     dummyFunctionPointerNotUsed,
