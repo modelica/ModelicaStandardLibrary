@@ -274,8 +274,8 @@ is much faster.
           transformation(extent={{-84,10},{-64,30}}, rotation=0)));
     Forces.Torque torque annotation (Placement(transformation(extent={{50,40},{
               70,60}}, rotation=0)));
-    Blocks.Sources.Sine sine1[3](amplitude={1,0,0}, freqHz={1,1,1}) annotation
-      (Placement(transformation(extent={{16,70},{36,90}}, rotation=0)));
+    Blocks.Sources.Sine sine1[3](amplitude={1,0,0}, freqHz={1,1,1}) annotation (
+       Placement(transformation(extent={{16,70},{36,90}}, rotation=0)));
     Parts.Rotor1D rotor1D(
       J=2,
       phi(fixed=true),
@@ -288,18 +288,20 @@ is much faster.
     Joints.Revolute r1(useAxisFlange=true, n={0,1,0}) annotation (Placement(
           transformation(extent={{-32,10},{-12,30}}, rotation=0)));
     Rotational.Sources.Position position1(useSupport=true, w(fixed=true))
-      annotation (Placement(transformation(extent={{-46,60},{-26,80}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{-46,60},{-26,80}}, rotation=
+             0)));
     Blocks.Sources.Sine sine2(amplitude=2, freqHz=1) annotation (Placement(
           transformation(extent={{-100,60},{-80,80}}, rotation=0)));
-    Parts.Mounting1D mounting1D1 annotation (Placement(transformation(extent={{
+    Parts.Mounting1D mounting1D1(n={0,1,0})
+                                 annotation (Placement(transformation(extent={{
               -60,34},{-40,54}}, rotation=0)));
     Joints.Revolute r2(useAxisFlange=true, n={0,1,0}) annotation (Placement(
           transformation(extent={{-38,-80},{-18,-60}}, rotation=0)));
     Rotational.Sources.Position position2(useSupport=true, w(fixed=true))
       annotation (Placement(transformation(extent={{-52,-30},{-32,-10}},
             rotation=0)));
-    Parts.Mounting1D mounting1D2 annotation (Placement(transformation(extent={{
+    Parts.Mounting1D mounting1D2(n={0,1,0})
+                                 annotation (Placement(transformation(extent={{
               -66,-56},{-46,-36}}, rotation=0)));
     Parts.Fixed fixed annotation (Placement(transformation(extent={{-86,-80},{-66,
               -60}}, rotation=0)));
@@ -399,7 +401,23 @@ is much faster.
         points={{37,80},{92,80},{92,-10},{0,-10},{0,-26},{16,-26}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StopTime=1.1));
+    annotation (experiment(StopTime=1.1),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics),
+      Documentation(info="<html>
+<p>
+This model demonstrates how a moving drive train modelled with 3-dim. multi-body elements
+(revolute, bodyCylinder) can alternatively be modeled with component rotor1D to speed up
+simulation. The movement of the two systems is identical and also the cut-torques in the
+various frames (such as: r1.frame_b.t and r2.frame_b.t).
+</p>
+
+<p>
+The driving joints (r1, r2) with rotation axis {0,1,0} are modelled to be driven by a motor torque
+along the {1,0,0} axis. Basically, this means that an idealized bevel gear is used to drive the
+axes of the revolute joints.
+</p>
+</html>"));
   end MovingActuatedDrive;
 
   model GearConstraint
@@ -431,8 +449,8 @@ is much faster.
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-20,
               -40},{0,-20}}, rotation=0)));
     Rotational.Components.IdealGear idealGear(ratio=10, useSupport=true)
-      annotation (Placement(transformation(extent={{12,-40},{32,-20}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{12,-40},{32,-20}}, rotation=
+             0)));
     Rotational.Components.Inertia inertia2(J=cyl2.I[1, 1]) annotation (
         Placement(transformation(extent={{44,-40},{64,-20}}, rotation=0)));
     Rotational.Sources.Torque torque2(useSupport=true) annotation (Placement(
