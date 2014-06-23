@@ -6485,6 +6485,16 @@ a linear damper is connected here.
       parameter Real tol1=1e-4;
       parameter Real tol2=1e-3;
 
+      Modelica.Blocks.Interfaces.RealOutput r1[3]
+        "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
+        annotation (Placement(transformation(extent={{86,48},{66,68}})));
+      Modelica.Blocks.Interfaces.RealOutput r2[3]
+        "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
+        annotation (Placement(transformation(extent={{86,-28},{66,-8}})));
+      Modelica.Blocks.Interfaces.RealOutput r3[3]
+        "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
+        annotation (Placement(transformation(extent={{134,20},{114,40}})));
+
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=true,
           animateGravity=true) annotation (Placement(transformation(extent={{-100,
                 60},{-80,80}}, rotation=0)));
@@ -6507,7 +6517,7 @@ a linear damper is connected here.
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={104,60})));
+            origin={104,48})));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(
         r={0.5,0,0},
         width=0.1,
@@ -6563,7 +6573,7 @@ a linear damper is connected here.
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={142,20})));
+            origin={154,20})));
       Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit
         freeMotionScalarInit(
         use_r=true,
@@ -6581,12 +6591,12 @@ a linear damper is connected here.
         v_rel_a_3(fixed=true))
         annotation (Placement(transformation(extent={{-16,-78},{4,-58}})));
     equation
-      assert(rs1.r_rel[1] < tol2 and rs1.r_rel[2] < tol2 and rs1.r_rel[3] <
-        tol2, "Difference in positions between bodies is too much");
-      assert(rs2.r_rel[1] < tol2 and rs2.r_rel[2] < tol2 and rs2.r_rel[3] <
-        tol2, "Difference in positions between bodies is too much");
-      assert(rs3.r_rel[1] < tol1 and rs3.r_rel[2] < tol1 and rs3.r_rel[3] <
-        tol1, "Difference in positions between bodies is too much");
+      assert(r1[1] < tol2 and r1[2] < tol2 and r1[3] < tol2,
+        "Difference in positions between bodies is too much");
+      assert(r2[1] < tol2 and r2[2] < tol2 and r2[3] < tol2,
+         "Difference in positions between bodies is too much");
+      assert(r3[1] < tol1 and r3[2] < tol1 and r3[3] < tol1,
+        "Difference in positions between bodies is too much");
       connect(world.frame_b, sphericalSpherical.frame_a)
         annotation (Line(points={{-80,70},{-36,70},{-20,70}}, color={0,0,0}));
       connect(spherical.frame_a, world.frame_b) annotation (Line(
@@ -6615,12 +6625,12 @@ a linear damper is connected here.
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox.frame_b, rs1.frame_a) annotation (Line(
-          points={{60,70},{104,70}},
+          points={{60,70},{104,70},{104,58}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox1.frame_b, rs1.frame_b) annotation (Line(
-          points={{88,22},{104,22},{104,50}},
+          points={{88,22},{104,22},{104,38}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6655,12 +6665,12 @@ a linear damper is connected here.
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox.frame_b, rs3.frame_a) annotation (Line(
-          points={{60,70},{142,70},{142,30}},
+          points={{60,70},{154,70},{154,30}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox2.frame_b, rs3.frame_b) annotation (Line(
-          points={{58,-38},{142,-38},{142,10}},
+          points={{58,-38},{154,-38},{154,10}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6684,15 +6694,37 @@ a linear damper is connected here.
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
+      connect(rs1.r_rel, r1) annotation (Line(
+          points={{93,58},{76,58}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(rs2.r_rel, r2) annotation (Line(
+          points={{93,-18},{76,-18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(rs3.r_rel, r3) annotation (Line(
+          points={{143,30},{124,30}},
+          color={0,0,127},
+          smooth=Smooth.None));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
             coordinateSystem(extent={{-120,-100},{200,100}},
-              preserveAspectRatio=true)));
+              preserveAspectRatio=false), graphics));
     end SphericalSpherical2;
 
     model UniversalSpherical
       extends Modelica.Icons.Example;
       parameter Real tol1=1e-4;
       parameter Real tol2=1e-3;
+
+      Modelica.Blocks.Interfaces.RealOutput r1[3]
+        "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
+        annotation (Placement(transformation(extent={{80,44},{60,64}})));
+      Modelica.Blocks.Interfaces.RealOutput r2[3]
+        "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
+        annotation (Placement(transformation(extent={{84,-12},{64,8}})));
+      Modelica.Blocks.Interfaces.RealOutput r3[3]
+        "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
+        annotation (Placement(transformation(extent={{138,20},{118,40}})));
 
       inner Modelica.Mechanics.MultiBody.World world(animateWorld=true,
           animateGravity=true) annotation (Placement(transformation(extent={{-100,
@@ -6748,7 +6780,7 @@ a linear damper is connected here.
         get_w_rel=true) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={142,20})));
+            origin={160,20})));
       Modelica.Mechanics.MultiBody.Joints.UniversalSpherical universalSpherical(
           kinematicConstraint=false)
         annotation (Placement(transformation(extent={{-22,60},{-2,80}})));
@@ -6778,12 +6810,12 @@ a linear damper is connected here.
         v_rel_a_3(fixed=true))
         annotation (Placement(transformation(extent={{-18,-78},{2,-58}})));
     equation
-      assert(rs1.r_rel[1] < tol2 and rs1.r_rel[2] < tol2 and rs1.r_rel[3] <
-        tol2, "Difference in positions between bodies is too much");
-      assert(rs2.r_rel[1] < tol2 and rs2.r_rel[2] < tol2 and rs2.r_rel[3] <
-        tol2, "Difference in positions between bodies is too much");
-      assert(rs3.r_rel[1] < tol1 and rs3.r_rel[2] < tol1 and rs3.r_rel[3] <
-        tol1, "Difference in positions between bodies is too much");
+      assert(r1[1] < tol2 and r1[2] < tol2 and r1[3] < tol2,
+        "Difference in positions between bodies is too much");
+      assert(r2[1] < tol2 and r2[2] < tol2 and r2[3] < tol2,
+         "Difference in positions between bodies is too much");
+      assert(r3[1] < tol1 and r3[2] < tol1 and r3[3] < tol1,
+        "Difference in positions between bodies is too much");
       connect(spherical1.frame_b, bodyBox1.frame_a) annotation (Line(
           points={{58,22},{68,22}},
           color={95,95,95},
@@ -6810,12 +6842,12 @@ a linear damper is connected here.
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox.frame_b, rs3.frame_a) annotation (Line(
-          points={{60,70},{142,70},{142,30}},
+          points={{60,70},{160,70},{160,30}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox2.frame_b, rs3.frame_b) annotation (Line(
-          points={{58,-38},{142,-38},{142,10}},
+          points={{58,-38},{160,-38},{160,10}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6874,9 +6906,21 @@ a linear damper is connected here.
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
+      connect(rs1.r_rel, r1) annotation (Line(
+          points={{93,54},{70,54}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(rs3.r_rel, r3) annotation (Line(
+          points={{149,30},{128,30}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(rs2.r_rel, r2) annotation (Line(
+          points={{93,-2},{74,-2}},
+          color={0,0,127},
+          smooth=Smooth.None));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
             coordinateSystem(extent={{-120,-100},{200,100}},
-              preserveAspectRatio=false)));
+              preserveAspectRatio=false), graphics));
     end UniversalSpherical;
 
     model PrismaticInit
