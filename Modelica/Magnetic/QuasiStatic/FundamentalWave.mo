@@ -110,7 +110,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-04-22</h5>
+<h5>Version 3.2.2, 2014-06-23</h5>
 <ul>
 <li>Migration of library to MSL trunk</li>
 <li>Update and improvement of documentation</li>
@@ -119,6 +119,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>   
 </ul>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
+<li>Fixed issues of ticket #1524</li>
 </ul>
 
 <h5>Version 0.4.1, 2013-12-18</h5>
@@ -859,14 +860,15 @@ In this example the eddy current losses are implemented in two different ways. C
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"),Text(                  extent={{20,14},{100,6}},
+"),
+                Text(
+                  extent={{20,14},{100,6}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-")}),       experiment,
-            __Dymola_experimentSetupOutput);
+")}),       experiment);
         end IMC_DOL;
 
         model IMC_Inverter
@@ -1153,7 +1155,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"),Text(                  extent={{-66,10},{14,2}},
+"),
+                Text(
+                  extent={{-66,10},{14,2}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -1522,7 +1526,9 @@ Simulate for 1.5 seconds and plot (versus time):
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),Text(                  extent={{20,-4},{100,-12}},
+"),
+                Text(
+                  extent={{20,-4},{100,-12}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -1680,6 +1686,7 @@ Simulate for 1.5 seconds and plot (versus time):
             Js=smpmData.Jr,
             TsOperational=293.15,
             alpha20s=smpmData.alpha20s,
+            phiMechanical(start=0),
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15)
             annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
@@ -1789,8 +1796,9 @@ Simulate for 1.5 seconds and plot (versus time):
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics={Rectangle(
+            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}),
+                                 graphics={Rectangle(
                           extent={{-90,-2},{90,-100}},
                           lineColor={0,0,0},
                           pattern=LinePattern.Dash,
@@ -1801,8 +1809,7 @@ Simulate for 1.5 seconds and plot (versus time):
                           pattern=LinePattern.Dash,
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid)}),
-            experiment(__Dymola_NumberOfIntervals=5000),
-            __Dymola_experimentSetupOutput);
+            experiment(StopTime=1,Interval=2E-4));
         end SMPM_Mains;
 
         model SMPM_OpenCircuit
@@ -1961,8 +1968,7 @@ Simulate for 1.5 seconds and plot (versus time):
                           lineColor={0,0,0},
                           pattern=LinePattern.Dash,
                           fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid)}),
-            __Dymola_experimentSetupOutput);
+                          fillPattern=FillPattern.Solid)}));
         end SMPM_OpenCircuit;
 
         model SMPM_CurrentSource
@@ -2672,7 +2678,9 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),Text(                  extent={{20,-10},{100,-18}},
+"),
+                Text(
+                  extent={{20,-10},{100,-18}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -3670,7 +3678,7 @@ This is a simple short cut branch.
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics));
     end Crossing;
-    annotation (DymolaStoredErrors, Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
 located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components\">Machines.Components</a>.</p>
 </html>"));
@@ -6338,8 +6346,6 @@ The output voltages may serve as inputs for complex voltage sources with phase i
 
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics));
     end VfController;
 
@@ -6665,10 +6671,7 @@ The model output can be used to feed a quasi static current source with phase in
                 {100,100}}), graphics));
     end CurrentController;
   end Utilities;
-  annotation (
-    versionDate="2013-12-18 ",
-    versionBuild=3,
-    Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 Copyright &copy; 2013-2014, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
