@@ -1686,7 +1686,7 @@ Simulate for 1.5 seconds and plot (versus time):
             Js=smpmData.Jr,
             TsOperational=293.15,
             alpha20s=smpmData.alpha20s,
-            phiMechanical(start=0),
+            phiMechanical(start=0, fixed=true),
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15)
             annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
