@@ -262,6 +262,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,70})));
+
         Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource
           voltageSource_m(
           m=m,
@@ -272,6 +273,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,-30})));
+
         Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor
           resistor_e(m=m, R_ref=fill(R*m/3, m))
           annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
@@ -389,6 +391,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,60})));
+
         Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource
           sineVoltage_m(
           m=m,
@@ -399,6 +402,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,-30})));
+
         Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor
           resistor_e(m=m, R_ref=fill(R*m/3, m)) annotation (Placement(
               transformation(
@@ -847,34 +851,29 @@ In this example the eddy current losses are implemented in two different ways. C
               color={85,170,255},
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}}), graphics={
-                Rectangle(
-                  extent={{-100,98},{100,4}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.Dash),
-                Rectangle(
-                  extent={{-100,-2},{100,-92}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.Dash),
-                Text(
-                  extent={{20,-6},{100,-14}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  textStyle={TextStyle.Bold},
-                  textString="%m phase transient
-"),
-                Text(
-                  extent={{20,14},{100,6}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  textStyle={TextStyle.Bold},
-                  textString="%m phase QS
+                  extent={{-100,-100},{100,100}}), graphics={Rectangle(
+                          extent={{-100,98},{100,4}},
+                          lineColor={0,0,255},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          pattern=LinePattern.Dash),Rectangle(
+                          extent={{-100,-2},{100,-92}},
+                          lineColor={0,0,255},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          pattern=LinePattern.Dash),Text(
+                          extent={{20,-6},{100,-14}},
+                          lineColor={0,0,0},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          textStyle={TextStyle.Bold},
+                          textString="%m phase transient
+"),Text(                  extent={{20,14},{100,6}},
+                          lineColor={0,0,0},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          textStyle={TextStyle.Bold},
+                          textString="%m phase QS
 ")}), experiment);
         end IMC_DOL;
 
@@ -1144,34 +1143,29 @@ Simulate for 1.5 seconds and plot (versus time):
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </HTML>"),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics={
-                Rectangle(
-                  extent={{-74,-2},{100,-100}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.Dash),
-                Rectangle(
-                  extent={{-74,100},{100,2}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.Dash),
-                Text(
-                  extent={{20,-6},{100,-14}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  textStyle={TextStyle.Bold},
-                  textString="%m phase transient
-"),
-                Text(
-                  extent={{-66,10},{14,2}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  textStyle={TextStyle.Bold},
-                  textString="%m phase QS
+                    {100,100}}), graphics={Rectangle(
+                          extent={{-74,-2},{100,-100}},
+                          lineColor={0,0,255},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          pattern=LinePattern.Dash),Rectangle(
+                          extent={{-74,100},{100,2}},
+                          lineColor={0,0,255},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          pattern=LinePattern.Dash),Text(
+                          extent={{20,-6},{100,-14}},
+                          lineColor={0,0,0},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          textStyle={TextStyle.Bold},
+                          textString="%m phase transient
+"),Text(                  extent={{-66,10},{14,2}},
+                          lineColor={0,0,0},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          textStyle={TextStyle.Bold},
+                          textString="%m phase QS
 ")}));
         end IMC_Inverter;
 
@@ -1519,34 +1513,29 @@ Simulate for 1.5 seconds and plot (versus time):
 </ul>
 </HTML>"),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics={
-                Rectangle(
-                  extent={{-100,100},{100,2}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.Dash),
-                Rectangle(
-                  extent={{-100,-2},{100,-100}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.Dash),
-                Text(
-                  extent={{20,12},{100,4}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  textStyle={TextStyle.Bold},
-                  textString="%m phase QS
-"),
-                Text(
-                  extent={{20,-4},{100,-12}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  textStyle={TextStyle.Bold},
-                  textString="%m phase transient
+                    {100,100}}), graphics={Rectangle(
+                          extent={{-100,100},{100,2}},
+                          lineColor={0,0,255},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          pattern=LinePattern.Dash),Rectangle(
+                          extent={{-100,-2},{100,-100}},
+                          lineColor={0,0,255},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          pattern=LinePattern.Dash),Text(
+                          extent={{20,12},{100,4}},
+                          lineColor={0,0,0},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          textStyle={TextStyle.Bold},
+                          textString="%m phase QS
+"),Text(                  extent={{20,-4},{100,-12}},
+                          lineColor={0,0,0},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          textStyle={TextStyle.Bold},
+                          textString="%m phase transient
 ")}));
         end IMS_Start;
       end InductionMachines;
@@ -1622,6 +1611,7 @@ Simulate for 1.5 seconds and plot (versus time):
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15)
             annotation (Placement(transformation(extent={{-10,30},{10,50}})));
+
           Modelica.Mechanics.Rotational.Components.Inertia loadInertiaMQS(J=
                 J_Load) annotation (Placement(transformation(extent={{20,30},{
                     40,50}}, rotation=0)));
@@ -1705,6 +1695,7 @@ Simulate for 1.5 seconds and plot (versus time):
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15)
             annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
+
           Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=
                 J_Load) annotation (Placement(transformation(extent={{20,-70},{
                     40,-50}}, rotation=0)));
@@ -1860,6 +1851,7 @@ Simulate for 1.5 seconds and plot (versus time):
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={
                     {-10,20},{10,40}}, rotation=0)));
+
           Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(
             useSupport=false,
             w_fixed(displayUnit="rad/s") = 2*pi*smpmData.fsNominal/smpmData.p,
@@ -1912,6 +1904,7 @@ Simulate for 1.5 seconds and plot (versus time):
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={
                     {-10,-50},{10,-30}}, rotation=0)));
+
           Modelica.Electrical.MultiPhase.Basic.Star star(m=m) annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
@@ -1975,16 +1968,16 @@ Simulate for 1.5 seconds and plot (versus time):
 </html>"),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Rectangle(
-                  extent={{-60,-4},{40,-80}},
-                  lineColor={0,0,0},
-                  pattern=LinePattern.Dash,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid), Rectangle(
-                  extent={{-60,80},{40,4}},
-                  lineColor={0,0,0},
-                  pattern=LinePattern.Dash,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid)}));
+                          extent={{-60,-4},{40,-80}},
+                          lineColor={0,0,0},
+                          pattern=LinePattern.Dash,
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid),Rectangle(
+                          extent={{-60,80},{40,4}},
+                          lineColor={0,0,0},
+                          pattern=LinePattern.Dash,
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid)}));
         end SMPM_OpenCircuit;
 
         model SMPM_CurrentSource
@@ -2031,26 +2024,26 @@ Simulate for 1.5 seconds and plot (versus time):
             TrRef=smpmData.TrRef,
             alpha20r=smpmData.alpha20r,
             permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters)
-            annotation (Placement(transformation(extent={{-10,-94},{10,-74}},
+            annotation (Placement(transformation(extent={{-10,-92},{10,-72}},
                   rotation=0)));
           Modelica.Electrical.MultiPhase.Sources.SignalCurrent signalCurrent(
               final m=m) annotation (Placement(transformation(
-                origin={0,-20},
+                origin={0,-18},
                 extent={{-10,10},{10,-10}},
                 rotation=270)));
           Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation
             (Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=90,
-                origin={40,-20})));
+                origin={40,-18})));
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
-                origin={40,-40},
+                origin={40,-38},
                 extent={{-10,-10},{10,10}},
                 rotation=0)));
           Modelica.Electrical.Machines.Utilities.CurrentController
-            currentController(p=smpm.p) annotation (Placement(transformation(
-                  extent={{-50,-30},{-30,-10}})));
+            currentController(p=smpm.p)
+            annotation (Placement(transformation(extent={{-50,-28},{-30,-8}})));
           Modelica.Blocks.Sources.Constant iq(k=84.6) annotation (Placement(
                 transformation(extent={{-100,-30},{-80,-10}})));
           Modelica.Blocks.Sources.Constant id(k=-53.5)
@@ -2059,44 +2052,44 @@ Simulate for 1.5 seconds and plot (versus time):
             voltageQuasiRMSSensor annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
-                origin={-20,-60})));
+                origin={-20,-58})));
           Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m)
             annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=180,
-                origin={-40,-60})));
+                origin={-40,-58})));
           Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
                 transformation(
-                origin={-50,-82},
+                origin={-50,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=0)));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
               terminalConnection="Y") annotation (Placement(transformation(
-                  extent={{-10,-74},{10,-54}},rotation=0)));
+                  extent={{-10,-72},{10,-52}},rotation=0)));
           Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
             rotorDisplacementAngle(p=smpm.p) annotation (Placement(
                 transformation(
-                origin={30,-84},
+                origin={30,-82},
                 extent={{-10,10},{10,-10}},
                 rotation=270)));
           Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
             annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=90,
-                origin={20,-54})));
+                origin={20,-52})));
           Modelica.Mechanics.Rotational.Components.Inertia inertiaLoad(J=0.29)
-            annotation (Placement(transformation(extent={{40,-94},{60,-74}})));
+            annotation (Placement(transformation(extent={{40,-92},{60,-72}})));
           Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
             quadraticSpeedDependentTorque(tau_nominal=-181.4, w_nominal(
                 displayUnit="rpm") = 157.07963267949)
-            annotation (Placement(transformation(extent={{90,-94},{70,-74}})));
+            annotation (Placement(transformation(extent={{90,-92},{70,-72}})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
             smpmData(useDamperCage=false)
-            annotation (Placement(transformation(extent={{70,-20},{90,0}})));
+            annotation (Placement(transformation(extent={{70,-18},{90,2}})));
           Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
             currentQuasiRMSSensor annotation (Placement(transformation(
-                origin={0,-50},
+                origin={0,-48},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationaryFundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
@@ -2129,6 +2122,7 @@ Simulate for 1.5 seconds and plot (versus time):
             alpha20r=smpmData.alpha20r,
             TrOperational=293.15) annotation (Placement(transformation(extent={
                     {-10,24},{10,44}}, rotation=0)));
+
           Modelica.Mechanics.Rotational.Components.Inertia inertiaLoadQS(J=0.29)
             annotation (Placement(transformation(extent={{40,24},{60,44}})));
           Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
@@ -2181,82 +2175,82 @@ Simulate for 1.5 seconds and plot (versus time):
                 origin={20,84})));
         equation
           connect(star.pin_n, ground.p)
-            annotation (Line(points={{40,-30},{40,-30}}, color={0,0,255}));
+            annotation (Line(points={{40,-28},{40,-28}}, color={0,0,255}));
           connect(rotorDisplacementAngle.plug_n, smpm.plug_sn) annotation (Line(
-                points={{36,-74},{36,-68},{-6,-68},{-6,-74}}, color={0,0,255}));
+                points={{36,-72},{36,-66},{-6,-66},{-6,-72}}, color={0,0,255}));
           connect(rotorDisplacementAngle.plug_p, smpm.plug_sp)
-            annotation (Line(points={{24,-74},{6,-74}}, color={0,0,255}));
+            annotation (Line(points={{24,-72},{6,-72}}, color={0,0,255}));
           connect(terminalBox.plug_sn, smpm.plug_sn) annotation (Line(
-              points={{-6,-74},{-6,-74}},
+              points={{-6,-72},{-6,-72}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(terminalBox.plug_sp, smpm.plug_sp) annotation (Line(
-              points={{6,-74},{6,-74}},
+              points={{6,-72},{6,-72}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
-              points={{10,-84},{20,-84}},
+              points={{10,-82},{20,-82}},
               color={0,0,0},
               smooth=Smooth.None));
           connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
-              points={{0,-10},{40,-10}},
+              points={{0,-8},{40,-8}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(angleSensor.flange, rotorDisplacementAngle.flange)
             annotation (Line(
-              points={{20,-64},{20,-84}},
+              points={{20,-62},{20,-82}},
               color={0,0,0},
               smooth=Smooth.None));
           connect(angleSensor.phi, currentController.phi) annotation (Line(
-              points={{20,-43},{20,-38},{-40,-38},{-40,-32}},
+              points={{20,-41},{20,-36},{-40,-36},{-40,-30}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(id.y, currentController.id_rms) annotation (Line(
-              points={{-79,20},{-74,20},{-74,-14},{-52,-14}},
+              points={{-79,20},{-74,20},{-74,-12},{-52,-12}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(iq.y, currentController.iq_rms) annotation (Line(
-              points={{-79,-20},{-70,-20},{-70,-26},{-52,-26}},
+              points={{-79,-20},{-70,-20},{-70,-24},{-52,-24}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
-              points={{-50,-72},{-9,-72}},
+              points={{-50,-70},{-9,-70}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply)
             annotation (Line(
-              points={{-10,-60},{0,-60},{0,-72}},
+              points={{-10,-58},{0,-58},{0,-70}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
-              points={{-30,-60},{-30,-60}},
+              points={{-30,-58},{-30,-58}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(starM.pin_n, groundM.p) annotation (Line(
-              points={{-50,-60},{-50,-72}},
+              points={{-50,-58},{-50,-70}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(currentController.y, signalCurrent.i) annotation (Line(
-              points={{-29,-20},{-7,-20}},
+              points={{-29,-18},{-7,-18}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
             annotation (Line(
-              points={{70,-84},{60,-84}},
+              points={{70,-82},{60,-82}},
               color={0,0,0},
               smooth=Smooth.None));
           connect(signalCurrent.plug_n, currentQuasiRMSSensor.plug_p)
             annotation (Line(
-              points={{0,-30},{0,-40}},
+              points={{0,-28},{0,-38}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
             annotation (Line(
-              points={{0,-60},{-10,-60}},
+              points={{0,-58},{-10,-58}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(smpm.flange, inertiaLoad.flange_a) annotation (Line(
-              points={{10,-84},{10,-90},{20,-90},{20,-84},{40,-84}},
+              points={{10,-82},{10,-88},{20,-88},{20,-82},{40,-82}},
               color={0,0,0},
               smooth=Smooth.None));
           connect(quadraticSpeedDependentTorqueQS.flange, inertiaLoadQS.flange_b)
@@ -2353,7 +2347,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Solid,
                   pattern=LinePattern.Dash), Rectangle(
-                  extent={{-64,10},{100,-102}},
+                  extent={{-64,12},{100,-100}},
                   lineColor={0,0,0},
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Solid,
@@ -2533,6 +2527,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             TeSpecification=293.15,
             TeRef=293.15)
             annotation (Placement(transformation(extent={{70,70},{90,90}})));
+
           Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource
             voltageSourceQS(
             m=m,
@@ -2683,34 +2678,29 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
 </ul>
 </HTML>"),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics={
-                Rectangle(
-                  extent={{-100,-6},{100,-96}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.Dash),
-                Rectangle(
-                  extent={{-100,94},{100,0}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.Dash),
-                Text(
-                  extent={{20,10},{100,2}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  textStyle={TextStyle.Bold},
-                  textString="%m phase QS
-"),
-                Text(
-                  extent={{20,-10},{100,-18}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
-                  textStyle={TextStyle.Bold},
-                  textString="%m phase transient
+                    {100,100}}), graphics={Rectangle(
+                          extent={{-100,-6},{100,-96}},
+                          lineColor={0,0,255},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          pattern=LinePattern.Dash),Rectangle(
+                          extent={{-100,94},{100,0}},
+                          lineColor={0,0,255},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          pattern=LinePattern.Dash),Text(
+                          extent={{20,10},{100,2}},
+                          lineColor={0,0,0},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          textStyle={TextStyle.Bold},
+                          textString="%m phase QS
+"),Text(                  extent={{20,-10},{100,-18}},
+                          lineColor={0,0,0},
+                          fillColor={255,255,170},
+                          fillPattern=FillPattern.Solid,
+                          textStyle={TextStyle.Bold},
+                          textString="%m phase transient
 ")}));
         end SMEE_Generator;
 
@@ -2929,7 +2919,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
               color={0,0,127},
               smooth=Smooth.None));
           connect(iq.y, currentController.iq_rms) annotation (Line(
-              points={{-79,-20},{-68,-20},{-68,-24},{-52,-24}},
+              points={{-79,-20},{-70,-20},{-70,-24},{-52,-24}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(groundM.p, terminalBox.starpoint) annotation (Line(
@@ -3005,7 +2995,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
               color={0,0,127},
               smooth=Smooth.None));
           connect(iq.y, currentController1.iq_rms) annotation (Line(
-              points={{-79,-20},{-68,-20},{-68,78},{-52,78}},
+              points={{-79,-20},{-70,-20},{-70,78},{-52,78}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(currentController1.gamma, referenceCurrentSource.gamma)
@@ -3838,6 +3828,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
             final powerRotor=
                 Electrical.QuasiStationary.MultiPhase.Functions.activePower(vr,
                 ir)));
+
         Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
           plug_rn(final m=mr) "Negative plug of rotor" annotation (Placement(
               transformation(extent={{-110,-50},{-90,-70}}, rotation=0)));
@@ -3937,8 +3928,8 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
         annotation (
           defaultComponentName="ims",
           Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}}, color={85,
-                    170,255}), Line(points={{-100,-50},{-100,-20},{-60,-20}},
-                  color={85,170,255})}),
+                170,255}),Line(points={{-100,-50},{-100,-20},{-60,-20}}, color=
+                {85,170,255})}),
           Documentation(info="<html>
 <p>
 Resistances and stray inductances of the machine always refer to either stator or rotor. The symmetry of the stator, rotor and suppy are assumed. The number of stator and rotor phases may be different. The machine models take the following loss effects into account:
@@ -4396,18 +4387,14 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             smooth=Smooth.None));
         annotation (
           defaultComponentName="smee",
-          Icon(graphics={
-              Ellipse(extent={{-134,34},{-66,-34}}, lineColor={85,170,255}),
-              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
-                    255}),
-              Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
-                    1},{-110,-4}}, color={0,0,255}),
-              Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
-                    {-90,-4}}, color={0,0,255}),
-              Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
-                    -4}}, color={0,0,255}),
-              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
-                    0,255})}),
+          Icon(graphics={Ellipse(extent={{-134,34},{-66,-34}}, lineColor={85,
+                170,255}),Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}},
+                color={0,0,255}),Line(points={{-130,-4},{-129,1},{-125,5},{-120,
+                6},{-115,5},{-111,1},{-110,-4}}, color={0,0,255}),Line(points={
+                {-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},{-90,-4}},
+                color={0,0,255}),Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},
+                {-75,5},{-71,1},{-70,-4}}, color={0,0,255}),Line(points={{-100,
+                -50},{-100,-20},{-70,-20},{-70,-2}}, color={0,0,255})}),
           Documentation(info="<html>
 <p>
 Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the suppyl are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
@@ -6093,6 +6080,7 @@ The partial two port elementary model extends from the partial two port model an
         final lossPowerStatorCore=stator.core.lossPower,
         final lossPowerStrayLoad=strayLoad.lossPower,
         final lossPowerFriction=friction.lossPower) "Power balance";
+
       // Stator voltages and currents
       output Modelica.SIunits.ComplexVoltage vs[m]=plug_sp.pin.v - plug_sn.pin.v
         "Stator instantaneous voltages";
@@ -6350,41 +6338,36 @@ The partial two port elementary model extends from the partial two port model an
         BasePhase - pi/2, m));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false,extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,-100},{0,60},{80,60}}, color={0,0,255}),
-            Line(
-              points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
-                  65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},{-23.6,61},{-18.6,
-                  52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},
-                  {25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},
-                  {50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
-              color={192,192,192},
-              smooth=Smooth.Bezier),
-            Line(
-              points={{-40,0},{-30.2,29.9},{-23.8,46.5},{-18.2,58.1},{-13.3,
-                  65.2},{-8.3,69.2},{-3.4,69.8},{1.5,67},{6.4,61},{11.4,52},{17,
-                  38.6},{24.02,18.6},{38.79,-26.9},{45.1,-44},{50.8,-56.2},{
-                  55.7,-64},{60.6,-68.6},{65.5,-70},{70.5,-67.9},{75.4,-62.5},{
-                  80.3,-54.1},{85.9,-41.3},{93,-21.7},{100,0}},
-              color={192,192,192},
-              smooth=Smooth.Bezier),
-            Line(
-              points={{-100,0},{-90.2,29.9},{-83.8,46.5},{-78.2,58.1},{-73.3,
-                  65.2},{-68.3,69.2},{-63.4,69.8},{-58.5,67},{-53.6,61},{-48.6,
-                  52},{-43,38.6},{-35.98,18.6},{-21.21,-26.9},{-14.9,-44},{-9.2,
-                  -56.2},{-4.3,-64},{0.6,-68.6},{5.5,-70},{10.5,-67.9},{15.4,-62.5},
-                  {20.3,-54.1},{25.9,-41.3},{33,-21.7},{40,0}},
-              color={192,192,192},
-              smooth=Smooth.Bezier),
-            Text(
-              extent={{-150,150},{150,110}},
-              textString="%name",
-              lineColor={0,0,255})}),
+                100,100}}), graphics={Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-100,-100},{0,60},
+              {80,60}}, color={0,0,255}),Line(
+                  points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
+                65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},{-23.6,61},{-18.6,52},
+                {-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},{
+                25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},{
+                50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
+                  color={192,192,192},
+                  smooth=Smooth.Bezier),Line(
+                  points={{-40,0},{-30.2,29.9},{-23.8,46.5},{-18.2,58.1},{-13.3,
+                65.2},{-8.3,69.2},{-3.4,69.8},{1.5,67},{6.4,61},{11.4,52},{17,
+                38.6},{24.02,18.6},{38.79,-26.9},{45.1,-44},{50.8,-56.2},{55.7,
+                -64},{60.6,-68.6},{65.5,-70},{70.5,-67.9},{75.4,-62.5},{80.3,-54.1},
+                {85.9,-41.3},{93,-21.7},{100,0}},
+                  color={192,192,192},
+                  smooth=Smooth.Bezier),Line(
+                  points={{-100,0},{-90.2,29.9},{-83.8,46.5},{-78.2,58.1},{-73.3,
+                65.2},{-68.3,69.2},{-63.4,69.8},{-58.5,67},{-53.6,61},{-48.6,52},
+                {-43,38.6},{-35.98,18.6},{-21.21,-26.9},{-14.9,-44},{-9.2,-56.2},
+                {-4.3,-64},{0.6,-68.6},{5.5,-70},{10.5,-67.9},{15.4,-62.5},{
+                20.3,-54.1},{25.9,-41.3},{33,-21.7},{40,0}},
+                  color={192,192,192},
+                  smooth=Smooth.Bezier),Text(
+                  extent={{-150,150},{150,110}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An 
@@ -6612,23 +6595,20 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-            Rectangle(
-              extent={{26,40},{54,-40}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{100,60},{-40,60},{-40,40}}, color={0,0,255}),
-            Line(points={{100,-60},{-40,-60},{-40,-40}}, color={0,0,255}),
-            Ellipse(extent={{-44,40},{-36,32}}, lineColor={0,0,255}),
-            Ellipse(extent={{-44,-32},{-36,-40}}, lineColor={0,0,255}),
-            Line(points={{-80,40},{-42,-34}}, color={0,0,255}),
-            Line(points={{40,40},{40,42},{40,60}}, color={0,0,255}),
-            Line(points={{40,-40},{40,-60}}, color={0,0,255}),
-            Line(points={{10,-80},{70,-80}}, color={0,0,255}),
-            Line(points={{40,-60},{40,-80}}, color={0,0,255}),
-            Line(points={{20,-90},{60,-90}}, color={0,0,255}),
-            Line(points={{30,-100},{50,-100}}, color={0,0,255})}),
+            grid={2,2}), graphics={Rectangle(
+                  extent={{26,40},{54,-40}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{100,60},{-40,60},
+              {-40,40}}, color={0,0,255}),Line(points={{100,-60},{-40,-60},{-40,
+              -40}}, color={0,0,255}),Ellipse(extent={{-44,40},{-36,32}},
+              lineColor={0,0,255}),Ellipse(extent={{-44,-32},{-36,-40}},
+              lineColor={0,0,255}),Line(points={{-80,40},{-42,-34}}, color={0,0,
+              255}),Line(points={{40,40},{40,42},{40,60}}, color={0,0,255}),
+              Line(points={{40,-40},{40,-60}}, color={0,0,255}),Line(points={{
+              10,-80},{70,-80}}, color={0,0,255}),Line(points={{40,-60},{40,-80}},
+              color={0,0,255}),Line(points={{20,-90},{60,-90}}, color={0,0,255}),
+              Line(points={{30,-100},{50,-100}}, color={0,0,255})}),
         Documentation(info="<HTML>
 <p>Switched rheostat, used for starting induction motors with slipring rotor:</p>
 <p>The external rotor resistance <code>RStart</code> is shortened at time <code>tStart</code>.</p>
