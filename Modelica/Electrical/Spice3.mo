@@ -8289,10 +8289,39 @@ on the model behaviour.
         Modelica.SIunits.Current cur "Voltage";
         Integer n;
 
-        DEVqmeyer in_qm "Qmeyer capacitances";
+        DEVqmeyer in_qm(
+        qm_capgb = 0,
+        qm_capgs =  0,
+        qm_capgd =  0,
+        qm_qgs =  0,
+        qm_qgb =  0,
+        qm_qgd =  0,
+        qm_vgs =  0,
+        qm_vgb =  0,
+        qm_vgd =  0) "Qmeyer capacitances";
         Spice3.Internal.Mos2.Mos2Calc
                       int_c "Record Mos2Calc";
-        Spice3.Internal.Mosfet.Mosfet int_m "Record Mosfet";
+        Spice3.Internal.Mosfet.Mosfet int_m(
+        m_len =          1e-4,
+        m_width =        1e-4,
+        m_drainArea =    Spice3.Internal.SpiceConstants.CKTdefaultMosAD,
+        m_sourceArea =   Spice3.Internal.SpiceConstants.CKTdefaultMosAS,
+        m_drainSquares = 1.0,
+        m_sourceSquares= 1.0,
+        m_drainPerimeter=0.0,
+        m_sourcePerimeter= 0.0,
+        m_dICVDS =         0.0,
+        m_dICVDSIsGiven =  0.0,
+        m_dICVGS =         0.0,
+        m_dICVGSIsGiven =  0.0,
+        m_dICVBS =         0.0,
+        m_dICVBSIsGiven =  0.0,
+        m_off =            0,
+        m_bPMOS =          0,
+        m_nLevel =         1,
+        m_drainPerimiter = 0.0,
+        m_sourcePerimiter= 0.0,
+        m_uic =            false) "Record Mosfet";
         Real hlp;
       algorithm
         int_c := in_c;
