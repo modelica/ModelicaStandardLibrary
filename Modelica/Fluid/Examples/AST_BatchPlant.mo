@@ -1959,6 +1959,7 @@ Implemented trace substances and missing equation for outflow of multi substance
           points={{-39,70},{-24,70},{-24,60},{-12,60}},
           color={0,0,127},
           smooth=Smooth.None));
+      annotation (experiment(StopTime=100));
     end OneTank;
 
     model TwoTanks
@@ -1966,7 +1967,8 @@ Implemented trace substances and missing equation for outflow of multi substance
       extends Modelica.Icons.Example;
       parameter Boolean stiffCharacteristicForEmptyPort=true;
 
-      inner Modelica.Fluid.System system
+      inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+          massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                             annotation (Placement(transformation(extent={{40,62},
                 {60,82}}, rotation=0)));
       Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1(
@@ -2005,6 +2007,7 @@ Implemented trace substances and missing equation for outflow of multi substance
               -20},{-30,-20}}, color={0,127,255}));
       connect(pipe.port_b, tank2.ports[1]) annotation (Line(points={{-10,-20},{20,
               -20},{20,-1}}, color={0,127,255}));
+      annotation (experiment(StopTime=100));
     end TwoTanks;
 
     model TankWithEmptyingPipe1
@@ -2019,7 +2022,8 @@ Implemented trace substances and missing equation for outflow of multi substance
         m_flow=50,
         T=system.T_ambient)
         annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
-      inner Modelica.Fluid.System system
+      inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+          massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed(nPorts=1,
@@ -2078,6 +2082,7 @@ Implemented trace substances and missing equation for outflow of multi substance
                                color={0,127,255}));
       connect(pipe.port_a, tank1.ports[2]) annotation (Line(points={{40,0},{40,-28},
               {-18,-28},{-18,-20},{-18,-21}},                color={0,127,255}));
+      annotation (experiment(StopTime=35));
     end TankWithEmptyingPipe1;
 
     model TankWithEmptyingPipe2
@@ -2085,7 +2090,8 @@ Implemented trace substances and missing equation for outflow of multi substance
       import Modelica.SIunits.Conversions.from_bar;
       extends Modelica.Icons.Example;
 
-      inner Modelica.Fluid.System system
+      inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+          massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed(nPorts=1,
@@ -2147,6 +2153,7 @@ Implemented trace substances and missing equation for outflow of multi substance
               -18,-21},{-18,-40},{30,-40},{30,-50}}, color={0,127,255}));
       connect(ambient_fixed1.ports[1], pipe2.port_a) annotation (Line(points={{20,-90},
               {30,-90},{30,-70}}, color={0,127,255}));
+      annotation (experiment(StopTime=120));
     end TankWithEmptyingPipe2;
 
     model TanksWithEmptyingPipe1
@@ -2154,7 +2161,8 @@ Implemented trace substances and missing equation for outflow of multi substance
       import Modelica.SIunits.Conversions.from_bar;
       extends Modelica.Icons.Example;
 
-      inner Modelica.Fluid.System system
+      inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+          massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed1(nPorts=1,
@@ -2246,6 +2254,7 @@ Implemented trace substances and missing equation for outflow of multi substance
               255}));
       connect(pipe3.port_b, tank2.ports[2]) annotation (Line(points={{0,20},{10,
               20},{10,-8},{38,-8},{38,0},{42,0},{42,-1}}, color={0,127,255}));
+      annotation (experiment(StopTime=120));
     end TanksWithEmptyingPipe1;
 
     model TanksWithEmptyingPipe2
@@ -2258,7 +2267,8 @@ Implemented trace substances and missing equation for outflow of multi substance
         Modelica.Media.Interfaces.PartialMedium "Medium in the component"
           annotation (choicesAllMatching = true);
 
-      inner Modelica.Fluid.System system
+      inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+          massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                             annotation (Placement(transformation(extent={{-100,60},
                 {-80,80}}, rotation=0)));
       Modelica.Fluid.Sources.Boundary_pT ambient_fixed(nPorts=1,
@@ -2372,6 +2382,7 @@ Implemented trace substances and missing equation for outflow of multi substance
           points={{0,-12},{0,9}},
           color={0,127,255},
           smooth=Smooth.None));
+      annotation (experiment(StopTime=120));
     end TanksWithEmptyingPipe2;
   end Test;
   annotation (preferredView="info",Documentation(info="<html>
