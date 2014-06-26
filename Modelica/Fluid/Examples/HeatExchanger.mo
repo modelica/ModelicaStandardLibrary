@@ -282,6 +282,8 @@ package HeatExchanger "Demo of a heat exchanger model"
         final perimeter=perimeter_1,
         final crossArea=crossArea_1,
         final roughness=roughness_1,
+        final p_a_start=p_a_start1,
+        final p_b_start=p_b_start1,
         redeclare final model FlowModel = FlowModel_1,
         final modelStructure=modelStructure_1)              annotation (Placement(transformation(extent={{-40,-80},
                 {20,-20}},        rotation=0)));
@@ -305,7 +307,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         final m_flow_start=m_flow_start_2,
         final perimeter=perimeter_2,
         final crossArea=crossArea_2,
-        final p_a_start=p_a_start1,
+        final p_a_start=p_a_start2,
         final p_b_start=p_b_start2,
         final roughness=roughness_2,
         redeclare final model FlowModel = FlowModel_2,
