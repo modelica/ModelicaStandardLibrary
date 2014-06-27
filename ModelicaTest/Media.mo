@@ -82,33 +82,34 @@ package Media "Test models for Modelica.Media"
       Medium.SpecificEntropy s_is=Medium.specificEntropy(state_h_is);
       Real err_h_is=abs(s - s_is);
       constant Real eps=1e-10;
+      constant Real t_min = 1e-6;
     equation
       medium.p = p;
       medium.h = h;
       medium.Xi = Medium.reference_X[1:Medium.nXi];
 
       // When iterating at the initial time the asserts below could be violated.
-      // To avoid an error, the check is only performed at the end of the simulation.
-      when terminal() then
-        assert(err_T <= eps, "Error: abs(medium.T - T) > eps\n" + "(err_T = "
+      // To avoid an error, the check is only performed shortly after initialization.
+      if time > t_min then
+        assert(err_T <= eps, "Error: abs(medium.T - T) > eps " + "(err_T = "
            + String(err_T) + ", eps = " + String(eps) + ")");
-      end when;
+      end if;
 
-      when terminal() then
-        assert(err_d <= eps, "Error: abs(medium.d - d) > eps" + "(err_d = " +
+      if time > t_min then
+        assert(err_d <= eps, "Error: abs(medium.d - d) > eps " + "(err_d = " +
           String(err_d) + ", eps = " + String(eps) + ")");
-      end when;
+      end if;
 
-      when terminal() then
-        assert(err_u <= eps, "Error: abs(medium.u - u) > eps" + "(err_u = " +
+      if time > t_min then
+        assert(err_u <= eps, "Error: abs(medium.u - u) > eps " + "(err_u = " +
           String(err_u) + ", eps = " + String(eps) + ")");
-      end when;
+      end if;
 
-      // when terminal() then
-      assert(err_h_is <= eps_h_is,
-        "Error: entropy not constant for isentropicEnthalpy" + "(err_h_is = "
-         + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
-      // end when;
+      if time > t_min then
+        assert(err_h_is <= eps_h_is,
+          "Error: entropy not constant for isentropicEnthalpy " + "(err_h_is = "
+           + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
+      end if;
     end PartialMediumFunctions;
 
     model DryAirNasa
