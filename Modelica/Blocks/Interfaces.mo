@@ -6,18 +6,15 @@ package Interfaces
 
   connector RealInput = input Real "'input Real' as connector" annotation (
     defaultComponentName="u",
-
     Icon(graphics={
       Polygon(
         lineColor={0,0,127},
         fillColor={0,0,127},
         fillPattern=FillPattern.Solid,
         points={{-100.0,100.0},{100.0,0.0},{-100.0,-100.0}})},
-
       coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}},
         preserveAspectRatio=true,
         initialScale=0.2)),
-
     Diagram(
       coordinateSystem(preserveAspectRatio=true,
         initialScale=0.2,
@@ -40,7 +37,6 @@ Connector with one input signal of type Real.
 
   connector RealOutput = output Real "'output Real' as connector" annotation (
     defaultComponentName="y",
-
     Icon(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}},
@@ -51,7 +47,6 @@ Connector with one input signal of type Real.
         fillColor={255,255,255},
         fillPattern=FillPattern.Solid,
         points={{-100.0,100.0},{100.0,0.0},{-100.0,-100.0}})}),
-
     Diagram(
       coordinateSystem(preserveAspectRatio=true,
         extent={{-100.0,-100.0},{100.0,100.0}},
@@ -621,11 +616,11 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
   partial block SVdiscrete "Discrete Single-Variable controller"
     extends DiscreteBlock;
 
-    Discrete.Sampler sampler_s(final samplePeriod=samplePeriod, final startTime
-        =startTime) annotation (Placement(transformation(extent={{-100,-10},{-80,
+    Discrete.Sampler sampler_s(final samplePeriod=samplePeriod, final startTime=
+         startTime) annotation (Placement(transformation(extent={{-100,-10},{-80,
               10}}, rotation=0)));
-    Discrete.Sampler sampler_m(final samplePeriod=samplePeriod, final startTime
-        =startTime) annotation (Placement(transformation(
+    Discrete.Sampler sampler_m(final samplePeriod=samplePeriod, final startTime=
+         startTime) annotation (Placement(transformation(
           origin={0,-90},
           extent={{-10,-10},{10,10}},
           rotation=90)));
@@ -1310,8 +1305,6 @@ has a 3D icon (e.g., used in Blocks.Logical library).
       annotation (Placement(transformation(extent={{-120,70},{-80,-70}})));
     Modelica.Blocks.Interfaces.BooleanOutput y "Boolean output signal"
       annotation (Placement(transformation(extent={{100,-15},{130,15}})));
-  initial equation
-    pre(u) = fill(false, nu);
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
