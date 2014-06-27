@@ -258,7 +258,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         s=s_wall,
         energyDynamics=energyDynamics,
         n=nNodes,
-        area_h=(crossArea_1 + crossArea_2)/2)
+        area_h=area_h)
         annotation (Placement(transformation(extent={{-29,-23},{9,35}},  rotation=
                0)));
 
