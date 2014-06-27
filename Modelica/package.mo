@@ -2423,6 +2423,32 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
+class Version_3_2_1_BugFixes "Version 3.2.1 with bug fixes"
+    extends Modelica.Icons.ReleaseNotes;
+annotation (Documentation(info="<html>
+<p>
+In this section bug fixes are summarized that have been incorporated
+for version 3.1-<b>build 3</b>:
+</p>
+
+<p><br>
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+that can lead to wrong simulation results):
+</p>
+
+<p>
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>xxx.</b></td></tr>
+  <tr><td valign=\"top\"> yyy </td>
+      <td valign=\"top\"> zzz </td>
+  </tr>
+
+</table>
+</p>
+
+</html>"));
+end Version_3_2_1_BugFixes;
+
 class Version_3_2_1 "Version 3.2.1 (August 14, 2013)"
   extends Modelica.Icons.ReleaseNotes;
 
