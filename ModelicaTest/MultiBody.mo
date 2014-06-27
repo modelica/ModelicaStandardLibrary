@@ -119,9 +119,9 @@ are present with annotation \"InineAfterIndexReduction = true\".
 
 <ol>
 <li> These functions are not inlined, the Pantelides algorithm
-     is applied and the equations are aymbolically differentiated.</li>
+     is applied and the equations are symbolically differentiated.</li>
 
-<li> The functions are inlined and further symbolic transoformation 
+<li> The functions are inlined and further symbolic transformation
      is performed (sorting the equations, dummy derivative method etc.. </li>
 </ol>
 
@@ -151,12 +151,12 @@ The model contains the following functions that have annotation
 The problem with (1) is that after inlining the functions with
 annotation \"InineAfterIndexReduction = true\", the equations are structurally singular, but the
 source of the singularity is now known. One remedy is to restart symbolic processing and to
-inline all functions with \"InineAfterIndexReduction = true\" before the Pantelides algorithm 
-is applied. In the model, this approach is in principal succeessful and the model would 
+inline all functions with \"InineAfterIndexReduction = true\" before the Pantelides algorithm
+is applied. In the model, this approach is in principal succeessful and the model would
 be structurally regular. However, the Move block is no longer working correctly if the Pantelides
-algorithm is appliwed with inlining. For this reason in MSL 3.2.1 build 3, the annotation
-\"InineAfterIndexReduction = true\" in the Move block has been replaced by 
-annotation \"Inine = false\". This results in slightly less efficient code, but is more robust
+algorithm is applied with inlining. For this reason in MSL 3.2.1 build 3, the annotation
+\"InineAfterIndexReduction = true\" in the Move block has been replaced by
+annotation \"Inline = false\". This results in slightly less efficient code, but is more robust
 in the situation at hand.
 </p>
 
