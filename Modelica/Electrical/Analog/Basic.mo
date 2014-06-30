@@ -481,7 +481,7 @@ end Conductor;
     parameter SI.Inductance L1(start=1) "Primary inductance";
     parameter SI.Inductance L2(start=1) "Secondary inductance";
     parameter SI.Inductance M(start=1) "Coupling inductance";
-    Real dv "Difference between voltage drop over primary inductor and 
+    Real dv "Difference between voltage drop over primary inductor and
     voltage drop over secondary inductor";
   equation
     v1 = L1*der(i1) + M*der(i2);

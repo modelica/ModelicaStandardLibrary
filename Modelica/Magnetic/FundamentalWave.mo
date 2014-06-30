@@ -335,7 +335,7 @@ for contributing his source code to this library.
 </p>
 
 <p>
-The main work has been performed 
+The main work has been performed
 </p>
 
 <p>
