@@ -21,7 +21,7 @@ package Icons "Library of icons"
             fillPattern=FillPattern.Solid,
             extent={{-12.5,-12.5},{12.5,12.5}})}),
                               Documentation(info="<html>
-<p>This icon indicate classes containing only documentation, intended for general description of, e.g., concepts and features of a package.</p>
+<p>This icon indicates classes containing only documentation, intended for general description of, e.g., concepts and features of a package.</p>
 </html>"));
   end Information;
   extends Icons.Package;
