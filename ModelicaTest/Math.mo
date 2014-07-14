@@ -39,7 +39,8 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
     import Modelica.Math.BooleanVectors;
-    input String logFile="ModelicaTestLog.txt" "Filename where the log is stored";
+    input String logFile="ModelicaTestLog.txt"
+      "Filename where the log is stored";
     output Boolean ok;
   protected
     Boolean b1[:]={true,true,true};
@@ -207,8 +208,8 @@ extends Modelica.Icons.ExamplesPackage;
   function Matrices2 "Test functions of Modelica.Math.Matrices"
     extends Modelica.Icons.Function;
     import Modelica.Math.Matrices;
-  //   input String logFile = "ModelicaTestLog.txt"
-  //     "Filename where the log is stored";
+       input String logFile = "ModelicaTestLog.txt"
+      "Filename where the log is stored";
     output Boolean ok=false;
   protected
     Real r;
