@@ -351,7 +351,7 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-01-03</h5>
+<h5>Version 3.2.2, 2014-07-21</h5>
 
 <ul>
 <li>Updated documentation of 
@@ -363,9 +363,10 @@ no. 829420.
 <ul>
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a></li>
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>
-   
 </ul>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
+<li>Restructured cage models with reluctance instead of inductance model according to ticket #1536; 
+the re-structuring of the model required to change the initial conditions of the included examples, since the number of rotor states is reduced by new implementation</li>
 </ul>
 
 <h5>Version 3.2.1, 2013-07-31</h5>
@@ -1246,7 +1247,8 @@ In this example the eddy current losses are implemented in two different ways. C
         aimcE.is = zeros(m);
         aimcE.ir = zeros(2);
         aimcM.is = zeros(m);
-        aimcM.ir[1:2] = zeros(2);
+        aimcM.rotorCage.electroMagneticConverter.Phi = Complex(0,0);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -1499,7 +1501,8 @@ Simulate for 1.5 seconds and plot (versus time):
         aimc3.is[1:2] = zeros(2);
         aimc3.ir[1:2] = zeros(2);
         aimcM.is[1:2] = zeros(2);
-        aimcM.ir[1:m - 1] = zeros(m - 1);
+        aimcM.rotorCage.electroMagneticConverter.Phi = Complex(0,0);
+
       equation
         connect(starM.pin_n, groundM.p)
                                       annotation (Line(points={{-90,72},{-90,70},
@@ -4655,7 +4658,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of rotor resistance" annotation (Dialog(
               group="Operational temperatures", enable=not useThermalPort));
-        output Modelica.SIunits.Current ir[m] = rotorCage.winding.plug_p.pin.i
+        output Modelica.SIunits.Current ir[m] = rotorCage.electroMagneticConverter.plug_p.pin.i
           "Rotor cage currents";
         Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding
           rotorCage(
@@ -5569,7 +5572,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
               rotation=90)));
         Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter
           electroMagneticConverter(final effectiveTurns=effectiveTurns, final
-            orientation=orientation) annotation (Placement(transformation(
+            orientation=orientation) "Winding"
+                                     annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}}, rotation=0)));
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if
           useHeatPort "Heat ports of winding resistor"
@@ -5600,7 +5604,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             smooth=Smooth.None));
         connect(electroMagneticConverter.port_p, reluctance.port_p) annotation (
            Line(
-            points={{10,10},{15,10},{15,10},{20,10},{20,10},{30,10}},
+            points={{10,10},{30,10}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(electroMagneticConverter.port_n, reluctance.port_n) annotation (
@@ -5694,7 +5698,8 @@ The single phase winding consists of a
           electroMagneticConverter(
           final m=m,
           final effectiveTurns=fill(effectiveTurns, m),
-          final orientation=Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)) annotation (
+          final orientation=Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+          "Symmetric winding"                                                                 annotation (
             Placement(transformation(extent={{-10,-40},{10,-20}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.ZeroInductor zeroInductor(final m=
               m, final Lzero=Lzero) "Zero sequence inductance of winding"
@@ -5976,6 +5981,352 @@ according to the following figure.
 
       model SymmetricMultiPhaseCageWinding "Symmetrical rotor cage"
         import Modelica.Constants.pi;
+        import Modelica;
+        extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+        parameter Integer m=3 "Number of phases";
+        parameter Boolean useHeatPort=false
+          "Enable / disable (=fixed temperatures) thermal port"
+          annotation (Evaluate=true);
+        parameter Modelica.SIunits.Resistance RRef
+          "Winding resistance per phase at TRef";
+        parameter Modelica.SIunits.Temperature TRef(start=293.15)
+          "Reference temperature of winding";
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20(start=0) "Temperature coefficient of winding at 20 degC";
+        final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
+            Modelica.Electrical.Machines.Thermal.convertAlpha(
+                  alpha20,
+                  TRef,
+                  293.15);
+        parameter Modelica.SIunits.Temperature TOperational(start=293.15)
+          "Operational temperature of winding"
+          annotation (Dialog(enable=not useHeatPort));
+        parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
+        parameter Real effectiveTurns=1 "Effective number of turns";
+        Modelica.SIunits.Current i[m] = resistor.i "Cage currents";
+        Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+          electroMagneticConverter(
+          final m=m,
+          final effectiveTurns=fill(effectiveTurns, m),
+          final orientation=
+              Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m))
+          "Symmetric winding" annotation (Placement(transformation(
+              origin={0,-10},
+              extent={{-10,-10},{10,10}},
+              rotation=90)));
+        Modelica.Electrical.MultiPhase.Basic.Resistor resistor(
+          final useHeatPort=useHeatPort,
+          final m=m,
+          final R=fill(RRef, m),
+          final T_ref=fill(TRef, m),
+          final alpha=fill(alphaRef, m),
+          final T=fill(TRef, m)) annotation (Placement(transformation(
+              origin={-20,-50},
+              extent={{10,10},{-10,-10}},
+              rotation=90)));
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+            Placement(transformation(extent={{30,-30},{50,-10}}, rotation=0)));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+              transformation(
+              origin={70,-20},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if
+          useHeatPort "Heat ports of winding resistor"
+          annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+        Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(
+            final m=m) if useHeatPort
+          "Connector of thermal rotor resistance heat ports"
+          annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
+        Modelica.Electrical.MultiPhase.Basic.Star starAuxiliary(final m=m)
+          annotation (Placement(transformation(extent={{30,-90},{50,-70}},
+                rotation=0)));
+        Modelica.Magnetic.FundamentalWave.Components.Reluctance strayReluctance(
+            final R_m(d=m*effectiveTurns^2/2/Lsigma, q=m*effectiveTurns^2/2/Lsigma))
+          "Stray reluctance equivalent to ideally coupled stray inductances"
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=0,
+              origin={0,20})));
+      equation
+        connect(port_p, electroMagneticConverter.port_p)
+          annotation (Line(points={{-100,0},{-10,0}}, color={255,128,0}));
+        connect(electroMagneticConverter.port_n, port_n) annotation (Line(
+              points={{10,-5.72459e-17},{100,-5.72459e-17},{100,0}}, color={255,
+                128,0}));
+        connect(ground.p, star.pin_n) annotation (Line(points={{60,-20},{56,-20},
+                {50,-20}}, color={0,0,255}));
+        connect(star.plug_p, electroMagneticConverter.plug_n) annotation (Line(
+            points={{30,-20},{10,-20}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(thermalCollector.port_a, resistor.heatPort) annotation (Line(
+            points={{-40,-70},{-40,-70},{-40,-50},{-30,-50}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(thermalCollector.port_b, heatPortWinding) annotation (Line(
+            points={{-40,-90},{-40,-100},{0,-100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
+            points={{-20,-60},{-20,-60},{-20,-80},{30,-80}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(strayReluctance.port_p, port_p) annotation (Line(
+            points={{-10,20},{-30,20},{-30,0},{-100,0}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(strayReluctance.port_n, port_n) annotation (Line(
+            points={{10,20},{30,20},{30,4.44089e-16},{100,4.44089e-16}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(electroMagneticConverter.plug_p, resistor.plug_p) annotation (
+            Line(
+            points={{-10,-20},{-20,-20},{-20,-40}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={Ellipse(
+                      extent={{-80,80},{80,-80}},
+                      lineColor={0,0,0},
+                      fillColor={175,175,175},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,76},{20,36}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,46},{68,6}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,-8},{68,-48}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,-36},{20,-76}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-68,-6},{-28,-46}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-66,50},{-26,10}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
+                0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
+                255,128,0}),Text(
+                      extent={{0,100},{0,140}},
+                      lineColor={0,0,255},
+                      textString="%name")}), Documentation(info="<html>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
+</p>
+<p>
+The symmetric rotor cage model of this library does not consist of rotor bars and end rings. Instead the symmetric cage is modeled by an equivalent symmetrical winding. The rotor cage model consists of
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. If the cage is modeled by equivalent stator winding parameters, the number of effective turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\">, has to be chosen equivalent to the effective number of stator turns.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+</p>
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                  100}}),            graphics));
+      end SymmetricMultiPhaseCageWinding;
+
+      model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
+        import Modelica;
+        extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+        parameter Boolean useHeatPort=false
+          "Enable / disable (=fixed temperatures) thermal port"
+          annotation (Evaluate=true);
+        parameter Modelica.Magnetic.FundamentalWave.Types.SalientResistance
+          RRef(d(start=1), q(start=1)) "Salient cage resistance";
+        parameter Modelica.SIunits.Temperature TRef(start=293.15)
+          "Reference temperature of winding";
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20(start=0) "Temperature coefficient of winding at 20 degC";
+        final parameter Modelica.SIunits.LinearTemperatureCoefficient alphaRef=
+            Modelica.Electrical.Machines.Thermal.convertAlpha(
+                  alpha20,
+                  TRef,
+                  293.15);
+        parameter Modelica.SIunits.Temperature TOperational(start=293.15)
+          "Operational temperature of winding"
+          annotation (Dialog(enable=not useHeatPort));
+        parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance
+          Lsigma(d(start=1), q(start=1)) "Salient cage stray inductance";
+        parameter Real effectiveTurns=1 "Effective number of turns";
+        Modelica.Blocks.Interfaces.RealOutput i[2](
+          each final quantity="ElectricCurrent", each final unit="A")=-resistor.i
+          "Currents out from damper";
+        Modelica.Blocks.Interfaces.RealOutput lossPower(
+          final quantity="Power", final unit="W")=sum(resistor.resistor.LossPower)
+          "Damper losses";
+        Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
+          electroMagneticConverter(
+          final m=2,
+          final orientation={0,Modelica.Constants.pi/2},
+          final effectiveTurns=fill(effectiveTurns, 2))
+          annotation (Placement(transformation(
+              origin={0,-10},
+              extent={{-10,-10},{10,10}},
+              rotation=90)));
+        Modelica.Electrical.MultiPhase.Basic.Resistor resistor(
+          final useHeatPort=useHeatPort,
+          final m=2,
+          final R={RRef.d,RRef.q},
+          final T_ref=fill(TRef, 2),
+          final alpha=fill(alphaRef, 2),
+          final T=fill(TOperational, 2)) annotation (Placement(transformation(
+              origin={-20,-50},
+              extent={{10,10},{-10,-10}},
+              rotation=90)));
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=2) annotation (
+            Placement(transformation(extent={{30,-90},{50,-70}}, rotation=0)));
+        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
+              transformation(
+              origin={70,-80},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if
+          useHeatPort "Heat ports of winding resistor"
+          annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+        Thermal.HeatTransfer.Components.ThermalCollector thermalCollector(
+            final m=2) if useHeatPort
+          "Connector of thermal rotor resistance heat ports"
+          annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
+        Modelica.Magnetic.FundamentalWave.Components.Reluctance strayReluctance(
+          final R_m(d=effectiveTurns^2/Lsigma.d, q=effectiveTurns^2/Lsigma.q))
+          "Stray reluctance equivalent to ideally coupled stray inductances"
+          annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=0,
+              origin={0,20})));
+      equation
+        connect(port_p, electroMagneticConverter.port_p)
+          annotation (Line(points={{-100,0},{-10,0}}, color={255,128,0}));
+        connect(electroMagneticConverter.port_n, port_n)
+          annotation (Line(points={{10,0},{100,0}}, color={255,128,0}));
+        connect(ground.p, star.pin_n)
+          annotation (Line(points={{60,-80},{50,-80}}, color={0,0,255}));
+        connect(electroMagneticConverter.plug_n, resistor.plug_n) annotation (Line(
+            points={{10,-20},{20,-20},{20,-80},{-20,-80},{-20,-60}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(star.plug_p, electroMagneticConverter.plug_n) annotation (Line(
+            points={{30,-80},{20,-80},{20,-20},{10,-20}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(thermalCollector.port_b, heatPortWinding) annotation (Line(
+            points={{-40,-90},{-40,-100},{0,-100}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
+            points={{-30,-50},{-40,-50},{-40,-70}},
+            color={191,0,0},
+            smooth=Smooth.None));
+        connect(electroMagneticConverter.plug_p, resistor.plug_p) annotation (Line(
+            points={{-10,-20},{-20,-20},{-20,-40}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(strayReluctance.port_p, port_p) annotation (Line(
+            points={{-10,20},{-30,20},{-30,0},{-100,0}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        connect(strayReluctance.port_n, port_n) annotation (Line(
+            points={{10,20},{30,20},{30,0},{100,0}},
+            color={255,128,0},
+            smooth=Smooth.None));
+        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={
+              Ellipse(
+                extent={{-80,80},{80,-80}},
+                lineColor={0,0,0},
+                fillColor={175,175,175},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-20,76},{20,36}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{28,46},{68,6}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{28,-8},{68,-48}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-20,-36},{20,-76}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-68,-6},{-28,-46}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-66,50},{-26,10}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{-80,0},{-100,0}}, color={255,128,0}),
+              Line(points={{100,0},{80,0}}, color={255,128,0}),
+              Text(
+                extent={{0,100},{0,140}},
+                lineColor={0,0,255},
+                textString="%name")}), Documentation(info="<html>
+
+<p>
+The salient cage model is a two axis model with two phases. The electromagnetic coupling therefore is also two phase coupling model. The angles of the two orientations are 0 and <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_2.png\">. This way an asymmetrical rotor cage with different resistances and stray inductances in d- and q-axis can be modeled.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
+</p>
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                  100}}), graphics));
+      end SaliencyCageWinding;
+
+      model PermanentMagnet
+        "Permanent magnet represented by magnetic potential difference"
+        extends
+          Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference;
+        extends
+          Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses;
+        annotation (Documentation(info="<html>
+<p>
+Simple model of a permanent magnet, containing:
+</p>
+<ul>
+<li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">constant magnetomotive force</a></li>
+<li><a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses\">loss model</a></li>
+</ul>
+<p>
+The permanent magnet is modeled by a magnetic potential difference. The internal reluctance of the permanent magnet is not taken into accout. The internal reluctance needs to be modeled outside the permanent magnet model, e.g., by the total machine reluctance considered in the air gap model.
+</p>
+</html>"));
+      end PermanentMagnet;
+
+      model SymmetricMultiPhaseCageWinding_obsolete "Symmetrical rotor cage"
+        import Modelica.Constants.pi;
+        extends Modelica.Icons.ObsoleteModel;
         extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
         parameter Integer m=3 "Number of phases";
         parameter Boolean useHeatPort=false
@@ -6042,8 +6393,8 @@ according to the following figure.
           annotation (Placement(transformation(extent={{30,-90},{50,-70}},
                 rotation=0)));
       equation
-        connect(port_p, winding.port_p) annotation (Line(points={{-100,
-                0},{-10,0},{-10,0}}, color={255,
+        connect(port_p, winding.port_p) annotation (Line(points={{-100,0},{-10,0}},
+                                     color={255,
                 128,0}));
         connect(winding.port_n, port_n) annotation (Line(points={{10,-5.72459e-17},
                 {100,-5.72459e-17},{100,0}}, color={255,128,0}));
@@ -6123,9 +6474,11 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 </p>
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
-      end SymmetricMultiPhaseCageWinding;
+      end SymmetricMultiPhaseCageWinding_obsolete;
 
-      model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
+      model SaliencyCageWinding_obsolete
+        "Rotor cage with saliency in d- and q-axis"
+        extends Modelica.Icons.ObsoleteModel;
         extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
         parameter Boolean useHeatPort=false
           "Enable / disable (=fixed temperatures) thermal port"
@@ -6277,27 +6630,7 @@ The salient cage model is a two axis model with two phases. The electromagnetic 
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"));
-      end SaliencyCageWinding;
-
-      model PermanentMagnet
-        "Permanent magnet represented by magnetic potential difference"
-        extends
-          Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference;
-        extends
-          Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses;
-        annotation (Documentation(info="<html>
-<p>
-Simple model of a permanent magnet, containing:
-</p>
-<ul>
-<li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">constant magnetomotive force</a></li>
-<li><a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses\">loss model</a></li>
-</ul>
-<p>
-The permanent magnet is modeled by a magnetic potential difference. The internal reluctance of the permanent magnet is not taken into accout. The internal reluctance needs to be modeled outside the permanent magnet model, e.g., by the total machine reluctance considered in the air gap model.
-</p>
-</html>"));
-      end PermanentMagnet;
+      end SaliencyCageWinding_obsolete;
     end Components;
     annotation (Documentation(info="<html>
 <p>
