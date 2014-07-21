@@ -60,11 +60,12 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-06-20 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2014-07-21 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
   <li>Added standard blocks and functions</li>
   <li>Improved documentation</li>
+  <li>Added alias for rotor current in squirrel cage model</li>
 </ul>
 
 <h5>Version 3.2.1, 2014-06-20 (Anton Haumer, Christian Kral)</h5>
@@ -5037,11 +5038,12 @@ This package contains test examples of electric machines.
           redeclare final Machines.Interfaces.InductionMachines.ThermalPortAIMC
             internalThermalPort,
           redeclare final
-            Machines.Interfaces.InductionMachines.PowerBalanceAIMC powerBalance(
+            Machines.Interfaces.InductionMachines.PowerBalanceAIMC
+            powerBalance(
               final lossPowerRotorWinding=squirrelCageR.LossPower, final
               lossPowerRotorCore=0),
           statorCore(final w=statorCoreParameters.wRef));
-        output Modelica.SIunits.Current ir[2]=-squirrelCageR.spacePhasor_r.i_
+        output Modelica.SIunits.Current ir[2]=squirrelCageR.i
           "Rotor cage currents";
         Machines.BasicMachines.Components.AirGapS airGapS(
           final p=p,
@@ -9532,6 +9534,10 @@ This is a model of an inductor, described with space phasors.
           "Actual resistance = Rr*(1 + alpha*(T_heatPort - T_ref))";
         Machines.Interfaces.SpacePhasor spacePhasor_r annotation (Placement(
               transformation(extent={{-110,90},{-90,110}}, rotation=0)));
+       Modelica.Blocks.Interfaces.RealOutput i[2](
+          each final quantity="ElectricCurrent",
+          each final unit="A") = -spacePhasor_r.i_
+          "Currents out from squirrel cage";
       equation
         assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
           "Temperature outside scope of model!");

@@ -367,6 +367,7 @@ no. 829420.
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Restructured cage models with reluctance instead of inductance model according to ticket #1536; 
 the re-structuring of the model required to change the initial conditions of the included examples, since the number of rotor states is reduced by new implementation</li>
+<li>Some more bug fixes according to #1226, since not all reference orientations have been correct</li>
 </ul>
 
 <h5>Version 3.2.1, 2013-07-31</h5>
@@ -4658,7 +4659,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of rotor resistance" annotation (Dialog(
               group="Operational temperatures", enable=not useThermalPort));
-        output Modelica.SIunits.Current ir[m] = rotorCage.electroMagneticConverter.plug_p.pin.i
+        output Modelica.SIunits.Current ir[m] = rotorCage.i
           "Rotor cage currents";
         Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding
           rotorCage(
@@ -6004,7 +6005,8 @@ according to the following figure.
           annotation (Dialog(enable=not useHeatPort));
         parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
         parameter Real effectiveTurns=1 "Effective number of turns";
-        Modelica.SIunits.Current i[m] = resistor.i "Cage currents";
+        Modelica.SIunits.Current i[m] = electroMagneticConverter.i
+          "Cage currents";
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           electroMagneticConverter(
           final m=m,
@@ -6165,7 +6167,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
           Lsigma(d(start=1), q(start=1)) "Salient cage stray inductance";
         parameter Real effectiveTurns=1 "Effective number of turns";
         Modelica.Blocks.Interfaces.RealOutput i[2](
-          each final quantity="ElectricCurrent", each final unit="A")=-resistor.i
+          each final quantity="ElectricCurrent", each final unit="A")=electroMagneticConverter.i
           "Currents out from damper";
         Modelica.Blocks.Interfaces.RealOutput lossPower(
           final quantity="Power", final unit="W")=sum(resistor.resistor.LossPower)
@@ -6502,7 +6504,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
           Lsigma(d(start=1), q(start=1)) "Salient cage stray inductance";
         parameter Real effectiveTurns=1 "Effective number of turns";
         Modelica.Blocks.Interfaces.RealOutput i[2](
-          each final quantity="ElectricCurrent", each final unit="A")=-strayInductor.i
+          each final quantity="ElectricCurrent", each final unit="A")=resistor.i
           "Currents out from damper";
         Modelica.Blocks.Interfaces.RealOutput lossPower(
           final quantity="Power", final unit="W")=sum(resistor.resistor.LossPower)

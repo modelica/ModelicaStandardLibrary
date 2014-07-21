@@ -120,7 +120,9 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </ul>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Fixed issues of ticket #1524</li>
-<li>Restructured cage models with reluctance instead of inductance model according to ticket #1537</li></ul>
+<li>Restructured cage models with reluctance instead of inductance model according to ticket #1537</li>
+<li>Bug fixes according to #1226</li>
+</ul>
 
 <h5>Version 0.4.1, 2013-12-18</h5>
 <ul>
@@ -3727,7 +3729,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of rotor resistance" annotation (Dialog(
               group="Operational temperatures", enable=not useThermalPort));
-        output Modelica.SIunits.ComplexCurrent ir[m]=rotorCage.electroMagneticConverter.plug_p.pin.i
+        output Modelica.SIunits.ComplexCurrent ir[m]=rotorCage.i
           "Rotor cage currents";
         Components.SymmetricMultiPhaseCageWinding rotorCage(
           final Lsigma=Lrsigma,
@@ -4025,11 +4027,8 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
           permanentMagnetLossParameters(IRef(start=100), wRef(start=2*pi*
                 fsNominal/p)) "Permanent magnet loss losses"
           annotation (Dialog(tab="Losses"));
-        // Removed in QS implementation
-        //   Modelica.Blocks.Interfaces.Output ir[2](
-        //     start=zeros(2),
-        //     each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
-        //     "Damper cage currents" annotation(Dialog(showStartAttribute=true));
+         Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2] if useDamperCage
+          "Damper cage currents";
         FundamentalWave.Components.Short short if not useDamperCage
           "Magnetic connection in case the damper cage is not present"
           annotation (Placement(transformation(
@@ -4069,6 +4068,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
         Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final
             quantity="Power", final unit="W") "Damper losses";
       equation
+        connect(ir,rotorCage.i);
         connect(damperCageLossPower, rotorCage.lossPower);
         if not useDamperCage then
           damperCageLossPower = 0;
@@ -4258,10 +4258,8 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
         output Modelica.SIunits.Voltage ve=pin_ep.v - pin_en.v
           "Excitation voltage";
         output Modelica.SIunits.Current ie=pin_ep.i "Excitation current";
-        // Re-insert in final version ##
-        //   Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2](
-        //      each final quantity="ElectricCurrent", each final unit="A") if useDamperCage
-        //     "Damper cage currents" annotation(Dialog(showStartAttribute=true));
+        Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2] if useDamperCage
+          "Damper cage currents";
         FundamentalWave.Components.Short short if not useDamperCage
           "Magnetic connection in case the damper cage is not present"
           annotation (Placement(transformation(
@@ -4312,6 +4310,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           "Negative pin of excitation" annotation (Placement(transformation(
                 extent={{-90,-50},{-110,-70}}, rotation=0)));
       equation
+        connect(ir,rotorCage.i);
         connect(damperCageLossPower, rotorCage.lossPower);
         if not useDamperCage then
           damperCageLossPower = 0;
@@ -4477,10 +4476,8 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             tab="Nominal resistances and inductances",
             group="DamperCage",
             enable=useDamperCage));
-        // Re-implement in final version ##
-        //   Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2](
-        //     each final quantity="ComplexCurrent", each final unit="A") if useDamperCage
-        //     "Damper cage currents" annotation(Dialog(showStartAttribute=true));
+        Modelica.ComplexBlocks.Interfaces.ComplexOutput ir[2] if useDamperCage
+          "Damper cage currents";
         FundamentalWave.Components.Short short if not useDamperCage
           "Magnetic connection in case the damper cage is not present"
           annotation (Placement(transformation(
@@ -4505,6 +4502,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
         Modelica.Blocks.Interfaces.RealOutput damperCageLossPower(final
             quantity="Power", final unit="W") "Damper losses";
       equation
+        connect(ir,rotorCage.i);
         connect(damperCageLossPower, rotorCage.lossPower);
         if not useDamperCage then
           damperCageLossPower = 0;
@@ -5034,7 +5032,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           annotation (Dialog(enable=not useHeatPort));
         parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
         parameter Real effectiveTurns=1 "Effective number of turns";
-        Modelica.SIunits.ComplexCurrent i[m]=resistor.i "Cage currents";
+        Modelica.SIunits.ComplexCurrent i[m]=electroMagneticConverter.i
+          "Cage currents";
         QuasiStationaryFundamentalWave.Components.MultiPhaseElectroMagneticConverter
           electroMagneticConverter(final m=m, final effectiveTurns=
               effectiveTurns) "Symmetric winding" annotation (Placement(
@@ -5208,7 +5207,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         parameter Modelica.Magnetic.FundamentalWave.Types.SalientInductance
           Lsigma(d(start=1), q(start=1)) "Salient cage stray inductance";
         parameter Real effectiveTurns=1 "Effective number of turns";
-        Modelica.SIunits.ComplexCurrent i[2]=resistor.i "Cage currents";
+        Modelica.ComplexBlocks.Interfaces.ComplexOutput i[2]=electroMagneticConverter.i
+          "Cage currents";
         Modelica.Blocks.Interfaces.RealOutput lossPower(
           final quantity="Power",
           final unit="W") = sum(resistor.resistor.LossPower) "Damper losses";
