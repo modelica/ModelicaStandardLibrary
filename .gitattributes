@@ -11,3 +11,4 @@
 .gitattributes text
 .gitignore text
 *.md text
+*.htm* text
