@@ -2424,7 +2424,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
             /IN_con.L)^(1/3) else 0 "Help variable for mean Nusselt number";
         SI.NusseltNumber Nu3=if IN_con.target == TYP.UWTuUFF then (2/(1 + 22*Pr))^(1/
             6)*(Re*Pr*IN_con.d_hyd/IN_con.L)^0.5 else if IN_con.target == TYP.UHFuUFF then
-                  1.953*(Re*Pr*IN_con.d_hyd/IN_con.L)^(1/3) else 0
+                  0.924*(Pr^(1/3))*(Re*Con.d_hyd/Con.L)^(1/2) else 0
           "Help variable for mean Nusselt number";
 
         SI.NusseltNumber Nu=(Nu1^3 + Nu0^3 + (Nu2 - Nu0)^3 + Nu3^3)^(1/3)
