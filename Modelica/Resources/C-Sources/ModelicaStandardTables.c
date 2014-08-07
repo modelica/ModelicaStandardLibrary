@@ -14,19 +14,22 @@
     DUMMY_FUNCTION_USERTAB: Use a dummy function "usertab"
     NO_TABLE_COPY         : Do not copy table data passed to _init functions
                             This is a potentially unsafe optimization (ticket #1143).
+    TABLE_SHARE           : If NO_FILE_SYTEM is not defined then common/shared table
+                            arrays are stored in a global hash table in order to
+                            avoid superfluous file input access and to decrease the
+                            utilized memory (tickets #1110 and #1550).
 
-
-   If compiled as C++ and NO_FILE_SYTEM is not defined then common/shared table arrays
-   are stored in a global std::map in order to avoid superfluous file input access and
-   to decrease the utilized memory (ticket #1110).
 
    Release Notes:
+      Aug. 07, 2014: by Thomas Beutlich, ITI GmbH.
+                     Added pure C implementation of common/shared table arrays
+                     (ticket #1550)
       May 21, 2014:  by Thomas Beutlich, ITI GmbH.
                      Fixed bivariate Akima-spline extrapolation (ticket #1465)
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
                      Implemented a first version
 
-   Copyright (C) 2013, Modelica Association, DLR and ITI GmbH
+   Copyright (C) 2013-2014, Modelica Association, DLR and ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -62,14 +65,26 @@
 #include <stdio.h>
 #include <locale.h>
 #include "ModelicaMatIO.h"
+#if defined(TABLE_SHARE)
+#define uthash_fatal(msg) ModelicaFormatError("%s\n", msg)
+#include "uthash.h"
+#include "gconstructor.h"
+#endif
 #endif
 #include <float.h>
 #include <math.h>
 #include <string.h>
 
-#if defined(__cplusplus) && !defined(NO_FILE_SYSTEM)
-#include <map>
-#include <string>
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
+/* The standard way to detect posix is to check _POSIX_VERSION,
+ * which is defined in <unistd.h>
+ */
+#if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
+#include <unistd.h>
+#endif
+#if !defined(_POSIX_) && defined(_POSIX_VERSION)
+#define _POSIX_ 1
+#endif
 #endif
 
 /* ----- Interface enumerations ----- */
@@ -205,81 +220,54 @@ BILINEAR(u11, u20, ...) -> y10
 BILINEAR(u11, u21, ...) -> y11
 */
 
-#if defined(__cplusplus)
-#define STATIC_CAST(T, E) static_cast<T>(E)
-#else
-#define STATIC_CAST(T, E) E
-#endif
-
-#if defined(__cplusplus) && !defined(NO_FILE_SYSTEM)
-typedef std::pair<std::string, std::string> TableKey;
-typedef std::pair<size_t, double*> TableData;
-typedef std::pair<size_t, size_t> TableDim;
-typedef std::pair<TableData, TableDim> TableVal;
-typedef std::map<TableKey, TableVal> TableShareMap;
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
+typedef struct TableShare {
+    char* key; /* Key consisting of concatenated names of table and file */
+    size_t refCount; /* Reference counter */
+    size_t nRow; /* Number of rows of table */
+    size_t nCol; /* Number of columns of table */
+    double* table; /* Table values */
+    UT_hash_handle hh; /* Hashable structure */
+} TableShare;
 #endif
 
 /* ----- Static variables ----- */
 
-#if defined(__cplusplus) && !defined(NO_FILE_SYSTEM)
-static TableShareMap tableShare;
-#if defined(_WIN32)
-#include <Windows.h>
-struct CriticalSection : CRITICAL_SECTION {
-    CriticalSection() {
-        InitializeCriticalSection(this);
-    }
-
-    ~CriticalSection() {
-        DeleteCriticalSection(this);
-    }
-};
-static CriticalSection cs;
-struct CriticalSectionHandler {
-    CriticalSectionHandler() {
-        EnterCriticalSection(&cs);
-    }
-
-    ~CriticalSectionHandler() {
-        LeaveCriticalSection(&cs);
-    }
-};
-#elif defined(__linux__)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
+static TableShare* tableShare;
+#if defined(_POSIX_)
 #include <pthread.h>
-static pthread_mutex_t m;
-struct Mutex {
-    Mutex() {
-        pthread_mutexattr_t mAttr;
-        pthread_mutexattr_settype(&mAttr, PTHREAD_MUTEX_NORMAL);
-        pthread_mutex_init(&m, &mAttr);
-        pthread_mutexattr_destroy(&mAttr);
-    }
-
-    ~Mutex() {
-        pthread_mutex_destroy(&m);
-    }
-};
-static Mutex _m;
-struct CriticalSectionHandler {
-    CriticalSectionHandler() {
-        pthread_mutex_lock(&m);
-    }
-
-    ~CriticalSectionHandler() {
-        pthread_mutex_unlock(&m);
-    }
-};
+static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
+#define MUTEX_LOCK() pthread_mutex_lock(&m)
+#define MUTEX_UNLOCK() pthread_mutex_unlock(&m)
+#elif defined(_WIN32) && defined(G_HAS_CONSTRUCTORS)
+#include <Windows.h>
+static CRITICAL_SECTION cs;
+#ifdef G_DEFINE_CONSTRUCTOR_NEEDS_PRAGMA
+#pragma G_DEFINE_CONSTRUCTOR_PRAGMA_ARGS(initializeCS)
+#endif
+G_DEFINE_CONSTRUCTOR(initializeCS)
+static void initializeCS(void) {
+    InitializeCriticalSection(&cs);
+}
+#ifdef G_DEFINE_DESTRUCTOR_NEEDS_PRAGMA
+#pragma G_DEFINE_DESTRUCTOR_PRAGMA_ARGS(deleteCS)
+#endif
+G_DEFINE_DESTRUCTOR(deleteCS)
+static void deleteCS(void) {
+    DeleteCriticalSection(&cs);
+}
+#define MUTEX_LOCK() EnterCriticalSection(&cs)
+#define MUTEX_UNLOCK() LeaveCriticalSection(&cs)
+#else
+#define MUTEX_LOCK()
+#define MUTEX_UNLOCK()
 #endif
 #endif
 
 /* ----- Function declarations ----- */
 
-#if defined(__cplusplus)
-extern "C"
-#else
-extern
-#endif
-int usertab(char* tableName, int nipo, int dim[], int* colWise,
+extern int usertab(char* tableName, int nipo, int dim[], int* colWise,
             double** table);
   /* Define tables by statically storing them in function usertab.
      This function can be adapted by the user to his/her needs.
@@ -388,13 +376,13 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                                  size_t nCols, int smoothness,
                                                  int extrapolation) {
     CombiTimeTable* tableID;
-    tableID = STATIC_CAST(CombiTimeTable*, calloc(1, sizeof(CombiTimeTable)));
+    tableID = calloc(1, sizeof(CombiTimeTable));
     if (tableID) {
         tableID->smoothness = (enum Smoothness)smoothness;
         tableID->extrapolation = (enum Extrapolation)extrapolation;
         tableID->nCols = nCols;
         if (nCols > 0) {
-            tableID->cols = STATIC_CAST(int*, malloc(tableID->nCols*sizeof(int)));
+            tableID->cols = malloc(tableID->nCols*sizeof(int));
             if (tableID->cols) {
                 memcpy(tableID->cols, cols, tableID->nCols*sizeof(int));
             }
@@ -409,8 +397,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
 
         switch (tableID->source) {
             case TABLESOURCE_FILE:
-                tableID->tableName =
-                    STATIC_CAST(char*, malloc((strlen(tableName) + 1)*sizeof(char)));
+                tableID->tableName = malloc((strlen(tableName) + 1)*sizeof(char));
                 if (tableID->tableName) {
                     strcpy(tableID->tableName, tableName);
                 }
@@ -423,8 +410,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                     ModelicaError("Memory allocation error\n");
                     break;
                 }
-                tableID->fileName =
-                    STATIC_CAST(char*, malloc((strlen(fileName) + 1)*sizeof(char)));
+                tableID->fileName = malloc((strlen(fileName) + 1)*sizeof(char));
                 if (tableID->fileName) {
                     strcpy(tableID->fileName, fileName);
                 }
@@ -454,8 +440,8 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                             tableID->nCol, (const int*)cols, tableID->nCols);
                     }
 #ifndef NO_TABLE_COPY
-                    tableID->table = STATIC_CAST(double*, malloc(
-                        tableID->nRow*tableID->nCol*sizeof(double)));
+                    tableID->table = malloc(
+                        tableID->nRow*tableID->nCol*sizeof(double));
                     if (tableID->table) {
                         memcpy(tableID->table, table, tableID->nRow*
                             tableID->nCol*sizeof(double));
@@ -489,8 +475,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
 
                         dims[0] = tableID->nRow;
                         dims[1] = tableID->nCol;
-                        tableT = STATIC_CAST(double*, malloc(
-                            dims[0]*dims[1]*sizeof(double)));
+                        tableT = malloc(dims[0]*dims[1]*sizeof(double));
                         if (tableT) {
                             size_t i;
                             size_t j;
@@ -550,23 +535,28 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
     if (tableID) {
         if (tableID->table && tableID->source == TABLESOURCE_FILE) {
-#if defined(__cplusplus) && !defined(NO_FILE_SYSTEM)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
             if (tableID->tableName && tableID->fileName) {
-                TableKey key = std::make_pair(tableID->fileName,
-                    tableID->tableName);
-                TableShareMap::iterator iter = tableShare.find(key);
-                if (iter != tableShare.end()) {
-                    /* Share hit */
-#if defined(_WIN32) || defined(__linux__)
-                    CriticalSectionHandler csh;
-#endif
-                    TableVal& val = iter->second;
-                    TableData& data = val.first;
-                    data.first--;
-                    if (data.first == 0) {
-                        free(data.second);
-                        tableShare.erase(iter);
+                char* key = malloc((strlen(tableID->tableName) +
+                    strlen(tableID->fileName) + 2)*sizeof(char));
+                if (key) {
+                    TableShare *iter;
+                    strcpy(key, tableID->tableName);
+                    strcat(key, "|");
+                    strcat(key, tableID->fileName);
+                    HASH_FIND_STR(tableShare, key, iter);
+                    if (iter) {
+                        /* Share hit */
+                        MUTEX_LOCK();
+                        iter->refCount--;
+                        if (iter->refCount == 0) {
+                            free(iter->table);
+                            free(iter->key);
+                            HASH_DEL(tableShare, iter);
+                        }
+                        MUTEX_UNLOCK();
                     }
+                    free(key);
                 }
             }
             else {
@@ -799,7 +789,6 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                     }
                                     else /* if (extrapolate == RIGHT) */ {
                                         const double t1 = TABLE_COL0(last + 1);
-                                        const double y1 = TABLE(last + 1, col);
                                         const double v = t1 - t0;
                                         y = LINEAR_SLOPE(TABLE(last + 1, col),
                                             (3*c[0]*v + 2*c[1])*v + c[2],
@@ -1107,8 +1096,8 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                 }
             }
             /* Once again with storage of indices of event intervals */
-            tableID->intervals = STATIC_CAST(Interval*, calloc(
-                tableID->nEventsPerPeriod, sizeof(Interval)));
+            tableID->intervals = calloc(tableID->nEventsPerPeriod,
+                sizeof(Interval));
             if (!tableID->intervals) {
                 ModelicaError("Memory allocation error\n");
                 return nextTimeEvent;
@@ -1312,7 +1301,7 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
     if (tableID) {
         if (tableID->source == TABLESOURCE_FILE) {
             if (force || !tableID->table) {
-#if !defined(__cplusplus)
+#if !defined(TABLE_SHARE)
                 if (tableID->table) {
                     free(tableID->table);
                 }
@@ -1349,12 +1338,12 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                                                size_t nColumn, int* cols,
                                                size_t nCols, int smoothness) {
     CombiTable1D* tableID;
-    tableID = STATIC_CAST(CombiTable1D*, calloc(1, sizeof(CombiTable1D)));
+    tableID = calloc(1, sizeof(CombiTable1D));
     if (tableID) {
         tableID->smoothness = (enum Smoothness)smoothness;
         tableID->nCols = nCols;
         if (nCols > 0) {
-            tableID->cols = STATIC_CAST(int*, malloc(tableID->nCols*sizeof(int)));
+            tableID->cols = malloc(tableID->nCols*sizeof(int));
             if (tableID->cols) {
                 memcpy(tableID->cols, cols, tableID->nCols*sizeof(int));
             }
@@ -1368,8 +1357,8 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
 
         switch (tableID->source) {
             case TABLESOURCE_FILE:
-                tableID->tableName = STATIC_CAST(char*, malloc(
-                    (strlen(tableName) + 1)*sizeof(char)));
+                tableID->tableName = malloc(
+                    (strlen(tableName) + 1)*sizeof(char));
                 if (tableID->tableName) {
                     strcpy(tableID->tableName, tableName);
                 }
@@ -1382,8 +1371,8 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                     ModelicaError("Memory allocation error\n");
                     break;
                 }
-                tableID->fileName = STATIC_CAST(char*, malloc(
-                    (strlen(fileName) + 1)*sizeof(char)));
+                tableID->fileName = malloc(
+                    (strlen(fileName) + 1)*sizeof(char));
                 if (tableID->fileName) {
                     strcpy(tableID->fileName, fileName);
                 }
@@ -1413,8 +1402,8 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                             tableID->nCol, (const int*)cols, tableID->nCols);
                     }
 #ifndef NO_TABLE_COPY
-                    tableID->table = STATIC_CAST(double*, malloc(
-                        tableID->nRow*tableID->nCol*sizeof(double)));
+                    tableID->table = malloc(
+                        tableID->nRow*tableID->nCol*sizeof(double));
                     if (tableID->table) {
                         memcpy(tableID->table, table, tableID->nRow*
                             tableID->nCol*sizeof(double));
@@ -1448,8 +1437,7 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
 
                         dims[0] = tableID->nRow;
                         dims[1] = tableID->nCol;
-                        tableT = STATIC_CAST(double*, malloc(
-                            dims[0]*dims[1]*sizeof(double)));
+                        tableT = malloc(dims[0]*dims[1]*sizeof(double));
                         if (tableT) {
                             size_t i;
                             size_t j;
@@ -1509,23 +1497,28 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
     CombiTable1D* tableID = (CombiTable1D*)_tableID;
     if (tableID) {
         if (tableID->table && tableID->source == TABLESOURCE_FILE) {
-#if defined(__cplusplus) && !defined(NO_FILE_SYSTEM)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
             if (tableID->tableName && tableID->fileName) {
-                TableKey key = std::make_pair(tableID->fileName,
-                    tableID->tableName);
-                TableShareMap::iterator iter = tableShare.find(key);
-                if (iter != tableShare.end()) {
-                    /* Share hit */
-#if defined(_WIN32) || defined(__linux__)
-                    CriticalSectionHandler csh;
-#endif
-                    TableVal& val = iter->second;
-                    TableData& data = val.first;
-                    data.first--;
-                    if (data.first == 0) {
-                        free(data.second);
-                        tableShare.erase(iter);
+                char* key = malloc((strlen(tableID->tableName) +
+                    strlen(tableID->fileName) + 2)*sizeof(char));
+                if (key) {
+                    TableShare *iter;
+                    strcpy(key, tableID->tableName);
+                    strcat(key, "|");
+                    strcat(key, tableID->fileName);
+                    HASH_FIND_STR(tableShare, key, iter);
+                    if (iter) {
+                        /* Share hit */
+                        MUTEX_LOCK();
+                        iter->refCount--;
+                        if (iter->refCount == 0) {
+                            free(iter->table);
+                            free(iter->key);
+                            HASH_DEL(tableShare, iter);
+                        }
+                        MUTEX_UNLOCK();
                     }
+                    free(key);
                 }
             }
             else {
@@ -1719,7 +1712,7 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
     if (tableID) {
         if (tableID->source == TABLESOURCE_FILE) {
             if (force || !tableID->table) {
-#if !defined(__cplusplus)
+#if !defined(TABLE_SHARE)
                 if (tableID->table) {
                     free(tableID->table);
                 }
@@ -1756,15 +1749,15 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                                                double* table, size_t nRow,
                                                size_t nColumn, int smoothness) {
     CombiTable2D* tableID;
-    tableID = STATIC_CAST(CombiTable2D*, calloc(1, sizeof(CombiTable2D)));
+    tableID = calloc(1, sizeof(CombiTable2D));
     if (tableID) {
         tableID->smoothness = (enum Smoothness)smoothness;
         tableID->source = getTableSource(tableName, fileName);
 
         switch (tableID->source) {
             case TABLESOURCE_FILE:
-                tableID->tableName =
-                    STATIC_CAST(char*, malloc((strlen(tableName) + 1)*sizeof(char)));
+                tableID->tableName = malloc(
+                    (strlen(tableName) + 1)*sizeof(char));
                 if (tableID->tableName) {
                     strcpy(tableID->tableName, tableName);
                 }
@@ -1774,8 +1767,7 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                     ModelicaError("Memory allocation error\n");
                     break;
                 }
-                tableID->fileName =
-                    STATIC_CAST(char*, malloc((strlen(fileName) + 1)*sizeof(char)));
+                tableID->fileName = malloc((strlen(fileName) + 1)*sizeof(char));
                 if (tableID->fileName) {
                     strcpy(tableID->fileName, fileName);
                 }
@@ -1802,8 +1794,8 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                             tableID->nCol);
                     }
 #ifndef NO_TABLE_COPY
-                    tableID->table = STATIC_CAST(double*, malloc(
-                        tableID->nRow*tableID->nCol*sizeof(double)));
+                    tableID->table = malloc(
+                        tableID->nRow*tableID->nCol*sizeof(double));
                     if (tableID->table) {
                         memcpy(tableID->table, table, tableID->nRow*
                             tableID->nCol*sizeof(double));
@@ -1834,8 +1826,7 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
 
                         dims[0] = tableID->nRow;
                         dims[1] = tableID->nCol;
-                        tableT = STATIC_CAST(double*, malloc(
-                            dims[0]*dims[1]*sizeof(double)));
+                        tableT = malloc(dims[0]*dims[1]*sizeof(double));
                         if (tableT) {
                             size_t i;
                             size_t j;
@@ -1891,23 +1882,28 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
     if (tableID) {
         if (tableID->table && tableID->source == TABLESOURCE_FILE) {
-#if defined(__cplusplus) && !defined(NO_FILE_SYSTEM)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
             if (tableID->tableName && tableID->fileName) {
-                TableKey key = std::make_pair(tableID->fileName,
-                    tableID->tableName);
-                TableShareMap::iterator iter = tableShare.find(key);
-                if (iter != tableShare.end()) {
-                    /* Share hit */
-#if defined(_WIN32) || defined(__linux__)
-                    CriticalSectionHandler csh;
-#endif
-                    TableVal& val = iter->second;
-                    TableData& data = val.first;
-                    data.first--;
-                    if (data.first == 0) {
-                        free(data.second);
-                        tableShare.erase(iter);
+                char* key = malloc((strlen(tableID->tableName) +
+                    strlen(tableID->fileName) + 2)*sizeof(char));
+                if (key) {
+                    TableShare *iter;
+                    strcpy(key, tableID->tableName);
+                    strcat(key, "|");
+                    strcat(key, tableID->fileName);
+                    HASH_FIND_STR(tableShare, key, iter);
+                    if (iter) {
+                        /* Share hit */
+                        MUTEX_LOCK();
+                        iter->refCount--;
+                        if (iter->refCount == 0) {
+                            free(iter->table);
+                            free(iter->key);
+                            HASH_DEL(tableShare, iter);
+                        }
+                        MUTEX_UNLOCK();
                     }
+                    free(key);
                 }
             }
             else {
@@ -1948,7 +1944,7 @@ double ModelicaStandardTables_CombiTable2D_read(void* _tableID, int force,
     if (tableID) {
         if (tableID->source == TABLESOURCE_FILE) {
             if (force || !tableID->table) {
-#if !defined(__cplusplus)
+#if !defined(TABLE_SHARE)
                 if (tableID->table) {
                     free(tableID->table);
                 }
@@ -2999,13 +2995,13 @@ static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
         size_t col;
 
         /* Actually there is no need for consecutive memory */
-        spline = STATIC_CAST(Akima1D*, malloc((nRow - 1)*nCols*sizeof(Akima1D)));
+        spline = malloc((nRow - 1)*nCols*sizeof(Akima1D));
         if (!spline) {
             ModelicaError("Memory allocation error\n");
             return NULL;
         }
 
-        d = STATIC_CAST(double*, malloc((nRow + 3)*sizeof(double)));
+        d = malloc((nRow + 3)*sizeof(double));
         if (!d) {
             free(spline);
             ModelicaError("Memory allocation error\n");
@@ -3128,13 +3124,13 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         int cols = 2;
 
         /* Need to transpose */
-        double* tableT = STATIC_CAST(double*, malloc(2*(nCol - 1)*sizeof(double)));
+        double* tableT = malloc(2*(nCol - 1)*sizeof(double));
         if (!tableT) {
             ModelicaError("Memory allocation error\n");
             return NULL;
         }
 
-        spline = STATIC_CAST(Akima2D*, malloc((nCol - 1)*sizeof(Akima2D)));
+        spline = malloc((nCol - 1)*sizeof(Akima2D));
         if (!spline) {
             free(tableT);
             ModelicaError("Memory allocation error\n");
@@ -3163,7 +3159,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         size_t i;
         int cols = 2;
 
-        spline = STATIC_CAST(Akima2D*, malloc((nRow - 1)*sizeof(Akima2D)));
+        spline = malloc((nRow - 1)*sizeof(Akima2D));
         if (!spline) {
             ModelicaError("Memory allocation error\n");
             return NULL;
@@ -3196,7 +3192,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         */
 
         /* Copy of x coordinates with extrapolated boundary coordinates */
-        x = STATIC_CAST(double*, malloc((nRow + 3)*sizeof(double)));
+        x = malloc((nRow + 3)*sizeof(double));
         if (!x) {
             ModelicaError("Memory allocation error\n");
             return NULL;
@@ -3222,7 +3218,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         }
 
         /* Copy of y coordinates with extrapolated boundary coordinates */
-        y = STATIC_CAST(double*, malloc((nCol + 3)*sizeof(double)));
+        y = malloc((nCol + 3)*sizeof(double));
         if (!y) {
             free(x);
             ModelicaError("Memory allocation error\n");
@@ -3247,7 +3243,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         }
 
         /* Copy of table with extrapolated boundary values */
-        tableEx = STATIC_CAST(double*, malloc((nRow + 3)*(nCol + 3)*sizeof(double)));
+        tableEx = malloc((nRow + 3)*(nCol + 3)*sizeof(double));
         if (!tableEx) {
             free(y);
             free(x);
@@ -3301,7 +3297,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
             }
         }
 
-        dz_dx = STATIC_CAST(double*, malloc((nRow - 1)*(nCol - 1)*sizeof(double)));
+        dz_dx = malloc((nRow - 1)*(nCol - 1)*sizeof(double));
         if (!dz_dx) {
             free(tableEx);
             free(y);
@@ -3310,7 +3306,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
             return NULL;
         }
 
-        dz_dy = STATIC_CAST(double*, malloc((nRow - 1)*(nCol - 1)*sizeof(double)));
+        dz_dy = malloc((nRow - 1)*(nCol - 1)*sizeof(double));
         if (!dz_dy) {
             free(dz_dx);
             free(tableEx);
@@ -3320,7 +3316,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
             return NULL;
         }
 
-        d2z_dxdy = STATIC_CAST(double*, malloc((nRow - 1)*(nCol - 1)*sizeof(double)));
+        d2z_dxdy = malloc((nRow - 1)*(nCol - 1)*sizeof(double));
         if (!d2z_dxdy) {
             free(dz_dy);
             free(dz_dx);
@@ -3413,7 +3409,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         free(x);
 
         /* Actually there is no need for consecutive memory */
-        spline = STATIC_CAST(Akima2D*, malloc((nRow - 2)*(nCol - 2)*sizeof(Akima2D)));
+        spline = malloc((nRow - 2)*(nCol - 2)*sizeof(Akima2D));
         if (!spline) {
             free(dz_dx);
             free(dz_dy);
@@ -3513,81 +3509,88 @@ static double* readTable(const char* tableName, const char* fileName,
     double* table = NULL;
 #if !defined(NO_FILE_SYSTEM)
     if (tableName && fileName && nRow && nCol) {
-#if defined(__cplusplus)
-        TableKey key = std::make_pair(fileName, tableName);
-        TableShareMap::iterator iter = tableShare.find(key);
-        if (iter == tableShare.end() || force) {
+#if defined(TABLE_SHARE)
+        char* key = malloc((strlen(tableName) +
+            strlen(fileName) + 2)*sizeof(char));
+        if (key) {
+            TableShare *iter;
+            strcpy(key, tableName);
+            strcat(key, "|");
+            strcat(key, fileName);
+            HASH_FIND_STR(tableShare, key, iter);
+            if (!iter || force) {
 #endif
-            const char* ext;
-            int isMatExt = 0;
+                const char* ext;
+                int isMatExt = 0;
 
-            /* Table file can be either ASCII text or binary MATLAB MAT-file */
-            ext = strrchr(fileName, '.');
-            if (ext) {
-                if (0 == strncmp(ext, ".mat", 4) || 0 == strncmp(ext, ".MAT", 4)) {
-                    isMatExt = 1;
+                /* Table file can be either ASCII text or binary MATLAB MAT-file */
+                ext = strrchr(fileName, '.');
+                if (ext) {
+                    if (0 == strncmp(ext, ".mat", 4) ||
+                        0 == strncmp(ext, ".MAT", 4)) {
+                        isMatExt = 1;
+                    }
                 }
-            }
 
-            if (verbose == 1) {
-                /* Print info message, that table / file is loading */
-                ModelicaFormatMessage("... loading \"%s\" from \"%s\"\n",
-                    tableName, fileName);
-            }
+                if (verbose == 1) {
+                    /* Print info message, that table / file is loading */
+                    ModelicaFormatMessage("... loading \"%s\" from \"%s\"\n",
+                        tableName, fileName);
+                }
 
-            if (isMatExt) {
-                table = readMatTable(tableName, fileName, nRow, nCol);
+                if (isMatExt) {
+                    table = readMatTable(tableName, fileName, nRow, nCol);
+                }
+                else {
+                    table = readTxtTable(tableName, fileName, nRow, nCol);
+                }
+#if defined(TABLE_SHARE)
+                if (table) {
+                    if (!iter) {
+                        /* Share miss -> Insert new table */
+                        iter = malloc(sizeof(TableShare));
+                        if (iter) {
+                            iter->key = key;
+                            iter->refCount = 1;
+                            iter->nRow = *nRow;
+                            iter->nCol = *nCol;
+                            iter->table = table;
+                            MUTEX_LOCK();
+                            HASH_ADD_KEYPTR(hh, tableShare, key, strlen(key), iter);
+                            MUTEX_UNLOCK();
+                        }
+                    }
+                    else { /* force == 1 */
+                        /* Share hit -> Update table share (only if not shared
+                           by multiple table objects)
+                        */
+                        if (iter->refCount == 1) {
+                            MUTEX_LOCK();
+                            free(iter->table);
+                            iter->nRow = *nRow;
+                            iter->nCol = *nCol;
+                            iter->table = table;
+                            MUTEX_UNLOCK();
+                        }
+                        else {
+                            ModelicaFormatError("Not possible to update shared "
+                                "table \"%s\" from \"%s\": File and table name "
+                                "must be unique.\n", tableName, fileName);
+                        }
+                    }
+                }
             }
             else {
-                table = readTxtTable(tableName, fileName, nRow, nCol);
+                /* Share hit -> Read from table share and increment table
+                   reference counter
+                */
+                MUTEX_LOCK();
+                iter->refCount++;
+                table = iter->table;
+                *nRow = iter->nRow;
+                *nCol = iter->nCol;
+                MUTEX_UNLOCK();
             }
-#if defined(__cplusplus)
-            if (table) {
-                if (iter == tableShare.end()) {
-                    /* Share miss -> Insert new table */
-                    tableShare.insert(std::make_pair(
-                        key, std::make_pair(
-                        std::make_pair(1, table),
-                        std::make_pair(*nRow, *nCol))));
-                }
-                else { /* force == 1 */
-                    /* Share hit -> Update table share (only if not shared
-                       by multiple table objects)
-                    */
-                    TableVal& val = iter->second;
-                    TableData& data = val.first;
-                    if (data.first == 1) {
-#if defined(_WIN32) || defined(__linux__)
-                        CriticalSectionHandler csh;
-#endif
-                        TableDim& dim = val.second;
-                        free(data.second);
-                        data.second = table;
-                        dim.first = *nRow;
-                        dim.second = *nCol;
-                    }
-                    else {
-                        ModelicaFormatError("Not possible to update shared "
-                            "table \"%s\" from \"%s\": File and table name "
-                            "must be unique.\n", tableName, fileName);
-                    }
-                }
-            }
-        }
-        else {
-            /* Share hit -> Read from table share and increment table
-               reference counter
-            */
-#if defined(_WIN32) || defined(__linux__)
-            CriticalSectionHandler csh;
-#endif
-            TableVal& val = iter->second;
-            TableData& data = val.first;
-            TableDim& dim = val.second;
-            data.first++;
-            table = data.second;
-            *nRow = dim.first;
-            *nCol = dim.second;
         }
 #endif
     }
@@ -3648,8 +3651,7 @@ static double* readMatTable(const char* tableName, const char* fileName,
             return NULL;
         }
 
-        table = STATIC_CAST(double*, malloc(
-            matvar->dims[0]*matvar->dims[1]*sizeof(double)));
+        table = malloc(matvar->dims[0]*matvar->dims[1]*sizeof(double));
         if (!table) {
             Mat_VarFree(matvar);
             (void)Mat_Close(mat);
@@ -3718,7 +3720,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             return NULL;
         }
 
-        buf = STATIC_CAST(char*, malloc(LINE_BUFFER_LENGTH*sizeof(char)));
+        buf = malloc(LINE_BUFFER_LENGTH*sizeof(char));
         if (!buf) {
             fclose(fp);
             ModelicaError("Memory allocation error\n");
@@ -3834,7 +3836,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 size_t i = 0;
                 size_t j = 0;
 
-                table = STATIC_CAST(double*, malloc(nRow*nCol*sizeof(double)));
+                table = malloc(nRow*nCol*sizeof(double));
                 if (!table) {
                     *_nRow = 0;
                     *_nCol = 0;
@@ -3895,8 +3897,8 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                             TABLE(i, j) = strtod(token, &endptr);
                         }
                         else {
-                            char* token2 = STATIC_CAST(char*, malloc(
-                                (strlen(token) + 1)*sizeof(char)));
+                            char* token2 = malloc(
+                                (strlen(token) + 1)*sizeof(char));
                             if (token2) {
                                 char* p;
                                 strcpy(token2, token);
@@ -4055,7 +4057,7 @@ static int readLine(char** buf, int* bufLen, FILE* fp) {
 
         oldBufLen = *bufLen;
         *bufLen *= 2;
-        tmp = STATIC_CAST(char*, realloc(*buf, (size_t)*bufLen));
+        tmp = realloc(*buf, (size_t)*bufLen);
         if (!tmp) {
             ModelicaError("Memory allocation error\n");
             return 1;
