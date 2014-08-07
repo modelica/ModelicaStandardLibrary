@@ -1,8 +1,8 @@
 ﻿All files in this directory (Modelica) and in all subdirectories,
 especially in Modelica/Resources/* are licensed
 by the Modelica Association under the Modelica License 2
-(with exception of files "Modelica/Resources/C-Sources/win32_dirent.*, ModelicaMatIO.*, ModelicaStandardTables.*").
-Copyright © 1998-2013, ABB, Austrian Institute of Technology, T. Boedrich, DLR, Dassault Systemes AB,
+(with exception of files "Modelica/Resources/C-Sources/win32_dirent.*, ModelicaMatIO.*, ModelicaStandardTables.*, gconstructor.h, uthash.h").
+Copyright © 1998-2014, ABB, Austrian Institute of Technology, T. Boedrich, DLR, Dassault Systemes AB,
                        Fraunhofer, A. Haumer, ITI, C. Kral, Modelon, TU Hamburg-Harburg, Politecnico di Milano,
                        XRG Simulation.
 

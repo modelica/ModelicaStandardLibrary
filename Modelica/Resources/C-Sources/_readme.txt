@@ -19,13 +19,9 @@ simulation environment.
 Build projects for ModelicaStandardTables are provided under
    ../BuildProjects
 
-If ModelicaStandardTables.c is compiled as C++ and NO_FILE_SYTEM is not defined
-then common/shared table arrays are stored in a global std::map in order to avoid
-superfluous file input access and to decrease the utilized memory.
-
 Additionally, a tool vendor has to provide library "lapack"
 (>= version 3.1; download from http://www.netlib.org/lapack)
 and this library should be used in the linker when a model is compiled
 that uses this library in its library annotation.
 
-July 2, 2013.
+August 07, 2014.
