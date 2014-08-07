@@ -17,9 +17,13 @@ AC_SEARCH_LIBS([floor],[m])
 
 ZLIB="Yes"
 STATIC_ZLIB="No"
-AC_ARG_ENABLE(hdf5, [  --enable-hdf5[=yes]          Adds support for HDF5 and MAT7.3 formats],[test "xno" = x"$enableval" && HDF5="No"],[HDF5="Yes"])
-AC_ARG_ENABLE(zlib, [  --enable-zlib[=yes]          Adds support for the MAT7 format],[test "xno" = x"$enableval" && ZLIB="No"],[ZLIB="Yes"])
-AC_ARG_ENABLE(static-zlib, [ --enable-static-zlib[=no]],[test "xyes" = x"$enableval" && STATIC_ZLIB="Yes"],[STATIC_ZLIB="No"])
+AC_ARG_ENABLE(hdf5,
+  [  --enable-hdf5[=yes]          Adds support for HDF5 and MAT7.3 formats],[test "xno" = x"$enableval" && HDF5="No"],[HDF5="Yes"])
+AC_ARG_ENABLE(zlib,
+  [  --enable-zlib[=yes]          Adds support for the MAT7 format],[test "xno" = x"$enableval" && ZLIB="No"],[ZLIB="Yes"])
+AC_ARG_ENABLE(shared-tables,
+  [  --enable-shared-tables[=yes] Adds support for shared tables, reducing file I/O and reducing memory footprint],[test "xyes" = x"$enableval" && SHARED_TABLES="Yes"],[SHARED_TABLES="Yes"])
+AC_ARG_ENABLE(static-zlib, [  --enable-static-zlib[=no]],[test "xyes" = x"$enableval" && STATIC_ZLIB="Yes"],[STATIC_ZLIB="No"])
 
 if test "$ZLIB" = "Yes"; then
   AC_CHECK_HEADERS(zlib.h,[AC_SEARCH_LIBS([gzclose], [z], [ZLIB="Yes"], [ZLIB="No"])],[ZLIB="No"])
@@ -89,6 +93,9 @@ CPPFLAGS="$CPPFLAGS -DHAVE_ZLIB=1"
 fi
 if test "$HDF5" = "Yes"; then
 CPPFLAGS="$CPPFLAGS -DHAVE_HDF5=1"
+fi
+if test "$SHARED_TABLES" = "Yes"; then
+CPPFLAGS="$CPPFLAGS -DTABLE_SHARE=1"
 fi
 
 echo "Modelica Standard Tables may use ZLIB: $ZLIB"
