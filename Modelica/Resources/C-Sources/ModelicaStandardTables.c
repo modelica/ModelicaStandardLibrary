@@ -553,6 +553,7 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
                             free(iter->table);
                             free(iter->key);
                             HASH_DEL(tableShare, iter);
+                            free(iter);
                         }
                         MUTEX_UNLOCK();
                     }
@@ -1515,6 +1516,7 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
                             free(iter->table);
                             free(iter->key);
                             HASH_DEL(tableShare, iter);
+                            free(iter);
                         }
                         MUTEX_UNLOCK();
                     }
@@ -1900,6 +1902,7 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
                             free(iter->table);
                             free(iter->key);
                             HASH_DEL(tableShare, iter);
+                            free(iter);
                         }
                         MUTEX_UNLOCK();
                     }
