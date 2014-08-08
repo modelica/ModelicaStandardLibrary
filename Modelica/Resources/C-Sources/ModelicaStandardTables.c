@@ -234,7 +234,7 @@ typedef struct TableShare {
 /* ----- Static variables ----- */
 
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
-static TableShare* tableShare;
+static TableShare* tableShare = NULL;
 #if defined(_POSIX_)
 #include <pthread.h>
 static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
