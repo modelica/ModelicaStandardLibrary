@@ -215,10 +215,13 @@ package Utilities "Test functions for Modelica.Utilities"
       "Filename where the log is stored";
     output Boolean ok;
   protected
-    String file="#testStreams.txt";
+    String file1="#testStreams1.txt";
+    String file2="#testStreams2.txt";
     String line1="this is line 1";
     String line2="this is line 2";
     String line3="this is line 3";
+    String line4="this is line 4";
+    String line5="this is line 5";
     String lines[3];
     String rline;
     Integer nLines;
@@ -227,32 +230,47 @@ package Utilities "Test functions for Modelica.Utilities"
     Streams.print("... Test of Modelica.Utilities.Streams");
     Streams.print("... Test of Modelica.Utilities.Streams", logFile);
 
-    Files.remove(file);
-    Streams.print(line1, file);
-    Streams.print(line2, file);
-    Streams.print(line3, file);
-    Streams.close(file);
+    Files.remove(file1);
+    Streams.print(line1, file1);
+    Streams.print(line2, file1);
+    Streams.print(line3, file1);
+    Streams.close(file1);
 
-    lines := Streams.readFile(file);
+    Files.remove(file2);
+    Streams.print(line4, file2);
+    Streams.print(line5, file2);
+    Streams.close(file2);
+
+    lines := Streams.readFile(file1);
     assert(lines[1] == line1 and lines[2] == line2 and lines[3] == line3,
       "Streams.readFile failed");
 
-    nLines := Streams.countLines(file);
+    nLines := Streams.countLines(file1);
     assert(nLines == 3, "Streams.countLines failed");
 
-    (rline,eof) := Streams.readLine(file, 1);
+    (rline,eof) := Streams.readLine(file1, 1);
     assert(rline == line1 and not eof, "Streams.readLine 1 failed");
 
-    (rline,eof) := Streams.readLine(file, 2);
+    (rline,eof) := Streams.readLine(file2, 1);
+    assert(rline == line4 and not eof, "Streams.readLine 1 failed");
+
+    (rline,eof) := Streams.readLine(file1, 2);
     assert(rline == line2 and not eof, "Streams.readLine 2 failed");
 
-    (rline,eof) := Streams.readLine(file, 3);
+    (rline,eof) := Streams.readLine(file2, 2);
+    assert(rline == line5 and not eof, "Streams.readLine 2 failed");
+
+    (rline,eof) := Streams.readLine(file1, 3);
     assert(rline == line3 and not eof, "Streams.readLine 3 failed");
 
-    (rline,eof) := Streams.readLine(file, 4);
+    (rline,eof) := Streams.readLine(file2, 3);
+    assert(rline == "" and eof, "Streams.readLine 3 failed");
+
+    (rline,eof) := Streams.readLine(file1, 4);
     assert(rline == "" and eof, "Streams.readLine 4 failed");
 
-    Files.remove(file);
+    Files.remove(file1);
+    Files.remove(file2);
 
     ok := true;
   end Streams;
