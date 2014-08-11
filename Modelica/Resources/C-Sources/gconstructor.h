@@ -40,7 +40,7 @@
   __pragma(section(".CRT$XCU",read)) \
   __declspec(allocate(".CRT$XCU")) static int (* _array ## _func)(void) = _func ## _constructor;
 
-#elif defined (_MSC_VER)
+#elif defined (_MSC_VER) && (_MSC_VER >= 1400)
 
 #define G_HAS_CONSTRUCTORS 1
 
