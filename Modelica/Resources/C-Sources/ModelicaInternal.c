@@ -25,6 +25,7 @@
     Release Notes:
       Aug. 11, 2014, by Thomas Beutlich, ITI GmbH.
         Increased cache size of opened files and made it thread-safe (ticket #1433)
+        Made getenv/putenv thread-safe for Visual Studio 2005 and later (ticket #1433)
 
       May 21, 2013, by Martin Otter, DLR.
         Included the improvements from DS Lund:
@@ -909,19 +910,41 @@ MODELICA_EXPORT const char* ModelicaInternal_getcwd(int dummy) {
 }
 
 MODELICA_EXPORT void ModelicaInternal_getenv(const char* name, int convertToSlash, const char** content, int* exist) {
-        /* Get content of environment variable */
-    char* value = getenv(name);
+  /* Get content of environment variable */
     char* result;
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+    char* value;
+    size_t len = 0;
+    errno_t err = _dupenv_s(&value, &len, name);
+    if (err) {
+        value = NULL;
+        ModelicaFormatError("Not possible to get environment variable:\n%s", strerror(err));
+    }
+#else
+    char* value = getenv(name);
+#endif
 
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+    if (value == NULL && len == 0 && err == 0) {
+#else
     if (value == NULL) {
+#endif
         result = ModelicaAllocateString(0);
         result[0] = '\0';
         *exist = 0;
-    } else {
+    }
+    else {
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+        result = ModelicaAllocateString(len); /* (len - 1) actually is sufficient */
+#else
         result = ModelicaAllocateString(strlen(value));
+#endif
         strcpy(result, value);
         if ( convertToSlash == 1 ) ModelicaConvertToUnixDirectorySeparator(result);
         *exist = 1;
+#if defined(_MSC_VER) && _MSC_VER >= 1400
+        free(value);
+#endif
     }
     *content = result;
 }
