@@ -74,61 +74,29 @@
 #define MATIO_HAVE_STDINT_H 1
 #endif
 
-/* int16 type */
-#define _mat_int16_t short
-
-/* int32 type */
-#define _mat_int32_t int
-
-/* int64 type */
-#ifdef HAVE_MAT_INT64_T
-#define _mat_int64_t long long
-#endif
-
-/* int8 type */
-#define _mat_int8_t signed char
-
-/* uint16 type */
-#define _mat_uint16_t unsigned short
-
-/* uint32 type */
-#define _mat_uint32_t unsigned
-
-/* uint64 type */
-#ifdef HAVE_MAT_UINT64_T
-#define _mat_uint64_t unsigned long long
-#endif
-
-/* uint8 type */
-#define _mat_uint8_t unsigned char
-
 #if MATIO_HAVE_STDINT_H
-#   include <stdint.h>
+#include <stdint.h>
+typedef int16_t mat_int16_t;
+typedef int32_t mat_int32_t;
+typedef int64_t mat_int64_t;
+typedef int8_t mat_int8_t;
+typedef uint16_t mat_uint16_t;
+typedef uint32_t mat_uint32_t;
+typedef uint64_t mat_uint64_t;
+typedef uint8_t mat_uint8_t;
+#else
+#define mat_int16_t short
+#define mat_int32_t int
+#ifdef HAVE_MAT_INT64_T
+#define mat_int64_t long long
 #endif
-
-#ifdef _mat_int64_t
-    typedef _mat_int64_t mat_int64_t;
+#define mat_int8_t signed char
+#define mat_uint16_t unsigned short
+#define mat_uint32_t unsigned
+#ifdef HAVE_MAT_UINT64_T
+#define mat_uint64_t unsigned long long
 #endif
-#ifdef _mat_uint64_t
-    typedef _mat_uint64_t mat_uint64_t;
-#endif
-#ifdef _mat_int32_t
-    typedef _mat_int32_t mat_int32_t;
-#endif
-#ifdef _mat_uint32_t
-    typedef _mat_uint32_t mat_uint32_t;
-#endif
-#ifdef _mat_int16_t
-    typedef _mat_int16_t mat_int16_t;
-#endif
-#ifdef _mat_uint16_t
-    typedef _mat_uint16_t mat_uint16_t;
-#endif
-#ifdef _mat_int8_t
-    typedef _mat_int8_t mat_int8_t;
-#endif
-#ifdef _mat_uint8_t
-    typedef _mat_uint8_t mat_uint8_t;
+#define mat_uint8_t unsigned char
 #endif
 
 #endif /* MATIO_PUBCONF_H */
