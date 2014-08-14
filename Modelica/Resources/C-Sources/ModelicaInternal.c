@@ -654,16 +654,14 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) 
     int c = 1;
     FileCache* fv;
     HASH_FIND_STR(fileCache, fileName, fv);
-    if (fv) {
-        /* Open file */
-        if (fv->fp && line != 0 && line >= fv->line) {
-            /* Cached value */
-            line -= fv->line;
-            fp = fv->fp;
-            MUTEX_LOCK();
-            fv->fp = 0;
-            MUTEX_LOCK();
-        }
+    /* Open file */
+    if (fv && fv->fp && line != 0 && line >= fv->line) {
+        /* Cached value */
+        line -= fv->line;
+        fp = fv->fp;
+        MUTEX_LOCK();
+        fv->fp = 0;
+        MUTEX_LOCK();
     }
     else {
         fp = fopen(fileName, "r");
@@ -672,7 +670,7 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) 
                 "%s\n", fileName, strerror(errno));
         }
     }
-    while ( line != 0 && c != EOF) {
+    while ( line != 0 && c != EOF ) {
         c = fgetc(fp);
         while ( c != '\n' && c != EOF ) {
             c = fgetc(fp);
