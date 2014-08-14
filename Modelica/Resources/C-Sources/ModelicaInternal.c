@@ -609,7 +609,7 @@ static void CacheFileForReading(FILE* f, const char* fileName, int line) {
         }
         return;
     }
-    HASH_FIND_STR(fileCache, fileName, fv);
+    HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
     if (fv) {
         MUTEX_LOCK();
         fv->fp = f;
@@ -626,7 +626,7 @@ static void CacheFileForReading(FILE* f, const char* fileName, int line) {
                 fv->fp = f;
                 fv->line = line;
                 MUTEX_LOCK();
-                HASH_ADD_KEYPTR(hh, fileCache, key, strlen(key), fv);
+                HASH_ADD_KEYPTR(hh, fileCache, key, (unsigned)strlen(key), fv);
                 MUTEX_UNLOCK();
             }
         }
@@ -635,7 +635,7 @@ static void CacheFileForReading(FILE* f, const char* fileName, int line) {
 
 static void CloseCachedFile(const char* fileName) {
     FileCache* fv;
-    HASH_FIND_STR(fileCache, fileName, fv);
+    HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
     if (fv) {
         MUTEX_LOCK();
         if (fv->fp) {
@@ -653,7 +653,7 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) 
     FILE* fp;
     int c = 1;
     FileCache* fv;
-    HASH_FIND_STR(fileCache, fileName, fv);
+    HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
     /* Open file */
     if (fv && fv->fp && line != 0 && line >= fv->line) {
         /* Cached value */
