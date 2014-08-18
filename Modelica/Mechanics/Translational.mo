@@ -2021,7 +2021,7 @@ where the different effects are visualized:
       SI.Acceleration a "Absolute acceleration of flange_a and flange_b";
     equation
       // Constant auxiliary variables
-      f0 = Modelica.Math.tempInterpol1(0, f_pos, 2);
+      f0 = Modelica.Math.Vectors.interpolate(f_pos[:,1], f_pos[:,2], 0, 1);
       f0_max = peak*f0;
       free = false;
 
@@ -2039,10 +2039,10 @@ where the different effects are visualized:
 
     // Friction force
       f = if locked then sa*unitForce else
-         (if startForward then          Modelica.Math.tempInterpol1( v, f_pos, 2) else
-          if startBackward then        -Modelica.Math.tempInterpol1(-v, f_pos, 2) else
-          if pre(mode) == Forward then  Modelica.Math.tempInterpol1( v, f_pos, 2) else
-                                       -Modelica.Math.tempInterpol1(-v, f_pos, 2));
+         (if startForward then          Modelica.Math.Vectors.interpolate(f_pos[:,1], f_pos[:,2], v, 1) else
+          if startBackward then        -Modelica.Math.Vectors.interpolate(f_pos[:,1], f_pos[:,2], -v, 1) else
+          if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(f_pos[:,1], f_pos[:,2], v, 1) else
+                                       -Modelica.Math.Vectors.interpolate(f_pos[:,1], f_pos[:,2], -v, 1));
 
       lossPower = f*v_relfric;
       annotation (
@@ -2231,7 +2231,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             extent={{20,-20},{-20,20}},
             rotation=90)));
     equation
-      mue0 = Modelica.Math.tempInterpol1(0, mue_pos, 2);
+      mue0 = Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], 0, 1);
 
       s = s_a;
       s = s_b;
@@ -2252,10 +2252,10 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       // Friction force
       f = if locked then sa*unitForce else
           if free then   0 else
-          cgeo*fn*(if startForward then          Modelica.Math.tempInterpol1( v, mue_pos, 2) else
-                   if startBackward then        -Modelica.Math.tempInterpol1(-v, mue_pos, 2) else
-                   if pre(mode) == Forward then  Modelica.Math.tempInterpol1( v, mue_pos, 2) else
-                                                -Modelica.Math.tempInterpol1(-v, mue_pos, 2));
+          cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v, 1) else
+                   if startBackward then        -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v, 1) else
+                   if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v, 1) else
+                                                -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v, 1));
 
       lossPower = f*v_relfric;
       annotation (
@@ -2685,10 +2685,10 @@ provided via a signal bus.
     /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else
        if free then   0 else
-       cgeo*fn*(if startForward then          Math.tempInterpol1( v_relfric, mue_pos, 2) else
-                if startBackward then        -Math.tempInterpol1(-v_relfric, mue_pos, 2) else
-                if pre(mode) == Forward then  Math.tempInterpol1( v_relfric, mue_pos, 2) else
-                                             -Math.tempInterpol1(-v_relfric, mue_pos, 2));
+       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
+                if startBackward then        -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1) else
+                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
+                                             -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1));
 */
     // finite state machine to determine configuration
       mode = if free then Free else
@@ -5079,10 +5079,10 @@ with the Modelica.Blocks blocks.
     /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else
        if free then   0 else
-       cgeo*fn*(if startForward then          Math.tempInterpol1( v_relfric, mue_pos, 2) else
-                if startBackward then        -Math.tempInterpol1(-v_relfric, mue_pos, 2) else
-                if pre(mode) == Forward then  Math.tempInterpol1( v_relfric, mue_pos, 2) else
-                                             -Math.tempInterpol1(-v_relfric, mue_pos, 2));
+       cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
+                if startBackward then        -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1) else
+                if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], v_relfric, 1) else
+                                             -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -v_relfric, 1));
 */
     // finite state machine to determine configuration
       mode = if free then Free else

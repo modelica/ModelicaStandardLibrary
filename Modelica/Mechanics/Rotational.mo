@@ -3138,10 +3138,7 @@ in the User's Guide of the Rotational library.
 
     equation
       // Constant auxiliary variables
-      tau0 = Modelica.Math.tempInterpol1(
-            0,
-            tau_pos,
-            2);
+      tau0 = Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], 0, 1);
       tau0_max = peak*tau0;
       free = false;
 
@@ -3158,20 +3155,16 @@ in the User's Guide of the Rotational library.
       flange_a.tau + flange_b.tau - tau = 0;
 
       // Friction torque
-      tau = if locked then sa*unitTorque else (if startForward then
-        Modelica.Math.tempInterpol1(
-            w,
-            tau_pos,
-            2) else if startBackward then -Modelica.Math.tempInterpol1(
-            -w,
-            tau_pos,
-            2) else if pre(mode) == Forward then Modelica.Math.tempInterpol1(
-            w,
-            tau_pos,
-            2) else -Modelica.Math.tempInterpol1(
-            -w,
-            tau_pos,
-            2));
+      tau = if locked then sa*unitTorque else (
+        if startForward then
+          Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], w, 1)
+        else if startBackward then
+          -Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], -w, 1)
+        else if pre(mode) == Forward then
+          Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], w, 1)
+        else
+          -Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], -w, 1)
+      );
       lossPower = tau*w_relfric;
       annotation (Documentation(info="<html>
 <p>
@@ -3338,10 +3331,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             rotation=90)));
 
     equation
-      mue0 = Modelica.Math.tempInterpol1(
-            0,
-            mue_pos,
-            2);
+      mue0 = Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], 0, 1);
 
       phi = flange_a.phi - phi_support;
       flange_b.phi = flange_a.phi;
@@ -3360,20 +3350,16 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       free = fn <= 0;
 
       // Friction torque
-      tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(if
-        startForward then Modelica.Math.tempInterpol1(
-            w,
-            mue_pos,
-            2) else if startBackward then -Modelica.Math.tempInterpol1(
-            -w,
-            mue_pos,
-            2) else if pre(mode) == Forward then Modelica.Math.tempInterpol1(
-            w,
-            mue_pos,
-            2) else -Modelica.Math.tempInterpol1(
-            -w,
-            mue_pos,
-            2));
+      tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(
+        if startForward then
+          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w, 1)
+        else if startBackward then
+          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w, 1)
+        else if pre(mode) == Forward then
+          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w, 1)
+        else
+          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w, 1)
+      );
       lossPower = tau*w_relfric;
       annotation (Icon(
             coordinateSystem(preserveAspectRatio=true,
@@ -3546,10 +3532,7 @@ in the User's Guide of the Rotational library.
 
     equation
       // Constant auxiliary variable
-      mue0 = Modelica.Math.tempInterpol1(
-            0,
-            mue_pos,
-            2);
+      mue0 = Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], 0, 1);
 
       // Relative quantities
       w_relfric = w_rel;
@@ -3562,20 +3545,16 @@ in the User's Guide of the Rotational library.
       tau0_max = peak*tau0;
 
       // Friction torque
-      tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(if
-        startForward then Modelica.Math.tempInterpol1(
-            w_rel,
-            mue_pos,
-            2) else if startBackward then -Modelica.Math.tempInterpol1(
-            -w_rel,
-            mue_pos,
-            2) else if pre(mode) == Forward then Modelica.Math.tempInterpol1(
-            w_rel,
-            mue_pos,
-            2) else -Modelica.Math.tempInterpol1(
-            -w_rel,
-            mue_pos,
-            2));
+      tau = if locked then sa*unitTorque else if free then 0 else cgeo*fn*(
+        if startForward then
+          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_rel, 1)
+        else if startBackward then
+          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_rel, 1)
+        else if pre(mode) == Forward then
+          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_rel, 1)
+        else
+          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w_rel, 1)
+      );
       lossPower = tau*w_relfric;
       annotation (Icon(
           coordinateSystem(preserveAspectRatio=true,
@@ -3730,10 +3709,7 @@ in the User's Guide of the Rotational library.
 
     equation
       // Constant auxiliary variable
-      mue0 = Modelica.Math.tempInterpol1(
-            0,
-            mue_pos,
-            2);
+      mue0 = Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], 0, 1);
       tau0_max_low = eps0*mue0*cgeo*fn_max;
 
       // Normal force and friction torque for w_rel=0
@@ -3757,10 +3733,7 @@ in the User's Guide of the Rotational library.
       a_rel = unitAngularAcceleration*(if locked then 0 else sa - tau0/
         unitTorque);
       tau = if locked then sa*unitTorque else (if free then 0 else cgeo*fn*
-        Modelica.Math.tempInterpol1(
-            w_rel,
-            mue_pos,
-            2));
+        Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_rel, 1));
 
       // Determine configuration
       stuck = locked or w_rel <= 0;
@@ -7613,10 +7586,10 @@ with the blocks of package Modelica.Blocks.
       /* Friction torque has to be defined in a subclass. Example for a clutch:
    tau = if locked then sa else
          if free then   0 else
-         cgeo*fn*(if startForward then          Math.tempInterpol1( w_relfric, mue_pos, 2) else
-                  if startBackward then        -Math.tempInterpol1(-w_relfric, mue_pos, 2) else
-                  if pre(mode) == Forward then  Math.tempInterpol1( w_relfric, mue_pos, 2) else
-                                               -Math.tempInterpol1(-w_relfric, mue_pos, 2));
+         cgeo*fn*(if startForward then          Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_relfric, 1) else
+                  if startBackward then        -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w_relfric, 1) else
+                  if pre(mode) == Forward then  Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_relfric, 1) else
+                                               -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w_relfric, 1));
 */
       // finite state machine to determine configuration
       mode = if free then Free else (if (pre(mode) == Forward or pre(mode) ==
