@@ -3933,7 +3933,7 @@ connected to other elements in an appropriate way.
       SI.AngularAcceleration a_a
         "Angular acceleration of flange_a with respect to support";
 
-      Real interpolation_result[1, size(lossTable, 2) - 1];
+      Real interpolation_result[1, 4];
       Real eta_mf1;
       Real eta_mf2;
       Real tau_bf_a "Bearing friction torque on flange_a side";
@@ -3994,15 +3994,10 @@ connected to other elements in an appropriate way.
       constant SI.Torque unitTorque=1;
 
       // get friction and eta information for omega=0
-      parameter Real interpolation_result_0[1, size(lossTable, 2) - 1]=
-          Modelica.Math.tempInterpol2(
-              0,
-              lossTable,
-              {2,3,4,5});
-      parameter Real eta_mf1_0=interpolation_result_0[1, 1];
-      parameter Real eta_mf2_0=interpolation_result_0[1, 2];
-      parameter Real tau_bf1_0=abs(interpolation_result_0[1, 3]);
-      parameter Real tau_bf2_0=abs(interpolation_result_0[1, 4]);
+      parameter Real eta_mf1_0=Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,2], 0, 1);
+      parameter Real eta_mf2_0=Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,3], 0, 1);
+      parameter Real tau_bf1_0=abs(Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,4], 0, 1));
+      parameter Real tau_bf2_0=abs(Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,5], 0, 1));
       parameter Real tau_bf_a_0=if Modelica.Math.isEqual(
               eta_mf1_0,
               1.0,
@@ -4026,15 +4021,24 @@ connected to other elements in an appropriate way.
             [0, 1, 1, 0, 0],
             Modelica.Constants.eps);
 
-      interpolation_result = if ideal then [1, 1, 0, 0] else
-        Modelica.Math.tempInterpol2(
-            noEvent(abs(w_a)),
-            lossTable,
-            {2,3,4,5});
-      eta_mf1 = interpolation_result[1, 1];
-      eta_mf2 = interpolation_result[1, 2];
-      tau_bf1 = noEvent(abs(interpolation_result[1, 3]));
-      tau_bf2 = noEvent(abs(interpolation_result[1, 4]));
+      if ideal then
+        interpolation_result = [1, 1, 0, 0];
+        eta_mf1 = 1;
+        eta_mf2 = 1;
+        tau_bf1 = 0;
+        tau_bf2 = 0;
+      else
+        interpolation_result = [
+          Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,2], noEvent(abs(w_a)), 1),
+          Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,3], noEvent(abs(w_a)), 1),
+          Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,4], noEvent(abs(w_a)), 1),
+          Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,5], noEvent(abs(w_a)), 1)
+        ];
+        eta_mf1 = interpolation_result[1, 1];
+        eta_mf2 = interpolation_result[1, 2];
+        tau_bf1 = noEvent(abs(interpolation_result[1, 3]));
+        tau_bf2 = noEvent(abs(interpolation_result[1, 4]));
+      end if;
 
       if Modelica.Math.isEqual(
               eta_mf1,
