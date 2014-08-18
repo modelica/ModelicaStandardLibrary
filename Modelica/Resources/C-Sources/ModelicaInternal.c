@@ -617,9 +617,9 @@ static void CacheFileForReading(FILE* f, const char* fileName, int line) {
         MUTEX_UNLOCK();
     }
     else {
-        fv = malloc(sizeof(FileCache));
+        fv = (FileCache*)malloc(sizeof(FileCache));
         if (fv) {
-            char* key = malloc((strlen(fileName) + 1)*sizeof(char));
+            char* key = (char*)malloc((strlen(fileName) + 1)*sizeof(char));
             if (key) {
                 strcpy(key, fileName);
                 fv->fileName = key;
@@ -933,15 +933,22 @@ MODELICA_EXPORT void ModelicaInternal_getenv(const char* name, int convertToSlas
     }
     else {
 #if defined(_MSC_VER) && _MSC_VER >= 1400
-        result = ModelicaAllocateString(len); /* (len - 1) actually is sufficient */
+        result = ModelicaAllocateStringWithErrorReturn(len); /* (len - 1) actually is sufficient */
+        if (result) {
 #else
         result = ModelicaAllocateString(strlen(value));
 #endif
-        strcpy(result, value);
-        if ( convertToSlash == 1 ) ModelicaConvertToUnixDirectorySeparator(result);
-        *exist = 1;
+            strcpy(result, value);
+            if ( convertToSlash == 1 ) ModelicaConvertToUnixDirectorySeparator(result);
+            *exist = 1;
 #if defined(_MSC_VER) && _MSC_VER >= 1400
-        free(value);
+            free(value);
+        }
+        else {
+            free(value);
+            ModelicaFormatError("Not enough memory to allocate string for copying "
+                "environment variable \"%s\".\n", name);
+        }
 #endif
     }
     *content = result;
