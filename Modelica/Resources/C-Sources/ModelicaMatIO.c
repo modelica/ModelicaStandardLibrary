@@ -125,10 +125,10 @@
 #define HAVE_MAT_UINT8_T 1
 
 /* Have snprintf */
-#if defined(_MSC_VER) && _MSC_VER >= 1400
-#define HAVE_SNPRINTF 1
-#else
+#if defined(__LCC__) || (defined(_MSC_VER) && _MSC_VER < 1400)
 #undef HAVE_SNPRINTF
+#else
+#define HAVE_SNPRINTF 1
 #endif
 
 /* Define to 1 if you have the <stdlib.h> header file. */
@@ -153,9 +153,34 @@
 #endif
 
 /* Have vsnprintf */
-#if defined(_MSC_VER) && _MSC_VER >= 1400
+#if defined(STDC99)
+#define HAVE_VSNPRINTF 1
+#if !defined(HAVE_C99_VSNPRINTF)
+#define HAVE_C99_VSNPRINTF 1
+#endif
+#elif defined(__MINGW32__) || defined(__CYGWIN__)
 #define HAVE_VSNPRINTF 1
 #if !defined(HAVE_C99_VSNPRINTF) && __STDC_VERSION__ >= 199901L
+#define HAVE_C99_VSNPRINTF 1
+#endif
+#elif defined(__WATCOMC__)
+#define HAVE_VSNPRINTF 1
+#if !defined(HAVE_C99_VSNPRINTF)
+#define HAVE_C99_VSNPRINTF 1
+#endif
+#elif defined(__TURBOC__) && __TURBOC__ >= 0x550
+#define HAVE_VSNPRINTF 1
+#if !defined(HAVE_C99_VSNPRINTF)
+#define HAVE_C99_VSNPRINTF 1
+#endif
+#elif defined(MSDOS) && defined(__BORLANDC__) && (BORLANDC > 0x410)
+#define HAVE_VSNPRINTF 1
+#if !defined(HAVE_C99_VSNPRINTF)
+#define HAVE_C99_VSNPRINTF 1
+#endif
+#elif defined(_MSC_VER) && _MSC_VER >= 1400
+#define HAVE_VSNPRINTF 1
+#if !defined(HAVE_C99_VSNPRINTF)
 #define HAVE_C99_VSNPRINTF 1
 #endif
 #else
@@ -8909,7 +8934,7 @@ int mat_asprintf(char **ptr, const char *format, ...)
     return ret;
 }
 
-char* mat_strdup(const char *s)
+static char* mat_strdup(const char *s)
 {
     size_t len = strlen(s) + 1;
     char *d = malloc(len);
