@@ -661,7 +661,7 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) 
         fp = fv->fp;
         MUTEX_LOCK();
         fv->fp = 0;
-        MUTEX_LOCK();
+        MUTEX_UNLOCK();
     }
     else {
         fp = fopen(fileName, "r");
