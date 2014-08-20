@@ -335,10 +335,6 @@ for contributing his source code to this library.
 </p>
 
 <p>
-The main work has been performed
-</p>
-
-<p>
 The research leading to version 2.0.0 has received funding from the ENIAC Joint Undertaking under grant
 agreement no. 270693-2 and from the &Ouml;sterreichische
 Forschungsf&ouml;rderungsgesellschaft mbH under project
