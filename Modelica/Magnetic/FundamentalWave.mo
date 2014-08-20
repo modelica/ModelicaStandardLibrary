@@ -335,10 +335,6 @@ for contributing his source code to this library.
 </p>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Christian Kral, Anton Haumer, and AIT.
-</p>
-
-<p>
 The research leading to version 2.0.0 has received funding from the ENIAC Joint Undertaking under grant
 agreement no. 270693-2 and from the &Ouml;sterreichische
 Forschungsf&ouml;rderungsgesellschaft mbH under project
@@ -7604,8 +7600,8 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 
 </html>", info="<html>
 <p>
-Copyright &copy; 2009-2014, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
+Copyright &copy; 2009-2014, Modelica Association, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a> and AIT
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
