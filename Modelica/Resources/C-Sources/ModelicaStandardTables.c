@@ -3537,7 +3537,7 @@ static double* readTable(const char* tableName, const char* fileName,
                 /* Table file can be either ASCII text or binary MATLAB MAT-file */
                 ext = strrchr(fileName, '.');
                 if (ext) {
-                    if (0 == strncmp(ext, ".mat", 4) ||
+                    if (0 == strncmp(ext, ".mat", 4) || 
                         0 == strncmp(ext, ".MAT", 4)) {
                         isMatExt = 1;
                     }
