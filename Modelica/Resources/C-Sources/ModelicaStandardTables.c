@@ -21,12 +21,17 @@
    to decrease the utilized memory (ticket #1110).
 
    Release Notes:
+      Aug. 22, 2014: by Thomas Beutlich, ITI GmbH.
+                     Fixed multi-threaded access of common/shared table arrays
+                     (ticket #1556)
+
       May 21, 2014:  by Thomas Beutlich, ITI GmbH.
                      Fixed bivariate Akima-spline extrapolation (ticket #1465)
+
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
                      Implemented a first version
 
-   Copyright (C) 2013, Modelica Association, DLR and ITI GmbH
+   Copyright (C) 2013-2014, Modelica Association, DLR and ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -554,12 +559,12 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
             if (tableID->tableName && tableID->fileName) {
                 TableKey key = std::make_pair(tableID->fileName,
                     tableID->tableName);
+#if defined(_WIN32) || defined(__linux__)
+                CriticalSectionHandler csh;
+#endif
                 TableShareMap::iterator iter = tableShare.find(key);
                 if (iter != tableShare.end()) {
                     /* Share hit */
-#if defined(_WIN32) || defined(__linux__)
-                    CriticalSectionHandler csh;
-#endif
                     TableVal& val = iter->second;
                     TableData& data = val.first;
                     data.first--;
@@ -799,7 +804,6 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                     }
                                     else /* if (extrapolate == RIGHT) */ {
                                         const double t1 = TABLE_COL0(last + 1);
-                                        const double y1 = TABLE(last + 1, col);
                                         const double v = t1 - t0;
                                         y = LINEAR_SLOPE(TABLE(last + 1, col),
                                             (3*c[0]*v + 2*c[1])*v + c[2],
@@ -1513,12 +1517,12 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
             if (tableID->tableName && tableID->fileName) {
                 TableKey key = std::make_pair(tableID->fileName,
                     tableID->tableName);
+#if defined(_WIN32) || defined(__linux__)
+                CriticalSectionHandler csh;
+#endif
                 TableShareMap::iterator iter = tableShare.find(key);
                 if (iter != tableShare.end()) {
                     /* Share hit */
-#if defined(_WIN32) || defined(__linux__)
-                    CriticalSectionHandler csh;
-#endif
                     TableVal& val = iter->second;
                     TableData& data = val.first;
                     data.first--;
@@ -1895,12 +1899,12 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
             if (tableID->tableName && tableID->fileName) {
                 TableKey key = std::make_pair(tableID->fileName,
                     tableID->tableName);
+#if defined(_WIN32) || defined(__linux__)
+                CriticalSectionHandler csh;
+#endif
                 TableShareMap::iterator iter = tableShare.find(key);
                 if (iter != tableShare.end()) {
                     /* Share hit */
-#if defined(_WIN32) || defined(__linux__)
-                    CriticalSectionHandler csh;
-#endif
                     TableVal& val = iter->second;
                     TableData& data = val.first;
                     data.first--;
@@ -3514,9 +3518,20 @@ static double* readTable(const char* tableName, const char* fileName,
 #if !defined(NO_FILE_SYSTEM)
     if (tableName && fileName && nRow && nCol) {
 #if defined(__cplusplus)
+        int updateError = 0;
         TableKey key = std::make_pair(fileName, tableName);
-        TableShareMap::iterator iter = tableShare.find(key);
-        if (iter == tableShare.end() || force) {
+        int read;
+        {
+#if defined(_WIN32) || defined(__linux__)
+            /* Lock and release lock since readMatTable/readTxtTable may fail with
+               ModelicaError
+            */
+            CriticalSectionHandler csh;
+#endif
+            TableShareMap::iterator iter = tableShare.find(key);
+            read = (iter == tableShare.end()) || force;
+        }
+        if (read) {
 #endif
             const char* ext;
             int isMatExt = 0;
@@ -3542,52 +3557,58 @@ static double* readTable(const char* tableName, const char* fileName,
                 table = readTxtTable(tableName, fileName, nRow, nCol);
             }
 #if defined(__cplusplus)
-            if (table) {
-                if (iter == tableShare.end()) {
-                    /* Share miss -> Insert new table */
-                    tableShare.insert(std::make_pair(
-                        key, std::make_pair(
-                        std::make_pair(1, table),
-                        std::make_pair(*nRow, *nCol))));
-                }
-                else { /* force == 1 */
-                    /* Share hit -> Update table share (only if not shared
-                       by multiple table objects)
-                    */
-                    TableVal& val = iter->second;
-                    TableData& data = val.first;
-                    if (data.first == 1) {
+        }
+        {
 #if defined(_WIN32) || defined(__linux__)
-                        CriticalSectionHandler csh;
+            /* Again ask for lock and search in hash table share */
+            CriticalSectionHandler csh;
 #endif
-                        TableDim& dim = val.second;
-                        free(data.second);
-                        data.second = table;
-                        dim.first = *nRow;
-                        dim.second = *nCol;
+            TableShareMap::iterator iter = tableShare.find(key);
+            if ((iter == tableShare.end()) || force) {
+                if (table) {
+                    if (iter == tableShare.end()) {
+                        /* Share miss -> Insert new table */
+                        tableShare.insert(std::make_pair(
+                            key, std::make_pair(
+                            std::make_pair(1, table),
+                            std::make_pair(*nRow, *nCol))));
                     }
-                    else {
-                        ModelicaFormatError("Not possible to update shared "
-                            "table \"%s\" from \"%s\": File and table name "
-                            "must be unique.\n", tableName, fileName);
+                    else { /* force == 1 */
+                        /* Share hit -> Update table share (only if not shared
+                           by multiple table objects)
+                        */
+                        TableVal& val = iter->second;
+                        TableData& data = val.first;
+                        if (data.first == 1) {
+                            TableDim& dim = val.second;
+                            free(data.second);
+                            data.second = table;
+                            dim.first = *nRow;
+                            dim.second = *nCol;
+                        }
+                        else {
+                            updateError = 1;
+                        }
                     }
                 }
             }
+            else {
+                /* Share hit -> Read from table share and increment table
+                   reference counter
+                */
+                TableVal& val = iter->second;
+                TableData& data = val.first;
+                TableDim& dim = val.second;
+                data.first++;
+                table = data.second;
+                *nRow = dim.first;
+                *nCol = dim.second;
+            }
         }
-        else {
-            /* Share hit -> Read from table share and increment table
-               reference counter
-            */
-#if defined(_WIN32) || defined(__linux__)
-            CriticalSectionHandler csh;
-#endif
-            TableVal& val = iter->second;
-            TableData& data = val.first;
-            TableDim& dim = val.second;
-            data.first++;
-            table = data.second;
-            *nRow = dim.first;
-            *nCol = dim.second;
+        if (updateError == 1) {
+            ModelicaFormatError("Not possible to update shared "
+                "table \"%s\" from \"%s\": File and table name "
+                "must be unique.\n", tableName, fileName);
         }
 #endif
     }
