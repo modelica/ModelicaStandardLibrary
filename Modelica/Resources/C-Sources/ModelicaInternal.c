@@ -23,6 +23,9 @@
 
 
     Release Notes:
+      Aug. 22, 2014, by Thomas Beutlich, ITI GmbH.
+        Fixed multi-threaded access of common/shared file cache (ticket #1556)
+
       Aug. 11, 2014, by Thomas Beutlich, ITI GmbH.
         Increased cache size of opened files and made it thread-safe (ticket #1433)
         Made getenv/putenv thread-safe for Visual Studio 2005 and later (ticket #1433)
@@ -124,7 +127,7 @@ MODELICA_EXPORT void ModelicaInternal_setenv(const char* name, const char* value
     ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
-#define uthash_fatal(msg) ModelicaFormatError("%s\n", msg)
+#define uthash_fatal(msg) ModelicaFormatMessage("Error: %s\n", msg); break
 #include "uthash.h"
 #include "gconstructor.h"
 
@@ -609,12 +612,11 @@ static void CacheFileForReading(FILE* f, const char* fileName, int line) {
         }
         return;
     }
+    MUTEX_LOCK();
     HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
     if (fv) {
-        MUTEX_LOCK();
         fv->fp = f;
         fv->line = line;
-        MUTEX_UNLOCK();
     }
     else {
         fv = (FileCache*)malloc(sizeof(FileCache));
@@ -625,27 +627,26 @@ static void CacheFileForReading(FILE* f, const char* fileName, int line) {
                 fv->fileName = key;
                 fv->fp = f;
                 fv->line = line;
-                MUTEX_LOCK();
                 HASH_ADD_KEYPTR(hh, fileCache, key, (unsigned)strlen(key), fv);
-                MUTEX_UNLOCK();
             }
         }
     }
+    MUTEX_UNLOCK();
 }
 
 static void CloseCachedFile(const char* fileName) {
     FileCache* fv;
+    MUTEX_LOCK();
     HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
     if (fv) {
-        MUTEX_LOCK();
         if (fv->fp) {
             fclose(fv->fp);
         }
         free(fv->fileName);
         HASH_DEL(fileCache, fv);
         free(fv);
-        MUTEX_UNLOCK();
     }
+    MUTEX_UNLOCK();
 }
 
 static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) {
@@ -653,17 +654,18 @@ static FILE* ModelicaStreams_openFileForReading(const char* fileName, int line) 
     FILE* fp;
     int c = 1;
     FileCache* fv;
+    MUTEX_LOCK();
     HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
     /* Open file */
     if (fv && fv->fp && line != 0 && line >= fv->line) {
         /* Cached value */
         line -= fv->line;
         fp = fv->fp;
-        MUTEX_LOCK();
         fv->fp = 0;
         MUTEX_UNLOCK();
     }
     else {
+        MUTEX_UNLOCK();
         fp = fopen(fileName, "r");
         if ( fp == NULL ) {
             ModelicaFormatError("Not possible to open file \"%s\" for reading:\n"

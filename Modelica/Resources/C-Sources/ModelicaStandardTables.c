@@ -21,11 +21,17 @@
 
 
    Release Notes:
+      Aug. 22, 2014: by Thomas Beutlich, ITI GmbH.
+                     Fixed multi-threaded access of common/shared table arrays
+                     (ticket #1556)
+
       Aug. 07, 2014: by Thomas Beutlich, ITI GmbH.
                      Added pure C implementation of common/shared table arrays
                      (ticket #1550)
+
       May 21, 2014:  by Thomas Beutlich, ITI GmbH.
                      Fixed bivariate Akima-spline extrapolation (ticket #1465)
+
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
                      Implemented a first version
 
@@ -66,7 +72,7 @@
 #include <locale.h>
 #include "ModelicaMatIO.h"
 #if defined(TABLE_SHARE)
-#define uthash_fatal(msg) ModelicaFormatError("%s\n", msg)
+#define uthash_fatal(msg) ModelicaFormatMessage("Error: %s\n", msg); break
 #include "uthash.h"
 #include "gconstructor.h"
 #endif
@@ -544,10 +550,10 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
                     strcpy(key, tableID->tableName);
                     strcat(key, "|");
                     strcat(key, tableID->fileName);
+                    MUTEX_LOCK();
                     HASH_FIND_STR(tableShare, key, iter);
                     if (iter) {
                         /* Share hit */
-                        MUTEX_LOCK();
                         iter->refCount--;
                         if (iter->refCount == 0) {
                             free(iter->table);
@@ -555,8 +561,8 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
                             HASH_DEL(tableShare, iter);
                             free(iter);
                         }
-                        MUTEX_UNLOCK();
                     }
+                    MUTEX_UNLOCK();
                     free(key);
                 }
             }
@@ -1507,10 +1513,10 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
                     strcpy(key, tableID->tableName);
                     strcat(key, "|");
                     strcat(key, tableID->fileName);
+                    MUTEX_LOCK();
                     HASH_FIND_STR(tableShare, key, iter);
                     if (iter) {
                         /* Share hit */
-                        MUTEX_LOCK();
                         iter->refCount--;
                         if (iter->refCount == 0) {
                             free(iter->table);
@@ -1518,8 +1524,8 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
                             HASH_DEL(tableShare, iter);
                             free(iter);
                         }
-                        MUTEX_UNLOCK();
                     }
+                    MUTEX_UNLOCK();
                     free(key);
                 }
             }
@@ -1893,10 +1899,10 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
                     strcpy(key, tableID->tableName);
                     strcat(key, "|");
                     strcat(key, tableID->fileName);
+                    MUTEX_LOCK();
                     HASH_FIND_STR(tableShare, key, iter);
                     if (iter) {
                         /* Share hit */
-                        MUTEX_LOCK();
                         iter->refCount--;
                         if (iter->refCount == 0) {
                             free(iter->table);
@@ -1904,8 +1910,8 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
                             HASH_DEL(tableShare, iter);
                             free(iter);
                         }
-                        MUTEX_UNLOCK();
                     }
+                    MUTEX_UNLOCK();
                     free(key);
                 }
             }
@@ -3516,10 +3522,12 @@ static double* readTable(const char* tableName, const char* fileName,
         char* key = malloc((strlen(tableName) +
             strlen(fileName) + 2)*sizeof(char));
         if (key) {
+            int updateError = 0;
             TableShare *iter;
             strcpy(key, tableName);
             strcat(key, "|");
             strcat(key, fileName);
+            MUTEX_LOCK();
             HASH_FIND_STR(tableShare, key, iter);
             if (!iter || force) {
 #endif
@@ -3541,6 +3549,12 @@ static double* readTable(const char* tableName, const char* fileName,
                         tableName, fileName);
                 }
 
+#if defined(TABLE_SHARE)
+                /* Release lock since readMatTable/readTxtTable may fail with
+                   ModelicaError
+                */
+                MUTEX_UNLOCK();
+#endif
                 if (isMatExt) {
                     table = readMatTable(tableName, fileName, nRow, nCol);
                 }
@@ -3548,6 +3562,11 @@ static double* readTable(const char* tableName, const char* fileName,
                     table = readTxtTable(tableName, fileName, nRow, nCol);
                 }
 #if defined(TABLE_SHARE)
+                /* Again ask for lock and search in hash table share */
+                MUTEX_LOCK();
+                HASH_FIND_STR(tableShare, key, iter);
+            }
+            if (!iter || force) {
                 if (table) {
                     if (!iter) {
                         /* Share miss -> Insert new table */
@@ -3558,9 +3577,7 @@ static double* readTable(const char* tableName, const char* fileName,
                             iter->nRow = *nRow;
                             iter->nCol = *nCol;
                             iter->table = table;
-                            MUTEX_LOCK();
                             HASH_ADD_KEYPTR(hh, tableShare, key, strlen(key), iter);
-                            MUTEX_UNLOCK();
                         }
                     }
                     else { /* force == 1 */
@@ -3568,17 +3585,13 @@ static double* readTable(const char* tableName, const char* fileName,
                            by multiple table objects)
                         */
                         if (iter->refCount == 1) {
-                            MUTEX_LOCK();
                             free(iter->table);
                             iter->nRow = *nRow;
                             iter->nCol = *nCol;
                             iter->table = table;
-                            MUTEX_UNLOCK();
                         }
                         else {
-                            ModelicaFormatError("Not possible to update shared "
-                                "table \"%s\" from \"%s\": File and table name "
-                                "must be unique.\n", tableName, fileName);
+                            updateError = 1;
                         }
                     }
                 }
@@ -3587,12 +3600,16 @@ static double* readTable(const char* tableName, const char* fileName,
                 /* Share hit -> Read from table share and increment table
                    reference counter
                 */
-                MUTEX_LOCK();
                 iter->refCount++;
                 table = iter->table;
                 *nRow = iter->nRow;
                 *nCol = iter->nCol;
-                MUTEX_UNLOCK();
+            }
+            MUTEX_UNLOCK();
+            if (updateError == 1) {
+                ModelicaFormatError("Not possible to update shared "
+                    "table \"%s\" from \"%s\": File and table name "
+                    "must be unique.\n", tableName, fileName);
             }
         }
 #endif
