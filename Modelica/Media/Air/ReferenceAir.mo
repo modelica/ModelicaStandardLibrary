@@ -6,24 +6,24 @@ within Modelica.Media.Air;
 
     constant Modelica.Media.Interfaces.Types.TwoPhase.FluidConstants
       airConstants(
-      each chemicalFormula="N2+O2+Ar",
-      each structureFormula="N2+O2+Ar",
-      each casRegistryNumber="1",
-      each iupacName="air",
-      each molarMass=0.02896546,
-      each criticalTemperature=132.5306,
-      each criticalPressure=3.786e6,
-      each criticalMolarVolume=0.02896546/342.68,
-      each triplePointTemperature=63.05 "From N2",
-      each triplePointPressure=0.1253e5 "From N2",
-      each normalBoilingPoint=78.903,
-      each meltingPoint=0,
-      each acentricFactor=0.0335,
-      each dipoleMoment=0.0,
-      each hasCriticalData=true,
-      each hasFundamentalEquation=true,
-      each hasAccurateViscosityData=true,
-      each hasAcentricFactor=true);
+      chemicalFormula="N2+O2+Ar",
+      structureFormula="N2+O2+Ar",
+      casRegistryNumber="1",
+      iupacName="air",
+      molarMass=0.02896546,
+      criticalTemperature=132.5306,
+      criticalPressure=3.786e6,
+      criticalMolarVolume=0.02896546/342.68,
+      triplePointTemperature=63.05 "From N2",
+      triplePointPressure=0.1253e5 "From N2",
+      normalBoilingPoint=78.903,
+      meltingPoint=0,
+      acentricFactor=0.0335,
+      dipoleMoment=0.0,
+      hasCriticalData=true,
+      hasFundamentalEquation=true,
+      hasAccurateViscosityData=true,
+      hasAcentricFactor=true);
 
   protected
     type MolarHeatCapacity = SI.MolarHeatCapacity (
