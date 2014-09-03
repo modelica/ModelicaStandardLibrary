@@ -8301,7 +8301,7 @@ For details of the arguments, see documentation of dgbsv.
       "reduces a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q' * A * Q = H"
       extends Modelica.Icons.Function;
 
-      input Real A[:, size(A, 2)];
+      input Real A[:, size(A, 1)];
       input Integer ilo=1
         "lowest index where the original matrix had been Hessenbergform";
       input Integer ihi=size(A, 1)
