@@ -11108,7 +11108,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
       import Modelica.Math.Matrices;
       import Modelica.Math.Vectors;
 
-      input Real Rk[:, size(Rk, 2)];
+      input Real Rk[:, size(Rk, 1)];
       input Real Vk[size(Rk, 1), size(Rk, 2)];
 
       output Real tk;
