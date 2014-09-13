@@ -4244,12 +4244,23 @@ relationship of the voltage and current space phasor.
         "Orientation of the resulting fundamental wave V_m phasor"
         annotation (Evaluate=true);
       // Local electric single phase quantities
-      Modelica.SIunits.Voltage v "Voltage drop";
+      Modelica.SIunits.Voltage v "Voltage";
       Modelica.SIunits.Current i "Current";
+
       // Local electromagnetic fundamental wave quantities
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
+
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
+
       final parameter Complex N=effectiveTurns*Modelica.ComplexMath.exp(Complex(
           0, orientation)) "Complex number of turns";
     equation
@@ -4344,13 +4355,25 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
 
     model MultiPhaseElectroMagneticConverter
       "Multi phase electro magnetic converter"
+
+      import Modelica.Constants.pi;
+
       // Global plug and port variables
-      Modelica.SIunits.Voltage v[m] = plug_p.pin.v - plug_n.pin.v "Voltages";
-      Modelica.SIunits.Current i[m] = plug_p.pin.i "Currents";
+      Modelica.SIunits.Voltage v[m] = plug_p.pin.v - plug_n.pin.v "Voltage";
+      Modelica.SIunits.Current i[m] = plug_p.pin.i "Current";
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
         "Magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
+
       Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi "Magnetic flux";
-      import Modelica.Constants.pi;
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
+
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
         "Positive plug" annotation (Placement(transformation(
             origin={-100,100},
@@ -5519,6 +5542,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
     package Components "Components specially for electric machines"
       model SinglePhaseWinding
         "Symmetric winding model coupling electrical and magnetic domain"
+
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p "Positive pin"
           annotation (Placement(transformation(
               origin={-100,100},
@@ -5558,6 +5582,23 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         parameter Real effectiveTurns=1 "Effective number of turns per phase";
         parameter Modelica.SIunits.Angle orientation
           "Orientation of the resulting fundamental wave field phasor";
+
+        Modelica.SIunits.Voltage v = pin_p.v - pin_n.v "Voltage";
+        Modelica.SIunits.Current i = pin_p.i "Current";
+
+        Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
+          "Complex magnetic potential difference";
+        Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+          "Magnitude of complex magnetic potential difference";
+        Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+          "Argument of complex magnetic potential difference";
+        Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi
+          "Complex magnetic flux";
+        Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+          "Magnitude of complex magnetic flux";
+        Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+          "Argument of complex magnetic flux";
+
         Modelica.Electrical.Analog.Basic.Resistor resistor(
           final useHeatPort=useHeatPort,
           final R=RRef,
@@ -5691,6 +5732,23 @@ The single phase winding consists of a
         parameter Real effectiveTurns=1 "Effective number of turns per phase";
         parameter Modelica.SIunits.Conductance GcRef
           "Electrical reference core loss reluctance";
+
+        Modelica.SIunits.Voltage v[m] = plug_p.pin.v - plug_n.pin.v "Voltage";
+        Modelica.SIunits.Current i[m] = plug_p.pin.i "Current";
+
+        Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
+          "Complex magnetic potential difference";
+        Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+          "Magnitude of complex magnetic potential difference";
+        Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+          "Argument of complex magnetic potential difference";
+        Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi
+          "Complex magnetic flux";
+        Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+          "Magnitude of complex magnetic flux";
+        Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+          "Argument of complex magnetic flux";
+
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           electroMagneticConverter(
           final m=m,
@@ -5979,7 +6037,8 @@ according to the following figure.
       model SymmetricMultiPhaseCageWinding "Symmetrical rotor cage"
         import Modelica.Constants.pi;
         import Modelica;
-        extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+        extends
+          Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
         parameter Integer m=3 "Number of phases";
         parameter Boolean useHeatPort=false
           "Enable / disable (=fixed temperatures) thermal port"
@@ -6140,7 +6199,8 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
         import Modelica;
-        extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+        extends
+          Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
         parameter Boolean useHeatPort=false
           "Enable / disable (=fixed temperatures) thermal port"
           annotation (Evaluate=true);
@@ -6325,7 +6385,8 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
       model SymmetricMultiPhaseCageWinding_obsolete "Symmetrical rotor cage"
         import Modelica.Constants.pi;
         extends Modelica.Icons.ObsoleteModel;
-        extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+        extends
+          Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
         parameter Integer m=3 "Number of phases";
         parameter Boolean useHeatPort=false
           "Enable / disable (=fixed temperatures) thermal port"
@@ -6477,7 +6538,8 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
       model SaliencyCageWinding_obsolete
         "Rotor cage with saliency in d- and q-axis"
         extends Modelica.Icons.ObsoleteModel;
-        extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+        extends
+          Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended;
         parameter Boolean useHeatPort=false
           "Enable / disable (=fixed temperatures) thermal port"
           annotation (Evaluate=true);
@@ -6646,7 +6708,16 @@ for electric machines.
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
       parameter Modelica.SIunits.ComplexMagneticPotentialDifference V_m=Complex(
           re=1, im=0) "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
+
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
@@ -6698,7 +6769,16 @@ Source of constant magneto motive force.
             origin={0,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
+
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
@@ -6739,8 +6819,17 @@ Source of magneto motive force with complex signal input.
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
       parameter Modelica.SIunits.ComplexMagneticFlux Phi=Complex(re=1, im=0)
         "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
+
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
@@ -6783,12 +6872,22 @@ Source of constant magnetic flux.
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
+
       Modelica.ComplexBlocks.Interfaces.ComplexInput Phi
         "Complex signal input of magnetic flux" annotation (Placement(
             transformation(
             origin={0,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
+
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
@@ -7058,17 +7157,48 @@ considers the flux balance of the two ports. Additionally the magnetic potential
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a>
 </p></html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics));
     end PartialTwoPort;
+
+    partial model PartialTwoPortExtended
+      "Two magnetic ports for graphical modeling with additonal variables"
+      extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
+      annotation (Documentation(info="<html>
+<p>
+This magnetic two port element consists of a
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">positive</a> and a
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">negative magnetic port</a> and
+considers the flux balance of the two ports. Additionally the magnetic potential difference (of the positive and the negative port) and the magnetic flux (into the positive magnetic port) are defined. This model is mainly to used to extend from in order build more complex - graphical - models.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a>
+</p></html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics));
+    end PartialTwoPortExtended;
 
     partial model PartialTwoPortElementary
       "Two magnetic ports for textual modeling"
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
+
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
     equation
       // Flux into positive port
       V_m = port_p.V_m - port_n.V_m;
@@ -7088,7 +7218,8 @@ This model is mainly used to extend from in order build more complex - equation 
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
 </p>
 </html>"));
     end PartialTwoPortElementary;
