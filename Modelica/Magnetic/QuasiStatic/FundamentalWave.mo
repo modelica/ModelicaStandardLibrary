@@ -5648,7 +5648,15 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
       parameter Modelica.SIunits.Frequency f(start=1) "frequency of the source";
       parameter Modelica.SIunits.ComplexMagneticPotentialDifference V_m=Complex(
           re=1, im=0) "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
@@ -5701,7 +5709,15 @@ SignalFlux</a>
             origin={0,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
@@ -5749,8 +5765,16 @@ SignalFlux</a>
       parameter Modelica.SIunits.Frequency f(start=1) "frequency of the source";
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
       parameter Modelica.SIunits.ComplexMagneticFlux Phi=Complex(re=1, im=0)
         "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
@@ -5797,12 +5821,21 @@ SignalFlux</a>
       extends FundamentalWave.Interfaces.PartialTwoPort;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
+
       Modelica.ComplexBlocks.Interfaces.ComplexInput Phi
         "Complex signal input of magnetic flux" annotation (Placement(
             transformation(
             origin={0,100},
             extent={{-20,-20},{20,20}},
             rotation=270)));
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
     equation
       // Flux into positive port
       port_p.V_m - port_n.V_m = V_m;
