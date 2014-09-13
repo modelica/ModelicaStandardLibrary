@@ -60,8 +60,8 @@ package SinglePhase "Single phase AC components"
               -1},{-60,-16},{-40,-16}}, color={85,170,255}));
       connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},
               {-30,-35},{-30,-30}}, color={85,170,255}));
-      connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points
-            ={{-30,-10},{-30,0},{-20,0}}, color={85,170,255}));
+      connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points=
+             {{-30,-10},{-30,0},{-20,0}}, color={85,170,255}));
       connect(currentSensor.pin_n, resistor.pin_p) annotation (Line(points={{0,
               0},{2.5,0},{5,0},{10,0}}, color={85,170,255}));
       connect(resistor.pin_n, inductor.pin_p) annotation (Line(points={{30,0},{
@@ -114,8 +114,8 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             rotation=270)));
       QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
             transformation(extent={{-40,-20},{-20,0}}, rotation=0)));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10) annotation
-        (Placement(transformation(
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10) annotation (
+         Placement(transformation(
             origin={-10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -140,8 +140,8 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
-        annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation=
+               0)));
     equation
       connect(currentSource.pin_n, resistor.pin_p) annotation (Line(points={{-30,
               30},{-30,40},{-10,40},{-10,30}}, color={85,170,255}));
@@ -149,8 +149,8 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
               30},{-30,40},{10,40},{10,30}}, color={85,170,255}));
       connect(currentSource.pin_n, capacitor.pin_p) annotation (Line(points={{-30,
               30},{-30,40},{30,40},{30,30}}, color={85,170,255}));
-      connect(currentSource.pin_n, voltageSensor.pin_p) annotation (Line(points
-            ={{-30,30},{-30,40},{50,40},{50,30}}, color={85,170,255}));
+      connect(currentSource.pin_n, voltageSensor.pin_p) annotation (Line(points=
+             {{-30,30},{-30,40},{50,40},{50,30}}, color={85,170,255}));
       connect(currentSource.pin_p, ground.pin) annotation (Line(points={{-30,10},
               {-30,5},{-30,0}}, color={85,170,255}));
       connect(resistor.pin_n, ground.pin) annotation (Line(points={{-10,10},{-10,
@@ -1128,8 +1128,8 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
         "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
         "Opened switch conductance";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
@@ -1217,8 +1217,8 @@ This switch is only intended to be used for structural changes, not for fast swi
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
               lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,
-              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points
-              ={{40,50},{96,50}}, color={0,0,255}),Line(points={{0,60},{0,25}},
+              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points=
+               {{40,50},{96,50}}, color={0,0,255}),Line(points={{0,60},{0,25}},
               color={0,0,255}),Line(points={{40,0},{96,0}}, color={0,0,255})}));
     end IdealCommutingSwitch;
 
@@ -1229,8 +1229,8 @@ This switch is only intended to be used for structural changes, not for fast swi
         "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
         "Opened switch conductance";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p1
         annotation (Placement(transformation(extent={{-110,40},{-90,60}},
               rotation=0)));
@@ -1339,8 +1339,8 @@ This switch is only intended to be used for structural changes, not for fast swi
               0,255}),Line(points={{-90,50},{-44,50}}, color={0,0,255}),Line(
               points={{-44,0},{40,50}}, color={0,0,255}),Line(points={{-44,50},
               {40,0}}, color={0,0,255}),Line(points={{40,50},{90,50}}, color={0,
-              0,255}),Line(points={{0,90},{0,25}}, color={0,0,255}),Line(points
-              ={{40,0},{90,0}}, color={0,0,255}),Text(
+              0,255}),Line(points={{0,90},{0,25}}, color={0,0,255}),Line(points=
+               {{40,0},{90,0}}, color={0,0,255}),Text(
                   extent={{-151,-24},{149,-64}},
                   textString="%name",
                   lineColor={0,0,255})}),
@@ -1350,8 +1350,8 @@ This switch is only intended to be used for structural changes, not for fast swi
               255}),Line(points={{-96,50},{-40,50}}, color={0,0,255}),Line(
               points={{-40,0},{40,50}}, color={0,0,255}),Line(points={{-40,50},
               {40,0}}, color={0,0,255}),Line(points={{40,50},{96,50}}, color={0,
-              0,255}),Line(points={{0,60},{0,25}}, color={0,0,255}),Line(points
-              ={{40,0},{96,0}}, color={0,0,255})}));
+              0,255}),Line(points={{0,60},{0,25}}, color={0,0,255}),Line(points=
+               {{40,0},{96,0}}, color={0,0,255})}));
     end IdealIntermediateSwitch;
 
     model IdealOpeningSwitch "Ideal electrical opener"
@@ -1363,10 +1363,10 @@ This switch is only intended to be used for structural changes, not for fast swi
         "Closed switch resistance" annotation (Placement(transformation(extent=
                 {{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
-        "Opened switch conductance" annotation (Placement(transformation(extent
-              ={{10,10},{56.6667,56.6667}}, rotation=0)));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+        "Opened switch conductance" annotation (Placement(transformation(extent=
+               {{10,10},{56.6667,56.6667}}, rotation=0)));
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Blocks.Interfaces.BooleanInput control
         "true => switch open, false => p--n connected" annotation (Placement(
             transformation(
@@ -1414,8 +1414,8 @@ This switch is only intended to be used for structural changes, not for fast swi
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
               lineColor={0,0,255}),Line(points={{-90,0},{-44,0}}, color={0,0,
-              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points
-              ={{40,0},{90,0}}, color={0,0,255}),Line(points={{0,51},{0,26}},
+              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points=
+               {{40,0},{90,0}}, color={0,0,255}),Line(points={{0,51},{0,26}},
               color={0,0,255}),Line(points={{40,20},{40,0}}, color={0,0,255}),
               Line(
                   visible=useHeatPort,
@@ -1429,8 +1429,8 @@ This switch is only intended to be used for structural changes, not for fast swi
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
               lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,
-              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points
-              ={{40,0},{96,0}}, color={0,0,255}),Text(
+              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points=
+               {{40,0},{96,0}}, color={0,0,255}),Text(
                   extent={{-100,-40},{100,-79}},
                   textString="%name",
                   lineColor={0,0,255}),Line(points={{0,51},{0,26}}, color={0,0,
@@ -1446,10 +1446,10 @@ This switch is only intended to be used for structural changes, not for fast swi
         "Closed switch resistance" annotation (Placement(transformation(extent=
                 {{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
-        "Opened switch conductance" annotation (Placement(transformation(extent
-              ={{10,10},{56.6667,56.6667}}, rotation=0)));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+        "Opened switch conductance" annotation (Placement(transformation(extent=
+               {{10,10},{56.6667,56.6667}}, rotation=0)));
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Blocks.Interfaces.BooleanInput control
         "true => p--n connected, false => switch open" annotation (Placement(
             transformation(
@@ -1497,8 +1497,8 @@ This switch is only intended to be used for structural changes, not for fast swi
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
               lineColor={0,0,255}),Line(points={{-90,0},{-44,0}}, color={0,0,
-              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points
-              ={{40,0},{90,0}}, color={0,0,255}),Line(points={{0,51},{0,26}},
+              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points=
+               {{40,0},{90,0}}, color={0,0,255}),Line(points={{0,51},{0,26}},
               color={0,0,255}),Line(
                   visible=useHeatPort,
                   points={{0,-100},{0,25}},
@@ -1511,8 +1511,8 @@ This switch is only intended to be used for structural changes, not for fast swi
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
               lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,
-              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points
-              ={{40,0},{96,0}}, color={0,0,255}),Text(
+              255}),Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points=
+               {{40,0},{96,0}}, color={0,0,255}),Text(
                   extent={{-100,-40},{100,-79}},
                   textString="%name",
                   lineColor={0,0,255}),Line(points={{0,51},{0,26}}, color={0,0,
@@ -1675,8 +1675,8 @@ Quasi stationary theory for single phase circuits can be found in the
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid,
-              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio
-              =false, extent={{-100,-100},{100,100}}), graphics));
+              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio=
+               false, extent={{-100,-100},{100,100}}), graphics));
     end ReferenceSensor;
 
     model FrequencySensor "Frequency sensor"
@@ -2108,9 +2108,27 @@ Additionally the reference angle is specified in the connector. The time derivat
     end NegativePin;
 
     partial model TwoPin "Two pins"
-      Modelica.SIunits.ComplexVoltage v;
-      Modelica.SIunits.ComplexCurrent i;
-      Modelica.SIunits.AngularVelocity omega;
+      import Modelica.Constants.eps;
+      Modelica.SIunits.ComplexVoltage v "Complex voltage";
+      Modelica.SIunits.Voltage abs_v = Modelica.ComplexMath.'abs'(v)
+        "Magnitude of complex voltage";
+      Modelica.SIunits.Angle arg_v = Modelica.ComplexMath.arg(v)
+        "Argument of complex voltage";
+      Modelica.SIunits.ComplexCurrent i "Complex current";
+      Modelica.SIunits.Current abs_i = Modelica.ComplexMath.'abs'(i)
+        "Magnitude of complex current";
+      Modelica.SIunits.Angle arg_i = Modelica.ComplexMath.arg(i)
+        "Argument of complex current";
+      Modelica.SIunits.ActivePower P = Modelica.ComplexMath.real(v*Modelica.ComplexMath.conj(i))
+        "Active power";
+      Modelica.SIunits.ReactivePower Q = Modelica.ComplexMath.imag(v*Modelica.ComplexMath.conj(i))
+        "Reactive power";
+      Modelica.SIunits.ApparentPower S = Modelica.ComplexMath.'abs'(v*Modelica.ComplexMath.conj(i))
+        "Magnitude of complex apparent power";
+      Real pf = cos(Modelica.ComplexMath.arg(Complex(P,Q))) "Power factor";
+      Modelica.SIunits.AngularVelocity omega
+        "Angular velocity of reference frame";
+
       PositivePin pin_p "Positive pin" annotation (Placement(transformation(
               extent={{-110,-10},{-90,10}}, rotation=0)));
       NegativePin pin_n "Negative pin" annotation (Placement(transformation(
