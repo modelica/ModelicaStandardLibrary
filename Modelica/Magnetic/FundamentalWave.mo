@@ -347,7 +347,7 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-07-21</h5>
+<h5>Version 3.2.2, 2014-09-13</h5>
 
 <ul>
 <li>Updated documentation of 
@@ -364,6 +364,7 @@ no. 829420.
 <li>Restructured cage models with reluctance instead of inductance model according to ticket #1536; 
 the re-structuring of the model required to change the initial conditions of the included examples, since the number of rotor states is reduced by new implementation</li>
 <li>Some more bug fixes according to #1226, since not all reference orientations have been correct</li>
+<li>Added variables for magnitude and argument of complex magnetic potential difference and flux, see #1405</li>
 </ul>
 
 <h5>Version 3.2.1, 2013-07-31</h5>
