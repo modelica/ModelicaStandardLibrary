@@ -4885,6 +4885,9 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
           annotation (Dialog(enable=not useHeatPort));
         parameter Real effectiveTurns=1 "Effective number of turns per phase";
 
+        Modelica.SIunits.Voltage v = pin_p.v - pin_n.v "Voltage";
+        Modelica.SIunits.Current i = pin_p.i "Current";
+
         Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
           "Complex magnetic potential difference";
         Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
