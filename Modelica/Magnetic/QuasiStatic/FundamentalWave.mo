@@ -6097,13 +6097,8 @@ The partial two port model consists of a positive and a negative magnetic port. 
 
     partial model PartialTwoPortExtended
       "Partial two port for graphical programming with additonal variables"
-      Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma);
-      FundamentalWave.Interfaces.PositiveMagneticPort port_p
-        "Positive quasi static magnetic port" annotation (Placement(
-            transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-      FundamentalWave.Interfaces.NegativeMagneticPort port_n
-        "Negative quasi static magnetic port" annotation (Placement(
-            transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      extends
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort;
 
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
         "Complex magnetic potential difference";
@@ -6118,9 +6113,6 @@ The partial two port model consists of a positive and a negative magnetic port. 
       Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
         "Argument of complex magnetic flux";
 
-    equation
-      Connections.branch(port_p.reference, port_n.reference);
-      port_p.reference.gamma = port_n.reference.gamma;
       annotation (
         Documentation(info="<html>
 <p>
