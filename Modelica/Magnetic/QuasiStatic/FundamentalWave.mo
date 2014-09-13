@@ -110,7 +110,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-07-21</h5>
+<h5>Version 3.2.2, 2014-09-13</h5>
 <ul>
 <li>Migration of library to MSL trunk</li>
 <li>Update and improvement of documentation</li>
@@ -122,6 +122,11 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <li>Fixed issues of ticket #1524</li>
 <li>Restructured cage models with reluctance instead of inductance model according to ticket #1537</li>
 <li>Bug fixes according to #1226</li>
+<li>Added magnitude and argument of complex magnetic potentials, magnetic fluxes, voltages and currents in interface, electromagnetic coupling and machine models, see #1405</li>
+<li>Added active, reactive and aparrent power and power factor in interface and machine models, see #1405</li>
+<li>Added new interface model 
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
+to simplify consistent inclusion of variables, see #1405</li>
 </ul>
 
 <h5>Version 0.4.1, 2013-12-18</h5>
@@ -182,7 +187,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 0.1.0, 2013-08-27</h5>
 <ul>
-<li>Documentation of <a href=\"modelica://QuasiStationaryFundamentalWave.UsersGuide.Concept\">phasor concept</a></li>
+<li>Documentation of <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept\">phasor concept</a></li>
 <li>Connections.branch between electric and magnetic quasi static connectors to handle open circuit and motor operation of machines</li>
 <li>Saliency effects are properly considered</li>
 <li>Electromagnetic coupling with Analog domain is implemented fully quasi static with v = 0 at the electric connectors -- this may have to be changed in the future</li>
@@ -228,8 +233,6 @@ This is the library of quasi static fundamental wave models for multi phase elec
       "Examples for testing quasi static fundamental wave components"
       extends Modelica.Icons.ExamplesPackage;
       model MultiPhaseInductance "Multi phase inductance"
-        import QuasiStationaryFundamentalWave =
-          Modelica.Magnetic.QuasiStatic.FundamentalWave;
         extends Modelica.Icons.Example;
         parameter Integer m=5 "Number of phases";
         parameter Modelica.SIunits.Frequency f=1 "Supply frequency";
@@ -285,15 +288,15 @@ This is the library of quasi static fundamental wave models for multi phase elec
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={0,70})));
-        QuasiStationaryFundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           converter_m(m=m, effectiveTurns=effectiveTurns)
           annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
-        QuasiStationaryFundamentalWave.Components.Reluctance reluctance_m(R_m(d=
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance reluctance_m(R_m(d=
                R_m, q=R_m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={60,-30})));
-        QuasiStationaryFundamentalWave.Components.Ground groundM_m
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Ground groundM_m
           annotation (Placement(transformation(extent={{10,-90},{30,-70}})));
       equation
         connect(star_e.pin_n, ground_e.pin) annotation (Line(
@@ -355,8 +358,6 @@ This is the library of quasi static fundamental wave models for multi phase elec
 
       model EddyCurrentLosses
         "Comparison of equivalent circuits of eddy current loss models"
-        import QuasiStationaryFundamentalWave =
-          Modelica.Magnetic.QuasiStatic.FundamentalWave;
         extends Modelica.Icons.Example;
         constant Integer m=3 "Number of phases";
         // ## Original value R = 0.1 Ohm
@@ -424,30 +425,30 @@ This is the library of quasi static fundamental wave models for multi phase elec
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={0,60})));
-        QuasiStationaryFundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           converter_e(effectiveTurns=N)
           annotation (Placement(transformation(extent={{20,50},{40,70}})));
-        QuasiStationaryFundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           converter_m(effectiveTurns=N)
           annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
-        QuasiStationaryFundamentalWave.Components.EddyCurrent loss_m(G=m*N^2*Gc
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.EddyCurrent loss_m(G=m*N^2*Gc
               /2) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={60,-20})));
-        QuasiStationaryFundamentalWave.Components.Reluctance reluctance_e(R_m(d=
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance reluctance_e(R_m(d=
                R_m, q=R_m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={80,60})));
-        QuasiStationaryFundamentalWave.Components.Reluctance reluctance_m(R_m(d=
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance reluctance_m(R_m(d=
                R_m, q=R_m)) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={80,-30})));
-        QuasiStationaryFundamentalWave.Components.Ground mground_e
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Ground mground_e
           annotation (Placement(transformation(extent={{30,0},{50,20}})));
-        QuasiStationaryFundamentalWave.Components.Ground mground_m
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Ground mground_m
           annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
       equation
         connect(sineVoltage_e.plug_n, converter_e.plug_n) annotation (Line(
@@ -1973,8 +1974,6 @@ Simulate for 1.5 seconds and plot (versus time):
 
         model SMPM_CurrentSource
           "Test example: PermanentMagnetSynchronousMachine fed by current source"
-          import QuasiStationaryFundamentalWave =
-            Modelica.Magnetic.QuasiStatic.FundamentalWave;
           extends Modelica.Icons.Example;
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
@@ -2083,7 +2082,7 @@ Simulate for 1.5 seconds and plot (versus time):
                 origin={0,-48},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          QuasiStationaryFundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
+          Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
             smpmQS(
             p=smpmData.p,
             fsNominal=smpmData.fsNominal,
@@ -2131,10 +2130,10 @@ Simulate for 1.5 seconds and plot (versus time):
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-50,44})));
-          QuasiStationaryFundamentalWave.Utilities.MultiTerminalBox
+          Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox
             terminalBoxQS(terminalConnection="Y", m=m) annotation (Placement(
                 transformation(extent={{-10,44},{10,64}}, rotation=0)));
-          QuasiStationaryFundamentalWave.Utilities.CurrentController
+          Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController
             currentController1(m=m, p=smpmQS.p)
             annotation (Placement(transformation(extent={{-50,74},{-30,94}})));
           Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensorQS
@@ -3315,12 +3314,45 @@ relationship of the voltage and current space phasor.
       final parameter Modelica.SIunits.Angle orientation=0
         "Orientation of the first winding axis";
       // Local electric multi phase quantities
-      Modelica.SIunits.ComplexVoltage v[m] "Voltage drop";
-      Modelica.SIunits.ComplexCurrent i[m] "Current";
+      Modelica.SIunits.ComplexVoltage v[m] "Complex voltage";
+      Modelica.SIunits.Voltage abs_v[m] = Modelica.ComplexMath.'abs'(v)
+        "Magnitude of complex voltage";
+      Modelica.SIunits.Angle arg_v[m] = Modelica.ComplexMath.arg(v)
+        "Argument of complex voltage";
+
+      Modelica.SIunits.ComplexCurrent i[m] "Complex current";
+      Modelica.SIunits.Current abs_i[m] = Modelica.ComplexMath.'abs'(i)
+        "Magnitude of complex current";
+      Modelica.SIunits.Angle arg_i[m] = Modelica.ComplexMath.arg(i)
+        "Argument of complex current";
+
+      Modelica.SIunits.ActivePower P[m] = {Modelica.ComplexMath.real(v[k]*Modelica.ComplexMath.conj(i[k])) for k in 1:m}
+        "Active power";
+      Modelica.SIunits.ActivePower P_total = sum(P) "Total active power";
+      Modelica.SIunits.ReactivePower Q[m] = {Modelica.ComplexMath.imag(v[k]*Modelica.ComplexMath.conj(i[k])) for k in 1:m}
+        "Reactive power";
+      Modelica.SIunits.ReactivePower Q_total = sum(Q) "Total reactive power";
+      Modelica.SIunits.ApparentPower S[m] = {Modelica.ComplexMath.'abs'(v[k]*Modelica.ComplexMath.conj(i[k])) for k in 1:m}
+        "Magnitude of complex apparent power";
+      Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2+Q_total^2)
+        "Magntiude of total complex apparent power";
+      Real pf[m] = {cos(Modelica.ComplexMath.arg(Complex(P[k],Q[k]))) for k in 1:m}
+        "Power factor";
+
       // Local electromagnetic fundamental wave quantities
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
+
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
+
       Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma);
       // A technical solution with a rotator cannot be applied to the equations below
       final parameter Complex N=effectiveTurns*Modelica.ComplexMath.exp(Complex(
@@ -3467,10 +3499,21 @@ QuasiStaticAnalogElectroMagneticConverter</a>
       // Local electric single phase quantities
       Modelica.SIunits.Voltage v "Voltage drop";
       Modelica.SIunits.Current i "Current";
+
       // Local electromagnetic fundamental wave quantities
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
+
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
+
       Modelica.SIunits.Angle gamma "Angle of V_m fixed reference frame";
       Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma);
     equation
@@ -3730,7 +3773,12 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
           "Operational temperature of rotor resistance" annotation (Dialog(
               group="Operational temperatures", enable=not useThermalPort));
         output Modelica.SIunits.ComplexCurrent ir[m]=rotorCage.i
-          "Rotor cage currents";
+          "Rotor current";
+        Modelica.SIunits.Current abs_ir[m] = Modelica.ComplexMath.'abs'(ir)
+          "Magnitude of complex rotor current";
+        Modelica.SIunits.Angle arg_ir[m] = Modelica.ComplexMath.arg(ir)
+          "Argument of complex rotor current";
+
         Components.SymmetricMultiPhaseCageWinding rotorCage(
           final Lsigma=Lrsigma,
           final effectiveTurns=effectiveStatorTurns,
@@ -3859,9 +3907,34 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
           "Rotor core losses, all quantities refer to rotor side"
           annotation (Dialog(tab="Losses"));
         output Modelica.SIunits.ComplexVoltage vr[mr]=plug_rp.pin.v - plug_rn.pin.v
-          "Rotor voltages";
+          "Complex rotor voltage";
+        Modelica.SIunits.Voltage abs_vr[mr] = Modelica.ComplexMath.'abs'(vr)
+          "Magnitude of complex rotor voltage";
+        Modelica.SIunits.Angle arg_vr[mr] = Modelica.ComplexMath.arg(vr)
+          "Argument of complex rotor voltage";
+
         output Modelica.SIunits.ComplexCurrent ir[mr]=plug_rp.pin.i
-          "Rotor currents";
+          "Complex rotor current";
+        Modelica.SIunits.Current abs_ir[mr] = Modelica.ComplexMath.'abs'(ir)
+          "Magnitude of complex rotor current";
+        Modelica.SIunits.Angle arg_ir[mr] = Modelica.ComplexMath.arg(ir)
+          "Argument of complex rotor current";
+
+        Modelica.SIunits.ActivePower Pr[mr] = {Modelica.ComplexMath.real(vr[k]*Modelica.ComplexMath.conj(ir[k])) for k in 1:mr}
+          "Active rotor power";
+        Modelica.SIunits.ActivePower Pr_total = sum(Pr)
+          "Total active rotor power";
+        Modelica.SIunits.ReactivePower Qr[mr] = {Modelica.ComplexMath.imag(vr[k]*Modelica.ComplexMath.conj(ir[k])) for k in 1:mr}
+          "Reactive rotor power";
+        Modelica.SIunits.ReactivePower Qr_total = sum(Qr)
+          "Total reactive rotor power";
+        Modelica.SIunits.ApparentPower Sr[mr] = {Modelica.ComplexMath.'abs'(vr[k]*Modelica.ComplexMath.conj(ir[k])) for k in 1:mr}
+          "Magnitude of complex rotor apparent power";
+        Modelica.SIunits.ApparentPower Sr_total=sqrt(Pr_total^2+Qr_total^2)
+          "Magntiude of total complex rotor apparent power";
+        Real pfr[m] = {cos(Modelica.ComplexMath.arg(Complex(Pr[k],Qr[k]))) for k in 1:m}
+          "Rotor power factor";
+
       protected
         final parameter Real internalTurnsRatio=if useTurnsRatio then
             TurnsRatio else VsNominal/VrLockedRotor*(2*pi*fsNominal*Lm)/sqrt(Rs
@@ -4569,8 +4642,6 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
       extends Modelica.Icons.Package;
       model SymmetricMultiPhaseWinding
         "Symmetric winding model coupling electrical and magnetic domain"
-        import QuasiStationaryFundamentalWave =
-          Modelica.Magnetic.QuasiStatic.FundamentalWave;
         // Orientation changed
         Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
           plug_p(final m=m) "Positive plug" annotation (Placement(
@@ -4615,7 +4686,45 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
         parameter Real effectiveTurns=1 "Effective number of turns per phase";
         parameter Modelica.SIunits.Conductance GcRef
           "Electrical reference core loss reluctance";
-        QuasiStationaryFundamentalWave.Components.MultiPhaseElectroMagneticConverter
+
+        Modelica.SIunits.ComplexVoltage v[m] = plug_p.pin.v - plug_n.pin.v
+          "Complex voltage";
+        Modelica.SIunits.Voltage abs_v[m] = Modelica.ComplexMath.'abs'(v)
+          "Magnitude of complex voltage";
+        Modelica.SIunits.Angle arg_v[m] = Modelica.ComplexMath.arg(v)
+          "Argument of complex voltage";
+        Modelica.SIunits.ComplexCurrent i[m] = plug_p.pin.i "Complex current";
+        Modelica.SIunits.Current abs_i[m] = Modelica.ComplexMath.'abs'(i)
+          "Magnitude of complex current";
+        Modelica.SIunits.Angle arg_i[m] = Modelica.ComplexMath.arg(i)
+          "Argument of complex current";
+        Modelica.SIunits.ActivePower P[m] = {Modelica.ComplexMath.real(v[k]*Modelica.ComplexMath.conj(i[k])) for k in 1:m}
+          "Active power";
+        Modelica.SIunits.ActivePower P_total = sum(P) "Total active power";
+        Modelica.SIunits.ReactivePower Q[m] = {Modelica.ComplexMath.imag(v[k]*Modelica.ComplexMath.conj(i[k])) for k in 1:m}
+          "Reactive power";
+        Modelica.SIunits.ReactivePower Q_total = sum(Q) "Total reactive power";
+        Modelica.SIunits.ApparentPower S[m] = {Modelica.ComplexMath.'abs'(v[k]*Modelica.ComplexMath.conj(i[k])) for k in 1:m}
+          "Magnitude of complex apparent power";
+        Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2+Q_total^2)
+          "Magntiude of total complex apparent power";
+        Real pf[m] = {cos(Modelica.ComplexMath.arg(Complex(P[k],Q[k]))) for k in 1:m}
+          "Power factor";
+
+        Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
+          "Complex magnetic potential difference";
+        Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+          "Magnitude of complex magnetic potential difference";
+        Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+          "Argument of complex magnetic potential difference";
+        Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi
+          "Complex magnetic flux";
+         Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+          "Magnitude of complex magnetic flux";
+        Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+          "Argument of complex magnetic flux";
+
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           electroMagneticConverter(final m=m, final effectiveTurns=
               effectiveTurns) "Symmetric winding"
                               annotation (Placement(transformation(extent={{-10,
@@ -4637,14 +4746,14 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortCore if
           useHeatPort "Heat ports of winding resistor"
           annotation (Placement(transformation(extent={{30,-110},{50,-90}})));
-        QuasiStationaryFundamentalWave.Components.EddyCurrent core(final
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.EddyCurrent core(final
             useHeatPort=useHeatPort, final G=(m/2)*GcRef*effectiveTurns^2)
           "Core loss model (currently eddy currents only)" annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={50,-40})));
-        QuasiStationaryFundamentalWave.Components.Reluctance strayReluctance(
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance strayReluctance(
             final R_m(d=m*effectiveTurns^2/2/Lsigma, q=m*effectiveTurns^2/2/
                 Lsigma))
           "Stray reluctance equivalent to ideally coupled stray inductances"
@@ -4775,6 +4884,20 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
           "Operational temperature of winding"
           annotation (Dialog(enable=not useHeatPort));
         parameter Real effectiveTurns=1 "Effective number of turns per phase";
+
+        Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
+          "Complex magnetic potential difference";
+        Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+          "Magnitude of complex magnetic potential difference";
+        Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+          "Argument of complex magnetic potential difference";
+        Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi
+          "Complex magnetic flux";
+         Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+          "Magnitude of complex magnetic flux";
+        Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+          "Argument of complex magnetic flux";
+
         Modelica.Electrical.Analog.Basic.Resistor resistor(
           final useHeatPort=useHeatPort,
           final R=RRef,
@@ -5008,9 +5131,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
 
       model SymmetricMultiPhaseCageWinding "Symmetrical rotor cage"
         import Modelica.Constants.pi;
-        import QuasiStationaryFundamentalWave =
-          Modelica.Magnetic.QuasiStatic.FundamentalWave;
-        extends QuasiStationaryFundamentalWave.Interfaces.PartialTwoPort;
+        extends
+          Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended;
         parameter Integer m=3 "Number of phases";
         parameter Boolean useHeatPort=false
           "Enable / disable (=fixed temperatures) thermal port"
@@ -5034,7 +5156,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         parameter Real effectiveTurns=1 "Effective number of turns";
         Modelica.SIunits.ComplexCurrent i[m]=electroMagneticConverter.i
           "Cage currents";
-        QuasiStationaryFundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           electroMagneticConverter(final m=m, final effectiveTurns=
               effectiveTurns) "Symmetric winding" annotation (Placement(
               transformation(
@@ -5069,7 +5191,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starAuxiliary(
             final m=m) annotation (Placement(transformation(extent={{30,-90},{
                   50,-70}}, rotation=0)));
-        QuasiStationaryFundamentalWave.Components.Reluctance strayReluctance(final R_m(
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance strayReluctance(final R_m(
               d=m*effectiveTurns^2/2/Lsigma, q=m*effectiveTurns^2/2/Lsigma))
           "Stray reluctance equivalent to ideally coupled stray inductances"
           annotation (Placement(transformation(
@@ -5183,9 +5305,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
       end SymmetricMultiPhaseCageWinding;
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
-        import QuasiStationaryFundamentalWave =
-          Modelica.Magnetic.QuasiStatic.FundamentalWave;
-        extends QuasiStationaryFundamentalWave.Interfaces.PartialTwoPort;
+        extends
+          Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended;
         parameter Boolean useHeatPort=false
           "Enable / disable (=fixed temperatures) thermal port"
           annotation (Evaluate=true);
@@ -5212,7 +5333,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         Modelica.Blocks.Interfaces.RealOutput lossPower(
           final quantity="Power",
           final unit="W") = sum(resistor.resistor.LossPower) "Damper losses";
-        QuasiStationaryFundamentalWave.Components.MultiPhaseElectroMagneticConverter
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
           electroMagneticConverter(final m=2, final effectiveTurns=
               effectiveTurns) annotation (Placement(transformation(
               origin={0,-10},
@@ -5243,7 +5364,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           thermalCollector(final m=2) if useHeatPort
           "Connector of thermal rotor resistance heat ports"
           annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
-        QuasiStationaryFundamentalWave.Components.Reluctance strayReluctance(final R_m(
+        Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance strayReluctance(final R_m(
               d=effectiveTurns^2/Lsigma.d, q=effectiveTurns^2/Lsigma.q))
           "Stray reluctance equivalent to ideally coupled stray inductances"
           annotation (Placement(transformation(
@@ -5354,9 +5475,19 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         extends FundamentalWave.Losses.PermanentMagnetLosses;
         extends FundamentalWave.Interfaces.PartialTwoPort;
         parameter Modelica.SIunits.ComplexMagneticPotentialDifference V_m=
-            Complex(re=1, im=0) "Complex magnetic potential difference";
+            Complex(re=1, im=0)
+          "Complex magnetic potential difference w.r.t. reference frame";
+        Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+          "Magnitude of complex magnetic potential difference";
+        Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+          "Argument of complex magnetic potential difference w.r.t. reference frame";
+
         Modelica.SIunits.Angle gamma "Angle of V_m fixed reference frame";
         Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+        Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+          "Magnitude of complex magnetic flux";
+        Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+          "Argument of complex magnetic flux";
         Modelica.SIunits.ComplexMagneticPotentialDifference V_mGamma=V_m*
             Modelica.ComplexMath.fromPolar(1, +gamma)
           "Magnetic potential difference transformed with reference angle";
@@ -5964,12 +6095,62 @@ The partial two port model consists of a positive and a negative magnetic port. 
                 {100,100}}), graphics));
     end PartialTwoPort;
 
+    partial model PartialTwoPortExtended
+      "Partial two port for graphical programming with additonal variables"
+      Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma);
+      FundamentalWave.Interfaces.PositiveMagneticPort port_p
+        "Positive quasi static magnetic port" annotation (Placement(
+            transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+      FundamentalWave.Interfaces.NegativeMagneticPort port_n
+        "Negative quasi static magnetic port" annotation (Placement(
+            transformation(extent={{90,-10},{110,10}}, rotation=0)));
+
+      Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
+        "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
+      Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi
+        "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
+
+    equation
+      Connections.branch(port_p.reference, port_n.reference);
+      port_p.reference.gamma = port_n.reference.gamma;
+      annotation (
+        Documentation(info="<html>
+<p>
+The partial two port model consists of a positive and a negative magnetic port. The reference angles of the two ports are set equal and connected through <code>Connections.branch</code>.
+</p>
+<p>
+This interface model contains an extended set of (output) variables compared to
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>.
+</p>
+</html>"),
+        Icon(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
+    end PartialTwoPortExtended;
+
     partial model PartialTwoPortElementary
       "Elementary partial two port for textual programming"
       extends FundamentalWave.Interfaces.PartialTwoPort;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
+      Modelica.SIunits.MagneticPotentialDifference abs_V_m = Modelica.ComplexMath.'abs'(V_m)
+        "Magnitude of complex magnetic potential difference";
+      Modelica.SIunits.Angle arg_V_m = Modelica.ComplexMath.arg(V_m)
+        "Argument of complex magnetic potential difference";
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
+      Modelica.SIunits.MagneticPotentialDifference abs_Phi = Modelica.ComplexMath.'abs'(Phi)
+        "Magnitude of complex magnetic flux";
+      Modelica.SIunits.Angle arg_Phi = Modelica.ComplexMath.arg(Phi)
+        "Argument of complex magnetic flux";
+
     equation
       V_m = port_p.V_m - port_n.V_m;
       Phi = port_p.Phi;
@@ -6067,9 +6248,34 @@ The partial two port elementary model extends from the partial two port model an
 
       // Stator voltages and currents
       output Modelica.SIunits.ComplexVoltage vs[m]=plug_sp.pin.v - plug_sn.pin.v
-        "Stator instantaneous voltages";
+        "Complex stator voltage";
+      Modelica.SIunits.Voltage abs_vs[m] = Modelica.ComplexMath.'abs'(vs)
+        "Magnitude of complex stator voltage";
+      Modelica.SIunits.Angle arg_vs[m] = Modelica.ComplexMath.arg(vs)
+        "Argument of complex stator voltage";
+
       output Modelica.SIunits.ComplexCurrent is[m]=plug_sp.pin.i
-        "Stator instantaneous currents";
+        "Complex stator current";
+      Modelica.SIunits.Current abs_is[m] = Modelica.ComplexMath.'abs'(is)
+        "Magnitude of complex stator current";
+      Modelica.SIunits.Angle arg_is[m] = Modelica.ComplexMath.arg(is)
+        "Argument of complex stator current";
+
+      Modelica.SIunits.ActivePower Ps[m] = {Modelica.ComplexMath.real(vs[k]*Modelica.ComplexMath.conj(is[k])) for k in 1:m}
+        "Active stator power";
+      Modelica.SIunits.ActivePower Ps_total = sum(Ps)
+        "Total active stator power";
+      Modelica.SIunits.ReactivePower Qs[m] = {Modelica.ComplexMath.imag(vs[k]*Modelica.ComplexMath.conj(is[k])) for k in 1:m}
+        "Reactive stator power";
+      Modelica.SIunits.ReactivePower Qs_total = sum(Qs)
+        "Total reactive stator power";
+      Modelica.SIunits.ApparentPower Ss[m] = {Modelica.ComplexMath.'abs'(vs[k]*Modelica.ComplexMath.conj(is[k])) for k in 1:m}
+        "Magnitude of complex stator apparent power";
+      Modelica.SIunits.ApparentPower Ss_total=sqrt(Ps_total^2+Qs_total^2)
+        "Magntiude of total complex stator apparent power";
+      Real pfs[m] = {cos(Modelica.ComplexMath.arg(Complex(Ps[k],Qs[k]))) for k in 1:m}
+        "Stator power factor";
+
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange "Shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
