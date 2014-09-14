@@ -2722,9 +2722,9 @@ which based on the <code>balance</code> function from EISPACK.
 
 <h4>Syntax</h4>
 <blockquote><pre>
-(scale,As,Bs,Cs) = Matrices.<b>balance</b>(A,B,C);
-(scale,As,Bs)    = Matrices.<b>balance</b>(A,B);
-(scale,As,,Cs)   = Matrices.<b>balance</b>(A,C=C);
+(scale,As,Bs,Cs) = Matrices.<b>balanceABC</b>(A,B,C);
+(scale,As,Bs)    = Matrices.<b>balanceABC</b>(A,B);
+(scale,As,,Cs)   = Matrices.<b>balanceABC</b>(A,C=C);
 </pre></blockquote>
 
 <h4>Description</h4>
