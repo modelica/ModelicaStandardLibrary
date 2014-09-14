@@ -2422,6 +2422,60 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
+class Version_3_2_2 "Version 3.2.2 (xxx, 2014)"
+  extends Modelica.Icons.ReleaseNotes;
+
+   annotation (Documentation(info="<html>
+<p>
+Version 3.2.2 is backward compatible to version 3.2.1, that is models developed with
+versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with version 3.2.2.
+</p>
+
+<ul>
+<li> This version of the Modelica package is <b>fully compatible</b> to
+     Modelica Specification <b>3.2 revision 2</b>.<br>
+     (Especially, some operators used in package Modelica,
+     such as \"rooted\", have been standardized in 3.2 rev. 2,
+     as well as vendor specific annotations. Furthermore,
+     ambiguous/unclear descriptions in the specification have
+     been corrected/improved. One important improvement in packages
+     Modelica and ModelicaTest is that the initialization has been fully defined
+     in all example models, in order that all tools can produce the same result
+     without relying on tool heuristics).
+     </li>
+
+<li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">xx tickets</a>
+     have been fixed for this release.
+     </li>
+</ul>
+
+<p>
+This release of package Modelica, and the accompanying ModelicaTest, has been tested with the
+following tools (the tools are listed alphabetically. At the time of the test, some of the
+tools might not yet supported the complete Modelica package):
+</p>
+
+<p>
+xxx
+</p>
+
+
+
+<p><br>
+The following <b style=\"color:blue\">new components</b> have been added
+to <b style=\"color:blue\">existing</b> libraries:<br>
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">balanceABC</td>
+    <td valign=\"top\"> Return a balanced form of a system [A,B;C,0] 
+                      to improve its condition by a state transformation</td></tr>
+</table>
+
+</html>"));
+end Version_3_2_2;
+
 class Version_3_2_1 "Version 3.2.1 (August 14, 2013)"
   extends Modelica.Icons.ReleaseNotes;
 

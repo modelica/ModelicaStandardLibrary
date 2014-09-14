@@ -463,6 +463,97 @@ extends Modelica.Icons.ExamplesPackage;
     ok := true;
   end Matrices2;
 
+  function Matrices2b "Test balance functions of Modelica.Math.Matrices"
+    extends Modelica.Icons.Function;
+    import Modelica.Utilities.Streams.print;
+    import Modelica.Math.Matrices;
+    import Modelica.Math.Vectors;
+    output Boolean ok=false;
+  protected
+    constant Real A[3,3] = [1, -10,  1000; 0.01,  0,  10; 0.005,  -0.01,  10];
+    constant Real B[3,2] = [100, 10; 1,0; -0.003, 1];
+    constant Real C[1,3] = [-0.5, 1, 100];
+    Real As[3,3];
+    Real Bs[3,2];
+    Real Cs[1,3];
+
+    Real As2[3,3];
+    Real Bs2[3,2];
+    Real Cs2[1,3];
+
+    Real scale[3];
+    Real T[3,3];
+    Real Diff[4,5];
+    Real Diff2[3,5];
+    Real Diff3[4,3];
+    Real err;
+    constant Real eps = 100*Modelica.Constants.eps;
+  algorithm
+    // Matrices.balance
+    print("\n... Matrices.balance(A)");
+    (scale, As) :=Matrices.balance(A);
+    print("A     = " + Matrices.toString(A));
+    print("As    = " + Matrices.toString(As));
+    print("scale = " + Vectors.toString(scale));
+    print("norm(A)  = " + String(Matrices.norm(A)));
+    print("norm(As) = " + String(Matrices.norm(As)));
+    T :=diagonal(scale);
+    err := Matrices.norm( Matrices.inv(T)*A*T - As);
+    assert(err < eps, "\"Matrices.balance - test 1\" failed");
+
+    // Matrices.balanceABC
+    print("\n... Matrices.balanceABC(A,B,C)");
+    (scale, As, Bs, Cs) := Matrices.balanceABC(A,B,C);
+    /*
+  print("A  = " + Matrices.toString(A));
+  print("As = " + Matrices.toString(As));  
+  print("B  = " + Matrices.toString(B));
+  print("Bs = " + Matrices.toString(Bs));  
+  print("C  = " + Matrices.toString(C));
+  print("Cs = " + Matrices.toString(Cs));  
+  print("scale = " + Vectors.toString(scale));
+  */
+    print("norm(A)  = " + String(Matrices.norm(A)) +
+          ", norm(B)  = " + String(Matrices.norm(B))+
+          ", norm(C)  = " + String(Matrices.norm(C)));
+    print("norm(As) = " + String(Matrices.norm(As)) +
+          ", norm(Bs) = " + String(Matrices.norm(Bs))+
+          ", norm(Cs) = " + String(Matrices.norm(Cs)));
+    T :=diagonal(scale);
+    print("scale = " + Vectors.toString(scale));
+
+    Diff := [Matrices.inv(T)*A*T, Matrices.inv(T)*B;
+              C*T, zeros(1,2)] - [As, Bs; Cs, zeros(1,2)];
+    err := Matrices.norm(Diff);
+    assert(err < eps, "\"Matrices.balanceABC - test 2\" failed");
+
+    // Balance [A,B]
+    print("\n... Matrices.balanceABC(A,B)");
+    (scale, As2, Bs2) := Matrices.balanceABC(A,B);
+    print("norm(A)   = " + String(Matrices.norm(A)) +
+          ", norm(B)   = " + String(Matrices.norm(B)));
+    print("norm(As2) = " + String(Matrices.norm(As2)) +
+          ", norm(Bs2) = " + String(Matrices.norm(Bs2)));
+    T :=diagonal(scale);
+    Diff2 := [Matrices.inv(T)*A*T, Matrices.inv(T)*B] - [As2, Bs2];
+    err := Matrices.norm(Diff);
+    assert(err < eps, "\"Matrices.balanceABC - test 3\" failed");
+
+    // Balance [A;C]
+    print("\n... Matrices.balanceABC(A,C=C)");
+    (scale,As2,,Cs2) := Matrices.balanceABC(A,zeros(3,2),C);
+    print("norm(A)   = " + String(Matrices.norm(A)) +
+          ", norm(C)   = " + String(Matrices.norm(C)));
+    print("norm(As2) = " + String(Matrices.norm(As2)) +
+          ", norm(Cs2) = " + String(Matrices.norm(Cs2)));
+    T :=diagonal(scale);
+    Diff3 := [Matrices.inv(T)*A*T; C*T] - [As2; Cs2];
+    err := Matrices.norm(Diff3);
+    assert(err < eps, "\"Matrices.balanceABC - test 4\" failed");
+
+    ok := true;
+  end Matrices2b;
+
   function Matrices3
     "Test functions of Modelica.Math.Matrices that cannot be used in a model since output array dimension depends on computation"
     extends Modelica.Icons.Function;
@@ -574,8 +665,9 @@ extends Modelica.Icons.ExamplesPackage;
      extends Modelica.Icons.Example;
   equation
      when initial() then
-         ModelicaTest.Math.Matrices();
-         ModelicaTest.Math.Matrices2();
+        ModelicaTest.Math.Matrices();
+        ModelicaTest.Math.Matrices2();
+        ModelicaTest.Math.Matrices2b();
      end when;
     annotation (experiment(StopTime=0));
   end MatricesInModel;
