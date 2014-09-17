@@ -84,7 +84,7 @@
 
 /* Have MAT int64 */
 #if defined (_WIN32)
-#if defined(_MSC_VER) && _MSC_VER >= 1300
+#if defined(_MSC_VER)
 #define HAVE_MAT_INT64_T 1
 #elif defined(__WATCOMC__)
 #define HAVE_MAT_INT64_T 1
@@ -108,7 +108,7 @@
 
 /* Have MAT uint64 */
 #if defined (_WIN32)
-#if defined(_MSC_VER) && _MSC_VER >= 1300
+#if defined(_MSC_VER)
 #define HAVE_MAT_UINT64_T 1
 #elif defined(__WATCOMC__)
 #define HAVE_MAT_UINT64_T 1
@@ -1586,7 +1586,7 @@ Mat_SizeOf(enum matio_types data_type)
         case MAT_T_INT64:
             return sizeof(mat_int64_t);
 #endif
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MAT_UINT64_T
         case MAT_T_UINT64:
             return sizeof(mat_uint64_t);
 #endif
@@ -2478,6 +2478,7 @@ ReadInt64Data(mat_t *mat,mat_int64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
+#ifdef HAVE_MAT_UINT64_T
         case MAT_T_UINT64:
         {
             mat_uint64_t ui64;
@@ -2496,6 +2497,7 @@ ReadInt64Data(mat_t *mat,mat_int64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
+#endif /* HAVE_MAT_UINT64_T */
         case MAT_T_INT32:
         {
             mat_int32_t i32;
@@ -2870,6 +2872,7 @@ ReadUInt64Data(mat_t *mat,mat_uint64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
+#ifdef HAVE_MAT_INT64_T
         case MAT_T_INT64:
         {
             mat_int64_t i64;
@@ -2888,6 +2891,7 @@ ReadUInt64Data(mat_t *mat,mat_uint64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
+#endif /* HAVE_MAT_INT64_T */
         case MAT_T_UINT64:
         {
             mat_uint64_t ui64;
@@ -6576,7 +6580,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             break;
         }
 #endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MAT_UINT64_T
         case MAT_C_UINT64:
         {
             mat_uint64_t *ptr;
@@ -7877,7 +7881,7 @@ ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MAT_INT64_T
         case MAT_C_INT64:
         {
             mat_int64_t *ptr;
