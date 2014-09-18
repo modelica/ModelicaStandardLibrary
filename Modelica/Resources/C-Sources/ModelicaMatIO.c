@@ -86,8 +86,14 @@
 #if defined (_WIN32)
 #if defined(_MSC_VER)
 #define HAVE_MAT_INT64_T 1
+#if _MSC_VER >= 1300
+#define HAVE_LONG_LONG 1
+#define HAVE_LONG_DOUBLE 1
+#endif
 #elif defined(__WATCOMC__)
 #define HAVE_MAT_INT64_T 1
+#define HAVE_LONG_LONG 1
+#define HAVE_LONG_DOUBLE 1
 #elif defined(__BORLANDC__)
 #undef HAVE_MAT_INT64_T
 #else
@@ -173,27 +179,6 @@
 
 /* Platform */
 #define MATIO_PLATFORM "UNKNOWN"
-
-/* The size of `char', as computed by sizeof. */
-#define SIZEOF_CHAR 1
-
-/* The size of `double', as computed by sizeof. */
-#define SIZEOF_DOUBLE 8
-
-/* The size of `float', as computed by sizeof. */
-#define SIZEOF_FLOAT 4
-
-/* The size of `int', as computed by sizeof. */
-#define SIZEOF_INT 4
-
-/* The size of `long', as computed by sizeof. */
-#define SIZEOF_LONG 4
-
-/* The size of `long long', as computed by sizeof. */
-#define SIZEOF_LONG_LONG 8
-
-/* The size of `short', as computed by sizeof. */
-#define SIZEOF_SHORT 2
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
@@ -17535,99 +17520,107 @@ Mat_class_type_to_hid_t(enum matio_classes class_type)
         case MAT_C_SINGLE:
             return H5T_NATIVE_FLOAT;
         case MAT_C_INT64:
-#       if CHAR_BIT*SIZEOF_SHORT == 64
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 64
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 64
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 64
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(long long) == 64 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT*sizeof(long) == 64 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(int) == 64 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(short) == 64 )
+                return H5T_NATIVE_SHORT;
+            else
+                return -1;
         case MAT_C_UINT64:
-#       if CHAR_BIT*SIZEOF_SHORT == 64
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 64
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 64
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 64
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(long long) == 64 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT*sizeof(long) == 64 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(int) == 64 )
+                return H5T_NATIVE_UINT;
+            if ( CHAR_BIT*sizeof(short) == 64 )
+                return H5T_NATIVE_USHORT;
+            else
+                return -1;
         case MAT_C_INT32:
-#       if CHAR_BIT == 32
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 32
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 32
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 32
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 32
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(int) == 32 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(short) == 32 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(long) == 32 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 32 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT == 32 )
+                return H5T_NATIVE_SCHAR;
+            else
+                return -1;
         case MAT_C_UINT32:
-#       if CHAR_BIT == 32
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 32
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 32
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 32
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 32
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(int) == 32 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(short) == 32 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(long) == 32 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 32 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT == 32 )
+                return H5T_NATIVE_UCHAR;
+            else
+                return -1;
         case MAT_C_INT16:
-#       if CHAR_BIT == 16
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 16
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 16
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 16
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 16
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(short) == 16 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(int) == 16 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(long) == 16 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 16 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT == 16 )
+                return H5T_NATIVE_SCHAR;
+            else
+                return -1;
         case MAT_C_UINT16:
-#       if CHAR_BIT == 16
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 16
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 16
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 16
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 16
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(short) == 16 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(int) == 16 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(long) == 16 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 16 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT == 16 )
+                return H5T_NATIVE_UCHAR;
+            else
+                return -1;
         case MAT_C_INT8:
-#       if CHAR_BIT == 8
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 8
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 8
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 8
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 8
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT == 8 )
+                return H5T_NATIVE_SCHAR;
+            else if ( CHAR_BIT*sizeof(short) == 8 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(int) == 8 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(long) == 8 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 8 )
+                return H5T_NATIVE_LLONG;
+            else
+                return -1;
         case MAT_C_UINT8:
-#       if CHAR_BIT == 8
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 8
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 8
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 8
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 8
-            return H5T_NATIVE_ULLONG;
-#       endif
-       default:
-           return -1;
+            if ( CHAR_BIT == 8 )
+                return H5T_NATIVE_UCHAR;
+            else if ( CHAR_BIT*sizeof(short) == 8 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(int) == 8 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(long) == 8 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 8 )
+                return H5T_NATIVE_ULLONG;
+            else
+                return -1;
+        default:
+            return -1;
     }
 }
 
@@ -17640,99 +17633,107 @@ Mat_data_type_to_hid_t(enum matio_types data_type)
         case MAT_T_SINGLE:
             return H5T_NATIVE_FLOAT;
         case MAT_T_INT64:
-#       if CHAR_BIT*SIZEOF_SHORT == 64
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 64
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 64
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 64
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(long long) == 64 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT*sizeof(long) == 64 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(int) == 64 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(short) == 64 )
+                return H5T_NATIVE_SHORT;
+            else
+                return -1;
         case MAT_T_UINT64:
-#       if CHAR_BIT*SIZEOF_SHORT == 64
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 64
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 64
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 64
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(long long) == 64 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT*sizeof(long) == 64 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(int) == 64 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(short) == 64 )
+                return H5T_NATIVE_USHORT;
+            else
+                return -1;
         case MAT_T_INT32:
-#       if CHAR_BIT == 32
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 32
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 32
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 32
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 32
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(int) == 32 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(short) == 32 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(long) == 32 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 32 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT == 32 )
+                return H5T_NATIVE_SCHAR;
+            else
+                return -1;
         case MAT_T_UINT32:
-#       if CHAR_BIT == 32
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 32
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 32
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 32
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 32
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(int) == 32 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(short) == 32 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(long) == 32 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 32 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT == 32 )
+                return H5T_NATIVE_UCHAR;
+            else
+                return -1;
         case MAT_T_INT16:
-#       if CHAR_BIT == 16
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 16
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 16
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 16
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 16
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(short) == 16 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(int) == 16 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(long) == 16 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 16 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT == 16 )
+                return H5T_NATIVE_SCHAR;
+            else
+                return -1;
         case MAT_T_UINT16:
-#       if CHAR_BIT == 16
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 16
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 16
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 16
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 16
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(short) == 16 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(int) == 16 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(long) == 16 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 16 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT == 16 )
+                return H5T_NATIVE_UCHAR;
+            else
+                return -1;
         case MAT_T_INT8:
-#       if CHAR_BIT == 8
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 8
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 8
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 8
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 8
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT == 8 )
+                return H5T_NATIVE_SCHAR;
+            else if ( CHAR_BIT*sizeof(short) == 8 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(int) == 8 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(long) == 8 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 8 )
+                return H5T_NATIVE_LLONG;
+            else
+                return -1;
         case MAT_T_UINT8:
-#       if CHAR_BIT == 8
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 8
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 8
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 8
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 8
-            return H5T_NATIVE_ULLONG;
-#       endif
-       default:
-           return -1;
+            if ( CHAR_BIT == 8 )
+                return H5T_NATIVE_UCHAR;
+            else if ( CHAR_BIT*sizeof(short) == 8 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(int) == 8 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(long) == 8 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 8 )
+                return H5T_NATIVE_ULLONG;
+            else
+                return -1;
+        default:
+            return -1;
     }
 }
 
