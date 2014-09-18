@@ -79,10 +79,10 @@
 
 /* int64 type */
 #ifdef HAVE_MAT_INT64_T
-#if defined(_MSC_VER) && _MSC_VER >= 1300
-#define _mat_int64_t long long
-#else
+#if defined(_MSC_VER) && _MSC_VER < 1300
 #define _mat_int64_t __int64
+#else
+#define _mat_int64_t long long
 #endif
 #endif
 
@@ -97,10 +97,10 @@
 
 /* uint64 type */
 #ifdef HAVE_MAT_UINT64_T
-#if defined(_MSC_VER) && _MSC_VER >= 1300
-#define _mat_uint64_t unsigned long long
-#else
+#if defined(_MSC_VER) && _MSC_VER < 1300
 #define _mat_uint64_t unsigned __int64
+#else
+#define _mat_uint64_t unsigned long long
 #endif
 #endif
 
