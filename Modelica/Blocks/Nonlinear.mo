@@ -231,7 +231,7 @@ is passed as output.
     import Modelica.Constants.small;
     parameter Modelica.SIunits.DampingCoefficient Rising( min= small) = 1
       "Maximum rising slew rate [+small..+inf)";
-    parameter Modelica.SIunits.DampingCoefficient Falling(min=-small) = -Rising
+    parameter Modelica.SIunits.DampingCoefficient Falling(max=-small) = -Rising
       "Maximum falling slew rate (-inf..-small]";
     parameter Modelica.SIunits.Time Td(min=small) = 0.001
       "Derivative time constant";
