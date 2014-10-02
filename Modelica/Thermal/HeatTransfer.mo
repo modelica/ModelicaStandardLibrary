@@ -2237,11 +2237,7 @@ and provides them as output signals.
             Line(
               points={{-42,0},{66,0}},
               color={191,0,0},
-              thickness=0.5),
-            Text(
-              extent={{58,-22},{-90,-86}},
-              lineColor={0,0,0},
-              textString="degF")}),
+              thickness=0.5)}),
         Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in [degF],
@@ -2309,11 +2305,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{54,-20},{-94,-84}},
-              lineColor={0,0,0},
-              textString="degF")}),
+              fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
 This model represents a variable temperature boundary condition
@@ -2420,17 +2412,13 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,20},{-12,20}}, color={0,0,0}),
             Line(points={{-40,60},{-12,60}}, color={0,0,0}),
             Text(
-              extent={{126,-20},{26,-120}},
+              extent={{150,-22},{30,-92}},
               lineColor={0,0,0},
               textString="degF"),
             Text(
               extent={{-150,135},{150,95}},
               textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{150,-28},{38,-76}},
-              lineColor={0,0,0},
-              textString="degF")}),
+              lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This is an ideal absolute temperature sensor which returns
