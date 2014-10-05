@@ -12523,7 +12523,7 @@ Thermal parts for DC machines
             extent={{-10,10},{10,-10}},
             rotation=90,
             origin={80,30})));
-      Modelica.Blocks.Sources.Constant constT2(final k=T1) if not
+      Modelica.Blocks.Sources.Constant constT2(final k=T2) if not
         useTemperatureInputs annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=90,
@@ -15923,9 +15923,10 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral a
        permanent magnet losses</li>
   <li> v2.6.0 2013/02/25 Anton Haumer<br>
        corrected turnsRatio bug in asynchronous induction machine with slipring; corrected parameter descriptions</li>
-  <li> v3.2.1 2014/06/20 Anton Haumer, Christian Kral<br>
+  <li> v3.2.1 2014/10/05 Anton Haumer, Christian Kral<br>
        corrected bug in wrong orientation of rotor current, see #1226<br>
-       fixed bugs of wrong sign of power calculation and orientation of secondary components; see #1474</li>
+       fixed bugs of wrong sign of power calculation and orientation of secondary components; see #1474<br>
+       fixed bug in temperature propagation of transformer ambient model; see #1579</li>
 </li>
   </ul>
 </HTML>"),
