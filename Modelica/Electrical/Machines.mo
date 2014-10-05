@@ -60,7 +60,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-07-21 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2014-10-05 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
   <li>Added standard blocks and functions</li>
@@ -68,15 +68,16 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
   <li>Added alias for rotor current in squirrel cage model</li>
 </ul>
 
-<h5>Version 3.2.1, 2014-06-20 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.1, 2014-10-05 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Fixed bugs of wrong sign of power calculation and orientation of secondary components; see #1474</li>
-  <li>Corrected bug in wrong orientation of rotor current, see #1226</li>
+  <li>Corrected bug in wrong orientation of rotor current; see #1226</li>
+  <li>Fixed bug of wrong temperature propagation in transformer ambient model; see #1579</li>
 </ul>
 
 <h5>Version 2.6.0, 2013-02-25 (Anton Haumer)</h5>
 <ul>
-  <li>Corrected turnsRatio bug in asynchronous induction machine with slipring</li>
+  <li>Corrected turnsRatio bug in asynchronous induction machine with slipring rotor</li>
   <li>Corrected parameter descriptions</li>
 </ul>
 
@@ -12907,7 +12908,7 @@ Thermal parts for DC machines
             extent={{-10,10},{10,-10}},
             rotation=90,
             origin={80,30})));
-      Modelica.Blocks.Sources.Constant constT2(final k=T1) if not
+      Modelica.Blocks.Sources.Constant constT2(final k=T2) if not
         useTemperatureInputs annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=90,
