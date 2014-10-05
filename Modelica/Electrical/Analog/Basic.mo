@@ -348,8 +348,8 @@ package Basic "Basic electrical components"
               extent={{-60,-30},{60,0}},
               lineColor={255,255,255},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color
-            ={0,0,255}),Line(points={{-96,0},{-60,0}}, color={0,0,255})}));
+              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color=
+             {0,0,255}),Line(points={{-96,0},{-60,0}}, color={0,0,255})}));
   end Inductor;
 
   model SaturatingInductor "Simple model of an inductor with saturation"
@@ -432,8 +432,8 @@ package Basic "Basic electrical components"
               extent={{-60,-20},{62,0}},
               lineColor={255,255,255},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color
-            ={0,0,255}),Line(points={{-96,0},{-60,0}}, color={0,0,255}),
+              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color=
+             {0,0,255}),Line(points={{-96,0},{-60,0}}, color={0,0,255}),
             Rectangle(
               extent={{-60,-10},{60,-20}},
               lineColor={0,0,0},
@@ -1145,8 +1145,8 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
               points={{20,60},{10,63},{10,57},{20,60}},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{96,50},{30,50},{30,20}}, color
-            ={0,0,255}),Line(points={{96,-50},{30,-50},{30,-20}}, color={0,0,
+              lineColor={0,0,255}),Line(points={{96,50},{30,50},{30,20}}, color=
+             {0,0,255}),Line(points={{96,-50},{30,-50},{30,-20}}, color={0,0,
             255}),Line(points={{10,0},{50,0}}, color={0,0,255})}));
   end VCC;
 
@@ -1186,7 +1186,6 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}),
-
           Text(
             extent={{-140,-82},{160,-122}},
             textString="%name",
@@ -1231,7 +1230,6 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
-
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
@@ -1254,8 +1252,8 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
               points={{20,60},{10,63},{10,57},{20,60}},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Line(points={{96,50},{30,50},{30,20}}, color
-            ={0,0,255}),Line(points={{96,-50},{30,-50},{30,-20}}, color={0,0,
+              lineColor={0,0,255}),Line(points={{96,50},{30,50},{30,20}}, color=
+             {0,0,255}),Line(points={{96,-50},{30,-50},{30,-20}}, color={0,0,
             255}),Line(points={{10,0},{50,0}}, color={0,0,255}),Line(points={{-96,
             50},{-30,50},{-30,-50},{-96,-50}}, color={0,0,255})}));
   end CCC;
@@ -1270,8 +1268,8 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-110,60}}, rotation=0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin"
-      annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
+             0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin VMax
       "Positive output voltage limitation" annotation (Placement(transformation(
             extent={{-10,60},{10,80}}, rotation=0)));
@@ -1423,8 +1421,8 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-111,61}}, rotation=0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin"
-      annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
+             0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin p_supply
       "Positive output voltage limitation" annotation (Placement(transformation(
             extent={{-8,65},{9,82}}, rotation=0)));
@@ -1898,8 +1896,8 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
               extent={{-60,-30},{62,0}},
               lineColor={255,255,255},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color
-            ={0,0,255})}));
+              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color=
+             {0,0,255})}));
   end VariableInductor;
 
   model Potentiometer "Adjustable resistor"
