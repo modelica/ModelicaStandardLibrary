@@ -23,6 +23,9 @@
 
 
     Release Notes:
+      Oct. 07, 2014, by Thomas Beutlich, ITI GmbH.
+        Fixed platform dependency of ModelicaInternal_readLine (ticket #1580)
+
       May 21, 2013, by Martin Otter, DLR.
         Included the improvements from DS Lund:
           - Changed implementation of print to do nothing in case of missing file-system.
