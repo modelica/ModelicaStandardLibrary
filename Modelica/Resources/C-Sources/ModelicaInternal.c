@@ -23,6 +23,9 @@
 
 
     Release Notes:
+      Oct. 07, 2014, by Thomas Beutlich, ITI GmbH.
+        Fixed platform dependency of ModelicaInternal_readLine (ticket #1580)
+
       Aug. 22, 2014, by Thomas Beutlich, ITI GmbH.
         Fixed multi-threaded access of common/shared file cache (ticket #1556)
 
@@ -809,7 +812,7 @@ MODELICA_EXPORT const char* ModelicaInternal_readLine(const char* fileName, int 
   /* Read line lineNumber from file fileName */
     FILE* fp = ModelicaStreams_openFileForReading(fileName, lineNumber - 1);
     char* line;
-    int c;
+    int c, c2;
     size_t lineLen;
     long offset;
     char localbuf[200]; /* To avoid fseek */
@@ -823,17 +826,20 @@ MODELICA_EXPORT const char* ModelicaInternal_readLine(const char* fileName, int 
     while ( c != '\n' && c != EOF ) {
         if (lineLen < sizeof(localbuf)) localbuf[lineLen]=c;
         lineLen++;
+        c2 = c;
         c = fgetc(fp);
     }
     if ( lineLen == 0 && c == EOF ) goto END_OF_FILE;
 
     /* Read line lineNumber */
+    if (c2 == '\r' && lineLen > 0) {
+        lineLen--;
+    }
     line = ModelicaAllocateStringWithErrorReturn(lineLen);
     if ( line == NULL ) goto Modelica_ERROR3;
 
     if (lineLen <= sizeof(localbuf)) {
-        size_t i;
-        for(i = 0; i < lineLen; ++i) line[i] = localbuf[i];
+        memcpy(line, localbuf, lineLen);
     }
     else {
         if ( fseek(fp, offset, SEEK_SET) != 0 ) goto Modelica_ERROR3;
