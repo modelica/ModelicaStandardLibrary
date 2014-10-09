@@ -638,6 +638,7 @@ which is only exactly true for a fluid with constant density d=d0.
         for j in 1:n-1 loop
           p2[j] := p1[j]/(n-j);
         end for;
+        p2[n] := 0.0;
       end integral;
 
       function integralValue "Integral of polynomial p(u) from u_low to u_high"
