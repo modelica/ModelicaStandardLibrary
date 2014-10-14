@@ -697,7 +697,7 @@ MODELICA_EXPORT void ModelicaInternal_readFile(const char* fileName, const char*
   /* Read file into string vector string[nLines] */
      FILE* fp = ModelicaStreams_openFileForReading(fileName, 0);
      char*  line;
-     int    c;
+     int    c, c2;
      size_t lineLen;
      size_t iLines;
      long   offset;
@@ -714,9 +714,13 @@ MODELICA_EXPORT void ModelicaInternal_readFile(const char* fileName, const char*
            while ( c != '\n' && c != EOF ) {
               if (lineLen<sizeof(localbuf)) localbuf[lineLen]=c;
               lineLen++;
+              c2 = c;
               c = fgetc(fp);
            }
 
+           if (c2 == '\r' && lineLen > 0) {
+              lineLen--;
+           }
         /* Allocate storage for next line */
            line = ModelicaAllocateStringWithErrorReturn(lineLen);
            if ( line == NULL ) {
@@ -728,8 +732,7 @@ MODELICA_EXPORT void ModelicaInternal_readFile(const char* fileName, const char*
 
         /* Read next line */
               if (lineLen<=sizeof(localbuf)) {
-                 size_t i;
-                 for(i=0;i<lineLen;++i) line[i]=localbuf[i];
+                 memcpy(line, localbuf, lineLen);
               } else {
               if ( fseek(fp, offset, SEEK_SET != 0) ) {
                  fclose(fp);
