@@ -4032,8 +4032,8 @@ Ordinary Water Substance<br>
         constant SI.Temperature Tstar2=647.25 "Reference temperature";
         constant SI.ThermalConductivity lambdastar=1
           "Reference thermal conductivity";
-        parameter Real TREL=T/Tstar2 "Relative temperature";
-        parameter Real rhoREL=d/rhostar2 "Relative density";
+        Real TREL=T/Tstar2 "Relative temperature";
+        Real rhoREL=d/rhostar2 "Relative density";
         Real lambdaREL "Relative thermal conductivity";
         Real deltaTREL "Relative temperature increment";
         constant Real[:] C={0.642857,-4.11717,-6.17937,0.00308976,0.0822994,
