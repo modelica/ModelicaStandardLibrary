@@ -631,7 +631,7 @@ package CombiTable2D
       extends Modelica.Icons.Function;
       input Real dummy_u;
       output Real dummy_y;
-      external "C" dummy_y = mydummyfunc(dummy_u);
+      external "C" dummy_y = mydummyfunc(dummy_u)
       annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
              Include = "#include \"usertab.c\"
  double mydummyfunc(double dummy_in) {
