@@ -1561,7 +1561,7 @@ Integer type that can have the following values
       import Modelica.Fluid.Utilities.regRoot2;
       import Modelica.Fluid.Vessels.BaseClasses.VesselPortsData;
 
-    SI.Height level(stateSelect=StateSelect.prefer, start=level_start)
+    SI.Length level(stateSelect=StateSelect.prefer, start=level_start)
         "Fluid level in the tank";
 
     //Tank geometry
@@ -1910,7 +1910,8 @@ Implemented trace substances and missing equation for outflow of multi substance
         V0=0.1,
         nTopPorts=1,
         nPorts=1,
-        level_start=0)
+        level_start=0.8,
+        hysteresisFactor=0.01)
         annotation (Placement(transformation(extent={{0,0},{40,40}},   rotation=0)));
 
       Sources.MassFlowSource_T flowSource(nPorts=1,
