@@ -479,8 +479,8 @@ package AST_BatchPlant
             {-150,-240}},     color={0,0,127}));
     connect(P2_on.y, P2.N_in) annotation (Line(points={{121,-220},{130,-220},{
             130,-240}},      color={0,0,127}));
-    connect(B4.ports[1], V12.port_b) annotation (Line(points={{-90,29},{-90,
-            21},{-90,21},{-90,12}},
+    connect(B4.ports[1], V12.port_b) annotation (Line(points={{-90,29},{-90,21},
+            {-90,12}},
           color={0,127,255}));
     connect(CoolingB7.port, B7.heatPort) annotation (Line(points={{-130,-120},{
             -110,-120}}, color={191,0,0}));
@@ -1561,7 +1561,7 @@ Integer type that can have the following values
       import Modelica.Fluid.Utilities.regRoot2;
       import Modelica.Fluid.Vessels.BaseClasses.VesselPortsData;
 
-    SI.Height level(stateSelect=StateSelect.prefer, start=level_start)
+    SI.Length level(stateSelect=StateSelect.prefer, start=level_start)
         "Fluid level in the tank";
 
     //Tank geometry
@@ -1910,7 +1910,9 @@ Implemented trace substances and missing equation for outflow of multi substance
         V0=0.1,
         nTopPorts=1,
         nPorts=1,
-        level_start=0)
+        level_start=0.8,
+        stiffCharacteristicForEmptyPort=false,
+        hysteresisFactor=0.01)
         annotation (Placement(transformation(extent={{0,0},{40,40}},   rotation=0)));
 
       Sources.MassFlowSource_T flowSource(nPorts=1,
@@ -1959,7 +1961,9 @@ Implemented trace substances and missing equation for outflow of multi substance
           points={{-39,70},{-24,70},{-24,60},{-12,60}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (experiment(StopTime=100));
+      annotation (experiment(StopTime=100), Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics));
     end OneTank;
 
     model TwoTanks
