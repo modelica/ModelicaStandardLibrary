@@ -23,7 +23,7 @@
 
 
     Release Notes:
-      Oct. 14, 2014, by Thomas Beutlich, ITI GmbH.
+      Nov. 20, 2014, by Thomas Beutlich, ITI GmbH.
         Fixed platform dependency of ModelicaInternal_readLine/_readFile (ticket #1580)
 
       Aug. 22, 2014, by Thomas Beutlich, ITI GmbH.
@@ -767,16 +767,16 @@ MODELICA_EXPORT void ModelicaInternal_readFile(const char* fileName, const char*
         /* Determine length of next line */
         long offset = ftell(fp);
         size_t lineLen = 0;
-        int c2;
         int c = fgetc(fp);
+        int c2 = c;
         while ( c != '\n' && c != EOF ) {
-            if (lineLen<sizeof(localbuf)) localbuf[lineLen]=c;
+            if (lineLen < sizeof(localbuf)) localbuf[lineLen] = (char)c;
             lineLen++;
             c2 = c;
             c = fgetc(fp);
         }
 
-        if (c2 == '\r' && lineLen > 0) {
+        if ( lineLen > 0 && c2 == '\r' ) {
             lineLen--;
         }
         /* Allocate storage for next line */
@@ -827,8 +827,9 @@ MODELICA_EXPORT const char* ModelicaInternal_readLine(const char* fileName, int 
     offset  = ftell(fp);
     lineLen = 0;
     c = fgetc(fp);
+    c2 = c;
     while ( c != '\n' && c != EOF ) {
-        if (lineLen < sizeof(localbuf)) localbuf[lineLen]=c;
+        if (lineLen < sizeof(localbuf)) localbuf[lineLen] = (char)c;
         lineLen++;
         c2 = c;
         c = fgetc(fp);
@@ -836,7 +837,7 @@ MODELICA_EXPORT const char* ModelicaInternal_readLine(const char* fileName, int 
     if ( lineLen == 0 && c == EOF ) goto END_OF_FILE;
 
     /* Read line lineNumber */
-    if (c2 == '\r' && lineLen > 0) {
+    if ( lineLen > 0 && c2 == '\r') {
         lineLen--;
     }
     line = ModelicaAllocateStringWithErrorReturn(lineLen);
