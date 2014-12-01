@@ -3113,15 +3113,13 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               points={{-40,30},{40,30}}, color={255,170,85}),Line(points={{-20,
               10},{20,10}}, color={255,170,85})}),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Line(points={{0,100},{0,50}}, color={255,128,0}),
-            Line(points={{-60,50},{60,50}}, color={255,128,0}),
-            Line(points={{-40,30},{40,30}}, color={255,128,0}),
-            Line(points={{-20,10},{20,10}}, color={255,128,0}),
-            Text(
-              extent={{-144,-19},{156,-59}},
-              textString="%name",
-              lineColor={0,0,255})}),
+                100,100}}), graphics={Line(points={{0,100},{0,50}}, color={255,
+              128,0}),Line(points={{-60,50},{60,50}}, color={255,128,0}),Line(
+              points={{-40,30},{40,30}}, color={255,128,0}),Line(points={{-20,
+              10},{20,10}}, color={255,128,0}),Text(
+                  extent={{-144,-19},{156,-59}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
         Documentation(info="<html>
 
 <p>
@@ -3140,18 +3138,16 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
       (pi/2)*V_m.re = R_m.d*Phi.re;
       (pi/2)*V_m.im = R_m.q*Phi.im;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-70,30},{70,-30}},
-              lineColor={255,170,85},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-96,0},{-70,0}}, color={255,170,85}),
-            Line(points={{70,0},{96,0}}, color={255,170,85}),
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name")}), Documentation(info="<html>
+                -100},{100,100}}), graphics={Rectangle(
+                  extent={{-70,30},{70,-30}},
+                  lineColor={255,170,85},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
+              color={255,170,85}),Line(points={{70,0},{96,0}}, color={255,170,
+              85}),Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name")}), Documentation(info="<html>
 <p>
 The salient reluctance models the relationship between the complex magnetic potential difference
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">,
@@ -3178,19 +3174,16 @@ The salient reluctance models the relationship between the complex magnetic pote
       (pi/2)*G_m.d*V_m.re = Phi.re;
       (pi/2)*G_m.q*V_m.im = Phi.im;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-70,30},{70,-30}},
-              lineColor={255,170,85},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-96,0},{-70,0}}, color={255,170,85}),
-            Line(points={{70,0},{96,0}}, color={255,170,85})}), Documentation(
-            info="<html>
+                -100},{100,100}}), graphics={Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name"),Rectangle(
+                  extent={{-70,30},{70,-30}},
+                  lineColor={255,170,85},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
+              color={255,170,85}),Line(points={{70,0},{96,0}}, color={255,170,
+              85})}), Documentation(info="<html>
 <p>
 The salient permeance models the relationship between the complex magnetic potential difference
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">:
@@ -3230,22 +3223,19 @@ The salient permeance models the relationship between the complex magnetic poten
       end if;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-70,30},{70,-30}},
-              lineColor={255,170,85},
-              fillColor={255,170,85},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-96,0},{-70,0}}, color={255,170,85}),
-            Line(points={{70,0},{96,0}}, color={255,170,85}),
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{0,-40},{0,-80}},
-              lineColor={0,0,0},
-              textString="G=%G")}),
+                100,100}}), graphics={Rectangle(
+                  extent={{-70,30},{70,-30}},
+                  lineColor={255,170,85},
+                  fillColor={255,170,85},
+                  fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
+              color={255,170,85}),Line(points={{70,0},{96,0}}, color={255,170,
+              85}),Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name"),Text(
+                  extent={{0,-40},{0,-80}},
+                  lineColor={0,0,0},
+                  textString="G=%G")}),
         Documentation(info="<html>
 <p>
 The eddy current loss model with respect to fundamental wave effects is designed in accordance to
@@ -3441,34 +3431,30 @@ relationship of the voltage and current space phasor.
       Connections.branch(plug_p.reference, port_p.reference);
       plug_p.reference.gamma = port_p.reference.gamma;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={
-            Ellipse(
-              extent={{-60,60},{58,0}},
-              lineColor={85,170,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-58,0},{60,-60}},
-              lineColor={85,170,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-60,60},{0,-60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,-72},
-                  {42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,66},{62,
-                  84},{78,96},{90,100},{100,100}}, color={255,170,85}),
-            Line(points={{0,60},{-100,60},{-100,100}}, color={85,170,255}),
-            Line(points={{0,-60},{-100,-60},{-100,-98}}, color={85,170,255}),
-            Text(
-              extent={{0,160},{0,120}},
-              lineColor={0,0,255},
-              fillColor={255,128,0},
-              fillPattern=FillPattern.Solid,
-              textString="%name")}), Documentation(info="<html>
+                -100},{100,100}}), graphics={Ellipse(
+                  extent={{-60,60},{58,0}},
+                  lineColor={85,170,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Ellipse(
+                  extent={{-58,0},{60,-60}},
+                  lineColor={85,170,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Rectangle(
+                  extent={{-60,60},{0,-60}},
+                  lineColor={0,0,255},
+                  pattern=LinePattern.None,
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{100,-100},{94,-100},
+              {84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},{30,-18},{
+              30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},{100,100}},
+              color={255,170,85}),Line(points={{0,60},{-100,60},{-100,100}},
+              color={85,170,255}),Line(points={{0,-60},{-100,-60},{-100,-98}},
+              color={85,170,255}),Text(
+                  extent={{0,160},{0,120}},
+                  lineColor={0,0,255},
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="%name")}), Documentation(info="<html>
 
 <p>
 Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">.
@@ -3577,34 +3563,30 @@ QuasiStaticAnalogElectroMagneticConverter</a>
       annotation (
         defaultComponentName="converter",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Ellipse(
-              extent={{-60,60},{58,0}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-58,0},{60,-60}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-60,60},{0,-60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,-72},
-                  {42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,66},{62,
-                  84},{78,96},{90,100},{100,100}}, color={255,128,0}),
-            Line(points={{0,60},{-100,60},{-100,100}}, color={0,0,255}),
-            Line(points={{0,-60},{-100,-60},{-100,-98}}, color={0,0,255}),
-            Text(
-              extent={{0,160},{0,120}},
-              lineColor={0,0,255},
-              fillColor={255,128,0},
-              fillPattern=FillPattern.Solid,
-              textString="%name")}),
+                100,100}}), graphics={Ellipse(
+                  extent={{-60,60},{58,0}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Ellipse(
+                  extent={{-58,0},{60,-60}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Rectangle(
+                  extent={{-60,60},{0,-60}},
+                  lineColor={0,0,255},
+                  pattern=LinePattern.None,
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{100,-100},{94,-100},
+              {84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},{30,-18},{
+              30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},{100,100}},
+              color={255,128,0}),Line(points={{0,60},{-100,60},{-100,100}},
+              color={0,0,255}),Line(points={{0,-60},{-100,-60},{-100,-98}},
+              color={0,0,255}),Text(
+                  extent={{0,160},{0,120}},
+                  lineColor={0,0,255},
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="%name")}),
         Documentation(info="<html>
 <p>
 The analog single phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in the winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
@@ -3646,18 +3628,16 @@ MultiPhaseElectroMagneticConverter</a>
       Phi = Complex(0, 0);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,0},{-40,0}}, color={255,170,85}),
-            Line(points={{40,0},{100,0}}, color={255,170,85})}),
+                100,100}}), graphics={Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name"),Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,255,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-100,0},{-40,0}},
+              color={255,170,85}),Line(points={{40,0},{100,0}}, color={255,170,
+              85})}),
         Documentation(info="<html>
 <p>
 This is a simple idle running branch.
@@ -3687,18 +3667,15 @@ This is a simple idle running branch.
       connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
               100,0}}, color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,0},{100,0}}, color={255,170,85})}),
-          Documentation(info="<html>
+                -100},{100,100}}), graphics={Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name"),Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,255,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-100,0},{100,0}},
+              color={255,170,85})}), Documentation(info="<html>
 <p>
 This is a simple short cut branch.
 </p>
@@ -3736,24 +3713,20 @@ This is a simple short cut branch.
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{-100,100},{-100,40},{100,-40},{100,-100}},
-              color={255,170,85},
-              smooth=Smooth.None),
-            Line(
-              points={{100,100},{100,40},{-100,-40},{-100,-100}},
-              color={255,170,85},
-              smooth=Smooth.None)}),
+                100,100}}), graphics={Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name"),Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,255,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(
+                  points={{-100,100},{-100,40},{100,-40},{100,-100}},
+                  color={255,170,85},
+                  smooth=Smooth.None),Line(
+                  points={{100,100},{100,40},{-100,-40},{-100,-100}},
+                  color={255,170,85},
+                  smooth=Smooth.None)}),
         Documentation(info="<html>
 <p>
 This is a simple short cut branch.
@@ -3772,10 +3745,7 @@ This is a simple short cut branch.
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics));
     end Crossing;
-    annotation (Documentation(info="<html>
-<p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
-located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components\">Machines.Components</a>.</p>
-</html>"));
+
     package BaseClasses "Partial models for components"
       extends Icons.BasesPackage;
 
@@ -3868,6 +3838,10 @@ The partial two port elementary model extends from the partial two port model an
                   {100,100}}), graphics));
       end PartialTwoPortElementary;
     end BaseClasses;
+    annotation (Documentation(info="<html>
+<p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
+located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components\">Machines.Components</a>.</p>
+</html>"));
   end Components;
 
   package BasicMachines "Basic quasi static machine models"
@@ -4958,28 +4932,24 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             smooth=Smooth.None));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={
-              Rectangle(
-                extent={{-100,60},{100,-60}},
-                lineColor={0,0,255},
-                pattern=LinePattern.None,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,
-                    -72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,
-                    66},{62,84},{78,96},{90,100},{100,100}}, color={255,128,0}),
-
-              Line(points={{40,60},{-100,60},{-100,100}}, color={85,170,255}),
-              Line(points={{40,-60},{-100,-60},{-100,-98}}, color={85,170,255}),
-
-              Line(points={{40,60},{100,20},{40,-20},{0,-20},{-40,0},{0,20},{40,
-                    20},{100,-20},{40,-60}}, color={85,170,255}),
-              Text(
-                extent={{0,160},{0,120}},
-                lineColor={0,0,255},
-                fillColor={255,128,0},
-                fillPattern=FillPattern.Solid,
-                textString="%name")}),
+                  {100,100}}), graphics={Rectangle(
+                      extent={{-100,60},{100,-60}},
+                      lineColor={0,0,255},
+                      pattern=LinePattern.None,
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{100,-100},{
+                94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},
+                {30,-18},{30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},
+                {100,100}}, color={255,128,0}),Line(points={{40,60},{-100,60},{
+                -100,100}}, color={85,170,255}),Line(points={{40,-60},{-100,-60},
+                {-100,-98}}, color={85,170,255}),Line(points={{40,60},{100,20},
+                {40,-20},{0,-20},{-40,0},{0,20},{40,20},{100,-20},{40,-60}},
+                color={85,170,255}),Text(
+                      extent={{0,160},{0,120}},
+                      lineColor={0,0,255},
+                      fillColor={255,128,0},
+                      fillPattern=FillPattern.Solid,
+                      textString="%name")}),
           Documentation(info="<html>
 <p>
 The symmetrical multi phase winding consists of a symmetrical winding
@@ -5096,27 +5066,24 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
             smooth=Smooth.None));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={
-              Rectangle(
-                extent={{-100,60},{100,-60}},
-                lineColor={0,0,255},
-                pattern=LinePattern.None,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,
-                    -72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,
-                    66},{62,84},{78,96},{90,100},{100,100}}, color={255,128,0}),
-
-              Line(points={{40,60},{-100,60},{-100,100}}, color={0,0,255}),
-              Line(points={{40,-60},{-100,-60},{-100,-98}}, color={0,0,255}),
-              Line(points={{40,60},{100,20},{40,-20},{0,-20},{-40,0},{0,20},{40,
-                    20},{100,-20},{40,-60}}, color={0,0,255}),
-              Text(
-                extent={{0,160},{0,120}},
-                lineColor={0,0,255},
-                fillColor={255,128,0},
-                fillPattern=FillPattern.Solid,
-                textString="%name")}),
+                  {100,100}}), graphics={Rectangle(
+                      extent={{-100,60},{100,-60}},
+                      lineColor={0,0,255},
+                      pattern=LinePattern.None,
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{100,-100},{
+                94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},
+                {30,-18},{30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},
+                {100,100}}, color={255,128,0}),Line(points={{40,60},{-100,60},{
+                -100,100}}, color={0,0,255}),Line(points={{40,-60},{-100,-60},{
+                -100,-98}}, color={0,0,255}),Line(points={{40,60},{100,20},{40,
+                -20},{0,-20},{-40,0},{0,20},{40,20},{100,-20},{40,-60}}, color=
+                {0,0,255}),Text(
+                      extent={{0,160},{0,120}},
+                      lineColor={0,0,255},
+                      fillColor={255,128,0},
+                      fillPattern=FillPattern.Solid,
+                      textString="%name")}),
           Documentation(info="<html>
 <p>
 The single phase winding consists of a
@@ -5239,23 +5206,20 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
         end if;
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={
-              Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-100,90},{-100,60},{-80,60}}, color={255,128,0}),
-              Line(points={{-100,-90},{-100,-60},{-80,-60}}, color={255,128,0}),
-
-              Line(points={{40,60},{100,60},{100,90}}, color={255,128,0}),
-              Line(points={{40,-60},{100,-60},{100,-90}}, color={255,128,0}),
-              Ellipse(
-                extent={{-60,80},{60,-80}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{0,80},{0,90}}, color={0,0,0})}),
+                  {100,100}}), graphics={Ellipse(
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{-100,90},{-100,
+                60},{-80,60}}, color={255,128,0}),Line(points={{-100,-90},{-100,
+                -60},{-80,-60}}, color={255,128,0}),Line(points={{40,60},{100,
+                60},{100,90}}, color={255,128,0}),Line(points={{40,-60},{100,-60},
+                {100,-90}}, color={255,128,0}),Ellipse(
+                      extent={{-60,80},{60,-80}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{0,80},{0,90}},
+                color={0,0,0})}),
           Documentation(info="<html>
 <p>
 This salient air gap model can be used for machines with uniform airgaps and for machines with rotor saliencies. The air gap model is not symmetrical towards stator and rotor since it is assumed the saliency always refers to the rotor. The saliency of the air gap is represented by a main field inductance in the d- and q-axis.
@@ -5418,48 +5382,40 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             smooth=Smooth.None));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={
-              Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,0,0},
-                fillColor={175,175,175},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,76},{20,36}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,46},{68,6}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,-8},{68,-48}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,-36},{20,-76}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-68,-6},{-28,-46}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-66,50},{-26,10}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-80,0},{-100,0}}, color={255,128,0}),
-              Line(points={{100,0},{80,0}}, color={255,128,0}),
-              Text(
-                extent={{0,100},{0,140}},
-                lineColor={0,0,255},
-                textString="%name")}),
+                  {100,100}}), graphics={Ellipse(
+                      extent={{-80,80},{80,-80}},
+                      lineColor={0,0,0},
+                      fillColor={175,175,175},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,76},{20,36}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,46},{68,6}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,-8},{68,-48}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,-36},{20,-76}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-68,-6},{-28,-46}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-66,50},{-26,10}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
+                0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
+                255,128,0}),Text(
+                      extent={{0,100},{0,140}},
+                      lineColor={0,0,255},
+                      textString="%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -5598,48 +5554,40 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             smooth=Smooth.None));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={
-              Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,0,0},
-                fillColor={175,175,175},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,76},{20,36}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,46},{68,6}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,-8},{68,-48}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,-36},{20,-76}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-68,-6},{-28,-46}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-66,50},{-26,10}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-80,0},{-100,0}}, color={255,128,0}),
-              Line(points={{100,0},{80,0}}, color={255,128,0}),
-              Text(
-                extent={{0,100},{0,140}},
-                lineColor={0,0,255},
-                textString="%name")}),
+                  {100,100}}), graphics={Ellipse(
+                      extent={{-80,80},{80,-80}},
+                      lineColor={0,0,0},
+                      fillColor={175,175,175},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,76},{20,36}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,46},{68,6}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,-8},{68,-48}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,-36},{20,-76}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-68,-6},{-28,-46}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-66,50},{-26,10}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
+                0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
+                255,128,0}),Text(
+                      extent={{0,100},{0,140}},
+                      lineColor={0,0,255},
+                      textString="%name")}),
           Documentation(info="<html>
 
 <p>
@@ -5705,10 +5653,10 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
                   {100,100}}), graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Line(
-                points={{-100,0},{100,0}},
-                color={255,170,85},
-                smooth=Smooth.None), Ellipse(extent={{-50,50},{50,-50}},
-                  lineColor={255,170,85})}));
+                      points={{-100,0},{100,0}},
+                      color={255,170,85},
+                      smooth=Smooth.None),Ellipse(extent={{-50,50},{50,-50}},
+                lineColor={255,170,85})}));
       end PermanentMagnet;
     end Components;
 
@@ -6021,43 +5969,36 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
 <p>This partial model for induction machines contains elements common in all machine models.</p>
 </HTML>"),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={
-              Rectangle(
-                extent={{80,-80},{120,-120}},
-                lineColor={192,192,192},
-                fillColor={192,192,192},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-50,100},{-20,100},{-20,70}}, color={85,170,255}),
-              Line(points={{50,100},{20,100},{20,70}}, color={85,170,255}),
-              Text(
-                extent={{-150,-120},{150,-180}},
-                lineColor={0,0,255},
-                textString="%name"),
-              Line(
-                visible=not useSupport,
-                points={{80,-100},{120,-100}},
-                color={0,0,0},
-                smooth=Smooth.None),
-              Line(
-                visible=not useSupport,
-                points={{90,-100},{80,-120}},
-                color={0,0,0},
-                smooth=Smooth.None),
-              Line(
-                visible=not useSupport,
-                points={{100,-100},{90,-120}},
-                color={0,0,0},
-                smooth=Smooth.None),
-              Line(
-                visible=not useSupport,
-                points={{110,-100},{100,-120}},
-                color={0,0,0},
-                smooth=Smooth.None),
-              Line(
-                visible=not useSupport,
-                points={{120,-100},{110,-120}},
-                color={0,0,0},
-                smooth=Smooth.None)}),
+                  100,100}}), graphics={Rectangle(
+                      extent={{80,-80},{120,-120}},
+                      lineColor={192,192,192},
+                      fillColor={192,192,192},
+                      fillPattern=FillPattern.Solid),Line(points={{-50,100},{-20,
+                100},{-20,70}}, color={85,170,255}),Line(points={{50,100},{20,
+                100},{20,70}}, color={85,170,255}),Text(
+                      extent={{-150,-120},{150,-180}},
+                      lineColor={0,0,255},
+                      textString="%name"),Line(
+                      visible=not useSupport,
+                      points={{80,-100},{120,-100}},
+                      color={0,0,0},
+                      smooth=Smooth.None),Line(
+                      visible=not useSupport,
+                      points={{90,-100},{80,-120}},
+                      color={0,0,0},
+                      smooth=Smooth.None),Line(
+                      visible=not useSupport,
+                      points={{100,-100},{90,-120}},
+                      color={0,0,0},
+                      smooth=Smooth.None),Line(
+                      visible=not useSupport,
+                      points={{110,-100},{100,-120}},
+                      color={0,0,0},
+                      smooth=Smooth.None),Line(
+                      visible=not useSupport,
+                      points={{120,-100},{110,-120}},
+                      color={0,0,0},
+                      smooth=Smooth.None)}),
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end PartialBasicMachine;
@@ -6155,7 +6096,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
       end if;
       lossPower = -tau*w;
       annotation (Icon(graphics={Ellipse(extent={{-40,-40},{40,40}}, lineColor=
-                  {200,0,0})}), Documentation(info="<html>
+              {200,0,0})}), Documentation(info="<html>
 <p>
 Permanent magnet losses are modeled dependent on current and speed.
 </p>
@@ -6588,20 +6529,20 @@ This package provides sensors for the magnetic potential difference and the magn
       annotation (
         defaultComponentName="port_p",
         Diagram(graphics={Text(
-              extent={{-100,100},{100,60}},
-              lineColor={255,170,85},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              textString="%name"), Ellipse(
-              extent={{-40,40},{40,-40}},
-              lineColor={255,170,85},
-              fillColor={255,170,85},
-              fillPattern=FillPattern.Solid)}),
+                  extent={{-100,100},{100,60}},
+                  lineColor={255,170,85},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid,
+                  textString="%name"),Ellipse(
+                  extent={{-40,40},{40,-40}},
+                  lineColor={255,170,85},
+                  fillColor={255,170,85},
+                  fillPattern=FillPattern.Solid)}),
         Icon(graphics={Ellipse(
-              extent={{-100,100},{100,-100}},
-              lineColor={255,170,85},
-              fillColor={255,170,85},
-              fillPattern=FillPattern.Solid)}),
+                  extent={{-100,100},{100,-100}},
+                  lineColor={255,170,85},
+                  fillColor={255,170,85},
+                  fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 
 <p>
@@ -6626,20 +6567,20 @@ Additionally the reference angle is specified in the connector. The time derivat
       annotation (
         defaultComponentName="port_n",
         Diagram(graphics={Text(
-              extent={{-100,100},{100,60}},
-              lineColor={255,170,85},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              textString="%name"), Ellipse(
-              extent={{-40,40},{40,-40}},
-              lineColor={255,170,85},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
+                  extent={{-100,100},{100,60}},
+                  lineColor={255,170,85},
+                  fillColor={0,0,255},
+                  fillPattern=FillPattern.Solid,
+                  textString="%name"),Ellipse(
+                  extent={{-40,40},{40,-40}},
+                  lineColor={255,170,85},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid)}),
         Icon(graphics={Ellipse(
-              extent={{-100,100},{100,-100}},
-              lineColor={255,170,85},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
+                  extent={{-100,100},{100,-100}},
+                  lineColor={255,170,85},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 
 <p>
@@ -6655,9 +6596,6 @@ Additionally the reference angle is specified in the connector. The time derivat
 </p>
 </html>"));
     end NegativeMagneticPort;
-
-
-
 
   end Interfaces;
 
@@ -6687,41 +6625,36 @@ Additionally the reference angle is specified in the connector. The time derivat
         BasePhase - pi/2, m));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false,extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,-100},{0,60},{80,60}}, color={0,0,255}),
-            Line(
-              points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
-                  65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},{-23.6,61},{-18.6,
-                  52},{-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},
-                  {25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},
-                  {50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
-              color={192,192,192},
-              smooth=Smooth.Bezier),
-            Line(
-              points={{-40,0},{-30.2,29.9},{-23.8,46.5},{-18.2,58.1},{-13.3,
-                  65.2},{-8.3,69.2},{-3.4,69.8},{1.5,67},{6.4,61},{11.4,52},{17,
-                  38.6},{24.02,18.6},{38.79,-26.9},{45.1,-44},{50.8,-56.2},{
-                  55.7,-64},{60.6,-68.6},{65.5,-70},{70.5,-67.9},{75.4,-62.5},{
-                  80.3,-54.1},{85.9,-41.3},{93,-21.7},{100,0}},
-              color={192,192,192},
-              smooth=Smooth.Bezier),
-            Line(
-              points={{-100,0},{-90.2,29.9},{-83.8,46.5},{-78.2,58.1},{-73.3,
-                  65.2},{-68.3,69.2},{-63.4,69.8},{-58.5,67},{-53.6,61},{-48.6,
-                  52},{-43,38.6},{-35.98,18.6},{-21.21,-26.9},{-14.9,-44},{-9.2,
-                  -56.2},{-4.3,-64},{0.6,-68.6},{5.5,-70},{10.5,-67.9},{15.4,-62.5},
-                  {20.3,-54.1},{25.9,-41.3},{33,-21.7},{40,0}},
-              color={192,192,192},
-              smooth=Smooth.Bezier),
-            Text(
-              extent={{-150,150},{150,110}},
-              textString="%name",
-              lineColor={0,0,255})}),
+                100,100}}), graphics={Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-100,-100},{0,60},
+              {80,60}}, color={0,0,255}),Line(
+                  points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
+                65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},{-23.6,61},{-18.6,52},
+                {-13,38.6},{-5.98,18.6},{8.79,-26.9},{15.1,-44},{20.8,-56.2},{
+                25.7,-64},{30.6,-68.6},{35.5,-70},{40.5,-67.9},{45.4,-62.5},{
+                50.3,-54.1},{55.9,-41.3},{63,-21.7},{70,0}},
+                  color={192,192,192},
+                  smooth=Smooth.Bezier),Line(
+                  points={{-40,0},{-30.2,29.9},{-23.8,46.5},{-18.2,58.1},{-13.3,
+                65.2},{-8.3,69.2},{-3.4,69.8},{1.5,67},{6.4,61},{11.4,52},{17,
+                38.6},{24.02,18.6},{38.79,-26.9},{45.1,-44},{50.8,-56.2},{55.7,
+                -64},{60.6,-68.6},{65.5,-70},{70.5,-67.9},{75.4,-62.5},{80.3,-54.1},
+                {85.9,-41.3},{93,-21.7},{100,0}},
+                  color={192,192,192},
+                  smooth=Smooth.Bezier),Line(
+                  points={{-100,0},{-90.2,29.9},{-83.8,46.5},{-78.2,58.1},{-73.3,
+                65.2},{-68.3,69.2},{-63.4,69.8},{-58.5,67},{-53.6,61},{-48.6,52},
+                {-43,38.6},{-35.98,18.6},{-21.21,-26.9},{-14.9,-44},{-9.2,-56.2},
+                {-4.3,-64},{0.6,-68.6},{5.5,-70},{10.5,-67.9},{15.4,-62.5},{
+                20.3,-54.1},{25.9,-41.3},{33,-21.7},{40,0}},
+                  color={192,192,192},
+                  smooth=Smooth.Bezier),Text(
+                  extent={{-150,150},{150,110}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An 
@@ -6792,14 +6725,14 @@ The output voltages may serve as inputs for complex voltage sources with phase i
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-40,-90},{40,-130}},
-              lineColor={0,0,0},
-              textString="%terminalConnection"), Polygon(
-              points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{80,-110},
-                  {80,-84},{76,-80},{-80,-80}},
-              lineColor={95,95,95},
-              fillColor={135,135,135},
-              fillPattern=FillPattern.Solid)}),
+                  extent={{-40,-90},{40,-130}},
+                  lineColor={0,0,0},
+                  textString="%terminalConnection"),Polygon(
+                  points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{
+                80,-110},{80,-84},{76,-80},{-80,-80}},
+                  lineColor={95,95,95},
+                  fillColor={135,135,135},
+                  fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
@@ -6860,14 +6793,14 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
-              points={{-74,-80},{-80,-86},{-80,-120},{-40,-140},{40,-140},{80,-110},
-                  {80,-84},{76,-80},{-74,-80}},
-              lineColor={95,95,95},
-              fillColor={135,135,135},
-              fillPattern=FillPattern.CrossDiag), Text(
-              extent={{-40,-90},{40,-130}},
-              lineColor={0,0,0},
-              textString="%terminalConnection")}),
+                  points={{-74,-80},{-80,-86},{-80,-120},{-40,-140},{40,-140},{
+                80,-110},{80,-84},{76,-80},{-74,-80}},
+                  lineColor={95,95,95},
+                  fillColor={135,135,135},
+                  fillPattern=FillPattern.CrossDiag),Text(
+                  extent={{-40,-90},{40,-130}},
+                  lineColor={0,0,0},
+                  textString="%terminalConnection")}),
         Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
@@ -6949,23 +6882,20 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-            Rectangle(
-              extent={{26,40},{54,-40}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{100,60},{-40,60},{-40,40}}, color={0,0,255}),
-            Line(points={{100,-60},{-40,-60},{-40,-40}}, color={0,0,255}),
-            Ellipse(extent={{-44,40},{-36,32}}, lineColor={0,0,255}),
-            Ellipse(extent={{-44,-32},{-36,-40}}, lineColor={0,0,255}),
-            Line(points={{-80,40},{-42,-34}}, color={0,0,255}),
-            Line(points={{40,40},{40,42},{40,60}}, color={0,0,255}),
-            Line(points={{40,-40},{40,-60}}, color={0,0,255}),
-            Line(points={{10,-80},{70,-80}}, color={0,0,255}),
-            Line(points={{40,-60},{40,-80}}, color={0,0,255}),
-            Line(points={{20,-90},{60,-90}}, color={0,0,255}),
-            Line(points={{30,-100},{50,-100}}, color={0,0,255})}),
+            grid={2,2}), graphics={Rectangle(
+                  extent={{26,40},{54,-40}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{100,60},{-40,60},
+              {-40,40}}, color={0,0,255}),Line(points={{100,-60},{-40,-60},{-40,
+              -40}}, color={0,0,255}),Ellipse(extent={{-44,40},{-36,32}},
+              lineColor={0,0,255}),Ellipse(extent={{-44,-32},{-36,-40}},
+              lineColor={0,0,255}),Line(points={{-80,40},{-42,-34}}, color={0,0,
+              255}),Line(points={{40,40},{40,42},{40,60}}, color={0,0,255}),
+              Line(points={{40,-40},{40,-60}}, color={0,0,255}),Line(points={{
+              10,-80},{70,-80}}, color={0,0,255}),Line(points={{40,-60},{40,-80}},
+              color={0,0,255}),Line(points={{20,-90},{60,-90}}, color={0,0,255}),
+              Line(points={{30,-100},{50,-100}}, color={0,0,255})}),
         Documentation(info="<HTML>
 <p>Switched rheostat, used for starting induction motors with slipring rotor:</p>
 <p>The external rotor resistance <code>RStart</code> is shortened at time <code>tStart</code>.</p>
@@ -7045,20 +6975,17 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-100,60},{20,40}},
-              lineColor={0,0,255},
-              textString="id_rms"),
-            Text(
-              extent={{-100,-40},{20,-60}},
-              lineColor={0,0,255},
-              textString="iq_rms")}),
+                100,100}}), graphics={Rectangle(
+                  extent={{-100,100},{100,-100}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-100,60},{20,40}},
+                  lineColor={0,0,255},
+                  textString="id_rms"),Text(
+                  extent={{-100,-40},{20,-60}},
+                  lineColor={0,0,255},
+                  textString="iq_rms")}),
         Documentation(info="<html>
 <p>
 This is a simple current controller.
