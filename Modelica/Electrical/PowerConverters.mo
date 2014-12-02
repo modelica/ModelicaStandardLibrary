@@ -1,7 +1,6 @@
 within Modelica.Electrical;
 package PowerConverters "Rectifiers, Inverters and DC/DC converters"
   extends Modelica.Icons.Package;
-
   package UsersGuide "User's Guide"
     extends Modelica.Icons.Information;
     class ACDCConcept "AC/DC converter concept"
@@ -283,8 +282,8 @@ A freely available book is available in
                 origin={30,30},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
-          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation
-            (Placement(transformation(
+          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation (
+             Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=270,
                 origin={-40,-70})));
@@ -777,8 +776,8 @@ A freely available book is available in
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={30,-30})));
-          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation
-            (Placement(transformation(
+          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation (
+             Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-30,70})));
@@ -948,7 +947,6 @@ A freely available book is available in
                 origin={-80,60})));
         initial equation
           lMains.i = 0;
-
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
               points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
@@ -1377,8 +1375,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={30,-30})));
-          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation
-            (Placement(transformation(
+          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation (
+             Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=270,
                 origin={-30,-60})));
@@ -1448,8 +1446,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-80,-100},{-60,-80}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation
-            (Placement(transformation(
+          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+             Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,-30})));
@@ -1458,12 +1456,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
-
           Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTapmPulse
             rectifier(final m=m)
             annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
@@ -1718,8 +1714,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={30,-30})));
-          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation
-            (Placement(transformation(
+          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation (
+             Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=270,
                 origin={-30,-70})));
@@ -1775,12 +1771,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-80,-30})));
-
           Modelica.Electrical.PowerConverters.ACDC.DiodeBridge2mPulse rectifier(
               final m=m)
             annotation (Placement(transformation(extent={{-40,24},{-20,44}})));
@@ -1900,12 +1894,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-80,-30})));
-
           Modelica_Electrical_PowerConverters.ACDC.HalfControlledBridge2mPulse
             rectifier(final m=m, offStart_p=fill(true, m))
             annotation (Placement(transformation(extent={{-40,24},{-20,44}})));
@@ -2190,8 +2182,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={30,-30})));
-          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation
-            (Placement(transformation(
+          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation (
+             Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=270,
                 origin={-30,-50})));
@@ -2361,7 +2353,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 transformation(extent={{-30,-60},{-10,-40}})));
         initial equation
           lMains.i[1:m - 1] = zeros(m - 1);
-
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
               points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
@@ -2433,10 +2424,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               smooth=Smooth.None));
           connect(rectifier.ac, pulse2.ac) annotation (Line(
               points={{-48,6.66134e-16},{-60,6.66134e-16},{-60,-40},{-48,-40}},
-
               color={0,0,255},
               smooth=Smooth.None));
-
           connect(sinevoltage.plug_n, earthing.plug) annotation (Line(
               points={{-80,-10},{-80,-20}},
               color={0,0,255},
@@ -2478,8 +2467,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-90,-100},{-70,-80}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation
-            (Placement(transformation(
+          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+             Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-100,-10})));
@@ -2488,12 +2477,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
-
           Modelica.Electrical.PowerConverters.ACDC.DiodeCenterTap2mPulse
             rectifier(final m=m)
             annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
@@ -2527,12 +2514,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,-20})));
-
           Modelica.Electrical.Analog.Basic.Resistor resistor(R=R) annotation (
               Placement(visible=true, transformation(
                 origin={30,30},
@@ -2768,8 +2753,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={30,-30})));
-          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation
-            (Placement(transformation(
+          Modelica.Blocks.Sources.Ramp ramp(height=pi, duration=10) annotation (
+             Placement(transformation(
                 extent={{10,-10},{-10,10}},
                 rotation=270,
                 origin={-30,-70})));
@@ -2905,10 +2890,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               smooth=Smooth.None));
           connect(sinevoltage.n, pulse2.ac_n) annotation (Line(
               points={{-80,-10},{-80,-10},{-80,-20},{-60,-20},{-60,-6},{-50,-6}},
-
               color={0,0,255},
               smooth=Smooth.None));
-
           annotation (
             Icon(coordinateSystem(
                 extent={{-100,-100},{100,100}},
@@ -3197,8 +3180,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-80,-100},{-60,-80}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation
-            (Placement(transformation(
+          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+             Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,-30})));
@@ -3207,12 +3190,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
-
           Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTapmPulse
             rectifier(final m=m)
             annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
@@ -3322,12 +3303,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-80,-30})));
-
           Modelica.Electrical.PowerConverters.ACDC.ThyristorBridge2mPulse
             rectifier(final m=m)
             annotation (Placement(transformation(extent={{-40,24},{-20,44}})));
@@ -3445,8 +3424,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-90,-100},{-70,-80}})));
-          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation
-            (Placement(transformation(
+          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
+             Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-100,-10})));
@@ -3455,12 +3434,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
-
           Modelica.Electrical.PowerConverters.ACDC.ThyristorCenterTap2mPulse
             rectifier(final m=m)
             annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
@@ -3502,12 +3479,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             V=fill(sqrt(2)*Vrms, m),
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             freqHz=fill(f, m)) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,-20})));
-
         equation
           connect(star.pin_n, ground.p) annotation (Line(
               points={{-100,-20},{-100,-50},{-80,-50},{-80,-80}},
@@ -3668,7 +3643,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 
       package MultiPhaseTwoLevel "Multi phase two level inverter example"
         extends Modelica.Icons.ExamplesPackage;
-
         model MultiPhaseTwoLevel_R "Multi phase DC to AC converter with R load"
           import Modelica_Electrical_PowerConverters =
             Modelica.Electrical.PowerConverters;
@@ -3678,7 +3652,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           parameter Modelica.SIunits.Frequency f1=50
             "Fundamental wave AC frequency";
           parameter Modelica.SIunits.Resistance R=100 "Resistance";
-
           Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage_n(
               V=50) annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
@@ -3716,13 +3689,11 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           Modelica.Blocks.Sources.Sine sine[m](
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             startTime=zeros(m),
             amplitude=fill(0.5, m),
             offset=fill(0.5, m),
             freqHz=fill(f1, m)) annotation (Placement(transformation(extent={{-30,
                     -64},{-50,-44}})));
-
           Modelica.Blocks.Math.Harmonic fundamentalWaveCurrent[m](
             each k=1,
             each x0Cos=0,
@@ -3749,7 +3720,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={40,-90})));
-
         equation
           connect(constantVoltage_p.n, constantVoltage_n.p) annotation (Line(
               points={{-70,40},{-70,20}},
@@ -3868,13 +3838,11 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           Modelica.Blocks.Sources.Sine sine[m](
             phase=-
                 Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-
             startTime=zeros(m),
             amplitude=fill(0.5, m),
             offset=fill(0.5, m),
             freqHz=fill(f1, m)) annotation (Placement(transformation(extent={{-30,
                     -64},{-50,-44}})));
-
           Modelica.Blocks.Math.Harmonic fundamentalWaveCurrent[m](
             each k=1,
             each x0Cos=0,
@@ -3908,7 +3876,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 origin={40,-90})));
         initial equation
           inductor.i[1:m - 1] = zeros(m - 1);
-
         equation
           connect(constantVoltage_p.n, constantVoltage_n.p) annotation (Line(
               points={{-70,40},{-70,20}},
@@ -4244,8 +4211,7 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
 <p>This example demonstrates the switching on of an R-L load operated by an H bridge.
 DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the input voltage.
 Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y</code>, total voltage <code>voltageSensor.v</code> and voltage <code>meanVoltage.v</code>. The waveform the average current is determined by the time constant <code>L/R</code> of the load.</p>
-</html>"),
-            experiment(
+</html>"),  experiment(
               StopTime=0.1,
               Interval=0.0002,
               Tolerance=1e-06));
@@ -4584,8 +4550,8 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               extent={{10,-10},{-10,10}},
               rotation=180,
               origin={-30,-80})));
-        Modelica.Blocks.Logical.GreaterThreshold positiveThreshold[m](threshold
-            =zeros(m)) annotation (Placement(transformation(
+        Modelica.Blocks.Logical.GreaterThreshold positiveThreshold[m](threshold=
+             zeros(m)) annotation (Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={-60,10})));
@@ -4629,8 +4595,8 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={0,10})));
-        Modelica.Blocks.Routing.Replicator replicator(final nout=m) annotation
-          (Placement(transformation(
+        Modelica.Blocks.Routing.Replicator replicator(final nout=m) annotation (
+           Placement(transformation(
               extent={{10,-10},{-10,10}},
               rotation=270,
               origin={0,40})));
@@ -4720,10 +4686,8 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
             smooth=Smooth.None));
         connect(realPassThrough.u, v) annotation (Line(
             points={{-92,-50},{-100,-50},{-100,0},{-120,0},{-120,8.88178e-16}},
-
             color={0,0,127},
             smooth=Smooth.None));
-
         connect(realPassThrough.y, positiveThreshold.u) annotation (Line(
             points={{-69,-50},{-60,-50},{-60,-2}},
             color={0,0,127},
@@ -4942,10 +4906,8 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
       equation
         connect(ac, voltageSensor.plug_p) annotation (Line(
             points={{-100,4.44089e-16},{-100,-4.44089e-16},{-44,-4.44089e-16}},
-
             color={0,0,255},
             smooth=Smooth.None));
-
         connect(voltageSensor.plug_p, delta.plug_n) annotation (Line(
             points={{-44,-4.44089e-16},{-54,-4.44089e-16},{-54,0},{-62,0},{-62,
                 -4.44089e-16},{-80,-4.44089e-16}},
@@ -5167,8 +5129,7 @@ General information about controllers is summarized in
                   {100,100}}), graphics),
           Documentation(info="<html>
 <p>First order filter with cut-off frequency <code>fCut</code>. The phase shift of the filter is compensated by a series of two first order allpass filters tuned on suppy frequency <code>f</code>.</p>
-</html>"),
-          Icon(graphics={Polygon(
+</html>"),Icon(graphics={Polygon(
                       visible=true,
                       lineColor={192,192,192},
                       fillColor={192,192,192},
@@ -5238,24 +5199,11 @@ enabling signal is taken from the optional signal input <code>enable</code>.
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      Modelica.Electrical.Analog.Interfaces.PositivePin ac_p
-        "Positive AC input"
-        annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin ac_n
-        "Negative AC input"
-        annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Postive DC output"
-        annotation (Placement(transformation(extent={{90,50},{110,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
-        "Negative DC output"
-        annotation (Placement(transformation(extent={{92,-70},{112,-50}})));
-      Modelica.SIunits.Voltage vDC=dc_p.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC=ac_p.v - ac_n.v "AC voltages";
-      Modelica.SIunits.Current iAC=ac_p.i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.Analog.Ideal.IdealDiode diode_p1(
         final Goff=GoffDiode,
         final Vknee=VkneeDiode,
@@ -5417,37 +5365,13 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
       parameter Boolean offStart_n2=true
         "Boolean start value of variable thyristor_n2.off"
         annotation (choices(checkBox=true));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      extends BaseClasses.Enable2;
-      Modelica.Electrical.Analog.Interfaces.PositivePin ac_p
-        "Positive AC input"
-        annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin ac_n
-        "Negative AC input"
-        annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Postive DC output"
-        annotation (Placement(transformation(extent={{90,50},{110,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
-        "Negative DC output"
-        annotation (Placement(transformation(extent={{92,-70},{112,-50}})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p
-        "Fire signal for positive potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_n
-        "Fire signal for negative potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={60,-120})));
-      Modelica.SIunits.Voltage vDC=dc_p.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC=ac_p.v - ac_n.v "AC voltages";
-      Modelica.SIunits.Current iAC=ac_p.i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      extends Interfaces.Enable.Enable2;
+
       Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p1(
         final Ron=RonThyristor,
         final Goff=GoffThyristor,
@@ -5637,44 +5561,20 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
       parameter Boolean offStart_p2=true
         "Boolean start value of variable thyristor_p2.off"
         annotation (choices(checkBox=true));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      extends BaseClasses.Enable2;
-      Modelica.Electrical.Analog.Interfaces.PositivePin ac_p
-        "Positive AC input"
-        annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin ac_n
-        "Negative AC input"
-        annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Postive DC output"
-        annotation (Placement(transformation(extent={{90,50},{110,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
-        "Negative DC output"
-        annotation (Placement(transformation(extent={{92,-70},{112,-50}})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p
-        "Fire signal for positive potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_n
-        "Fire signal for negative potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={60,-120})));
-      Modelica.SIunits.Voltage vDC=dc_p.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC=ac_p.v - ac_n.v "AC voltages";
-      Modelica.SIunits.Current iAC=ac_p.i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      extends Interfaces.Enable.Enable2;
+
       Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p1(
         final Ron=RonThyristor,
         final Goff=GoffThyristor,
         final Vknee=VkneeThyristor,
         final useHeatPort=useHeatPort,
-        final off(start=offStart_p1, fixed=true)) annotation (Placement(visible
-            =true, transformation(
+        final off(start=offStart_p1, fixed=true)) annotation (Placement(visible=
+             true, transformation(
             origin={-20,50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
@@ -5683,8 +5583,8 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
         final Goff=GoffThyristor,
         final Vknee=VkneeThyristor,
         final useHeatPort=useHeatPort,
-        final off(start=offStart_p2, fixed=true)) annotation (Placement(visible
-            =true, transformation(
+        final off(start=offStart_p2, fixed=true)) annotation (Placement(visible=
+             true, transformation(
             origin={20,50},
             extent={{-10,10},{10,-10}},
             rotation=90)));
@@ -5850,21 +5750,12 @@ The circuit topology is the same as in
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      Modelica.Electrical.Analog.Interfaces.PositivePin ac_p
-        "Positive AC input"
-        annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin ac_n
-        "Negative AC input"
-        annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Positive DC output"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.SIunits.Voltage vDC=dc_p.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC=ac_p.v - ac_n.v "AC voltages";
-      Modelica.SIunits.Current iAC=ac_p.i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+
       Modelica.Electrical.Analog.Ideal.IdealDiode diode_p(
         final Ron=RonDiode,
         final Goff=GoffDiode,
@@ -5902,7 +5793,7 @@ The circuit topology is the same as in
           color={0,0,255},
           smooth=Smooth.None));
       connect(diode_n.n, dc_p) annotation (Line(
-          points={{10,-60},{100,-60},{100,4.44089e-16}},
+          points={{10,-60},{100,-60},{100,0}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(diode_n.heatPort, heatPort) annotation (Line(
@@ -5983,34 +5874,13 @@ This is a two pulse diode rectifier with center tap. In order to operate this re
       parameter Boolean offStart_n=true
         "Boolean start value of variable thyristor_n.off"
         annotation (choices(checkBox=true));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      extends BaseClasses.Enable2;
-      Modelica.Electrical.Analog.Interfaces.PositivePin ac_p
-        "Positive AC input"
-        annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin ac_n
-        "Negative AC input"
-        annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Postive DC output"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p
-        "Fire signal for positive potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_n
-        "Fire signal for negative potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={60,-120})));
-      Modelica.SIunits.Voltage vDC=dc_p.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC=ac_p.v - ac_n.v "AC voltages";
-      Modelica.SIunits.Current iAC=ac_p.i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      extends Interfaces.Enable.Enable2;
+
       Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p(
         final Ron=RonThyristor,
         final Goff=GoffThyristor,
@@ -6136,18 +6006,12 @@ General information about AC/DC converters can be found at the
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Positive DC output"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
-        "AC input"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.SIunits.Voltage vDC=dc_p.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC voltages";
-      Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode(
         final m=m,
         final Ron=fill(RonDiode, m),
@@ -6253,25 +6117,13 @@ The circuit topology is the same as in
       parameter Boolean offStart[m]=fill(true, m)
         "Boolean start value of variable thyristor_p[:].off"
         annotation (choices(checkBox=true));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      extends BaseClasses.Enable1m;
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Positive DC output"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
-        "AC input"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p[m]
-        "Fire signals for positive potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-      Modelica.SIunits.Voltage vDC=dc_p.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC voltages";
-      Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      extends Interfaces.Enable.Enable1m;
+
       Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor(
         final m=m,
         final Ron=fill(RonThyristor, m),
@@ -6382,21 +6234,12 @@ See example
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Postive DC output"
-        annotation (Placement(transformation(extent={{90,50},{110,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
-        "Negative DC output"
-        annotation (Placement(transformation(extent={{90,-70},{110,-50}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
-        "AC input"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.SIunits.Voltage vDC=dc_p.v - dc_n.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC voltages";
-      Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_p(
         final m=m,
         final Ron=fill(RonDiode, m),
@@ -6451,7 +6294,7 @@ See example
           color={0,0,255},
           smooth=Smooth.None));
       connect(star_n.pin_n, dc_n) annotation (Line(
-          points={{90,-60},{100,-60}},
+          points={{90,-60},{102,-60}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(thermalCollector.port_a, diode_n.heatPort) annotation (Line(
@@ -6530,31 +6373,13 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
       parameter Boolean offStart_n[m]=fill(true, m)
         "Boolean start value of variable thyristor_n[:].off"
         annotation (choices(checkBox=true));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      extends BaseClasses.Enable2m;
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        annotation (Placement(transformation(extent={{90,50},{110,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
-        annotation (Placement(transformation(extent={{90,-70},{110,-50}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p[m]
-        "Fire signals for positive potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-118})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_n[m]
-        "Fire signasl for negative potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={60,-120})));
-      Modelica.SIunits.Voltage vDC=dc_p.v - dc_n.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC voltages";
-      Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      extends Interfaces.Enable.Enable2m;
+
       Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_p(
         final m=m,
         final Ron=fill(RonThyristor, m),
@@ -6611,7 +6436,7 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
           color={0,0,255},
           smooth=Smooth.None));
       connect(star_n.pin_n, dc_n) annotation (Line(
-          points={{90,-30},{100,-30},{100,-60},{100,-60}},
+          points={{90,-30},{100,-30},{100,-60},{102,-60}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(heatPort, thermalConnector.port_b) annotation (Line(
@@ -6707,28 +6532,13 @@ See example
       parameter Boolean offStart_p[m]=fill(true, m)
         "Boolean start value of variable thyristor_p[:].off"
         annotation (choices(checkBox=true));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      extends BaseClasses.Enable1m;
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Positive DC output"
-        annotation (Placement(transformation(extent={{90,50},{110,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
-        "Negative DC output"
-        annotation (Placement(transformation(extent={{92,-70},{112,-50}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
-        "AC input"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p[m]
-        "Fire signals for positive potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-      Modelica.SIunits.Voltage vDC=dc_p.v - dc_n.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC voltages";
-      Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      extends Interfaces.Enable.Enable1m;
+
       Modelica.Electrical.MultiPhase.Basic.Star star_p(final m=m)
         annotation (Placement(transformation(extent={{70,70},{90,50}})));
       Modelica.Electrical.MultiPhase.Basic.Star star_n(final m=m)
@@ -6883,22 +6693,12 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Positive DC output"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac_p(final m=m)
-        "Positive potential AC input"
-        annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug ac_n(final m=m)
-        "Negative potential AC input"
-        annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-      Modelica.SIunits.Voltage vDC=dc_p.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC[m]=ac_p.pin[:].v - ac_n.pin[:].v
-        "AC voltages";
-      Modelica.SIunits.Current iAC[m]=ac_p.pin[:].i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPlug;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_p(
         final m=m,
         final Ron=fill(RonDiode, m),
@@ -6937,7 +6737,7 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
           color={0,0,255},
           smooth=Smooth.None));
       connect(star_p.pin_n, dc_p) annotation (Line(
-          points={{90,60},{100,60},{100,4.44089e-16}},
+          points={{90,60},{100,60},{100,0}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(heatPort, thermalCollector.port_b) annotation (Line(
@@ -7032,35 +6832,13 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
       parameter Boolean offStart_n[m]=fill(true, m)
         "Boolean start value of variable thyristor_n[:].off"
         annotation (choices(checkBox=true));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      extends BaseClasses.Enable2m;
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Positive DC output"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac_p(final m=m)
-        "Positive potential AC input"
-        annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-      Modelica.Electrical.MultiPhase.Interfaces.NegativePlug ac_n(final m=m)
-        "Negative potential AC input"
-        annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p[m]
-        "Fire signals for positive potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_n[m]
-        "Fire signasl for negative potential semiconductors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={60,-120})));
-      Modelica.SIunits.Voltage vDC=dc_p.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC[m]=ac_p.pin[:].v - ac_n.pin[:].v
-        "AC voltages";
-      Modelica.SIunits.Current iAC[m]=ac_p.pin[:].i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPlug;
+      extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      extends Interfaces.Enable.Enable2m;
+
       Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_p(
         final m=m,
         final Ron=fill(RonThyristor, m),
@@ -7101,7 +6879,7 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
           color={0,0,255},
           smooth=Smooth.None));
       connect(star_p.pin_n, dc_p) annotation (Line(
-          points={{90,60},{100,60},{100,4.44089e-16}},
+          points={{90,60},{100,60},{100,0}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(heatPort, thermalCollector.port_b) annotation (Line(
@@ -7141,8 +6919,8 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}),     graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -7214,33 +6992,13 @@ General information about AC/DC converters can be found at the
         "Diode opened conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
       // parameter Boolean useEnable "Enables enable signal connector";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      extends BaseClasses.Enable2;
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Positive DC input"
-        annotation (Placement(transformation(extent={{-110,110},{-90,90}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
-        "Negative DC input"
-        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin ac "AC output"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p
-        "Firing signals of positive potential transistors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_n
-        "Firing signals of negative potential transistors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={60,-120})));
-      Modelica.SIunits.Voltage vDC=dc_p.v - dc_n.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC=ac.v "AC voltages";
-      Modelica.SIunits.Current iAC=ac.i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.DCtwoPin;
+      extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.ACpin;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      extends Interfaces.Enable.Enable2;
+
       Modelica.Electrical.Analog.Ideal.IdealGTOThyristor transistor_p(
         final Ron=RonTransistor,
         final Goff=GoffTransistor,
@@ -7410,7 +7168,7 @@ An example of a single phase inverter with PWM voltage control is included in
 
     model MultiPhase2Level "Multi phase DC to AC converter"
       extends Modelica.Blocks.Icons.Block;
-      extends BaseClasses.Enable2m;
+      extends Interfaces.Enable.Enable2m;
       parameter Modelica.SIunits.Resistance RonTransistor=1e-05
         "Transistor closed resistance";
       parameter Modelica.SIunits.Conductance GoffTransistor=1e-05
@@ -7423,33 +7181,12 @@ An example of a single phase inverter with PWM voltage control is included in
         "Diode opened conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
       // parameter Boolean useEnable "Enables enable signal connector";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-        "Positive DC input"
-        annotation (Placement(transformation(extent={{-110,110},{-90,90}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
-        "Negative DC input"
-        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
-        "AC output"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p[m]
-        "Firing signals of positive potential transistors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_n[m]
-        "Firing signals of negative potential transistors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={60,-120})));
-      Modelica.SIunits.Voltage vDC=dc_p.v - dc_n.v "DC voltage";
-      Modelica.SIunits.Current iDC=dc_p.i "DC current";
-      Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC voltages";
-      Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC currents";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.DCtwoPin;
+      extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.ACplug;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+
       Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor transistor_p(
         final m=m,
         final Ron=fill(RonTransistor, m),
@@ -7813,25 +7550,13 @@ Currently there is only one PWM method provided in this library.
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      extends BaseClasses.Enable1;
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p1
-        "Positive DC input"
-        annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n1
-        "Negative DC input"
-        annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p2
-        "Postive DC output"
-        annotation (Placement(transformation(extent={{90,50},{110,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n2
-        "Negative DC output"
-        annotation (Placement(transformation(extent={{92,-70},{112,-50}})));
-      Modelica.SIunits.Voltage vDCi=dc_p1.v - dc_n1.v "DC voltage side 1";
-      Modelica.SIunits.Current iDCi=dc_p1.i "DC current side 1";
-      Modelica.SIunits.Voltage vDCo=dc_p2.v - dc_n2.v "DC voltages side 2";
-      Modelica.SIunits.Current iDCo=dc_p2.i "DC current side 2";
+
+      extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin1;
+      extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin2;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      extends Interfaces.Enable.Enable1;
+
       Modelica.Electrical.Analog.Ideal.IdealGTOThyristor transistor(
         useHeatPort=useHeatPort,
         Ron=RonTransistor,
@@ -7879,7 +7604,7 @@ Currently there is only one PWM method provided in this library.
           color={0,0,255},
           smooth=Smooth.None));
       connect(dc_n1, dc_n2) annotation (Line(
-          points={{-100,-60},{102,-60}},
+          points={{-100,-60},{100,-60}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(andCondition_p.y, transistor.fire) annotation (Line(
@@ -7887,8 +7612,8 @@ Currently there is only one PWM method provided in this library.
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}),     graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -7957,8 +7682,8 @@ This is a conventional step down chopper model. It consists of a transistor and 
 
     model HBridge "H bridge (four quadrant converter)"
       extends Icons.Converter;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       parameter Modelica.SIunits.Resistance RonTransistor=1e-05
         "Transistor closed resistance";
       parameter Modelica.SIunits.Conductance GoffTransistor=1e-05
@@ -7970,7 +7695,7 @@ This is a conventional step down chopper model. It consists of a transistor and 
       parameter Modelica.SIunits.Conductance GoffDiode=1e-05
         "Diode opened conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
-      extends BaseClasses.Enable2;
+      extends Interfaces.Enable.Enable2;
       Modelica.Electrical.Analog.Interfaces.PositivePin dc_p1
         "Positive DC input"
         annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
@@ -8019,10 +7744,8 @@ This is a conventional step down chopper model. It consists of a transistor and 
       end if;
       connect(inverter_n.heatPort, heatPort) annotation (Line(
           points={{-48,-40},{-48,-70},{-10,-70},{-10,-100},{4.44089e-16,-100}},
-
           color={191,0,0},
           smooth=Smooth.None));
-
       connect(inverter_p.heatPort, heatPort) annotation (Line(
           points={{-10,20},{-10,-100},{0,-100}},
           color={191,0,0},
@@ -8126,8 +7849,8 @@ General information about DC/DC converters can be found at the
 </html>"));
   end DCDC;
 
-  package BaseClasses "Common partial models for PowerConverters"
-    extends Modelica.Icons.BasesPackage;
+  package Enable "Enabling models"
+    extends Modelica.Icons.Package;
     model EnableLogic
       "Partial model providing enable parameter and optional enable input"
       parameter Boolean useConstantEnable=true
@@ -8193,33 +7916,183 @@ For <code>useConstantEnable = false</code> the internal signal
               fillPattern=FillPattern.Solid,
               textString="enable")}));
     end EnableLogic;
+  end Enable;
+  annotation (
+    Icon(coordinateSystem(
+        extent={{-100,-100},{100,100}},
+        preserveAspectRatio=true,
+        initialScale=0.1,
+        grid={2,2}), graphics),
+    Diagram(coordinateSystem(
+        extent={{-100,-100},{100,100}},
+        preserveAspectRatio=true,
+        initialScale=0.1,
+        grid={2,2})),
+    preferredView="info",
+    Documentation(info="<html>
+<p>
+Copyright &copy; 2013-2014, <a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.Contact\">Christian Kral</a> and
+<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.Contact\">Anton Haumer</a>
+</p>
+<p>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+</p>
+</html>"));
+  package Interfaces "Interfaces"
+    import Modelica;
+    extends Modelica.Icons.InterfacesPackage;
+    package ACDC "AC to DC converter interfaces"
+      partial model ACtwoPin "Positive and negative AC pin"
 
-    partial model Enable
-      "Partial model providing enable parameter and optional enable input"
-      parameter Boolean useConstantEnable=true
-        "true = disabled boolean input, use constantEnable"
-        annotation (Dialog(tab="Enable"));
-      parameter Boolean constantEnable=true
-        "Constant enabling of firing signals"
-        annotation (Dialog(tab="Enable", enable=useConstantEnable));
-      parameter Integer m(final min=1) = 3 "Number of phases";
-      EnableLogic enableLogic(
-        final useConstantEnable=useConstantEnable,
-        final constantEnable=constantEnable,
-        final m=m) "Enabling logic"
-        annotation (Placement(transformation(extent={{80,-90},{100,-70}})));
-      Modelica.Blocks.Interfaces.BooleanInput enable if not useConstantEnable
-        "Enables fire and notFire" annotation (Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={100,-120})));
-    equation
-      connect(enableLogic.enable, enable) annotation (Line(
-          points={{100,-92},{100,-120}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics), Documentation(info="<html>
+        Modelica.Electrical.Analog.Interfaces.PositivePin ac_p
+          "Positive AC input"
+          annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
+        Modelica.Electrical.Analog.Interfaces.NegativePin ac_n
+          "Negative AC input"
+          annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
+        Modelica.SIunits.Voltage vAC=ac_p.v - ac_n.v "AC voltages";
+        Modelica.SIunits.Current iAC=ac_p.i "AC currents";
+      end ACtwoPin;
+      extends Modelica.Icons.InterfacesPackage;
+      partial model ACplug "AC multi phase plug"
+        parameter Integer m(final min=3) = 3 "Number of phases";
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
+          "AC input"
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+        Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC potentials";
+        Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC currents";
+
+      end ACplug;
+
+      partial model ACtwoPlug
+        parameter Integer m(final min=3) = 3 "Number of phases";
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac_p(final m=m)
+          "Positive potential AC input"
+          annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
+        Modelica.Electrical.MultiPhase.Interfaces.NegativePlug ac_n(final m=m)
+          "Negative potential AC input"
+          annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
+        Modelica.SIunits.Voltage vAC[m]=ac_p.pin[:].v - ac_n.pin[:].v
+          "AC voltages";
+        Modelica.SIunits.Current iAC[m]=ac_p.pin[:].i "AC currents";
+
+      end ACtwoPlug;
+
+      partial model DCtwoPin "Positive and negative DC pins"
+
+        Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
+          "Postive DC output"
+          annotation (Placement(transformation(extent={{90,50},{110,70}})));
+        Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
+          "Negative DC output"
+          annotation (Placement(transformation(extent={{92,-70},{112,-50}})));
+        Modelica.SIunits.Voltage vDC=dc_p.v-dc_n.v "DC voltage";
+        Modelica.SIunits.Current iDC=dc_p.i "DC current";
+      end DCtwoPin;
+
+      partial model DCpin "Single DC pin"
+
+        Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
+          "Positive DC output"
+          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+        Modelica.SIunits.Voltage vDC=dc_p.v "DC potential";
+        Modelica.SIunits.Current iDC=dc_p.i "DC current";
+      end DCpin;
+
+    end ACDC;
+
+    package DCAC "DC to AC converter interfaces"
+      partial model DCtwoPin "Positive and negative DC pins"
+
+        Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
+          "Positive DC input"
+          annotation (Placement(transformation(extent={{-110,110},{-90,90}})));
+        Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
+          "Negative DC input"
+          annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
+        Modelica.SIunits.Voltage vDC=dc_p.v - dc_n.v "DC voltage";
+        Modelica.SIunits.Current iDC=dc_p.i "DC current";
+
+      end DCtwoPin;
+      extends Modelica.Icons.InterfacesPackage;
+      partial model ACpin "Single AC pin"
+
+        Modelica.Electrical.Analog.Interfaces.PositivePin ac "AC output"
+          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+        Modelica.SIunits.Voltage vAC=ac.v "AC potential";
+        Modelica.SIunits.Current iAC=ac.i "AC current";
+
+      end ACpin;
+
+
+      partial model ACplug "AC multi phase plug"
+        parameter Integer m(final min=3) = 3 "Number of phases";
+        Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
+          "AC output"
+          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+        Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC potential";
+        Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC current";
+
+      end ACplug;
+    end DCAC;
+
+    package DCDC "DC to DC converter interfaces"
+      partial model DCtwoPin1 "Positive and negative pins of side 1"
+
+        Modelica.Electrical.Analog.Interfaces.PositivePin dc_p1
+          "Positive DC input"
+          annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
+        Modelica.Electrical.Analog.Interfaces.NegativePin dc_n1
+          "Negative DC input"
+          annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
+        Modelica.SIunits.Voltage vDC1=dc_p1.v - dc_n1.v "DC voltage side 1";
+        Modelica.SIunits.Current iDC1=dc_p1.i "DC current side 1";
+      end DCtwoPin1;
+      extends Modelica.Icons.InterfacesPackage;
+      partial model DCtwoPin2 "Positive and negative pins of side 2"
+
+        Modelica.Electrical.Analog.Interfaces.PositivePin dc_p2
+          "Postive DC output"
+          annotation (Placement(transformation(extent={{90,50},{110,70}})));
+        Modelica.Electrical.Analog.Interfaces.NegativePin dc_n2
+          "Negative DC output"
+          annotation (Placement(transformation(extent={{90,-70},{110,-50}})));
+        Modelica.SIunits.Voltage vDC2=dc_p2.v - dc_n2.v "DC voltages side 2";
+        Modelica.SIunits.Current iDC2=dc_p2.i "DC current side 2";
+
+      end DCtwoPin2;
+
+
+    end DCDC;
+
+    package Enable "Enabling interfaces"
+      extends Modelica.Icons.InterfacesPackage;
+      partial model Enable
+        "Partial model providing enable parameter and optional enable input"
+        parameter Boolean useConstantEnable=true
+          "true = disabled boolean input, use constantEnable"
+          annotation (Dialog(tab="Enable"));
+        parameter Boolean constantEnable=true
+          "Constant enabling of firing signals"
+          annotation (Dialog(tab="Enable", enable=useConstantEnable));
+        parameter Integer m(final min=1) = 3 "Number of phases";
+        Modelica.Electrical.PowerConverters.Enable.EnableLogic enableLogic(
+          final useConstantEnable=useConstantEnable,
+          final constantEnable=constantEnable,
+          final m=m) "Enabling logic"
+          annotation (Placement(transformation(extent={{80,-90},{100,-70}})));
+        Modelica.Blocks.Interfaces.BooleanInput enable if not useConstantEnable
+          "Enables fire and notFire" annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={100,-120})));
+      equation
+        connect(enableLogic.enable, enable) annotation (Line(
+            points={{100,-92},{100,-120}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}), graphics), Documentation(info="<html>
 <p>
 This partial model provides paramters and the conditional input signal for the enabling models:</p>
 <p>
@@ -8231,156 +8104,158 @@ This partial model provides paramters and the conditional input signal for the e
 </ul>
 </p>
 </html>"));
-    end Enable;
+      end Enable;
 
-    partial model Enable1
-      "Partial model providing enable parameter and optional enable input for one firing signal"
-      extends Enable(final m=1);
-      Modelica.Blocks.Logical.And andCondition_p
-        "And condition for positive firing signal" annotation (Placement(
-            transformation(
-            extent={{10,10},{-10,-10}},
-            rotation=270,
-            origin={-60,-80})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p
-        "Firing signal of positive potential transistor" annotation (Placement(
-            transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-    equation
-      connect(andCondition_p.u1, fire_p) annotation (Line(
-          points={{-60,-92},{-60,-120}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      connect(enableLogic.enable, enable) annotation (Line(
-          points={{100,-92},{100,-120}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      connect(enableLogic.internalEnable[1], andCondition_p.u2) annotation (
-          Line(
-          points={{79,-80},{76,-80},{76,-96},{40,-96},{40,-76},{-40,-76},{-40,-100},
-              {-52,-100},{-52,-92}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics), Documentation(info="<html>
+      partial model Enable1
+        "Partial model providing enable parameter and optional enable input for one firing signal"
+        extends Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable(
+            final m=1);
+        Modelica.Blocks.Logical.And andCondition_p
+          "And condition for positive firing signal" annotation (Placement(
+              transformation(
+              extent={{10,10},{-10,-10}},
+              rotation=270,
+              origin={-60,-80})));
+        Modelica.Blocks.Interfaces.BooleanInput fire_p
+          "Firing signal of positive potential transistor" annotation (Placement(
+              transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={-60,-120})));
+      equation
+        connect(andCondition_p.u1, fire_p) annotation (Line(
+            points={{-60,-92},{-60,-120}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        connect(enableLogic.enable, enable) annotation (Line(
+            points={{100,-92},{100,-120}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        connect(enableLogic.internalEnable[1], andCondition_p.u2) annotation (
+            Line(
+            points={{79,-80},{76,-80},{76,-96},{40,-96},{40,-76},{-40,-76},{-40,-100},
+                {-52,-100},{-52,-92}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}), graphics), Documentation(info="<html>
 <p>This partial model provides the enabling logic for one firing signal.</p>
 </html>"));
-    end Enable1;
+      end Enable1;
 
-    partial model Enable2
-      "Partial model providing enable parameter and optional enable input for two firing signals"
-      extends Enable1;
-      Modelica.Blocks.Logical.And andCondition_n
-        "And condition for negative firing signal" annotation (Placement(
-            transformation(
-            extent={{10,-10},{-10,10}},
-            rotation=270,
-            origin={60,-80})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_n
-        "Firing signal of negative potential transistor" annotation (Placement(
-            transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={60,-120})));
-    equation
-      connect(fire_n, andCondition_n.u1) annotation (Line(
-          points={{60,-120},{60,-92}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      connect(enableLogic.internalEnable[1], andCondition_n.u2) annotation (
-          Line(
-          points={{79,-80},{76,-80},{76,-96},{52,-96},{52,-92}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics), Documentation(info="<html>
-<p>This partial model provides the enabling logic for two firing signal.</p>
-</html>"));
-    end Enable2;
-
-    partial model Enable1m
-      "Partial model providing enable parameter and optional enable input for m firing signals"
-      parameter Boolean useConstantEnable=true
-        "true = disabled boolean input, use constantEnable"
-        annotation (Dialog(tab="Enable"));
-      parameter Boolean constantEnable=true
-        "Constant enabling of firing signals"
-        annotation (Dialog(tab="Enable", enable=useConstantEnable));
-      parameter Integer m(final min=3) = 3 "Number of phases";
-      Modelica.Blocks.Logical.And andCondition_p[m]
-        "And condition for m positive firing signals" annotation (Placement(
-            transformation(
-            extent={{10,10},{-10,-10}},
-            rotation=270,
-            origin={-60,-80})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_p[m]
-        "Firing signals of positive potential transistors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={-60,-120})));
-      EnableLogic enableLogic(
-        final useConstantEnable=useConstantEnable,
-        final constantEnable=constantEnable,
-        final m=m) "Enabling logic"
-        annotation (Placement(transformation(extent={{80,-90},{100,-70}})));
-      Modelica.Blocks.Interfaces.BooleanInput enable if not useConstantEnable
-        "Enables fire and notFire" annotation (Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={100,-120})));
-    equation
-      connect(andCondition_p.u1, fire_p) annotation (Line(
-          points={{-60,-92},{-60,-120}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      connect(enableLogic.enable, enable) annotation (Line(
-          points={{100,-92},{100,-120}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      connect(enableLogic.internalEnable, andCondition_p.u2) annotation (Line(
-          points={{79,-80},{76,-80},{76,-96},{40,-96},{40,-76},{-40,-76},{-40,-100},
-              {-52,-100},{-52,-92}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics), Documentation(info="<html>
+      partial model Enable1m
+        "Partial model providing enable parameter and optional enable input for m firing signals"
+        parameter Boolean useConstantEnable=true
+          "true = disabled boolean input, use constantEnable"
+          annotation (Dialog(tab="Enable"));
+        parameter Boolean constantEnable=true
+          "Constant enabling of firing signals"
+          annotation (Dialog(tab="Enable", enable=useConstantEnable));
+        parameter Integer m(final min=3) = 3 "Number of phases";
+        Modelica.Blocks.Logical.And andCondition_p[m]
+          "And condition for m positive firing signals" annotation (Placement(
+              transformation(
+              extent={{10,10},{-10,-10}},
+              rotation=270,
+              origin={-60,-80})));
+        Modelica.Blocks.Interfaces.BooleanInput fire_p[m]
+          "Firing signals of positive potential transistors" annotation (
+            Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={-60,-120})));
+        Modelica.Electrical.PowerConverters.Enable.EnableLogic enableLogic(
+          final useConstantEnable=useConstantEnable,
+          final constantEnable=constantEnable,
+          final m=m) "Enabling logic"
+          annotation (Placement(transformation(extent={{80,-90},{100,-70}})));
+        Modelica.Blocks.Interfaces.BooleanInput enable if not useConstantEnable
+          "Enables fire and notFire" annotation (Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={100,-120})));
+      equation
+        connect(andCondition_p.u1, fire_p) annotation (Line(
+            points={{-60,-92},{-60,-120}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        connect(enableLogic.enable, enable) annotation (Line(
+            points={{100,-92},{100,-120}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        connect(enableLogic.internalEnable, andCondition_p.u2) annotation (Line(
+            points={{79,-80},{76,-80},{76,-96},{40,-96},{40,-76},{-40,-76},{-40,-100},
+                {-52,-100},{-52,-92}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}), graphics), Documentation(info="<html>
 <p>This partial model provides the enabling logic for <code>m</code> firing signal.</p>
 </html>"));
-    end Enable1m;
+      end Enable1m;
 
-    partial model Enable2m
-      "Partial model providing enable parameter and optional enable input for 2*m firing signals"
-      extends Enable1m;
-      Modelica.Blocks.Logical.And andCondition_n[m]
-        "And condition for m negative firing signals" annotation (Placement(
-            transformation(
-            extent={{10,-10},{-10,10}},
-            rotation=270,
-            origin={60,-80})));
-      Modelica.Blocks.Interfaces.BooleanInput fire_n[m]
-        "Firing signals of negative potential transistors" annotation (
-          Placement(transformation(
-            extent={{-20,-20},{20,20}},
-            rotation=90,
-            origin={60,-120})));
-    equation
-      connect(fire_n, andCondition_n.u1) annotation (Line(
-          points={{60,-120},{60,-92}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      connect(enableLogic.internalEnable, andCondition_n.u2) annotation (Line(
-          points={{79,-80},{76,-80},{76,-96},{52,-96},{52,-92}},
-          color={255,0,255},
-          smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics), Documentation(info="<html>
+      partial model Enable2
+        "Partial model providing enable parameter and optional enable input for two firing signals"
+        extends Modelica.Electrical.PowerConverters.Interfaces.Enable.Enable1;
+        Modelica.Blocks.Logical.And andCondition_n
+          "And condition for negative firing signal" annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=270,
+              origin={60,-80})));
+        Modelica.Blocks.Interfaces.BooleanInput fire_n
+          "Firing signal of negative potential transistor" annotation (Placement(
+              transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={60,-120})));
+      equation
+        connect(fire_n, andCondition_n.u1) annotation (Line(
+            points={{60,-120},{60,-92}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        connect(enableLogic.internalEnable[1], andCondition_n.u2) annotation (
+            Line(
+            points={{79,-80},{76,-80},{76,-96},{52,-96},{52,-92}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}), graphics), Documentation(info="<html>
+<p>This partial model provides the enabling logic for two firing signal.</p>
+</html>"));
+      end Enable2;
+
+      partial model Enable2m
+        "Partial model providing enable parameter and optional enable input for 2*m firing signals"
+        extends Interfaces.Enable.Enable1m;
+        Modelica.Blocks.Logical.And andCondition_n[m]
+          "And condition for m negative firing signals" annotation (Placement(
+              transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=270,
+              origin={60,-80})));
+        Modelica.Blocks.Interfaces.BooleanInput fire_n[m]
+          "Firing signals of negative potential transistors" annotation (
+            Placement(transformation(
+              extent={{-20,-20},{20,20}},
+              rotation=90,
+              origin={60,-120})));
+      equation
+        connect(fire_n, andCondition_n.u1) annotation (Line(
+            points={{60,-120},{60,-92}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        connect(enableLogic.internalEnable, andCondition_n.u2) annotation (Line(
+            points={{79,-80},{76,-80},{76,-96},{52,-96},{52,-92}},
+            color={255,0,255},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}), graphics), Documentation(info="<html>
 <p>This partial model provides the enabling logic for <code>2*m</code> firing signal.</p>
 </html>"));
-    end Enable2m;
-  end BaseClasses;
+      end Enable2m;
+    end Enable;
+  end Interfaces;
 
   package Icons "Icons"
     extends Modelica.Icons.Package;
@@ -8429,26 +8304,4 @@ This partial model provides paramters and the conditional input signal for the e
                   lineColor={0,0,255})}));
     end Control;
   end Icons;
-
-  annotation (
-    Icon(coordinateSystem(
-        extent={{-100,-100},{100,100}},
-        preserveAspectRatio=true,
-        initialScale=0.1,
-        grid={2,2}), graphics),
-    Diagram(coordinateSystem(
-        extent={{-100,-100},{100,100}},
-        preserveAspectRatio=true,
-        initialScale=0.1,
-        grid={2,2})),
-    preferredView="info",
-    Documentation(info="<html>
-<p>
-Copyright &copy; 2013-2014, <a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.Contact\">Christian Kral</a> and
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.Contact\">Anton Haumer</a>
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
-</html>"));
 end PowerConverters;
