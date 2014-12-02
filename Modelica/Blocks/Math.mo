@@ -576,7 +576,6 @@ with a specific unit to an output signal in another unit
             color={0,0,127},
             smooth=Smooth.None),
           Rectangle(extent={{-190,120},{190,-120}}, lineColor={135,135,135})}),
-
       Documentation(info="<html>
 <p>
 Exchange input and output signals of a block, i.e., the previous
@@ -1915,8 +1914,8 @@ Otherwise an error occurs.
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-52.7,-75.2},
             {-37.4,-69.7},{-26.9,-63},{-19.7,-55.2},{-14.1,-45.8},{-10.1,-36.4},
             {-6.03,-23.9},{-1.21,-5.06},{5.23,21},{9.25,34.1},{13.3,44.2},{18.1,
-            52.9},{24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{80,80}}, color
-            ={0,0,0}),Text(
+            52.9},{24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{80,80}}, color=
+             {0,0,0}),Text(
               extent={{-32,91},{-12,71}},
               textString="1.4",
               lineColor={0,0,255}),Text(
@@ -2011,8 +2010,8 @@ This blocks computes the output <b>y</b> as the
             {17.1,-59.3},{27.3,-53.6},{42.1,-49.4},{69.9,-45.8},{80,-45.1}},
             color={0,0,0}),Line(points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},
             {-18.3,-21.5},{-10.3,-14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{
-            24.3,25},{39,30},{62.1,33.5},{80,34.9}}, color={0,0,0}),Line(points
-            ={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,65.8},{-1.82,
+            24.3,25},{39,30},{62.1,33.5},{80,34.9}}, color={0,0,0}),Line(points=
+             {{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,65.8},{-1.82,
             77.2},{0,80}}, color={0,0,0}),Text(
               extent={{-30,89},{-10,70}},
               textString="pi",
@@ -2402,7 +2401,6 @@ This blocks computes the output <b>y</b> as the
             points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
                 {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
                 {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
-
             color={0,0,0},
             smooth=Smooth.Bezier),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
@@ -2488,7 +2486,6 @@ zero or negative.
             points={{-79.8,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
                 {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
                 {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
-
             color={0,0,0},
             smooth=Smooth.Bezier),
           Polygon(
@@ -2561,8 +2558,8 @@ zero or negative.
   public
     Interfaces.RealInput u "Connector of Real input signal" annotation (
         Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-    Interfaces.IntegerOutput y "Connector of Integer output signal" annotation
-      (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+    Interfaces.IntegerOutput y "Connector of Integer output signal" annotation (
+       Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
   equation
     y = if (u > 0) then integer(floor(u + 0.5)) else integer(ceil(u - 0.5));
     annotation (Icon(coordinateSystem(
