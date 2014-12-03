@@ -7917,27 +7917,6 @@ For <code>useConstantEnable = false</code> the internal signal
               textString="enable")}));
     end EnableLogic;
   end Enable;
-  annotation (
-    Icon(coordinateSystem(
-        extent={{-100,-100},{100,100}},
-        preserveAspectRatio=true,
-        initialScale=0.1,
-        grid={2,2}), graphics),
-    Diagram(coordinateSystem(
-        extent={{-100,-100},{100,100}},
-        preserveAspectRatio=true,
-        initialScale=0.1,
-        grid={2,2})),
-    preferredView="info",
-    Documentation(info="<html>
-<p>
-Copyright &copy; 2013-2014, <a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.Contact\">Christian Kral</a> and
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.Contact\">Anton Haumer</a>
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
-</html>"));
   package Interfaces "Interfaces"
     import Modelica;
     extends Modelica.Icons.InterfacesPackage;
@@ -8304,4 +8283,25 @@ This partial model provides paramters and the conditional input signal for the e
                   lineColor={0,0,255})}));
     end Control;
   end Icons;
+  annotation (
+    Icon(coordinateSystem(
+        extent={{-100,-100},{100,100}},
+        preserveAspectRatio=true,
+        initialScale=0.1,
+        grid={2,2}), graphics),
+    Diagram(coordinateSystem(
+        extent={{-100,-100},{100,100}},
+        preserveAspectRatio=true,
+        initialScale=0.1,
+        grid={2,2})),
+    preferredView="info",
+    Documentation(info="<html>
+<p>
+Copyright &copy; 2013-2014, <a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.Contact\">Christian Kral</a> and
+<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.Contact\">Anton Haumer</a>
+</p>
+<p>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+</p>
+</html>"));
 end PowerConverters;
