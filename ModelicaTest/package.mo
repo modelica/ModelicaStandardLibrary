@@ -49,7 +49,7 @@ end testAllFunctions;
        versionDate="2013-08-14",
        dateModified = "2013-08-14 08:44:41Z",
        revisionId="$Id::                                       $",
-       uses(Modelica(version="3.2")),
+       uses(Modelica(version="3.2.1")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
