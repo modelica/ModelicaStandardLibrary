@@ -6507,7 +6507,7 @@ The partial two port model consists of a positive and a negative magnetic port. 
         "Argument of complex magnetic potential difference";
       Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi
         "Complex magnetic flux";
-      Modelica.SIunits.MagneticPotentialDifference abs_Phi=
+      Modelica.SIunits.MagneticFlux abs_Phi=
           Modelica.ComplexMath.'abs'(Phi) "Magnitude of complex magnetic flux";
       Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
         "Argument of complex magnetic flux";
@@ -6538,7 +6538,7 @@ This interface model contains an extended set of (output) variables compared to
       Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
         "Argument of complex magnetic potential difference";
       Modelica.SIunits.ComplexMagneticFlux Phi "Complex magnetic flux";
-      Modelica.SIunits.MagneticPotentialDifference abs_Phi=
+      Modelica.SIunits.MagneticFlux abs_Phi=
           Modelica.ComplexMath.'abs'(Phi) "Magnitude of complex magnetic flux";
       Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
         "Argument of complex magnetic flux";
