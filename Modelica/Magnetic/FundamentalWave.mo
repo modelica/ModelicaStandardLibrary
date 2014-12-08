@@ -7527,7 +7527,7 @@ i.e., with small derivatives.
               textString="%name")}));
     end StateSelector;
 
-    model PositivePortInterface
+    model PositivePortInterface "Postive port interface to FluxTubes"
       import Interfaces;
 
       Interfaces.PositiveMagneticPort port "FundamentalWave port"
@@ -7561,10 +7561,13 @@ i.e., with small derivatives.
             Text(
               extent={{80,-40},{120,-80}},
               lineColor={255,128,0},
-              textString="im")}));
+              textString="im")}),
+        Documentation(info="<html>
+<p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
+</html>"));
     end PositivePortInterface;
 
-    model NegativePortInterface
+    model NegativePortInterface "Negative port interface to FluxTubes"
       import Interfaces;
 
       Interfaces.NegativeMagneticPort port "FundamentalWave port"
@@ -7598,7 +7601,10 @@ i.e., with small derivatives.
             Text(
               extent={{80,-40},{120,-80}},
               lineColor={255,128,0},
-              textString="im")}));
+              textString="im")}),
+        Documentation(info="<html>
+<p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
+</html>"));
     end NegativePortInterface;
     annotation (Documentation(info="<html>
 <p>
