@@ -7526,6 +7526,80 @@ i.e., with small derivatives.
               lineColor={0,0,255},
               textString="%name")}));
     end StateSelector;
+
+    model PositivePortInterface
+      import Interfaces;
+
+      Interfaces.PositiveMagneticPort port "FundamentalWave port"
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_re
+        "Flux tubes port, real part"
+        annotation (Placement(transformation(extent={{90,90},{110,110}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_im
+        "Flux tubes port, imag part"
+        annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
+    equation
+      port.V_m.re = port_re.V_m;
+      port.V_m.im = port_im.V_m;
+      port.Phi.re + port_re.Phi = 0;
+      port.Phi.im + port_im.Phi = 0;
+
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics), Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+              Line(
+              points={{-100,0},{0,0},{100,100}},
+              color={255,128,0},
+              smooth=Smooth.None), Line(
+              points={{0,0},{100,-100}},
+              color={255,128,0},
+              smooth=Smooth.None),
+            Text(
+              extent={{80,80},{120,40}},
+              lineColor={255,128,0},
+              textString="re"),
+            Text(
+              extent={{80,-40},{120,-80}},
+              lineColor={255,128,0},
+              textString="im")}));
+    end PositivePortInterface;
+
+    model NegativePortInterface
+      import Interfaces;
+
+      Interfaces.NegativeMagneticPort port "FundamentalWave port"
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_re
+        "Flux tubes port, real part"
+        annotation (Placement(transformation(extent={{90,90},{110,110}})));
+      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_im
+        "Flux tubes port, imag part"
+        annotation (Placement(transformation(extent={{90,-108},{110,-88}})));
+    equation
+      port.V_m.re = port_re.V_m;
+      port.V_m.im = port_im.V_m;
+      port.Phi.re + port_re.Phi = 0;
+      port.Phi.im + port_im.Phi = 0;
+
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics), Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+              Line(
+              points={{-100,0},{0,0},{100,100}},
+              color={255,128,0},
+              smooth=Smooth.None), Line(
+              points={{0,0},{100,-100}},
+              color={255,128,0},
+              smooth=Smooth.None),
+            Text(
+              extent={{80,80},{120,40}},
+              lineColor={255,128,0},
+              textString="re"),
+            Text(
+              extent={{80,-40},{120,-80}},
+              lineColor={255,128,0},
+              textString="im")}));
+    end NegativePortInterface;
     annotation (Documentation(info="<html>
 <p>
 This package contains interface definitions of the magnetic ports as well as partial models.
