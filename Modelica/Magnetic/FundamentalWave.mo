@@ -1008,6 +1008,7 @@ In this example the eddy current losses are implemented in two different ways. C
           m=m,
           orientation=
               Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
+
           effectiveTurns=fill(effectiveTurns, m))
           annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
 
@@ -1089,8 +1090,8 @@ In this example the eddy current losses are implemented in two different ways. C
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=
-             1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")
+           = 1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
         parameter Integer p=2 "Number of pole pairs";
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
@@ -1129,11 +1130,11 @@ In this example the eddy current losses are implemented in two different ways. C
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
-            terminalConnection="D") annotation (Placement(transformation(extent=
-                 {{-10,-10},{10,10}}, rotation=0)));
+            terminalConnection="D") annotation (Placement(transformation(extent
+                ={{-10,-10},{10,10}}, rotation=0)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-            terminalConnection="D") annotation (Placement(transformation(extent=
-                 {{-10,-70},{10,-50}}, rotation=0)));
+            terminalConnection="D") annotation (Placement(transformation(extent
+                ={{-10,-70},{10,-50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           aimcM(
           Jr=aimcData.Jr,
@@ -1300,8 +1301,8 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=
-             1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")
+           = 1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
         parameter Integer p=2 "Number of pole pairs";
         Modelica.Electrical.Analog.Basic.Ground groundM annotation (Placement(
@@ -1332,14 +1333,14 @@ Simulate for 1.5 seconds and plot (versus time):
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={-20,40})));
-        Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensorM(m=
-             m) annotation (Placement(transformation(
+        Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensorM(m
+            =m) annotation (Placement(transformation(
               origin={10,72},
               extent={{-10,-10},{10,10}},
               rotation=0)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(m=m,
-            terminalConnection="Y") annotation (Placement(transformation(extent=
-                 {{20,60},{40,80}}, rotation=0)));
+            terminalConnection="Y") annotation (Placement(transformation(extent
+                ={{20,60},{40,80}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           aimcM(
           Jr=aimcData.Jr,
@@ -1384,8 +1385,8 @@ Simulate for 1.5 seconds and plot (versus time):
               origin={-90,-52},
               extent={{-10,-10},{10,10}},
               rotation=0)));
-        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation (
-           Placement(transformation(extent={{-70,-40},{-90,-20}}, rotation=0)));
+        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation
+          (Placement(transformation(extent={{-70,-40},{-90,-20}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage3(
           final m=m3,
           V=fill(sqrt(2.0)*VsNominal, m3),
@@ -1491,8 +1492,8 @@ Simulate for 1.5 seconds and plot (versus time):
                 -30},{-60,-30},{-70,-30}}, color={0,0,255}));
         connect(aimc3.flange, loadInertia3.flange_a) annotation (Line(points={{
                 40,-52},{40,-52},{50,-52}}, color={0,0,0}));
-        connect(loadInertia3.flange_b, quadraticLoadTorque3.flange) annotation (
-           Line(points={{70,-52},{74,-52},{76,-52},{80,-52}}, color={0,0,0}));
+        connect(loadInertia3.flange_b, quadraticLoadTorque3.flange) annotation
+          (Line(points={{70,-52},{74,-52},{76,-52},{80,-52}}, color={0,0,0}));
         connect(terminalBox3.plug_sn, aimc3.plug_sn)
           annotation (Line(points={{24,-42},{24,-42}}, color={0,0,255}));
         connect(terminalBox3.plug_sp, aimc3.plug_sp)
@@ -1515,8 +1516,8 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{10,62},{10,44}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange) annotation (
-           Line(
+        connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange) annotation
+          (Line(
             points={{70,50},{80,50}},
             color={0,0,0},
             smooth=Smooth.None));
@@ -1555,7 +1556,8 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimsM/M3.wMechanical</code>: machine speed</li>
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-100,100},{100,20}},
                       lineColor={0,0,255},
@@ -1594,8 +1596,8 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Modelica.SIunits.Time tRheostat=1.0
           "Time of shortening the rheostat";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=
-             Modelica.SIunits.Conversions.from_rpm(1440.45)
+        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")
+           = Modelica.SIunits.Conversions.from_rpm(1440.45)
           "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
@@ -1633,11 +1635,11 @@ Simulate for 1.5 seconds and plot (versus time):
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
-            terminalConnection="D") annotation (Placement(transformation(extent=
-                 {{-10,-10},{10,10}}, rotation=0)));
+            terminalConnection="D") annotation (Placement(transformation(extent
+                ={{-10,-10},{10,10}}, rotation=0)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-            terminalConnection="D") annotation (Placement(transformation(extent=
-                 {{-10,-70},{10,-50}}, rotation=0)));
+            terminalConnection="D") annotation (Placement(transformation(extent
+                ={{-10,-70},{10,-50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
           aimsM(
           Jr=aimsData.Jr,
@@ -1756,8 +1758,8 @@ Simulate for 1.5 seconds and plot (versus time):
                 -74},{-18,-74},{-10,-74}}, color={0,0,255}));
         connect(rheostatE.plug_n, aimsE.plug_rn) annotation (Line(points={{-20,
                 -86},{-18,-86},{-10,-86}}, color={0,0,255}));
-        connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange) annotation (
-           Line(points={{70,-20},{70,-20},{80,-20}}, color={0,0,0}));
+        connect(loadInertiaM.flange_b, quadraticLoadTorqueM.flange) annotation
+          (Line(points={{70,-20},{70,-20},{80,-20}}, color={0,0,0}));
         connect(aimsM.flange, loadInertiaM.flange_a) annotation (Line(points={{
                 10,-20},{10,-20},{50,-20}}, color={0,0,0}));
         connect(terminalBoxM.plug_sp, aimsM.plug_sp)
@@ -1784,6 +1786,7 @@ Simulate for 1.5 seconds and plot (versus time):
             smooth=Smooth.None));
         connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
             points={{0,50},{0,45},{9.992e-16,45},{9.992e-16,40},{0,40},{0,30}},
+
             color={0,0,255},
             smooth=Smooth.None));
 
@@ -1834,13 +1837,13 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Modelica.SIunits.Time tRheostat=1.0
           "Time of shortening the rheostat";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=
-             Modelica.SIunits.Conversions.from_rpm(1440.45)
+        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")
+           = Modelica.SIunits.Conversions.from_rpm(1440.45)
           "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(m=m,
-            terminalConnection="Y") annotation (Placement(transformation(extent=
-                 {{20,50},{40,70}}, rotation=0)));
+            terminalConnection="Y") annotation (Placement(transformation(extent
+                ={{20,50},{40,70}}, rotation=0)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox3(
             terminalConnection="Y", m=m3) annotation (Placement(transformation(
                 extent={{20,-50},{40,-30}}, rotation=0)));
@@ -2017,8 +2020,8 @@ Simulate for 1.5 seconds and plot (versus time):
         aimsM.is[1:2] = zeros(2);
         aimsM.ir[1:mr - 2] = zeros(mr - 2);
       equation
-        connect(loadInertia3.flange_b, quadraticLoadTorque3.flange) annotation (
-           Line(points={{70,-60},{76,-60},{80,-60}}, color={0,0,0}));
+        connect(loadInertia3.flange_b, quadraticLoadTorque3.flange) annotation
+          (Line(points={{70,-60},{76,-60},{80,-60}}, color={0,0,0}));
         connect(aims3.flange, loadInertia3.flange_a) annotation (Line(points={{
                 40,-60},{40,-60},{50,-60}}, color={0,0,0}));
         connect(terminalBox3.plug_sn, aims3.plug_sn)
@@ -2122,7 +2125,8 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-100,100},{100,20}},
                       lineColor={0,0,255},
@@ -2193,11 +2197,11 @@ Simulate for 1.5 seconds and plot (versus time):
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
-            terminalConnection="Y") annotation (Placement(transformation(extent=
-                 {{-10,-10},{10,10}}, rotation=0)));
+            terminalConnection="Y") annotation (Placement(transformation(extent
+                ={{-10,-10},{10,10}}, rotation=0)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-            terminalConnection="Y") annotation (Placement(transformation(extent=
-                 {{-10,-70},{10,-50}}, rotation=0)));
+            terminalConnection="Y") annotation (Placement(transformation(extent
+                ={{-10,-70},{10,-50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
           smpmM(
           Jr=smpmData.Jr,
@@ -2225,6 +2229,7 @@ Simulate for 1.5 seconds and plot (versus time):
           statorCoreParameters=smpmData.statorCoreParameters,
           strayLoadParameters=smpmData.strayLoadParameters,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+
           TsOperational=293.15,
           TrOperational=293.15,
           ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
@@ -2257,6 +2262,7 @@ Simulate for 1.5 seconds and plot (versus time):
           TrRef=smpmData.TrRef,
           alpha20r(displayUnit="1/K") = smpmData.alpha20r,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+
           TsOperational=293.15,
           ir(fixed=true),
           TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
@@ -2392,8 +2398,8 @@ and accelerate the inertias.</p>
               origin={-90,90},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation (
-           Placement(transformation(extent={{-50,80},{-70,100}}, rotation=0)));
+        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation
+          (Placement(transformation(extent={{-50,80},{-70,100}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage3(
             final m=m3) annotation (Placement(transformation(
               origin={0,70},
@@ -2449,6 +2455,7 @@ and accelerate the inertias.</p>
           statorCoreParameters=smpmData.statorCoreParameters,
           strayLoadParameters=smpmData.strayLoadParameters,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+
           m=m,
           Rs=smpmData.Rs*m/3,
           Lssigma=smpmData.Lssigma*m/3,
@@ -2487,14 +2494,15 @@ and accelerate the inertias.</p>
           TrRef=smpmData.TrRef,
           alpha20r(displayUnit="1/K") = smpmData.alpha20r,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+
           m=m3,
           TsOperational=293.15,
           TrOperational=293.15,
           ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
                   {10,-70}}, rotation=0)));
 
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(
-           p=smpm3.p) annotation (Placement(transformation(
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3
+          (p=smpm3.p) annotation (Placement(transformation(
               origin={30,-80},
               extent={{-10,10},{10,-10}},
               rotation=270)));
@@ -2654,7 +2662,8 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
                       lineColor={0,0,0},
@@ -2736,14 +2745,15 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
               rotation=270,
               origin={-60,30})));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
-            terminalConnection="Y") annotation (Placement(transformation(extent=
-                 {{-10,-10},{10,10}}, rotation=0)));
+            terminalConnection="Y") annotation (Placement(transformation(extent
+                ={{-10,-10},{10,10}}, rotation=0)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-            terminalConnection="Y") annotation (Placement(transformation(extent=
-                 {{-10,-70},{10,-50}}, rotation=0)));
+            terminalConnection="Y") annotation (Placement(transformation(extent
+                ={{-10,-70},{10,-50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smeeM(
           phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true),
+
           Jr=0.29,
           Js=0.29,
           p=2,
@@ -2779,6 +2789,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smeeE(
           phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true),
+
           p=2,
           fsNominal=smeeData.fsNominal,
           Rs=smeeData.Rs,
@@ -2874,8 +2885,11 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
           Td0Subtransient=0.006963029,
           Tq0Subtransient=0.123345081,
           alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+
           alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+
           TsSpecification=293.15,
           TsRef=293.15,
           TrSpecification=293.15,
@@ -3018,8 +3032,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           "Warm damper resistance (equivalent three phase winding) d-axis";
         parameter Modelica.SIunits.Resistance Rrq=Rrd
           "Warm damper resistance (equivalent three phase winding) q-axis";
-        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation (
-           Placement(transformation(extent={{-50,-30},{-70,-10}}, rotation=0)));
+        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation
+          (Placement(transformation(extent={{-50,-30},{-70,-10}}, rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground ground3 annotation (Placement(
               transformation(
               origin={-90,-20},
@@ -3051,6 +3065,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smeeM(
           phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true),
+
           Jr=0.29,
           Js=0.29,
           p=2,
@@ -3087,6 +3102,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
           smee3(
           phiMechanical(start=-(Modelica.Constants.pi + gamma0)/p, fixed=true),
+
           p=2,
           fsNominal=smeeData.fsNominal,
           Rs=smeeData.Rs,
@@ -3145,8 +3161,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
               origin={-30,-80},
               extent={{-10,-10},{10,10}},
               rotation=90)));
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(
-           p=p) annotation (Placement(transformation(
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3
+          (p=p) annotation (Placement(transformation(
               origin={30,-80},
               extent={{-10,10},{10,-10}},
               rotation=270)));
@@ -3178,8 +3194,11 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           Td0Subtransient=0.006963029,
           Tq0Subtransient=0.123345081,
           alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+
           alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+
           TsSpecification=293.15,
           TsRef=293.15,
           TrSpecification=293.15,
@@ -3266,8 +3285,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           annotation (Line(points={{-6,50},{-6,50}}, color={0,0,255}));
         connect(smeeM.plug_sp, terminalBoxM.plug_sp)
           annotation (Line(points={{6,50},{6,50}}, color={0,0,255}));
-        connect(electricalPowerSensor3.plug_p, sineVoltage3.plug_p) annotation (
-           Line(
+        connect(electricalPowerSensor3.plug_p, sineVoltage3.plug_p) annotation
+          (Line(
             points={{-10,-20},{-20,-20}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -3349,7 +3368,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-50,60},{70,20}},
                       lineColor={0,0,0},
@@ -3419,11 +3439,11 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
-            terminalConnection="Y") annotation (Placement(transformation(extent=
-                 {{-10,-10},{10,10}}, rotation=0)));
+            terminalConnection="Y") annotation (Placement(transformation(extent
+                ={{-10,-10},{10,10}}, rotation=0)));
         Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxE(
-            terminalConnection="Y") annotation (Placement(transformation(extent=
-                 {{-10,-70},{10,-50}}, rotation=0)));
+            terminalConnection="Y") annotation (Placement(transformation(extent
+                ={{-10,-70},{10,-50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
           smrM(
           Jr=smrData.Jr,
@@ -3673,8 +3693,8 @@ Simulate for 1.5 seconds and plot (versus time):
           TrOperational=293.15,
           ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
                   {10,-70}}, rotation=0)));
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(
-           p=smr3.p) annotation (Placement(transformation(
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3
+          (p=smr3.p) annotation (Placement(transformation(
               origin={30,-80},
               extent={{10,-10},{-10,10}},
               rotation=90)));
@@ -3705,8 +3725,8 @@ Simulate for 1.5 seconds and plot (versus time):
               origin={-90,90},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation (
-           Placement(transformation(extent={{-50,80},{-70,100}}, rotation=0)));
+        Modelica.Electrical.MultiPhase.Basic.Star star3(final m=m3) annotation
+          (Placement(transformation(extent={{-50,80},{-70,100}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage3(
             final m=m3) annotation (Placement(transformation(
               origin={0,70},
@@ -3870,7 +3890,8 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
                       lineColor={0,0,0},
@@ -3919,15 +3940,13 @@ Simulate for 1.5 seconds and plot (versus time):
               points={{-40,30},{40,30}}, color={255,128,0}),Line(points={{-20,
               10},{20,10}}, color={255,128,0})}),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Line(points={{0,100},{0,50}}, color={255,128,0}),
-            Line(points={{-60,50},{60,50}}, color={255,128,0}),
-            Line(points={{-40,30},{40,30}}, color={255,128,0}),
-            Line(points={{-20,10},{20,10}}, color={255,128,0}),
-            Text(
-              extent={{-144,-9},{156,-49}},
-              textString="%name",
-              lineColor={0,0,255})}),
+                100,100}}), graphics={Line(points={{0,100},{0,50}}, color={255,
+              128,0}),Line(points={{-60,50},{60,50}}, color={255,128,0}),Line(
+              points={{-40,30},{40,30}}, color={255,128,0}),Line(points={{-20,
+              10},{20,10}}, color={255,128,0}),Text(
+                  extent={{-144,-9},{156,-49}},
+                  textString="%name",
+                  lineColor={0,0,255})}),
         Documentation(info="<html>
 
 <p>
@@ -3947,18 +3966,16 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
       (pi/2)*V_m.re = R_m.d*Phi.re;
       (pi/2)*V_m.im = R_m.q*Phi.im;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-70,30},{70,-30}},
-              lineColor={255,128,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-96,0},{-70,0}}, color={255,128,0}),
-            Line(points={{70,0},{96,0}}, color={255,128,0}),
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name")}), Documentation(info="<html>
+                -100},{100,100}}), graphics={Rectangle(
+                  extent={{-70,30},{70,-30}},
+                  lineColor={255,128,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
+              color={255,128,0}),Line(points={{70,0},{96,0}}, color={255,128,0}),
+              Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name")}), Documentation(info="<html>
 <p>
 The salient reluctance models the relationship between the complex magnetic potential difference
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">,
@@ -3989,18 +4006,16 @@ The salient reluctance models the relationship between the complex magnetic pote
       (pi/2)*G_m.d*V_m.re = Phi.re;
       (pi/2)*G_m.q*V_m.im = Phi.im;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-70,30},{70,-30}},
-              lineColor={255,128,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-96,0},{-70,0}}, color={255,128,0}),
-            Line(points={{70,0},{96,0}}, color={255,128,0}),
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name")}), Documentation(info="<html>
+                -100},{100,100}}), graphics={Rectangle(
+                  extent={{-70,30},{70,-30}},
+                  lineColor={255,128,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
+              color={255,128,0}),Line(points={{70,0},{96,0}}, color={255,128,0}),
+              Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name")}), Documentation(info="<html>
 <p>
 The salient permeance models the relationship between the complex magnetic potential difference
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\" alt=\"V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">:
@@ -4036,22 +4051,19 @@ The salient permeance models the relationship between the complex magnetic poten
         V_m.im = 0;
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-70,30},{70,-30}},
-              lineColor={255,128,0},
-              fillColor={255,128,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-96,0},{-70,0}}, color={255,128,0}),
-            Line(points={{70,0},{96,0}}, color={255,128,0}),
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Text(
-              extent={{0,-40},{0,-80}},
-              lineColor={0,0,0},
-              textString="G=%G")}), Documentation(info="<html>
+                -100},{100,100}}), graphics={Rectangle(
+                  extent={{-70,30},{70,-30}},
+                  lineColor={255,128,0},
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.Solid),Line(points={{-96,0},{-70,0}},
+              color={255,128,0}),Line(points={{70,0},{96,0}}, color={255,128,0}),
+              Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name"),Text(
+                  extent={{0,-40},{0,-80}},
+                  lineColor={0,0,0},
+                  textString="G=%G")}), Documentation(info="<html>
 <p>
 The eddy current loss model with respect to fundamental wave effects is designed in accordance to
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a>.
@@ -4191,34 +4203,30 @@ relationship of the voltage and current space phasor.
       annotation (
         defaultComponentName="converter",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Ellipse(
-              extent={{-60,60},{58,0}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-58,0},{60,-60}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-60,60},{0,-60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,-72},
-                  {42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,66},{62,
-                  84},{78,96},{90,100},{100,100}}, color={255,128,0}),
-            Line(points={{0,60},{-100,60},{-100,100}}, color={0,0,255}),
-            Line(points={{0,-60},{-100,-60},{-100,-98}}, color={0,0,255}),
-            Text(
-              extent={{0,160},{0,120}},
-              lineColor={0,0,255},
-              fillColor={255,128,0},
-              fillPattern=FillPattern.Solid,
-              textString="%name")}),
+                100,100}}), graphics={Ellipse(
+                  extent={{-60,60},{58,0}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Ellipse(
+                  extent={{-58,0},{60,-60}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Rectangle(
+                  extent={{-60,60},{0,-60}},
+                  lineColor={0,0,255},
+                  pattern=LinePattern.None,
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{100,-100},{94,-100},
+              {84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},{30,-18},{
+              30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},{100,100}},
+              color={255,128,0}),Line(points={{0,60},{-100,60},{-100,100}},
+              color={0,0,255}),Line(points={{0,-60},{-100,-60},{-100,-98}},
+              color={0,0,255}),Text(
+                  extent={{0,160},{0,120}},
+                  lineColor={0,0,255},
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="%name")}),
         Documentation(info="<html>
 <p>
 The single phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
@@ -4328,34 +4336,30 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Ellipse(
-              extent={{-60,60},{58,0}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-58,0},{60,-60}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-60,60},{0,-60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,-72},
-                  {42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,66},{62,
-                  84},{78,96},{90,100},{100,100}}, color={255,128,0}),
-            Line(points={{0,60},{-100,60},{-100,100}}, color={0,0,255}),
-            Line(points={{0,-60},{-100,-60},{-100,-98}}, color={0,0,255}),
-            Text(
-              extent={{0,160},{0,120}},
-              lineColor={0,0,255},
-              fillColor={255,128,0},
-              fillPattern=FillPattern.Solid,
-              textString="%name")}),
+                100,100}}), graphics={Ellipse(
+                  extent={{-60,60},{58,0}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Ellipse(
+                  extent={{-58,0},{60,-60}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Rectangle(
+                  extent={{-60,60},{0,-60}},
+                  lineColor={0,0,255},
+                  pattern=LinePattern.None,
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{100,-100},{94,-100},
+              {84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},{30,-18},{
+              30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},{100,100}},
+              color={255,128,0}),Line(points={{0,60},{-100,60},{-100,100}},
+              color={0,0,255}),Line(points={{0,-60},{-100,-60},{-100,-98}},
+              color={0,0,255}),Text(
+                  extent={{0,160},{0,120}},
+                  lineColor={0,0,255},
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="%name")}),
         Documentation(info="<html>
 <p>
 Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">.
@@ -4406,18 +4410,16 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
       Phi = Complex(0, 0);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,0},{-40,0}}, color={255,128,0}),
-            Line(points={{40,0},{100,0}}, color={255,128,0})}),
+                100,100}}), graphics={Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name"),Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,255,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-100,0},{-40,0}},
+              color={255,128,0}),Line(points={{40,0},{100,0}}, color={255,128,0})}),
+
         Documentation(info="<html>
 <p>
 This is a simple idle running branch.
@@ -4444,18 +4446,15 @@ This is a simple idle running branch.
       connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
               100,0}}, color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,0},{100,0}}, color={255,128,0})}), Documentation(
-            info="<html>
+                -100},{100,100}}), graphics={Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name"),Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,255,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{-100,0},{100,0}},
+              color={255,128,0})}), Documentation(info="<html>
 <p>
 This is a simple short cut branch.
 </p>
@@ -4495,24 +4494,20 @@ This is a simple short cut branch.
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Text(
-              extent={{0,60},{0,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{-100,40},{100,-40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{100,100},{100,40},{-100,-40},{-100,-100}},
-              color={255,128,0},
-              smooth=Smooth.None),
-            Line(
-              points={{-100,100},{-100,40},{100,-40},{100,-100}},
-              color={255,128,0},
-              smooth=Smooth.None)}),
+                100,100}}), graphics={Text(
+                  extent={{0,60},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name"),Rectangle(
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,255,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(
+                  points={{100,100},{100,40},{-100,-40},{-100,-100}},
+                  color={255,128,0},
+                  smooth=Smooth.None),Line(
+                  points={{-100,100},{-100,40},{100,-40},{100,-100}},
+                  color={255,128,0},
+                  smooth=Smooth.None)}),
         Documentation(info="<html>
 <p>
 This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
@@ -4629,7 +4624,8 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end AIM_SquirrelCage;
 
@@ -4655,6 +4651,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceAIMS
             powerBalance(
             final lossPowerRotorWinding=sum(rotor.resistor.resistor.LossPower),
+
             final lossPowerRotorCore=rotor.core.lossPower,
             final lossPowerBrush=0,
             final powerRotor=
@@ -4792,7 +4789,8 @@ Resistances and stray inductances of the machine always refer to either stator o
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end AIM_SlipRing;
       annotation (Documentation(info="<html>
@@ -4967,6 +4965,7 @@ Resistances and stray inductances of the machine always refer to either stator o
             smooth=Smooth.None));
         connect(airGap.port_rp, rotorCage.port_n) annotation (Line(
             points={{10,-10},{10,-10},{10,-30},{10,-30},{10,-30},{20,-30},{20,-30}},
+
             color={255,128,0},
             smooth=Smooth.None));
 
@@ -5018,7 +5017,8 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end SM_PermanentMagnet;
 
@@ -5173,8 +5173,8 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
           "Negative pin of excitation" annotation (Placement(transformation(
                 extent={{-90,-50},{-110,-70}}, rotation=0)));
-        Electrical.Machines.Losses.DCMachines.Brush brush(final brushParameters=
-             brushParameters, final useHeatPort=true) annotation (Placement(
+        Electrical.Machines.Losses.DCMachines.Brush brush(final brushParameters
+            =brushParameters, final useHeatPort=true) annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
               rotation=90,
@@ -5268,7 +5268,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end SM_ElectricalExcited;
 
@@ -5385,6 +5386,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
         end if;
         connect(rotorCage.port_n, airGap.port_rp) annotation (Line(
             points={{20,-30},{20,-30},{10,-30},{10,-30},{10,-30},{10,-10},{10,-10}},
+
             color={255,128,0},
             smooth=Smooth.None));
 
@@ -5394,6 +5396,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             smooth=Smooth.None));
         connect(rotorCage.port_p, airGap.port_rn) annotation (Line(
             points={{20,-50},{-10,-50},{-10,-50},{-10,-50},{-10,-10},{-10,-10}},
+
             color={255,128,0},
             smooth=Smooth.None));
 
@@ -5429,7 +5432,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end SM_ReluctanceRotor;
       annotation (Documentation(info="<html>
@@ -5544,37 +5548,35 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             points={{-10,60},{-10,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(electroMagneticConverter.port_p, reluctance.port_p) annotation (
-           Line(
+        connect(electroMagneticConverter.port_p, reluctance.port_p) annotation
+          (Line(
             points={{10,10},{30,10}},
             color={255,128,0},
             smooth=Smooth.None));
-        connect(electroMagneticConverter.port_n, reluctance.port_n) annotation (
-           Line(
+        connect(electroMagneticConverter.port_n, reluctance.port_n) annotation
+          (Line(
             points={{10,-10},{30,-10}},
             color={255,128,0},
             smooth=Smooth.None));
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Rectangle(
-                extent={{-100,60},{100,-60}},
-                lineColor={0,0,255},
-                pattern=LinePattern.None,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,
-                    -72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,
-                    66},{62,84},{78,96},{90,100},{100,100}}, color={255,128,0}),
-              Line(points={{40,60},{-100,60},{-100,100}}, color={0,0,255}),
-              Line(points={{40,-60},{-100,-60},{-100,-98}}, color={0,0,255}),
-              Line(points={{40,60},{100,20},{40,-20},{0,-20},{-40,0},{0,20},{40,
-                    20},{100,-20},{40,-60}}, color={0,0,255}),
-              Text(
-                extent={{0,160},{0,120}},
-                lineColor={0,0,255},
-                fillColor={255,128,0},
-                fillPattern=FillPattern.Solid,
-                textString="%name")}), Documentation(info="<html>
+                  -100},{100,100}}), graphics={Rectangle(
+                      extent={{-100,60},{100,-60}},
+                      lineColor={0,0,255},
+                      pattern=LinePattern.None,
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{100,-100},{
+                94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},
+                {30,-18},{30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},
+                {100,100}}, color={255,128,0}),Line(points={{40,60},{-100,60},{
+                -100,100}}, color={0,0,255}),Line(points={{40,-60},{-100,-60},{
+                -100,-98}}, color={0,0,255}),Line(points={{40,60},{100,20},{40,
+                -20},{0,-20},{-40,0},{0,20},{40,20},{100,-20},{40,-60}}, color=
+                {0,0,255}),Text(
+                      extent={{0,160},{0,120}},
+                      lineColor={0,0,255},
+                      fillColor={255,128,0},
+                      fillPattern=FillPattern.Solid,
+                      textString="%name")}), Documentation(info="<html>
 <p>
 The single phase winding consists of a
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>, a symmetrical
@@ -5742,26 +5744,24 @@ The single phase winding consists of a
             color={255,128,0},
             smooth=Smooth.None));
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Rectangle(
-                extent={{-100,60},{100,-60}},
-                lineColor={0,0,255},
-                pattern=LinePattern.None,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,
-                    -72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,
-                    66},{62,84},{78,96},{90,100},{100,100}}, color={255,128,0}),
-              Line(points={{40,60},{-100,60},{-100,100}}, color={0,0,255}),
-              Line(points={{40,-60},{-100,-60},{-100,-98}}, color={0,0,255}),
-              Line(points={{40,60},{100,20},{40,-20},{0,-20},{-40,0},{0,20},{40,
-                    20},{100,-20},{40,-60}}, color={0,0,255}),
-              Text(
-                extent={{0,160},{0,120}},
-                lineColor={0,0,255},
-                fillColor={255,128,0},
-                fillPattern=FillPattern.Solid,
-                textString="%name")}), Documentation(info="<html>
+                  -100},{100,100}}), graphics={Rectangle(
+                      extent={{-100,60},{100,-60}},
+                      lineColor={0,0,255},
+                      pattern=LinePattern.None,
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{100,-100},{
+                94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},
+                {30,-18},{30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},
+                {100,100}}, color={255,128,0}),Line(points={{40,60},{-100,60},{
+                -100,100}}, color={0,0,255}),Line(points={{40,-60},{-100,-60},{
+                -100,-98}}, color={0,0,255}),Line(points={{40,60},{100,20},{40,
+                -20},{0,-20},{-40,0},{0,20},{40,20},{100,-20},{40,-60}}, color=
+                {0,0,255}),Text(
+                      extent={{0,160},{0,120}},
+                      lineColor={0,0,255},
+                      fillColor={255,128,0},
+                      fillPattern=FillPattern.Solid,
+                      textString="%name")}), Documentation(info="<html>
 <p>
 The symmetrical multi phase winding consists of a symmetrical winding
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Resistor\">resistor</a>, a
@@ -5882,23 +5882,20 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
         gamma = p*(flange_a.phi - support.phi);
         rotator = Modelica.ComplexMath.exp(Complex(0, gamma));
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-100,90},{-100,60},{-80,60}}, color={255,128,0}),
-              Line(points={{-100,-90},{-100,-60},{-80,-60}}, color={255,128,0}),
-              Line(points={{40,60},{100,60},{100,90}}, color={255,128,0}),
-              Line(points={{40,-60},{100,-60},{100,-90}}, color={255,128,0}),
-              Ellipse(
-                extent={{-60,80},{60,-80}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{0,80},{0,90}}, color={0,0,0})}), Documentation(info=
-               "<html>
+                  -100},{100,100}}), graphics={Ellipse(
+                      extent={{-100,100},{100,-100}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{-100,90},{-100,
+                60},{-80,60}}, color={255,128,0}),Line(points={{-100,-90},{-100,
+                -60},{-80,-60}}, color={255,128,0}),Line(points={{40,60},{100,
+                60},{100,90}}, color={255,128,0}),Line(points={{40,-60},{100,-60},
+                {100,-90}}, color={255,128,0}),Ellipse(
+                      extent={{-60,80},{60,-80}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{0,80},{0,90}},
+                color={0,0,0})}), Documentation(info="<html>
 <p>
 This salient air gap model can be used for machines with uniform airgaps and for machines with rotor saliencies. The air gap model is not symmetrical towards stator and rotor since it is assumed the saliency always refers to the rotor. The saliency of the air gap is represented by a main field inductance in the d- and q-axis.
 </p>
@@ -6052,48 +6049,40 @@ according to the following figure.
             smooth=Smooth.None));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={
-              Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,0,0},
-                fillColor={175,175,175},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,76},{20,36}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,46},{68,6}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,-8},{68,-48}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,-36},{20,-76}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-68,-6},{-28,-46}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-66,50},{-26,10}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-80,0},{-100,0}}, color={255,128,0}),
-              Line(points={{100,0},{80,0}}, color={255,128,0}),
-              Text(
-                extent={{0,100},{0,140}},
-                lineColor={0,0,255},
-                textString="%name")}),
+                  {100,100}}), graphics={Ellipse(
+                      extent={{-80,80},{80,-80}},
+                      lineColor={0,0,0},
+                      fillColor={175,175,175},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,76},{20,36}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,46},{68,6}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,-8},{68,-48}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,-36},{20,-76}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-68,-6},{-28,-46}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-66,50},{-26,10}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
+                0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
+                255,128,0}),Text(
+                      extent={{0,100},{0,140}},
+                      lineColor={0,0,255},
+                      textString="%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -6110,7 +6099,8 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end SymmetricMultiPhaseCageWinding;
 
@@ -6225,48 +6215,40 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             smooth=Smooth.None));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={
-              Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,0,0},
-                fillColor={175,175,175},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,76},{20,36}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,46},{68,6}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,-8},{68,-48}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,-36},{20,-76}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-68,-6},{-28,-46}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-66,50},{-26,10}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-80,0},{-100,0}}, color={255,128,0}),
-              Line(points={{100,0},{80,0}}, color={255,128,0}),
-              Text(
-                extent={{0,100},{0,140}},
-                lineColor={0,0,255},
-                textString="%name")}),
+                  {100,100}}), graphics={Ellipse(
+                      extent={{-80,80},{80,-80}},
+                      lineColor={0,0,0},
+                      fillColor={175,175,175},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,76},{20,36}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,46},{68,6}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,-8},{68,-48}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,-36},{20,-76}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-68,-6},{-28,-46}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-66,50},{-26,10}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
+                0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
+                255,128,0}),Text(
+                      extent={{0,100},{0,140}},
+                      lineColor={0,0,255},
+                      textString="%name")}),
           Documentation(info="<html>
 
 <p>
@@ -6280,7 +6262,8 @@ The salient cage model is a two axis model with two phases. The electromagnetic 
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end SaliencyCageWinding;
 
@@ -6404,48 +6387,40 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
             smooth=Smooth.None));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={
-              Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,0,0},
-                fillColor={175,175,175},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,76},{20,36}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,46},{68,6}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,-8},{68,-48}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,-36},{20,-76}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-68,-6},{-28,-46}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-66,50},{-26,10}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-80,0},{-100,0}}, color={255,128,0}),
-              Line(points={{100,0},{80,0}}, color={255,128,0}),
-              Text(
-                extent={{0,100},{0,140}},
-                lineColor={0,0,255},
-                textString="%name")}),
+                  {100,100}}), graphics={Ellipse(
+                      extent={{-80,80},{80,-80}},
+                      lineColor={0,0,0},
+                      fillColor={175,175,175},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,76},{20,36}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,46},{68,6}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,-8},{68,-48}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,-36},{20,-76}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-68,-6},{-28,-46}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-66,50},{-26,10}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
+                0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
+                255,128,0}),Text(
+                      extent={{0,100},{0,140}},
+                      lineColor={0,0,255},
+                      textString="%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -6462,7 +6437,8 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end SymmetricMultiPhaseCageWinding_obsolete;
 
@@ -6566,48 +6542,40 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             color={191,0,0},
             smooth=Smooth.None));
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics={
-              Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,0,0},
-                fillColor={175,175,175},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,76},{20,36}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,46},{68,6}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{28,-8},{68,-48}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-20,-36},{20,-76}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-68,-6},{-28,-46}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(
-                extent={{-66,50},{-26,10}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-80,0},{-100,0}}, color={255,128,0}),
-              Line(points={{100,0},{80,0}}, color={255,128,0}),
-              Text(
-                extent={{0,100},{0,140}},
-                lineColor={0,0,255},
-                textString="%name")}), Documentation(info="<html>
+                  -100},{100,100}}), graphics={Ellipse(
+                      extent={{-80,80},{80,-80}},
+                      lineColor={0,0,0},
+                      fillColor={175,175,175},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,76},{20,36}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,46},{68,6}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{28,-8},{68,-48}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-20,-36},{20,-76}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-68,-6},{-28,-46}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Ellipse(
+                      extent={{-66,50},{-26,10}},
+                      lineColor={0,0,0},
+                      fillColor={255,255,255},
+                      fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
+                0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
+                255,128,0}),Text(
+                      extent={{0,100},{0,140}},
+                      lineColor={0,0,255},
+                      textString="%name")}), Documentation(info="<html>
 
 <p>
 The salient cage model is a two axis model with two phases. The electromagnetic coupling therefore is also two phase coupling model. The angles of the two orientations are 0 and <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_2.png\">. This way an asymmetrical rotor cage with different resistances and stray inductances in d- and q-axis can be modeled.
@@ -6658,27 +6626,22 @@ for electric machines.
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={
-            Text(
-              extent={{-80,-20},{-80,-40}},
-              lineColor={255,128,0},
-              textString="+"),
-            Text(
-              extent={{80,-20},{80,-40}},
-              lineColor={255,128,0},
-              textString="-"),
-            Ellipse(
-              extent={{-50,-50},{50,50}},
-              lineColor={255,128,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{100,0},{50,0}}, color={255,128,0}),
-            Line(points={{-50,0},{-100,0}}, color={255,128,0}),
-            Line(points={{-50,0},{50,0}}, color={255,128,0}),
-            Text(
-              extent={{0,-120},{0,-80}},
-              textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<html>
+                -100},{100,100}}), graphics={Text(
+                  extent={{-80,-20},{-80,-40}},
+                  lineColor={255,128,0},
+                  textString="+"),Text(
+                  extent={{80,-20},{80,-40}},
+                  lineColor={255,128,0},
+                  textString="-"),Ellipse(
+                  extent={{-50,-50},{50,50}},
+                  lineColor={255,128,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{100,0},{50,0}},
+              color={255,128,0}),Line(points={{-50,0},{-100,0}}, color={255,128,
+              0}),Line(points={{-50,0},{50,0}}, color={255,128,0}),Text(
+                  extent={{0,-120},{0,-80}},
+                  textString="%name",
+                  lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Source of constant magneto motive force.
 </p>
@@ -7098,15 +7061,15 @@ considers the flux balance of the two ports. Additionally the magnetic potential
     partial model PartialTwoPortExtended
       "Two magnetic ports for graphical modeling with additonal variables"
       extends Interfaces.PartialTwoPort;
-      Modelica.SIunits.ComplexMagneticPotentialDifference V_m = port_p.V_m - port_n.V_m
-        "Complex magnetic potential difference";
+      Modelica.SIunits.ComplexMagneticPotentialDifference V_m=port_p.V_m -
+          port_n.V_m "Complex magnetic potential difference";
       Modelica.SIunits.MagneticPotentialDifference abs_V_m=
           Modelica.ComplexMath.'abs'(V_m)
         "Magnitude of complex magnetic potential difference";
       Modelica.SIunits.Angle arg_V_m=Modelica.ComplexMath.arg(V_m)
         "Argument of complex magnetic potential difference";
 
-      Modelica.SIunits.ComplexMagneticFlux Phi = port_p.Phi
+      Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi
         "Complex magnetic flux";
       Modelica.SIunits.MagneticFlux abs_Phi=Modelica.ComplexMath.'abs'(Phi)
         "Magnitude of complex magnetic flux";
@@ -7117,8 +7080,8 @@ considers the flux balance of the two ports. Additionally the magnetic potential
 <p>This magnetic two port element consists of a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">positive</a> and a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">negative magnetic port</a> and some additionally variables, but no physical balance equations. </p>
 <h4>See also</h4>
 <p><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a> </p>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics));
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end PartialTwoPortExtended;
 
     partial model PartialTwoPortElementary
@@ -7180,8 +7143,8 @@ This model is mainly used to extend from in order build more complex - equation 
       parameter Modelica.SIunits.Frequency fsNominal(start=50)
         "Nominal frequency";
       parameter Modelica.SIunits.Temperature TsOperational(start=293.15)
-        "Operational temperature of stator resistance" annotation (Dialog(group=
-             "Operational temperatures", enable=not useThermalPort));
+        "Operational temperature of stator resistance" annotation (Dialog(group
+            ="Operational temperatures", enable=not useThermalPort));
       parameter Modelica.SIunits.Resistance Rs(start=0.03)
         "Stator resistance per phase at TRef"
         annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -7233,6 +7196,7 @@ This model is mainly used to extend from in order build more complex - equation 
             vs, is),
         final powerMechanical=wMechanical*tauShaft,
         final powerInertiaStator=inertiaStator.J*inertiaStator.a*inertiaStator.w,
+
         final powerInertiaRotor=inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
         final lossPowerStatorWinding=sum(stator.resistor.resistor.LossPower),
         final lossPowerStatorCore=stator.core.lossPower,
@@ -7528,9 +7492,9 @@ i.e., with small derivatives.
     end StateSelector;
 
     model PositivePortInterface "Postive port interface to FluxTubes"
-      import Interfaces;
 
-      Interfaces.PositiveMagneticPort port "FundamentalWave port"
+      Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort port
+        "FundamentalWave port"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_re
         "Flux tubes port, real part"
@@ -7544,13 +7508,16 @@ i.e., with small derivatives.
       port.Phi.re + port_re.Phi = 0;
       port.Phi.im + port_im.Phi = 0;
 
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics), Icon(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-              Line(
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(
               points={{-100,0},{0,0},{100,100}},
               color={255,128,0},
-              smooth=Smooth.None), Line(
+              smooth=Smooth.None),
+            Line(
               points={{0,0},{100,-100}},
               color={255,128,0},
               smooth=Smooth.None),
@@ -7570,7 +7537,8 @@ i.e., with small derivatives.
     model NegativePortInterface "Negative port interface to FluxTubes"
       import Interfaces;
 
-      Interfaces.NegativeMagneticPort port "FundamentalWave port"
+      Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort port
+        "FundamentalWave port"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_re
         "Flux tubes port, real part"
@@ -7584,13 +7552,16 @@ i.e., with small derivatives.
       port.Phi.re + port_re.Phi = 0;
       port.Phi.im + port_im.Phi = 0;
 
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics), Icon(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-              Line(
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(
               points={{-100,0},{0,0},{100,100}},
               color={255,128,0},
-              smooth=Smooth.None), Line(
+              smooth=Smooth.None),
+            Line(
               points={{0,0},{100,-100}},
               color={255,128,0},
               smooth=Smooth.None),
