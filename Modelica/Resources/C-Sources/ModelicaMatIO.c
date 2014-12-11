@@ -76,59 +76,13 @@
 /* Have asprintf */
 #undef HAVE_ASPRINTF
 
-/* Have MAT int16 */
-#define HAVE_MAT_INT16_T 1
-
-/* Have MAT int32 */
-#define HAVE_MAT_INT32_T 1
-
-/* Have MAT int64 */
+/* Have long long / long double on Win32 */
 #if defined (_WIN32)
-#if defined(_MSC_VER)
-#define HAVE_MAT_INT64_T 1
-#if _MSC_VER >= 1300
+#if defined(__WATCOMC__) || (defined(_MSC_VER) && _MSC_VER >= 1300)
 #define HAVE_LONG_LONG 1
 #define HAVE_LONG_DOUBLE 1
 #endif
-#elif defined(__WATCOMC__)
-#define HAVE_MAT_INT64_T 1
-#define HAVE_LONG_LONG 1
-#define HAVE_LONG_DOUBLE 1
-#elif defined(__BORLANDC__)
-#undef HAVE_MAT_INT64_T
-#else
-#undef HAVE_MAT_INT64_T
 #endif
-#else
-#define HAVE_MAT_INT64_T 1
-#endif
-
-/* Have MAT int8 */
-#define HAVE_MAT_INT8_T 1
-
-/* Have MAT uint16 */
-#define HAVE_MAT_UINT16_T 1
-
-/* Have MAT uint32 */
-#define HAVE_MAT_UINT32_T 1
-
-/* Have MAT uint64 */
-#if defined (_WIN32)
-#if defined(_MSC_VER)
-#define HAVE_MAT_UINT64_T 1
-#elif defined(__WATCOMC__)
-#define HAVE_MAT_UINT64_T 1
-#elif defined(__BORLANDC__)
-#undef HAVE_MAT_UINT64_T
-#else
-#undef HAVE_MAT_UINT64_T
-#endif
-#else
-#define HAVE_MAT_UINT64_T 1
-#endif
-
-/* Have MAT uint8 */
-#define HAVE_MAT_UINT8_T 1
 
 /* Have snprintf */
 #if defined(_MSC_VER) && _MSC_VER >= 1400
