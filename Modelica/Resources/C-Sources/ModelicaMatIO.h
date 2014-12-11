@@ -89,9 +89,9 @@ typedef uint8_t mat_uint8_t;
 #define mat_int32_t int
 #ifdef HAVE_MAT_INT64_T
 #if defined(_MSC_VER) && _MSC_VER < 1300
-#define _mat_int64_t __int64
+#define mat_int64_t __int64
 #else
-#define _mat_int64_t long long
+#define mat_int64_t long long
 #endif
 #endif
 #define mat_int8_t signed char
@@ -99,9 +99,9 @@ typedef uint8_t mat_uint8_t;
 #define mat_uint32_t unsigned
 #ifdef HAVE_MAT_UINT64_T
 #if defined(_MSC_VER) && _MSC_VER < 1300
-#define _mat_uint64_t unsigned __int64
+#define mat_uint64_t unsigned __int64
 #else
-#define _mat_uint64_t unsigned long long
+#define mat_uint64_t unsigned long long
 #endif
 #endif
 #define mat_uint8_t unsigned char
