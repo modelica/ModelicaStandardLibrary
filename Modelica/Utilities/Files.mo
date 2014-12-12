@@ -698,7 +698,7 @@ fileReference = FileSystem.<b>loadResource</b>(uri);
 <p>
 The function call \"<code>FileSystem.<b>loadResource</b>(uri)</code>\" returns the
 <b>absolute path name</b> of the file that is either defined by an URI or by a local
-(e.g. relative) path name. With the returned file name it is possible to
+path name. With the returned file name it is possible to
 access the file with function calls of the C standard library.
 If the data or file is stored in a data-base,
 this might require copying the resource to a temporary folder and referencing that.
@@ -707,7 +707,7 @@ this might require copying the resource to a temporary folder and referencing th
 <p>
 The implementation of this function is tool specific. However, at least Modelica URIs
 (see \"chapter 13.2.3 External Resources\" of the Modelica Specification),
-as well as absolute and relative local file path names are supported.
+as well as absolute local file path names are supported.
 </p>
 
 <h4>Example</h4>
