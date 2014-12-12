@@ -16,7 +16,8 @@ package Constants
     "see http://en.wikipedia.org/wiki/Euler_constant";
 
   // Machine dependent constants
-  final constant Real eps=ModelicaServices.Machine.eps "Biggest number such that 1.0 + eps = 1.0";
+  final constant Real eps=ModelicaServices.Machine.eps
+    "Biggest number such that 1.0 + eps = 1.0";
   final constant Real small=ModelicaServices.Machine.small
     "Smallest number such that small and -small are representable on the machine";
   final constant Real inf=ModelicaServices.Machine.inf
@@ -25,20 +26,24 @@ package Constants
     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
 
   // Constants of nature
-  // (name, value, description from http://physics.nist.gov/cuu/Constants/)
+  // (name, value, description from http://physics.nist.gov/cuu/Constants/, data from 2010)
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
   final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
-  final constant Real G(final unit="m3/(kg.s2)") = 6.6742e-11
-    "Newtonian constant of gravitation";
-  final constant SI.FaradayConstant F = 9.64853399e4 "Faraday constant, C/mol";
-  final constant Real h(final unit="J.s") = 6.6260693e-34 "Planck constant";
-  final constant Real k(final unit="J/K") = 1.3806505e-23 "Boltzmann constant";
-  final constant Real R(final unit="J/(mol.K)") = 8.314472 "Molar gas constant";
-  final constant Real sigma(final unit="W/(m2.K4)") = 5.670400e-8
-    "Stefan-Boltzmann constant";
-  final constant Real N_A(final unit="1/mol") = 6.0221415e23
-    "Avogadro constant";
+  final constant Real G(final unit="m3/(kg.s2)") = 6.67384e-11
+    "Newtonian constant of gravitation (previous value: 6.6742e-11)";
+  final constant SI.FaradayConstant F = 9.64853365e4
+    "Faraday constant, C/mol (previous value: 9.64853399e4)";
+  final constant Real h(final unit="J.s") = 6.62606957e-34
+    "Planck constant (previous value: 6.6260693e-34)";
+  final constant Real k(final unit="J/K") = 1.3806488e-23
+    "Boltzmann constant (previous value: 1.3806505e-23)";
+  final constant Real R(final unit="J/(mol.K)") = 8.3144621
+    "Molar gas constant (previous value: 8.314472)";
+  final constant Real sigma(final unit="W/(m2.K4)") = 5.670373e-8
+    "Stefan-Boltzmann constant (previous value: 5.670400e-8)";
+  final constant Real N_A(final unit="1/mol") = 6.02214129e23
+    "Avogadro constant (previous value: 6.0221415e23)";
   final constant Real mue_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
   final constant Real epsilon_0(final unit="F/m") = 1/(mue_0*c*c)
     "Electric constant";
@@ -53,10 +58,10 @@ dependent constants and constants from nature. The latter constants
 </p>
 
 <dl>
-<dt>Peter J. Mohr and Barry N. Taylor (1999):</dt>
-<dd><b>CODATA Recommended Values of the Fundamental Physical Constants: 1998</b>.
-    Journal of Physical and Chemical Reference Data, Vol. 28, No. 6, 1999 and
-    Reviews of Modern Physics, Vol. 72, No. 2, 2000. See also <a href=
+<dt>Peter J. Mohr, Barry N. Taylor, and David B. Newell (2012):</dt>
+<dd><b>CODATA Recommended Values of the Fundamental Physical Constants: 2010</b>.
+Journal of Physical and Chemical Reference Data, Vol. 41, No. 4, 2012 and
+Reviews of Modern Physics, Vol. 84, No. 4, 2012. See also <a href=
 \"http://physics.nist.gov/cuu/Constants/\">http://physics.nist.gov/cuu/Constants/</a></dd>
 </dl>
 
@@ -73,7 +78,7 @@ dependent constants and constants from nature. The latter constants
 </dl>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association and DLR.
+Copyright &copy; 1998-2014, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
