@@ -383,7 +383,7 @@ is usually inlined and symbolic processing is applied.
   end normalize;
 
 function normalizeWithAssert
-  "Return normalized vector such that length = 1 (trigger an assert for zero vector)"
+    "Return normalized vector such that length = 1 (trigger an assert for zero vector)"
   import Modelica.Math.Vectors.length;
   extends Modelica.Icons.Function;
   input Real v[:] "Vector";
@@ -2100,7 +2100,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
     "Return singular values and left and right singular vectors"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix";
-    output Real sigma[min(size(A, 1), size(A, 2))] "Singular values";
+    output Real sigma[min(size(A, 1), size(A, 2))]=0.0 "Singular values";
     output Real U[size(A, 1), size(A, 1)]=identity(size(A, 1))
       "Left orthogonal matrix";
     output Real VT[size(A, 2), size(A, 2)]=identity(size(A, 2))
@@ -2140,7 +2140,8 @@ in decreasing order and with all other elements zero
 (<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
 returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
-matrices <code>U</code> and <code>V</code>.
+matrices <code>U</code> and <code>V</code>. If at least one dimension of A is zero,
+the function returns sigma=0 and appropriate zero-dimensioned matrices for U and VT.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -7165,16 +7166,16 @@ For details of the arguments, see documentation of dgbsv.
         "imaginary part of the eigenvectors of A";
       output Integer info;
 
-protected
-  constant Integer dummyFunctionPointerNotUsed[1] = {0};
-  Integer n=size(A, 1) "Row dimension of A";
-  Integer lda=max(1, n);
-  Integer sdim=0;
-  Integer lwork=max(1, 10*size(A, 1));
-  Real work[lwork];
-  Boolean bwork[size(A, 1)];
+    protected
+      constant Integer dummyFunctionPointerNotUsed[1]={0};
+      Integer n=size(A, 1) "Row dimension of A";
+      Integer lda=max(1, n);
+      Integer sdim=0;
+      Integer lwork=max(1, 10*size(A, 1));
+      Real work[lwork];
+      Boolean bwork[size(A, 1)];
 
-external"FORTRAN 77" dgees(
+    external"FORTRAN 77" dgees(
     "V",
     "N",
     dummyFunctionPointerNotUsed,
