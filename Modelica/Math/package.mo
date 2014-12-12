@@ -2099,7 +2099,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
     "Return singular values and left and right singular vectors"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix";
-    output Real sigma[min(size(A, 1), size(A, 2))] "Singular values";
+    output Real sigma[min(size(A, 1), size(A, 2))]=0 "Singular values";
     output Real U[size(A, 1), size(A, 1)]=identity(size(A, 1))
       "Left orthogonal matrix";
     output Real VT[size(A, 2), size(A, 2)]=identity(size(A, 2))
@@ -2139,7 +2139,8 @@ in decreasing order and with all other elements zero
 (<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
 returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
-matrices <code>U</code> and <code>V</code>.
+matrices <code>U</code> and <code>V</code>. If at least one dimension of A is zero,
+the function returns sigma=0 and appropriate zero-dimensioned matrices for U and VT.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
