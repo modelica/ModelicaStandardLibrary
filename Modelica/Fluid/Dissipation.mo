@@ -3020,7 +3020,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         Real A1=if delta <= 70 then 0.9*sin(delta*PI/180) else if delta >= 100 then
             0.7 + 0.35*delta/90 else 1.0
           "Coefficient considering effect for angle of turning on zeta_LOC";
-        Real A2=if frac_RD > 2.0 then 6e2 else if frac_RD <= 2.0 and frac_RD >= 0.7 then
+        Real A2=if frac_RD > 2.0 then 6e2 else if frac_RD <= 2.0 and frac_RD > 0.55 then
                   (if frac_RD > 1.0 then 1e3 else if frac_RD <= 1.0 and frac_RD > 0.7 then
                   3e3 else 6e3) else 4e3
           "Coefficient considering laminar regime on zeta_LOC";
@@ -3099,6 +3099,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. </p>
 
 <p>Generally this function is numerically best used for the <b>incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\">dp_curvedOverall_MFLOW</a> is numerically best used for the <b>compressible case </b>if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a>.</p>
+</html>", revisions="<html>
+2014-12-12 Stefan Wischhusen: Factor A2 corrected for R/D > 0.55-0.7. The factor is now 6e3 instead of 4e3.<br>
 </html>"));
       end dp_curvedOverall_DP;
 
@@ -3158,7 +3160,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         Real A1=if delta <= 70 then 0.9*sin(delta/180*PI) else if delta >= 100 then
             0.7 + 0.35*delta/90 else 1.0
           "Coefficient considering effect for angle of turning on zeta_LOC";
-        Real A2=if frac_RD > 2.0 then 6e2 else if frac_RD <= 2.0 and frac_RD >= 0.7 then
+        Real A2=if frac_RD > 2.0 then 6e2 else if frac_RD <= 2.0 and frac_RD > 0.55 then
                   (if frac_RD > 1.0 then 1e3 else if frac_RD <= 1.0 and frac_RD > 0.7 then
                   3e3 else 6e3) else 4e3
           "Coefficient considering laminar regime on zeta_LOC";
@@ -3274,7 +3276,8 @@ Calculation of pressure loss in curved bends at overall flow regime for incompre
 Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP\">dp_curvedOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a> .</p>
 </html>",       revisions="<html>
-2014-12-01 Stefan Wischhusen: Introduced an expansion in variables v_lam and v_tra for numerical improvement at close to zero flows.
+2014-12-01 Stefan Wischhusen: Introduced an expansion in variables v_lam and v_tra for numerical improvement at close to zero flows.<br>
+2014-12-12 Stefan Wischhusen: Factor A2 corrected for R/D > 0.55-0.7. The factor is now 6e3 instead of 4e3.<br>
 </html>"));
       end dp_curvedOverall_MFLOW;
 
