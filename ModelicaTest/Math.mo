@@ -39,7 +39,8 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
     import Modelica.Math.BooleanVectors;
-    input String logFile="ModelicaTestLog.txt" "Filename where the log is stored";
+    input String logFile="ModelicaTestLog.txt"
+      "Filename where the log is stored";
     output Boolean ok;
   protected
     Boolean b1[:]={true,true,true};
@@ -207,8 +208,8 @@ extends Modelica.Icons.ExamplesPackage;
   function Matrices2 "Test functions of Modelica.Math.Matrices"
     extends Modelica.Icons.Function;
     import Modelica.Math.Matrices;
-  //   input String logFile = "ModelicaTestLog.txt"
-  //     "Filename where the log is stored";
+       input String logFile = "ModelicaTestLog.txt"
+      "Filename where the log is stored";
     output Boolean ok=false;
   protected
     Real r;
@@ -281,6 +282,16 @@ extends Modelica.Icons.ExamplesPackage;
     Real N[:,:]= fill(0,0,0);
     Real Xn[0,0];
 
+    Real A7[:,:] = [1, 2,  3,  4;
+                    3, 4,  5, -2;
+                   -1, 2, -3,  5];
+    Real sigma7[size(A7,1)];
+    Real U7[size(A7, 1), size(A7, 1)];
+    Real VT7[size(A7, 2), size(A7, 2)];
+    Real A8[0,0];
+    Real sigma8[0];
+    Real U8[0,0];
+    Real VT8[0,0];
   algorithm
   //  ##########   continuous Lyapunov   ##########
     X1 := Matrices.continuousLyapunov(A1,C1);// benchmark example from SLICOT
@@ -445,6 +456,14 @@ extends Modelica.Icons.ExamplesPackage;
 
     Xn := Modelica.Math.Matrices.hessenberg(N);
     Xn := Modelica.Math.Matrices.realSchur(N);
+
+  //  ##########   Singular values   ##########
+    (sigma7, U7, VT7) := Matrices.singularValues(A7);
+    r := Matrices.norm(A7 - U7*[diagonal(sigma7), zeros(3,1)]*VT7);
+    Modelica.Utilities.Streams.print("SingularValues, r = "+String(r));
+    assert(abs(r)<eps, "\"singular values\"");
+    (sigma8, U8, VT8) := Matrices.singularValues(A8);
+    Modelica.Utilities.Streams.print("SingularValues with zero dimensions");
 
   //  ##########   Utilities tests without result verification   ##########
     u[2:5] := Modelica.Math.Vectors.Utilities.householderVector(A1[2:5,1],{1,0,0,0});
