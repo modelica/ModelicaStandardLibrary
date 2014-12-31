@@ -846,6 +846,29 @@ package Blocks "Test models for Modelica.Blocks"
     annotation (experiment(StopTime=3));
   end IntegerTable;
 
+  model BooleanTable
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.BooleanTable booleanTable1(table={1,1.5,2})
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    Modelica.Blocks.Sources.BooleanTable booleanTable2a(table={0,1,2})
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.BooleanTable booleanTable2b(table={-1,0,1,2})
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+    Modelica.Blocks.Sources.BooleanTable booleanTable3a(table={1})
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+    Modelica.Blocks.Sources.BooleanTable booleanTable3b(table={0})
+      annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+    Modelica.Blocks.Sources.BooleanTable booleanTable3c(table={-1})
+      annotation (Placement(transformation(extent={{0,-20},{20,0}})));
+    Modelica.Blocks.Sources.BooleanTable booleanTable4a(table=fill(0.0, 0))
+      annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
+    Modelica.Blocks.Sources.BooleanTable booleanTable4b(table=fill(0.0, 0),
+        startValue=true)
+      annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
+    annotation (experiment(StopTime=3), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
+  end BooleanTable;
+
   model RootMeanSquare
     extends Modelica.Icons.Example;
     Modelica.Blocks.Math.Mean mean1(f=expSine.freqHz)

@@ -914,7 +914,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
     parameter SIunits.Time riseTime(min=0,start=0.5) "Rise time";
     parameter SIunits.Time riseTimeConst(min=Modelica.Constants.small) = 0.1
       "Rise time constant; rising is defined as outMax*(1-exp(-riseTime/riseTimeConst))";
-    parameter SIunits.Time fallTimeConst(min=Modelica.Constants.small) =
+    parameter SIunits.Time fallTimeConst(min=Modelica.Constants.small)=
       riseTimeConst "Fall time constant";
     parameter Real offset=0 "Offset of output signal";
     parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
@@ -2295,21 +2295,25 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     function readTableData "Read table data from ASCII text or MATLAB MAT-file"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Boolean forceRead = false "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
       output Real readSuccess "Table read success";
-      input Boolean verboseRead "= true: Print info message; = false: No info message";
+      input Boolean verboseRead
+        "= true: Print info message; = false: No info message";
       external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables"});
     end readTableData;
 
-    function getTableValue "Interpolate 1-dim. table where first column is time"
+    function getTableValue
+      "Interpolate 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Integer icol;
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
         annotation (Library={"ModelicaStandardTables"});
@@ -2327,7 +2331,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
         annotation (Library={"ModelicaStandardTables"});
@@ -2341,7 +2346,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       input Real der_timeIn;
       output Real der_y;
       external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
@@ -2352,7 +2358,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Return minimum time value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time timeMin "Minimum time value in table";
       external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(tableID)
         annotation (Library={"ModelicaStandardTables"});
@@ -2362,7 +2369,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Return maximum time value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time timeMax "Maximum time value in table";
       external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
         annotation (Library={"ModelicaStandardTables"});
@@ -2373,7 +2381,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Modelica.SIunits.Time timeIn;
-      input Real tableAvailable "Dummy input to ensure correct sorting of function calls";
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time nextTimeEvent "Next time event in table";
       external"C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
         annotation (Library={"ModelicaStandardTables"});
@@ -2967,18 +2976,17 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
       extends Modelica.Icons.Function;
       input Real table[:] "Vector of time instants";
       input Modelica.SIunits.Time simulationStartTime "Simulation start time";
-      input Boolean startValue "Value of y for y < table[1]";
+      input Boolean startValue "Value of y for time < table[1]";
       output Integer index "First index to be used";
       output Modelica.SIunits.Time nextTime "Time instant of first event";
       output Boolean y "Value of y at simulationStartTime";
     protected
-      Modelica.SIunits.Time t_last;
       Integer j;
       Integer n=size(table, 1) "Number of table points";
     algorithm
       if size(table, 1) == 0 then
         index := 0;
-        nextTime := -Modelica.Constants.inf;
+        nextTime := Modelica.Constants.inf;
         y := startValue;
       elseif size(table, 1) == 1 then
         index := 1;
@@ -2986,34 +2994,28 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
           nextTime := table[1];
           y := startValue;
         else
-          nextTime := simulationStartTime;
-          y := startValue;
+          nextTime := Modelica.Constants.inf;
+          y := not startValue;
         end if;
       else
-
         // Check whether time values are strict monotonically increasing
-        t_last := table[1];
         for i in 2:n loop
-          assert(table[i] > t_last,
+          assert(table[i] > table[i-1],
             "Time values of table not strict monotonically increasing: table["
-             + String(i - 1) + "] = " + String(table[i - 1]) + "table[" +
+             + String(i - 1) + "] = " + String(table[i - 1]) + ", table[" +
             String(i) + "] = " + String(table[i]));
         end for;
 
         // Determine first index in table
         j := 1;
         y := startValue;
-        while j < n and table[j] <= simulationStartTime loop
+        while j <= n and table[j] <= simulationStartTime loop
           y := not y;
           j := j + 1;
         end while;
 
-        if j == 1 then
-          nextTime := table[1];
-          y := startValue;
-        elseif j == n and table[n] <= simulationStartTime then
-          nextTime := simulationStartTime - 1;
-          y := not y;
+        if j > n then
+          nextTime := Modelica.Constants.inf;
         else
           nextTime := table[j];
         end if;
@@ -3026,10 +3028,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
     Modelica.SIunits.Time nextTime;
     Integer index "Index of actual table entry";
   initial algorithm
-    (index,nextTime,y) := getFirstIndex(
-        table,
-        time,
-        startValue);
+    (index,nextTime,y) := getFirstIndex(table,time,startValue);
   algorithm
     when time >= pre(nextTime) and n > 0 then
       if index < n then
@@ -3071,6 +3070,27 @@ changes its value to the negated value of the previous one.
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanTable.png\"
      alt=\"BooleanTable.png\">
+</p>
+
+<p>
+The precise semantics is:
+</p>
+
+<pre>
+  <b>if</b> size(table,1) == 0 <b>then</b>
+     y = startValue;
+  <b>else</b>
+     //            time &lt; table[1]: y = startValue
+     // table[1] &le; time &lt; table[2]: y = not startValue
+     // table[2] &le; time &lt; table[3]: y = startValue
+     // table[3] &le; time &lt; table[4]: y = not startValue
+     // ...
+  <b>end if</b>;
+</pre>
+<p>
+Note, the result of this block depends only on time, but not on the simulation start time
+(changing the simulation start time, will result exactly in the same output y at the same
+time instant ti);
 </p>
 </html>"));
   end BooleanTable;
