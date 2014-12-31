@@ -2099,7 +2099,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
     "Return singular values and left and right singular vectors"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix";
-    output Real sigma[min(size(A, 1), size(A, 2))]=0 "Singular values";
+    output Real sigma[min(size(A, 1), size(A, 2))] "Singular values";
     output Real U[size(A, 1), size(A, 1)]=identity(size(A, 1))
       "Left orthogonal matrix";
     output Real VT[size(A, 2), size(A, 2)]=identity(size(A, 2))
@@ -2133,14 +2133,14 @@ value decomposition of A is computed, i.e.,
 <p>
 where <b>U</b> and <b>V</b> are orthogonal matrices (<b>UU</b><sup>T</sup>=<b>I,
 </b><b>VV</b><sup>T</sup>=<b>I</b>). <b><font face=\"Symbol\">S
-</font></b> = diag(<font face=\"Symbol\">s</font><sub>i</sub>)
-has the same size as matrix A with nonnegative diagonal elements
-in decreasing order and with all other elements zero
+</font></b> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le; 
+m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt; 
+m=size(A,2)). <b><font face=\"Symbol\">S</font></b> has the same size as matrix A with
+nonnegative diagonal elements in decreasing order and with all other elements zero
 (<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
 returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
-matrices <code>U</code> and <code>V</code>. If at least one dimension of A is zero,
-the function returns sigma=0 and appropriate zero-dimensioned matrices for U and VT.
+matrices <code>U</code> and <code>VT</code>. 
 </p>
 <h4>Example</h4>
 <blockquote><pre>
