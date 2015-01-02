@@ -3163,8 +3163,7 @@ in the User's Guide of the Rotational library.
         else if pre(mode) == Forward then
           Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], w, 1)
         else
-          -Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], -w, 1)
-      );
+          -Modelica.Math.Vectors.interpolate(tau_pos[:,1], tau_pos[:,2], -w, 1));
       lossPower = tau*w_relfric;
       annotation (Documentation(info="<html>
 <p>
@@ -3358,8 +3357,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         else if pre(mode) == Forward then
           Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w, 1)
         else
-          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w, 1)
-      );
+          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w, 1));
       lossPower = tau*w_relfric;
       annotation (Icon(
             coordinateSystem(preserveAspectRatio=true,
@@ -3553,8 +3551,7 @@ in the User's Guide of the Rotational library.
         else if pre(mode) == Forward then
           Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], w_rel, 1)
         else
-          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w_rel, 1)
-      );
+          -Modelica.Math.Vectors.interpolate(mue_pos[:,1], mue_pos[:,2], -w_rel, 1));
       lossPower = tau*w_relfric;
       annotation (Icon(
           coordinateSystem(preserveAspectRatio=true,
@@ -3906,30 +3903,33 @@ connected to other elements in an appropriate way.
       SI.AngularAcceleration a_a
         "Angular acceleration of flange_a with respect to support";
 
-      Real interpolation_result[1, 4];
-      Real eta_mf1;
-      Real eta_mf2;
-      Real tau_bf_a "Bearing friction torque on flange_a side";
-      Real tau_eta
+      Real interpolation_result[1, 4]
+        "Result of interpolation in lossTable (= [eta_mf1, eta_mf2, tau_bf1, tau_bf2])";
+      Real eta_mf1(unit="1") "Mesh efficiency in case that flange_a is driving";
+      Real eta_mf2(unit="1") "Mesh efficiency in case that flange_b is driving";
+      SI.Torque tau_bf_a "Bearing friction torque on flange_a side";
+      SI.Torque tau_eta
         "Torque that determines the driving side (= if forwardSliding then flange_a.tau-tau_bf_a else if backwardSliding then flange_a.tau+tau_bf_a else flange_a.tau)";
 
-      Real tau_bf1;
-      Real tau_bf2;
+      SI.Torque tau_bf1
+        "Absolute resultant bearing friction torque with respect to flange_a in case that flange_a is driving (= |tau_bf_a*eta_mf1 + tau_bf_b/i|)";
+      SI.Torque tau_bf2
+        "Absolute resultant bearing friction torque with respect to flange_a in case that flange_b is driving (= |tau_bf_a/eta_mf2 + tau_bf_b/i|)";
 
-      Real quadrant1;
-      Real quadrant2;
-      Real quadrant3;
-      Real quadrant4;
+      SI.Torque quadrant1 "Torque loss if w_a > 0 and flange_a.tau >= 0";
+      SI.Torque quadrant2 "Torque loss if w_a > 0 and flange_a.tau < 0";
+      SI.Torque quadrant3 "Torque loss if w_a < 0 and flange_a.tau >= 0";
+      SI.Torque quadrant4 "Torque loss if w_a < 0 and flange_a.tau < 0";
 
-      // quadrant values for angular velocities near zero
-      Real quadrant1_p;
-      // w=0+
-      Real quadrant2_p;
-      // w=0+
-      Real quadrant3_m;
-      // w=0-
-      Real quadrant4_m;
-      // w=0-
+      // Resultant friction torques at quadrant values for angular velocities near zero
+      SI.Torque quadrant1_p
+        "Torque loss at w_a = 0+ to determine driving side (flange_a.tau >= 0)";
+      SI.Torque quadrant2_p
+        "Torque loss at w_a = 0+ to determine driving side (flange_a.tau < 0)";
+      SI.Torque quadrant3_m
+        "Torque loss at w_a = 0- to determine driving side (flange_a.tau >=0)";
+      SI.Torque quadrant4_m
+        "Torque loss at w_a = 0- to determine driving side (flange_a.tau < 0)";
 
       SI.Torque tauLoss
         "Torque loss due to friction in the gear teeth and in the bearings";
@@ -3946,7 +3946,8 @@ connected to other elements in an appropriate way.
       Boolean startBackward(start=false) "true, if starting to roll backward";
       Boolean locked(start=false) "true, if gear is locked";
 
-      Boolean ideal "true, if losses are neglected";
+      Boolean ideal
+        "= true, if losses are neglected (that is lossTable = [0, 1, 1, 0, 0])";
 
       constant Integer Unknown=3 "Value of mode is not known";
       constant Integer Free=2 "Element is not active";
@@ -3958,7 +3959,8 @@ connected to other elements in an appropriate way.
         final min=Backward,
         final max=Unknown,
         start=Free,
-        fixed=true);
+        fixed=true)
+        "Mode of friction element (unknown, not active, forward/backward rolling, stuck)";
 
       SI.Torque tau_eta_p "tau_eta assuming positive omega";
       SI.Torque tau_eta_m "tau_eta assuming negative omega";
@@ -3967,11 +3969,11 @@ connected to other elements in an appropriate way.
       constant SI.Torque unitTorque=1;
 
       // get friction and eta information for omega=0
-      parameter Real eta_mf1_0=Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,2], 0, 1);
-      parameter Real eta_mf2_0=Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,3], 0, 1);
-      parameter Real tau_bf1_0=abs(Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,4], 0, 1));
-      parameter Real tau_bf2_0=abs(Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,5], 0, 1));
-      parameter Real tau_bf_a_0=if Modelica.Math.isEqual(
+      parameter Real eta_mf1_0(unit="1")=Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,2], 0, 1);
+      parameter Real eta_mf2_0(unit="1")=Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,3], 0, 1);
+      parameter SI.Torque tau_bf1_0=abs(Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,4], 0, 1));
+      parameter SI.Torque tau_bf2_0=abs(Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,5], 0, 1));
+      parameter SI.Torque tau_bf_a_0=if Modelica.Math.isEqual(
               eta_mf1_0,
               1.0,
               Modelica.Constants.eps) and Modelica.Math.isEqual(
@@ -4005,8 +4007,7 @@ connected to other elements in an appropriate way.
           Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,2], noEvent(abs(w_a)), 1),
           Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,3], noEvent(abs(w_a)), 1),
           Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,4], noEvent(abs(w_a)), 1),
-          Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,5], noEvent(abs(w_a)), 1)
-        ];
+          Modelica.Math.Vectors.interpolate(lossTable[:,1], lossTable[:,5], noEvent(abs(w_a)), 1)];
         eta_mf1 = interpolation_result[1, 1];
         eta_mf2 = interpolation_result[1, 2];
         tau_bf1 = noEvent(abs(interpolation_result[1, 3]));
