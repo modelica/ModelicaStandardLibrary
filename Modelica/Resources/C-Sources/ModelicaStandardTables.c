@@ -1186,7 +1186,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
                 t -= tableID->startTime;
                 if (tableID->extrapolation == PERIODIC) {
- 					/* Initialization of offset time */
+                    /* Initialization of offset time */
                     tableID->tOffset = floor((t - tMin)/T)*T;
                     t -= tableID->tOffset;
                     if (t < tMin) {
