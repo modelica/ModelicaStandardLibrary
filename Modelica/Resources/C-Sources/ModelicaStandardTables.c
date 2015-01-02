@@ -21,6 +21,10 @@
 
 
    Release Notes:
+      Jan. 02, 2015: by Thomas Beutlich, ITI GmbH.
+                     Fixed event detection of CombiTimeTable with non-zero start time
+                     (ticket #1619)
+
       Aug. 22, 2014: by Thomas Beutlich, ITI GmbH.
                      Fixed multi-threaded access of common/shared table arrays
                      (ticket #1556)
@@ -35,7 +39,7 @@
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
                      Implemented a first version
 
-   Copyright (C) 2013-2014, Modelica Association, DLR and ITI GmbH
+   Copyright (C) 2013-2015, Modelica Association, DLR and ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -153,14 +157,13 @@ typedef struct CombiTimeTable {
     double preNextTimeEvent; /* Time of previous time event, discrete */
     double preNextTimeEventCalled; /* Time of previous call of
         ModelicaStandardTables_CombiTimeTable_nextTimeEvent, discrete */
-    size_t nEventsPerPeriod; /* Number of time events per period/cycle, only
-        used if extrapolation is PERIODIC */
-    size_t eventInterval; /* Event interval marker, discrete, only used if
-        extrapolation is PERIODIC */
+    size_t maxEvents; /* Maximuum number of time events (per period/cycle) */
+    size_t eventInterval; /* Event interval marker, discrete,
+        In case of periodic extrapolation this is the current event interval, 
+		otherwise it is the next event interval. */
     double tOffset; /* Time offset, calculated by floor function, discrete,
         only used if extrapolation is PERIODIC */
-    Interval* intervals; /* Event interval indices, only used if extrapolation
-        is PERIODIC */
+    Interval* intervals; /* Event interval indices */
 } CombiTimeTable;
 
 typedef struct CombiTable1D {
@@ -1078,14 +1081,14 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             }
         }
 
-        if (tableID->extrapolation == PERIODIC && tableID->nEvent == 0) {
-            /* Determine number of time events per period */
+        if (tableID->nEvent == 0) {
+            /* Determine maximum number of time events (per period) */
             double tEvent = TABLE_ROW0(0);
             const double tMax = TABLE_COL0(nRow - 1);
             size_t i, eventInterval;
 
             /* There is at least one time event at the interval boundaries */
-            tableID->nEventsPerPeriod = 1;
+		    tableID->maxEvents = 1;
             for (i = 0; i < nRow - 1; i++) {
                 double t0 = TABLE_COL0(i);
                 double t1 = TABLE_COL0(i + 1);
@@ -1093,17 +1096,17 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     if (tableID->smoothness == CONSTANT_SEGMENTS) {
                         if (!isNearlyEqual(t0, t1)) {
                             tEvent = t1;
-                            tableID->nEventsPerPeriod++;
+                            tableID->maxEvents++;
                         }
                     }
                     else if (isNearlyEqual(t0, t1)) {
                         tEvent = t1;
-                        tableID->nEventsPerPeriod++;
+                        tableID->maxEvents++;
                     }
                 }
             }
             /* Once again with storage of indices of event intervals */
-            tableID->intervals = calloc(tableID->nEventsPerPeriod,
+            tableID->intervals = calloc(tableID->maxEvents,
                 sizeof(Interval));
             if (!tableID->intervals) {
                 ModelicaError("Memory allocation error\n");
@@ -1114,7 +1117,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             eventInterval = 0;
             if (tableID->smoothness == CONSTANT_SEGMENTS) {
                 for (i = 0; i < nRow - 1 &&
-                    eventInterval < tableID->nEventsPerPeriod; i++) {
+                    eventInterval < tableID->maxEvents; i++) {
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t1 > tEvent) {
@@ -1135,7 +1138,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             }
             else {
                 for (i = 0; i < nRow - 1 &&
-                    eventInterval < tableID->nEventsPerPeriod; i++) {
+                    eventInterval < tableID->maxEvents; i++) {
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t1 > tEvent) {
@@ -1143,7 +1146,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                             tEvent = t1;
                             tableID->intervals[eventInterval][1] = i;
                             eventInterval++;
-                            if (eventInterval < tableID->nEventsPerPeriod) {
+                            if (eventInterval < tableID->maxEvents) {
                                 tableID->intervals[eventInterval][0] = i + 1;
                             }
                         }
@@ -1158,122 +1161,129 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             }
         }
 
-        t -= tableID->startTime;
-        if (t < 0) {
-            /* Next time event at start time */
-            nextTimeEvent = 0;
+        if (t < tableID->startTime) {
+            nextTimeEvent = tableID->startTime;
         }
         else if (nRow > 1) {
             const double tMin = TABLE_ROW0(0);
             const double tMax = TABLE_COL0(nRow - 1);
             const double T = tMax - tMin;
-            size_t i, iStart, iEnd;
-            if (tableID->extrapolation == PERIODIC) {
-                if (tableID->eventInterval == 0) {
-                    /* Initialization of offset time and event interval */
+            if (tableID->eventInterval == 0) {
+                /* Initialization of event interval (and also offset time for
+				periodic extrapolation) */
 #if defined(DEBUG_TIME_EVENTS)
-                    const double tOld = t;
+                const double tOld = t;
 #endif
-                    double tEvent = tMin;
-                    tableID->tOffset = floor((t - tMin)/T)*T;
-                    t -= tableID->tOffset;
-                    if (t < tMin) {
-                        t += T;
-                    }
-                    else if (t > tMax) {
-                        t -= T;
-                    }
-                    iStart = findRowIndex(table, nRow, nCol, tableID->last,
-                        t + _EPSILON*T);
+                double tEvent = tMin;
+	            size_t i, iStart, iEnd;
+
+				t -= tableID->startTime;
+                if (tableID->extrapolation == PERIODIC) {
+					tableID->tOffset = floor((t - tMin)/T)*T;
+					t -= tableID->tOffset;
+					if (t < tMin) {
+						t += T;
+					}
+					else if (t > tMax) {
+						t -= T;
+					}
+					iStart = findRowIndex(table, nRow, nCol, tableID->last,
+						t + _EPSILON*T);
+	                nextTimeEvent = tMax;
+					tableID->eventInterval = 1;
+					iEnd = iStart < (nRow - 1) ? iStart : (nRow - 1);
+				}
+				else if (t > tMax) {
+					iStart = nRow - 1;
+					tableID->eventInterval = tableID->maxEvents + 1;
+					iEnd = 0;
+				}
+				else if (t < tMin) {
+					iStart = nRow - 1;
+					nextTimeEvent = tMin;
+					tableID->eventInterval = 1;
+					iEnd = 0;
+				}
+                else if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+					iStart = nRow - 1;
                     nextTimeEvent = tMax;
-                    for (i = iStart + 1; i < nRow - 1; i++) {
-                        double t0 = TABLE_COL0(i);
-                        double t1 = TABLE_COL0(i + 1);
-                        if (t0 > t) {
-                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                                nextTimeEvent = t0;
-                                break;
-                            }
-                            else if (isNearlyEqual(t0, t1)) {
-                                nextTimeEvent = t0;
-                                break;
-                            }
+					iEnd = 0;
+                }
+				else {
+					iStart = findRowIndex(table, nRow, nCol, tableID->last,
+						t + _EPSILON*T);
+					nextTimeEvent = tMax;
+					tableID->eventInterval = 2;
+					iEnd = iStart < (nRow - 1) ? iStart : (nRow - 1);
+				}
+
+				for (i = iStart + 1; i < nRow - 1; i++) {
+                    double t0 = TABLE_COL0(i);
+                    double t1 = TABLE_COL0(i + 1);
+                    if (t0 > t) {
+                        if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                            nextTimeEvent = t0;
+                            break;
+                        }
+                        else if (isNearlyEqual(t0, t1)) {
+                            nextTimeEvent = t0;
+                            break;
                         }
                     }
+                }
 
-                    tableID->eventInterval = 1;
-                    iEnd = iStart < (nRow - 1) ? iStart : (nRow - 1);
-                    for (i = 0; i < iEnd; i++) {
-                        double t0 = TABLE_COL0(i);
-                        double t1 = TABLE_COL0(i + 1);
-                        if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
-                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                                if (!isNearlyEqual(t0, t1)) {
-                                    tEvent = t1;
-                                    tableID->eventInterval++;
-                                }
-                            }
-                            else if (isNearlyEqual(t0, t1)) {
+                for (i = 0; i < iEnd; i++) {
+                    double t0 = TABLE_COL0(i);
+                    double t1 = TABLE_COL0(i + 1);
+                    if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
+                        if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                            if (!isNearlyEqual(t0, t1)) {
                                 tEvent = t1;
                                 tableID->eventInterval++;
                             }
                         }
-                    }
-
-                    nextTimeEvent += tableID->tOffset;
-                    if (tableID->eventInterval == tableID->nEventsPerPeriod) {
-                        tableID->tOffset += T;
-                    }
-#if defined(DEBUG_TIME_EVENTS)
-                    t = tOld;
-#endif
-                }
-                else {
-                    /* Increment event interval */
-                    tableID->eventInterval =
-                        1 + tableID->eventInterval % tableID->nEventsPerPeriod;
-                    if (tableID->eventInterval == tableID->nEventsPerPeriod) {
-                        nextTimeEvent = tMax + tableID->tOffset;
-                        tableID->tOffset += T;
-                    }
-                    else {
-                        i = tableID->intervals[
-                            tableID->eventInterval - 1][1];
-                        nextTimeEvent = TABLE_COL0(i) + tableID->tOffset;
-                    }
-                }
-            }
-            else if (t < tMin) {
-                nextTimeEvent = tMin;
-            }
-            else if (t < tMax) {
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
-                    nextTimeEvent = tMax;
-                }
-                else {
-                    iStart = findRowIndex(table, nRow, nCol,
-                        tableID->last, t + _EPSILON*T);
-                    nextTimeEvent = tMax;
-                    for (i = iStart + 1; i < nRow - 1; i++) {
-                        double t0 = TABLE_COL0(i);
-                        if (t0 > t) {
-                            double t1 = TABLE_COL0(i + 1);
-                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                                nextTimeEvent = t0;
-                                break;
-                            }
-                            else if (isNearlyEqual(t0, t1)) {
-                                nextTimeEvent = t0;
-                                break;
-                            }
+                        else if (isNearlyEqual(t0, t1)) {
+                            tEvent = t1;
+                            tableID->eventInterval++;
                         }
                     }
                 }
-            }
-        }
 
-        if (nextTimeEvent < DBL_MAX) {
-            nextTimeEvent += tableID->startTime;
+                if (tableID->extrapolation == PERIODIC) {
+					nextTimeEvent += tableID->tOffset;
+					if (tableID->eventInterval == tableID->maxEvents) {
+						tableID->tOffset += T;
+					}
+				}
+#if defined(DEBUG_TIME_EVENTS)
+                t = tOld;
+#endif
+            }
+            else if (tableID->extrapolation == PERIODIC) {
+                /* Increment event interval */
+                tableID->eventInterval =
+                    1 + tableID->eventInterval % tableID->maxEvents;
+                if (tableID->eventInterval == tableID->maxEvents) {
+                    nextTimeEvent = tMax + tableID->tOffset;
+                    tableID->tOffset += T;
+                }
+                else {
+                    size_t i = tableID->intervals[
+                        tableID->eventInterval - 1][1];
+                    nextTimeEvent = TABLE_COL0(i) + tableID->tOffset;
+                }
+            }
+			else if (tableID->eventInterval <= tableID->maxEvents) {
+                size_t i = tableID->intervals[
+                    tableID->eventInterval - 1][1];
+                nextTimeEvent = TABLE_COL0(i);
+	            /* Increment event interval */
+				tableID->eventInterval++;
+			}
+
+			if (nextTimeEvent < DBL_MAX) {
+				nextTimeEvent += tableID->startTime;
+			}
         }
 
         if (nextTimeEvent > tableID->preNextTimeEvent) {
@@ -1283,12 +1293,11 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
 #if defined(DEBUG_TIME_EVENTS)
         if (nextTimeEvent < DBL_MAX) {
-            ModelicaFormatMessage("At time %lf: %lu. time event at %lf\n",
-                t + tableID->startTime, (unsigned long)tableID->nEvent, nextTimeEvent);
+            ModelicaFormatMessage("At time %lf: %lu. time event at %lf\n", t,
+				(unsigned long)tableID->nEvent, nextTimeEvent);
         }
         else {
-            ModelicaFormatMessage("No more time events for time > %lf\n",
-                t + tableID->startTime);
+            ModelicaFormatMessage("No more time events for time > %lf\n", t);
         }
 #endif
     }
