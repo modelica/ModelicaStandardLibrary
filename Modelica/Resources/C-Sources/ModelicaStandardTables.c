@@ -22,7 +22,7 @@
 
    Release Notes:
       Jan. 02, 2015: by Thomas Beutlich, ITI GmbH.
-                     Fixed CombiTimeTable with non-zero start time
+                     Fixed event detection of CombiTimeTable with non-zero start time
                      (ticket #1619)
 
       Aug. 22, 2014: by Thomas Beutlich, ITI GmbH.
