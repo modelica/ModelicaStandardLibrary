@@ -65,7 +65,9 @@ joints <b>analytically</b> and only one body is used that holds the total
 mass of the crank shaft:
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD_small.png\">
+</p>
 
 <p>
 This model is about 20 times faster as the EngineV6 example and <b>no</b> linear or
@@ -75,10 +77,12 @@ Evaluate=false and dimension=1 with Evaluate=true) and a linear system of equati
 of about 40. This shows the power of the analytic loop handling.
 </p>
 
+
 <p>
-Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
+Simulate for 3 s with about 50000 output intervals, and plot the variables <b>engineSpeed_rpm</b>,
 <b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
-a size of about 50 Mbyte (for 5000 output intervals).
+a size of about 240 Mbyte in this case. The default setting of StopTime = 1.01 s (with the default setting of the tool for the number of output points), in order that (automatic) regression testing does not have to cope with a large result file.
 </p>
+
 </html>"), experiment(StopTime=1.01));
 end EngineV6_analytic;
