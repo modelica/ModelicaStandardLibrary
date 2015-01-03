@@ -752,8 +752,8 @@ package AST_BatchPlant
         max=height) "Level height of tank";
       SI.Volume V(stateSelect=StateSelect.never) "Actual tank volume";
       SI.Energy U "Internal energy of tank volume";
-      Real m(quantity=Medium.mediumName, unit="kg") "Mass of tank volume";
-      Real mXi[Medium.nXi](quantity=Medium.substanceNames, each unit="kg")
+      Real m(unit="kg") "Mass of tank volume";
+      Real mXi[Medium.nXi](each unit="kg")
         "Component masses of the independent substances";
     // additional variables
       Real H_flow_BottomPorts[n_BottomPorts];
