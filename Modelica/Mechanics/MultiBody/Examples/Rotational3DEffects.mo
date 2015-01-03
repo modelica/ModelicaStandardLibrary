@@ -425,7 +425,9 @@ axes of the revolute joints.
     Joints.GearConstraint gearConstraint(
       ratio=10,
       phi_b(fixed=true),
-      w_b(fixed=true)) annotation (Placement(transformation(extent={{34,40},{54,
+      w_b(fixed=true),
+      checkTotalPower=true)
+                       annotation (Placement(transformation(extent={{34,40},{54,
               60}}, rotation=0)));
     inner World world(driveTrainMechanics3D=true, g=0) annotation (Placement(
           transformation(extent={{-62,10},{-42,30}}, rotation=0)));

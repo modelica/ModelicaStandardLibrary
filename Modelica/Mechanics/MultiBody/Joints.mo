@@ -3235,6 +3235,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
   end UniversalSpherical;
 
   model GearConstraint "Ideal 3-dim. gearbox (arbitrary shaft directions)"
+    import Modelica.Mechanics.MultiBody.Frames;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_a bearing "Coordinate system fixed in the bearing"
      annotation (Placement(transformation(
@@ -3255,6 +3256,9 @@ the origin of frame_a to the middle of the rod, this might be defined as:
       "Vector from frame bearing to frame_b resolved in bearing";
     parameter StateSelect stateSelect=StateSelect.default
       "Priority to use joint coordinates (phi_a, phi_b, w_a, w_b) as states" annotation(Dialog(tab="Advanced"));
+    parameter Boolean checkTotalPower=false
+      "= true, if total power flowing into this component shall be determined (must be zero)"
+      annotation (Dialog(tab="Advanced"));
 
     SI.Angle phi_b(start=0, stateSelect=stateSelect)
       "Relative rotation angle of revolute joint at frame_b";
@@ -3262,6 +3266,8 @@ the origin of frame_a to the middle of the rod, this might be defined as:
       "First derivative of angle phi_b (relative angular velocity b)";
     SI.AngularAcceleration a_b(start=0)
       "Second derivative of angle phi_b (relative angular acceleration b)";
+    SI.Power totalPower
+      "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
 
     Modelica.Mechanics.MultiBody.Joints.Revolute actuatedRevolute_a(useAxisFlange=true, n=n_a, animation=false)
       annotation (Placement(transformation(extent={{-40,-10},{-60,10}},
@@ -3282,12 +3288,70 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           extent={{-10,-10},{10,10}},
           rotation=180)));
   equation
+    /* Implementation notes:
+   
+     The GearConstraint model consists primarily of two revolute joints that are
+     connected together and to a support/mounting. In this first phase the two
+     revolute joints can be rotated independently from each other and therefore
+     there are two degrees of freedom. If the rotational angles of these joints 
+     would be used as generalized coordinates phi_a, phi_b with associated generalized
+     torques tau_a, tau_b (torques along the axes of rotations), then the equations
+     of motion (Kanes' equations or Lagranges' equations of the second kind) are
+     in the rows for phi_a, phi_b:
+        .... = ... + {...., tau_a, tau_b, ....}
+
+     Now the kinematic constraint for the gear is added:
+
+         0 = phi_a - ratio*phi_b;
+
+     or on velocity level:
+
+         0 = G * {der(phi_a), der(phi_b)};   G = [1, -ratio]
+   
+     According to Lagranges' equations of the first kind, the generalized forces 
+     must be replaced by G'*lambda, where lambda is the new constraint force
+     due this constraint. Therefore, the equations of motions are changed to
+
+       .... = .... + {...., G'*lambda, .....}
+
+     This is equivalent to add the equations
+
+       tau_a = lambda
+       tau_b = -ratio*lambda
+
+     or
+ 
+       0 = tau_b + ratio*tau_a;
+
+     The two equations
+ 
+       0 = phi_a - ratio*phi_b
+       0 = tau_b + ratio*tau_a
+
+     are completely identical to the equations of an ideal gear (without mounting)
+     that connects the axis flanges of the two revolute joints. This in turn
+     means that the two rotational flanges of the revolute joints just have to be
+     connected by an IdealGear component (without mounting).
+  */
     assert(cardinality(bearing) > 0,
       "Connector bearing of component is not connected");
 
     phi_b = actuatedRevolute_b.phi;
     w_b = der(phi_b);
     a_b = der(w_b);
+
+    // Measure power for test purposes
+    if checkTotalPower then
+      totalPower =
+        frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
+        frame_b.f*Frames.resolve2(frame_b.R, der(frame_b.r_0)) +
+        bearing.f*Frames.resolve2(bearing.R, der(bearing.r_0)) +
+        frame_a.t*Frames.angularVelocity2(frame_a.R) +
+        frame_b.t*Frames.angularVelocity2(frame_b.R) +
+        bearing.t*Frames.angularVelocity2(bearing.R);
+    else
+      totalPower = 0;
+    end if;
 
     connect(actuatedRevolute_a.axis, idealGear.flange_a)
       annotation (Line(points={{-50,10},{-50,40},{-10,40}}, color={0,0,0}));

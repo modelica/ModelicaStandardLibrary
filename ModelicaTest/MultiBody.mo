@@ -8678,7 +8678,9 @@ often possible to use the FreeMotion joint such that the singularity
         Modelica.Mechanics.MultiBody.Joints.GearConstraint gearConstraint(
           ratio=10,
           phi_b(fixed=true),
-          w_b(fixed=true)) annotation (Placement(transformation(extent={{40,40},
+          w_b(fixed=true),
+          checkTotalPower=true)
+                           annotation (Placement(transformation(extent={{40,40},
                   {60,60}}, rotation=0)));
         inner Modelica.Mechanics.MultiBody.World world(g=0,
             driveTrainMechanics3D=true) annotation (Placement(transformation(
@@ -8790,13 +8792,14 @@ often possible to use the FreeMotion joint such that the singularity
           r_a={1,0,0},
           r_b={1,0,0},
           n_a={1,0,0},
-          n_b={1,0,0})
+          n_b={1,0,0},
+          checkTotalPower=true)
           annotation (Placement(transformation(extent={{128,34},{148,54}})));
         inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
-              origin={-54,-4})));
+              origin={-54,10})));
         parameter Real tol=1e-4;
         Modelica.Mechanics.MultiBody.Joints.GearConstraint gc2(
           phi_b(fixed=true),
@@ -8805,7 +8808,9 @@ often possible to use the FreeMotion joint such that the singularity
           n_b={1,0,0},
           r_a={1,0,0},
           r_b={1,0,0},
-          ratio=2.5) annotation (Placement(transformation(
+          ratio=2.5,
+          checkTotalPower=true)
+                     annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={138,-56})));
@@ -8876,7 +8881,7 @@ often possible to use the FreeMotion joint such that the singularity
             thickness=0.5,
             smooth=Smooth.None));
         connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
-            points={{-18,-4},{-44,-4}},
+            points={{-18,-4},{-18,-4},{-18,10},{-44,10}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
@@ -8913,7 +8918,7 @@ often possible to use the FreeMotion joint such that the singularity
             thickness=0.5,
             smooth=Smooth.None));
         connect(fixedTranslation.frame_a, gc1.bearing) annotation (Line(
-            points={{-18,-4},{60,-4},{60,34},{138,34}},
+            points={{-18,-4},{-18,10},{138,10},{138,34}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
@@ -8966,6 +8971,507 @@ often possible to use the FreeMotion joint such that the singularity
                 extent={{-100,-100},{100,100}}, preserveAspectRatio=false)),
                 experiment(StopTime=5));
       end GearConstraint2;
+
+      model GearConstraint3
+        "Test of GearConstraint (totalPower has to be zero)"
+        import Modelica.Mechanics.MultiBody.Frames;
+        extends Modelica.Icons.Example;
+
+        inner Modelica.Mechanics.MultiBody.World world annotation (Placement(transformation(
+                extent={{-80,-20},{-60,0}}, rotation=0)));
+        Modelica.Mechanics.MultiBody.Joints.GearConstraint gearConstraint(
+          ratio=10,
+          n_a={1,0,0},
+          n_b={0,1,0},
+          checkTotalPower=true,
+          actuatedRevolute_a(phi(fixed=true), w(fixed=true)))
+          annotation (Placement(transformation(extent={{0,40},{20,60}})));
+        Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(useAxisFlange=true, n={
+              1,0,0},
+          stateSelect=StateSelect.always,
+          phi(fixed=true),
+          w(fixed=true))
+          annotation (Placement(transformation(extent={{-46,0},{-26,-20}})));
+        Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(useAxisFlange=true, n={
+              0,1,0},
+          stateSelect=StateSelect.always,
+          phi(fixed=true),
+          w(fixed=true))
+                      annotation (Placement(transformation(extent={{0,0},{20,-20}})));
+        Modelica.Mechanics.MultiBody.Joints.Revolute revolute3(useAxisFlange=true, n={
+              0,0,1},
+          stateSelect=StateSelect.always,
+          phi(fixed=true),
+          w(fixed=true))
+                      annotation (Placement(transformation(extent={{46,0},{66,-20}})));
+        Modelica.Mechanics.Rotational.Sources.Torque torque1
+          annotation (Placement(transformation(extent={{-52,-45},{-42,-35}})));
+        Modelica.Mechanics.Rotational.Sources.Torque torque2
+          annotation (Placement(transformation(extent={{-4,-45},{6,-35}})));
+        Modelica.Mechanics.Rotational.Sources.Torque torque3
+          annotation (Placement(transformation(extent={{42,-45},{52,-35}})));
+        Modelica.Blocks.Sources.Sine sine1(amplitude=110, freqHz=5)
+          annotation (Placement(transformation(extent={{-72,-46},{-60,-34}})));
+        Modelica.Blocks.Sources.Sine sine2(amplitude=120, freqHz=6)
+          annotation (Placement(transformation(extent={{-24,-46},{-12,-34}})));
+        Modelica.Blocks.Sources.Sine sine3(amplitude=130, freqHz=7)
+          annotation (Placement(transformation(extent={{24,-46},{36,-34}})));
+        Modelica.Blocks.Sources.Sine sine4[3](amplitude={140,150,160}, freqHz={8,9,10})
+          annotation (Placement(transformation(extent={{-96,60},{-76,80}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(
+          r={0.1,0.1,0.1},
+          length=0.1,
+          width=0.1) annotation (Placement(transformation(extent={{76,-20},{96,0}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(
+          length=0.1,
+          width=0.1,
+          r={1.1,1.2,1.3})
+          annotation (Placement(transformation(extent={{30,40},{50,60}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox3(
+          length=0.1,
+          width=0.1,
+          r={0.11,0.12,0.13})
+          annotation (Placement(transformation(extent={{-32,40},{-12,60}})));
+        Modelica.Mechanics.MultiBody.Forces.Torque torque
+          annotation (Placement(transformation(extent={{-62,40},{-42,60}})));
+      equation
+        assert(abs(gearConstraint.totalPower) < 1e-3, "Error, energy balance of gearConstraint is wrong");
+
+        connect(world.frame_b, revolute1.frame_a) annotation (Line(
+            points={{-60,-10},{-46,-10}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(revolute1.frame_b, revolute2.frame_a) annotation (Line(
+            points={{-26,-10},{0,-10}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(revolute2.frame_b, revolute3.frame_a) annotation (Line(
+            points={{20,-10},{46,-10}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(torque1.flange, revolute1.axis) annotation (Line(
+            points={{-42,-40},{-36,-40},{-36,-20}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(torque2.flange, revolute2.axis) annotation (Line(
+            points={{6,-40},{10,-40},{10,-20}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(torque3.flange, revolute3.axis) annotation (Line(
+            points={{52,-40},{56,-40},{56,-20}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(sine1.y, torque1.tau) annotation (Line(
+            points={{-59.4,-40},{-53,-40}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(torque2.tau, sine2.y) annotation (Line(
+            points={{-5,-40},{-11.4,-40}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(torque3.tau, sine3.y) annotation (Line(
+            points={{41,-40},{36.6,-40}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(revolute3.frame_b, bodyBox1.frame_a) annotation (Line(
+            points={{66,-10},{76,-10}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(gearConstraint.frame_b, bodyBox2.frame_a) annotation (Line(
+            points={{20,50},{30,50}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(gearConstraint.frame_a, bodyBox3.frame_b) annotation (Line(
+            points={{-8.88178e-016,50},{-12,50}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(gearConstraint.bearing, revolute3.frame_b) annotation (Line(
+            points={{10,40},{10,20},{72,20},{72,-10},{66,-10}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyBox3.frame_a, torque.frame_b) annotation (Line(
+            points={{-32,50},{-42,50}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(torque.frame_a, revolute1.frame_a) annotation (Line(
+            points={{-62,50},{-72,50},{-72,20},{-52,20},{-52,-10},{-46,-10}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(sine4.y, torque.torque) annotation (Line(
+            points={{-75,70},{-58,70},{-58,62}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        annotation (Diagram(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics),
+          Documentation(info="<html>
+</html>"),experiment(StopTime=1.0));
+      end GearConstraint3;
+
+      model GearConstraint4
+        "Test of GearConstraint (totalPower has to be zero and angles and position vectors from absoluteSensors need to be identical)"
+        extends Modelica.Icons.Example;
+
+        inner Modelica.Mechanics.MultiBody.World world(
+          animateWorld=false,
+          g=0) annotation(Placement(transformation(extent={{-140,40},{-120,60}})));
+        Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion1(
+          animation=false,
+          r_rel_a(fixed=true),
+          v_rel_a(fixed=true),
+          a_rel_a(fixed=false),
+          angles_fixed=true,
+          w_rel_a_fixed=true,
+          useQuaternions=false) annotation(Placement(transformation(extent={{-119,92},
+                  {-99,112}})));
+        Modelica.Mechanics.MultiBody.Parts.Fixed fixed1 annotation(Placement(transformation(extent={{-149,92},
+                  {-129,112}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(
+          r={1,0,0},
+          width=0.1,
+          density=70) annotation(Placement(transformation(extent={{-89,92},{-69,112}})));
+        Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(
+          phi(fixed=true),
+          w(fixed=true)) annotation(Placement(transformation(extent={{-29,92},{-9,112}})));
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(
+          animation=false,
+          r={0,0,0.05}) annotation(Placement(transformation(extent={{-59,92},{-39,112}})));
+        Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation1(
+          animation=false,
+          rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
+          n={0,1,0},
+          angle=60,
+          angles={0,90,0}) annotation(Placement(transformation(extent={{36,67},{56,87}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape1(
+          animateSphere=false,
+          r={0,0,0},
+          r_CM={0,0,0},
+          m=0,
+          I_11=1.5,
+          I_22=0,
+          I_33=0,
+          length=0.05,
+          width=0.2,
+          color={255,255,0}) annotation(Placement(transformation(extent={{66,67},{86,87}})));
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation2(
+          animation=false,
+          r={0,0,0.025}) annotation(Placement(transformation(extent={{1,92},{21,112}})));
+        Modelica.Mechanics.MultiBody.Forces.Torque torque1 annotation(Placement(transformation(extent={{-29,82},
+                  {-9,62}})));
+        Modelica.Blocks.Sources.Constant constVec3[3](k={0,0,1})
+          annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+        Modelica.Mechanics.MultiBody.Joints.GearConstraint gearConstraint(
+          ratio=10,
+          phi_b(fixed=true),
+          w_b(fixed=true),
+          checkTotalPower=true)
+                           annotation(Placement(transformation(extent={{126,112},{146,
+                  132}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyCylinder cyl1(
+          r={0.4,0,0},
+          diameter=0.1,
+          color={0,128,0},
+          r_0(
+            start={0,0,0},
+            fixed=false)) annotation(Placement(transformation(extent={{96,112},{116,132}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyCylinder cyl2(
+          r={0.4,0,0},
+          diameter=0.2) annotation(Placement(transformation(extent={{160,112},{180,
+                  132}})));
+        Modelica.Mechanics.MultiBody.Forces.Torque torque2 annotation(Placement(transformation(extent={{66,112},
+                  {86,132}})));
+        Modelica.Blocks.Sources.Sine sine[3](
+          amplitude={2,0,0},
+          freqHz={1,1,1}) annotation(Placement(transformation(extent={{41,132},{61,152}})));
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation4(
+          animation=false,
+          r={0.4,0,0}) annotation(Placement(transformation(extent={{36,92},{56,112}})));
+        Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion2(
+          animation=false,
+          r_rel_a(fixed=true),
+          v_rel_a(fixed=true),
+          a_rel_a(fixed=false),
+          angles_fixed=true,
+          w_rel_a_fixed=true,
+          useQuaternions=false) annotation(Placement(transformation(extent={{-119,-58},
+                  {-99,-38}})));
+        Modelica.Mechanics.MultiBody.Parts.Fixed fixed2 annotation(Placement(transformation(extent={{-149,
+                  -58},{-129,-38}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox3(
+          r={1,0,0},
+          width=0.1,
+          density=70) annotation(Placement(transformation(extent={{-89,-58},{-69,-38}})));
+        Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(
+          phi(fixed=true),
+          w(fixed=true)) annotation(Placement(transformation(extent={{-29,-58},{-9,-38}})));
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation5(
+          animation=false,
+          r={0,0,0.05}) annotation(Placement(transformation(extent={{-59,-58},{-39,-38}})));
+        Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation2(
+          animation=false,
+          rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
+          n={0,1,0},
+          angle=60,
+          angles={0,90,0}) annotation(Placement(transformation(extent={{36,-83},{56,-63}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape2(
+          animateSphere=false,
+          r={0,0,0},
+          r_CM={0,0,0},
+          m=0,
+          I_11=1.5,
+          I_22=0,
+          I_33=0,
+          length=0.05,
+          width=0.2,
+          color={255,255,0}) annotation(Placement(transformation(extent={{66,-83},{86,
+                  -63}})));
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation7(
+          animation=false,
+          r={0,0,0.025}) annotation(Placement(transformation(extent={{1,-58},{21,-38}})));
+        Modelica.Mechanics.MultiBody.Forces.Torque torque3 annotation(Placement(transformation(extent={{-29,-30},
+                  {-9,-10}})));
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation8(
+          animation=false,
+          r={0.4,0,0}) annotation(Placement(transformation(extent={{36,-58},{56,-38}})));
+        Modelica.Mechanics.MultiBody.Parts.Rotor1D       inertia1(
+          J=cyl1.I[1, 1],
+          phi(
+            fixed=true,
+            start=0),
+          w(fixed=true,
+            start=0),
+          a(fixed=false)) annotation(Placement(transformation(extent={{101,-8},{121,12}})));
+        Modelica.Mechanics.Rotational.Components.IdealGear idealGear(
+          useSupport=true,
+          ratio=10) annotation(Placement(transformation(extent={{131,-8},{151,12}})));
+        Modelica.Mechanics.MultiBody.Parts.Rotor1D       inertia2(J=cyl2.I[1, 1]) annotation(Placement(transformation(extent={{160,-8},
+                  {180,12}})));
+        Modelica.Mechanics.Rotational.Sources.Torque torque4(useSupport=true) annotation(Placement(transformation(extent={{71,-8},
+                  {91,12}})));
+        Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D annotation(Placement(transformation(extent={{56,-33},
+                  {76,-13}})));
+        Modelica.Blocks.Sources.Sine sine2(
+          amplitude=2,
+          freqHz=1) annotation(Placement(transformation(extent={{31,-8},{51,12}})));
+        Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor absoluteSensor_MBS(get_r=
+              true, get_angles=true)
+          annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
+        Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor absoluteSensor_1D(get_r=
+              true, get_angles=true)
+          annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyCylinder cyl3(
+          r={0.4,0,0},
+          diameter=0.1,
+          color={0,128,0},
+          r_0(
+            start={0,0,0},
+            fixed=false)) annotation(Placement(transformation(extent={{100,-80},{120,
+                  -60}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyCylinder cyl4(
+          r={0.4,0,0},
+          diameter=0.2) annotation(Placement(transformation(extent={{160,-80},{180,
+                  -60}})));
+      equation
+          connect(freeMotion1.frame_b,bodyBox1.frame_a) annotation(Line(
+            points={{-99,102},{-94,102},{-89,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(bodyBox1.frame_b,fixedTranslation1.frame_a) annotation(Line(
+            points={{-69,102},{-64,102},{-59,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(revolute1.frame_a,fixedTranslation1.frame_b) annotation(Line(
+            points={{-29,102},{-34,102},{-39,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(bodyShape1.frame_a,fixedRotation1.frame_b) annotation(Line(
+            points={{66,77},{61,77},{56,77}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(revolute1.frame_b,fixedTranslation2.frame_a) annotation(Line(
+            points={{-9,102},{-4,102},{1,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(fixedRotation1.frame_a,fixedTranslation2.frame_b) annotation(Line(
+            points={{36,77},{31,77},{26,77},{26,102},{21,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(torque1.frame_a,fixedTranslation1.frame_b) annotation(Line(
+            points={{-29,72},{-34,72},{-34,102},{-39,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(torque1.frame_b,revolute1.frame_b) annotation(Line(
+            points={{-9,72},{-4,72},{-4,102},{-9,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(fixed1.frame_b,freeMotion1.frame_a) annotation(Line(
+            points={{-129,102},{-124,102},{-119,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(cyl1.frame_b,gearConstraint.frame_a) annotation(Line(
+            points={{116,122},{121,122},{126,122}},
+            color={95,95,95},
+            thickness=0.5));
+          connect(gearConstraint.frame_b,cyl2.frame_a) annotation(Line(
+            points={{146,122},{151,122},{160,122}},
+            color={95,95,95},
+            thickness=0.5));
+          connect(torque2.frame_b,cyl1.frame_a) annotation(Line(
+            points={{86,122},{91,122},{96,122}},
+            color={95,95,95},
+            thickness=0.5));
+          connect(sine.y,torque2.torque) annotation(Line(
+            points={{62,142},{67,142},{70.7,142},{70.7,134},{70,134}},
+            color={0,0,127}));
+          connect(torque2.frame_a,fixedTranslation4.frame_b) annotation(Line(
+            points={{66,122},{61,122},{61,102},{56,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(gearConstraint.bearing,fixedTranslation4.frame_b) annotation(Line(
+            points={{136,112},{136,107},{136,102},{61,102},{56,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(freeMotion2.frame_b,bodyBox3.frame_a) annotation(Line(
+            points={{-99,-48},{-94,-48},{-89,-48}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(bodyBox3.frame_b,fixedTranslation5.frame_a) annotation(Line(
+            points={{-69,-48},{-64,-48},{-59,-48}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(revolute2.frame_a,fixedTranslation5.frame_b) annotation(Line(
+            points={{-29,-48},{-34,-48},{-39,-48}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(bodyShape2.frame_a,fixedRotation2.frame_b) annotation(Line(
+            points={{66,-73},{61,-73},{56,-73}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(revolute2.frame_b,fixedTranslation7.frame_a) annotation(Line(
+            points={{-9,-48},{-4,-48},{1,-48}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(fixedRotation2.frame_a,fixedTranslation7.frame_b) annotation(Line(
+            points={{36,-73},{31,-73},{26,-73},{26,-48},{21,-48}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(torque3.frame_a,fixedTranslation5.frame_b) annotation(Line(
+            points={{-29,-20},{-34,-20},{-34,-48},{-39,-48}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(torque3.frame_b,revolute2.frame_b) annotation(Line(
+            points={{-9,-20},{-4,-20},{-4,-48},{-9,-48}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(fixed2.frame_b,freeMotion2.frame_a) annotation(Line(
+            points={{-129,-48},{-124,-48},{-119,-48}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(inertia1.flange_b,idealGear.flange_a) annotation(Line(
+            points={{121,2},{126,2},{131,2}},
+            color={0,0,0}));
+          connect(idealGear.flange_b,inertia2.flange_a) annotation(Line(
+            points={{151,2},{160,2}},
+            color={0,0,0}));
+          connect(torque4.flange,inertia1.flange_a) annotation(Line(
+            points={{91,2},{96,2},{101,2}},
+            color={0,0,0}));
+          connect(mounting1D.flange_b,idealGear.support) annotation(Line(
+            points={{76,-23},{81,-23},{141,-23},{141,-13},{141,-8}},
+            color={0,0,0}));
+          connect(mounting1D.flange_b,torque4.support) annotation(Line(
+            points={{76,-23},{81,-23},{81,-13},{81,-8}},
+            color={0,0,0}));
+          connect(mounting1D.frame_a,fixedTranslation8.frame_b) annotation(Line(
+            points={{66,-33},{66,-38},{66,-48},{61,-48},{56,-48}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(fixedTranslation4.frame_a,fixedTranslation2.frame_b) annotation(Line(
+            points={{36,102},{31,102},{26,102},{21,102}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(fixedTranslation8.frame_a,fixedTranslation7.frame_b) annotation(Line(
+            points={{36,-48},{31,-48},{26,-48},{21,-48}},
+            color={95,95,95},
+            thickness=0.0625));
+          connect(sine2.y,torque4.tau) annotation(Line(
+            points={{52,2},{57,2},{64,2},{69,2}},
+            color={0,0,127},
+            thickness=0.0625));
+        connect(freeMotion2.frame_b, absoluteSensor_1D.frame_a) annotation (Line(
+            points={{-99,-48},{-99,-10},{-90,-10}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(freeMotion1.frame_b, absoluteSensor_MBS.frame_a) annotation (Line(
+            points={{-99,102},{-98,102},{-98,20},{-90,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(inertia1.frame_a, fixedTranslation8.frame_b) annotation (Line(
+            points={{111,-8},{111,-48},{56,-48}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(inertia2.frame_a, fixedTranslation8.frame_b) annotation (Line(
+            points={{170,-8},{170,-48},{56,-48}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(cyl3.frame_b, cyl4.frame_a) annotation (Line(
+            points={{120,-70},{160,-70}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(cyl3.frame_b, fixedTranslation8.frame_b) annotation (Line(
+            points={{120,-70},{132,-70},{132,-48},{56,-48}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(constVec3.y, torque1.torque) annotation (Line(
+            points={{-39,50},{-25,50},{-25,60}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(constVec3.y, torque3.torque) annotation (Line(
+            points={{-39,50},{-26,50},{-26,-8},{-25,-8}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        annotation (
+          experiment(StopTime=2),
+          Diagram(coordinateSystem(extent={{-160,-120},{180,160}},
+                preserveAspectRatio=false), graphics={
+              Rectangle(
+                extent={{-64,34},{-96,-32}},
+                lineColor={255,85,85},
+                lineThickness=0.5),
+              Text(
+                extent={{-150,-72},{-56,-90}},
+                lineColor={255,85,85},
+                lineThickness=0.5,
+                fillPattern=FillPattern.Solid,
+                textString="Compare angles and position vector r
+",              fontSize=11),
+              Line(
+                points={{-112,-72},{-88,-28}},
+                color={255,85,85},
+                thickness=0.5,
+                smooth=Smooth.None,
+                arrow={Arrow.None,Arrow.Filled})}),
+          Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
+          Documentation(info="<html>
+<p>
+This test model was proposed in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/951\">#951 (comment:4)</a>.
+</p>
+</html>"));
+      end GearConstraint4;
 
       model Beveal1d
         extends Modelica.Icons.Example;
