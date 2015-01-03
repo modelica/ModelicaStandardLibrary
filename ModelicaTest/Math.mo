@@ -629,7 +629,10 @@ extends Modelica.Icons.ExamplesPackage;
     Real rr[size(a,1)-1,2];
     Complex rc[3];
     Complex h;
-
+    Real x[:] = {1,2,3,4,4,5,6,7,7,8,9};
+    Real y[size(x,1)] = {1,4,9,16,1,25-15, 36-15, 49-15, 2, 64-47, 81-47};
+    Real yi;
+    Real iNew;
   algorithm
   //  ##########   Householder vector   ##########
     u := Vectors.Utilities.householderVector(a,b);
@@ -658,6 +661,14 @@ extends Modelica.Icons.ExamplesPackage;
     end for;
     Streams.print("r = "+String(r));
     assert(abs(r) <eps, "\"Vectors.Utilities.roots()\" failed");
+
+  //  ##########   interpolate   ##########
+    (yi, iNew) :=Vectors.interpolate(x,y,6.5,4);
+    assert(abs(yi-27.5) < eps, "\"Vectors.interpolate()\" failed");
+    (yi, iNew) :=Vectors.interpolate(x,y,6.5,9);
+    assert(abs(yi-27.5) < eps, "\"Vectors.interpolate()\" failed");
+    (yi, iNew) :=Vectors.interpolate(x,y,4.0,2);
+    assert(abs(yi-1.0) < eps, "\"Vectors.interpolate()\" failed");
 
     ok := true;
   end Vectors;

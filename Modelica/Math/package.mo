@@ -638,23 +638,28 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <p>
 The function call \"<code>Vectors.interpolate(x,y,xi)</code>\" interpolates in vectors
 (x,y) and returns the value yi that corresponds to xi. Vector x[:] must consist
-of strictly monotonically increasing values. If xi &lt; x[1] or &gt; x[end], then
+of monotonically increasing values. If xi &lt; x[1] or &gt; x[end], then
 extrapolation takes places through the first or last two x[:] values, respectively.
+If the x and y vectors have length 1, then always y[1] is returned.
 The search for the interval x[iNew] &le; xi &lt; x[iNew+1] starts at the optional
 input argument \"iLast\". The index \"iNew\" is returned as output argument.
 The usage of \"iLast\" and \"iNew\" is useful to increase the efficiency of the call,
 if many interpolations take place.
+If x has two or more identical values then interpolation utilizes the x-value
+with the largest index.
 </p>
 
 <h4>Example</h4>
 
 <blockquote><pre>
-  Real x[:] = { 0,  2,  4,  6,  8, 10};
-  Real y[:] = {10, 20, 30, 40, 50, 60};
+  Real x1[:] = { 0,  2,  4,  6,  8, 10};
+  Real x2[:] = { 1,  2,  3,  3,  4,  5};
+  Real y[:]  = {10, 20, 30, 40, 50, 60};
 <b>algorithm</b>
-  (yi, iNew) := Vectors.interpolate(x,y,5);  // yi = 35, iNew=3
+  (yi, iNew) := Vectors.interpolate(x1,y,5);  // yi = 35, iNew=3
+  (yi, iNew) := Vectors.interpolate(x2,y,4);  // yi = 50, iNew=5
+  (yi, iNew) := Vectors.interpolate(x2,y,3);  // yi = 40, iNew=4
 </pre></blockquote>
-
 </html>"));
   end interpolate;
 
