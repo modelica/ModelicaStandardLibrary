@@ -13,7 +13,6 @@ package HeatExchanger "Demo of a heat exchanger model"
       c_wall=500,
       use_T_start=true,
       nNodes=20,
-      length=2,
       m_flow_start_1=0.2,
       m_flow_start_2=0.2,
       k_wall=100,
@@ -22,8 +21,6 @@ package HeatExchanger "Demo of a heat exchanger model"
       crossArea_2=4.5e-4,
       perimeter_1=0.075,
       perimeter_2=0.075,
-      area_h_1=0.075*2*20,
-      area_h_2=0.075*2*20,
       rho_wall=900,
       redeclare package Medium_1 =
           Medium,
@@ -31,12 +28,15 @@ package HeatExchanger "Demo of a heat exchanger model"
           Medium,
       modelStructure_1=Modelica.Fluid.Types.ModelStructure.av_b,
       modelStructure_2=Modelica.Fluid.Types.ModelStructure.a_vb,
-      redeclare model HeatTransfer_2 =
-          Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
-          (alpha0=200),
       redeclare model HeatTransfer_1 =
           Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer
           (alpha0=1000),
+      length=20,
+      area_h_1=0.075*20,
+      area_h_2=0.075*20,
+      redeclare model HeatTransfer_2 =
+          Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
+          (alpha0=2000),
       Twall_start=300,
       dT=10,
       T_start_1=304,
@@ -63,17 +63,16 @@ package HeatExchanger "Demo of a heat exchanger model"
                   annotation (Placement(transformation(extent={{-66,24},{-46,44}},
             rotation=0)));
     Modelica.Fluid.Sources.MassFlowSource_T massFlowRate1(nPorts=1,
-      T=300,
-      m_flow=0.5,
-      redeclare package Medium = Medium)
-                   annotation (Placement(transformation(extent={{-66,-10},{-46,10}},
+      redeclare package Medium = Medium,
+      m_flow=0.2,
+      T=300)       annotation (Placement(transformation(extent={{-66,-10},{-46,10}},
             rotation=0)));
     Modelica.Blocks.Sources.Ramp Ramp1(
       startTime=50,
       duration=5,
-      height=-1,
-      offset=0.5)   annotation (Placement(transformation(extent={{-98,44},{-78,24}},
-                    rotation=0)));
+      height=0.4,
+      offset=-0.2)  annotation (Placement(transformation(extent={{-98,24},{-78,
+              44}}, rotation=0)));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
         use_eps_Re=true)             annotation (Placement(transformation(extent=
               {{60,70},{80,90}}, rotation=0)));
@@ -94,11 +93,13 @@ package HeatExchanger "Demo of a heat exchanger model"
         points={{37,2.2},{42,2},{50,2},{50,-18},{62,-18}},
         color={0,127,255},
         smooth=Smooth.None));
-    annotation (                         experiment(StopTime=100, Tolerance=1e-005),
+    annotation (                         experiment(StopTime=200, Tolerance=
+            1e-005),
       Documentation(info="<html>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/HeatExchanger.png\" border=\"1\"
-     alt=\"HeatExchanger.png\">
-</html>"));
+<p>The simulation start in steady state with counterflow operation. At time t = 50, the mass flow rate on the secondary circuit is changed to a negative value in 5 seconds. After a transient, the heat exchanger operates in co-current flow.</p>
+<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/HeatExchanger.png\" alt=\"HeatExchanger.png\"/> </p>
+</html>"),
+      __Dymola_experimentSetupOutput);
   end HeatExchangerSimulation;
 
   package BaseClasses "Additional models for heat exchangers"
