@@ -518,6 +518,207 @@ axes of the revolute joints.
         smooth=Smooth.None));
     annotation (experiment(StopTime=5));
   end GearConstraint;
+
+  model BevelGear1D
+    "Demonstrates the usage of a BevelGear1D model and how to calculate the power of such an element"
+    import Modelica.Mechanics.MultiBody.Frames;
+    extends Modelica.Icons.Example;
+    parameter Modelica.Mechanics.MultiBody.Types.Axis na={1,0,0}
+      "Axis of rotation of left gear axis";
+    parameter Modelica.Mechanics.MultiBody.Types.Axis nb={0,1,0}
+      "Axis of rotation of right gear axis";
+
+    inner Modelica.Mechanics.MultiBody.World world(g=0,
+        final driveTrainMechanics3D=true) annotation (Placement(transformation(
+            extent={{-80,-20},{-60,0}}, rotation=0)));
+    Modelica.Mechanics.MultiBody.Parts.Rotor1D       inertia1(
+      J=1.1,
+      a(fixed=false),
+      phi(fixed=true, start=0),
+      w(fixed=true, start=0),
+      n=na)                   annotation (Placement(transformation(extent={{-30,40},
+              {-10,60}},          rotation=0)));
+    Modelica.Mechanics.MultiBody.Parts.Rotor1D       inertia2(J=18.2, n=nb)
+      annotation (Placement(transformation(extent={{30,40},{50,60}},
+            rotation=0)));
+    Modelica.Mechanics.MultiBody.Parts.BevelGear1D bevelGear(
+      ratio=10,
+      n_a=na,
+      n_b=nb)      annotation (Placement(transformation(extent={{0,40},{20,60}})));
+    Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(useAxisFlange=true, n={
+          1,0,0},
+      stateSelect=StateSelect.always,
+      phi(fixed=true),
+      w(fixed=true))
+      annotation (Placement(transformation(extent={{-46,0},{-26,-20}})));
+    Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(useAxisFlange=true, n={
+          0,1,0},
+      stateSelect=StateSelect.always,
+      phi(fixed=true),
+      w(fixed=true))
+                  annotation (Placement(transformation(extent={{0,0},{20,-20}})));
+    Modelica.Mechanics.MultiBody.Joints.Revolute revolute3(useAxisFlange=true, n={
+          0,0,1},
+      stateSelect=StateSelect.always,
+      phi(fixed=true),
+      w(fixed=true))
+                  annotation (Placement(transformation(extent={{46,0},{66,-20}})));
+    Modelica.Mechanics.Rotational.Sources.Torque torque1
+      annotation (Placement(transformation(extent={{-52,-45},{-42,-35}})));
+    Modelica.Mechanics.Rotational.Sources.Torque torque2
+      annotation (Placement(transformation(extent={{-4,-45},{6,-35}})));
+    Modelica.Mechanics.Rotational.Sources.Torque torque3
+      annotation (Placement(transformation(extent={{42,-45},{52,-35}})));
+    Modelica.Blocks.Sources.Sine sine1(amplitude=110, freqHz=5)
+      annotation (Placement(transformation(extent={{-72,-46},{-60,-34}})));
+    Modelica.Blocks.Sources.Sine sine2(amplitude=120, freqHz=6)
+      annotation (Placement(transformation(extent={{-24,-46},{-12,-34}})));
+    Modelica.Blocks.Sources.Sine sine3(amplitude=130, freqHz=7)
+      annotation (Placement(transformation(extent={{24,-46},{36,-34}})));
+    Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D(n=na)
+      annotation (Placement(transformation(extent={{-72,26},{-52,46}})));
+    Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
+      annotation (Placement(transformation(extent={{-58,40},{-38,60}})));
+    Modelica.Blocks.Sources.Sine sine4(amplitude=140, freqHz=8)
+      annotation (Placement(transformation(extent={{-90,44},{-78,56}})));
+    Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(
+      r={0.1,0.1,0.1},
+      length=0.1,
+      width=0.1)
+      annotation (Placement(transformation(extent={{76,-20},{96,0}})));
+    Modelica.SIunits.Power bevelGearPower;
+    Modelica.SIunits.AngularVelocity ws[3] = Frames.angularVelocity2(bevelGear.frame_a.R);
+  equation
+    bevelGearPower = (ws + der(bevelGear.flange_a.phi)*na)*bevelGear.flange_a.tau*na +
+                     (ws + der(bevelGear.flange_b.phi)*nb)*bevelGear.flange_b.tau*nb +
+                     ws*bevelGear.frame_a.t;
+    assert(abs(bevelGearPower) < 1e-3, "Error, energy balance of bevel gear is wrong");
+
+    connect(inertia1.flange_b, bevelGear.flange_a) annotation (Line(
+        points={{-10,50},{0,50}},
+        color={0,0,0},
+        smooth=Smooth.None));
+    connect(bevelGear.flange_b, inertia2.flange_a) annotation (Line(
+        points={{20,50},{30,50}},
+        color={0,0,0},
+        smooth=Smooth.None));
+    connect(world.frame_b, revolute1.frame_a) annotation (Line(
+        points={{-60,-10},{-46,-10}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(revolute1.frame_b, revolute2.frame_a) annotation (Line(
+        points={{-26,-10},{0,-10}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(revolute2.frame_b, revolute3.frame_a) annotation (Line(
+        points={{20,-10},{46,-10}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(torque1.flange, revolute1.axis) annotation (Line(
+        points={{-42,-40},{-36,-40},{-36,-20}},
+        color={0,0,0},
+        smooth=Smooth.None));
+    connect(torque2.flange, revolute2.axis) annotation (Line(
+        points={{6,-40},{10,-40},{10,-20}},
+        color={0,0,0},
+        smooth=Smooth.None));
+    connect(torque3.flange, revolute3.axis) annotation (Line(
+        points={{52,-40},{56,-40},{56,-20}},
+        color={0,0,0},
+        smooth=Smooth.None));
+    connect(sine1.y, torque1.tau) annotation (Line(
+        points={{-59.4,-40},{-53,-40}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(torque2.tau, sine2.y) annotation (Line(
+        points={{-5,-40},{-11.4,-40}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(torque3.tau, sine3.y) annotation (Line(
+        points={{41,-40},{36.6,-40}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(bevelGear.frame_a, revolute3.frame_b) annotation (Line(
+        points={{10,40},{10,20},{72,20},{72,-10},{66,-10}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(torque.flange, inertia1.flange_a) annotation (Line(
+        points={{-38,50},{-30,50}},
+        color={0,0,0},
+        smooth=Smooth.None));
+    connect(torque.support, mounting1D.flange_b) annotation (Line(
+        points={{-48,40},{-48,36},{-52,36}},
+        color={0,0,0},
+        smooth=Smooth.None));
+    connect(mounting1D.frame_a, revolute3.frame_b) annotation (Line(
+        points={{-62,26},{-62,20},{72,20},{72,-10},{66,-10}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(torque.tau, sine4.y) annotation (Line(
+        points={{-60,50},{-77.4,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(revolute3.frame_b, bodyBox.frame_a) annotation (Line(
+        points={{66,-10},{76,-10}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(inertia1.frame_a, revolute3.frame_b) annotation (Line(
+        points={{-20,40},{-20,20},{72,20},{72,-10},{66,-10}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(inertia2.frame_a, revolute3.frame_b) annotation (Line(
+        points={{40,40},{40,20},{72,20},{72,-10},{66,-10}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    annotation (experiment,             Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics),
+      __Dymola_experimentSetupOutput,
+      Documentation(info="<html>
+<p>
+This model consists of a drive train with two inertias that are coupled by a bevel gear
+(with 90 degree angle between the two gear flanges).
+This drive train is mounted on a body that is rotated along three axes.
+The drive train is modeled with 1D rotational elements that take into account 3D effects.
+</p>
+
+<p>
+The bevelGear component consists of two rotational flanges (for the gear flanges) and one 3D frame
+(for the support/mounting).
+Since the bevelGear does not store energy, the power balance must hold (the total sum
+of inflowing and outflowing energy must be zero). One has to be careful, when
+computing the energy flow of hybrid 1D/3D component: The angular velocities of rotational flanges
+are with respect to the support frame (so the moving body on which the drive train
+is mounted). Therefore, when computing the energy flow, first the absolute angular velocities
+of the flanges have to be calculated. In this example model, this is performed in the following way
+(na and nb are the axes of rotations of the gear flanges, and ws is the
+angular velocity of the support frame):
+</p>
+
+<pre>
+    import Modelica.Mechanics.MultiBody.Frames;
+    import SI=Modelica.SIunits;
+    SI.Power           bevelGearPower;
+    SI.AngularVelocity ws[3] = Frames.angularVelocity2(bevelGear.frame_a.R);
+  <b>equation</b>
+    bevelGearPower = (ws + der(bevelGear.flange_a.phi)*na)*bevelGear.flange_a.tau*na +
+                     (ws + der(bevelGear.flange_b.phi)*nb)*bevelGear.flange_b.tau*nb +
+                     ws*bevelGear.frame_a.t;
+</pre>
+<p>
+The total energy flow bevelGearPower must be zero. If a relative tolerance of 1e-4 is used
+for simulation, bevelGearPower is in the order of 1e-8 (and smaller for a smaller relative
+tolerance).
+</p>
+</html>"));
+  end BevelGear1D;
   annotation (Documentation(info="<html>
 <p>
 This library demonstrates the usage of elements of the Mechanics.Rotational library
