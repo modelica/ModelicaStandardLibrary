@@ -1486,34 +1486,4 @@ This shows the improvements in the numerics when balance=true is set.
     end DifferentInitialization;
   end FilterTests;
 
-  model PadeDelay2b
-    "PadeDelay: Compare balance = false with balance = true setting"
-    extends Modelica.Icons.Example;
-    parameter Integer n=4 "Order of Pade approximation";
-    parameter Modelica.SIunits.Time delayTime=0.001
-      "Delay time of output with respect to input signal";
-
-    Modelica.Blocks.Sources.Step step(               offset=0.1, startTime=0.01)
-      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
-    Modelica.Blocks.Nonlinear.PadeDelay padeDelay1a(
-      balance=false,
-      delayTime=delayTime,
-      n=n) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-  equation
-
-    connect(step.y, padeDelay1a.u) annotation (Line(
-        points={{-59,50},{-42,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    annotation (experiment(StopTime=0.02), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics),
-      Documentation(info="<html>
-<p>
-The setting with order=4 gives the same result with balance=false and balance=true.
-If order=5 or higher is set, then the balance=false setting gives extremly slow
-simulation. If the balance=false blocks are removed, the simulation is very fast.
-This shows the improvements in the numerics when balance=true is set.
-</p>
-</html>"));
-  end PadeDelay2b;
 end Blocks;
