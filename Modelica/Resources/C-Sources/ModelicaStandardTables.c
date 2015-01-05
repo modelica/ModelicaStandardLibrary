@@ -2764,7 +2764,6 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
     if (tableID) {
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
-        size_t i;
         char* tableName;
         char tableDummyName[7];
 
@@ -2806,6 +2805,7 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
             /* Check, whether first column values are monotonically or strictly
                increasing */
             if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                size_t i;
                 for (i = 0; i < nRow - 1; i++) {
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
@@ -2822,6 +2822,7 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
                 }
             }
             else {
+                size_t i;
                 for (i = 0; i < nRow - 1; i++) {
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
@@ -2849,7 +2850,6 @@ static int isValidCombiTable1D(const CombiTable1D* tableID) {
     if (tableID) {
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
-        size_t i;
         char* tableName;
         char tableDummyName[7];
 
@@ -2873,6 +2873,7 @@ static int isValidCombiTable1D(const CombiTable1D* tableID) {
 
         if (tableID->table) {
             const double* table = tableID->table;
+            size_t i;
             /* Check, whether first column values are strictly increasing */
             for (i = 0; i < nRow - 1; i++) {
                 double x0 = TABLE_COL0(i);
@@ -2899,7 +2900,6 @@ static int isValidCombiTable2D(const CombiTable2D* tableID) {
     if (tableID) {
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
-        size_t i;
         char* tableName;
         char tableDummyName[7];
 
@@ -2923,6 +2923,7 @@ static int isValidCombiTable2D(const CombiTable2D* tableID) {
 
         if (tableID->table) {
             const double* table = tableID->table;
+            size_t i;
             /* Check, whether first column values are strictly increasing */
             for (i = 1; i < nRow - 1; i++) {
                 double x0 = TABLE_COL0(i);
