@@ -760,4 +760,110 @@ package CombiTimeTable
       annotation (Placement(transformation(extent={{-20,-40},{10,-20}})));
     annotation (experiment(StartTime=0, StopTime=4));
   end Test66_usertab;
+
+  model Test68 "No internal event, startTime > t_min > 0 (Ticket #1619)"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.CombiTimeTable startTime_0(
+      table=startTime.table,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      offset={33.1818}) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.CombiTimeTable startTime(
+      table=[9.81594,0; 90.7974,7.2727; 181.5948,23.1818; 279.7548,43.6364;
+        382.8222,67.2732; 478.5276,88.1822; 623.31,109.5452; 746.01,125.4542;
+        895.704,141.3632; 1013.496,149.0912; 1057.668,169.5452; 1121.472,
+        179.5452; 1207.362,191.8182; 1332.516,205.4542; 1442.946,214.0912;
+        1604.91,224.0912; 1747.242,231.8182; 1943.556,240.9092; 2157.054,
+        248.6362; 2346.012,256.8182; 2544.786,264.5452; 2760.738,274.0912;
+        3190.182,292.7272; 3418.404,303.1822; 3663.804,312.7272; 3909.204,
+        322.7272; 4053.99,326.8182; 4164.42,331.8182],
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      offset={33.1818},
+      startTime=2000) annotation (Placement(transformation(extent={{0,0},{20,20}})));
+    annotation (experiment(StartTime=0, StopTime=8000));
+  end Test68;
+
+  model Test69 "No internal event, startTime < 0, t_min > 0 (Ticket #1619)"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.CombiTimeTable startTime_0(
+      table=startTime.table,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      offset={33.1818}) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.CombiTimeTable startTime(
+      table=[9.81594,0; 90.7974,7.2727; 181.5948,23.1818; 279.7548,43.6364;
+        382.8222,67.2732; 478.5276,88.1822; 623.31,109.5452; 746.01,125.4542;
+        895.704,141.3632; 1013.496,149.0912; 1057.668,169.5452; 1121.472,
+        179.5452; 1207.362,191.8182; 1332.516,205.4542; 1442.946,214.0912;
+        1604.91,224.0912; 1747.242,231.8182; 1943.556,240.9092; 2157.054,
+        248.6362; 2346.012,256.8182; 2544.786,264.5452; 2760.738,274.0912;
+        3190.182,292.7272; 3418.404,303.1822; 3663.804,312.7272; 3909.204,
+        322.7272; 4053.99,326.8182; 4164.42,331.8182],
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      offset={33.1818},
+      startTime=-2000) annotation (Placement(transformation(extent={{0,0},{20,20}})));
+    annotation (experiment(StartTime=0, StopTime=8000));
+  end Test69;
+
+  model Test70 "One internal event, startTime > t_min > 0 (Ticket #1619)"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.CombiTimeTable startTime_0(
+      table=startTime.table,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      offset={33.1818}) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.CombiTimeTable startTime(
+      table=[9.81594,0; 90.7974,7.2727; 181.5948,23.1818; 279.7548,43.6364;
+        382.8222,67.2732; 478.5276,88.1822; 623.31,109.5452; 746.01,125.4542;
+        895.704,141.3632; 1013.496,149.0912; 1057.668,149.0912; 1057.668,169.5452; 1121.472,
+        179.5452; 1207.362,191.8182; 1332.516,205.4542; 1442.946,214.0912;
+        1604.91,224.0912; 1747.242,231.8182; 1943.556,240.9092; 2157.054,
+        248.6362; 2346.012,256.8182; 2544.786,264.5452; 2760.738,274.0912;
+        3190.182,292.7272; 3418.404,303.1822; 3663.804,312.7272; 3909.204,
+        322.7272; 4053.99,326.8182; 4164.42,331.8182],
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      offset={33.1818},
+      startTime=2000) annotation (Placement(transformation(extent={{0,0},{20,20}})));
+    annotation (experiment(StartTime=0, StopTime=8000));
+  end Test70;
+
+  model Test71 "One internal event @ 1057.668, startTime < 0, t_event < -startTime, t_min > 0 (Ticket #1619)"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.CombiTimeTable startTime_0(
+      table=startTime.table,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      offset={33.1818}) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.CombiTimeTable startTime(
+      table=[9.81594,0; 90.7974,7.2727; 181.5948,23.1818; 279.7548,43.6364;
+        382.8222,67.2732; 478.5276,88.1822; 623.31,109.5452; 746.01,125.4542;
+        895.704,141.3632; 1013.496,149.0912; 1057.668,149.0912; 1057.668,169.5452; 1121.472,
+        179.5452; 1207.362,191.8182; 1332.516,205.4542; 1442.946,214.0912;
+        1604.91,224.0912; 1747.242,231.8182; 1943.556,240.9092; 2157.054,
+        248.6362; 2346.012,256.8182; 2544.786,264.5452; 2760.738,274.0912;
+        3190.182,292.7272; 3418.404,303.1822; 3663.804,312.7272; 3909.204,
+        322.7272; 4053.99,326.8182; 4164.42,331.8182],
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      offset={33.1818},
+      startTime=-2000) annotation (Placement(transformation(extent={{0,0},{20,20}})));
+    annotation (experiment(StartTime=0, StopTime=8000));
+  end Test71;
+
+  model Test72 "One internal event @ 1057.668, startTime < 0, t_event > -startTime, t_min > 0 (Ticket #1619)"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.CombiTimeTable startTime_0(
+      table=startTime.table,
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      offset={33.1818}) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.CombiTimeTable startTime(
+      table=[9.81594,0; 90.7974,7.2727; 181.5948,23.1818; 279.7548,43.6364;
+        382.8222,67.2732; 478.5276,88.1822; 623.31,109.5452; 746.01,125.4542;
+        895.704,141.3632; 1013.496,149.0912; 1057.668,149.0912; 1057.668,169.5452; 1121.472,
+        179.5452; 1207.362,191.8182; 1332.516,205.4542; 1442.946,214.0912;
+        1604.91,224.0912; 1747.242,231.8182; 1943.556,240.9092; 2157.054,
+        248.6362; 2346.012,256.8182; 2544.786,264.5452; 2760.738,274.0912;
+        3190.182,292.7272; 3418.404,303.1822; 3663.804,312.7272; 3909.204,
+        322.7272; 4053.99,326.8182; 4164.42,331.8182],
+      extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint,
+      offset={33.1818},
+      startTime=-1000) annotation (Placement(transformation(extent={{0,0},{20,20}})));
+    annotation (experiment(StartTime=0, StopTime=8000));
+  end Test72;
+
 end CombiTimeTable;
