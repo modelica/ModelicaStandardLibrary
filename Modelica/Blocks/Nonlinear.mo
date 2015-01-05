@@ -7,10 +7,11 @@ package Nonlinear
       block Limiter "Limit the range of a signal"
         parameter Real uMax(start=1) "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
-        parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
+        parameter Boolean strict=false
+      "= true, if strict limits with noEvent(..)"
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         parameter Boolean limitsAtInit=true
-          "= false, if limits are ignored during initialization (i.e., y=u)"
+      "= false, if limits are ignored during initialization (i.e., y=u)"
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         extends Interfaces.SISO;
 
@@ -466,60 +467,106 @@ The Input signal is delayed by a given time instant, or more precisely:
             fillPattern=FillPattern.Solid)}));
   end FixedDelay;
 
-  block PadeDelay "Pade approximation of delay block with fixed DelayTime"
+  block PadeDelay
+    "Pade approximation of delay block with fixed delayTime (use balance=true; this is not the default to be backwards compatible)"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter SI.Time delayTime(start=1)
+    parameter Modelica.SIunits.Time delayTime(start=1)
       "Delay time of output with respect to input signal";
-    parameter Integer n(min=1) = 1 "Order of Pade approximation";
-    parameter Integer m(
-      min=1,
-      max=n) = n "Order of numerator";
-
-  protected
-    Real x1dot "Derivative of first state of TransferFcn";
-    Real xn "Highest order state of TransferFcn";
-    Real a[n + 1];
-    Real b[m + 1];
-
-  public
+    parameter Integer n(min=1) = 1 "Order of Pade delay";
+    parameter Integer m(min=1,max=n) = n
+      "Order of numerator (usually m=n, or m=n-1)";
+    parameter Boolean balance=false
+      "= true, if state space system is balanced (highly recommeded), otherwise textbook version"
+      annotation(choices(checkBox=true));
     final output Real x[n]
-      "State of transfer function from controller canonical form";
+      "State of transfer function from controller canonical form (balance=false), or balanced controller canonical form (balance=true)";
 
   protected
-    function padeCoefficients
-      extends Modelica.Icons.Function;
-      input Real T "delay time";
-      input Integer n "order of denominator";
-      input Integer m "order of numerator";
-      output Real b[m + 1] "numerator coefficients of transfer function";
-      output Real a[n + 1] "denominator coefficients of transfer function";
+    parameter Real a1[n]( each fixed=false) "First row of A";
+    parameter Real b11(        fixed=false) "= B[1,1]";
+    parameter Real c[n](  each fixed=false) "C row matrix";
+    parameter Real d(          fixed=false) "D matrix";
+    parameter Real s[n-1](each fixed=false) "State scaling";
+
+  function padeCoefficients2
+    input Real T "delay time";
+    input Integer n "order of denominator";
+    input Integer m "order of numerator";
+    input Boolean balance=false;
+    output Real a1[n] "First row of A";
+    output Real b11 "= B[1,1]";
+    output Real c[n] "C row matrix";
+    output Real d "D matrix";
+    output Real s[n-1] "Scaling such that x[i] = s[i-1]*x[i-1], i > 1";
     protected
-      Real nm;
-    algorithm
-      a[1] := 1;
-      b[1] := 1;
-      nm := n + m;
+    Real b[m + 1] "numerator coefficients of transfer function";
+    Real a[n + 1] "denominator coefficients of transfer function";
+    Real nm;
+    Real bb[n + 1];
+    Real A[n,n];
+    Real B[n,1];
+    Real C[1,n];
+    Real A2[n,n] = zeros(n,n);
+    Real B2[n,1] = zeros(n,1);
+    Real C2[1,n] "C matrix";
+    Integer nb = m+1;
+    Integer na = n+1;
+    Real sx[n];
+  algorithm
+    a[1] := 1;
+    b[1] := 1;
+    nm := n + m;
 
-      for i in 1:n loop
-        a[i + 1] := a[i]*(T*((n - i + 1)/(nm - i + 1))/i);
-        if i <= m then
-          b[i + 1] := -b[i]*(T*((m - i + 1)/(nm - i + 1))/i);
-        end if;
+    for i in 1:n loop
+      a[i + 1] := a[i]*(T*((n - i + 1)/(nm - i + 1))/i);
+      if i <= m then
+        b[i + 1] := -b[i]*(T*((m - i + 1)/(nm - i + 1))/i);
+      end if;
+    end for;
+
+    b  := b[m + 1:-1:1];
+    a  := a[n + 1:-1:1];
+    bb := vector([zeros(n-m, 1); b]);
+    d  := bb[1]/a[1];
+
+    if balance then
+      A2[1,:] := -a[2:na]/a[1];
+      B2[1,1] := 1/a[1];
+      for i in 1:n-1 loop
+         A2[i+1,i] :=1;
       end for;
+      C2[1,:] := bb[2:na] - d*a[2:na];
+      (sx,A,B,C) :=Modelica.Math.Matrices.balanceABC(A2,B2,C2);
+      for i in 1:n-1 loop
+         s[i] := sx[i]/sx[i+1];
+      end for;
+      a1  := A[1,:];
+      b11 := B[1,1];
+      c   := vector(C);
+    else
+       s  := ones(n-1);
+      a1  := -a[2:na]/a[1];
+      b11 :=  1/a[1];
+      c   := bb[2:na] - d*a[2:na];
+    end if;
+  end padeCoefficients2;
 
-      b := b[m + 1:-1:1];
-      a := a[n + 1:-1:1];
-    end padeCoefficients;
   equation
-
-    (b,a) = padeCoefficients(delayTime, n, m);
-
-    [der(x); xn] = [x1dot; x];
-    [u] = transpose([a])*[x1dot; x];
-    [y] = transpose([zeros(n - m, 1); b])*[x1dot; x];
+    der(x[1]) = a1*x + b11*u;
+    if n > 1 then
+       der(x[2:n]) = s.*x[1:n-1];
+    end if;
+    y = c*x + d*u;
 
   initial equation
-    x[n] = u;
+    (a1,b11,c,d,s) = padeCoefficients2(delayTime, n, m, balance);
+
+    if balance then
+       der(x) = zeros(n);
+    else
+       // In order to be backwards compatible
+       x[n] = u;
+    end if;
     annotation (
       Documentation(info="<html>
 <p>
@@ -555,13 +602,50 @@ The standard text book version uses order \"m=n\", which is
 also the default setting of this block. The setting
 \"m=n-1\" may yield a better approximation in certain cases.
 </p>
+
+<p>
+It is strongly recommended to always set parameter <b>balance</b> = true, 
+in order to arrive at a much better reliable numerical computation.
+This is not the default, in order to be backwards compatible, so you have
+to explicitely set it. Besides better numerics, also all states are initialized
+with <b>balance</b> = true (in steady-state, so der(x)=0). Longer explanation:
+</p>
+
+<p>
+By default the transfer function of the Pade approximation is implemented
+in controller canonical form. This results in coefficients of the A-matrix in 
+the order of 1 up to the order of O(1/delayTime)^n. For already modest values
+of delayTime and n, this gives largely varying coefficients (for example delayTime=0.001 and n=4 
+results in coefficients between 1 and 1e12). In turn, this results
+in a large norm of the system matrix [A,B;C,D] and therefore in unreliable
+numerical computations. When setting parameter <b>balance</b> = true, a state
+transformation is performed that considerably reduces the norm of the system matrix.
+This is performed without introducing round-off errors. For details see
+function <a href=\"modelica://Modelica.Math.Matrices.balanceABC\">balanceABC</a>.
+As a result, both the simulation of the PadeDelay block, and especially 
+its linearization becomes more reliable.
+</p>
+
 <h5>Literature:</h5>
 <p>Otto Foellinger: Regelungstechnik, 8. Auflage,
 chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 </p>
+</html>",   revisions="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<th>Date</th>
+<th>Author</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td valign=\"top\">2015-01-05</td>
+<td valign=\"top\">Martin Otter (DLR-SR)</td>
+<td valign=\"top\">Introduced parameter balance=true and a new implementation
+ of the PadeDelay block with an optional, more reliable numerics</td>
+</tr>
+</table>
 </html>"),   Icon(
-      coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}},
+      coordinateSystem(preserveAspectRatio=false,
+        extent={{-100,-100},{100,100}},
         initialScale=0.1),
         graphics={
       Text(extent={{8.0,-142.0},{8.0,-102.0}},
@@ -577,7 +661,10 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
         textString="m=%m"),
       Text(lineColor={160,160,164},
         extent={{-98.0,-96.0},{6.0,-34.0}},
-        textString="n=%n")}),
+        textString="n=%n"),
+      Text(visible=balance, lineColor={160,160,164},
+        extent={{-96,-20},{98,22}},
+            textString="balanced")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={

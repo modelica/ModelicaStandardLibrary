@@ -960,6 +960,328 @@ package Blocks "Test models for Modelica.Blocks"
             preserveAspectRatio=false, extent={{-100,-140},{100,140}})));
   end Mean;
 
+  model PadeDelay1
+    "Check that new implementation gives the same result as the old implementation for the default balance = false"
+    extends Modelica.Icons.Example;
+    parameter Integer n=10 "Order of Pade approximation";
+    parameter Modelica.SIunits.Time delayTime=0.2
+      "Delay time of output with respect to input signal";
+
+    block PadeDelayOld
+      "Pade approximation of delay block with fixed DelayTime (from MSL 3.2.1)"
+    extends Modelica.Blocks.Interfaces.SISO;
+    parameter Modelica.SIunits.Time delayTime(start=1)
+        "Delay time of output with respect to input signal";
+    parameter Integer n(min=1) = 1 "Order of Pade approximation";
+    parameter Integer m(
+      min=1,
+      max=n) = n "Order of numerator";
+
+    protected
+    Real x1dot "Derivative of first state of TransferFcn";
+    Real xn "Highest order state of TransferFcn";
+    Real a[n + 1];
+    Real b[m + 1];
+
+    public
+    final output Real x[n]
+        "State of transfer function from controller canonical form";
+
+    protected
+    function padeCoefficients
+      extends Modelica.Icons.Function;
+      input Real T "delay time";
+      input Integer n "order of denominator";
+      input Integer m "order of numerator";
+      output Real b[m + 1] "numerator coefficients of transfer function";
+      output Real a[n + 1] "denominator coefficients of transfer function";
+      protected
+      Real nm;
+    algorithm
+      a[1] := 1;
+      b[1] := 1;
+      nm := n + m;
+
+      for i in 1:n loop
+        a[i + 1] := a[i]*(T*((n - i + 1)/(nm - i + 1))/i);
+        if i <= m then
+          b[i + 1] := -b[i]*(T*((m - i + 1)/(nm - i + 1))/i);
+        end if;
+      end for;
+
+      b := b[m + 1:-1:1];
+      a := a[n + 1:-1:1];
+    end padeCoefficients;
+    equation
+
+    (b,a) = padeCoefficients(delayTime, n, m);
+
+    [der(x); xn] = [x1dot; x];
+    [u] = transpose([a])*[x1dot; x];
+    [y] = transpose([zeros(n - m, 1); b])*[x1dot; x];
+
+    initial equation
+    x[n] = u;
+    annotation (
+      Documentation(info="<html>
+<p>
+The Input signal is delayed by a given time instant, or more precisely:
+</p>
+<pre>
+   y = u(time - delayTime) for time &gt; time.start + delayTime
+     = u(time.start)       for time &le; time.start + delayTime
+</pre>
+<p>
+The delay is approximated by a Pade approximation, i.e., by
+a transfer function
+</p>
+<pre>
+           b[1]*s^m + b[2]*s^[m-1] + ... + b[m+1]
+   y(s) = --------------------------------------------- * u(s)
+           a[1]*s^n + a[2]*s^[n-1] + ... + a[n+1]
+</pre>
+<p>
+where the coefficients b[:] and a[:] are calculated such that the
+coefficients of the Taylor expansion of the delay exp(-T*s) around s=0
+are identical upto order n+m.
+</p>
+<p>
+The main advantage of this approach is that the delay is
+approximated by a linear differential equation system, which
+is continuous and continuously differentiable. For example, it
+is uncritical to linearize a system containing a Pade-approximated
+delay.
+</p>
+<p>
+The standard text book version uses order \"m=n\", which is
+also the default setting of this block. The setting
+\"m=n-1\" may yield a better approximation in certain cases.
+</p>
+<h5>Literature:</h5>
+<p>Otto Foellinger: Regelungstechnik, 8. Auflage,
+chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
+</p>
+</html>"),   Icon(
+      coordinateSystem(preserveAspectRatio=true,
+        extent={{-100.0,-100.0},{100.0,100.0}},
+        initialScale=0.1),
+        graphics={
+      Text(extent={{8.0,-142.0},{8.0,-102.0}},
+        textString="delayTime=%delayTime"),
+      Line(points={{-94.0,0.0},{-82.7,34.2},{-75.5,53.1},{-69.1,66.4},{-63.4,74.6},{-57.8,79.1},{-52.2,79.8},{-46.6,76.6},{-40.9,69.7},{-35.3,59.4},{-28.9,44.1},{-20.83,21.2},{-3.9,-30.8},{3.3,-50.2},{9.7,-64.2},{15.3,-73.1},{21.0,-78.4},{26.6,-80.0},{32.2,-77.6},{37.9,-71.5},{43.5,-61.9},{49.9,-47.2},{58.0,-24.8},{66.0,0.0}},
+        color={0,0,127},
+        smooth=Smooth.Bezier),
+      Line(points={{-72.0,0.0},{-60.7,34.2},{-53.5,53.1},{-47.1,66.4},{-41.4,74.6},{-35.8,79.1},{-30.2,79.8},{-24.6,76.6},{-18.9,69.7},{-13.3,59.4},{-6.9,44.1},{1.17,21.2},{18.1,-30.8},{25.3,-50.2},{31.7,-64.2},{37.3,-73.1},{43.0,-78.4},{48.6,-80.0},{54.2,-77.6},{59.9,-71.5},{65.5,-61.9},{71.9,-47.2},{80.0,-24.8},{88.0,0.0}},
+        color={160,160,164},
+        smooth=Smooth.Bezier),
+      Text(lineColor={160,160,164},
+        extent={{-10.0,38.0},{100.0,100.0}},
+        textString="m=%m"),
+      Text(lineColor={160,160,164},
+        extent={{-98.0,-96.0},{6.0,-34.0}},
+        textString="n=%n")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Line(points={{-80,80},{-88,80}}, color={192,192,192}),
+          Line(points={{-80,-80},{-88,-80}}, color={192,192,192}),
+          Line(points={{-80,-88},{-80,86}}, color={192,192,192}),
+          Text(
+            extent={{-75,98},{-46,78}},
+            lineColor={0,0,255},
+            textString="outPort"),
+          Polygon(
+            points={{-80,96},{-86,80},{-74,80},{-80,96}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{84,0}}, color={192,192,192}),
+          Polygon(
+            points={{100,0},{84,6},{84,-6},{100,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
+                74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
+                59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
+                -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
+                {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={0,0,127},
+                smooth=Smooth.Bezier),
+          Text(
+            extent={{-24,98},{-2,78}},
+            lineColor={0,0,0},
+            textString="inPort"),
+          Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
+                74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
+                59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
+                {45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,-71.5},{
+                73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, color={0,0,0},
+                smooth=Smooth.Bezier),
+          Text(
+            extent={{67,22},{96,6}},
+            lineColor={160,160,164},
+            textString="time"),
+          Line(points={{-64,-30},{-64,0}}, color={192,192,192}),
+          Text(
+            extent={{-58,-42},{-58,-32}},
+            textString="delayTime",
+            lineColor={0,0,255}),
+          Line(points={{-94,-26},{-80,-26}}, color={192,192,192}),
+          Line(points={{-64,-26},{-50,-26}}, color={192,192,192}),
+          Polygon(
+            points={{-80,-26},{-88,-24},{-88,-28},{-80,-26}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-56,-24},{-64,-26},{-56,-28},{-56,-24}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid)}));
+    end PadeDelayOld;
+
+    PadeDelayOld padeDelayOld1(delayTime=delayTime, n=n)
+      annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+    Modelica.Blocks.Nonlinear.PadeDelay padeDelay1(
+      balance=false,
+      delayTime=delayTime,
+      n=n) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+    Modelica.Blocks.Math.Feedback compare1
+      annotation (Placement(transformation(extent={{-4,40},{16,60}})));
+    PadeDelayOld padeDelayOld2(delayTime=delayTime, n=n)
+      annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+    Modelica.Blocks.Nonlinear.PadeDelay padeDelay2(
+      balance=false,
+      delayTime=delayTime,
+      n=n) annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+    Modelica.Blocks.Math.Feedback compare2
+      annotation (Placement(transformation(extent={{-4,-40},{16,-20}})));
+    Modelica.Blocks.Sources.Sine Sine(startTime=0.1, offset=0.1,
+      freqHz=2)
+      annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+  equation
+    assert(abs(compare1.y) <= 1e-3, "PadeDelay: Old and new implementation does not give the same result");
+    assert(abs(compare2.y) <= 1e-3, "PadeDelay: Old and new implementation does not give the same result");
+
+    connect(step.y, padeDelayOld1.u) annotation (Line(
+        points={{-59,50},{-42,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(step.y, padeDelay1.u) annotation (Line(
+        points={{-59,50},{-52,50},{-52,10},{-42,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelayOld1.y, compare1.u1) annotation (Line(
+        points={{-19,50},{-2,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelay1.y, compare1.u2) annotation (Line(
+        points={{-19,10},{6,10},{6,42}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelayOld2.y,compare2. u1) annotation (Line(
+        points={{-19,-30},{-2,-30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelay2.y,compare2. u2) annotation (Line(
+        points={{-19,-70},{6,-70},{6,-38}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelayOld2.u, Sine.y) annotation (Line(
+        points={{-42,-30},{-59,-30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelay2.u, Sine.y) annotation (Line(
+        points={{-42,-70},{-50,-70},{-50,-30},{-59,-30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StopTime=1.0), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
+  end PadeDelay1;
+
+  model PadeDelay2
+    "PadeDelay: Compare balance = false with balance = true setting"
+    extends Modelica.Icons.Example;
+    parameter Integer n=4 "Order of Pade approximation";
+    parameter Modelica.SIunits.Time delayTime=0.001
+      "Delay time of output with respect to input signal";
+
+    Modelica.Blocks.Nonlinear.PadeDelay padeDelay1b(
+      delayTime=delayTime,
+      n=n,
+      balance=true)
+      annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.Step step(               offset=0.1, startTime=0.01)
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+    Modelica.Blocks.Math.Feedback compare1
+      annotation (Placement(transformation(extent={{-4,40},{16,60}})));
+    Modelica.Blocks.Nonlinear.PadeDelay padeDelay2a(delayTime=delayTime, n=n)
+      annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+    Modelica.Blocks.Nonlinear.PadeDelay padeDelay2b(
+      delayTime=delayTime,
+      n=n,
+      balance=true)
+      annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+    Modelica.Blocks.Math.Feedback compare2
+      annotation (Placement(transformation(extent={{-4,-40},{16,-20}})));
+    Modelica.Blocks.Sources.Sine Sine(               offset=0.1,
+      freqHz=2,
+      startTime=0.01)
+      annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+    Modelica.Blocks.Nonlinear.PadeDelay padeDelay1a(
+      balance=false,
+      delayTime=delayTime,
+      n=n) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+  equation
+    assert(abs(compare1.y) <= 1e-3, "PadeDelay: Old and new implementation does not give the same result");
+    assert(abs(compare2.y) <= 1e-3, "PadeDelay: Old and new implementation does not give the same result");
+
+    connect(step.y, padeDelay1b.u) annotation (Line(
+        points={{-59,50},{-52,50},{-52,10},{-42,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelay1b.y, compare1.u2) annotation (Line(
+        points={{-19,10},{6,10},{6,42}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelay2a.y, compare2.u1) annotation (Line(
+        points={{-19,-30},{-2,-30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelay2b.y, compare2.u2) annotation (Line(
+        points={{-19,-70},{6,-70},{6,-38}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelay2a.u, Sine.y) annotation (Line(
+        points={{-42,-30},{-59,-30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(padeDelay2b.u, Sine.y) annotation (Line(
+        points={{-42,-70},{-50,-70},{-50,-30},{-59,-30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(step.y, padeDelay1a.u) annotation (Line(
+        points={{-59,50},{-42,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(compare1.u1, padeDelay1a.y) annotation (Line(
+        points={{-2,50},{-19,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StopTime=0.02), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics),
+      Documentation(info="<html>
+<p>
+The setting with order=4 gives the same result with balance=false and balance=true.
+If order=5 or higher is set, then the balance=false setting gives extremly slow
+simulation. If the balance=false blocks are removed, the simulation is very fast.
+This shows the improvements in the numerics when balance=true is set.
+</p>
+</html>"));
+  end PadeDelay2;
+
   package FilterTests "Test of Blocks.Continuous.Filter"
     extends Modelica.Icons.ExamplesPackage;
     model AllOptions
@@ -1163,4 +1485,35 @@ package Blocks "Test models for Modelica.Blocks"
 
     end DifferentInitialization;
   end FilterTests;
+
+  model PadeDelay2b
+    "PadeDelay: Compare balance = false with balance = true setting"
+    extends Modelica.Icons.Example;
+    parameter Integer n=4 "Order of Pade approximation";
+    parameter Modelica.SIunits.Time delayTime=0.001
+      "Delay time of output with respect to input signal";
+
+    Modelica.Blocks.Sources.Step step(               offset=0.1, startTime=0.01)
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+    Modelica.Blocks.Nonlinear.PadeDelay padeDelay1a(
+      balance=false,
+      delayTime=delayTime,
+      n=n) annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+  equation
+
+    connect(step.y, padeDelay1a.u) annotation (Line(
+        points={{-59,50},{-42,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StopTime=0.02), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics),
+      Documentation(info="<html>
+<p>
+The setting with order=4 gives the same result with balance=false and balance=true.
+If order=5 or higher is set, then the balance=false setting gives extremly slow
+simulation. If the balance=false blocks are removed, the simulation is very fast.
+This shows the improvements in the numerics when balance=true is set.
+</p>
+</html>"));
+  end PadeDelay2b;
 end Blocks;
