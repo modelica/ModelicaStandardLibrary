@@ -4253,8 +4253,8 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         end Table;
 
         model Pulse "Digital Pulse Source"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter Real width(
             final min=Modelica.Constants.small,
             final max=100, start=50) "Widths of pulses in % of periods";
@@ -4264,7 +4264,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         "Output = quiet for time < startTime";
           parameter D.Interfaces.Logic pulse(start=L.'0') "pulsed value";
           parameter D.Interfaces.Logic quiet(start=L.'1') "quiet value";
-          Modelica.SIunits.Time T0(final start=startTime)
+          Modelica.SIunits.Time T0(final start=startTime, fixed=true)
         "Start time of current period";
           parameter Integer nperiod(start=-1)
         "Number of periods (< 0 means infinite number of periods)";
