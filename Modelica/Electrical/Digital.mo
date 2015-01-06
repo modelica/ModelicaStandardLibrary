@@ -4358,7 +4358,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
     protected
-          Modelica.SIunits.Time t_i(final start=startTime)
+          Modelica.SIunits.Time t_i(final start=startTime, fixed=true)
         "Start time of current period";
           Modelica.SIunits.Time t_width=period*width/100;
         equation
