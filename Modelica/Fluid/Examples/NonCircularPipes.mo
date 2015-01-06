@@ -45,7 +45,7 @@ equation
   Documentation(info="<html>
 <p>
 In this example two pipes are used to demonstrate the use of circular (default) and non-circular pipes,
-where the topmost pipe is circular with a length of 100 m and an inner diamter of 10 mm and the second pipe
+where the topmost pipe is circular with a length of 100 m and an inner diameter of 10 mm and the second pipe
 is a circular ring pipe with inner diameter of 5 mm and an outer diamter of 15 mm.
 </p>
 <p>
@@ -61,7 +61,7 @@ circular ring pipe).
 </html>", revisions="<html>
 <ul>
 <li>
-January 6, 2014 by Alexander T&auml;schner:<br/>
+January 6, 2015 by Alexander T&auml;schner:<br/>
 First implementation.
 </li>
 </ul>
