@@ -3356,7 +3356,7 @@ The corresponding SPICE description
         "End time of width phase within one period";
       parameter SI.Time Tfalling=Twidth + TF
         "End time of falling phase within one period";
-      SI.Time T0(final start=TD) "Start time of current period";
+      SI.Time T0(final start=TD, fixed=true) "Start time of current period";
       Integer counter(start=-1, fixed=true) "Period counter";
       Integer counter2(start=-1, fixed=true);
 
@@ -3729,7 +3729,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         "End time of width phase within one period";
       parameter SI.Time Tfalling=Twidth + TF
         "End time of falling phase within one period";
-      SI.Time T0(final start=TD) "Start time of current period";
+      SI.Time T0(final start=TD, fixed=true) "Start time of current period";
       Integer counter(start=-1) "Period counter";
       Integer counter2(start=-1);
 
