@@ -1747,7 +1747,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
   protected
     Boolean off=control;
     Boolean on=not off;
-    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf);
+    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
     Boolean quenched(start=true, fixed=true);
   equation
     when edge(off) then
@@ -1877,7 +1877,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
   protected
     Boolean on=control;
     Boolean off(start=false, fixed=true);
-    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf);
+    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
     Boolean quenched(start=true, fixed=true);
   equation
     off = not on;
@@ -2014,7 +2014,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
     Boolean off=(control.v > level);
     Boolean on=not off;
-    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf);
+    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
     Boolean quenched(start=true);
   equation
     control.i = 0;
@@ -2139,7 +2139,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
     Boolean off(start=false, fixed=true);
     Boolean on=not off;
-    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf);
+    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
     Boolean quenched(start=true, fixed=true);
   equation
     off = (control.v < level);
