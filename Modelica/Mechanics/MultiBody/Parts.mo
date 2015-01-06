@@ -1946,8 +1946,8 @@ are forced to be used as states.
     "Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true)"
     parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
-      "Axis of rotation = axis of support torque (resolved in frame_a)";
-
+      "Axis of rotation = axis of support torque (resolved in frame_a)"
+       annotation (Evaluate=true);
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
       "(right) flange fixed in housing" annotation (Placement(transformation(
             extent={{110,10},{90,-10}}, rotation=0)));
@@ -2036,7 +2036,8 @@ November 3-4, 2003, pp. 149-158</p>
     parameter SI.Inertia J(min=0,start=1)
       "Moment of inertia of rotor around its axis of rotation";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
-      "Axis of rotation resolved in frame_a";
+      "Axis of rotation resolved in frame_a"
+        annotation (Evaluate=true);
     parameter SI.Position r_center[3]=zeros(3)
       "Position vector from origin of frame_a to center of cylinder"
       annotation (Dialog(
@@ -2432,10 +2433,11 @@ November 3-4, 2003, pp. 149-158</p>
 
     parameter Real ratio(start=1) "Gear speed ratio";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0}
-      "Axis of rotation of flange_a, resolved in frame_a";
+      "Axis of rotation of flange_a, resolved in frame_a"
+      annotation (Evaluate=true);
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0}
-      "Axis of rotation of flange_b, resolved in frame_a";
-
+      "Axis of rotation of flange_b, resolved in frame_a"
+      annotation (Evaluate=true);
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D
       "Bearing frame" annotation (Placement(transformation(
           origin={0,-100},
