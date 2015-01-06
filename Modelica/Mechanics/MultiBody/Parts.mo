@@ -8,14 +8,14 @@ package Parts
     import Modelica.SIunits.Conversions.to_unit1;
 
     Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
+             0)));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0}
       "Position vector from world frame to frame_b, resolved in world frame";
-    parameter Types.ShapeType shapeType="cylinder" "Type of shape" annotation
-      (Dialog(
+    parameter Types.ShapeType shapeType="cylinder" "Type of shape" annotation (
+       Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -153,14 +153,14 @@ animation = <b>false</b>.
             rotation=0)));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
+             0)));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3](start={0,0,0})
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter Types.ShapeType shapeType="cylinder" "Type of shape" annotation
-      (Dialog(
+    parameter Types.ShapeType shapeType="cylinder" "Type of shape" annotation (
+       Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -349,8 +349,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
             rotation=0)));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
+             0)));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0}
@@ -396,9 +396,9 @@ the animation may be switched off via parameter animation = <b>false</b>.
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection =
+    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=
         to_unit1(r - r_shape)
-        "Vector in length direction of shape, resolved in frame_a"
+      "Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(
         tab="Animation",
         group="if animation = true",
@@ -668,14 +668,14 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter SI.Inertia I_33(min=0) = 0.001 "(3,3) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_21(min=-C.inf) = 0
-      "(2,1) element of inertia tensor" annotation (Dialog(group=
+    parameter SI.Inertia I_21(min=-C.inf) = 0 "(2,1) element of inertia tensor"
+                                        annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_31(min=-C.inf) = 0
-      "(3,1) element of inertia tensor" annotation (Dialog(group=
+    parameter SI.Inertia I_31(min=-C.inf) = 0 "(3,1) element of inertia tensor"
+                                        annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_32(min=-C.inf) = 0
-      "(3,2) element of inertia tensor" annotation (Dialog(group=
+    parameter SI.Inertia I_32(min=-C.inf) = 0 "(3,2) element of inertia tensor"
+                                        annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
 
     SI.Position r_0[3](start={0,0,0}, each stateSelect=if enforceStates then
@@ -739,8 +739,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    input Types.Color cylinderColor=sphereColor "Color of cylinder" annotation
-      (Dialog(
+    input Types.Color cylinderColor=sphereColor "Color of cylinder" annotation (
+       Dialog(
         colorSelector=true,
         tab="Animation",
         group="if animation = true",
@@ -1035,8 +1035,8 @@ to the setting of parameters \"useQuaternions\" and
             rotation=0)));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
+             0)));
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show shape between frame_a and frame_b and optionally a sphere at the center of mass)";
@@ -1056,14 +1056,14 @@ to the setting of parameters \"useQuaternions\" and
     parameter SI.Inertia I_33(min=0) = 0.001 "(3,3) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_21(min=-C.inf) = 0
-      "(2,1) element of inertia tensor" annotation (Dialog(group=
+    parameter SI.Inertia I_21(min=-C.inf) = 0 "(2,1) element of inertia tensor"
+                                        annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_31(min=-C.inf) = 0
-      "(3,1) element of inertia tensor" annotation (Dialog(group=
+    parameter SI.Inertia I_31(min=-C.inf) = 0 "(3,1) element of inertia tensor"
+                                        annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_32(min=-C.inf) = 0
-      "(3,2) element of inertia tensor" annotation (Dialog(group=
+    parameter SI.Inertia I_32(min=-C.inf) = 0 "(3,2) element of inertia tensor"
+                                        annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
 
     SI.Position r_0[3](start={0,0,0}, each stateSelect=if enforceStates then
@@ -1111,8 +1111,8 @@ to the setting of parameters \"useQuaternions\" and
       "Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Dialog(tab="Initialization"));
 
-    parameter Types.ShapeType shapeType="cylinder" "Type of shape" annotation
-      (Dialog(
+    parameter Types.ShapeType shapeType="cylinder" "Type of shape" annotation (
+       Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -1364,8 +1364,8 @@ states and of the \"Advanced\" menu parameters, see model
             rotation=0)));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
+             0)));
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show box between frame_a and frame_b)";
     parameter SI.Position r[3](start={0.1,0,0})
@@ -1599,8 +1599,8 @@ states and of the \"Advanced\" menu parameters, see model
             rotation=0)));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
+             0)));
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show cylinder between frame_a and frame_b)";
     parameter SI.Position r[3](start={0.1,0,0})
@@ -1946,7 +1946,8 @@ are forced to be used as states.
     "Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true)"
     parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
-      "Axis of rotation = axis of support torque (resolved in frame_a)";
+      "Axis of rotation = axis of support torque (resolved in frame_a)"
+      annotation (Evaluate=true);
 
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
       "(right) flange fixed in housing" annotation (Placement(transformation(
@@ -1979,8 +1980,8 @@ are forced to be used as states.
                   textString="%name")}));
     end Housing;
     Housing housing(t=-n*flange_b.tau) if world.driveTrainMechanics3D
-      annotation (Placement(transformation(extent={{20,-60},{40,-40}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{20,-60},{40,-40}}, rotation=
+             0)));
   equation
     flange_b.phi = phi0;
     connect(housing.frame_a, frame_a) annotation (Line(
@@ -2036,7 +2037,8 @@ November 3-4, 2003, pp. 149-158</p>
     parameter SI.Inertia J(min=0,start=1)
       "Moment of inertia of rotor around its axis of rotation";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
-      "Axis of rotation resolved in frame_a";
+      "Axis of rotation resolved in frame_a"
+      annotation (Evaluate=true);
     parameter SI.Position r_center[3]=zeros(3)
       "Position vector from origin of frame_a to center of cylinder"
       annotation (Dialog(
@@ -2081,12 +2083,12 @@ November 3-4, 2003, pp. 149-158</p>
       "Angular acceleration of rotor with respect to frame_a";
 
     Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
-      "(left) driving flange (flange axis directed INTO cut plane)" annotation
-      (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+      "(left) driving flange (flange axis directed INTO cut plane)" annotation (
+       Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
       "(right) driven flange (flange axis directed OUT OF cut plane)"
-      annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
+             0)));
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D
       "Frame in which rotor housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
       annotation (Placement(transformation(
@@ -2173,7 +2175,7 @@ November 3-4, 2003, pp. 149-158</p>
 
     protected
       outer Modelica.Mechanics.MultiBody.World world;
-      parameter Real e[3](each final unit="1") =
+      parameter Real e[3](each final unit="1")=
         Modelica.Math.Vectors.normalizeWithAssert(n)
         "Unit vector in direction of rotor axis, resolved in frame_a";
       parameter SI.Inertia nJ[3]=J*e;
@@ -2288,11 +2290,11 @@ November 3-4, 2003, pp. 149-158</p>
               textString="%name=%J",
               lineColor={0,0,255}),
             Line(points={{0,-70},{0,-100}}, color={0,0,0})}));
-  end RotorWith3DEffects;
+    end RotorWith3DEffects;
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
-    parameter Real e[3](each final unit="1") =
+    parameter Real e[3](each final unit="1")=
       Modelica.Math.Vectors.normalizeWithAssert(n)
       "Unit vector in direction of rotor axis, resolved in frame_a";
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
@@ -2325,8 +2327,8 @@ November 3-4, 2003, pp. 149-158</p>
       cylinderColor=cylinderColor,
       specularCoefficient=specularCoefficient,
       exact=exact,
-      stateSelect=StateSelect.never) if world.driveTrainMechanics3D annotation
-      (Placement(transformation(extent={{-20,-80},{20,-40}}, rotation=0)));
+      stateSelect=StateSelect.never) if world.driveTrainMechanics3D annotation (
+       Placement(transformation(extent={{-20,-80},{20,-40}}, rotation=0)));
   equation
     phi = flange_a.phi;
     w = der(phi);
@@ -2432,9 +2434,11 @@ November 3-4, 2003, pp. 149-158</p>
 
     parameter Real ratio(start=1) "Gear speed ratio";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0}
-      "Axis of rotation of flange_a, resolved in frame_a";
+      "Axis of rotation of flange_a, resolved in frame_a"
+      annotation (Evaluate=true);
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0}
-      "Axis of rotation of flange_b, resolved in frame_a";
+      "Axis of rotation of flange_b, resolved in frame_a"
+      annotation (Evaluate=true);
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D
       "Bearing frame" annotation (Placement(transformation(
@@ -2444,10 +2448,10 @@ November 3-4, 2003, pp. 149-158</p>
 
   protected
     outer World world;
-    parameter Real e_a[3](each final unit="1") =
+    parameter Real e_a[3](each final unit="1")=
       Modelica.Math.Vectors.normalizeWithAssert(n_a)
       "Unit vector in direction of flange_a rotation axis";
-    parameter Real e_b[3](each final unit="1") =
+    parameter Real e_b[3](each final unit="1")=
       Modelica.Math.Vectors.normalizeWithAssert(n_b)
       "Unit vector in direction of flange_b rotation axis";
     encapsulated model Housing
@@ -2469,8 +2473,8 @@ November 3-4, 2003, pp. 149-158</p>
                   textString="%name")}));
     end Housing;
     Housing housing(t=-flange_a.tau*e_a - flange_b.tau*e_b) if world.driveTrainMechanics3D
-      annotation (Placement(transformation(extent={{20,-60},{40,-40}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{20,-60},{40,-40}}, rotation=
+             0)));
 
   equation
     flange_a.phi = ratio*flange_b.phi;
@@ -2481,7 +2485,7 @@ November 3-4, 2003, pp. 149-158</p>
         thickness=0.5,
         smooth=Smooth.None));
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}, initialScale = 0.1), graphics = {
+      Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}, initialScale = 0.1), graphics={
         Text(origin = {0,-40},
           lineColor = {0,0,255},
           extent = {{-150,150},{150,180}},
@@ -2742,8 +2746,7 @@ November 3-4, 2003, pp. 149-158</p>
         thickness=0.5,
         smooth=Smooth.None));
     annotation (defaultComponentName="wheel", Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-80},{100,-100}},
             lineColor={0,0,0},
