@@ -480,7 +480,7 @@ Star (wye) connection of a multi phase circuit consiting of multiple base system
                   thickness=0.5)}), Documentation(info="<html>
 <p>
 Delta (polygon) connection of a multi phase circuit consiting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>). 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>).
 </p>
 <h4>See also</h4>
 <p>
@@ -1307,12 +1307,12 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
 <p>
 The linear impedances connect the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>i</u>*Z = <u>v</u></code>,
-using <code>m</code> 
+using <code>m</code>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">
 single phase variable impedance</a>.
-The impedances <code>Z_ref</code> are given as complex input signals, representing the 
-resistive and reactive components of the input impedances. The resistive 
-components are modeled temperature dependent, so the real parts <code>R = real(<u>Z</u>)</code> 
+The impedances <code>Z_ref</code> are given as complex input signals, representing the
+resistive and reactive components of the input impedances. The resistive
+components are modeled temperature dependent, so the real parts <code>R = real(<u>Z</u>)</code>
 are determined from
 the actual operating temperature and the reference input resistances <code>real(<u>Z</u>_ref)</code>.
 </p>
@@ -1394,12 +1394,12 @@ A linear temperature dependency of the resistances is also taken into account.
 <p>
 The linear admittances connect the complex voltages <code><u>v</u></code> with the complex
 currents <code><u>i</u></code> by <code><u>v</u>*Z = <u>i</u></code>,
-using <code>m</code> 
+using <code>m</code>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">
 single phase variable admittances</a>.
-The admittances <code>Y_ref</code> are given as complex input signals, representing the 
-resistive and reactive components of the input admittance. The resistive 
-components are modeled temperature dependent, so the real parts <code>G = real(<u>Y</u>)</code> 
+The admittances <code>Y_ref</code> are given as complex input signals, representing the
+resistive and reactive components of the input admittance. The resistive
+components are modeled temperature dependent, so the real parts <code>G = real(<u>Y</u>)</code>
 are determined from
 the actual operating temperature and the reference input conductances <code>real(<u>Y</u>_ref)</code>.
 </p>
@@ -1563,7 +1563,6 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
       connect(idealCommutingSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       connect(plugToPins_n1.plug_n, plug_n1) annotation (Line(
           points={{82,50},{100,50}},
@@ -1669,7 +1668,6 @@ This switch is only intended to be used for structural changes, not fast switchi
       connect(idealIntermediateSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       connect(plug_p1, plugToPins_p1.plug_p) annotation (Line(
           points={{-100,50},{-92,50},{-92,50},{-82,50}},
@@ -1756,7 +1754,6 @@ This switch is only intended to be used for structural changes, not fast switchi
       connect(idealOpeningSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       connect(idealOpeningSwitch.pin_n, plugToPins_n.pin_n) annotation (Line(
           points={{10,0},{39,0},{39,0},{68,0}},
@@ -1818,7 +1815,6 @@ This switch is only intended to be used for structural changes, not fast switchi
       connect(idealClosingSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       connect(idealClosingSwitch.pin_p, plugToPins_p.pin_p) annotation (Line(
           points={{-10,0},{-68,0}},
@@ -2072,8 +2068,8 @@ Quasi stationary theory can be found in the
     algorithm
       y := sum({'abs'(u[k]) for k in 1:m})/m;
       annotation (Inline=true, Documentation(info="<HTML>
-  This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, 
-  represented by m quasi static time domain phasors. 
+  This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system,
+  represented by m quasi static time domain phasors.
 </HTML>"));
     end quasiRMS;
 
@@ -2779,8 +2775,8 @@ Additionally the reference angle is specified in the connector. The time derivat
         "Magntiude of total complex apparent power";
       Real pf[m] = {cos(Modelica.ComplexMath.arg(Complex(P[k],Q[k]))) for k in 1:m}
         "Power factor";
-      /*  
-  Real pf_total = cos(Modelica.ComplexMath.arg(Complex(P_total,Q_total))) 
+      /*
+  Real pf_total = cos(Modelica.ComplexMath.arg(Complex(P_total,Q_total)))
    "Total power factor";
   */
       Modelica.SIunits.AngularVelocity omega
@@ -2847,8 +2843,8 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
         "Magntiude of total complex apparent power";
       Real pf[m] = {cos(Modelica.ComplexMath.arg(Complex(P[k],Q[k]))) for k in 1:m}
         "Power factor";
-      /*  
-  Real pf_total = cos(Modelica.ComplexMath.arg(Complex(P_total,Q_total))) 
+      /*
+  Real pf_total = cos(Modelica.ComplexMath.arg(Complex(P_total,Q_total)))
     "Total power factor";
   */
       Modelica.SIunits.AngularVelocity omega

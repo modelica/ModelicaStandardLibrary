@@ -3289,11 +3289,11 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           rotation=180)));
   equation
     /* Implementation notes:
-   
+
      The GearConstraint model consists primarily of two revolute joints that are
      connected together and to a support/mounting. In this first phase the two
      revolute joints can be rotated independently from each other and therefore
-     there are two degrees of freedom. If the rotational angles of these joints 
+     there are two degrees of freedom. If the rotational angles of these joints
      would be used as generalized coordinates phi_a, phi_b with associated generalized
      torques tau_a, tau_b (torques along the axes of rotations), then the equations
      of motion (Kanes' equations or Lagranges' equations of the second kind) are
@@ -3307,8 +3307,8 @@ the origin of frame_a to the middle of the rod, this might be defined as:
      or on velocity level:
 
          0 = G * {der(phi_a), der(phi_b)};   G = [1, -ratio]
-   
-     According to Lagranges' equations of the first kind, the generalized forces 
+
+     According to Lagranges' equations of the first kind, the generalized forces
      must be replaced by G'*lambda, where lambda is the new constraint force
      due this constraint. Therefore, the equations of motions are changed to
 
@@ -3320,11 +3320,11 @@ the origin of frame_a to the middle of the rod, this might be defined as:
        tau_b = -ratio*lambda
 
      or
- 
+
        0 = tau_b + ratio*tau_a;
 
      The two equations
- 
+
        0 = phi_a - ratio*phi_b
        0 = tau_b + ratio*tau_a
 
@@ -7518,8 +7518,7 @@ pair of joints\" from Woernle and Hiller is described in:
               smooth=Smooth.None),
             Text(
               extent={{-49,82},{45,59}},
-              textString="constraint",
-              pattern=LinePattern.None),
+              textString="constraint"),
             Text(
               extent={{-150,120},{150,80}},
               lineColor={0,0,255},

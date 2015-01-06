@@ -1989,11 +1989,7 @@ package Interfaces "Connectors and partial models"
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
                                             Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{0,0},{0,0}},
-              lineColor={255,255,255},
-              pattern=LinePattern.None)}));
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})));
   end CompositeStep_resume;
 
   connector CompositeStep_suspend
@@ -2011,10 +2007,7 @@ package Interfaces "Connectors and partial models"
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
                               Diagram(coordinateSystem(preserveAspectRatio=true,
-                       extent={{-100,-100},{100,100}}), graphics={Rectangle(
-              extent={{0,0},{0,0}},
-              lineColor={255,255,255},
-              pattern=LinePattern.None)}));
+                       extent={{-100,-100},{100,100}})));
   end CompositeStep_suspend;
 
   connector CompositeStepStatePort_in

@@ -4326,7 +4326,6 @@ of several base components.
           smooth=Smooth.None));
       connect(internalSupport, support) annotation (Line(
           points={{0,-80},{0,-100}},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (
         Documentation(info="<html>
@@ -4401,7 +4400,6 @@ and instead the component is internally fixed to ground.
           smooth=Smooth.None));
       connect(internalSupport, support) annotation (Line(
           points={{0,-80},{0,-100}},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (
         Documentation(info="<html>

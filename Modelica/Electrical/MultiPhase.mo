@@ -13,22 +13,22 @@ package MultiPhase "Library for electrical components of one or more phases"
 This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
 </p>
 <ul>
-<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Basic\">Basic</a> 
+<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Basic\">Basic</a>
     components (resistor, capacitor, inductor, ...)</li>
-<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Ideal\">Ideal</a> 
+<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Ideal\">Ideal</a>
     elements (switches, diode, transformer, ...)</li>
-<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Sensors\">Sensors</a> 
+<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Sensors\">Sensors</a>
     to measure potentials, voltages, and currents</li>
-<li>Time-dependent and controlled voltage and current 
+<li>Time-dependent and controlled voltage and current
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Sources\">sources</a></li>
 </ul>
 <p>
 This package is intended to be used the same way as Modelica.Electrical.Analog
 but to make design of multiphase models easier.
-The package is based on the 
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.Plug\">plug</a>: 
+The package is based on the
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.Plug\">plug</a>:
 a composite connector containing <code>m</code> pins.
-It is possible to connect plugs to plugs or single pins of a plug to single pins. 
+It is possible to connect plugs to plugs or single pins of a plug to single pins.
 Potentials may be accessed as <code>plug.pin[].v</code>, currents may be accessed as <code>plug.pin[].i</code>.
 </p>
 </html>"));
@@ -819,7 +819,7 @@ Star (wye) connection of a multi phase circuit consiting of multiple base system
               color={0,0,255})}), Documentation(info="<html>
 <p>
 Delta (polygon) connection of a multi phase circuit consiting of multiple base systems (see
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>). 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>).
 </p>
 <h4>See also</h4>
 <p>
@@ -1830,7 +1830,6 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
       connect(idealThyristor.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -1888,7 +1887,6 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
       connect(idealGTOThyristor.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -1953,7 +1951,6 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
       connect(idealCommutingSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -2024,7 +2021,6 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
       connect(idealIntermediateSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -2213,7 +2209,6 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
       connect(idealOpeningSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -2271,7 +2266,6 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
       connect(idealClosingSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -2336,7 +2330,6 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
       connect(openerWithArc.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -2402,7 +2395,6 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
       connect(closerWithArc.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={

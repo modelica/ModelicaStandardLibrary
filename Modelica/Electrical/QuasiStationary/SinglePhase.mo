@@ -932,21 +932,21 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
 <p>
 The linear impedance connects the complex voltage <code><u>v</u></code> with the
 complex current <code><u>i</u></code> by <code><u>i</u>*<u>Z</u> = <u>v</u></code>.
-The impedance <code>Z_ref</code> is given as complex input signal, representing the 
-resistive and reactive component of the input impedance. The resistive 
+The impedance <code>Z_ref</code> is given as complex input signal, representing the
+resistive and reactive component of the input impedance. The resistive
 component is modeled temperature dependent, so the real part <code>R = real(<u>Z</u>)</code> is determined from
 the actual operating temperature and the reference input resistance <code>real(<u>Z</u>_ref)</code>.
 </p>
 
 <p>
-The variable impedance model has a 
+The variable impedance model has a
 <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
 A linear temperature dependency of the resistance is taken into account.
 </p>
 
 <h4>Note</h4>
 <p>
-A zero crossing of the either the real or imaginary part of the <code>Z_ref</code> signal could cause 
+A zero crossing of the either the real or imaginary part of the <code>Z_ref</code> signal could cause
 singularities due to the actual structure of the connected network.
 </p>
 
@@ -1016,21 +1016,21 @@ singularities due to the actual structure of the connected network.
 <p>
 The linear admittance connects the complex voltage <code><u>v</u></code> with the
 complex current <code><u>i</u></code> by <code><u>v</u>*<u>G</u> = <u>i</u></code>.
-The impedance <code>G_ref</code> is given as complex input signal, representing the 
-resistive and reactive component of the input admittance. The resistive 
+The impedance <code>G_ref</code> is given as complex input signal, representing the
+resistive and reactive component of the input admittance. The resistive
 component is modeled temperature dependent, so the real part <code>G = real(<u>Y</u>)</code> is detesrmined from
 the actual operating temperature and the reference input conductance <code>real(<u>Y</u>_ref)</code>.
 </p>
 
 <p>
-The variable admittance model has a 
+The variable admittance model has a
 <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">conditional heat port</a>.
 A linear temperature dependency of the conductance is taken into account.
 </p>
 
 <h4>Note</h4>
 <p>
-A zero crossing of the either the real or imaginary part of the <code>Y_ref</code> signal could cause 
+A zero crossing of the either the real or imaginary part of the <code>Y_ref</code> signal could cause
 singularities due to the actual structure of the connected network.
 </p>
 
@@ -2191,7 +2191,6 @@ This model is intended to be used with textual representation of user models.
             Text(
               extent={{-100,100},{100,70}},
               lineColor={0,0,255},
-              pattern=LinePattern.None,
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid,
               textString="%name"),
@@ -2227,7 +2226,6 @@ The absolute sensor partial model provides a single
             Text(
               extent={{-100,100},{100,70}},
               lineColor={0,0,255},
-              pattern=LinePattern.None,
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid,
               textString="%name"),

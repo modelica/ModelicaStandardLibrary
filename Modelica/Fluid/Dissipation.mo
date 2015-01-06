@@ -8024,12 +8024,12 @@ with
 <tr><td><b> zeta_TOT           </b></td><td> as pressure loss coefficient [-].</td></tr>
 </table>
 
-<p> 
-Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>. 
-</p> 
- 
-<p> 
-The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t <i>[VDI, p. Lac 6, fig. 16]</i>. 
+<p>
+Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>.
+</p>
+
+<p>
+The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t <i>[VDI, p. Lac 6, fig. 16]</i>.
 </p>
 
 <p>
@@ -8051,7 +8051,7 @@ with
 
 <p>
 Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 5e2 </b>.
-</p> 
+</p>
 
 <p>
 In addition the influence or decreasing Reynolds numbers <b> Re </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar and turbulent regime is considered through a second correction factor <b> CF_Re </b> according to <i>[Miller 1984, p. 149, sec. 9.4]</i> by:
@@ -12512,12 +12512,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   lineThickness=0.5),
                 Line(
                   points={{-80,46},{80,46}},
-                  pattern=LinePattern.None,
                   thickness=0.5,
                   smooth=Smooth.None),
                 Line(
                   points={{-80,-54},{80,-54}},
-                  pattern=LinePattern.None,
                   thickness=0.5,
                   smooth=Smooth.None),
                 Line(

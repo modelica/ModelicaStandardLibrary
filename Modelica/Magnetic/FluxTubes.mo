@@ -166,17 +166,17 @@ Magna Physics Publishing and Oxford University Press 1994
 
 <h5>Version 3.2.2, 2014-01-15 (Christian&nbsp;Kral)</h5>
 <ul>
-<li>Added constant 
+<li>Added constant
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ConstantPermeance\">permeance model</a></li>
-<li>Added 
+<li>Added
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube\">GenericFluxTube</a></li>
 <li>Added parameter <code>useConductance</code> including alternative parameterization in
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">EddyCurrent</a></li>
-<li>Added 
+<li>Added
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Idle\">Idle</a></li>
-<li>Added 
+<li>Added
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Short\">Short</a></li>
-<li>Added 
+<li>Added
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Crossing\">Crossing</a></li>
 
 </ul>
@@ -787,8 +787,7 @@ Whereas the steady state current is the same in both models, the steady state ac
 
           connect(armature.flange_b, flange) annotation (Line(
               points={{80,0},{100,0}},
-              color={0,127,0},
-              pattern=LinePattern.None));
+              color={0,127,0}));
           connect(r.p, p) annotation (Line(points={{-80,40},{-80,60},{-100,60}},
                 color={0,0,255}));
           connect(armature.flange_a, g_mb.flange)

@@ -102,10 +102,6 @@ equation
           lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Ellipse(
-          extent={{50,5},{60,-5}},
-          lineColor={0,0,0},
-          pattern=LinePattern.None),
         Text(
           extent={{-16,50},{14,20}},
           lineColor={0,0,0},
