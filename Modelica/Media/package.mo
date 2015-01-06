@@ -8063,7 +8063,7 @@ public
 
   record IF97BaseTwoPhase "Intermediate property data record for IF 97"
     extends Modelica.Icons.Record;
-    Integer phase=0 "Phase: 2 for two-phase, 1 for one phase, 0 if unknown";
+    Integer phase(start=0) "Phase: 2 for two-phase, 1 for one phase, 0 if unknown";
     Integer region(min=1, max=5) "IF 97 region";
     SI.Pressure p "Pressure";
     SI.Temperature T "Temperature";
