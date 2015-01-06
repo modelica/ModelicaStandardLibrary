@@ -2403,7 +2403,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.Voltage VRefLow(final max=VRefHigh, start=0)
       "Low reference voltage";
     parameter Modelica.SIunits.Resistance Rin(start=10^6) "Input resistance";
-    Integer z;
+    Integer z(start=0, fixed=true);
     Real u;
 
   initial equation
@@ -2492,8 +2492,8 @@ Hence the output will change instantaneously when the trigger signal rises.
             extent={{60,-80},{80,-60}}, rotation=0), iconTransformation(extent=
               {{60,-80},{80,-60}})));
 
-    Modelica.SIunits.Voltage vout;
-    Real y(start=0);
+    Modelica.SIunits.Voltage vout(start=0, fixed=true);
+    Real y(start=0, fixed=true);
     parameter Integer N(final min=1, start=8) "Resolution - input signal width";
     parameter Modelica.SIunits.Voltage Vref(start=10) "Reference voltage";
 
