@@ -6687,7 +6687,7 @@ quantities are assumed to be constant.
       "Return specific internal energy"
       extends Modelica.Icons.Function;
     algorithm
-      u := (cp_const - R_gas)*(state.T - T0);
+      u := cp_const*(T - T0) - R*T;
     end specificInternalEnergy;
 
     redeclare function extends specificEntropy "Return specific entropy"
@@ -6708,7 +6708,7 @@ quantities are assumed to be constant.
       "Return specific Helmholtz energy"
       extends Modelica.Icons.Function;
     algorithm
-      f := (cp_const - R_gas)*(state.T - T0) - state.T*specificEntropy(state);
+      f := specificInternalEnergy(state) - state.T*specificEntropy(state);
     end specificHelmholtzEnergy;
 
     redeclare function extends dynamicViscosity "Return dynamic viscosity"
@@ -8063,7 +8063,8 @@ public
 
   record IF97BaseTwoPhase "Intermediate property data record for IF 97"
     extends Modelica.Icons.Record;
-    Integer phase(start=0) "Phase: 2 for two-phase, 1 for one phase, 0 if unknown";
+    Integer phase(start=0)
+      "Phase: 2 for two-phase, 1 for one phase, 0 if unknown";
     Integer region(min=1, max=5) "IF 97 region";
     SI.Pressure p "Pressure";
     SI.Temperature T "Temperature";
