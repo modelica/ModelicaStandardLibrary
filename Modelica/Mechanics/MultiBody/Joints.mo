@@ -7454,8 +7454,7 @@ pair of joints\" from Woernle and Hiller is described in:
               smooth=Smooth.None),
             Text(
               extent={{-49,82},{45,59}},
-              textString="constraint",
-              pattern=LinePattern.None),
+              textString="constraint"),
             Text(
               extent={{-150,120},{150,80}},
               lineColor={0,0,255},

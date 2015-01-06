@@ -1474,7 +1474,6 @@ This switch is only intended to be used for structural changes, not fast switchi
       connect(idealOpeningSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       connect(idealOpeningSwitch.pin_n, plugToPins_n.pin_n) annotation (
           Line(
@@ -1543,7 +1542,6 @@ This switch is only intended to be used for structural changes, not fast switchi
       connect(idealClosingSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       connect(idealClosingSwitch.pin_p, plugToPins_p.pin_p) annotation (
           Line(

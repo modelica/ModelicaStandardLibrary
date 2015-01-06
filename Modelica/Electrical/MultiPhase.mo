@@ -1493,7 +1493,6 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
       connect(idealThyristor.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -1551,7 +1550,6 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
       connect(idealGTOThyristor.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -1616,7 +1614,6 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
       connect(idealCommutingSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -1687,7 +1684,6 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
       connect(idealIntermediateSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -1877,7 +1873,6 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
       connect(idealOpeningSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -1936,7 +1931,6 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
       connect(idealClosingSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -2001,7 +1995,6 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
       connect(openerWithArc.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -2067,7 +2060,6 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
       connect(closerWithArc.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={

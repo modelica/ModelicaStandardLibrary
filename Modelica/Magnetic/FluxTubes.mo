@@ -716,8 +716,7 @@ Whereas the steady state current is the same in both models, the steady state ac
 
           connect(armature.flange_b, flange) annotation (Line(
               points={{80,0},{100,0}},
-              color={0,127,0},
-              pattern=LinePattern.None));
+              color={0,127,0}));
           connect(r.p, p) annotation (Line(points={{-80,40},{-80,60},{-100,60}},
                 color={0,0,255}));
           connect(armature.flange_a, g_mb.flange)

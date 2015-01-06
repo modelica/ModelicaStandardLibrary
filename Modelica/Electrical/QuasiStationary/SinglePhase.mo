@@ -1906,7 +1906,6 @@ This model is intended to be used with textual representation of user models.
             Text(
               extent={{-100,100},{100,70}},
               lineColor={0,0,255},
-              pattern=LinePattern.None,
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid,
               textString=
@@ -1943,7 +1942,6 @@ The absolute sensor partial model provides a single
             Text(
               extent={{-100,100},{100,70}},
               lineColor={0,0,255},
-              pattern=LinePattern.None,
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid,
               textString=
