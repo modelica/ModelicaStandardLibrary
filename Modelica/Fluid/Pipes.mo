@@ -1157,7 +1157,7 @@ e.g., with numerical smoothing or by raising events as appropriate.
           end PartialStaggeredFlowModel;
 
       model NominalLaminarFlow
-        "NominalLaminarFlow: Linear pressure loss for nominal values"
+        "NominalLaminarFlow: Linear laminar flow for given nominal values"
         extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel(
            use_mu_nominal=not show_Res);
@@ -1170,10 +1170,10 @@ e.g., with numerical smoothing or by raising events as appropriate.
         // Inverse parameterization assuming pipe flow and WallFriction.Laminar
         // Laminar.massFlowRate_dp:
         //   m_flow = dp*pi*diameter^4*d/(128*length*mu);
-        // WARNING: The following equation is only correct for circular tubes!
         SI.Length[n-1] pathLengths_nominal=
           {(dp_nominal/(n-1)-g*dheights[i])*Modelica.Constants.pi*((dimensions[i]+dimensions[i+1])/2)^4*rhos_act[i]/(128*mus_act[i])/
-           (m_flow_nominal/nParallel) for i in 1:n-1} if show_Res;
+           (m_flow_nominal/nParallel) for i in 1:n-1} if show_Res
+          "Lengths resulting from given nominal values for circular tubes";
 
       equation
         // linear pressure loss
@@ -1397,7 +1397,7 @@ simulation and/or might give a more robust simulation.
           end PartialGenericPipeFlow;
 
           model NominalTurbulentPipeFlow
-        "NominalTurbulentPipeFlow: Quadratic turbulent pressure loss for nominal values"
+        "NominalTurbulentPipeFlow: Quadratic turbulent flow in circular tubes for given nominal values"
             extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction =
@@ -1422,10 +1422,15 @@ simulation and/or might give a more robust simulation.
             Real[n-1] zetas "coefficient for quadratic flow";
 
             // Reynolds Number
-            // WARNING: The following equation is only correct for circular tubes!
             Medium.AbsolutePressure[n-1] dps_fg_turbulent=
                 {(mus_act[i]*diameters[i]*pi/4)^2*Re_turbulent^2/(ks_inv[i]*rhos_act[i]) for i in 1:n-1} if
-                   show_Res "Start of turbulent flow";
+                   show_Res "Start of turbulent flow in circular tubes";
+
+          initial equation
+            for i in 1:n loop
+              assert(abs(crossAreas[i] - pi/4*dimensions[i]^2) < 1e-10*crossAreas[i],
+                     "NominalTurbulentPipeFlow model requires circular tubes");
+            end for;
 
           equation
             // Inverse parameterization for WallFriction.QuadraticTurbulent
@@ -1435,7 +1440,6 @@ simulation and/or might give a more robust simulation.
             //   k_inv = (pi*diameter*diameter)^2/(8*zeta);
             //   k = rho*k_inv "Factor in m_flow = sqrt(k*dp)";
             //   m_flow_turbulent = pi/4*diameter*mu*Re_turbulent;
-            // WARNING: The following equation is only correct for circular tubes!
             for i in 1:n-1 loop
               ks_inv[i] = (m_flow_nominal/nParallel)^2/((dp_nominal/(n-1)-g*dheights[i]*rhos_act[i]))/rhos_act[i];
               zetas[i] = (pi*diameters[i]*diameters[i])^2/(8*ks_inv[i]);
@@ -1485,7 +1489,7 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
           end NominalTurbulentPipeFlow;
 
           model TurbulentPipeFlow
-        "TurbulentPipeFlow: Pipe wall friction in the quadratic turbulent regime (using mu to regularize laminar region)"
+        "TurbulentPipeFlow: Quadratic turbulent flow in circular tubes (using mu to regularize laminar region)"
             extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction =
@@ -1496,11 +1500,17 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
           m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*m_flow_small,
           Res_turbulent_internal = if use_Re then Re_turbulent*ones(n-1) else zeros(n-1));
 
+            import Modelica.Constants.pi;
+
             parameter Boolean use_Re = system.use_eps_Re
           "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
               annotation(Evaluate=true);
 
           initial equation
+            for i in 1:n loop
+              assert(abs(crossAreas[i] - pi/4*dimensions[i]^2) < 1e-10*crossAreas[i],
+                     "NominalTurbulentPipeFlow model requires circular tubes");
+            end for;
             // initialize dp_nominal from flow model
             if system.use_eps_Re then
               dp_nominal = dp_fric_nominal + g*sum(dheights)*rho_nominal;
@@ -1519,7 +1529,7 @@ The turbulent pressure loss correlation might be useful to optimize models that 
           end TurbulentPipeFlow;
 
           model DetailedPipeFlow
-        "DetailedPipeFlow: Pipe wall friction in the laminar and turbulent regime (detailed characteristic)"
+        "DetailedPipeFlow: Detailed characteristic for laminar and turbulent flow"
             extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction =
@@ -2035,7 +2045,7 @@ to zero, i.e., it allows to switch off pipe wall friction.
       end NoFriction;
 
       package Laminar
-        "Pipe wall friction in the laminar regime (linear correlation)"
+        "Pipe wall friction for laminar flow in circular tubes (linear correlation)"
 
         extends PartialWallFriction(
                   final use_mu = true,
@@ -2224,7 +2234,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
       end Laminar;
 
       package QuadraticTurbulent
-        "Pipe wall friction in the quadratic turbulent regime (simple characteristic, mu not used)"
+        "Pipe wall friction for turbulent flow in circular tubes (simple characteristic, mu not used)"
 
         extends PartialWallFriction(
                   final use_mu = false,
@@ -2464,7 +2474,7 @@ Reynolds numbers, i.e., the values at the right ordinate where
       end QuadraticTurbulent;
 
       package LaminarAndQuadraticTurbulent
-        "Pipe wall friction in the laminar and quadratic turbulent regime (simple characteristic)"
+        "Pipe wall friction for laminar and turbulent flow in circular tubes (simple characteristic)"
 
         extends PartialWallFriction(
                   final use_mu = true,
@@ -2939,7 +2949,7 @@ identical to laminar wall friction.
       end LaminarAndQuadraticTurbulent;
 
       package Detailed
-        "Pipe wall friction in the whole regime (detailed characteristic)"
+        "Pipe wall friction for laminar and turbulent flow (detailed characteristic)"
 
         extends PartialWallFriction(
                   final use_mu = true,
