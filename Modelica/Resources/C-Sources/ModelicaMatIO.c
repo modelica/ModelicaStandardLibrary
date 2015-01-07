@@ -18404,7 +18404,7 @@ Mat_H5ReadNextReferenceInfo(hid_t ref_id,matvar_t *matvar,mat_t *mat)
             hsize_t  dims[10];
             hid_t   attr_id,type_id,dset_id,space_id;
 
-            //matvar->fp = mat;
+            /* matvar->fp = mat; */
             dset_id = ref_id;
 
 #if 0
