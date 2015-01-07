@@ -1114,8 +1114,8 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                 }
             }
             /* Once again with storage of indices of event intervals */
-            tableID->intervals = calloc(tableID->maxEvents,
-                sizeof(Interval));
+            tableID->intervals = STATIC_CAST(Interval*, calloc(
+                tableID->maxEvents, sizeof(Interval)));
             if (!tableID->intervals) {
                 ModelicaError("Memory allocation error\n");
                 return nextTimeEvent;
